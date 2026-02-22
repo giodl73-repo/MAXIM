@@ -59,8 +59,8 @@ Follow 01-PACKAGE.md format exactly:
 | `02-GIT.md` | Git modern workflow — branching, PRs, remotes | ✅ Complete |
 | `03-JS-TS.md` | JavaScript & TypeScript — modules, type system, transpilation | ✅ Complete |
 | `04-BUILD.md` | Build tools & bundlers — Vite, Webpack, esbuild, Rollup | ✅ Complete |
-| `05-FRONTEND.md` | Frontend frameworks — React, Vue, Angular, component model | 🔜 Next |
-| `06-RENDERING.md` | Rendering patterns — SPA, SSR, SSG, ISR, RSC | 🔜 Queued |
+| `05-FRONTEND.md` | Frontend frameworks — React, Vue, Angular, component model | ✅ Complete |
+| `06-RENDERING.md` | Rendering patterns — SPA, SSR, SSG, ISR, RSC | 🔜 Next |
 | `07-STATE.md` | State management — Redux, Zustand, Jotai, context | 🔜 Queued |
 | `08-BACKEND.md` | Backend APIs — REST, GraphQL, tRPC, OpenAPI | 🔜 Queued |
 | `09-DATABASE.md` | Databases modern — Postgres, ORMs, migrations, Redis | 🔜 Queued |
@@ -79,7 +79,7 @@ Follow 01-PACKAGE.md format exactly:
 
 ```
 Track 1: Foundations          Track 2: JS Runtime Layer      Track 3: Frontend
-  01-PACKAGE.md ✅               03-JS-TS.md ✅                 05-FRONTEND.md
+  01-PACKAGE.md ✅               03-JS-TS.md ✅                 05-FRONTEND.md ✅
   02-GIT.md ✅                   04-BUILD.md ✅                 06-RENDERING.md
                                  (Node.js server in BACKEND)    07-STATE.md
 
@@ -100,6 +100,8 @@ Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
 | 2026-02-22 | GIT.md authored. Covers three-tree model, branching, merge vs rebase, PR workflow, worktrees, old-world bridge. |
 | 2026-02-22 | JS-TS.md authored. Covers JS engine/environment/spec layers, CJS vs ESM, TS type system, tsconfig, compilation pipeline. |
 | 2026-02-22 | BUILD.md authored. Covers bundler genealogy, core concepts (tree-shaking, code splitting, HMR), Vite/Webpack/esbuild/Rollup/SWC/Babel, MSBuild bridge. |
+| 2026-02-22 | Files renamed 01–17. CLAUDE.md and README.md references updated. |
+| 2026-02-22 | 05-FRONTEND.md authored. Covers component model, React hooks, Vue, Angular, Svelte, RSC, styling approaches, WinForms/WPF/XAML bridge. |
 
 ---
 
