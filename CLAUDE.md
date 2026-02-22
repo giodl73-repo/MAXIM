@@ -62,8 +62,8 @@ Follow 01-PACKAGE.md format exactly:
 | `05-FRONTEND.md` | Frontend frameworks — React, Vue, Angular, component model | ✅ Complete |
 | `06-RENDERING.md` | Rendering patterns — SPA, SSR, SSG, ISR, RSC | ✅ Complete |
 | `07-STATE.md` | State management — Redux, Zustand, Jotai, context | ✅ Complete |
-| `08-BACKEND.md` | Backend APIs — REST, GraphQL, tRPC, OpenAPI | 🔜 Next |
-| `09-DATABASE.md` | Databases modern — Postgres, ORMs, migrations, Redis | 🔜 Queued |
+| `08-BACKEND.md` | Backend APIs — REST, GraphQL, tRPC, OpenAPI | ✅ Complete |
+| `09-DATABASE.md` | Databases modern — Postgres, ORMs, migrations, Redis | 🔜 Next |
 | `10-AUTH.md` | Auth & security — OAuth2, OIDC, JWT, sessions | 🔜 Queued |
 | `11-DOCKER.md` | Containers — Docker, Dockerfile, docker-compose | 🔜 Queued |
 | `12-KUBERNETES.md` | Orchestration — Kubernetes concepts, deployments | 🔜 Queued |
@@ -105,6 +105,7 @@ Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
 | 2026-02-22 | 05-FRONTEND.md authored. Covers component model, React hooks, Vue, Angular, Svelte, RSC, styling approaches, WinForms/WPF/XAML bridge. |
 | 2026-02-22 | 06-RENDERING.md authored. Covers CSR/SPA, SSR, SSG, ISR, streaming SSR, RSC, islands, hydration, Next.js App Router, Razor/Blazor bridge. |
 | 2026-02-22 | 07-STATE.md authored. Covers state categories, useReducer, Context perf limits, Zustand, Redux Toolkit, Jotai, TanStack Query, colocation principle. |
+| 2026-02-22 | 08-BACKEND.md authored. Covers REST design, HTTP verbs/status codes, OpenAPI, GraphQL, tRPC, Express/Fastify/NestJS, Zod validation, ASP.NET/WCF bridge. |
 
 ---
 
