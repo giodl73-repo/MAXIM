@@ -58,8 +58,8 @@ Follow PACKAGE.md format exactly:
 | `PACKAGE.md` | Package managers — all layers | ✅ Complete |
 | `GIT.md` | Git modern workflow — branching, PRs, remotes | ✅ Complete |
 | `JS-TS.md` | JavaScript & TypeScript — modules, type system, transpilation | ✅ Complete |
-| `BUILD.md` | Build tools & bundlers — Vite, Webpack, esbuild, Rollup | 🔜 Next |
-| `FRONTEND.md` | Frontend frameworks — React, Vue, Angular, component model | 🔜 Queued |
+| `BUILD.md` | Build tools & bundlers — Vite, Webpack, esbuild, Rollup | ✅ Complete |
+| `FRONTEND.md` | Frontend frameworks — React, Vue, Angular, component model | 🔜 Next |
 | `RENDERING.md` | Rendering patterns — SPA, SSR, SSG, ISR, RSC | 🔜 Queued |
 | `STATE.md` | State management — Redux, Zustand, Jotai, context | 🔜 Queued |
 | `BACKEND.md` | Backend APIs — REST, GraphQL, tRPC, OpenAPI | 🔜 Queued |
@@ -99,6 +99,7 @@ Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
 | 2026-02-22 | Project initialized. PACKAGE.md already authored. CLAUDE.md + README.md created. |
 | 2026-02-22 | GIT.md authored. Covers three-tree model, branching, merge vs rebase, PR workflow, worktrees, old-world bridge. |
 | 2026-02-22 | JS-TS.md authored. Covers JS engine/environment/spec layers, CJS vs ESM, TS type system, tsconfig, compilation pipeline. |
+| 2026-02-22 | BUILD.md authored. Covers bundler genealogy, core concepts (tree-shaking, code splitting, HMR), Vite/Webpack/esbuild/Rollup/SWC/Babel, MSBuild bridge. |
 
 ---
 
