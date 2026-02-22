@@ -1,11 +1,19 @@
-# C:\src\reference — Modern Software Engineering Reference Library
+# C:\src\reference — Reference Library
 
 ## Project Purpose
 
-This directory is a **self-authored reference library** — a collection of technical guides built
-iteratively to bring a senior engineering leader current on modern software tooling, practices,
-and ecosystem concepts. Each guide follows the PACKAGE.md format: layered ASCII diagrams, mental
-models, practical comparisons, and decision cheat sheets. Never dumbed down.
+A **self-authored reference library** organized by field. Each field is a subdirectory containing numbered guides. Every guide follows the same format: layered ASCII diagrams, mental models, practical comparisons, and decision cheat sheets. Never dumbed down.
+
+---
+
+## Library Structure
+
+```
+reference/
+├── computing/          Modern software engineering (17 modules)
+├── data-science/       Data science & ML tooling (planned)
+└── [other fields]/     TBD
+```
 
 ---
 
@@ -39,7 +47,7 @@ models, practical comparisons, and decision cheat sheets. Never dumbed down.
 
 ## Style Contract
 
-Follow 01-PACKAGE.md format exactly:
+Follow `computing/01-PACKAGE.md` format exactly:
 
 1. **Start with the Big Picture** — one diagram showing the whole landscape
 2. **Layer downward** — each section drills into one piece
@@ -51,45 +59,52 @@ Follow 01-PACKAGE.md format exactly:
 
 ---
 
-## Artifact Index
+## computing/ — Artifact Index
 
 | File | Topic | Status |
 |------|-------|--------|
-| `01-PACKAGE.md` | Package managers — all layers | ✅ Complete |
-| `02-GIT.md` | Git modern workflow — branching, PRs, remotes | ✅ Complete |
-| `03-JS-TS.md` | JavaScript & TypeScript — modules, type system, transpilation | ✅ Complete |
-| `04-BUILD.md` | Build tools & bundlers — Vite, Webpack, esbuild, Rollup | ✅ Complete |
-| `05-FRONTEND.md` | Frontend frameworks — React, Vue, Angular, component model | ✅ Complete |
-| `06-RENDERING.md` | Rendering patterns — SPA, SSR, SSG, ISR, RSC | ✅ Complete |
-| `07-STATE.md` | State management — Redux, Zustand, Jotai, context | ✅ Complete |
-| `08-BACKEND.md` | Backend APIs — REST, GraphQL, tRPC, OpenAPI | ✅ Complete |
-| `09-DATABASE.md` | Databases modern — Postgres, ORMs, migrations, Redis | ✅ Complete |
-| `10-AUTH.md` | Auth & security — OAuth2, OIDC, JWT, sessions | 🔜 Next |
-| `11-DOCKER.md` | Containers — Docker, Dockerfile, docker-compose | 🔜 Queued |
-| `12-KUBERNETES.md` | Orchestration — Kubernetes concepts, deployments | 🔜 Queued |
-| `13-CICD.md` | CI/CD modern — GitHub Actions vs Azure Pipelines | 🔜 Queued |
-| `14-IAC.md` | Infrastructure as Code — Terraform, Bicep, Pulumi | 🔜 Queued |
-| `15-OBSERVABILITY.md` | Observability — logs, metrics, tracing, OpenTelemetry | 🔜 Queued |
-| `16-MONOREPO.md` | Monorepos — Turborepo, Nx, workspaces | 🔜 Queued |
-| `17-CLOUD-NATIVE.md` | Cloud-native patterns — microservices, events, service mesh | 🔜 Queued |
+| `computing/01-PACKAGE.md` | Package managers — all layers | ✅ Complete |
+| `computing/02-GIT.md` | Git modern workflow — branching, PRs, remotes | ✅ Complete |
+| `computing/03-JS-TS.md` | JavaScript & TypeScript — modules, type system, transpilation | ✅ Complete |
+| `computing/04-BUILD.md` | Build tools & bundlers — Vite, Webpack, esbuild, Rollup | ✅ Complete |
+| `computing/05-FRONTEND.md` | Frontend frameworks — React, Vue, Angular, component model | ✅ Complete |
+| `computing/06-RENDERING.md` | Rendering patterns — SPA, SSR, SSG, ISR, RSC | ✅ Complete |
+| `computing/07-STATE.md` | State management — Redux, Zustand, Jotai, context | ✅ Complete |
+| `computing/08-BACKEND.md` | Backend APIs — REST, GraphQL, tRPC, OpenAPI | ✅ Complete |
+| `computing/09-DATABASE.md` | Databases modern — Postgres, ORMs, migrations, Redis | ✅ Complete |
+| `computing/10-AUTH.md` | Auth & security — OAuth2, OIDC, JWT, sessions | 🔜 Next |
+| `computing/11-DOCKER.md` | Containers — Docker, Dockerfile, docker-compose | 🔜 Queued |
+| `computing/12-KUBERNETES.md` | Orchestration — Kubernetes concepts, deployments | 🔜 Queued |
+| `computing/13-CICD.md` | CI/CD modern — GitHub Actions vs Azure Pipelines | 🔜 Queued |
+| `computing/14-IAC.md` | Infrastructure as Code — Terraform, Bicep, Pulumi | 🔜 Queued |
+| `computing/15-OBSERVABILITY.md` | Observability — logs, metrics, tracing, OpenTelemetry | 🔜 Queued |
+| `computing/16-MONOREPO.md` | Monorepos — Turborepo, Nx, workspaces | 🔜 Queued |
+| `computing/17-CLOUD-NATIVE.md` | Cloud-native patterns — microservices, events, service mesh | 🔜 Queued |
 
 ---
 
-## Curriculum Tracks
+## computing/ — Curriculum Tracks
 
 ```
 Track 1: Foundations          Track 2: JS Runtime Layer      Track 3: Frontend
   01-PACKAGE.md ✅               03-JS-TS.md ✅                 05-FRONTEND.md ✅
   02-GIT.md ✅                   04-BUILD.md ✅                 06-RENDERING.md ✅
                                                                07-STATE.md ✅
-                                 (Node.js server in BACKEND)    07-STATE.md
 
 Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
-  08-BACKEND.md                  11-DOCKER.md                   15-OBSERVABILITY.md
-  09-DATABASE.md                 12-KUBERNETES.md               16-MONOREPO.md
-  10-AUTH.md                     13-CICD.md                     17-CLOUD-NATIVE.md
+  08-BACKEND.md ✅               11-DOCKER.md                   15-OBSERVABILITY.md
+  09-DATABASE.md ✅              12-KUBERNETES.md               16-MONOREPO.md
+  10-AUTH.md 🔜                  13-CICD.md                     17-CLOUD-NATIVE.md
                                  14-IAC.md
 ```
+
+---
+
+## data-science/ — Artifact Index
+
+| File | Topic | Status |
+|------|-------|--------|
+| TBD | Topics to be planned | 🔜 Planned |
 
 ---
 
@@ -107,12 +122,14 @@ Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
 | 2026-02-22 | 07-STATE.md authored. Covers state categories, useReducer, Context perf limits, Zustand, Redux Toolkit, Jotai, TanStack Query, colocation principle. |
 | 2026-02-22 | 08-BACKEND.md authored. Covers REST design, HTTP verbs/status codes, OpenAPI, GraphQL, tRPC, Express/Fastify/NestJS, Zod validation, ASP.NET/WCF bridge. |
 | 2026-02-22 | 09-DATABASE.md authored. Covers Postgres, Prisma, Drizzle, migrations, connection pooling, Redis use cases, managed services, ADO.NET/EF bridge. |
+| 2026-02-22 | Restructured into field directories: computing/, data-science/. |
 
 ---
 
 ## Instructions for Claude
 
-- When asked to create a new guide, follow 01-PACKAGE.md style exactly
+- When asked to create a new guide, follow `computing/01-PACKAGE.md` style exactly
+- New guides go in the appropriate field directory (`computing/`, `data-science/`, etc.)
 - Check this file first to know what's done and what's queued
 - Update the Artifact Index status when a file is completed
 - Add an entry to the Session Log at the end of each working session
