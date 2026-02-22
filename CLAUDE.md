@@ -72,8 +72,8 @@ Follow `computing/01-PACKAGE.md` format exactly:
 | `computing/07-STATE.md` | State management — Redux, Zustand, Jotai, context | ✅ Complete |
 | `computing/08-BACKEND.md` | Backend APIs — REST, GraphQL, tRPC, OpenAPI | ✅ Complete |
 | `computing/09-DATABASE.md` | Databases modern — Postgres, ORMs, migrations, Redis | ✅ Complete |
-| `computing/10-AUTH.md` | Auth & security — OAuth2, OIDC, JWT, sessions | 🔜 Next |
-| `computing/11-DOCKER.md` | Containers — Docker, Dockerfile, docker-compose | 🔜 Queued |
+| `computing/10-AUTH.md` | Auth & security — OAuth2, OIDC, JWT, sessions | ✅ Complete |
+| `computing/11-DOCKER.md` | Containers — Docker, Dockerfile, docker-compose | 🔜 Next |
 | `computing/12-KUBERNETES.md` | Orchestration — Kubernetes concepts, deployments | 🔜 Queued |
 | `computing/13-CICD.md` | CI/CD modern — GitHub Actions vs Azure Pipelines | 🔜 Queued |
 | `computing/14-IAC.md` | Infrastructure as Code — Terraform, Bicep, Pulumi | 🔜 Queued |
@@ -96,7 +96,7 @@ Track 1: Foundations          Track 2: JS Runtime Layer      Track 3: Frontend
 Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
   08-BACKEND.md ✅               11-DOCKER.md                   15-OBSERVABILITY.md
   09-DATABASE.md ✅              12-KUBERNETES.md               16-MONOREPO.md
-  10-AUTH.md 🔜                  13-CICD.md                     17-CLOUD-NATIVE.md
+  10-AUTH.md ✅                  13-CICD.md                     17-CLOUD-NATIVE.md
                                  14-IAC.md
 
 Track 7: Testing
@@ -139,7 +139,8 @@ Track 7: Testing
 | 2026-02-22 | 07-STATE.md authored. Covers state categories, useReducer, Context perf limits, Zustand, Redux Toolkit, Jotai, TanStack Query, colocation principle. |
 | 2026-02-22 | 08-BACKEND.md authored. Covers REST design, HTTP verbs/status codes, OpenAPI, GraphQL, tRPC, Express/Fastify/NestJS, Zod validation, ASP.NET/WCF bridge. |
 | 2026-02-22 | 09-DATABASE.md authored. Covers Postgres, Prisma, Drizzle, migrations, connection pooling, Redis use cases, managed services, ADO.NET/EF bridge. |
-| 2026-02-22 | Restructured into field directories: computing/, data-science/. |
+| 2026-02-22 | Restructured into field directories: computing/, data-science/, ai-engineering/. Added 18-TESTING, 19-TESTING-EVOLUTION stubs. |
+| 2026-02-22 | 10-AUTH.md authored. Covers sessions vs JWT, OAuth2, OIDC, PKCE, refresh tokens, token storage, providers, attacks, Entra/ADFS bridge. |
 
 ---
 
