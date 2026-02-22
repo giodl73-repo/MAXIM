@@ -10,9 +10,9 @@ A **self-authored reference library** organized by field. Each field is a subdir
 
 ```
 reference/
-├── computing/          Modern software engineering (17 modules)
-├── data-science/       Data science & ML tooling (planned)
-└── [other fields]/     TBD
+├── computing/          Modern software engineering (19 modules)
+├── data-science/       Python stack, classical ML, MLOps (planned)
+└── ai-engineering/     LLMs, agents, evals harness, safety (planned)
 ```
 
 ---
@@ -80,6 +80,8 @@ Follow `computing/01-PACKAGE.md` format exactly:
 | `computing/15-OBSERVABILITY.md` | Observability — logs, metrics, tracing, OpenTelemetry | 🔜 Queued |
 | `computing/16-MONOREPO.md` | Monorepos — Turborepo, Nx, workspaces | 🔜 Queued |
 | `computing/17-CLOUD-NATIVE.md` | Cloud-native patterns — microservices, events, service mesh | 🔜 Queued |
+| `computing/18-TESTING.md` | Modern testing stack — Vitest, Playwright, Testing Library, MSW | 🔜 Queued |
+| `computing/19-TESTING-EVOLUTION.md` | The arc: manual → TDD → chaos → eval harnesses | 🔜 Queued |
 
 ---
 
@@ -96,6 +98,9 @@ Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
   09-DATABASE.md ✅              12-KUBERNETES.md               16-MONOREPO.md
   10-AUTH.md 🔜                  13-CICD.md                     17-CLOUD-NATIVE.md
                                  14-IAC.md
+
+Track 7: Testing
+  18-TESTING.md                  19-TESTING-EVOLUTION.md
 ```
 
 ---
@@ -104,7 +109,19 @@ Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
 
 | File | Topic | Status |
 |------|-------|--------|
-| TBD | Topics to be planned | 🔜 Planned |
+| TBD | Python data stack, classical ML, MLOps | 🔜 Planned |
+
+---
+
+## ai-engineering/ — Artifact Index
+
+| File | Topic | Status |
+|------|-------|--------|
+| `ai-engineering/01-LLM-CONCEPTS.md` | LLMs — tokens, context, RAG, fine-tuning | 🔜 Planned |
+| `ai-engineering/02-EVALS-HARNESS.md` | Eval harness engineering — PromptFoo, Braintrust, RAGAS, LLM-as-judge, CI | 🔜 Planned |
+| `ai-engineering/03-ORCHESTRATION.md` | LangChain, LlamaIndex, Semantic Kernel | 🔜 Planned |
+| `ai-engineering/04-AGENTS.md` | Agent patterns, tool use, memory, multi-agent | 🔜 Planned |
+| `ai-engineering/05-SAFETY.md` | Red-teaming, hallucination detection, bias | 🔜 Planned |
 
 ---
 
