@@ -19,9 +19,12 @@ whatever you're working with. Every file answers three questions:
 
 ## Completed Modules
 
-| Module | File | Description |
-|--------|------|-------------|
-| Package Management | [`PACKAGE.md`](./PACKAGE.md) | All package managers, all layers — system, language, meta. npm, pip, nuget, cargo, docker. How they nest. |
+| # | Module | File | Description |
+|---|--------|------|-------------|
+| 01 | Package Management | [`01-PACKAGE.md`](./01-PACKAGE.md) | All package managers, all layers — system, language, meta. npm, pip, nuget, cargo, docker. How they nest. |
+| 02 | Git Modern Workflow | [`02-GIT.md`](./02-GIT.md) | Three-tree model, branching, merge vs rebase, PR workflow, worktrees. |
+| 03 | JavaScript & TypeScript | [`03-JS-TS.md`](./03-JS-TS.md) | CJS vs ESM, TS type system, tsconfig, compilation pipeline. |
+| 04 | Build Tools & Bundlers | [`04-BUILD.md`](./04-BUILD.md) | Vite, Webpack, esbuild, Rollup, SWC, Babel — what each does and when. |
 
 ---
 
@@ -33,8 +36,8 @@ whatever you're working with. Every file answers three questions:
 
 | # | Module | File | Bridge From |
 |---|--------|------|-------------|
-| 1.1 | Package Management | [`PACKAGE.md`](./PACKAGE.md) ✅ | NuGet, MSBuild references |
-| 1.2 | Git Modern Workflow | `GIT.md` | Source Depot, VSTS check-ins |
+| 01 | Package Management | [`01-PACKAGE.md`](./01-PACKAGE.md) ✅ | NuGet, MSBuild references |
+| 02 | Git Modern Workflow | [`02-GIT.md`](./02-GIT.md) ✅ | Source Depot, VSTS check-ins |
 
 ```
 Source Depot / VSTS          Git + GitHub / Azure DevOps
@@ -56,8 +59,8 @@ sync                     ->  fetch + pull
 
 | # | Module | File | What You'll Understand After |
 |---|--------|------|------------------------------|
-| 2.1 | JavaScript & TypeScript | `JS-TS.md` | Why TypeScript exists, ES modules vs CommonJS, how TS becomes JS |
-| 2.2 | Build Tools & Bundlers | `BUILD.md` | What Vite/Webpack actually do, why you need them, dev vs prod builds |
+| 03 | JavaScript & TypeScript | [`03-JS-TS.md`](./03-JS-TS.md) ✅ | Why TypeScript exists, ES modules vs CommonJS, how TS becomes JS |
+| 04 | Build Tools & Bundlers | [`04-BUILD.md`](./04-BUILD.md) ✅ | What Vite/Webpack actually do, why you need them, dev vs prod builds |
 
 ```
 The JS Runtime Layer
@@ -78,9 +81,9 @@ The JS Runtime Layer
 
 | # | Module | File | What You'll Understand After |
 |---|--------|------|------------------------------|
-| 3.1 | Frontend Frameworks | `FRONTEND.md` | React vs Vue vs Angular, component model, JSX |
-| 3.2 | Rendering Patterns | `RENDERING.md` | SPA vs SSR vs SSG vs ISR vs RSC — when each one wins |
-| 3.3 | State Management | `STATE.md` | Redux, Zustand, context — the state problem and its solutions |
+| 05 | Frontend Frameworks | `05-FRONTEND.md` | React vs Vue vs Angular, component model, JSX |
+| 06 | Rendering Patterns | `06-RENDERING.md` | SPA vs SSR vs SSG vs ISR vs RSC — when each one wins |
+| 07 | State Management | `07-STATE.md` | Redux, Zustand, context — the state problem and its solutions |
 
 ```
 Rendering Strategy Spectrum
@@ -102,9 +105,9 @@ Rendering Strategy Spectrum
 
 | # | Module | File | What You'll Understand After |
 |---|--------|------|------------------------------|
-| 4.1 | Backend APIs | `BACKEND.md` | REST vs GraphQL vs tRPC, OpenAPI/Swagger, Express/Fastify |
-| 4.2 | Databases Modern | `DATABASE.md` | Postgres still king, ORMs (Prisma/EF Core analog), Redis, migrations |
-| 4.3 | Auth & Security | `AUTH.md` | OAuth2, OIDC, JWT, sessions — the full flow |
+| 08 | Backend APIs | `08-BACKEND.md` | REST vs GraphQL vs tRPC, OpenAPI/Swagger, Express/Fastify |
+| 09 | Databases Modern | `09-DATABASE.md` | Postgres still king, ORMs (Prisma/EF Core analog), Redis, migrations |
+| 10 | Auth & Security | `10-AUTH.md` | OAuth2, OIDC, JWT, sessions — the full flow |
 
 ```
 API Layer Evolution
@@ -125,10 +128,10 @@ API Layer Evolution
 
 | # | Module | File | What You'll Understand After |
 |---|--------|------|------------------------------|
-| 5.1 | Containers | `DOCKER.md` | Docker, Dockerfile, docker-compose, why containers won |
-| 5.2 | Orchestration | `KUBERNETES.md` | Kubernetes — what problem it solves, how it works |
-| 5.3 | CI/CD Modern | `CICD.md` | GitHub Actions vs Azure Pipelines, workflows, runners |
-| 5.4 | Infrastructure as Code | `IAC.md` | Terraform, Bicep (Azure native), Pulumi — infra as version-controlled code |
+| 11 | Containers | `11-DOCKER.md` | Docker, Dockerfile, docker-compose, why containers won |
+| 12 | Orchestration | `12-KUBERNETES.md` | Kubernetes — what problem it solves, how it works |
+| 13 | CI/CD Modern | `13-CICD.md` | GitHub Actions vs Azure Pipelines, workflows, runners |
+| 14 | Infrastructure as Code | `14-IAC.md` | Terraform, Bicep (Azure native), Pulumi — infra as version-controlled code |
 
 ```
 Deployment Evolution
@@ -151,9 +154,9 @@ Deployment Evolution
 
 | # | Module | File | What You'll Understand After |
 |---|--------|------|------------------------------|
-| 6.1 | Observability | `OBSERVABILITY.md` | Logs + metrics + traces, OpenTelemetry, Grafana stack |
-| 6.2 | Monorepos | `MONOREPO.md` | Turborepo, Nx — managing many packages in one repo |
-| 6.3 | Cloud-Native Patterns | `CLOUD-NATIVE.md` | Microservices, event-driven arch, service mesh, Kafka |
+| 15 | Observability | `15-OBSERVABILITY.md` | Logs + metrics + traces, OpenTelemetry, Grafana stack |
+| 16 | Monorepos | `16-MONOREPO.md` | Turborepo, Nx — managing many packages in one repo |
+| 17 | Cloud-Native Patterns | `17-CLOUD-NATIVE.md` | Microservices, event-driven arch, service mesh, Kafka |
 
 ```
 Observability — The Three Pillars
@@ -174,16 +177,16 @@ Observability — The Three Pillars
 
 ```
 If you're setting up a project:
-  PACKAGE.md -> GIT.md -> JS-TS.md -> BUILD.md
+  01 -> 02 -> 03 -> 04
 
 If you're building a web app:
-  JS-TS.md -> BUILD.md -> FRONTEND.md -> BACKEND.md -> DATABASE.md
+  03 -> 04 -> 05 -> 08 -> 09
 
 If you're shipping it:
-  DOCKER.md -> CICD.md -> KUBERNETES.md -> OBSERVABILITY.md
+  11 -> 13 -> 12 -> 15
 
 If you're on Azure specifically:
-  IAC.md (Bicep section) -> CICD.md (Azure Pipelines) -> CLOUD-NATIVE.md
+  14 (Bicep) -> 13 (Azure Pipelines) -> 17
 ```
 
 ---
@@ -220,5 +223,5 @@ Every module follows this structure:
 ## Status
 
 Last updated: **2026-02-22**
-Modules complete: **1 / 17**
-Currently building: **GIT.md** (next session)
+Modules complete: **4 / 17**
+Currently building: **05-FRONTEND.md**

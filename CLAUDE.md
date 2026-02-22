@@ -39,7 +39,7 @@ models, practical comparisons, and decision cheat sheets. Never dumbed down.
 
 ## Style Contract
 
-Follow PACKAGE.md format exactly:
+Follow 01-PACKAGE.md format exactly:
 
 1. **Start with the Big Picture** — one diagram showing the whole landscape
 2. **Layer downward** — each section drills into one piece
@@ -55,23 +55,23 @@ Follow PACKAGE.md format exactly:
 
 | File | Topic | Status |
 |------|-------|--------|
-| `PACKAGE.md` | Package managers — all layers | ✅ Complete |
-| `GIT.md` | Git modern workflow — branching, PRs, remotes | ✅ Complete |
-| `JS-TS.md` | JavaScript & TypeScript — modules, type system, transpilation | ✅ Complete |
-| `BUILD.md` | Build tools & bundlers — Vite, Webpack, esbuild, Rollup | ✅ Complete |
-| `FRONTEND.md` | Frontend frameworks — React, Vue, Angular, component model | 🔜 Next |
-| `RENDERING.md` | Rendering patterns — SPA, SSR, SSG, ISR, RSC | 🔜 Queued |
-| `STATE.md` | State management — Redux, Zustand, Jotai, context | 🔜 Queued |
-| `BACKEND.md` | Backend APIs — REST, GraphQL, tRPC, OpenAPI | 🔜 Queued |
-| `DATABASE.md` | Databases modern — Postgres, ORMs, migrations, Redis | 🔜 Queued |
-| `AUTH.md` | Auth & security — OAuth2, OIDC, JWT, sessions | 🔜 Queued |
-| `DOCKER.md` | Containers — Docker, Dockerfile, docker-compose | 🔜 Queued |
-| `KUBERNETES.md` | Orchestration — Kubernetes concepts, deployments | 🔜 Queued |
-| `CICD.md` | CI/CD modern — GitHub Actions vs Azure Pipelines | 🔜 Queued |
-| `IAC.md` | Infrastructure as Code — Terraform, Bicep, Pulumi | 🔜 Queued |
-| `OBSERVABILITY.md` | Observability — logs, metrics, tracing, OpenTelemetry | 🔜 Queued |
-| `MONOREPO.md` | Monorepos — Turborepo, Nx, workspaces | 🔜 Queued |
-| `CLOUD-NATIVE.md` | Cloud-native patterns — microservices, events, service mesh | 🔜 Queued |
+| `01-PACKAGE.md` | Package managers — all layers | ✅ Complete |
+| `02-GIT.md` | Git modern workflow — branching, PRs, remotes | ✅ Complete |
+| `03-JS-TS.md` | JavaScript & TypeScript — modules, type system, transpilation | ✅ Complete |
+| `04-BUILD.md` | Build tools & bundlers — Vite, Webpack, esbuild, Rollup | ✅ Complete |
+| `05-FRONTEND.md` | Frontend frameworks — React, Vue, Angular, component model | 🔜 Next |
+| `06-RENDERING.md` | Rendering patterns — SPA, SSR, SSG, ISR, RSC | 🔜 Queued |
+| `07-STATE.md` | State management — Redux, Zustand, Jotai, context | 🔜 Queued |
+| `08-BACKEND.md` | Backend APIs — REST, GraphQL, tRPC, OpenAPI | 🔜 Queued |
+| `09-DATABASE.md` | Databases modern — Postgres, ORMs, migrations, Redis | 🔜 Queued |
+| `10-AUTH.md` | Auth & security — OAuth2, OIDC, JWT, sessions | 🔜 Queued |
+| `11-DOCKER.md` | Containers — Docker, Dockerfile, docker-compose | 🔜 Queued |
+| `12-KUBERNETES.md` | Orchestration — Kubernetes concepts, deployments | 🔜 Queued |
+| `13-CICD.md` | CI/CD modern — GitHub Actions vs Azure Pipelines | 🔜 Queued |
+| `14-IAC.md` | Infrastructure as Code — Terraform, Bicep, Pulumi | 🔜 Queued |
+| `15-OBSERVABILITY.md` | Observability — logs, metrics, tracing, OpenTelemetry | 🔜 Queued |
+| `16-MONOREPO.md` | Monorepos — Turborepo, Nx, workspaces | 🔜 Queued |
+| `17-CLOUD-NATIVE.md` | Cloud-native patterns — microservices, events, service mesh | 🔜 Queued |
 
 ---
 
@@ -79,15 +79,15 @@ Follow PACKAGE.md format exactly:
 
 ```
 Track 1: Foundations          Track 2: JS Runtime Layer      Track 3: Frontend
-  PACKAGE.md ✅                  JS-TS.md                       FRONTEND.md
-  GIT.md                         BUILD.md                       RENDERING.md
-                                 (Node.js server in BACKEND)    STATE.md
+  01-PACKAGE.md ✅               03-JS-TS.md ✅                 05-FRONTEND.md
+  02-GIT.md ✅                   04-BUILD.md ✅                 06-RENDERING.md
+                                 (Node.js server in BACKEND)    07-STATE.md
 
 Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
-  BACKEND.md                     DOCKER.md                      OBSERVABILITY.md
-  DATABASE.md                    KUBERNETES.md                  MONOREPO.md
-  AUTH.md                        CICD.md                        CLOUD-NATIVE.md
-                                 IAC.md
+  08-BACKEND.md                  11-DOCKER.md                   15-OBSERVABILITY.md
+  09-DATABASE.md                 12-KUBERNETES.md               16-MONOREPO.md
+  10-AUTH.md                     13-CICD.md                     17-CLOUD-NATIVE.md
+                                 14-IAC.md
 ```
 
 ---
@@ -105,7 +105,7 @@ Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
 
 ## Instructions for Claude
 
-- When asked to create a new guide, follow PACKAGE.md style exactly
+- When asked to create a new guide, follow 01-PACKAGE.md style exactly
 - Check this file first to know what's done and what's queued
 - Update the Artifact Index status when a file is completed
 - Add an entry to the Session Log at the end of each working session
