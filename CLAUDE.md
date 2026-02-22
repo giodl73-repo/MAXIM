@@ -74,8 +74,8 @@ Follow `computing/01-PACKAGE.md` format exactly:
 | `computing/09-DATABASE.md` | Databases modern — Postgres, ORMs, migrations, Redis | ✅ Complete |
 | `computing/10-AUTH.md` | Auth & security — OAuth2, OIDC, JWT, sessions | ✅ Complete |
 | `computing/11-DOCKER.md` | Containers — Docker, Dockerfile, docker-compose | ✅ Complete |
-| `computing/12-KUBERNETES.md` | Orchestration — Kubernetes concepts, deployments | 🔜 Next |
-| `computing/13-CICD.md` | CI/CD modern — GitHub Actions vs Azure Pipelines | 🔜 Queued |
+| `computing/12-KUBERNETES.md` | Orchestration — Kubernetes concepts, deployments | ✅ Complete |
+| `computing/13-CICD.md` | CI/CD modern — GitHub Actions vs Azure Pipelines | 🔜 Next |
 | `computing/14-IAC.md` | Infrastructure as Code — Terraform, Bicep, Pulumi | 🔜 Queued |
 | `computing/15-OBSERVABILITY.md` | Observability — logs, metrics, tracing, OpenTelemetry | 🔜 Queued |
 | `computing/16-MONOREPO.md` | Monorepos — Turborepo, Nx, workspaces | 🔜 Queued |
@@ -95,7 +95,7 @@ Track 1: Foundations          Track 2: JS Runtime Layer      Track 3: Frontend
 
 Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
   08-BACKEND.md ✅               11-DOCKER.md ✅                 15-OBSERVABILITY.md
-  09-DATABASE.md ✅              12-KUBERNETES.md               16-MONOREPO.md
+  09-DATABASE.md ✅              12-KUBERNETES.md ✅             16-MONOREPO.md
   10-AUTH.md ✅                  13-CICD.md                     17-CLOUD-NATIVE.md
                                  14-IAC.md
 
@@ -142,6 +142,7 @@ Track 7: Testing
 | 2026-02-22 | Restructured into field directories: computing/, data-science/, ai-engineering/. Added 18-TESTING, 19-TESTING-EVOLUTION stubs. |
 | 2026-02-22 | 10-AUTH.md authored. Covers sessions vs JWT, OAuth2, OIDC, PKCE, refresh tokens, token storage, providers, attacks, Entra/ADFS bridge. |
 | 2026-02-22 | 11-DOCKER.md authored. Covers containers vs VMs, images/layers/caching, Dockerfile (basic + multi-stage), docker compose (app+postgres+redis), volumes, env secrets, registries, networking, IIS/Azure bridge. |
+| 2026-02-22 | 12-KUBERNETES.md authored. Covers cluster architecture, Pod/Deployment/Service/Ingress/ConfigMap/Secret, HPA, rolling updates, rollbacks, Helm, AKS, App Service/VSTS bridge. |
 
 ---
 
