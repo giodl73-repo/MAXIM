@@ -10,9 +10,15 @@ A **self-authored reference library** organized by field. Each field is a subdir
 
 ```
 reference/
+│
+│  SESSION 1 — Modern Software Engineering
 ├── computing/          Modern software engineering (19 modules)
 ├── data-science/       Python stack, classical ML, MLOps (planned)
-└── ai-engineering/     LLMs, agents, evals harness, safety (planned)
+├── ai-engineering/     LLMs, agents, evals harness, safety (planned)
+│
+│  SESSION 2 — Physics & Mathematics
+├── mathematics/        Vector calc, topology, probability — toolbox for physics
+└── physics/            E&M, Maxwell, MHD, liquid metals, quantum, zero-point energy
 ```
 
 ---
@@ -77,8 +83,8 @@ Follow `computing/01-PACKAGE.md` format exactly:
 | `computing/12-KUBERNETES.md` | Orchestration — Kubernetes concepts, deployments | ✅ Complete |
 | `computing/13-CICD.md` | CI/CD modern — GitHub Actions vs Azure Pipelines | ✅ Complete |
 | `computing/14-IAC.md` | Infrastructure as Code — Terraform, Bicep, Pulumi | ✅ Complete |
-| `computing/15-OBSERVABILITY.md` | Observability — logs, metrics, tracing, OpenTelemetry | 🔜 Next |
-| `computing/16-MONOREPO.md` | Monorepos — Turborepo, Nx, workspaces | 🔜 Queued |
+| `computing/15-OBSERVABILITY.md` | Observability — logs, metrics, tracing, OpenTelemetry | ✅ Complete |
+| `computing/16-MONOREPO.md` | Monorepos — Turborepo, Nx, workspaces | 🔜 Next |
 | `computing/17-CLOUD-NATIVE.md` | Cloud-native patterns — microservices, events, service mesh | 🔜 Queued |
 | `computing/18-TESTING.md` | Modern testing stack — Vitest, Playwright, Testing Library, MSW | 🔜 Queued |
 | `computing/19-TESTING-EVOLUTION.md` | The arc: manual → TDD → chaos → eval harnesses | 🔜 Queued |
@@ -94,7 +100,7 @@ Track 1: Foundations          Track 2: JS Runtime Layer      Track 3: Frontend
                                                                07-STATE.md ✅
 
 Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
-  08-BACKEND.md ✅               11-DOCKER.md ✅                 15-OBSERVABILITY.md
+  08-BACKEND.md ✅               11-DOCKER.md ✅                 15-OBSERVABILITY.md ✅
   09-DATABASE.md ✅              12-KUBERNETES.md ✅             16-MONOREPO.md
   10-AUTH.md ✅                  13-CICD.md ✅                   17-CLOUD-NATIVE.md
                                  14-IAC.md ✅
@@ -145,6 +151,7 @@ Track 7: Testing
 | 2026-02-22 | 12-KUBERNETES.md authored. Covers cluster architecture, Pod/Deployment/Service/Ingress/ConfigMap/Secret, HPA, rolling updates, rollbacks, Helm, AKS, App Service/VSTS bridge. |
 | 2026-02-22 | 13-CICD.md authored. Covers GitHub Actions anatomy, matrix builds, Docker build+push, AKS deploy, Azure Pipelines (YAML + classic bridge), runners/agents, environments/approvals, caching, artifacts, VSTS bridge. |
 | 2026-02-22 | 14-IAC.md authored. Covers declarative vs imperative, Terraform (HCL, state, modules, Azure example), Bicep (syntax, modules, what-if, deploy), Pulumi (TypeScript), GitOps pattern, ARM/Portal bridge. |
+| 2026-02-22 | 15-OBSERVABILITY.md authored. Covers logs/metrics/traces pillars, structured logging (Pino), Prometheus (metrics types, PromQL, alerting), distributed traces (OTel spans, context propagation), OpenTelemetry SDK+Collector, Grafana stack, Azure Monitor+App Insights, SLI/SLO/SLA, SCOM bridge. |
 
 ---
 
