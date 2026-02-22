@@ -61,8 +61,8 @@ Follow 01-PACKAGE.md format exactly:
 | `04-BUILD.md` | Build tools & bundlers — Vite, Webpack, esbuild, Rollup | ✅ Complete |
 | `05-FRONTEND.md` | Frontend frameworks — React, Vue, Angular, component model | ✅ Complete |
 | `06-RENDERING.md` | Rendering patterns — SPA, SSR, SSG, ISR, RSC | ✅ Complete |
-| `07-STATE.md` | State management — Redux, Zustand, Jotai, context | 🔜 Next |
-| `08-BACKEND.md` | Backend APIs — REST, GraphQL, tRPC, OpenAPI | 🔜 Queued |
+| `07-STATE.md` | State management — Redux, Zustand, Jotai, context | ✅ Complete |
+| `08-BACKEND.md` | Backend APIs — REST, GraphQL, tRPC, OpenAPI | 🔜 Next |
 | `09-DATABASE.md` | Databases modern — Postgres, ORMs, migrations, Redis | 🔜 Queued |
 | `10-AUTH.md` | Auth & security — OAuth2, OIDC, JWT, sessions | 🔜 Queued |
 | `11-DOCKER.md` | Containers — Docker, Dockerfile, docker-compose | 🔜 Queued |
@@ -81,6 +81,7 @@ Follow 01-PACKAGE.md format exactly:
 Track 1: Foundations          Track 2: JS Runtime Layer      Track 3: Frontend
   01-PACKAGE.md ✅               03-JS-TS.md ✅                 05-FRONTEND.md ✅
   02-GIT.md ✅                   04-BUILD.md ✅                 06-RENDERING.md ✅
+                                                               07-STATE.md ✅
                                  (Node.js server in BACKEND)    07-STATE.md
 
 Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
@@ -103,6 +104,7 @@ Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
 | 2026-02-22 | Files renamed 01–17. CLAUDE.md and README.md references updated. |
 | 2026-02-22 | 05-FRONTEND.md authored. Covers component model, React hooks, Vue, Angular, Svelte, RSC, styling approaches, WinForms/WPF/XAML bridge. |
 | 2026-02-22 | 06-RENDERING.md authored. Covers CSR/SPA, SSR, SSG, ISR, streaming SSR, RSC, islands, hydration, Next.js App Router, Razor/Blazor bridge. |
+| 2026-02-22 | 07-STATE.md authored. Covers state categories, useReducer, Context perf limits, Zustand, Redux Toolkit, Jotai, TanStack Query, colocation principle. |
 
 ---
 
