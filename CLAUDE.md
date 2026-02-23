@@ -49,10 +49,10 @@ reference/
 │  PLANNED
 ├── philosophy/         7 stubs
 ├── aeronautics/        6 stubs
-├── mechanical/         6 stubs
-├── structural/         5 stubs
-├── chemical-eng/       6 stubs
-├── nuclear/            6 stubs
+├── mechanical/         6 files — COMPLETE
+├── structural/         5 files — COMPLETE
+├── chemical-eng/       6 files — COMPLETE
+├── nuclear/            6 files — COMPLETE
 ├── quantum-computing/  5 stubs
 ├── control-theory/     5 stubs
 └── finance/            5 stubs

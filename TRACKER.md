@@ -40,12 +40,12 @@
 | `historical-geography/` | 18 | — | ✅ |
 | `periodic-table/` | 12 | — | ✅ |
 | `animal-phylogeny/` | 13 | — | ✅ |
-| `mythology/` | 0 | 12 stubs | 🔜 |
+| `mythology/` | 10 | 2 stubs | ⚠️ |
 | `linguistics/` | 10 | — | ✅ |
-| `music-theory/` | 0 | 10 stubs | 🔜 |
-| `cognitive-science/` | 0 | 10 stubs | 🔜 |
+| `music-theory/` | 10 | — | ✅ |
+| `cognitive-science/` | 10 | — | ✅ |
 
-**Total full: ~242 | Total to write: ~140**
+**Total full: ~282 | Total to write: ~100**
 
 ### Session prompts at a glance
 - **Session 6:** `codes/` — 10 files. Morse, Braille, semaphore, signal flags, NATO phonetic, ASL fingerspelling, musical notation, historical ciphers, modern codes.
@@ -53,10 +53,10 @@
 - **Session 8 ✅:** `historical-geography/` — 18 files COMPLETE. Feudal mechanics + title glossary + every major world region CK2-style through the medieval/early-modern period.
 - **Session 9:** `periodic-table/` — 12 files. One file per element series/group: hydrogen, noble gases, alkali, alkaline earth, halogens, life-nonmetals, p-block, 3d transition metals, 4d/5d transition metals, lanthanides, actinides.
 - **Session 10:** `animal-phylogeny/` — 13 files. Single-cell origins through every major animal phylum, ending with the full vertebrate arc: fish → amphibia → reptiles → birds → mammals.
-- **Session 11:** `mythology/` — 12 files. Greek/Roman, Norse, Celtic-Arthurian, Slavic, Egyptian, Mesopotamian, Hindu, East Asian, Mesoamerican, African-Oceanian, Abrahamic-comparative, overview with Campbell/Jungian framework.
+- **Session 11 (10/12):** `mythology/` — 10 of 12 files done. Missing: 10-AFRICAN-OCEANIAN, 11-ABRAHAMIC-COMPARATIVE.
 - **Session 12:** `linguistics/` — 10 files. Phonetics/IPA, morphology, syntax (Chomsky hierarchy bridge), semantics (lambda calc bridge), pragmatics, historical linguistics, acquisition, sociolinguistics, computational NLP.
 - **Session 13:** `music-theory/` — 10 files. Pitch/scales, modes/pentatonic, rhythm/meter, harmony/chords, voice leading/counterpoint, tonal harmony, form analysis, orchestration, 20th-century/jazz.
-- **Session 14:** `cognitive-science/` — 10 files. Perception, attention, memory, reasoning/biases, language-cognition, problem-solving, development, consciousness, computational models.
+- **Session 14 ✅:** `cognitive-science/` — 10 files COMPLETE. Perception, attention/memory, reasoning/biases, language-cognition, problem-solving, development, consciousness, computational models, applied bridge.
 
 ---
 
@@ -414,16 +414,16 @@
 
 | File | Topic | Status |
 |------|-------|--------|
-| `00-OVERVIEW.md` | Subfields map, Saussurean semiotics (langue/parole/arbitrariness), Chomsky competence vs performance + Universal Grammar, usage-based alternative, Sapir-Whorf spectrum, the Chomsky hierarchy as TCS bridge | 🔜 |
-| `01-PHONETICS-PHONOLOGY.md` | Complete IPA (every symbol), consonant chart (place x manner), vowel quadrilateral, tone, suprasegmentals, phoneme vs allophone, syllable structure (onset/nucleus/coda/sonority), phonological rules, underlying vs surface representation | 🔜 |
-| `02-MORPHOLOGY.md` | Morpheme types, all affixation types, morphological typology (isolating/agglutinative/fusional/polysynthetic with examples), word formation processes, inflection vs derivation, paradigms+gaps, allomorphy | 🔜 |
-| `03-SYNTAX.md` | Constituency tests, X-bar theory, CFG connection (TCS bridge), transformations (passivization/wh-movement/raising), binding theory (anaphors/pronouns/R-expressions), Government and Binding, Minimalist Merge, word order universals | 🔜 |
-| `04-SEMANTICS.md` | Truth-conditional semantics, compositionality (Frege), lambda calculus for semantic composition (TCS bridge: types/function application/quantifier raising), semantic relations, prototype theory (Rosch), thematic roles, quantifier scope ambiguity | 🔜 |
-| `05-PRAGMATICS.md` | Grice Cooperative Principle + four maxims, implicature types, speech act theory (Austin/Searle: locutionary/illocutionary/perlocutionary), relevance theory, deixis, presupposition triggers, politeness theory (Brown/Levinson face model) | 🔜 |
-| `06-HISTORICAL-LINGUISTICS.md` | Language change mechanisms, Neogrammarian hypothesis, Grimm Law (PIE→Germanic consonant shift, why "father"=pater=pitr), Verner Law, comparative method + PIE reconstruction, Jones 1786 discovery, language contact (pidgins/creoles/Bickerton Language Bioprogram) | 🔜 |
-| `07-LANGUAGE-ACQUISITION.md` | L1 acquisition stages, poverty of stimulus + nativist solution, usage-based alternative (statistical learning), critical period (Genie case study), bilingual acquisition, L2 acquisition (Critical Period/UG access/Krashen monitor model/interlanguage) | 🔜 |
-| `08-SOCIOLINGUISTICS.md` | Language variation (dialect/sociolect/register), Labov department store study, variationist approach, language+identity, language+gender (four frameworks), diglossia, language policy, endangerment+revitalization (Welsh/Hawaiian/Maori/Hebrew successes) | 🔜 |
-| `09-COMPUTATIONAL-LINGUISTICS.md` | CFG→CYK→Earley (TCS bridge), classic NLP pipeline, statistical revolution, word2vec/GloVe as distributional semantics, Transformer as linguistic model, Universal Dependencies treebank, open problems (anaphora/common sense/compositionality at scale) | 🔜 |
+| `00-OVERVIEW.md` | Subfields map, Saussurean semiotics (langue/parole/arbitrariness), Chomsky competence vs performance + Universal Grammar, usage-based alternative, Sapir-Whorf spectrum, the Chomsky hierarchy as TCS bridge | ✅ |
+| `01-PHONETICS-PHONOLOGY.md` | Complete IPA (every symbol), consonant chart (place x manner), vowel quadrilateral, tone, suprasegmentals, phoneme vs allophone, syllable structure (onset/nucleus/coda/sonority), phonological rules, underlying vs surface representation | ✅ |
+| `02-MORPHOLOGY.md` | Morpheme types, all affixation types, morphological typology (isolating/agglutinative/fusional/polysynthetic with examples), word formation processes, inflection vs derivation, paradigms+gaps, allomorphy | ✅ |
+| `03-SYNTAX.md` | Constituency tests, X-bar theory, CFG connection (TCS bridge), transformations (passivization/wh-movement/raising), binding theory (anaphors/pronouns/R-expressions), Government and Binding, Minimalist Merge, word order universals | ✅ |
+| `04-SEMANTICS.md` | Truth-conditional semantics, compositionality (Frege), lambda calculus for semantic composition (TCS bridge: types/function application/quantifier raising), semantic relations, prototype theory (Rosch), thematic roles, quantifier scope ambiguity | ✅ |
+| `05-PRAGMATICS.md` | Grice Cooperative Principle + four maxims, implicature types, speech act theory (Austin/Searle: locutionary/illocutionary/perlocutionary), relevance theory, deixis, presupposition triggers, politeness theory (Brown/Levinson face model) | ✅ |
+| `06-HISTORICAL-LINGUISTICS.md` | Language change mechanisms, Neogrammarian hypothesis, Grimm Law (PIE→Germanic consonant shift, why "father"=pater=pitr), Verner Law, comparative method + PIE reconstruction, Jones 1786 discovery, language contact (pidgins/creoles/Bickerton Language Bioprogram) | ✅ |
+| `07-LANGUAGE-ACQUISITION.md` | L1 acquisition stages, poverty of stimulus + nativist solution, usage-based alternative (statistical learning), critical period (Genie case study), bilingual acquisition, L2 acquisition (Critical Period/UG access/Krashen monitor model/interlanguage) | ✅ |
+| `08-SOCIOLINGUISTICS.md` | Language variation (dialect/sociolect/register), Labov department store study, variationist approach, language+identity, language+gender (four frameworks), diglossia, language policy, endangerment+revitalization (Welsh/Hawaiian/Maori/Hebrew successes) | ✅ |
+| `09-COMPUTATIONAL-LINGUISTICS.md` | CFG→CYK→Earley (TCS bridge), classic NLP pipeline, statistical revolution, word2vec/GloVe as distributional semantics, Transformer as linguistic model, Universal Dependencies treebank, open problems (anaphora/common sense/compositionality at scale) | ✅ |
 
 ---
 
@@ -434,16 +434,16 @@
 
 | File | Topic | Status |
 |------|-------|--------|
-| `00-OVERVIEW.md` | Physics-to-perception pipeline, frequency ratios (5th=3:2, octave=2:1), just intonation vs 12-TET (the comma problem), circle of fifths as organizing structure, Western art music historical arc, non-Western overview (Indian raga, Arabic maqam, gamelan) | 🔜 |
-| `01-PITCH-SCALES.md` | 12-TET math (12th root of 2 = 1.0595), interval table (name/semitones/ratio), major scale construction (WWHWWWH), all 12 major scales, relative+parallel minor, natural/harmonic/melodic minor, scale degree names, Roman numeral convention | 🔜 |
-| `02-MODES-PENTATONIC.md` | Church modes (Ionian→Locrian), brightness ranking, characteristic sound+use for each, pentatonic (major/minor/blues), whole-tone, octatonic/diminished, modal jazz ("Kind of Blue"), modes in world music (Phrygian/flamenco, Dorian/Celtic, Mixolydian/rock, Lydian/film) | 🔜 |
-| `03-RHYTHM-METER.md` | Pulse/tempo, simple vs compound meter, syncopation, polyrhythm (3-against-2 as West African+jazz foundation), hemiola, additive meters (5/4, 7/8, Balkan patterns), metric modulation, groove and microtiming (behind/ahead of beat) | 🔜 |
-| `04-HARMONY-CHORDS.md` | All triad types, all seventh chord types, extensions (9/11/13), inversions+figured bass, diatonic Roman numeral analysis, chord function (T/PD/D), V7→I voice leading, secondary dominants, deceptive cadence, modal mixture | 🔜 |
-| `05-VOICE-LEADING-COUNTERPOINT.md` | SATB chorale rules (parallel 5ths/8ths, leading tone, chordal 7th), cadence types, five species counterpoint, suspension types (4-3/7-6/9-8/2-1), invertible counterpoint, canon, fugue anatomy (subject/answer/episode/stretto/augmentation/diminution) | 🔜 |
-| `06-TONAL-HARMONY.md` | Common-practice period as system, modulation types (pivot/chromatic/enharmonic), mixture chords, Neapolitan chord (flat-II), augmented sixth chords (Italian/German/French), Romantic chromaticism (Tristan chord), impressionist stasis (Debussy parallel motion) | 🔜 |
-| `07-FORM-ANALYSIS.md` | Binary/ternary/bar form, 12-bar blues (universal form with variations), 32-bar AABA, theme+variations, rondo (ABACADA), sonata form in full (exposition/development/recapitulation), concerto double exposition, four-movement symphony archetype | 🔜 |
-| `08-ORCHESTRATION.md` | Instrument ranges+timbres, transposing instruments table (Bb clarinet/F horn/Bb trumpet — concert vs written), string techniques (arco/pizzicato/harmonics/tremolo), brass mutes, orchestra evolution (Baroque→Romantic→20th c.), score reading order, doubling principles | 🔜 |
-| `09-20TH-CENTURY-JAZZ.md` | Atonality→twelve-tone (tone row/4x4 matrix/P/I/R/RI), total serialism, Cage aleatoric (4 33), spectralism, microtonality (Harry Partch 43-tone), minimalism (Reich phase music/Glass/Adams). Jazz: chord-scale theory, extensions+alterations, tritone substitution, Coltrane changes | 🔜 |
+| `00-OVERVIEW.md` | Physics-to-perception pipeline, frequency ratios (5th=3:2, octave=2:1), just intonation vs 12-TET (the comma problem), circle of fifths as organizing structure, Western art music historical arc, non-Western overview (Indian raga, Arabic maqam, gamelan) | ✅ |
+| `01-PITCH-SCALES.md` | 12-TET math (12th root of 2 = 1.0595), interval table (name/semitones/ratio), major scale construction (WWHWWWH), all 12 major scales, relative+parallel minor, natural/harmonic/melodic minor, scale degree names, Roman numeral convention | ✅ |
+| `02-MODES-PENTATONIC.md` | Church modes (Ionian→Locrian), brightness ranking, characteristic sound+use for each, pentatonic (major/minor/blues), whole-tone, octatonic/diminished, modal jazz ("Kind of Blue"), modes in world music (Phrygian/flamenco, Dorian/Celtic, Mixolydian/rock, Lydian/film) | ✅ |
+| `03-RHYTHM-METER.md` | Pulse/tempo, simple vs compound meter, syncopation, polyrhythm (3-against-2 as West African+jazz foundation), hemiola, additive meters (5/4, 7/8, Balkan patterns), metric modulation, groove and microtiming (behind/ahead of beat) | ✅ |
+| `04-HARMONY-CHORDS.md` | All triad types, all seventh chord types, extensions (9/11/13), inversions+figured bass, diatonic Roman numeral analysis, chord function (T/PD/D), V7→I voice leading, secondary dominants, deceptive cadence, modal mixture | ✅ |
+| `05-VOICE-LEADING-COUNTERPOINT.md` | SATB chorale rules (parallel 5ths/8ths, leading tone, chordal 7th), cadence types, five species counterpoint, suspension types (4-3/7-6/9-8/2-1), invertible counterpoint, canon, fugue anatomy (subject/answer/episode/stretto/augmentation/diminution) | ✅ |
+| `06-TONAL-HARMONY.md` | Common-practice period as system, modulation types (pivot/chromatic/enharmonic), mixture chords, Neapolitan chord (flat-II), augmented sixth chords (Italian/German/French), Romantic chromaticism (Tristan chord), impressionist stasis (Debussy parallel motion) | ✅ |
+| `07-FORM-ANALYSIS.md` | Binary/ternary/bar form, 12-bar blues (universal form with variations), 32-bar AABA, theme+variations, rondo (ABACADA), sonata form in full (exposition/development/recapitulation), concerto double exposition, four-movement symphony archetype | ✅ |
+| `08-ORCHESTRATION.md` | Instrument ranges+timbres, transposing instruments table (Bb clarinet/F horn/Bb trumpet — concert vs written), string techniques (arco/pizzicato/harmonics/tremolo), brass mutes, orchestra evolution (Baroque→Romantic→20th c.), score reading order, doubling principles | ✅ |
+| `09-20TH-CENTURY-JAZZ.md` | Atonality→twelve-tone (tone row/4x4 matrix/P/I/R/RI), total serialism, Cage aleatoric (4 33), spectralism, microtonality (Harry Partch 43-tone), minimalism (Reich phase music/Glass/Adams). Jazz: chord-scale theory, extensions+alterations, tritone substitution, Coltrane changes | ✅ |
 
 ---
 
@@ -454,13 +454,13 @@
 
 | File | Topic | Status |
 |------|-------|--------|
-| `00-OVERVIEW.md` | The interdiscipline hexagon (psychology/neuroscience/linguistics/philosophy/CS/anthropology), Marr three levels (computational/algorithmic/implementational), cognitive revolution 1956 (Miller/Chomsky/Newell+Simon), computer metaphor for mind, 4E cognition challenge (embodied/embedded/extended/enacted) | 🔜 |
-| `01-PERCEPTION.md` | Bottom-up vs top-down, visual system (retina→V1→ventral "what"/dorsal "where-how"), Gestalt principles, color perception (trichromacy+opponent-process), depth cues, perceptual constancy, auditory scene analysis, multisensory integration (McGurk effect), change blindness+inattentional blindness | 🔜 |
-| `02-ATTENTION-MEMORY.md` | Attention: filter models (Broadbent→Treisman→Deutsch-Norman), feature integration theory, attentional blink, load theory. Memory: Atkinson-Shiffrin, Baddeley working memory (4 components), LTM taxonomy, levels of processing, Ebbinghaus forgetting curve, interference, Loftus false memory, reconsolidation | 🔜 |
-| `03-REASONING-JUDGMENT.md` | Wason selection task (most replicated finding in cognitive psychology), dual-process theory (Kahneman System 1/2 full framework), cognitive bias taxonomy (anchoring/availability/representativeness/base rate/framing/sunk cost/confirmation/planning fallacy/overconfidence), prospect theory (loss aversion, S-curve utility), bounded rationality (Simon satisficing) | 🔜 |
-| `04-LANGUAGE-THOUGHT.md` | Language processing (Broca/Wernicke/arcuate fasciculus), psycholinguistics methods, garden path sentences, Sapir-Whorf tested empirically (what data shows — weak relativity not strong determinism), concepts+categories (classical/prototype/theory-theory), conceptual metaphor (Lakoff/Johnson), Language of Thought (Fodor mentalese) | 🔜 |
-| `05-PROBLEM-SOLVING.md` | Problem space (Newell/Simon), search strategies, Gestalt insight (Duncker candle problem, restructuring), functional fixedness, analogical problem solving (Gick/Holyoak radiation problem), expertise+chunking (Chase/Simon chess masters), deliberate practice, creativity models, flow (Csikszentmihalyi) | 🔜 |
-| `06-DEVELOPMENT.md` | Piaget four stages+key experiments, Baillargeon object permanence revision, Vygotsky ZPD+scaffolding, theory of mind (Sally-Anne false belief task, 4-year watershed), marshmallow test + 2018 replication crisis, Kohlberg moral stages+Gilligan critique | 🔜 |
-| `07-CONSCIOUSNESS.md` | Hard problem (Chalmers), philosophical zombies, qualia, Global Workspace Theory (Baars/Dehaene), Integrated Information Theory (Tononi — phi, panpsychist implications), Higher-Order Theories (Rosenthal), Predictive Processing (Clark/Friston), split-brain (Gazzaniga), disorders of consciousness, binding problem | 🔜 |
-| `08-COMPUTATIONAL-MODELS.md` | Early architectures (GPS/SOAR/ACT-R), connectionism+PDP revolution (Rumelhart/McClelland 1986), symbol vs sub-symbol debate (Fodor/Pylyshyn vs connectionists), Bayesian brain+predictive coding, RL as model of animal learning (Rescorla-Wagner→TD learning→dopamine prediction error signal), embodied cognition challenge (Varela/Thompson/Rosch) | 🔜 |
-| `09-APPLIED-BRIDGE.md` | HCI+UX (Fitts Law/Hick Law/cognitive load theory/dual-coding), educational psychology (spacing/interleaving/retrieval practice — most robust finding in learning science), cognitive ergonomics (Endsley situation awareness 3 levels), cognitive biases in engineering (planning fallacy in estimates/confirmation bias in debugging), nudge theory (Thaler/Sunstein), the replication crisis — what survived | 🔜 |
+| `00-OVERVIEW.md` | The interdiscipline hexagon (psychology/neuroscience/linguistics/philosophy/CS/anthropology), Marr three levels (computational/algorithmic/implementational), cognitive revolution 1956 (Miller/Chomsky/Newell+Simon), computer metaphor for mind, 4E cognition challenge (embodied/embedded/extended/enacted) | ✅ |
+| `01-PERCEPTION.md` | Bottom-up vs top-down, visual system (retina→V1→ventral "what"/dorsal "where-how"), Gestalt principles, color perception (trichromacy+opponent-process), depth cues, perceptual constancy, auditory scene analysis, multisensory integration (McGurk effect), change blindness+inattentional blindness | ✅ |
+| `02-ATTENTION-MEMORY.md` | Attention: filter models (Broadbent→Treisman→Deutsch-Norman), feature integration theory, attentional blink, load theory. Memory: Atkinson-Shiffrin, Baddeley working memory (4 components), LTM taxonomy, levels of processing, Ebbinghaus forgetting curve, interference, Loftus false memory, reconsolidation | ✅ |
+| `03-REASONING-JUDGMENT.md` | Wason selection task (most replicated finding in cognitive psychology), dual-process theory (Kahneman System 1/2 full framework), cognitive bias taxonomy (anchoring/availability/representativeness/base rate/framing/sunk cost/confirmation/planning fallacy/overconfidence), prospect theory (loss aversion, S-curve utility), bounded rationality (Simon satisficing) | ✅ |
+| `04-LANGUAGE-THOUGHT.md` | Language processing (Broca/Wernicke/arcuate fasciculus), psycholinguistics methods, garden path sentences, Sapir-Whorf tested empirically (what data shows — weak relativity not strong determinism), concepts+categories (classical/prototype/theory-theory), conceptual metaphor (Lakoff/Johnson), Language of Thought (Fodor mentalese) | ✅ |
+| `05-PROBLEM-SOLVING.md` | Problem space (Newell/Simon), search strategies, Gestalt insight (Duncker candle problem, restructuring), functional fixedness, analogical problem solving (Gick/Holyoak radiation problem), expertise+chunking (Chase/Simon chess masters), deliberate practice, creativity models, flow (Csikszentmihalyi) | ✅ |
+| `06-DEVELOPMENT.md` | Piaget four stages+key experiments, Baillargeon object permanence revision, Vygotsky ZPD+scaffolding, theory of mind (Sally-Anne false belief task, 4-year watershed), marshmallow test + 2018 replication crisis, Kohlberg moral stages+Gilligan critique | ✅ |
+| `07-CONSCIOUSNESS.md` | Hard problem (Chalmers), philosophical zombies, qualia, Global Workspace Theory (Baars/Dehaene), Integrated Information Theory (Tononi — phi, panpsychist implications), Higher-Order Theories (Rosenthal), Predictive Processing (Clark/Friston), split-brain (Gazzaniga), disorders of consciousness, binding problem | ✅ |
+| `08-COMPUTATIONAL-MODELS.md` | Early architectures (GPS/SOAR/ACT-R), connectionism+PDP revolution (Rumelhart/McClelland 1986), symbol vs sub-symbol debate (Fodor/Pylyshyn vs connectionists), Bayesian brain+predictive coding, RL as model of animal learning (Rescorla-Wagner→TD learning→dopamine prediction error signal), embodied cognition challenge (Varela/Thompson/Rosch) | ✅ |
+| `09-APPLIED-BRIDGE.md` | HCI+UX (Fitts Law/Hick Law/cognitive load theory/dual-coding), educational psychology (spacing/interleaving/retrieval practice — most robust finding in learning science), cognitive ergonomics (Endsley situation awareness 3 levels), cognitive biases in engineering (planning fallacy in estimates/confirmation bias in debugging), nudge theory (Thaler/Sunstein), the replication crisis — what survived | ✅ |
