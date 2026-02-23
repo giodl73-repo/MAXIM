@@ -3,7 +3,7 @@
 > Self-authored technical reference. Every guide: layered ASCII diagrams, mental models, decision cheat sheets.
 > Peer-level. No handholding. MIT Math + TCS background assumed throughout.
 
-**~339 files complete across 33 directories. 46 stubs queued.**
+**~339 files complete across 41 directories. 102 stubs queued.**
 Full status: [`TRACKER.md`](TRACKER.md) | Per-directory detail: each directory's `STATUS.md`
 
 ---
@@ -40,6 +40,8 @@ Full status: [`TRACKER.md`](TRACKER.md) | Per-directory detail: each directory's
 | [`quantum-computing/`](quantum-computing/STATUS.md) | 5 ✅ | Overview, qubits/circuits, algorithms, error correction, hardware/complexity |
 | [`control-theory/`](control-theory/STATUS.md) | 5 ✅ | Overview, PID/classical, state space, optimal control, Kalman filter |
 | [`finance/`](finance/STATUS.md) | 5 ✅ | Overview, portfolio theory, derivatives, fixed income, risk models |
+| [`cryptography/`](cryptography/STATUS.md) | 6 🔜 | Overview, symmetric (AES-GCM/ChaCha20), asymmetric (RSA/ECDH/pairings), protocols (TLS 1.3/Signal), ZK proofs + MPC (SNARKs/garbled circuits), post-quantum (Kyber/Dilithium FIPS 203/204) |
+| [`statistics-applied/`](statistics-applied/STATUS.md) | 6 🔜 | Overview, experimental design, A/B testing (CUPED/SRM/sequential/bandits), quasi-experimental (DiD/RDD/synthetic control/IV), Bayesian practice, reliability/SPC |
 
 ---
 
@@ -54,6 +56,7 @@ Full status: [`TRACKER.md`](TRACKER.md) | Per-directory detail: each directory's
 | [`human-biology/`](human-biology/STATUS.md) | 11 🔜 | Overview + 10 body systems (musculoskeletal, cardiovascular, respiratory, nervous, endocrine, immune, digestive, renal, reproductive, integumentary) |
 | [`disease/`](disease/STATUS.md) | 11 🔜 | Overview + bacterial, viral, fungal/parasitic/prion, cancer, cardiovascular disease, metabolic/endocrine, autoimmune, neurological/psychiatric, genetic/developmental, epidemiology |
 | [`medicine/`](medicine/STATUS.md) | 11 🔜 | Overview + antibiotics, antivirals/vaccines, cardiovascular drugs, CNS drugs, endocrine/metabolic, cancer drugs, immunomodulators, respiratory/GI, anesthesia, diagnostics/imaging |
+| [`climate-science/`](climate-science/STATUS.md) | 7 🔜 | Overview, carbon cycle, GCMs (CMIP6/model hierarchy), feedbacks + tipping points (AMOC/GIS/WAIS/Amazon/permafrost), emissions pathways (SSPs), impacts by sector, mitigation + geoengineering (SAI) |
 
 ---
 
@@ -80,6 +83,18 @@ Full status: [`TRACKER.md`](TRACKER.md) | Per-directory detail: each directory's
 | [`cognitive-science/`](cognitive-science/STATUS.md) | 10 ✅ | Overview (Marr levels), perception, attention/memory, reasoning/judgment, language/thought, problem-solving, development, consciousness, computational models, applied bridge |
 | [`music-theory/`](music-theory/STATUS.md) | 10 ✅ | Overview, pitch/scales, modes/pentatonic, rhythm/meter, harmony/chords, voice leading/counterpoint, tonal harmony, form analysis, orchestration, 20th century/jazz |
 | [`philosophy/`](philosophy/STATUS.md) | 7 🔜 | Overview + logic (Gödel), epistemology, metaphysics, philosophy of mind, ethics, philosophy of science |
+
+---
+
+## Social Sciences
+
+| Directory | Files | Contents |
+|-----------|-------|----------|
+| [`law/`](law/STATUS.md) | 8 🔜 | Overview, contracts (formation/breach/UCC), IP + patents (Alice Corp, FOSS licensing spectrum MIT→GPL), privacy/data (GDPR/CCPA), antitrust (Sherman §1/§2, live tech cases), corporate law, employment, international trade |
+| [`organizational-behavior/`](organizational-behavior/STATUS.md) | 7 🔜 | Overview, motivation (SDT/expectancy/equity), leadership (servant/transformational/situational), teams + group dynamics, org design (Mintzberg/Conway's Law/team topologies), strategy (Porter/RBV/OKRs/platform network effects), change management |
+| [`political-science/`](political-science/STATUS.md) | 7 🔜 | Overview, IR theory (Waltz/Wendt/Mearsheimer), nuclear deterrence (MAD/credibility problem/arms control treaties), geopolitics (Mackinder/Mahan/BRI/Indo-Pacific/Quad/AUKUS), comparative politics (regime types/state capacity), institutions (Acemoglu/North), political economy |
+| [`psychology/`](psychology/STATUS.md) | 7 🔜 | Overview, social (conformity/attribution/bystander/in-group bias), personality (Big Five factor structure/dark triad/MBTI critique), clinical (DSM-5/CBT/psychodynamic), organizational psychology, persuasion + influence (Cialdini/ELM/inoculation/dark patterns), health + stress |
+| [`geography/`](geography/STATUS.md) | 8 🔜 | Overview, physical (plate tectonics/erosion/soils/karst), climate zones (Köppen/biome map), ocean-atmosphere (thermohaline/AMOC/ENSO/monsoons/teleconnections), biogeography (Wallace line/island bio/range shifts), population + urban (DTM/Zipf's law/megacities/migration), geopolitics + resources (chokepoints/rare earths/water stress/Arctic), economic geography (GVCs/smile curve/ports/SEZs) |
 
 ---
 

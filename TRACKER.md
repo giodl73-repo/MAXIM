@@ -48,8 +48,16 @@ Each directory has a `STATUS.md` with its full file list.
 | [`medicine/`](medicine/STATUS.md) | 11 | 🔜 |
 | [`philosophy/`](philosophy/STATUS.md) | 7 | 🔜 |
 | [`aeronautics/`](aeronautics/STATUS.md) | 6 | 🔜 |
+| [`law/`](law/STATUS.md) | 8 | 🔜 |
+| [`organizational-behavior/`](organizational-behavior/STATUS.md) | 7 | 🔜 |
+| [`cryptography/`](cryptography/STATUS.md) | 6 | 🔜 |
+| [`statistics-applied/`](statistics-applied/STATUS.md) | 6 | 🔜 |
+| [`climate-science/`](climate-science/STATUS.md) | 7 | 🔜 |
+| [`political-science/`](political-science/STATUS.md) | 7 | 🔜 |
+| [`psychology/`](psychology/STATUS.md) | 7 | 🔜 |
+| [`geography/`](geography/STATUS.md) | 8 | 🔜 |
 
-**Complete: 339 files | To write: 46 files (33 detailed stubs, 13 empty stubs)**
+**Complete: 339 files | To write: 102 files across 41 directories**
 
 ---
 
@@ -64,6 +72,14 @@ One-line agent prompt for each session. Read `CLAUDE.md` + the directory's `STAT
 | 17 | `medicine/` | All drug classes — antibiotics, antivirals/vaccines, cardiovascular, CNS, endocrine/metabolic, cancer, immunomodulators, respiratory/GI, anesthesia, diagnostics/imaging + overview |
 | — | `philosophy/` | Classical + modal logic (Gödel bridge), epistemology, metaphysics, philosophy of mind, ethics (AI ethics), philosophy of science — MIT TCS bridges throughout |
 | — | `aeronautics/` | Aerodynamics, propulsion (Brayton/Isp), flight mechanics (6-DOF), avionics (INS/FMS), structures (aeroelasticity) |
+| 18 | `law/` | Common law / civil law, contracts, IP/patents (Alice Corp, FOSS licensing), privacy (GDPR/CCPA), antitrust (tech cases), corporate, employment, international |
+| 19 | `organizational-behavior/` | Motivation (self-determination/expectancy), leadership (servant/transformational), teams/groups, org design (Conway's Law/team topologies), strategy (Porter/OKRs/platform), change management |
+| 20 | `cryptography/` | Symmetric (AES-GCM/ChaCha20), asymmetric (RSA-OAEP/ECDH/Ed25519/pairings), protocols (TLS 1.3/Signal), ZK/MPC (SNARKs/garbled circuits), post-quantum (Kyber/Dilithium FIPS 203/204) |
+| 21 | `statistics-applied/` | Experimental design, A/B testing (CUPED/SRM/sequential testing/bandits), quasi-experimental (DiD/RDD/synthetic control/IV), Bayesian practice, reliability/SPC |
+| 22 | `climate-science/` | Carbon cycle, GCMs (CMIP6), feedbacks/tipping points (AMOC/GIS/permafrost), emissions pathways (SSPs), impacts, mitigation + geoengineering (SAI/termination shock) |
+| 23 | `political-science/` | IR theory (Waltz/Wendt/Mearsheimer), nuclear deterrence (MAD/credibility/arms control), geopolitics (Mackinder/Mahan/BRI/Indo-Pacific), comparative politics, institutions (Acemoglu/North), political economy |
+| 24 | `psychology/` | Social (conformity/attribution/bystander), personality (Big Five/dark triad/MBTI critique), clinical (DSM-5/CBT), organizational, persuasion (Cialdini/ELM/dark patterns/inoculation), health/stress |
+| 25 | `geography/` | Physical (plate tectonics/landforms/soils), climate zones (Köppen), ocean-atmosphere (AMOC/ENSO/monsoons), biogeography (Wallace line/island bio), population/urban (DTM/Zipf), geopolitics/resources (chokepoints/rare earths/Arctic), economic geography (GVCs/smile curve/ports) |
 
 ---
 
