@@ -62,10 +62,10 @@ Each directory has a `STATUS.md` with its full file list.
 | [`ceramics/`](ceramics/STATUS.md) | 11 | 🔜 | D |
 | [`glassmaking/`](glassmaking/STATUS.md) | 11 | 🔜 | D |
 | [`organizational-behavior/`](organizational-behavior/STATUS.md) | 7 | 🔜 | D |
-| [`hvac/`](hvac/STATUS.md) | 10 | 🔜 | E |
-| [`political-science/`](political-science/STATUS.md) | 7 | 🔜 | E |
-| [`psychology/`](psychology/STATUS.md) | 7 | 🔜 | E |
-| [`geography/`](geography/STATUS.md) | 8 | 🔜 | E |
+| [`hvac/`](hvac/STATUS.md) | 10 | ✅ | E |
+| [`political-science/`](political-science/STATUS.md) | 7 | ✅ | E |
+| [`psychology/`](psychology/STATUS.md) | 7 | ✅ | E |
+| [`geography/`](geography/STATUS.md) | 8 | ✅ | E |
 
 **Complete: 361 files | To write: 189 files across 21 directories**
 
