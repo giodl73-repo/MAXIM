@@ -1,77 +1,83 @@
 # Session 16 — Neuroscience
 
-**Date:** 2026-02-22
-**Track:** Engineering Sciences — Life Sciences
+## Purpose
 
----
+A graduate-level neuroscience reference for a physicist/mathematician/AI engineer who needs
+to understand: how neurons compute, how circuits implement cognition, and critically, the
+systematic mapping between biological neuroscience and modern AI. The fourth file (04-AI-BRIDGE)
+is the unique contribution — a rigorous, two-way comparison that goes beyond the usual vague
+"the brain inspired neural networks" narrative.
 
-## What This Session Covers
+## Learner Profile
 
-Neuroscience from the ground up: ion channels through cognition to AI connections. The central theme is that the brain is a physical information-processing system — one that evolution optimized over 500 million years for efficiency, robustness, and adaptability in ways we are only beginning to understand and approximate in AI.
+Giovanni Della-Libera, VP Engineering at Microsoft, MIT double major Math + TCS, age 52.
+AI/ML background: transformers, RLHF, agents. Physics background: QM, E&M, statistical mechanics.
+Needs: the biological substrate that AI is attempting to implement, with exact mathematical
+connections and honest identification of where biology and AI diverge.
 
----
-
-## Module Index
-
-| File | Topic | Status |
-|------|-------|--------|
-| `neuroscience/00-OVERVIEW.md` | Field map, levels of analysis, key numbers, why this matters for AI/engineering | ✅ |
-| `neuroscience/01-NEURONS-SIGNALS.md` | Ion channels, Hodgkin-Huxley model, action potentials, synaptic transmission, LTP/LTD, STDP | ✅ |
-| `neuroscience/02-SYSTEMS-CIRCUITS.md` | Visual system (V1 receptive fields), motor system, cerebellum, basal ganglia, hippocampus (place/grid cells), PFC | ✅ |
-| `neuroscience/03-COGNITION-COMPUTATION.md` | Neural codes (rate/temporal/population), attractor networks, predictive coding, Bayesian brain, oscillations, RL in brain | ✅ |
-| `neuroscience/04-AI-BRIDGE.md` | CNNs from V1, TD learning from dopamine, Hopfield → Transformers, predictive coding → VAEs, sparse coding → SAEs, grid cells → positional encoding, neuromorphic computing, BCI | ✅ |
-
----
-
-## Learning Arc
+## Directory Structure
 
 ```
-Ion channels (01)
-   │
-   └─→ Action potential → Synaptic transmission → Plasticity (LTP/LTD) (01)
-          │
-          └─→ Circuits: V1 hierarchy, motor loops, hippocampus, BG (02)
-                 │
-                 └─→ Computation: neural codes, attractors, predictive coding (03)
-                        │
-                        └─→ AI bridge: CNNs, RL, Transformers, neuromorphic (04)
+C:\src\reference\neuroscience\
+├── 00-OVERVIEW.md            ← Anatomy hierarchy, NT systems, measurement methods, evolution
+├── 01-NEURONS-SIGNALS.md     ← Hodgkin-Huxley model, Nernst/GHK, cable theory, synaptic transmission
+├── 02-SYSTEMS-CIRCUITS.md    ← Visual system, motor, cerebellum, basal ganglia, hippocampus, LTP
+├── 03-COGNITION-COMPUTATION.md ← Hopfield/Ising, predictive coding, FEP, DDM, dopamine RPE, WM, attention
+└── 04-AI-BRIDGE.md           ← Systematic neuroscience→AI comparisons across 13 dimensions
 ```
 
----
+## Artifact Index
 
-## Key Mental Models
+| File | Topic | Status | ~Lines |
+|------|-------|--------|--------|
+| `00-OVERVIEW.md` | Brain anatomy, NTs, glia, scale, methods, evolution | ✅ Complete | 480 |
+| `01-NEURONS-SIGNALS.md` | HH model, Nernst/GHK, cable theory, synaptic transmission | ✅ Complete | 680 |
+| `02-SYSTEMS-CIRCUITS.md` | Vision, motor, cerebellum, BG, hippocampus, LTP | ✅ Complete | 680 |
+| `03-COGNITION-COMPUTATION.md` | Hopfield, FEP, DDM, dopamine RL, WM, attention, consciousness | ✅ Complete | 720 |
+| `04-AI-BRIDGE.md` | 13-dimension bio/AI comparison + open problems table | ✅ Complete | 840 |
 
-**Levels of analysis (Marr):** What is computed / how / in what substrate. You need all three to understand a system. Neuroscience usually works bottom-up (biology → function); AI usually works top-down (task → architecture). The two meet in computational neuroscience.
+## Key Themes
 
-**Coincidence detection = Hebbian learning = backprop (approximate):** NMDA receptors are AND gates — they open only when pre AND post are active simultaneously. This implements Hebb's rule in hardware. Backpropagation is the credit-assignment version — biologically approximate, computationally precise.
+### Biophysics of Computation
+The Hodgkin-Huxley model is a system of 4 coupled ODEs that produces action potentials.
+This is NOT metaphorical — it's the actual biophysics, derived from voltage-clamp experiments
+on squid axon. Every neuroscience computation reduces to this level, then aggregates upward.
 
-**Basal ganglia = Actor-Critic:** Direct path (Go) = actor; dopamine RPE = critic signal. Schultz's 1997 dopamine experiments ARE the experimental validation of TD learning in biological hardware.
+### Multiple Levels of Description
+Neuroscience has no "correct" level of analysis. Synaptic LTP implements Hebb's rule
+implements associative memory implements episodic memory implements spatial navigation.
+All these descriptions are simultaneously true. The skill is knowing which level to use.
 
-**Attractor dynamics = memory:** Stable firing states in recurrent networks = stored memories. Pattern completion (CA3) is associative recall. Hopfield networks formalized this; Transformers are the modern, massively scaled version.
+### The Dopamine-TD Connection
+The exact mathematical connection between biological dopamine reward prediction errors and
+temporal difference (TD) learning is one of the clearest cases of neuroscience → AI translation.
+δ = r + γV(s') - V(s) is computed by dopamine neurons and by PPO value functions. Same equation,
+different substrate.
 
----
+### The AI-Brain Gap
+File 04 is deliberately honest about what AI does NOT have: catastrophic forgetting, lack
+of sleep consolidation, no oscillatory dynamics, no sparse coding, energy efficiency gap.
+This sets research agenda, not just historical credit.
 
-## MIT / CS Theory Connections
+## Key Equations Reference
 
-- **Nernst / Goldman equations:** Electrochemistry + thermodynamics. E_X = (RT/zF) ln([X]_out/[X]_in)
-- **Hodgkin-Huxley:** ODE system with saddle-node bifurcations. Threshold = dynamical bifurcation, not a fixed value
-- **Information theory in neural codes:** Fisher information bounds on decoding precision (Cramér-Rao). Neural population codes saturate Fisher information
-- **Variational inference:** Predictive coding = VI hierarchy. Free energy minimization = ELBO maximization
-- **Dynamical systems:** Attractor networks are energy-based models. Phase space, limit cycles (oscillations), fixed points (memory states)
+| Equation | Source | Significance |
+|----------|--------|-------------|
+| C_m dV/dt = -g_Na m³h(V-E_Na) - g_K n⁴(V-E_K) - ... | Hodgkin-Huxley | Action potential dynamics |
+| E_K = (RT/zF)ln([K]_out/[K]_in) | Nernst | Ionic equilibrium potential |
+| V_m = (RT/F)ln(P_K[K]_o + ...) | Goldman-Hodgkin-Katz | Resting membrane potential |
+| λ = √(r_m/r_i) | Cable theory | Electrotonic length constant |
+| E = -½Σ w_ij s_i s_j | Hopfield | Attractor network energy |
+| Capacity ≈ 0.14N | Hopfield analysis | Associative memory capacity |
+| δ_t = r_t + γV(s_{t+1}) - V(s_t) | Bellman/Schultz | Dopamine = TD error |
+| F = KL[q(z)||p(z|x)] - log p(x) | Free Energy Principle | Variational inference = perception |
+| dX = μ dt + σ dW_t | Drift-Diffusion | Decision accumulator |
 
----
+## Session Log
 
-## Bridges to AI Engineering
-
-| Neural biology | AI system | Notes |
-|---------------|-----------|-------|
-| V1 oriented filters | CNN conv layer 1 | Exact match; verified empirically |
-| Complex cell pooling | Max-pool | Translation invariance |
-| V4/IT hierarchy | Deep CNN layers 4-8 | CORnet scores brains |
-| Dopamine RPE | TD error δ = r + γV' - V | Schultz 1997 = TD validation |
-| Striatal actor | Policy network | Dorsal: habits; ventral: value |
-| Hippocampal replay | Experience replay buffer (DQN) | Off-policy learning from memory |
-| CA3 attractor | Transformer KV attention | Ramsauer et al. 2021 |
-| Sparse V1 coding | Sparse autoencoder for LLM interp. | Anthropic/EleutherAI SAE work |
-| Grid cells | Positional encodings (sin/cos, RoPE) | Banino et al. 2018 |
-| Spiking neurons | Intel Loihi, IBM TrueNorth | 1000× energy efficiency |
+| Date | Activity |
+|------|----------|
+| 2026-02-22 | Session 16 initiated. All 5 neuroscience modules authored. |
+|            | Existing stubs replaced with full reference content. |
+|            | Total: ~3400 lines of neuroscience reference. |
+|            | 04-AI-BRIDGE includes 13 systematic comparisons and open problems table. |
