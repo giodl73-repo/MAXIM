@@ -43,7 +43,7 @@ Each directory has a `STATUS.md` with its full file list.
 | [`linguistics/`](linguistics/STATUS.md) | 10 | ✅ |
 | [`music-theory/`](music-theory/STATUS.md) | 10 | ✅ |
 | [`cognitive-science/`](cognitive-science/STATUS.md) | 10 | ✅ |
-| [`human-biology/`](human-biology/STATUS.md) | 11 | 🔜 |
+| [`human-biology/`](human-biology/STATUS.md) | 11 | ✅ |
 | [`disease/`](disease/STATUS.md) | 11 | 🔜 |
 | [`medicine/`](medicine/STATUS.md) | 11 | 🔜 |
 | [`philosophy/`](philosophy/STATUS.md) | 7 | 🔜 |
@@ -62,8 +62,9 @@ Each directory has a `STATUS.md` with its full file list.
 | [`coatings/`](coatings/STATUS.md) | 10 | 🔜 |
 | [`plumbing/`](plumbing/STATUS.md) | 10 | 🔜 |
 | [`hvac/`](hvac/STATUS.md) | 10 | 🔜 |
+| [`textiles/`](textiles/STATUS.md) | 14 | 🔜 |
 
-**Complete: 339 files | To write: 164 files across 47 directories**
+**Complete: 350 files | To write: 167 files across 47 directories**
 
 ---
 
@@ -92,6 +93,7 @@ One-line agent prompt for each session. Read `CLAUDE.md` + the directory's `STAT
 | 29 | `coatings/` | Overview (film formation mechanisms), paint history (cave→lead→latex), paint composition (binder/pigment/solvent/additives/sheen/PVC), wood stains (penetrating vs film-forming/gel stains), varnish/lacquer/polyurethane (oil/alkyd/shellac/nitro/catalyzed), industrial coatings (powder/anodizing/electroplating/galvanizing/PVD), adhesives (CA/epoxy/contact/hot melt/anaerobic/UV), sealants/caulks (silicone/PU/acrylic/hybrid), primers (shellac-BIN/oil/bonding), surface prep (SSPC standards/anchor profile/failure modes) |
 | 30 | `plumbing/` | Overview (supply/DWV/gas trees), history (Roman lead→cholera reform→PVC→PEX), pipe materials (copper K/L/M, PEX-a/b/c, PVC/CPVC/ABS/cast iron/CSST), fittings (sweat/press-fit/push-fit/compression/flare/solvent-weld), supply systems (PRV/expansion tanks/water hammer/tankless vs tank/recirculation), DWV (gravity/P-traps/venting/AAV/cleanouts), fixtures (toilet anatomy/cartridge types/shower valves), water quality (hardness/softeners/RO/UV/lead pipes), specialty (CSST/hydronic/radiant/fire suppression/medical gas), codes (IRC/IPC/UPC/AHJ/permits) |
 | 31 | `hvac/` | Overview (load/capacity/psychrometrics), thermodynamics (Manual J/R-value/BTU/sensible vs latent), refrigeration cycle (P-H diagram/superheat/subcooling/variable-speed), refrigerants (R-12→R-22→R-410A→R-454B, ODP/GWP, Kigali/A2L), heating (gas furnace/AFUE/condensing/boilers/electric), heat pumps (COP>1/balance point/ccASHP/GSHP/mini-splits/HPWH), ventilation (ERV/HRV/ASHRAE 62.2/MERV/IAQ), ductwork (Manual D/static pressure/flex duct/mastic/Aeroseal), controls (24V wiring/smart thermostats/BAS/BACnet/defrost logic), efficiency/codes (SEER2/AFUE/HSPF2/IECC/IRA tax credits/Manual J-D-S) |
+| 32 | `textiles/` | Overview (supply chain/craft trade hierarchy), natural fibers plant (cotton gin/slavery/Dhaka muslin/linen retting), natural fibers animal (wool α-keratin/sericulture/Justinian monks), synthetic fibers (rayon→nylon→polyester→spandex/microplastics), yarn spinning (drop spindle→jenny/mule→ring→rotor/count systems), fabric construction (weaving/knitting/felting/nonwovens/bias cut), weave structures (plain/twill/satin/pile/Jacquard→Babbage connection), dyeing/finishing (dye classes/mordants/Perkin 1856/mercerization/sanforizing/DWR), historical trade (Silk Road/slave cotton/wool guilds/Lancashire famine), leatherworking (veg/chrome tanning/leather grades/cordwainer/currier/saddler), pattern making (flat drafting/draping/dart manipulation/CAD/grading), clothesmaking (tailor/seamstress/couturier/hand stitches/pressing/canvas), technical fabrics (Gore-Tex/Kevlar/UHMWPE/carbon fiber/geotextiles/smart textiles), fashion industry (haute couture/fast fashion economics/Rana Plaza/sustainability crisis) |
 
 ---
 
