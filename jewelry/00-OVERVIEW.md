@@ -1,0 +1,16 @@
+# 00 — Overview
+
+## Metal, Stone, Fire: The Jewelry Supply Chain
+
+> **STUB** — outline only, content to be authored
+
+**Planned coverage:**
+- **The jewelry supply chain**: mine → refinery/lapidary → foundry/fabricator → bench jeweler → retailer; raw materials (metal ores, rough gemstones) travel through distinct specialized trades before assembly; unlike most manufactured goods, jewelry's value is concentrated in the material itself, not the labor
+- **Three material pillars**: (1) precious metals — gold, silver, platinum group; (2) gemstones — precious (diamond, ruby, sapphire, emerald) and semi-precious; (3) organic materials — pearls, coral, amber, ivory, jet (historical)
+- **Trade structure overview**: jewelry industry splits into fine jewelry (karat gold/platinum + genuine stones), fashion/costume jewelry (base metals + simulants), and bridge jewelry (sterling silver + semi-precious); these three tiers have different supply chains, margins, and standards; luxury brands (Cartier, Tiffany, Bulgari, Harry Winston, Van Cleef & Arpels) operate at top of fine jewelry
+- **Historical importance**: jewelry is among the oldest human artifacts; Blombos Cave shell beads (South Africa) ~75,000 BCE; jewelry as portable wealth, status marker, ritual object, and diplomatic gift across all cultures; gold standard (monetary system) rooted in gold's decorative + durable properties; Egyptian Old Kingdom (2600 BCE) goldsmithing techniques still foundational
+- **Craft trade roles overview** (to be detailed in 10-JEWELRY-TRADES.md): goldsmith (works gold/platinum, classical trade), silversmith (silver, often larger hollow ware + jewelry), lapidary (cuts/polishes gemstones), diamond cutter (specialized — Antwerp/Amsterdam tradition), gemologist (evaluates/certifies — GIA graduate gemologist credential), bench jeweler (assembles, repairs, sets stones), engraver, enamellist
+- **Key material properties driving design**: gold's malleability (thinnest metal foil possible — 100 nm gold leaf), silver's highest electrical + thermal conductivity (and tarnish problem from H₂S), platinum's density and resistance (heaviest common metal, catalytic properties), diamond's hardness (10 Mohs, used in cutting tools as well as jewelry)
+- **Karat vs carat confusion** (see hallmarks): karat (kt/K) = gold purity (24K = pure); carat (ct) = gemstone weight (1 ct = 0.2 grams); completely different measurements that share etymology (ancient Arabic/Greek weight unit qirat/keration = carob seed, used as weight standard)
+- **Key chemistry bridges**: gold resists oxidation (standard reduction potential +1.69V — noble metal); silver tarnishes (Ag₂S formation from atmospheric H₂S); platinum group metals (PGMs) — platinum, palladium, rhodium, iridium, osmium, ruthenium; rhodium plating on white gold (see 01-PRECIOUS-METALS); gemstone color from transition metal impurities in crystal lattice (corundum + Cr³⁺ = ruby; corundum + Fe²⁺/Ti⁴⁺ = sapphire)
+- **Market overview**: global jewelry market ~$340B (2024); India + China largest consumers; US largest luxury jewelry market; gold jewelry ~50% of gold demand; diamond mining concentration (Botswana/De Beers, Russia/ALROSA, Canada, Australia); conflict diamonds → Kimberley Process Certification Scheme (2003); lab-grown diamond disruption ($50-80/ct vs $5,000-15,000/ct mined — same physical/chemical properties)
