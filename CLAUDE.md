@@ -12,25 +12,51 @@ A **self-authored reference library** organized by field. Each field is a subdir
 reference/
 │
 │  SESSION 1 — Modern Software Engineering
-├── computing/          Modern software engineering (23 modules)
-├── data-science/       Python stack, classical ML, MLOps (planned)
-├── ai-engineering/     LLMs, agents, evals harness, safety (5 modules)
+├── computing/          23 modules — COMPLETE
+├── data-science/       NumPy, Pandas, sklearn, PyTorch, MLOps, Azure ML — 5/6 done
+├── ai-engineering/     LLMs, evals, orchestration, agents, safety — 5 modules COMPLETE
 │
-│  SESSION 2 — Physics & Mathematics
-├── mathematics/        Vector calc, topology, probability — toolbox for physics
-├── physics/            E&M, Maxwell, MHD, liquid metals, quantum, zero-point energy
+│  SESSION 2 — Physics, Mathematics & Electronics
+├── mathematics/        Vector calc, topology, probability, diff geometry — 11 modules COMPLETE
+├── physics/            E&M, Maxwell, MHD, liquid metals, quantum, ZPE — 10 modules COMPLETE
+├── electronics/        (planned)
 │
-│  SESSION 3 — Languages
-├── languages/          16 languages × taxonomy + per-language reference cards (19 files)
+│  SESSION 3 — Programming Languages
+├── languages/          16 languages × taxonomy + reference cards — 19 files COMPLETE
 │
 │  SESSION 4 — Query Languages
-├── query-languages/    SQL, PostgreSQL, T-SQL, MySQL, SQLite, KQL, analytical, DuckDB
+├── query-languages/    SQL, PostgreSQL, T-SQL, MySQL, SQLite, KQL, BigQuery, Snowflake,
+│                       Spark, DuckDB, MongoDB, Redis, GraphQL — 13 files COMPLETE
+│
+│  SESSION 5 — Scripting Languages
+├── scripting/          Batch, PowerShell, Bash, Zsh, Fish, awk, sed, Perl — 10 files COMPLETE
+│
+│  SESSION 6 — Operating Systems
+├── os/                 Windows, Linux, macOS, iOS, Android, cross-platform — 8 files COMPLETE
 │
 │  SESSION 7 — Natural Sciences
-├── natural-sciences/   Chemistry, biochemistry, earth sciences, biology, plasma science
+├── natural-sciences/   Chemistry, biochemistry, earth sciences, biology — in progress
 │
 │  SESSION 8 — Astronomy & Planetary Sciences
-└── astronomy/          Precession, Earth motions, Milankovitch, orbital mechanics
+├── astronomy/          Earth motions, Milankovitch, celestial mechanics, stellar — 4 files
+│
+│  SESSION 9 — Aeronautics
+├── aeronautics/        Aerodynamics, propulsion, flight mechanics, avionics — PLANNED
+│
+│  SESSION 10 — Mechanical Engineering
+├── mechanical/         Thermodynamics, fluid mechanics, heat transfer, machine design — PLANNED
+│
+│  SESSION 11 — Structural Engineering & Architecture
+├── structural/         Statics, structural analysis, bridges, materials, architecture — PLANNED
+│
+│  SESSION 12 — Chemical Engineering
+├── chemical-eng/       Thermodynamics, reaction kinetics, transport phenomena, process design — PLANNED
+│
+│  SESSION 13 — Nuclear Engineering
+├── nuclear/            Reactor physics, neutronics, thermal hydraulics, safety systems — PLANNED
+│
+│  SESSION 14 — Philosophy
+└── philosophy/         Logic, epistemology, metaphysics, philosophy of mind, ethics — PLANNED
 ```
 
 ---
@@ -145,7 +171,7 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | `data-science/03-SKLEARN.md` | scikit-learn — estimator API, preprocessing, pipelines, model selection, classical ML | ✅ Complete |
 | `data-science/04-PYTORCH.md` | PyTorch — tensors, autograd, nn.Module, training loop, GPU, from scratch to transfer | ✅ Complete |
 | `data-science/05-MLOPS.md` | MLOps — experiment tracking (MLflow/W&B), model registry, deployment, drift detection | ✅ Complete |
-| `data-science/06-AZURE-ML.md` | Azure Machine Learning — workspaces, compute, pipelines, managed endpoints, AzureML SDK v2 | 🔜 Next |
+| `data-science/06-AZURE-ML.md` | Azure Machine Learning — workspaces, compute, pipelines, managed endpoints, AzureML SDK v2 | ✅ Complete |
 
 ---
 
@@ -193,7 +219,7 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | `astronomy/01-EARTH-MOTIONS.md` | Precession, nutation, Chandler wobble, obliquity — all Earth rotational/orbital motions | ✅ Complete |
 | `astronomy/02-MILANKOVITCH.md` | Orbital mechanics + Milankovitch cycles — eccentricity, obliquity, precession → ice ages | ✅ Complete |
 | `astronomy/03-CELESTIAL-MECHANICS.md` | Two-body problem, orbital elements, perturbation theory, Lagrange points, resonances, tidal mechanics, chaos | ✅ Complete |
-| `astronomy/04-STELLAR-PHYSICS.md` | Stellar structure, HR diagram, nucleosynthesis, stellar evolution, compact objects | 🔜 Queued |
+| `astronomy/04-STELLAR-PHYSICS.md` | Stellar structure, HR diagram, nucleosynthesis, stellar evolution, compact objects | ✅ Complete |
 | `astronomy/05-COSMOLOGY.md` | Big Bang, expansion, CMB, dark matter/energy, large-scale structure | 🔜 Queued |
 
 ---
@@ -242,6 +268,8 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | 2026-02-22 | 03-SKLEARN.md authored. Estimator API uniformity (fit/predict/transform/score), Pipeline + ColumnTransformer (data leakage prevention), preprocessing taxonomy (scalers/encoders/imputers), StratifiedKFold, cross_validate multi-metrics, GridSearchCV + RandomizedSearchCV double-underscore param naming, metrics (ROC-AUC vs accuracy on imbalanced), algorithm reference (Ridge/Lasso, HistGBM/XGBoost/LightGBM), unsupervised (KMeans/DBSCAN/PCA/t-SNE), feature selection, class_weight + SMOTE, joblib persistence, 8-step ML workflow. |
 | 2026-02-22 | 04-PYTORCH.md authored. Tensor memory model (float32 default, from_numpy zero-copy, .to(device)), autograd dynamic graph (backward, gradient accumulation, no_grad, detach), nn.Module (forward vs __call__, train/eval semantics), full layer reference, CrossEntropyLoss expects logits, AdamW vs Adam correct L2, CosineAnnealingLR/OneCycleLR, Dataset/DataLoader (pin_memory, num_workers), complete 4-step training loop, mixed precision (float16+GradScaler, bfloat16 for A100+), clip_grad_norm_, checkpoint pattern, transfer learning (freeze/unfreeze + per-layer LR), residual block + self-attention modules, torch.compile(), PyTorch Lightning. |
 | 2026-02-22 | 05-MLOPS.md authored. data-science/ track nearly complete. MLflow (mlflow.start_run, autolog, Model Registry stage transitions), W&B (wandb.init/log, Sweeps with Bayesian optimization), MLflow vs W&B comparison table, DVC data versioning + dvc.yaml pipeline DAG, Great Expectations data validation, FastAPI serving endpoint, BentoML service, ONNX export + ORT inference, Evidently drift reports + PSI/KS thresholds, retraining pipeline sketch, CI/CD ML GitHub Actions YAML, feature store offline/online architecture. |
+| 2026-02-22 | 06-AZURE-ML.md authored. data-science/ track COMPLETE. Workspace architecture (storage/ACR/Key Vault/App Insights), hub-and-spoke pattern, RBAC roles. Compute types (Instance/Cluster/Serverless/Attached), SKU decision table, LowPriority preemptible. Data layer (Datastores, URI File/Folder/MLTable, versioned Data Assets). Environments (curated vs custom conda YAML + Dockerfile). Command Job (single-node + distributed TorchDistribution multi-GPU), Sweep Job (Bayesian + Bandit termination), AutoML (classification/regression/forecasting, featurization, ensembling). Pipelines (Component YAML + Python decorator, DAG assembly, caching/reuse). Model Registry (stage tracking via tags, MLflow flavors, version listing). Online Endpoints (ManagedOnline, scoring script, deploy + invoke, blue/green canary traffic split, MLflow no-script deploy). Batch Endpoints (mini-batch, append_row output). MLflow integration (auto-inject MLFLOW_TRACKING_URI, autolog, MlflowClient search_runs). Responsible AI Dashboard (SHAP, error analysis, causal, counterfactual). CLI v2 YAML + GitHub Actions CI/CD. Azure AI Studio vs AzureML Studio distinction. Prompt Flow (flow.dag.yaml, pf CLI, deploy). Security (Managed Identity, Private Endpoints, CMK). Cost management (min=0 clusters, auto-stop, LowPriority). AzureML vs SageMaker vs Vertex vs Databricks comparison. |
+| 2026-02-22 | Session 5 initialized. scripting/ series: 10 files. 00-OVERVIEW (genealogy: Windows CMD→PowerShell, sh→Bash→Zsh→Fish, ed→sed→AWK→Perl; three-category taxonomy; execution model diagrams; POSIX compliance spectrum; decision tree). 01-CHEATSHEET (8 languages × 12 topics: file ext/shebang, variables, string quoting, arrays, arithmetic, if/else, case/switch, loops, functions, I/O+redirection, exit codes, arguments; per-language quick cards; feature gap matrix). 02-BATCH (delayed expansion trap + cmd.exe parsing order diagram, FOR /F/D/R/L patterns, EXIT /B vs EXIT, %~dp0 pattern, Batch→PS bridge table). 03-POWERSHELL (object pipeline vs text pipeline diagram, $? vs $LASTEXITCODE distinction, Write-Host vs Write-Output trap, try/catch, PS5.1 vs PS7, PS→Bash bridge). 04-BASH (fork/exec model, quoting word-splitting trap, arrays + mapfile, set -euo pipefail sharp edges, process substitution, POSIX sh portability table, PS→Bash bridge). 05-ZSH (1-indexed arrays, extended glob qualifiers, float in (( )), setopt options, startup file order, zmv). 06-FISH (set scopes -l/-g/-x/-U, string builtins, math float, argparse, universal vars, $status vs $?). 07-AWK (record/field model, built-in vars table, dual-type system, string functions, assoc arrays, 25+ one-liners inc NR==FNR file-join, SQL analogy diagram, gawk extensions). 08-SED (address types, all core commands, hold space h/H/g/G/x, N/P/D multiline, labels+branching, GNU vs BSD table, 20+ patterns). 09-PERL (sigil-shift rule, scalar/list context, regex as grammar operators, one-liner -n/-p/-i/-a/-F, closures, Perl vs Python decision). |
 
 | 2026-02-22 | Session 4 initialized. query-languages/ series: 13 files. 00-OVERVIEW (data model taxonomy, relational algebra → SQL bridge, SQL standards SQL-86→SQL:2023, ACID/BASE/SAGA, CAP, when SQL vs NoSQL decision tree). 01-SQL-CORE (30-year refresh: CTEs, recursive CTEs, window functions with OVER anatomy, ROWS/RANGE frames, MERGE, temporal tables, JSON SQL:2016, GENERATE_SERIES, indexes, EXPLAIN). 02-POSTGRESQL (JSONB operators, arrays, LATERAL=CROSS APPLY, RETURNING, materialized views, FTS, partitioning, RLS, pgvector, PostGIS, TimescaleDB). 03-TSQL (25-year refresh timeline, CROSS/OUTER APPLY, MERGE+OUTPUT, JSON+OPENJSON+FOR JSON, temporal tables, TRY/CATCH+THROW, sp_executesql safe dynamic SQL, Query Store, DMVs, Azure SQL tiers, Synapse distribution). 04-MYSQL (InnoDB architecture, ON DUPLICATE KEY UPDATE, window funcs 8.0+, CTEs 8.0+, JSON, utf8mb4 trap, EXPLAIN type hierarchy, replication/binlog). 05-SQLITE (serverless architecture, type affinity+STRICT mode, WAL mode, foreign_keys PRAGMA, JSON1, FTS5, WITHOUT ROWID, in-memory testing pattern, date as TEXT). 06-KQL (Azure Monitor/App Insights/Sentinel/ADX ecosystem, pipe syntax, time functions+bin(), has vs contains, dynamic type, let statements, join kinds, make-series anomaly detection, SQL→KQL translation table, common App Insights/Monitor/Sentinel hunting patterns). 07-ANALYTICAL (cloud DW evolution, BigQuery/Snowflake/Databricks/Synapse comparison, QUALIFY, PIVOT, time travel, MERGE INTO, materialized views, dbt integration, external tables, medallion architecture, OLAP functions). 08-SPARKSQL (Catalyst architecture, SQL API vs DataFrame API equivalence, Delta Lake MERGE/OPTIMIZE/ZORDER/VACUUM/time travel, broadcast joins, structured streaming with watermarks, explain modes, AQE). 09-DUCKDB (in-process OLAP, vectorized columnar, direct Parquet/CSV/JSON/S3/ADLS query, PIVOT auto-detection, LIST/STRUCT/MAP nested types, lambdas, Python zero-copy, httpfs/spatial/delta extensions). 10-MONGODB (MQL CRUD operators, aggregation pipeline stages, $lookup pipeline form, $facet/$bucket, expression operators, index types including TTL/partial/wildcard/2dsphere, Atlas Search Lucene + Atlas Vector Search for RAG). 11-REDIS (String/Hash/List/Set/ZSet/Stream commands, MULTI/EXEC/WATCH CAS, Pub/Sub vs Streams, Lua scripting, RediSearch FT.CREATE/FT.SEARCH/KNN vector, RedisJSON, distributed lock pattern). 12-GRAPHQL (SDL schema with scalar/enum/union/interface, query/mutation/subscription syntax, variables/fragments/directives, N+1+DataLoader, schema-first vs code-first, Apollo Federation, Hasura, persisted queries, REST vs GraphQL decision). Session4.md created. |
 
@@ -296,6 +324,54 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | `scripting/07-AWK.md` | AWK/gawk — record/field model, built-ins, string functions, associative arrays, 25+ practical one-liners, SQL analogy | ✅ Complete |
 | `scripting/08-SED.md` | sed — address types, commands (s/d/p/a/i/c/y/N/P/D), hold space, labels/branching, GNU vs BSD table | ✅ Complete |
 | `scripting/09-PERL.md` | Perl 5 — sigils, context, regex as grammar, one-liner mode (-n/-p/-i/-a), CPAN, Modern Perl 5.36 | ✅ Complete |
+
+---
+
+## mathematics/ — Artifact Index
+
+| File | Topic | Status |
+|------|-------|--------|
+| `mathematics/01-VECTOR-CALC.md` | Gradient, divergence, curl, del operator ∇, Maxwell preview | ✅ Complete |
+| `mathematics/02-INTEGRAL-THEOREMS.md` | Divergence theorem, Stokes, Gradient theorem — Maxwell in integral form | ✅ Complete |
+| `mathematics/03-TRIG.md` | Unit circle, Euler's formula e^(iθ), phasors, hyperbolic trig | ✅ Complete |
+| `mathematics/04-POWER-SERIES.md` | Taylor, Maclaurin, radius of convergence, generating functions, asymptotic | ✅ Complete |
+| `mathematics/05-GROUPS-SETS-ALGEBRA.md` | Groups, rings, fields, Lie groups, U(1)/SU(2)/SU(3), Noether's theorem | ✅ Complete |
+| `mathematics/06-LINEAR-ALGEBRA.md` | Vector spaces, matrices, eigenvalues, SVD, spectral theorem, QM dictionary | ✅ Complete |
+| `mathematics/07-DIFFEQ.md` | ODEs (all types), PDEs (heat/wave/Laplace), Green's functions, physics bestiary | ✅ Complete |
+| `mathematics/08-TOPOLOGY.md` | Open sets, compactness, π₁, fiber bundles, topological insulators, Dirac monopoles | ✅ Complete |
+| `mathematics/09-MANIFOLDS.md` | Manifolds, differential forms, exterior derivative, generalized Stokes, Maxwell as dF=0 | ✅ Complete |
+| `mathematics/10-DIFFERENTIAL-GEOMETRY.md` | Curvature, geodesics, Riemann tensor, Christoffel symbols, Einstein field equations decoded | ✅ Complete |
+| `mathematics/11-PROBABILITY.md` | Distributions, Bayes, CLT, Markov chains, Boltzmann, Master Theorem | ✅ Complete |
+| `mathematics/12-FOURIER.md` | Fourier series/transform, FFT, windowing, uncertainty principle, 2D FT | ✅ Complete |
+| `mathematics/13-LAPLACE.md` | Laplace transform, transfer functions, Bode plots, z-transform comparison | ✅ Complete |
+
+---
+
+## physics/ — Artifact Index
+
+| File | Topic | Status |
+|------|-------|--------|
+| `physics/01-ELECTROSTATICS.md` | Coulomb's law, Gauss's law, potential V, conductors, Poisson equation | ✅ Complete |
+| `physics/02-MAGNETOSTATICS.md` | Biot-Savart, Ampere's law, vector potential A, no monopoles | ✅ Complete |
+| `physics/03-MAXWELL.md` | All four equations, displacement current fix, c = 1/√μ₀ε₀, wave derivation | ✅ Complete |
+| `physics/04-EM-WAVES.md` | Plane waves, polarization, Poynting vector, skin depth, EM spectrum | ✅ Complete |
+| `physics/05-MOTORS-GENERATORS.md` | Faraday, back-EMF, transformers, three-phase, steam→grid chain | ✅ Complete |
+| `physics/06-MHD.md` | Induction equation, Alfvén waves, Hartmann flow, tokamaks, dynamos | ✅ Complete |
+| `physics/07-LIQUID-METALS.md` | Hg/Ga/Na properties, EM pumping, Sadoway battery, fringe claim evaluation | ✅ Complete |
+| `physics/08-QUANTUM-BRIDGE.md` | Planck→Schrödinger, Hilbert space, Hermitian operators, SU(2) spin | ✅ Complete |
+| `physics/09-ZERO-POINT-ENERGY.md` | Casimir effect, Lamb shift, Hawking radiation, cosmological constant problem | ✅ Complete |
+| `physics/10-GRAVITY-EM.md` | GEM equations, Lense-Thirring, Meissner levitation, fringe final answers | ✅ Complete |
+
+---
+
+## natural-sciences/ — Artifact Index
+
+| File | Topic | Status |
+|------|-------|--------|
+| `natural-sciences/00-OVERVIEW.md` | Landscape — field taxonomy, cross-discipline connections, session arc | ✅ Complete |
+| `natural-sciences/01-ATOMIC-QUANTUM.md` | Atomic structure, quantum numbers, periodic table, electron configurations, spectroscopy | ✅ Complete |
+| `natural-sciences/08-METABOLISM.md` | Metabolic pathways — glycolysis, Krebs cycle, oxidative phosphorylation, ATP accounting | ✅ Complete |
+| `natural-sciences/14-ATMOSPHERE-CLIMATE.md` | Atmospheric layers, composition, circulation, greenhouse effect, climate feedback loops | ✅ Complete |
 
 ---
 
