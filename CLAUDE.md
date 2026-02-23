@@ -28,6 +28,9 @@ reference/
 │
 │  SESSION 7 — Natural Sciences
 ├── natural-sciences/   Chemistry, biochemistry, earth sciences, biology, plasma science
+│
+│  SESSION 8 — Astronomy & Planetary Sciences
+└── astronomy/          Precession, Earth motions, Milankovitch, orbital mechanics
 ```
 
 ---
@@ -139,8 +142,8 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 |------|-------|--------|
 | `data-science/01-NUMPY.md` | NumPy — arrays, broadcasting, vectorized ops, linear algebra substrate | ✅ Complete |
 | `data-science/02-PANDAS.md` | Pandas — DataFrame, indexing, groupby, merge, time series, performance | ✅ Complete |
-| `data-science/03-SKLEARN.md` | scikit-learn — estimator API, preprocessing, pipelines, model selection, classical ML | 🔜 Next |
-| `data-science/04-PYTORCH.md` | PyTorch — tensors, autograd, nn.Module, training loop, GPU, from scratch to transfer | 🔜 Queued |
+| `data-science/03-SKLEARN.md` | scikit-learn — estimator API, preprocessing, pipelines, model selection, classical ML | ✅ Complete |
+| `data-science/04-PYTORCH.md` | PyTorch — tensors, autograd, nn.Module, training loop, GPU, from scratch to transfer | 🔜 Next |
 | `data-science/05-MLOPS.md` | MLOps — experiment tracking (MLflow/W&B), model registry, deployment, drift detection | 🔜 Queued |
 | `data-science/06-AZURE-ML.md` | Azure Machine Learning — workspaces, compute, pipelines, managed endpoints, AzureML SDK v2 | 🔜 Queued |
 
@@ -183,6 +186,15 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 
 ---
 
+## astronomy/ — Artifact Index
+
+| File | Topic | Status |
+|------|-------|--------|
+| `astronomy/01-EARTH-MOTIONS.md` | Precession, nutation, Chandler wobble, obliquity — all Earth rotational/orbital motions | ✅ Complete |
+| `astronomy/02-MILANKOVITCH.md` | Orbital mechanics + Milankovitch cycles — eccentricity, obliquity, precession → ice ages | ✅ Complete |
+
+---
+
 ## Session Log
 
 | Date | What Was Done |
@@ -221,6 +233,10 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | 2026-02-22 | 02-PANDAS.md authored. DataFrame memory model (Series + shared Index), Pandas 2 Arrow backend, .loc/.iloc/.at disambiguation, SettingWithCopyWarning + chained indexing, dtypes (nullable Int64/boolean/StringDtype, category), missing data (dropna/fillna/ffill/interpolate), filtering (.query, .str accessor), method chaining pattern, groupby split-apply-combine (agg/transform/filter/apply), merge/join all types, reshape (pivot/melt/stack/explode), time series (resample/rolling/shift/pct_change/tz), performance hierarchy (vectorized → eval → apply → iterrows), Polars comparison, decision cheat sheet. |
 | 2026-02-22 | data-science/ track started. Defined 6-module arc (NumPy → Pandas → sklearn → PyTorch → MLOps → Azure ML). 01-NUMPY.md authored: ndarray memory model (strides, views vs copies, contiguity + BLAS), dtypes, array creation, indexing (basic/fancy/boolean/np.ix_), broadcasting rules + keepdims, ufuncs, axis operations, np.linalg (solve/eig/SVD/QR/Cholesky, batch), np.fft (1-D/2-D, rfft, fftshift), performance patterns (vectorize, in-place, float32), decision cheat sheet. |
 | 2026-02-22 | Session 3 initialized. languages/ series: 19 files. 00-OVERVIEW.md (language genealogy ASCII tree, paradigm spectrum, 6 type-system axes, early/late binding depth, nominal/structural/duck, expression problem). 01-CHEATSHEET.md (universal comparison tables: 16 languages × 10 topics + per-language quick cards). 02-C through 17-SQL: individual reference cards for C, C++, Java, C#, Python, JavaScript, TypeScript, Rust, Go, Haskell, F#, Kotlin, Swift, Scala, Ruby, SQL. Each covers: type system snapshot, syntax reference card (equality, logical ops, delimiter semantics, collection literals, if/match, strings/chars, null/Option, functions, error handling), what makes it distinct, ecosystem, gotchas from C#. |
+| 2026-02-22 | Session 8 initialized. astronomy/ directory. 01-EARTH-MOTIONS.md authored: full hierarchy of Earth motions (rotation/Chandler/nutation/precession/obliquity), oblate spheroid root cause (J₂, Hd), precession rate formula (lunisolar torque, cos ε, tidal forcing ratio Moon/Sun=2.18), Euler angle framework (ψ/θ/φ), nutation (IAU 2000A, dominant 18.6 yr term ±17"/±9"), Chandler wobble (305 day Euler vs 433 day actual, non-rigidity, excitation problem), obliquity variation (22.1°–24.5° over 41 kyr, Jupiter forcing), pole star drift timeline (Thuban→Polaris→Vega→Polaris), zodiacal age precession (Hipparchus discovery), year type comparison (tropical/sidereal/anomalistic/draconic), GR corrections (geodetic/Lense-Thirring). |
+| 2026-02-22 | 02-MILANKOVITCH.md authored. Eccentricity (~95/125/413 kyr beats, Jupiter/Saturn resonances), apsidal precession (~112 kyr prograde), climate precession index e·sin(λ̃) (~23+~19 kyr), insolation formula W(φ,t), 65°N summer target, Hays-Imbrie-Shackleton 1976 "Pacemaker" result, SPECMAP 1984/LR04 2005, MIS stages, 100-kyr problem (open), MPT (~900 kyr, no orbital change), Moon as obliquity stabilizer, La2004/La2010 validity limits (±50/±20 Myr), CO₂ as feedback not forcing. Session8.md created. |
+
+| 2026-02-22 | Session 4 initialized. query-languages/ series: 13 files. 00-OVERVIEW (data model taxonomy, relational algebra → SQL bridge, SQL standards SQL-86→SQL:2023, ACID/BASE/SAGA, CAP, when SQL vs NoSQL decision tree). 01-SQL-CORE (30-year refresh: CTEs, recursive CTEs, window functions with OVER anatomy, ROWS/RANGE frames, MERGE, temporal tables, JSON SQL:2016, GENERATE_SERIES, indexes, EXPLAIN). 02-POSTGRESQL (JSONB operators, arrays, LATERAL=CROSS APPLY, RETURNING, materialized views, FTS, partitioning, RLS, pgvector, PostGIS, TimescaleDB). 03-TSQL (25-year refresh timeline, CROSS/OUTER APPLY, MERGE+OUTPUT, JSON+OPENJSON+FOR JSON, temporal tables, TRY/CATCH+THROW, sp_executesql safe dynamic SQL, Query Store, DMVs, Azure SQL tiers, Synapse distribution). 04-MYSQL (InnoDB architecture, ON DUPLICATE KEY UPDATE, window funcs 8.0+, CTEs 8.0+, JSON, utf8mb4 trap, EXPLAIN type hierarchy, replication/binlog). 05-SQLITE (serverless architecture, type affinity+STRICT mode, WAL mode, foreign_keys PRAGMA, JSON1, FTS5, WITHOUT ROWID, in-memory testing pattern, date as TEXT). 06-KQL (Azure Monitor/App Insights/Sentinel/ADX ecosystem, pipe syntax, time functions+bin(), has vs contains, dynamic type, let statements, join kinds, make-series anomaly detection, SQL→KQL translation table, common App Insights/Monitor/Sentinel hunting patterns). 07-ANALYTICAL (cloud DW evolution, BigQuery/Snowflake/Databricks/Synapse comparison, QUALIFY, PIVOT, time travel, MERGE INTO, materialized views, dbt integration, external tables, medallion architecture, OLAP functions). 08-SPARKSQL (Catalyst architecture, SQL API vs DataFrame API equivalence, Delta Lake MERGE/OPTIMIZE/ZORDER/VACUUM/time travel, broadcast joins, structured streaming with watermarks, explain modes, AQE). 09-DUCKDB (in-process OLAP, vectorized columnar, direct Parquet/CSV/JSON/S3/ADLS query, PIVOT auto-detection, LIST/STRUCT/MAP nested types, lambdas, Python zero-copy, httpfs/spatial/delta extensions). 10-MONGODB (MQL CRUD operators, aggregation pipeline stages, $lookup pipeline form, $facet/$bucket, expression operators, index types including TTL/partial/wildcard/2dsphere, Atlas Search Lucene + Atlas Vector Search for RAG). 11-REDIS (String/Hash/List/Set/ZSet/Stream commands, MULTI/EXEC/WATCH CAS, Pub/Sub vs Streams, Lua scripting, RediSearch FT.CREATE/FT.SEARCH/KNN vector, RedisJSON, distributed lock pattern). 12-GRAPHQL (SDL schema with scalar/enum/union/interface, query/mutation/subscription syntax, variables/fragments/directives, N+1+DataLoader, schema-first vs code-first, Apollo Federation, Hasura, persisted queries, REST vs GraphQL decision). Session4.md created. |
 
 ---
 
@@ -233,3 +249,4 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 - Add an entry to the Session Log at the end of each working session
 - The learner is a peer, not a student — write accordingly
 - Bridge to Azure/VSTS/.NET concepts where natural — don't force it
+- **32,000 token limit**: keep each guide file under ~32,000 tokens so it fits in a single context window load. Split into Part 1 / Part 2 if a topic runs long.
