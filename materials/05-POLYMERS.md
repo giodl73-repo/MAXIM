@@ -1,127 +1,180 @@
-# Polymers — Chain Architecture, Thermal Transitions, Mechanics
+# Polymers — Chain Architecture, Thermal Transitions, Viscoelasticity
 
----
-
-## Big Picture
+## The Big Picture
 
 ```
-MONOMER → POLYMER (repeat units linked into long chains)
-        │
-        ├── CHAIN ARCHITECTURE → crystal structure (or lack of it)
-        │
-        ├── MOLECULAR WEIGHT DISTRIBUTION → processing behavior, toughness
-        │
-        ├── T_g (glass transition) and T_m (melting)
-        │        → define service temperature window
-        │
-        └── MECHANICAL RESPONSE = viscoelastic
-                → time-dependent: E*(ω) = E'(ω) + iE''(ω)
-                → temperature-dependent: WLF equation
+    POLYMER SCIENCE LANDSCAPE
+    ══════════════════════════════════════════════════════════
+
+    MOLECULAR ARCHITECTURE              BULK PROPERTIES
+    ┌──────────────────────┐           ┌─────────────────────┐
+    │ Chain connectivity   │           │ E, σ_y, ε_f         │
+    │ Degree of polymer.   │──────────▶│ T_g, T_m            │
+    │ MW distribution      │           │ Viscoelasticity      │
+    │ Tacticity            │           │ Creep, fatigue       │
+    └──────────────────────┘           └─────────────────────┘
+              │
+              ▼
+    MICROSTRUCTURE (crystallinity, spherulites, lamellar thickness)
+              │
+              ▼
+    PROCESSING (flow, crystallization, orientation, crosslinking)
 ```
 
 ---
 
 ## Chain Architecture
 
-```
-LINEAR:     ─●─●─●─●─●─●─●─   (HDPE, nylon, PET)
-BRANCHED:   ─●─●─●─●─●─     (LDPE: random branches)
-              │   │
-              ●   ●─●
-CROSSLINKED: ─●─●─X─●─●─     (vulcanized rubber, epoxy thermoset)
-                  │
-              ─●─●─●─
-STAR:            /          (used in block copolymer templates)
-         ─●─●─●─●─●─●─
-                  \
-               ─●─●─
-DENDRITIC:  perfect branching → sphere-like, very different properties
-```
+### Repeat Units and Molecular Weight
 
-**Tacticity** (stereoregularity of side groups along backbone):
-```
-ISOTACTIC:   all R groups on same side → crystallizes easily (iPP)
-SYNDIOTACTIC: R groups alternate → crystallizes (sPP, but less common)
-ATACTIC:     R groups random → amorphous (aPS: clear, but brittle)
-```
+A polymer is built from repeating monomer units:
+- Polyethylene (PE): [-CH₂-CH₂-]_n
+- Polypropylene (PP): [-CH₂-CH(CH₃)-]_n
+- Polystyrene (PS): [-CH₂-CH(C₆H₅)-]_n
 
-**Copolymers:**
-```
-RANDOM: -AABBABABBA-   (SBR rubber: random styrene-butadiene)
-ALTERNATING: -ABABAB-  (specific synthesis required)
-BLOCK: -AAAA-BBBB-     (SBS thermoplastic elastomer: PS-PB-PS)
-GRAFT: AAAA backbone with BBBB side chains
-```
+**Degree of polymerization** (DP): n = number of repeat units per chain.
+M_0 = molecular weight of one repeat unit (g/mol).
 
-Block copolymers (BCPs) phase-separate at nanoscale (lamellar, cylindrical, spherical, gyroid)
-→ self-assembled templates for nanolithography (Intel, IBM). Domain size ~10–100 nm.
-
----
-
-## Molecular Weight and Distributions
-
-Polymer chains have a distribution of lengths. Two averages matter:
+**Molecular weight distributions**: Real polymers have chains of different lengths.
 
 ```
-NUMBER-AVERAGE molecular weight:
-M_n = Σ N_i M_i / Σ N_i   (average molecule count per chain length)
+    Number-average molecular weight: M_n = Σ N_i M_i / Σ N_i
+    Weight-average molecular weight: M_w = Σ N_i M_i² / Σ N_i M_i
+    Z-average:                        M_z = Σ N_i M_i³ / Σ N_i M_i²
 
-WEIGHT-AVERAGE molecular weight:
-M_w = Σ N_i M_i² / Σ N_i M_i   (biased toward longer, heavier chains)
+    Polydispersity index: PDI = M_w / M_n ≥ 1 always
+    PDI = 1: monodisperse (ideal, achieved by anionic polymerization)
+    PDI = 2: ideal step-growth polymerization (Flory distribution)
+    PDI > 2: broad distribution (free-radical, Ziegler-Natta catalysis)
+    PDI > 5: very broad (blends, multi-stage processes)
 
-PDI (polydispersity index) = M_w / M_n ≥ 1
+    Example: HDPE for pipe applications
+    M_n ≈ 100,000 g/mol, M_w ≈ 300,000 g/mol, PDI = 3.0
+    DP ≈ M_n/M_0 = 100,000/28 = 3571 repeat units per chain (average)
 
-Narrow distribution (PDI → 1): living polymerization, anionic
-Broad distribution (PDI = 2): free radical polymerization (most industrial)
-Very broad (PDI = 5–20): condensation polymerization
+    Entanglement molecular weight M_e:
+    When chains are long enough to entangle → network-like behavior
+    M_e(PE) ≈ 1,800 g/mol
+    M_e(PS) ≈ 17,000 g/mol
+    Rheology changes dramatically above M_e: η ∝ M^3.4 (vs M^1 below M_e)
 ```
 
-**Effect on properties:**
-- M_n controls: colligative properties (freezing point depression, osmotic pressure)
-- M_w controls: melt viscosity (η ∝ M_w^3.4 for M > M_c entanglement), tensile strength
-- PDI: broad → wider processing window but lower ultimate properties
+### Chain Statistics: The Freely Rotating Chain
 
-**Entanglement molecular weight M_c:**
-Above M_c: chains are physically entangled → plateau modulus G_N^0 ~ 10⁵–10⁶ Pa.
-Below M_c: low melt viscosity, weak film.
+Real polymer chain: backbone bonds have fixed angle θ (C-C = 109.5°) and can rotate.
+
+**Freely rotating chain model** (no correlation beyond bond angle):
+
+$$\langle r^2 \rangle = n l^2 \frac{1 + \cos\theta}{1 - \cos\theta}$$
+
+where n = number of bonds, l = bond length, θ = supplement of bond angle (70.5° for C-C).
+
+For C-C backbone: (1+cos 70.5°)/(1-cos 70.5°) = (1+0.333)/(1-0.333) = 2.0
+
+**RMS end-to-end distance**: $r_{rms} = \sqrt{\langle r^2\rangle} = l\sqrt{2n}$
+
+More general characteristic ratio C_∞ (accounting for hindered rotation):
+
+$$\langle r^2\rangle = C_\infty n l^2$$
+
+```
+    C_∞ values:
+    PE (polyethylene):    C_∞ ≈ 6.7
+    PS (polystyrene):     C_∞ ≈ 9.5
+    PDMS (silicone):      C_∞ ≈ 6.2
+
+    For PE with n=3571 bonds, l=1.54 Å:
+    r_rms = 1.54√(6.7×3571) = 1.54×154.5 = 238 Å = 23.8 nm
+
+    Contour length (fully extended): L = n·l = 3571×1.54 = 5500 Å = 550 nm
+    Extension ratio max: L/r_rms = 550/23.8 = 23× — enormous extensibility!
+    → Rubber elasticity derives from this chain statistical mechanics
+```
+
+### Molecular Architecture Types
+
+```
+    LINEAR:         ─────────────────── (PE, PVC, Nylon)
+
+    BRANCHED:        ─────────│──────── (LDPE: long chain branches)
+                              │
+                          ────┴────
+    (short chain branches: LLDPE, co-monomer incorporation)
+
+    CROSSLINKED:     ─────────│──────── (rubber: S-S crosslinks from vulcanization)
+                              │         (thermosets: covalent network from cure)
+                    ─────────┘
+
+    BLOCK:          A-A-A-A-B-B-B-B-A-A-A-A (SBS block copolymer, thermoplastic elastomer)
+
+    GRAFT:           A-A-A-A-A-A-A-A   (backbone A, grafted B)
+                         │   │
+                         B   B
+
+    STAR / DENDRIMER: branched from central point
+```
+
+### Tacticity
+
+```
+    Polypropylene: [-CH₂-CH(CH₃)-]_n
+    Isotactic:     all CH₃ on same side of backbone → crystallizable → high T_m
+    Syndiotactic:  alternating CH₃ sides → can crystallize → moderate T_m
+    Atactic:       random → cannot crystallize → amorphous, lower T_g only
+
+    Commercial significance:
+    Isotactic PP (i-PP): T_m = 165°C, σ_y = 35 MPa — plastic containers, fibers
+    Atactic PP (a-PP): amorphous, used as adhesive, soft modifier
+    Ziegler-Natta catalysts → isotactic; metallocene → can control tacticity
+```
 
 ---
 
 ## Crystallinity and Morphology
 
-**Semicrystalline polymers:** partially ordered. True 100% crystalline is rare.
+Polymers are NEVER 100% crystalline — chains are too long and entangled.
+Semicrystalline polymers have crystalline regions (lamellae) + amorphous matrix.
 
-**Crystallization:** regular chain segments fold into lamellae (~10–50 nm thick).
-Lamellae radiate from nuclei → spherulites (μm scale, visible under polarized light as Maltese cross).
+### Lamellar Crystals
 
 ```
-Crystal structure examples:
-PE (polyethylene):  orthorhombic, chains in all-trans (zig-zag) conformation
-PET: triclinic, requires slow cooling or drawing
-iPP: α-form monoclinic, β-form hexagonal (tougher, less common)
+    Folded-chain lamellar crystal:
+    ─────────────────── crystal surface (fold plane)
+    │  │  │  │  │  │   folded chain segments
+    │  │  │  │  │  │   c-axis = all-trans chains
+    │  │  │  │  │  │   l = lamellar thickness (10-50 nm)
+    ─────────────────── crystal surface
+
+    Lamellar thickness l ∝ 1/ΔT (crystallization undercooling)
+    Thermodynamic: l_min* = 2σ_e T_m⁰/(ΔH_f ΔT)
+    σ_e = fold surface energy, T_m⁰ = equilibrium melting point
+    → Deeper quench → thinner lamellae → lower T_m observed
+    → Annealing increases l → raises T_m
+
+    Degree of crystallinity χ (by DSC):
+    χ = ΔH_m,sample / ΔH_m,100%  (compare to perfectly crystalline standard)
+    PE: ΔH_m,100% = 293 J/g; χ = 50-80% typical
+    PET: χ = 20-50% depending on processing
+    PEEK: χ = 30-35% typical
 ```
 
-**Degree of crystallinity X_c:**
+### Spherulite Structure
+
 ```
-X_c = ΔH_f(sample) / ΔH_f^∞   (measured by DSC, compare to 100% crystal)
+    Spherulite: birefringent spherical entity visible under polarized light (Maltese cross)
+    Structure: lamellae radiating outward from central nucleus
+    Interlamellar amorphous regions (tie molecules connecting lamellae)
+    Size: 1 μm to 1 mm depending on nucleation density
 
-or from density: X_c = (ρ_s - ρ_a)/(ρ_c - ρ_a)
+    ○ ○ ○
+    ─────────────────────
+        spherulites        ← crystalline domains radiating outward
+    ─────────────────────
+    ○ ○ ○
 
-ρ_c = density of perfect crystal
-ρ_a = density of fully amorphous
+    Faster cooling → smaller spherulites (more nuclei, less growth time)
+    Adding nucleating agents (e.g., talc in PP): very fine spherulites → improved clarity + stiffness
 ```
-
-Crystallinity affects:
-| Property | Effect of higher X_c |
-|----------|---------------------|
-| Stiffness E | ↑ (crystals stiffer than amorphous) |
-| Strength | ↑ |
-| Transparency | ↓ (crystals scatter light if λ_crystal > λ_visible) |
-| Barrier (O₂, H₂O) | ↑ (crystallites are impermeable) |
-| Chemical resistance | ↑ (solvent can't penetrate crystal) |
-| Elongation to break | ↓ |
-
-**Quench from melt:** suppress crystallization → amorphous. Then anneal below T_m → crystallize.
 
 ---
 
@@ -129,292 +182,335 @@ Crystallinity affects:
 
 ### Glass Transition Temperature T_g
 
-**Physical meaning:** below T_g, chain segments are frozen (glassy solid). Above T_g, chain segments have enough thermal energy to undergo cooperative rearrangement (rubbery state).
+**T_g** = temperature where polymer goes from glassy (rigid, brittle) to rubbery (soft, flexible).
+Not a first-order phase transition — kinetic phenomenon, depends on cooling rate.
 
-NOT a thermodynamic phase transition (no latent heat) — it's a kinetic phenomenon.
-T_g depends on cooling rate (faster cooling → higher apparent T_g).
+**Free volume theory**:
+- Free volume v_f = total volume V - occupied volume V_0
+- Below T_g: chains are frozen, v_f barely changes with T (glassy thermal expansion α_g ≈ 3×10⁻⁴ K⁻¹)
+- Above T_g: chains gain mobility, v_f increases rapidly (α_r ≈ 6×10⁻⁴ K⁻¹)
+- T_g defined where v_f reaches critical value for cooperative segmental motion (~2.5% of V)
 
-**Free volume theory:**
+**WLF Equation** (Williams-Landel-Ferry, empirical but fundamental):
+
+$$\log a_T = \frac{-C_1(T - T_r)}{C_2 + (T - T_r)}$$
+
+where a_T = shift factor for superposition, T_r = reference temperature (often T_g),
+C_1 ≈ 17.4, C_2 ≈ 51.6 K (universal constants close to T_g for many polymers).
+
 ```
-v_f = v - v_0   (free volume = actual volume - occupied volume)
+    Physical interpretation:
+    a_T = τ(T)/τ(T_r) = shift factor in time-temperature superposition
+    → Mechanical behavior at T' and fast rate ≡ behavior at T and slow rate
+    → Allows prediction of creep/relaxation from short-term tests
 
-At T_g: v_f / v ≈ 0.025 (universal ~ 2.5% free volume)
+    Example: PS at T_g = 100°C
+    At T = 60°C (below T_g by 40°C):
+    log a_T = -17.4×(-40)/(51.6+(-40)) = 696/11.6 = 60
+    a_T = 10^60 → essentially infinite relaxation time → glassy
+    At T = 140°C:
+    log a_T = -17.4×40/(51.6+40) = -696/91.6 = -7.6
+    a_T = 10^{-7.6} → 40 million times faster → rubbery flow
 
-α_liquid > α_glass   (thermal expansion coefficient larger above T_g)
-v_f increases linearly with T above T_g
+    Factors affecting T_g:
+    Chain stiffness (aromatic backbone → higher T_g):
+    PE: T_g ≈ -125°C, PS: T_g = 100°C, PC: T_g = 147°C
+    PEEK: T_g = 143°C, Polyimide: T_g > 300°C
+
+    Plasticizers (e.g., DOP in PVC): fill free volume, lower T_g
+    Copolymerization: weighted average by Fox equation
+    1/T_g,copolymer = w_A/T_g,A + w_B/T_g,B
+    Crosslinking: increases T_g (reduces chain mobility)
+    Molecular weight: T_g increases with M_n, saturates above M ≈ 50 M_e
+    T_g = T_g,∞ - K/M_n  (Fox-Flory equation)
 ```
-
-**Factors that increase T_g:**
-| Factor | Effect | Example |
-|--------|--------|---------|
-| Stiffer backbone | ↑ T_g | PC > PE (phenylene vs -(CH₂)ₙ-) |
-| Bulkier side groups | ↑ T_g | PS (phenyl) >> PE: PS T_g = 100°C, PE T_g = -80°C |
-| Polar groups | ↑ T_g | PVC (Cl) T_g = 87°C vs PE T_g = -80°C |
-| Crosslinks | ↑ T_g | Increase with crosslink density |
-| Plasticizer | ↓ T_g | Add flexible small molecule (DOP) → increases free volume |
-
-Representative T_g values:
-| Polymer | T_g (°C) |
-|---------|---------|
-| PDMS (silicone) | -123 |
-| Polybutadiene | -85 |
-| PE (HDPE) | -80 |
-| PP (atactic) | -20 |
-| PET | 69 |
-| PVC | 87 |
-| PMMA | 105 |
-| PS | 100 |
-| PC | 145 |
-| Epoxy (cured) | 80–200 |
-| PEEK | 143 |
-| PI (Kapton) | >300 |
 
 ### Melting Temperature T_m
 
-Only for crystalline/semicrystalline polymers.
+First-order phase transition in semicrystalline polymers.
+Equilibrium T_m⁰ is approached from below in practice (finite crystal size, defects).
+
+$$T_m = T_m^0\left(1 - \frac{2\sigma_e}{\Delta H_f \cdot l}\right)$$
 
 ```
-T_m = ΔH_f / ΔS_f   (equilibrium for perfect crystal)
+    Gibbs-Thomson equation above: thinner lamellae → lower T_m
+    T_m⁰ (infinite crystal): PE ≈ 145°C, PET ≈ 280°C, PTFE ≈ 327°C
+    Observed T_m typically 5-30°C below T_m⁰
 
-Higher T_m: higher ΔH_f (stronger intermolecular forces, e.g., H-bonds) or
-            lower ΔS_f (stiffer chain, less entropy gain upon melting)
-```
+    T_g vs T_m:
+    Empirical: T_g/T_m ≈ 2/3 (in Kelvin) for symmetric polymers
+    T_g/T_m ≈ 1/2 for asymmetric chains (with bulky pendant groups)
+    → Useful rough estimate
 
-Key relationships:
-- T_m > T_g always (for same polymer)
-- T_g/T_m ≈ 0.5–0.8 (K/K) — empirical rule, Kauzmann's ratio
-
-**Semicrystalline service window:**
-```
-Below T_g: rigid, brittle glassy solid
-T_g to T_m: rubbery, leathery, tough (best mechanical performance)
-Above T_m: flows (melt processing window)
-Above T_decomp: pyrolysis
+    Common T_g and T_m values (°C):
+    PE: T_g = -125, T_m = 125-137 (depends on density/branching)
+    PP: T_g = -20, T_m = 165
+    Nylon 66: T_g = 47, T_m = 265
+    PET: T_g = 79, T_m = 265
+    PTFE: T_g = -97, T_m = 327
+    PEEK: T_g = 143, T_m = 343
+    HDPE: T_g = -110, T_m = 132
+    PC: T_g = 147, T_m = ~250 (rarely fully crystallized)
 ```
 
 ---
 
-## Rubber Elasticity (Entropy Spring)
+## Rubber Elasticity
 
-**Physical picture:** crosslinked network. Stretch → reduce conformational entropy of chains.
-Restoring force is ENTROPIC (like a stretched ideal gas), not enthalpic.
+Elastomers are crosslinked amorphous polymer networks above T_g.
+Elasticity is entropic, not energetic.
 
-**Statistical mechanics of a single chain:**
-For a freely-jointed chain with N links of length l:
+### Statistical Thermodynamics of a Network Strand
+
+A single polymer strand with n freely jointed links of length l:
+
+End-to-end vector r. Partition function Z(r) from Boltzmann:
+
+$$Z(r) \propto \exp\left(-\frac{3r^2}{2nl^2}\right) \quad \text{(Gaussian chain)}$$
+
+Entropy per chain: $S = k_B \ln Z = -\frac{k_B}{2}\cdot\frac{3r^2}{nl^2} + \text{const}$
+
+Spring constant: $k_{spring} = \frac{3k_B T}{nl^2} = \frac{3k_B T}{\langle r^2\rangle_0}$
+
+### Neo-Hookean Constitutive Law
+
+For a crosslinked network with chain density N (chains per unit volume),
+each chain with n segments, under uniaxial stretch λ = L/L₀:
+
+$$\sigma_{true} = NkT\left(\lambda - \frac{1}{\lambda^2}\right)$$
+
+Small strain (λ → 1, ε = λ-1 small):
+$$\sigma \approx NkT \cdot 3\varepsilon = E \cdot \varepsilon \quad \Rightarrow \quad E = 3NkT$$
+
+Shear modulus: G = NkT (also G = ρRT/M_c where M_c = molecular weight between crosslinks)
+
 ```
-End-to-end distance at equilibrium: ⟨r²⟩ = Nl²
-Probability: P(r) = (3/2πNl²)^(3/2) exp(-3r²/2Nl²)   (Gaussian for small r/Nl)
+    Physical insight:
+    → E increases with temperature (opposite of metals!)
+    → This is entropic: stretching reduces entropy → restoring force ∝ T
+    → Compare to metal spring: E_metal decreases slightly with T (bond softening)
+    → E_rubber ∝ T (stronger restoring force at higher T)
+    → If T fixed: E ∝ crosslink density N
 
-Entropy: S(r) = k_B ln P(r) = const - 3k_B r²/(2Nl²)
-Force: f = -T ∂S/∂r = 3k_BT r/(Nl²)   ← Hooke's law! Spring constant k = 3k_BT/(Nl²)
+    Practical:
+    Natural rubber (lightly vulcanized with S): M_c ≈ 10,000 g/mol
+    G = ρRT/M_c = (0.93×10³)(8.314)(300)/10,000 = 0.23 MPa
+    E ≈ 3G = 0.70 MPa ✓ (measured ~ 0.3-1 MPa for rubber)
+
+    Limits: Gaussian chain breaks down at large λ (chain reaches finite extensibility)
+    Non-Gaussian corrections: Langevin statistics, Arruda-Boyce 8-chain model
+    λ_max ≈ √n (finite extensibility ratio)
+    → Strain hardening occurs near λ_max → prevents tearing of rubber seals
 ```
-
-**Macroscopic neo-Hookean model:**
-For an incompressible crosslinked network with n chains per unit volume:
-```
-σ = nk_BT (λ - 1/λ²)   (for uniaxial extension, λ = stretch ratio)
-
-Small strain: σ ≈ nk_BT · 3ε = Eε   where E ≈ 3nk_BT = 3G
-
-G = nk_BT = (ρ/M_c)RT   (shear modulus from network density)
-```
-
-**Key features of rubber elasticity:**
-1. Modulus increases with temperature (opposite of metals!) — pure entropy
-2. G ~ 0.1–10 MPa (very low compared to metals: ~10–200 GPa)
-3. Large deformation (λ up to ~8) before failure
-4. Rate-independent for ideal rubber (no viscous dissipation)
-
-Real rubber deviates from neo-Hookean at large stretch (chains approach finite extensibility → Langevin chain model).
 
 ---
 
 ## Viscoelasticity
 
-Real polymers are neither purely elastic (spring) nor purely viscous (dashpot) — they're both.
+Polymers are viscoelastic: time-dependent mechanical response.
+Simultaneously elastic (store energy, spring-like) and viscous (dissipate energy, dashpot-like).
 
-### Models
-
-**Maxwell model** (spring + dashpot in series):
-```
-ε = ε_spring + ε_dashpot
-dε/dt = (1/E)(dσ/dt) + σ/η
-
-Creep at const σ: ε(t) = σ(1/E + t/η) — grows without bound
-Stress relaxation at const ε: σ(t) = σ_0 exp(-t/τ)  where τ = η/E
-```
-
-**Kelvin-Voigt model** (spring + dashpot in parallel):
-```
-σ = Eε + η(dε/dt)
-
-Creep at const σ: ε(t) = (σ/E)[1 - exp(-t/τ)]  — bounded, reaches equilibrium
-Good for creep; poor for stress relaxation (predicts instant recovery)
-```
-
-**Standard Linear Solid (SLS):** adds spring in series with Kelvin-Voigt → captures both.
-
-### Dynamic Mechanical Analysis (DMA)
-
-Apply oscillatory strain: ε = ε_0 sin(ωt)
-Response: σ = σ_0 sin(ωt + δ)
+### Maxwell Model (series spring + dashpot)
 
 ```
-E* = E' + iE''
+    ┌────────────────────────────┐
+    │    [spring k]─[dashpot η] │
+    └────────────────────────────┘
 
-E' = storage modulus = σ_0/ε_0 cos δ   (elastic, in-phase component)
-E'' = loss modulus  = σ_0/ε_0 sin δ    (viscous, out-of-phase)
-tan δ = E''/E'   (loss tangent, measure of damping)
+    Same stress in both: σ = k·ε_elastic = η·(dε_viscous/dt)
+    Total strain: ε = ε_elastic + ε_viscous
+    Constitutive equation: dε/dt = σ/E + σ/η (differentiate)
+    → ε̇ = σ̇/E + σ/η   (Maxwell model)
+
+    STRESS RELAXATION TEST (fixed strain ε₀, measure σ(t)):
+    dσ/dt + σ/τ = 0   where τ = η/E = relaxation time
+    Solution: σ(t) = σ₀ e^{-t/τ}   where σ₀ = Eε₀
+    Relaxation modulus: E_r(t) = E·e^{-t/τ}
+    → Good for stress relaxation, poor for creep (predicts infinite creep)
 ```
 
-DMA E' vs T spectrum:
-```
-E' (Pa)
-10⁹ │ ──────────────── Glassy plateau
-    │              ↘
-10⁷ │               ──── Rubbery plateau (if crosslinked)
-    │               T_g → glass transition (tan δ peak)
-10⁵ │                    ──── Flow (if uncrosslinked)
-    └────────────────────────── T (°C)
-                    ↑
-               T_g from tan δ peak
-               (slightly higher than DSC midpoint T_g)
-```
-
-### WLF Equation (Time-Temperature Superposition)
-
-A master curve can be constructed by shifting DMA data:
+### Kelvin-Voigt Model (parallel spring + dashpot)
 
 ```
-log a_T = -C₁(T - T_ref) / (C₂ + T - T_ref)
+    ┌─────────────────┐
+    │  [spring k] ∥   │
+    │  [dashpot η]    │
+    └─────────────────┘
 
-Universal constants near T_g: C₁ = 17.44, C₂ = 51.6 K (with T_ref = T_g)
-a_T = horizontal shift factor; higher T → shift left (faster dynamics)
+    Same strain in both: σ = k·ε + η·(dε/dt)
+    σ = Eε + η(dε/dt)
 
-Physical basis: free volume theory — α_f = 4.8×10⁻⁴/K is universal
+    CREEP TEST (fixed stress σ₀, measure ε(t)):
+    ε(t) = (σ₀/E)(1 - e^{-t/τ})   where τ = η/E
+    → Good for creep, poor for stress relaxation (predicts instant relaxation)
+    Compliance: J(t) = ε(t)/σ₀ = J₀(1 - e^{-t/τ})
 ```
 
-**Practical implication:** lower T ↔ faster frequency (same effect on modulus).
-Polymer tested at 1 Hz, 150°C: equivalent to 10⁶ Hz, room temperature.
-→ Crash testing at slow rate is NOT equivalent to high-rate impact.
+### General Linear Viscoelasticity
+
+Real polymers: spectrum of relaxation times. Use generalized Maxwell (Prony series):
+$$E_r(t) = E_\infty + \sum_{i=1}^N E_i e^{-t/\tau_i}$$
+
+**Dynamic Mechanical Analysis (DMA)**:
+
+Oscillatory strain ε(t) = ε₀ e^{iωt}:
+Response: σ(t) = σ₀ e^{i(ωt+δ)} = ε₀(E' + iE'')e^{iωt}
+
+- Storage modulus E' = σ₀cos(δ)/ε₀ (elastic component, energy stored)
+- Loss modulus E'' = σ₀sin(δ)/ε₀ (viscous component, energy dissipated)
+- Loss tangent: tan δ = E''/E' (ratio of energy dissipated to stored per cycle)
+
+```
+    DMA scan through T (at fixed frequency 1 Hz):
+
+    E'(Pa)
+    10¹⁰  ┤───────────────────────────
+          │  Glassy region             \
+    10⁹   ┤                            \
+          │                          transition
+    10⁸   ┤                              \
+          │  tan δ peak at T_g            \
+    10⁷   ┤                        Rubbery plateau
+          │                               ─────────
+    10⁶   ┤
+          └──────────────────────────── T
+          T << T_g                T_g             T > T_g
+
+    tan δ peak = T_g from DMA (typically 5-10°C above DSC T_g at 1 Hz)
+    Area under tan δ peak ~ energy dissipated per cycle → damping
+    Wide tan δ peak → good vibration damper (SBR rubber, PVC blends)
+    Frequency shift of T_g: per decade frequency, T_g shifts ~7°C
+    (Consistent with WLF equation)
+```
 
 ---
 
-## Thermoplastics vs Thermosets vs Elastomers
+## Common Polymers Reference Table
 
-```
-                    THERMOPLASTICS
-                    ──────────────
-                    Melt and reflow above T_m (semi-crystalline) or T_g (amorphous)
-                    Recyclable (in principle)
-                    Processing: injection molding, extrusion, blow molding
-                    Examples: PE, PP, PS, PET, Nylon, PEEK, PC
-
-                    THERMOSETS
-                    ──────────
-                    Crosslinked during curing (irreversible network)
-                    Cannot be remelted
-                    Processing: RIM, RTM, pultrusion (composites), casting
-                    Examples: epoxy, vinyl ester, phenolic, BMI, DGEBA/amine
-                    T_g can be 80°C (epoxy/amine) to 250°C+ (bismaleimide)
-
-                    ELASTOMERS
-                    ──────────
-                    Lightly crosslinked → rubbery at service T
-                    T_g << service temperature (usually room T)
-                    High elongation, entropy-spring mechanics
-                    Examples: NR (natural), SBR, EPDM, silicone (PDMS), nitrile (NBR)
-                    Vulcanization: sulfur crosslinks -S- or -S₂- between chains
-```
-
-**Thermoplastic elastomers (TPE):** no chemical crosslinks — physical crosslinks from
-hard block domains (PS in SBS triblock): deform elastically due to network; melt above
-T_g of hard block (PS, 100°C) → processable like thermoplastic. Used in soles, grips, seals.
+| Polymer      | T_g (°C) | T_m (°C) | E (GPa) | σ_y (MPa) | Applications                     |
+|-------------|---------|---------|--------|---------|----------------------------------|
+| LDPE         | -110    | 108-115 | 0.1-0.3| 8-20    | Bags, film, coating              |
+| HDPE         | -110    | 126-135 | 0.8-1.5| 20-37   | Bottles, pipe, geomembranes      |
+| PP           | -20     | 160-168 | 1.5-2.0| 30-40   | Containers, fiber, auto parts    |
+| PS           | 97-105  | —       | 3.0-3.5| 30-60   | Foam, packaging, CD cases        |
+| PVC          | 75-85   | —       | 2.5-4.2| 40-55   | Pipe, wire insulation, flooring  |
+| PMMA (acrylic)| 100-108| —       | 2.7-3.2| 60-75   | Windows, optical, signs          |
+| Nylon 6      | 47      | 220     | 2.5-3.5| 70-85   | Gears, bearings, textiles        |
+| Nylon 66     | 60      | 265     | 2.8-4.0| 80-95   | Engineering parts, carpet        |
+| PET          | 70-80   | 250-265 | 2.5-4.5| 55-75   | Bottles, film, fiber (polyester) |
+| PC           | 145-150 | ~260    | 2.3-2.4| 55-65   | Safety glass, electronics, CD   |
+| PEEK         | 143     | 335-345 | 3.6    | 91      | Aerospace, medical, high-T parts |
+| PTFE         | -97     | 320-327 | 0.4-0.7| 20-25   | Non-stick, seals, biomedical     |
+| PDMS         | -127    | -40     | 0.001-0.002 | 0.1-0.5| Silicone, microfluidics, sealants |
+| Epoxy (cured)| 100-200 | —       | 2.5-4.5| 60-80   | Adhesives, CFRP matrix, PCB      |
+| Carbon fiber  | —      | >3000°C | 230-600| —       | Reinforcement fiber              |
 
 ---
 
-## Processing Fundamentals
+## Thermosets vs Thermoplastics vs Elastomers
 
-**Melt viscosity:**
 ```
-η_0 ∝ M_w^3.4   (for M_w > M_c)   (entangled regime)
-η_0 ∝ M_w^1     (for M_w < M_c)   (Rouse regime)
-
-Shear thinning: η(γ̇) = η_0 (1 + (λγ̇)^(1-n))^((n-1)/1)   (Cross model)
-Power law: η = K γ̇^(n-1)   (n < 1 for shear thinning; most polymer melts)
+    ┌──────────────────────────────────────────────────────────┐
+    │  THERMOPLASTICS                                          │
+    │  Linear or branched chains → melt and flow above T_g/T_m│
+    │  Recyclable, re-processable                              │
+    │  Examples: PE, PP, PS, Nylon, PET, PC                   │
+    │  Bond type holding together: van der Waals (physical)   │
+    ├──────────────────────────────────────────────────────────┤
+    │  THERMOSETS                                              │
+    │  Covalently crosslinked network → cannot melt or flow   │
+    │  Cannot be recycled by melting                           │
+    │  Examples: epoxy, polyurethane, phenolic, silicone resin │
+    │  Cure: exothermic chemical reaction (mixing A+B, or heat)│
+    │  Properties: higher T service, stiffer, more brittle     │
+    ├──────────────────────────────────────────────────────────┤
+    │  ELASTOMERS (RUBBERS)                                    │
+    │  Lightly crosslinked amorphous polymer above T_g         │
+    │  Large reversible deformation (100-1000% elongation)     │
+    │  E = 0.001-10 MPa (orders below metals/plastics)         │
+    │  Examples: NR (vulcanized), SBR, EPDM, silicone          │
+    │  Crosslinks: S-S bonds (vulcanization), peroxide, γ-rad  │
+    └──────────────────────────────────────────────────────────┘
 ```
-
-Viscosity temperature dependence:
-```
-η(T) = η_ref exp[-C₁(T - T_ref)/(C₂ + T - T_ref)]   (WLF above T_g)
-η(T) = A exp(E_a/RT)   (Arrhenius, for T >> T_g)
-```
-
-**Processing windows:**
-| Process | Requirement | Typical T | Typical γ̇ (s⁻¹) |
-|---------|------------|-----------|-----------------|
-| Injection molding | Low η, fast fill | T_m + 20–50°C | 10³–10⁵ |
-| Extrusion | Stable flow | T_m + 10–30°C | 10²–10³ |
-| Compression molding | Low η, closed mold | T_m or cure T | 0.1–10 |
-| Fiber spinning | Draw stability | T_m + 30°C | 10³–10⁵ |
-| Film blowing | Melt strength | T_m + 10°C | 10²–10³ |
 
 ---
 
-## Common Engineering Polymers — Reference Card
+## Processing Overview
 
-| Polymer | T_g (°C) | T_m (°C) | E (GPa) | σ_UTS (MPa) | Notable for |
-|---------|---------|---------|---------|------------|------------|
-| HDPE | -80 | 135 | 1.0 | 30 | Chemical resistance, pipes |
-| PP | -20 | 160–165 | 1.5 | 35 | Hinge fatigue resistance, living hinges |
-| PS | 100 | — | 3.2 | 50 | Brittle, clear, cheap |
-| PMMA | 105 | — | 3.3 | 72 | Optically clear, "plexiglass" |
-| PVC | 87 | — | 3.0 | 50 | Flame retardant (Cl), pipe, cable |
-| PC | 145 | — | 2.4 | 65 | Impact resistant, bulletproof glass |
-| PET | 69 | 255 | 3.1 | 55 | Bottles, fiber (polyester), biaxial film |
-| Nylon 66 | 50 | 265 | 2.8 | 80 | Gears, bearings (moisture absorbs) |
-| PEEK | 143 | 343 | 3.6 | 100 | High T, chemical resistant, implants |
-| PTFE | -97 | 327 | 0.5 | 35 | Lowest friction, chemical inert, Teflon |
-| Epoxy (cured) | 80–200 | — | 3–4 | 60–90 | Adhesive, composite matrix |
-| NR (rubber) | -70 | — | 0.001–0.01 | 20–30 | Natural, high tear strength |
+```
+    Processing method   │ Material type  │ Products
+    ───────────────────────────────────────────────────────────
+    Injection molding   │ Thermoplastics │ Complex 3D parts
+                        │                │ (gears, housings, caps)
+    Extrusion           │ Thermoplastics │ Pipe, sheet, film,
+                        │                │ pellets (compounding)
+    Blow molding        │ Thermoplastics │ Bottles, tanks
+                        │ (stretch blow) │ (PET water bottles)
+    Compression molding │ Thermosets     │ SMC, BMC auto panels
+    RTM/VARTM          │ Thermoset + fiber│ CFRP structural parts
+    Thermoforming       │ Thermoplastics │ Trays, packaging
+    Fiber spinning      │ Thermoplastics │ Fiber, yarn (Nylon, PET)
+    FUSED DEPOSITION   │ Thermoplastics │ 3D printing (FDM/FFF)
+    SLA/DLP/SLS        │ Thermosets/thermo│ Photopolymer 3D printing
+```
+
+### Injection Molding Fundamentals
+
+```
+    Melt flow index (MFI): g/10 min pushed through orifice at 190°C, 2.16 kg load
+    Low MFI: high MW, viscous → structural parts (not thin-walled)
+    High MFI: low MW, flows easily → packaging, thin walls
+
+    Shear thinning: η = η₀/(1+(λγ̇)^a)^n (power law)
+    Polymer melts are pseudoplastic (shear-thinning) → power law index n < 1
+    → Easier to fill mold at high injection speed (high γ̇ → lower η)
+
+    Frozen skin / crystallization kinetics:
+    Fast injection → fill before solidification
+    Slow → short shots, warpage
+    Crystallizable polymers: slow cool → high crystallinity → higher T_m, stiffer
+    Fast cool (thin walls, cold mold) → less crystallinity → tougher but softer
+```
 
 ---
 
 ## Decision Cheat Sheet
 
-| Need | Choose | Avoid |
-|------|--------|-------|
-| High T service (> 200°C) | PEEK, PI, PPS, BMI | Most standard thermoplastics |
-| Optical clarity | PMMA, PC, PS, PET film | Any semicrystalline at large grain |
-| Living hinge (flex millions of cycles) | PP | PC, PMMA (brittle in fatigue) |
-| Chemical resistance | PTFE, HDPE, PVDF | Nylon (absorbs water), PC (attacked by ketones) |
-| Low friction bearing | PTFE, UHMWPE, Nylon | Rubber, PS |
-| Thermoset matrix for CFRP | Epoxy | Thermoplastics (higher T_process) |
-| Recyclable flexible packaging | LDPE film, PP, PET | Thermosets |
-| Wearable electronics substrate | PI (Kapton) film | Rigid thermosets |
+| Need                            | Polymer Choice       | Why                                  |
+|---------------------------------|---------------------|--------------------------------------|
+| High service T (>200°C)        | PEEK, PTFE, PI       | High T_g or T_m + thermal stability  |
+| Chemical resistance (everything)| PTFE                 | C-F bonds, inert                     |
+| Optical clarity + tough        | PC                   | Amorphous + high K_IC vs glass        |
+| Structural load-bearing        | PEEK, Nylon, POM     | Stiff + creep resistant              |
+| Flexible seal/gasket           | EPDM, FKM, PDMS     | Elastomer + chemical resistance      |
+| Food/medical contact           | PE, PP, PTFE, PEEK  | FDA approved, low leaching           |
+| High-performance composite matrix | Epoxy + CF       | CFRP: best E/ρ and σ/ρ              |
+| Low friction bearing           | PTFE, UHMWPE, POM   | Low μ_kinetic, good wear             |
+| Electronics encapsulant        | Epoxy, silicone      | Low CTE, stable, moldable            |
+| Elastomeric damper             | SBR, EPDM            | High tan δ, broad T_g range          |
 
 ---
 
 ## Common Confusion Points
 
-**1. T_g is not the maximum service temperature.**
-Above T_g: polymer is rubbery but still solid (if semicrystalline, until T_m).
-Maximum service T is application-dependent: medical device needs T_g >> autoclave (134°C).
+**T_g is NOT the only relevant transition**: Crystallizable polymers have both T_g (chain
+mobility onset) and T_m (crystallite melting). Below T_g: both crystalline and amorphous regions
+are frozen, polymer is rigid. Between T_g and T_m: amorphous regions are rubbery but crystallites
+constrain. Above T_m: fully molten. The ratio T_g/T_m determines the processing window.
 
-**2. WLF time-temperature equivalence only works in the 50°C window around T_g.**
-Far above T_g (> T_g + 100°C): Arrhenius behavior, not WLF.
-Crystallization kinetics do NOT obey WLF.
+**Entropy-elastic spring means higher T = stiffer**: Rubber stiffness E = 3NkT.
+Heat a rubber band → it contracts (entropy drives it to coiled state). This is the opposite
+of metals (which soften at higher T). A taut rubber band releases and contracts when heated.
+Classic demonstration: hold a stretched rubber band to your lips, then relax and re-stretch —
+you feel it cool when relaxed (expanding gas analogy works qualitatively but mechanism differs).
 
-**3. Modulus of rubber INCREASES with T (opposite of metals).**
-Metal: E decreases with T (atoms vibrate more → weaker effective spring constant).
-Rubber: G = nk_BT → proportional to T. Cooling rubber stiffens it (eventually vitrifies at T_g).
+**Degree of crystallinity is not binary**: Semicrystalline polymers are never fully
+crystalline. Even highly crystalline PTFE has 50-75% crystallinity. The "crystallinity"
+measured by DSC (ΔH_m ratio) or WAXS is a volume-fraction average. Properties interpolate
+between amorphous and crystalline extremes. Chain entanglements in the amorphous phase
+are kinetically trapped during crystallization.
 
-**4. Crosslinking and crystallinity both increase stiffness but by different mechanisms.**
-Crosslinks: restrict chain mobility → network rubber modulus G = nk_BT.
-Crystallinity: rigid crystal phase parallel to amorphous → composite model (Takayanagi).
-A crosslinked amorphous network (silicone rubber) and a semicrystalline thermoplastic (HDPE)
-can have similar stiffness by completely different mechanisms.
-
-**5. Molecular weight PDI = 1 does NOT mean all chains are exactly the same length.**
-PDI = 1 means the distribution is monodisperse, but there's still a narrow distribution.
-Only living polymerization approaches PDI = 1.01–1.10. Free radical always gives PDI ≈ 2.
+**PDI > 2 doesn't mean poor polymer**: PDI = 2 for ideal step-growth (Flory-Schulz
+distribution). PDI = 1.1-1.5 from controlled/living polymerization (anionic, ATRP, RAFT).
+But PDI 5-20 is common and acceptable for many commodity applications — the broad distribution
+can actually improve processability (low-MW tail lubricates flow; high-MW tail adds strength).
