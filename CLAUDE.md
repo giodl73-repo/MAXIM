@@ -139,8 +139,8 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | `ai-engineering/01-LLM-CONCEPTS.md` | LLMs — tokens, context, RAG, fine-tuning | ✅ Complete |
 | `ai-engineering/02-EVALS-HARNESS.md` | Eval harness engineering — PromptFoo, Braintrust, RAGAS, LLM-as-judge, CI | ✅ Complete |
 | `ai-engineering/03-ORCHESTRATION.md` | LangChain, LlamaIndex, Semantic Kernel | ✅ Complete |
-| `ai-engineering/04-AGENTS.md` | Agent patterns, tool use, memory, multi-agent | 🔜 Next |
-| `ai-engineering/05-SAFETY.md` | Red-teaming, hallucination detection, bias | 🔜 Planned |
+| `ai-engineering/04-AGENTS.md` | Agent patterns, tool use, memory, multi-agent | ✅ Complete |
+| `ai-engineering/05-SAFETY.md` | Red-teaming, hallucination detection, bias | 🔜 Next |
 
 ---
 
@@ -177,6 +177,7 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | 2026-02-22 | ai-engineering/ track started. 01-LLM-CONCEPTS.md authored. Next-token prediction, BPE tokenization, context window mechanics, Transformer architecture (attention, MHA, FFN, RoPE), pre-training + alignment (RLHF/DPO/Constitutional AI), sampling + KV cache + speculative decoding, context engineering (zero-shot/few-shot/CoT/ReAct), RAG, fine-tuning vs prompting, LoRA/QLoRA, model families map. |
 | 2026-02-22 | 02-EVALS-HARNESS.md authored. Eval anatomy (dataset × prompt × scoring × threshold), scoring taxonomy (deterministic to probabilistic), LLM-as-judge design, PromptFoo (YAML config, multi-provider compare, red-team, CI mode), Braintrust (SDK, experiment comparison, UI), RAGAS (context recall/precision, faithfulness, answer relevancy), LangSmith (prod tracing → dataset flywheel), roll-your-own loop, eval-as-CI-gate with GitHub Actions, dataset engineering, cost-aware eval, common confusion points. |
 | 2026-02-22 | 03-ORCHESTRATION.md authored. LangChain (LCEL pipe composition, RAG chain, memory, tools+agents, known pain points), LlamaIndex (ingestion pipeline, HyDE/QuestionsAnsweredExtractor, SubQuestionQueryEngine), Semantic Kernel (Kernel+Plugin model, auto function calling, Planner, C# .NET first-class, Azure-native pattern), framework comparison table, no-framework option (direct SDK tool-use loop), chunking strategies, embedding model selection, common confusion points (LangGraph, vector store ≠ retrieval strategy). |
+| 2026-02-22 | 04-AGENTS.md authored. ReAct loop anatomy + minimal implementation, tool design principles (one responsibility, errors as returns, timeouts), tool description as prompt engineering, memory taxonomy (in-context/episodic/semantic/procedural), summary buffer + selective retrieval patterns, five agent patterns (single, prompt chaining, parallelization, evaluator-optimizer, orchestrator/subagent), LangGraph (StateGraph, conditional edges, checkpointer, human-in-the-loop interrupt), multi-agent topologies, production hardening (loop detection, context size guard, prompt injection defense, cost metrics), agent evals (trajectory eval), decision cheat sheet. |
 
 ---
 
