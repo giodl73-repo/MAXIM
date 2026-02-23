@@ -12,13 +12,22 @@ A **self-authored reference library** organized by field. Each field is a subdir
 reference/
 │
 │  SESSION 1 — Modern Software Engineering
-├── computing/          Modern software engineering (19 modules)
+├── computing/          Modern software engineering (23 modules)
 ├── data-science/       Python stack, classical ML, MLOps (planned)
-├── ai-engineering/     LLMs, agents, evals harness, safety (planned)
+├── ai-engineering/     LLMs, agents, evals harness, safety (5 modules)
 │
 │  SESSION 2 — Physics & Mathematics
 ├── mathematics/        Vector calc, topology, probability — toolbox for physics
-└── physics/            E&M, Maxwell, MHD, liquid metals, quantum, zero-point energy
+├── physics/            E&M, Maxwell, MHD, liquid metals, quantum, zero-point energy
+│
+│  SESSION 3 — Languages
+├── languages/          16 languages × taxonomy + per-language reference cards (19 files)
+│
+│  SESSION 4 — Query Languages
+├── query-languages/    SQL, PostgreSQL, T-SQL, MySQL, SQLite, KQL, analytical, DuckDB
+│
+│  SESSION 7 — Natural Sciences
+├── natural-sciences/   Chemistry, biochemistry, earth sciences, biology, plasma science
 ```
 
 ---
@@ -128,8 +137,8 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 
 | File | Topic | Status |
 |------|-------|--------|
-| `data-science/01-NUMPY.md` | NumPy — arrays, broadcasting, vectorized ops, linear algebra substrate | 🔜 Next |
-| `data-science/02-PANDAS.md` | Pandas — DataFrame, indexing, groupby, merge, time series, performance | 🔜 Queued |
+| `data-science/01-NUMPY.md` | NumPy — arrays, broadcasting, vectorized ops, linear algebra substrate | ✅ Complete |
+| `data-science/02-PANDAS.md` | Pandas — DataFrame, indexing, groupby, merge, time series, performance | 🔜 Next |
 | `data-science/03-SKLEARN.md` | scikit-learn — estimator API, preprocessing, pipelines, model selection, classical ML | 🔜 Queued |
 | `data-science/04-PYTORCH.md` | PyTorch — tensors, autograd, nn.Module, training loop, GPU, from scratch to transfer | 🔜 Queued |
 | `data-science/05-MLOPS.md` | MLOps — experiment tracking (MLflow/W&B), model registry, deployment, drift detection | 🔜 Queued |
@@ -209,6 +218,7 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | 2026-02-22 | 03-ORCHESTRATION.md authored. LangChain (LCEL pipe composition, RAG chain, memory, tools+agents, known pain points), LlamaIndex (ingestion pipeline, HyDE/QuestionsAnsweredExtractor, SubQuestionQueryEngine), Semantic Kernel (Kernel+Plugin model, auto function calling, Planner, C# .NET first-class, Azure-native pattern), framework comparison table, no-framework option (direct SDK tool-use loop), chunking strategies, embedding model selection, common confusion points (LangGraph, vector store ≠ retrieval strategy). |
 | 2026-02-22 | 04-AGENTS.md authored. ReAct loop anatomy + minimal implementation, tool design principles (one responsibility, errors as returns, timeouts), tool description as prompt engineering, memory taxonomy (in-context/episodic/semantic/procedural), summary buffer + selective retrieval patterns, five agent patterns (single, prompt chaining, parallelization, evaluator-optimizer, orchestrator/subagent), LangGraph (StateGraph, conditional edges, checkpointer, human-in-the-loop interrupt), multi-agent topologies, production hardening (loop detection, context size guard, prompt injection defense, cost metrics), agent evals (trajectory eval), decision cheat sheet. |
 | 2026-02-22 | 05-SAFETY.md authored. ai-engineering/ track complete. Hallucination taxonomy (intrinsic/extrinsic, closed/open domain), SelfCheckGPT consistency sampling, citation forcing + CoT mitigation. Prompt injection taxonomy (direct/indirect/tool hijacking), structural delimiter defense, tool result wrapping. Jailbreak patterns. Red-teaming (PromptFoo redteam, Garak, PyRIT multi-turn orchestrator). Output guardrails (Guardrails AI, NeMo Guardrails/Colang, Llama Guard classifier). PII (Microsoft Presidio detect + redact + synthetic replace). Bias taxonomy + counterfactual eval. System prompt hardening anatomy. EU AI Act tiers + NIST AI RMF. CI safety gates. Over-refusal as second failure mode. |
+| 2026-02-22 | data-science/ track started. Defined 6-module arc (NumPy → Pandas → sklearn → PyTorch → MLOps → Azure ML). 01-NUMPY.md authored: ndarray memory model (strides, views vs copies, contiguity + BLAS), dtypes, array creation, indexing (basic/fancy/boolean/np.ix_), broadcasting rules + keepdims, ufuncs, axis operations, np.linalg (solve/eig/SVD/QR/Cholesky, batch), np.fft (1-D/2-D, rfft, fftshift), performance patterns (vectorize, in-place, float32), decision cheat sheet. |
 | 2026-02-22 | Session 3 initialized. languages/ series: 19 files. 00-OVERVIEW.md (language genealogy ASCII tree, paradigm spectrum, 6 type-system axes, early/late binding depth, nominal/structural/duck, expression problem). 01-CHEATSHEET.md (universal comparison tables: 16 languages × 10 topics + per-language quick cards). 02-C through 17-SQL: individual reference cards for C, C++, Java, C#, Python, JavaScript, TypeScript, Rust, Go, Haskell, F#, Kotlin, Swift, Scala, Ruby, SQL. Each covers: type system snapshot, syntax reference card (equality, logical ops, delimiter semantics, collection literals, if/match, strings/chars, null/Option, functions, error handling), what makes it distinct, ecosystem, gotchas from C#. |
 
 ---
