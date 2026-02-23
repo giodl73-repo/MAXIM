@@ -144,8 +144,8 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | `data-science/02-PANDAS.md` | Pandas — DataFrame, indexing, groupby, merge, time series, performance | ✅ Complete |
 | `data-science/03-SKLEARN.md` | scikit-learn — estimator API, preprocessing, pipelines, model selection, classical ML | ✅ Complete |
 | `data-science/04-PYTORCH.md` | PyTorch — tensors, autograd, nn.Module, training loop, GPU, from scratch to transfer | ✅ Complete |
-| `data-science/05-MLOPS.md` | MLOps — experiment tracking (MLflow/W&B), model registry, deployment, drift detection | 🔜 Next |
-| `data-science/06-AZURE-ML.md` | Azure Machine Learning — workspaces, compute, pipelines, managed endpoints, AzureML SDK v2 | 🔜 Queued |
+| `data-science/05-MLOPS.md` | MLOps — experiment tracking (MLflow/W&B), model registry, deployment, drift detection | ✅ Complete |
+| `data-science/06-AZURE-ML.md` | Azure Machine Learning — workspaces, compute, pipelines, managed endpoints, AzureML SDK v2 | 🔜 Next |
 
 ---
 
@@ -192,6 +192,9 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 |------|-------|--------|
 | `astronomy/01-EARTH-MOTIONS.md` | Precession, nutation, Chandler wobble, obliquity — all Earth rotational/orbital motions | ✅ Complete |
 | `astronomy/02-MILANKOVITCH.md` | Orbital mechanics + Milankovitch cycles — eccentricity, obliquity, precession → ice ages | ✅ Complete |
+| `astronomy/03-CELESTIAL-MECHANICS.md` | Two-body problem, orbital elements, perturbation theory, Lagrange points, resonances, tidal mechanics, chaos | ✅ Complete |
+| `astronomy/04-STELLAR-PHYSICS.md` | Stellar structure, HR diagram, nucleosynthesis, stellar evolution, compact objects | 🔜 Queued |
+| `astronomy/05-COSMOLOGY.md` | Big Bang, expansion, CMB, dark matter/energy, large-scale structure | 🔜 Queued |
 
 ---
 
@@ -235,6 +238,10 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | 2026-02-22 | Session 3 initialized. languages/ series: 19 files. 00-OVERVIEW.md (language genealogy ASCII tree, paradigm spectrum, 6 type-system axes, early/late binding depth, nominal/structural/duck, expression problem). 01-CHEATSHEET.md (universal comparison tables: 16 languages × 10 topics + per-language quick cards). 02-C through 17-SQL: individual reference cards for C, C++, Java, C#, Python, JavaScript, TypeScript, Rust, Go, Haskell, F#, Kotlin, Swift, Scala, Ruby, SQL. Each covers: type system snapshot, syntax reference card (equality, logical ops, delimiter semantics, collection literals, if/match, strings/chars, null/Option, functions, error handling), what makes it distinct, ecosystem, gotchas from C#. |
 | 2026-02-22 | Session 8 initialized. astronomy/ directory. 01-EARTH-MOTIONS.md authored: full hierarchy of Earth motions (rotation/Chandler/nutation/precession/obliquity), oblate spheroid root cause (J₂, Hd), precession rate formula (lunisolar torque, cos ε, tidal forcing ratio Moon/Sun=2.18), Euler angle framework (ψ/θ/φ), nutation (IAU 2000A, dominant 18.6 yr term ±17"/±9"), Chandler wobble (305 day Euler vs 433 day actual, non-rigidity, excitation problem), obliquity variation (22.1°–24.5° over 41 kyr, Jupiter forcing), pole star drift timeline (Thuban→Polaris→Vega→Polaris), zodiacal age precession (Hipparchus discovery), year type comparison (tropical/sidereal/anomalistic/draconic), GR corrections (geodetic/Lense-Thirring). |
 | 2026-02-22 | 02-MILANKOVITCH.md authored. Eccentricity (~95/125/413 kyr beats, Jupiter/Saturn resonances), apsidal precession (~112 kyr prograde), climate precession index e·sin(λ̃) (~23+~19 kyr), insolation formula W(φ,t), 65°N summer target, Hays-Imbrie-Shackleton 1976 "Pacemaker" result, SPECMAP 1984/LR04 2005, MIS stages, 100-kyr problem (open), MPT (~900 kyr, no orbital change), Moon as obliquity stabilizer, La2004/La2010 validity limits (±50/±20 Myr), CO₂ as feedback not forcing. Session8.md created. |
+| 2026-02-22 | 03-CELESTIAL-MECHANICS.md authored. Two-body reduction (reduced mass, conic sections, Kepler's laws as corollaries, vis-viva), six orbital elements + Kepler's equation (M=E−e sin E), three-body problem (Poincaré, restricted case, Jacobi integral), Lagrange L1–L5 (stability, Routh's criterion, halo orbits, mission examples: SOHO/JWST/Trojans), Lagrange planetary equations + J₂ perturbations (nodal regression, apsidal precession, sun-synchronous at 97–98°, Molniya at 63.43°), mean motion resonances (Kirkwood gaps, Laplace 4:2:1 Io/Europa/Ganymede, Plutinos 3:2, Trojans 1:1), secular resonances (ν₆ inner belt boundary), tidal forces (Roche limit 2.44R(ρ₁/ρ₂)^(1/3), tidal locking timescale, Mercury 3:2 spin-orbit, Io tidal heating), orbital maneuvers (Hohmann, gravity assist, Tsiolkovsky), solar system chaos (Lyapunov 5 Myr, Mercury 1% instability, Moon as obliquity stabilizer). |
+| 2026-02-22 | 03-SKLEARN.md authored. Estimator API uniformity (fit/predict/transform/score), Pipeline + ColumnTransformer (data leakage prevention), preprocessing taxonomy (scalers/encoders/imputers), StratifiedKFold, cross_validate multi-metrics, GridSearchCV + RandomizedSearchCV double-underscore param naming, metrics (ROC-AUC vs accuracy on imbalanced), algorithm reference (Ridge/Lasso, HistGBM/XGBoost/LightGBM), unsupervised (KMeans/DBSCAN/PCA/t-SNE), feature selection, class_weight + SMOTE, joblib persistence, 8-step ML workflow. |
+| 2026-02-22 | 04-PYTORCH.md authored. Tensor memory model (float32 default, from_numpy zero-copy, .to(device)), autograd dynamic graph (backward, gradient accumulation, no_grad, detach), nn.Module (forward vs __call__, train/eval semantics), full layer reference, CrossEntropyLoss expects logits, AdamW vs Adam correct L2, CosineAnnealingLR/OneCycleLR, Dataset/DataLoader (pin_memory, num_workers), complete 4-step training loop, mixed precision (float16+GradScaler, bfloat16 for A100+), clip_grad_norm_, checkpoint pattern, transfer learning (freeze/unfreeze + per-layer LR), residual block + self-attention modules, torch.compile(), PyTorch Lightning. |
+| 2026-02-22 | 05-MLOPS.md authored. data-science/ track nearly complete. MLflow (mlflow.start_run, autolog, Model Registry stage transitions), W&B (wandb.init/log, Sweeps with Bayesian optimization), MLflow vs W&B comparison table, DVC data versioning + dvc.yaml pipeline DAG, Great Expectations data validation, FastAPI serving endpoint, BentoML service, ONNX export + ORT inference, Evidently drift reports + PSI/KS thresholds, retraining pipeline sketch, CI/CD ML GitHub Actions YAML, feature store offline/online architecture. |
 
 | 2026-02-22 | Session 4 initialized. query-languages/ series: 13 files. 00-OVERVIEW (data model taxonomy, relational algebra → SQL bridge, SQL standards SQL-86→SQL:2023, ACID/BASE/SAGA, CAP, when SQL vs NoSQL decision tree). 01-SQL-CORE (30-year refresh: CTEs, recursive CTEs, window functions with OVER anatomy, ROWS/RANGE frames, MERGE, temporal tables, JSON SQL:2016, GENERATE_SERIES, indexes, EXPLAIN). 02-POSTGRESQL (JSONB operators, arrays, LATERAL=CROSS APPLY, RETURNING, materialized views, FTS, partitioning, RLS, pgvector, PostGIS, TimescaleDB). 03-TSQL (25-year refresh timeline, CROSS/OUTER APPLY, MERGE+OUTPUT, JSON+OPENJSON+FOR JSON, temporal tables, TRY/CATCH+THROW, sp_executesql safe dynamic SQL, Query Store, DMVs, Azure SQL tiers, Synapse distribution). 04-MYSQL (InnoDB architecture, ON DUPLICATE KEY UPDATE, window funcs 8.0+, CTEs 8.0+, JSON, utf8mb4 trap, EXPLAIN type hierarchy, replication/binlog). 05-SQLITE (serverless architecture, type affinity+STRICT mode, WAL mode, foreign_keys PRAGMA, JSON1, FTS5, WITHOUT ROWID, in-memory testing pattern, date as TEXT). 06-KQL (Azure Monitor/App Insights/Sentinel/ADX ecosystem, pipe syntax, time functions+bin(), has vs contains, dynamic type, let statements, join kinds, make-series anomaly detection, SQL→KQL translation table, common App Insights/Monitor/Sentinel hunting patterns). 07-ANALYTICAL (cloud DW evolution, BigQuery/Snowflake/Databricks/Synapse comparison, QUALIFY, PIVOT, time travel, MERGE INTO, materialized views, dbt integration, external tables, medallion architecture, OLAP functions). 08-SPARKSQL (Catalyst architecture, SQL API vs DataFrame API equivalence, Delta Lake MERGE/OPTIMIZE/ZORDER/VACUUM/time travel, broadcast joins, structured streaming with watermarks, explain modes, AQE). 09-DUCKDB (in-process OLAP, vectorized columnar, direct Parquet/CSV/JSON/S3/ADLS query, PIVOT auto-detection, LIST/STRUCT/MAP nested types, lambdas, Python zero-copy, httpfs/spatial/delta extensions). 10-MONGODB (MQL CRUD operators, aggregation pipeline stages, $lookup pipeline form, $facet/$bucket, expression operators, index types including TTL/partial/wildcard/2dsphere, Atlas Search Lucene + Atlas Vector Search for RAG). 11-REDIS (String/Hash/List/Set/ZSet/Stream commands, MULTI/EXEC/WATCH CAS, Pub/Sub vs Streams, Lua scripting, RediSearch FT.CREATE/FT.SEARCH/KNN vector, RedisJSON, distributed lock pattern). 12-GRAPHQL (SDL schema with scalar/enum/union/interface, query/mutation/subscription syntax, variables/fragments/directives, N+1+DataLoader, schema-first vs code-first, Apollo Federation, Hasura, persisted queries, REST vs GraphQL decision). Session4.md created. |
 
@@ -257,6 +264,38 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | `query-languages/10-MONGODB.md` | MongoDB MQL + aggregation pipeline, indexes, Atlas Vector Search | ✅ Complete |
 | `query-languages/11-REDIS.md` | Redis: data structures, Streams, Lua, RediSearch KNN, distributed lock | ✅ Complete |
 | `query-languages/12-GRAPHQL.md` | GraphQL: SDL schema, query/mutation/subscription, N+1 + DataLoader, federation | ✅ Complete |
+
+---
+
+## os/ — Artifact Index
+
+| File | Topic | Status |
+|------|-------|--------|
+| `os/00-OVERVIEW.md` | OS taxonomy — genealogy (Unix/NT/Darwin), kernel architectures, 5 core abstractions, privilege rings, security models, boot sequence, cross-OS vocabulary table | ✅ Complete |
+| `os/01-CHEATSHEET.md` | Universal comparison: Windows/Linux/macOS/iOS/Android × 20 topics + per-OS vocabulary load-in cards + dev environment setup | ✅ Complete |
+| `os/02-WINDOWS.md` | Windows dev — NT architecture, WinForms/WPF/WinUI3/MAUI genealogy, Worker Services, PowerShell, WSL2, UAC/tokens/Credential Guard, registry deep dive, ETW, networking, WinGet, SDK-style MSBuild | ✅ Complete |
+| `os/03-LINUX.md` | Linux dev — kernel/VFS/proc/sys, distro families (Debian/RHEL/Arch/Azure Linux), FHS, systemd (units/journal/timers), containers as Linux primitives, eBPF, shell scripting, permissions, networking, storage, SELinux/AppArmor | ✅ Complete |
+| `os/04-MACOS.md` | macOS dev — XNU/Mach/BSD/IOKit, SDK onion, app bundle, launchd/XPC, signing+notarization+Gatekeeper, APFS+SIP, Homebrew, SwiftUI vs AppKit, Apple Silicon + Rosetta 2 | ✅ Complete |
+| `os/05-IOS.md` | iOS dev — Xcode build system, provisioning+certificates+entitlements, app sandbox+privacy, UIKit/SwiftUI, Swift concurrency (async/await/actors), networking, background execution, push notifications, TestFlight+App Store | ✅ Complete |
+| `os/06-ANDROID.md` | Android dev — ART+Zygote, four app components, AndroidManifest, Gradle+AGP, Jetpack Compose, MVVM+Jetpack (ViewModel/Room/Hilt/WorkManager), Kotlin coroutines, Retrofit, Android Keystore, ADB, APK/AAB distribution | ✅ Complete |
+| `os/07-CROSS-PLATFORM.md` | Cross-platform — abstraction spectrum, .NET MAUI, React Native (New Architecture/JSI), Flutter (custom renderer), Electron (main/renderer/IPC), Tauri (Rust+webview), Capacitor, code sharing strategies, full decision matrix | ✅ Complete |
+
+---
+
+## scripting/ — Artifact Index
+
+| File | Topic | Status |
+|------|-------|--------|
+| `scripting/00-OVERVIEW.md` | Landscape — genealogy (Windows/POSIX/DSL), taxonomy, execution models, POSIX compliance spectrum, decision tree | ✅ Complete |
+| `scripting/01-CHEATSHEET.md` | Universal comparison: 8 languages × 12 topics + per-language quick cards + feature gap matrix | ✅ Complete |
+| `scripting/02-BATCH.md` | Windows CMD/Batch — delayed expansion, FOR /F, EXIT /B vs EXIT, special chars, Batch→PowerShell bridge | ✅ Complete |
+| `scripting/03-POWERSHELL.md` | PowerShell 7 — object pipeline, $? vs $LASTEXITCODE, try/catch, PS5.1 vs PS7, PS→Bash bridge | ✅ Complete |
+| `scripting/04-BASH.md` | Bash 5 — fork/exec model, quoting rules, arrays, set -euo pipefail, POSIX sh portability table, PS→Bash bridge | ✅ Complete |
+| `scripting/05-ZSH.md` | Zsh — 1-indexed arrays, extended globbing, float arithmetic, setopt, startup file order | ✅ Complete |
+| `scripting/06-FISH.md` | Fish — set/argparse/math builtins, universal vars, non-POSIX syntax, Fisher, interactive-only framing | ✅ Complete |
+| `scripting/07-AWK.md` | AWK/gawk — record/field model, built-ins, string functions, associative arrays, 25+ practical one-liners, SQL analogy | ✅ Complete |
+| `scripting/08-SED.md` | sed — address types, commands (s/d/p/a/i/c/y/N/P/D), hold space, labels/branching, GNU vs BSD table | ✅ Complete |
+| `scripting/09-PERL.md` | Perl 5 — sigils, context, regex as grammar, one-liner mode (-n/-p/-i/-a), CPAN, Modern Perl 5.36 | ✅ Complete |
 
 ---
 
