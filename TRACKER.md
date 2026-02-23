@@ -41,7 +41,7 @@
 | `periodic-table/` | 12 | — | ✅ |
 | `animal-phylogeny/` | 13 | — | ✅ |
 | `mythology/` | 0 | 12 stubs | 🔜 |
-| `linguistics/` | 0 | 10 stubs | 🔜 |
+| `linguistics/` | 10 | — | ✅ |
 | `music-theory/` | 0 | 10 stubs | 🔜 |
 | `cognitive-science/` | 0 | 10 stubs | 🔜 |
 
