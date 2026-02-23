@@ -13,13 +13,14 @@ reference/
 │
 │  SESSION 1 — Modern Software Engineering
 ├── computing/          25 modules — COMPLETE
-├── data-science/       NumPy, Pandas, sklearn, PyTorch, MLOps, Azure ML — 6/6 COMPLETE
+├── data-science/       NumPy→Azure ML (6 complete) + 11 stubs queued (07–17)
 ├── ai-engineering/     LLMs, evals, orchestration, agents, safety — 5 modules COMPLETE
 │
 │  SESSION 2 — Physics, Mathematics & Electronics
-├── mathematics/        Vector calc, topology, probability, diff geometry — 11 modules COMPLETE
+├── mathematics/        13 complete + 14-COMPLEX-ANALYSIS ✅ + 15-22 stubs queued
 ├── physics/            E&M, Maxwell, MHD, liquid metals, quantum, ZPE — 10 modules COMPLETE
-├── electronics/        (planned)
+├── electronics/        Circuit analysis, reactive, filters, amplifiers, signals, DSP — 6 COMPLETE
+├── materials/          Overview, crystal structure, bonding/bands, semiconductors, metals — 5 COMPLETE
 │
 │  SESSION 3 — Programming Languages
 ├── languages/          16 languages × taxonomy + reference cards — 19 files COMPLETE
@@ -35,10 +36,10 @@ reference/
 ├── os/                 Windows, Linux, macOS, iOS, Android, cross-platform — 8 files COMPLETE
 │
 │  SESSION 7 — Natural Sciences
-├── natural-sciences/   Chemistry, biochemistry, earth sciences, biology — in progress
+├── natural-sciences/   Chemistry (atomic→electrochemistry), metabolism, climate — 8 files
 │
 │  SESSION 8 — Astronomy & Planetary Sciences
-├── astronomy/          Earth motions, Milankovitch, celestial mechanics, stellar — 4 files
+├── astronomy/          Earth motions → cosmology (5 complete) + galactic + 5 stubs
 │
 │  SESSION 9 — Aeronautics
 ├── aeronautics/        Aerodynamics, propulsion, flight mechanics, avionics — PLANNED
@@ -180,6 +181,17 @@ Track 11: Security
 | `data-science/04-PYTORCH.md` | PyTorch — tensors, autograd, nn.Module, training loop, GPU, from scratch to transfer | ✅ Complete |
 | `data-science/05-MLOPS.md` | MLOps — experiment tracking (MLflow/W&B), model registry, deployment, drift detection | ✅ Complete |
 | `data-science/06-AZURE-ML.md` | Azure Machine Learning — workspaces, compute, pipelines, managed endpoints, AzureML SDK v2 | ✅ Complete |
+| `data-science/07-STATISTICAL-LEARNING.md` | Statistical learning theory — bias-variance, VC dimension, PAC learning, regularization | 🔲 Stub |
+| `data-science/08-PROBABILISTIC-ML.md` | Probabilistic ML — Bayesian networks, GPs, VAEs, normalizing flows, diffusion | 🔲 Stub |
+| `data-science/09-INFORMATION-THEORY.md` | Information theory for ML — entropy, KL divergence, mutual information, IB principle | 🔲 Stub |
+| `data-science/10-OPTIMIZATION-THEORY.md` | Optimization for ML — SGD, Adam, convexity, saddle points, loss landscapes | 🔲 Stub |
+| `data-science/11-DEEP-LEARNING-THEORY.md` | Deep learning theory — expressivity, generalization, neural tangent kernel, scaling laws | 🔲 Stub |
+| `data-science/12-REINFORCEMENT-LEARNING.md` | Reinforcement learning — MDPs, policy gradient, Q-learning, RLHF, PPO | 🔲 Stub |
+| `data-science/13-CAUSAL-INFERENCE.md` | Causal inference — DAGs, do-calculus, potential outcomes, RCTs, observational studies | 🔲 Stub |
+| `data-science/14-TIME-SERIES.md` | Time series — ARIMA, state space, Prophet, temporal fusion transformers | 🔲 Stub |
+| `data-science/15-COMPUTER-VISION.md` | Computer vision — CNNs, object detection, segmentation, CLIP, diffusion models | 🔲 Stub |
+| `data-science/16-NLP-FOUNDATIONS.md` | NLP foundations — tokenization, embeddings, attention, BERT, GPT architecture | 🔲 Stub |
+| `data-science/17-GRAPH-ML.md` | Graph ML — GNNs, message passing, graph transformers, knowledge graphs | 🔲 Stub |
 
 ---
 
@@ -229,6 +241,12 @@ Track 11: Security
 | `astronomy/03-CELESTIAL-MECHANICS.md` | Two-body problem, orbital elements, perturbation theory, Lagrange points, resonances, tidal mechanics, chaos | ✅ Complete |
 | `astronomy/04-STELLAR-PHYSICS.md` | Stellar structure, HR diagram, nucleosynthesis, stellar evolution, compact objects | ✅ Complete |
 | `astronomy/05-COSMOLOGY.md` | Big Bang, expansion, CMB, dark matter/energy, large-scale structure | ✅ Complete |
+| `astronomy/06-SOLAR-SYSTEM-FORMATION.md` | Nebular hypothesis, disk physics, accretion, Nice model, Grand Tack, meteorite chronology | 🔲 Stub |
+| `astronomy/07-PLANETARY-INTERIORS.md` | Differentiation, PREM model, seismology, geodynamo, plate tectonics, comparative planetology | 🔲 Stub |
+| `astronomy/08-PLANETARY-ATMOSPHERES.md` | Structure, escape, greenhouse effect, circulation, Venus/Earth/Mars comparison, biosignatures | 🔲 Stub |
+| `astronomy/09-EXOPLANETS.md` | Detection methods, demographics, mass-radius, habitable zone, JWST spectra, TRAPPIST-1 | 🔲 Stub |
+| `astronomy/10-SMALL-BODIES.md` | Asteroids, comets, TNOs, Kuiper Belt, Oort Cloud, impacts, meteorite taxonomy | 🔲 Stub |
+| `astronomy/11-ASTROBIOLOGY.md` | Origin of life, extremophiles, solar system targets, biosignatures, Fermi paradox | 🔲 Stub |
 
 ---
 
@@ -286,6 +304,7 @@ Track 11: Security
 | 2026-02-22 | 24-NETWORKING.md authored. TCP/IP stack diagram + real HTTPS call trace (all layers), IP/subnetting/CIDR/NAT/IPv6, TCP 3-way handshake + 4-way teardown + congestion control (CUBIC/BBR) + TIME_WAIT + Nagle, DNS resolution chain + all record types + split-horizon + DNSSEC + DoH/DoT, HTTP/1.1 HOL blocking → HTTP/2 binary framing + HPACK + multiplexing → HTTP/3 QUIC 0-RTT + connection migration, TLS 1.3 1-RTT handshake + ECDHE forward secrecy + SNI + ALPN + mTLS + OCSP stapling, WebSockets upgrade + framing + vs SSE, gRPC HTTP/2 wire format + 4 streaming modes + Protobuf varints + status codes, CDN Anycast + Cache-Control anatomy + ETag + origin shield, L4 vs L7 load balancers + consistent hashing ring + health checks + connection draining, reverse proxy patterns (nginx/Caddy/Envoy), network security (NSG/zero-trust/Private Link/DDoS/rate limiting), ports table, WCF→gRPC/REST bridge table. |
 | 2026-02-22 | 25-SECURITY.md authored. Full security & cryptography reference. Cryptography fundamentals: AES modes (ECB/CBC/CTR/GCM — AEAD), ChaCha20-Poly1305, RSA (Bleichenbacher/OAEP), ECDSA (PS3 k-reuse story), Ed25519 deterministic nonce, X25519 ECDH, ECDLP group theory bridge. Hash functions (MD5/SHA-1 broken, SHA-256/BLAKE3/SHA-3), length extension attack, HMAC construction, Poly1305, timing-safe comparison. KDFs: Argon2id (PHC winner, m=64MB), bcrypt 72-byte truncation gotcha, HKDF for TLS 1.3 key schedule. CSPRNG. PKI: X.509 chain, CT logs, OCSP stapling, Let's Encrypt ACME. Secrets management: HashiCorp Vault (dynamic secrets, Transit engine), Azure Key Vault + Managed Identity, SOPS, Sealed Secrets, secret scanning tools. TLS 1.3 handshake + ECDHE forward secrecy + mTLS. OWASP Top 10 (2021) deep dive: IDOR, JWT alg:none + algorithm confusion, SQL/command/NoSQL/SSTI injection, SSRF + IMDS exploitation. Zero-trust: BeyondCorp model, Entra Conditional Access, PIM JIT. Supply chain: SBOM (CycloneDX/SPDX), SLSA 4 levels, Sigstore/Cosign keyless signing. Threat modeling: STRIDE table, DFD trust boundaries, attack trees, PASTA. Container security: non-root, seccomp, distroless, multi-stage builds, Trivy/Grype. Cloud IAM: Managed Identity vs service principal, PIM, Conditional Access, security headers. Security testing: SAST/DAST/SCA/fuzzing tool table + CI integration YAML. Old-world bridge: Kerberos→JWT, ADFS→Entra OIDC, WIA→Managed Identity, AD CS→Let's Encrypt, BinaryFormatter removal. |
 | 2026-02-22 | mathematics/ modules 14–22 planned: complex analysis, optimization, information theory, combinatorics/graphs, number theory, numerical methods, statistics, measure theory, category theory. 14-COMPLEX-ANALYSIS.md authored. ℂ as algebraic closure of ℝ, polar form + Euler, Riemann sphere. Holomorphic = CR equations = Jacobian is conformal. C¹⟹analytic miracle (contrast with ℝ). Cauchy's theorem, Cauchy integral formula, all derivatives from one formula. Laurent series + singularity classification (removable/pole/essential). Residue theorem + three standard contour types for real integrals. Multivalued functions (log z, zᵃ), branch cuts, Riemann surfaces, monodromy. Conformal maps, Möbius transformations, Riemann mapping theorem, Schwarz-Christoffel. Harmonic functions + Dirichlet problem via Poisson kernel. Analytic continuation + identity theorem. Gamma function + Riemann hypothesis sketch. Applications: potential flow, electrostatics, Wick rotation in QM, Bromwich/inverse Laplace, Hardy spaces + H∞ control. |
+| 2026-02-22 | Library audit: catalogued all files created in parallel sessions. Added artifact indexes for electronics/ (6 modules: circuits, reactive, filters, amplifiers, signals, DSP — all complete), materials/ (5 modules: overview, crystal structure, bonding/bands, semiconductors, metals — all complete). Updated natural-sciences/ index to include 02-BONDING, 03-THERMOCHEM, 04-KINETICS, 05-ELECTROCHEMISTRY. Updated data-science/ index to include stubs 07–17. Created stubs for mathematics/15–22. Updated Library Structure counts. |
 | 2026-02-22 | Session 4 initialized. query-languages/ series: 13 files. 00-OVERVIEW (data model taxonomy, relational algebra → SQL bridge, SQL standards SQL-86→SQL:2023, ACID/BASE/SAGA, CAP, when SQL vs NoSQL decision tree). 01-SQL-CORE (30-year refresh: CTEs, recursive CTEs, window functions with OVER anatomy, ROWS/RANGE frames, MERGE, temporal tables, JSON SQL:2016, GENERATE_SERIES, indexes, EXPLAIN). 02-POSTGRESQL (JSONB operators, arrays, LATERAL=CROSS APPLY, RETURNING, materialized views, FTS, partitioning, RLS, pgvector, PostGIS, TimescaleDB). 03-TSQL (25-year refresh timeline, CROSS/OUTER APPLY, MERGE+OUTPUT, JSON+OPENJSON+FOR JSON, temporal tables, TRY/CATCH+THROW, sp_executesql safe dynamic SQL, Query Store, DMVs, Azure SQL tiers, Synapse distribution). 04-MYSQL (InnoDB architecture, ON DUPLICATE KEY UPDATE, window funcs 8.0+, CTEs 8.0+, JSON, utf8mb4 trap, EXPLAIN type hierarchy, replication/binlog). 05-SQLITE (serverless architecture, type affinity+STRICT mode, WAL mode, foreign_keys PRAGMA, JSON1, FTS5, WITHOUT ROWID, in-memory testing pattern, date as TEXT). 06-KQL (Azure Monitor/App Insights/Sentinel/ADX ecosystem, pipe syntax, time functions+bin(), has vs contains, dynamic type, let statements, join kinds, make-series anomaly detection, SQL→KQL translation table, common App Insights/Monitor/Sentinel hunting patterns). 07-ANALYTICAL (cloud DW evolution, BigQuery/Snowflake/Databricks/Synapse comparison, QUALIFY, PIVOT, time travel, MERGE INTO, materialized views, dbt integration, external tables, medallion architecture, OLAP functions). 08-SPARKSQL (Catalyst architecture, SQL API vs DataFrame API equivalence, Delta Lake MERGE/OPTIMIZE/ZORDER/VACUUM/time travel, broadcast joins, structured streaming with watermarks, explain modes, AQE). 09-DUCKDB (in-process OLAP, vectorized columnar, direct Parquet/CSV/JSON/S3/ADLS query, PIVOT auto-detection, LIST/STRUCT/MAP nested types, lambdas, Python zero-copy, httpfs/spatial/delta extensions). 10-MONGODB (MQL CRUD operators, aggregation pipeline stages, $lookup pipeline form, $facet/$bucket, expression operators, index types including TTL/partial/wildcard/2dsphere, Atlas Search Lucene + Atlas Vector Search for RAG). 11-REDIS (String/Hash/List/Set/ZSet/Stream commands, MULTI/EXEC/WATCH CAS, Pub/Sub vs Streams, Lua scripting, RediSearch FT.CREATE/FT.SEARCH/KNN vector, RedisJSON, distributed lock pattern). 12-GRAPHQL (SDL schema with scalar/enum/union/interface, query/mutation/subscription syntax, variables/fragments/directives, N+1+DataLoader, schema-first vs code-first, Apollo Federation, Hasura, persisted queries, REST vs GraphQL decision). Session4.md created. |
 
 ---
@@ -388,13 +407,48 @@ Track 11: Security
 
 ---
 
+## electronics/ — Artifact Index
+
+| File | Topic | Status |
+|------|-------|--------|
+| `electronics/01-CIRCUITS.md` | Circuit analysis fundamentals — KVL/KCL, Thévenin/Norton, node voltage, mesh current | ✅ Complete |
+| `electronics/02-REACTIVE.md` | Reactive components — capacitors, inductors, RLC circuits, impedance, resonance | ✅ Complete |
+| `electronics/03-FILTERS.md` | Filters — passive/active, Butterworth/Chebyshev/Bessel, Bode plots, filter design | ✅ Complete |
+| `electronics/04-AMPLIFIERS.md` | Amplifiers — BJT, MOSFET, differential pair, op-amps, feedback topologies | ✅ Complete |
+| `electronics/05-SIGNALS-SYSTEMS.md` | Signals and systems (6.003 refresher) — LTI, convolution, Fourier, Laplace, Z-transform | ✅ Complete |
+| `electronics/06-DSP.md` | Digital signal processing — sampling, DFT/FFT, FIR/IIR filters, quantization, DSP hardware | ✅ Complete |
+| `electronics/07-2D-DSP.md` | 2-D digital signal processing — 2D DFT, separability, image filters, edge detection, wavelets | ✅ Complete |
+| `electronics/08-DIGITAL-LOGIC.md` | Digital logic — Boolean algebra, combinational/sequential circuits, FSMs, HDL, FPGA | ✅ Complete |
+
+---
+
+## materials/ — Artifact Index
+
+| File | Topic | Status |
+|------|-------|--------|
+| `materials/00-OVERVIEW.md` | Materials science landscape — structure-property-processing-performance tetrahedron | ✅ Complete |
+| `materials/01-CRYSTAL-STRUCTURE.md` | Crystal structure — Bravais lattices, Miller indices, defects, XRD, diffraction | ✅ Complete |
+| `materials/02-BONDING-BANDS.md` | Bonding and band theory — metallic/ionic/covalent, free electron model, band gaps | ✅ Complete |
+| `materials/03-SEMICONDUCTORS.md` | Semiconductors — intrinsic/extrinsic, p-n junction, MOSFET, LED, solar cell | ✅ Complete |
+| `materials/04-METALS-ALLOYS.md` | Metals and alloys — phase diagrams, microstructure, strengthening mechanisms, Fe-C system | ✅ Complete |
+| `materials/05-POLYMERS.md` | Polymers — chain architecture, thermal transitions (Tg/Tm), mechanics, processing | ✅ Complete |
+
+---
+
 ## natural-sciences/ — Artifact Index
 
 | File | Topic | Status |
 |------|-------|--------|
 | `natural-sciences/00-OVERVIEW.md` | Landscape — field taxonomy, cross-discipline connections, session arc | ✅ Complete |
 | `natural-sciences/01-ATOMIC-QUANTUM.md` | Atomic structure, quantum numbers, periodic table, electron configurations, spectroscopy | ✅ Complete |
+| `natural-sciences/02-BONDING.md` | Chemical bonding — ionic, covalent, metallic, VSEPR, MO theory, hybridization | ✅ Complete |
+| `natural-sciences/03-THERMOCHEM.md` | Thermochemistry — enthalpy, Hess's law, Gibbs free energy, entropy, equilibrium | ✅ Complete |
+| `natural-sciences/04-KINETICS.md` | Chemical kinetics — rate laws, Arrhenius, reaction mechanisms, catalysis | ✅ Complete |
+| `natural-sciences/05-ELECTROCHEMISTRY.md` | Electrochemistry — galvanic cells, Nernst equation, electrolysis, batteries | ✅ Complete |
+| `natural-sciences/06-BIOMOLECULES.md` | Biological molecules — carbohydrates, lipids, proteins, nucleic acids | 🔲 Stub |
+| `natural-sciences/07-ENZYMES.md` | Enzyme kinetics and catalysis — Michaelis-Menten, inhibition, regulation | 🔲 Stub |
 | `natural-sciences/08-METABOLISM.md` | Metabolic pathways — glycolysis, Krebs cycle, oxidative phosphorylation, ATP accounting | ✅ Complete |
+| `natural-sciences/09-MOLECULAR-BIO.md` | Molecular biology — DNA replication, transcription, translation, gene regulation | 🔲 Stub |
 | `natural-sciences/14-ATMOSPHERE-CLIMATE.md` | Atmospheric layers, composition, circulation, greenhouse effect, climate feedback loops | ✅ Complete |
 
 ---
