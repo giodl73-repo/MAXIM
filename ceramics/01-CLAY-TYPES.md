@@ -1,0 +1,24 @@
+# 01 — Clay Types
+
+## Earthenware, Stoneware, Porcelain — Kaolin, Ball Clay, Fire Clay
+
+> **STUB** — outline only, content to be authored
+
+**Planned coverage:**
+- **What clay is**: phyllosilicate minerals (sheet silicate structure); primary mineral in most pottery clays = kaolinite (Al₂Si₂O₅(OH)₄); also smectite, illite, montmorillonite; clay particles are platelets that align and slide over each other with water → plasticity; the water film between platelets allows forming; as clay dries, platelets approach and van der Waals forces hold the dry "greenware"; during firing, water driven off, mineral structure transforms, glass phase forms that bonds the mass
+- **Plasticity**: the critical workability property; varies by clay mineral type and particle size (finer = more plastic); ball clay = very plastic (high surface area fine particles); kaolin = less plastic (coarser, less plastic despite being pure kaolinite); machinability for throwing requires sufficient plasticity; additions to improve plasticity: bentonite (smectite clay — small amounts increase plasticity greatly), paperclay (pulped paper fiber + clay — very plastic, dries without cracking, excellent for sculpture)
+- **Kaolin (china clay)**: the defining ingredient of porcelain; Al₂Si₂O₅(OH)₄; pure white after firing; relatively low plasticity (must be blended); primary deposits: Cornwall, UK (china clay — St Austell; supplied Wedgwood and world); Limoges region, France; Saxony, Germany (Meissen's local source); Jingdezhen, China (exceptional local kaolin + petuntse = China's porcelain heartland); formation: hydrothermal alteration of feldspar in granite (kaolin = "rotted granite") or weathering
+- **Ball clay**: highly plastic secondary clay with some organic content; fine particle size, fires off-white or cream; high dry strength; mixed into porcelain and stoneware bodies to improve workability; too plastic alone (excessive shrinkage); name origin: originally extracted as balls by hand in Devon and Dorset (UK)
+- **Fire clay**: refractory clay that withstands high temperatures; used for kiln furniture (shelves, props), saggers (containers to protect ware in kiln), industrial furnace linings; high alumina content; grog (ground pre-fired clay) added to bodies to reduce shrinkage and add thermal mass
+- **Stoneware clay**: gray, buff, or brown; naturally fires to stoneware temperatures; vitrifies (glass phase forms, body becomes dense and non-porous); many regional traditions have specific local stoneware clays (Minnesota stoneware, English stoneware); often iron-bearing (slight speckle in finished ware)
+- **Prepared clay bodies (commercial)**: potters rarely use single clays; commercial bodies are formulated blends; standard body types:
+  - Porcelain body (typical): 25% kaolin + 25% ball clay + 25% feldspar + 25% silica (quartz); fires white, translucent in thin section, dense; throws well with skill
+  - Stoneware body: regional clay + grog + feldspar; fire range 1,250-1,300°C
+  - Earthenware body: lower iron clay + talc (helps vitrification at lower temps) + grog; 1,000-1,180°C
+  - Raku body: grog-heavy for thermal shock resistance (raku = rapid removal from kiln while glowing)
+- **Clay preparation**: wedging (kneading to remove air pockets and align platelets — two methods: ram's head wedging, spiral wedging); de-airing pugmill (machine that extrudes uniform, air-free clay columns); aging (clay improves plasticity when stored moist — bacterial activity releases organic acids that increase plasticity; traditional Japanese potters aged clay for years); slaking and blunging (mixing dry clay with water for slip casting — ball mill to create smooth slip)
+- **Shrinkage**: clay shrinks during drying (~5-10%) and firing (~5-15%); total shrinkage from wet to fired = 10-25% depending on body; must be accounted for in making (bowls thrown larger than intended final size); shrinkage testing = standard studio practice; uneven shrinkage = warping/cracking — even wall thickness crucial; grog reduces shrinkage (pre-fired clay particles don't shrink); slow drying reduces stress cracking
+- **Special clays and additives**:
+  - Terracotta: iron-rich earthenware — characteristic red/orange after oxidation firing; ancient Greek red-figure / black-figure uses Attic terracotta with high iron
+  - Porcelain vs bone china: bone china = calcined bone ash (50%) + china clay + china stone; developed in England (Josiah Spode, ~1800); creamy white, very translucent, lightweight; standard for English fine tableware (Royal Doulton, Wedgwood bone china); ↑ phosphate content from bone → different phase chemistry than continental hard-paste porcelain
+  - Paper clay: clay + cellulose fiber from paper pulp; dramatically reduces cracking during drying; allows joining wet to dry clay; excellent for sculpture; fiber burns out during firing leaving pores (affects fired properties slightly)
