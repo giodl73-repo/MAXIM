@@ -86,8 +86,8 @@ Follow `computing/01-PACKAGE.md` format exactly:
 | `computing/15-OBSERVABILITY.md` | Observability — logs, metrics, tracing, OpenTelemetry | ✅ Complete |
 | `computing/16-MONOREPO.md` | Monorepos — Turborepo, Nx, workspaces | ✅ Complete |
 | `computing/17-CLOUD-NATIVE.md` | Cloud-native patterns — microservices, events, service mesh | ✅ Complete |
-| `computing/18-TESTING.md` | Modern testing stack — Vitest, Playwright, Testing Library, MSW | 🔜 Next |
-| `computing/19-TESTING-EVOLUTION.md` | The arc: manual → TDD → chaos → eval harnesses | 🔜 Queued |
+| `computing/18-TESTING.md` | Modern testing stack — Vitest, Playwright, Testing Library, MSW | ✅ Complete |
+| `computing/19-TESTING-EVOLUTION.md` | The arc: manual → TDD → chaos → eval harnesses | 🔜 Next |
 | `computing/20-AZURE.md` | Azure services map — all the products, how they nest, when to use each | 🔜 Queued |
 
 ---
@@ -107,7 +107,7 @@ Track 4: Backend & Data       Track 5: Infrastructure        Track 6: Operations
                                  14-IAC.md ✅
 
 Track 7: Testing
-  18-TESTING.md                  19-TESTING-EVOLUTION.md
+  18-TESTING.md ✅               19-TESTING-EVOLUTION.md
 
 Track 8: Azure
   20-AZURE.md
@@ -158,6 +158,7 @@ Track 8: Azure
 | 2026-02-22 | 15-OBSERVABILITY.md authored. Covers logs/metrics/traces pillars, structured logging (Pino), Prometheus (metrics types, PromQL, alerting), distributed traces (OTel spans, context propagation), OpenTelemetry SDK+Collector, Grafana stack, Azure Monitor+App Insights, SLI/SLO/SLA, SCOM bridge. |
 | 2026-02-22 | 16-MONOREPO.md authored. Covers polyrepo vs monorepo tradeoffs, npm/pnpm workspaces, Turborepo (pipeline, caching, remote cache, filters), Nx (graph, affected, generators), shared package structure, TS path aliases, CI integration, Source Depot/.sln bridge. |
 | 2026-02-22 | 17-CLOUD-NATIVE.md authored. Covers monolith→microservices spectrum, distributed systems tax, event-driven (queues/topics/Kafka), resilience patterns (circuit breaker, retry, bulkhead, saga), service mesh, API gateway, blue/green, canary, feature flags, 12-Factor, WCF/ESB/MSMQ bridge. |
+| 2026-02-22 | 18-TESTING.md authored. Covers testing trophy, Vitest (unit, integration, mocking), Testing Library (behavior-first queries), MSW (network-level mocking), Playwright (E2E, page objects, codegen), coverage, CI integration, MSTest/Selenium bridge. |
 
 ---
 
