@@ -1,0 +1,17 @@
+# 03 — Color Systems
+
+## Munsell, CIE, CIELAB, sRGB, Pantone — How Color Is Measured and Communicated
+
+> **STUB** — outline only, content to be authored
+
+**Planned coverage:**
+- The problem color systems solve: color needs to be communicated between people without a physical sample; different systems optimized for different purposes (perceptual uniformity vs device specification vs industrial communication vs artistic intuition)
+- **Munsell Color System** (Albert Munsell, 1905): three axes — Hue (10 major hues: R/YR/Y/GY/G/BG/B/PB/P/RP, each subdivided 1-10), Value (lightness, 0 black to 10 white), Chroma (saturation, 0 neutral to ~20+ depending on hue); perceptually uniform spacing (equal perceived steps); irregular solid shape (not a sphere — some hue/value combinations have more achievable chroma than others); standard for soil science (Munsell soil charts), paint industry, color research
+- **CIE 1931 Standard Observer** (Commission Internationale de l'Éclairage): color matching functions x̄(λ), ȳ(λ), z̄(λ) derived from 1920s Guild/Wright experiments; tristimulus values XYZ; chromaticity diagram (xy, projecting out luminance) — the horseshoe; all visible colors inside the horseshoe; primaries of any display system form a triangle (gamut) inside the horseshoe; important limitations: not perceptually uniform (equal distances ≠ equal perceived color difference)
+- **CIELAB (L\*a\*b\*, 1976)**: transformation of XYZ for perceptual uniformity; L* (lightness 0-100), a* (green-red axis, negative-positive), b* (blue-yellow axis, negative-positive); ΔE (color difference formula) — originally ΔE*ab, now improved as CIEDE2000 (accounts for known non-uniformities); industrial standard for color tolerancing; ΔE < 1 = barely perceptible, ΔE < 2 = acceptable for most applications, ΔE > 5 = obvious to casual observer
+- **sRGB** (Microsoft/HP, 1996): standard RGB color space for screens and internet; defined by three phosphor/primary chromaticities + D65 white point + gamma 2.2 encoding; ~35% of CIE gamut; ubiquitous default; JPEG and most images assume sRGB; inadequate for HDR and wide-gamut applications
+- **Display P3** (Apple, DCI-P3 derivative): wider gamut (~26% larger than sRGB); standard for iPhone/iPad/MacBook displays; green shifted more toward cyan enabling more saturated greens
+- **Rec. 2020**: ultra-wide gamut standard for UHD/HDR broadcast; ~76% of CIE gamut; no display currently achieves this natively (quantum dot displays reach ~90% of Rec. 2020)
+- **Pantone Matching System (PMS)**: spot color ink system; numbered proprietary formulas; "Pantone 485 C" specifies an exact red regardless of substrate; C (coated), U (uncoated), M (matte) paper variants; CMYK process builds colors additively from halftone dots — limited gamut; Pantone extends beyond CMYK gamut; licensing model — Pantone vs free alternatives (RAL, NCS); Pantone "Color of the Year" as cultural phenomenon
+- **RAL** (German standard): industrial color system (metal, powder coating, industrial paints); RAL Classic (213 colors, 4-digit codes), RAL Design System+ (1825 colors); standard in European manufacturing and construction; RAL 7016 (Anthracite Grey) on millions of European window frames
+- **NCS (Natural Color System)**: Swedish standard; based on opponent color theory (how much of black, white, yellow, red, blue, green a color contains); widely used in Scandinavian architecture/design

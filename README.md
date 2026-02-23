@@ -3,7 +3,7 @@
 > Self-authored technical reference. Every guide: layered ASCII diagrams, mental models, decision cheat sheets.
 > Peer-level. No handholding. MIT Math + TCS background assumed throughout.
 
-**~339 files complete across 43 directories. 124 stubs queued.**
+**~339 files complete across 47 directories. 164 stubs queued.**
 Full status: [`TRACKER.md`](TRACKER.md) | Per-directory detail: each directory's `STATUS.md`
 
 ---
@@ -110,10 +110,21 @@ Full status: [`TRACKER.md`](TRACKER.md) | Per-directory detail: each directory's
 
 ---
 
+## Built Environment
+
+| Directory | Files | Contents |
+|-----------|-------|----------|
+| [`plumbing/`](plumbing/STATUS.md) | 10 🔜 | Overview (supply/DWV/gas trees), history (Roman plumbum → cholera reform → PVC → PEX), pipe materials (copper K/L/M, PEX-a/b/c, PVC/CPVC/ABS/cast iron/CSST), fittings (sweat/press-fit/push-fit/SharkBite/solvent-weld), supply systems (PRV/expansion/water hammer/tankless vs tank/recirculation), DWV (gravity drainage/P-traps/venting/AAV/cleanouts), fixtures (toilet anatomy/faucet cartridge types/pressure-balance shower valves), water quality (hardness/softeners/RO/UV/lead pipe crisis), specialty (CSST/hydronic/radiant floor/fire suppression/medical gas), codes (IRC/IPC/UPC/AHJ/permits) |
+| [`hvac/`](hvac/STATUS.md) | 10 🔜 | Overview (load vs capacity/psychrometrics), thermodynamics (Manual J/R-value/BTU/sensible vs latent), refrigeration cycle (P-H diagram/superheat/subcooling/variable-speed compressors), refrigerants (R-12→R-22→R-410A→R-454B, ODP/GWP, Kigali Amendment/A2L safety class), heating (gas furnace/AFUE/condensing/mod-con boilers/electric), heat pumps (COP>1/cold-climate ASHP to -22°F/GSHP/mini-splits/heat pump water heaters), ventilation (ERV/HRV/ASHRAE 62.2/MERV ratings/IAQ/CO₂ monitoring), ductwork (Manual D/static pressure/flex duct compression problems/mastic sealing/Aeroseal), controls (24V wiring/smart thermostats/BAS/BACnet/defrost logic), efficiency/codes (SEER2/AFUE/HSPF2/IECC climate zones/IRA tax credits/Manual J-D-S triad) |
+| [`coatings/`](coatings/STATUS.md) | 10 🔜 | Overview (film formation mechanisms: evaporation/oxidative/coalescence/crosslinking), paint history (cave → lead paint → latex revolution → VOC regulations), paint composition (binder/pigment/solvent/additives, sheen levels, PVC/CPVC), wood stains (penetrating vs film-forming, gel stains, deck stains), varnish/lacquer/polyurethane (oil/alkyd/shellac-BIN/nitrocellulose/catalyzed), industrial coatings (powder coating/anodizing/electroplating/hot-dip galvanizing/PVD), adhesives (CA/epoxy/contact cement/hot melt/anaerobic/UV-cure), sealants/caulks (silicone acetoxy vs neutral/polyurethane/hybrid SMP), primers (shellac-BIN stain blocking/oil-based/bonding/etching), surface prep (SSPC standards/anchor profile/failure analysis) |
+
+---
+
 ## Material & Cultural History
 
 | Directory | Files | Contents |
 |-----------|-------|----------|
+| [`colors/`](colors/STATUS.md) | 10 🔜 | Overview (color is perception not physics), color physics (light/absorption/structural/Rayleigh scattering), vision (L/M/S cones/opponent process/metamerism/color constancy/color blindness), color systems (Munsell/CIE 1931/CIELAB ΔE/sRGB/Display P3/Pantone/RAL/NCS), color naming (Berlin-Kay universal sequence/Homer's wine-dark sea/Sapir-Whorf/Himba perception), historical shades (mauve 1856/puce/chartreuse/gamboge/vermilion named histories), mixing theory (additive RGB vs subtractive CMY/CMYK halftone/artist RYB wheel/pointillist partitive mixing), psychology/culture (white mourning vs purity/red luck vs danger/blue trust/synesthesia/Baker-Miller pink), color in nature (structural color morpho butterfly/thin-film/bioluminescence GFP/camouflage/autumn leaves), digital color (gamma encoding/ICC profiles/rendering intents/HDR PQ/CSS color spaces) |
 | [`spices/`](spices/STATUS.md) | 11 🔜 | Overview (spice trade eras, VOC/Columbian Exchange), pepper + salt, cinnamon/cassia (Ceylon vs cassia, coumarin), turmeric/ginger/galangal (Zingiberaceae, curcumin, gingerols), saffron + vanilla (most expensive by weight, hand-pollination), nutmeg/cloves/mace (Banda Islands massacre, Run Island for Manhattan), capsicum/chili (TRPV1, Scoville, global spread in 50 years), cumin/coriander/fennel (Apiaceae, anethole chemistry), cardamom + star anise (shikimic acid → Tamiflu), aromatics/herbs (Lamiaceae, volatile oils), spice chemistry (capsaicin/piperine/terpenes/phenylpropanoids) |
 | [`pigments/`](pigments/STATUS.md) | 11 🔜 | Overview (pigment vs dye, chromophore mechanisms: d-d/charge-transfer/π→π*/band gap), prehistoric/earth (ochre, Blombos Cave 75kya, Lascaux), ancient synthetic (Egyptian blue 3100 BCE, Han blue, cinnabar, orpiment), purple/red luxury (Tyrian purple from Murex, cochineal Aztec monopoly, madder lake), blue rarity (lapis lazuli/Badakhshan, synthetic ultramarine 1826), lead pigments (stack process, Naples yellow, degradation), organic dyes/mordants (indigo — woad vs Indigofera, madder/alizarin, mordant chemistry), Prussian blue era (1704, chrome yellow, emerald green arsenic toxicity), Impressionist revolution (tube paint 1841, cadmium series, plein air), modern synthetic (titanium white 1916, phthalocyanine, quinacridone, quantum dots), conservation/authentication (lightfastness, XRF/Raman, pigment anachronism in forgery detection) |
 

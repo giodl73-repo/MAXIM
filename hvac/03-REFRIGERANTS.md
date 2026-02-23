@@ -1,0 +1,20 @@
+# 03 — Refrigerants
+
+## Freon to R-454B — ODP, GWP, Kigali, A2L Safety
+
+> **STUB** — outline only, content to be authored
+
+**Planned coverage:**
+- **Refrigerant naming**: R-### nomenclature; organic fluorocarbon naming rules encode molecular structure; CFC (chlorofluorocarbon), HCFC (hydrochlorofluorocarbon), HFC (hydrofluorocarbon), HFO (hydrofluoroolefin), natural refrigerants (CO₂/R-744, propane/R-290, ammonia/R-717)
+- **Safety classifications** (ASHRAE 34): first letter = flammability (A = lower flammability, B = higher toxicity risk); number = flammability level (1 = nonflammable, 2 = mildly flammable, 2L = weakly flammable, 3 = highly flammable); A1 = safest (non-toxic, nonflammable), A2L = mildly flammable (important for new refrigerant regulation), A3 = propane (highly flammable)
+- **Ozone Depletion Potential (ODP)**: chlorine atoms in CFCs/HCFCs catalyze stratospheric ozone destruction; ODP referenced to R-11 (ODP=1); HFCs have ODP=0 (no chlorine); HFOs ODP=0; natural refrigerants: ammonia ODP=0, CO₂ ODP=0, propane ODP=0
+- **Global Warming Potential (GWP)**: how much warming per unit mass relative to CO₂ over 100 years; CO₂ = 1; HFCs have high GWP (hundreds to thousands); becoming the primary environmental driver of refrigerant regulation
+- **R-12 (Freon, dichlorodifluoromethane, CFC-12)**: dominant refrigerant through 1980s (car AC, home refrigerators, commercial); ODP=1.0, GWP=10,200; phased out by Montreal Protocol; production ended developed nations 1996, developing nations ~2010; R-12 systems retrofitted to R-134a; no new R-12 equipment
+- **R-22 (HCFC-22, chlorodifluoromethane)**: dominant residential AC refrigerant through 2000s; ODP=0.05, GWP=1,760; HCFC phasedown: new equipment banned 2010, new R-22 production/import banned in US 2020; reclaimed/recycled R-22 still legal for servicing existing equipment; R-22 price spiked dramatically post-2020; retrofit refrigerants: R-407C, R-422D (drop-in compromises); proper retrofit = system redesign with new refrigerant + oil
+- **R-134a (HFC-134a, tetrafluoroethane)**: ODP=0, GWP=1,430; replaced R-12 in car AC and refrigerators; still used; no chlorine; phasing down under Kigali Amendment; European F-Gas Regulation driving phase-out in automotive (CO₂/R-744 and HFO-1234yf replacing)
+- **R-410A (Puron, AZ-20)**: dominant US residential AC/heat pump refrigerant since ~2006; ODP=0, GWP=2,088; replaced R-22; operates at higher pressures than R-22 (~70% higher); equipment not interchangeable; phase-down now mandated: EPA Section 608 rules, GWP cap beginning 2025; new residential AC/HP equipment must use ≤700 GWP refrigerant by 2025 (effective January 1, 2025)
+- **R-32**: GWP=675, A2L (mildly flammable); widely used in Asia and Europe; Mitsubishi heavy adoption; better thermodynamic properties than R-410A; transitional refrigerant
+- **R-454B (Puron Advance)**: Carrier-developed blend; GWP=466, A2L; designed as R-410A replacement in existing equipment formats; lower GWP compliance; A2L rating requires new safety handling standards, installation requirements (air purge, detector requirements)
+- **R-290 (propane)**: ODP=0, GWP=3 (essentially nothing); excellent thermodynamic properties, better efficiency than HFCs; A3 (highly flammable) — requires explosion-proof controls, limited charge size per equipment; European mini-splits and heat pumps, commercial refrigeration; US adoption limited by A3 flammability rating in residential
+- **R-744 (CO₂)**: ODP=0, GWP=1; very high operating pressures (1,500+ PSIA) — requires specialized equipment; transcritical operation (above critical point — no condensing) used in some systems; excellent in cold climates (high-pressure side doesn't need to be above ambient); European supermarket refrigeration systems; heat pump water heaters (CO₂ heat pump water heater available in Japan/Europe — extremely efficient)
+- **Kigali Amendment** (2016, to Montreal Protocol): HFC phasedown schedule; developed countries reduce HFC production/consumption 85% by 2036 baseline; developing countries phasedown starting ~2024-2028; US ratified 2022; drives the R-410A → lower-GWP transition

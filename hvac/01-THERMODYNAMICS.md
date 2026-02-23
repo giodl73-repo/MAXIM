@@ -1,0 +1,19 @@
+# 01 — Thermodynamics & Load Calculation
+
+## Heat Transfer, R-Value, Manual J, Psychrometrics
+
+> **STUB** — outline only, content to be authored
+
+**Planned coverage:**
+- **Three modes of heat transfer**:
+  - Conduction: heat flows through solid material (insulation, walls, windows); governed by Fourier's law (Q = kA∆T/L); rate proportional to thermal conductivity (k), area, temperature difference; inversely proportional to thickness
+  - Convection: heat transfer via fluid (air, water) movement; natural (buoyancy-driven) vs forced (fan, pump); HVAC equipment primarily forced convection; air-to-air heat exchangers in ERV/HRV
+  - Radiation: electromagnetic transmission; sun through windows (solar gain), radiant floor warming occupants, night sky radiation (uninsulated roof radiates to cold sky); does not require medium; Stefan-Boltzmann law
+- **R-value and U-factor**: R = thermal resistance (ft²·°F·h/BTU); higher R = better insulating; U = thermal conductance (inverse of R = 1/R); windows rated in U-factor (easier to compare: lower U = better); assemblies: walls/roofs have multiple R-values in series (add R-values for series, 1/R for parallel — thermal bridging through studs reduces effective R); IECC minimum R-values by climate zone
+- **BTU**: British Thermal Unit = heat to raise 1 lb of water 1°F; 12,000 BTU/h = 1 ton of cooling (historical: heat of fusion of 1 ton of ice per day); BTU/h for heating/cooling; therm = 100,000 BTU (natural gas billing unit); kWh = 3,412 BTU (electrical conversion)
+- **Heating load components**: design outdoor temperature (99% heating design day), infiltration (air leakage × ∆T × 0.018 BTU/ft³·°F), conduction losses through walls/roof/floor/windows, slab edge losses; no credit for solar/internal gains (conservative)
+- **Cooling load components**: more complex (solar gains are time-dependent and orientation-sensitive); envelope conduction (CLTD factors — cooling load temperature differential accounting for thermal mass lag), solar through glass (SHGC × irradiance × area — south/west windows peak afternoon), internal gains (people: 250 BTU/h sensible + 200 BTU/h latent per person, lighting: 3.41 BTU/h per watt, equipment), ventilation air conditioning load
+- **Manual J**: ACCA Manual J 8th edition; residential load calculation; inputs: floor plan, orientation, insulation levels, window specs (U, SHGC), infiltration (ACH50 from blower door or assumed), outdoor design conditions (ASHRAE 99%/1% values by city), indoor setpoints; software (Wrightsoft, Elite CHVAC) performs calculation; output: room-by-room sensible and latent heating/cooling loads → equipment sizing and duct sizing
+- **Psychrometrics**: study of air-water vapor mixtures; key properties: dry-bulb temperature (thermometer), wet-bulb temperature (evaporative cooling effect = sensible + latent), dew point (temperature at which condensation occurs), relative humidity (%), specific humidity/humidity ratio (lbs water/lb dry air), enthalpy (total heat content — sensible + latent); psychrometric chart plots all these properties; HVAC equipment selection uses enthalpy difference × airflow to determine capacity
+- **Sensible heat ratio (SHR)**: fraction of total cooling that is sensible; high humidity climate = lower SHR (more latent load); AC coil must match building SHR; oversized equipment cycles off before adequate dehumidification → high humidity, clammy feeling despite cooled space; humidity control is a primary comfort variable
+- **Infiltration and ventilation loads**: cold/hot outdoor air entering building must be conditioned; infiltration (uncontrolled) vs ventilation (controlled, intentional); blower door test measures air leakage (ACH50 = air changes per hour at 50 Pa); modern tight construction requires mechanical ventilation (ASHRAE 62.2); ventilation air = significant load in extreme climates
