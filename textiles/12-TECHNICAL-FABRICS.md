@@ -1,0 +1,35 @@
+# 12 — Technical Fabrics
+
+## Gore-Tex, Kevlar, Nomex, Smart Textiles — Engineering in Fiber Form
+
+> **STUB** — outline only, content to be authored
+
+**Planned coverage:**
+- **Technical textiles definition**: fabrics manufactured for functional performance rather than aesthetics; engineered for specific mechanical, thermal, chemical, electrical, or biological properties; market segments: agrotech (crop covers, shade nets), buildtech (architectural membranes, concrete reinforcement), clothtech (protective clothing), geotech (geotextiles), hometech (bedding, floor coverings), indutech (filtration, conveyor belts), medtech (wound care, implants), mobiltech (airbags, seatbelts, composites), packtech (industrial packaging), protech (ballistic, fire, chemical), sportech (performance apparel)
+- **Waterproof/breathable membranes**:
+  - **Gore-Tex** (W.L. Gore, 1969 — Bob Gore expanded PTFE → ePTFE, expanded polytetrafluoroethylene): membrane with 9 billion pores per square inch; pore size 0.2 microns = 20,000× smaller than water droplet but 700× larger than water vapor molecule → waterproof yet breathable; laminated between face fabric and lining; moisture vapor transmission rate (MVTR) — performance metric; Gore-Tex Pro vs Active vs Paclite — different constructions; "WPB" fabrics; original Gore-Tex patent expired 1997 → now many competitors (eVent, Pertex Shield, Polartec Neoshell)
+  - **DWR (Durable Water Repellency)**: face treatment — water beads on surface but fabric can wet out without membrane (reduces breathability when wet); see 07-DYEING-FINISHING for DWR/PFAS coverage
+  - **2-layer vs 3-layer laminate**: 2-layer = membrane bonded to face fabric, loose lining; 3-layer = face + membrane + backer bonded together (stiffer, more durable, used in hard-shell jackets); 2.5-layer = face + membrane + printed texture (no separate lining)
+- **High-performance fibers — structural/protective**:
+  - **Kevlar** (Du Pont, Stephanie Kwolek, 1965 — poly-para-phenylene terephthalamide, PPTA): para-aramid fiber; tensile strength 3.6 GPa (5× steel by weight); rigid benzene rings in polymer chain → liquid crystal spinning → highly aligned microstructure; bulletproof vests (NIJ rating system), cut-resistant gloves, helmets, tires, brake pads; poor UV resistance (degrades in sunlight), low compressive strength; Nomex = meta-aramid (same chemistry, different bond angle) → flame-resistant but not high-strength → fire suits, protective garments
+  - **UHMWPE (Ultra-High Molecular Weight Polyethylene)**: Dyneema (DSM) and Spectra (Honeywell); highest specific strength of any fiber (stronger than Kevlar by weight, 15× steel); floats on water; cut-resistant, abrasion-resistant; used in body armor, cut-resistant gloves, yacht rigging, medical implants; melts at ~130°C (lower than aramids — not flame-resistant)
+  - **Carbon fiber**: not a textile per se but manufactured as woven and non-crimp fabrics; polyacrylonitrile (PAN) precursor → oxidation → carbonization at 1,000-3,000°C → graphite-like microstructure; high modulus, high strength, low weight; used in composites (CFRP) with epoxy matrix; aerospace, automotive, sports equipment; brittle (low strain to failure vs glass fiber); see materials/ for composites coverage
+  - **Glass fiber / fiberglass**: E-glass (electrical), S-glass (higher strength), AR-glass (alkali-resistant for concrete reinforcement); woven fabric forms: woven roving, chopped strand mat, biaxial non-crimp; standard composite reinforcement; more impact-resistant than carbon, lower modulus, heavier
+- **Flame-resistant textiles**:
+  - Inherently FR fibers: Nomex, Kermel, PBI (polybenzimidazole — firefighter proximity suits, aerospace), carbon; flame resistance built into polymer chemistry
+  - Treated FR: cotton or other fibers treated with FR chemistry (PROBAN — tetrakis-hydroxymethyl-phosphonium salt chemistry for cotton); durable to washing but not inherent; regulations: NFPA 2112 (industrial FR), ASTM F1506 (arc flash), EN ISO 11612 (heat/flame protection)
+  - Comfort vs protection trade-off: Nomex comfortable, breathable; FR cotton comfortable; PBI heavy, expensive; layering systems for industrial protection (base layer: moisture management; mid: FR insulation; outer: arc flash/flash fire outer shell)
+- **Medical textiles** (medtech):
+  - Wound care: woven gauze (cotton or synthetic), non-woven wound dressings, alginate dressings (from seaweed — high absorption, hemostatic), hydrocolloid dressings, antimicrobial silver-containing dressings
+  - Implantables: surgical sutures (absorbable: PGA, PGLA, chromic gut; non-absorbable: nylon, polypropylene, silk); hernia mesh (polypropylene knitted mesh); vascular grafts (ePTFE or PET/Dacron, woven or knitted); tissue scaffolds (electrospun nanofiber mats for tissue engineering)
+  - Compression: medical compression stockings (mmHg rating — Class I/II/III), lymphedema sleeves; graduated compression
+- **Geotextiles**: woven or non-woven fabrics used in civil engineering; functions: separation (prevent mixing of soil layers), filtration (allow water through, retain soil), drainage, reinforcement (slope stabilization, retaining walls), containment (erosion control); PP and PET most common; bidim, Terram brand names; combined with geogrids and geomembranes in geosynthetics
+- **Smart textiles / e-textiles**:
+  - Conductive yarns: stainless steel fiber blended with cotton/polyester; silver-coated fibers; carbon-coated fibers; used for EMF shielding, heating elements, body sensors, antennas
+  - Sensors integrated: strain sensors (for biomechanical monitoring), temperature sensors, heart rate monitors (ECG electrodes woven in), humidity sensors
+  - Heated garments: battery-powered resistive heating elements (carbon fiber, stainless steel yarn panels) in ski gloves, jackets, insoles
+  - Phase-change materials (PCMs): microencapsulated PCMs (typically paraffin waxes with different melt points) embedded in fiber or fabric; absorb heat on warming, release on cooling — thermal buffering; Outlast technology (originally developed for NASA spacesuits)
+  - Photovoltaic textiles: flexible solar cells integrated into fabric; research stage; wearable charging
+  - Shape memory textiles: NiTi (nitinol) wires woven in fabric → garment that changes shape with temperature; bio-responsive openings for ventilation; mostly research stage
+- **High-visibility / retroreflective**: ANSI/ISEA 107 standard; retroreflective tape (glass bead or microprismatic — returns light directly to source); fluorescent background fabric (high visibility in daylight); Class 1/2/3 by area coverage; rail workers, highway workers, emergency services
+- **Ballistic and stab resistance**: soft armor (Kevlar/Dyneema woven layers in carrier vest — NIJ IIIA handgun); hard armor plates (UHMWPE + ceramic or steel — rifle); stab resistance is separate from ballistic (different mechanics — tightly woven chainmail or PE hardened inserts needed vs soft Kevlar); NIJ 0101.06 (ballistic), NIJ 0115.00 (stab)
