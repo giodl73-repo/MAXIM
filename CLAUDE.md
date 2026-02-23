@@ -133,6 +133,7 @@ Follow `computing/01-PACKAGE.md` format exactly:
 | `computing/21-AUTOMATA.md` | Automata theory — DFA/NFA, pushdown, Turing machines, decidability | ✅ Complete |
 | `computing/22-COMPILERS.md` | Compiler & interpreter design — lexing, parsing, IR, codegen, SSA | ✅ Complete |
 | `computing/23-PL-THEORY.md` | Programming language theory — type theory, lambda calculus, semantics | ✅ Complete |
+| `computing/24-NETWORKING.md` | Networking — IP/subnetting, TCP, DNS, HTTP/1.1/2/3, TLS 1.3, WebSockets, gRPC, CDN, LB | ✅ Complete |
 
 ---
 
