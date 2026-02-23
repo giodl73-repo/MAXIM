@@ -29,6 +29,7 @@ reference/
 |-----------|--------|
 | **Role** | VP of Software Engineering, Microsoft |
 | **Age** | 52 |
+| **Education** | MIT double major — Mathematics + Theoretical Computer Science |
 | **Deep background** | .NET, ADO.NET, Azure Data Factory, Power Query, Power Apps |
 | **Leadership gap** | ~10 years as leader, not hands-on coder |
 | **Conceptual depth** | Full — compilers, linkers, runtime models, distributed systems |
@@ -38,7 +39,9 @@ reference/
 
 ### What Does NOT Need Explaining
 - General software architecture concepts
-- Compiler/linker/runtime theory
+- Compiler/linker/runtime theory (MIT TCS — knows this deeply)
+- Automata, formal languages, computability theory (MIT TCS)
+- Type theory, lambda calculus fundamentals (MIT TCS)
 - Database fundamentals
 - CI/CD philosophy (they built it at VSTS)
 - Azure services context (they worked on Azure)
@@ -88,7 +91,10 @@ Follow `computing/01-PACKAGE.md` format exactly:
 | `computing/17-CLOUD-NATIVE.md` | Cloud-native patterns — microservices, events, service mesh | ✅ Complete |
 | `computing/18-TESTING.md` | Modern testing stack — Vitest, Playwright, Testing Library, MSW | ✅ Complete |
 | `computing/19-TESTING-EVOLUTION.md` | The arc: manual → TDD → chaos → eval harnesses | ✅ Complete |
-| `computing/20-AZURE.md` | Azure services map — all the products, how they nest, when to use each | 🔜 Next |
+| `computing/20-AZURE.md` | Azure services map — all the products, how they nest, when to use each | ✅ Complete |
+| `computing/21-AUTOMATA.md` | Automata theory — DFA/NFA, pushdown, Turing machines, decidability | 🔜 Next |
+| `computing/22-COMPILERS.md` | Compiler & interpreter design — lexing, parsing, IR, codegen, SSA | 🔜 Queued |
+| `computing/23-PL-THEORY.md` | Programming language theory — type theory, lambda calculus, semantics | 🔜 Queued |
 
 ---
 
@@ -110,7 +116,10 @@ Track 7: Testing
   18-TESTING.md ✅               19-TESTING-EVOLUTION.md ✅
 
 Track 8: Azure
-  20-AZURE.md
+  20-AZURE.md ✅
+
+Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
+  21-AUTOMATA.md                 22-COMPILERS.md                23-PL-THEORY.md
 ```
 
 ---
@@ -160,6 +169,8 @@ Track 8: Azure
 | 2026-02-22 | 17-CLOUD-NATIVE.md authored. Covers monolith→microservices spectrum, distributed systems tax, event-driven (queues/topics/Kafka), resilience patterns (circuit breaker, retry, bulkhead, saga), service mesh, API gateway, blue/green, canary, feature flags, 12-Factor, WCF/ESB/MSMQ bridge. |
 | 2026-02-22 | 18-TESTING.md authored. Covers testing trophy, Vitest (unit, integration, mocking), Testing Library (behavior-first queries), MSW (network-level mocking), Playwright (E2E, page objects, codegen), coverage, CI integration, MSTest/Selenium bridge. |
 | 2026-02-22 | 19-TESTING-EVOLUTION.md authored. Covers 5 eras: manual QA → TDD (mock trap) → pyramid/E2E (flakiness) → property-based/chaos/contract → AI eval harnesses (PromptFoo, Braintrust, RAGAS, LLM-as-judge). |
+| 2026-02-22 | 20-AZURE.md authored. Full Azure services map: compute (VM/App Service/AKS/ACA/Functions), storage, databases (SQL/Cosmos/Postgres/Redis), messaging (Service Bus/Event Hubs/Event Grid), networking (VNet/Front Door/App Gateway), security (Key Vault/Managed Identity/Entra), AI (AOAI/AI Search). |
+| 2026-02-22 | Added Track 9: CS Theory (21-AUTOMATA, 22-COMPILERS, 23-PL-THEORY). Learner profile updated: MIT double major Math + TCS. |
 
 ---
 
