@@ -54,8 +54,8 @@ reference/
 | `astronomy/07-PLANETARY-INTERIORS.md` | Differentiation, PREM model, seismology, geodynamo, plate tectonics, comparative planetology | ✅ Complete |
 | `astronomy/08-PLANETARY-ATMOSPHERES.md` | Structure, escape, greenhouse effect, circulation, Venus/Earth/Mars comparison, biosignatures | ✅ Complete |
 | `astronomy/09-EXOPLANETS.md` | Detection methods, demographics, mass-radius, habitable zone, JWST spectra, TRAPPIST-1 | ✅ Complete |
-| `astronomy/10-SMALL-BODIES.md` | Asteroids, comets, TNOs, Kuiper Belt, Oort Cloud, impacts, meteorite taxonomy | 🔲 Stub |
-| `astronomy/11-ASTROBIOLOGY.md` | Origin of life, extremophiles, solar system targets, biosignatures, Fermi paradox | 🔲 Stub |
+| `astronomy/10-SMALL-BODIES.md` | Asteroids, comets, TNOs, Kuiper Belt, Oort Cloud, impacts, meteorite taxonomy | ✅ Complete |
+| `astronomy/11-ASTROBIOLOGY.md` | Origin of life, extremophiles, solar system targets, biosignatures, Fermi paradox | ✅ Complete |
 
 ---
 
@@ -145,3 +145,10 @@ Same format as Session 1 (`computing/01-PACKAGE.md`):
 | 2026-02-22 | 03-CELESTIAL-MECHANICS.md authored. |
 | 2026-02-22 | 04-STELLAR-PHYSICS.md authored. |
 | 2026-02-22 | 05-COSMOLOGY.md authored. astronomy/ track COMPLETE — 5/5 modules. |
+| 2026-02-22 | Planetary sciences extension: 6 stubs created (06–11). |
+| 2026-02-22 | 06-SOLAR-SYSTEM-FORMATION.md authored. |
+| 2026-02-22 | 07-PLANETARY-INTERIORS.md authored. |
+| 2026-02-22 | 08-PLANETARY-ATMOSPHERES.md authored. |
+| 2026-02-22 | 09-EXOPLANETS.md authored. |
+| 2026-02-22 | 10-SMALL-BODIES.md authored. |
+| 2026-02-22 | 11-ASTROBIOLOGY.md authored. astronomy/ + planetary sciences COMPLETE — 11/11 modules. |
