@@ -1,234 +1,410 @@
-# Entropy & Information — Shannon's Core Measures
+# Entropy and Information — Shannon's Core Measures
 
----
-
-## Big Picture
+## The Full Entropy Toolbox
 
 ```
-SELF-INFORMATION of event x with probability p(x):
-  I(x) = log₂(1/p(x)) = -log₂ p(x)   [bits]
+    MEASURES LANDSCAPE
+    ══════════════════════════════════════════════════════════
 
-Interpretation: "how surprised are you?" or "how many bits to describe x?"
-  p(x) = 1 → I = 0 bits (certain → no surprise)
-  p(x) = 1/2 → I = 1 bit (fair coin flip)
-  p(x) = 1/8 → I = 3 bits (needs 3 binary questions)
+    H(X)        ← entropy of X
+    H(X|Y)      ← conditional entropy: uncertainty in X after knowing Y
+    H(X,Y)      ← joint entropy
+    I(X;Y)      ← mutual information: how much Y tells us about X
+    D_KL(P||Q)  ← relative entropy / KL divergence
+    H(P,Q)      ← cross-entropy
+    h(X)        ← differential entropy (continuous)
+    I(θ)        ← Fisher information
 
-ENTROPY: expected self-information over the distribution
-  H(X) = E[I(X)] = -Σ p(x) log₂ p(x)   [bits/symbol]
-```
-
----
-
-## Shannon Entropy
-
-```
-H(X) = -Σ_{x ∈ X} p(x) log₂ p(x)
-
-PROPERTIES:
-• H(X) ≥ 0   (always non-negative)
-• H(X) = 0   iff p(x₀) = 1 for some x₀  (no uncertainty)
-• H(X) ≤ log₂ |X|   (max entropy = uniform distribution)
-  Proof: Jensen's inequality (log is concave)
-• Continuity: H(p) continuous in p
-• Symmetry: H(p₁,...,p_n) = H(p_{π(1)},...,p_{π(n)}) for any permutation π
-• Additivity: H(X,Y) = H(X) + H(Y)  iff X,Y independent
-• Concavity: H(λp + (1-λ)q) ≥ λH(p) + (1-λ)H(q)
-```
-
-**Binary entropy:**
-
-```
-h(p) = -p log₂ p - (1-p) log₂(1-p)
-
-h(0) = h(1) = 0   (certain → no entropy)
-h(0.5) = 1 bit    (maximum)
-h(0.1) ≈ 0.47 bits
-```
-
-**Differential entropy (continuous X):**
-
-```
-h(X) = -∫ f(x) log f(x) dx
-
-NOT always non-negative: h(X) can be negative for concentrated distributions
-NOT scale-invariant: h(aX) = h(X) + log|a|
-
-Maximum differential entropy: For fixed variance σ², h(X) ≤ ½ log(2πeσ²)
-Achieved by Gaussian: h(N(μ,σ²)) = ½ log(2πeσ²)
-→ Gaussian is maximum entropy distribution with fixed variance
+    Chain rules connect everything:
+    H(X,Y) = H(X) + H(Y|X)
+    I(X;Y) = H(X) + H(Y) - H(X,Y) = H(X) - H(X|Y) = H(Y) - H(Y|X)
+    I(X;Y) = H(X,Y) - H(X|Y) - H(Y|X)
 ```
 
 ---
 
-## Joint and Conditional Entropy
+## Entropy H(X): Axiomatics and Properties
+
+### Shannon's Uniqueness Theorem
+
+Shannon (1948) showed that H(X) = -Σ p_i log p_i is the UNIQUE function satisfying:
+
+1. **Continuity**: H is continuous in p_1,...,p_n
+2. **Symmetry**: H(p_1,...,p_n) = H(p_σ(1),...,p_σ(n)) for any permutation σ
+3. **Expansibility**: H(p_1,...,p_n, 0) = H(p_1,...,p_n) (adding zero-prob event changes nothing)
+4. **Maximum**: H(p_1,...,p_n) ≤ H(1/n,...,1/n) = log n (uniform is most uncertain)
+5. **Recursion / Additivity**: H(pq, p(1-q), (1-p)) = H(p, 1-p) + p·H(q, 1-q)
 
 ```
-JOINT ENTROPY:
-  H(X,Y) = -Σ_{x,y} p(x,y) log p(x,y)
+    Result: Any H satisfying all 5 axioms must be H(X) = -c Σ p_i log p_i for c > 0.
+    Choosing c=1 and log base 2 → bits. Base e → nats. Base 10 → hartleys (Hartley units).
 
-CONDITIONAL ENTROPY:
-  H(Y|X) = Σ_x p(x) H(Y|X=x)
-           = -Σ_{x,y} p(x,y) log p(y|x)
-
-CHAIN RULE:
-  H(X,Y) = H(X) + H(Y|X) = H(Y) + H(X|Y)
-
-CONDITIONING REDUCES ENTROPY:
-  H(X|Y) ≤ H(X)   (knowledge of Y cannot increase uncertainty about X)
-  H(X|Y) = H(X)   iff X ⊥ Y (independent)
-
-CHAIN RULE FOR N VARIABLES:
-  H(X₁,...,Xₙ) = Σ_{i=1}^n H(Xᵢ | X₁,...,X_{i-1})
+    Proof sketch of maximum at uniform (Gibbs inequality method):
+    Want to show H(p₁,...,pₙ) ≤ log n for all distributions.
+    By log-sum inequality (or Jensen on concave -x log x):
+    -Σ p_i log p_i ≤ -Σ p_i log(1/n) = -Σ p_i(-log n) = log n
+    (use: p_i log(p_i/q_i) ≥ 0 for q_i = 1/n)
 ```
 
----
-
-## Mutual Information
-
-The most important measure of dependence.
+### Key Properties
 
 ```
-MUTUAL INFORMATION:
-  I(X;Y) = H(X) - H(X|Y)
-           = H(Y) - H(Y|X)
-           = H(X) + H(Y) - H(X,Y)
-           = Σ_{x,y} p(x,y) log [p(x,y)/(p(x)p(y))]
+    1. Non-negativity: H(X) ≥ 0, with equality iff X is deterministic.
+       H = 0 means no uncertainty.
 
-INTERPRETATION: "How much does knowing Y reduce uncertainty about X?"
-                "How many bits of X are predictable from Y?"
-                "How far is the joint distribution from independence?"
+    2. Maximum: H(X) ≤ log₂|X|, with equality iff X is uniform over its support.
+       Maximum uncertainty = uniform distribution.
 
-PROPERTIES:
-  I(X;Y) ≥ 0   (equality iff X ⊥ Y)
-  I(X;Y) = I(Y;X)   (symmetric)
-  I(X;Y) ≤ min(H(X), H(Y))
-  I(X;X) = H(X)   (self-information = entropy)
-  Data processing inequality: X → Y → Z implies I(X;Z) ≤ I(X;Y)
-    → Processing can only lose information, never create it
-    → Z = f(Y) with deterministic f: I(X;Z) ≤ I(X;Y)
+    3. Chain rule: H(X,Y) = H(X) + H(Y|X)
+       Joint uncertainty = uncertainty in X + remaining uncertainty in Y given X.
+       Proof: H(X,Y) = -Σ_{x,y} p(x,y) log p(x,y)
+                     = -Σ_{x,y} p(x,y) [log p(x) + log p(y|x)]
+                     = H(X) + H(Y|X)
 
-VENN DIAGRAM:
-       ┌───────────────────────┐
-       │   H(X,Y)              │
-       │  ┌──────┬──────┐      │
-       │  │ H(X│Y)│I(X;Y)│H(Y│X)│
-       │  └──────┴──────┘      │
-       └───────────────────────┘
+    4. Conditional entropy: H(Y|X) = Σ_x p(x) H(Y|X=x)
+       H(Y|X) ≤ H(Y) with equality iff X and Y are independent.
+       Conditioning reduces entropy (knowing something can only help).
+
+    5. Subadditivity: H(X,Y) ≤ H(X) + H(Y)
+       Equality iff X, Y independent.
+       Proof: H(X) + H(Y) - H(X,Y) = I(X;Y) ≥ 0 (see mutual information below)
 ```
 
-**Conditional mutual information:**
+### Binary Entropy Function
+
+For a Bernoulli(p) random variable:
+
+$$H_b(p) = -p\log_2 p - (1-p)\log_2(1-p)$$
 
 ```
-I(X;Y|Z) = H(X|Z) - H(X|Y,Z)
-           = Σ_z p(z) I(X;Y|Z=z)
+    Properties:
+    H_b(0) = 0, H_b(1) = 0 (deterministic → no uncertainty)
+    H_b(1/2) = 1 bit (maximum)
+    Symmetric: H_b(p) = H_b(1-p)
+    Concave: d²H_b/dp² < 0
 
-Chain rule: I(X₁,...,Xₙ;Y) = Σ_i I(Xᵢ;Y|X₁,...,X_{i-1})
-```
+    Values:
+    p=0.01: H_b = 0.081 bits (mostly certain)
+    p=0.1:  H_b = 0.469 bits
+    p=0.3:  H_b = 0.881 bits
+    p=0.5:  H_b = 1.000 bit (max)
+    p=0.9:  H_b = 0.469 bits (same as p=0.1 by symmetry)
 
----
-
-## KL Divergence (Relative Entropy)
-
-```
-KL(P||Q) = Σ_x p(x) log [p(x)/q(x)]   (discrete)
-           = ∫ p(x) log [p(x)/q(x)] dx  (continuous)
-
-PROPERTIES:
-  KL(P||Q) ≥ 0   (Gibbs inequality)
-  KL(P||Q) = 0   iff P = Q (a.e.)
-  NOT symmetric: KL(P||Q) ≠ KL(Q||P) in general
-  NOT a metric (no triangle inequality)
-
-INTERPRETATION:
-  "Extra bits needed when using code optimized for Q but true distribution is P"
-  Regret of wrong model assumption
-  Divergence measure (not distance)
-
-RELATION TO OTHER QUANTITIES:
-  I(X;Y) = KL(p(x,y) || p(x)p(y))   (how far joint is from product)
-  H(X) = log|X| - KL(p || uniform)   (entropy gap from maximum)
-
-FORWARD vs REVERSE KL:
-  KL(P||Q): "exclusive" — Q=0 where P>0 → infinite penalty → Q covers all of P
-  KL(Q||P): "inclusive" — Q spreads to cover all of P, even where P is small
-  → Matters for variational inference:
-    Minimizing KL(Q||P) (ELBO): Q understimates support of P (mode-seeking)
-    Minimizing KL(P||Q): Q overestimates support (mean-seeking)
+    CRITICAL IN CHANNEL CODING:
+    BSC capacity: C = 1 - H_b(p) bits/use
+    BSC rate-distortion: R(D) = H_b(p) - H_b(D) for D ≤ min(p,1-p)
+    Hamming code rate: k/n = 1 - log(n+1)/n → C_BSC(p=1/7) from Hamming [7,4]
 ```
 
 ---
 
-## Information Inequalities
+## Mutual Information I(X;Y)
+
+How much does Y tell us about X?
+
+$$I(X;Y) = H(X) + H(Y) - H(X,Y) = H(X) - H(X|Y) = H(Y) - H(Y|X)$$
+
+Alternatively:
+
+$$I(X;Y) = \sum_{x,y} p(x,y)\log\frac{p(x,y)}{p(x)p(y)} = D_{KL}(p(x,y) \| p(x)p(y))$$
 
 ```
-GIBBS INEQUALITY (foundation of KL ≥ 0):
-  -Σ p(x) log q(x) ≥ -Σ p(x) log p(x) = H(X)
-  Cross-entropy H(P,Q) ≥ H(P)
-  Equality iff P = Q
+    Venn diagram:
+    ┌───────────────────────────────────────┐
+    │         H(X,Y)                        │
+    │  ┌─────────────────────┐              │
+    │  │  H(X) ┌─────────────┐──────┐       │
+    │  │       │    I(X;Y)   │H(Y)  │       │
+    │  │H(X|Y) │             │H(Y|X)│       │
+    │  └───────┴─────────────┴──────┘       │
+    └───────────────────────────────────────┘
 
-JENSEN'S INEQUALITY (used everywhere):
-  For convex function φ: φ(E[X]) ≤ E[φ(X)]
-  For concave function φ: φ(E[X]) ≥ E[φ(X)]
-  log is concave → E[log X] ≤ log E[X]
+    I(X;Y) = overlap region
+    H(X|Y) = part of H(X) not in H(Y)
+    H(Y|X) = part of H(Y) not in H(X)
+    H(X,Y) = all of both circles
 
-LOG-SUM INEQUALITY:
-  Σᵢ aᵢ log(aᵢ/bᵢ) ≥ (Σaᵢ) log(Σaᵢ/Σbᵢ)
-  Used to prove subadditivity of entropy
+    PROPERTIES:
+    1. Symmetry: I(X;Y) = I(Y;X)
+    2. Non-negativity: I(X;Y) ≥ 0 with equality iff X,Y independent
+    3. I(X;X) = H(X) (X tells you everything about itself)
+    4. I(X;Y|Z) = H(X|Z) - H(X|Y,Z) ≥ 0 (conditional MI also ≥ 0)
+    5. Chain rule: I(X;Y₁Y₂) = I(X;Y₁) + I(X;Y₂|Y₁)
+```
 
-FANO'S INEQUALITY:
-  P_e = P(X̂ ≠ X) → H(X|Y) ≤ h(P_e) + P_e log(|X|-1)
-  "If you can't predict X from Y with low error, X|Y must have high entropy"
-  → Lower bound on error probability from entropy
+### Non-negativity Proof (via Log-Sum Inequality)
 
-DATA PROCESSING INEQUALITY:
-  Markov chain X → Y → Z: I(X;Z) ≤ I(X;Y)
-  Consequence: no deterministic function of Y can increase mutual information with X
-  Application: feature extraction cannot increase relevant information beyond raw features
+**Log-sum inequality**: For non-negative a_i, b_i:
+$$\sum_i a_i \log\frac{a_i}{b_i} \geq \left(\sum_i a_i\right)\log\frac{\sum_i a_i}{\sum_i b_i}$$
+
+Applying with a_i = p(x,y), b_i = p(x)p(y):
+$$I(X;Y) = \sum_{x,y} p(x,y)\log\frac{p(x,y)}{p(x)p(y)} \geq \left(\sum_{x,y} p(x,y)\right)\log\frac{1}{1} = 0$$
+
+Equality iff p(x,y)/p(x)p(y) = const for all (x,y) with p(x,y) > 0 → p(x,y) = p(x)p(y).
+
+### Data Processing Inequality
+
+If X → Y → Z is a Markov chain (Z depends on X only through Y):
+
+$$I(X;Z) \leq I(X;Y)$$
+
+Processing cannot increase information. Proof: I(X;Z) = I(X;Y) - I(X;Y|Z) + I(X;Z|Y).
+Since X→Y→Z, X ⊥ Z | Y → I(X;Z|Y) = 0. Since I(X;Y|Z) ≥ 0, I(X;Z) ≤ I(X;Y).
+
+```
+    Applications:
+    1. Sufficient statistics: T(X) is sufficient for X iff I(θ;T(X)) = I(θ;X)
+       (no loss of information about parameter θ from compressing to T(X))
+    2. Bottleneck principle: any lossy representation T must satisfy I(T;Y) ≤ I(X;Y)
+       Can't recover lost information about Y from intermediate representation
+    3. Feature extraction: features F = f(X) must satisfy I(F;Y) ≤ I(X;Y)
+       → Upper bounds the achievable accuracy of any classifier using features F
+    4. Encryption: cipher C = enc(M,K) must satisfy I(C;M) ≥ I(M;M) = H(M)
+       if C is to allow recovery of M (by data processing on C→M)
+       Perfect secrecy: I(C;M) = 0 → OTP (key masks all information)
 ```
 
 ---
 
-## Information Diagrams (I-diagrams)
+## KL Divergence D_KL(P||Q)
+
+$$D_{KL}(P\|Q) = \sum_x p(x)\log\frac{p(x)}{q(x)} = E_P\left[\log\frac{P}{Q}\right]$$
+
+### Non-negativity Proof (Gibbs' Inequality / Jensen)
+
+Since -log is convex (log is concave):
+$$D_{KL}(P\|Q) = -E_P[\log(Q/P)] \geq -\log E_P[Q/P] = -\log\sum_x q(x) = -\log 1 = 0$$
+
+with equality iff Q/P = const on support of P → P = Q.
 
 ```
-THREE VARIABLES X, Y, Z:
-  Regions: I(X;Y;Z), I(X;Y|Z), I(X;Z|Y), I(Y;Z|X), H(X|Y,Z), H(Y|X,Z), H(Z|X,Y)
+    Key properties:
+    D_KL(P||Q) ≥ 0  (non-negative)
+    D_KL(P||Q) = 0 iff P = Q
+    D_KL(P||Q) ≠ D_KL(Q||P)  (asymmetric!)
+    D_KL(P||Q) = ∞ if Q(x)=0 but P(x)>0 for some x
 
-  Interaction information (co-information):
-  I(X;Y;Z) = I(X;Y) - I(X;Y|Z)
-  Can be NEGATIVE (synergy: Z helps X predict Y, but Z itself doesn't help)
-  vs POSITIVE (redundancy: Z,Y both carry same info about X)
+    Interpretation:
+    D_KL(P||Q) = extra bits needed per symbol when using code optimized for Q
+                 but actual distribution is P.
+    Average code length under P using Q-optimal code = H(P) + D_KL(P||Q) = H(P,Q) (cross-entropy)
+    vs. optimal average code length = H(P)
+    → D_KL = inefficiency from using wrong distribution
+
+    Forward vs reverse KL:
+    min D_KL(P||Q) over Q: q covers all of p (zero-forcing, mean-seeking behavior)
+    min D_KL(Q||P) over Q: q concentrates on modes of p (mode-seeking behavior)
+    → VAEs minimize KL(q(z|x)||p(z)) = forward direction → approximate posterior covers prior
+    → GAN uses reverse KL implicitly in some formulations
+```
+
+### Pinsker's Inequality
+
+$$D_{KL}(P\|Q) \geq \frac{1}{2}\|P - Q\|_{TV}^2$$
+
+Total variation distance: $\|P-Q\|_{TV} = \frac{1}{2}\sum_x |p(x) - q(x)|$.
+
+```
+    → If KL is small, distributions are close in TV distance
+    → TV controls probability of any event: |P(A) - Q(A)| ≤ ||P-Q||_TV
+    → Pinsker: small KL → can't distinguish P from Q by any statistical test
+    Constant 1/2 is tight; better constants: Bretagnole-Huber (1978): tighter for small KL
 ```
 
 ---
 
-## Entropy Rate
+## Cross-Entropy H(P,Q)
 
-For a stationary process {Xᵢ}:
+$$H(P,Q) = -\sum_x p(x)\log q(x) = H(P) + D_{KL}(P\|Q)$$
 
 ```
-ENTROPY RATE:
-  H(X) = lim_{n→∞} H(X₁,...,Xₙ)/n = lim_{n→∞} H(Xₙ|X_{n-1},...,X₁)
+    The ML CONNECTION:
+    Training a model with parameters θ:
+    - True data distribution: p(x) (empirical: 1/n for each training example)
+    - Model distribution: q_θ(x) = p_θ(x)
 
-For ergodic Markov chain: H(X) = -Σ_{i,j} μᵢ P_{ij} log P_{ij}
-  μ = stationary distribution, P = transition matrix
+    Maximum likelihood = minimize negative log-likelihood:
+    L(θ) = -1/n Σ_i log p_θ(x_i) = -E_p[log q_θ(x)] = H(p, q_θ)
 
-ENGLISH TEXT:
-  Shannon (1951): ~1–1.5 bits/character (by human guessing experiment)
-  Formal bound (with n-gram): ~1.3 bits/char (decreases with larger context)
-  Compare: ASCII = 8 bits/char → ~6:1 compression possible
-  Modern LLMs: measured ~1 bit/char perplexity on held-out text → near Shannon limit?
+    Cross-entropy loss = H(p, q_θ) = H(p) + D_KL(p||q_θ)
+
+    Since H(p) is fixed (doesn't depend on θ):
+    Minimizing CE loss = minimizing KL(p||q_θ) = making model match true distribution
+
+    WHY THIS IS THE RIGHT LOSS:
+    1. Maximum likelihood = maximum entropy principle = MLE
+    2. Minimizing KL = information-theoretically optimal
+    3. CE is the unique proper scoring rule satisfying locality
+    4. Gradient of CE is better-conditioned than squared error for classification
+
+    PERPLEXITY:
+    Perplexity = 2^{H(p,q)} = 2^{CE}
+    For a language model on text with entropy h bits/token:
+    Perplexity = 2^h
+    Interpretation: effective vocabulary size if all tokens equally likely
+    → Good LM: perplexity 15-30 on held-out text
+    → Random unigram model on 50K vocab: perplexity = 50000
+    → Human: ~30-100 depending on text domain
+```
+
+---
+
+## Differential Entropy h(X) for Continuous Distributions
+
+For a continuous random variable X with pdf f(x):
+
+$$h(X) = -\int f(x)\log f(x)\, dx$$
+
+```
+    KEY DIFFERENCES from discrete H(X):
+    1. h(X) CAN BE NEGATIVE (unlike discrete H(X))
+    2. Not invariant under reparametrization: h(aX) = h(X) + log|a|
+    3. Not directly interpretable as "bits" (but differences h(Y) - h(X) are valid)
+
+    Key results:
+    Uniform on [0,a]: h = log a (negative if a < 1)
+    Gaussian N(μ,σ²): h = ½log(2πeσ²)  ← maximum for given variance
+    Exponential(λ): h = 1 - log λ
+    Laplace(0,b): h = 1 + log(2b)
+
+    GAUSSIAN MAXIMIZES DIFFERENTIAL ENTROPY:
+    Among all distributions with fixed variance σ²:
+    h(X) ≤ ½log(2πeσ²)  with equality iff X ~ N(μ,σ²)
+
+    Proof via Lagrange multipliers:
+    Maximize -∫f log f subject to: ∫f = 1, ∫(x-μ)²f = σ²
+    Lagrangian: -∫f log f - λ₀∫f - λ₂∫(x-μ)²f → f(x) ∝ exp(-λ₂(x-μ)²) → Gaussian ✓
+
+    AWGN channel capacity uses this: h(Y|X) = h(N) = ½log(2πeN₀)
+    h(Y) ≤ ½log(2πe(P+N₀)) with equality iff X ~ Gaussian
+    → Gaussian input achieves AWGN capacity
+```
+
+---
+
+## Fisher Information and Cramér-Rao Bound
+
+For a parametric family p(x;θ), the Fisher information:
+
+$$I(\theta) = E_\theta\left[\left(\frac{\partial \log p(X;\theta)}{\partial \theta}\right)^2\right] = -E_\theta\left[\frac{\partial^2 \log p(X;\theta)}{\partial \theta^2}\right]$$
+
+**Cramér-Rao lower bound**: For any unbiased estimator θ̂(X₁,...,X_n):
+
+$$\text{Var}(\hat{\theta}) \geq \frac{1}{n I(\theta)}$$
+
+```
+    Efficient estimator: achieves the Cramér-Rao bound.
+    MLE is asymptotically efficient under regularity conditions.
+    (MLE → N(θ, 1/nI(θ)) as n → ∞ by CLT + delta method)
+
+    Fisher matrix F_ij = E[∂ log p/∂θ_i × ∂ log p/∂θ_j]
+    For Gaussian N(0,Σ): F = Σ⁻¹ (Fisher matrix = inverse covariance)
+    Rao-Cramér for vectors: Var(θ̂) - F⁻¹ ≥ 0 (positive semi-definite)
+
+    NATURAL GRADIENT:
+    Standard gradient: ∇L in Euclidean parameter space
+    Natural gradient: F⁻¹∇L → steepest descent in information geometry
+    Fisher information matrix defines Riemannian metric on parameter space
+    (Amari's information geometry)
+
+    Natural gradient = parameter update in the "manifold" of distributions
+    More efficient: ignores parameter redundancy (e.g., different parameterizations of same distribution)
+    Used in: actor-critic RL (natural policy gradient), K-FAC optimizer
+```
+
+---
+
+## Entropy Rate for Stochastic Processes
+
+For a stationary stochastic process {X_n}:
+
+$$H(\mathcal{X}) = \lim_{n\to\infty} \frac{1}{n} H(X_1,...,X_n) = \lim_{n\to\infty} H(X_n|X_{n-1},...,X_1)$$
+
+```
+    MARKOV CHAIN:
+    Transition matrix P, stationary distribution π.
+    H(X_n|X_{n-1}) = -Σ_{i,j} π_i P_{ij} log P_{ij}
+    Entropy rate = H(X|X_prev) (conditional on one previous state, since Markov)
+
+    ENGLISH TEXT:
+    Shannon (1951): estimated ~1-1.5 bits/letter for English
+    LM perplexity 30 ≈ 5 bits/token; assume 4 chars/token → 1.25 bits/char ✓
+    GPT-4 class models: < 1 bit/char for English text
+    → Modern LLMs are near Shannon limit for English text compression!
+
+    ERGODIC THEOREM (McMillan / AEP):
+    For ergodic source: -(1/n)log p(X₁,...,Xₙ) → H(X) almost surely
+    → Probability of typical sequence ≈ 2^{-nH(X)}
+    → Number of typical sequences ≈ 2^{nH(X)} (AEP = Asymptotic Equipartition Property)
+    This is the foundation of both source coding and channel coding proofs.
+```
+
+---
+
+## Connection to Thermodynamics (for Physics Background)
+
+```
+    BOLTZMANN ENTROPY:
+    S = k_B ln W
+    where W = number of microstates consistent with macrostate
+
+    For equiprobable microstates (microcanonical ensemble):
+    S = k_B ln W = k_B log₂ W / log₂ e = k_B ln 2 × H  [H in bits]
+
+    For non-equiprobable: S = -k_B Σ p_i ln p_i = k_B ln 2 × H [nats→bits]
+
+    SECOND LAW as information principle:
+    Entropy can only increase in isolated systems
+    = Information about fine-grained microstate can only be lost, never gained
+    = D_KL(p_current || p_uniform) is non-decreasing → erasure toward equilibrium
+
+    MAXWELL'S DEMON:
+    Demon measures molecule position (bit of information gained)
+    Sorts molecules → reduces thermodynamic entropy of gas
+    RESOLUTION: Demon's memory must be erased to run in a cycle
+    Erasing 1 bit costs k_B T ln 2 Joules → exactly compensates entropy reduction
+    Information erasure → thermodynamic entropy increase → 2nd law preserved
+
+    LANDAUER + SZILARD = MAXWELL'S DEMON RESOLUTION:
+    Bit erasure: ΔS ≥ k_B ln 2 per bit (Landauer 1961)
+    Bit extraction from thermal: W ≤ k_B T ln 2 (Szilard engine)
+    These are inverse processes → consistent, no contradiction
 ```
 
 ---
 
 ## Decision Cheat Sheet
 
-| Quantity | Formula | Range | Meaning |
-|----------|---------|-------|---------|
-| Entropy H(X) | -Σ p log p | [0, log\|X\|] | Average uncertainty |
-| Joint entropy H(X,Y) | -Σ p(x,y) log p(x,y) | ≥ max(H(X),H(Y)) | Combined uncertainty |
-| Conditional entropy H(X\|Y) | H(X,Y) - H(Y) | [0, H(X)] | Remaining uncertainty given Y |
-| Mutual info I(X;Y) | H(X) - H(X\|Y) | [0, min(H(X),H(Y))] | Shared information |
-| KL divergence KL(P\|\|Q) | Σ p log(p/q) | [0, ∞) | "Extra bits" from wrong model |
-| Cross-entropy H(P,Q) | -Σ p log q | [H(P), ∞) | H(P) + KL(P\|\|Q) |
+| Need                                  | Formula                           | Key constraint |
+|---------------------------------------|-----------------------------------|---------------|
+| Average compression limit             | H(X) = -Σ p log p                | Can't go below H |
+| Reduce to uncertainty given Y         | H(X|Y) = H(X,Y) - H(Y)           | ≤ H(X) always |
+| How much Y tells us about X          | I(X;Y) = H(X) - H(X|Y)           | ≥ 0 always |
+| Compare distributions P, Q          | D_KL(P||Q) = Σ p log(p/q)        | ≥ 0, not symmetric |
+| ML training loss                      | H(p,q) = H(p) + D_KL(p||q)       | Minimize over model q |
+| Maximum entropy for given variance   | N(μ,σ²), h = ½log(2πeσ²)         | Gaussian wins |
+| Estimation variance lower bound      | Var(θ̂) ≥ 1/(n I(θ))              | Cramér-Rao |
+| Optimal optimization direction        | F⁻¹ ∇L (natural gradient)         | Fisher = metric tensor |
+
+---
+
+## Common Confusion Points
+
+**H(X|Y) ≤ H(X) is "conditioning reduces entropy" but H(X|Y=y) can be > H(X)**:
+The CONDITIONAL entropy H(X|Y) = E_Y[H(X|Y=y)] is always ≤ H(X). But for a specific
+observed value Y=y, the conditional entropy H(X|Y=y) can exceed H(X). Knowing that a
+biased coin showed heads might increase your uncertainty about something correlated with
+that coin flip. The inequality holds on average, not pointwise.
+
+**KL divergence is not symmetric, and this matters**: D_KL(P||Q) ≠ D_KL(Q||P) in general.
+Which direction you use in optimization has significant consequences:
+- Forward KL: D_KL(p_data || q_model) → mass-covering (q spreads to cover p)
+- Reverse KL: D_KL(q_model || p_data) → mode-seeking (q concentrates on modes of p)
+MLE uses forward KL. Variational methods often use reverse KL (ELBO = -D_KL(q||p) + const).
+The Jensen-Shannon divergence JSD(P,Q) = ½D_KL(P||M) + ½D_KL(Q||M), M=(P+Q)/2, IS symmetric.
+
+**Fisher information and Shannon information are distinct**: Fisher information I(θ)
+measures the sensitivity of the log-likelihood to θ — it's about ESTIMATION, not encoding.
+Shannon entropy H(X) measures the average bits needed to encode X. They're related through
+the Cramér-Rao bound and information geometry but are measuring different things. Fisher
+information for a Gaussian model happens to equal the inverse variance, but this is a special case.
