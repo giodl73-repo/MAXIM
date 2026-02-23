@@ -244,7 +244,7 @@ Track 11: Security
 | `astronomy/06-SOLAR-SYSTEM-FORMATION.md` | Nebular hypothesis, disk physics, accretion, Nice model, Grand Tack, meteorite chronology | ✅ Complete |
 | `astronomy/07-PLANETARY-INTERIORS.md` | Differentiation, PREM model, seismology, geodynamo, plate tectonics, comparative planetology | ✅ Complete |
 | `astronomy/08-PLANETARY-ATMOSPHERES.md` | Structure, escape, greenhouse effect, circulation, Venus/Earth/Mars comparison, biosignatures | ✅ Complete |
-| `astronomy/09-EXOPLANETS.md` | Detection methods, demographics, mass-radius, habitable zone, JWST spectra, TRAPPIST-1 | 🔲 Stub |
+| `astronomy/09-EXOPLANETS.md` | Detection methods, demographics, mass-radius, habitable zone, JWST spectra, TRAPPIST-1 | ✅ Complete |
 | `astronomy/10-SMALL-BODIES.md` | Asteroids, comets, TNOs, Kuiper Belt, Oort Cloud, impacts, meteorite taxonomy | 🔲 Stub |
 | `astronomy/11-ASTROBIOLOGY.md` | Origin of life, extremophiles, solar system targets, biosignatures, Fermi paradox | 🔲 Stub |
 

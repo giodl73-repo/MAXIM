@@ -1,400 +1,524 @@
-# Semiconductors — Devices from First Principles
+# Semiconductors — From Carrier Statistics to Devices
 
-> This fills the MIT 6.012 gap: device physics from band theory, not just circuit symbols.
-
----
-
-## Big Picture
+## The Big Picture
 
 ```
-Band theory (02-BONDING-BANDS.md)
-        │
-        ▼
-INTRINSIC SEMICONDUCTOR
-(pure Si at room temperature: some e⁻ thermally excited across gap)
-        │
-        ├──── n-TYPE DOPING (donor atoms → extra electrons)
-        └──── p-TYPE DOPING (acceptor atoms → extra holes)
-                    │
-                    ▼
-             p-n JUNCTION
-             (the fundamental device)
-                    │
-        ┌───────────┼───────────┐
-        ▼           ▼           ▼
-    DIODE       SOLAR CELL    LED/LASER
-                    │
-                    ▼
-              TRANSISTORS
-              (BJT, MOSFET)
-                    │
-                    ▼
-              INTEGRATED CIRCUITS
+    SEMICONDUCTOR LANDSCAPE
+    ══════════════════════════════════════════════════════════
+
+    PHYSICS                          DEVICES
+    ┌──────────────────────┐        ┌────────────────────────┐
+    │ Band structure E_g   │        │ p-n junction diode     │
+    │ Carrier statistics   │───────▶│ Bipolar transistor     │
+    │ Drift + diffusion    │        │ MOSFET (CMOS)          │
+    │ Recombination        │        │ Solar cell (PV)        │
+    │ Generation           │        │ LED / laser diode      │
+    │ Doping (n/p type)    │        │ Photodetector          │
+    └──────────────────────┘        └────────────────────────┘
+
+    Connects:  band theory (02-BONDING-BANDS) → device operation
+               materials choice (E_g, μ, n_i) → circuit performance
 ```
 
 ---
 
 ## Intrinsic Semiconductors
 
-**Carrier concentration at thermal equilibrium:**
+At T=0, valence band (VB) fully filled, conduction band (CB) empty.
+At T>0, thermal excitation across the band gap creates electron-hole pairs.
 
-Electrons excited from valence band to conduction band leave behind holes.
+### Effective Density of States
+
+Near the CB minimum (parabolic approximation, effective mass m_e*):
+
+$$N_c = 2\left(\frac{2\pi m_e^* kT}{h^2}\right)^{3/2}$$
+
+Near the VB maximum (effective mass m_h*):
+
+$$N_v = 2\left(\frac{2\pi m_h^* kT}{h^2}\right)^{3/2}$$
+
+For Si at 300K: N_c = 2.8×10¹⁹ cm⁻³, N_v = 1.04×10¹⁹ cm⁻³
+
+### Intrinsic Carrier Concentration
+
+Equilibrium condition: n = p = n_i. Set Fermi level, apply Fermi-Dirac:
+
+$$\boxed{n_i = \sqrt{N_c N_v} \cdot \exp\left(-\frac{E_g}{2kT}\right)}$$
 
 ```
-n = ∫_{E_C}^{∞} g_c(E) f(E) dE   (electrons in conduction band)
-p = ∫_{-∞}^{E_V} g_v(E) [1-f(E)] dE   (holes in valence band)
+    n_i values at 300K:
+    Si   (E_g=1.12 eV): n_i = 1.5×10¹⁰ cm⁻³  ← crucial reference
+    Ge   (E_g=0.67 eV): n_i = 2.4×10¹³ cm⁻³
+    GaAs (E_g=1.43 eV): n_i = 2.0×10⁶  cm⁻³
+    GaN  (E_g=3.4 eV):  n_i ≈ 10⁻¹⁰   cm⁻³  (negligible)
+    4H-SiC (E_g=3.3 eV):n_i ≈ 10⁻⁸   cm⁻³
+
+    Temperature dependence (from activation):
+    d(ln n_i)/dT ≈ E_g/(2kT²)
+    For Si: n_i doubles for every ~8°C near 300K
+    → Devices designed for T < 150°C (Si), < 400°C (SiC)
+
+    Mass action law (fundamental, holds even under bias):
+    np = n_i²   (equilibrium)
 ```
 
-For non-degenerate semiconductor (E_F far from band edges by > 3k_BT):
+Intrinsic Fermi level E_i (where n = p):
+
+$$E_i = \frac{E_c + E_v}{2} + \frac{3kT}{4}\ln\frac{m_h^*}{m_e^*} \approx \text{midgap}$$
+
+---
+
+## Extrinsic Doping
+
+### n-type: Donors
+
+Group V atoms (P, As, Sb in Si) contribute one extra electron.
+Donor level E_D lies slightly below E_c (shallow donor).
+
+**Binding energy** (hydrogen atom analogy with screening and effective mass):
+
+$$E_b = \frac{m_e^*}{m_0 \kappa^2} \times 13.6 \text{ eV}$$
+
+For Si (m_e* = 0.26m₀, κ = 11.7): E_b = 0.026 eV ≈ kT at 300K → fully ionized.
+
+With donor concentration N_D (assuming full ionization, N_D >> n_i):
+- Majority carriers: n ≈ N_D
+- Minority carriers: p = n_i²/N_D
+- Fermi level: $E_F = E_i + kT \ln(N_D / n_i)$
 
 ```
-n = N_C exp[-(E_C - E_F)/k_BT]
-
-p = N_V exp[-(E_F - E_V)/k_BT]
-
-N_C = 2(2πm_n*k_BT/h²)^(3/2)   (effective density of states, conduction band)
-N_V = 2(2πm_p*k_BT/h²)^(3/2)   (effective density of states, valence band)
-
-m_n*, m_p* = effective masses (different from free electron mass m_e)
+    Example: N_D = 10¹⁶ cm⁻³ phosphorus in Si:
+    n = 10¹⁶ cm⁻³
+    p = (1.5×10¹⁰)²/10¹⁶ = 2.25×10⁴ cm⁻³ (12 orders below n!)
+    E_F - E_i = 0.026 × ln(10¹⁶/1.5×10¹⁰) = 0.026 × 13.0 = 0.34 eV above midgap
 ```
 
-**Intrinsic carrier concentration:**
-```
-np = N_C N_V exp(-E_g/k_BT) = n_i²   (mass action law — holds always)
+### p-type: Acceptors
 
-n_i = √(N_C N_V) exp(-E_g/2k_BT)
+Group III atoms (B, Al, Ga in Si) accept one electron, leaving hole.
+Acceptor level E_A lies slightly above E_v.
 
-n_i for Si at 300K ≈ 1.5 × 10¹⁰ cm⁻³
-(compared to Si atom density: 5 × 10²² cm⁻³ → one in 3 trillion atoms is ionized)
-```
+With acceptor N_A:
+- Majority: p ≈ N_A
+- Minority: n = n_i²/N_A
+- Fermi level: $E_F = E_i - kT \ln(N_A / n_i)$
 
-**Intrinsic Fermi level** (n = p for intrinsic):
-```
-E_Fi = (E_C + E_V)/2 + (k_BT/2) ln(N_V/N_C)
-     ≈ midgap  (if m_n* ≈ m_p*)
-```
+### Charge Neutrality and General Solution
 
-Temperature dependence:
-```
-n_i ∝ T^(3/2) exp(-E_g/2k_BT)
+Always: n + N_A⁻ = p + N_D⁺ (charge balance)
 
-At 300K:
-Si: n_i = 1.5×10¹⁰ cm⁻³  (E_g = 1.12 eV)
-Ge: n_i = 2.4×10¹³ cm⁻³  (E_g = 0.67 eV)  ← why Ge circuits fail above ~70°C
-GaAs: n_i = 2×10⁶ cm⁻³  (E_g = 1.42 eV)
+Complete ionization: $n + N_A = p + N_D$, combined with $np = n_i^2$:
+
+$$n = \frac{N_D - N_A}{2} + \sqrt{\left(\frac{N_D - N_A}{2}\right)^2 + n_i^2}$$
+
+```
+    Four regimes:
+    N_D >> N_A, N_D >> n_i: n ≈ N_D          (strong n-type)
+    N_A >> N_D, N_A >> n_i: p ≈ N_A          (strong p-type)
+    N_D ≈ N_A:              n ≈ n_i           (compensated)
+    T high: n_i >> N_D, N_A: n ≈ n_i          (intrinsic regime)
+
+    Conductivity:
+    σ = e(nμ_e + pμ_h)
+    n-type: σ ≈ eN_Dμ_e
+    Si, N_D=10¹⁶: σ ≈ 1.6×10⁻¹⁹ × 10²² × 0.145 = 0.23 S/cm
+    Resistivity ρ = 4.3 Ω·cm (typical n-Si)
 ```
 
 ---
 
-## Extrinsic Semiconductors — Doping
+## Carrier Transport
 
-**n-type (donors):** Group V atom (P, As, Sb) in Si lattice. Extra electron weakly bound.
+### Drift
+
+Under electric field E: carrier drift velocity v_d = μE (for low fields).
+Drift current density: J_drift = e(nμ_e + pμ_h)E = σE (Ohm's law).
+
+At high fields, velocity saturates (optical phonon scattering):
+$$v_{sat}(Si) \approx 10^7 \text{ cm/s}$$
+
+Saturation velocity limits transistor speed: f_T ≈ v_sat/(2πL)
+
+### Diffusion
+
+Carrier gradient → diffusion current:
+$$J_{diff,n} = eD_n \frac{dn}{dx}, \quad J_{diff,p} = -eD_p \frac{dp}{dx}$$
+
+Einstein relation: $D = \mu kT/e$ (connects diffusion coefficient to mobility).
 
 ```
-Donor ionization energy (hydrogen model):
-E_d = m_n* e⁴ / (2(4πε₀ε_r ℏ)²) = (m_n*/m_e)(1/ε_r²) × 13.6 eV
-
-For Si: m_n*/m_e ≈ 0.26, ε_r = 11.7
-E_d ≈ 0.026 eV  (25 meV ≈ k_BT at room temperature → fully ionized at 300K!)
+    For Si at 300K:
+    D_n = μ_n × kT/e = 1450 × 0.026 = 37.7 cm²/s
+    D_p = μ_p × kT/e = 450 × 0.026  = 11.7 cm²/s
 ```
 
-At room temperature, donors are fully ionized: n ≈ N_D (donor concentration).
-
-```
-n ≈ N_D   (if N_D >> n_i)
-p = n_i² / N_D   (from mass action law)
-E_F = E_C - k_BT ln(N_C/N_D)   (moves toward conduction band)
-```
-
-**p-type (acceptors):** Group III atom (B, Al, Ga) in Si. Missing electron = hole.
-```
-p ≈ N_A   (acceptor concentration)
-n = n_i² / N_A
-E_F = E_V + k_BT ln(N_V/N_A)   (moves toward valence band)
-```
-
-**Compensation:** both donors and acceptors present:
-```
-If N_D > N_A: n ≈ N_D - N_A, p = n_i²/(N_D - N_A)
-If N_A > N_D: p ≈ N_A - N_D, n = n_i²/(N_A - N_D)
-```
-
-Typical doping levels: N_D, N_A = 10¹⁵–10²⁰ cm⁻³
-(vs intrinsic Si: 1.5×10¹⁰ → doping increases majority carrier by 5–10 orders of magnitude)
+Minority carrier diffusion length:
+$$L = \sqrt{D\tau}$$
+τ = minority carrier lifetime (recombination).
+L_n in p-Si: if D_n = 25 cm²/s, τ = 1 μs → L_n = 50 μm.
 
 ---
 
-## Drift and Diffusion
+## p-n Junction Physics
 
-**Drift current** (field-driven):
+### Depletion Region
+
+Electrons from n-side + holes from p-side recombine near junction → ionized dopants remain → space charge → electric field.
+
+**Built-in potential** (from Fermi level alignment):
+$$V_{bi} = \frac{kT}{e}\ln\frac{N_A N_D}{n_i^2}$$
+
+For Si, N_A = N_D = 10¹⁶ cm⁻³:
+V_bi = 0.026 × ln[(10¹⁶)²/(1.5×10¹⁰)²] = 0.026 × 26.0 = 0.72 V
+
+**Depletion width** (abrupt junction, applied bias V):
+
+$$\boxed{W = \sqrt{\frac{2\varepsilon_s(V_{bi} - V)}{e} \cdot \frac{N_A + N_D}{N_A N_D}}}$$
+
 ```
-J_n_drift = enμ_n E
-J_p_drift = epμ_p E
+    Component widths:
+    x_n = W · N_A/(N_A + N_D)  (into n-side)
+    x_p = W · N_D/(N_A + N_D)  (into p-side)
+    Electric field max at junction: E_max = 2(V_bi-V)/W = eN_D x_n/ε_s
+    Charge: Q_dep = e N_D x_n A = e N_A x_p A (symmetric doping: equal)
 
-μ_n = qτ_c/m_n*   (mobility = drift velocity per unit field)
-μ_p = qτ_c/m_p*
+    At V = 0 (Si, N_A = N_D = 10¹⁶):
+    W = √(2 × 11.7 × 8.85×10⁻¹² × 0.72 / (1.6×10⁻¹⁹ × 10²²/2)) = 0.43 μm
 
-Si at 300K: μ_n = 1400 cm²/V·s, μ_p = 470 cm²/V·s
+    Forward bias V > 0: W shrinks, barrier lowers → exponential current
+    Reverse bias V < 0: W grows, barrier higher → small reverse current
+    Capacitance: C_j = ε_s A / W ∝ (V_bi - V)^(-1/2)
+    → Varactor diode: voltage-tunable capacitor
 ```
 
-Mobility limited by: lattice scattering (phonons, ∝ T^(-3/2)) + impurity scattering (∝ N^(-1)T^(3/2))
+### Shockley Ideal Diode Equation
 
-**Diffusion current** (gradient-driven):
-```
-J_n_diff = eD_n (dn/dx)   [electrons flow down concentration gradient]
-J_p_diff = -eD_p (dp/dx)  [holes flow down concentration gradient]
-```
+$$\boxed{I = I_0\left(e^{qV/kT} - 1\right)}$$
 
-**Einstein relation:**
-```
-D_n/μ_n = D_p/μ_p = k_BT/e   (thermal voltage V_T = 26 mV at 300K)
-```
+Saturation current from minority carrier injection:
+$$I_0 = Ae^2 n_i^2 \left(\frac{D_p}{L_p N_D} + \frac{D_n}{L_n N_A}\right)$$
 
-**Continuity equations:**
-```
-∂n/∂t = (1/e)∂J_n/∂x + G - R
-∂p/∂t = -(1/e)∂J_p/∂x + G - R
+Note: I_0 ∝ n_i² ∝ exp(-E_g/kT) — strongly temperature dependent.
 
-G = generation rate, R = recombination rate
-Minority carrier lifetime τ: R = Δn/τ for low-level injection
+```
+    In practice: I = I_0(e^{qV/nkT} - 1), n = ideality factor
+    n = 1: ideal diffusion current
+    n = 2: generation-recombination in depletion region (low V)
+    n = 1 to 2 depending on bias level
+
+    Si diode at room temperature: I_0 ~ 10⁻¹² A (1 pA for 1 cm² area)
+    At V = 0.6 V: I/I_0 = e^{0.6/0.026} ≈ 10^{10} → large current
+    Forward voltage at given I decreases ~2 mV/°C (due to I_0 increase with T)
+
+    Breakdown mechanisms:
+    Zener: V_BR < 5V, tunneling across narrow depletion (heavily doped)
+    Avalanche: V_BR > 7V, impact ionization cascade
+    Breakdown voltage: V_BR ≈ ε_s E_crit²/(2eN) (lower N → higher V_BR)
+    SiC: E_crit = 2.5 MV/cm vs Si: 0.3 MV/cm → SiC V_BR >> Si at same thickness
 ```
 
 ---
 
-## p-n Junction
+## Bipolar Junction Transistor (BJT)
 
-The core device. Connects two differently-doped regions.
+NPN structure: n⁺-emitter / thin p-base / n-collector
 
-**Built-in potential:**
+**Active region** (V_BE > 0, V_BC < 0):
+
 ```
-V_bi = (k_BT/e) ln(N_A N_D / n_i²)
+    Emitter injects electrons over forward-biased EB junction barrier
+    Electrons diffuse across base (width W_B << L_n)
+    Fraction α = e^(-W_B/L_n) reaches collector depletion region
+    Rest recombine → base current I_B = recombination current
 
-Typical values: Si with N_A = N_D = 10¹⁶ cm⁻³
-V_bi = 0.026 × ln(10¹⁶ × 10¹⁶ / (1.5×10¹⁰)²) = 0.026 × ln(4.4×10¹¹) ≈ 0.69 V
+    I_C = α_T · I_E ≈ I_E (if W_B << L_n)
+    I_B = (1-α_T)·I_E ≈ I_E·W_B/L_n  (if W_B << L_n)
+    β = I_C/I_B = α_T/(1-α_T) ≈ L_n/W_B - 1
+
+    Example: W_B = 0.1 μm, L_n = 10 μm → β ≈ 99 ≈ 100
+    Practical β: 50-300 (depends on processing quality)
+
+    Ebers-Moll model:
+    I_C = I_S(e^{qV_BE/kT} - 1) - I_S/β_R·(e^{qV_BC/kT} - 1)
+    I_S = saturation current (same physics as diode I_0)
+    β_R = reverse β (much smaller, emitter not optimized for injection from base)
+
+    Speed: f_T = g_m/(2πC_total), g_m = I_C/(kT/q)
+    High f_T requires thin base W_B, low parasitics
+    SiGe HBT: graded Ge in base → quasi-field accelerates electrons → f_T > 500 GHz
 ```
-
-**Depletion width** (solved from Poisson equation ∇²φ = -ρ/ε):
-```
-x_n = √(2ε_s V_bi N_A / (eN_D(N_A+N_D)))   [depletion into n-side]
-x_p = √(2ε_s V_bi N_D / (eN_A(N_A+N_D)))   [depletion into p-side]
-
-Total depletion width:
-W = x_n + x_p = √(2ε_s V_bi (N_A + N_D)/(e N_A N_D))
-
-Under bias V: replace V_bi → V_bi - V  (V > 0 is forward bias → W decreases)
-```
-
-**Capacitance:**
-```
-C_j = ε_s A / W   (depletion capacitance, like parallel plate with W separation)
-C_j ∝ (V_bi - V)^(-1/2)   → 1/C_j² vs V is linear → gives V_bi, N_D from slope
-```
-
-**Junction I-V characteristic (Shockley diode equation):**
-```
-I = I_0 [exp(eV/nk_BT) - 1]
-
-I_0 = eA(D_p p_{n0}/L_p + D_n n_{p0}/L_n)   (reverse saturation current)
-n = ideality factor (1 for ideal, 2 for recombination-dominated)
-L_p = √(D_p τ_p)   (minority carrier diffusion length)
-
-p_{n0} = n_i²/N_D   (minority hole concentration on n-side at equilibrium)
-n_{p0} = n_i²/N_A   (minority electron concentration on p-side at equilibrium)
-```
-
-Forward bias: exponential current increase (doubling every 60 mV for n=1).
-Reverse bias: current saturates at -I_0 (very small).
-Breakdown: Zener (tunneling, E_g < ~5 eV) or avalanche (impact ionization, high field).
 
 ---
 
-## MOSFET — The 6.012 Gap
+## MOSFET: The Foundation of Digital Electronics
 
-Metal-Oxide-Semiconductor Field-Effect Transistor. Controls current via electric field through oxide.
+### Structure
 
 ```
-Gate (metal/poly-Si)
-     ├────────────────┤
-     │    SiO₂ oxide  │  (t_ox ~ 1-3 nm in modern CMOS)
-     │                │
-p-type body
-┌────┬────────────────┬────┐
-│ n⁺ │   p-channel    │ n⁺ │
-│ S  │   (body)       │ D  │
-└────┴────────────────┴────┘
-     ↑
-  depletion region + inversion layer
+    Gate (metal or poly-Si)
+         ↓
+    ─────────────────────── ← gate oxide (SiO₂, t_ox ~ 1-5 nm)
+    ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ← inversion layer (channel, ~1 nm thick)
+    ● ● ● ● ● ● ● ● ● ● ← p-type body (N_A)
+    ┌──┐              ┌──┐
+    │n⁺│  source  drain │n⁺│
+    └──┘              └──┘
+    Isolation   ←L→   Isolation
+     (STI)           (STI)
+
+    Key dimensions (Intel Meteor Lake 2023):
+    Gate length L ≈ 6-18 nm (depending on cell type)
+    Gate oxide EOT ≈ 0.7 nm (equivalent SiO₂ thickness)
+    Actual: HfO₂ (high-κ) with SiO₂ interfacial layer
 ```
 
-**Three regimes:**
+### Threshold Voltage
 
-**1. Accumulation (V_GS < 0 for NMOS):**
-Holes attracted to surface. No inversion layer. No significant current.
+$$V_T = V_{FB} + 2\phi_F + \frac{Q_{dep,max}}{C_{ox}}$$
 
-**2. Depletion (0 < V_GS < V_th):**
-Holes repelled, depletion region forms. Still insufficient electrons for conduction.
+$$\phi_F = \frac{kT}{q}\ln\frac{N_A}{n_i}, \quad C_{ox} = \frac{\varepsilon_{ox}}{t_{ox}}, \quad |Q_{dep,max}| = \sqrt{2\varepsilon_s q N_A \cdot 2\phi_F}$$
 
-**3. Inversion (V_GS > V_th — ON state):**
-Electron inversion layer forms at Si/SiO₂ interface. Current can flow from source to drain.
-
-**Threshold voltage:**
 ```
-V_th = V_FB + 2φ_F + Q_dep/C_ox
+    V_FB = flat-band voltage: work function difference (φ_M - φ_Si) + oxide charge
 
-φ_F = (k_BT/e) ln(N_A/n_i)   (Fermi potential, ~0.35 V for N_A = 10¹⁷ cm⁻³)
-Q_dep = -eN_A W_dep   (depletion charge)
-C_ox = ε_ox/t_ox   (oxide capacitance per area)
-V_FB = flat-band voltage (work function difference + oxide charge)
-```
+    For p-Si, N_A = 10¹⁷ cm⁻³, t_ox = 3 nm (SiO₂, ε_ox = 3.9ε₀):
+    φ_F = 0.026 ln(10¹⁷/1.5×10¹⁰) = 0.42 V
+    C_ox = 3.9×8.85×10⁻¹²/(3×10⁻⁹) = 11.5 mF/m² = 11.5 fF/μm²
+    Q_dep,max = √(2×11.7×8.85e-12×1.6e-19×10²³×0.84) = 1.65×10⁻² C/m²
+    V_T = V_FB + 0.84 + 1.65e-2/11.5e-3 = V_FB + 0.84 + 1.43 V
 
-**MOSFET I-V characteristics (long-channel model):**
-```
-Linear region (V_DS < V_GS - V_th):
-I_D = μ_n C_ox (W/L) [(V_GS - V_th)V_DS - V_DS²/2]
-
-Saturation region (V_DS ≥ V_GS - V_th):
-I_D = (μ_n C_ox W)/(2L) (V_GS - V_th)²
-
-Transconductance: g_m = ∂I_D/∂V_GS = μ_n C_ox (W/L)(V_GS - V_th)  [linear]
-                       = √(2μ_n C_ox W I_D / L)  [saturation]
+    Body effect: increasing V_SB (reverse body-source bias) increases V_T
+    ΔV_T = -(γ/2φ_F)(√(2φ_F + V_SB) - √(2φ_F))
+    γ = √(2ε_s q N_A)/C_ox  (body-effect coefficient)
 ```
 
-**CMOS scaling (Moore's Law physics):**
-Reduce L → more transistors/chip, higher switching speed (f_T ∝ 1/L²).
-Scaling limits:
-- Gate oxide leakage: t_ox < ~2 nm → tunneling → replaced SiO₂ with high-κ (HfO₂)
-- Short-channel effects: V_th varies with L, drain-induced barrier lowering (DIBL)
-- Power density: dynamic power P_dyn = αC_load V_DD² f → must reduce V_DD
-- Subthreshold slope: kT ln(10)/e = 60 mV/decade at 300K → lower limit for V_th/V_DD
+### I-V Characteristics
 
-**FinFET/GAA:** 3D gate wraps around fin/nanowire → better electrostatic control at sub-10 nm.
+**Linear region** (V_DS < V_GS - V_T):
+$$I_D = \mu_n C_{ox}\frac{W}{L}\left[(V_{GS}-V_T)V_{DS} - \frac{V_{DS}^2}{2}\right]$$
+
+**Saturation** (V_DS ≥ V_GS - V_T, channel pinched off at drain):
+$$\boxed{I_D = \frac{\mu_n C_{ox}}{2}\frac{W}{L}(V_{GS}-V_T)^2}$$
+
+```
+    Transconductance: g_m = ∂I_D/∂V_GS|_{V_DS sat} = μ_n C_ox (W/L)(V_GS-V_T)
+    Output conductance (channel length modulation):
+    I_D = I_D,sat(1 + λV_DS), λ = 1/V_A (Early voltage for MOSFET)
+
+    Transit frequency: f_T = g_m/(2π(C_GS + C_GD))
+    For minimum L MOSFET: f_T ≈ μ_n(V_GS-V_T)/(2πL²)
+    Si NMOS: f_T ~ 100-500 GHz for L ~ 10 nm
+
+    Sub-threshold current (V_GS < V_T, needed for leakage analysis):
+    I_D = I_0 exp(q(V_GS-V_T)/nkT)(1 - e^{-qV_DS/kT})
+    Subthreshold slope S = ln(10)·nkT/q = 60 mV/decade (n=1, 300K)
+    Can't go below 60 mV/dec in conventional MOSFET (thermal limit)
+    → Tunnel FETs, negative-C FETs proposed for steeper subthreshold
+
+    Power: P_dynamic = α C V²_DD f  (switching power)
+           P_static  = I_off V_DD   (leakage power)
+    At 3nm node: P_static comparable to P_dynamic → major design challenge
+```
 
 ---
 
-## Bipolar Junction Transistor (NPN)
+## Solar Cells
 
-Three regions: emitter (n⁺), base (p, thin), collector (n).
-Minority carrier injection + diffusion across thin base → current gain.
+### Photovoltaic Mechanism
 
-**Active mode** (forward-biased E-B, reverse-biased B-C):
+Absorbed photon creates electron-hole pair. Built-in junction field separates them.
+
+**Illuminated I-V equation**:
+$$I = I_{SC} - I_0(e^{qV/kT} - 1)$$
+
+I_SC = short-circuit photocurrent (proportional to incident photon flux × quantum efficiency).
+
+**Open-circuit voltage**:
+$$V_{OC} = \frac{kT}{q}\ln\left(\frac{I_{SC}}{I_0} + 1\right) \approx \frac{kT}{q}\ln\frac{I_{SC}}{I_0}$$
+
+**Fill factor**:
+$$FF = \frac{P_{max}}{V_{OC} \cdot I_{SC}} = \frac{V_{mp} \cdot I_{mp}}{V_{OC} \cdot I_{SC}}$$
+
+**Efficiency**: η = FF × V_OC × I_SC / P_in
+
 ```
-I_C ≈ I_S exp(V_BE/V_T)   (V_T = k_BT/e = 26 mV)
-I_B = I_C/β
-I_E = I_C + I_B = I_C(1 + 1/β)
+    Shockley-Queisser (SQ) limit for single-junction (1961):
+    Fundamental losses:
+    1. Sub-bandgap photons: ℏω < E_g → transmitted (not absorbed)
+    2. Thermalization: ℏω > E_g → excess becomes heat
+    3. Radiative recombination: mandatory (detailed balance)
+    4. Voltage factor: qV_OC < E_g always
 
-β = common-emitter current gain = D_n A_E n_{p0} L_B / (D_p A_B p_{n0} W_B)
-  ~ 50–500 for discrete BJTs
+    SQ maximum efficiency:
+    Si (1.12 eV):  33.7%
+    GaAs (1.43 eV): 33.8% (near optimum for AM1.5G)
+    InP (1.35 eV): 33.8%
+    Optimal E_g for AM1.5G: ~1.1-1.4 eV
+
+    Record cells (2024):
+    Si single junction:  29.4% (kaneka, HIT cell)
+    GaAs single junction: 29.6% (Alta Devices)
+    3-junction concentrator: 47.6% (Fraunhofer ISE)
+    Si commercial module:  24% (SunPower M-series)
+    Perovskite/Si tandem:  33.9% (Helmholtz Berlin)
+
+    Two-junction requirement for each bandgap:
+    Top cell: large E_g, absorbs high-energy photons
+    Bottom cell: small E_g, absorbs transmitted photons
+    Current matching required (series connection)
 ```
-
-Gain determined by minority carrier storage in base. Base width modulation (Early effect):
-V_CE increases → collector depletion expands into base → W_B decreases → I_C increases slightly.
-
-**BJT vs MOSFET:**
-| | BJT | MOSFET |
-|---|---|---|
-| Control | V_BE (exponential) | V_GS - V_th (quadratic) |
-| Input current | Yes (base current I_B) | No (gate is capacitor) |
-| Speed | High f_T, but base charge storage | Very high at small L |
-| Noise | Lower 1/f noise | Higher 1/f noise |
-| Use today | RF/analog (HBT), power | Digital VLSI, most analog |
-
----
-
-## Photovoltaics (Solar Cell)
-
-p-n junction + light → generates electricity.
-
-**Photogeneration:** photon absorbed (if E_photon > E_g) → creates e-h pair.
-Excess minority carriers diffuse to junction → swept by built-in field → external current.
-
-**Solar cell I-V under illumination:**
-```
-I = I_0[exp(eV/k_BT) - 1] - I_ph
-
-I_ph = eA G (L_n + L_p + W)   (photocurrent, proportional to illumination)
-```
-
-**Short-circuit current:** V = 0 → I_sc = I_ph
-**Open-circuit voltage:** I = 0:
-```
-V_oc = (k_BT/e) ln(I_sc/I_0 + 1) ≈ (k_BT/e) ln(I_sc/I_0)
-```
-
-**Fill factor and efficiency:**
-```
-FF = P_max / (I_sc × V_oc)   (FF ~ 0.7–0.85 for good cells)
-η = P_max / P_incident = FF × I_sc × V_oc / P_in
-```
-
-**Shockley-Queisser limit:** thermodynamic maximum efficiency for single-junction:
-~33.7% for band gap 1.1–1.4 eV. Si at 1.12 eV: theoretical ~29%.
-Losses: photons with E < E_g not absorbed; excess energy thermalized; recombination.
-Multijunction cells (GaInP/GaAs/Ge): capture more spectrum → ~46% under concentration.
 
 ---
 
 ## LEDs and Laser Diodes
 
-**LED:** forward-biased p-n junction → minority carrier injection → radiative recombination.
+### LED Physics
 
-Requires **direct bandgap** semiconductor (GaAs, InGaAs, GaN, InGaN):
-In direct-gap: conduction band minimum and valence band maximum at same k-point.
-Recombination conserves momentum → photon emitted directly.
-
-Si is indirect-gap (minimum at k ≠ 0) → phonon needed → much lower radiative efficiency.
+Forward-biased p-n junction in direct-gap semiconductor.
+Injected minority carriers recombine → photon.
 
 ```
-Photon energy: E_photon = E_g (+ thermal corrections) → λ = hc/E_g
+    Requirements for efficient LED:
+    1. Direct bandgap: no phonon needed for momentum conservation
+    2. High radiative recombination rate B_r >> non-radiative rate
+    3. Carrier confinement (quantum well structures preferred)
 
-GaAs: E_g = 1.42 eV → λ = 873 nm (near-IR)
-InGaN (blue): E_g ≈ 2.7 eV → λ = 460 nm
-AlGaInP (red): λ = 620–640 nm
+    Emission wavelength: λ = hc/E_g = 1240 nm / E_g(eV)
+
+    Material choices:
+    Red  (625-760nm): AlGaInP, GaAsP, AlGaAs (E_g = 1.6-2.0 eV)
+    Green (520-565nm): InGaN with high In content, GaP:N
+    Blue (450-490nm): InGaN/GaN (E_g ~ 2.7 eV with In₀.₁₅Ga₀.₈₅N)
+    UV   (<380nm):   AlGaN/GaN, AlN (deep UV)
+    White: Blue chip (InGaN) + YAG:Ce phosphor (converts to yellow)
+           Combined spectrum appears white to human eye
+
+    Nobel 2014: Akasaki, Amano, Nakamura for blue LED (GaN)
+    Key challenge: p-type doping of GaN
+    Mg acceptors passivated by hydrogen during MOCVD → need thermal activation at 700°C
+
+    EQE (external quantum efficiency) = photons_out / electrons_in
+    Modern LEDs: 50-80% EQE
+    Droop: EQE falls at high current density (Auger recombination)
 ```
 
-**Laser diode:** adds optical cavity (cleaved facets) → stimulated emission.
-Threshold: gain > loss. Lasing threshold current density:
+### Laser Diode (LD)
+
+Stimulated emission + feedback (Fabry-Perot cavity or DFB grating).
+
 ```
-J_th ∝ exp(E_g/k_BT)   → requires cooling or pulsed operation for high-power
+    Threshold condition: gain G = loss (cavity + mirror losses)
+    Below threshold: LED-like spontaneous emission
+    Above threshold: lasing (coherent, narrow linewidth)
+
+    Rate equations:
+    dN/dt = J/(qd) - N/τ_sp - v_g G(N-N_0)S
+    dS/dt = Γ v_g G(N-N_0)S - S/τ_ph + β_sp N/τ_sp
+    N = carrier density, S = photon density, G = material gain
+    Γ = confinement factor, τ_ph = photon lifetime
+
+    Applications by wavelength:
+    780 nm:  GaAs/AlGaAs → CD players, laser printers
+    850 nm:  VCSEL → short-reach fiber, 3D sensing (Face ID)
+    1310 nm: InGaAsP/InP → zero-dispersion fiber wavelength
+    1550 nm: InGaAsP/InP, EML → telecom C-band, DWDM
+    405 nm:  GaN → Blu-ray
+    DFB at 1550nm: linewidth < 1 MHz, tunable 50GHz channel spacing
 ```
 
-Double heterostructure: sandwich thin active layer (GaAs) between larger-gap layers
-(AlGaAs) → carrier and optical confinement simultaneously → efficient lasers.
+---
+
+## Photodetectors
+
+```
+    Reverse-biased p-n junction or PIN structure.
+    Photon absorbed → electron-hole pair → swept by field → photocurrent.
+
+    Responsivity: R = I_photo/P_opt = ηq/(hf) A/W
+    η = quantum efficiency (fraction of photons that create carriers)
+    For Si at 850 nm: η ≈ 0.9, R ≈ 0.62 A/W
+
+    Bandwidth limited by:
+    1. Transit time: t_transit = W_dep/v_sat → f_-3dB ≈ 0.44/t_transit
+    2. RC time constant: R_load × C_j
+
+    Tradeoff: wider depletion → more absorption (η↑) → more transit time (f_-3dB↓)
+    APD (avalanche photodiode): internal gain M = 5-100 through impact ionization
+    Excess noise F = M^x (x = 0.5 for Si, 0.7 for InGaAs/InP)
+
+    Detector materials:
+    Si:      400-1100 nm, mature, cheap, CMOS compatible
+    InGaAs:  900-1700 nm, telecom (1310/1550 nm)
+    Ge-on-Si: 800-1600 nm, CMOS compatible Ge photodetector
+    HgCdTe:  1-10 μm (tunable via composition), night vision, FLIR
+    InSb:    3-5 μm, cooled, thermal IR
+```
+
+---
+
+## Materials Comparison Table
+
+| Property           | Si      | Ge      | GaAs    | InP     | GaN     | 4H-SiC  | Diamond |
+|-------------------|--------|--------|--------|--------|--------|--------|--------|
+| E_g (eV)           | 1.12    | 0.67    | 1.43    | 1.35    | 3.4     | 3.26    | 5.5     |
+| Gap type           | Indirect| Indirect| Direct | Direct | Direct | Indirect| Indirect|
+| ε_r                | 11.7    | 16.0    | 12.9    | 12.5    | 9.0     | 10.0    | 5.7     |
+| μ_e (cm²/V·s)     | 1450    | 3900    | 8500    | 5400    | 1250    | 1000    | 4500    |
+| μ_h (cm²/V·s)     | 450     | 1900    | 400     | 200     | 200     | 115     | 3800    |
+| n_i(cm⁻³, 300K)   | 1.5×10¹⁰| 2.4×10¹³| 2×10⁶ | 10⁷    | ~10⁻¹⁰ | ~10⁻⁸  | <10⁻²⁰ |
+| E_crit (MV/cm)     | 0.3     | 0.1     | 0.4     | 0.5     | 3.3     | 2.5     | 10      |
+| k (W/m·K)          | 150     | 60      | 46      | 68      | 130     | 490     | 2200    |
+| v_sat (10⁷ cm/s)   | 1.0     | 0.6     | 2.0     | 2.0     | 2.5     | 2.0     | 2.7     |
+| Lattice a (Å)      | 5.43    | 5.66    | 5.65    | 5.87    | 3.19    | 3.08    | 3.57    |
+
+Figures of merit for power devices:
+- Baliga's FOM: ε μ E_crit³ (minimizes on-resistance per breakdown voltage)
+  Si=1, GaN≈1000, SiC≈500, Diamond≈50000
+- Johnson's FOM: (E_crit v_sat)²/(4π²) (high-frequency power)
+  GaN wins for RF power amplifiers → GaN PA in 5G base stations
 
 ---
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why does Si dominate digital? | Stable native SiO₂, abundant, mature processing, 1.12 eV gap |
-| Why GaN for power electronics? | 3.4 eV gap → high breakdown voltage; high thermal conductivity |
-| Why GaAs for RF/analog? | High μ_n (8500 cm²/V·s vs Si's 1400), direct gap for optical |
-| Why SiC for EV inverters? | Wide gap (3.2 eV), high thermal conductivity, mature processing |
-| Why InGaN for LEDs? | Tunable direct gap, high efficiency in visible range |
-| V_th formula components? | Work function difference + depletion charge + oxide charge |
-| MOSFET vs BJT for logic? | MOSFET wins: no DC base current → lower power, easier to scale |
+| Application                    | Best Material       | Why                                     |
+|-------------------------------|--------------------|-----------------------------------------|
+| CMOS logic (high volume)       | Si                  | Mature, cheap, excellent native SiO₂    |
+| RF/microwave LNA, PA           | GaAs PHEMT, GaN HEMT| High μ_e, GaN also high power           |
+| EV power electronics           | SiC MOSFET          | High E_crit, high k, high T operation   |
+| 5G base station PA             | GaN-on-SiC          | High power density, efficiency, f_T     |
+| Blue/white LED                 | InGaN/GaN           | Direct gap, stable, high EQE            |
+| Telecom laser (1550nm)         | InGaAsP/InP DFB     | Direct gap, lattice matched, low loss   |
+| Silicon photonics             | Si + Ge-on-Si        | CMOS integration, modulator+detector    |
+| High-T electronics (>300°C)   | SiC, GaN            | Large E_g → tiny n_i                    |
+| Quantum computing qubit        | Si/SiGe, GaAs, NV-diamond | Coherence time, scalability       |
+| Solar cell (commercial)        | Si                  | Cheap, abundant, mature, 22-25%         |
+| Concentrator multi-junction PV | GaAs/InGaP/Ge       | Highest efficiency, aerospace           |
 
 ---
 
 ## Common Confusion Points
 
-**1. The p-n junction built-in potential does NOT do work — it's not free energy.**
-V_bi is an equilibrium potential. Connect a voltmeter → reads 0. You must apply external
-bias to make current flow. The built-in field just maintains equilibrium by balancing
-diffusion current.
+**Depletion width is not where current flows**: Most current in a forward-biased diode flows
+as minority carrier diffusion in the quasi-neutral regions adjacent to the depletion zone.
+The depletion region is where the space charge and field live; the current-generating physics
+is the minority carrier injection and recombination.
 
-**2. MOSFET threshold voltage is not fixed — it depends on V_SB.**
-Body effect: if source is not at same potential as body, V_th increases.
-In circuits: V_th = V_th0 + γ(√(2φ_F + V_SB) - √(2φ_F)).
+**V_T is not V_bi**: Threshold voltage V_T (0.3-0.8 V) is the gate voltage needed to invert
+the channel. Built-in voltage V_bi (0.6-0.8 V for Si) is the equilibrium contact potential.
+They're numerically similar for Si but arise from completely different physics.
 
-**3. Long-channel MOSFET model breaks down below ~0.5 μm.**
-Velocity saturation: carriers reach max velocity at high fields → I_D ∝ V_GS - V_th (not squared).
-Short-channel effects: V_th roll-off, DIBL, punchthrough.
+**Si is indirect-gap but still makes decent solar cells**: Optical absorption is slower
+(~300 μm needed vs ~1 μm for GaAs), but Si uses light-trapping (texturing + reflectors)
+to make optical path much longer than physical thickness. Cost advantage overwhelms the
+efficiency penalty for terrestrial applications.
 
-**4. Solar cell efficiency vs band gap is not monotonic.**
-Too small E_g: absorb all photons but low V_oc. Too large E_g: high V_oc but miss most photons.
-Sweet spot at ~1.1–1.4 eV (Si: 1.12, GaAs: 1.42) → Shockley-Queisser argument.
+**MOSFET saturation ≠ BJT saturation**: In a BJT, "saturation" means both junctions forward
+biased and the transistor acts like a closed switch with small V_CE. In a MOSFET, "saturation"
+means the channel is pinched off at the drain and I_D is controlled by V_GS alone. Completely
+different physics, unfortunately sharing the same word.
 
-**5. Direct vs indirect bandgap is a k-space concept, not a real-space one.**
-Si has an indirect gap because conduction band minimum is near X-point in BZ, not at Γ.
-This means k(electron) ≠ k(photon) → momentum must come from phonon → lower probability.
+**High-κ dielectric for modern gate oxide**: Below ~2 nm SiO₂, direct tunneling gate leakage
+becomes unacceptably high. Solution (Intel 45nm, 2007): replace SiO₂ with HfO₂ (κ=20-25,
+vs 3.9 for SiO₂). A 4 nm HfO₂ film has same capacitance as 0.78 nm SiO₂ (EOT=0.78nm) but
+far lower tunneling current. Trade-off: HfO₂ reduces channel mobility (remote phonon scattering).
