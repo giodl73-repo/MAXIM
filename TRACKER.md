@@ -58,8 +58,12 @@ Each directory has a `STATUS.md` with its full file list.
 | [`geography/`](geography/STATUS.md) | 8 | 🔜 |
 | [`spices/`](spices/STATUS.md) | 11 | 🔜 |
 | [`pigments/`](pigments/STATUS.md) | 11 | 🔜 |
+| [`colors/`](colors/STATUS.md) | 10 | 🔜 |
+| [`coatings/`](coatings/STATUS.md) | 10 | 🔜 |
+| [`plumbing/`](plumbing/STATUS.md) | 10 | 🔜 |
+| [`hvac/`](hvac/STATUS.md) | 10 | 🔜 |
 
-**Complete: 339 files | To write: 124 files across 43 directories**
+**Complete: 339 files | To write: 164 files across 47 directories**
 
 ---
 
@@ -84,6 +88,10 @@ One-line agent prompt for each session. Read `CLAUDE.md` + the directory's `STAT
 | 25 | `geography/` | Physical (plate tectonics/landforms/soils), climate zones (Köppen), ocean-atmosphere (AMOC/ENSO/monsoons), biogeography (Wallace line/island bio), population/urban (DTM/Zipf), geopolitics/resources (chokepoints/rare earths/Arctic), economic geography (GVCs/smile curve/ports) |
 | 26 | `spices/` | Overview (trade eras/VOC/Columbian Exchange), pepper/salt, cinnamon/cassia, turmeric/ginger/galangal, saffron/vanilla, nutmeg/cloves/mace (Banda Islands), capsicum/chili (TRPV1/Scoville), cumin/coriander/fennel (Apiaceae), cardamom/star anise (Tamiflu), aromatics/herbs, spice chemistry (alkaloids/terpenes/phenylpropanoids) |
 | 27 | `pigments/` | Overview (chromophore mechanisms), prehistoric/earth pigments (ochre/Blombos Cave), ancient synthetic (Egyptian blue/cinnabar), purple/red luxury (Tyrian/cochineal), blue rarity (lapis lazuli/synthetic ultramarine 1826), lead pigments (stack process), organic dyes/mordants (indigo/madder), Prussian blue era, Impressionist revolution (tube paint 1841/cadmiums), modern synthetic (TiO₂/phthalocyanines/quantum dots), conservation/authentication |
+| 28 | `colors/` | Color physics (light/absorption/structural/emission), vision (cones/opponent process/metamerism/color blindness), color systems (Munsell/CIE Lab/sRGB/Pantone/RAL), color naming (Berlin-Kay sequence/Homer's wine-dark sea/Sapir-Whorf), historical shades (mauve/puce/chartreuse/gamboge), mixing theory (additive RGB vs subtractive CMY), psychology/culture (cross-cultural symbolism/synesthesia), color in nature (structural/melanin/bioluminescence), digital color (gamma/ICC/HDR/wide-gamut) |
+| 29 | `coatings/` | Overview (film formation mechanisms), paint history (cave→lead→latex), paint composition (binder/pigment/solvent/additives/sheen/PVC), wood stains (penetrating vs film-forming/gel stains), varnish/lacquer/polyurethane (oil/alkyd/shellac/nitro/catalyzed), industrial coatings (powder/anodizing/electroplating/galvanizing/PVD), adhesives (CA/epoxy/contact/hot melt/anaerobic/UV), sealants/caulks (silicone/PU/acrylic/hybrid), primers (shellac-BIN/oil/bonding), surface prep (SSPC standards/anchor profile/failure modes) |
+| 30 | `plumbing/` | Overview (supply/DWV/gas trees), history (Roman lead→cholera reform→PVC→PEX), pipe materials (copper K/L/M, PEX-a/b/c, PVC/CPVC/ABS/cast iron/CSST), fittings (sweat/press-fit/push-fit/compression/flare/solvent-weld), supply systems (PRV/expansion tanks/water hammer/tankless vs tank/recirculation), DWV (gravity/P-traps/venting/AAV/cleanouts), fixtures (toilet anatomy/cartridge types/shower valves), water quality (hardness/softeners/RO/UV/lead pipes), specialty (CSST/hydronic/radiant/fire suppression/medical gas), codes (IRC/IPC/UPC/AHJ/permits) |
+| 31 | `hvac/` | Overview (load/capacity/psychrometrics), thermodynamics (Manual J/R-value/BTU/sensible vs latent), refrigeration cycle (P-H diagram/superheat/subcooling/variable-speed), refrigerants (R-12→R-22→R-410A→R-454B, ODP/GWP, Kigali/A2L), heating (gas furnace/AFUE/condensing/boilers/electric), heat pumps (COP>1/balance point/ccASHP/GSHP/mini-splits/HPWH), ventilation (ERV/HRV/ASHRAE 62.2/MERV/IAQ), ductwork (Manual D/static pressure/flex duct/mastic/Aeroseal), controls (24V wiring/smart thermostats/BAS/BACnet/defrost logic), efficiency/codes (SEER2/AFUE/HSPF2/IECC/IRA tax credits/Manual J-D-S) |
 
 ---
 
