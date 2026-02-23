@@ -137,8 +137,8 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | File | Topic | Status |
 |------|-------|--------|
 | `ai-engineering/01-LLM-CONCEPTS.md` | LLMs — tokens, context, RAG, fine-tuning | ✅ Complete |
-| `ai-engineering/02-EVALS-HARNESS.md` | Eval harness engineering — PromptFoo, Braintrust, RAGAS, LLM-as-judge, CI | 🔜 Next |
-| `ai-engineering/03-ORCHESTRATION.md` | LangChain, LlamaIndex, Semantic Kernel | 🔜 Planned |
+| `ai-engineering/02-EVALS-HARNESS.md` | Eval harness engineering — PromptFoo, Braintrust, RAGAS, LLM-as-judge, CI | ✅ Complete |
+| `ai-engineering/03-ORCHESTRATION.md` | LangChain, LlamaIndex, Semantic Kernel | 🔜 Next |
 | `ai-engineering/04-AGENTS.md` | Agent patterns, tool use, memory, multi-agent | 🔜 Planned |
 | `ai-engineering/05-SAFETY.md` | Red-teaming, hallucination detection, bias | 🔜 Planned |
 
@@ -175,6 +175,7 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | 2026-02-22 | 22-COMPILERS.md authored. IR design (TAC, SSA, phi nodes, dom tree), LLVM IR, optimization passes (DCE/CSE/inlining/LTO), V8 Ignition→Maglev→Turbofan JIT tiers, sea of nodes, rustc MIR + borrow checker (NLL/Polonius), tsc incremental compilation, esbuild design, WASM, compiler correctness (CompCert, Alive2). |
 | 2026-02-22 | 23-PL-THEORY.md authored. Type theory hierarchy (STLC→HM→System F→CoC), Curry-Howard in TS (never, exhaustiveness), HM vs TS inference, structural/nominal subtyping, variance, affine types → Rust ownership, region types → lifetimes (NLL/Polonius), TS conditional/mapped/template literal types + TC proof, ADTs, type classes/traits, operational/denotational/axiomatic semantics, RustBelt, research→production timeline. |
 | 2026-02-22 | ai-engineering/ track started. 01-LLM-CONCEPTS.md authored. Next-token prediction, BPE tokenization, context window mechanics, Transformer architecture (attention, MHA, FFN, RoPE), pre-training + alignment (RLHF/DPO/Constitutional AI), sampling + KV cache + speculative decoding, context engineering (zero-shot/few-shot/CoT/ReAct), RAG, fine-tuning vs prompting, LoRA/QLoRA, model families map. |
+| 2026-02-22 | 02-EVALS-HARNESS.md authored. Eval anatomy (dataset × prompt × scoring × threshold), scoring taxonomy (deterministic to probabilistic), LLM-as-judge design, PromptFoo (YAML config, multi-provider compare, red-team, CI mode), Braintrust (SDK, experiment comparison, UI), RAGAS (context recall/precision, faithfulness, answer relevancy), LangSmith (prod tracing → dataset flywheel), roll-your-own loop, eval-as-CI-gate with GitHub Actions, dataset engineering, cost-aware eval, common confusion points. |
 
 ---
 
