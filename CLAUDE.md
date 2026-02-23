@@ -93,8 +93,8 @@ Follow `computing/01-PACKAGE.md` format exactly:
 | `computing/19-TESTING-EVOLUTION.md` | The arc: manual → TDD → chaos → eval harnesses | ✅ Complete |
 | `computing/20-AZURE.md` | Azure services map — all the products, how they nest, when to use each | ✅ Complete |
 | `computing/21-AUTOMATA.md` | Automata theory — DFA/NFA, pushdown, Turing machines, decidability | ✅ Complete |
-| `computing/22-COMPILERS.md` | Compiler & interpreter design — lexing, parsing, IR, codegen, SSA | 🔜 Next |
-| `computing/23-PL-THEORY.md` | Programming language theory — type theory, lambda calculus, semantics | 🔜 Queued |
+| `computing/22-COMPILERS.md` | Compiler & interpreter design — lexing, parsing, IR, codegen, SSA | ✅ Complete |
+| `computing/23-PL-THEORY.md` | Programming language theory — type theory, lambda calculus, semantics | 🔜 Next |
 
 ---
 
@@ -119,7 +119,7 @@ Track 8: Azure
   20-AZURE.md ✅
 
 Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
-  21-AUTOMATA.md ✅              22-COMPILERS.md                23-PL-THEORY.md
+  21-AUTOMATA.md ✅              22-COMPILERS.md ✅             23-PL-THEORY.md
 ```
 
 ---
@@ -172,6 +172,7 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | 2026-02-22 | 20-AZURE.md authored. Full Azure services map: compute (VM/App Service/AKS/ACA/Functions), storage, databases (SQL/Cosmos/Postgres/Redis), messaging (Service Bus/Event Hubs/Event Grid), networking (VNet/Front Door/App Gateway), security (Key Vault/Managed Identity/Entra), AI (AOAI/AI Search). |
 | 2026-02-22 | Added Track 9: CS Theory (21-AUTOMATA, 22-COMPILERS, 23-PL-THEORY). Learner profile updated: MIT double major Math + TCS. |
 | 2026-02-22 | 21-AUTOMATA.md authored. Chomsky hierarchy as engineering constraint, ReDoS/NFA vs DFA engines, V8 Irregexp pipeline, lexer architecture, LL/LR/Earley/PEG parsers, XState statecharts, decidability limits of static analysis, Turing-completeness hazards. |
+| 2026-02-22 | 22-COMPILERS.md authored. IR design (TAC, SSA, phi nodes, dom tree), LLVM IR, optimization passes (DCE/CSE/inlining/LTO), V8 Ignition→Maglev→Turbofan JIT tiers, sea of nodes, rustc MIR + borrow checker (NLL/Polonius), tsc incremental compilation, esbuild design, WASM, compiler correctness (CompCert, Alive2). |
 
 ---
 
