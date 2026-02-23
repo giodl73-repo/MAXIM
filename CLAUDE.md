@@ -240,6 +240,26 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 
 ---
 
+## query-languages/ — Artifact Index
+
+| File | Topic | Status |
+|------|-------|--------|
+| `query-languages/00-OVERVIEW.md` | Landscape, relational algebra, SQL standards history, ACID/BASE | ✅ Complete |
+| `query-languages/01-SQL-CORE.md` | ANSI SQL — the 30-year refresh (CTEs, window functions, JSON, temporal) | ✅ Complete |
+| `query-languages/02-POSTGRESQL.md` | PostgreSQL: JSONB, arrays, LATERAL, full-text, pgvector, EXPLAIN ANALYZE | ✅ Complete |
+| `query-languages/03-TSQL.md` | T-SQL: SQL Server + Azure SQL + Synapse (APPLY, MERGE, OUTPUT, JSON, temporal) | ✅ Complete |
+| `query-languages/04-MYSQL.md` | MySQL / MariaDB: InnoDB, window functions (8.0+), utf8mb4, JSON | ✅ Complete |
+| `query-languages/05-SQLITE.md` | SQLite: embedded, WAL, STRICT, JSON1, FTS5, in-memory testing | ✅ Complete |
+| `query-languages/06-KQL.md` | KQL: Azure Monitor / Log Analytics / App Insights / ADX / Sentinel | ✅ Complete |
+| `query-languages/07-ANALYTICAL.md` | Cloud DW SQL: BigQuery + Snowflake + Databricks + Synapse, dbt, medallion | ✅ Complete |
+| `query-languages/08-SPARKSQL.md` | Spark SQL + Delta Lake: DataFrame API, MERGE INTO, streaming, ZORDER | ✅ Complete |
+| `query-languages/09-DUCKDB.md` | DuckDB: OLAP in-process, direct Parquet/CSV query, PIVOT, lambdas | ✅ Complete |
+| `query-languages/10-MONGODB.md` | MongoDB MQL + aggregation pipeline, indexes, Atlas Vector Search | ✅ Complete |
+| `query-languages/11-REDIS.md` | Redis: data structures, Streams, Lua, RediSearch KNN, distributed lock | ✅ Complete |
+| `query-languages/12-GRAPHQL.md` | GraphQL: SDL schema, query/mutation/subscription, N+1 + DataLoader, federation | ✅ Complete |
+
+---
+
 ## Instructions for Claude
 
 - When asked to create a new guide, follow `computing/01-PACKAGE.md` style exactly
