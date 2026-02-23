@@ -128,7 +128,12 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 
 | File | Topic | Status |
 |------|-------|--------|
-| TBD | Python data stack, classical ML, MLOps | 🔜 Planned |
+| `data-science/01-NUMPY.md` | NumPy — arrays, broadcasting, vectorized ops, linear algebra substrate | 🔜 Next |
+| `data-science/02-PANDAS.md` | Pandas — DataFrame, indexing, groupby, merge, time series, performance | 🔜 Queued |
+| `data-science/03-SKLEARN.md` | scikit-learn — estimator API, preprocessing, pipelines, model selection, classical ML | 🔜 Queued |
+| `data-science/04-PYTORCH.md` | PyTorch — tensors, autograd, nn.Module, training loop, GPU, from scratch to transfer | 🔜 Queued |
+| `data-science/05-MLOPS.md` | MLOps — experiment tracking (MLflow/W&B), model registry, deployment, drift detection | 🔜 Queued |
+| `data-science/06-AZURE-ML.md` | Azure Machine Learning — workspaces, compute, pipelines, managed endpoints, AzureML SDK v2 | 🔜 Queued |
 
 ---
 
@@ -141,6 +146,31 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | `ai-engineering/03-ORCHESTRATION.md` | LangChain, LlamaIndex, Semantic Kernel | ✅ Complete |
 | `ai-engineering/04-AGENTS.md` | Agent patterns, tool use, memory, multi-agent | ✅ Complete |
 | `ai-engineering/05-SAFETY.md` | Red-teaming, hallucination detection, bias | ✅ Complete |
+
+---
+
+## languages/ — Artifact Index
+
+| File | Language | Status |
+|------|----------|--------|
+| `languages/00-OVERVIEW.md` | Taxonomy — genealogy, paradigm map, type-system axes, early/late binding | ✅ Complete |
+| `languages/01-CHEATSHEET.md` | Universal comparison: 16 languages × 10 topics + per-language quick cards | ✅ Complete |
+| `languages/02-C.md` | C | ✅ Complete |
+| `languages/03-CPP.md` | C++ | ✅ Complete |
+| `languages/04-JAVA.md` | Java | ✅ Complete |
+| `languages/05-CSHARP.md` | C# (home base) | ✅ Complete |
+| `languages/06-PYTHON.md` | Python | ✅ Complete |
+| `languages/07-JAVASCRIPT.md` | JavaScript | ✅ Complete |
+| `languages/08-TYPESCRIPT.md` | TypeScript | ✅ Complete |
+| `languages/09-RUST.md` | Rust | ✅ Complete |
+| `languages/10-GO.md` | Go | ✅ Complete |
+| `languages/11-HASKELL.md` | Haskell | ✅ Complete |
+| `languages/12-FSHARP.md` | F# | ✅ Complete |
+| `languages/13-KOTLIN.md` | Kotlin | ✅ Complete |
+| `languages/14-SWIFT.md` | Swift | ✅ Complete |
+| `languages/15-SCALA.md` | Scala | ✅ Complete |
+| `languages/16-RUBY.md` | Ruby | ✅ Complete |
+| `languages/17-SQL.md` | SQL (PostgreSQL + T-SQL) | ✅ Complete |
 
 ---
 
@@ -179,6 +209,7 @@ Track 9: CS Theory (MIT TCS background — bridge to modern tooling)
 | 2026-02-22 | 03-ORCHESTRATION.md authored. LangChain (LCEL pipe composition, RAG chain, memory, tools+agents, known pain points), LlamaIndex (ingestion pipeline, HyDE/QuestionsAnsweredExtractor, SubQuestionQueryEngine), Semantic Kernel (Kernel+Plugin model, auto function calling, Planner, C# .NET first-class, Azure-native pattern), framework comparison table, no-framework option (direct SDK tool-use loop), chunking strategies, embedding model selection, common confusion points (LangGraph, vector store ≠ retrieval strategy). |
 | 2026-02-22 | 04-AGENTS.md authored. ReAct loop anatomy + minimal implementation, tool design principles (one responsibility, errors as returns, timeouts), tool description as prompt engineering, memory taxonomy (in-context/episodic/semantic/procedural), summary buffer + selective retrieval patterns, five agent patterns (single, prompt chaining, parallelization, evaluator-optimizer, orchestrator/subagent), LangGraph (StateGraph, conditional edges, checkpointer, human-in-the-loop interrupt), multi-agent topologies, production hardening (loop detection, context size guard, prompt injection defense, cost metrics), agent evals (trajectory eval), decision cheat sheet. |
 | 2026-02-22 | 05-SAFETY.md authored. ai-engineering/ track complete. Hallucination taxonomy (intrinsic/extrinsic, closed/open domain), SelfCheckGPT consistency sampling, citation forcing + CoT mitigation. Prompt injection taxonomy (direct/indirect/tool hijacking), structural delimiter defense, tool result wrapping. Jailbreak patterns. Red-teaming (PromptFoo redteam, Garak, PyRIT multi-turn orchestrator). Output guardrails (Guardrails AI, NeMo Guardrails/Colang, Llama Guard classifier). PII (Microsoft Presidio detect + redact + synthetic replace). Bias taxonomy + counterfactual eval. System prompt hardening anatomy. EU AI Act tiers + NIST AI RMF. CI safety gates. Over-refusal as second failure mode. |
+| 2026-02-22 | Session 3 initialized. languages/ series: 19 files. 00-OVERVIEW.md (language genealogy ASCII tree, paradigm spectrum, 6 type-system axes, early/late binding depth, nominal/structural/duck, expression problem). 01-CHEATSHEET.md (universal comparison tables: 16 languages × 10 topics + per-language quick cards). 02-C through 17-SQL: individual reference cards for C, C++, Java, C#, Python, JavaScript, TypeScript, Rust, Go, Haskell, F#, Kotlin, Swift, Scala, Ruby, SQL. Each covers: type system snapshot, syntax reference card (equality, logical ops, delimiter semantics, collection literals, if/match, strings/chars, null/Option, functions, error handling), what makes it distinct, ecosystem, gotchas from C#. |
 
 ---
 
