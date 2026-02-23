@@ -8,8 +8,8 @@ Each directory has a `STATUS.md` with its full file list.
 
 ## Summary Dashboard
 
-| Directory | Files | Status |
-|-----------|-------|--------|
+| Directory | Files | Status | Group |
+|-----------|-------|--------|-------|
 | [`computing/`](computing/STATUS.md) | 28 | ✅ |
 | [`ai-engineering/`](ai-engineering/STATUS.md) | 5 | ✅ |
 | [`data-science/`](data-science/STATUS.md) | 17 | ✅ |
@@ -45,29 +45,39 @@ Each directory has a `STATUS.md` with its full file list.
 | [`cognitive-science/`](cognitive-science/STATUS.md) | 10 | ✅ |
 | [`human-biology/`](human-biology/STATUS.md) | 11 | ✅ |
 | [`disease/`](disease/STATUS.md) | 11 | ✅ |
-| [`medicine/`](medicine/STATUS.md) | 11 | 🔜 |
-| [`philosophy/`](philosophy/STATUS.md) | 7 | 🔜 |
-| [`aeronautics/`](aeronautics/STATUS.md) | 6 | 🔜 |
-| [`law/`](law/STATUS.md) | 8 | 🔜 |
-| [`organizational-behavior/`](organizational-behavior/STATUS.md) | 7 | 🔜 |
-| [`cryptography/`](cryptography/STATUS.md) | 6 | 🔜 |
-| [`statistics-applied/`](statistics-applied/STATUS.md) | 6 | 🔜 |
-| [`climate-science/`](climate-science/STATUS.md) | 7 | 🔜 |
-| [`political-science/`](political-science/STATUS.md) | 7 | 🔜 |
-| [`psychology/`](psychology/STATUS.md) | 7 | 🔜 |
-| [`geography/`](geography/STATUS.md) | 8 | 🔜 |
-| [`spices/`](spices/STATUS.md) | 11 | 🔜 |
-| [`pigments/`](pigments/STATUS.md) | 11 | 🔜 |
-| [`colors/`](colors/STATUS.md) | 10 | 🔜 |
-| [`coatings/`](coatings/STATUS.md) | 10 | 🔜 |
-| [`plumbing/`](plumbing/STATUS.md) | 10 | 🔜 |
-| [`hvac/`](hvac/STATUS.md) | 10 | 🔜 |
-| [`textiles/`](textiles/STATUS.md) | 14 | 🔜 |
-| [`jewelry/`](jewelry/STATUS.md) | 11 | 🔜 |
-| [`ceramics/`](ceramics/STATUS.md) | 11 | 🔜 |
-| [`glassmaking/`](glassmaking/STATUS.md) | 11 | 🔜 |
+| [`medicine/`](medicine/STATUS.md) | 11 | 🔜 | A |
+| [`philosophy/`](philosophy/STATUS.md) | 7 | 🔜 | A |
+| [`aeronautics/`](aeronautics/STATUS.md) | 6 | 🔜 | A |
+| [`law/`](law/STATUS.md) | 8 | 🔜 | A |
+| [`cryptography/`](cryptography/STATUS.md) | 6 | 🔜 | A |
+| [`spices/`](spices/STATUS.md) | 11 | 🔜 | B |
+| [`pigments/`](pigments/STATUS.md) | 11 | 🔜 | B |
+| [`colors/`](colors/STATUS.md) | 10 | 🔜 | B |
+| [`statistics-applied/`](statistics-applied/STATUS.md) | 6 | 🔜 | B |
+| [`textiles/`](textiles/STATUS.md) | 14 | 🔜 | C |
+| [`plumbing/`](plumbing/STATUS.md) | 10 | 🔜 | C |
+| [`coatings/`](coatings/STATUS.md) | 10 | 🔜 | C |
+| [`climate-science/`](climate-science/STATUS.md) | 7 | 🔜 | C |
+| [`jewelry/`](jewelry/STATUS.md) | 11 | 🔜 | D |
+| [`ceramics/`](ceramics/STATUS.md) | 11 | 🔜 | D |
+| [`glassmaking/`](glassmaking/STATUS.md) | 11 | 🔜 | D |
+| [`organizational-behavior/`](organizational-behavior/STATUS.md) | 7 | 🔜 | D |
+| [`hvac/`](hvac/STATUS.md) | 10 | 🔜 | E |
+| [`political-science/`](political-science/STATUS.md) | 7 | 🔜 | E |
+| [`psychology/`](psychology/STATUS.md) | 7 | 🔜 | E |
+| [`geography/`](geography/STATUS.md) | 8 | 🔜 | E |
 
-**Complete: 361 files | To write: 189 files across 49 directories**
+**Complete: 361 files | To write: 189 files across 21 directories**
+
+**Agent groups (5 parallel agents):**
+
+| Group | Directories | Files |
+|-------|-------------|-------|
+| A | `medicine/` `law/` `philosophy/` `aeronautics/` `cryptography/` | 38 |
+| B | `spices/` `pigments/` `colors/` `statistics-applied/` | 38 |
+| C | `textiles/` `plumbing/` `coatings/` `climate-science/` | 41 |
+| D | `jewelry/` `ceramics/` `glassmaking/` `organizational-behavior/` | 40 |
+| E | `hvac/` `political-science/` `psychology/` `geography/` | 32 |
 
 ---
 
