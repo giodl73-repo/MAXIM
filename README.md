@@ -1,227 +1,110 @@
-# Modern Software Engineering — Reference Library
+# Reference Library
 
-> A self-authored technical reference for a senior engineering leader re-entering hands-on work.
-> Every guide follows the same format: layered diagrams, mental models, decision cheat sheets.
-> No dumbing down. Pure signal.
+> Self-authored technical reference. Every guide: layered ASCII diagrams, mental models, decision cheat sheets.
+> Peer-level. No handholding. MIT Math + TCS background assumed throughout.
 
----
-
-## How This Works
-
-Each module is a standalone `.md` file in this directory. Read them in track order or jump to
-whatever you're working with. Every file answers three questions:
-
-1. **What is this thing and where does it sit in the stack?**
-2. **How does it relate to the things I already know?**
-3. **What do I actually reach for, and when?**
+**~339 files complete across 33 directories. 46 stubs queued.**
+Full status: [`TRACKER.md`](TRACKER.md) | Per-directory detail: each directory's `STATUS.md`
 
 ---
 
-## Completed Modules
+## Computing & Software Engineering
 
-| # | Module | File | Description |
-|---|--------|------|-------------|
-| 01 | Package Management | [`01-PACKAGE.md`](./01-PACKAGE.md) | All package managers, all layers — system, language, meta. npm, pip, nuget, cargo, docker. How they nest. |
-| 02 | Git Modern Workflow | [`02-GIT.md`](./02-GIT.md) | Three-tree model, branching, merge vs rebase, PR workflow, worktrees. |
-| 03 | JavaScript & TypeScript | [`03-JS-TS.md`](./03-JS-TS.md) | CJS vs ESM, TS type system, tsconfig, compilation pipeline. |
-| 04 | Build Tools & Bundlers | [`04-BUILD.md`](./04-BUILD.md) | Vite, Webpack, esbuild, Rollup, SWC, Babel — what each does and when. |
-
----
-
-## Curriculum
-
-### Track 1 — Foundations
-
-> The new plumbing. Things that replaced Source Depot, MSBuild, and shared drives.
-
-| # | Module | File | Bridge From |
-|---|--------|------|-------------|
-| 01 | Package Management | [`01-PACKAGE.md`](./01-PACKAGE.md) ✅ | NuGet, MSBuild references |
-| 02 | Git Modern Workflow | [`02-GIT.md`](./02-GIT.md) ✅ | Source Depot, VSTS check-ins |
-
-```
-Source Depot / VSTS          Git + GitHub / Azure DevOps
-==================           ===========================
-shelve                   ->  stash
-check in                 ->  commit + push
-branch                   ->  branch (cheap, local, everywhere)
-code review in VSTS      ->  Pull Request
-gated build              ->  branch protection + CI checks
-enlist                   ->  clone
-sync                     ->  fetch + pull
-```
+| Directory | Files | Contents |
+|-----------|-------|----------|
+| [`computing/`](computing/STATUS.md) | 28 ✅ | Package mgmt, Git, JS/TS, build tools, frontend, rendering, state, backend, DB, auth, Docker, K8s, CI/CD, IaC, observability, monorepo, cloud-native, testing (×2), Azure, automata, compilers, PL theory, networking, security, algorithms, distributed systems, concurrency |
+| [`ai-engineering/`](ai-engineering/STATUS.md) | 5 ✅ | LLM concepts, evals, orchestration, agents, safety |
+| [`data-science/`](data-science/STATUS.md) | 17 ✅ | NumPy, Pandas, sklearn, PyTorch, MLOps, Azure ML, statistical learning, probabilistic ML, information theory, optimization, deep learning theory, RL, causal inference, time series, CV, NLP, graph ML |
 
 ---
 
-### Track 2 — JavaScript Runtime Layer
+## Programming & Query Languages
 
-> JavaScript escaped the browser. Understanding this layer unlocks everything in modern web dev.
-
-| # | Module | File | What You'll Understand After |
-|---|--------|------|------------------------------|
-| 03 | JavaScript & TypeScript | [`03-JS-TS.md`](./03-JS-TS.md) ✅ | Why TypeScript exists, ES modules vs CommonJS, how TS becomes JS |
-| 04 | Build Tools & Bundlers | [`04-BUILD.md`](./04-BUILD.md) ✅ | What Vite/Webpack actually do, why you need them, dev vs prod builds |
-
-```
-The JS Runtime Layer
-
-  Browser JS (1995-2009)       Node.js (2009-now)          Runtimes (2020-now)
-  ====================         ====================         ===================
-  Runs in browser only         Runs on the server           Deno, Bun
-  No modules                   CommonJS modules (require)   ES modules native
-  No packages                  npm ecosystem                Web standards API
-  DOM only                     Full OS access               V8 / JavaScriptCore
-```
+| Directory | Files | Contents |
+|-----------|-------|----------|
+| [`languages/`](languages/STATUS.md) | 19 ✅ | Overview + cheatsheet (16 languages × 10 topics) + C, C++, Java, C#, Python, JS, TS, Rust, Go, Haskell, F#, Kotlin, Swift, Scala, Ruby, SQL |
+| [`query-languages/`](query-languages/STATUS.md) | 13 ✅ | Overview + SQL core, PostgreSQL, T-SQL, MySQL, SQLite, KQL, analytical, Spark SQL, DuckDB, MongoDB, Redis, GraphQL |
+| [`scripting/`](scripting/STATUS.md) | 10 ✅ | Overview + cheatsheet + Batch, PowerShell, Bash, Zsh, Fish, AWK, sed, Perl |
+| [`os/`](os/STATUS.md) | 8 ✅ | Overview + cheatsheet + Windows, Linux, macOS, iOS, Android, cross-platform |
 
 ---
 
-### Track 3 — Frontend
+## Mathematics & Physics
 
-> The browser as an application platform. This is where Power Apps concepts translate.
-
-| # | Module | File | What You'll Understand After |
-|---|--------|------|------------------------------|
-| 05 | Frontend Frameworks | `05-FRONTEND.md` | React vs Vue vs Angular, component model, JSX |
-| 06 | Rendering Patterns | `06-RENDERING.md` | SPA vs SSR vs SSG vs ISR vs RSC — when each one wins |
-| 07 | State Management | `07-STATE.md` | Redux, Zustand, context — the state problem and its solutions |
-
-```
-Rendering Strategy Spectrum
-
-  ←— more server                                    more client —→
-
-  Static Site    SSR           SSR + hydration    SPA           CSR
-  (HTML files)   (per request) (Next.js / Nuxt)   (React app)   (raw fetch)
-
-  Fastest CDN    Fresh data    Best of both       Rich UX       Simple
-  No JS needed   SEO good      SEO + interactivity JS heavy     JS heavy
-```
+| Directory | Files | Contents |
+|-----------|-------|----------|
+| [`mathematics/`](mathematics/STATUS.md) | 24 ✅ | Vector calc, integral theorems, trig, power series, abstract algebra, linear algebra, ODEs/PDEs, topology, manifolds, differential geometry, probability, Fourier, Laplace, complex analysis, optimization, information theory, combinatorics, number theory, numerical methods, statistics, measure theory, category theory, functional analysis, representation theory |
+| [`physics/`](physics/STATUS.md) | 10 ✅ | Electrostatics, magnetostatics, Maxwell's equations, EM waves, motors/generators, MHD, liquid metals, quantum bridge, zero-point energy, gravity/EM |
+| [`electronics/`](electronics/STATUS.md) | 8 ✅ | Circuits, reactive components, filters, amplifiers, signals/systems, DSP, 2D DSP, digital logic |
+| [`materials/`](materials/STATUS.md) | 7 ✅ | Overview, crystal structure, bonding/bands, semiconductors, metals/alloys, polymers, nanomaterials |
+| [`quantum-computing/`](quantum-computing/STATUS.md) | 5 ✅ | Overview, qubits/circuits, algorithms, error correction, hardware/complexity |
+| [`control-theory/`](control-theory/STATUS.md) | 5 ✅ | Overview, PID/classical, state space, optimal control, Kalman filter |
+| [`finance/`](finance/STATUS.md) | 5 ✅ | Overview, portfolio theory, derivatives, fixed income, risk models |
 
 ---
 
-### Track 4 — Backend & Data
+## Natural Sciences & Life Sciences
 
-> APIs, databases, and auth. The service layer you built in .NET, now in Node/Python/Go.
-
-| # | Module | File | What You'll Understand After |
-|---|--------|------|------------------------------|
-| 08 | Backend APIs | `08-BACKEND.md` | REST vs GraphQL vs tRPC, OpenAPI/Swagger, Express/Fastify |
-| 09 | Databases Modern | `09-DATABASE.md` | Postgres still king, ORMs (Prisma/EF Core analog), Redis, migrations |
-| 10 | Auth & Security | `10-AUTH.md` | OAuth2, OIDC, JWT, sessions — the full flow |
-
-```
-API Layer Evolution
-
-  SOAP / WCF (2000s)     REST (2010s)          GraphQL / tRPC (2020s)
-  ==================     ===========           ======================
-  WSDL contracts     ->  OpenAPI/Swagger    ->  Schema-first type-safe
-  Heavy XML          ->  JSON                   JSON over HTTP
-  Code-gen clients   ->  Manual or generated    Auto-generated clients
-  WS-Security        ->  JWT / OAuth2            Same auth, better DX
-```
+| Directory | Files | Contents |
+|-----------|-------|----------|
+| [`natural-sciences/`](natural-sciences/STATUS.md) | 18 ✅ | Overview + chemistry (atomic, bonding, thermochem, kinetics, electrochemistry) + biochemistry (biomolecules, enzymes, metabolism, molecular bio) + biology (cell, evolution/genetics, systems/synthetic) + earth (geophysics, atmosphere/climate) + plasma (fundamentals, dynamics) + organic chemistry + ecology |
+| [`biology/`](biology/STATUS.md) | 7 ✅ | Overview, molecular machinery, cell biology, genetics, evolution, ecology, physiology |
+| [`neuroscience/`](neuroscience/STATUS.md) | 5 ✅ | Overview, neurons/signals (Hodgkin-Huxley), systems/circuits, cognition/computation, AI bridge |
+| [`astronomy/`](astronomy/STATUS.md) | 12 ✅ | Earth motions, Milankovitch, celestial mechanics, stellar physics, cosmology, galactic structure, solar system formation, planetary interiors, atmospheres, exoplanets, small bodies, astrobiology |
+| [`human-biology/`](human-biology/STATUS.md) | 11 🔜 | Overview + 10 body systems (musculoskeletal, cardiovascular, respiratory, nervous, endocrine, immune, digestive, renal, reproductive, integumentary) |
+| [`disease/`](disease/STATUS.md) | 11 🔜 | Overview + bacterial, viral, fungal/parasitic/prion, cancer, cardiovascular disease, metabolic/endocrine, autoimmune, neurological/psychiatric, genetic/developmental, epidemiology |
+| [`medicine/`](medicine/STATUS.md) | 11 🔜 | Overview + antibiotics, antivirals/vaccines, cardiovascular drugs, CNS drugs, endocrine/metabolic, cancer drugs, immunomodulators, respiratory/GI, anesthesia, diagnostics/imaging |
 
 ---
 
-### Track 5 — Infrastructure
+## Engineering Sciences
 
-> How code moves from your laptop to a server that isn't yours.
-
-| # | Module | File | What You'll Understand After |
-|---|--------|------|------------------------------|
-| 11 | Containers | `11-DOCKER.md` | Docker, Dockerfile, docker-compose, why containers won |
-| 12 | Orchestration | `12-KUBERNETES.md` | Kubernetes — what problem it solves, how it works |
-| 13 | CI/CD Modern | `13-CICD.md` | GitHub Actions vs Azure Pipelines, workflows, runners |
-| 14 | Infrastructure as Code | `14-IAC.md` | Terraform, Bicep (Azure native), Pulumi — infra as version-controlled code |
-
-```
-Deployment Evolution
-
-  2000s                  2010s                  2020s
-  =====                  =====                  =====
-  FTP to server          Virtual machines        Containers
-  Manual install         Provisioned scripts     Kubernetes
-  "Works on my box"      Chef/Puppet/Ansible     Terraform/Bicep
-  Manual rollback        Deployment slots        GitOps + ArgoCD
-  Alert via pager        Nagios/SCOM             Prometheus + Grafana
-```
+| Directory | Files | Contents |
+|-----------|-------|----------|
+| [`mechanical/`](mechanical/STATUS.md) | 6 ✅ | Overview, thermodynamics, fluid mechanics, heat transfer, machine design, manufacturing |
+| [`structural/`](structural/STATUS.md) | 5 ✅ | Overview, statics, mechanics of materials, structural analysis, geotechnical |
+| [`chemical-eng/`](chemical-eng/STATUS.md) | 6 ✅ | Overview, thermo, reaction engineering, transport, separations, process design |
+| [`nuclear/`](nuclear/STATUS.md) | 6 ✅ | Overview, nuclear physics, reactor physics, thermal hydraulics, reactor types, safety systems |
+| [`aeronautics/`](aeronautics/STATUS.md) | 6 🔜 | Overview + aerodynamics, propulsion, flight mechanics, avionics, structures |
 
 ---
 
-### Track 6 — Operations
+## Humanities, Languages & Culture
 
-> Running the thing at scale. This is where your Azure Data Factory and ADF pipeline experience
-> translates into modern observability and orchestration patterns.
-
-| # | Module | File | What You'll Understand After |
-|---|--------|------|------------------------------|
-| 15 | Observability | `15-OBSERVABILITY.md` | Logs + metrics + traces, OpenTelemetry, Grafana stack |
-| 16 | Monorepos | `16-MONOREPO.md` | Turborepo, Nx — managing many packages in one repo |
-| 17 | Cloud-Native Patterns | `17-CLOUD-NATIVE.md` | Microservices, event-driven arch, service mesh, Kafka |
-
-```
-Observability — The Three Pillars
-
-  LOGS                METRICS              TRACES
-  ====                =======              ======
-  What happened       How much / how fast  Where did it go
-
-  Structured JSON     Prometheus           OpenTelemetry
-  ELK / Loki          Grafana              Jaeger / Tempo
-  "Error in order     "p99 latency         "Request A called
-   service at 14:32"   = 340ms"             B called C — 180ms in DB"
-```
+| Directory | Files | Contents |
+|-----------|-------|----------|
+| [`world-languages/`](world-languages/STATUS.md) | 15 ✅ | Overview + cheatsheet (35 languages) + Spanish, Portuguese, French, German, Russian, Arabic, Hindi/Urdu, Mandarin, Japanese, Korean, Other Asian, Turkic/Swahili/Other, Latin/Constructed |
+| [`historical-geography/`](historical-geography/STATUS.md) | 18 ✅ | Feudal mechanics, title glossary, Western Europe, HRE, Scandinavia, Silesia/borderlands, Eastern Europe, Byzantium, Islamic caliphates, Russia, Mongols, Crusades, Africa, South Asia, East Asia, Americas, Ottoman rise |
+| [`linguistics/`](linguistics/STATUS.md) | 10 ✅ | Overview, phonetics/phonology (IPA), morphology, syntax (CFG bridge), semantics (lambda calc bridge), pragmatics, historical linguistics, acquisition, sociolinguistics, computational NLP |
+| [`mythology/`](mythology/STATUS.md) | 12 ✅ | Comparative overview + Greek/Roman, Norse (with Futhark runes), Celtic/Arthurian, Slavic, Egyptian, Mesopotamian, Hindu, East Asian, Mesoamerican, African/Oceanian, Abrahamic comparative |
+| [`cognitive-science/`](cognitive-science/STATUS.md) | 10 ✅ | Overview (Marr levels), perception, attention/memory, reasoning/judgment, language/thought, problem-solving, development, consciousness, computational models, applied bridge |
+| [`music-theory/`](music-theory/STATUS.md) | 10 ✅ | Overview, pitch/scales, modes/pentatonic, rhythm/meter, harmony/chords, voice leading/counterpoint, tonal harmony, form analysis, orchestration, 20th century/jazz |
+| [`philosophy/`](philosophy/STATUS.md) | 7 🔜 | Overview + logic (Gödel), epistemology, metaphysics, philosophy of mind, ethics, philosophy of science |
 
 ---
 
-## Reading Order (Recommended)
+## Reference Systems
 
-```
-If you're setting up a project:
-  01 -> 02 -> 03 -> 04
-
-If you're building a web app:
-  03 -> 04 -> 05 -> 08 -> 09
-
-If you're shipping it:
-  11 -> 13 -> 12 -> 15
-
-If you're on Azure specifically:
-  14 (Bicep) -> 13 (Azure Pipelines) -> 17
-```
+| Directory | Files | Contents |
+|-----------|-------|----------|
+| [`codes/`](codes/STATUS.md) | 10 ✅ | Overview + Morse, Braille, semaphore, signal flags, NATO phonetic, ASL fingerspelling, musical notation, historical ciphers, modern codes |
+| [`periodic-table/`](periodic-table/STATUS.md) | 12 ✅ | Overview + hydrogen, noble gases, alkali metals, alkaline earth, halogens, life nonmetals (CHNOPS), p-block, 3d transition metals, 4d/5d transition metals, lanthanides, actinides |
+| [`animal-phylogeny/`](animal-phylogeny/STATUS.md) | 13 ✅ | Tree of life overview + single-cell origins, early animals, lophotrochozoa worms, nematoda/ecdysozoa, mollusca, arthropoda, deuterostomes/echinoderms, chordata origins, fish, amphibia, reptilia/birds, mammalia |
+| [`economics/`](economics/STATUS.md) | 5 ✅ | Overview, microeconomics, game theory, mechanism design, macroeconomics |
+| [`information-theory/`](information-theory/STATUS.md) | 5 ✅ | Overview, entropy/information, source coding, channel coding, ML/cryptography bridge |
 
 ---
 
-## Format Reference
+## Style Contract
 
-Every module follows this structure:
+Every file follows `computing/01-PACKAGE.md` format:
+1. Big picture diagram first
+2. Layer downward — each section drills one piece
+3. ASCII boxes for system diagrams and decision trees
+4. Tables for comparisons and cheat sheets
+5. "Old world → new world" bridges (VSTS/.NET/Azure)
+6. Decision Cheat Sheet at the end
+7. Common Confusion Points
 
-```
-# Title
-
-## The Big Picture
-[One diagram showing the whole landscape]
-
-## Layer 1 / Section 1
-[Drill down with diagrams]
-
-## Layer 2 / Section 2
-...
-
-## How They Nest Together
-[Real-world composition example]
-
-## Concept Glossary
-
-## Common Confusion Points
-
-## Decision Cheat Sheet
-[Table: I want to do X → use Y]
-```
-
----
-
-## Status
-
-Last updated: **2026-02-22**
-Modules complete: **4 / 17**
-Currently building: **05-FRONTEND.md**
+Learner: VP of Software Engineering, Microsoft. MIT double major Math + TCS. ~10yr leadership gap.
+Deep background: .NET / Azure / VSTS. Peer-level writing throughout.
