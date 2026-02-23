@@ -1,0 +1,18 @@
+# 09 — Aromatics & Herbs
+
+## Lamiaceae and Friends — Mediterranean Basin, Volatile Oils, Preservation
+
+> **STUB** — outline only, content to be authored
+
+**Planned coverage:**
+- Herb vs spice distinction: convention only (not botanical); herbs = green/fresh plant parts (leaves, stems), spices = dried parts (seeds, bark, roots, fruits); many plants are both (coriander seed vs cilantro leaf; dill seed vs dill weed; fennel seed vs fennel frond)
+- **Lamiaceae** (mint family): the dominant herb family; square stems, opposite leaves, bilateral flowers; aromatic due to surface glandular trichomes containing essential oils; Mediterranean origin for most culinary species (adapted to hot, dry summers — oils may deter herbivory and water loss)
+- **Rosemary** (*Salvia rosmarinus*, formerly *Rosmarinus officinalis*): circum-Mediterranean native; carnosic acid (antioxidant — approved as food preservative E392), camphor, 1,8-cineole, α-pinene; preservative history — rosemary-rubbed meats before refrigeration; cognitive function claims (1,8-cineole and acetylcholinesterase inhibition — some evidence)
+- **Thyme** (*Thymus vulgaris*): thymol (monoterpene phenol, ~40% essential oil) — powerful antimicrobial; used in Listerine (historical thymol as active ingredient); carvacrol in oregano closely related; common thyme vs lemon thyme (*T. citriodorus* — geraniol/linalool dominant)
+- **Oregano** (*Origanum vulgare*): carvacrol + thymol; Mediterranean and Middle Eastern use; Greek oregano more pungent than Italian; Mexican oregano (*Lippia graveolens*, Verbenaceae — different family, similar flavor profile); pizza herb adoption in USA via Italian immigrants
+- **Basil** (*Ocimum basilicum*): linalool + eugenol (sweet basil); methyl chavicol/estragole dominant in Thai basil; holy basil (*O. tenuiflorum* = tulsi — reverence in Hinduism, different compound profile); basil's volatile oils so unstable that dried basil has little resemblance to fresh; Southeast Asian cuisines use holy basil and Thai basil differently from Mediterranean sweet basil
+- **Bay laurel** (*Laurus nobilis*): 1,8-cineole + α-pinene; dried leaves used whole; essential aromatic in French *bouquet garni* and *mirepoix*; ancient Greek/Roman laurel wreath (symbol of victory) = same plant; California bay (*Umbellularia californica*, different family, much stronger — umbellulone can cause headaches)
+- **Sage** (*Salvia officinalis*): thujone (neurotoxic monoterpene ketone at high doses — limits sage extract consumption; present in absinthe too); camphor; 1,8-cineole; drying reduces thujone; traditional pork/stuffing pairing (European); Salvia officinalis vs *S. hispanica* (chia — completely different plant)
+- Preservation by volatile oils: phenolic compounds (thymol, carvacrol, eugenol) disrupt bacterial cell membranes; terpenes (camphor, 1,8-cineole) interfere with membrane function; explains traditional use of herbs in preservation and why Mediterranean cuisines developed herb-heavy styles before refrigeration
+- Fenugreek (*Trigonella foenum-graecum*, Fabaceae): unusual in this group; seeds contain sotolon (maple syrup aroma compound — responsible for the phenomenon of people smelling like maple syrup after eating fenugreek); diosgenin (steroidal saponin — early source for synthetic progesterone); both spice and sprouted seed (methi leaves)
+- Alliums: garlic (*Allium sativum*), onion (*A. cepa*), shallot, leek, chive; not Lamiaceae; flavor from alliin → allicin (enzyme-catalyzed when tissue damaged — alliinase cleaves alliin to allicin); allicin → diallyl disulfide, diallyl trisulfide (cooking converts allicin to these more stable compounds); garlic's antimicrobial properties via allicin

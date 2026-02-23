@@ -1,0 +1,17 @@
+# 02 — Ancient Synthetic Pigments
+
+## Egyptian Blue, Cinnabar, Orpiment — The First Chemistry of Color
+
+> **STUB** — outline only, content to be authored
+
+**Planned coverage:**
+- **Egyptian blue** (CaCuSi₂O₆ — calcium copper silicate): oldest known synthetic pigment (~3,100 BCE, Egypt); manufactured by heating calcium carbonate (limestone) + copper compound (malachite/azurite) + silica (sand/quartz) + flux (natron) at ~900°C; turquoise-blue; used on Egyptian artifacts, Mesopotamia, Rome, Pompeii wall paintings
+- Egyptian blue chemistry: tetragonal crystal structure; Cu²⁺ in square planar coordination by oxygen → *d-d* transition in visible range → blue; luminescent in near-infrared (~910 nm) — modern technique to detect it in artworks using IR imaging even when visually faded; currently being researched as a medical NIR contrast agent and photocatalyst
+- **Han blue and Han purple** (BaCuSi₂O₆ and BaCuSi₄O₁₀): Chinese analogs discovered independently ~700–400 BCE; barium-copper silicates; Han purple exhibits quantum criticality behavior at low temperatures (exotic physics — flat magnetic excitation spectrum); manufactured with similar process but barium instead of calcium; production ended after Han dynasty
+- **Malachite** (Cu₂CO₃(OH)₂) and **azurite** (Cu₃(CO₃)₂(OH)₂): natural basic copper carbonates, often found together (azurite converts to malachite over time in presence of CO₂ and moisture); malachite = bright green; azurite = deep blue; ground from mineral, particle size determines hue (coarser = more intense for azurite); widely used ancient through Renaissance; azurite degrading to malachite in old paintings changes blue skies to green — many "green" medieval skies were originally blue (e.g., Dürer, Holbein)
+- **Cinnabar and vermilion** (HgS — mercury sulfide): natural cinnabar (mined, chief source mercury) and synthetic vermilion (made by combining sulfur + mercury, grinding); the most brilliant red available in antiquity and through Renaissance; intense, opaque red; Pompeii's "Pompeian red" rooms; Chinese lacquerware; vermilion = alchemical product (earliest datable synthetic color pigment made by recipe)
+- Vermilion instability: HgS → β-HgS (metacinnabar) on light exposure → blackening; reversible in dark; many Vermeer and Renoir red areas have darkened; complex photochemical mechanism (involves Cl⁻ contamination and halide formation)
+- **Orpiment** (As₂S₃ — arsenic trisulfide): brilliant yellow-orange; natural (hot springs deposits, volcanic areas); beautiful golden-yellow like no other historical yellow; used in manuscript illumination; extreme toxicity (arsenic) — artists and illuminators chronically poisoned; "King's yellow" = synthetic orpiment; incompatible with lead and copper pigments (darkens on contact); Chinese use in ink; largely abandoned by 17th century
+- **Realgar** (As₄S₄ — arsenic sulfide): orange-red companion to orpiment, often found together; similarly toxic; converts to yellow/white pararealgar on light exposure; Chinese and Indian use; rarer than orpiment
+- **Lapis lazuli** (lazurite + mineral matrix): not exactly "ancient synthetic" but ancient traded pigment; see dedicated file (04-BLUE-RARITY.md)
+- Manufacturing knowledge transmission: Egyptian blue recipe partially lost after Roman period, rediscovered 20th century via analysis; raises question of how much ancient technical knowledge was lost vs preserved; comparison to Roman concrete (opus caementicium — recipe partially reconstructed only recently)

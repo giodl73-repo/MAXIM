@@ -56,8 +56,10 @@ Each directory has a `STATUS.md` with its full file list.
 | [`political-science/`](political-science/STATUS.md) | 7 | 🔜 |
 | [`psychology/`](psychology/STATUS.md) | 7 | 🔜 |
 | [`geography/`](geography/STATUS.md) | 8 | 🔜 |
+| [`spices/`](spices/STATUS.md) | 11 | 🔜 |
+| [`pigments/`](pigments/STATUS.md) | 11 | 🔜 |
 
-**Complete: 339 files | To write: 102 files across 41 directories**
+**Complete: 339 files | To write: 124 files across 43 directories**
 
 ---
 
@@ -80,6 +82,8 @@ One-line agent prompt for each session. Read `CLAUDE.md` + the directory's `STAT
 | 23 | `political-science/` | IR theory (Waltz/Wendt/Mearsheimer), nuclear deterrence (MAD/credibility/arms control), geopolitics (Mackinder/Mahan/BRI/Indo-Pacific), comparative politics, institutions (Acemoglu/North), political economy |
 | 24 | `psychology/` | Social (conformity/attribution/bystander), personality (Big Five/dark triad/MBTI critique), clinical (DSM-5/CBT), organizational, persuasion (Cialdini/ELM/dark patterns/inoculation), health/stress |
 | 25 | `geography/` | Physical (plate tectonics/landforms/soils), climate zones (Köppen), ocean-atmosphere (AMOC/ENSO/monsoons), biogeography (Wallace line/island bio), population/urban (DTM/Zipf), geopolitics/resources (chokepoints/rare earths/Arctic), economic geography (GVCs/smile curve/ports) |
+| 26 | `spices/` | Overview (trade eras/VOC/Columbian Exchange), pepper/salt, cinnamon/cassia, turmeric/ginger/galangal, saffron/vanilla, nutmeg/cloves/mace (Banda Islands), capsicum/chili (TRPV1/Scoville), cumin/coriander/fennel (Apiaceae), cardamom/star anise (Tamiflu), aromatics/herbs, spice chemistry (alkaloids/terpenes/phenylpropanoids) |
+| 27 | `pigments/` | Overview (chromophore mechanisms), prehistoric/earth pigments (ochre/Blombos Cave), ancient synthetic (Egyptian blue/cinnabar), purple/red luxury (Tyrian/cochineal), blue rarity (lapis lazuli/synthetic ultramarine 1826), lead pigments (stack process), organic dyes/mordants (indigo/madder), Prussian blue era, Impressionist revolution (tube paint 1841/cadmiums), modern synthetic (TiO₂/phthalocyanines/quantum dots), conservation/authentication |
 
 ---
 

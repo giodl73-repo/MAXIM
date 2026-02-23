@@ -3,7 +3,7 @@
 > Self-authored technical reference. Every guide: layered ASCII diagrams, mental models, decision cheat sheets.
 > Peer-level. No handholding. MIT Math + TCS background assumed throughout.
 
-**~339 files complete across 41 directories. 102 stubs queued.**
+**~339 files complete across 43 directories. 124 stubs queued.**
 Full status: [`TRACKER.md`](TRACKER.md) | Per-directory detail: each directory's `STATUS.md`
 
 ---
@@ -107,6 +107,15 @@ Full status: [`TRACKER.md`](TRACKER.md) | Per-directory detail: each directory's
 | [`animal-phylogeny/`](animal-phylogeny/STATUS.md) | 13 ✅ | Tree of life overview + single-cell origins, early animals, lophotrochozoa worms, nematoda/ecdysozoa, mollusca, arthropoda, deuterostomes/echinoderms, chordata origins, fish, amphibia, reptilia/birds, mammalia |
 | [`economics/`](economics/STATUS.md) | 5 ✅ | Overview, microeconomics, game theory, mechanism design, macroeconomics |
 | [`information-theory/`](information-theory/STATUS.md) | 5 ✅ | Overview, entropy/information, source coding, channel coding, ML/cryptography bridge |
+
+---
+
+## Material & Cultural History
+
+| Directory | Files | Contents |
+|-----------|-------|----------|
+| [`spices/`](spices/STATUS.md) | 11 🔜 | Overview (spice trade eras, VOC/Columbian Exchange), pepper + salt, cinnamon/cassia (Ceylon vs cassia, coumarin), turmeric/ginger/galangal (Zingiberaceae, curcumin, gingerols), saffron + vanilla (most expensive by weight, hand-pollination), nutmeg/cloves/mace (Banda Islands massacre, Run Island for Manhattan), capsicum/chili (TRPV1, Scoville, global spread in 50 years), cumin/coriander/fennel (Apiaceae, anethole chemistry), cardamom + star anise (shikimic acid → Tamiflu), aromatics/herbs (Lamiaceae, volatile oils), spice chemistry (capsaicin/piperine/terpenes/phenylpropanoids) |
+| [`pigments/`](pigments/STATUS.md) | 11 🔜 | Overview (pigment vs dye, chromophore mechanisms: d-d/charge-transfer/π→π*/band gap), prehistoric/earth (ochre, Blombos Cave 75kya, Lascaux), ancient synthetic (Egyptian blue 3100 BCE, Han blue, cinnabar, orpiment), purple/red luxury (Tyrian purple from Murex, cochineal Aztec monopoly, madder lake), blue rarity (lapis lazuli/Badakhshan, synthetic ultramarine 1826), lead pigments (stack process, Naples yellow, degradation), organic dyes/mordants (indigo — woad vs Indigofera, madder/alizarin, mordant chemistry), Prussian blue era (1704, chrome yellow, emerald green arsenic toxicity), Impressionist revolution (tube paint 1841, cadmium series, plein air), modern synthetic (titanium white 1916, phthalocyanine, quinacridone, quantum dots), conservation/authentication (lightfastness, XRF/Raman, pigment anachronism in forgery detection) |
 
 ---
 
