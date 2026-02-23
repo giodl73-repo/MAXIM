@@ -1,7 +1,7 @@
 # 04 — PyTorch
 
-> PyTorch is a differentiable programming framework.
-> The neural network is a side effect of having autograd.
+> NumPy gives you n-dimensional arrays. PyTorch gives you n-dimensional arrays that
+> know how to differentiate themselves and run on GPUs. That's the whole product.
 
 ---
 
@@ -9,224 +9,264 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                         PYTORCH STACK                                       │
-│                                                                             │
-│  Your model code (Python)                                                   │
-│       │                                                                     │
-│  ┌────▼────────────────────────────────────────────────────────────────┐   │
-│  │  torch.nn          — layers, loss functions, containers            │   │
-│  │  torch.optim       — SGD, Adam, schedulers                         │   │
-│  │  torch.utils.data  — Dataset, DataLoader, samplers                 │   │
-│  └────┬────────────────────────────────────────────────────────────────┘   │
-│       │                                                                     │
-│  ┌────▼────────────────────────────────────────────────────────────────┐   │
-│  │  torch.autograd    — dynamic computation graph, backward()         │   │
-│  └────┬────────────────────────────────────────────────────────────────┘   │
-│       │                                                                     │
-│  ┌────▼────────────────────────────────────────────────────────────────┐   │
-│  │  torch.Tensor      — strided array (same layout as NumPy ndarray)  │   │
-│  └────┬────────────────────────────────────────────────────────────────┘   │
-│       │                                                                     │
-│  ┌────▼────────────────────────────────────────────────────────────────┐   │
-│  │  C++ / CUDA kernel dispatch                                        │   │
-│  │  CPU (ATen) or GPU (cuBLAS / cuDNN / custom CUDA)                 │   │
-│  └────────────────────────────────────────────────────────────────────┘   │
+│                           PYTORCH STACK                                      │
+│                                                                              │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
+│  │                     YOUR TRAINING CODE                               │   │
+│  │   Dataset / DataLoader → nn.Module → Loss → Optimizer → .backward() │   │
+│  └──────────────────────────────────────────────────────────────────────┘   │
+│                                                                              │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────────────────┐    │
+│  │   torch.nn      │  │  torch.optim    │  │  torch.utils.data        │    │
+│  │  (layers, loss) │  │  (SGD/Adam/...) │  │  (Dataset, DataLoader)   │    │
+│  └─────────────────┘  └─────────────────┘  └──────────────────────────┘    │
+│                                                                              │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
+│  │                      torch.autograd                                   │   │
+│  │    Dynamic computational graph — builds forward, differentiates       │   │
+│  │    backward, accumulates gradients                                    │   │
+│  └──────────────────────────────────────────────────────────────────────┘   │
+│                                                                              │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
+│  │              torch.Tensor  (CPU / CUDA / MPS / XPU)                  │   │
+│  │              C++ core: LibTorch — ATen tensor library                 │   │
+│  └──────────────────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
+
+**Key design choice**: PyTorch uses *define-by-run* (dynamic graph). The computation
+graph is rebuilt every forward pass. This means you can use Python control flow
+(`if`, `for`) inside model code — the graph reflects the actual execution path.
+TensorFlow 1.x was define-then-run (static graph). PyTorch 2 adds `torch.compile`
+to get static-graph performance while keeping dynamic semantics.
 
 ---
 
 ## Tensors
 
-PyTorch tensors are NumPy ndarrays with two additions: they can live on GPU,
-and they can carry a gradient. The memory model is identical to NumPy.
+### Creation
 
 ```python
 import torch
 import numpy as np
 
-# Creation
-t = torch.tensor([1.0, 2.0, 3.0])              # from Python list
-t = torch.from_numpy(np.array([1.0, 2.0, 3.0]))# zero-copy from NumPy (shared memory)
-t = torch.zeros(3, 4)                           # 3×4 of 0.0 float32
-t = torch.ones(3, 4, dtype=torch.float64)
-t = torch.rand(3, 4)                            # uniform [0, 1)
-t = torch.randn(3, 4)                           # N(0, 1)
-t = torch.arange(0, 10, 2)                      # [0, 2, 4, 6, 8]
-t = torch.linspace(0, 1, 5)                     # [0.0, 0.25, 0.5, 0.75, 1.0]
-t = torch.eye(4)                                # 4×4 identity
+# From Python / NumPy
+t = torch.tensor([1.0, 2.0, 3.0])              # infers dtype
+t = torch.tensor([[1, 2], [3, 4]], dtype=torch.float32)
+t = torch.from_numpy(np_array)                  # shares memory (no copy)
 
-# Properties
-t.shape    # torch.Size([3, 4])  — same as t.size()
-t.dtype    # torch.float32
-t.device   # device(type='cpu')
-t.requires_grad  # False by default
+# Factory functions
+torch.zeros(3, 4)                               # shape (3, 4)
+torch.ones(3, 4)
+torch.rand(3, 4)                                # U[0, 1)
+torch.randn(3, 4)                               # N(0, 1)
+torch.arange(0, 10, 2)                          # [0, 2, 4, 6, 8]
+torch.linspace(0, 1, 5)                         # [0, .25, .5, .75, 1]
+torch.eye(4)                                    # 4×4 identity
 
-# NumPy interop
-arr = t.numpy()         # share memory if CPU tensor, no copy
-t2 = torch.from_numpy(arr)  # share memory
-
-# Device transfer
-t_gpu = t.to("cuda")   # or t.cuda()
-t_cpu = t_gpu.cpu()
-t_gpu = t.to("cuda:0") # specific GPU
+# Like NumPy
+torch.zeros_like(other_tensor)
+torch.ones_like(other_tensor)
 ```
 
-### Default dtype
+### dtype
 
-PyTorch defaults to `float32` (not `float64` like NumPy). This matters when
-mixing PyTorch and NumPy — `from_numpy` preserves the NumPy dtype.
+```
+torch.float32   (float)  — default for model params
+torch.float16   (half)   — mixed precision training
+torch.bfloat16           — better range than float16, hardware-dependent
+torch.float64   (double) — scientific, rarely used in ML
+torch.int32 / int64
+torch.bool
+```
 
 ```python
-torch.set_default_dtype(torch.float64)  # change globally (rarely done)
+t = t.to(torch.float16)          # cast dtype
+t = t.float()                    # shorthand for float32
+t = t.half()                     # float16
+```
 
-# Per-tensor
-x = torch.tensor([1.0], dtype=torch.float64)
+### Device
+
+```python
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+t = torch.randn(3, 4, device=device)       # create on device
+t = t.to(device)                           # move to device
+t = t.cuda()                               # explicit CUDA
+t = t.cpu()                                # move to CPU
+
+# Check
+print(t.device)     # device(type='cuda', index=0)
+```
+
+### Shape Operations
+
+```python
+t = torch.randn(2, 3, 4)
+
+t.shape          # torch.Size([2, 3, 4])
+t.ndim           # 3
+t.numel()        # 24
+
+# Reshape (contiguous required)
+t.view(6, 4)             # shares storage (no copy)
+t.reshape(6, 4)          # copies if necessary
+
+# Squeeze / unsqueeze
+t.unsqueeze(0)           # (1, 2, 3, 4)  — add dim at position 0
+t.squeeze(0)             # remove dim of size 1
+t.squeeze()              # remove ALL size-1 dims
+
+# Permute (like NumPy transpose but for N dims)
+t.permute(2, 0, 1)       # (4, 2, 3)
+
+# Concatenation
+torch.cat([a, b], dim=0)         # concat along existing dim
+torch.stack([a, b], dim=0)       # stack → new dim
+
+# Indexing
+t[0]             # first element along dim 0
+t[:, 1, :]       # all, index 1, all
+t[t > 0]         # boolean mask → 1D tensor
 ```
 
 ---
 
-## Autograd — The Core
+## Autograd
 
-Autograd builds a dynamic computation graph as you perform operations on tensors
-with `requires_grad=True`. Calling `.backward()` traverses the graph in reverse
-and accumulates gradients in `.grad`.
-
-```python
-# Scalar function: f(x) = x² + 2x + 1
-x = torch.tensor(3.0, requires_grad=True)
-f = x**2 + 2*x + 1
-
-f.backward()   # df/dx = 2x + 2 = 8.0
-print(x.grad)  # tensor(8.)
-
-# Vector function: accumulate over batch
-x = torch.tensor([1.0, 2.0, 3.0], requires_grad=True)
-loss = (x**2).sum()   # scalar loss (required for .backward())
-loss.backward()
-print(x.grad)         # [2., 4., 6.]  — dL/dx = 2x element-wise
-
-# Gradient accumulation — gradients ADD on each backward()
-x.grad.zero_()        # zero before next backward — CRITICAL
-```
-
-### The Computation Graph
-
-```
-x ──► x² ──► + ──► sum ──► loss
-             ↑
-          2*x
-```
-
-Each operation creates a node. `.backward()` calls each node's backward function
-in reverse topological order (chain rule). The graph is rebuilt fresh each forward
-pass — "define by run" (vs TensorFlow 1's static graph).
+Autograd is the automatic differentiation engine. Every `torch.Tensor` has a
+`requires_grad` flag. When set, PyTorch tracks all operations on it and builds
+a dynamic computational graph (DAG of `Function` nodes).
 
 ```python
-# Context manager for gradient tracking
+x = torch.tensor([2.0], requires_grad=True)
+y = x ** 2 + 3 * x + 1          # y = x² + 3x + 1
+
+y.backward()                     # dL/dy = 1 implicitly; computes dy/dx
+
+print(x.grad)                    # tensor([7.])  — dy/dx at x=2: 2x+3 = 7
+```
+
+### Computational Graph
+
+```
+Forward:  x → (** 2) → (+ 3x) → (+ 1) → y
+Backward: gradient flows from y back through the DAG, applying chain rule
+```
+
+Each `.backward()` **accumulates** gradients (adds to `.grad`). Always zero
+before the next pass:
+
+```python
+optimizer.zero_grad()    # standard — zeros all model parameter grads
+# or
+for p in model.parameters():
+    p.grad = None        # slightly more efficient (skips the fill)
+```
+
+### No-Gradient Contexts
+
+```python
+# Inference: don't build graph, save memory
 with torch.no_grad():
-    y = model(x)   # no graph built — faster, less memory
-    # used for inference
+    output = model(x)
 
-# Detach from graph
-z = x.detach()     # new tensor sharing storage, no grad history
+# Decorator form
+@torch.no_grad()
+def predict(x):
+    return model(x)
+
+# Detach a tensor from the graph
+y = x.detach()     # same data, requires_grad=False, not tracked
 ```
 
 ---
 
-## `nn.Module` — Building Blocks
+## nn.Module
 
-Every layer, loss function, and model inherits from `nn.Module`:
+`nn.Module` is the base class for all models and layers. Contract:
+
+```
+class MyModel(nn.Module):
+    def __init__(self):
+        super().__init__()       # REQUIRED — registers parameter tracking
+        # declare all sub-modules and params as attributes
+
+    def forward(self, x):
+        # define the computation
+        return result
+```
 
 ```python
 import torch.nn as nn
 
-# Built-in layers
-nn.Linear(in_features, out_features, bias=True)
-nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0)
-nn.ConvTranspose2d(...)           # upsampling convolution
-nn.BatchNorm1d(num_features)      # normalize over batch dimension
-nn.BatchNorm2d(num_channels)
-nn.LayerNorm(normalized_shape)    # normalize over feature dimension (Transformers)
-nn.Dropout(p=0.5)
-nn.Embedding(num_embeddings, embedding_dim)
-nn.MultiheadAttention(embed_dim, num_heads)
-nn.LSTM(input_size, hidden_size, num_layers, batch_first=True)
-nn.Transformer(d_model, nhead, ...)
-
-# Activation functions
-nn.ReLU(), nn.GELU(), nn.SiLU()  # SiLU = Swish = x * sigmoid(x)
-nn.Sigmoid(), nn.Tanh(), nn.Softmax(dim=-1)
-
-# Containers
-nn.Sequential(layer1, layer2, ...)     # linear chain
-nn.ModuleList([layer1, layer2, ...])   # indexable, registered
-nn.ModuleDict({"fc": nn.Linear(...)})  # named, registered
-```
-
-### Defining a Model
-
-```python
 class MLP(nn.Module):
-    def __init__(self, input_dim: int, hidden_dim: int, output_dim: int):
+    def __init__(self, in_dim, hidden_dim, out_dim, dropout=0.2):
         super().__init__()
         self.net = nn.Sequential(
-            nn.Linear(input_dim, hidden_dim),
-            nn.BatchNorm1d(hidden_dim),
-            nn.GELU(),
-            nn.Dropout(0.2),
+            nn.Linear(in_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Dropout(dropout),
             nn.Linear(hidden_dim, hidden_dim),
-            nn.GELU(),
-            nn.Linear(hidden_dim, output_dim),
+            nn.ReLU(),
+            nn.Dropout(dropout),
+            nn.Linear(hidden_dim, out_dim),
         )
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x):
         return self.net(x)
 
-model = MLP(input_dim=128, hidden_dim=256, output_dim=10)
-
-# Inspect
-print(model)                             # layer tree
-print(sum(p.numel() for p in model.parameters()))  # parameter count
-print(sum(p.numel() for p in model.parameters() if p.requires_grad))
-
-# Module methods
-model.train()    # enable Dropout, BatchNorm uses batch stats
-model.eval()     # disable Dropout, BatchNorm uses running stats
-model.to("cuda") # move all parameters to GPU
+model = MLP(128, 512, 10)
+print(model)                              # shows architecture
+print(sum(p.numel() for p in model.parameters()))   # param count
 ```
 
-**Every `nn.Module` must define `forward()`**. The `__call__` method invokes
-`forward()` and runs registered hooks — never call `forward()` directly.
+### Key Layers
 
----
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│  LAYER               │  USE CASE                                     │
+├──────────────────────┼───────────────────────────────────────────────┤
+│  nn.Linear(in, out)  │  Fully connected                              │
+│  nn.Embedding(n, d)  │  Lookup table for token IDs                   │
+│  nn.Conv2d(c_in,     │  Spatial convolution (images)                 │
+│    c_out, k, stride) │                                               │
+│  nn.ConvTranspose2d  │  Upsampling (decoder / generator)             │
+│  nn.LSTM / GRU       │  Sequential (largely replaced by Transformer) │
+│  nn.MultiheadAttn    │  Self-attention block                         │
+│  nn.TransformerEncoder│  Full encoder stack                          │
+│  nn.LayerNorm        │  Normalizes features (Transformer standard)   │
+│  nn.BatchNorm2d      │  Normalizes batch (CNN standard)              │
+│  nn.Dropout(p)       │  Regularization (train only)                  │
+│  nn.MaxPool2d        │  Spatial downsampling                         │
+│  nn.AdaptiveAvgPool2d│  Pool to fixed output size                    │
+│  nn.Flatten()        │  Reshape conv output → 1D for linear layers   │
+└──────────────────────┴───────────────────────────────────────────────┘
+```
 
-## Loss Functions
+### Activations
 
 ```python
-# Classification
-nn.CrossEntropyLoss()     # log-softmax + NLL; input: logits (NOT probabilities)
-nn.BCEWithLogitsLoss()    # binary CE with logits (numerically stable)
-nn.BCELoss()              # binary CE; input: probabilities (use logits version instead)
-nn.NLLLoss()              # negative log-likelihood; input: log-probabilities
-
-# Regression
-nn.MSELoss()              # mean squared error
-nn.L1Loss()               # mean absolute error
-nn.SmoothL1Loss()         # Huber loss — MAE outside δ, MSE inside (robust)
-nn.HuberLoss(delta=1.0)
-
-# Contrastive / embedding
-nn.TripletMarginLoss()
-nn.CosineEmbeddingLoss()
-
-# With class weights (for imbalance)
-weights = torch.tensor([1.0, 10.0])  # class 1 is rare
-criterion = nn.CrossEntropyLoss(weight=weights)
+nn.ReLU()           # max(0, x) — default for CNNs, MLPs
+nn.GELU()           # smooth ReLU — standard in Transformers
+nn.SiLU()           # sigmoid-weighted linear — used in LLaMA, SDXL
+nn.Sigmoid()        # binary output
+nn.Softmax(dim=-1)  # multi-class probabilities (use in loss, not layer)
+nn.Tanh()
 ```
 
-`CrossEntropyLoss` expects **raw logits**, not softmax probabilities. Passing
-softmax outputs to it is a common bug — the function applies log-softmax internally.
+### Loss Functions
+
+```python
+nn.CrossEntropyLoss()   # classification (combines log-softmax + NLL)
+                        # input: raw logits (N, C); target: class indices (N,)
+nn.BCEWithLogitsLoss()  # binary classification (numerically stable)
+nn.MSELoss()            # regression
+nn.L1Loss()             # MAE regression
+nn.HuberLoss()          # robust regression (L2 near 0, L1 far out)
+nn.KLDivLoss()          # distributional — VAE, knowledge distillation
+```
 
 ---
 
@@ -235,200 +275,200 @@ softmax outputs to it is a common bug — the function applies log-softmax inter
 ```python
 import torch.optim as optim
 
-# Create (pass model parameters)
-optimizer = optim.Adam(model.parameters(), lr=1e-3, weight_decay=1e-4)
-optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9, weight_decay=1e-4)
-optimizer = optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0.01)  # preferred over Adam
+# SGD with momentum
+optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9,
+                      weight_decay=1e-4)
 
-# AdamW vs Adam:
-# Adam applies weight decay to the adapted gradient (incorrect mathematically)
-# AdamW applies weight decay directly to weights (correct L2 regularization)
-# AdamW is now the default for most modern models
+# Adam — default for most deep learning
+optimizer = optim.Adam(model.parameters(), lr=1e-3,
+                       betas=(0.9, 0.999), weight_decay=1e-5)
 
-# Per-layer learning rates
-optimizer = optim.Adam([
-    {"params": model.encoder.parameters(), "lr": 1e-4},  # lower for pretrained
-    {"params": model.head.parameters(),    "lr": 1e-3},  # higher for new layers
-])
+# AdamW — Adam with decoupled weight decay (better generalization)
+optimizer = optim.AdamW(model.parameters(), lr=1e-3, weight_decay=1e-2)
+
+# Different LR per parameter group (common for fine-tuning)
+optimizer = optim.AdamW([
+    {"params": model.backbone.parameters(), "lr": 1e-5},
+    {"params": model.head.parameters(),     "lr": 1e-3},
+], weight_decay=1e-2)
 ```
 
 ### Learning Rate Schedulers
 
 ```python
-# Cosine annealing — the standard for modern training
-scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=100, eta_min=1e-6)
-
-# Warmup + cosine (common pattern for large models)
-scheduler = optim.lr_scheduler.OneCycleLR(
-    optimizer, max_lr=1e-3,
-    steps_per_epoch=len(train_loader), epochs=50,
-    pct_start=0.1,  # 10% of training is warmup
-)
-
 # Step decay
 scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=30, gamma=0.1)
 
-# Reduce on plateau
-scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=5, factor=0.5)
+# Cosine annealing (standard for long training runs)
+scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=100)
 
-# Call after each batch (OneCycleLR) or each epoch (most others)
-scheduler.step()
+# Warmup + cosine (Transformers standard)
+from torch.optim.lr_scheduler import OneCycleLR
+scheduler = OneCycleLR(optimizer, max_lr=1e-3, total_steps=num_train_steps,
+                       pct_start=0.1)   # 10% warmup
+
+# Plateau (reduce on stagnation)
+scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode="min",
+                                                  factor=0.5, patience=5)
 ```
 
 ---
 
-## Data Loading
+## Canonical Training Loop
 
 ```python
-from torch.utils.data import Dataset, DataLoader, random_split
-import torchvision.transforms as T
+import torch
+import torch.nn as nn
+from torch.utils.data import DataLoader
 
-# Custom Dataset
-class TabularDataset(Dataset):
-    def __init__(self, X: np.ndarray, y: np.ndarray):
-        self.X = torch.from_numpy(X).float()
-        self.y = torch.from_numpy(y).long()
+def train_one_epoch(model, loader, optimizer, criterion, device):
+    model.train()                           # activates Dropout, BatchNorm train mode
+    total_loss, correct = 0, 0
 
-    def __len__(self) -> int:
-        return len(self.X)
+    for batch_x, batch_y in loader:
+        batch_x = batch_x.to(device)
+        batch_y = batch_y.to(device)
 
-    def __getitem__(self, idx: int):
-        return self.X[idx], self.y[idx]
+        # 1. Zero gradients
+        optimizer.zero_grad()
 
-# DataLoader — batching, shuffling, parallel loading
-dataset = TabularDataset(X_train, y_train)
-train_loader = DataLoader(
-    dataset,
-    batch_size=64,
-    shuffle=True,
-    num_workers=4,       # parallel data loading processes
-    pin_memory=True,     # faster CPU→GPU transfer
-    prefetch_factor=2,   # batches to prefetch per worker
-)
+        # 2. Forward
+        logits = model(batch_x)             # raw scores, shape (N, num_classes)
 
-# Image dataset with transforms
-train_dataset = torchvision.datasets.ImageFolder(
-    root="data/train",
-    transform=T.Compose([
-        T.RandomHorizontalFlip(),
-        T.RandomCrop(32, padding=4),
-        T.ToTensor(),                     # HWC uint8 → CHW float32 [0,1]
-        T.Normalize(mean=[0.5], std=[0.5]),
-    ])
-)
-```
+        # 3. Compute loss
+        loss = criterion(logits, batch_y)
 
----
+        # 4. Backward — build gradient DAG, compute grads
+        loss.backward()
 
-## The Training Loop
+        # 5. Gradient clipping (optional but standard for Transformers)
+        torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
 
-```python
-def train_epoch(model, loader, criterion, optimizer, device, scaler=None):
-    model.train()
-    total_loss = 0.0
+        # 6. Update weights
+        optimizer.step()
 
-    for batch_idx, (X, y) in enumerate(loader):
-        X, y = X.to(device), y.to(device)
+        total_loss += loss.item() * len(batch_y)
+        correct += (logits.argmax(dim=1) == batch_y).sum().item()
 
-        optimizer.zero_grad()     # 1. clear accumulated gradients
-
-        if scaler:                # mixed precision path
-            with torch.autocast(device_type="cuda", dtype=torch.float16):
-                logits = model(X)
-                loss = criterion(logits, y)
-            scaler.scale(loss).backward()  # 2. backward (scaled)
-            scaler.unscale_(optimizer)
-            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
-            scaler.step(optimizer)         # 3. update weights
-            scaler.update()
-        else:
-            logits = model(X)
-            loss = criterion(logits, y)
-            loss.backward()                # 2. backward
-            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
-            optimizer.step()               # 3. update weights
-
-        total_loss += loss.item()
-
-    return total_loss / len(loader)
+    return total_loss / len(loader.dataset), correct / len(loader.dataset)
 
 
 @torch.no_grad()
 def evaluate(model, loader, criterion, device):
-    model.eval()                  # disable Dropout, use running BatchNorm stats
-    total_loss, correct = 0.0, 0
+    model.eval()                            # deactivates Dropout, uses running stats
+    total_loss, correct = 0, 0
 
-    for X, y in loader:
-        X, y = X.to(device), y.to(device)
-        logits = model(X)
-        loss = criterion(logits, y)
-        total_loss += loss.item()
-        correct += (logits.argmax(dim=1) == y).sum().item()
+    for batch_x, batch_y in loader:
+        batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+        logits = model(batch_x)
+        loss = criterion(logits, batch_y)
+        total_loss += loss.item() * len(batch_y)
+        correct += (logits.argmax(dim=1) == batch_y).sum().item()
 
-    return total_loss / len(loader), correct / len(loader.dataset)
+    return total_loss / len(loader.dataset), correct / len(loader.dataset)
 
 
-# Full training script
+# Main training loop
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = MLP(128, 256, 10).to(device)
+model = MLP(128, 512, 10).to(device)
+optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3)
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0.01)
-scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=50)
-scaler = torch.cuda.amp.GradScaler()  # mixed precision
+scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=50)
 
-best_val_loss = float("inf")
+best_val_acc = 0.0
+
 for epoch in range(50):
-    train_loss = train_epoch(model, train_loader, criterion, optimizer, device, scaler)
+    train_loss, train_acc = train_one_epoch(model, train_loader, optimizer,
+                                             criterion, device)
     val_loss, val_acc = evaluate(model, val_loader, criterion, device)
     scheduler.step()
 
-    if val_loss < best_val_loss:
-        best_val_loss = val_loss
-        torch.save(model.state_dict(), "best_model.pt")
+    print(f"Epoch {epoch:3d} | "
+          f"train_loss={train_loss:.4f} train_acc={train_acc:.3f} | "
+          f"val_loss={val_loss:.4f}  val_acc={val_acc:.3f}")
 
-    print(f"Epoch {epoch:3d} | train_loss={train_loss:.4f} "
-          f"| val_loss={val_loss:.4f} | val_acc={val_acc:.4f}")
+    # Checkpoint best model
+    if val_acc > best_val_acc:
+        best_val_acc = val_acc
+        torch.save({
+            "epoch": epoch,
+            "model_state_dict": model.state_dict(),
+            "optimizer_state_dict": optimizer.state_dict(),
+            "val_acc": val_acc,
+        }, "best_model.pt")
 ```
 
-### The Four-Step Loop
+### `model.train()` vs `model.eval()`
 
-Every training iteration is always exactly:
-1. `optimizer.zero_grad()` — clear accumulated gradients
-2. `loss.backward()` — compute gradients
-3. `clip_grad_norm_()` — optional but recommended
-4. `optimizer.step()` — update parameters
+Critical — forgetting this is a common source of bugs:
 
-Forgetting `zero_grad()` is the most common PyTorch bug — gradients accumulate
-across batches, loss explodes.
+```
+train() mode:  Dropout randomly zeroes activations (regularization)
+               BatchNorm uses batch statistics (current mini-batch)
+
+eval() mode:   Dropout is disabled (deterministic inference)
+               BatchNorm uses running statistics (accumulated during training)
+```
 
 ---
 
-## Mixed Precision Training
+## Dataset and DataLoader
 
 ```python
-# float16 for forward/backward, float32 for optimizer state
-# ~2× speedup, ~50% memory reduction on modern GPUs
+from torch.utils.data import Dataset, DataLoader
 
-scaler = torch.cuda.amp.GradScaler()
+class MyDataset(Dataset):
+    def __init__(self, features, labels, transform=None):
+        self.X = torch.tensor(features, dtype=torch.float32)
+        self.y = torch.tensor(labels, dtype=torch.long)
+        self.transform = transform
 
-with torch.autocast(device_type="cuda", dtype=torch.float16):
-    output = model(input)
-    loss = criterion(output, target)
+    def __len__(self):
+        return len(self.X)
 
-scaler.scale(loss).backward()   # scale to prevent float16 underflow
-scaler.unscale_(optimizer)      # unscale before gradient clipping
-torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
-scaler.step(optimizer)
-scaler.update()
+    def __getitem__(self, idx):
+        x, y = self.X[idx], self.y[idx]
+        if self.transform:
+            x = self.transform(x)
+        return x, y
+
+
+train_ds = MyDataset(X_train, y_train)
+val_ds   = MyDataset(X_val,   y_val)
+
+train_loader = DataLoader(
+    train_ds,
+    batch_size=64,
+    shuffle=True,
+    num_workers=4,           # parallel data loading processes
+    pin_memory=True,         # locks pages → faster CPU→GPU transfer
+    drop_last=True,          # drop last incomplete batch (avoids BatchNorm issues)
+    persistent_workers=True, # keep workers alive between epochs
+)
+val_loader = DataLoader(val_ds, batch_size=256, shuffle=False, num_workers=4)
 ```
 
-bfloat16 (Brain Float) is preferred over float16 on A100/H100 GPUs — same range
-as float32 (8-bit exponent), lower precision mantissa, no overflow issues:
+### torchvision.transforms for Images
 
 ```python
-with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
-    ...
-# No GradScaler needed for bfloat16 — no underflow risk
+from torchvision import transforms
+
+train_transform = transforms.Compose([
+    transforms.RandomResizedCrop(224),
+    transforms.RandomHorizontalFlip(),
+    transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),
+    transforms.ToTensor(),                         # HWC uint8 → CHW float32, [0,1]
+    transforms.Normalize(mean=[0.485, 0.456, 0.406],   # ImageNet stats
+                         std=[0.229, 0.224, 0.225]),
+])
+
+val_transform = transforms.Compose([
+    transforms.Resize(256),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                         std=[0.229, 0.224, 0.225]),
+])
 ```
 
 ---
@@ -436,24 +476,29 @@ with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
 ## Model Persistence
 
 ```python
-# Save / load state dict (recommended)
+# Save — state dict only (recommended)
 torch.save(model.state_dict(), "model.pt")
-model.load_state_dict(torch.load("model.pt", map_location="cpu"))
 
-# Save full checkpoint (includes optimizer, scheduler, epoch)
-checkpoint = {
+# Load — must instantiate model first
+model = MLP(128, 512, 10)
+model.load_state_dict(torch.load("model.pt", map_location=device))
+model.to(device)
+model.eval()
+
+# Full checkpoint (training state)
+torch.save({
     "epoch": epoch,
-    "model_state": model.state_dict(),
-    "optimizer_state": optimizer.state_dict(),
-    "scheduler_state": scheduler.state_dict(),
+    "model_state_dict": model.state_dict(),
+    "optimizer_state_dict": optimizer.state_dict(),
+    "scheduler_state_dict": scheduler.state_dict(),
     "val_loss": val_loss,
-}
-torch.save(checkpoint, "checkpoint.pt")
+}, "checkpoint.pt")
 
-# Resume training
+# Resume from checkpoint
 ckpt = torch.load("checkpoint.pt", map_location=device)
-model.load_state_dict(ckpt["model_state"])
-optimizer.load_state_dict(ckpt["optimizer_state"])
+model.load_state_dict(ckpt["model_state_dict"])
+optimizer.load_state_dict(ckpt["optimizer_state_dict"])
+scheduler.load_state_dict(ckpt["scheduler_state_dict"])
 start_epoch = ckpt["epoch"] + 1
 ```
 
@@ -461,239 +506,343 @@ start_epoch = ckpt["epoch"] + 1
 
 ## Transfer Learning
 
-The standard workflow for most applied deep learning:
+### torchvision Pretrained Models
 
 ```python
 import torchvision.models as models
+import torch.nn as nn
 
-# Load pretrained backbone
+# Load pretrained ResNet-50
 backbone = models.resnet50(weights=models.ResNet50_Weights.IMAGENET1K_V2)
 
-# Freeze all layers
+# Strategy 1: Feature extraction — freeze backbone, train head only
 for param in backbone.parameters():
     param.requires_grad = False
 
-# Replace final classifier head
+# Replace final FC layer for your task
 num_classes = 5
 backbone.fc = nn.Linear(backbone.fc.in_features, num_classes)
-# Only backbone.fc has requires_grad=True
+# Only backbone.fc params have requires_grad=True
 
-# Two-phase training:
-# Phase 1: train head only (frozen backbone)
-optimizer_head = optim.Adam(backbone.fc.parameters(), lr=1e-3)
-# ... train for N epochs ...
+# Strategy 2: Fine-tuning — train everything (or layers from some point)
+for param in backbone.layer4.parameters():
+    param.requires_grad = True  # unfreeze last residual block
 
-# Phase 2: unfreeze and fine-tune all layers with lower LR
-for param in backbone.parameters():
-    param.requires_grad = True
-
-optimizer_full = optim.AdamW([
-    {"params": backbone.layer4.parameters(), "lr": 1e-4},
+# Use different LRs
+optimizer = torch.optim.AdamW([
+    {"params": backbone.layer4.parameters(), "lr": 1e-5},
     {"params": backbone.fc.parameters(),     "lr": 1e-3},
-], weight_decay=0.01)
+])
+```
+
+### HuggingFace Transformers
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
+
+model_name = "microsoft/deberta-v3-base"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(
+    model_name, num_labels=3
+)
+
+# Tokenize
+encoding = tokenizer(
+    ["First sentence", "Second sentence"],
+    truncation=True,
+    max_length=512,
+    padding="max_length",
+    return_tensors="pt",         # returns PyTorch tensors
+)
+
+# Forward
+with torch.no_grad():
+    outputs = model(**encoding)
+logits = outputs.logits          # (batch_size, num_labels)
+preds  = logits.argmax(dim=-1)
 ```
 
 ---
 
-## Common Architectures — Building Blocks
+## Mixed Precision Training
+
+AMP (Automatic Mixed Precision): computes in float16 where safe, stores master
+weights in float32. Typically 2× speedup on Ampere+ GPUs (A100, RTX 3090+).
 
 ```python
-# Residual block (ResNet style)
-class ResidualBlock(nn.Module):
-    def __init__(self, dim: int):
-        super().__init__()
-        self.block = nn.Sequential(
-            nn.LayerNorm(dim),
-            nn.Linear(dim, dim * 4),
-            nn.GELU(),
-            nn.Linear(dim * 4, dim),
-        )
+from torch.cuda.amp import autocast, GradScaler
 
-    def forward(self, x):
-        return x + self.block(x)   # skip connection
+scaler = GradScaler()    # scales loss to prevent fp16 underflow
 
-# Self-attention (Transformer style)
-class SelfAttention(nn.Module):
-    def __init__(self, embed_dim: int, num_heads: int):
-        super().__init__()
-        self.attn = nn.MultiheadAttention(embed_dim, num_heads, batch_first=True)
-        self.norm = nn.LayerNorm(embed_dim)
+for batch_x, batch_y in train_loader:
+    batch_x, batch_y = batch_x.to(device), batch_y.to(device)
+    optimizer.zero_grad()
 
-    def forward(self, x):
-        attn_out, _ = self.attn(x, x, x)   # query=key=value=x (self-attention)
-        return self.norm(x + attn_out)       # pre-norm residual
+    with autocast():                          # forward in fp16
+        logits = model(batch_x)
+        loss = criterion(logits, batch_y)
+
+    scaler.scale(loss).backward()             # backward in fp16 (scaled)
+    scaler.unscale_(optimizer)                # unscale before clipping
+    torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+    scaler.step(optimizer)                    # step (in fp32)
+    scaler.update()                           # update scale factor
+```
+
+---
+
+## torch.compile (PyTorch 2.x)
+
+`torch.compile` traces the model and produces optimized machine code (via TorchInductor
+→ OpenAI Triton on GPU, C++ on CPU). Typically 1.5–2× speedup with one line:
+
+```python
+model = torch.compile(model)    # that's it — works as a decorator too
+# or
+model = torch.compile(model, mode="reduce-overhead")  # small models
+model = torch.compile(model, mode="max-autotune")     # long training runs
+```
+
+**Restrictions**: first forward pass is slow (tracing). Incompatible with dynamic
+control flow that changes graph structure between calls. Works with DDP.
+
+---
+
+## Distributed Training — DDP
+
+`DistributedDataParallel` (DDP): each GPU gets a copy of the model, processes
+different batches, gradients are averaged across GPUs before each parameter update.
+
+```python
+import torch.distributed as dist
+from torch.nn.parallel import DistributedDataParallel as DDP
+from torch.utils.data.distributed import DistributedSampler
+
+# Initialize — AzureML / SLURM injects RANK, WORLD_SIZE, MASTER_ADDR
+dist.init_process_group("nccl")       # NCCL: NVIDIA collective comm lib
+local_rank = int(os.environ["LOCAL_RANK"])
+torch.cuda.set_device(local_rank)
+
+model = MyModel().to(local_rank)
+model = DDP(model, device_ids=[local_rank])
+
+# Sampler ensures each GPU sees different data shards
+train_sampler = DistributedSampler(train_dataset)
+train_loader  = DataLoader(train_dataset, sampler=train_sampler, batch_size=64)
+
+for epoch in range(num_epochs):
+    train_sampler.set_epoch(epoch)     # ensures different shuffle each epoch
+    train_one_epoch(model, ...)
+
+dist.destroy_process_group()
+```
+
+Launch:
+```bash
+torchrun --nproc_per_node=4 train.py    # 4 GPUs on one node
+# Multi-node: add --nnodes, --node_rank, --master_addr, --master_port
 ```
 
 ---
 
 ## Debugging Toolkit
 
+### Check gradient flow
+
 ```python
-# Shape debugging — the most common issue
-print(x.shape)   # everywhere, always
-
-# NaN/Inf detection
-torch.isnan(loss).any()
-torch.isinf(loss).any()
-
-# Gradient flow check
-for name, param in model.named_parameters():
-    if param.grad is not None:
-        print(f"{name}: grad_norm={param.grad.norm().item():.4f}")
-    else:
-        print(f"{name}: NO GRAD")
-
-# Hook for intermediate activations
-activations = {}
-def make_hook(name):
-    def hook(module, input, output):
-        activations[name] = output.detach()
+# Register hook to inspect gradients
+def print_grad_hook(name):
+    def hook(grad):
+        print(f"{name}: grad norm = {grad.norm():.4f}, "
+              f"has nan = {grad.isnan().any()}")
     return hook
 
-model.layer1.register_forward_hook(make_hook("layer1"))
+for name, param in model.named_parameters():
+    param.register_hook(print_grad_hook(name))
+```
 
-# torch.compile() — PyTorch 2.0+ JIT compilation
-model = torch.compile(model)   # ~30-50% speedup; works on most models
+### Check for NaN/Inf
+
+```python
+# After forward
+assert not torch.isnan(loss), f"NaN loss at step {step}"
+assert not torch.isinf(loss), f"Inf loss at step {step}"
+
+# Check activations
+for name, module in model.named_modules():
+    def hook(m, inp, out, name=name):
+        if isinstance(out, torch.Tensor) and torch.isnan(out).any():
+            print(f"NaN in {name}")
+    module.register_forward_hook(hook)
+```
+
+### GPU memory
+
+```python
+# Current usage
+print(torch.cuda.memory_allocated() / 1e9, "GB")
+print(torch.cuda.max_memory_allocated() / 1e9, "GB peak")
+
+# Clear cache (useful in notebooks between experiments)
+torch.cuda.empty_cache()
+
+# Profile memory timeline
+with torch.profiler.profile(
+    activities=[torch.profiler.ProfilerActivity.CUDA],
+    profile_memory=True,
+) as prof:
+    output = model(input)
+print(prof.key_averages().table(sort_by="cuda_memory_usage"))
 ```
 
 ---
 
-## GPU Workflow Checklist
+## PyTorch Lightning
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  GPU BEST PRACTICES                                                 │
-│                                                                     │
-│  ✅ model.to(device)  — move model to GPU at init                  │
-│  ✅ X.to(device) in training loop                                   │
-│  ✅ pin_memory=True in DataLoader                                   │
-│  ✅ num_workers > 0 (usually 4–8)                                   │
-│  ✅ Mixed precision (autocast + GradScaler or bfloat16)             │
-│  ✅ torch.compile(model) for PyTorch 2.0+                          │
-│  ✅ optimizer.zero_grad(set_to_none=True)  — slightly faster        │
-│                                                                     │
-│  ❌ .item() or .cpu() inside training loop (sync GPU→CPU)          │
-│  ❌ np.array(tensor) without .detach().cpu().numpy()               │
-│  ❌ Storing tensors in lists (keeps graph alive → memory leak)     │
-│  ❌ Forgetting model.eval() during validation                       │
-│  ❌ Forgetting optimizer.zero_grad() each step                      │
-└─────────────────────────────────────────────────────────────────────┘
-```
-
----
-
-## Ecosystem Map
-
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  PYTORCH ECOSYSTEM                                                  │
-│                                                                     │
-│  Hugging Face Transformers  — pretrained LLMs, vision, audio       │
-│  torchvision                — image models, datasets, transforms   │
-│  torchaudio                 — audio processing                     │
-│  torchtext                  — text utilities                        │
-│  Lightning (PyTorch Lightning) — training loop boilerplate removed │
-│  TIMM                       — hundreds of image models             │
-│  einops                     — readable tensor rearrangement        │
-│  wandb / MLflow             — experiment tracking (→ 05-MLOPS.md)  │
-│  ONNX                       — model export for inference servers   │
-│  TorchScript                — serialize for C++ / mobile deploy    │
-└─────────────────────────────────────────────────────────────────────┘
-```
-
-### PyTorch Lightning (Boilerplate Removal)
+Lightning wraps the training loop boilerplate into a structured `LightningModule`,
+handling multi-GPU, logging, checkpointing, and mixed precision automatically.
 
 ```python
 import lightning as L
+import torch.nn.functional as F
 
 class LitModel(L.LightningModule):
-    def __init__(self):
+    def __init__(self, in_dim, hidden_dim, num_classes):
         super().__init__()
-        self.model = MLP(128, 256, 10)
-        self.criterion = nn.CrossEntropyLoss()
+        self.save_hyperparameters()           # logs hparams to TensorBoard/MLflow
+        self.model = MLP(in_dim, hidden_dim, num_classes)
 
     def forward(self, x):
         return self.model(x)
 
     def training_step(self, batch, batch_idx):
-        X, y = batch
-        loss = self.criterion(self(X), y)
-        self.log("train_loss", loss)
+        x, y = batch
+        logits = self(x)
+        loss = F.cross_entropy(logits, y)
+        acc = (logits.argmax(dim=1) == y).float().mean()
+        self.log("train/loss", loss, prog_bar=True)
+        self.log("train/acc",  acc,  prog_bar=True)
         return loss
 
     def validation_step(self, batch, batch_idx):
-        X, y = batch
-        loss = self.criterion(self(X), y)
-        self.log("val_loss", loss)
+        x, y = batch
+        logits = self(x)
+        loss = F.cross_entropy(logits, y)
+        acc = (logits.argmax(dim=1) == y).float().mean()
+        self.log("val/loss", loss, prog_bar=True)
+        self.log("val/acc",  acc,  prog_bar=True)
 
     def configure_optimizers(self):
-        opt = optim.AdamW(self.parameters(), lr=1e-3)
-        sched = optim.lr_scheduler.CosineAnnealingLR(opt, T_max=50)
-        return [opt], [sched]
+        optimizer = torch.optim.AdamW(self.parameters(), lr=1e-3)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer, T_max=self.trainer.max_epochs
+        )
+        return {"optimizer": optimizer, "lr_scheduler": scheduler}
 
-trainer = L.Trainer(max_epochs=50, accelerator="auto", precision="16-mixed")
+
+# Train
+lit_model = LitModel(128, 512, 10)
+trainer = L.Trainer(
+    max_epochs=50,
+    accelerator="auto",       # cpu / gpu / tpu — detected automatically
+    devices="auto",           # 1 GPU or all available
+    precision="16-mixed",     # AMP
+    log_every_n_steps=10,
+    callbacks=[
+        L.pytorch.callbacks.ModelCheckpoint(monitor="val/loss", save_top_k=3),
+        L.pytorch.callbacks.EarlyStopping(monitor="val/loss", patience=10),
+        L.pytorch.callbacks.LearningRateMonitor(),
+    ],
+)
 trainer.fit(lit_model, train_loader, val_loader)
+trainer.test(lit_model, test_loader)
 ```
-
-Lightning handles the training loop, device placement, mixed precision, gradient
-clipping, logging, and checkpointing — eliminating the boilerplate above.
 
 ---
 
-## Common Confusion Points
+## GPU Checklist
 
-**`model.eval()` does not disable gradient computation**: It disables Dropout
-and switches BatchNorm to use running statistics. Gradient computation is separate —
-disable with `torch.no_grad()`. Both are needed during validation.
+```
+☐  All tensors on same device (cpu/cuda mismatch → runtime error)
+☐  model.to(device) called
+☐  model.train() before training loop, model.eval() before inference
+☐  optimizer.zero_grad() before loss.backward()
+☐  loss.item() to extract scalar (not loss itself — avoids retaining graph)
+☐  @torch.no_grad() on inference / evaluation functions
+☐  num_workers > 0 in DataLoader (but 0 in Windows/notebooks if spawning issues)
+☐  pin_memory=True when training on GPU
+☐  torch.compile() added for 1.5–2× free speedup (PyTorch 2.x)
+☐  Checkpoint .pt saves state_dict, not full model
+```
 
-**`loss.backward()` accumulates gradients**: Each call to `.backward()` adds to
-`.grad`. Always call `optimizer.zero_grad()` (or `zero_grad(set_to_none=True)`)
-before each new backward pass.
+---
 
-**`CrossEntropyLoss` expects logits, not probabilities**: Passing `softmax(logits)`
-to `CrossEntropyLoss` applies softmax twice. Pass raw logits.
+## Old World → New World
 
-**`tensor.detach().cpu().numpy()`**: This is the correct sequence to convert a GPU
-tensor to NumPy. `.detach()` removes it from the graph, `.cpu()` moves it to host
-memory, `.numpy()` creates the NumPy view.
-
-**`.item()` inside training loops causes GPU synchronization**: `loss.item()`
-forces the GPU to flush and return the scalar to the CPU. Accumulate the raw tensor
-loss and call `.item()` only for logging, outside the hot path.
-
-**`num_workers` on Windows**: PyTorch's multiprocessing DataLoader workers use
-`spawn` on Windows (vs `fork` on Linux). Code in workers must be inside
-`if __name__ == "__main__":` or a function — not module-level executable code.
+```
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  CONCEPT              │  .NET / C# World          │  PyTorch World           │
+├───────────────────────┼───────────────────────────┼──────────────────────────┤
+│  Compute graph        │  LINQ expression trees    │  autograd DAG            │
+│  Layer / transform    │  LINQ operator / EF query │  nn.Module               │
+│  Model params         │  class fields             │  nn.Parameter (tracked)  │
+│  Training step        │  for loop + delegate      │  forward() + backward()  │
+│  GPU execution        │  CUDA via ML.NET / TorchSharp│ .to(device)           │
+│  Serialization        │  BinaryFormatter / JSON   │  state_dict + torch.save │
+│  Parallel batches     │  PLINQ / Parallel.For     │  DataLoader num_workers  │
+└──────────────────────┴───────────────────────────┴──────────────────────────┘
+```
 
 ---
 
 ## Decision Cheat Sheet
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│  TASK                           │  APPROACH                        │
-├─────────────────────────────────┼──────────────────────────────────┤
-│  Tabular data, < 100k rows      │  sklearn (03-SKLEARN.md)         │
-│  Tabular, > 100k or complex     │  XGBoost / LightGBM first        │
-│  Images                         │  Transfer learning (ResNet/ViT)  │
-│  Text / language                │  HuggingFace Transformers        │
-│  Custom architecture research   │  PyTorch nn.Module from scratch  │
-│  Standard training loop         │  PyTorch Lightning               │
-├─────────────────────────────────┼──────────────────────────────────┤
-│  OPTIMIZER                      │                                  │
-│  Default                        │  AdamW(lr=1e-3, wd=0.01)         │
-│  Fine-tuning pretrained         │  AdamW with lr warmup + decay    │
-│  SGD when                       │  CV tasks where SGD + momentum   │
-│                                 │  generalizes better than Adam    │
-├─────────────────────────────────┼──────────────────────────────────┤
-│  MIXED PRECISION                │                                  │
-│  A100/H100 GPU                  │  bfloat16 (no scaler needed)     │
-│  V100/RTX GPU                   │  float16 + GradScaler            │
-│  CPU / MPS (Apple Silicon)      │  float32 (default)               │
-├─────────────────────────────────┼──────────────────────────────────┤
-│  MEMORY REDUCTION               │                                  │
-│  Batch too large                │  Gradient accumulation           │
-│  Model too large                │  Mixed precision + gradient ckpt │
-│  Inference only                 │  torch.no_grad() always          │
-└─────────────────────────────────┴──────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  TASK                              │  WHAT TO USE                            │
+├────────────────────────────────────┼─────────────────────────────────────────┤
+│  Tabular ML (<1M rows)             │  scikit-learn (03-SKLEARN.md)           │
+│  Tabular ML (millions of rows)     │  XGBoost / LightGBM — still not PyTorch │
+│  Image classification              │  torchvision pretrained + fine-tune     │
+│  Text classification               │  HuggingFace AutoModel + fine-tune      │
+│  Custom architecture               │  PyTorch nn.Module from scratch         │
+│  Training loop boilerplate         │  PyTorch Lightning                      │
+│  Hyperparameter search             │  W&B Sweeps or Optuna                   │
+│  Multi-GPU single node             │  DDP via torchrun / Lightning           │
+│  Multi-GPU multi-node              │  DDP + AzureML (06-AZURE-ML.md)         │
+│  Fast inference                    │  ONNX Runtime (see 05-MLOPS.md)         │
+│  Speedup (free)                    │  torch.compile(model)                   │
+│  Memory efficiency                 │  AMP (autocast + GradScaler)            │
+│  Reproducibility                   │  torch.manual_seed + DataLoader seeds   │
+└────────────────────────────────────┴─────────────────────────────────────────┘
 ```
+
+---
+
+## Common Confusion Points
+
+**`model(x)` calls `forward()` indirectly**: Never call `model.forward(x)` directly.
+`model(x)` goes through `__call__`, which runs forward hooks, backward hooks, and
+calls `forward()`. Calling `.forward()` directly skips those hooks.
+
+**Gradient accumulation across batches**: PyTorch adds to `.grad`, it does not replace.
+If you forget `optimizer.zero_grad()`, gradients from previous batches persist.
+This can be intentional (gradient accumulation for large effective batch sizes) or
+a bug. Know which you're doing.
+
+**`.item()` on loss**: `loss.backward()` needs the loss tensor. But when logging,
+use `loss.item()` to get the Python float — this releases the graph node from memory.
+Storing `loss` tensors (e.g., in a list) holds the entire computation graph in memory.
+
+**`requires_grad` propagates**: If any input has `requires_grad=True`, the output
+will too. This is why `with torch.no_grad()` is needed for inference — without it,
+you're building (and retaining) a graph even during eval, wasting memory.
+
+**DataLoader `num_workers` on Windows**: Multiprocessing spawn (Windows) causes
+issues when the dataset or transforms aren't picklable. Start with `num_workers=0`
+to debug, then increase.
+
+**`model.state_dict()` vs saving the whole model**: Saving the whole model with
+`torch.save(model, path)` pickles the class definition — brittle across code changes.
+Always save `model.state_dict()` and reconstruct the model from code.
