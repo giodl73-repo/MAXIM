@@ -66,10 +66,22 @@ Each directory has a `STATUS.md` with its full file list.
 | [`political-science/`](political-science/STATUS.md) | 7 | ✅ | E |
 | [`psychology/`](psychology/STATUS.md) | 7 | ✅ | E |
 | [`geography/`](geography/STATUS.md) | 8 | ✅ | E |
+| [`construction-materials/`](construction-materials/STATUS.md) | 10 | ✅ | 2A |
+| [`architecture-history/`](architecture-history/STATUS.md) | 11 | 🔜 | 2A |
+| [`electrical-grid/`](electrical-grid/STATUS.md) | 11 | 🔜 | 2A |
+| [`culinary-history/`](culinary-history/STATUS.md) | 11 | 🔜 | 2B |
+| [`food-plants/`](food-plants/STATUS.md) | 11 | 🔜 | 2B |
+| [`botany/`](botany/STATUS.md) | 11 | 🔜 | 2B |
+| [`fermentation-spirits/`](fermentation-spirits/STATUS.md) | 10 | ✅ | 2C |
+| [`games-history/`](games-history/STATUS.md) | 10 | 🔜 | 2C |
+| [`sports-history/`](sports-history/STATUS.md) | 10 | 🔜 | 2C |
+| [`cartography/`](cartography/STATUS.md) | 12 | 🔜 | 2D |
+| [`typography/`](typography/STATUS.md) | 12 | 🔜 | 2D |
+| [`watchmaking/`](watchmaking/STATUS.md) | 10 | 🔜 | 2D |
 
-**Complete: 361 files | To write: 189 files across 21 directories**
+**Complete: 550 files | To write: 131 files across 12 directories (batch 2)**
 
-**Agent groups (5 parallel agents):**
+**Batch 1 agent groups (complete):**
 
 | Group | Directories | Files |
 |-------|-------------|-------|
@@ -78,6 +90,15 @@ Each directory has a `STATUS.md` with its full file list.
 | C | `textiles/` `plumbing/` `coatings/` `climate-science/` | 41 |
 | D | `jewelry/` `ceramics/` `glassmaking/` `organizational-behavior/` | 40 |
 | E | `hvac/` `political-science/` `psychology/` `geography/` | 32 |
+
+**Batch 2 agent groups (4 parallel agents):**
+
+| Group | Directories | Files |
+|-------|-------------|-------|
+| 2A | `construction-materials/` `architecture-history/` `electrical-grid/` | 33 |
+| 2B | `culinary-history/` `food-plants/` `botany/` | 33 |
+| 2C | `fermentation-spirits/` `games-history/` `sports-history/` | 31 |
+| 2D | `cartography/` `typography/` `watchmaking/` | 34 |
 
 ---
 

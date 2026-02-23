@@ -1,17 +1,341 @@
-# 04 — Comparative Politics
+# Comparative Politics
 
-## Electoral Systems, Veto Players, Democratic Backsliding, Varieties of Capitalism
+## The Big Picture
 
-> **STUB** — outline only, content to be authored
+Comparative politics asks: why do political systems look different, and with what
+consequences? Electoral systems, regime types, state capacity, and institutional
+design all produce systematically different political and policy outcomes.
 
-**Planned coverage:**
-- Electoral systems: First Past the Post (FPTP — single member plurality, manufactured majorities, two-party tendency, Duverger's Law), Proportional Representation (PR — party lists/STV, coalition governments, more parties, higher representation), Mixed-Member Proportional (MMP — Germany), Ranked Choice/Preferential voting; consequences for party system and policy
-- Presidential vs parliamentary systems: presidential (fixed term, separation of powers, gridlock risk), parliamentary (executive from legislature, prime ministerial dominance, easy dissolution), semi-presidential (France — cohabitation possibility)
-- Veto players (Tsebelis): actors whose agreement is required for policy change; more veto players → policy stability/gridlock; institutional (branches) vs partisan (coalition partners); US vs Westminster comparison
-- State capacity: Weberian ideal-typical state (monopoly of force/rule of law/bureaucratic competence), state capacity measurement, welfare state varieties (Esping-Andersen three worlds), developmental state
-- Democratic backsliding: Levitsky & Ziblatt "How Democracies Die" — autocratization through elections (Hungary's Fidesz, Turkey's AKP, Venezuela), institutional guardrails erosion, mutual toleration + institutional forbearance norms, V-Dem backsliding index
-- Authoritarian durability: why authoritarian regimes persist (selectorate theory — Bueno de Mesquita, winning coalition size), personalist vs party vs military authoritarian regimes, co-optation vs coercion
-- Varieties of Capitalism (Hall/Soskice): Liberal Market Economies (LMEs — US/UK: fluid labor/capital markets, short-termism, radical innovation) vs Coordinated Market Economies (CMEs — Germany/Japan: patient capital, works councils, incremental innovation); institutional complementarities
-- Federalism: devolution of power, fiscal federalism (Oates decentralization theorem), intergovernmental relations, competitive federalism vs race to the bottom, EU as quasi-federal system
-- Political parties: catch-all parties, cartel parties, niche parties; party system fragmentation, dealignment, populism as thin ideology (Cas Mudde — people vs corrupt elite), right-wing vs left-wing populism
-- Comparative methodology: most-similar systems design (MSSD), most-different systems design (MDSD), case selection bias, King/Keohane/Verba "Designing Social Inquiry"
+```
++----------------------------------------------------------------------+
+|                    COMPARATIVE POLITICS FRAMEWORK                     |
+|                                                                      |
+|  INSTITUTIONAL DESIGN            OUTCOMES                            |
+|  ─────────────────────           ────────                            |
+|  Electoral system                Party system (# of parties)         |
+|  Executive structure             Policy output (stability/change)    |
+|  Federal/unitary               → Democratic quality                  |
+|  Veto players                    Economic performance                |
+|  State capacity                  Redistribution                     |
+|                                  Democratic durability               |
+|                                                                      |
+|  VARIETIES OF CAPITALISM         DEMOCRATIC TRAJECTORIES             |
+|  ─────────────────────           ─────────────────────               |
+|  LME: US, UK                     Consolidation (most OECD)           |
+|  CME: Germany, Japan             Backsliding (Hungary, Turkey)       |
+|  Mixed/Mediterranean             Breakdown (Venezuela)               |
+|  Hierarchical (LatAm)            Emergence (new democracies)         |
++----------------------------------------------------------------------+
+```
+
+---
+
+## Section 1: Electoral Systems
+
+Electoral systems translate votes into seats — and the choice of system shapes
+the entire party system and policy outcomes.
+
+### First Past The Post (FPTP)
+
+```
+  MECHANISM: Single-member districts; candidate with most votes wins
+             (plurality, not majority required)
+
+  DUVERGER'S LAW: FPTP tends to produce two-party systems
+  Why: Wasted votes → strategic voting → third parties marginalized
+       Parties have incentive to merge to be viable
+
+  EFFECTS:
+  ┌────────────────────────────────────────────────────────────────┐
+  │ + Manufactured majorities: minority of votes → majority of seats│
+  │   → Single-party government → decisive policy action          │
+  │ + Clear accountability: voters know who governs               │
+  │ + Geographic representation: each district has own MP         │
+  │                                                                │
+  │ - Unrepresentative: 40% of votes → 60% of seats              │
+  │ - Wasted votes: large parties win big margins; small parties  │
+  │   get nothing                                                  │
+  │ - Tactical voting: vote for lesser evil, not preference       │
+  │ - Two-party lock: third parties face structural disadvantage  │
+  └────────────────────────────────────────────────────────────────┘
+
+  EXAMPLES: US House, UK Commons, Canada, India
+```
+
+### Proportional Representation (PR)
+
+```
+  MECHANISM: Party list systems; seats proportional to vote share
+
+  VARIANTS:
+  ┌────────────────────┬──────────────────────────────────────────────┐
+  │ Closed list PR     │ Party controls ranking; voters choose party  │
+  │                    │ Israel, Spain, Netherlands                    │
+  ├────────────────────┼──────────────────────────────────────────────┤
+  │ Open list PR       │ Voters influence individual candidate rank   │
+  │                    │ Finland, Sweden, Brazil                      │
+  ├────────────────────┼──────────────────────────────────────────────┤
+  │ STV (Single        │ Ranked choice in multi-member districts      │
+  │ Transferable Vote) │ Ireland, Australian Senate                   │
+  └────────────────────┴──────────────────────────────────────────────┘
+
+  EFFECTS:
+  ┌────────────────────────────────────────────────────────────────┐
+  │ + More representative: vote share ≈ seat share                 │
+  │ + More parties: ideological diversity represented             │
+  │ + Higher voter participation (every vote counts)              │
+  │                                                                │
+  │ - Coalition governments: slower policy-making, compromise     │
+  │ - Harder accountability: multiple parties share blame/credit  │
+  │ - Small parties can have outsized leverage in coalition        │
+  │ - Threshold requirement needed to prevent fragmentation        │
+  └────────────────────────────────────────────────────────────────┘
+
+  THRESHOLD: Germany 5%; Netherlands 1/150; Israel 3.25%
+```
+
+### Mixed-Member Proportional (MMP)
+
+```
+  Germany's system — often considered the gold standard:
+  Each voter has TWO votes:
+  Vote 1: Candidate in local district (FPTP)
+  Vote 2: Party list (proportional)
+
+  Overhang seats + leveling seats → final result is proportional to party vote
+  Preserves local representation + overall proportionality
+
+  Also: New Zealand (since 1996), Scotland, Wales
+```
+
+---
+
+## Section 2: Presidential vs. Parliamentary Systems
+
+```
+  PRESIDENTIALISM:                PARLIAMENTARISM:
+  ──────────────                  ───────────────
+  Fixed electoral term            Executive from legislature
+  Separate elections for          Prime minister + cabinet can be
+  legislature + executive         removed by parliament (no confidence)
+  Veto + separation of powers     Dissolution of parliament possible
+  Gridlock risk (divided govt)    Strong single-party or coalition govt
+  High personalization            Lower personalization (party focus)
+  US, Brazil, Mexico, Indonesia   UK, Germany, Japan, Australia
+
+  LINZ THESIS (1990s): Presidentialism is less stable than parliamentarism
+  Why: dual legitimacy (president + legislature both elected); no mechanism
+  for resolving deadlock except coup or presidential decree
+  Evidence: Latin American presidential democracies failed at higher rates
+
+  Counter-argument: US presidentialism has been stable; other factors matter
+  (political culture, economic development, federalism)
+
+  SEMI-PRESIDENTIALISM (France):
+  Directly elected president + prime minister accountable to parliament
+  COHABITATION: president and PM from different parties (1986-88, 1993-95, 1997-2002)
+  → Power-sharing between rivals; foreign vs domestic policy division
+```
+
+---
+
+## Section 3: Veto Players
+
+Tsebelis's framework: the most powerful analytical tool in comparative politics.
+
+```
+  TSEBELIS: Veto Players (2002)
+
+  VETO PLAYER: Any actor whose agreement is required for policy change
+  (status quo can only change if all veto players agree)
+
+  TWO TYPES:
+  Institutional veto players: defined by constitution
+  - US: President + House + Senate (+ filibuster effectively)
+  - Germany: Bundestag + Bundesrat (on many issues)
+  - EU: Commission + Council + Parliament
+
+  Partisan veto players: defined by coalition politics
+  - German grand coalition: CDU/CSU + SPD → two partisan VPs
+  - Israeli coalition: multiple parties = multiple VPs per partner
+
+  PREDICTIONS:
+  More veto players → less policy change → more policy stability (gridlock)
+  Fewer veto players → more policy change → less stability (potentially)
+
+  VETO PLAYER INDEX:
+  Low (Westminster UK): 1-2 veto players → rapid policy change
+  High (US, EU): 3+ effective veto players → gridlock common
+
+  APPLICATION:
+  Why does US have no VAT, national health insurance, gun regulations?
+  → Not because of public opinion
+  → Because of veto player architecture (Senate, filibuster, committee chairs)
+  US has systematically more veto players than any other democracy
+```
+
+---
+
+## Section 4: Democratic Backsliding
+
+The phenomenon that has dominated comparative politics since ~2010:
+
+```
+  LEVITSKY & ZIBLATT: How Democracies Die (2018)
+
+  INSIGHT: Modern democracies die through elections, not coups
+  The new authoritarianism uses democratic procedures to dismantle democracy
+
+  FOUR KEY BEHAVIORS OF AUTHORITARIANS-IN-DEMOCRACY:
+  1. Rejection of democratic rules of the game
+  2. Denial of legitimacy of political opponents
+  3. Toleration/encouragement of violence
+  4. Readiness to curtail civil liberties of opponents
+
+  TWO INSTITUTIONAL GUARDRAILS:
+  MUTUAL TOLERATION: Accept opponent as legitimate (not existential enemy)
+  INSTITUTIONAL FORBEARANCE: Don't use every legal power available
+    (e.g., Senate could fill 9 Supreme Court seats per term — they don't)
+
+  CASE STUDIES:
+  ┌───────────────┬────────────────────────────────────────────────────┐
+  │ Hungary       │ Fidesz 2010+: electoral reforms, media capture,   │
+  │               │ judiciary packing, constitutional changes          │
+  │               │ Still has elections — competitive authoritarianism │
+  ├───────────────┼────────────────────────────────────────────────────┤
+  │ Turkey        │ AKP/Erdogan: July 2016 coup attempt → purges →    │
+  │               │ presidential referendum 2017 → quasi-presidential  │
+  │               │ system with weakened institutional checks         │
+  ├───────────────┼────────────────────────────────────────────────────┤
+  │ Venezuela     │ Chavez → Maduro: economic crisis + institutional   │
+  │               │ capture → authoritarian consolidation             │
+  │               │ Electoral fraud from 2018 onward                  │
+  └───────────────┴────────────────────────────────────────────────────┘
+
+  V-DEM BACKSLIDING INDEX:
+  25+ countries showing autocratization trends (2019-2025)
+  Brazil under Bolsonaro: temporary; reversed 2022
+  India: V-Dem electoral democracy index declining
+  US 2017-2021: declined but recovered
+```
+
+---
+
+## Section 5: Varieties of Capitalism
+
+Hall and Soskice's framework — institutional complementarities in political economy:
+
+```
+  HALL & SOSKICE: Varieties of Capitalism (2001)
+
+  LIBERAL MARKET ECONOMIES (LME):
+  US, UK, Canada, Australia, Ireland
+
+  Coordination mechanism: MARKET (arm's-length competitive markets)
+  ┌────────────────────────────────────────────────────────────────┐
+  │ Labor market: fluid (hire/fire easy, spot market wages)        │
+  │ Finance: equity markets (short-term return focus)              │
+  │ Skills: general (portable, company-funded training risky)      │
+  │ Corporate governance: shareholder primacy                      │
+  │ Innovation: radical (disruptive, Schumpeterian)               │
+  │ Comparative advantage: high-tech, finance, bio                │
+  └────────────────────────────────────────────────────────────────┘
+
+  COORDINATED MARKET ECONOMIES (CME):
+  Germany, Japan, Scandinavia, Netherlands, Austria
+
+  Coordination mechanism: NON-MARKET (collaborative institutions)
+  ┌────────────────────────────────────────────────────────────────┐
+  │ Labor market: patient (unions, works councils, long tenure)    │
+  │ Finance: banks (patient capital, relationship lending)         │
+  │ Skills: specific (company-specific, apprenticeship programs)   │
+  │ Corporate governance: stakeholder orientation                  │
+  │ Innovation: incremental (quality, reliability, process)       │
+  │ Comparative advantage: machine tools, autos, chemicals        │
+  └────────────────────────────────────────────────────────────────┘
+
+  INSTITUTIONAL COMPLEMENTARITIES:
+  Each element reinforces others in the same variety
+  LME: fluid labor + equity markets + general skills all fit together
+  CME: patient capital + works councils + specific skills all fit together
+  → Mixing creates friction; cross-variety transplants often fail
+
+  CRITIQUE: World becoming more similar (convergence thesis)?
+  Evidence: Some convergence in finance; but core VoC differences persist
+  German co-determination still structurally different from US shareholder primacy
+```
+
+---
+
+## Section 6: Authoritarian Durability
+
+Why do some authoritarian regimes last for decades?
+
+```
+  SELECTORATE THEORY (Bueno de Mesquita et al.):
+
+  ALL LEADERS need a WINNING COALITION (W) to stay in power
+  All leaders have access to a SELECTORATE (S) = those who could be in W
+
+  Small W (autocracy): ruler distributes private goods to small group
+  → Coalition members get high per-capita benefits → loyal
+  → Selectorates outside W know: if they lose position, get nothing
+  → Strong loyalty incentive in small-W systems
+
+  Large W (democracy): ruler must distribute public goods to large coalition
+  → Can't afford private goods for everyone → rely on policy performance
+  → Members easily replaced → each member's loyalty less valuable
+  → Accountability mechanism emerges from W size
+
+  TYPES OF AUTHORITARIAN REGIMES:
+  ┌────────────────────────┬─────────────────────────────────────────┐
+  │ Personalist            │ Single leader dominates; Stalin, Saddam │
+  │                        │ Weakest institutionally; most brutal    │
+  │                        │ Succession = most dangerous moment     │
+  ├────────────────────────┼─────────────────────────────────────────┤
+  │ Party-based            │ Party apparatus rules; CCP, CPVN       │
+  │                        │ More institutionalized; succession rules│
+  │                        │ Most durable; adapt over time          │
+  ├────────────────────────┼─────────────────────────────────────────┤
+  │ Military               │ Junta; usually shorter-lived; domestic  │
+  │                        │ legitimacy problems; exit harder        │
+  │                        │ Myanmar, Egypt, Thailand                │
+  └────────────────────────┴─────────────────────────────────────────┘
+```
+
+---
+
+## Decision Cheat Sheet
+
+| Question | Answer |
+|---|---|
+| Why does US have two parties? | Duverger's Law; FPTP structure discourages third parties |
+| Why does German policy change slowly? | Multiple veto players (Bundestag + Bundesrat + coalition partners) |
+| Why does Hungary look democratic but isn't? | Competitive authoritarianism: uses elections to legitimate capture |
+| Why doesn't Germany have Silicon Valley? | CME structure: patient capital + incremental innovation; LME needed for radical innovation |
+| How do autocracies stay in power? | Small winning coalition + private goods distribution (selectorate theory) |
+| What predicts democratic backsliding? | Rejection of democratic norms by leaders + erosion of institutional guardrails |
+| Presidential vs parliamentary which is more stable? | Parliamentary (Linz thesis) but evidence mixed; context matters |
+
+---
+
+## Common Confusion Points
+
+**Veto players ≠ political opposition**: veto players are defined institutionally or by
+coalition necessity. In a Westminster system, the opposition has no veto power —
+a majority government can pass anything. In the US, a single senator can filibuster.
+
+**Competitive authoritarianism is not just a "flawed democracy"**: regimes like Hungary
+under Fidesz still hold elections, but the playing field is systematically tilted —
+media capture, gerrymandering, NGO restrictions, judiciary packing. Elections occur
+but cannot produce meaningful accountability. This is categorically different from
+a democracy with weaknesses.
+
+**LME ≠ better: CME ≠ better**: each variety performs better at different things.
+LMEs produce more disruptive innovation; CMEs produce higher manufacturing quality
+and lower inequality. The VoC framework is analytical, not normative.
+
+**Comparative advantage in politics**: the comparison of systems must control for
+many variables. Germany's low inequality isn't just because of its electoral system —
+it's because of the full institutional complementarities of the CME (unions, works
+councils, training system). Transplanting one element doesn't replicate the outcome.

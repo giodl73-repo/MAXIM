@@ -1,23 +1,301 @@
-# 01 — Precious Metals
+# Precious Metals — Gold, Silver, Platinum, Alloys
 
-## Gold, Silver, Platinum — Alloys, Karat, Fineness
+## The Big Picture
 
-> **STUB** — outline only, content to be authored
+Four metals dominate jewelry: gold, silver, platinum, and palladium. Each has a distinct position on the periodic table, distinct physical characteristics, and distinct trade applications. The art is alloying them to balance softness, color, and cost.
 
-**Planned coverage:**
-- **Gold**: chemical symbol Au (aurum); atomic number 79; density 19.3 g/cm³; melting point 1,064°C; face-centered cubic crystal; purest yellow metal; does not oxidize at room temperature; extremely malleable (1 troy ounce = 300 sq ft gold leaf); alloyed for hardness in jewelry
-  - Karat system: 24K = 999 fineness (pure gold, too soft for most jewelry); 18K = 750 (75% Au + 25% alloy — standard for fine jewelry in Europe/Asia); 14K = 585 (US standard, more durable, lower cost); 10K = 417 (US minimum legal gold); 9K = 375 (UK/Australia standard); below 10K cannot legally be called gold in the US
-  - Gold alloys and colors: yellow gold (Au + Ag + Cu — traditional); white gold (Au + Pd or Au + Ni — nickel-white being phased out due to nickel allergy; rhodium plated for brightness and hardness — rhodium wears off, requires replating every 1-3 years); rose gold / pink gold (Au + higher Cu content — 18K rose = 75% Au + 22.5% Cu + 2.5% Ag); green gold / electrum (Au + Ag, higher Ag proportion); black gold (Au + Cr alloy or PVD coating)
-  - Fineness marking: European system uses millesimal fineness (750, 585, 375) rather than karat fractions; UK uses both; hallmark stamps verify content (see 06-HALLMARKS)
-- **Silver**: Ag (argentum); atomic number 47; density 10.5 g/cm³; melting point 962°C; highest electrical and thermal conductivity of any metal; tarnishes readily (Ag₂S from H₂S in atmosphere — eggs, rubber, air pollution); softer than gold for same purity
-  - Sterling silver: 925 fineness (92.5% Ag + 7.5% Cu standard alloy); the "sterling" standard dates to English trade guilds (~1300); 925 = the mark; Britannia silver = 958 fineness (higher purity — introduced 1697 to prevent melting of coins); Mexican silver (old marks) at 925 or 980
-  - Argentium silver: 935 or 960 fineness with Ge addition; reduces tarnish significantly; harder than sterling; fire-scale resistant (fire scale = purple-gray subsurface oxidation during soldering)
-  - Coin silver: 900 fineness — US coins pre-1965; some antique American silverware made from melted coins
-  - Fine silver: 999 — used for fine silver clay (PMC), electroforming, some art pieces; too soft for most wearable jewelry
-- **Platinum**: Pt; atomic number 78; density 21.45 g/cm³ (heaviest common metal); melting point 1,768°C (requires specialized equipment — platinum working is a distinct skill from gold); resists corrosion, acids, tarnish; hypoallergenic; heavier and harder-wearing than white gold
-  - Platinum alloys: Pt950 (95% Pt + 5% Ru or Co); Pt900 (90% Pt); Pt850; purity marked in parts-per-thousand; platinum jewelry denser/heavier feel than gold for same design
-  - Palladium: Pd; lighter platinum group metal (density 12.0 g/cm³); used as platinum substitute since WWII (when Pt was strategic material); white, non-tarnishing; used in white gold alloys (Pd-white gold) and as Pd950 jewelry in its own right; less expensive than platinum
-  - Platinum price vs gold: platinum was historically more expensive than gold; since 2015 gold has been more expensive — shift driven by auto industry (catalytic converters use Pt/Pd/Rh) and gold investment demand
-- **Rhodium**: most valuable of platinum group metals per gram; used exclusively as plating (rhodium electroplating) — too brittle for solid use; plated onto white gold and silver to enhance brightness, whiteness, and scratch resistance; 0.1-1.0 micron typical plating thickness; price volatility extreme (peaked $29,800/troy oz in March 2021 due to auto catalyst demand)
-- **Gold-filled and gold-plated**: gold-filled = mechanical bonding of thick gold layer (minimum 1/20 = 5% by weight) to base metal; distinct from electroplated (flash gold — 0.5-2.5 microns); gold-filled durable enough for prolonged wear and will not flake; vermeil = gold plating over sterling silver (minimum 10K gold, minimum 2.5 micron thickness per US FTC rule)
-- **Metal working characteristics**: anneal cycle (metal work-hardens when cold-worked → periodic annealing by heating to critical temperature restores malleability; gold anneals at ~650°C, silver ~650°C, copper ~650°C); pickle solution (acid bath to remove fire scale and flux residue — traditionally sulfuric acid, now safer citric acid or sodium bisulfate pickles like Sparex); work hardening deliberately used for spring elements
+```
+PRECIOUS METALS MAP
+===================
+
+Period  Group 8   Group 9   Group 10  Group 11
+        Fe        Co        Ni        Cu
+        Iron      Cobalt    Nickel    Copper     <-- alloy additions
+         |         |         |         |
+        Ru        Rh        Pd        Ag
+        Ruthenium RHODIUM   PALLADIUM SILVER     <-- PGM group / Ag
+         |         |         |         |
+        Os        Ir        Pt        Au
+        Osmium    Iridium   PLATINUM  GOLD       <-- heavy PGMs / Au
+
+All six PGMs (Ru, Rh, Pd, Os, Ir, Pt): rare, corrosion-resistant,
+high-melting. Only Pt and Pd used structurally in jewelry.
+Rhodium used for plating only (too brittle for forming).
+
+GOLD: Group 11, Period 6 — Au, Z=79, density 19.3 g/cm³
+SILVER: Group 11, Period 5 — Ag, Z=47, density 10.5 g/cm³
+PLATINUM: Group 10, Period 6 — Pt, Z=78, density 21.45 g/cm³
+PALLADIUM: Group 10, Period 5 — Pd, Z=46, density 12.0 g/cm³
+```
+
+---
+
+## Gold (Au)
+
+### Physical Properties
+
+| Property | Value | Significance |
+|----------|-------|--------------|
+| Atomic number | 79 | Period 6 transition metal |
+| Density | 19.3 g/cm³ | 2nd densest common metal (after Pt) |
+| Melting point | 1,064°C | Accessible with jeweler's torch |
+| Crystal structure | FCC (face-centered cubic) | High ductility — can be rolled to 100nm foil |
+| Mohs hardness | ~2.5 (pure) | Too soft for jewelry unalloyed |
+| Reduction potential | +1.69 V | Noble — doesn't tarnish or oxidize |
+| Color | Yellow | d→d electronic transitions in 5d band + relativistic effects |
+
+Gold's yellow color is unique among metals. Relativistic effects on its 5d electrons shift optical absorption into the blue, reflecting yellow/red. Silver and platinum appear gray-white by the same analysis (no relativistic shift at that d-band spacing).
+
+### The Karat System
+
+```
+KARAT   FINENESS   COMPOSITION              NOTES
+=====   ========   ===========              =====
+24k      999       99.9% Au                 Pure. Too soft. Coins, investment.
+22k      916       91.6% Au                 Indian bridal jewelry. Soft.
+18k      750       75% Au + 25% alloy       EU/Asia fine jewelry standard.
+14k      585       58.5% Au + 41.5% alloy   US standard. More durable, lower cost.
+10k      417       41.7% Au + 58.3% alloy   US legal minimum for "gold" stamp.
+ 9k      375       37.5% Au + 62.5% alloy   UK/Australia entry-level.
+
+Below 10k: cannot legally be stamped "gold" in the United States.
+European system uses millesimal fineness (750, 585, 375) not karat numbers.
+```
+
+### Gold Alloy Colors
+
+```
+YELLOW GOLD (classic)
+  18k: ~75% Au + ~12.5% Ag + ~12.5% Cu
+  Color from balance of silver (green-yellow) and copper (red) dilution.
+
+WHITE GOLD (two systems)
+  Ni-white: Au + Ni + Cu + Zn — traditional; EU restricting Ni (allergy)
+  Pd-white: Au + Pd (+ Ag) — hypoallergenic; most common now
+  Note: white gold is naturally slightly yellow-gray; rhodium plating
+  over the surface provides the crisp white. Rhodium wears off in 1-3 years.
+
+ROSE GOLD / PINK GOLD
+  18k rose: ~75% Au + ~22.5% Cu + ~2.5% Ag
+  Higher copper content → warm pink-red hue
+  14k rose: ~58.5% Au + ~33-35% Cu + remainder Ag/Zn
+
+GREEN GOLD (electrum)
+  Higher Ag proportion — used in antiquity; niche modern use.
+  18k green: ~75% Au + ~25% Ag (no copper)
+
+BLACK GOLD
+  Au + Cr alloy (~25-30% Cr) → black surface oxide
+  Or PVD (physical vapor deposition) coating — not a true alloy
+```
+
+### Working Properties and Annealing
+
+```
+WORK HARDENING CYCLE
+=====================
+Metal is cold-worked (rolled, bent, stretched)
+         ↓
+Dislocation density in crystal lattice increases
+         ↓
+Metal becomes hard and brittle (spring-back increases)
+         ↓
+ANNEAL: heat to ~650°C (below melting), quench or air cool
+         ↓
+Dislocations annihilate and reform at grain boundaries
+         ↓
+Metal soft and ductile again — repeat cycle
+```
+
+Gold annealing: ~600–700°C, color dull red heat. Silver annealing similar. Platinum requires much higher temperatures (see below) and won't anneal with a standard jeweler's torch.
+
+---
+
+## Silver (Ag)
+
+### Physical Properties
+
+| Property | Value | Significance |
+|----------|-------|--------------|
+| Atomic number | 47 | Period 5 transition metal |
+| Density | 10.5 g/cm³ | Half gold's density — lighter feel |
+| Melting point | 962°C | Lower than gold; easy to cast |
+| Mohs hardness | ~2.5 (pure) | Same softness problem as gold |
+| Electrical conductivity | Highest of any metal | Industrial uses (contacts, solar cells) |
+| Thermal conductivity | Highest of any metal | Conducts heat rapidly (why silver feels cold) |
+| Tarnish | Forms Ag₂S (black) | From atmospheric H₂S (eggs, rubber, air) |
+
+### Silver Alloys
+
+```
+FINENESS    NAME            COMPOSITION         NOTES
+========    ====            ===========         =====
+999         Fine silver     99.9% Ag            PMC (metal clay), electroforming
+958         Britannia       95.8% Ag + 4.2% Cu  UK 1697; less alloy than sterling
+935/960     Argentium       ~93.5% Ag + Ge       Germanium addition: tarnish-resistant,
+                                                 firescale-resistant
+925         Sterling silver 92.5% Ag + 7.5% Cu  The global standard. "925" stamp.
+900         Coin silver     90% Ag + 10% Cu     Pre-1965 US coins; antique American
+800         European        80% Ag + 20% Cu     Common in antique continental pieces
+
+"Sterling" dates to English guilds ~1300. The pound sterling = pound of sterling silver.
+```
+
+### The Tarnish Problem
+
+```
+2Ag + H₂S (atmospheric) → Ag₂S (black tarnish) + H₂
+                                  ↑
+                           silver sulfide
+                           black, cubic crystal structure
+
+Sources of H₂S: eggs, rubber bands, sulfur-containing papers,
+petroleum products, urban air pollution.
+
+Solutions:
+1. Rhodium plating (0.1–0.5 µm) — eliminates tarnish, adds brightness
+2. Argentium alloy (Ge stabilizes surface oxide, excludes H₂S)
+3. Anti-tarnish strips (activated charcoal) in storage
+4. Polishing cloths impregnated with anti-tarnish agents
+```
+
+### Firescale (Fire Scale)
+
+Copper in sterling alloys oxidizes during heating, creating a purple-gray subsurface stain (Cu₂O / CuO).
+```
+Prevention: flux prevents oxygen access during torch work
+            Argentium silver: Ge forms protective GeO₂ layer instead
+Removal: pickle (acid) removes surface oxides but not subsurface Cu₂O;
+         requires polishing or plating to conceal firescale
+```
+
+---
+
+## Platinum (Pt)
+
+### Physical Properties
+
+| Property | Value | Significance |
+|----------|-------|--------------|
+| Atomic number | 78 | Period 6, adjacent to gold |
+| Density | 21.45 g/cm³ | Heaviest common jewelry metal |
+| Melting point | 1,768°C | Requires O₂/H₂ or oxy-acetylene torch |
+| Mohs hardness | ~4–4.5 (pure) | Harder than gold/silver; work-hardens well |
+| Corrosion | Essentially none | Never tarnishes; maintains surface |
+| Hypoallergenic | Yes | No known allergenic properties |
+| Color | Gray-white | No plating needed (unlike white gold) |
+
+### Platinum Alloys
+
+```
+FINENESS    ALLOY           NOTES
+========    =====           =====
+Pt999       Pure            Rare; investment; overly soft
+Pt950       + Ru (4-5%)     Most common; excellent work-hardening;
+            or + Co (5%)     Co-alloy historically common; Ru now dominant
+Pt900       + Ir (10%)      Harder; some vintage jewelry
+Pt850       + Co/Cu         Less common; lower end
+
+Ruthenium alloy (Pt950Ru): whitest, hardest, best casting properties.
+Cobalt alloy (Pt950Co): slightly magnetic (Co content — detectable with magnet).
+```
+
+### Platinum Working: Critical Differences from Gold
+
+```
+Temperature: 1,400–1,700°C range for soldering
+             vs gold at 600–900°C range
+             Must use oxy-acetylene or oxy-hydrogen torch
+
+Carbon contamination: platinum absorbs carbon from torch flame
+                     → gray/black discoloration, embrittlement
+                     Keep flame oxidizing (oxygen-rich) not reducing
+
+Dedicated tools: platinum should be worked on clean,
+                separate charcoal blocks; different pickles;
+                no cross-contamination with gold alloys
+
+Density consequence: a 6mm round brilliant in platinum
+                     weighs noticeably more than the same
+                     design in 18k gold
+```
+
+### Platinum vs White Gold: Practical Decision
+
+| Factor | Platinum | White Gold |
+|--------|----------|------------|
+| Purity | 95%+ Pt | 58.5–75% Au |
+| Color maintenance | Permanent | Requires Rh replating every 1–3 yr |
+| Density | 21.45 g/cm³ | ~14–17 g/cm³ |
+| Daily wear | Develops patina (scratches compress rather than remove metal) | Scratches remove material |
+| Hypoallergenic | Yes (all alloys) | Depends (Ni-white = allergenic) |
+| Cost | Higher for metal weight | Lower base cost |
+| Repair difficulty | Harder, needs higher temp | Standard goldsmith bench |
+
+---
+
+## Palladium (Pd)
+
+Palladium sits directly above platinum in the periodic table — lighter, cheaper, similar corrosion resistance.
+
+| Property | Value | Notes |
+|----------|-------|-------|
+| Density | 12.0 g/cm³ | Half platinum's weight |
+| Melting point | 1,555°C | Slightly lower than Pt |
+| Color | White | Similar to platinum |
+| Price (2024) | ~$1,000–1,200/troy oz | ~3–4× less than Pt |
+
+Used as Pd500, Pd950 hallmarked jewelry; also primary alloy addition in palladium-white gold (Pd-white gold).
+
+---
+
+## Rhodium (Rh)
+
+Rhodium is not used structurally — too brittle for fabrication. Used exclusively as electroplating.
+
+```
+Rhodium plating: 0.1–1.0 µm typical
+Purpose: bright white surface; scratch resistance; tarnish barrier
+Applied to: white gold, silver, occasionally yellow gold (special effects)
+Wear rate: 1–3 years on rings; 5+ years on earrings (less contact)
+
+Price extreme: peaked $29,800/troy oz (March 2021) — auto catalyst demand
+              back to ~$4,000-6,000/troy oz (2024)
+
+Replating cost: $30–100 per ring depending on complexity
+```
+
+---
+
+## Common Confusion Points
+
+**Why white gold needs replating but platinum doesn't**:
+White gold is naturally pale yellow-gray; the white appearance comes from rhodium plating. When the 0.1–0.5 µm plate wears through, the underlying alloy shows. Platinum is intrinsically white and never needs plating.
+
+**Platinum feels heavier — is that real?**
+Yes. For the same ring design, platinum weighs about 40% more than 18k gold and ~60% more than 14k gold (density ratio: Pt 21.45 vs Au 19.3 vs 18k alloy ~15–16).
+
+**"Plum gold" = 14k**:
+The US FTC allows ±0.5 karat tolerance, but European "plum" stamps (typically a plum image) indicate 14k (585) for imported goods. Not a deceptive stamp — it's an assay office import mark.
+
+**Coin silver isn't sterling**:
+Pre-1965 US dimes and quarters = 90% silver (900 fineness), not 925. Antique American silverware made from melted coins may be 900, not sterling.
+
+**Argentium isn't "silver with germanium added"**:
+The germanium doesn't just reduce tarnish — it forms a transparent GeO₂ surface layer that is self-healing. It also prevents firescale (Cu₂O formation), a persistent problem with regular sterling.
+
+---
+
+## Decision Cheat Sheet
+
+| Goal | Metal Choice |
+|------|-------------|
+| Classic yellow engagement ring | 18k yellow gold |
+| White metal, no re-plating | Platinum 950 (if budget) |
+| White metal, budget-conscious | 14k Pd-white gold + Rh plate |
+| Most durable silver | Argentium 935 |
+| Standard silversmithing | Sterling 925 |
+| Hypoallergenic white | Platinum or Pd-white gold (not Ni-white) |
+| Heaviest, most luxurious feel | Platinum |
+| Best tarnish resistance (silver) | Rhodium plate or Argentium |
+| Rose/pink color | 18k or 14k rose gold (high Cu) |
