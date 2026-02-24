@@ -67,19 +67,36 @@ Each directory has a `STATUS.md` with its full file list.
 | [`psychology/`](psychology/STATUS.md) | 7 | ✅ | E |
 | [`geography/`](geography/STATUS.md) | 8 | ✅ | E |
 | [`construction-materials/`](construction-materials/STATUS.md) | 10 | ✅ | 2A |
-| [`architecture-history/`](architecture-history/STATUS.md) | 11 | 🔜 | 2A |
-| [`electrical-grid/`](electrical-grid/STATUS.md) | 11 | 🔜 | 2A |
-| [`culinary-history/`](culinary-history/STATUS.md) | 11 | 🔜 | 2B |
-| [`food-plants/`](food-plants/STATUS.md) | 11 | 🔜 | 2B |
-| [`botany/`](botany/STATUS.md) | 11 | 🔜 | 2B |
+| [`architecture-history/`](architecture-history/STATUS.md) | 10 | ✅ | 2A |
+| [`electrical-grid/`](electrical-grid/STATUS.md) | 11 | ✅ | 2A |
+| [`culinary-history/`](culinary-history/STATUS.md) | 10 | ✅ | 2B |
+| [`food-plants/`](food-plants/STATUS.md) | 10 | ✅ | 2B |
+| [`botany/`](botany/STATUS.md) | 10 | ✅ | 2B |
 | [`fermentation-spirits/`](fermentation-spirits/STATUS.md) | 10 | ✅ | 2C |
-| [`games-history/`](games-history/STATUS.md) | 10 | 🔜 | 2C |
-| [`sports-history/`](sports-history/STATUS.md) | 10 | 🔜 | 2C |
-| [`cartography/`](cartography/STATUS.md) | 12 | 🔜 | 2D |
-| [`typography/`](typography/STATUS.md) | 12 | 🔜 | 2D |
-| [`watchmaking/`](watchmaking/STATUS.md) | 10 | 🔜 | 2D |
+| [`games-history/`](games-history/STATUS.md) | 10 | ✅ | 2C |
+| [`sports-history/`](sports-history/STATUS.md) | 10 | ✅ | 2C |
+| [`cartography/`](cartography/STATUS.md) | 12 | ✅ | 2D |
+| [`typography/`](typography/STATUS.md) | 12 | ✅ | 2D |
+| [`watchmaking/`](watchmaking/STATUS.md) | 10 | ✅ | 2D |
 
-**Complete: 550 files | To write: 131 files across 12 directories (batch 2)**
+| [`signal-processing/`](signal-processing/STATUS.md) | 11 | ✅ | 3A |
+| [`acoustics/`](acoustics/STATUS.md) | 11 | ✅ | 3A |
+| [`telecommunications/`](telecommunications/STATUS.md) | 12 | ✅ | 3A |
+| [`semiconductor-manufacturing/`](semiconductor-manufacturing/STATUS.md) | 11 | ✅ | 3A |
+| [`geology/`](geology/STATUS.md) | 12 | ✅ | 3B |
+| [`meteorology/`](meteorology/STATUS.md) | 11 | ✅ | 3B |
+| [`ecology/`](ecology/STATUS.md) | 11 | ✅ | 3B |
+| [`agriculture/`](agriculture/STATUS.md) | 11 | ✅ | 3B |
+| [`art-history/`](art-history/STATUS.md) | 12 | ✅ | 3C |
+| [`economic-history/`](economic-history/STATUS.md) | 10 | ✅ | 3C |
+| [`military-history/`](military-history/STATUS.md) | 11 | ✅ | 3C |
+| [`history-of-science/`](history-of-science/STATUS.md) | 10 | ✅ | 3C |
+| [`metalworking/`](metalworking/STATUS.md) | 10 | ✅ | 3D |
+| [`photography/`](photography/STATUS.md) | 10 | ✅ | 3D |
+| [`nutrition/`](nutrition/STATUS.md) | 10 | ✅ | 3D |
+| [`sociology/`](sociology/STATUS.md) | 10 | ✅ | 3D |
+
+**Complete: 672 files | Groups 3A–3D complete | Remaining: ~170 files across ~15 directories**
 
 **Batch 1 agent groups (complete):**
 
@@ -91,7 +108,7 @@ Each directory has a `STATUS.md` with its full file list.
 | D | `jewelry/` `ceramics/` `glassmaking/` `organizational-behavior/` | 40 |
 | E | `hvac/` `political-science/` `psychology/` `geography/` | 32 |
 
-**Batch 2 agent groups (4 parallel agents):**
+**Batch 2 agent groups (complete):**
 
 | Group | Directories | Files |
 |-------|-------------|-------|
@@ -99,6 +116,15 @@ Each directory has a `STATUS.md` with its full file list.
 | 2B | `culinary-history/` `food-plants/` `botany/` | 33 |
 | 2C | `fermentation-spirits/` `games-history/` `sports-history/` | 31 |
 | 2D | `cartography/` `typography/` `watchmaking/` | 34 |
+
+**Batch 3 agent groups (4 parallel agents):**
+
+| Group | Directories | Files |
+|-------|-------------|-------|
+| 3A | `signal-processing/` `acoustics/` `telecommunications/` `semiconductor-manufacturing/` | 45 |
+| 3B | `geology/` `meteorology/` `ecology/` `agriculture/` | 45 |
+| 3C | `art-history/` `economic-history/` `military-history/` `history-of-science/` | 47 |
+| 3D | `metalworking/` `photography/` `nutrition/` `sociology/` | 44 |
 
 ---
 
