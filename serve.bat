@@ -1,3 +1,3 @@
 @echo off
 set PYTHONIOENCODING=utf-8
-mkdocs serve -f .mkdocs/mkdocs.yml
+python -m mkdocs serve -f .mkdocs/mkdocs.yml
