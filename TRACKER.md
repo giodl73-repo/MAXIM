@@ -121,20 +121,73 @@ Each directory has a `STATUS.md` with its full file list.
 | [`demography/`](demography/STATUS.md) | 10 | ✅ | 5D |
 | [`behavioral-economics/`](behavioral-economics/STATUS.md) | 11 | ✅ | 5D |
 
-| [`probability-statistics/`](probability-statistics/STATUS.md) | 10 | 🔜 | 6A |
-| [`differential-geometry/`](differential-geometry/STATUS.md) | 10 | 🔜 | 6A |
-| [`numerical-methods/`](numerical-methods/STATUS.md) | 10 | 🔜 | 6A |
-| [`genomics/`](genomics/STATUS.md) | 10 | 🔜 | 6B |
-| [`immunology/`](immunology/STATUS.md) | 10 | 🔜 | 6B |
-| [`microbiology/`](microbiology/STATUS.md) | 10 | 🔜 | 6B |
-| [`literature/`](literature/STATUS.md) | 10 | 🔜 | 6C |
-| [`theater-performance/`](theater-performance/STATUS.md) | 10 | 🔜 | 6C |
-| [`rhetoric/`](rhetoric/STATUS.md) | 10 | 🔜 | 6C |
-| [`mineralogy/`](mineralogy/STATUS.md) | 10 | 🔜 | 6D |
-| [`archaeology/`](archaeology/STATUS.md) | 10 | 🔜 | 6D |
-| [`mycology/`](mycology/STATUS.md) | 10 | 🔜 | 6D |
+| [`probability-statistics/`](probability-statistics/STATUS.md) | 10 | ✅ | 6A |
+| [`differential-geometry/`](differential-geometry/STATUS.md) | 10 | ✅ | 6A |
+| [`numerical-methods/`](numerical-methods/STATUS.md) | 10 | ✅ | 6A |
+| [`genomics/`](genomics/STATUS.md) | 10 | ✅ | 6B |
+| [`immunology/`](immunology/STATUS.md) | 10 | ✅ | 6B |
+| [`microbiology/`](microbiology/STATUS.md) | 10 | ✅ | 6B |
+| [`literature/`](literature/STATUS.md) | 10 | ✅ | 6C |
+| [`theater-performance/`](theater-performance/STATUS.md) | 10 | ✅ | 6C |
+| [`rhetoric/`](rhetoric/STATUS.md) | 10 | ✅ | 6C |
+| [`mineralogy/`](mineralogy/STATUS.md) | 10 | ✅ | 6D |
+| [`archaeology/`](archaeology/STATUS.md) | 10 | ✅ | 6D |
+| [`mycology/`](mycology/STATUS.md) | 10 | ✅ | 6D |
 
-**Complete: 1,168 files | Batch 6 stubs: +120 files | All batches 1–5 complete**
+| [`complex-analysis/`](complex-analysis/STATUS.md) | 10 | 🔜 | 7A |
+| [`fluid-dynamics/`](fluid-dynamics/STATUS.md) | 10 | 🔜 | 7A |
+| [`statistical-mechanics/`](statistical-mechanics/STATUS.md) | 10 | 🔜 | 7A |
+| [`partial-differential-equations/`](partial-differential-equations/STATUS.md) | 10 | 🔜 | 7B |
+| [`variational-calculus/`](variational-calculus/STATUS.md) | 10 | 🔜 | 7B |
+| [`lie-groups/`](lie-groups/STATUS.md) | 10 | 🔜 | 7B |
+| [`evolutionary-biology/`](evolutionary-biology/STATUS.md) | 10 | 🔜 | 7C |
+| [`virology/`](virology/STATUS.md) | 10 | 🔜 | 7C |
+| [`biophysics/`](biophysics/STATUS.md) | 10 | 🔜 | 7C |
+| [`dance/`](dance/STATUS.md) | 10 | 🔜 | 7D |
+| [`industrial-design/`](industrial-design/STATUS.md) | 10 | 🔜 | 7D |
+| [`marine-biology/`](marine-biology/STATUS.md) | 10 | 🔜 | 7D |
+
+| [`logic/`](logic/STATUS.md) | 10 | 🔜 | 8A |
+| [`intellectual-history/`](intellectual-history/STATUS.md) | 10 | 🔜 | 8A |
+| [`social-history/`](social-history/STATUS.md) | 10 | 🔜 | 8A |
+| [`manufacturing/`](manufacturing/STATUS.md) | 10 | 🔜 | 8B |
+| [`systems-engineering/`](systems-engineering/STATUS.md) | 10 | 🔜 | 8B |
+| [`materials-processing/`](materials-processing/STATUS.md) | 10 | 🔜 | 8B |
+| [`criminology/`](criminology/STATUS.md) | 10 | 🔜 | 8C |
+| [`media-studies/`](media-studies/STATUS.md) | 10 | 🔜 | 8C |
+| [`education/`](education/STATUS.md) | 10 | 🔜 | 8C |
+| [`philosophy-of-language/`](philosophy-of-language/STATUS.md) | 10 | 🔜 | 8D |
+| [`semiotics/`](semiotics/STATUS.md) | 10 | 🔜 | 8D |
+| [`computer-architecture/`](computer-architecture/STATUS.md) | 10 | 🔜 | 8D |
+
+| [`entomology/`](entomology/STATUS.md) | 10 | 🔜 | 9A |
+| [`ornithology/`](ornithology/STATUS.md) | 10 | 🔜 | 9A |
+| [`zoology/`](zoology/STATUS.md) | 10 | 🔜 | 9A |
+| [`planetary-science/`](planetary-science/STATUS.md) | 10 | 🔜 | 9B |
+| [`geochemistry/`](geochemistry/STATUS.md) | 10 | 🔜 | 9B |
+| [`space-exploration/`](space-exploration/STATUS.md) | 10 | 🔜 | 9B |
+| [`plastics-polymers/`](plastics-polymers/STATUS.md) | 10 | 🔜 | 9C |
+| [`papermaking/`](papermaking/STATUS.md) | 10 | 🔜 | 9C |
+| [`composite-materials/`](composite-materials/STATUS.md) | 10 | 🔜 | 9C |
+| [`graphic-design/`](graphic-design/STATUS.md) | 10 | 🔜 | 9D |
+| [`fashion/`](fashion/STATUS.md) | 10 | 🔜 | 9D |
+| [`comics-sequential-art/`](comics-sequential-art/STATUS.md) | 10 | 🔜 | 9D |
+
+| [`machine-learning-theory/`](machine-learning-theory/STATUS.md) | 10 | 🔜 | 10A |
+| [`pharmacology/`](pharmacology/STATUS.md) | 10 | 🔜 | 10A |
+| [`developmental-biology/`](developmental-biology/STATUS.md) | 10 | 🔜 | 10A |
+| [`political-history/`](political-history/STATUS.md) | 10 | 🔜 | 10B |
+| [`translation/`](translation/STATUS.md) | 10 | 🔜 | 10B |
+| [`international-relations/`](international-relations/STATUS.md) | 10 | 🔜 | 10B |
+| [`furniture/`](furniture/STATUS.md) | 10 | 🔜 | 10C |
+| [`horticulture/`](horticulture/STATUS.md) | 10 | 🔜 | 10C |
+| [`sports-science/`](sports-science/STATUS.md) | 10 | 🔜 | 10C |
+| [`astrobiology/`](astrobiology/STATUS.md) | 10 | 🔜 | 10D |
+| [`philosophy-of-mind/`](philosophy-of-mind/STATUS.md) | 10 | 🔜 | 10D |
+| [`ethics/`](ethics/STATUS.md) | 10 | 🔜 | 10D |
+
+**Complete: 1,288 files (Batches 1–6) | Batches 7–10 stubs: +480 files pending | All batches 1–6 complete**
+**Final target: 168 directories · ~1,680 content files · ~15,000 pages · ~38 bound volumes**
 
 **Batch 1 agent groups (complete):**
 
@@ -182,7 +235,7 @@ Each directory has a `STATUS.md` with its full file list.
 | 5C | `printing-publishing/` `cinema-film/` `radio-television/` | 31 |
 | 5D | `public-health/` `demography/` `behavioral-economics/` | 32 |
 
-**Batch 6 agent groups (stubs scaffolded — content pending):**
+**Batch 6 agent groups (complete):**
 
 | Group | Directories | Files | Section |
 |-------|-------------|-------|---------|
