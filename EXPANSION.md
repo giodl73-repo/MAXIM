@@ -188,3 +188,99 @@ Commit message format: `Add Batch {N}: {X} new reference directories, {Y} files`
 | 4 | 4A–4D | robotics, optics, biomedical-engineering, formal-methods, energy-systems, anthropology, religious-studies, architecture, game-theory, transportation, urban-planning, environmental-engineering | ~96 | 2026-02 |
 | 5 | 5A–5D | oceanography, hydrology, paleontology, number-theory, abstract-algebra, topology, printing-publishing, cinema-film, radio-television, public-health, demography, behavioral-economics | ~129 | 2026-02 |
 | 6 | 6A–6D | probability-statistics, differential-geometry, numerical-methods, genomics, immunology, microbiology, literature, theater-performance, rhetoric, mineralogy, archaeology, mycology | ~120 | 2026-02 |
+| 7 | 7A–7D | complex-analysis, fluid-dynamics, statistical-mechanics, partial-differential-equations, variational-calculus, lie-groups, evolutionary-biology, virology, biophysics, dance, industrial-design, marine-biology | ~120 | — |
+| 8 | 8A–8D | logic, intellectual-history, social-history, manufacturing, systems-engineering, materials-processing, criminology, media-studies, education, philosophy-of-language, semiotics, computer-architecture | ~120 | — |
+| 9 | 9A–9D | entomology, ornithology, zoology, planetary-science, geochemistry, space-exploration, plastics-polymers, papermaking, composite-materials, graphic-design, fashion, comics-sequential-art | ~120 | — |
+| 10 | 10A–10D | machine-learning-theory, pharmacology, developmental-biology, political-history, translation, international-relations, furniture, horticulture, sports-science, astrobiology, philosophy-of-mind, ethics | ~120 | — |
+
+---
+
+## Batch 7 — Mathematical Foundations + Science Cores + Arts Gaps
+
+Target sections: Mathematics & Physics (7A–7B), Life Sciences (7C), Arts & Culture / Natural World (7D)
+
+| Group | Directories | Files | Section |
+|-------|-------------|-------|---------|
+| 7A | `complex-analysis/` · `fluid-dynamics/` · `statistical-mechanics/` | 30 | Mathematics & Physics |
+| 7B | `partial-differential-equations/` · `variational-calculus/` · `lie-groups/` | 30 | Mathematics & Physics |
+| 7C | `evolutionary-biology/` · `virology/` · `biophysics/` | 30 | Life Sciences |
+| 7D | `dance/` · `industrial-design/` · `marine-biology/` | 30 | Arts & Culture / Natural World |
+
+**Domain notes per group:**
+
+7A — Bridge to physics/ (statistical-mechanics ↔ thermodynamics, fluid-dynamics ↔ Navier-Stokes as unsolved problem), mathematics/ (complex-analysis ↔ topology, Riemann surfaces). MIT TCS: complex-analysis underlies spectral theory; fluid-dynamics connects to algorithms via CFD discretization.
+
+7B — PDEs are the language of physics; variational-calculus underlies Lagrangian mechanics AND modern ML (gradient descent as variational problem); Lie groups are the algebraic structure behind gauge theory, the standard model, and representation theory (MIT math background assumed — go deep).
+
+7C — evolutionary-biology/ should treat population genetics mathematically (Hardy-Weinberg, drift, Wright-Fisher model) and connect to genomics/. virology/ distinct from microbiology/: focus on replication cycles, Baltimore classification in full depth, quasispecies theory. biophysics/: cryo-EM revolution, protein folding (AlphaFold context), Hodgkin-Huxley as physical model.
+
+7D — dance/: treat as a formal system (Laban notation, phrase structure) as well as cultural history. industrial-design/: Bauhaus through Braun (Rams) through Ive — design as engineering constraint satisfaction. marine-biology/: 71% of Earth's surface; chemosynthesis, bioluminescence, deep sea as alien biosphere.
+
+---
+
+## Batch 8 — Intellectual History + Engineering Depth + Social Sciences
+
+Target sections: History & Ideas (8A), Engineering (8B), Social Sciences (8C), Language & Communication / Computing (8D)
+
+| Group | Directories | Files | Section |
+|-------|-------------|-------|---------|
+| 8A | `logic/` · `intellectual-history/` · `social-history/` | 30 | History & Ideas |
+| 8B | `manufacturing/` · `systems-engineering/` · `materials-processing/` | 30 | Engineering |
+| 8C | `criminology/` · `media-studies/` · `education/` | 30 | Social Sciences |
+| 8D | `philosophy-of-language/` · `semiotics/` · `computer-architecture/` | 30 | Language & Comm / Computing |
+
+**Domain notes per group:**
+
+8A — logic/: treat as companion to computing/21-AUTOMATA.md and computing/23-PL-THEORY.md — Gödel incompleteness bridges to Turing undecidability and Rice's theorem (MIT TCS). Modal logic → temporal logic → model checking. intellectual-history/: history of ideas as sociology of knowledge (Kuhn, Mannheim) — how do paradigms shift? social-history/: Annales school methodology, Braudel's longue durée, quantitative history.
+
+8B — manufacturing/: GD&T (ASME Y14.5), tolerancing, CNC, additive manufacturing (FDM/SLA/DMLS), lean/TPS. Bridge to computing: Industry 4.0 as cyber-physical systems. systems-engineering/: V-model, SysML, FMEA — VP-critical; large system design as engineering discipline. materials-processing/: TTT diagrams, heat treatment, fracture mechanics — the bridge between materials/ and manufacturing/.
+
+8C — criminology/: white-collar crime (Sutherland), rational choice, mass incarceration as policy choice. media-studies/: McLuhan's tetrad, Frankfurt School, Baudrillard simulacra, platform capitalism (attention economy). education/: spacing effect, retrieval practice, Piaget/Vygotsky, MOOC completion crisis.
+
+8D — philosophy-of-language/: Frege's sense/reference → Russell's descriptions → Wittgenstein (TLP then PI) → speech acts (Austin/Searle) → possible worlds semantics (Kripke). Bridge to computing: formal semantics ↔ type theory (Curry-Howard correspondence). semiotics/: Saussure vs. Peirce, structuralism, post-structuralism. computer-architecture/: ISA/microarchitecture split (x86/ARM/RISC-V), pipelining, cache coherence, GPU SIMT model.
+
+---
+
+## Batch 9 — Natural World Depth + Material Culture + Arts Completion
+
+Target sections: Natural World (9A), Earth & Space (9B), Material Culture (9C), Arts & Culture (9D)
+
+| Group | Directories | Files | Section |
+|-------|-------------|-------|---------|
+| 9A | `entomology/` · `ornithology/` · `zoology/` | 30 | Natural World |
+| 9B | `planetary-science/` · `geochemistry/` · `space-exploration/` | 30 | Earth & Space |
+| 9C | `plastics-polymers/` · `papermaking/` · `composite-materials/` | 30 | Material Culture |
+| 9D | `graphic-design/` · `fashion/` · `comics-sequential-art/` | 30 | Arts & Culture |
+
+**Domain notes per group:**
+
+9A — entomology/: insects as 80% of animal species; eusociality as an evolutionary puzzle (Hamilton's rule); pollinator collapse economics. ornithology/: avian evolution from theropod dinosaurs — the K-Pg boundary as context; migration navigation (magnetic compass, stellar). zoology/: comparative physiology framework; ethology (Tinbergen's four questions); Conway Morris vs. Gould on convergence.
+
+9B — planetary-science/: Nice model for solar system formation; comparative planetology (Venus as cautionary tale); exoplanet demographics from Kepler. geochemistry/: U-Pb geochronology, stable isotope paleoproxies (δ¹⁸O for temperature), carbon isotope excursions (Permian extinction). space-exploration/: Tsiolkovsky equation, specific impulse, staging — the physics of getting to orbit; SpaceX reusability revolution.
+
+9C — plastics-polymers/: polymer chemistry (Tg, crystallinity, Mw/Mn), major thermoplastics/thermosets, injection molding, environmental impact (microplastics), bioplastic promises vs. reality. papermaking/: Cai Lun → Fourdrinier (1803) → Kraft process; archival paper (acid-free, cotton rag) for this library's own context. composite-materials/: CLT (classical laminate theory), prepreg/autoclave, Boeing 787 case study, end-of-life problem.
+
+9D — graphic-design/: Bauhaus → Swiss Style (Müller-Brockmann) → American Modernism (Rand, Bass) → digital. fashion/: couture system, fast fashion economics (Zara model), Rana Plaza as inflection point. comics-sequential-art/: McCloud's closure theory, panel transitions, Maus as literary turning point, manga as global phenomenon.
+
+---
+
+## Batch 10 — Deep Specialization + Final Gaps
+
+Target sections: Computing / Life Sciences (10A), History & Ideas / Language (10B), Material / Natural / Arts (10C), Earth & Space / History & Ideas (10D)
+
+| Group | Directories | Files | Section |
+|-------|-------------|-------|---------|
+| 10A | `machine-learning-theory/` · `pharmacology/` · `developmental-biology/` | 30 | Computing / Life Sciences |
+| 10B | `political-history/` · `translation/` · `international-relations/` | 30 | History & Ideas / Language |
+| 10C | `furniture/` · `horticulture/` · `sports-science/` | 30 | Material / Natural / Arts |
+| 10D | `astrobiology/` · `philosophy-of-mind/` · `ethics/` | 30 | Earth & Space / History & Ideas |
+
+**Domain notes per group:**
+
+10A — machine-learning-theory/: PAC learning (Valiant), VC dimension, Rademacher complexity, neural tangent kernel, double descent — the theoretical foundations below the engineering of ai-engineering/. pharmacology/: PK/PD, ADME, CYP metabolism, receptor theory — deeper than medicine/'s drug-class overview. developmental-biology/: Wnt/Notch/Hedgehog signaling toolkit, HOX genes, iPSCs (Yamanaka 2006), regeneration.
+
+10B — political-history/: revolution (Skocpol's structural theory), imperialism, decolonization (1947/1960s), Cold War historiography, contemporary democratic backsliding. translation/: equivalence problem, Bible translation history (Vulgate/Luther/KJV), Nabokov's literalism, neural MT (BLEU score). international-relations/: Waltz vs. Mearsheimer vs. Wendt, nuclear deterrence (MAD/credibility), power transition theory.
+
+10C — furniture/: joinery as applied geometry, Bauhaus tubular steel (Breuer), Eames as engineering, IKEA KD model. horticulture/: plant propagation (grafting, tissue culture), soil science, IPM, controlled environment agriculture. sports-science/: VO₂max, lactate threshold, periodization, sports psychology (flow state), doping biochemistry.
+
+10D — astrobiology/: origin of life (RNA world, hydrothermal vents), extremophile envelope, Fermi paradox responses, biosignature detection (JWST context). philosophy-of-mind/: Chalmers' hard problem, Chinese Room (Searle), functionalism, free will and determinism, AI consciousness implications. ethics/: consequentialism/deontology/virtue ethics foundations, Rawls, applied AI ethics, research ethics (Nuremberg/Helsinki).
