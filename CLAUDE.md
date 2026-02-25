@@ -8,14 +8,15 @@ A **self-authored reference library** organized by field. Each field is a subdir
 
 ## Library Structure
 
-The library is organized into 11 MkDocs sections. Section landing pages live in `sections/`. Full status in `TRACKER.md`. Expansion process in `EXPANSION.md`.
+The library is organized into 13 MkDocs sections. Section landing pages live in `sections/`. Full status in `TRACKER.md`. Expansion process in `EXPANSION.md`.
 
-**Target: 168 directories · ~1,680 content files · ~15,000 printed pages · ~38 bound volumes**
-Batches 1–6 complete (120 directories). Batches 7–10 scaffolded (48 directories, stubs).
+**Target: 192 directories · 13 sections · ~1,800 content files · ~13,800 pages · 52 bound volumes**
+*13 sections × 4 volumes = 52 volumes. A deck of cards.*
+Batches 1–6 complete (120 directories). Batches 7–10 scaffolded (48 dirs). Batch 11 scaffolded (12 dirs — People section). Batch 12 planned (~16 dirs for thin sections).
 
 ```
 reference/
-├── sections/                  ← 11 MkDocs section landing pages (navigation layer)
+├── sections/                  ← 13 MkDocs section landing pages (navigation layer)
 │
 ├── Computing & Software       10 directories
 │   computing/ · ai-engineering/ · data-science/ · languages/ · query-languages/
@@ -30,13 +31,16 @@ reference/
 │   complex-analysis/ · fluid-dynamics/ · statistical-mechanics/          [Batch 7A]
 │   partial-differential-equations/ · variational-calculus/ · lie-groups/ [Batch 7B]
 │
-├── Engineering                23 directories
+├── Mechanics (Ray 6)          14 directories — classical engineering (antiquity → ~1900)
 │   mechanical/ · structural/ · aeronautics/ · chemical-eng/ · nuclear/
 │   energy-systems/ · electrical-grid/ · hvac/ · plumbing/ · construction-materials/
-│   semiconductor-manufacturing/ · telecommunications/ · acoustics/
-│   robotics/ · optics/ · biomedical-engineering/ · formal-methods/
-│   transportation/ · urban-planning/ · environmental-engineering/
-│   manufacturing/ · systems-engineering/ · materials-processing/         [Batch 8B]
+│   acoustics/ · optics/ · transportation/ · manufacturing/               [Batch 8B]
+│
+├── Technology (Ray 7)         9 directories + Batch 12 — modern engineering (1900→)
+│   semiconductor-manufacturing/ · telecommunications/ · robotics/
+│   biomedical-engineering/ · formal-methods/ · systems-engineering/
+│   urban-planning/ · environmental-engineering/ · materials-processing/  [Batch 8B]
+│   [Batch 12: nanotechnology/ · energy-storage/ · infrastructure-systems/]
 │
 ├── Life Sciences              18 directories
 │   natural-sciences/ · biology/ · botany/ · ecology/ · human-biology/
@@ -81,10 +85,16 @@ reference/
 │   plastics-polymers/ · papermaking/ · composite-materials/              [Batch 9C]
 │   furniture/                                                             [Batch 10C]
 │
-└── Natural World              12 directories
-    periodic-table/ · animal-phylogeny/ · spices/ · food-plants/ · culinary-history/
-    fermentation-spirits/ · mycology/                                      [Batch 6]
-    marine-biology/ · entomology/ · ornithology/ · zoology/ · horticulture/ [Batch 7D/9A/10C]
+├── Natural World              12 directories
+│   periodic-table/ · animal-phylogeny/ · spices/ · food-plants/ · culinary-history/
+│   fermentation-spirits/ · mycology/                                      [Batch 6]
+│   marine-biology/ · entomology/ · ornithology/ · zoology/ · horticulture/ [Batch 7D/9A/10C]
+│
+└── People                     12 directories                              [Batch 11]
+    mathematicians-logicians/ · physicists-astronomers/ · chemists-naturalists/
+    engineers-inventors/ · computing-pioneers/ · explorers/
+    philosophers-thinkers/ · artists-architects/ · writers-poets/
+    political-reformers/ · social-reformers/ · visionaries/
 ```
 
 ### Batch Status
@@ -97,6 +107,8 @@ reference/
 | 8 | 12 directories (logic, intellectual-history, social-history, manufacturing, systems-engineering, materials-processing, criminology, media-studies, education, philosophy-of-language, semiotics, computer-architecture) | 🔜 Stubs scaffolded |
 | 9 | 12 directories (entomology, ornithology, zoology, planetary-science, geochemistry, space-exploration, plastics-polymers, papermaking, composite-materials, graphic-design, fashion, comics-sequential-art) | 🔜 Stubs scaffolded |
 | 10 | 12 directories (machine-learning-theory, pharmacology, developmental-biology, political-history, translation, international-relations, furniture, horticulture, sports-science, astrobiology, philosophy-of-mind, ethics) | 🔜 Stubs scaffolded |
+| 11 | 12 directories (mathematicians-logicians, physicists-astronomers, chemists-naturalists, engineers-inventors, computing-pioneers, explorers, philosophers-thinkers, artists-architects, writers-poets, political-reformers, social-reformers, visionaries) — **People section** | 🔜 Stubs scaffolded |
+| 12 | ~16 directories planned for thin sections — NW: dendrology, freshwater-biology, soil-science, coral-reefs; MC: woodworking, leatherworking, masonry, rope-cordage; LC: journalism, oral-tradition, epigraphy, digital-media; Technology: nanotechnology, energy-storage, infrastructure-systems; Computing: distributed-systems, security-engineering, cloud-architecture | 📋 Planned |
 
 ---
 

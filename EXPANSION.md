@@ -157,7 +157,7 @@ grep -r "🔜" C:/src/reference --include="STATUS.md" -l
 
 All three should return clean results before declaring a batch done.
 
-**Section landing page update pass** — after completing a batch, scan which `sections/*.md` files need new directory entries. Each new directory gets one row added to its section's Directories table and wired into the mkdocs.yml nav. Sections: `computing-software`, `mathematics-physics`, `engineering`, `life-sciences`, `earth-space`, `history-ideas`, `social-sciences`, `language-communication`, `arts-culture`, `material-culture`, `natural-world`.
+**Section landing page update pass** — after completing a batch, scan which `sections/*.md` files need new directory entries. Each new directory gets one row added to its section's Directories table and wired into the mkdocs.yml nav. Sections: `computing-software`, `mathematics-physics`, `engineering`, `life-sciences`, `earth-space`, `history-ideas`, `social-sciences`, `language-communication`, `arts-culture`, `material-culture`, `natural-world`, `people`.
 
 ---
 
@@ -192,6 +192,7 @@ Commit message format: `Add Batch {N}: {X} new reference directories, {Y} files`
 | 8 | 8A–8D | logic, intellectual-history, social-history, manufacturing, systems-engineering, materials-processing, criminology, media-studies, education, philosophy-of-language, semiotics, computer-architecture | ~120 | — |
 | 9 | 9A–9D | entomology, ornithology, zoology, planetary-science, geochemistry, space-exploration, plastics-polymers, papermaking, composite-materials, graphic-design, fashion, comics-sequential-art | ~120 | — |
 | 10 | 10A–10D | machine-learning-theory, pharmacology, developmental-biology, political-history, translation, international-relations, furniture, horticulture, sports-science, astrobiology, philosophy-of-mind, ethics | ~120 | — |
+| 11 | 11A–11D | mathematicians-logicians, physicists-astronomers, chemists-naturalists, engineers-inventors, computing-pioneers, explorers, philosophers-thinkers, artists-architects, writers-poets, political-reformers, social-reformers, visionaries | ~132 | — |
 
 ---
 
@@ -284,3 +285,26 @@ Target sections: Computing / Life Sciences (10A), History & Ideas / Language (10
 10C — furniture/: joinery as applied geometry, Bauhaus tubular steel (Breuer), Eames as engineering, IKEA KD model. horticulture/: plant propagation (grafting, tissue culture), soil science, IPM, controlled environment agriculture. sports-science/: VO₂max, lactate threshold, periodization, sports psychology (flow state), doping biochemistry.
 
 10D — astrobiology/: origin of life (RNA world, hydrothermal vents), extremophile envelope, Fermi paradox responses, biosignature detection (JWST context). philosophy-of-mind/: Chalmers' hard problem, Chinese Room (Searle), functionalism, free will and determinism, AI consciousness implications. ethics/: consequentialism/deontology/virtue ethics foundations, Rawls, applied AI ethics, research ethics (Nuremberg/Helsinki).
+
+---
+
+## Batch 11 — People
+
+Target section: People (new 12th section, all four groups)
+
+| Group | Directories | Files | Section |
+|-------|-------------|-------|---------|
+| 11A | `mathematicians-logicians/` · `physicists-astronomers/` · `chemists-naturalists/` | 33 | People |
+| 11B | `engineers-inventors/` · `computing-pioneers/` · `explorers/` | 33 | People |
+| 11C | `philosophers-thinkers/` · `artists-architects/` · `writers-poets/` | 33 | People |
+| 11D | `political-reformers/` · `social-reformers/` · `visionaries/` | 33 | People |
+
+**Domain notes per group:**
+
+11A — mathematicians-logicians/: MIT TCS background means engage with the actual mathematics — Gödel's incompleteness theorems in full, Turing's reduction, Grothendieck's abstract algebra revolution. Biographical narrative does not require avoiding precision. physicists-astronomers/: follow the conceptual breaks — Galilean vs. Newtonian, classical vs. quantum, Einsteinian vs. standard model. chemists-naturalists/: bridge to genomics/ (DNA as culmination of naturalist tradition), and to materials/ (Pauling's valence bond theory).
+
+11B — engineers-inventors/: Engineering history is the history of constraint satisfaction — what was physically possible at each era. Bridge to the Engineering section directories throughout. computing-pioneers/: the personal dimension of computing/ — Turing's biography illuminates why the Church-Turing thesis matters. Bridge to languages/ (language designers), cryptography/ (Turing's Bletchley work), ai-engineering/ (AI founders). explorers/: geographic exploration as knowledge-making — cartography/, historical-geography/, oceanography/ connections.
+
+11C — philosophers-thinkers/: connect to philosophy/ for the ideas, but focus here on the person and context — why did Wittgenstein abandon the Tractatus? What was the Vienna Circle's social context? Bridge to logic/ (formal logic history) and philosophy-of-mind/ (Chalmers, Dennett). artists-architects/: connect to art-history/ and architecture-history/ throughout. Do not just name-drop — explain what each artist's formal innovation was. writers-poets/: connect to literature/ for genre/period analysis. Focus on the writer's relationship to their language and tradition.
+
+11D — political-reformers/: avoid hagiography — assess consequences, not just intentions. Lincoln preserved the Union; Gandhi's methods worked in specific colonial context; assess each. social-reformers/: bridge to public-health/, education/, sociology/. The Nightingale entry should engage with her statistical innovations (she invented the polar area chart). visionaries/: the Vannevar Bush entry ("As We May Think," 1945) is the direct ancestor of hypertext and the web — bridge to computing/ and internet/web. Engelbart's demo (1968) was the first computer mouse, windows, hypertext, video conferencing — frame against computing-pioneers/.
