@@ -193,6 +193,8 @@ Commit message format: `Add Batch {N}: {X} new reference directories, {Y} files`
 | 9 | 9A–9D | entomology, ornithology, zoology, planetary-science, geochemistry, space-exploration, plastics-polymers, papermaking, composite-materials, graphic-design, fashion, comics-sequential-art | ~120 | — |
 | 10 | 10A–10D | machine-learning-theory, pharmacology, developmental-biology, political-history, translation, international-relations, furniture, horticulture, sports-science, astrobiology, philosophy-of-mind, ethics | ~120 | — |
 | 11 | 11A–11D | mathematicians-logicians, physicists-astronomers, chemists-naturalists, engineers-inventors, computing-pioneers, explorers, philosophers-thinkers, artists-architects, writers-poets, political-reformers, social-reformers, visionaries | ~132 | — |
+| 12 | 12A–12F | dendrology, freshwater-biology, soil-science, coral-reefs, woodworking, leatherworking, masonry, rope-cordage, journalism, oral-tradition, epigraphy, digital-media, distributed-systems, security-engineering, cloud-architecture, nanotechnology, energy-storage, infrastructure-systems | ~198 | — |
+| 13 | 13A–13C | remote-sensing, dyeing-fiber, historiography, philosophy-of-science, geotechnical-engineering, development-studies, programming-language-theory | ~77 | — |
 
 ---
 
@@ -308,3 +310,52 @@ Target section: People (new 12th section, all four groups)
 11C — philosophers-thinkers/: connect to philosophy/ for the ideas, but focus here on the person and context — why did Wittgenstein abandon the Tractatus? What was the Vienna Circle's social context? Bridge to logic/ (formal logic history) and philosophy-of-mind/ (Chalmers, Dennett). artists-architects/: connect to art-history/ and architecture-history/ throughout. Do not just name-drop — explain what each artist's formal innovation was. writers-poets/: connect to literature/ for genre/period analysis. Focus on the writer's relationship to their language and tradition.
 
 11D — political-reformers/: avoid hagiography — assess consequences, not just intentions. Lincoln preserved the Union; Gandhi's methods worked in specific colonial context; assess each. social-reformers/: bridge to public-health/, education/, sociology/. The Nightingale entry should engage with her statistical innovations (she invented the polar area chart). visionaries/: the Vannevar Bush entry ("As We May Think," 1945) is the direct ancestor of hypertext and the web — bridge to computing/ and internet/web. Engelbart's demo (1968) was the first computer mouse, windows, hypertext, video conferencing — frame against computing-pioneers/.
+
+---
+
+## Batch 12 — Completing the Five ♠ (Frontier) Volumes
+
+Target sections: Natural World NW·IV (12A–12B), Material Culture MC·IV (12B–12C), Language & Communication LC·IV (12C–12D), Computing C·IV (12E), Technology T·IV (12F)
+
+| Group | Directories | Files | Section / Card |
+|-------|-------------|-------|----------------|
+| 12A | `dendrology/` · `freshwater-biology/` · `soil-science/` | 33 | Natural World ♠ (2♠) |
+| 12B | `coral-reefs/` · `woodworking/` · `leatherworking/` | 33 | NW·IV + MC·IV (2♠/4♠) |
+| 12C | `masonry/` · `rope-cordage/` · `journalism/` | 33 | MC·IV + LC·IV (4♠/10♠) |
+| 12D | `oral-tradition/` · `epigraphy/` · `digital-media/` | 33 | Language & Comm ♠ (10♠) |
+| 12E | `distributed-systems/` · `security-engineering/` · `cloud-architecture/` | 33 | Computing ♠ (K♠) |
+| 12F | `nanotechnology/` · `energy-storage/` · `infrastructure-systems/` | 33 | Technology ♠ (8♠) |
+
+**Domain notes per group:**
+
+12A — dendrology/: tree rings as climate archive — bridge to climate-science/ and geology/; wood anatomy bridges to construction-materials/ and manufacturing/. freshwater-biology/: limnology as the freshwater parallel to oceanography/ — thermoclines, trophic cascades, eutrophication as a policy problem. soil-science/: CLORPT factors and horizon formation; soil microbiology (mycorrhizae, nitrogen fixation) bridges to ecology/ and agriculture/.
+
+12B — coral-reefs/: zooxanthellae symbiosis and bleaching as the climate-change canary; carbonate chemistry bridges to oceanography/ and geochemistry/. woodworking/: grain direction, seasonal movement, and wood species selection — bridges to dendrology/ (wood anatomy) and construction-materials/ (structural timber). leatherworking/: vegetable vs. chrome tanning as industrial chemistry — bridges to textiles/ and dyeing-fiber/.
+
+12C — masonry/: thrust line analysis for arches — bridges to structural/ (load paths) and construction-materials/; historic masonry bridges to archaeology/. rope-cordage/: fiber selection and twist geometry; Inca quipu as information storage (bridge to codes/ and oral-tradition/). journalism/: press freedom as political science topic (bridge to political-science/); data journalism bridges to statistics-applied/ and digital-media/.
+
+12D — oral-tradition/: Parry-Lord oral-formulaic theory — the structural linguistics of pre-literate composition; bridge to linguistics/ and literature/. epigraphy/: decipherment methods (statistical analysis of symbol frequency, bilingual texts) — bridge to codes/ and world-languages/; Maya glyph decipherment as a solved problem. digital-media/: attention economy connects to behavioral-economics/; platform architecture connects to computing/ and distributed-systems/.
+
+12E — distributed-systems/: VP bridge — VSTS was a distributed system; Azure DevOps is a distributed system; the CAP theorem explains every design choice you made. Paxos and Raft are the consensus algorithms behind every distributed database. Bridge to cloud-architecture/ (patterns built on top) and security-engineering/ (distributed threat surface). security-engineering/: SDL at Microsoft as the reference — this is what the learner built. STRIDE threat modeling, secure SDLC, and DevSecOps bridge directly to computing/ and formal-methods/. cloud-architecture/: Azure-first framing; FinOps and cost optimization are VP-relevant; Kubernetes architecture bridges to os/ (scheduling) and distributed-systems/ (consensus).
+
+12F — nanotechnology/: quantum confinement effects — bridge to physics/ (quantum mechanics) and semiconductor-manufacturing/ (nanofab tools overlap). energy-storage/: Li-ion electrochemistry in depth — bridge to natural-sciences/ (electrochemistry) and electrical-grid/ (grid balancing); LCOS learning curves bridge to economics/. infrastructure-systems/: Rinaldi interdependency model — cascading failure as the central concept; bridge to systems-engineering/ (complex systems) and urban-planning/ (critical urban infrastructure).
+
+---
+
+## Batch 13 — Filling Seven Thin Cards
+
+Target sections: Earth & Space (13A), Material Culture (13A), History & Ideas (13A–13B), Technology (13B), Social Sciences (13C), Computing (13C)
+
+| Group | Directories | Files | Card |
+|-------|-------------|-------|------|
+| 13A | `remote-sensing/` · `dyeing-fiber/` · `historiography/` | 33 | 3♠ · 4♣ · 6♥ |
+| 13B | `philosophy-of-science/` · `geotechnical-engineering/` | 22 | 6♠ · 8♥ |
+| 13C | `development-studies/` · `programming-language-theory/` | 22 | 9♠ · K♥ |
+
+**Domain notes per group:**
+
+13A — remote-sensing/: InSAR as the bridge between physics (wave interference) and earth science (ground deformation measurement); connects astronomy/ (satellite platforms) and geology/ (deformation). dyeing-fiber/: Perkin's accidental synthesis of mauveine (1856) as the founding moment of industrial organic chemistry — bridge to pigments/ and natural-sciences/ (organic chemistry); spinning connects to textiles/. historiography/: the Annales school and longue durée as the intellectual framework for how to read this entire library; bridge to intellectual-history/ and philosophy-of-science/ (epistemology of historical knowledge).
+
+13B — philosophy-of-science/: Kuhn's paradigm structure is the meta-framework for understanding how every section in this library changed over time — reading this unlocks the intellectual-history/ entries. Lakatos research programs explain why scientific fields don't simply switch on falsification. Bridge to logic/, history-of-science/, and intellectual-history/. geotechnical-engineering/: Terzaghi's effective stress principle is one of the most elegant physical insights in engineering — bridge to structural/ (foundation loads) and soil-science/ (soil mechanics overlap).
+
+13C — development-studies/: the Sen capabilities approach (from economics/ and public-health/) applied to international development; Acemoglu/Robinson institutions framework bridges to political-science/ and international-relations/. programming-language-theory/: the Curry-Howard correspondence (proofs as programs) is the bridge between the MIT TCS background (type theory, logic) and modern programming languages — this should feel like completing a circuit for this learner. Bridge to formal-methods/ (proof assistants), languages/ (applied type systems), and cryptography/ (type-theoretic verification).
