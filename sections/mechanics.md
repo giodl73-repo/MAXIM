@@ -1,59 +1,80 @@
 # Mechanics
 
-*14 directories · ~1,000 pages · M·I, M·II, M·III, M·IV*
-
-Classical engineering — from antiquity through the Industrial Revolution. Mechanics covers the manipulation of force, energy, matter, and material across every domain that predates the electronic age: the lever and the arch, the steam turbine and the bridge girder, the heat exchanger and the municipal water main.
-
-The word is ancient: *mēkhanikē* (Greek) — the art of machines. By the 19th century Mechanics Institutes and university departments formalized it. MIT named itself "Institute of Technology" (1861) to signal that it would teach both the classical mechanical tradition and whatever came next. This section is the classical tradition.
+14 directories · classical physical engineering — from force and stress through energy conversion, built environment, and production
 
 ---
 
 ## Landscape
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                                  MECHANICS                                  │
-│         Classical engineering — antiquity through Industrial Revolution     │
-└─────────────────────────────────────────────────────────────────────────────┘
+╔══════════════════════════════════════════════════════════════════════════════════════╗
+║  SOLID MECHANICS  (force, stress, deformation — the mechanics of structure)         ║
+║                                                                                      ║
+║  ┌──────────────────────────────────────┐    ┌──────────────────────────────────┐  ║
+║  │  mechanical/                         │    │  structural/                     │  ║
+║  │  statics · dynamics · kinematics     │───▶│  beams · trusses · frames        │  ║
+║  │  stress/strain · Mohr's circle       │    │  column buckling · shells        │  ║
+║  │  machine elements · tribology        │    │  seismic loads · load paths      │  ║
+║  │  thermo cycles · CAD/FEA tools       │    │  steel/concrete/timber design    │  ║
+║  └──────────────────────────────────────┘    └──────────────────────────────────┘  ║
+║                                │ structural components → flight structures          ║
+║                                ▼                                                    ║
+║  ┌──────────────────────────────────────────────────────────────────────────────┐  ║
+║  │  aeronautics/                                                                │  ║
+║  │  aerodynamics (lift/drag/boundary layer) · propulsion (Brayton/turbofan)    │  ║
+║  │  6-DOF flight mechanics · avionics · aeroelasticity · structures            │  ║
+║  └──────────────────────────────────────────────────────────────────────────────┘  ║
+╠══════════════════════════════════════════════════════════════════════════════════════╣
+║  PROCESS & ENERGY  (thermodynamics at scale — fuel to shaft to grid)                ║
+║                                                                                      ║
+║  ┌──────────────────────┐  ┌──────────────────────┐                                ║
+║  │  chemical-eng/       │  │  nuclear/            │                                ║
+║  │  transport phenomena │  │  fission/fusion      │                                ║
+║  │  reaction engineering│  │  reactor neutronics  │                                ║
+║  │  separations · HAZOP │  │  thermal-hydraulics  │                                ║
+║  │  process design      │  │  shielding · waste   │                                ║
+║  └──────────────────────┘  └──────────────────────┘                                ║
+║           │ fuel → heat → work → power                    │                        ║
+║           ▼                                               ▼                        ║
+║  ┌──────────────────────────────────────┐    ┌──────────────────────────────────┐  ║
+║  │  energy-systems/                     │───▶│  electrical-grid/                │  ║
+║  │  fossil/nuclear/renewable generation │    │  transmission · distribution     │  ║
+║  │  grid integration · energy storage   │    │  protection systems · SCADA      │  ║
+║  │  energy transitions                  │    │  transformers · smart grid       │  ║
+║  └──────────────────────────────────────┘    └──────────────────────────────────┘  ║
+╠══════════════════════════════════════════════════════════════════════════════════════╣
+║  BUILT ENVIRONMENT  (the buildings and infrastructure humans inhabit)               ║
+║                                                                                      ║
+║  ┌────────────────────┐  ┌──────────────────────┐  ┌─────────────────────────┐    ║
+║  │  hvac/             │  │  plumbing/           │  │  construction-          │    ║
+║  │  psychrometrics    │  │  supply/DWV systems  │  │  materials/             │    ║
+║  │  refrigeration     │  │  pipe materials      │  │  concrete · steel       │    ║
+║  │  heat pumps        │  │  water quality       │  │  wood · masonry         │    ║
+║  │  ventilation/AHU   │  │  codes/standards     │  │  composites · testing   │    ║
+║  └────────────────────┘  └──────────────────────┘  └─────────────────────────┘    ║
+╠══════════════════════════════════════════════════════════════════════════════════════╣
+║  WAVE PHYSICS & PRODUCTION  (physical phenomena and industrial output)              ║
+║                                                                                      ║
+║  ┌──────────────────────┐  ┌──────────────────────┐                                ║
+║  │  acoustics/          │  │  optics/             │                                ║
+║  │  wave propagation    │  │  geometric/wave      │                                ║
+║  │  room acoustics      │  │  laser physics       │                                ║
+║  │  noise control       │  │  fiber optics        │                                ║
+║  │  psychoacoustics     │  │  optical instruments │                                ║
+║  └──────────────────────┘  └──────────────────────┘                                ║
+║                                                                                      ║
+║  ┌──────────────────────────────────────┐    ┌──────────────────────────────────┐  ║
+║  │  transportation/                     │    │  manufacturing/                  │  ║
+║  │  road/rail/air/maritime systems      │    │  GD&T · machining · CNC          │  ║
+║  │  traffic engineering · logistics     │    │  additive manufacturing          │  ║
+║  │  AV policy · modal integration       │    │  lean/TPS · SPC · Industry 4.0   │  ║
+║  └──────────────────────────────────────┘    └──────────────────────────────────┘  ║
+╚══════════════════════════════════════════════════════════════════════════════════════╝
 
- SOLID MECHANICS TRACK
- ┌─────────────────┐   ┌─────────────────┐   ┌─────────────────────────────┐
- │  mechanical/    │   │  structural/    │   │      aeronautics/           │
- │  statics        │   │  beams/trusses  │   │  aerodynamics               │
- │  dynamics       │   │  frames/shells  │   │  propulsion (Brayton)       │
- │  stress/strain  │   │  column buckling│   │  6-DOF flight mechanics     │
- │  machine elem.  │   │  seismic loads  │   │  avionics · aeroelasticity  │
- │  tribology      │   │  load paths     │   └─────────────────────────────┘
- └─────────────────┘   └─────────────────┘
-
- PROCESS & ENERGY TRACK
- ┌──────────────┐  ┌───────────┐  ┌──────────────────┐  ┌──────────────────┐
- │ chemical-eng/│  │  nuclear/ │  │  energy-systems/ │  │ electrical-grid/ │
- │  transport   │  │  fission/ │  │  fossil/nuke/    │  │  generation      │
- │  phenomena   │  │  fusion   │  │  renewable gen   │  │  transmission    │
- │  reaction    │  │  reactor  │  │  grid integration│  │  distribution    │
- │  engineering │  │  physics  │  │  storage         │  │  SCADA · protect │
- │  separations │  │  shielding│  │  transitions     │  │  smart grid      │
- └──────────────┘  └───────────┘  └──────────────────┘  └──────────────────┘
-
- BUILT ENVIRONMENT TRACK
- ┌──────────┐  ┌────────────┐  ┌────────────────────┐
- │   hvac/  │  │ plumbing/  │  │ construction-      │
- │  thermo  │  │  supply/   │  │ materials/         │
- │  refrig. │  │  DWV       │  │  concrete · steel  │
- │  heat    │  │  pipe mat. │  │  wood · masonry    │
- │  pumps   │  │  codes     │  │  composites        │
- │  controls│  │  quality   │  └────────────────────┘
- └──────────┘  └────────────┘
-
- WAVE & PRODUCTION TRACK
- ┌────────────┐  ┌──────────┐  ┌───────────────────────┐  ┌──────────────────────┐
- │ acoustics/ │  │ optics/  │  │    transportation/    │  │   manufacturing/     │
- │  wave prop │  │  geo/    │  │  modes · infra        │  │  GD&T · machining    │
- │  room acst │  │  phys    │  │  logistics · AV       │  │  CNC · additive      │
- │  noise ctrl│  │  laser   │  │  policy · funding     │  │  lean · TPS · SPC    │
- │  transducrs│  │  fiber   │  └───────────────────────┘  └──────────────────────┘
- └────────────┘  └──────────┘
+  The section organizes by energy type and physical domain:
+  solid mechanics (force/stress) → thermodynamic systems (heat/work) → built environment
+  (distributed services) → wave physics and production (physical phenomena + output)
+  mathematics/physics/ provides the field equations; Technology/ picks up at the electronic age
 ```
 
 ---
@@ -62,47 +83,36 @@ The word is ancient: *mēkhanikē* (Greek) — the art of machines. By the 19th 
 
 | Directory | Focus | Entry Point | Bridges to |
 |-----------|-------|-------------|------------|
-| [`mechanical/`](../mechanical/00-OVERVIEW.md) | Statics, dynamics, stress/strain, machine elements, tribology, thermodynamic cycles | `01-STATICS.md` | `structural/` · `materials/` |
-| [`structural/`](../structural/00-OVERVIEW.md) | Beam theory, truss/frame analysis, column buckling, seismic loads, load path tracing | `01-BEAMS.md` | `mechanical/` · `construction-materials/` |
-| [`aeronautics/`](../aeronautics/00-OVERVIEW.md) | Aerodynamics, Brayton propulsion, 6-DOF flight mechanics, avionics, aeroelasticity | `01-AERODYNAMICS.md` | `mechanical/` · `physics/` |
-| [`chemical-eng/`](../chemical-eng/00-OVERVIEW.md) | Transport phenomena, reaction engineering (CSTR/PFR), separation processes, process control | `01-TRANSPORT.md` | `materials/` · `nuclear/` |
-| [`nuclear/`](../nuclear/00-OVERVIEW.md) | Fission/fusion physics, reactor neutronics, thermal-hydraulics, shielding, waste | `01-FISSION-FUSION.md` | `physics/` · `chemical-eng/` |
-| [`energy-systems/`](../energy-systems/00-OVERVIEW.md) | Fossil/nuclear/renewable generation, grid integration, energy storage, energy transitions | `01-FOSSIL-GENERATION.md` | `electrical-grid/` · `chemical-eng/` |
-| [`electrical-grid/`](../electrical-grid/00-OVERVIEW.md) | Power generation coupling, AC/DC transmission, SCADA/EMS, smart grid, protection systems | `01-GENERATION.md` | `energy-systems/` · `electronics/` |
-| [`hvac/`](../hvac/00-OVERVIEW.md) | Psychrometrics, refrigeration cycle, heat pumps, AHU/VAV systems, building automation | `01-PSYCHROMETRICS.md` | `mechanical/` · `plumbing/` |
-| [`plumbing/`](../plumbing/00-OVERVIEW.md) | Water supply, DWV design, pipe materials, water quality, plumbing codes | `01-SUPPLY-SYSTEMS.md` | `hvac/` · `environmental-engineering/` |
-| [`construction-materials/`](../construction-materials/00-OVERVIEW.md) | Concrete, structural steel, timber, masonry, fiber-reinforced composites | `01-CONCRETE.md` | `structural/` · `materials/` |
-| [`acoustics/`](../acoustics/00-OVERVIEW.md) | Wave propagation, room acoustics (RT60), noise control, transducers, psychoacoustics | `01-WAVE-PROPAGATION.md` | `signal-processing/` · `physics/` |
-| [`optics/`](../optics/00-OVERVIEW.md) | Geometrical and physical optics, laser physics, fiber optics, imaging systems, photonics | `01-GEOMETRICAL-OPTICS.md` | `physics/` · `telecommunications/` |
-| [`transportation/`](../transportation/00-OVERVIEW.md) | Modes, infrastructure design, logistics, autonomous vehicles, transportation policy | `01-MODES.md` | `urban-planning/` · `robotics/` |
-| [`manufacturing/`](../manufacturing/00-OVERVIEW.md) | GD&T/tolerancing, machining, CNC/CAM, additive manufacturing, lean/TPS, Industry 4.0 | `01-GDT-TOLERANCING.md` | `materials-processing/` · `robotics/` |
-
----
-
-## Volume Plan
-
-| Volume | Directories | Target |
-|--------|-------------|--------|
-| M·I | mechanical/ · structural/ · aeronautics/ | ~260 pp |
-| M·II | chemical-eng/ · nuclear/ · energy-systems/ | ~260 pp |
-| M·III | electrical-grid/ · hvac/ · plumbing/ · construction-materials/ | ~260 pp |
-| M·IV | acoustics/ · optics/ · transportation/ · manufacturing/ | ~260 pp |
+| `mechanical/` | The foundational engineering discipline: statics (free body diagrams, equilibrium, truss analysis by method of joints and sections), dynamics (Newton's laws in translational and rotational form, work-energy theorem, impulse-momentum), kinematics of mechanisms (four-bar linkage, cam-follower, gear trains — the classical machine element catalog), stress and strain in three dimensions (Mohr's circle for stress transformation, principal stresses, strain energy methods), material behavior (elastic/plastic/viscoelastic, creep, fatigue S-N curves), machine element design (shafts, bearings, fasteners, welds, power screws — each with failure mode analysis), tribology (friction, wear, lubrication — Reynolds equation and hydrodynamic bearing theory), thermodynamic cycles (Rankine, Brayton, Otto, Diesel — the power cycles that drive everything else), computational tools (CAD solid modeling, FEA mesh and boundary conditions, convergence criteria) | `01-STATICS.md` — free body diagrams and equilibrium as the universal entry point for all mechanics | Mathematics & Physics `physics/` for the Newtonian mechanics foundations; `structural/` for the application to buildings; `aeronautics/` for the application to flight structures; `manufacturing/` for the production engineering connection |
+| `structural/` | The application of mechanics to load-bearing systems in the built environment: beam theory (Euler-Bernoulli assumptions and their limits, shear and moment diagrams, deflection by double integration and moment-area methods), truss and frame analysis (method of joints, method of sections, virtual work, stiffness matrix method as the general case), column buckling (Euler's formula, effective length, slenderness ratio — and why bridges fail when the critical load is reached, not exceeded), plastic analysis (plastic hinge formation, mechanism method, limit states design), reinforced concrete (Whitney stress block, interaction diagrams for combined axial and bending, punching shear), structural steel (compact/noncompact sections, lateral-torsional buckling, connection design — bolted and welded), timber (orthotropic material behavior, moisture effects, connection detailing), seismic analysis (response spectrum, base shear, building period, ductility demand), load path tracing (how gravity, wind, and seismic loads move through a structure from roof to foundation), foundation systems (bearing capacity, settlement, pile design) | `01-BEAMS.md` — beam theory as the single most-used structural analysis tool | `mechanical/` for the underlying mechanics; `construction-materials/` for the materials being analyzed; `aeronautics/` for aerospace structural analysis; Mathematics & Physics `control-theory/` for the dynamic structural response problem |
+| `aeronautics/` | The mechanics of atmospheric flight and space access: aerodynamics (lift from circulation and the Kutta-Joukowski theorem, boundary layer theory — laminar versus turbulent, separation as stall, induced drag and aspect ratio, airfoil geometry and the NACA series), propulsion (the Brayton thermodynamic cycle, turbojet/turbofan/turboprop architecture, specific impulse as the universal propulsion efficiency metric, rocket equation and staging), flight mechanics (6-DOF equations of motion, stability derivatives, static and dynamic stability, phugoid and short-period modes, Dutch roll — what the autopilot is continuously correcting), performance (range, endurance, climb, ceiling — the Breguet range equation as the design trade-off summary), avionics (INS/GPS fusion, fly-by-wire flight control computers, autopilot architecture, flight management systems), aeroelasticity (flutter — the Tacoma Narrows bridge is the classic case, divergence, control reversal — why thin high-speed wings are a structural dynamics problem not just a structures problem), aircraft structures (semi-monocoque construction, load factor envelope, fatigue life from pressurization cycles) | `01-AERODYNAMICS.md` — lift, drag, and the circulation theory before propulsion or flight mechanics | `mechanical/` for the underlying solid mechanics; `structural/` for the structural analysis methods; Mathematics & Physics `physics/` for the fluid mechanics foundations; Technology `systems-engineering/` for the aircraft as a system of systems |
+| `chemical-eng/` | The engineering discipline built on transport phenomena and chemical reaction: transport phenomena (momentum transport = viscous flow; energy transport = conduction/convection/radiation; mass transport = diffusion — the Bird-Stewart-Lightfoot framework showing all three are the same mathematics), fluid mechanics (Navier-Stokes, pipe flow, packed beds — Darcy's law and the Ergun equation), heat exchangers (log-mean temperature difference, NTU-effectiveness method, shell-and-tube vs. plate frame — the workhorse of the process industry), reaction engineering (CSTR and PFR design equations, conversion and selectivity, temperature effects — Arrhenius — and the CSTR multiplicity problem), separation processes (distillation — McCabe-Thiele and the Fenske-Underwood-Gilliland shortcut; absorption; extraction; membrane separations), process design and economics (flowsheet development, pinch analysis for heat integration, capital vs. operating cost trade-offs), process safety (HAZOP methodology, fault tree analysis, layer of protection analysis, the Bhopal disaster as the case study that defined modern process safety), process control (PID tuning, cascade control, feedforward, the split-range problem) | `01-TRANSPORT.md` — the unified framework of momentum/heat/mass transport before any specific unit operation | `mechanical/` for fluid mechanics depth; `nuclear/` for the reactor thermal-hydraulics overlap; Technology `environmental-engineering/` for waste stream and effluent treatment; Mathematics & Physics `mathematics/` for the PDEs |
+| `nuclear/` | The physics and engineering of nuclear energy: nuclear reactions (fission binding energy release — why U-235 and Pu-239 and not others; fusion — D-T reaction and the Lawson criterion; radioactive decay series — alpha/beta/gamma and the decay chain mathematics), reactor physics (neutron moderation — why water works, why graphite works differently; the four-factor formula; criticality — k_eff = 1 as the operating condition, not a safety threshold; reactor kinetics and the role of delayed neutrons in making control possible), reactor types (PWR and BWR water reactors — the thermal cycle; CANDU heavy water; gas-cooled; fast neutron reactors — the fuel cycle differences; Generation IV concepts), thermal hydraulics (fuel rod heat removal, departure from nucleate boiling as the thermal safety limit, natural circulation as passive safety), shielding (attenuation, dose rates, biological effects — and the inverse square law), safety systems (defense in depth, passive safety features — AP1000 gravity-driven flooding, the Fukushima sequence as a passive safety failure analysis), waste management (classification — low/intermediate/high-level; interim storage; geological disposal — Yucca Mountain and WIPP; proliferation considerations), fusion (tokamak geometry, plasma confinement, ITER and the Q > 1 challenge) | `01-FISSION-FUSION.md` — binding energy and the nuclear reactions that make both energy release possible | Mathematics & Physics `physics/` for the nuclear physics foundations; `chemical-eng/` for the thermal-hydraulics overlap; `energy-systems/` for the grid integration context |
+| `energy-systems/` | The full landscape of energy conversion and delivery: fossil fuel generation (Rankine cycle steam plants, combined cycle — the gas turbine topped Rankine system that achieves 60% efficiency, emissions profiles and the carbon constraint), nuclear generation (same thermal cycle economics as coal but with different fuel cost and safety cost structures — the real comparison), renewable generation (wind turbine aerodynamics and power curve; solar PV — the p-n junction photovoltaic effect, module efficiency, capacity factor realities; concentrated solar thermal; hydropower as the largest renewable deployed; geothermal), grid integration (the challenge of variable renewables — forecast error, ramp rates, curtailment, the duck curve in California as the canonical representation of the integration problem), energy storage (pumped hydro as the dominant deployed storage; lithium-ion battery costs and the learning curve; grid-scale storage economics — levelized cost of storage; compressed air; hydrogen as seasonal storage), energy efficiency (thermodynamic limits — Carnot and the practical gap; building efficiency; industrial process heat — the largest hard-to-decarbonize sector; demand response), energy transitions (historical transitions from biomass to coal to oil — the Smil analysis; technology adoption S-curves; the current transition rate versus the historical precedents) | `01-FOSSIL-GENERATION.md` — Rankine cycle steam generation as the incumbent system from which all comparisons proceed | `nuclear/` for nuclear generation depth; `electrical-grid/` for the delivery side; `chemical-eng/` for the process side; Earth & Space `climate-science/` for the carbon constraint |
+| `electrical-grid/` | The engineering system that delivers electrical power from generation to socket: power generation coupling (synchronous generator physics — rotating magnetic field, slip, reactive power, excitation control; why grid frequency is 50 or 60 Hz and why changing it is catastrophic), AC power system fundamentals (phasor analysis, real/reactive/apparent power, power factor correction, per-unit system — the normalization that makes multi-voltage systems tractable), transmission (HVAC line parameters — resistance/inductance/capacitance, Ferranti effect, corona discharge; HVDC for long-distance submarine cables and asynchronous interconnection; transformers — the workhorse of voltage conversion; stability — voltage stability, rotor angle stability, frequency stability), distribution (radial vs. mesh topology trade-offs, voltage regulation, distribution transformer sizing, metering), protection systems (relaying — overcurrent/differential/distance relays; the sequence in which breakers trip; the N-1 security criterion), SCADA and energy management systems (state estimation, optimal power flow, automatic generation control — the real-time computer that balances the grid), smart grid (advanced metering infrastructure, distribution automation, DER integration, microgrids as islands) | `01-GENERATION.md` — synchronous generator and the coupling of mechanical to electrical power | `energy-systems/` for the generation side; `mechanical/` for the turbine mechanics; Technology `semiconductor-manufacturing/` and `telecommunications/` for the digital infrastructure inside smart grid; Mathematics & Physics `control-theory/` for the automatic generation control problem |
+| `hvac/` | Heating, ventilation, and air conditioning as applied thermodynamics: psychrometrics (the properties of moist air — the psychrometric chart as the HVAC engineer's phase diagram; dry-bulb, wet-bulb, dew point; sensible and latent heat loads), refrigeration cycle (vapor-compression refrigeration — the reverse Rankine cycle; coefficient of performance; refrigerant properties and the phaseout of ozone-depleting refrigerants; absorption refrigeration for waste-heat applications), heat pumps (the same machine as a refrigerator, with the output side changed — COP of heating vs. cooling, ground-source and air-source types, economic break-even against fossil fuel heating), ventilation (ASHRAE 62.1 minimum ventilation rates; air change calculations; dilution ventilation vs. local exhaust; natural ventilation; demand-controlled ventilation using CO2 sensors), air handling units (the AHU as the central assembly — filter, cooling coil, heating coil, humidifier/dehumidifier, fan; the VAV box as the room-level control device), building automation systems (DDC controls, control sequences, energy management strategies, BACnet as the communication protocol), codes and standards (ASHRAE 90.1 energy code, Title 24, IECC — the energy performance standards that drive design decisions) | `01-PSYCHROMETRICS.md` — the psychrometric chart establishes the state space before the equipment is introduced | `mechanical/` for the thermodynamic cycles; `plumbing/` for the hydronic heating side; Technology `systems-engineering/` for building automation; `construction-materials/` for building envelope interaction with HVAC loads |
+| `plumbing/` | Water supply and drainage engineering in buildings: water supply systems (supply pressure and flow rate sizing — the Hunter's method for fixture unit demand; pressure regulation; water hammer — the hydraulic transient that cracks pipes if not designed against; backflow prevention; hot water recirculation), drainage-waste-vent (the DWV system — drainage slope and velocity to maintain self-cleaning; the P-trap as the gas seal; vent stack sizing; the fixture unit method applied to drain sizing; the two-pipe vs. one-pipe stack question), pipe materials (copper, CPVC, PEX, cast iron, PVC/ABS for DWV — the comparison table of temperature rating, pressure rating, chemical resistance, installation cost), water quality (hardness and its effects, treatment methods — water softeners, filtration, UV disinfection; lead service line replacement as a public health urgency; Legionella control in hot water systems — ASHRAE 188), plumbing codes (the IPC and UPC as the two main code families; inspection requirements; the distinction between code minimum and engineering practice), fire suppression (wet-pipe sprinkler system hydraulics — the density/area method; NFPA 13 as the governing document; the trade-off between pipe size and pump pressure) | `01-SUPPLY-SYSTEMS.md` — water supply pressure and flow as the primary design driver before drainage | `hvac/` for the mechanical room context; Technology `environmental-engineering/` for water quality and treatment; `construction-materials/` for pipe material selection in corrosive environments |
+| `construction-materials/` | The material science of what buildings and structures are made from: Portland cement and concrete (hydration chemistry — the C-S-H gel that gives strength; water-cement ratio as the fundamental strength parameter; admixtures — plasticizers, accelerators, retarders, fly ash, GGBS; reinforcing steel — deformed bar and its bond to concrete; prestressed and post-tensioned concrete; concrete durability — carbonation, chloride attack, alkali-silica reaction), structural steel (the iron-carbon phase diagram and why low-carbon steel has the ductility structural applications require; ASTM grades; the wide-flange section and its section properties; welding metallurgy — HAZ and the hydrogen cracking risk; bolted connections — AISC bearing vs. slip-critical), engineered wood products (LVL, glulam, CLT — the laminated products that extend timber's structural range; the moisture content problem; fire performance; the mass timber moment), masonry (unit masonry — CMU, brick; grout and mortar; unreinforced vs. reinforced masonry; the veneer vs. structural wall distinction), fiber-reinforced composites (glass/carbon fiber; epoxy matrix; laminate theory; the fatigue and impact resistance differences from metal; CFRP repair of concrete), testing standards (ASTM and ISO material testing; proof testing; non-destructive evaluation — the NDT methods used in structural assessment) | `01-CONCRETE.md` — cement chemistry and concrete mix design as the most-used structural material | `structural/` for the analysis of these materials in structures; `mechanical/` for material behavior theory; Technology `materials-processing/` for the metallurgy depth on structural steel |
+| `acoustics/` | The physics and engineering of sound: wave propagation (wave equation derivation from mass/momentum conservation, plane waves, spherical spreading and the inverse square law, impedance and the reflection/transmission at interfaces — why sound goes around corners and light does not), room acoustics (reverberation time — the Sabine and Eyring formulas, the physics of decay; normal modes and flutter echo; ray tracing and image source methods; acoustic treatment — absorption coefficients, diffusion; anechoic vs. reverberant chamber), building acoustics (airborne sound transmission — STC rating and the mass law; impact sound transmission — IIC rating; flanking paths as the reason walls don't perform to their lab rating; mechanical noise isolation — vibration isolation mounts, flexible duct connections), noise control engineering (source-path-receiver framework; insertion loss; barriers — the Maekawa attenuation formula; enclosures; active noise control as the electronics alternative), transducers (microphone types — capacitor, dynamic, ribbon; the proximity effect; loudspeaker — the moving coil driver, crossover design, horn loading; array processing — beamforming), psychoacoustics (equal-loudness contours — the Fletcher-Munson curves; masking; critical bands; the Haas effect; why we localize sound with two ears — the ITD and ILD cues) | `01-WAVE-PROPAGATION.md` — the wave equation and its solutions before any application | Mathematics & Physics `signal-processing/` for the DSP and spectral analysis tools; `physics/` for the wave mechanics foundations; Technology `telecommunications/` for the acoustic-to-electrical transduction chain |
+| `optics/` | The physics and engineering of light: geometric optics (ray tracing, Snell's law, the lensmaker's equation, thin lens formula, aberrations — spherical/chromatic/astigmatism/coma — and how multi-element lens systems are designed to cancel them, optical instruments — the eye as reference, then telescope, microscope, camera), wave optics (Huygens' principle, diffraction, the single-slit and double-slit patterns, the diffraction limit as the fundamental resolution constraint — why you can't see below λ/2 with conventional optics), interference and coherence (thin film interference, the Fabry-Pérot etalon, coherence length as a property of the source, interferometers — Michelson as the instrument that measured the speed of light and found no ether), laser physics (stimulated emission and population inversion, three-level and four-level systems, optical cavities and the cavity modes, laser types — gas/solid-state/diode/fiber, Q-switching and mode-locking for pulsed lasers), fiber optics (step-index vs. graded-index, total internal reflection, single-mode vs. multimode, attenuation, chromatic dispersion and its management — dispersion-shifted fiber, the erbium-doped fiber amplifier that made long-haul fiber viable), optical instruments and photonics (imaging systems, spectrometers, optical filters, photonic integrated circuits) | `01-GEOMETRICAL-OPTICS.md` — ray optics and the thin lens equation as the simplest model before wave effects are needed | Mathematics & Physics `physics/` for the electrodynamics foundation (optics is Maxwell's equations in the limit); Technology `telecommunications/` for fiber optic networks; Technology `semiconductor-manufacturing/` for the photolithography that uses optical physics |
+| `transportation/` | The engineering and planning of transportation systems: road systems (highway geometric design — sight distance, horizontal/vertical curves, superelevation; pavement design — flexible vs. rigid, the AASHTO design method, pavement management systems; intersection control — signal timing, roundabout capacity; traffic flow theory — the fundamental diagram, the three-regime model, shockwaves), rail systems (track geometry and the allowable speed relationship; wheel-rail interaction — the Hertzian contact patch; electric traction — catenary and third rail; signaling — from track circuits to ETCS and CBTC; high-speed rail and the challenges of aerodynamics above 250 km/h), aviation systems (airport design — runway length from FAA design aircraft, taxiway geometry, gate configuration; air traffic control — separation standards, the TCAS system; the hub-and-spoke vs. point-to-point network economics), maritime (port layout and container terminal logistics, vessel dynamics, dredging requirements, intermodal transfer), logistics and freight (freight mode selection, last-mile logistics economics, the bullwhip effect, intermodal container system as the great 20th-century logistics innovation), autonomous vehicles (sensor suite — LiDAR/camera/radar and their coverage gaps; HD maps; planning architectures — the behavior/motion planning split; safety cases and the challenge of edge cases), transportation policy (level of service vs. VMT as competing metrics — the induced demand problem; Vision Zero; the land use-transportation feedback loop) | `01-MODES.md` — modal comparison framework before any single mode in depth | `structural/` for infrastructure design; Technology `urban-planning/` for the land use connection; Technology `robotics/` for the AV technology stack |
+| `manufacturing/` | The engineering discipline of making things: geometric dimensioning and tolerancing (the GD&T system — why it exists, datum reference frames, feature control frames, form/orientation/location/runout tolerances, the maximum material condition modifier — the bridge from design to inspection), machining fundamentals (chip formation mechanics — orthogonal cutting model; tool life — Taylor's equation; cutting forces and power; machinability; turning/milling/drilling/grinding as operations with different chip formation modes), CNC and CAM (G-code and M-code structure; CAM software generating toolpaths from solid models; fixturing and workholding; the DNC system that predates modern CAM), additive manufacturing (FDM/SLA/SLS/DMLS process physics; anisotropy from layer deposition; support structure design; the post-processing requirements; design for AM — the topologically optimized parts that cannot be machined), lean manufacturing and TPS (the Toyota Production System — value stream mapping, the seven wastes, kanban as a pull signal, jidoka as autonomation, heijunka as demand leveling; the difference between tool adoption and system transformation), statistical process control (control charts — Shewhart X-bar/R charts; process capability — Cp and Cpk; measurement system analysis; the PDCA cycle), Industry 4.0 (digital twin, OPC-UA as the machine communication protocol, cyber-physical systems, the RAMI 4.0 reference architecture) | `01-GDT-TOLERANCING.md` — GD&T as the language that connects design to manufacturing to inspection | `mechanical/` for the machine element design that tolerancing specifies; Technology `materials-processing/` for what happens to the material during machining; Technology `robotics/` for manufacturing automation |
 
 ---
 
 ## Paths
 
-### Infrastructure vertical
+### The Infrastructure Vertical
 `mechanical/` → `structural/` → `construction-materials/` → `manufacturing/`
-*The mechanics of individual elements compose into buildings, which require controlled material production — this traces how engineering decisions propagate from force analysis to factory floor.*
+*The mechanics of individual components compose into structural systems; those systems are built from materials with specific behavior under load; producing those materials and components at consistent quality requires the manufacturing discipline. This is the chain from force analysis to factory floor.*
 
-### Energy system chain
-`physics/` (Math & Physics) → `chemical-eng/` → `energy-systems/` → `electrical-grid/`
-*Thermodynamic first principles through process engineering through generation through delivery — combustion or fission to a socket.*
+### The Energy System Chain
+`chemical-eng/` → `nuclear/` → `energy-systems/` → `electrical-grid/`
+*Chemical engineering provides the transport phenomena and thermodynamics underlying every conversion process; nuclear engineering is a specialized application of those tools to fission heat; energy systems covers the full generation portfolio including nuclear; the electrical grid delivers what generation produces. Combustion to socket, or criticality to socket.*
 
-### Acoustic/optical physics to engineering
-`physics/` → `acoustics/` → `optics/` → `telecommunications/` (Technology)
-*Wave mechanics applied: sound rooms and noise cancellation, laser physics, fiber optics, and ultimately the telecom stack.*
+### The Wave Physics to Engineering Path
+`acoustics/` → `optics/` → Technology `telecommunications/`
+*Acoustics and optics are both applications of wave physics — different frequency ranges, different media, but the same wave equation and the same interference/diffraction mathematics. Telecommunications extends wave physics into engineered signal transmission systems: fiber optics is wave optics plus glass waveguide engineering; wireless is electromagnetic wave propagation with encoding.*
 
 ---
 
@@ -110,6 +120,6 @@ The word is ancient: *mēkhanikē* (Greek) — the art of machines. By the 19th 
 
 | Section | The bridge |
 |---------|------------|
-| Mathematics & Physics | `signal-processing/` is the mathematical substrate for `acoustics/` and `optics/`. `control-theory/` drives process control in `chemical-eng/` and `electrical-grid/`. `physics/` provides field equations for wave mechanics throughout. |
-| Technology | Technology picks up where Mechanics leaves off — the electronic age. `semiconductor-manufacturing/` is downstream of `electrical-grid/`. `robotics/` consumes `manufacturing/` and `transportation/` context. |
-| Earth & Space | `environmental-engineering/` (Technology) connects to hydrology and atmospheric chemistry here. `energy-systems/` connects to climate science and resource geology. |
+| Mathematics & Physics | `signal-processing/` is the mathematical substrate for `acoustics/` and `optics/` — spectral analysis, filter design, and convolution apply to both sound and light. `control-theory/` drives automatic generation control in `electrical-grid/`, process control loops in `chemical-eng/`, and the thermal management systems in `hvac/`. `physics/` provides the field equations — fluid mechanics for `chemical-eng/`, electrodynamics for `optics/`, continuum mechanics for `mechanical/`. |
+| Technology | Technology picks up where Mechanics ends — roughly at the electronic age. `semiconductor-manufacturing/` is downstream of `electrical-grid/` (fabs run on carefully conditioned power). `robotics/` builds directly on `mechanical/` dynamics and `manufacturing/` process knowledge. `materials-processing/` extends `construction-materials/` and `manufacturing/` into metallurgical and microstructural depth. `formal-methods/` connects to the safety-case methodology that `nuclear/` and `aeronautics/` require. |
+| Earth & Space | `energy-systems/` connects to `climate-science/` (carbon constraint) and `geology/` (resource extraction as the upstream of fossil generation). `environmental-engineering/` (Technology) connects back to `chemical-eng/` for industrial effluent treatment and to `hydrology/` for water system interactions. `transportation/` infrastructure interacts with `geography/` terrain analysis. |
