@@ -45,23 +45,23 @@ Each directory has a `STATUS.md` with its full file list.
 | [`cognitive-science/`](cognitive-science/STATUS.md) | 10 | ✅ |
 | [`human-biology/`](human-biology/STATUS.md) | 11 | ✅ |
 | [`disease/`](disease/STATUS.md) | 11 | ✅ |
-| [`medicine/`](medicine/STATUS.md) | 11 | 🔜 | A |
-| [`philosophy/`](philosophy/STATUS.md) | 7 | 🔜 | A |
-| [`aeronautics/`](aeronautics/STATUS.md) | 6 | 🔜 | A |
-| [`law/`](law/STATUS.md) | 8 | 🔜 | A |
-| [`cryptography/`](cryptography/STATUS.md) | 6 | 🔜 | A |
-| [`spices/`](spices/STATUS.md) | 11 | 🔜 | B |
-| [`pigments/`](pigments/STATUS.md) | 11 | 🔜 | B |
-| [`colors/`](colors/STATUS.md) | 10 | 🔜 | B |
-| [`statistics-applied/`](statistics-applied/STATUS.md) | 6 | 🔜 | B |
-| [`textiles/`](textiles/STATUS.md) | 14 | 🔜 | C |
-| [`plumbing/`](plumbing/STATUS.md) | 10 | 🔜 | C |
-| [`coatings/`](coatings/STATUS.md) | 10 | 🔜 | C |
-| [`climate-science/`](climate-science/STATUS.md) | 7 | 🔜 | C |
-| [`jewelry/`](jewelry/STATUS.md) | 11 | 🔜 | D |
-| [`ceramics/`](ceramics/STATUS.md) | 11 | 🔜 | D |
-| [`glassmaking/`](glassmaking/STATUS.md) | 11 | 🔜 | D |
-| [`organizational-behavior/`](organizational-behavior/STATUS.md) | 7 | 🔜 | D |
+| [`medicine/`](medicine/STATUS.md) | 11 | ✅ | A |
+| [`philosophy/`](philosophy/STATUS.md) | 7 | ✅ | A |
+| [`aeronautics/`](aeronautics/STATUS.md) | 6 | ✅ | A |
+| [`law/`](law/STATUS.md) | 8 | ✅ | A |
+| [`cryptography/`](cryptography/STATUS.md) | 6 | ✅ | A |
+| [`spices/`](spices/STATUS.md) | 11 | ✅ | B |
+| [`pigments/`](pigments/STATUS.md) | 11 | ✅ | B |
+| [`colors/`](colors/STATUS.md) | 10 | ✅ | B |
+| [`statistics-applied/`](statistics-applied/STATUS.md) | 6 | ✅ | B |
+| [`textiles/`](textiles/STATUS.md) | 14 | ✅ | C |
+| [`plumbing/`](plumbing/STATUS.md) | 10 | ✅ | C |
+| [`coatings/`](coatings/STATUS.md) | 10 | ✅ | C |
+| [`climate-science/`](climate-science/STATUS.md) | 7 | ✅ | C |
+| [`jewelry/`](jewelry/STATUS.md) | 11 | ✅ | D |
+| [`ceramics/`](ceramics/STATUS.md) | 11 | ✅ | D |
+| [`glassmaking/`](glassmaking/STATUS.md) | 11 | ✅ | D |
+| [`organizational-behavior/`](organizational-behavior/STATUS.md) | 7 | ✅ | D |
 | [`hvac/`](hvac/STATUS.md) | 10 | ✅ | E |
 | [`political-science/`](political-science/STATUS.md) | 7 | ✅ | E |
 | [`psychology/`](psychology/STATUS.md) | 7 | ✅ | E |
@@ -95,8 +95,20 @@ Each directory has a `STATUS.md` with its full file list.
 | [`photography/`](photography/STATUS.md) | 10 | ✅ | 3D |
 | [`nutrition/`](nutrition/STATUS.md) | 10 | ✅ | 3D |
 | [`sociology/`](sociology/STATUS.md) | 10 | ✅ | 3D |
+| [`robotics/`](robotics/STATUS.md) | 10 | ✅ | 4A |
+| [`optics/`](optics/STATUS.md) | 8 | ✅ | 4A |
+| [`biomedical-engineering/`](biomedical-engineering/STATUS.md) | 9 | ✅ | 4A |
+| [`formal-methods/`](formal-methods/STATUS.md) | 7 | ✅ | 4B |
+| [`energy-systems/`](energy-systems/STATUS.md) | 8 | ✅ | 4B |
+| [`anthropology/`](anthropology/STATUS.md) | 9 | ✅ | 4B |
+| [`religious-studies/`](religious-studies/STATUS.md) | 8 | ✅ | 4C |
+| [`architecture/`](architecture/STATUS.md) | 8 | ✅ | 4C |
+| [`game-theory/`](game-theory/STATUS.md) | 6 | ✅ | 4C |
+| [`transportation/`](transportation/STATUS.md) | 9 | ✅ | 4D |
+| [`urban-planning/`](urban-planning/STATUS.md) | 7 | ✅ | 4D |
+| [`environmental-engineering/`](environmental-engineering/STATUS.md) | 7 | ✅ | 4D |
 
-**Complete: 672 files | Groups 3A–3D complete | Remaining: ~170 files across ~15 directories**
+**Complete: 1,039 files | All batches 1–4 complete**
 
 **Batch 1 agent groups (complete):**
 
@@ -125,6 +137,15 @@ Each directory has a `STATUS.md` with its full file list.
 | 3B | `geology/` `meteorology/` `ecology/` `agriculture/` | 45 |
 | 3C | `art-history/` `economic-history/` `military-history/` `history-of-science/` | 47 |
 | 3D | `metalworking/` `photography/` `nutrition/` `sociology/` | 44 |
+
+**Batch 4 agent groups (stubs scaffolded — content pending):**
+
+| Group | Directories | Files |
+|-------|-------------|-------|
+| 4A | `robotics/` `optics/` `biomedical-engineering/` | 27 |
+| 4B | `formal-methods/` `energy-systems/` `anthropology/` | 24 |
+| 4C | `religious-studies/` `architecture/` `game-theory/` | 22 |
+| 4D | `transportation/` `urban-planning/` `environmental-engineering/` | 23 |
 
 ---
 

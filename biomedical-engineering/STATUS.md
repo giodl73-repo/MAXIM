@@ -1,0 +1,15 @@
+# biomedical-engineering/ — Status
+
+**9 files | Complete ✅**
+
+| File | Topic | Status |
+|------|-------|--------|
+| `00-OVERVIEW.md` | Biomedical engineering landscape — six subdisciplines, FDA device classification (Class I/II/III), 510(k)/De Novo/PMA pathways, ISO 13485, design controls (21 CFR 820.30), ISO 14971 risk management, medical device lifecycle, career map | ✅ |
+| `01-BIOMECHANICS.md` | Bone mechanics (cortical vs. cancellous, Wolff's law, stress shielding), cartilage biphasic theory (creep/relaxation), Hill muscle model (force-velocity, force-length), gait analysis (force plates, inverse dynamics, EMG), fracture mechanics, FEA workflow from CT | ✅ |
+| `02-BIOMATERIALS.md` | Metals (316L SS, Ti-6Al-4V, CoCrMo, Nitinol), ceramics (HA, alumina, bioglass, TCP), polymers (UHMWPE, PEEK, PLGA, PCL, silicone), biocompatibility (ISO 10993, host response cascade), surface modification, degradation mechanisms | ✅ |
+| `03-MEDICAL-IMAGING.md` | MRI physics (Larmor frequency, T1/T2/T2*, k-space, pulse sequences), CT (Hounsfield units, FBP/iterative/DL reconstruction, CTDI/DLP), PET/SPECT (FDG, OSEM, attenuation correction), ultrasound (acoustic impedance, Doppler, elastography), DICOM/PACS | ✅ |
+| `04-BIOSENSORS.md` | Transduction mechanisms (amperometric/potentiometric/impedimetric/SPR/QCM-D), CGM systems (GOx, MARD, Libre vs. Dexcom), lateral flow assays (sandwich/competitive format), CRISPR diagnostics (SHERLOCK/DETECTR), microfluidics (PDMS, droplet, organ-on-chip), POC platforms (i-STAT, GeneXpert), wearables | ✅ |
+| `05-NEURAL-INTERFACES.md` | Signal hierarchy (spikes/LFP/ECoG/EEG), recording technologies (Utah array, Neuropixels, flexible probes, Neuralink), electrode-tissue interface (impedance, charge injection limits, glial scarring), BCI signal processing (spike sorting, Kalman filter), BrainGate, DBS (Parkinson's, closed-loop), cochlear implants, retinal prosthetics | ✅ |
+| `06-PROSTHETICS.md` | Amputation levels (TT/TF/TR/TH) and K-levels, socket design (TSB vs. PTB, suspension systems), ESAR feet (carbon fiber spring dynamics), running blades, microprocessor knees (C-Leg, Rheo, Genium), body-powered and myoelectric upper limb control (pattern recognition, TMR), osseointegration, sensory feedback, exoskeletons | ✅ |
+| `07-MEDICAL-DEVICES.md` | FDA classification in depth, 510(k) substantial equivalence strategy, PMA clinical evidence, design controls (21 CFR 820.30 detailed), cardiovascular devices (DES drug elution kinetics, pacemaker/ICD/LVAD HeartMate 3), infusion pump safety (DERS/drug library), mechanical ventilators (ARDSNet), combination products, UDI system | ✅ |
+| `08-TISSUE-ENGINEERING.md` | Scaffold design principles (porosity/pore size/degradation), electrospinning, freeze-drying, 3D bioprinting (extrusion/inkjet/SLA, bioink rheology), cell sourcing trade-offs, iPSC (Yamanaka factors, reprogramming, differentiation protocols), mechanotransduction, bioreactors (spinner/RWV/perfusion/mechanical), vascularization strategies (sacrificial templating, VEGF), organoids, clinical translation status | ✅ |
