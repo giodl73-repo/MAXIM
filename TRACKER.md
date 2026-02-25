@@ -108,7 +108,20 @@ Each directory has a `STATUS.md` with its full file list.
 | [`urban-planning/`](urban-planning/STATUS.md) | 7 | ✅ | 4D |
 | [`environmental-engineering/`](environmental-engineering/STATUS.md) | 7 | ✅ | 4D |
 
-**Complete: 1,039 files | All batches 1–4 complete**
+| [`oceanography/`](oceanography/STATUS.md) | 12 | ✅ | 5A |
+| [`hydrology/`](hydrology/STATUS.md) | 10 | ✅ | 5A |
+| [`paleontology/`](paleontology/STATUS.md) | 11 | ✅ | 5A |
+| [`number-theory/`](number-theory/STATUS.md) | 11 | ✅ | 5B |
+| [`abstract-algebra/`](abstract-algebra/STATUS.md) | 11 | ✅ | 5B |
+| [`topology/`](topology/STATUS.md) | 11 | ✅ | 5B |
+| [`printing-publishing/`](printing-publishing/STATUS.md) | 10 | ✅ | 5C |
+| [`cinema-film/`](cinema-film/STATUS.md) | 11 | ✅ | 5C |
+| [`radio-television/`](radio-television/STATUS.md) | 10 | ✅ | 5C |
+| [`public-health/`](public-health/STATUS.md) | 11 | ✅ | 5D |
+| [`demography/`](demography/STATUS.md) | 10 | ✅ | 5D |
+| [`behavioral-economics/`](behavioral-economics/STATUS.md) | 11 | ✅ | 5D |
+
+**Complete: 1,168 files | All batches 1–5 complete**
 
 **Batch 1 agent groups (complete):**
 
@@ -146,6 +159,15 @@ Each directory has a `STATUS.md` with its full file list.
 | 4B | `formal-methods/` `energy-systems/` `anthropology/` | 24 |
 | 4C | `religious-studies/` `architecture/` `game-theory/` | 22 |
 | 4D | `transportation/` `urban-planning/` `environmental-engineering/` | 23 |
+
+**Batch 5 agent groups (complete):**
+
+| Group | Directories | Files |
+|-------|-------------|-------|
+| 5A | `oceanography/` `hydrology/` `paleontology/` | 33 |
+| 5B | `number-theory/` `abstract-algebra/` `topology/` | 33 |
+| 5C | `printing-publishing/` `cinema-film/` `radio-television/` | 31 |
+| 5D | `public-health/` `demography/` `behavioral-economics/` | 32 |
 
 ---
 
