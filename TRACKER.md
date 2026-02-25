@@ -199,9 +199,36 @@ Each directory has a `STATUS.md` with its full file list.
 | [`social-reformers/`](social-reformers/STATUS.md) | 10 | 🔜 | 11D |
 | [`visionaries/`](visionaries/STATUS.md) | 10 | 🔜 | 11D |
 
-**Complete: 1,408 files (Batches 1–7) | Batches 8–11 stubs: +492 files pending | All batches 1–7 complete**
-**Final target: 192 directories · 13 sections · ~1,800 content files · ~13,800 pages · 52 bound volumes**
-*Engineering split into Mechanics (Ray 6, classical) + Technology (Ray 7, modern). 13 × 4 = 52. A deck of cards. People (●) at center.*
+| [`dendrology/`](dendrology/STATUS.md) | 10 | 🔜 | 12A |
+| [`freshwater-biology/`](freshwater-biology/STATUS.md) | 10 | 🔜 | 12A |
+| [`soil-science/`](soil-science/STATUS.md) | 10 | 🔜 | 12A |
+| [`coral-reefs/`](coral-reefs/STATUS.md) | 10 | 🔜 | 12B |
+| [`woodworking/`](woodworking/STATUS.md) | 10 | 🔜 | 12B |
+| [`leatherworking/`](leatherworking/STATUS.md) | 10 | 🔜 | 12B |
+| [`masonry/`](masonry/STATUS.md) | 10 | 🔜 | 12C |
+| [`rope-cordage/`](rope-cordage/STATUS.md) | 10 | 🔜 | 12C |
+| [`journalism/`](journalism/STATUS.md) | 10 | 🔜 | 12C |
+| [`oral-tradition/`](oral-tradition/STATUS.md) | 10 | 🔜 | 12D |
+| [`epigraphy/`](epigraphy/STATUS.md) | 10 | 🔜 | 12D |
+| [`digital-media/`](digital-media/STATUS.md) | 10 | 🔜 | 12D |
+| [`distributed-systems/`](distributed-systems/STATUS.md) | 10 | 🔜 | 12E |
+| [`security-engineering/`](security-engineering/STATUS.md) | 10 | 🔜 | 12E |
+| [`cloud-architecture/`](cloud-architecture/STATUS.md) | 10 | 🔜 | 12E |
+| [`nanotechnology/`](nanotechnology/STATUS.md) | 10 | 🔜 | 12F |
+| [`energy-storage/`](energy-storage/STATUS.md) | 10 | 🔜 | 12F |
+| [`infrastructure-systems/`](infrastructure-systems/STATUS.md) | 10 | 🔜 | 12F |
+
+| [`remote-sensing/`](remote-sensing/STATUS.md) | 10 | 🔜 | 13A |
+| [`dyeing-fiber/`](dyeing-fiber/STATUS.md) | 10 | 🔜 | 13A |
+| [`historiography/`](historiography/STATUS.md) | 10 | 🔜 | 13A |
+| [`philosophy-of-science/`](philosophy-of-science/STATUS.md) | 10 | 🔜 | 13B |
+| [`geotechnical-engineering/`](geotechnical-engineering/STATUS.md) | 10 | 🔜 | 13B |
+| [`development-studies/`](development-studies/STATUS.md) | 10 | 🔜 | 13C |
+| [`programming-language-theory/`](programming-language-theory/STATUS.md) | 10 | 🔜 | 13C |
+
+**Complete: 1,408 files (Batches 1–7) | Batches 8–13 stubs: +792 files pending | All batches 1–7 complete**
+**Final target: 217 directories · 13 sections · ~2,170 content files · ~14,070 pages · 52 bound volumes**
+*13 × 4 = 52. A deck of cards. People (●) at center. Batches 12–13 complete the deck.*
 
 **Batch 1 agent groups (complete):**
 
