@@ -1,6 +1,6 @@
 # Earth & Space
 
-9 directories · planetary deep time through operational weather forecasting, with the carbon/water/rock cycles as connective tissue
+10 directories · planetary deep time through operational weather forecasting, with the carbon/water/rock cycles as connective tissue
 
 ---
 
@@ -72,6 +72,7 @@
 | `paleontology/` | Fossil preservation and taphonomy, biostratigraphy and index fossils, mass extinction events (Big Five + K-Pg), macroevolutionary patterns, paleoecology and ancient food webs, fossil record as evolution evidence | `01-FOSSIL-RECORD.md` — what the record preserves and what it misses, before stratigraphy | `geology/` (stratigraphy is the dating framework), `astronomy/` (bolide impact at K-Pg), `biology/` (evolutionary theory reads the paleontological record), `ecology/` (ancient community ecology) |
 | `geography/` | Physical geography (landforms, climate controls, soil formation), Köppen and Thornthwaite climate zone systems, ocean-atmosphere coupling as geographic driver, biogeography (species distribution, island biogeography theory), geopolitical geography, economic geography (agglomeration, trade patterns) | `01-PHYSICAL-GEOGRAPHY.md` — the abiotic framework before biotic or human geography | `ecology/` (biome distribution = physical geography + biology), `climate-science/` (regional climate projections), `hydrology/` (watershed geography), `historical-geography/` (political boundaries over geophysical constraints) |
 | `agriculture/` | Soil science (horizons, texture, CEC, organic matter dynamics), crop physiology and production systems (cereals, legumes, root crops), irrigation methods and water-use efficiency, integrated pest management, food systems analysis (supply chains, food security metrics), precision agriculture (remote sensing, variable-rate application) | `01-SOIL-SCIENCE.md` — soils underlie all crop and ecosystem productivity | `hydrology/` (irrigation, water-use efficiency, soil-water relations), `botany/` (crop physiology shares plant biology), `ecology/` (agroecosystems as modified ecosystems), `climate-science/` (agricultural vulnerability under warming scenarios) |
+| `mineralogy/` | Mineral chemistry and bonding, seven crystal systems and space groups (Bragg's law / XRD), silicate framework classification (nesosilicates through tectosilicates — the rock-forming minerals), oxide/sulfide ore minerals, carbonate/phosphate minerals, physical identification properties (Mohs hardness, cleavage, luster), gemology (4Cs extensions, treatments, synthetics), economic geology (ore deposit types, critical minerals), identification methods (XRD/EMPA/polarizing microscopy) | `01-MINERAL-CHEMISTRY.md` — bonding and composition before classification | `geology/` (mineralogy is the foundation of petrology); Mathematics & Physics `materials/` (crystal structure shared language); Natural World `periodic-table/` (element distribution in minerals); Material Culture `jewelry/` (gemstones as minerals) |
 
 ---
 
