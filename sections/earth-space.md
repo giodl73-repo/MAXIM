@@ -1,6 +1,6 @@
 # Earth & Space
 
-10 directories · planetary deep time through operational weather forecasting, with the carbon/water/rock cycles as connective tissue
+14 directories · planetary deep time through operational weather forecasting — from solar system formation to biosignature detection
 
 ---
 

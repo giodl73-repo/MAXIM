@@ -10,57 +10,93 @@ A **self-authored reference library** organized by field. Each field is a subdir
 
 The library is organized into 11 MkDocs sections. Section landing pages live in `sections/`. Full status in `TRACKER.md`. Expansion process in `EXPANSION.md`.
 
+**Target: 168 directories · ~1,680 content files · ~15,000 printed pages · ~38 bound volumes**
+Batches 1–6 complete (120 directories). Batches 7–10 scaffolded (48 directories, stubs).
+
 ```
 reference/
 ├── sections/                  ← 11 MkDocs section landing pages (navigation layer)
 │
-├── Computing & Software       8 directories
+├── Computing & Software       10 directories
 │   computing/ · ai-engineering/ · data-science/ · languages/ · query-languages/
 │   scripting/ · os/ · cryptography/
+│   computer-architecture/ · machine-learning-theory/                    [Batch 8D/10A]
 │
-├── Mathematics & Physics      11 directories
+├── Mathematics & Physics      20 directories
 │   mathematics/ · physics/ · electronics/ · materials/ · quantum-computing/
 │   control-theory/ · signal-processing/ · information-theory/
 │   number-theory/ · abstract-algebra/ · topology/
+│   probability-statistics/ · differential-geometry/ · numerical-methods/ [Batch 6]
+│   complex-analysis/ · fluid-dynamics/ · statistical-mechanics/          [Batch 7A]
+│   partial-differential-equations/ · variational-calculus/ · lie-groups/ [Batch 7B]
 │
-├── Engineering                20 directories
+├── Engineering                23 directories
 │   mechanical/ · structural/ · aeronautics/ · chemical-eng/ · nuclear/
 │   energy-systems/ · electrical-grid/ · hvac/ · plumbing/ · construction-materials/
 │   semiconductor-manufacturing/ · telecommunications/ · acoustics/
 │   robotics/ · optics/ · biomedical-engineering/ · formal-methods/
 │   transportation/ · urban-planning/ · environmental-engineering/
+│   manufacturing/ · systems-engineering/ · materials-processing/         [Batch 8B]
 │
-├── Life Sciences              10 directories
+├── Life Sciences              18 directories
 │   natural-sciences/ · biology/ · botany/ · ecology/ · human-biology/
 │   neuroscience/ · cognitive-science/ · disease/ · medicine/ · nutrition/
+│   genomics/ · immunology/ · microbiology/                               [Batch 6]
+│   evolutionary-biology/ · virology/ · biophysics/                       [Batch 7C]
+│   pharmacology/ · developmental-biology/                                [Batch 10A]
 │
-├── Earth & Space              9 directories
+├── Earth & Space              14 directories
 │   astronomy/ · geography/ · geology/ · meteorology/ · climate-science/
-│   oceanography/ · hydrology/ · paleontology/ · agriculture/
+│   oceanography/ · hydrology/ · paleontology/ · agriculture/ · mineralogy/ [Batch 6]
+│   planetary-science/ · geochemistry/ · space-exploration/               [Batch 9B]
+│   astrobiology/                                                          [Batch 10D]
 │
-├── History & Ideas            8 directories
+├── History & Ideas            15 directories
 │   historical-geography/ · history-of-science/ · economic-history/ · military-history/
-│   anthropology/ · philosophy/ · mythology/ · religious-studies/
+│   anthropology/ · philosophy/ · mythology/ · religious-studies/ · archaeology/ [Batch 6]
+│   logic/ · intellectual-history/ · social-history/                      [Batch 8A]
+│   political-history/ · philosophy-of-mind/ · ethics/                    [Batch 10D/10B]
 │
-├── Social Sciences            12 directories
+├── Social Sciences            16 directories
 │   economics/ · finance/ · behavioral-economics/ · political-science/ · law/
 │   psychology/ · sociology/ · organizational-behavior/ · game-theory/
 │   statistics-applied/ · public-health/ · demography/
+│   criminology/ · media-studies/ · education/ · international-relations/ [Batch 8C/10B]
 │
-├── Language & Communication   7 directories
+├── Language & Communication   12 directories
 │   linguistics/ · world-languages/ · codes/ · typography/
 │   printing-publishing/ · cinema-film/ · radio-television/
+│   literature/ · rhetoric/                                                [Batch 6]
+│   philosophy-of-language/ · semiotics/ · translation/                   [Batch 8D/10B]
 │
-├── Arts & Culture             10 directories
+├── Arts & Culture             17 directories
 │   art-history/ · architecture-history/ · architecture/ · music-theory/
 │   photography/ · colors/ · cartography/ · games-history/ · sports-history/ · watchmaking/
+│   theater-performance/                                                   [Batch 6]
+│   dance/ · industrial-design/ · marine-biology/                         [Batch 7D]
+│   graphic-design/ · fashion/ · comics-sequential-art/ · sports-science/ [Batch 9D/10C]
 │
-├── Material Culture           7 directories
+├── Material Culture           11 directories
 │   pigments/ · coatings/ · textiles/ · ceramics/ · glassmaking/ · jewelry/ · metalworking/
+│   plastics-polymers/ · papermaking/ · composite-materials/              [Batch 9C]
+│   furniture/                                                             [Batch 10C]
 │
-└── Natural World              6 directories
-    periodic-table/ · animal-phylogeny/ · spices/ · food-plants/ · culinary-history/ · fermentation-spirits/
+└── Natural World              12 directories
+    periodic-table/ · animal-phylogeny/ · spices/ · food-plants/ · culinary-history/
+    fermentation-spirits/ · mycology/                                      [Batch 6]
+    marine-biology/ · entomology/ · ornithology/ · zoology/ · horticulture/ [Batch 7D/9A/10C]
 ```
+
+### Batch Status
+
+| Batch | Directories | Status |
+|-------|-------------|--------|
+| 1–5 | 60 directories | ✅ Complete |
+| 6 | 12 directories (probability-statistics, differential-geometry, numerical-methods, genomics, immunology, microbiology, literature, theater-performance, rhetoric, mineralogy, archaeology, mycology) | ✅ Complete |
+| 7 | 12 directories (complex-analysis, fluid-dynamics, statistical-mechanics, partial-differential-equations, variational-calculus, lie-groups, evolutionary-biology, virology, biophysics, dance, industrial-design, marine-biology) | 🔜 Stubs scaffolded |
+| 8 | 12 directories (logic, intellectual-history, social-history, manufacturing, systems-engineering, materials-processing, criminology, media-studies, education, philosophy-of-language, semiotics, computer-architecture) | 🔜 Stubs scaffolded |
+| 9 | 12 directories (entomology, ornithology, zoology, planetary-science, geochemistry, space-exploration, plastics-polymers, papermaking, composite-materials, graphic-design, fashion, comics-sequential-art) | 🔜 Stubs scaffolded |
+| 10 | 12 directories (machine-learning-theory, pharmacology, developmental-biology, political-history, translation, international-relations, furniture, horticulture, sports-science, astrobiology, philosophy-of-mind, ethics) | 🔜 Stubs scaffolded |
 
 ---
 

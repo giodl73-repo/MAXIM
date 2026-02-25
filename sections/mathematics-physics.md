@@ -1,6 +1,6 @@
 # Mathematics & Physics
 
-14 directories · Formal foundations — pure math through quantum, with the applied bridges between them
+20 directories · Formal foundations — pure math through quantum, with the applied bridges between them
 
 ---
 
