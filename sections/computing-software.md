@@ -1,6 +1,6 @@
 # Computing & Software
 
-8 directories · The full modern software engineering stack — from bare metal to intelligence layer
+10 directories · The full modern software engineering stack — from bare metal to intelligence layer
 
 ---
 

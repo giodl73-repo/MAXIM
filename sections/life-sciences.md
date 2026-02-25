@@ -1,6 +1,6 @@
 # Life Sciences
 
-13 directories · molecular chemistry through clinical medicine, with full coverage of the biological stack
+18 directories · molecular chemistry through clinical medicine, with full coverage of the biological stack
 
 ---
 
