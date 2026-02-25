@@ -1,6 +1,6 @@
 # Mathematics & Physics
 
-11 directories · Formal foundations — pure math through quantum, with the applied bridges between them
+14 directories · Formal foundations — pure math through quantum, with the applied bridges between them
 
 ---
 
@@ -78,6 +78,9 @@
 | `electronics/` | Circuit analysis (KVL/KCL/Thevenin), passive/active components, op-amp configurations, digital logic (gates through flip-flops), PCB layout, power electronics | `01-CIRCUIT-FUNDAMENTALS.md` — charge, current, KVL/KCL | `physics/` for electromagnetic substrate; `materials/` for semiconductor physics; `signal-processing/` for analog filter design |
 | `materials/` | Crystal structure (Bravais lattices, Miller indices), phase diagrams (lever rule, eutectic), mechanical properties (stress/strain, fatigue, fracture mechanics), thermal/electrical properties | `01-CRYSTAL-STRUCTURE.md` — lattice types through X-ray diffraction | `physics/` for quantum band theory; `electronics/` for semiconductor materials; `chemical-eng/` (Engineering) for materials processing |
 | `quantum-computing/` | Qubit models (Bloch sphere), quantum gates and circuits, key algorithms (Shor factoring, Grover search), quantum error correction (stabilizer codes), hardware platforms comparison | `01-QUBITS.md` — superposition, entanglement, measurement | `physics/` for quantum mechanics substrate; `cryptography/` (Computing) for post-quantum motivation; `mathematics/` for linear algebra and group theory |
+| `probability-statistics/` | Measure-theoretic probability foundations, distributions and limit theorems (LLN/CLT), stochastic processes (Markov chains/Brownian motion/martingales), statistical inference (MLE/hypothesis testing), Bayesian methods (MCMC), regression models, time series, information geometry | `01-PROBABILITY-FOUNDATIONS.md` — sigma-algebras and probability spaces before distributions | `information-theory/` (entropy and KL divergence are shared objects); `statistics-applied/` (Social Sciences — applied methods vs. mathematical foundations); `ai-engineering/` (probabilistic ML) |
+| `differential-geometry/` | Smooth manifolds, tangent/cotangent bundles, differential forms and Stokes theorem, Riemannian metrics and geodesics, connections and parallel transport, curvature tensors, Lie groups and algebras, fiber bundles, gauge theories | `01-MANIFOLDS.md` — charts and atlases before tensor machinery | `topology/` (shared manifold language); `physics/` (general relativity, Yang-Mills); `control-theory/` and `robotics/` (Lie groups for SE(3) rigid body motion); `mathematics/` (extends multivariable calculus) |
+| `numerical-methods/` | IEEE 754 floating-point and error analysis, linear system solvers (LU/QR/Cholesky/iterative), eigenvalue algorithms (QR/SVD/Lanczos), interpolation and approximation, numerical integration (Gaussian quadrature/Monte Carlo), ODEs (Runge-Kutta/stiff solvers), PDEs (FD/FEM/spectral), optimization, scientific computing stack (BLAS/SciPy/Julia) | `01-FLOATING-POINT.md` — error propagation before any algorithm | `mathematics/` (the computational implementation of its content); `physics/` and Engineering (simulation of physical systems); Computing `data-science/` (NumPy/SciPy are this in practice) |
 
 ---
 

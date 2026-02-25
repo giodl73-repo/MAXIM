@@ -8,57 +8,59 @@ A **self-authored reference library** organized by field. Each field is a subdir
 
 ## Library Structure
 
+The library is organized into 11 MkDocs sections. Section landing pages live in `sections/`. Full status in `TRACKER.md`. Expansion process in `EXPANSION.md`.
+
 ```
 reference/
+├── sections/                  ← 11 MkDocs section landing pages (navigation layer)
 │
-│  SESSION 1 — Modern Software Engineering
-├── computing/          28 modules (25 complete + 3 stubs)
-├── data-science/       17 modules (6 complete + 11 stubs)
-├── ai-engineering/     5 modules — COMPLETE
+├── Computing & Software       8 directories
+│   computing/ · ai-engineering/ · data-science/ · languages/ · query-languages/
+│   scripting/ · os/ · cryptography/
 │
-│  SESSION 2 — Physics, Mathematics & Electronics
-├── mathematics/        22 modules (19 complete + 3 stubs)
-├── physics/            10 modules — COMPLETE
-├── electronics/        8 modules — COMPLETE
-├── materials/          7 modules — COMPLETE
+├── Mathematics & Physics      11 directories
+│   mathematics/ · physics/ · electronics/ · materials/ · quantum-computing/
+│   control-theory/ · signal-processing/ · information-theory/
+│   number-theory/ · abstract-algebra/ · topology/
 │
-│  SESSION 3 — Programming Languages
-├── languages/          19 files — COMPLETE
+├── Engineering                20 directories
+│   mechanical/ · structural/ · aeronautics/ · chemical-eng/ · nuclear/
+│   energy-systems/ · electrical-grid/ · hvac/ · plumbing/ · construction-materials/
+│   semiconductor-manufacturing/ · telecommunications/ · acoustics/
+│   robotics/ · optics/ · biomedical-engineering/ · formal-methods/
+│   transportation/ · urban-planning/ · environmental-engineering/
 │
-│  SESSION 4 — Query Languages
-├── query-languages/    13 files — COMPLETE
+├── Life Sciences              10 directories
+│   natural-sciences/ · biology/ · botany/ · ecology/ · human-biology/
+│   neuroscience/ · cognitive-science/ · disease/ · medicine/ · nutrition/
 │
-│  SESSION 5 — Scripting Languages
-├── scripting/          10 files — COMPLETE
+├── Earth & Space              9 directories
+│   astronomy/ · geography/ · geology/ · meteorology/ · climate-science/
+│   oceanography/ · hydrology/ · paleontology/ · agriculture/
 │
-│  SESSION 6 — Operating Systems
-├── os/                 8 files — COMPLETE
+├── History & Ideas            8 directories
+│   historical-geography/ · history-of-science/ · economic-history/ · military-history/
+│   anthropology/ · philosophy/ · mythology/ · religious-studies/
 │
-│  SESSION 7 — Natural Sciences
-├── natural-sciences/   16 files (14 complete + 2 stubs)
+├── Social Sciences            12 directories
+│   economics/ · finance/ · behavioral-economics/ · political-science/ · law/
+│   psychology/ · sociology/ · organizational-behavior/ · game-theory/
+│   statistics-applied/ · public-health/ · demography/
 │
-│  SESSION 8 — Astronomy & Planetary Sciences
-├── astronomy/          12 files — COMPLETE
+├── Language & Communication   7 directories
+│   linguistics/ · world-languages/ · codes/ · typography/
+│   printing-publishing/ · cinema-film/ · radio-television/
 │
-│  Specialized Tracks
-├── neuroscience/       5 files — COMPLETE
-├── economics/          5 files — COMPLETE
-├── information-theory/ 5 files — COMPLETE
-├── biology/            7 files (2 complete + 5 stubs)
+├── Arts & Culture             10 directories
+│   art-history/ · architecture-history/ · architecture/ · music-theory/
+│   photography/ · colors/ · cartography/ · games-history/ · sports-history/ · watchmaking/
 │
-│  PLANNED
-├── philosophy/         7 stubs
-├── aeronautics/        6 stubs
-├── mechanical/         6 files — COMPLETE
-├── structural/         5 files — COMPLETE
-├── chemical-eng/       6 files — COMPLETE
-├── nuclear/            6 files — COMPLETE
-├── quantum-computing/  5 stubs
-├── control-theory/     5 stubs
-└── finance/            5 stubs
+├── Material Culture           7 directories
+│   pigments/ · coatings/ · textiles/ · ceramics/ · glassmaking/ · jewelry/ · metalworking/
+│
+└── Natural World              6 directories
+    periodic-table/ · animal-phylogeny/ · spices/ · food-plants/ · culinary-history/ · fermentation-spirits/
 ```
-
-**Full status in `TRACKER.md`.**
 
 ---
 
@@ -110,10 +112,11 @@ Follow `computing/01-PACKAGE.md` format exactly:
 ## Instructions for Claude
 
 - When asked to create a new guide, follow `computing/01-PACKAGE.md` style exactly
-- New guides go in the appropriate field directory (`computing/`, `data-science/`, etc.)
+- New guides go in the appropriate field directory — check the section map above
 - Check `TRACKER.md` to know what's done, what's stubbed, and what's queued
 - Update `TRACKER.md` when a file is completed (not this file)
 - The learner is a peer, not a student — write accordingly
 - Bridge to Azure/VSTS/.NET concepts where natural — don't force it
 - **32,000 token limit**: keep each guide file under ~32,000 tokens. Split into Part 1 / Part 2 if a topic runs long.
+- **Section landing pages**: `sections/` holds one landing page per MkDocs section. When adding a new directory, add it to the relevant `sections/*.md` Directories table and wire it into `.mkdocs/mkdocs.yml`. See `EXPANSION.md` for the full process.
 - **AGENT PERMISSION BUG — CRITICAL**: Background agents (`run_in_background: true`) cannot get Write/Bash permissions approved — the approval dialog never shows, so writes are silently blocked and the agent fails. **Always spawn file-writing agents in the foreground** (omit `run_in_background`) OR use `mode: "bypassPermissions"`. For large multi-session content generation, write files directly in the main conversation rather than delegating to background agents.

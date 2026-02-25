@@ -121,7 +121,20 @@ Each directory has a `STATUS.md` with its full file list.
 | [`demography/`](demography/STATUS.md) | 10 | ✅ | 5D |
 | [`behavioral-economics/`](behavioral-economics/STATUS.md) | 11 | ✅ | 5D |
 
-**Complete: 1,168 files | All batches 1–5 complete**
+| [`probability-statistics/`](probability-statistics/STATUS.md) | 10 | 🔜 | 6A |
+| [`differential-geometry/`](differential-geometry/STATUS.md) | 10 | 🔜 | 6A |
+| [`numerical-methods/`](numerical-methods/STATUS.md) | 10 | 🔜 | 6A |
+| [`genomics/`](genomics/STATUS.md) | 10 | 🔜 | 6B |
+| [`immunology/`](immunology/STATUS.md) | 10 | 🔜 | 6B |
+| [`microbiology/`](microbiology/STATUS.md) | 10 | 🔜 | 6B |
+| [`literature/`](literature/STATUS.md) | 10 | 🔜 | 6C |
+| [`theater-performance/`](theater-performance/STATUS.md) | 10 | 🔜 | 6C |
+| [`rhetoric/`](rhetoric/STATUS.md) | 10 | 🔜 | 6C |
+| [`mineralogy/`](mineralogy/STATUS.md) | 10 | 🔜 | 6D |
+| [`archaeology/`](archaeology/STATUS.md) | 10 | 🔜 | 6D |
+| [`mycology/`](mycology/STATUS.md) | 10 | 🔜 | 6D |
+
+**Complete: 1,168 files | Batch 6 stubs: +120 files | All batches 1–5 complete**
 
 **Batch 1 agent groups (complete):**
 
@@ -168,6 +181,15 @@ Each directory has a `STATUS.md` with its full file list.
 | 5B | `number-theory/` `abstract-algebra/` `topology/` | 33 |
 | 5C | `printing-publishing/` `cinema-film/` `radio-television/` | 31 |
 | 5D | `public-health/` `demography/` `behavioral-economics/` | 32 |
+
+**Batch 6 agent groups (stubs scaffolded — content pending):**
+
+| Group | Directories | Files | Section |
+|-------|-------------|-------|---------|
+| 6A | `probability-statistics/` `differential-geometry/` `numerical-methods/` | 30 | Mathematics & Physics |
+| 6B | `genomics/` `immunology/` `microbiology/` | 30 | Life Sciences |
+| 6C | `literature/` `theater-performance/` `rhetoric/` | 30 | Language & Communication / Arts & Culture |
+| 6D | `mineralogy/` `archaeology/` `mycology/` | 30 | Earth & Space / History & Ideas / Natural World |
 
 ---
 
