@@ -134,18 +134,18 @@ Each directory has a `STATUS.md` with its full file list.
 | [`archaeology/`](archaeology/STATUS.md) | 10 | ✅ | 6D |
 | [`mycology/`](mycology/STATUS.md) | 10 | ✅ | 6D |
 
-| [`complex-analysis/`](complex-analysis/STATUS.md) | 10 | 🔜 | 7A |
-| [`fluid-dynamics/`](fluid-dynamics/STATUS.md) | 10 | 🔜 | 7A |
-| [`statistical-mechanics/`](statistical-mechanics/STATUS.md) | 10 | 🔜 | 7A |
-| [`partial-differential-equations/`](partial-differential-equations/STATUS.md) | 10 | 🔜 | 7B |
-| [`variational-calculus/`](variational-calculus/STATUS.md) | 10 | 🔜 | 7B |
-| [`lie-groups/`](lie-groups/STATUS.md) | 10 | 🔜 | 7B |
-| [`evolutionary-biology/`](evolutionary-biology/STATUS.md) | 10 | 🔜 | 7C |
-| [`virology/`](virology/STATUS.md) | 10 | 🔜 | 7C |
-| [`biophysics/`](biophysics/STATUS.md) | 10 | 🔜 | 7C |
-| [`dance/`](dance/STATUS.md) | 10 | 🔜 | 7D |
-| [`industrial-design/`](industrial-design/STATUS.md) | 10 | 🔜 | 7D |
-| [`marine-biology/`](marine-biology/STATUS.md) | 10 | 🔜 | 7D |
+| [`complex-analysis/`](complex-analysis/STATUS.md) | 10 | ✅ | 7A |
+| [`fluid-dynamics/`](fluid-dynamics/STATUS.md) | 10 | ✅ | 7A |
+| [`statistical-mechanics/`](statistical-mechanics/STATUS.md) | 10 | ✅ | 7A |
+| [`partial-differential-equations/`](partial-differential-equations/STATUS.md) | 10 | ✅ | 7B |
+| [`variational-calculus/`](variational-calculus/STATUS.md) | 10 | ✅ | 7B |
+| [`lie-groups/`](lie-groups/STATUS.md) | 10 | ✅ | 7B |
+| [`evolutionary-biology/`](evolutionary-biology/STATUS.md) | 10 | ✅ | 7C |
+| [`virology/`](virology/STATUS.md) | 10 | ✅ | 7C |
+| [`biophysics/`](biophysics/STATUS.md) | 10 | ✅ | 7C |
+| [`dance/`](dance/STATUS.md) | 10 | ✅ | 7D |
+| [`industrial-design/`](industrial-design/STATUS.md) | 10 | ✅ | 7D |
+| [`marine-biology/`](marine-biology/STATUS.md) | 10 | ✅ | 7D |
 
 | [`logic/`](logic/STATUS.md) | 10 | 🔜 | 8A |
 | [`intellectual-history/`](intellectual-history/STATUS.md) | 10 | 🔜 | 8A |
@@ -186,8 +186,22 @@ Each directory has a `STATUS.md` with its full file list.
 | [`philosophy-of-mind/`](philosophy-of-mind/STATUS.md) | 10 | 🔜 | 10D |
 | [`ethics/`](ethics/STATUS.md) | 10 | 🔜 | 10D |
 
-**Complete: 1,288 files (Batches 1–6) | Batches 7–10 stubs: +480 files pending | All batches 1–6 complete**
-**Final target: 168 directories · ~1,680 content files · ~15,000 pages · ~38 bound volumes**
+| [`mathematicians-logicians/`](mathematicians-logicians/STATUS.md) | 10 | 🔜 | 11A |
+| [`physicists-astronomers/`](physicists-astronomers/STATUS.md) | 10 | 🔜 | 11A |
+| [`chemists-naturalists/`](chemists-naturalists/STATUS.md) | 10 | 🔜 | 11A |
+| [`engineers-inventors/`](engineers-inventors/STATUS.md) | 10 | 🔜 | 11B |
+| [`computing-pioneers/`](computing-pioneers/STATUS.md) | 10 | 🔜 | 11B |
+| [`explorers/`](explorers/STATUS.md) | 10 | 🔜 | 11B |
+| [`philosophers-thinkers/`](philosophers-thinkers/STATUS.md) | 10 | 🔜 | 11C |
+| [`artists-architects/`](artists-architects/STATUS.md) | 10 | 🔜 | 11C |
+| [`writers-poets/`](writers-poets/STATUS.md) | 10 | 🔜 | 11C |
+| [`political-reformers/`](political-reformers/STATUS.md) | 10 | 🔜 | 11D |
+| [`social-reformers/`](social-reformers/STATUS.md) | 10 | 🔜 | 11D |
+| [`visionaries/`](visionaries/STATUS.md) | 10 | 🔜 | 11D |
+
+**Complete: 1,408 files (Batches 1–7) | Batches 8–11 stubs: +492 files pending | All batches 1–7 complete**
+**Final target: 192 directories · 13 sections · ~1,800 content files · ~13,800 pages · 52 bound volumes**
+*Engineering split into Mechanics (Ray 6, classical) + Technology (Ray 7, modern). 13 × 4 = 52. A deck of cards. People (●) at center.*
 
 **Batch 1 agent groups (complete):**
 
@@ -243,6 +257,24 @@ Each directory has a `STATUS.md` with its full file list.
 | 6B | `genomics/` `immunology/` `microbiology/` | 30 | Life Sciences |
 | 6C | `literature/` `theater-performance/` `rhetoric/` | 30 | Language & Communication / Arts & Culture |
 | 6D | `mineralogy/` `archaeology/` `mycology/` | 30 | Earth & Space / History & Ideas / Natural World |
+
+**Batch 7 agent groups (complete):**
+
+| Group | Directories | Files | Section |
+|-------|-------------|-------|---------|
+| 7A | `complex-analysis/` `fluid-dynamics/` `statistical-mechanics/` | 30 | Mathematics & Physics |
+| 7B | `partial-differential-equations/` `variational-calculus/` `lie-groups/` | 30 | Mathematics & Physics |
+| 7C | `evolutionary-biology/` `virology/` `biophysics/` | 30 | Life Sciences |
+| 7D | `dance/` `industrial-design/` `marine-biology/` | 30 | Arts & Culture / Natural World |
+
+**Batch 11 agent groups (stubs scaffolded — content pending):**
+
+| Group | Directories | Files | Section |
+|-------|-------------|-------|---------|
+| 11A | `mathematicians-logicians/` `physicists-astronomers/` `chemists-naturalists/` | 33 | People |
+| 11B | `engineers-inventors/` `computing-pioneers/` `explorers/` | 33 | People |
+| 11C | `philosophers-thinkers/` `artists-architects/` `writers-poets/` | 33 | People |
+| 11D | `political-reformers/` `social-reformers/` `visionaries/` | 33 | People |
 
 ---
 
