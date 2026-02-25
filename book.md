@@ -39,21 +39,30 @@ Print size on spine: 0.6" diameter, top of spine.
 
 **12 rays — Origins Arc order (clockwise from 12 o'clock):**
 
-| Ray | Section | Era |
-|-----|---------|-----|
-| 1 | Natural World | Paleolithic — the immediate world |
-| 2 | Earth & Space | Neolithic — stars, seasons, ground underfoot |
-| 3 | Material Culture | Bronze/Iron Age — fire, clay, metal |
-| 4 | Life Sciences | Understanding the body and living systems |
-| 5 | History & Ideas | The written record and its interpretation |
-| 6 | Mechanics | Classical engineering — lever through locomotive |
-| 7 | Technology | Modern engineering — circuit through satellite |
-| 8 | Social Sciences | How groups organize, govern, trade |
-| 9 | Language & Communication | Encoding and transmitting knowledge |
-| 10 | Mathematics & Physics | The formal language of pattern and law |
-| 11 | Arts & Culture | Expression beyond the utilitarian |
-| 12 | Computing & Software | Formalizing thought itself |
-| ● | **People** | **The center — who made all of the above** |
+Each ray = one card rank. Four volumes per section = four suits (♣♦♥♠).
+52 volumes = a deck of cards. People is the Ace — the only rank that is both origin and culmination.
+
+| Ray | Card | Section | Era |
+|-----|------|---------|-----|
+| 1 | 2 | Natural World | Paleolithic — the immediate world |
+| 2 | 3 | Earth & Space | Neolithic — stars, seasons, ground underfoot |
+| 3 | 4 | Material Culture | Bronze/Iron Age — fire, clay, metal |
+| 4 | 5 | Life Sciences | Understanding the body and living systems |
+| 5 | 6 | History & Ideas | The written record and its interpretation |
+| 6 | 7 | Mechanics | Classical engineering — lever through locomotive |
+| 7 | 8 | Technology | Modern engineering — circuit through satellite |
+| 8 | 9 | Social Sciences | How groups organize, govern, trade |
+| 9 | 10 | Language & Communication | Encoding and transmitting knowledge |
+| 10 | J | Mathematics & Physics | The formal language of pattern and law |
+| 11 | Q | Arts & Culture | Expression beyond the utilitarian |
+| 12 | K | Computing & Software | Formalizing thought itself |
+| ● | **A** | **People** | **The center — origin and culmination** |
+
+**Suits = volume position within every section:**
+♣ Vol I — Foundation (substrate, earliest/most fundamental)
+♦ Vol II — Application (theory meets practice)
+♥ Vol III — Depth (technical core, advanced topics)
+♠ Vol IV — Frontier (emerging, current edges, Batch 12/13 slot)
 
 *The survivor at center reads outward: ray 1 first (what can I eat?), ray 12 last (how do I think about this precisely?). People is not a destination in the arc — it is the origin.*
 
@@ -179,8 +188,8 @@ Spine text order (top to bottom): MARK · MAXIM · rule · SECTION · rule · VO
 
 *13 sections × 4 volumes each = 52. A deck of cards.*
 *Origins Arc order: rays 1–12 clockwise, People (●) at center.*
-*Three thin sections (Natural World, Material Culture, Language & Comm, Mechanics) will reach full*
-*4 × 250 pp depth via Batch 12 content additions. Current stubs noted.*
+*Batch 12 fills the five empty ♠ (frontier) volumes. Batch 13 adds one directory each to seven thin cards.*
+*All stubs noted with batch label.*
 
 ### Ray 1 — Natural World  (4 volumes · ~870 pp current + Batch 12)
 
@@ -198,13 +207,13 @@ Spine text order (top to bottom): MARK · MAXIM · rule · SECTION · rule · VO
 | ES·I | astronomy/ · geology/ · paleontology/ | ~350 |
 | ES·II | meteorology/ · climate-science/ · oceanography/ · hydrology/ | ~280 |
 | ES·III | geography/ · agriculture/ · mineralogy/ · planetary-science/ | ~280 |
-| ES·IV | geochemistry/ · space-exploration/ · astrobiology/ | ~220 |
+| ES·IV | geochemistry/ · space-exploration/ · astrobiology/ · *Batch 13: remote-sensing/* | ~260 |
 
 ### Ray 3 — Material Culture  (4 volumes · ~850 pp current + Batch 12)
 
 | Vol | Directories | Target pp |
 |-----|-------------|-----------|
-| MC·I | pigments/ · coatings/ · textiles/ | ~200 |
+| MC·I | pigments/ · coatings/ · textiles/ · *Batch 13: dyeing-fiber/* | ~240 |
 | MC·II | ceramics/ · glassmaking/ · jewelry/ · metalworking/ | ~240 |
 | MC·III | plastics-polymers/ · papermaking/ · composite-materials/ · furniture/ | ~210 |
 | MC·IV | *Batch 12: woodworking/ · leatherworking/ · masonry/ · rope-cordage/* | ~200 |
@@ -224,8 +233,8 @@ Spine text order (top to bottom): MARK · MAXIM · rule · SECTION · rule · VO
 |-----|-------------|-----------|
 | HI·I | historical-geography/ · history-of-science/ · economic-history/ · military-history/ | ~360 |
 | HI·II | anthropology/ · philosophy/ · mythology/ · religious-studies/ · archaeology/ | ~310 |
-| HI·III | logic/ · intellectual-history/ · social-history/ | ~220 |
-| HI·IV | political-history/ · philosophy-of-mind/ · ethics/ | ~230 |
+| HI·III | logic/ · intellectual-history/ · social-history/ · *Batch 13: historiography/* | ~260 |
+| HI·IV | political-history/ · philosophy-of-mind/ · ethics/ · *Batch 13: philosophy-of-science/* | ~270 |
 
 ### Ray 6 — Mechanics  (4 volumes · ~1,000 pp)
 *Classical engineering: Archimedes through the Industrial Revolution.*
@@ -244,7 +253,7 @@ Spine text order (top to bottom): MARK · MAXIM · rule · SECTION · rule · VO
 |-----|-------------|-----------|
 | T·I | semiconductor-manufacturing/ · telecommunications/ · robotics/ | ~240 |
 | T·II | biomedical-engineering/ · formal-methods/ · systems-engineering/ | ~220 |
-| T·III | urban-planning/ · environmental-engineering/ · materials-processing/ | ~210 |
+| T·III | urban-planning/ · environmental-engineering/ · materials-processing/ · *Batch 13: geotechnical-engineering/* | ~250 |
 | T·IV | *Batch 12: nanotechnology/ · energy-storage/ · infrastructure-systems/* | ~200 |
 
 ### Ray 8 — Social Sciences  (4 volumes · ~1,100 pp)
@@ -254,7 +263,7 @@ Spine text order (top to bottom): MARK · MAXIM · rule · SECTION · rule · VO
 | SS·I | economics/ · finance/ · behavioral-economics/ · game-theory/ · statistics-applied/ | ~380 |
 | SS·II | political-science/ · law/ · sociology/ · demography/ | ~280 |
 | SS·III | criminology/ · psychology/ · organizational-behavior/ · public-health/ | ~280 |
-| SS·IV | media-studies/ · education/ · international-relations/ | ~220 |
+| SS·IV | media-studies/ · education/ · international-relations/ · *Batch 13: development-studies/* | ~260 |
 
 ### Ray 9 — Language & Communication  (4 volumes · ~900 pp current + Batch 12)
 
@@ -289,7 +298,7 @@ Spine text order (top to bottom): MARK · MAXIM · rule · SECTION · rule · VO
 |-----|-------------|-----------|
 | C·I | computing/ · ai-engineering/ · data-science/ | ~340 |
 | C·II | languages/ · query-languages/ · scripting/ · os/ | ~350 |
-| C·III | cryptography/ · computer-architecture/ · machine-learning-theory/ | ~230 |
+| C·III | cryptography/ · computer-architecture/ · machine-learning-theory/ · *Batch 13: programming-language-theory/* | ~270 |
 | C·IV | *Batch 12: distributed-systems/ · security-engineering/ · cloud-architecture/* | ~200 |
 
 ### ● Center — People  (4 volumes · ~1,180 pp)
@@ -323,7 +332,7 @@ Spine text order (top to bottom): MARK · MAXIM · rule · SECTION · rule · VO
 | 11 | Arts & Culture | 4 | ~940 |
 | 12 | Computing & Software | 4 | ~920 |
 | ● | **People** | **4** | **~1,180** |
-| — | **Total** | **52** | **~13,790** |
+| — | **Total** | **52** | **~14,070** |
 
 ---
 
