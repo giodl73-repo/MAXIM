@@ -4,6 +4,7 @@
 
 Four rocky planets, one star, similar building blocks — wildly different outcomes. Comparative planetology treats them as natural experiments.
 
+<!-- @editor[diagram/P2]: Opening diagram is a data table in a box — doesn't show comparative relationships (distance vs mass vs outcomes). Rework to show how similar starting materials at different distances produced divergent planets — the central thesis of comparative planetology -->
 ```
 +------------------------------------------------------------------+
 |              TERRESTRIAL PLANET OVERVIEW                          |

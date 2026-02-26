@@ -138,7 +138,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `paleontology/` | 11 | 2026-02 | — | 22 tags → pending |
 | `agriculture/` | 11 | — | — | |
 | `mineralogy/` | 10 | — | — | |
-| `planetary-science/` | 10 | — | — | |
+| `planetary-science/` | 10 | 2026-02 | — | 7 tags → pending |
 | `geochemistry/` | 10 | — | — | |
 | `space-exploration/` | 10 | — | — | |
 | `astrobiology/` | 10 | — | — | |

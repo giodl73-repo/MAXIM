@@ -4,6 +4,7 @@
 
 Planetary science bridges astronomy, geology, atmospheric physics, and geochemistry. The central question: how do planets form, evolve, and (sometimes) become habitable?
 
+<!-- @editor[diagram/P2]: Diagram lists items in columns but doesn't show how Formation → Bodies → Processes relate — rework as layered system view showing causal flow (e.g., nebular hypothesis → accretion → differentiation → volcanism/tectonics) -->
 ```
 +------------------------------------------------------------------+
 |                    PLANETARY SCIENCE LANDSCAPE                    |

@@ -30,6 +30,7 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from classical orbital mechanics / spectroscopy (MIT physics) to modern detection techniques — the Doppler RV method is a direct application of Kepler's laws + spectroscopy that the learner already owns; making the connection explicit would anchor the whole section -->
 ## Detection Methods
 
 ### Radial Velocity (RV)
