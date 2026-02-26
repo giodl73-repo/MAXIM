@@ -669,6 +669,43 @@ class SharedAgentState:
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
+These failure modes map directly to distributed systems reliability patterns. The
+concepts are identical — only the execution model differs:
+
+```
+Distributed systems pattern         Agent equivalent
+─────────────────────────────────   ──────────────────────────────────────────────
+Circuit breaker                  →  max_iterations cap + loop detection
+  (stop calling a failing service     (stop calling a tool that repeatedly errors;
+   after N failures; fail fast)        detect repeated identical tool calls as
+                                       the "open circuit" signal)
+
+Bulkhead / rate limiting         →  Tool timeout + concurrency cap
+  (isolate failure domains;           (each tool call has a deadline; don't allow
+   prevent cascade failure)            one slow tool to block the agent loop)
+
+Backpressure                     →  Context size guard
+  (slow producers when consumer        (check token count before each LLM call;
+   can't keep up; reject if full)      trim or summarize when approaching limit —
+                                       "buffer full" = context window pressure)
+
+Trust boundary / input sanitation→  Tool result wrapping
+  (HTTP response bodies are            (content from web pages, DB records, external
+   untrusted; validate before use)     APIs is untrusted; wrap in XML and add
+                                       instruction-ignore note before appending)
+
+Idempotency + two-phase commit   →  Confirmation gate for destructive tools
+  (destructive ops: check-then-act;   (write, delete, send = require human confirm
+   retry safe; rollback on failure)    or an explicit "confirm" tool call first;
+                                       never auto-retry sends/deletes)
+```
+
+The critical insight: an agent loop running in production IS a distributed service.
+It makes external calls, depends on third-party APIs, manages shared state, and can
+fail in every way a microservice can fail. Apply the same reliability patterns you'd
+apply to any service — circuit breakers, timeouts, bulkheads, idempotent side effects
+— and add the LLM-specific guards (context limits, injection sanitization) on top.
+
 ### Guardrails Pattern
 
 ```python
@@ -779,7 +816,133 @@ what inputs, leading to what final state.
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
-Trajectory eval requires recording the full message sequence per run.
+### Trajectory Recording
+
+Trajectory eval requires capturing the full message sequence — including all tool calls
+and tool results — for each agent run. Without recording, you can only eval the final
+answer; you lose visibility into whether the agent took a sane path to get there.
+
+```python
+from dataclasses import dataclass, field
+import json
+
+@dataclass
+class TrajectoryStep:
+    turn: int
+    tool_name: str
+    tool_input: dict
+    tool_result: str
+
+@dataclass
+class AgentTrajectory:
+    goal: str
+    steps: list[TrajectoryStep] = field(default_factory=list)
+    final_answer: str = ""
+
+    def record_tool_call(self, turn: int, name: str, inputs: dict, result: str):
+        self.steps.append(TrajectoryStep(turn, name, inputs, result))
+
+    def tool_sequence(self) -> list[str]:
+        return [s.tool_name for s in self.steps]
+
+    def to_dict(self) -> dict:
+        return {
+            "goal": self.goal,
+            "steps": [vars(s) for s in self.steps],
+            "final_answer": self.final_answer,
+        }
+
+# Instrument the agent loop to record trajectory
+trajectory = AgentTrajectory(goal=goal)
+for block in response.content:
+    if block.type == "tool_use":
+        result = dispatch_tool(block.name, block.input)
+        trajectory.record_tool_call(iteration, block.name, block.input, result)
+trajectory.final_answer = final_text
+
+# Persist for offline analysis
+with open(f"trajectories/{run_id}.json", "w") as f:
+    json.dump(trajectory.to_dict(), f, indent=2)
+```
+
+### Trajectory Assertions
+
+```python
+def assert_trajectory(
+    trajectory: AgentTrajectory,
+    expected_tools: list[str],
+    require_order: bool = True,
+    check_args: dict[str, dict] | None = None,
+) -> dict:
+    """
+    Assert that an agent took the expected tool path.
+
+    expected_tools: ["get_customer", "check_plan", "update_plan"]
+    check_args:     {"update_plan": {"plan_tier": "pro"}}  # subset match
+    """
+    actual = trajectory.tool_sequence()
+    results = {"passed": True, "failures": []}
+
+    if require_order:
+        if actual != expected_tools:
+            results["passed"] = False
+            results["failures"].append(
+                f"Tool sequence mismatch.\n  Expected: {expected_tools}\n  Actual:   {actual}"
+            )
+    else:
+        for tool in expected_tools:
+            if tool not in actual:
+                results["passed"] = False
+                results["failures"].append(f"Expected tool '{tool}' not called")
+
+    if check_args:
+        for step in trajectory.steps:
+            if step.tool_name in check_args:
+                expected_args = check_args[step.tool_name]
+                for k, v in expected_args.items():
+                    if step.tool_input.get(k) != v:
+                        results["passed"] = False
+                        results["failures"].append(
+                            f"Tool '{step.tool_name}' arg '{k}': "
+                            f"expected {v!r}, got {step.tool_input.get(k)!r}"
+                        )
+
+    return results
+
+# Example assertion in a test
+result = assert_trajectory(
+    trajectory,
+    expected_tools=["get_customer_by_email", "check_current_plan", "update_plan"],
+    require_order=True,
+    check_args={"update_plan": {"plan_tier": "pro", "reason": "upgrade_request"}},
+)
+assert result["passed"], "\n".join(result["failures"])
+```
+
+### Tooling for Trajectory Eval
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  TOOL              │  TRAJECTORY SUPPORT                        │
+├────────────────────┼─────────────────────────────────────────────┤
+│  LangSmith         │  Full trace capture natively; every tool   │
+│                    │  call, input, output, timing stored.        │
+│                    │  UI shows trace tree. Dataset builder pulls │
+│                    │  prod traces into eval set.                 │
+├────────────────────┼─────────────────────────────────────────────┤
+│  Braintrust        │  Trajectory eval via Span API; log each    │
+│                    │  tool call as a child span; eval on full    │
+│                    │  trace or individual spans independently.   │
+├────────────────────┼─────────────────────────────────────────────┤
+│  Roll your own     │  JSON trajectory files (see above) + pytest │
+│                    │  assertions. Zero dependency. Full control. │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+LangSmith is the lowest-friction option if you're already using LangChain: add
+`LANGCHAIN_TRACING_V2=true` and every agent run is automatically captured as a
+trace tree — no instrumentation code required.
+
 Compare actual `[tool_name, tool_input]` sequences against expected trajectories.
 
 ---

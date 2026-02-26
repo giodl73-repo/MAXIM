@@ -75,6 +75,37 @@ This works. For one pipeline. Orchestration frameworks standardize:
 - How you add memory, tools, agents
 - How you trace and debug what happened
 
+The composition model that all three frameworks use is not new. The `|` pipe operator
+in LangChain's LCEL and the pipeline primitives in LlamaIndex and Semantic Kernel are
+direct analogs of patterns you already know:
+
+```
+Familiar pattern                      LLM orchestration equivalent
+────────────────────────────────────  ────────────────────────────────────────────
+Unix pipes                            LCEL pipe operator
+  cat file | grep "foo" | wc -l         prompt | model | parser
+  stdout → stdin, each is a filter      output → input, each Runnable transforms
+
+Rx / ReactiveExtensions               Async streaming chains
+  Observable.from(source)               chain.astream(input)
+    .map(transform)                     Each | step is a map operator
+    .filter(predicate)                  Backpressure via async generator
+    .subscribe(sink)
+
+Middleware pipeline                   Chain composition
+  ASP.NET Core:  app.Use(MW1)           chain = prompt | model | parser
+                 app.Use(MW2)           Each component is a Runnable with
+                 app.Run(handler)       invoke / stream / batch / astream
+  Express:       app.use(fn1, fn2, fn3)
+  Koa:           app.use(async (ctx, next) => { await next() })
+```
+
+The key insight shared across all of these: each component in the pipeline has a
+**uniform interface** (request in, response out) and is **composable without knowing
+its neighbors**. LCEL's `Runnable` interface (`invoke`, `stream`, `batch`, `astream`)
+is exactly the same contract. Swapping `ChatAnthropic` for `ChatOpenAI` in a chain
+is the same as swapping middleware implementations — the pipe topology doesn't change.
+
 ---
 
 ## LangChain
@@ -152,7 +183,7 @@ vectorstore = Chroma.from_documents(docs, embeddings)
 retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
 
 # RAG prompt
-rag_prompt = ChatPromptTemplate.from_messages([
+ rag_prompt = ChatPromptTemplate.from_messages([
     ("system", """Answer based on context only.
 If the context doesn't contain the answer, say "I don't know."
 
@@ -538,9 +569,12 @@ print(result.chat_history)  # full reasoning trace
 The planner uses a think-act-observe loop similar to ReAct (see 01-LLM-CONCEPTS.md).
 The difference: the plan is explicit and inspectable before execution.
 
-### SK in C# (the .NET bridge)
+### SK in C# — First-Class .NET SDK
 
-For the learner's .NET background — SK is a first-class .NET library:
+SK provides a first-class .NET SDK — the natural choice when adding LLM capabilities
+to an existing C# service without introducing a Python process boundary. Any team with
+a .NET API, worker service, or Azure Function can integrate SK via NuGet without
+changing their hosting model or service fabric:
 
 ```csharp
 using Microsoft.SemanticKernel;
@@ -615,6 +649,25 @@ managed identity, auditable, within Azure compliance boundaries.
 │ Sem Kernel → best for .NET shops, Azure-native, enterprise compliance│
 └───────────────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## LangGraph — Stateful Agent Graphs
+
+LangGraph (by the LangChain team) adds explicit state machines to agents — the
+control flow is a directed graph, nodes are LLM calls or functions, and edges are
+conditional transitions. Covered in full in **04-AGENTS.md**. The orchestration
+relevance here: LangGraph is the natural upgrade path from `AgentExecutor` when
+you need persistence, branching, human-in-the-loop, or multi-agent coordination.
+
+```
+LangChain AgentExecutor  →  simple agents, imperative loop
+LangGraph StateGraph     →  complex agents, explicit state machine,
+                             persistence, conditional routing, pause/resume
+```
+
+If you're evaluating whether to use LangChain's agent tooling for a new project
+that will need any of those properties, start with LangGraph.
 
 ---
 

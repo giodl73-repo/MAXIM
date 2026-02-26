@@ -170,19 +170,32 @@ Transformer layer (repeated L times):
   x → LayerNorm → MultiHeadAttention → residual add
     → LayerNorm → FFN (feed-forward network) → residual add
 
-  FFN = two linear layers with nonlinearity:
-    FFN(x) = max(0, xW_1 + b_1)W_2 + b_2    (ReLU, original)
-    FFN(x) = SiLU(xW_1) ⊙ (xW_3) W_2        (SwiGLU, Llama/Mistral/modern)
+  FFN nonlinearity — what changed since the original paper:
+    FFN(x) = max(0, xW_1 + b_1)W_2 + b_2    (ReLU, 2017 original — now obsolete)
+    FFN(x) = SiLU(xW_1) ⊙ (xW_3) W_2        (SwiGLU, Llama/Mistral/Gemma/modern)
 
-  Residual connections: crucial for gradient flow in deep networks
-  LayerNorm: stabilizes training (Pre-LN placement is now standard)
+  SwiGLU adds a gating projection W_3 — three weight matrices instead of two.
+  Net effect: ~33% more FFN parameters for the same d_ff; typically shrink d_ff
+  to compensate. SwiGLU trains faster and achieves better perplexity than ReLU
+  at the same total parameter count. This is why modern models outperform same-size
+  ReLU variants despite identical depth.
 
-Parameters scale:
-  d_model: hidden dimension (e.g., 4096 for Llama-7B, 12288 for GPT-3)
-  d_ff: FFN dimension (~4× d_model)
-  n_heads: attention heads
-  L: number of layers
-  Total params ≈ 12 × L × d_model²  (approximate formula for dense transformers)
+  Pre-LN (LayerNorm before attention/FFN) is now standard vs. original Post-LN.
+  Pre-LN stabilizes training at large scale — Post-LN requires warm-up scheduling
+  to prevent early-layer gradient explosion.
+
+Parameter count formula (dense transformer, approximate):
+  d_model: hidden dimension (e.g., 4096 for 7B, 8192 for 70B, 12288 for GPT-3)
+  d_ff:    FFN dimension (~2.67× d_model for SwiGLU; ~4× for ReLU)
+  L:       number of layers
+
+  Embedding params:   vocab_size × d_model     (shared input/output in most models)
+  Attention per layer: 4 × d_model²            (Q, K, V, O projections)
+  FFN per layer:       ~8 × d_model²            (SwiGLU: 3 projections × ~2.67× d_model)
+  Total params ≈ 12 × L × d_model²             (rough: attention + FFN dominate)
+
+  Llama-3-8B:  d_model=4096, L=32  → 32 × 12 × 4096² ≈ 6.4B (excl. embedding)
+  GPT-3 175B:  d_model=12288, L=96 → 96 × 12 × 12288² ≈ 175B ✓
 ```
 
 ### Positional Encoding
@@ -345,6 +358,27 @@ Speculative decoding (Chen et al. 2023):
 
 The term "prompt engineering" undersells what's actually happening. You're constructing the input context that conditions the model's distribution.
 
+If you've built with dependency injection frameworks (Spring, ASP.NET Core, Guice, any IoC container), the mental model transfers directly:
+
+```
+DI / IoC pattern          Context engineering equivalent
+──────────────────        ────────────────────────────────────────────────
+DI container config   →   System prompt (stable config assembled at startup;
+                           injected into every request; sets capabilities,
+                           persona, constraints, output format)
+
+Runtime-resolved deps →   Retrieved documents (RAG results fetched at request
+                           time based on the specific query; analogous to
+                           resolving a repository or service at runtime
+                           rather than wiring it statically)
+
+Composed execution    →   Full messages array (system + history + retrieved
+  context                  docs + tool outputs + current task; the assembled
+                           execution context the model reasons over)
+```
+
+The model has no global state — everything it knows about the current request is in the messages array, the same way a stateless service has everything it needs injected into the request scope. "Memory" in LLM apps is just retrieval + injection, the same way a stateless service "remembers" per-request context via DI scope.
+
 ### The Context Window as Working Memory
 
 ```
@@ -424,11 +458,40 @@ RAG Architecture
     Retrieval:  query → embedding → ANN search → top-k chunks
     Generation: prompt assembly → LLM → response + citations
 
-  Chunking strategies:
-    Fixed size (512 tokens):    simple, misses semantic boundaries
-    Sentence/paragraph:         better coherence, variable size
-    Hierarchical (parent/child): retrieve child chunks, include parent for context
-    Semantic:                   cluster by embedding similarity
+  Chunking strategies — tradeoff matrix:
+
+  ┌──────────────────┬──────────────────┬──────────────────────┬──────────────────┐
+  │ Strategy         │ Quality          │ Cost/Complexity      │ When to use      │
+  ├──────────────────┼──────────────────┼──────────────────────┼──────────────────┤
+  │ Fixed size       │ Low — cuts mid-  │ Fastest, cheapest,   │ Baseline / proof │
+  │ (512 tokens)     │ sentence, misses │ zero dependencies    │ of concept;      │
+  │                  │ semantic bounds  │                      │ uniform docs     │
+  ├──────────────────┼──────────────────┼──────────────────────┼──────────────────┤
+  │ Sentence /       │ Medium — respects│ Fast; sentence       │ Prose documents  │
+  │ paragraph        │ natural breaks,  │ tokenization adds    │ (articles, PDFs, │
+  │                  │ variable chunk   │ minor overhead       │ support tickets) │
+  │                  │ size             │                      │                  │
+  ├──────────────────┼──────────────────┼──────────────────────┼──────────────────┤
+  │ Hierarchical     │ High — retrieves │ 2× index size;       │ Long documents   │
+  │ (parent/child)   │ child chunk,     │ more complex         │ with structure   │
+  │                  │ injects parent   │ retrieval logic      │ (manuals, books, │
+  │                  │ for full context │                      │ legal contracts) │
+  ├──────────────────┼──────────────────┼──────────────────────┼──────────────────┤
+  │ Semantic         │ Highest — splits │ Expensive: embed     │ High-value       │
+  │ (embed + cluster │ at embedding     │ every candidate      │ corpora where    │
+  │  similarity)     │ similarity breaks│ split point          │ retrieval        │
+  │                  │                  │                      │ precision matters│
+  └──────────────────┴──────────────────┴──────────────────────┴──────────────────┘
+
+  Decision tree:
+    Prototype / quick PoC?           → Fixed size (512 tokens, 64 overlap)
+    Production prose documents?      → Sentence splitter
+    Long structured docs?            → Hierarchical (parent/child)
+    Maximum retrieval quality?       → Semantic chunking
+    Mixed structure (PDF, HTML, MD)? → Structure-aware + sentence splitter
+    LLM budget for metadata?        → Add QuestionsAnsweredExtractor (LlamaIndex)
+
+  Always add chunk overlap (10% of chunk size) to avoid losing context at boundaries.
 ```
 
 ---
@@ -464,6 +527,36 @@ When to fine-tune vs when to prompt:
     QLoRA: LoRA + quantized base model (4-bit) → fine-tune large models on consumer GPUs
 ```
 
+The fine-tuning workflow maps directly to the software build/test/release cycle:
+
+```
+Software CI/CD                    Fine-tuning equivalent
+──────────────────────────────    ─────────────────────────────────────────────
+Test suite                    →   Training + eval dataset
+  (inputs + expected outputs)       (prompts + ideal completions)
+
+Build artifact                →   Fine-tuned model checkpoint
+  (compiled binary, docker image)   (adapter weights or full model weights)
+
+Quality gate / SLO            →   Eval metric threshold
+  (test pass rate, error budget)    (task-specific score vs. baseline)
+
+Canary deploy → measure →     →   Fine-tune → eval → iterate
+  roll back or promote              (same loop: measure before promoting)
+
+CI/CD pipeline                →   MLOps pipeline
+  (GitHub Actions, Azure DevOps)    (HuggingFace AutoTrain, Azure ML, Vertex AI)
+```
+
+LoRA has an exact structural analog in OOP: the **Adapter pattern**. The frozen base
+model is a stable, expensive-to-change interface (like a third-party library or a
+legacy service boundary). The LoRA adapter matrices (A and B, rank r << d_model)
+are the lightweight specialization layer that sits in front of it — they augment
+behavior without touching the underlying implementation. Swapping LoRA adapters is
+the equivalent of swapping adapter implementations: same stable base, different
+behavior profiles. This is why LoRA makes multi-task serving tractable — one base
+model in GPU memory, hot-swap adapter weights per request.
+
 ---
 
 ## Model Families — The Practical Map
@@ -495,7 +588,7 @@ Meta        Llama 3.1       128k      Open weights           Self-hosted,
                                                              air-gapped deploy
 
 Mistral     Mistral Large   128k      Strong, European       GDPR-sensitive,
-                                                             efficient
+                                      efficient
 
 Cohere      Command R+      128k      RAG-optimized,         Enterprise RAG,
                                       grounding              search augmentation
