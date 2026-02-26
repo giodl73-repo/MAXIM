@@ -26,25 +26,25 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 
 ---
 
-## Visual Language — What Each Phase Adds
+## Flairs — What Each Phase Leaves in the Image
 
-Each phase contributes a visual technique to the deck's art language. Together, these 11 principles define how all 52 cards are drawn.
+Each phase adds a small poetic detail to its card's image concept — a mark left in the art that says *this work happened here*. See `cards/CONCEPTS.md` for the full image descriptions.
 
-| # | Role | Visual contribution |
-|---|------|---------------------|
-| 1 | The Architect | **Hierarchical layering** — tiers, boundaries, directional flow arrows |
-| 2 | The Scribe | **Anatomical dissection** — labeled parts, internal structure exposed |
-| 3 | The Taxonomist | **Branching classification** — trees, nested categories, ranked hierarchies |
-| 4 | The Fabricator | **Cross-sectional views** — layered materials, internal slice-throughs |
-| 5 | The Constructor | **Force diagrams** — compression/tension members, structural arrows |
-| 6 | The Broadcaster | **Sequential progression** — timelines, film-strip frames, left-to-right flow |
-| 7 | The Chronicler | **Cartographic elements** — coastlines, coordinate grids, route arrows |
-| 8 | The Sage | **Genealogical branching** — philosophical trees, tradition lines, origin nodes |
-| 9 | The Editor | **Typographic grids** — columns, gutters, alignment marks, negative space |
-| 10 | The Composer | **Notational overlay** — staff lines, symbols layered on structural drawings |
-| 11 | The Discoverer | **Constellation fields** — equations/symbols scattered like stars, one unfinished |
+| # | Role | Flair |
+|---|------|-------|
+| 1 | The Architect | *...the bottom layer drawn first, still warm, the pencil line not yet lifted* |
+| 2 | The Scribe | *...twenty-seven more waiting in a row, each one a different hand* |
+| 3 | The Taxonomist | *...one label crossed out and rewritten in a steadier hand* |
+| 4 | The Fabricator | *...five identical devices being etched in parallel across the wafer* |
+| 5 | The Constructor | *...a small figure already crossing before the last cable is drawn* |
+| 6 | The Broadcaster | *...the outermost ring fading past the edge of the card* |
+| 7 | The Chronicler | *...a second map visible underneath where the ink has bled through* |
+| 8 | The Sage | *...one branch at the very bottom unlabeled, root-stock before all schools* |
+| 9 | The Editor | *...the serif of the new typeface just visible where the old sans-serif was scraped away* |
+| 10 | The Composer | *...when you look again the building IS the score: every window a rest, every column a bar line* |
+| 11 | The Discoverer | *...one equation still being written: the ink not yet dry, the chalk still in hand* |
 
-*Future phases will add more techniques — stippling, contour hatching, exploded views, waveforms, circuit traces...*
+*41 cards await their flair.*
 
 ---
 
