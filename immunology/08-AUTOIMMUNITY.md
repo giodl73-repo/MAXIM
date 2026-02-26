@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P3]: No CS/engineering analogy bridge — tolerance failure parallels a classifier with high false-positive rate; molecular mimicry parallels hash collision (two distinct inputs matching the same signature); epitope spreading parallels cascading failure in a microservice mesh -->
 # Autoimmunity
 
 ## The Big Picture

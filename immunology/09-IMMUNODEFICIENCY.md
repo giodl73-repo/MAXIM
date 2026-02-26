@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P3]: No CS/engineering analogy bridge — infection susceptibility pattern parallels fault-tree analysis (symptom pattern identifies which subsystem is down); HIV latent reservoir parallels a rootkit persisting in firmware that the OS cannot reach -->
 # Immunodeficiency and Immune Failure
 
 ## The Big Picture

@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P3]: No CS/engineering analogy bridge — immunological synapse parallels client-server handshake with mutual authentication; T cell exhaustion parallels thread starvation under sustained load -->
 # T Cells
 
 ## The Big Picture

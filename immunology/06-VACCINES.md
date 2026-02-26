@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P3]: No CS/engineering analogy bridge — mRNA vaccine platform parallels a programmable build system (sequence in, antigen out); adjuvants parallel dependency injection of context that the runtime needs but the payload doesn't carry -->
 # Vaccines and Vaccination
 
 ## The Big Picture
