@@ -171,7 +171,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `economics/` | 5 | 2026-02 | — | 10 tags → pending |
+| `economics/` | 5 | 2026-02 | — | 11 tags → pending |
 | `finance/` | 5 | 2026-02 | — | 14 tags → pending |
 | `behavioral-economics/` | 11 | — | — | |
 | `political-science/` | 7 | — | — | |

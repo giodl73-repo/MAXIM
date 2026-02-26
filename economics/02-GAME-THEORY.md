@@ -4,6 +4,7 @@
 
 ## Big Picture
 
+<!-- @editor[diagram/P2]: Diagram lists game components and applications but doesn't show relationships between solution concepts — e.g., how Nash refines to SPE refines to PBE, how normal form maps to extensive form, how Bayesian games generalize complete-info games -->
 ```
 GAME THEORY: mathematical study of strategic interaction among rational agents
 
@@ -270,3 +271,6 @@ REPLICATOR DYNAMICS:
 | Battle of Sexes | Two pure NE | Multiple equilibria → need focal point |
 | Centipede | Backward induction | Rationality → early exit, experiment says cooperate |
 | Ultimatum | SPE = reject small but accept any | Experiment: people reject "unfair" offers |
+
+<!-- @editor[structure/P2]: Missing Common Confusion Points section — natural gotchas: Nash equilibrium is not necessarily "optimal" or "fair", mixed strategy equilibrium does not mean players literally randomize, backward induction assumes common knowledge of rationality, dominant strategy vs dominated strategy, SPE vs NE -->
+<!-- @editor[content/P2]: Correlated equilibrium appears in Decision Cheat Sheet but has no coverage in the body — either add a section or remove from the table -->

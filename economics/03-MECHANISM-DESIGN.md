@@ -318,3 +318,5 @@ IMPLICATIONS:
 | Gale-Shapley DA | Stable matching | DSIC (proposers) | Stable | Not eff., woman-optimal DA for proposers |
 | Top Trading Cycles | Reassignment | DSIC | Pareto optimal | All three: unique property |
 | Shapley value | Fair value allocation | — | Efficient | Used in ML (SHAP), cost-sharing |
+
+<!-- @editor[structure/P2]: Missing Common Confusion Points section — natural gotchas: DSIC vs BIC (when does the distinction matter), VCG budget imbalance, why GSP is not truthful but works in practice, revenue equivalence assumptions, Shapley value computational complexity -->

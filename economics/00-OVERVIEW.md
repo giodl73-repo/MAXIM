@@ -4,6 +4,7 @@
 
 ## Big Picture
 
+<!-- @editor[diagram/P2]: Diagram lists items in a hierarchy but doesn't show how micro, game theory, mechanism design, and macro relate to each other — rework as layered system view showing information economics feeding into mechanism design, game theory underpinning market equilibria, etc. -->
 ```
 ECONOMICS
   │
@@ -51,6 +52,7 @@ ECONOMICS
 
 ## Field Map
 
+<!-- @editor[diagram/P2]: Field Map repeats the hierarchy pattern — three separate trees with no cross-links showing how game theory feeds mechanism design, how information economics bridges micro and mechanism design, etc. -->
 ```
 MICROECONOMICS TREE:
   Consumer theory → demand curves
@@ -92,6 +94,8 @@ MECHANISM DESIGN TREE:
 ## Historical Arc
 
 ```
+<!-- @editor[structure/P1]: Missing Decision Cheat Sheet section — guide needs a "what do I use when" table (e.g., "need to model strategic agents → game theory", "need to design incentive-compatible rules → mechanism design") -->
+<!-- @editor[structure/P2]: Missing Common Confusion Points section — natural gotchas include game theory vs decision theory, mechanism design vs market design, micro vs macro boundaries, Nash equilibrium misconceptions -->
 1776: Adam Smith — Wealth of Nations (invisible hand, specialization)
 1890: Marshall — Principles of Economics (supply and demand diagrams)
 1938: Hicks, Allen — formal consumer theory (ordinal utility)

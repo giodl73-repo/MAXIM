@@ -401,3 +401,5 @@ COMMON POOL RESOURCES (TRAGEDY OF THE COMMONS):
 | Public good | Free rider problem | Government provision or mechanism design |
 | Common pool | Tragedy of commons | Quotas, property rights, or Ostrom institutions |
 | Price discrimination | 1st/2nd/3rd degree | 1st = efficient, eliminates CS; 3rd = market segmentation |
+
+<!-- @editor[structure/P2]: Missing Common Confusion Points section — natural gotchas: Giffen vs inferior goods, normal profit vs zero profit, MRS vs MRTS, short-run vs long-run supply, consumer surplus vs utility -->

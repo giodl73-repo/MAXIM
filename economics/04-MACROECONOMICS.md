@@ -4,6 +4,7 @@
 
 ## Big Picture
 
+<!-- @editor[diagram/P2]: Diagram lists key questions and analysis levels but doesn't show how the macro framework connects — e.g., how IS-LM produces AD, how AS-AD determines short-run output, how monetary policy feeds through the Taylor rule into IS-LM, how Solow determines long-run potential -->
 ```
 MACROECONOMICS: aggregate phenomena — entire economies, not individual agents
 
@@ -394,3 +395,5 @@ TRILEMMA (Mundell-Fleming):
 | Taylor rule | i = r* + π + 0.5(π-π*) + 0.5 gap | Fed funds rate target |
 | PPP | S = P/P* | Exchange rate from price parity |
 | Debt sustainability | r < g → no primary surplus needed | Fiscal space condition |
+
+<!-- @editor[structure/P2]: Missing Common Confusion Points section — natural gotchas: real vs nominal interest rates, GDP vs GNP vs GNI, CPI vs GDP deflator vs PCE, Ricardian equivalence assumptions, why zero lower bound matters, money multiplier in practice vs theory -->
