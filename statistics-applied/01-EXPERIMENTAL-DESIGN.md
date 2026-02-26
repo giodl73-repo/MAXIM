@@ -412,6 +412,8 @@ ALPHA-SPENDING FOR ONLINE A/B TESTS:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: group sequential / adaptive designs mirror staged deployment rings (Azure DevOps) and feature-flag rollouts — both monitor mid-stream and decide continue/stop/rollback -->
+
 ## Common Confusion Points
 
 **Power analysis uses MDE, not expected effect:** Power analysis should specify the MINIMUM effect worth detecting (business/scientific threshold), not the expected or likely effect. Using the expected effect produces underpowered studies — most effects are smaller than expected.

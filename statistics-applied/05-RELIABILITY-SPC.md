@@ -434,6 +434,8 @@ LIMITATIONS:
 
 ---
 
+<!-- @editor[bridge/P2]: Missing explicit bridge — SPC control charts are the statistical foundation for Azure Monitor / Application Insights alert thresholds; burn-in testing parallels canary/blue-green deployment phases; "the nines" SLA table is close but could explicitly bridge to Azure SLA thinking -->
+
 ## Common Confusion Points
 
 **Cpk doesn't measure short-term vs long-term:** Cp and Cpk are instantaneous capability estimates from process data. The "1.5σ shift" in Six Sigma is an empirical adjustment Motorola made for long-term process drift — it's an assumption, not derived from the Cpk formula. Don't confuse Cp/Cpk with the 3.4 DPMO number.

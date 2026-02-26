@@ -257,6 +257,8 @@ COMPLEMENTS:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge anywhere in overview — natural parallel: "pre-registration = compile-time type checking for hypotheses" (catches errors before runtime/analysis), estimand/estimator/estimate chain parallels specification/implementation/output in typed systems -->
+
 ## Common Confusion Points
 
 **Statistical significance ≠ practical significance:** p=0.001 on a tiny effect in a huge sample means nothing practically. p=0.08 on a large effect in a small sample may be practically important. Effect size (Cohen's d, OR, NNT) is always more informative than the p-value for practical decisions.

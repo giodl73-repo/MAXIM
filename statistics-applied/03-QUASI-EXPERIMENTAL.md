@@ -346,6 +346,8 @@ AUTOCORRELATION:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: identification assumptions = preconditions/invariants in formal verification (compiler theory); canary deployments and progressive rollouts parallel DiD and synthetic control logic -->
+
 ## Common Confusion Points
 
 **Parallel pre-trends ≠ parallel trends assumption:** Pre-period parallel trends is a TESTABLE implication of the parallel trends assumption. It's necessary but not sufficient. Trends could be parallel pre-treatment and diverge post-treatment for reasons unrelated to treatment (confounding event at t₀). Always ask: "what else happened at treatment time?"

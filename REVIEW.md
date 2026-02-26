@@ -180,7 +180,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `sociology/` | 10 | 2026-02 | — | 18 tags → pending |
 | `organizational-behavior/` | 7 | — | — | |
 | `game-theory/` | 6 | 2026-02 | — | 9 tags → pending |
-| `statistics-applied/` | 6 | — | — | |
+| `statistics-applied/` | 6 | 2026-02 | — | 7 tags → pending |
 | `public-health/` | 11 | 2026-02 | — | 4 tags → pending |
 | `demography/` | 10 | — | — | |
 | `criminology/` | 10 | — | — | |
@@ -196,7 +196,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 |-----------|------:|-------|-------|-------|
 | `linguistics/` | 10 | — | — | |
 | `world-languages/` | 15 | — | — | |
-| `codes/` | 10 | — | — | |
+| `codes/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
 | `typography/` | 12 | — | — | |
 | `printing-publishing/` | 10 | — | — | |
 | `cinema-film/` | 11 | — | — | |
