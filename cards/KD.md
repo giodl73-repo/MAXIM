@@ -1,6 +1,6 @@
 # K♦ — Computing & Software · Volume II
 
-*Application volume of the Computing & Software section.*
+*King of Pentacles — programming grounded in practice.*
 
 ```
 ╔═══════════════════════════════════════════════╗

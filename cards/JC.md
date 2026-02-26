@@ -1,6 +1,6 @@
 # J♣ — Mathematics & Physics · Volume I
 
-*Foundation volume of the Mathematics & Physics section.*
+*Knight of Wands — charging through formal physical terrain.*
 
 ```
 ╔═══════════════════════════════════════════════╗

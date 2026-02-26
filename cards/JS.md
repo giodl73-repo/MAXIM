@@ -1,6 +1,6 @@
 # J♠ — Mathematics & Physics · Volume IV
 
-*Frontier volume of the Mathematics & Physics section.*
+*Knight of Swords — slicing to the limit of physical law.*
 
 ```
 ╔═══════════════════════════════════════════════╗
@@ -23,7 +23,7 @@
 ║  partial-differential-equations/              ║
 ║  variational-calculus/ · lie-groups/          ║
 ╠═══════════════════════════════════════════════╣
-║  Complex plane, flow, entropy, PDE, action,   ║
-║  symmetry.                                    ║
+║  Mathematics at the limit of physical law.    ║
+║                                               ║
 ╚═══════════════════════════════════════════════╝
 ```

@@ -1,6 +1,6 @@
 # A♥ — People · Volume III
 
-*Depth volume of the People section.*
+*Ace of Cups — the inner gift: philosopher, builder, poet.*
 
 ```
 ╔═══════════════════════════════════════════════╗

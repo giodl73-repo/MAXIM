@@ -1,6 +1,6 @@
 # Q♠ — Arts & Culture · Volume IV
 
-*Frontier volume of the Arts & Culture section.*
+*Queen of Swords — form stripped to its essential cut.*
 
 ```
 ╔═══════════════════════════════════════════════╗
@@ -21,7 +21,7 @@
 ║  graphic-design/ · fashion/                   ║
 ║  comics-sequential-art/ · sports-science/     ║
 ╠═══════════════════════════════════════════════╣
-║  Grid, silhouette, panel, power — the frontier║
-║  of form.                                     ║
+║  Design cuts to what matters.                 ║
+║                                               ║
 ╚═══════════════════════════════════════════════╝
 ```

@@ -1,6 +1,6 @@
 # Q♦ — Arts & Culture · Volume II
 
-*Application volume of the Arts & Culture section.*
+*Queen of Pentacles — the eye that turns seeing into craft.*
 
 ```
 ╔═══════════════════════════════════════════════╗

@@ -1,6 +1,6 @@
 # J♥ — Mathematics & Physics · Volume III
 
-*Depth volume of the Mathematics & Physics section.*
+*Knight of Cups — the inner quest of pure mathematics.*
 
 ```
 ╔═══════════════════════════════════════════════╗
@@ -22,7 +22,7 @@
 ║  topology/ · probability-statistics/          ║
 ║  differential-geometry/ · numerical-methods/  ║
 ╠═══════════════════════════════════════════════╣
-║  Prime, group, surface, probability,          ║
-║  curvature, approximation.                    ║
+║  The deep structures that survive             ║
+║  all transformation.                          ║
 ╚═══════════════════════════════════════════════╝
 ```
