@@ -290,8 +290,9 @@ PRACTICAL IMPLICATIONS:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to CI/CD observability — SPC control charts are the manufacturing equivalent of production metrics dashboards: control limits = alerting thresholds, Cpk = process health score, Western Electric rules = anomaly detection rules; the learner's VSTS/DevOps background maps directly -->
 ## Statistical Process Control (SPC)
+
+SPC control charts are structurally identical to production metrics dashboards: UCL/LCL control limits are your alerting thresholds (p99 latency budget), Cpk is the process health score (how much margin exists between your natural variation and the spec limits), and the Western Electric rules are anomaly detection heuristics — the same pattern-recognition logic as "N consecutive data points on the same side of the mean" rules in any time-series monitoring system. The distinction is that SPC triggers corrective action on the *process* before defects appear, not on the *defect* after it ships.
 
 ```
 SPC CONTROL CHARTS:

@@ -326,7 +326,15 @@ COMPETITION WITH VENICE:
 
 ---
 
-<!-- @editor[structure/P3]: No comparison tables in body — a side-by-side table comparing Roman vs Islamic vs Venetian vs Bohemian traditions (composition, technique, key innovation, period) would aid quick scanning -->
+## Tradition Comparison
+
+| Tradition | Period | Composition | Signature Technique | Key Innovation | Defining Object |
+|-----------|--------|-------------|---------------------|----------------|-----------------|
+| Roman | 50 BCE – 400 CE | Soda-lime (natron) | Blown + mold-blown | Free blowing; mold blowing | Cage cup (diatreta); Portland Vase |
+| Islamic | 700 – 1400 CE | Soda-lime (plant ash) | Enameling + gilding; cut | Polychrome enameling; lustre | Mamluk mosque lamp; hedgehog cup |
+| Venetian / Murano | 1300 – 1700 CE | Soda-lime (Levantine ash + manganese) | Filigree; lattimo; façon de Venise | Cristallo (decolorized); filigrana | Filigree goblet; millefiori |
+| Bohemian / German | 1600 – 1900 CE | Potash-lime (forest ash + lime) | Wheel engraving; cutting | Potash glass = harder, better cut | Wheel-engraved covered beaker; ruby flashed |
+| English Lead Crystal | 1676 – present | Lead oxide (24–30%) | Cutting; wheel engraving | Lead oxide → high refractive index + softness for cutting | Cut decanter; chandelier drops |
 
 ## Common Confusion Points
 
