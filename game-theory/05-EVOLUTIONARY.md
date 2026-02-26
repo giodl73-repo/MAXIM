@@ -193,6 +193,7 @@ The canonical ESS example from biology.
   At mixed ESS x* = (p*, 1-p*), fitness must be equal:
   f_Hawk(x*) = f_Dove(x*)
   p*(V-C)/2 + (1-p*)·V = p*·0 + (1-p*)·V/2
+<!-- @editor[content/P2]: Hawk-Dove mixed ESS derivation has visible false-start algebra ("... solving:", "simplify directly") before the clean version — remove the failed attempt and keep only the clean derivation that follows -->
   p*(V-C)/2 + V - p*V = V/2 - p*V/2
   p*(V-C)/2 = V/2 - p*V + p*V/2 - V + p*V = ... solving:
   p*(V-C)/2 + p*V = V - V/2 + p*V/2 + p*V/2 - p*V... (simplify directly)
@@ -331,6 +332,7 @@ the resulting equilibrium may be inefficient. How much does selfishness cost?
   New route A→B→C→D: 20 + 0 + 20 = 40 min.
 
   All drivers prefer the new route: NE = 2000 on A→B→C→D, cost = 40.
+<!-- @editor[content/P1]: Braess's Paradox example is broken — the worked computation shows cost DECREASING from 60 to 40 after adding the free edge, contradicting the stated claim ("Adding a road can make everyone worse off"). The standard Braess example uses different latency functions. Rework with correct numbers where the NE cost genuinely increases -->
   But wait — original NE was 60 min for each driver.
   After adding the free edge: NE is 40 min — better! (Braess usually shows cost increase)
 
@@ -622,6 +624,7 @@ frequency of opponents' play.
 
 ---
 
+<!-- @editor[bridge/P2]: No explicit old-world bridge section — evolutionary GT and algorithmic GT connect to concepts the learner knows: distributed systems convergence, load balancing as congestion games, no-regret learning as online optimization (MIT), PoA as system efficiency metric for selfish routing (Azure CDN, network design) -->
 ## Common Confusion Points
 
 **"ESS = Nash"**: Every ESS is a Nash equilibrium; not every Nash is ESS. Strict Nash ⟹

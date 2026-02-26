@@ -192,6 +192,7 @@ then φᵢ(v) = φⱼ(v) whenever i and j are symmetric
   φ_B - φ_A = 1 allocated to "medium category" users = B only
   φ_C - φ_B = 1 allocated to "large category" users = C only
 
+<!-- @editor[content/P1]: Airport game computation shows draft working ("let me be exact") and approximate results — clean up to show definitive Shapley value derivation with all 6 orderings and verified arithmetic -->
   More precisely: φ_A = 11/6, φ_B = 5/6, φ_C = 3/6? — let me be exact.
 
   The cost game: c({A}) = 1, c({B}) = 2, c({C}) = 3, c({A,B}) = 2,
@@ -444,6 +445,7 @@ from losing to winning.
 
 ---
 
+<!-- @editor[bridge/P2]: No explicit old-world bridge section — cooperative GT connects to the learner's background: LP duality (MIT), cost allocation in shared infrastructure (Azure shared services), fair division in org budgets, Shapley/SHAP for ML model interpretability -->
 ## Common Confusion Points
 
 **"Core = Shapley value"**: These are completely different concepts. The core is a set

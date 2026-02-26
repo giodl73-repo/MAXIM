@@ -456,6 +456,7 @@ at least one of these properties. In practice: mechanisms sacrifice some efficie
 
 ---
 
+<!-- @editor[bridge/P2]: No explicit old-world bridge section — mechanism design maps directly to concepts the learner knows: Arrow's theorem (MIT social choice), auction/allocation problems (Azure resource scheduling, ad marketplace), contract theory (incentive structures in VSTS/org design). A dedicated bridge table would anchor the guide -->
 ## Common Confusion Points
 
 **"Revelation principle says direct mechanisms are optimal"**: Revelation principle says

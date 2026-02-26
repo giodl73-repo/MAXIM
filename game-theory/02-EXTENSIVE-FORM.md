@@ -512,6 +512,7 @@ to mimic high types.
 
 ---
 
+<!-- @editor[bridge/P2]: No explicit old-world bridge section — the learner's MIT background (tree induction, Bayes' theorem, graph theory) and VSTS experience (sequential decision gates, rollback strategies) map naturally to extensive form concepts but the connection is never called out -->
 ## Common Confusion Points
 
 **"A strategy is a plan"**: A strategy in an extensive form game is a complete contingency
