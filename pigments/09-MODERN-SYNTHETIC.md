@@ -391,6 +391,8 @@ CURRENT APPLICATIONS:
 
 ---
 
+<!-- @editor[content/P2]: YInMn blue (2009, Mas Subramanian, Oregon State) absent — first new inorganic blue in ~200 years; significant gap for a guide covering modern synthetic pigments -->
+
 ## Vantablack — The Darkest Black
 
 ```

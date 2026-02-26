@@ -1,5 +1,7 @@
 # Pigments — Overview: Color, Chemistry, and the History of Paint
 
+<!-- @editor[diagram/P2]: Landscape diagram covers color-production mechanisms (physics) but does not map the 10-guide series structure — reader opening the overview has no visual roadmap of the chronological/thematic progression (prehistoric → ancient synthetic → … → conservation) -->
+
 ## The Big Picture
 
 ```
@@ -247,6 +249,8 @@ WHY BINDER MATTERS:
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world-to-new-world bridge in the overview — the individual guides carry bridges, but the overview should set up at least one framing bridge (e.g., crystal-field theory as the unifying "compiler" that maps mineral input to color output) -->
 
 ## Decision Cheat Sheet
 
