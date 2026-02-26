@@ -374,6 +374,7 @@ EVIDENCE NOW FAVORS: mostly ground-up + trees-down in different lineages
   (Multiple origins of flight within Maniraptora? Debated)
 ```
 
+<!-- @editor[bridge/P3]: Bird one-way airflow lung vs mammal tidal lung is a natural bridge to pipeline vs batch processing — continuous throughput with counter-current exchange parallels streaming architectures vs store-and-forward -->
 ### Avian Innovations
 
 ```

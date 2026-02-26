@@ -282,6 +282,7 @@ SPLIT TIMING (~100 Ma, Cretaceous):
   Laurasian lineages (Laurasiatheria + Euarchontoglires) on north
 ```
 
+<!-- @editor[bridge/P3]: Endogenous retroviruses repurposed for placentation is a natural bridge to code reuse / library adoption — foreign code integrated, tested by selection, now essential infrastructure; learner with software engineering background would connect immediately -->
 ### Placenta: The Key Placental Innovation
 
 ```
@@ -496,6 +497,7 @@ Gorilla divergence: ~7–8 Ma
 Orangutan divergence: ~12–14 Ma
 ```
 
+<!-- @editor[content/P2]: Primate section is compressed — 500 species in ~20 lines; the prosimian-to-anthropoid transition and New World vs Old World monkey divergence deserve more space given this is the learner's own lineage -->
 ### Human Evolution Timeline
 
 ```

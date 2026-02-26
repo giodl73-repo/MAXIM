@@ -395,6 +395,7 @@ HOW POORLY KNOWN:
 
 ---
 
+<!-- @editor[content/P2]: No mention of amphibian genome sizes — salamanders have among the largest vertebrate genomes (axolotl: 32 Gb, ~10x human); this C-value paradox is significant and connects to the genome duplication themes in 08-CHORDATA-ORIGINS -->
 ## Layer 6 — The Amphibian Decline Crisis
 
 ```

@@ -293,6 +293,7 @@ BLOOD:
   CLOSED circulatory system (unique among invertebrates)
 ```
 
+<!-- @editor[bridge/P2]: Octopus distributed nervous system (300M neurons in arms, semi-autonomous control) is a natural bridge to distributed computing / actor model — 8 independent processors with loose coordination through a central bus -->
 ### Cephalopod Intelligence
 
 ```
