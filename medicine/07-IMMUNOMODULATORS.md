@@ -4,6 +4,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No CS bridge -- immune system is distributed autonomous agent network with self/non-self classification (type system), tolerance (allowlisting), autoimmunity (false positive); immunosuppression is access control policy modification -->
+
 ## Big Picture: Immunomodulation Landscape
 
 ```

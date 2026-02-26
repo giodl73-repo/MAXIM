@@ -4,6 +4,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No CS bridge -- viral life cycle = pipeline architecture; vaccine platforms map to deployment strategies (live = full build, inactivated = snapshot, mRNA = JIT compilation, vector = container-based delivery) -->
+
 ## Big Picture: Antiviral Target Map
 
 ```

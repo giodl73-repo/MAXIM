@@ -4,6 +4,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No CS bridge -- endocrine feedback loops are multi-level cascaded control systems with set points, gain control, saturation -- direct parallel to hierarchical feedback control -->
+
 ## Big Picture: Endocrine Drug Map
 
 ```

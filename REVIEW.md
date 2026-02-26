@@ -104,18 +104,18 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
 | `natural-sciences/` | 18 | — | — | |
-| `biology/` | 7 | — | — | |
-| `botany/` | 10 | — | — | |
-| `ecology/` | 11 | — | — | |
-| `human-biology/` | 11 | — | — | |
-| `neuroscience/` | 5 | — | — | |
+| `biology/` | 7 | 2026-02 | — | 12 tags → pending |
+| `botany/` | 10 | 2026-02 | — | sweeping |
+| `ecology/` | 11 | 2026-02 | — | 23 tags → pending |
+| `human-biology/` | 11 | 2026-02 | — | 17 tags → pending |
+| `neuroscience/` | 5 | 2026-02 | — | 13 tags → pending (1 file polished) |
 | `cognitive-science/` | 10 | — | — | |
-| `disease/` | 11 | — | — | |
-| `medicine/` | 11 | — | — | |
-| `nutrition/` | 10 | — | — | |
-| `genomics/` | 10 | — | — | |
-| `immunology/` | 10 | — | — | |
-| `microbiology/` | 10 | — | — | |
+| `disease/` | 11 | 2026-02 | — | 13 tags → pending |
+| `medicine/` | 11 | 2026-02 | — | 14 tags → pending |
+| `nutrition/` | 10 | 2026-02 | — | sweeping |
+| `genomics/` | 10 | 2026-02 | — | sweeping |
+| `immunology/` | 10 | 2026-02 | — | sweeping |
+| `microbiology/` | 10 | 2026-02 | — | swept, injection pending |
 | `evolutionary-biology/` | 10 | — | — | |
 | `virology/` | 10 | — | — | |
 | `biophysics/` | 10 | — | — | |
@@ -278,7 +278,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | Mathematics & Physics | 20 | 0 | 0 | 20 |
 | Mechanics | 14 | 0 | 0 | 14 |
 | Technology | 9 | 0 | 0 | 9 |
-| Life Sciences | 18 | 0 | 0 | 18 |
+| Life Sciences | 18 | 0 | 7 | 11 |
 | Earth & Space | 14 | 0 | 0 | 14 |
 | History & Ideas | 15 | 0 | 0 | 15 |
 | Social Sciences | 16 | 0 | 0 | 16 |

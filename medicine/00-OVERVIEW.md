@@ -4,6 +4,9 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No CS/systems bridge -- PK/PD maps to control theory (input/output/feedback/steady-state convergence); ADME is a pipeline with transforms at each stage; therapeutic index is a safety margin like numerical stability bounds -->
+<!-- @editor[diagram/P2]: Diagram lists items but does not show relationships -- rework as layered system view showing PK-to-PD flow, feedback loops, and how drug classes connect to core concepts -->
+
 ## Big Picture: The Drug Landscape
 
 ```

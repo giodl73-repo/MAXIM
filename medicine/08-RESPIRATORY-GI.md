@@ -335,6 +335,8 @@ IBD DRUGS:
 
 ---
 
+<!-- @editor[structure/P3]: Decision Cheat Sheet uses Q&A format rather than "use X when Y" table -- consider reformatting for consistency with other guides -->
+
 ## 8. Decision Cheat Sheet
 
 | Question | Answer |

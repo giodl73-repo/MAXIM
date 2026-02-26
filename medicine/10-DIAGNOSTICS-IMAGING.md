@@ -445,6 +445,8 @@ RADIATION PROTECTION:
 
 ---
 
+<!-- @editor[bridge/P2]: Diagnostic reasoning is native territory for this learner -- sensitivity/specificity IS precision/recall, Bayesian updating IS posterior inference, ROC curves are the same ROC curves in ML; make these connections explicit -->
+
 ## 11. Diagnostic Reasoning
 
 ```

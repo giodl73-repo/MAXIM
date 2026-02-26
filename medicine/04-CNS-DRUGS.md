@@ -4,6 +4,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No CS bridge -- neurotransmitter systems map to message-passing (reuptake inhibitors = blocking GC of messages; receptor agonists/antagonists = API activation/blocking; allosteric modulators = middleware) -->
+
 ## Big Picture: CNS Drug Landscape
 
 ```
