@@ -265,7 +265,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `marine-biology/` | 10 | — | — | |
 | `entomology/` | 10 | — | — | |
 | `ornithology/` | 10 | — | — | |
-| `zoology/` | 10 | — | — | |
+| `zoology/` | 10 | 2026-02 | — | 0 tags -- polished |
 | `horticulture/` | 10 | — | — | |
 
 ---
