@@ -389,6 +389,7 @@ FROM DNA TO EXPRESSION MEASUREMENT
 ---
 
 ## Common Confusion Points
+<!-- @editor[bridge/P3]: Natural bridge opportunity -- DESeq2 negative binomial model and shrinkage estimation parallel Bayesian inference in signal processing / empirical Bayes in large-scale hypothesis testing, which the learner knows from statistics -->
 
 **TPM vs. FPKM**: FPKM normalizes library size first, then gene length — the resulting values don't sum to a constant across samples. TPM normalizes length first, then library size — sums to 10^6 per sample. TPM is directly comparable across samples; FPKM is not. Use TPM for reporting.
 

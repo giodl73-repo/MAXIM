@@ -245,6 +245,8 @@ Illumina holds ~80% of the global sequencing market. Understanding its chemistry
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world -> new-world bridge in this file -- natural parallel: Sanger -> Illumina -> nanopore maps to serial -> batch -> streaming architectures (capillary = serial I/O, flow cell = massively parallel, nanopore = real-time stream) -->
+
 ## Technology Comparison
 
 | Attribute | Sanger | Illumina | ONT (PromethION) | PacBio HiFi |

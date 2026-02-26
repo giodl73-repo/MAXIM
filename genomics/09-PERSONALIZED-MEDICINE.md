@@ -336,6 +336,7 @@ PERSONALIZED MEDICINE: GENOMICS IN THE CLINIC
 ---
 
 ## Common Confusion Points
+<!-- @editor[bridge/P3]: Natural bridge to decision support systems / rule engines -- ACMG classification is effectively a decision table with weighted evidence criteria, and CGP panels are analogous to monitoring dashboards that surface actionable alerts from noisy telemetry -->
 
 **WES missing the diagnosis**: Whole exome sequencing misses: (1) deep intronic variants that affect splicing, (2) large structural variants (most CNVs), (3) repeat expansion diseases (Huntington's, fragile X, spinocerebellar ataxias — require specific assays), (4) mitochondrial DNA variants (poorly captured). WGS covers these but costs more.
 

@@ -194,6 +194,7 @@ Genomics sits at the DNA layer. To understand why it matters, recall the central
 ---
 
 ## Common Confusion Points
+<!-- @editor[bridge/P3]: Natural bridge to Azure Data Factory / ETL terminology could be expanded -- the analogy in the Scale section is a brief aside rather than a full mapping -->
 
 **Genome vs. exome vs. transcriptome**: The genome is all DNA in the cell nucleus. The exome is the ~1.5% of that genome encoding protein. The transcriptome is RNA — it only captures genes actively expressed at a given moment, varies by cell type and state, and changes in response to environment.
 
