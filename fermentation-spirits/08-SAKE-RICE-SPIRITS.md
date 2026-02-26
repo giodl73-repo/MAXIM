@@ -337,6 +337,7 @@ BAIJIU -- Chinese Distilled Spirit
 SCALE:
   ~40% of all spirits consumed globally (by volume)
   Nearly entirely consumed within China
+<!-- @editor[content/P3]: Moutai market cap "$300B+ 2021" — verify current figure; Chinese markets have fluctuated significantly since -->
   Kweichow Moutai: world's most valuable spirits company by market cap ($300B+ 2021)
   Global distribution minimal outside Chinese diaspora
 
