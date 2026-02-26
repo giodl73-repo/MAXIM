@@ -23,6 +23,7 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
+<!-- @editor[bridge/P2]: No bridge from classical game theory (Nash equilibrium, subgame perfection) to behavioral game theory — the learner has MIT TCS background and would orient faster with an explicit "standard game theory predicts X via backward induction; here's where human subjects diverge" framing before the experiments -->
 ## Ultimatum Game
 
 ```
