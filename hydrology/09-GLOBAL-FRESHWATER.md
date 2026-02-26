@@ -328,6 +328,8 @@ PROJECTED CHANGES:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge section — water allocation across competing users is a constrained optimization / linear programming problem; transboundary negotiations map to game theory (Nash bargaining, Pareto frontiers); virtual water trade is an application of comparative advantage (Ricardo) applied to water endowments — the learner's quant background would immediately engage with these framings -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

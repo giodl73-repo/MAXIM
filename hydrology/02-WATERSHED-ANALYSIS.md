@@ -337,6 +337,8 @@ LARGE-SCALE PRODUCTS:
 
 ---
 
+<!-- @editor[bridge/P2]: No dedicated bridge section — the graph-theory framing (DAG, topological sort, BFS/DFS, connected components, fractal branching) is outstanding but scattered through multiple sections; a consolidated "CS Bridges" callout would make these jump out for the learner -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

@@ -326,6 +326,8 @@ PHARMACEUTICALS AND PERSONAL CARE PRODUCTS (PPCPs):
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge section — Streeter-Phelps DO sag is a first-order linear ODE system (same structure as RC discharge/charge); advection-dispersion equation is the convection-diffusion PDE the learner knows from heat transfer; CT concept is a dose-response integral identical to impulse-energy arguments in signal processing -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

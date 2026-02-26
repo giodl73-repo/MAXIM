@@ -191,6 +191,8 @@ BUDYKO FRAMEWORK:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world → new-world bridge section — this overview would benefit from a brief "CS/engineering concepts that map directly to hydrology" bridge (e.g., conservation laws → water balance, graph theory → drainage networks, diffusion equation → groundwater flow, signal processing → unit hydrograph) -->
+
 ## Cross-Library Connections
 
 | Topic | Covered elsewhere |

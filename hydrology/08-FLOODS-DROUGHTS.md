@@ -394,6 +394,8 @@ DROUGHT EARLY WARNING:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge section — extreme value theory (GEV) is the tail-distribution counterpart to CLT; L-moments are robust alternatives to ML estimation; copulas model non-Gaussian joint distributions; SPI is a z-score transform — all concepts the MIT-trained learner owns but may not recognize in hydrological clothing without an explicit bridge -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

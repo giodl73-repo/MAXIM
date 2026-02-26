@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[diagram/P2]: Diagram lists water body types in a taxonomy grid but doesn't show how they relate hydrologically — e.g., how rivers feed lakes, how groundwater sustains wetlands, how stratification connects to eutrophication; rework to show water/nutrient flow relationships between these components -->
 ```
 +===========================================================================+
 |                  STANDING WATER BODIES — TAXONOMY                         |
@@ -352,6 +353,8 @@ HYDRAULIC LOADING RATE (HLR):
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No bridge section — Vollenweider model is a steady-state mass balance (same structure as a CSTR in chemical engineering or a leaky-bucket queue); mixing regimes map to control-theory stability concepts; these analogies would help the learner anchor the material -->
 
 ## Decision Cheat Sheet
 
