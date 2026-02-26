@@ -184,6 +184,7 @@ John's book = [DP [D' [D John's] [NP book]]]
 
 ## Part IV: Transformations — Movement
 
+<!-- @editor[bridge/P3]: Natural bridge to AST transformations (source-to-source compilers, optimization passes that rewrite tree nodes) missing here — would strengthen the "surface ≠ deep structure" point for this learner -->
 **The basic insight**: Surface word order ≠ underlying structure. Some structures are derived by movement operations.
 
 ### Wh-Movement

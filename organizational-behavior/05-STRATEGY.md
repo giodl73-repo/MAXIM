@@ -222,6 +222,8 @@ CORE COMPETENCE (Prahalad & Hamel, 1990):
 
 ---
 
+<!-- @editor[audience/P2]: Technically correct but doesn't connect to what this learner would actually do with it — the learner runs an engineering org; RBV/VRIN as analytical tool for evaluating build-vs-buy or platform investment decisions would make this actionable rather than academic -->
+
 ## Dynamic Capabilities
 
 ```
@@ -381,6 +383,7 @@ PLATFORM ENVELOPMENT (Eisenmann et al.):
  Microsoft: OS → Office → Azure → M365 → Teams → Copilot
  Defense: differentiation; bundling; exclusive access; regulatory protection
 
+<!-- @editor[content/P2]: Platform governance absent — how platforms manage developer relations, API contracts, breaking changes, and ecosystem health is a significant gap for someone running Azure-adjacent engineering -->
 ANTI-NETWORK EFFECTS:
  Congestion: too many users → quality declines → value falls
   Highways; crowded restaurants; overfilled social media feeds

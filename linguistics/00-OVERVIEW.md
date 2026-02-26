@@ -8,6 +8,7 @@ Linguistics is the scientific study of language — not prescriptive rules ("don
 +------------------------------------------------------------------+
 |                    THE LINGUISTICS HEXAGON                        |
 |                                                                  |
+<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view showing feeding relationships (e.g., phonology feeds morphology, morphology feeds syntax, syntax feeds semantics) rather than a hexagonal list -->
 |         WHAT SOUNDS?          HOW SOUNDS →                       |
 |         Phonetics              Meaning?                          |
 |         (articulatory,         Phonology                         |
@@ -269,6 +270,7 @@ FORMAL POWER NEEDED FOR NATURAL LANGUAGE:
 
 ---
 
+<!-- @editor[bridge/P2]: No compiler-pipeline → linguistics-pipeline bridge despite obvious parallel (lexer=phonology, parser=syntax, type-checker=semantics, optimizer=pragmatics) — any developer coming from compiler design needs this -->
 ## Part VI: Linguistics as Science
 
 ### Data types

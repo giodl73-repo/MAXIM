@@ -178,7 +178,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `law/` | 8 | 2026-02 | — | 10 tags → pending |
 | `psychology/` | 7 | — | — | |
 | `sociology/` | 10 | 2026-02 | — | 18 tags → pending |
-| `organizational-behavior/` | 7 | — | — | |
+| `organizational-behavior/` | 7 | 2026-02 | — | 14 tags → pending |
 | `game-theory/` | 6 | 2026-02 | — | 9 tags → pending |
 | `statistics-applied/` | 6 | 2026-02 | — | 7 tags → pending |
 | `public-health/` | 11 | 2026-02 | — | 4 tags → pending |
@@ -194,7 +194,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `linguistics/` | 10 | — | — | |
+| `linguistics/` | 10 | 2026-02 | — | 10 tags → pending (1 polished) |
 | `world-languages/` | 15 | — | — | |
 | `codes/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
 | `typography/` | 12 | — | — | |

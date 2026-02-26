@@ -37,6 +37,8 @@ ADJACENT DISCIPLINES:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from general CS/software engineering management experience to OB as a formal discipline — the learner runs engineering orgs daily; connect that lived experience to the academic field -->
+
 ## History of Management Thought
 
 ```
@@ -206,6 +208,8 @@ CULTURE CHANGE:
 
 ---
 
+<!-- @editor[structure/P2]: No comparison tables — guide is prose + ASCII diagrams only; a table comparing evidence strength across major OB theories (strong/contested/weak) would add reference value -->
+
 ## The OB-Economics Interface
 
 ```
@@ -264,6 +268,8 @@ Most OB research is correlational. "Transformational leaders have better-perform
 Meta-analyses aggregate multiple studies. If the input studies all have the same bias (self-report; selection bias; etc.), the meta-analysis inherits those biases. "Meta-analytic evidence" is better than a single study, but not a guarantee of truth.
 
 ---
+
+<!-- @editor[structure/P2]: No Decision Cheat Sheet section — the module index doesn't serve as a "use X when Y" decision tool -->
 
 ## Module Index
 

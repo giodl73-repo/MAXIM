@@ -8,6 +8,7 @@ Motivation theory in OB asks: what drives people to exert effort, persist, and p
 MOTIVATION THEORY LANDSCAPE
 =============================
 
+<!-- @editor[diagram/P2]: Diagram lists theories in columns but doesn't show how they relate or build on each other — rework to show flow from content → process → integrated as an evolution, or show which theories address which motivational question -->
 CONTENT THEORIES               PROCESS THEORIES            INTEGRATED
 (What motivates)               (How it works)              FRAMEWORKS
 ————————————————               —————————————————           ——————————
@@ -345,6 +346,8 @@ TOURNAMENT THEORY BRIDGE:
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No bridge from incentive design in management accounting / principal-agent framing to motivation theory — the learner's background includes performance management systems; connect economic incentive design to SDT/crowding-out explicitly -->
 
 ## Intrinsic vs Extrinsic Rewards in Practice
 

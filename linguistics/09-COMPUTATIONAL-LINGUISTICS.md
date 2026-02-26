@@ -408,6 +408,7 @@ GPT family:
   Scaled to LLM sizes → emergent few-shot learning.
 ```
 
+<!-- @editor[content/P2]: Transformer section could note that subword tokenization (BPE) is a morphological compromise — it recapitulates some morpheme boundaries without linguistic design, which connects to 02-MORPHOLOGY's segmentation discussion -->
 **What transformers learn linguistically:**
 
 ```

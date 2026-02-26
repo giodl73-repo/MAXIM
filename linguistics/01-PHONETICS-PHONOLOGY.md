@@ -257,6 +257,7 @@ English has one of the more complex syllable structures in the world.
 
 ---
 
+<!-- @editor[bridge/P2]: No encoding/signal-processing → phonetics bridge — any engineer coming from signal theory would benefit from a formant-as-frequency, spectrogram-as-FFT connection -->
 ## Part VI: Phonological Rules
 
 Phonological rules operate on underlying representations (URs) to produce surface representations (SRs).

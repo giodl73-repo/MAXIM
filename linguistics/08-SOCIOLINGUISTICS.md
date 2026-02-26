@@ -109,6 +109,7 @@ FINDINGS:
 This shows: variation is not free, it's socially and stylistically constrained.
 ```
 
+<!-- @editor[bridge/P2]: No A/B-testing or multivariate-regression → variationist-method bridge — any data-oriented engineer would see VARBRUL as logistic regression with social covariates; making this explicit would anchor the methodology for this learner -->
 ### The Variable Rule
 
 Labov codified: **variable rules** — phonological rules that apply probabilistically, with probability conditioned by multiple factors:

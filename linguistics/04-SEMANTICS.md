@@ -279,6 +279,7 @@ Classical theory: meaning = necessary and sufficient conditions. "Bachelor" = ad
 - Is Pluto a planet? (definitional dispute, not a logic error)
 - Is a penguin a bird? (yes but atypical — doesn't fit the "bird schema")
 
+<!-- @editor[audience/P3]: Prototype theory section explains categorization from scratch — the learner has type theory and set-membership from MIT TCS; lead with the contrast to classical (necessary+sufficient) rather than building up from basics -->
 **Prototype theory** (Rosch 1975):
 
 ```
