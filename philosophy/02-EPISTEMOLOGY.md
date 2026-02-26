@@ -29,6 +29,8 @@
 └────────────────────────────────┴─────────────────────────────────────────┘
 ```
 
+<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how the four quadrants relate — arrows or flow between individual/social and formal/naturalized would show the field's internal dynamics -->
+
 ---
 
 ## 1. The Traditional Analysis of Knowledge
@@ -307,9 +309,11 @@ RELEVANCE TO AI/ML:
   Noam Chomsky: language acquisition requires innate universal grammar (rationalist about language)
   LLMs: learn language from data alone; neither pure rationalist nor pure empiricist
 ```
+<!-- @editor[bridge/P2]: No old-world → new-world bridge — natural parallel: empiricism vs rationalism maps directly onto schema-first (typed, relational) vs schema-less (NoSQL, document) design philosophies any database architect would recognize -->
 
 ---
 
+<!-- @editor[content/P2]: Section is thin — social epistemology in landscape diagram promises testimony/trust, expert disagreement, scientific consensus, epistemic injustice but coverage is compressed into a single code block with no bridge to AI bias/fairness -->
 ## 6. Epistemic Relativism and Social Epistemology
 
 ```

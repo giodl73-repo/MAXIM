@@ -219,6 +219,8 @@ RAWLS ON AI GOVERNANCE:
 
 ---
 
+<!-- @editor[content/P2]: Landscape diagram lists bioethics, climate ethics, business ethics, animal ethics under Applied Ethics — all absent; only AI ethics covered; either narrow the diagram or add brief treatments -->
+<!-- @editor[content/P2]: Care ethics listed in landscape diagram (under Normative Ethics) but never discussed — Gilligan/Noddings perspective missing entirely -->
 ## 3. Applied Ethics — AI
 
 ### Alignment Problem
@@ -299,6 +301,7 @@ AUTONOMOUS WEAPONS:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world → new-world bridge section — natural parallel: code review culture (deontological: follow the process) vs ship-it culture (consequentialist: does it work?) — any engineering leader navigates this tension daily -->
 ## Decision Cheat Sheet
 
 | Theory | Core Question | Strength | Weakness |

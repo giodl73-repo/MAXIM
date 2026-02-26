@@ -117,6 +117,7 @@ RELEVANCE TO ML/STATISTICS:
 
 ---
 
+<!-- @editor[structure/P2]: Section not anchored to landscape diagram — "Why Philosophy Matters" doesn't map to a specific node; consider reframing as a prelude before the drill-down sections -->
 ## 2. Major Schools and Their Relations
 
 ### Analytic vs Continental Philosophy
@@ -220,6 +221,8 @@ INTERVENTIONIST/CAUSAL GRAPHS (Pearl):
 
 ---
 
+<!-- @editor[content/P2]: Political philosophy listed in landscape diagram (Ethics & Political Philosophy) but absent from drill-down — significant gap -->
+<!-- @editor[content/P2]: Philosophy of Mathematics listed in landscape diagram but covered only in passing (Gödel section) — deserves its own subsection or cross-reference to 01-LOGIC.md -->
 ## 4. Philosophy in Modern Technical Context
 
 ### Decision Theory
@@ -280,6 +283,7 @@ AI ALIGNMENT (technical philosophy):
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world → new-world bridge section — natural parallel: formal verification culture (VSTS-era CI/CD correctness proofs) → modern philosophical rigor about foundations -->
 ## Decision Cheat Sheet
 
 | Philosophical Problem | Current Best Position | Why It Matters Practically |
