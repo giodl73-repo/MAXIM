@@ -377,6 +377,8 @@ THE ANXIETY PROBLEM:
     is a natural beat to the audience).
 ```
 
+<!-- @editor[audience/P3]: The anxiety management subsection reads slightly instructional — the learner has given hundreds of executive presentations; reframe as analytical reference ("the physiological mechanics of speech anxiety") rather than advice ("take a deep breath") -->
+
 ### Delivery in the Digital Age
 
 ```
@@ -425,6 +427,7 @@ EXECUTIVE PRESENTATION:
   Memoria: know your material; don't read from slides
   Actio: confident pacing; eye contact; pause for emphasis
 
+<!-- @editor[bridge/P3]: Natural bridge to VSTS/Azure DevOps RFC process missing — the design doc conventions at Microsoft are a direct descendant of dispositio; a brief callout would anchor this for the learner's home turf -->
 WRITTEN DOCUMENT (design doc, RFC, memo):
   Inventio: what is the claim? what supports it?
     What are the objections?

@@ -238,6 +238,8 @@ CRAFT NOTES:
   not end in melancholy.
 ```
 
+<!-- @editor[content/P2]: Roast structure absent — mentioned in the Common Confusion Points as blame-mode epideictic but no structural template is provided; given that roasts are a common professional occasion (retirement, team farewell), a brief template would be useful -->
+
 ### The Commencement Address
 
 ```
@@ -262,6 +264,7 @@ THE PROBLEM:
   This is the template that speakers must decide
   whether to follow, modify, or subvert.
 
+<!-- @editor[audience/P2]: Commencement address section is the weakest VP-level connection — the learner is more likely to give an internal onboarding keynote or conference talk than a commencement; reframe the examples toward those occasions while keeping Wallace/Jobs as rhetorical models -->
 DAVID FOSTER WALLACE — "THIS IS WATER" (2005):
   Kenyon College commencement. Perhaps the most
   influential recent commencement address.

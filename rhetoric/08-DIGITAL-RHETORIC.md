@@ -148,6 +148,7 @@ THE RHETORICAL PROBLEM:
   and audience) is replaced by the content's apparent
   ethos — what the screenshot LOOKS like it says.
 
+<!-- @editor[bridge/P2]: No bridge from decontextualization to software engineering — the learner has dealt with out-of-context code review comments, pull request quotes, and Slack screenshots in escalations; a one-line bridge ("the same decontextualization dynamic operates in engineering culture when a Slack message is screenshotted to an exec without the thread") would land well -->
 THE DEEPFAKE EXTENSION:
   Audio/video decontextualization is now computable.
   A deepfake is a decontextualized video of a person
@@ -346,6 +347,7 @@ A deepfake is a synthetic media artifact (audio or video)
 that represents a person saying or doing something
 they did not say or do.
 
+<!-- @editor[content/P2]: Deepfakes section may be outdated — as of 2025-2026, diffusion models have largely supplanted GANs for synthetic media; also missing LLM-generated text as a parallel synthetic media threat (the learner works with AI tools daily) -->
 TECHNICAL MECHANISM (brief):
   Generative adversarial networks (GANs) or diffusion models
   trained on a person's image/audio can synthesize
