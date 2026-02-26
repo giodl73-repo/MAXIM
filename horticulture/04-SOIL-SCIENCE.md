@@ -409,6 +409,7 @@ PLANT TISSUE TESTING:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to systems engineering: soil as a three-phase system with CEC as a buffer/cache and pH as a configuration parameter — maps well to how this learner thinks about engineered systems -->
 ## Common Confusion Points
 
 **Adding sand to clay soil makes it worse, not better**: adding a small amount of sand to clay creates a weak concrete-like mix. To improve clay drainage with sand, you need to add ~50% of the soil volume in coarse sand — an impractical quantity. The correct approach for clay: add organic matter continuously; use raised beds.

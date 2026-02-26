@@ -230,6 +230,7 @@ GLOBAL HORTICULTURE (approximate 2023):
 
 ---
 
+<!-- @editor[content/P2]: Post-harvest physiology absent — mentioned in the Production Chain diagram but no guide in the directory map. Significant gap: post-harvest is described here as having "as much economic impact as growing practice" yet has no dedicated file -->
 ## Connection to Other Fields
 
 ```

@@ -405,6 +405,7 @@ LAMINAR FLOW HOOD MAINTENANCE:
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet uses Application/Stage/Critical Parameters columns — should be "use X when Y" decision format per style contract -->
 ## Decision Cheat Sheet
 
 | Application | Stage | Critical Parameters |
@@ -427,4 +428,5 @@ LAMINAR FLOW HOOD MAINTENANCE:
 
 **Acclimatization failure is not a Stage I–III problem**: many tissue culture programs produce beautiful plants in vitro and then lose them in the first week outside. Acclimatization is not a "handoff" — it requires as much attention as the in vitro phases. Stomata need to learn to close; cuticle needs time to thicken. Rushing this transition is the most common commercial error.
 
+<!-- @editor[bridge/P3]: Natural bridge to sandboxed vs. production environments: in vitro plants are "running in a sandbox" (controlled resources, no adversarial pressure) and acclimatization is the deployment/hardening phase. Would resonate with this learner -->
 **In vitro plants are not ready to survive outside**: they look like plants but behave differently. Their stomata are dysfunctional, cuticle is thin, and they are adapted to heterotrophic carbon nutrition. Treat them as neonates requiring intensive support, not as mature plants that have been shrunk.

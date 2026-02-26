@@ -384,6 +384,7 @@ DIF (DIFFERENCE BETWEEN DAY AND NIGHT TEMPERATURE):
 
 ---
 
+<!-- @editor[bridge/P2]: Missing explicit control-systems bridge — this file describes a SCADA-like architecture (sensors, actuators, setpoints, PID loops) without naming it. For this learner with engineering background, explicitly framing the climate computer as an industrial control system with VPD/temperature/CO2 as controlled variables would be a high-value bridge -->
 ## Common Confusion Points
 
 **Hydroponics is not soil-free nutrition magic**: the plant biology is the same. Roots still require O₂, appropriate temperature, and the same mineral nutrients. Hydroponics provides precise delivery of what the plant needs but does not override plant physiology.

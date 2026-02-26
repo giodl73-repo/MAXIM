@@ -328,6 +328,7 @@ UNIFORMITY:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to software release engineering: clonal propagation = exact binary replication vs. seed = recompiling from source with nondeterminism. Could strengthen the "why clonal matters" section for an engineering reader -->
 ## Decision Cheat Sheet
 
 | Propagation Method | When to Use | Key Requirement | Approximate Time to Transplant |
