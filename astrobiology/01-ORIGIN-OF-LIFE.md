@@ -339,6 +339,8 @@ These must have been solved simultaneously or in close succession — that's wha
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the chicken-and-egg resolution via RNA World maps to the bootstrap problem in computing (compiler that compiles itself); Eigen's error threshold is pure information theory (Shannon channel capacity analog); natural bridge to MIT TCS background -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

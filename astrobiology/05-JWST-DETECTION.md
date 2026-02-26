@@ -213,6 +213,8 @@ FEASIBLE WITH JWST:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the noise floor problem (2 ppm atmospheric signal vs. 10-30 ppm instrument precision) is a signal-to-noise / sampling theory problem; the scale height equation is dimensional analysis; the coronagraph contrast ratio (10^-10) parallels dynamic range challenges in ADC/DAC design — natural bridge to signal processing and information theory -->
+
 ## Future Telescopes: The Path to Earth Twins
 
 ```

@@ -4,6 +4,7 @@
 
 The distribution of elements in Earth and the solar system is the result of nucleosynthesis (what the universe made), nebular condensation (what condensed where), and planetary differentiation (what went where inside planets).
 
+<!-- @editor[diagram/P2]: Diagram shows a linear pipeline (nucleosynthesis -> reservoirs) but doesn't show the feedback loops — igneous processes recycle material back into reservoirs, subduction returns crust to mantle. A one-way arrow chain undersells the cyclic nature of element redistribution -->
 ```
 +------------------------------------------------------------------+
 |              ELEMENT DISTRIBUTION HIERARCHY                       |
@@ -231,6 +232,7 @@ SPIDER DIAGRAM INTERPRETATION
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from the learner's general chemistry/physics background to the concept of trace element partitioning as a diagnostic tool — an analogy to how signal processing extracts source signatures from mixed signals (something an MIT engineer understands) would ground the spider diagram interpretation framework -->
 ## Mantle Heterogeneity
 
 ```

@@ -217,6 +217,7 @@ HIGHLY SIDEROPHILE ELEMENTS (HSE)
 
 ---
 
+<!-- @editor[bridge/P2]: The mass-independent isotope anomaly as a "planetary fingerprint" is a powerful concept — bridging it to the familiar idea of a unique identifier or hash (each body has a distinct isotopic signature that acts as an unforgeable provenance marker) would make the concept immediately concrete for the learner -->
 ## Isotopic Fingerprinting of Solar System Bodies
 
 ```

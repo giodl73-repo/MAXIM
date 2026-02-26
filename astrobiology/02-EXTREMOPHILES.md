@@ -385,6 +385,8 @@ POLYEXTREMOPHILES:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the parameter space envelope framing maps to constraint satisfaction / feasibility regions in optimization; "no single extremophile survives all extremes" parallels the no-free-lunch theorem — natural bridge to CS/math background -->
+
 ## Decision Cheat Sheet
 
 | Extremophile type | Defining stress | Record organism | Temp/pH/etc |

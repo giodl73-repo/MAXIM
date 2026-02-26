@@ -4,6 +4,7 @@
 
 Geochemistry applies chemistry to understand the Earth and solar system: where elements live, how they move, and how isotopes record the timing and conditions of geological processes.
 
+<!-- @editor[diagram/P2]: Diagram lists items in three columns + subdisciplines but doesn't show how they relate — no arrows between element distribution feeding into isotope systems, no feedback loops between process geochemistry and reservoirs. Rework as layered system view showing inputs/outputs/feedbacks between the three pillars -->
 ```
 +------------------------------------------------------------------+
 |                    GEOCHEMISTRY LANDSCAPE                         |
@@ -103,6 +104,7 @@ EARTH'S MAJOR GEOCHEMICAL RESERVOIRS
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from general chemistry equilibrium (partition/distribution coefficients in extraction chemistry) to the geochemical usage — the learner knows basic chemistry from MIT; connecting D here to the familiar liquid-liquid extraction concept would anchor the idea instantly -->
 ## Partition Coefficients
 
 ```

@@ -353,6 +353,8 @@ which are aqueous. Very different chemistry.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the evidence hierarchy (geomorphological > mineralogical > in-situ) maps to the testing pyramid (unit > integration > system); the "habitability assessment vs. life detection" distinction parallels "can the system run" vs. "does the system produce correct output" — natural bridge to engineering mindset -->
+
 ## Decision Cheat Sheet
 
 | Body | Best evidence | Why interesting | Best mission | Timeline |

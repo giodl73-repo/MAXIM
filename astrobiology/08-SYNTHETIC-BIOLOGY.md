@@ -88,6 +88,8 @@ Life on other worlds might use alternative polymers.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — XNA as alternative implementations of the same abstract interface (information storage + catalysis) maps directly to the abstraction/interface pattern in software engineering; the genetic code as one valid encoding among many parallels character encoding (ASCII vs. UTF-8 vs. EBCDIC); JCVI-syn3.0's 473 essential genes parallel "minimum viable product" — natural bridge to abstraction, encoding theory, and system design -->
+
 ## Expanded Genetic Code
 
 ```
@@ -332,6 +334,7 @@ ENGINEERING EARTH ORGANISMS FOR SPACE:
   - Perchlorate tolerance
 
   These are proof-of-concept experiments, not space-ready organisms.
+<!-- @editor[content/P3]: CRISPR section is light on published results — Rothschild lab work is described at overview level; adding one or two specific gene targets or measured survival improvements would strengthen it -->
 
 UNDERSTANDING EXTREMOPHILE MECHANISMS:
   CRISPR allows precise insertion of extremophile genes into

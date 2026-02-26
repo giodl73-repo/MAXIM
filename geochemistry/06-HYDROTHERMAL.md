@@ -4,6 +4,7 @@
 
 Hydrothermal systems are hot, chemically reactive fluid circulation systems driven by magmatic heat or geothermal gradients. They are responsible for a large fraction of the world's metal ore deposits and are active on the modern ocean floor.
 
+<!-- @editor[diagram/P2]: Landscape "diagram" is a table of settings, not a structural diagram — doesn't show the spatial/genetic relationships between deposit types (e.g., porphyry at depth with epithermal above it, VMS at mid-ocean ridge in cross-section). A schematic cross-section showing how these systems relate in space would be a genuine landscape -->
 ```
 +------------------------------------------------------------------+
 |              HYDROTHERMAL SYSTEM SPECTRUM                         |
@@ -223,6 +224,7 @@ EPITHERMAL GOLD-SILVER SYSTEM
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from the learner's general science background to the concept of using alteration zonation as a spatial diagnostic — the concentric alteration shells in a porphyry system are analogous to heat diffusion contours around a point source, a concept an MIT physics/math graduate would map to immediately -->
 ## Fluid Inclusions: Reading Hydrothermal Conditions
 
 ```

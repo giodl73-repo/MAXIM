@@ -292,6 +292,8 @@ See `04-BIOSIGNATURES.md`, `05-JWST-DETECTION.md`, `06-FERMI-PARADOX.md`.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge anywhere in overview — the N=1 statistics problem, Drake equation parameter estimation, and Bayesian reasoning map naturally to information theory and probability (MIT TCS) — a one-paragraph bridge would anchor the learner -->
+
 ## Decision Cheat Sheet
 
 | Question | Short answer | See |

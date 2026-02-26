@@ -25,6 +25,8 @@ The critical distinction in astrobiology mission design: **habitability assessme
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the mission pipeline's science tier progression (habitability assessment -> sample return -> life detection) maps to the testing maturity model (smoke test -> integration test -> acceptance test); the "continuum of confidence" for life detection parallels confidence levels in statistical hypothesis testing — natural bridge to engineering process and statistical reasoning -->
+
 ## Europa Clipper (2024 Launch, 2030 Arrival)
 
 ```

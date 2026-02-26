@@ -32,6 +32,7 @@ Stable isotope ratios in ancient geological materials are frozen snapshots of pa
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge connecting the Rayleigh distillation model to a general concept the learner already owns — progressive Rayleigh fractionation is formally identical to exponential decay of a reservoir with preferential loss, a concept directly analogous to filtering or progressive signal attenuation that an engineer would recognize -->
 ## δ¹⁸O: The Master Paleoclimate Proxy
 
 ### How Oxygen Fractionates

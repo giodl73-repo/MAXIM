@@ -29,6 +29,7 @@ Isotope geochemistry uses the natural variation in isotopic compositions to cons
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from the learner's math/physics background to the isochron method — the isochron is fundamentally linear regression on a scatter plot where slope = f(time), a concept an MIT math major grasps instantly. Framing it as "linear regression where the slope encodes age" would anchor the entire section -->
 ## Radioactive Decay Fundamentals
 
 ```

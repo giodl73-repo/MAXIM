@@ -4,6 +4,7 @@
 
 Geochronology is the science of absolute age determination. The key insight: radioactive decay is an atomic clock that cannot be wound back or sped up by geological processes. Different systems answer different questions depending on their half-lives and the minerals that host them.
 
+<!-- @editor[diagram/P2]: Landscape "diagram" is a table of methods, not a structural diagram — doesn't show how the methods relate to each other (e.g., temperature-depth hierarchy from U-Pb at crystallization through Ar-Ar/FT at progressively lower closure temperatures). A layered depth/temperature diagram with methods placed at their Tc would serve as a genuine landscape -->
 ```
 +------------------------------------------------------------------+
 |                    GEOCHRONOLOGY TOOLKIT                          |
@@ -62,6 +63,7 @@ U-Pb ADVANTAGES
     Plot on Concordia diagram
 ```
 
+<!-- @editor[bridge/P2]: The concordia diagram is a parametric curve (both axes are functions of the single variable t) — framing it as a parametric plot where closed systems track the curve and open systems scatter off it would connect to the learner's mathematical intuition from MIT -->
 ### The Concordia Diagram
 
 ```
