@@ -1,6 +1,7 @@
 # Ancient Writing Materials: Clay, Papyrus, Parchment, Wax, Bamboo, Silk
 
 ## The Big Picture
+<!-- @editor[diagram/P2]: Diagram lists items with properties but doesn't show how they relate — a timeline/flow showing material succession (clay -> papyrus -> parchment -> paper) with regional branching would better establish the landscape that sections drill into -->
 
 Every writing material reflects a tradeoff between durability, portability, cost, and the ease of writing on it. The choice of substrate shaped what could be written, how it was distributed, and who had access.
 

@@ -20,6 +20,7 @@ PRE-1985: Professional prepress workflow
 
 1985 DESKTOP PUBLISHING REVOLUTION:
   +------------------------+     +---------------------------+
+<!-- @editor[content/P2]: Mac 128K could not run PageMaker (required 512K minimum) — the DTP revolution needed the Mac 512K (Sep 1984) or Mac Plus (Jan 1986); "128K" is misleading here -->
   |  Apple Macintosh 128K  |  +  |  Aldus PageMaker 1.0     |
   |  (Jan 1984)            |     |  (July 1985)              |
   +------------------------+     +---------------------------+
