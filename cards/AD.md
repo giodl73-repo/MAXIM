@@ -1,6 +1,6 @@
 # A♦ — People · Volume II
 
-*Application volume of the People section.*
+*Ace of Pentacles — potential made real: inventors, pioneers, explorers.*
 
 ```
 ╔═══════════════════════════════════════════════╗

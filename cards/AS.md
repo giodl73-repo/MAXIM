@@ -1,6 +1,6 @@
 # A♠ — People · Volume IV
 
-*Frontier volume of the People section.*
+*Ace of Swords — the breakthrough: those who changed the possible.*
 
 ```
 ╔═══════════════════════════════════════════════╗
@@ -21,7 +21,7 @@
 ║  political-reformers/ · social-reformers/     ║
 ║  visionaries/                                 ║
 ╠═══════════════════════════════════════════════╣
-║  Reformers and visionaries — the human at the ║
-║  center of the mark.                          ║
+║  The ones who changed                         ║
+║  what was possible.                           ║
 ╚═══════════════════════════════════════════════╝
 ```

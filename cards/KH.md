@@ -1,6 +1,6 @@
 # K♥ — Computing & Software · Volume III
 
-*Depth volume of the Computing & Software section.*
+*King of Cups — theory deeper than any algorithm.*
 
 ```
 ╔═══════════════════════════════════════════════╗
@@ -22,7 +22,7 @@
 ║  machine-learning-theory/                     ║
 ║  programming-language-theory/                 ║
 ╠═══════════════════════════════════════════════╣
-║  Crypto, silicon, learning theory, and formal ║
-║  language.                                    ║
+║  What computation cannot prove, cannot learn, ║
+║  cannot break.                                ║
 ╚═══════════════════════════════════════════════╝
 ```

@@ -1,6 +1,6 @@
 # Q♣ — Arts & Culture · Volume I
 
-*Foundation volume of the Arts & Culture section.*
+*Queen of Wands — passion shaped into art and sound.*
 
 ```
 ╔═══════════════════════════════════════════════╗

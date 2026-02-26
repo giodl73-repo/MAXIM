@@ -1,6 +1,6 @@
 # Q♥ — Arts & Culture · Volume III
 
-*Depth volume of the Arts & Culture section.*
+*Queen of Cups — the artifact that earns its feeling.*
 
 ```
 ╔═══════════════════════════════════════════════╗
@@ -21,7 +21,7 @@
 ║  watchmaking/ · theater-performance/ · dance/ ║
 ║  industrial-design/                           ║
 ╠═══════════════════════════════════════════════╣
-║  Mechanism, stage, movement, form — the       ║
-║  designed artifact.                           ║
+║  The art that must also work.                 ║
+║                                               ║
 ╚═══════════════════════════════════════════════╝
 ```

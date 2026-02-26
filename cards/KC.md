@@ -1,6 +1,6 @@
 # K♣ — Computing & Software · Volume I
 
-*Foundation volume of the Computing & Software section.*
+*King of Wands — fire formalized into computation.*
 
 ```
 ╔═══════════════════════════════════════════════╗

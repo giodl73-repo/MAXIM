@@ -1,6 +1,6 @@
 # K♠ — Computing & Software · Volume IV
 
-*Frontier volume of the Computing & Software section.*
+*King of Swords — clarity at the distributed edge.*
 
 ```
 ╔═══════════════════════════════════════════════╗
@@ -21,7 +21,7 @@
 ║  distributed-systems/ · security-engineering/ ║
 ║  cloud-architecture/                          ║
 ╠═══════════════════════════════════════════════╣
-║  Consensus, threat model, cloud — distributed ║
-║  computing.                                   ║
+║  No single machine holds the truth.           ║
+║                                               ║
 ╚═══════════════════════════════════════════════╝
 ```

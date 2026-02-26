@@ -1,6 +1,6 @@
 # J♦ — Mathematics & Physics · Volume II
 
-*Application volume of the Mathematics & Physics section.*
+*Knight of Pentacles — methodical mastery of applied structure.*
 
 ```
 ╔═══════════════════════════════════════════════╗
@@ -22,7 +22,7 @@
 ║  control-theory/ · signal-processing/         ║
 ║  information-theory/                          ║
 ╠═══════════════════════════════════════════════╣
-║  Qubit, feedback loop, transform, and         ║
-║  information measure.                         ║
+║  Shannon's channel, Feynman's qubit,          ║
+║  Bode's loop.                                 ║
 ╚═══════════════════════════════════════════════╝
 ```

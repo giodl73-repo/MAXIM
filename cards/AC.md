@@ -1,6 +1,6 @@
 # A♣ — People · Volume I
 
-*Foundation volume of the People section.*
+*Ace of Wands — the original fire behind every equation.*
 
 ```
 ╔═══════════════════════════════════════════════╗
