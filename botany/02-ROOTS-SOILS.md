@@ -255,6 +255,7 @@ Tillage disrupts this web — breaks fungal networks, disrupts water channels, o
 
 ---
 
+<!-- @editor[content/P2]: Root parasitism absent — Striga (witchweed) parasitizes crop roots in sub-Saharan Africa affecting 100M+ people; haustorial parasites (dodder, broomrape) are a significant root/stem interaction topic -->
 ## Decision Cheat Sheet
 
 | Question | Answer |
