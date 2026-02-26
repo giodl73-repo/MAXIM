@@ -63,6 +63,7 @@ CARBON RESERVOIR δ¹³C VALUES
 
 ## The Long-Term Carbon Cycle
 
+<!-- @editor[bridge/P2]: The silicate weathering thermostat is a textbook negative feedback loop — connecting it explicitly to control theory (negative feedback stabilizes a set point, the concept the learner knows from systems engineering) would make the geological timescale thermostat click immediately -->
 ### Silicate Weathering: The Thermostat
 
 ```

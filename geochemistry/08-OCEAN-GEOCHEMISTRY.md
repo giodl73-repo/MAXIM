@@ -54,6 +54,7 @@ MAJOR ION COMPOSITION OF SEAWATER (S = 35‰)
 
 ---
 
+<!-- @editor[bridge/P2]: Residence time is formally identical to the mean lifetime in a first-order decay/removal system (tau = stock/flux) — connecting this to the learner's math background (exponential decay, steady-state reservoir models) would make the concept trivially obvious rather than requiring domain-specific framing -->
 ## Residence Times
 
 ```

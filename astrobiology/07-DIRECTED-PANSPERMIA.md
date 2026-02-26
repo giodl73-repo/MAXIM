@@ -252,6 +252,8 @@ Adams & Spergel (2005):
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the panspermia taxonomy (natural vs. directed vs. radiopanspermia) maps to distributed system propagation models (gossip protocols, broadcast vs. point-to-point); the "does not solve origin, just moves it" argument parallels infinite regress in bootstrapping — natural bridge to distributed systems and formal reasoning -->
+
 ## Implications of Panspermia
 
 ```

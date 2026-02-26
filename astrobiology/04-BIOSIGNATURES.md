@@ -330,6 +330,8 @@ BIOSIGNATURE vs. TECHNOSIGNATURE:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the false positive / ensemble approach is Bayesian inference (posterior from multiple independent priors); the "no single biosignature is sufficient" principle is a direct analog of defense-in-depth / multi-factor authentication reasoning — natural bridge to probability theory and systems design -->
+
 ## The False Positive Problem
 
 ```

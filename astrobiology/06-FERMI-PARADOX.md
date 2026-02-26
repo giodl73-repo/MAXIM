@@ -109,6 +109,8 @@ IF MARS IS STERILE:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the Drake equation is a product of conditional probabilities (Bayesian chain); the Great Filter is a decision-theoretic argument about existential risk; "cosmic haystack" search coverage maps directly to algorithmic search space coverage — natural bridge to probability, decision theory, and computational complexity -->
+
 ## Proposed Resolutions
 
 ### Category 1: Life is Rare

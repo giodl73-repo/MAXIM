@@ -139,7 +139,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `agriculture/` | 11 | 2026-02 | — | 11 tags → pending |
 | `mineralogy/` | 10 | — | — | |
 | `planetary-science/` | 10 | 2026-02 | — | 7 tags → pending |
-| `geochemistry/` | 10 | — | — | |
+| `geochemistry/` | 10 | 2026-02 | — | 14 tags → pending |
 | `space-exploration/` | 10 | — | — | |
 | `astrobiology/` | 10 | 2026-02 | — | 11 tags → pending |
 

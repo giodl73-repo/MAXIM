@@ -74,6 +74,7 @@ KEY WEATHERING REACTIONS
 
 ---
 
+<!-- @editor[bridge/P2]: The Bowen reaction series (high-T minerals weather fastest) is the inverse of the crystallization sequence — framing this explicitly as a thermodynamic stability argument (minerals far from their equilibrium conditions decompose fastest) would connect to the learner's physics intuition -->
 ## Weathering Rates and Controls
 
 ```
