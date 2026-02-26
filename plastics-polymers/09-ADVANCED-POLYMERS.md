@@ -114,6 +114,8 @@ shield the carbon backbone.
    • Tg = –97°C (extremely flexible chain)
 ```
 
+<!-- @editor[content/P2]: No mention of PFAS regulatory context — PTFE and fluoropolymer processing byproducts are under intense regulatory scrutiny (EU PFAS restriction proposal, US EPA PFAS action); significant for anyone evaluating fluoropolymer specification -->
+
 ### The Processing Problem
 
 PTFE has no melt viscosity — it doesn't flow. It undergoes a gel-phase
@@ -290,6 +292,8 @@ precision mechanical parts (watches, firearms components, zippers, pens).
 | PI (Kapton-type) | >300 | none | 300+ | 165 (film) | 2.5 | Excellent | 100–300 |
 
 ---
+
+<!-- @editor[content/P2]: Section is thin — vitrimers and SMPs each deserve the same quantitative treatment (property tables, application examples, commercial status) given to PEEK/PTFE/PPS above -->
 
 ## Emerging: Self-Healing and Stimuli-Responsive Polymers
 

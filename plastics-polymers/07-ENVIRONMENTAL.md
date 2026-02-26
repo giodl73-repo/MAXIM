@@ -281,6 +281,9 @@ Microplastics in deep sea sediment: up to 1.9 million fibers/m²
 
 ---
 
+<!-- @editor[content/P2]: No regulatory frameworks section — EU Single-Use Plastics Directive, Extended Producer Responsibility (EPR), Basel Convention plastic waste amendments are significant for this field -->
+<!-- @editor[content/P2]: Tire wear identified as largest MP source in industrialized nations in Decision Cheat Sheet but has no dedicated treatment in body — deserves its own subsection with wear mechanism, particle fate, and stormwater pathway -->
+
 ## Decision Cheat Sheet
 
 | Need to understand | Key point |

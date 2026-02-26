@@ -331,6 +331,8 @@ Slip agents: erucamide, oleamide — bloom to film surface for smooth handling.
 
 ---
 
+<!-- @editor[content/P2]: Coupling agents (silanes, titanates) listed in landscape diagram under Functional Additives but have no section — significant gap for glass-fiber and mineral-filled compounds -->
+
 ## Decision Cheat Sheet
 
 | Need | Additive |

@@ -244,7 +244,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `glassmaking/` | 11 | 2026-02 | — | 4 tags → pending (8 polished) |
 | `jewelry/` | 11 | 2026-02 | — | 7 tags → pending |
 | `metalworking/` | 10 | 2026-02 | — | 4 tags → pending |
-| `plastics-polymers/` | 10 | — | — | |
+| `plastics-polymers/` | 10 | 2026-02 | — | 6 tags → pending (6 polished) |
 | `papermaking/` | 10 | — | — | |
 | `composite-materials/` | 10 | 2026-02 | — | 0 tags -- polished |
 | `furniture/` | 10 | — | — | |

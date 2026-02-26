@@ -266,6 +266,8 @@ material thins. Draw ratio = depth / width. Ratio > 1 requires plug assist.
 
 ---
 
+<!-- @editor[structure/P2]: Rotational molding referenced in landscape diagram and Decision Cheat Sheet but has no drill-down section — layering broken -->
+
 ## Compression and Transfer Molding (Thermosets)
 
 ```
