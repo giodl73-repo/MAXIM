@@ -237,7 +237,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `pigments/` | 11 | — | — | |
+| `pigments/` | 11 | 2026-02 | — | 7 tags → pending (5 polished) |
 | `coatings/` | 10 | — | — | |
 | `textiles/` | 14 | 2026-02 | — | 4 tags -> pending |
 | `ceramics/` | 11 | — | — | |
@@ -257,7 +257,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 |-----------|------:|-------|-------|-------|
 | `periodic-table/` | 12 | — | — | |
 | `animal-phylogeny/` | 13 | — | — | |
-| `spices/` | 11 | — | — | |
+| `spices/` | 11 | 2026-02 | — | 0 tags -- polished |
 | `food-plants/` | 10 | — | — | |
 | `culinary-history/` | 10 | 2026-02 | — | 4 tags → pending |
 | `fermentation-spirits/` | 10 | — | — | |
