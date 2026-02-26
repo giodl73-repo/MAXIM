@@ -24,6 +24,7 @@ How crops are arranged in space and time determines pest pressure, nutrient cycl
 ```
 
 ---
+<!-- @editor[bridge/P2]: No old-world bridge — the diversity spectrum maps to redundancy vs efficiency trade-offs the learner knows from distributed systems design (monoculture = single point of failure; polyculture = fault-tolerant). Make this explicit. -->
 
 ## Monoculture — Industrial Baseline
 

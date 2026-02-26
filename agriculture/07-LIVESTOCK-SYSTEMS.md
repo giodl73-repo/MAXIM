@@ -25,6 +25,7 @@ Livestock occupy ~26% of Earth's ice-free land (pasture) plus ~33% of cropland (
 ```
 
 ---
+<!-- @editor[bridge/P2]: No old-world bridge — FCR is a conversion efficiency metric identical to energy conversion efficiency in any engineering system; the ruminant digestion pipeline is a staged processing architecture (pipeline stages with different transformations at each stage). The learner will map this to compiler pipelines or ETL chains immediately if prompted. -->
 
 ## Ruminant Digestion — The Four-Compartment System
 

@@ -26,8 +26,10 @@ Agriculture is humanity's single largest transformation of the biosphere — cov
 |  Biodiversity loss (agriculture = leading driver)               |
 +------------------------------------------------------------------+
 ```
+<!-- @editor[diagram/P2]: Diagram lists items in columns but doesn't show how inputs flow through processes to outputs or how constraints feed back — rework as layered system view with arrows showing relationships -->
 
 ---
+<!-- @editor[bridge/P2]: No systems-engineering bridge — agriculture is a complex adaptive system with feedback loops, resource constraints, and optimization trade-offs that map directly to control theory and systems design. The learner owns those concepts deeply; connect them here. -->
 
 ## The Neolithic Revolution — 10,000 BCE Transition
 

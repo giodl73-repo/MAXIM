@@ -27,6 +27,7 @@ Synthetic fertilizers and pesticides are the two chemical pillars of industrial 
 ```
 
 ---
+<!-- @editor[bridge/P2]: No old-world bridge — Haber-Bosch is a classic chemical engineering optimization (Le Chatelier + catalyst kinetics); IPM's economic threshold logic is decision theory under uncertainty; MOA rotation is exactly an adversarial strategy against evolving opponents. The learner's MIT background covers all three frameworks — anchor to them. -->
 
 ## Haber-Bosch Process — The Most Consequential Reaction
 
