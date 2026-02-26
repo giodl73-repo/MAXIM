@@ -276,6 +276,8 @@ PHOSPHOLIPID BILAYER:
   Self-assemble into bilayer (hydrophobic core, hydrophilic exterior) → all cell membranes
 ```
 
+<!-- @editor[bridge/P2]: No bridge from phosphorus scarcity to supply chain risk -- learner with engineering leadership background would connect "finite phosphorus reserves" to geopolitical/food-security implications; parallel to rare-earth supply concern in 10-LANTHANIDES -->
+
 ### Phosphorus Allotropes
 
 ```
@@ -374,6 +376,8 @@ ACID RAIN:
 ```
 
 ---
+
+<!-- @editor[diagram/P2]: Systems view section below uses a text list, not a true ASCII diagram -- an interconnected diagram showing the C/N/O/P/S metabolic web (e.g., TCA cycle hub, ATP linkage, DNA backbone linkage) would satisfy the style contract's "ASCII boxes for system diagrams" requirement -->
 
 ## The Five Elements Together — A Systems View
 

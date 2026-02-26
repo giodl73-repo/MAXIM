@@ -74,6 +74,8 @@ COLOR TABLE (aquo complexes):
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from crystal field theory to spectroscopy instrumentation -- the color table is excellent but the learner would benefit from connecting d-d transitions to UV-Vis spectrophotometry and how analytical labs actually measure these colors quantitatively -->
+
 ## Iron (Fe, Z=26) — The Metal That Built Civilization
 
 ### Iron Metallurgy
@@ -401,6 +403,8 @@ ZnO (zinc oxide):
 ```
 
 ---
+
+<!-- @editor[content/P2]: Zinc section is excellent but the guide collapses Sc+Ti and omits V separately before covering it later -- the Vanadium section at the end feels disconnected from the drill-down flow; consider reordering so the guide walks left-to-right across the period consistently -->
 
 ## Scandium (Sc, Z=21) and Titanium (Ti, Z=22)
 

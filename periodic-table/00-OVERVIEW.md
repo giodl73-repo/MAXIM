@@ -402,6 +402,8 @@ Remaining elements not explicitly covered above:
 
 ## Common Confusion Points
 
+<!-- @editor[bridge/P3]: Natural bridge to compiler/type-system thinking -- the periodic table as a type system (groups = interfaces, periods = concrete implementations) would resonate with this learner's MIT TCS background -->
+
 **"Why is the periodic table split into two parts (main table + f-block below)?"**
 Pure pragmatics — the f-block has 14 columns and inserting it between Groups 2 and 3 would
 make the table ~32 elements wide. The detached format is a printing compromise, not a

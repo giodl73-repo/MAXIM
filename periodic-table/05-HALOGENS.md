@@ -278,6 +278,8 @@ I₂ in organic chemistry:
 
 ---
 
+<!-- @editor[content/P2]: Interhalogen compounds absent -- ICl, BrF3, ClF3 are industrially important (UF6 production uses ClF3) and structurally interesting (VSEPR showcase); significant gap for a reference guide -->
+
 ## Astatine (At, Z=85) and Tennessine (Ts, Z=117)
 
 ```

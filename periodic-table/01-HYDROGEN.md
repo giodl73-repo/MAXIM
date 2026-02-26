@@ -190,6 +190,7 @@ Thermochemical cycles:  e.g., sulfur-iodine cycle (high-temp nuclear heat â†’ Hâ
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to electrochemical engineering -- fuel cell membrane transport parallels ion channel selectivity in biology; learner's .NET/Azure background includes IoT sensor data from industrial fuel cells -->
 ## Hydrogen Economy & Fuel Cells
 
 ```

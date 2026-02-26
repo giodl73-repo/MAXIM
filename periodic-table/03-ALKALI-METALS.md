@@ -88,6 +88,8 @@ MODERN ATOMIC EMISSION SPECTROSCOPY (AES):
 
 ## Lithium (Li, Z=3)
 
+<!-- @editor[bridge/P2]: No old-world --> new-world bridge for battery chemistry -- learner coming from lead-acid / NiCad era would benefit from a "what replaced what" evolution table (Pb-acid -> NiCd -> NiMH -> Li-ion -> solid-state) before diving into Li-ion internals -->
+
 ### Li-Ion Batteries — The World-Changing Application
 
 ```
@@ -279,6 +281,8 @@ NaCs/RbCs magneto-optical traps: ultracold physics, quantum information experime
 ```
 
 ---
+
+<!-- @editor[content/P2]: Rubidium (Rb) section missing entirely -- Rb is skipped between Potassium and Cesium despite having important applications (Rb atomic clocks in GPS satellites, Rb-87 dating, laser cooling) -->
 
 ## Francium (Fr, Z=87)
 

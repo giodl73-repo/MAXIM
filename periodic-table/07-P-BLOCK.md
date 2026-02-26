@@ -231,6 +231,8 @@ GLASS:
   Add rare earth oxides → optical glass with specific n/dispersion
 ```
 
+<!-- @editor[bridge/P2]: Missing bridge from silicon semiconductor physics to the practical computing stack -- this learner built .NET/VSTS on silicon substrates but the guide doesn't connect band gap / doping / MOSFET to "why your Azure datacenter server exists"; a 3-sentence bridge would serve well -->
+
 ### Semiconductor Manufacturing
 
 ```
@@ -319,6 +321,8 @@ TELLURIUM (Te, Z=52):
   GeSbTe alloys: phase-change memory (crystalline vs amorphous → different reflectivity/resistance)
     → optical discs (DVD-RW, Blu-ray RW) and PCM non-volatile memory (Intel Optane)
 ```
+
+<!-- @editor[content/P2]: Thallium (Tl, Z=81) and Gallium (Ga, Z=31) absent from the guide -- Ga is critical for GaAs/GaN semiconductors (LEDs, RF, power electronics) and Tl has unique toxicology; both are Group 13 p-block elements that belong here -->
 
 ### Polonium (Po, Z=84)
 

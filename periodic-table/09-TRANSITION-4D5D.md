@@ -304,6 +304,8 @@ IRIDIUM:
 
 ---
 
+<!-- @editor[content/P2]: Cadmium (Cd, Z=48) and Osmium (Os, Z=76) get only one-line mentions in the overview table but no dedicated coverage -- Cd toxicity (itai-itai disease), CdTe solar cells, and quantum dots deserve a subsection; Os is the densest element and OsO4 staining is foundational in electron microscopy -->
+
 ## Silver (Ag, Z=47) and Gold (Au, Z=79)
 
 ### Silver
@@ -412,6 +414,8 @@ STILL USED:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge connecting lanthanide contraction (mentioned in 10-LANTHANIDES) to why Hf/Zr are inseparable -- the guide states the fact but doesn't cross-reference the mechanism; a 2-sentence forward-reference to 10-LANTHANIDES.md would close the loop -->
+
 ## Hafnium (Hf, Z=72) and Tantalum (Ta, Z=73)
 
 ```
@@ -439,6 +443,8 @@ TANTALUM:
 ```
 
 ---
+
+<!-- @editor[structure/P2]: Y, Zr, Nb, Ru lumped into a single section -- these are individually important enough to deserve separate subsections (Zr alone has nuclear cladding, zirconia ceramics, dental crowns, thermal barrier coatings; Nb has superconductors and HSLA steel); the lump obscures their individual significance -->
 
 ## Yttrium (Y, Z=39), Zirconium (Zr, Z=40), Niobium (Nb, Z=41), Ruthenium (Ru, Z=44)
 
