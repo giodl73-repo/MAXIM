@@ -370,6 +370,8 @@ ENVIRONMENTAL:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge — the vectorial capacity formula is a structured sensitivity analysis (parallel to reliability engineering MTBF calculations); ADH-based PMI estimation parallels degree-day models in hardware thermal testing; R0 threshold parallels epidemic threshold in network contagion models. One bridge connecting to quantitative engineering would be natural -->
+
 ## Decision Cheat Sheet
 
 | Disease | Vector | Pathogen | Key control |

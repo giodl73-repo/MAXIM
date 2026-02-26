@@ -233,6 +233,8 @@ ENTOMOLOGY SUBDISCIPLINES
 
 ---
 
+<!-- @editor[bridge/P2]: No universal CS bridge anywhere in this guide — the arms-race coevolution model maps to adversarial ML; phylogenetic trees map to DAGs; morphological cladistic keys map to decision-tree classifiers. At least one bridge would anchor the learner -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

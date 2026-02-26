@@ -368,6 +368,8 @@ ALARM PHEROMONES:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge — Hamilton's rb > c maps to cost-benefit optimization; pheromone-based queen suppression parallels distributed consensus with a leader-lease pattern; colony task allocation parallels load-balancing in distributed systems. One bridge would anchor this for the learner -->
+
 ## Decision Cheat Sheet
 
 | Taxon | Colony size | Caste mechanism | Annual/perennial | Unique feature |

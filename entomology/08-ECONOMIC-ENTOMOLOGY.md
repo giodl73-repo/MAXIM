@@ -328,6 +328,8 @@ RESISTANCE MANAGEMENT:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge — IPM's economic threshold concept maps directly to SLA-based alerting (act before breach, not at breach); pesticide resistance evolution parallels antibiotic resistance or security exploit escalation; the IRAC rotation strategy parallels cryptographic key rotation. One bridge connecting to operations/security would be natural -->
+
 ## Decision Cheat Sheet
 
 | Pest type | First-line IPM | Biological agent | Key threshold concept |

@@ -311,6 +311,8 @@ URBAN POLLINATION:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge — the pollination reward economy maps to marketplace/incentive design; pollination syndromes parallel API contracts (advertised interface, expected consumer); network effects of pollinator decline parallel cascading failure in distributed systems. One bridge would ground the learner -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |
