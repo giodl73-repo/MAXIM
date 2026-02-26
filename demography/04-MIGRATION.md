@@ -264,6 +264,7 @@ INTERNAL MIGRATION IN CHINA:
   Economic effect: massive labor reallocation from low-productivity agriculture
     to higher-productivity manufacturing → major driver of Chinese growth
 ```
+<!-- @editor[content/P2]: Internal migration section covers only Harris-Todaro + China — India's internal migration (~450M, largest absolute flow) and US Sunbelt/Rustbelt patterns are significant gaps for this topic -->
 
 ## Climate Migration
 

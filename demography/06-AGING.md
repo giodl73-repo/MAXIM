@@ -31,6 +31,7 @@ OLD-AGE DEPENDENCY RATIO (OADR):
   OADR = (Population 65+) / (Population 15-64) × 100
   Interpretation: elderly per 100 working-age adults
 
+<!-- @editor[structure/P2]: OADR country comparison below is key reference data — convert to markdown table for quick scanning -->
   OADR VALUES (2023, approximate):
   Japan:        51  (highest globally)
   Italy:        38
@@ -104,6 +105,7 @@ ALTERNATIVE MEASURES:
 
 ## Social Security Sustainability
 
+<!-- @editor[bridge/P3]: The PAYG sustainability equation τ = (b/W) × (R/E) is a capacity planning model — same structure as provisioning any shared resource pool. One bridge sentence to queuing/load-balancing would land for this reader. -->
 ```
 PAY-AS-YOU-GO (PAYG) PENSION SYSTEM:
   Current workers pay taxes → fund current retirees' benefits.

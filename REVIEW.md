@@ -176,7 +176,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `behavioral-economics/` | 11 | 2026-02 | — | 7 tags → pending |
 | `political-science/` | 7 | 2026-02 | — | 9 tags → pending |
 | `law/` | 8 | 2026-02 | — | 10 tags → pending |
-| `psychology/` | 7 | — | — | |
+| `psychology/` | 7 | 2026-02 | — | 9 tags → pending |
 | `sociology/` | 10 | 2026-02 | — | 18 tags → pending |
 | `organizational-behavior/` | 7 | 2026-02 | — | 14 tags → pending |
 | `game-theory/` | 6 | 2026-02 | — | 9 tags → pending |
@@ -202,7 +202,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `cinema-film/` | 11 | — | — | |
 | `radio-television/` | 10 | — | — | |
 | `literature/` | 10 | — | — | |
-| `rhetoric/` | 10 | — | — | |
+| `rhetoric/` | 10 | 2026-02 | — | 18 tags → pending |
 | `philosophy-of-language/` | 10 | — | — | |
 | `semiotics/` | 10 | — | — | |
 | `translation/` | 10 | — | — | |

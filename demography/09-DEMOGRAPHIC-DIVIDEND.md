@@ -165,6 +165,7 @@ PREREQUISITES FOR THE DIVIDEND:
 ## Comparison Across Dividend Cases
 
 ```
+<!-- @editor[structure/P2]: Cross-country comparison below is the natural centerpiece table for this guide — convert from code block to a markdown table for consistent styling with Decision Cheat Sheet -->
 CROSS-COUNTRY COMPARISON:
 
 Country/Region  Dividend Period  TFR at peak  Policy environment  Outcome

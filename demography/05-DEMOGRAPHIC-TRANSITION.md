@@ -125,6 +125,7 @@ SDT EVIDENCE:
 ## Regional Divergence
 
 ```
+<!-- @editor[structure/P2]: Three Worlds comparison below would work better as a markdown table with columns for Stage, TFR range, regions, and key characteristics — currently a text box that lists but doesn't compare -->
 THREE WORLDS OF DEMOGRAPHIC TRANSITION:
 
   ┌───────────────────────────────────────────────────────────────────┐
@@ -189,6 +190,7 @@ GLOBAL TFR VS. GDP PER CAPITA RELATIONSHIP:
       └──────────────────────────────────────────────────────
       Low income  Lower mid  Upper mid  High income
 
+<!-- @editor[bridge/P3]: The TFR-income relationship follows a logistic/sigmoid pattern — natural bridge to logistic functions and S-curves the reader knows from CS and growth modeling -->
   Negative correlation: TFR = f(income) is the most robust empirical
   regularity in demography.
 

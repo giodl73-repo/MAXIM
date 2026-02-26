@@ -47,6 +47,7 @@ TOTAL FERTILITY RATE (TFR):
   at birth ~1.05 males/female and mortality before reproductive age)
   In high-mortality settings: >2.5-3.0 (more women die before completing reproduction)
 
+<!-- @editor[structure/P2]: Global TFR values below are comparison data — convert from code block to a markdown table for scannability -->
   GLOBAL VALUES (2023):
   Niger:        6.9 (highest globally)
   Somalia:      6.0
@@ -225,6 +226,7 @@ SECOND DEMOGRAPHIC TRANSITION (SDT, van de Kaa & Lesthaeghe 1986):
 ## Fertility Globally — Current Patterns
 
 ```
+<!-- @editor[structure/P2]: Regional TFR comparison below belongs in a markdown table — parallel structure with the Decision Cheat Sheet -->
 REGIONAL FERTILITY (TFR, 2023 estimates):
   Sub-Saharan Africa:          4.5  (declining but slowly)
   Middle East & N. Africa:     2.7  (rapid decline in progress)

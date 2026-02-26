@@ -197,6 +197,7 @@ PROBABILISTIC FORECASTING:
 ## Illustrative Projections — Key Countries
 
 ```
+<!-- @editor[structure/P2]: Country projection table below is key comparison data — convert from code block to markdown table for scannability and sort consistency -->
 UN WPP2022 POPULATION PROJECTIONS (2050 and 2100 median):
 
 Country         2023       2050       2100
