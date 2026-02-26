@@ -60,6 +60,8 @@ FOR CONSERVATION:
 
 **Functional diversity** is arguably more important than species richness for ecosystem function. A community of 10 functionally distinct species may provide more ecosystem services than 30 species doing similar things.
 
+<!-- @editor[bridge/P2]: Shannon diversity H' is literally Shannon entropy from information theory; MIT TCS learner invented with this math; connect explicitly -->
+
 ---
 
 ## IUCN Red List — Extinction Risk Categories
@@ -184,6 +186,8 @@ PROTECTED AREA COVERAGE (2024):
 - **Important Bird Areas (IBAs)**: BirdLife criteria → pragmatic global network
 - **Indigenous protected areas**: Recognition that indigenous lands have better biodiversity outcomes in many regions
 
+<!-- @editor[content/P2]: Systematic conservation planning absent -- Marxan, complementarity-based reserve selection algorithms, gap analysis are standard modern tools -->
+
 ---
 
 ## Rewilding — Restoring Ecological Processes
@@ -251,6 +255,8 @@ ESA (Endangered Species Act, US 1973):
   Prohibits "take" (harm, harassment) of listed species
   Success stories: bald eagle, gray wolf, peregrine falcon, whooping crane
 ```
+
+<!-- @editor[content/P2]: Climate change adaptation in conservation absent -- assisted migration, climate corridors, managed relocation are increasingly central -->
 
 ---
 

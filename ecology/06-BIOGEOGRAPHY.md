@@ -69,6 +69,7 @@ SPECIES RICHNESS MODEL:
    Mechanism: Immigrants boost small populations near extinction
 ```
 
+<!-- @editor[bridge/P2]: S = cA^z is a power law; connect to other power-law distributions (Zipf, Pareto) and fractal dimension for MIT math learner -->
 **Species-area relationship (SAR):**
 ```
 log(S) = log(c) + z × log(A)
@@ -246,6 +247,7 @@ CONSEQUENCES:
 | What fraction of species lost if habitat reduced to 10%? | ~46% (if z=0.25); 10^0.25 ≈ 1.78 |
 | Why is tropical diversity higher than temperate? | Energy, evolutionary time, stability (multiple hypotheses) |
 | Why do Australian mammals look so different? | Long isolation (vicariance); marsupials filled niches convergently |
+<!-- @editor[content/P2]: "McArthur-Wilson" should be "MacArthur-Wilson" -- typo in the name (Robert MacArthur) -->
 | Why does island have fewer species than mainland of same area? | Colonization rate lower; extinction rate higher (McArthur-Wilson) |
 
 ---

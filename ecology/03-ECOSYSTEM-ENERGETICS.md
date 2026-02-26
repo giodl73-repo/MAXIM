@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: Energy flow through trophic levels is directly analogous to entropy increase in irreversible processes; MIT physics/math background makes this a natural anchor -->
 Ecosystems are open thermodynamic systems: energy flows in (solar radiation or chemosynthesis), is transformed and degraded at each biological step, and exits as heat. Unlike nutrients (which cycle), energy flows in one direction — it cannot be recycled. This asymmetry between energy flow and nutrient cycling is the central organizing principle of ecosystem ecology.
 
 ```
@@ -230,6 +231,7 @@ NBP (Net Biome Production) = NEP ± disturbance fluxes (fire, harvest, etc.)
 | Ecological question | Key concept |
 |--------------------|-------------|
 | How much energy available at level 3? | NPP × 10% × 10% = 1% of NPP |
+<!-- @editor[content/P1]: Claim may be incorrect -- verify: "Cattle: ectotherm" -- cattle are endotherms (mammals); factual error in parenthetical -->
 | Why is beef more resource-intensive than chicken? | Cattle: ectotherm → lower trophic efficiency; also cattle are trophic level 2 in grasslands |
 | Why do tropical forests have high NPP? | Warm + wet = high photosynthetic rate year-round |
 | Why is lake phytoplankton biomass lower than zooplankton? | High turnover rate; biomass ≠ production |

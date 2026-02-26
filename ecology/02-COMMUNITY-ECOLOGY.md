@@ -34,6 +34,7 @@ A community is the set of species coexisting in a place, connected by interactio
 
 **Competitive Exclusion Principle** (Gause, 1934): Two species competing for the same limiting resource cannot coexist at stable equilibrium — one will always exclude the other.
 
+<!-- @editor[bridge/P3]: Competition coefficients alpha map to payoff matrices; coexistence condition is a Nash equilibrium criterion; MIT TCS background makes this immediate -->
 ```
 LOTKA-VOLTERRA COMPETITION:
 
@@ -165,6 +166,7 @@ FOOD WEB PROPERTIES:
   (complicates clean trophic level assignments)
 ```
 
+<!-- @editor[bridge/P2]: Food web connectance, linkage density, compartmentalization are graph-theoretic properties; learner would see adjacency matrix spectral analysis immediately -->
 **Complexity and stability debate:**
 - May (1973): random food webs — MORE complex (more species, more connections) → LESS stable (mathematics)
 - Real food webs: seem to be stable at high complexity — suggests non-random, selected structure

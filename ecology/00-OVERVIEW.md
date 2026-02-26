@@ -52,6 +52,7 @@ Ecology is the study of interactions between organisms and their environment. It
 - Decomposers: bacteria, fungi — recycle nutrients from dead organic matter
 - Parasites, pathogens, mutualists
 
+<!-- @editor[bridge/P2]: Liebig's Law maps to bottleneck analysis in systems engineering and critical-path scheduling; any engineer from capacity planning needs this connection -->
 **Liebig's Law of the Minimum** — growth rate of an organism is limited by the resource most scarce relative to requirement. Even if all others are abundant. Originally for crop nutrients (nitrogen, phosphorus, potassium) but applies broadly.
 
 ---
@@ -74,6 +75,7 @@ Ecology is the study of interactions between organisms and their environment. It
 
 ## The Niche Concept
 
+<!-- @editor[bridge/P2]: n-dimensional hypervolume = convex feasibility region in R^n; connect to constraint satisfaction or feasible solution spaces for MIT math background -->
 G. E. Hutchinson's (1957) fundamental niche: n-dimensional hypervolume in environmental space within which a species can persist. Realized niche = subset occupied given competition, predation.
 
 ```
@@ -110,6 +112,7 @@ NICHE OVERLAP → COMPETITION
 
 ---
 
+<!-- @editor[structure/P1]: Missing Decision Cheat Sheet -- overview should have "which guide to read when" decision table mapping ecological questions to the right file -->
 ## Common Confusion Points
 
 **Ecology ≠ environmentalism** — Ecology is the science of interactions between organisms and environments. Environmentalism is a value system/movement. Ecologists can study invasive species, pest control, agricultural systems — not just "natural" systems.
