@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: No universal CS bridge — geographic constraints on power projection map directly to network topology constraints on system design (latency, bandwidth, partition tolerance). The learner's distributed systems intuition (CAP theorem, partition handling) provides a ready mental model for why geography still constrains power despite technology. A brief bridge here would ground the entire guide -->
 Geopolitics examines how geography shapes power and strategy. The classical theorists
 mapped the fundamental competitive logic of land power vs. sea power that still
 structures great-power competition today — though technology has complicated but not

@@ -288,6 +288,7 @@ Audience studies examines what people actually do with media -- not what it does
     Assumes rational, autonomous choosers.
     Ignores that "needs" are themselves socially constructed
     (needs for entertainment were created by entertainment industries).
+<!-- @editor[content/P3]: Uses and Gratifications has seen renewed relevance in UX research and app design — "jobs to be done" framework in product management is essentially U&G applied to software; worth a brief contemporary note -->
 ```
 
 ---
@@ -406,6 +407,8 @@ Henry Jenkins's participatory culture framework emerged from fan studies and tra
 | Participatory culture | Audiences produce and share | Descriptively accurate | Fan culture, UGC, co-creation |
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge — the progression from "hypodermic needle" to "active audience" to "participatory culture" mirrors the shift in software from mainframe (centralized, passive terminal) to client-server (negotiated processing) to peer-to-peer (distributed production); Hall's three decoding positions map to parser behavior (accept/negotiate/reject) — one paragraph connecting to the learner's systems background would anchor this entire file -->
 
 ## Common Confusion Points
 

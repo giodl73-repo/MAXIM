@@ -112,6 +112,7 @@ The Frankfurt School (Institut fur Sozialforschung, founded 1923) developed Crit
 
   Result: Listener/viewer becomes passive consumer.
   Culture no longer challenges; it confirms.
+<!-- @editor[content/P3]: Adorno's specific critique of jazz is historically contentious and worth a brief note that his jazz analysis has been widely challenged — his examples were Tin Pan Alley pop, not the improvisational jazz tradition -->
 ```
 
 ---
@@ -353,6 +354,8 @@ Benjamin (associated with the school, though distinct) offered a less pessimisti
 | Benjamin's aura | Uniqueness vs. reproducibility | NFTs as artificial aura for digital art |
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge — "standardization + pseudo-individuation" maps directly to software templating and parameterized variation (same architecture, different config); "culture industry as production line" parallels assembly-line manufacturing the learner understands from .NET ecosystem (same framework, different apps) -->
 
 ## Common Confusion Points
 

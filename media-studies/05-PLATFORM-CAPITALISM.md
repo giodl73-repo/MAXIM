@@ -268,6 +268,7 @@ Herbert Simon (1971): "A wealth of information creates a poverty of attention." 
 ## Network Effects and Winner-Take-All
 
 ```
+<!-- @editor[bridge/P3]: Network effects section — learner knows Metcalfe's law from MIT networking; worth one line connecting platform network effects to the formal n(n-1)/2 value model -->
   NETWORK EFFECTS: WHY PLATFORMS MONOPOLIZE
   ==========================================
 
@@ -369,5 +370,6 @@ Traditional advertising: buy placement near relevant content (a car ad in a car 
 **Network Effects Don't Guarantee Monopoly Forever**
 Network effects create strong lock-in, but they can be overcome. MySpace had network effects; Facebook replaced it. TikTok grew despite Facebook's network effects. The competitive risk is usually from platforms targeting a different user behavior, not direct competition on the same behavior.
 
+<!-- @editor[bridge/P2]: No explicit old-world bridge section — platform capitalism has deep parallels to the learner's Azure platform knowledge: multisided markets (Azure Marketplace), rent extraction (Azure per-unit pricing), winner-take-all (cloud market consolidation), data moats (Azure telemetry) — a short bridge paragraph would make this immediately concrete -->
 **Attention Economy ≠ Platform Economy**
 Advertising platforms are the clearest case of the attention economy, but not all platforms monetize through attention. AWS monetizes through computing services. Spotify monetizes through subscriptions. The attention economy analysis applies specifically to advertising-funded platforms, though the engagement optimization tendency is broader.

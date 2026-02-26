@@ -328,6 +328,8 @@ Dallas Smythe's foundational insight: what does commercial television actually p
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — Smythe's "audience as product" is isomorphic to platform economics the learner knows from Azure (users are the product sold to enterprise customers via telemetry/analytics); the propaganda model's five filters map to pipeline architecture with sequential filtering stages -->
+
 ## Common Confusion Points
 
 **Political Economy Is Not Conspiracy Theory**

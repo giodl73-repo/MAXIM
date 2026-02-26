@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: No universal CS bridge — institutional design constraints (veto players, electoral thresholds, coalition requirements) map directly to system architecture constraints (consensus protocols, quorum requirements, access control). The learner designed enterprise systems at Microsoft; the mapping from "veto player count determines policy change rate" to "consensus node count determines commit latency" would immediately click -->
 Comparative politics asks: why do political systems look different, and with what
 consequences? Electoral systems, regime types, state capacity, and institutional
 design all produce systematically different political and policy outcomes.

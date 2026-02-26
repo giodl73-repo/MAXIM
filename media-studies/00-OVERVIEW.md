@@ -205,6 +205,8 @@ Media studies analyzes how media forms, industries, and texts shape culture, pow
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — learner's CS/engineering background has natural parallels (information theory, signal/noise, feedback loops, system architecture) that would anchor this entire field for a technical reader -->
+
 ## Common Confusion Points
 
 **Media Studies vs. Communications Studies**

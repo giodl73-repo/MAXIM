@@ -2,11 +2,13 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: No universal CS bridge — international institutions are coordination infrastructure for sovereign actors, directly analogous to distributed system middleware (message brokers, consensus protocols, service meshes). The UN Security Council's P5 veto is a consensus protocol with 5 blocking nodes; WTO dispute settlement is a formalized conflict resolution API. The learner built VSTS and Azure infrastructure — this framing would be immediately productive -->
 International institutions are the infrastructure of international order. They reduce
 the costs of cooperation, provide information, create expectations, and give states
 mechanisms to coordinate on shared problems. They also reflect the power of their
 creators and struggle when that power shifts.
 
+<!-- @editor[diagram/P2]: Landscape diagram covers only the UN system, but the guide covers UN, WTO, IMF, World Bank, NATO, and EU. Rework as a broader institutional landscape showing all six organizations and their relationships (security vs. economic vs. trade vs. supranational), with the UN system as one node — then drill down in sections -->
 ```
 +----------------------------------------------------------------------+
 |                    UN SYSTEM ARCHITECTURE                             |

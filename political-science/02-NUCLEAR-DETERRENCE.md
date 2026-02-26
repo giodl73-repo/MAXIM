@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P3]: The opening correctly identifies deterrence as applied game theory, but never explicitly connects to the learner's MIT formal background — Schelling's commitment devices are mechanism design, MAD is a Nash equilibrium in a one-shot game with catastrophic payoffs, and the credibility problem is the classic cheap-talk vs. costly-signaling distinction. One bridge paragraph noting "you already have the formalism; here's the domain application" would sharpen the pitch -->
 Nuclear deterrence is applied game theory: you're trying to influence another
 rational actor's decisions by making certain outcomes too costly to risk. The
 intellectual framework, developed 1945–1965, remains the logic governing the

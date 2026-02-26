@@ -210,6 +210,7 @@ means holding economic and political logic simultaneously.
   - Seigniorage: world holds dollars → US gets zero-interest loan
   - Financial weaponization (SWIFT, asset freezes)
 
+<!-- @editor[bridge/P2]: Natural bridge to CAP theorem missing — Mundell-Fleming trilemma (choose 2 of 3: open capital, fixed rate, independent policy) is structurally identical to Brewer's CAP theorem (choose 2 of 3: consistency, availability, partition tolerance). The learner knows CAP deeply from distributed systems work — one sentence connecting them would make the trilemma instantly intuitive -->
   MUNDELL-FLEMING TRILEMMA:
   ┌──────────────────────────────────────────────────────────────────┐
   │ Choose any two:                                                  │

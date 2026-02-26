@@ -127,6 +127,7 @@ One of McLuhan's most discussed (and contested) distinctions:
 ```
 
 **Important caveat**: Hot/cool is relative and context-dependent. McLuhan called TV "cool" in 1964 when it was 425-line resolution. By 2024 standards, 4K TV would presumably be "hotter." The framework is a probe, not a fixed taxonomy.
+<!-- @editor[audience/P3]: Hot/cool maps naturally to bandwidth and interactivity in network theory — high-bandwidth unidirectional (hot) vs. low-bandwidth bidirectional (cool) — worth one sentence for this learner -->
 
 ---
 
@@ -348,6 +349,8 @@ Neil Postman extended and applied McLuhan with more rigor:
 | Postman | Entertainment logic colonizes public discourse | YouTube politics, TikTok news |
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge — McLuhan's "extensions of man" maps directly to abstraction layers in CS (hardware/OS/runtime/application); the tetrad maps to technology lifecycle analysis; learner's MIT background in formal systems would benefit from seeing media theory through that lens -->
 
 ## Common Confusion Points
 

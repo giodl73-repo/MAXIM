@@ -174,7 +174,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `economics/` | 5 | 2026-02 | — | 11 tags → pending |
 | `finance/` | 5 | 2026-02 | — | 14 tags → pending |
 | `behavioral-economics/` | 11 | 2026-02 | — | 7 tags → pending |
-| `political-science/` | 7 | — | — | |
+| `political-science/` | 7 | 2026-02 | — | 9 tags → pending |
 | `law/` | 8 | 2026-02 | — | 10 tags → pending |
 | `psychology/` | 7 | — | — | |
 | `sociology/` | 10 | 2026-02 | — | 18 tags → pending |
@@ -182,7 +182,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `game-theory/` | 6 | 2026-02 | — | 9 tags → pending |
 | `statistics-applied/` | 6 | 2026-02 | — | 7 tags → pending |
 | `public-health/` | 11 | 2026-02 | — | 4 tags → pending |
-| `demography/` | 10 | — | — | |
+| `demography/` | 10 | 2026-02 | — | 12 tags → pending |
 | `criminology/` | 10 | — | — | |
 | `media-studies/` | 10 | 2026-02 | — | 18 tags → pending |
 | `education/` | 10 | 2026-02 | — | 5 tags → pending |
