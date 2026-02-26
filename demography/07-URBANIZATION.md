@@ -130,6 +130,7 @@ PRIMATE CITIES:
 ## Megacities and Urban Systems
 
 ```
+<!-- @editor[structure/P2]: City size definitions below are a natural comparison table — convert from code block to markdown table -->
 CITY SIZE DEFINITIONS (UN):
   Small city:    < 500,000
   Medium city:   500,000 – 1M

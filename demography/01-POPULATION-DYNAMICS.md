@@ -206,6 +206,7 @@ GROWTH RATE TREND:
 
 ## Decomposing Population Change
 
+<!-- @editor[structure/P2]: Country decomposition data below would be more scannable as a markdown table — code block hides the columnar comparison -->
 ```
 CONTRIBUTION TO GROWTH:
 

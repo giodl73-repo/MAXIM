@@ -66,6 +66,7 @@ EXAMPLE (abridged, modern low-mortality population):
 
 ## The Gompertz Model of Mortality
 
+<!-- @editor[bridge/P3]: Natural bridge to reliability engineering — Gompertz μ(x) is the hazard function h(t) from survival/reliability analysis the reader knows; S(x) is the reliability function R(t). One sentence would connect the domains. -->
 ```
 GOMPERTZ (1825):
   Force of mortality (hazard) increases exponentially with age:
