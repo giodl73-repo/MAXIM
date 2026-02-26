@@ -11,6 +11,7 @@
 |  Default Mode Network (DMN) disruption                          |
 |  Subjective effects: altered perception, ego dissolution        |
 |                                                                  |
+<!-- @editor[content/P2]: Clinical status marked as 2024 — verify and update to current state (we are in 2026; Phase 3 results and FDA decisions may have landed) -->
 |  CLINICAL STATUS (2024):                                        |
 |  Schedule I (US), Class A (UK), Schedule III (Canada, some)    |
 |  Decriminalized: Oregon, Colorado, some cities (US)             |
@@ -146,6 +147,7 @@ PSILOCYBIN EFFECT ON DMN:
 
 ## Clinical Evidence
 
+<!-- @editor[content/P2]: Trial data marked "as of 2024" — check for Phase 3 completion updates, FDA BLA status, and any new approvals since 2024 -->
 ### Major Trials (as of 2024)
 
 ```
@@ -184,6 +186,7 @@ EXISTENTIAL ANXIETY (end of life):
 ### Regulatory Status
 
 ```
+<!-- @editor[content/P2]: Regulatory landscape section dated 2024 — update timeline estimates and check if Oregon/Colorado/Australia programs have evolved -->
 REGULATORY LANDSCAPE (2024):
   SCHEDULE I (US): psilocybin/psilocin have "no accepted medical use"
     → FDA Breakthrough Therapy: 2018 (TRD) and 2019 (MDD)

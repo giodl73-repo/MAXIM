@@ -22,6 +22,7 @@
 +------------------------------------------------------------------+
 ```
 
+<!-- @editor[bridge/P2]: No old-world → new-world bridge for the phylogenomics revolution — the shift from morphology-based to sequence-based classification parallels the shift from manual taxonomy to automated clustering in any data-rich domain. A one-liner connecting to the learner's experience with classification systems would land well. -->
 **The current classification** is based on phylogenomics — multilocus and whole-genome sequencing has overturned the traditional morphology-based classification substantially. The tree is still being revised.
 
 ---

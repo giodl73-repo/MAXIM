@@ -6,6 +6,7 @@
 +------------------------------------------------------------------+
 |                    FUNGAL CELL BIOLOGY                           |
 |                                                                  |
+<!-- @editor[diagram/P2]: Diagram shows cell components in parallel columns but doesn't show the layered architecture (wall → membrane → cytoplasm → nucleus) as a system — rework as concentric-layer or cross-section view -->
 |  CELL WALL          MEMBRANE         CYTOPLASM                  |
 |  Chitin + glucan    Ergosterol       Organelles (ER, Golgi,     |
 |  (NOT cellulose)    (NOT cholesterol) mitochondria, vacuoles)   |
@@ -234,6 +235,7 @@ PARASEXUAL CYCLE (Ascomycetes especially):
 ---
 
 ## Dimorphism
+<!-- @editor[bridge/P3]: Natural bridge to state machines / mode switching — dimorphic fungi are biological finite state machines with environmental transition triggers. Worth a one-liner for this learner. -->
 
 Some fungi switch between forms depending on conditions:
 

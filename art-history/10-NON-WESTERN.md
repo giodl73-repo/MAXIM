@@ -451,6 +451,8 @@ drawn by removing dark surface stones to reveal the lighter ground beneath.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge in this guide -- the Islamic geometric patterns' use of 17 plane symmetry groups and quasicrystal tiling (aperiodic, discovered in Western math only in 1973 by Penrose) is a stunning mathematical achievement that the learner from MIT mathematics would find deeply engaging. The guide mentions it but does not bridge to the mathematical context the reader already owns: "you know group theory -- these artisans were exploring its visual instantiations 800 years before the algebra was formalized." -->
+
 ## The Global Challenge to Western Periodization
 
 ```

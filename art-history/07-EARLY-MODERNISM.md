@@ -433,6 +433,8 @@ concealed. The strategy is: the medium carries meaning in its material.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge in this guide -- Duchamp's readymade as "designation by the artist = art" maps directly to the concept of an interface vs implementation: the readymade is a declaration (interface) that any implementation (manufactured object) can satisfy. The learner from CS/engineering would find this framing immediate. Also: collage's insertion of real materials into painted surface parallels mixed-media systems (embedding real data in a model). -->
+
 ## The Connections: Cubism and Spacetime
 
 The question whether Cubism was influenced by Einstein's special relativity (1905):

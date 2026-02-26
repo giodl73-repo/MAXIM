@@ -472,6 +472,8 @@ MOSAIC TECHNIQUE SPECTRUM
 
 ---
 
+<!-- @editor[bridge/P3]: No explicit old-world bridge in this guide -- Polykleitos's Canon (proportional system where each body part is a ratio of the whole, the module system) maps directly to modular design in engineering and the guide nearly says so for the Egyptian grid ("proto-modular design system") but does not make the explicit bridge for the Greek version. The learner from MIT mathematics would find the Pythagorean harmony/simple-integer-ratio argument immediately familiar from signal processing or musical acoustics. -->
+
 ## Technical Concepts
 
 ### Stone Carving: Subtractive Sculpture

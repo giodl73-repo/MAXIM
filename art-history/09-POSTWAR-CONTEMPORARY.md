@@ -222,6 +222,8 @@ MINIMALISM'S ARGUMENT
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge in this guide -- Sol LeWitt's instruction-based art (the instruction IS the art; execution can be done by anyone) is a direct analogue to declarative programming: the specification is the program, and runtime can vary. The learner from engineering would instantly see LeWitt's wall drawings as the equivalent of a build spec or a Dockerfile -- the artifact is the description, not any particular instantiation. Worth making explicit in the LeWitt section. -->
+
 ## Conceptual Art (1966–1975)
 
 ### Dematerialization

@@ -307,6 +307,8 @@ TECHNOLOGY → STYLE CAUSATION CHAIN
 
 ---
 
+<!-- @editor[bridge/P3]: No explicit old-world bridge in the overview -- the four analytical frames (formal, iconographic, contextual, materialist) map to standard analytical layers in engineering: formal analysis = structural review, iconographic = requirements traceability, contextual = stakeholder analysis, materialist = supply chain audit. A one-line bridge per frame would orient the learner immediately. -->
+
 ## Global Art History vs Western Canon
 
 The Western periodization — Greek → Roman → Medieval → Renaissance → Modern —

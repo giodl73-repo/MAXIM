@@ -15,6 +15,7 @@
 |  Cell-walled, like plants → no chlorophyll, no photosynthesis  |
 |  More closely related to animals than to plants (!!)            |
 |                                                                  |
+<!-- @editor[diagram/P2]: Diagram lists facts but doesn't show how the major branches (saprotrophs, mycorrhizal, pathogens, industrial) relate to each other — rework as layered system view showing ecological/economic roles branching from the kingdom -->
 |  WHERE FUNGI ARE:                                               |
 |  Everywhere — soil, air, water, inside plants, inside animals  |
 |  1 teaspoon of forest soil: 100 million to 1 billion fungal cells|
@@ -25,6 +26,7 @@
 ---
 
 ## Breaking the Plant/Animal Binary
+<!-- @editor[bridge/P2]: No universal CS bridge here — the reclassification parallels taxonomy refactoring (e.g., moving a class to a different module when inheritance was wrong). Any senior engineer who has done a major taxonomy overhaul would connect to this. -->
 
 The reclassification of fungi as a separate kingdom is one of the genuinely counterintuitive reorganizations in biology:
 

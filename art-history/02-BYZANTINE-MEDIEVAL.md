@@ -46,6 +46,8 @@ BYZANTINE AND MEDIEVAL VISUAL CULTURE
           - Northern panel painting: tempera on wood
 ```
 
+<!-- @editor[bridge/P2]: No old-world bridge in opening section -- the learner's engineering background maps naturally: Byzantine inverse perspective as a deliberately designed coordinate system (different from Renaissance linear perspective) vs naive "wrong perspective" reading. The shift from Roman spatial realism to Byzantine theological space parallels paradigm shifts in engineering (e.g., waterfall to agile -- the old approach is not wrong, it serves different requirements). -->
+
 ---
 
 ## Byzantine Art
@@ -401,6 +403,8 @@ The apex of International Gothic manuscript illumination:
   Colombe c. 1485-1489
 
 ---
+
+<!-- @editor[structure/P2]: No standalone comparison table in this guide besides the Decision Cheat Sheet -- consider a table comparing Byzantine, Romanesque, and Gothic structural systems (barrel vault vs pointed arch vs flying buttress; thick wall vs thin wall; small window vs glass screen) to give the reader a quick reference -->
 
 ## Northern Panel Painting: Tempera Technique
 

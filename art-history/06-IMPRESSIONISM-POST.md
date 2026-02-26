@@ -379,6 +379,8 @@ GAUGUIN'S FORMAL SYSTEM (SYNTHETISM)
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge in this guide -- Seurat's pointillist system (optical mixing of discrete color dots at calculated viewing distance) maps directly to additive color on RGB displays; the guide mentions the pixel analogy in the Common Confusion section but never makes the explicit bridge: "this is the same principle your monitor uses right now." The learner would find this immediately illuminating and it belongs in the Seurat section, not buried as a footnote in confusion points. -->
+
 ## The Salon des Refusés 1863: Institutional Rupture
 
 The Académie des Beaux-Arts (Paris) controlled the Salon (the primary exhibition and
