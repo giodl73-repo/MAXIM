@@ -8,6 +8,7 @@ The replication crisis exposed how much of the field's apparent consensus was me
 artifact. What survived is still substantial — and important to know precisely because
 of what didn't.
 
+<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view showing biological→cognitive→social pole as a spectrum with clinical/applied as a cross-cutting layer -->
 ```
 +----------------------------------------------------------------------+
 |                    PSYCHOLOGY FIELD MAP                               |
@@ -216,8 +217,11 @@ The most important context for evaluating psychological findings:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world→new-world bridge section — natural parallel: experimental methods (hypothesis testing, controls, statistical inference) are the same toolbox any engineer uses in A/B testing and system validation; connecting to that shared foundation would ground the reader -->
+
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "use X when Y" structure (e.g., "when evaluating a psychology claim, check: pre-registered? replicated? effect size? WEIRD sample?") -->
 | Question | Evidence-Based Answer |
 |---|---|
 | Which psychological findings are reliable? | Big Five, conditioning, cognitive phenomena, clinical CBT effects |

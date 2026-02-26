@@ -299,6 +299,8 @@ The core lesson: never underestimate context.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world→new-world bridge — natural parallels: bystander effect maps to diffusion of responsibility in incident response; social proof maps to herd behavior in markets/adoption curves; FAE maps to post-mortem blame culture vs system-level root cause analysis. Any senior engineer or leader would benefit from these connections. -->
+
 ## Decision Cheat Sheet
 
 | Finding | Robustness | Application |

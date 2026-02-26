@@ -312,6 +312,8 @@ These represent ~100 years of research on thousands of studies.
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to VSTS/Azure DevOps calibration, Microsoft's "connect" performance model, and stack-ranking history missing here — this learner lived through these systems and the I-O research directly validates or challenges each; a paragraph connecting the research to what a VP of Engineering has actually experienced would land powerfully -->
+
 ## Decision Cheat Sheet
 
 | Selection Challenge | Evidence-Based Approach |

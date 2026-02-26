@@ -322,6 +322,8 @@ for most major disorders, with CBT having the broadest support.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world→new-world bridge section — natural parallel: DSM categorical diagnosis → RDoC/HiTOP dimensional shift is the same conceptual move as replacing discrete enum types with continuous feature vectors; the comorbidity problem is exactly the problem of overlapping categories in a high-dimensional space. Any engineer who has worked with classification systems would recognize this instantly. -->
+
 ## Decision Cheat Sheet
 
 | Condition | First-Line Treatment |

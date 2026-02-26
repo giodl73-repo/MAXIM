@@ -446,6 +446,8 @@ through field research. Each has a mechanism — not just a label.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world→new-world bridge section — natural parallels: Cialdini's principles are the mechanism vocabulary behind UX/product design patterns (onboarding flows use commitment/consistency; notification systems use social proof and scarcity); nudge theory's "choice architecture" is literally systems architecture applied to human decision interfaces. Any engineer designing user-facing systems is implicitly applying these principles. -->
+
 ## Decision Cheat Sheet
 
 | Persuasion Goal | Best Tool |

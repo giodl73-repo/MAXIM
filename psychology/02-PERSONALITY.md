@@ -281,6 +281,8 @@ replicated across cultures, and predictively valid. MBTI is not this.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world→new-world bridge — natural parallel: factor analysis (the method behind Big Five) is dimensionality reduction, the same concept as PCA; the learner with MIT math background would instantly see that OCEAN is the first 5 principal components of the personality covariance matrix. This bridge would cement understanding immediately. -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |
