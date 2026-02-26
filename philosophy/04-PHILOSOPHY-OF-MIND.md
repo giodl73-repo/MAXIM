@@ -62,6 +62,7 @@ TYPE IDENTITY THEORY (Place, Smart):
   PROBLEM: multiple realizability — pain in humans, octopuses, silicon beings all count
     as pain even though they realize it in different physical substrates → type identity too narrow
 
+<!-- @editor[content/P2]: Eliminative materialism listed in landscape diagram and Decision Cheat Sheet but gets no substantive section — only named in the diagram; needs at least a paragraph (Churchlands, folk psychology is false, etc.) -->
 FUNCTIONALISM:
   Mental states are defined by their functional role: causal role in mediating between
     inputs, outputs, and other mental states
@@ -328,6 +329,7 @@ CURRENT SCIENTIFIC CONSENSUS (rough):
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world → new-world bridge section — natural parallel: interface-based programming (program to the interface, not the implementation) → functionalism (mental states defined by functional role, not substrate) — any OOP developer gets this immediately -->
 ## Decision Cheat Sheet
 
 | Position | Core Claim | Key Problem |

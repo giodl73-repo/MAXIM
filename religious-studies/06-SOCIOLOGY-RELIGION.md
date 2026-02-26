@@ -218,6 +218,8 @@ intensity but also routinizes over time.
 
 ---
 
+<!-- @editor[content/P2]: Marx is in the landscape diagram (religion = ideology, false consciousness, opiate of the masses, Gramsci hegemony) but has no dedicated section — add a Marx section parallel to Durkheim and Weber covering alienation, base/superstructure, and the Gramsci extension -->
+
 ## Secularization — Rise, Fall, and Revision
 
 ### The Classic Thesis

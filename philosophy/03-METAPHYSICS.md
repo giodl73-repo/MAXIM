@@ -303,6 +303,8 @@ SHIP OF THESEUS:
 
 ---
 
+<!-- @editor[content/P2]: Mereology listed in landscape diagram (under Modality column) but absent from any section — relevant to ontology of composite objects and part-whole reasoning in formal methods -->
+<!-- @editor[content/P2]: Haecceity listed in landscape diagram but never defined or discussed — either remove from diagram or add brief treatment -->
 ## 5. Laws of Nature
 
 ```
@@ -334,6 +336,7 @@ STATISTICAL vs DETERMINISTIC LAWS:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world → new-world bridge section — natural parallel: database identity (surrogate keys vs natural keys, entity versioning) → Ship of Theseus / persistence; any engineer who has modeled entity lifecycle recognizes this -->
 ## Decision Cheat Sheet
 
 | Question | Main Positions | Current Lean |

@@ -424,6 +424,7 @@ political party (Komeito).
 ---
 
 ## Chinese Folk Religion
+<!-- @editor[structure/P2]: Section not anchored to landscape diagram — the opening diagram covers Three Teachings + Japan's Shinto/Buddhism but omits Chinese folk religion as a distinct category; add it to the diagram or explain its structural relationship -->
 
 Often excluded from standard taxonomies because it has no institutional form,
 no single founder, no unified doctrine. Yet it may be the world's largest

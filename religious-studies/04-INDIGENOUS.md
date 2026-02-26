@@ -43,6 +43,8 @@ Alice Kehoe (shamanism critique, 1990).
 
 ---
 
+<!-- @editor[structure/P2]: No comparison tables — guide is prose-only in the body sections; a table comparing animism/shamanism/totemism/ancestor veneration across regions would add structural value -->
+
 ## Animism
 
 ### Tylor's Original Formulation

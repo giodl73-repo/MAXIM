@@ -347,6 +347,7 @@ COMMON MISUNDERSTANDINGS:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to .NET/Azure: Z3 is a Microsoft Research project — worth a one-liner noting the connection when SMT solvers appear -->
 ## 6. Automated Reasoning
 
 ```
@@ -379,6 +380,7 @@ PROOF ASSISTANTS vs AUTOMATED PROVERS:
 
 ---
 
+<!-- @editor[content/P2]: Description logics (OWL) listed in landscape diagram and cheat sheet but not covered in any section — significant gap for knowledge-graph/semantic-web context -->
 ## Decision Cheat Sheet
 
 | Logic | Key Feature | Application |

@@ -324,6 +324,8 @@ MECHANISTIC EXPLANATION (Machamer, Darden, Craver):
 
 ---
 
+<!-- @editor[content/P2]: Reductionism listed in landscape diagram (Metaphysics of Science) but not covered — relevant debate about whether all science reduces to physics; inter-level explanation matters for this learner's systems-thinking background -->
+<!-- @editor[content/P2]: Natural kinds listed in landscape diagram but absent — connects to Kripke (covered in 03-METAPHYSICS) and classification in biology/chemistry; deserves a brief subsection or cross-reference -->
 ## 6. Quantum Mechanics — Interpretations
 
 ```
@@ -373,6 +375,7 @@ QBism (Quantum Bayesianism — Fuchs, Mermin):
 
 ---
 
+<!-- @editor[bridge/P1]: Missing old-world → new-world bridge section — natural parallel: Kuhn's paradigm shifts → platform migrations (mainframe→client-server→web→cloud→AI); Lakatos's progressive vs degenerative → healthy vs dying frameworks — any senior engineer has lived through paradigm shifts and would immediately connect -->
 ## Decision Cheat Sheet
 
 | Topic | Key Positions | Current Status |
