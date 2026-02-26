@@ -4,6 +4,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No CS bridge -- resistance mechanisms (mutation, gene transfer, efflux pumps) map to adversarial security model (attack surfaces, horizontal propagation, defense-in-depth stewardship) -->
+
 ## Big Picture: Antibiotic Target Map
 
 ```

@@ -344,6 +344,8 @@ SURGICAL SITE INFECTION PREVENTION:
 
 ---
 
+<!-- @editor[structure/P3]: Decision Cheat Sheet uses Q&A format rather than condition/drug/notes table -- inconsistent with 01-07 guides -->
+
 ## 7. Decision Cheat Sheet
 
 | Question | Answer |

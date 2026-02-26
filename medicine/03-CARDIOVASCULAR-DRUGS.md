@@ -4,6 +4,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No systems bridge -- RAAS/SNS feedback loops are classic negative feedback control systems; coagulation cascade is a DAG with convergent paths -->
+
 ## Big Picture: CV Drug Landscape
 
 ```
@@ -396,6 +398,8 @@ GP IIb/IIIa INHIBITORS: abciximab (mAb), eptifibatide, tirofiban
 ```
 
 ---
+
+<!-- @editor[bridge/P3]: Vaughan-Williams classes map to ion channel conductance modifications (Na/K/Ca channels = circuit elements; antiarrhythmics = parameter tuning on coupled oscillator) -->
 
 ## 6. Antiarrhythmics — Vaughan-Williams Classification
 

@@ -4,6 +4,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No CS bridge -- oncogene addiction and synthetic lethality map to SPOF architecture and redundancy analysis; targeted therapy exploits lack of pathway redundancy like fault injection with no failover -->
+
 ## Big Picture: Oncology Drug Landscape
 
 ```
@@ -247,6 +249,8 @@ BCL-2 inhibitors:
 | Daratumumab | CD38 | Multiple myeloma | ADCC + CDC + ↓ regulatory cells | Infusion reactions, myelosuppression |
 
 ---
+
+<!-- @editor[bridge/P2]: Checkpoint inhibitors are rate limiters/circuit breakers on T-cell activation; removing them causes irAEs -- same as removing safety interlock in distributed system -->
 
 ## 3. Immunotherapy
 
