@@ -27,6 +27,7 @@ Three signaling pathways — Wnt, Notch, and Hedgehog — are deployed repeatedl
 
 ---
 
+<!-- @editor[bridge/P2]: No CS/engineering bridge despite the strongest natural parallel in the series. The destruction complex is a "garbage collector with a kill switch" — constitutive degradation unless a signal intervenes. Notch lateral inhibition is a "leader election protocol" (one cell wins, neighbors are suppressed). Hedgehog via the primary cilium is "hardware-gated signal transduction." These analogies would crystallize the mechanics for a technical reader. -->
 ## Wnt/β-Catenin Pathway
 
 ```

@@ -30,6 +30,7 @@ Stem cells are defined by two properties: self-renewal (can make more stem cells
 
 ---
 
+<!-- @editor[bridge/P2]: No CS/engineering bridge. The stem cell potency hierarchy is a "type hierarchy with narrowing casts" — totipotent is the base class, each step down restricts the interface. The niche concept maps to "dependency injection" — the environment determines behavior, not the cell alone. Bivalent chromatin is "feature flags on developmental genes — poised but not active." -->
 ## Embryonic Stem Cells (ESCs)
 
 ```
@@ -259,6 +260,7 @@ COMPETITION AMONG STEM CELLS
 
 ---
 
+<!-- @editor[content/P2]: Cancer stem cell hypothesis absent — a major stem cell topic: the idea that tumors are maintained by a stem-like subpopulation (CSCs) with implications for therapy resistance and relapse. Would fit naturally after the "Competition Among Stem Cells" section. -->
 ## Decision Cheat Sheet
 
 | Stem Cell Type | Self-Renewal | Potency | Niche Signals | Clinical Relevance |

@@ -29,6 +29,7 @@ HOX genes are master transcription factors that specify positional identity alon
 
 ---
 
+<!-- @editor[bridge/P2]: No CS/engineering bridge. Colinearity — physical order on the chromosome matching spatial expression — is a direct analogy to "memory-mapped I/O" or "address space layout." The HOX code is a positional address bus. Posterior prevalence is priority encoding. These analogies would be immediately intuitive for someone with MIT TCS background. -->
 ## The Discovery: Homeotic Transformations
 
 ```
@@ -173,6 +174,7 @@ WNT GRADIENT
 HOX GENES IN LIMB PATTERNING
 ──────────────────────────────
   HOXA and HOXD clusters control limb development in overlapping domains.
+<!-- @editor[content/P1]: Claim may be incorrect — verify: "collagen III" appears to be a parenthetical error. The three temporal phases of HOX expression in limb development are not named after collagen III. This may be a transcription artifact or confusion with another context. -->
   Three temporal phases (collagen III)
 
   PHASE 1 (early limb bud): Proximal arm/thigh

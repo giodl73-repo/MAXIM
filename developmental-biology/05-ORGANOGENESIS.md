@@ -8,6 +8,7 @@ Organogenesis (Weeks 4-8 in humans) is when specific organ structures form from 
 +──────────────────────────────────────────────────────────────────+
 |              ORGANOGENESIS OVERVIEW                              |
 |                                                                  |
+<!-- @editor[diagram/P2]: Diagram lists principles but doesn't show how the organs relate to each other or to germ layers — rework as layered system view showing germ-layer origins feeding into organ systems with shared signaling dependencies -->
 |  CORE PRINCIPLES ACROSS ALL ORGANS                              |
 |  ─────────────────────────────────                               |
 |  1. INDUCTION: One tissue instructs another to adopt a fate      |
@@ -28,6 +29,7 @@ Organogenesis (Weeks 4-8 in humans) is when specific organ structures form from 
 
 ---
 
+<!-- @editor[bridge/P2]: No CS/engineering bridge. Reciprocal induction (ureteric bud <-> mesenchyme) is a textbook "handshake protocol" — each side waits for the other's signal before proceeding. Branching morphogenesis is recursive tree construction with termination conditions. These are strong parallels for a technical reader. -->
 ## Heart Development
 
 ```
@@ -234,6 +236,7 @@ PANCREAS: ENDOCRINE + EXOCRINE FROM FOREGUT
 
 ---
 
+<!-- @editor[content/P2]: Tooth development absent — a classic epithelial-mesenchymal induction example frequently covered alongside eye and limb, and clinically significant (dental stem cells, bioengineered teeth) -->
 ## Eye Development: Classic Induction Example
 
 ```

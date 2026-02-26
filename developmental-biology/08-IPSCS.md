@@ -28,6 +28,7 @@ In 2006, Shinya Yamanaka demonstrated that fully differentiated adult fibroblast
 
 ---
 
+<!-- @editor[bridge/P2]: No CS/engineering bridge. iPSC reprogramming is "factory reset to firmware" — wiping the differentiation state back to the pluripotent default. The stochastic, low-efficiency nature of reprogramming parallels "probabilistic state machine convergence." Direct reprogramming (skipping iPSC) is "transpilation without intermediate representation." These bridges would immediately resonate. -->
 ## The Yamanaka Factors
 
 ```
@@ -246,6 +247,7 @@ iPSC → CELL THERAPY PIPELINE
       HLA homozygous iPSC banks: Match major HLA types (100 homozygous lines → cover 90%+ population)
 
 CLINICAL PROGRAMS (selected, 2024)
+<!-- @editor[content/P2]: Clinical trial status listed as "2024" — may be outdated; Vertex VX-880 reported positive Phase I/II data in late 2024 and VX-264 has progressed. Verify current trial phases and any FDA actions. -->
   Age-related macular degeneration (AMD):
     iPSC → retinal pigment epithelium (RPE) → implanted as patch under retina.
     Multiple trials (Masayo Takahashi/RIKEN, Astellas): safety established; limited visual recovery.
