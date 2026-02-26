@@ -304,14 +304,16 @@ CNC EVOLUTION:
 
   CAD/CAM integration (1980s–90s):
     Design in CAD → post-process to G-code → machine
-<!-- @editor[content/P2]: SurfCAM was acquired and folded into Hexagon/Vero product line — consider replacing with a current CAM package (e.g., Fusion 360, SolidCAM, or HSMWorks) -->
-    CATIA, Pro/E (now Creo), Mastercam, SurfCAM
+    CATIA, Pro/E (now Creo), Mastercam, SurfCAM (acquired by Hexagon/Vero)
 
   Modern CNC (2000s+):
     5-axis simultaneous machining
     High-speed machining (HSM): very high RPM (50,000+) + light cuts → fast material removal
     Adaptive machining: measure part in-process; adjust program
     Intelligent fixture: in-situ measurement, self-compensation
+    Current CAM packages: Fusion 360 CAM (Autodesk, cloud-linked CAD/CAM),
+      Mastercam (standalone, high-end shop standard), SolidCAM / HSMWorks
+      (SolidWorks integrated), Siemens NX CAM (aerospace/defense tier)
 
 G-CODE BASICS (RS-274D standard):
   Geometric codes:

@@ -76,14 +76,18 @@ CELLULAR STRUCTURE:
    (radius    |   (circumference
    of log)    |    of log)
               |
-         RADIAL:    ~3–5% seasonal movement
-         TANGENTIAL: ~6–10% seasonal movement
-         (tangential moves about 2x more than radial)
-<!-- @editor[content/P1]: Claim may be incorrect — verify: 3-5% and 6-10% are total shrinkage coefficients (green to oven-dry), not seasonal movement in conditioned interiors. Seasonal indoor movement for 300mm board is typically 2-6mm tangential, not 18-30mm. The EMC calculation below (5.4mm for 300mm oak) is more accurate — reconcile these two sections -->
+         RADIAL:    ~3–5% total shrinkage (green to oven-dry)
+         TANGENTIAL: ~6–10% total shrinkage (green to oven-dry)
+         (tangential moves about 2x more than radial — consistent across species)
 ```
 
-<!-- @editor[content/P1]: Claim may be incorrect — verify: 9-15mm and 18-30mm seasonal movement for a 300mm board are extreme; these figures match green-to-oven-dry total shrinkage, not seasonal indoor variation. Typical seasonal movement for 300mm flatsawn board indoors is ~3-6mm. See EMC section below which calculates 5.4mm correctly -->
-**The practical rule**: a 300mm board quartersawn (radial face showing) moves ~9–15mm seasonally. The same board flatsawn (tangential face showing) moves ~18–30mm. This is not a small effect. Victorian drawers that stick in summer are telling you about moisture and grain direction.
+These are **total shrinkage coefficients** from green (fully saturated) to oven-dry — a worst-case bound, not seasonal movement in a conditioned interior. In practice, kiln-dried lumber at 8% MC in a climate-controlled space sees far smaller swings.
+
+**The practical rule for seasonal indoor movement**: a 300mm board in a temperate interior (30–50% RH swing, summer vs. winter) moves approximately:
+- Quartersawn (radial face showing): ~3–6mm
+- Flatsawn (tangential face showing): ~6–12mm
+
+The EMC calculation in the section below (5.4mm for 300mm quartersawn oak) is correct for these real-world conditions. This is not a small effect — Victorian drawers that stick in summer are telling you about moisture and grain direction, and 6mm of panel movement is the difference between a frame-and-panel door working and a solid-panel door splitting.
 
 ### Flatsawn vs. Quartersawn
 

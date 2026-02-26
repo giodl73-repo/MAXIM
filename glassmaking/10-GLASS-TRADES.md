@@ -357,7 +357,15 @@ QUALITY REQUIREMENTS:
 
 ---
 
-<!-- @editor[structure/P3]: No comparison tables in body — a markdown table comparing the major trades (gaffer, scientific glassblower, glazier, optical fabricator) on training path, scale, precision, typical employer would sharpen the reference value -->
+## Glass Trades Comparison
+
+| Trade | Primary Medium | Scale | Precision | Training Path | Typical Employer | Output |
+|-------|---------------|-------|-----------|---------------|-----------------|--------|
+| Gaffer (art/studio glass) | Soda-lime, borosilicate | 1 object per session | Craft tolerance (~1mm) | Apprenticeship; MFA glass program | Studio, gallery, residency | Vessels, sculpture, art |
+| Scientific glassblower | Borosilicate (Pyrex); fused quartz | One-off apparatus | Engineering tolerance (±0.1mm on joints) | ACS-certified program; apprenticeship | University labs, pharma, research instrument cos. | Flasks, condensers, custom apparatus |
+| Glazier | Float glass, safety glass, IGU | Panels up to ~6m | Cutting tolerance (~1mm); installation fit | Trade apprenticeship; union | Glass contractor, construction | Windows, curtain wall, storefronts |
+| Optical fabricator | Optical glass (BK7, fused silica) | Lenses 5mm–1m | Surface figure ±λ/10 (~50nm) | Optics technician school; OJT at optics shop | Defense, aerospace, telescope, semiconductor | Lenses, mirrors, prisms, flats |
+| Float glass technician | Soda-lime batch | Continuous ribbon, 1M+ m²/yr | Thickness ±0.2mm; inclusion <1/1000 m² | Process engineering; chemical engineering | AGC, NSG (Pilkington), Guardian | Architectural/automotive sheet |
 
 ## Common Confusion Points
 

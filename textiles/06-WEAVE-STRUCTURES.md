@@ -2,7 +2,41 @@
 
 ## Plain, Twill, Satin, Pile, Jacquard — The Grammar of Woven Fabric
 
-<!-- @editor[diagram/P2]: Opening section jumps straight into the three fundamental weaves without a landscape diagram showing the full weave-structure taxonomy (plain/twill/satin -> pile/dobby/jacquard -> specific fabrics). A layered map would anchor all subsequent sections. -->
+```
+WEAVE STRUCTURE TAXONOMY
+
+  THREE FUNDAMENTAL INTERLACEMENT PATTERNS
+  ┌──────────────┬──────────────┬──────────────┐
+  │  PLAIN WEAVE │  TWILL WEAVE │  SATIN WEAVE │
+  │  1-over-1    │  2+ float    │  4-7+ float  │
+  │  max cross   │  diagonal    │  long floats │
+  └──────┬───────┴──────┬───────┴──────┬───────┘
+         │              │              │
+         ▼              ▼              ▼
+  PLAIN DERIVATIVES  TWILL DERIVATIVES  SATIN/SATEEN
+  Muslin, canvas,    Denim (3/1),       Dress satin,
+  voile, chiffon,    gabardine (2/2),   charmeuse,
+  taffeta, organza   herringbone,       duchess satin
+                     houndstooth,
+                     flannel
+
+  COMPLEX WEAVE MECHANISMS (built on the fundamentals)
+  ┌──────────────┬──────────────┬──────────────────────┐
+  │  PILE WEAVES │  DOBBY WEAVE │  JACQUARD WEAVE      │
+  │  Extra warp  │  Small repeat│  Per-thread control  │
+  │  or weft     │  geometric   │  (punch card → CNC   │
+  │  raised/cut  │  patterns    │   digital today)      │
+  └──────┬───────┴──────┬───────┴──────┬───────────────┘
+         │              │              │
+         ▼              ▼              ▼
+  Velvet, velour,  Waffle weave,    Damask, brocade,
+  terrycloth,      honeycomb,       tapestry, matelassé,
+  corduroy,        bird's eye,      figured silk,
+  bouclé (loop)    leno (gauze)     pictorial weaves
+
+  READING THIS FILE: each section below covers one node of this tree.
+  The three fundamental patterns are the grammar; all else is vocabulary.
+```
 
 ## The Three Fundamental Weaves
 
@@ -324,5 +358,6 @@ TERRY CLOTH:
 
 **Jacquard is a mechanism, not a fabric**: "Jacquard" describes how the loom controls warp threads — individually, via punch cards or digital actuators. A "Jacquard shirt" is a shirt with a woven-in pattern produced using Jacquard-controlled interlacement. The pattern can look like anything.
 
-<!-- @editor[bridge/P3]: Natural bridge to Jacquard → computing lineage could reference the learner's MIT background in automata/formal languages — Jacquard's hole/no-hole binary encoding is a physical finite automaton worth one sentence connecting to the Babbage lineage already mentioned -->
+**Jacquard's punch card is a physical binary automaton**: hole/no-hole encodes raise/lower for each warp thread. Reading 1,200 wires per pass across 1,200 threads per row is essentially a read head scanning a 1,200-bit binary tape — Babbage recognized this immediately and borrowed the concept directly for the Analytical Engine's program storage. The loom is a finite-state machine whose state transitions are encoded in the card deck; the fabric output is the computation trace.
+
 **"Thread count" is gamed above 400**: Good single-ply fine cotton sheets at 300–400 TC are superior to 800TC sheets made from 2-ply yarn counted as 2 threads each. Higher thread count ≠ better beyond the point of diminishing returns in single-ply construction.

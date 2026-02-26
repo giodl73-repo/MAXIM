@@ -243,7 +243,9 @@ ARCHITECTURE:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to learner's world missing — thin-film interference physics (Favrile iridescence), studio glass economics (Chihuly's business model as engineering-scale production), or optics of stained glass colorants would connect art to the learner's technical frame -->
+**The physics behind Favrile iridescence**: Tiffany's Favrile glass achieves its surface shimmer through thin-film interference, not pigment. Exposing hot glass to metallic salt vapors (stannous chloride, lead chloride) deposits a nanometer-scale metallic oxide layer on the surface. Wavelengths of light that satisfy the thin-film constructive interference condition (2nt = mλ, where t is film thickness, n is refractive index) are reflected selectively. Varying the film thickness produces different color shifts — the same physics as a soap bubble or the structural color in a butterfly wing, but thermally locked into the glass surface. The art is in controlling the process variables that determine film thickness; the mechanism is entirely optical.
+
+**Chihuly as engineering-scale production**: Chihuly's studio operates as a production system, not a craft workshop. A Chihuly "artwork" is executed by a trained team (gaffer + 4-6 assistants) working from Chihuly's sketches and direction. The creative director role is separated from the physical execution — Chihuly has not blown glass personally since a 1979 injury. The business model is closer to architecture (Zaha Hadid designed buildings she didn't physically construct) than to traditional studio craft. This is also why Chihuly works are contentious in the fine art world: the hand-of-the-artist attribution is ambiguous in a production system.
 
 ## Studio Glass Movement (Harvey Littleton, 1962)
 
@@ -316,7 +318,15 @@ CZECH/BOHEMIAN GLASS ART:
 
 ---
 
-<!-- @editor[structure/P3]: No comparison tables in body — a markdown table comparing Tiffany vs Gallé vs Lalique (technique, period, market, signature product) would provide quick-reference value -->
+## Art Nouveau Masters Comparison
+
+| Artist | Period | Country | Primary Technique | Signature Material | Market Position | Signature Product |
+|--------|--------|---------|-------------------|-------------------|-----------------|-------------------|
+| Louis Comfort Tiffany | 1885–1933 | USA | Leaded stained glass; Favrile blown | Opalescent glass; Favrile (iridescent) | Luxury decorative + architectural | Leaded lamp shades; Favrile vases |
+| Émile Gallé | 1874–1904 | France (Nancy) | Wheel-carved cameo; acid etching; marqueterie de verre | Multi-layer cased glass | Fine art / collector; smaller editions | Carved cameo vases; marqueterie vessels |
+| René Lalique | 1890–1945 | France (Paris) | Molded / pressed glass; pâte de verre; cire perdue | Frosted/opalescent pressed glass | Mass luxury — large production runs | Mascots; architectural panels; perfume bottles |
+
+Key distinction: Gallé = unique or small-series carved objects (labor-intensive, highest rarity); Tiffany = semi-production studio with trained teams (lamps are repeated patterns); Lalique = industrial-scale luxury (molds allow large series, democratizing Art Nouveau aesthetics).
 
 ## Contemporary Glass Art Market
 

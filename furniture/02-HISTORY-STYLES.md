@@ -402,8 +402,11 @@ KEY FIGURES:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to engineering/CS thinking missing here — the overview file has "same cognitive load as software architecture" and "each era is a new instruction set" analogies, but this file's bridge section is purely historical with no callback to the learner's technical frame of reference -->
 ## The Bridge to Modernism
+
+**Each historical period is, in structural terms, a platform shift.** The underlying constraints change (available materials, trade routes, manufacturing capability, cultural legitimacy rules), and everything built on top of those constraints has to be renegotiated. Queen Anne → Chippendale is not arbitrary style drift — it is the English mahogany supply arriving from the Caribbean, unlocking a wood that holds carved detail at a scale walnut cannot. Rococo → Neoclassical is the archaeological discovery of Pompeii (1748) feeding into the Enlightenment belief that classical antiquity is the correct reference architecture. Art Nouveau → Modernism is the cost of handcraft becoming unsustainable in an industrial wage economy.
+
+The same pattern appears in software platform shifts: the API changes when the underlying runtime changes, not from designer whim. Recognizing the forcing function behind a style transition is more useful than memorizing style names.
 
 By 1920, the scene is set for the Bauhaus intervention. The argument that furniture should be designed for industrial production — not just decorated with machine-made ornament — required:
 

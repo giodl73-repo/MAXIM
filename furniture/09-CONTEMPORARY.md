@@ -4,21 +4,51 @@
 
 The most significant shift in contemporary furniture is the collapse of the gap between design and production. CNC tools mean that an individual with a design file can produce a custom chair; digital files can be shared globally; and the economics of manufacturing are no longer exclusively dominated by large factory runs.
 
-<!-- @editor[diagram/P2]: Diagram lists a timeline but doesn't show how the major contemporary topics (CNC, parametric, 3D printing, robotics, sustainability, business models) relate to each other — rework as layered system view showing technology → business model → outcome relationships -->
 ```
-DESIGN-TO-PRODUCTION DISTANCE (historical):
+CONTEMPORARY FURNITURE: TECHNOLOGY STACK → BUSINESS MODEL → OUTCOME
 
-  1850: Design (sketch) --[months: patterns, craftsmen, apprentices]--> Object
-  1950: Design (drawing) --[weeks: factory tooling, production run]--> Object
-  2000: Design (CAD file) --[days: CNC routing, assembly]--> Custom object
-  2025: Design (parametric file) --[hours: CNC/laser/3D print]--> Custom object
+  ENABLING TECHNOLOGIES
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  CNC ROUTING        PARAMETRIC DESIGN    3D PRINTING            │
+  │  (subtractive)      (generative form)    (additive)             │
+  │  Plywood/solid      Grasshopper/Fusion   PLA/PETG/Nylon         │
+  │  ±0.1mm             → form from rules    Complex geometry       │
+  │         \                  |                    /               │
+  │          └────────────┬───────────────────────┘                 │
+  │                       │                                         │
+  │              ROBOTICS + AUTOMATION                               │
+  │         (robotic arms, large-format FDM,                        │
+  │          automated material handling)                            │
+  └───────────────────────┬─────────────────────────────────────────┘
+                          │ collapses design-to-production gap
+                          ▼
+  BUSINESS MODEL UNLOCKED
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  BATCH SIZE → 1        DIRECT-TO-CONSUMER     OPEN SOURCE       │
+  │  Custom at mass cost   Configurator model     File sharing       │
+  │  (vs. factory minimum) No retailer markup     Distributed mfg   │
+  │         \                     |                    /            │
+  │          └────────────┬────────────────────────┘                │
+  │                       │                                         │
+  │              SUSTAINABILITY DRIVER                               │
+  │         (local production, material tracking,                    │
+  │          circular design, disassembly specs)                     │
+  └───────────────────────┬─────────────────────────────────────────┘
+                          │
+                          ▼
+  OUTCOMES
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  Form complexity: achievable without craft skill premium         │
+  │  Geography: design file global; production local                 │
+  │  Market: mass-market (IKEA) + bespoke (studio) + everything in  │
+  │           between (configurators, open-source flat-pack kits)    │
+  └─────────────────────────────────────────────────────────────────┘
 
-THE IMPLICATIONS:
-  Batch size: falls from thousands → one (at cost)
-  Design geography: decoupled from manufacturing geography
-  Design tools: accessible to non-specialists (Fusion360, Rhino + Grasshopper)
-  Business model: direct-to-consumer; configurator; open-source
-  Sustainability: local production, material tracking, circular design
+TIMELINE CONTEXT:
+  1850: Design → [months: craftsmen] → Object
+  1950: Design → [weeks: factory tooling] → Object
+  2000: Design → [days: CNC routing] → Custom object
+  2025: Design → [hours: parametric + CNC/3D print] → Custom object
 ```
 
 ---

@@ -2,7 +2,49 @@
 
 ## Silk Road, Cotton Slavery, Wool and Medieval Europe — Cloth as Economic Engine
 
-<!-- @editor[diagram/P2]: Opens with a text thesis block, not an ASCII landscape diagram. The five structures listed would work much better as a visual timeline/map showing geographic and temporal relationships (Silk Road east-west, Atlantic triangle, wool Flanders-England-Florence, Lancashire hub). Currently the reader must assemble the spatial picture mentally. -->
+```
+TEXTILE TRADE GEOGRAPHY AND TIMELINE
+
+  GEOGRAPHIC AXES (each trade route is a vector with direction + commodity):
+
+  SILK ROAD (200 BCE – 1450 CE)
+  China ─── Central Asia ─── Persia ─── Byzantium ─── Rome/Europe
+    EAST                                                       WEST
+    [silk out]  ←─────────────────────── [gold, wool, glass in]
+
+  WOOL TRIANGLE (900 – 1500 CE)
+  England ──[raw wool]──► Flanders (Bruges, Ghent)
+                               │
+                          [woven cloth]
+                               │
+                               ▼
+                          Italy (Florence, Venice) ──[banking + distribution]──► Europe
+
+  INDIAN COTTON (1400 – 1800 CE)
+  India (Gujarat, Bengal) ──[calico, muslin, chintz]──► Indian Ocean ──► Europe
+                                    │
+                             [colonial dismantlement 1800+]
+                             EIC bans Indian imports;
+                             forces raw cotton export
+
+  ATLANTIC TRIANGLE (1600 – 1865)
+  Britain ──[manufactured goods]──► West Africa
+  West Africa ──[enslaved people]──► Americas (cotton fields)
+  Americas ──[raw cotton]──► British mills (Lancashire)
+  Lancashire ──[finished cloth]──► global markets
+
+  LANCASHIRE INDUSTRIALIZATION (1760 – 1850)
+  Lancashire hub: spinning jenny (1764) + water frame (1769)
+                  + power loom (1785) + steam (1800s)
+  Cotton in ──► mechanized factory ──► cloth out at 1/10th craft cost
+
+TIMELINE OVERLAY:
+  200 BCE ──[Silk Road]────────────────────── 1450 CE
+   900 CE ──[Wool Triangle]────── 1500 CE
+  1400 CE ──[Indian Cotton Trade]──────────── 1858 CE
+  1600 CE ──[Atlantic Triangle]──── 1865 CE
+  1760 CE ──[Lancashire Industrialization]──► 1850 CE (template for capitalism)
+```
 
 ## The Central Thesis
 

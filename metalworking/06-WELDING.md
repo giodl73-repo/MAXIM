@@ -432,8 +432,9 @@ NDT SELECTION BY WELD DEFECT TYPE:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to software deployment gates — WPS/PQR is the manufacturing equivalent of a qualified CI/CD pipeline: procedure must be validated (PQR = integration test), operator must be certified (welder qualification = deployment approval), and essential variables are locked (= pinned dependency versions) -->
 ## Weld Procedure Qualification (WPS/PQR)
+
+The WPS/PQR/welder-qualification triad is structurally identical to a qualified CI/CD deployment pipeline: the procedure must be validated before use (PQR = integration test run), the operator must be individually certified (welder qualification = deployment approval gate), and the essential variables in the WPS are locked — changing base metal, filler, preheat, or process requires re-qualification, just as changing a pinned dependency or runtime version requires re-running the test suite. The system is auditable by code (AWS D1.1, ASME Section IX) rather than individual judgment.
 
 ```
 QUALIFICATION SYSTEM (AWS D1.1, ASME Section IX):
