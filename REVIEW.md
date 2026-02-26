@@ -247,7 +247,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `plastics-polymers/` | 10 | 2026-02 | — | 6 tags → pending (6 polished) |
 | `papermaking/` | 10 | 2026-02 | — | 11 tags → pending |
 | `composite-materials/` | 10 | 2026-02 | — | 0 tags -- polished |
-| `furniture/` | 10 | — | — | |
+| `furniture/` | 10 | 2026-02 | — | 5 tags → pending |
 
 ---
 
