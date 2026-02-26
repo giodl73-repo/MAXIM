@@ -298,6 +298,7 @@ field challenges who tells history, whose perspective counts, and what categorie
 
 ---
 
+<!-- @editor[structure/P2]: No comparison tables — a table comparing postcolonial vs. decolonial vs. subaltern studies (origin, key figures, primary critique, method, limitation) would clarify the three distinct strands -->
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -312,6 +313,7 @@ field challenges who tells history, whose perspective counts, and what categorie
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Said's point that knowledge frameworks encode power parallels the recognition in software that APIs and data models are never neutral — they encode the worldview and priorities of their designers; Chakrabarty's "provincializing" is the intellectual equivalent of recognizing that your framework's abstractions are not universal but reflect specific design choices -->
 ## Common Confusion Points
 
 **Postcolonial is not anti-Western.**

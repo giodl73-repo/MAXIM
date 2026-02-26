@@ -264,6 +264,7 @@ Braudel's masterwork structured the history of the Mediterranean world around th
 
 ---
 
+<!-- @editor[structure/P2]: No comparison tables — the three temporal levels (longue duree, conjuncture, evenement) would benefit from a structured comparison table with columns for timescale, subject matter, pace of change, typical sources, and representative historians -->
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -277,6 +278,7 @@ Braudel's masterwork structured the history of the Mediterranean world around th
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Braudel's three temporal levels map directly to layered system architecture (hardware/infra = longue duree, platform/services = conjuncture, user events = evenements); any engineer thinking in layers will recognize this immediately -->
 ## Common Confusion Points
 
 **Longue durée is not just "a long time."**

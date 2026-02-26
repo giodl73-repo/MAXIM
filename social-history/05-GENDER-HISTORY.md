@@ -286,6 +286,7 @@ the entire discipline.
 
 ---
 
+<!-- @editor[structure/P2]: No comparison tables — a table comparing women's history vs. feminist historiography vs. gender history (object of study, key question, method, exemplar) would clarify the three phases at a glance -->
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -299,6 +300,7 @@ the entire discipline.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Scott's insight that gender is a structural category (not just "about women") parallels the shift from studying "users" to understanding that user-system interaction is a design category structuring the entire system — the analytical category reframes everything, not just its immediate referent -->
 ## Common Confusion Points
 
 **Women's history and gender history are not the same.**

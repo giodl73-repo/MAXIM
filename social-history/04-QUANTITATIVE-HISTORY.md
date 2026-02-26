@@ -355,6 +355,7 @@ generated major controversies, and remains an active field now transformed by di
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: counterfactual analysis is hypothesis testing (the learner knows this from experimental design); IV and RD are standard causal inference techniques the learner would recognize from data science; path dependence maps directly to technical debt and lock-in in software architecture -->
 ## Common Confusion Points
 
 **Cliometrics showing slavery was "efficient" is not a moral argument.**
