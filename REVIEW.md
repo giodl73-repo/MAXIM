@@ -151,7 +151,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 |-----------|------:|-------|-------|-------|
 | `historical-geography/` | 18 | — | — | |
 | `history-of-science/` | 10 | — | — | |
-| `economic-history/` | 10 | — | — | |
+| `economic-history/` | 10 | 2026-02 | — | 12 tags → pending |
 | `military-history/` | 11 | 2026-02 | — | 4 tags → pending |
 | `anthropology/` | 9 | — | — | |
 | `philosophy/` | 7 | — | — | |

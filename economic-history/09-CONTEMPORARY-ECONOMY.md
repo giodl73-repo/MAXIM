@@ -2,6 +2,8 @@
 
 ## The Big Picture
 
+<!-- @editor[diagram/P1]: No landscape diagram — guide opens with a timeline but no system diagram showing how Washington Consensus, hyperglobalization, 2008 crisis, and deglobalization structurally relate as cause-and-effect -->
+
 The period from 1989 to the present has been shaped by three massive economic experiments: the Washington Consensus (1989-2008), hyperglobalization via WTO and China's rise (1994-2016), and the aftermath of the 2008 financial crisis (2008-present). The third experiment broke the policy consensus of the previous two. We are now in an era of industrial policy return, deglobalization pressures, and unresolved questions about secular stagnation.
 
 ```
@@ -432,6 +434,7 @@ CDO: COLLATERALIZED DEBT OBLIGATION
 
   CDO-SQUARED: pool CDO tranches into another CDO
   Distance from underlying assets: three layers removed
+<!-- @editor[bridge/P3]: Natural bridge to software abstraction layers — CDO-squared is nested indirection where the abstraction leaks catastrophically; any engineer who has debugged a 3-layer-deep dependency failure will recognize this pattern -->
 
   THE CORRELATION PROBLEM:
   Gaussian copula model (Li, 2000): used to estimate correlation
@@ -602,6 +605,7 @@ MMT (MODERN MONETARY THEORY) DEBATE:
   effects on bond markets understated
   Japan: evidence for MMT? (Debt 260% of GDP; no inflation...until 2022)
   2022: inflation arrived in Japan; complicated the MMT story
+<!-- @editor[content/P3]: MMT section is thin — Mosler-Wray-Kelton framework deserves a more structured treatment: the accounting identity argument vs the behavioral/institutional constraints argument; currently reads as "some people say X, others say not-X" -->
 ```
 
 ---

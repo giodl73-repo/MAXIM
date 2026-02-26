@@ -454,6 +454,7 @@ WHAT IS NOT CONTESTED:
 
 ---
 
+<!-- @editor[structure/P3]: No comparison table between EIC and VOC — they are both chartered monopolies with different structures, governance, and outcomes; a side-by-side table would sharpen the contrast -->
 ## Dutch East India Company (VOC)
 
 ### The VOC as First Multinational Corporation
