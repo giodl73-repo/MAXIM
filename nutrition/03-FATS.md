@@ -4,6 +4,7 @@
 
 Dietary fat is the most energy-dense macronutrient (9 kcal/g), the primary fuel at rest, and the source of essential fatty acids and fat-soluble vitamins. It's also the most politically charged topic in nutrition: the 1977 fat-reduction hypothesis, 40 years of low-fat dietary guidelines, and subsequent evidence that upended the simple narrative.
 
+<!-- @editor[diagram/P2]: Opening diagram shows molecular structure of fatty acids but doesn't map the guide's landscape — need a system view connecting SFA/MUFA/PUFA/trans -> digestion/absorption -> lipoproteins (chylomicron/VLDL/LDL/HDL) -> ApoB/atherogenesis -> clinical markers and decision points -->
 ```
 FATTY ACID STRUCTURE:
 

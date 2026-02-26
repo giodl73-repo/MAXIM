@@ -4,6 +4,7 @@
 
 Carbohydrates are the most versatile class of biomolecules — they serve as fuel, structural material, cell signaling molecules, and gut ecosystem substrate. The simple classification (simple vs complex) obscures enormous biochemical diversity.
 
+<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view connecting taxonomy -> digestion -> blood glucose regulation -> GI/GL -> fiber fermentation -> fructose metabolism -> insulin response -->
 ```
 CARBOHYDRATE TAXONOMY
 

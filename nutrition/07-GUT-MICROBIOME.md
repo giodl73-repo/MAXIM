@@ -4,6 +4,7 @@
 
 The human gut harbors approximately 38 trillion microorganisms — roughly equal to the number of human cells — encoding 150× more unique genes than the human genome. These microbes are not parasites but **metabolic partners**: they digest substrates our enzymes cannot, produce essential metabolites, train the immune system, and communicate with the brain. The microbiome is increasingly recognized as a metabolic organ with systemic effects on health and disease.
 
+<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view connecting composition/diversity -> fiber fermentation -> SCFAs -> colonocyte health + immune training + gut-brain axis -> prebiotics/probiotics interventions -> dysbiosis and disease links -->
 ```
 GUT MICROBIOME — OVERVIEW:
 

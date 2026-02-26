@@ -4,6 +4,7 @@
 
 Protein is the most functionally diverse macronutrient — structural material, catalysts, hormones, antibodies, neurotransmitter precursors, oxygen carriers. From a dietary standpoint, the key questions are: what quality, what quantity, and what timing?
 
+<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view connecting intake -> digestion -> amino acid pool -> mTOR/MPS -> quality metrics (PDCAAS/DIAAS) -> animal vs plant -> aging/sarcopenia -> requirements by goal -->
 ```
 PROTEIN INTAKE
      │
