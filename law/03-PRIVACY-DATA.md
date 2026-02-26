@@ -18,6 +18,7 @@
 ├───────────────────────┼──────────────────────────────────────────────────┤
 │  United States        │  Sectoral approach: HIPAA, FERPA, COPPA, GLBA   │
 │  (federal)            │  No comprehensive federal privacy law (2025)     │
+<!-- @editor[content/P2]: Federal privacy law status stamped 2025 — verify whether APRA or similar legislation has advanced in 2026 -->
 │                       │  FTC Act §5: deceptive/unfair practices          │
 │                       │  ECPA: electronic communications interception    │
 ├───────────────────────┼──────────────────────────────────────────────────┤
@@ -32,6 +33,8 @@
 ```
 
 ---
+
+<!-- @editor[bridge/P3]: Natural bridge from Azure/VSTS-era compliance (SOC 2, ISO 27001, MSFT Trust Center) to modern privacy engineering obligations (GDPR DPIAs, privacy by design) would ground this learner -->
 
 ## 1. GDPR — General Data Protection Regulation
 

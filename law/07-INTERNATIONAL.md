@@ -137,6 +137,7 @@ SUBSIDIES AND COUNTERVAILING MEASURES (SCM Agreement):
 DISPUTE SETTLEMENT UNDERSTANDING (DSU):
   Binding; two-stage: panels + Appellate Body
   Appellate Body: 7 members; 2024: only 1 member (US blocking appointments since 2017)
+  <!-- @editor[content/P2]: WTO Appellate Body status stamped 2024 — verify whether appointments have been made or MPIA has become more established by 2026 -->
     → Dispute settlement in crisis; Multi-Party Interim Appeal Arrangement (MPIA) used by others
   Remedies: prospective only (no back-payment); suspension of concessions if non-compliance
 
