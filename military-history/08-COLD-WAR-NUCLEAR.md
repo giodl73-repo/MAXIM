@@ -371,6 +371,7 @@ After Vietnam, the US Army had to rebuild around the real threat: Soviet convent
 
 ## Proxy Wars: Geography of Cold War Competition
 
+<!-- @editor[structure/P2]: Section not anchored to landscape diagram — proxy wars are listed but not connected to the strategic/operational/sub-conventional levels shown in the opening diagram; no analysis of how proxy war fits the deterrence-escalation framework -->
 ```
 PROXY WAR MAP:
   Both superpowers fought ideological competition through

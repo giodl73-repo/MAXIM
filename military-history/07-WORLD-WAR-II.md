@@ -464,6 +464,7 @@ PLUTO (Pipe Line Under The Ocean):
 
 ## Common Confusion Points
 
+<!-- @editor[bridge/P3]: Natural bridge to modern software-enabled coordination (microservices, event-driven architecture, decentralized C2 as organizational pattern) missing here — "radio-enabled OODA loop" maps directly to this learner's domain -->
 **Blitzkrieg was not new doctrine in 1939.** The British had developed Tank Corps doctrine in 1917-18. Liddell Hart and Fuller wrote about mechanized warfare in the 1920s-30s and were ignored in Britain. Guderian, who created the German Panzer force, acknowledged reading Liddell Hart. Germany adopted the doctrine that Britain and France had invented and chose not to fully implement.
 
 **The T-34 was not the best tank.** The German Tiger and Panther had superior guns and armor. The T-34 won because the Soviets produced 57,000 of them (1944-45) while Germany produced ~1,347 Tigers total. Battlefield quality vs industrial quantity — the industrial argument won. In direct tank-on-tank engagements, German tanks often had kill ratios of 3:1 or 5:1 vs T-34s. This did not matter when Soviets had 10:1 numerical advantage.
