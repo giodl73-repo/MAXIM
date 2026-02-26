@@ -74,6 +74,8 @@ methods.
   Then collapsed under internal and external pressure.
 ```
 
+<!-- @editor[bridge/P1]: Missing bridge from Vienna Circle's verification principle to type systems and formal verification — the learner has MIT TCS background and would immediately see the parallel between "meaningful iff verifiable" and static type checking / decidability. Any developer coming from typed languages needs this anchor -->
+
 ### Problems with Logical Positivism
 
 ```
@@ -306,6 +308,7 @@ methods.
   PROBLEM: Multiple realizability (Putnam). Robots might have pain.
   Pain cannot be identical to C-fiber firing if something else can also realize pain.
 
+<!-- @editor[bridge/P2]: Functionalism (mental states defined by input-output relations, substrate-independent) is the philosophical foundation for interface-based programming and dependency injection — this learner built systems on these principles. Bridge missing -->
   FUNCTIONALISM (Putnam 1960s):
   Mental states are defined by functional roles (input-output relations),
   not physical substrate. Implementable in neurons, silicon, etc.

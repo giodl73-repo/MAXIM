@@ -282,6 +282,8 @@ The most influential methodological intervention of the late 20th century.
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from hermeneutic circle / interpretation theory to analogous loops in engineering — e.g., requirements-vs-implementation feedback, TDD red-green-refactor, or compiler passes that refine understanding iteratively -->
+
 ## Decision Cheat Sheet
 
 | I want to... | Use |

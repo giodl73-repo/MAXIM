@@ -72,6 +72,8 @@ are reframing intellectual priorities.
   Science is the fabrication of facts through heterogeneous networks.
 ```
 
+<!-- @editor[bridge/P2]: New Materialism (Barad, Bennett) and Actor-Network Theory have direct parallels to distributed systems thinking — agency distributed across nodes, emergent behavior from network interactions, no single controlling center. Bridge missing for a systems-architecture reader -->
+
 ### The Affective Turn
 
 ```
@@ -222,6 +224,7 @@ are reframing intellectual priorities.
   have different institutional and cultural relationships to science).
   Technology policy is shaped by these collective visions.
 
+<!-- @editor[content/P2]: AI ethics section is thin for the contemporary landscape — missing key frameworks (alignment problem, value alignment, AI safety) and the philosophical debate between tool AI vs. agent AI. Given the learner's engineering leadership role, this needs expansion -->
   AI ETHICS AND PHILOSOPHY:
   Current frontier: AI, algorithms, machine learning.
   Algorithmic bias: technical systems embed social assumptions.

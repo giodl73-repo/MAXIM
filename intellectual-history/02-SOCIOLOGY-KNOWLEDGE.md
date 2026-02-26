@@ -329,6 +329,8 @@ David Bloor, Barry Barnes, Steven Shapin — University of Edinburgh, 1970s.
 
 ---
 
+<!-- @editor[bridge/P2]: Merton's CUDOS norms map directly to open-source community norms (communalism=OSS, universalism=code review, organized skepticism=CI/CD) — natural bridge for this learner, currently absent -->
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |

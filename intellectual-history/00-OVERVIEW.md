@@ -214,6 +214,8 @@ Quentin Skinner, John Pocock, John Dunn. Founded in 1960s Cambridge.
 
 ---
 
+<!-- @editor[bridge/P3]: No bridge connecting intellectual history's methodological debates to formal/structural reasoning the learner already owns (e.g., paradigm shifts parallel type-system evolution, Kuhn's incommensurability maps to breaking API changes) -->
+
 ## Decision Cheat Sheet
 
 | Question | Go to |
