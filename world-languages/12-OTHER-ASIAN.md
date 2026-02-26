@@ -152,6 +152,7 @@ Bệnh viện / Sân bay / Khách sạn — Hospital/Airport/Hotel
 
 ---
 
+<!-- @editor[content/P2]: Vietnamese section is solid but Thai/Burmese/Khmer/Lao sections are noticeably thinner — Thai gets tone/script overview but no grammar core; Burmese/Khmer/Lao get only a few paragraphs each with minimal survival phrases -->
 ## Thai
 
 ### Profile

@@ -34,6 +34,7 @@ WHY LEARN LATIN IN 2026:
 
 ---
 
+<!-- @editor[bridge/P2]: No case-system bridge despite obvious parallel — learner knows German 4-case from 05-GERMAN.md; a comparison table (Latin 6 cases vs German 4 vs Russian 6) showing which cases map and which are unique would anchor Latin in the learner's existing framework -->
 ## The Latin Case System
 
 ```
@@ -282,6 +283,7 @@ LEARNING ESPERANTO FIRST (the "propaedeutic effect"):
 
 ---
 
+<!-- @editor[structure/P2]: Language Endangerment section not anchored to landscape diagram — this is a standalone topic grafted onto a Latin/Esperanto file; either needs its own file or a clearer connection to the constructed-language theme (Esperanto as response to loss of neutral lingua franca) -->
 ## Language Endangerment
 
 ```

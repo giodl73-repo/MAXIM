@@ -208,6 +208,7 @@ SUNDIATA (Epic of Old Mali, c. 13th c., recorded 20th c.)
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to formal language theory missing for the lyric — the epic section connects to generative grammars but the lyric section has no parallel CS/math analogy for fixed-form constraints as constraint satisfaction -->
 ## The Lyric Mode
 
 The lyric is the hardest of the three major genres to define — it is not a structural form (like narrative) or a functional mode (like drama). The definition has shifted at every period.

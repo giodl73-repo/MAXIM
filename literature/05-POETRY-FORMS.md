@@ -172,6 +172,7 @@ they accrete meaning through each new context.
 
 ### Pindaric Ode (see also 02-EPIC-AND-LYRIC.md)
 
+<!-- @editor[content/P2]: Section is thin — Pindaric ode deserves at least an ASCII diagram showing the triadic structure with metrical notation, not just a prose summary that duplicates 02-EPIC-AND-LYRIC.md -->
 The Greek choral ode for athletic victory. Structural unit: strophe + antistrophe (same meter, chorus turns one way then returns) + epode (different meter, chorus stands). Repeated in triads.
 
 ### Horatian Ode
@@ -313,6 +314,7 @@ Enjambment      No pause at line end;         "I think that I shall never
 
 ---
 
+<!-- @editor[content/P2]: Section is thin — slam/hip-hop prosody deserves the same formal depth as other layers (specific scansion examples, transcription of flow patterns, notation systems) -->
 ## Layer 7: Slam Poetry and Performance Poetry
 
 ```

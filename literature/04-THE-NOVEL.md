@@ -247,6 +247,7 @@ MODERNIST FORMAL INNOVATIONS
 
 ---
 
+<!-- @editor[bridge/P2]: No formal-system bridge for postmodern fiction — metafiction and intertextuality map naturally onto self-reference and quining; Borges's Library of Babel is a combinatorics argument; worth making these connections explicit for the TCS reader -->
 ## Layer 5: Postmodern Novel
 
 ```
@@ -286,6 +287,7 @@ POSTMODERN FICTION — KEY MOVES
 
 ---
 
+<!-- @editor[content/P2]: The contemporary novel (post-2000) is absent — autofiction (Knausgaard, Ferrante), climate fiction, post-postmodern realism, the global digital novel deserve at least a compressed section -->
 ## Layer 6: The World Novel
 
 ```

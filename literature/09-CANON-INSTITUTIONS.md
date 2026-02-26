@@ -317,6 +317,7 @@ NETWORK EFFECTS AGAIN:
 
 ---
 
+<!-- @editor[audience/P3]: World literacy statistics section reads as general-interest rather than structurally connected to the canon-formation argument — the learner profile would benefit more from data on how translation economies and publishing infrastructure create canon asymmetries than from raw literacy rates -->
 ## Layer 5: World Literacy Statistics
 
 ```

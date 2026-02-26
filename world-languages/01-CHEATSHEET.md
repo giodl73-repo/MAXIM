@@ -1,3 +1,4 @@
+<!-- @editor[diagram/P2]: No landscape diagram — this is a phrase cheatsheet so a visual map of which language families are covered (and where each phrase section sits) would orient the reader before diving into tables -->
 # World Languages — Universal Phrase Cheatsheet
 
 Cross-language survival reference. ~35 languages × key phrases.
@@ -523,6 +524,7 @@ Blocks:  한 = ㅎ+ㅏ+ㄴ (h+a+n)
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet summarizes rather than guides decisions — needs "use X when Y" rows with concrete action guidance (e.g., "landing in Tokyo with no Japanese: start with Greetings + Transport + 'Do you speak English?'") -->
 ## Decision Cheat Sheet — Using This Cheatsheet
 
 | Situation | What to look at |

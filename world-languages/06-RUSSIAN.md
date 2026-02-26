@@ -151,6 +151,7 @@ ADJECTIVE AGREEMENT (новый/new, MASC):
 
 ---
 
+<!-- @editor[bridge/P2]: Missing concept bridge — any developer coming from typed/relational systems needs this: aspect is orthogonal to tense like concurrency is orthogonal to scheduling — a 2x2 matrix (IMP/PERF x PAST/FUTURE) would click for this learner -->
 ## Aspect: Perfective vs Imperfective
 
 ```

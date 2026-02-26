@@ -127,6 +127,7 @@ Adult Arabic text has NO vowel markings. You must know the word.
 
 ---
 
+<!-- @editor[bridge/P1]: Missing [root system] bridge — any developer coming from typed/relational systems needs this: the trilateral root system is essentially a 3-letter primary key with vowel patterns as transforms/views — k-t-b is the "table" and kataba/kitab/maktab are "projections" over it. This is the most powerful concept in the file and deserves an explicit CS bridge. -->
 ## The Trilateral Root System
 
 ```

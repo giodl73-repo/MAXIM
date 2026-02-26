@@ -31,6 +31,7 @@ GEOGRAPHIC SPLIT: Brazilian Portuguese (BP) vs European Portuguese (EP)
 
 ---
 
+<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view showing Portuguese vs Spanish divergence across pronunciation/grammar/vocabulary dimensions with a visual diff -->
 ## The Big Picture: What Makes Portuguese Distinct from Spanish
 
 ```
