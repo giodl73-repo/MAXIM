@@ -32,6 +32,8 @@ THE WORLD WARS AS HISTORICAL RUPTURE
 
 ## WWI: Causation Debates
 
+<!-- @editor[bridge/P2]: The July Crisis cascade is described as a systems failure but no explicit bridge section exists — the "tightly coupled system with positive feedback loops" framing deserves a boxed bridge connecting to systems engineering concepts: tight coupling (Perrow's Normal Accidents), positive feedback loops, and the irreversibility of escalation once military mobilization timetables lock in (cf. distributed systems where rollback is impossible once writes propagate) -->
+
 ### The July Crisis as Complexity Problem
 
 The July Crisis (June 28 – August 4, 1914) is the most studied diplomatic failure in history. It is also, from a systems perspective, a cascade failure in a tightly coupled system with multiple positive feedback loops.
@@ -294,6 +296,8 @@ Daniel Goldhagen (*Hitler's Willing Executioners*, 1996): ordinary Germans were 
 **Christopher Browning** (*Ordinary Men*, 1992) covers the same unit (Reserve Police Battalion 101) and finds different dynamics: social conformity, peer pressure, career self-interest. Very few refused and faced no serious consequence for doing so. Goldhagen's cultural determinism is contested.
 
 ---
+
+<!-- @editor[bridge/P3]: Natural bridge to postmortem culture — the "diagnosis -> remedy" table below is a textbook engineering postmortem: identify root causes, design corrective actions, verify they address specific failure modes. Worth making explicit for this learner. -->
 
 ## Post-War Order Construction
 

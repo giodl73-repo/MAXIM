@@ -223,6 +223,8 @@ Lumumba's assassination became a symbol of Cold War interference in African deco
 
 ---
 
+<!-- @editor[content/P2]: Portuguese decolonization pattern absent — the Carnation Revolution (1974) drove decolonization from metropolitan military coup, not peripheral nationalism; this is a distinct third model beyond British (negotiated) and French (fought and lost) that the section title implies but doesn't cover -->
+
 ## Cold War and Decolonization Entanglement
 
 The superpowers inserted themselves into decolonization throughout:
@@ -311,6 +313,8 @@ FANON'S ARGUMENT STRUCTURE
 Fanon was wrong about some things (his view of violence as cathartic is psychologically questionable) but his structural analysis of the colonial order and the limitations of bourgeois nationalism proved prescient in many post-colonial states.
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge section — decolonization's "flag independence without structural change" parallels the software concept of interface change without implementation change (new API surface, same backend); dependency theory's persistent extraction structures are a natural bridge to lock-in and path dependence that the learner knows from platform economics -->
 
 ## What Decolonization Did and Didn't Change
 

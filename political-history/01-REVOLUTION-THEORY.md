@@ -347,6 +347,8 @@ COLOR REVOLUTION MODEL
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — revolution theory maps naturally to systems failure analysis: Skocpol's causal triangle is a coupled-system failure mode (fiscal stress + elite defection + peasant autonomy = cascading failure); Tilly's "revolutionary situation vs. outcome" parallels the distinction between fault detection and fault propagation in distributed systems -->
+
 ## Why Some Revolutions Succeed: Synthesis
 
 ```

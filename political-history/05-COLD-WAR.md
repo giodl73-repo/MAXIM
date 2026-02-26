@@ -191,6 +191,8 @@ KOREA 1950 AS COLD WAR TURNING POINT
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — nuclear deterrence theory is applied game theory (mutual assured destruction = iterated prisoner's dilemma with credible commitment); the action-reaction spiral in the post-revisionist framework is a feedback loop the learner will recognize from control theory; the Cuban Missile Crisis is a textbook case for decision theory under uncertainty -->
+
 ## Nuclear Balance and Crisis Management
 
 ### Deterrence Doctrine Evolution
