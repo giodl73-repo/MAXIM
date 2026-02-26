@@ -10,7 +10,7 @@ PostgreSQL is the de facto standard for open-source relational databases. It ext
 |-----------|-------|
 | Origin | UC Berkeley POSTGRES (1986) → PostgreSQL (1996) |
 | License | PostgreSQL License (MIT-like, permissive) |
-| Current version | PostgreSQL 16 (2023) |
+| Current version | PostgreSQL 17 (September 2024) |
 | ACID compliance | Full |
 | Isolation model | MVCC — readers never block writers; no dirty reads possible |
 | Strengths | JSONB, full-text search, extensions ecosystem, standards compliance, complex queries |
@@ -205,6 +205,35 @@ SELECT tags[1:2] FROM articles                      -- slice (1-indexed)
 
 Built-in, no external engine required — viable up to tens of millions of rows.
 
+**SQL Server FTS → PostgreSQL bridge:**
+```
+SQL Server full-text search                  PostgreSQL full-text search
+─────────────────────────────────────────    ──────────────────────────────────────────
+Full-Text Catalog (separate storage)         tsvector column (stored in the table itself)
+Full-Text Index (managed by FTS engine)      GIN index on the tsvector column
+
+CONTAINS(col, 'term')                        col @@ to_tsquery('term')
+FREETEXT(col, 'phrase match')                col @@ plainto_tsquery('phrase match')
+FREETEXTTABLE(t, col, 'phrase')              ... ORDER BY ts_rank(vec, query) DESC
+CONTAINSTABLE(t, col, 'NEAR(a,b)')           col @@ to_tsquery('a <-> b')  (phrase/proximity)
+
+CREATE FULLTEXT INDEX ON articles(title,body) ALTER TABLE ... ADD COLUMN search_vec TSVECTOR
+  KEY INDEX pk_articles                          GENERATED ALWAYS AS (
+  ON ft_catalog;                                   setweight(to_tsvector('english', title), 'A') ||
+                                                   setweight(to_tsvector('english', body), 'B')
+                                                 ) STORED;
+                                               CREATE INDEX ON articles USING GIN (search_vec);
+
+Stemming / stopwords: controlled by the       Controlled by the TEXT SEARCH CONFIGURATION
+Full-Text Catalog language settings           (default: 'english' — configurable per column)
+
+SQL Server keeps the FTS index in a           PostgreSQL: tsvector lives in your table,
+separate catalog; schema changes can          GIN index lives alongside it — no separate
+desync the catalog from the table.            catalog to manage or rebuild.
+
+Ranking: RANK() column in CONTAINSTABLE       ts_rank(vec, query) — returns float, ORDER BY it
+```
+
 ```sql
 -- tsvector: preprocessed document (stemmed, stopwords removed, lexeme positions)
 -- tsquery:  search query with operators: & (AND), | (OR), ! (NOT), <-> (phrase/proximity)
@@ -389,6 +418,56 @@ SELECT * FROM monthly_sales WHERE month >= '2024-01-01';
 
 Reading query plans is the same diagnostic skill as SQL Server execution plans, different vocabulary.
 
+**SSMS execution plan → EXPLAIN ANALYZE bridge:**
+```
+SQL Server (SSMS graphical plan)              PostgreSQL (EXPLAIN ANALYZE text/JSON)
+─────────────────────────────────────────    ──────────────────────────────────────────
+Clustered Index Seek                          Index Scan
+Clustered Index Scan                          Seq Scan (if full scan) or Index Scan
+Nonclustered Index Seek                       Index Scan
+Nonclustered Index Scan                       Seq Scan or Bitmap Index Scan
+Key Lookup (RID Lookup)                       (second) Index Scan or Bitmap Heap Scan
+Table Scan                                    Seq Scan
+Hash Match (aggregate)                        Hash Aggregate
+Hash Match (join)                             Hash Join
+Nested Loops                                  Nested Loop
+Merge Join                                    Merge Join
+Sort                                          Sort
+Parallelism (Gather Streams)                  Gather / Gather Merge
+Compute Scalar                                (inlined into parent node cost)
+Filter                                        Filter (explicit node if not pushed down)
+
+Actual / Estimated rows:                      actual rows vs rows estimate
+  shown as "Estimated Rows" tooltip             (large gap → ANALYZE needed)
+
+SET STATISTICS IO ON                          EXPLAIN (ANALYZE, BUFFERS)
+  logical reads / physical reads               Buffers: hit=N read=N
+
+Query Store: query_store_runtime_stats        pg_stat_statements (extension)
+  avg_duration, total_worker_time              mean_exec_time, total_exec_time
+
+Estimated Subtree Cost                        cost=X..Y  (relative units, not ms)
+
+COST MODEL DIFFERENCE:
+  SQL Server: costs in estimated CPU + I/O units, calibrated to real hardware
+  PostgreSQL: costs in abstract "page fetch" units
+    seq_page_cost   = 1.0  (baseline — sequential page read)
+    random_page_cost = 4.0  (random page read costs 4× sequential by default)
+    cpu_tuple_cost   = 0.01 (per-row CPU cost)
+  On SSDs: lower random_page_cost to 1.1–2.0 to reduce over-weighting of sequential scans.
+  The absolute numbers are meaningless; relative costs within a plan matter.
+
+QUERY STORE EQUIVALENT:
+  SQL Server: Query Store built-in, accessible via SSMS
+  PostgreSQL: pg_stat_statements extension — CREATE EXTENSION pg_stat_statements;
+    SELECT query, calls, mean_exec_time, total_exec_time, rows
+    FROM pg_stat_statements ORDER BY total_exec_time DESC LIMIT 20;
+
+  auto_explain extension: logs slow query plans automatically (like Query Store capture):
+    SET auto_explain.log_min_duration = 1000;   -- log plans for queries > 1s
+    SET auto_explain.log_analyze = on;
+```
+
 ```sql
 EXPLAIN (ANALYZE, BUFFERS, FORMAT TEXT)
 SELECT * FROM orders WHERE customer_id = 42 AND status = 'pending';
@@ -422,6 +501,188 @@ SELECT * FROM orders WHERE customer_id = 42 AND status = 'pending';
 -- Force stats refresh (usually handled by autovacuum, but can force)
 ANALYZE orders;
 VACUUM ANALYZE orders;  -- also reclaims dead tuples from MVCC
+```
+
+---
+
+## VACUUM AND AUTOVACUUM
+
+**No SQL Server equivalent — this is a genuine operational difference.**
+
+PostgreSQL's MVCC model keeps old row versions ("dead tuples") in the heap after UPDATE or DELETE.
+Readers need those old versions for snapshot isolation. VACUUM reclaims the space once no
+transaction needs the old versions anymore.
+
+```
+WHY DEAD TUPLES EXIST (MVCC model):
+
+  UPDATE employees SET salary = 110000 WHERE id = 42;
+
+  Before:  heap page contains:
+    tuple (xmin=100, xmax=0,   id=42, salary=100000)  ← visible to all txns after 100
+
+  After:   heap page contains BOTH:
+    tuple (xmin=100, xmax=500, id=42, salary=100000)  ← dead (deleted by txn 500)
+    tuple (xmin=500, xmax=0,   id=42, salary=110000)  ← live (inserted by txn 500)
+
+  The dead tuple stays in the page until VACUUM reclaims it.
+  A table with heavy UPDATE/DELETE traffic accumulates dead tuples → table bloat.
+
+SQL Server comparison:
+  SQL Server (with RCSI / READ_COMMITTED_SNAPSHOT) keeps old row versions in tempdb.
+  Old versions are discarded from tempdb when no active snapshot needs them.
+  No per-table maintenance required — tempdb cleanup is automatic.
+  PostgreSQL keeps old versions in the table itself → requires per-table maintenance.
+```
+
+### VACUUM vs VACUUM FULL vs VACUUM ANALYZE
+
+```
+┌──────────────────┬──────────────────────────────────────────┬────────────────────────┐
+│ Command          │ What it does                             │ Lock acquired          │
+├──────────────────┼──────────────────────────────────────────┼────────────────────────┤
+│ VACUUM t         │ Marks dead tuples as reusable space.      │ ShareUpdateExclusive   │
+│                  │ Does NOT return space to OS.              │ (non-blocking — normal │
+│                  │ Updates visibility map. Updates freeze    │ reads/writes continue) │
+│                  │ map. Updates pg_class.relpages stats.     │                        │
+├──────────────────┼──────────────────────────────────────────┼────────────────────────┤
+│ VACUUM FULL t    │ Rewrites the entire table to a new file.  │ ACCESS EXCLUSIVE       │
+│                  │ Returns space to OS. Equivalent to        │ (table fully locked — │
+│                  │ REBUILD on a SQL Server table.            │ blocks all queries)    │
+│                  │ Use after extreme bloat only.             │                        │
+├──────────────────┼──────────────────────────────────────────┼────────────────────────┤
+│ VACUUM ANALYZE t │ VACUUM + updates planner statistics       │ ShareUpdateExclusive   │
+│                  │ (same as running ANALYZE separately).     │ (non-blocking)         │
+├──────────────────┼──────────────────────────────────────────┼────────────────────────┤
+│ ANALYZE t        │ Updates planner statistics only.          │ ShareUpdateExclusive   │
+│                  │ No dead tuple reclaim.                    │ (non-blocking)         │
+└──────────────────┴──────────────────────────────────────────┴────────────────────────┘
+
+VACUUM FULL is rarely the right answer:
+  - It holds an exclusive lock for the duration (minutes on large tables)
+  - Use pg_repack extension instead: rewrites table online, minimal locking
+  - Or: if you can afford a maintenance window, VACUUM FULL is fine
+```
+
+### Visibility Map and Freeze Map
+
+```
+VISIBILITY MAP (one bit per heap page):
+  If a page's bit is set → all tuples on that page are visible to all active transactions.
+  VACUUM can skip scanning fully-visible pages → much faster VACUUM on stable data.
+  Index Only Scans check the visibility map to avoid heap fetches.
+
+FREEZE MAP (a second bit per heap page):
+  Transaction IDs are 32-bit integers — they wrap around after ~2 billion transactions.
+  "Frozen" tuples have their XID replaced with a special FrozenTransactionId constant,
+  making them permanently visible regardless of XID wrap-around.
+
+  VACUUM freezes old tuples automatically.
+  If autovacuum doesn't keep up, PostgreSQL forces an aggressive VACUUM before XID
+  approaches the wraparound horizon (default: vacuum_freeze_min_age = 50M txns before now).
+
+  XID wraparound catastrophe: if a table is never vacuumed and the XID counter wraps,
+  PostgreSQL will refuse to accept new transactions and set the DB to read-only.
+  This is an operational emergency with no SQL Server analog — your monitoring must
+  track pg_database.datfrozenxid age.
+```
+
+### Autovacuum
+
+Autovacuum runs VACUUM and ANALYZE automatically based on table activity thresholds.
+
+```sql
+-- Check autovacuum activity on your tables
+SELECT
+    schemaname,
+    relname,
+    n_dead_tup,
+    n_live_tup,
+    ROUND(100.0 * n_dead_tup / NULLIF(n_live_tup + n_dead_tup, 0), 1) AS dead_pct,
+    last_autovacuum,
+    last_autoanalyze
+FROM pg_stat_user_tables
+ORDER BY n_dead_tup DESC
+LIMIT 20;
+```
+
+**Key autovacuum tunables** (set per-table via `ALTER TABLE ... SET (...)` or globally in `postgresql.conf`):
+
+| Parameter | Default | Meaning |
+|-----------|---------|---------|
+| `autovacuum_vacuum_scale_factor` | 0.2 (20%) | Trigger VACUUM when dead tuples exceed 20% of live tuples |
+| `autovacuum_vacuum_threshold` | 50 | Minimum dead tuples before scale_factor kicks in |
+| `autovacuum_analyze_scale_factor` | 0.1 (10%) | Trigger ANALYZE when modified rows exceed 10% |
+| `autovacuum_analyze_threshold` | 50 | Minimum modified rows before analyze triggers |
+| `autovacuum_vacuum_cost_limit` | 200 | Throttle: cost units autovacuum can use before sleeping |
+| `autovacuum_vacuum_cost_delay` | 2ms | Sleep duration between cost-limit bursts |
+
+```sql
+-- Override autovacuum settings per table (large, high-churn tables need aggressive settings)
+ALTER TABLE orders SET (
+    autovacuum_vacuum_scale_factor = 0.01,   -- trigger at 1% dead tuples (not 20%)
+    autovacuum_vacuum_threshold = 100        -- minimum 100 dead tuples
+);
+
+-- Check if autovacuum is keeping up (high dead_pct = autovacuum is behind)
+SELECT relname, n_dead_tup, n_live_tup, last_autovacuum
+FROM pg_stat_user_tables
+WHERE n_dead_tup > 10000
+ORDER BY n_dead_tup DESC;
+```
+
+### When to Run Manual VACUUM
+
+```
+Scenario                                  Action
+────────────────────────────────────────  ──────────────────────────────────────────────
+After bulk DELETE or UPDATE of many rows  VACUUM ANALYZE table_name
+  (autovacuum may not trigger fast enough  (reclaim space, refresh stats)
+   before your next big query)
+
+Before REINDEX or CREATE INDEX            VACUUM table_name
+  (reduces index build time — fewer        (clean up dead tuples first)
+   heap pages to scan)
+
+After initial bulk load                   ANALYZE table_name
+  (planner stats needed for good plans;    (no dead tuples yet, just need stats)
+   autovacuum may not have run yet)
+
+Table bloat detected (dead_pct > 20%,     VACUUM ANALYZE table_name
+high actual rows vs relpages estimate)     then check if VACUUM FULL needed
+
+XID age approaching wraparound horizon    VACUUM FREEZE table_name
+  (check: SELECT age(datfrozenxid)         (freezes all tuples, resets age)
+   FROM pg_database)                       -- schedule during maintenance window
+
+Severe bloat, need to reclaim disk space  pg_repack (online) or VACUUM FULL (locked)
+```
+
+### Table Bloat Diagnosis
+
+```sql
+-- Estimate bloat using pgstattuple (requires the extension)
+CREATE EXTENSION IF NOT EXISTS pgstattuple;
+SELECT * FROM pgstattuple('orders');
+-- Returns: table_len, live_tuples, dead_tuples, free_space, free_percent
+
+-- Quick bloat estimate without extension
+SELECT
+    pg_size_pretty(pg_total_relation_size(oid)) AS total_size,
+    pg_size_pretty(pg_relation_size(oid))       AS table_size,
+    relpages,
+    reltuples::bigint                           AS estimated_rows
+FROM pg_class
+WHERE relname = 'orders';
+-- If table_size >> estimated_rows × avg_row_width → bloat
+
+-- Monitor XID age (prevent wraparound catastrophe)
+SELECT datname,
+       age(datfrozenxid)          AS xid_age,
+       2000000000 - age(datfrozenxid) AS xids_until_wraparound
+FROM pg_database
+ORDER BY xid_age DESC;
+-- Alert if xid_age > 1.5 billion (autovacuum aggressive threshold is ~200M)
 ```
 
 ---

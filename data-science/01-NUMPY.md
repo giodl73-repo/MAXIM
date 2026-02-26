@@ -32,6 +32,47 @@
 
 ---
 
+## Cross-Language Bridge
+
+**R / MATLAB → ndarray**: Both R and MATLAB store matrices in column-major (Fortran) order — the first index varies fastest in memory. NumPy defaults to row-major (C) order. This matters for BLAS: a NumPy array passed to a BLAS gemm is already C-contiguous; if you create one with `order='F'` (Fortran order), its transpose is C-contiguous instead. In R, `matrix(data, nrow=3)` fills column-by-column; in NumPy, `np.array(data).reshape(3, 4)` fills row-by-row. MATLAB colon indexing `A(1:3, :)` maps directly to NumPy `A[0:3, :]` (0-indexed, exclusive end). MATLAB's `*` is always matrix multiply; NumPy's `*` is element-wise, `@` is matrix multiply.
+
+**Column-major vs row-major implications**:
+```
+MATLAB / R / Fortran (column-major F_CONTIGUOUS):
+  Memory: col 0, col 1, col 2, ...   → iterating down a column is fast (contiguous)
+  Cost:   A.T is contiguous, A is not → BLAS on A.T is free, on A requires copy
+
+NumPy default (row-major C_CONTIGUOUS):
+  Memory: row 0, row 1, row 2, ...   → iterating across a row is fast (contiguous)
+  Cost:   A is contiguous, A.T is not → BLAS on A is free, on A.T requires copy
+
+Check:  a.flags['C_CONTIGUOUS']   # True = row-major, fast row access
+        a.flags['F_CONTIGUOUS']   # True = col-major, fast col access
+```
+
+**Axis reduction ↔ SQL GROUP BY**:
+```
+SQL:   SELECT region, AVG(revenue) FROM sales GROUP BY region
+       → one value per group (region), collapsing all rows within each group
+
+NumPy: arr.mean(axis=0)
+       → one value per column, collapsing across all rows (axis 0 is "the row axis")
+       → axis=0 collapses rows, producing a result with the shape of one row
+
+SQL PARTITION BY (window function) ↔ NumPy keepdims=True:
+  SQL:   AVG(revenue) OVER (PARTITION BY region)    → same shape as original table
+  NumPy: arr.mean(axis=0, keepdims=True)             → keeps original dimensions
+
+SQL aggregate on multiple columns:
+  SELECT region, product, SUM(revenue)
+  FROM sales GROUP BY region, product
+  ↔ np.einsum or manual group-then-reduce on multiple axes
+```
+
+**Julia**: Julia uses column-major order (like MATLAB/R) and 1-based indexing. `A[:, 1]` in Julia = first column; `A[:, 0]` in NumPy = first column. Both support broadcasting with similar semantics. Julia arrays expose `strides(A)` directly, same concept as NumPy's `a.strides`.
+
+---
+
 ## The ndarray Memory Model
 
 This is the thing that actually matters. Once you understand the memory layout,

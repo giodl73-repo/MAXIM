@@ -5,6 +5,55 @@
 > and two decades of syntax ergonomics. This file is those additions plus a complete reference card.
 > PostgreSQL syntax is used as the baseline (most ANSI-compliant); T-SQL divergences are called out inline.
 
+```
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│                           SQL LANGUAGE SURFACE                                       │
+├──────────────────┬──────────────────┬──────────────────┬──────────────────────────── │
+│  DDL             │  DML             │  DCL             │  TCL                        │
+│  ─────────────── │  ─────────────── │  ─────────────── │  ───────────────            │
+│  CREATE TABLE    │  SELECT          │  GRANT           │  BEGIN                      │
+│  ALTER TABLE     │  INSERT          │  REVOKE          │  COMMIT                     │
+│  DROP TABLE      │  UPDATE          │  ─────────────── │  ROLLBACK                   │
+│  CREATE INDEX    │  DELETE          │  Row-Level Sec.  │  SAVEPOINT                  │
+│  CREATE VIEW     │  MERGE           │  Column priv.    │  SET ISOLATION LEVEL        │
+│  CREATE SEQUENCE │  TRUNCATE        │                  │                             │
+│  ─────────────── │  ─────────────── │                  │                             │
+│  Schema          │  Query Exprs:    │                  │                             │
+│  Constraints     │  ─────────────── │                  │                             │
+│  Types           │  FROM / JOIN     │                  │                             │
+│  Partitioning    │  WHERE / HAVING  │                  │                             │
+│                  │  GROUP BY        │                  │                             │
+│                  │  Window OVER()   │                  │                             │
+│                  │  CTEs (WITH)     │                  │                             │
+│                  │  Set ops         │                  │                             │
+│                  │  Subqueries      │                  │                             │
+└──────────────────┴──────────────────┴──────────────────┴─────────────────────────────┘
+
+QUERY EXECUTION PIPELINE (what happens after you press F5 / submit the query):
+
+  ┌────────────┐   ┌────────────┐   ┌────────────────────┐   ┌──────────────────────┐
+  │  PARSE     │   │  BIND      │   │  OPTIMIZE          │   │  EXECUTE             │
+  │ ────────── │   │ ────────── │   │ ────────────────── │   │ ──────────────────── │
+  │ Lex/parse  │──▶│ Resolve    │──▶│ Cost-based         │──▶│ Iterator model:      │
+  │ SQL text   │   │ names →    │   │ optimizer:         │   │ plan tree of nodes   │
+  │ → AST      │   │ OIDs /     │   │  - Stats from      │   │ each node: open/     │
+  │            │   │ column     │   │    pg_statistic     │   │ next/close           │
+  │ Syntax     │   │ metadata   │   │  - Cardinality est │   │                      │
+  │ errors     │   │ Type check │   │  - Join order      │   │ SeqScan, IndexScan,  │
+  │ caught     │   │ Security   │   │    (dynamic prog.) │   │ HashJoin, Gather...  │
+  │ here       │   │ check      │   │  - Access path     │   │                      │
+  └────────────┘   └────────────┘   └────────────────────┘   └──────────────────────┘
+        │                                     │
+        │  T-SQL equivalent stages:           │  T-SQL: "Algebraizer" (bind) →
+        │  Parser → Algebrizer →              │  Query Optimizer → Execution Engine
+        │  Query Optimizer → Storage Engine   │  Cached in plan cache (procedure cache)
+        │                                     │  PG: plan cached per session (prepared stmts)
+        └─────────────────────────────────────┘
+
+  EXPLAIN ANALYZE shows you the Execute stage: actual plan tree, actual vs estimated rows.
+  The Optimize stage is the black box you influence with indexes, statistics, and hints.
+```
+
 ---
 
 ## 1. SQL in 2024 vs SQL in 2000
@@ -339,6 +388,43 @@ The biggest feature addition since SQL:2003. Aggregate without collapsing rows.
           end_bound              ←   CURRENT ROW
   )                              ←   n FOLLOWING
                                  ←   UNBOUNDED FOLLOWING
+```
+
+**Default frame behavior — the most common window function gotcha:**
+
+```
+When ORDER BY is present but no frame clause specified:
+  Default: RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+
+  RANGE (not ROWS) means: all rows with the same ORDER BY value as CURRENT ROW
+  are included in the frame — even rows "after" the current row physically.
+
+  Consequence: if multiple rows share the same order_date, SUM() OVER (ORDER BY order_date)
+  gives them ALL the same running total (the sum up to the last row with that date).
+  This is almost never what you want for a true running total.
+
+  ┌─────────────────┬────────────────────────────────────────────────────────────────┐
+  │ Frame clause    │ Behavior                                                        │
+  ├─────────────────┼────────────────────────────────────────────────────────────────┤
+  │ (none, no OVER  │ ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING        │
+  │  ORDER BY)      │ = entire partition — same value for all rows in partition       │
+  ├─────────────────┼────────────────────────────────────────────────────────────────┤
+  │ (none, with     │ RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW              │
+  │  ORDER BY)      │ = all rows up to and including ties at CURRENT ROW             │
+  │                 │ DANGER: ties get same cumulative total, not incremental one     │
+  ├─────────────────┼────────────────────────────────────────────────────────────────┤
+  │ ROWS BETWEEN    │ Physical row count — always deterministic                       │
+  │ UNBOUNDED       │ Best for running totals, moving averages                        │
+  │ PRECEDING AND   │ Explicit — no surprises with ties                              │
+  │ CURRENT ROW     │                                                                 │
+  └─────────────────┴────────────────────────────────────────────────────────────────┘
+
+  Fix: always write the frame explicitly when ORDER BY is present:
+    SUM(amount) OVER (ORDER BY order_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
+
+  RANGE has a performance cost too: the engine cannot simply increment a running value;
+  it must identify all peer rows (same ORDER BY value) before emitting any of them.
+  ROWS is streamable; RANGE on ties requires buffering.
 ```
 
 ### Ranking Functions
@@ -855,14 +941,38 @@ SELECT * FROM orders WHERE customer_id = 42;
 | Node | Meaning | When it appears |
 |------|---------|-----------------|
 | Seq Scan | Full table scan | No usable index, or table too small to bother with index |
-| Index Scan | Use index + fetch heap page | Index found, but not all columns in index |
-| Index Only Scan | Use index, skip heap | Covering index satisfies all needed columns |
+| Index Scan | Use index + heap fetch per matching row | Index found, low selectivity (few matching rows) |
+| Index Only Scan | Use index, skip heap entirely | Covering index satisfies all needed columns |
+| Bitmap Index Scan | Phase 1: scan index, build bitmap of matching heap pages | Moderate selectivity — too many hits for Index Scan, too few for Seq Scan |
+| Bitmap Heap Scan | Phase 2: use bitmap to fetch heap pages in physical order | Always paired with Bitmap Index Scan above it in the plan |
 | Nested Loop | For each outer row, probe inner | Small inner set, indexed inner lookup |
 | Hash Join | Build hash table on smaller side, probe with larger | Large unsorted sets |
 | Merge Join | Merge two sorted inputs | Both inputs already sorted on join key |
 | Sort | Explicit sort | ORDER BY, GROUP BY without index, Merge Join setup |
 | Hash Aggregate | Aggregate via hash table | GROUP BY on unsorted data |
 | GroupAggregate | Aggregate pre-sorted stream | GROUP BY on sorted data |
+
+**Bitmap Heap Scan — the two-phase pattern (no SQL Server equivalent):**
+```
+SQL Server approach:     index seek → key lookup per matching row (individual heap fetches)
+PostgreSQL approach:     Bitmap Index Scan → collect ALL matching row locations first
+                         Bitmap Heap Scan  → fetch heap pages in physical order (one pass)
+
+Why it matters: random I/O (key lookup per row) vs sequential I/O (sorted heap page reads).
+For 5,000 matching rows spread across 50,000 heap pages, the bitmap approach is far cheaper.
+
+Plan appearance:
+  ->  Bitmap Heap Scan on orders  (cost=142..8921 rows=4821 width=64)
+        Recheck Cond: (customer_id = 42)
+        ->  Bitmap Index Scan on idx_orders_customer  (cost=0.00..140 rows=4821 width=0)
+              Index Cond: (customer_id = 42)
+
+"Recheck Cond" appears because the bitmap is lossy at high row counts (page-level not row-level).
+If you see high Recheck Cond filtering, the index selectivity is low — consider a partial index.
+
+SQL Server analogy: closest is "Index Seek + RID Lookup" but the bitmap batching is unique.
+T-SQL Query Store will show similar plan shapes differently — no direct 1:1 mapping.
+```
 
 **Reading cost estimates:**
 ```

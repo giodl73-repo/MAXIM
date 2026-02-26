@@ -730,6 +730,79 @@ tmux split-pane                 # Ctrl+B, %  — vertical split
 
 ## Shell — bash/zsh Essentials
 
+### Object Pipeline vs Text Pipeline — The Fundamental Mental Shift
+
+```
+POWERSHELL (OBJECT PIPELINE)            BASH (TEXT PIPELINE)
+════════════════════════════            ════════════════════
+
+  Every value is a typed .NET object.   Every value is a string (bytes).
+  Cmdlets receive + emit objects.        Commands produce text; tools parse it.
+
+  Get-Process |                          ps aux |
+    Where-Object { $_.CPU -gt 10 } |       awk '$3 > 10' |
+    Sort-Object CPU -Descending |          sort -t' ' -k3 -rn |
+    Select-Object -First 5 |              head -5 |
+    Format-Table Name, CPU, WorkingSet    awk '{print $11, $3, $6}'
+
+  Filtering:  $_.PropertyName            Filtering: field position or regex
+  .CPU is a float — comparison is typed  $3 is a string — must know the column
+  Type error if property doesn't exist   No error — wrong column = wrong output
+
+  Composition:  $result = Get-X | Where  Composition: result=$(cmd | grep | awk)
+    $result is still a typed collection    $result is a string (newline-separated)
+
+  Structured output always available:   Structure is by convention:
+    ConvertTo-Json / ConvertTo-Csv         ps, ls, netstat output format varies
+    Select-Object produces new objects     jq parses JSON; awk parses columns
+
+  Error handling:                        Error handling:
+    $ErrorActionPreference = "Stop"        set -e  (exit on error)
+    try/catch works as expected            pipefail: bash -o pipefail
+    $LASTEXITCODE for native commands      $? = exit code of last command
+
+  Cross-OS note:                         Shell portability:
+    pwsh (PowerShell 7+) runs on Linux/    bash ≠ sh ≠ zsh ≠ dash
+    macOS — identical behavior             #!/bin/sh runs dash on Ubuntu
+    PS objects work identically            Many bash features absent in sh
+```
+
+**The practical shift:** In PowerShell, you query objects: `$proc.CPU`. In bash, you parse text: `awk '{print $3}'`. When you move from PS to bash, you're trading type safety for composability with any text-producing tool. The gain: every command that produces output is automatically pipeable. The cost: you're always parsing, and column positions change between OS versions, distros, and flags.
+
+**Defensive bash patterns (peer-level):**
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail               # e=exit on error, u=error on unset var, o pipefail=pipe errors
+
+# trap: cleanup on exit (like C# using/finally for shell)
+tmpdir=$(mktemp -d)
+trap 'rm -rf "$tmpdir"' EXIT    # runs on normal exit, signal, or error
+
+# $(...) vs backticks: $(...) is nestable; backticks are not
+result=$(echo $(date +%Y))      # nested — works fine
+# result=`echo `date +%Y``     # backtick nested form — BROKEN
+
+# [[ vs [: prefer [[; it handles spaces in vars, no word splitting, regex support
+[[ -f "$path" ]]                # safe even if $path contains spaces
+[[ "$str" =~ ^[0-9]+$ ]]       # regex match — only in [[
+
+# Quoting: always quote $variables unless you want word splitting + glob expansion
+files=$(ls *.txt)               # WRONG: breaks on spaces in filenames
+files=( *.txt )                 # RIGHT: array glob expansion
+for f in "${files[@]}"; do      # iterate array safely
+    process "$f"
+done
+
+# Exit code vs output: separate concerns
+if output=$(some_command 2>&1); then   # capture stdout+stderr, check exit code
+    echo "success: $output"
+else
+    echo "failed: $output" >&2
+    exit 1
+fi
+```
+
 ### Redirects and Pipes
 
 ```bash
@@ -935,6 +1008,83 @@ Practical rule:
 ---
 
 ## Permissions and Users
+
+### Permission Model Comparison — Windows vs Linux vs macOS
+
+```
+PERMISSION MODELS AT A GLANCE
+═══════════════════════════════════════════════════════════════════════
+
+  Layer            Windows (NTFS)              Linux POSIX            Linux Extended (optional)
+  ──────────       ────────────────────────    ──────────────────     ─────────────────────────
+  DAC model        Full ACL: per-user/group    3-bucket: owner/       POSIX ACL (getfacl/setfacl)
+                   allow AND deny ACEs         group/other            Adds per-user entries but
+                   Any SID can get an ACE      No deny entries in     still no audit entries
+                   in DACL                     standard POSIX
+  Deny ACEs        Yes — explicit deny wins    No — cannot deny a     ACL mask concept only
+                   over allow for same SID     specific user          (no explicit deny)
+  Audit entries    SACL — separate from DACL   auditd rules on        auditd + inotify
+                   Each ACE is audited         file path              (separate from permissions)
+  Inherit          Yes — directory ACEs        umask applies to       setfacl --default
+                   propagate to children       new files; no          sets default ACEs
+                   (with propagation flags)    per-entry inherit      for new files in dir
+  Identity         SID (binary, stable across  uid/gid (integer,      uid/gid + name lookup
+                   renames + moves)            per-machine unless     via LDAP/SSSD)
+                                               LDAP/AD)
+  Check on open    Full access check at open   Owner check at open    Same as POSIX
+  (not on read)    against token + DACL        (rwx vs uid/gid)
+  Elevation path   UAC → new elevated token    setuid bit / sudo      same
+  Mandatory        Integrity Levels            SELinux / AppArmor     (MAC, separate layer)
+  (MAC)            (Low/Med/High/System)       (optional)
+
+Key gap: Linux POSIX has no per-user deny. If alice is in a group that
+has read access, you cannot deny alice specifically in POSIX mode.
+You need POSIX ACLs (setfacl) or SELinux policy for that.
+```
+
+### Linux Capabilities — Fine-Grained root Powers
+
+```
+CAPABILITIES VS WINDOWS PRIVILEGES
+════════════════════════════════════
+
+  Universal concept: instead of all-or-nothing root, split privileges
+  into capabilities (Linux) / privileges (Windows) that can be granted individually.
+
+  Key Linux capabilities:
+    CAP_NET_BIND_SERVICE  Bind to ports < 1024 without root
+                          Windows equiv: SeNetworkLogonRight (network logon)
+    CAP_NET_ADMIN         Configure network interfaces, routes, iptables
+    CAP_SYS_ADMIN         Broad admin: mount, chroot, ptrace, many more
+                          (often the "catch-all" — avoid if possible)
+    CAP_SYS_PTRACE        Trace other processes (strace, gdb attach)
+                          Windows equiv: SeDebugPrivilege
+    CAP_DAC_OVERRIDE      Bypass file read/write/execute permission checks
+    CAP_DAC_READ_SEARCH   Bypass file read + dir execute checks
+    CAP_SETUID/SETGID     Set arbitrary UID/GID (used by container runtimes)
+    CAP_KILL              Send signals to any process
+    CAP_NET_RAW           Raw socket access (ping, tcpdump, ARP spoof)
+
+  Managing capabilities on binaries:
+    getcap /usr/bin/ping                    # see what caps a binary has
+    setcap cap_net_raw+ep /usr/bin/ping     # grant raw socket cap (no setuid needed)
+    setcap -r /usr/bin/ping                 # revoke
+    capsh --print                           # current process capabilities
+
+  Container implications:
+    docker run --cap-drop ALL --cap-add NET_BIND_SERVICE ...  # minimal caps
+    Kubernetes securityContext.capabilities.drop/add
+    Never run containers with CAP_SYS_ADMIN unless truly necessary
+
+  MAC layers (orthogonal to capabilities + POSIX):
+    SELinux: labels on every file + process; policy governs what label X can do to label Y
+             enforcing mode = blocks + logs; permissive = logs only
+             Equivalent mental model: Windows Mandatory Integrity + AppLocker combined
+    AppArmor: path-based profiles per executable
+              simpler than SELinux; less fine-grained
+              Ubuntu/Debian default; Chrome sandbox uses AppArmor profiles
+    Precedence: MAC is checked AFTER DAC — a process needs both DAC and MAC permission
+```
 
 ### The Permission Model
 
@@ -1528,6 +1678,188 @@ View kernel security params       sysctl -a | grep -E "(randomize|dmesg|kptr|ptr
 ```
 
 ---
+
+## Filesystem Event Watching — inotify / fanotify
+
+Every `--watch` flag in every dev tool (webpack, jest, tsc, cargo watch) is inotify underneath. Understanding the abstraction unlocks debugging `ENOSPC` on inotify limits, slow reloads, and missed events.
+
+```
+FILESYSTEM NOTIFICATION APIs
+═════════════════════════════════════════════════════════════════════════
+
+  Linux                          Windows                        macOS
+  ──────────────────────         ──────────────────────         ──────────────────────
+  inotify (since 2.6.13)         ReadDirectoryChangesW()        FSEvents (high-level)
+  fanotify (since 2.6.36)        FileSystemWatcher (.NET)       kqueue EVFILT_VNODE
+
+  Model:                         Model:                         Model:
+    inotify_create() → fd          open handle with             FSEventStreamCreate()
+    inotify_add_watch(fd, path,      FILE_FLAG_OVERLAPPED        → callback with event
+      IN_MODIFY|IN_CREATE|...)      + FILE_LIST_DIRECTORY      kqueue: per-inode watch
+    poll/select/epoll on fd        ReadDirectoryChangesW()
+    read(fd) → inotify_event        (overlapped)
+
+  Granularity:                   Granularity:                   Granularity:
+    inotify: file-level events     directory-level only          FSEvents: path-based
+    fanotify: filesystem-wide      (reports path, not inode)     coalesced (may batch)
+    (used by AV, audit daemons)    can miss renames in rapid     kqueue: single file/dir
+
+  Limits (common pain point):    No such limits                 No such limits
+    /proc/sys/fs/inotify/
+      max_user_watches (default 8192)
+      max_user_instances (128)
+      max_queued_events (16384)
+    Fix for IDE / container dev:
+      echo fs.inotify.max_user_watches=524288 >> /etc/sysctl.conf
+      sysctl -p
+
+  fanotify vs inotify:
+    fanotify: intercept + allow/deny (used by antivirus)
+    fanotify: global mount-point scope, not per-path
+    fanotify: needs CAP_SYS_ADMIN
+    inotify: simpler, per-path, no privileges needed
+
+Watch events (inotify):
+  IN_ACCESS       file read
+  IN_MODIFY       file written (content changed)
+  IN_CLOSE_WRITE  file closed after write (more reliable than IN_MODIFY for full writes)
+  IN_CREATE       file/dir created in watched directory
+  IN_DELETE       file/dir deleted
+  IN_MOVED_FROM / IN_MOVED_TO   rename (paired by cookie field)
+  IN_ATTRIB       metadata changed (chmod, chown, xattr)
+```
+
+```bash
+# Command-line inotify consumer
+inotifywait -r -m /var/www/html -e modify,create,delete
+# -r = recursive, -m = monitor (don't exit after first event)
+
+# In scripts: act on changes
+inotifywait -r -m /etc/app/ -e close_write --format '%w%f' |
+while read file; do
+    systemctl reload myapp
+done
+```
+
+## Linux Memory Model — Production Tuning Depth
+
+### RSS vs VSZ vs PSS vs USS
+
+```
+MEMORY METRIC DEFINITIONS
+════════════════════════════════════════════════════════════════════
+
+  Metric   What it measures                          When to use
+  ──────   ──────────────────────────────────────    ──────────────────────────
+  VSZ      Virtual address space size                Meaningless for memory pressure;
+  (VIRT)   Total mapped: code+heap+stack+mmap        a 100GB mmap has huge VSZ but
+           Includes not-yet-faulted pages            uses no RAM
+           Includes shared libs (full size counted)
+
+  RSS      Resident Set Size: pages currently in RAM  Rough estimate; double-counts
+  (RES)    Includes shared libs (counted per proc)    shared pages
+           Does NOT include swapped-out pages         Sum of all RSS > physical RAM
+           top/htop show this as "RES"                is normal (shared libs)
+
+  PSS      Proportional Set Size                     Best for "how much does this
+           RSS but shared pages divided by           process actually cost?"
+           number of sharers                         sum(PSS for all procs) ≈ total used
+           /proc/PID/smaps_rollup → Pss field
+
+  USS      Unique Set Size: pages unique to this     Best for finding memory leaks
+           process (not shared with anyone)          USS grows = this process is leaking
+           /proc/PID/smaps → Private_Clean + Private_Dirty
+
+  Practical hierarchy:
+    VSZ ≥ RSS ≥ PSS ≥ USS
+    For memory leak investigation: watch USS
+    For capacity planning: PSS
+    For quick eyeball: RSS (but don't sum it)
+```
+
+```bash
+# Get PSS and USS for a process
+cat /proc/$(pgrep myapp)/smaps_rollup | grep -E "(Pss:|Private_)"
+
+# smem tool: shows PSS/USS per process (apt install smem)
+smem -s pss -r
+
+# Process memory breakdown
+cat /proc/$(pgrep myapp)/status | grep -E "VmRSS|VmPeak|VmSize"
+```
+
+### OOM Killer
+
+```
+LINUX OOM KILLER ALGORITHM
+════════════════════════════
+
+  When physical RAM + swap is exhausted, OOM killer selects a victim.
+
+  Scoring algorithm (simplified):
+    oom_score = (process_RSS_in_pages / total_RAM_pages) * 1000
+    Adjusted by:  oom_score_adj  (range: -1000 to +1000)
+      -1000 = never kill this process (OOM immune)
+        0   = default scoring
+      +1000 = kill this first (highest badness)
+
+  Who sets oom_score_adj:
+    systemd: OOMScoreAdjust= in service unit
+    Kubernetes: sets -999 for kubelet itself, 1000 for BestEffort pods
+    Docker: --oom-score-adj flag on docker run
+
+  Check current score:
+    cat /proc/$(pgrep nginx)/oom_score       # current calculated score
+    cat /proc/$(pgrep nginx)/oom_score_adj   # adjustment value
+
+  Protect a critical process (careful — can cause system deadlock):
+    echo -1000 > /proc/$(pgrep myapp)/oom_score_adj
+    # or systemd: OOMScoreAdjust=-1000
+
+  Make a process be killed first (useful for memory hog workers):
+    echo 1000 > /proc/$(pgrep myworker)/oom_score_adj
+
+  OOM events in logs:
+    journalctl -k | grep -i "oom\|kill"      # kernel OOM messages
+    dmesg | grep "Out of memory"
+```
+
+### Huge Pages
+
+```
+HUGE PAGES — WHEN AND WHY
+══════════════════════════
+
+  Standard page: 4KB (x86-64 default)
+  Huge page:     2MB (standard huge page) or 1GB (gigantic page)
+
+  Why they matter:
+    TLB (Translation Lookaside Buffer) has limited entries (~1500 on modern Intel)
+    4KB pages → 1500 TLB entries → covers 6MB of address space
+    2MB pages → 1500 TLB entries → covers 3GB of address space
+    For large working sets (databases, ML): huge pages eliminate TLB misses
+    Real-world impact: PostgreSQL, Redis, JVM GC heap — 5-20% throughput gain
+
+  Two mechanisms:
+
+  1. Transparent Huge Pages (THP) — kernel decides automatically
+     /sys/kernel/mm/transparent_hugepage/enabled
+       [always] madvise never
+     madvise = only when process explicitly requests via madvise(MADV_HUGEPAGE)
+
+     THP gotcha: can cause latency spikes on write (page split + promote)
+     Redis/MongoDB/Cassandra documentation says: set THP to madvise or never
+     echo madvise > /sys/kernel/mm/transparent_hugepage/enabled
+
+  2. Explicit huge pages — pre-allocated, reserved
+     sysctl vm.nr_hugepages=1024       # reserve 1024 × 2MB = 2GB
+     cat /proc/meminfo | grep Huge     # HugePages_Total / Free / Reserved
+     Applications: mmap with MAP_HUGETLB, or mount hugetlbfs
+
+  Check THP activity:
+    grep -i huge /proc/vmstat          # thp_fault_alloc, thp_collapse_alloc
+    numastat -m                        # NUMA node memory breakdown
+```
 
 ## Decision Cheat Sheet
 

@@ -159,6 +159,108 @@ Android apps are not monolithic executables. The OS **assembles** an app from de
 
 **Configuration changes** (rotation, locale): default kills + recreates Activity. Override with `android:configChanges="orientation|screenSize"` in manifest — then `onConfigurationChanged()` fires instead. ViewModel survives rotation automatically — use that.
 
+### Activity Lifecycle — Universal Resource-Scoped Lifecycle Bridge
+
+```
+RESOURCE-SCOPED LIFECYCLE — CROSS-PLATFORM COMPARISON
+════════════════════════════════════════════════════════════════════════════
+
+  Android Activity        iOS UIViewController     ASP.NET Controller        Node.js Express route
+  ──────────────────      ─────────────────────    ──────────────────────    ─────────────────────
+  onCreate()              init()                   constructor               (route handler called)
+  onStart()               viewDidLoad()            (no equiv — stateless)    (no equiv)
+  onResume()              viewWillAppear()          before_action filters     middleware chain
+  [user interacts]        [visible + interactive]  [handler executes]        [handler executes]
+  onPause()               viewWillDisappear()       after_action filters      (response sent)
+  onStop()                viewDidDisappear()        Dispose() if IDisposable  (GC)
+  onDestroy()             deinit                   (GC)                      (GC)
+
+  Key: Android Activity is stateful (survives orientation via ViewModel);
+  web controllers are stateless (new instance per request).
+  The "pause/stop" callbacks have no web equivalent.
+
+  Universal pattern across all:
+    acquire resources (DB connections, file handles) at start/create
+    release resources (unsubscribe, close) at stop/destroy
+    Never hold resources across the pause/stop boundary
+    Never do slow work in onCreate/init — defer to background
+```
+
+### Binder IPC — Universal Typed RPC Bridge
+
+```
+TYPED IPC / RPC MECHANISMS — CROSS-PLATFORM COMPARISON
+═══════════════════════════════════════════════════════════════════════════════
+
+  Android Binder        Windows COM/DCOM          D-Bus (Linux desktop)      gRPC (any platform)
+  ──────────────────    ──────────────────────     ────────────────────────    ──────────────────────
+  Kernel driver         COM+ / DCOM via            IPC daemon                  Language-neutral IDL
+  (/dev/binder)         NT LPC + RPC runtime       (message daemon)            over HTTP/2 + TLS
+
+  IDL: AIDL             IDL: MIDL / TypeLib        IDL: XML introspection     IDL: Protocol Buffers
+  .aidl file → Java/Kt  .idl/.tlb → proxy stubs   D-Bus introspection XML    .proto → generated stubs
+
+  Transport: 1 copy      Transport: LRPC (in-proc)  Transport: Unix socket     Transport: HTTP/2
+  (kernel maps one buf)  or TCP/IP for remote        or TCP/IP                  (any network)
+
+  Identity/security:    Identity: SID/token         Identity: Unix uid/gid     Identity: TLS certs /
+  uid + selinux label   Access: COM permissions      Access: polkit rules        JWT / mTLS
+  (enforced by kernel)  (HKCR\CLSID ACLs)           (user must auth action)
+
+  Async model:          Async: COM apartments        Async: async_call()        Async: streaming RPCs
+  oneway (fire-forget)  STA/MTA thread model         (rarely used)              (bidirectional streams)
+  synchronous default   (causes UI deadlocks)
+
+  Discovery:            Discovery: CoCreateInstance   Discovery: dbus-send       Discovery: service mesh /
+  ServiceManager        HKCR\CLSID\{...} registry     --dest=com.x.y            DNS-SD / Kubernetes SVC
+  + AIDL interface name  (in-process: DLL load)
+
+  The universal pattern:
+  1. Define interface (AIDL / MIDL / D-Bus XML / .proto)
+  2. Generate client proxy + server stub from IDL
+  3. Client calls proxy as if local object
+  4. Framework serializes call, transports to server, deserializes, invokes
+  5. Server returns result; framework serializes back to client
+
+  Binder-specific advantages over generic Unix domain sockets:
+    - One kernel copy (vs two for socket: sender→kernel→receiver)
+    - Caller UID/PID automatically verified (cannot be spoofed by client)
+    - Works with Android's per-app UID security model natively
+    - Death notifications: linkToDeath() — know when server process dies
+```
+
+### WorkManager — Universal Deferred Job Queue Bridge
+
+```
+DEFERRED JOB QUEUE — CROSS-PLATFORM COMPARISON
+═══════════════════════════════════════════════════════════════════════════
+
+  Android WorkManager    Linux systemd timer     Python Celery         Java Quartz
+  ──────────────────     ───────────────────     ─────────────────     ───────────────────
+  OneTimeWorkRequest     .service + .timer       @app.task (async)     @DisallowConcurrent
+  PeriodicWorkRequest    OnCalendar / OnUnitActiveSec  beat schedule   CronTrigger
+
+  Guarantee:             Guarantee:              Guarantee:            Guarantee:
+  EXACTLY_ONCE on device At-least-once           At-least-once         At-least-once
+  (works across reboots  (persistent timer)      (depends on broker)   (JDBC store)
+   and app restarts)
+
+  Constraints:           Constraints:            Constraints:          Constraints:
+  NetworkType.CONNECTED  After=network.target    (queue routing)       (no built-in)
+  requiresCharging()     Requires=power.target   priority routing      (implement in job)
+  requiresStorageNotLow()
+
+  Chaining:              No native chaining      Chord, Chain          JobChainingJobDetail
+  WorkContinuation       (use ExecStartPre)      (group of subtasks)   Chaining API
+
+  All share the same mental model:
+  1. Define work unit with inputs
+  2. Attach constraints / schedule
+  3. Enqueue to a persistent store
+  4. Worker execution engine runs it when constraints met
+  5. Results returned via output / callback
+```
+
 **Task and back stack:** Activities stack per task. `Intent.FLAG_ACTIVITY_NEW_TASK`, `FLAG_ACTIVITY_CLEAR_TOP`, `FLAG_ACTIVITY_SINGLE_TOP` control stack behavior.
 
 ### Fragment — Reusable UI Unit

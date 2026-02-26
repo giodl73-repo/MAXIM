@@ -28,14 +28,13 @@ and introduced the next era's problem.
 
 ## Era 1 — Manual QA
 
-<!-- @editor[audience/P3]: This section explains pre-automated testing as if it's new context. The reader built VSTS — they were on the other side of this transition, building the infrastructure that replaced it. The content is brief enough that it's not a blocking problem, but "Software shipped on discs. Patch cycles were months. A bug that escaped was a returned product, a support call, a press story" is backstory they don't need. One sentence framing would suffice: "You lived through this. The salient point is what the constraint was, not the context." Consider compressing to 2-3 lines and moving faster to Era 2. -->
+Era 1 is backstory — you shipped software in this era. The trajectory matters more than the detail. The constraint was this: humans are slow, inconsistent, and can't scale. Every new feature meant more manual regression coverage. The critical insight that ended the era: if you can describe what correct looks like, a computer can check it 10,000 times per second. That insight is what Era 2 operationalized.
 
 ```
 The World Before Automated Testing
 ====================================
 
   Software shipped on discs. Patch cycles were months.
-  A bug that escaped was a returned product, a support call, a press story.
 
   QA was a department. Test plans were Word documents.
   Sign-off was a human with a checklist and a deadline.
@@ -50,31 +49,11 @@ The World Before Automated Testing
     Scale is impossible: 10x more features → 10x more testers
 ```
 
-The critical insight that ended this era: **computers are better at repetition than humans**. If you can describe what correct looks like, a computer can check it 10,000 times per second.
-
 ---
 
 ## Era 2 — Unit Tests & TDD
 
-<!-- @editor[audience/P2]: This section explains TDD as if the reader is encountering it for the first time. They built VSTS testing infrastructure — they've implemented, debugged, and shipped TDD tooling. The Red/Green/Refactor walkthrough and "The insight: tests aren't just verification. They're a design tool." is material they know at depth. The value for this reader is in the "What TDD got wrong" list and the mock trap — that's the trajectory content. Consider a single sentence acknowledging their depth ("You know TDD. What follows is the trajectory from dogmatic adoption to the mock trap backlash.") and cutting the introductory explanation. The mock trap section is well-targeted and should stay. -->
-
-```
-The TDD Manifesto (Kent Beck, 2003)
-====================================
-
-  Red → Green → Refactor
-
-  1. Write a failing test (Red)
-     — forces you to define correct behavior before writing code
-  2. Write the minimum code to pass it (Green)
-     — no over-engineering
-  3. Refactor with confidence (Refactor)
-     — the test suite is your safety net
-
-  The insight: tests aren't just verification.
-  They're a design tool. TDD surfaces bad APIs early.
-  Code that's hard to test is usually badly designed.
-```
+You know TDD. The Red/Green/Refactor loop, "tests as design tool," testable code = decoupled code — this is depth you have from professional use. The valuable content for this reader is the trajectory: how dogmatic TDD adoption led to the mock trap, which motivated the Testing Trophy inversion.
 
 ```
 What TDD got right:
@@ -111,7 +90,9 @@ Heavily mocked unit test (false confidence)
   not that the real system works.
 ```
 
-The mock trap became visible at scale. Teams with 90% coverage were shipping broken integrations. The pendulum swung toward integration tests — test the seams, not just the units.
+The mock trap became visible at scale. Teams with 90% coverage were shipping broken integrations. In .NET this was somewhat contained — Moq and NSubstitute mock interfaces, and interface contracts are explicit; a changed method signature fails to compile at the mock site. In JS/TS, `vi.mock()` lets you mock plain objects and functions with no interface contract at all. The drift is silent. This is the ecosystem-specific dynamic that drove the Testing Trophy: integration tests that wire real modules together are structurally harder to over-mock, because there's less to mock.
+
+The pendulum swung toward integration tests — test the seams, not just the units.
 
 ---
 

@@ -2,29 +2,30 @@
 
 ## The Big Picture
 
-Vector calculus gives you four operators that act on fields in space. Everything in
-Maxwell's equations is built from exactly these four tools.
-
 ```
 +------------------------------------------------------------------------+
 |                     VECTOR CALCULUS LANDSCAPE                          |
 |                                                                        |
-|   INPUT              OPERATOR          OUTPUT       MEASURES           |
-|   -----              --------          ------       --------           |
+|   COORDINATE EXPRESSION (R³)          COORDINATE-FREE                 |
+|   ─────────────────────────────        (Exterior Calculus)             |
 |                                                                        |
-|   f(x,y,z)   ──── ∇  (gradient) ───>  vector field  which way uphill  |
-|   scalar field                                                         |
+|   f: R³→R   ──── ∇  (gradient) ──>  F: R³→R³   ≡  d on 0-forms       |
+|   F: R³→R³  ──── ∇· (divergence) → f: R³→R     ≡  ★d★ on 2-forms     |
+|   F: R³→R³  ──── ∇× (curl) ──────> F: R³→R³   ≡  ★d on 1-forms       |
+|   f: R³→R   ──── ∇² (Laplacian) → f: R³→R     ≡  ★d★d on 0-forms     |
 |                                                                        |
-|   F(x,y,z)   ──── ∇· (divergence) ─>  scalar field  source or sink    |
-|   vector field                                                         |
+|   INPUT TYPE        OPERATOR          OUTPUT TYPE     PHYSICAL MEANING |
+|   scalar field      gradient          vector field    steepest ascent  |
+|   vector field      divergence        scalar field    source/sink rate |
+|   vector field      curl              vector field    local rotation   |
+|   scalar field      Laplacian         scalar field    vs. neighbors    |
 |                                                                        |
-|   F(x,y,z)   ──── ∇× (curl) ───────>  vector field  local rotation    |
-|   vector field                                                         |
-|                                                                        |
-|   f(x,y,z)   ──── ∇² (Laplacian) ──>  scalar field  vs. neighbors     |
-|   scalar field                                                         |
+|   COORDINATE-FREE LAYER: exterior calculus (differential forms)        |
+|   d²=0 is ONE identity that encodes ∇×(∇f)=0 and ∇·(∇×F)=0          |
 +------------------------------------------------------------------------+
 ```
+
+**The coordinate/coordinate-free split.** Vector calculus is the classical, Cartesian coordinate expression of exterior calculus on R³. The gradient is the exterior derivative d acting on a 0-form. Curl is ★d acting on a 1-form (where ★ is the Hodge star, converting between k-forms and (3-k)-forms via the metric). Divergence is ★d★ acting on a 1-form. The single identity d²=0 is what makes both ∇×(∇f)=0 and ∇·(∇×F)=0 true — they are the same equation in different degrees. In this file, all operators are expressed in Cartesian coordinates; the differential-forms viewpoint makes the structure coordinate-free and generalizes to curved spaces (Riemannian geometry).
 
 **Why this matters immediately** — Maxwell's four equations in differential form:
 
@@ -345,6 +346,28 @@ These are not coincidences — they follow directly from mixed partial symmetry
 - ∇·B = 0 is consistent with writing B = ∇×A (the vector potential)
 - ∇×E = 0 in static fields is consistent with writing E = -∇V
 
+**The Helmholtz decomposition precursor**:
+
+```
+  ∇²F = ∇(∇·F) − ∇×(∇×F)
+```
+
+This vector identity is the key step in deriving the EM wave equations from
+Maxwell's equations. Apply it to E in free space (ρ=0, J=0):
+
+```
+  Take ∇× of Faraday:  ∇×(∇×E) = -∂/∂t(∇×B) = -μ₀ε₀ ∂²E/∂t²
+
+  Using the identity:  ∇(∇·E) - ∇²E = -μ₀ε₀ ∂²E/∂t²
+
+  Since ∇·E = 0 in free space:  ∇²E = μ₀ε₀ ∂²E/∂t²
+
+  This is the wave equation with speed c = 1/√(μ₀ε₀) ≈ 3×10⁸ m/s.
+```
+
+Maxwell's identification of light as an electromagnetic wave follows directly
+from this identity and his addition of the displacement current term.
+
 ---
 
 ## Preview: Maxwell Decoded
@@ -383,16 +406,149 @@ With these operators in hand, Maxwell's equations are now readable:
 
 ---
 
+## Curvilinear Coordinates
+
+The Cartesian formulas above are coordinate-specific. In spherical and cylindrical
+coordinates — used constantly in E&M, QM, and fluid dynamics — the operators
+take different forms because the basis vectors vary from point to point.
+
+**Spherical coordinates** (r, θ, φ) where r = radius, θ = polar angle from z-axis,
+φ = azimuthal angle in xy-plane:
+
+```
+  ∇f = ∂f/∂r r̂  +  (1/r) ∂f/∂θ θ̂  +  (1/(r sinθ)) ∂f/∂φ φ̂
+
+  ∇·F = (1/r²) ∂(r²Fᵣ)/∂r  +  (1/(r sinθ)) ∂(sinθ Fθ)/∂θ
+             +  (1/(r sinθ)) ∂Fφ/∂φ
+
+  ∇²f = (1/r²) ∂/∂r(r² ∂f/∂r)  +  (1/(r² sinθ)) ∂/∂θ(sinθ ∂f/∂θ)
+             +  (1/(r² sin²θ)) ∂²f/∂φ²
+
+  (∇×F)ᵣ = (1/(r sinθ))[∂(sinθ Fφ)/∂θ − ∂Fθ/∂φ]
+  (∇×F)θ = (1/r)[(1/sinθ) ∂Fᵣ/∂φ − ∂(rFφ)/∂r]
+  (∇×F)φ = (1/r)[∂(rFθ)/∂r − ∂Fᵣ/∂θ]
+```
+
+**Cylindrical coordinates** (ρ, φ, z) where ρ = radial distance in xy-plane:
+
+```
+  ∇f = ∂f/∂ρ ρ̂  +  (1/ρ) ∂f/∂φ φ̂  +  ∂f/∂z ẑ
+
+  ∇·F = (1/ρ) ∂(ρFᵨ)/∂ρ  +  (1/ρ) ∂Fφ/∂φ  +  ∂Fz/∂z
+
+  ∇²f = (1/ρ) ∂/∂ρ(ρ ∂f/∂ρ)  +  (1/ρ²) ∂²f/∂φ²  +  ∂²f/∂z²
+
+  (∇×F)z = (1/ρ) ∂(ρFφ)/∂ρ − (1/ρ) ∂Fᵨ/∂φ    (z-component — most common)
+```
+
+The conceptual operators (gradient, divergence, curl, Laplacian) are the same
+in all coordinate systems. Only the coordinate expression changes because the
+metric tensor (the inner product structure) is different. In spherical coordinates
+the metric is ds² = dr² + r²dθ² + r²sin²θ dφ² — the r-dependent scale factors
+propagate into every operator formula.
+
+**Key application**: the Laplacian in spherical coordinates separates into radial
+and angular parts. The angular part is the Laplace-Beltrami operator on S² whose
+eigenfunctions are the spherical harmonics Yₗᵐ(θ,φ). This is why hydrogen orbital
+wavefunctions factor as Rₙₗ(r)Yₗᵐ(θ,φ).
+
+---
+
+## Distributional Extensions
+
+The operators above are defined for smooth fields. Physics requires more:
+
+**Point charges** produce E fields with ∇·E = ρ/ε₀ where ρ is a Dirac delta
+function, not a smooth function. The delta distribution δ³(r) satisfies:
+
+```
+  ∫ δ³(r) dV = 1     (unit charge when integrated)
+  ∇·(r̂/r²) = 4π δ³(r)   (the fundamental divergence identity)
+```
+
+This identity is the core of Coulomb's law — it is what makes ∮ E·dA = Q/ε₀
+work for a point charge, where the integrand has a non-smooth source.
+
+**Weak derivatives** extend differentiation to functions in Sobolev spaces
+H^k(Ω). A function u has a weak partial derivative v = ∂u/∂xᵢ if for all
+smooth test functions φ with compact support:
+
+```
+  ∫ u (∂φ/∂xᵢ) dV = − ∫ v φ dV      (integration by parts, moved to test fn)
+```
+
+This lets you apply the divergence theorem and Green's identities to functions
+that are only L² (square-integrable), not classically differentiable. The
+entire framework of finite-element methods rests on weak derivatives — the PDE
+is enforced in the weak (integral against test functions) sense, which allows
+piecewise-polynomial approximations that aren't differentiable at element boundaries.
+
+**Shock waves in fluid dynamics**: the compressible Euler equations can develop
+discontinuous solutions (shocks). The correct formulation is in weak form —
+the conservation laws (mass, momentum, energy) hold in integral form across
+the discontinuity, giving the Rankine-Hugoniot jump conditions.
+
+---
+
+## Connections to Adjacent Mathematics
+
+**Differential forms and exterior calculus.** The coordinate-free version of
+vector calculus. A 0-form is a scalar field, a 1-form is what line-integrates
+naturally (locally F·dl), a 2-form flux-integrates over surfaces, a 3-form
+volume-integrates. The exterior derivative d: k-forms → (k+1)-forms satisfies
+d²=0 and unifies all four vector calculus operators. The identities ∇×(∇f)=0
+and ∇·(∇×F)=0 are both d²=0 in disguise. Stokes' theorem, the divergence
+theorem, and the gradient theorem are all ∫_M dω = ∫_{∂M} ω. See module 02
+for the integral form; the full exterior calculus machinery is in
+differential-geometry/.
+
+**Riemannian geometry.** On a manifold with metric tensor g, the inner product
+used to define gradient (raise index) and divergence (contract with metric
+determinant) changes. The Laplace-Beltrami operator ∇²f = (1/√g) ∂ᵢ(√g gⁱʲ ∂ⱼf)
+reduces to the Cartesian Laplacian when gᵢⱼ = δᵢⱼ and to the spherical form
+above when expressed in spherical coordinates. General relativity replaces all
+of this with covariant derivatives on a pseudo-Riemannian manifold.
+
+**Complex analysis in 2D.** In R², the Cauchy-Riemann equations for f = u+iv
+to be holomorphic are exactly ∂u/∂x = ∂v/∂y and ∂u/∂y = −∂v/∂x. The first
+is ∇·F = 0 (divergence-free) and the second is (∇×F)_z = 0 (curl-free), where
+F = (u,v). Holomorphic functions are precisely the 2D vector fields that are
+simultaneously divergence-free and curl-free — conformal maps of the plane.
+
+**Automatic differentiation.** JAX and PyTorch compute ∇f via reverse-mode AD
+(backpropagation), which gives the full gradient in O(forward pass) time
+regardless of dimension. The Jacobian ∂Fᵢ/∂xⱼ (the matrix of partial
+derivatives) is computed via forward-mode or reverse-mode AD. Divergence
+(trace of Jacobian) and curl can be extracted from the Jacobian matrix.
+For a neural network f: Rⁿ→R, the gradient ∇f ∈ Rⁿ is exactly what
+backprop computes. `jax.grad`, `torch.autograd.grad`.
+
+**Numerical computation.** On a discrete grid with spacing h:
+```
+  (∂f/∂x)ᵢ ≈ (f(x+h) − f(x−h)) / 2h        (centered finite difference)
+  (∇·F)ᵢ   ≈ (Fₓ(x+h) − Fₓ(x−h))/2h + ...  (component sum)
+  (∇²f)ᵢ   ≈ (f(i+1) + f(i-1) − 2f(i)) / h²  (1D Laplacian stencil)
+```
+In NumPy: `np.gradient(f, h)` computes ∇f on a grid.
+In SciPy: `scipy.ndimage.laplace(f)` computes ∇²f using the 3×3 stencil.
+The finite-volume method (used in CFD) discretizes the divergence theorem
+directly — it enforces ∇·F = 0 in integral form over each mesh cell, which
+automatically conserves the diverged quantity to machine precision.
+
+---
+
 ## Decision Cheat Sheet
 
-| You have | You want to know | Operator | Output |
-|----------|-----------------|----------|--------|
-| Scalar field f | Which direction changes fastest | ∇f | Vector field |
-| Scalar field f | Is this point above/below neighbors | ∇²f | Scalar field |
-| Vector field F | Is there a source or sink here | ∇·F | Scalar field |
-| Vector field F | Is there local rotation here | ∇×F | Vector field |
-| Vector field F | Can I write F = ∇f (no rotation) | Check ∇×F = 0 | Yes/No |
-| Vector field F | Can I write F = ∇×A (no sources) | Check ∇·F = 0 | Yes/No |
+| You have | You want to know | Operator | Output | When to use |
+|----------|-----------------|----------|--------|-------------|
+| Scalar field f | Which direction changes fastest | ∇f | Vector field | Gradient descent, E = -∇V |
+| Scalar field f | Is this point above/below neighbors | ∇²f | Scalar field | Laplace/Poisson equations |
+| Vector field F | Is there a source or sink here | ∇·F | Scalar field | Gauss's law, continuity eq. |
+| Vector field F | Is there local rotation here | ∇×F | Vector field | Faraday/Ampere, vorticity |
+| Vector field F | Can I write F = ∇f (conservative) | Check ∇×F = 0 | Yes/No | Path independence, potential |
+| Vector field F | Can I write F = ∇×A (solenoidal) | Check ∇·F = 0 | Yes/No | Magnetic vector potential |
+| Any | Need coordinate-free version | Exterior calculus | k-forms | Curved spaces, manifolds |
+| Any | Need numerical computation | Finite differences | Grid values | CFD, FEM, PDE solvers |
 
 ---
 
@@ -422,8 +578,8 @@ scalar component separately. This appears in the wave equation for E and B.
 **These formulas are Cartesian.**
 In spherical coordinates (which you will use constantly in E&M — charges are
 spherical, atoms are spherical), the gradient, divergence, and curl formulas
-look different. The operators are the same conceptually; only the coordinate
-expression changes. We will use spherical form when needed in the physics modules.
+look different. The full spherical and cylindrical forms are given above in
+the "Curvilinear Coordinates" section.
 
 **∂B/∂t is a partial time derivative.**
 Maxwell's equations also involve time. ∂B/∂t means: at a fixed point in space,

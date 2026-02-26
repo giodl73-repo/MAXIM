@@ -20,6 +20,60 @@ THE OPTIMIZATION LANDSCAPE
 
 ---
 
+## Numerical Analysis / Operations Research Bridge
+
+The condition number κ and convergence machinery here are identical to classical
+numerical linear algebra and operations research — just in a new setting:
+
+```
+Numerical linear algebra / OR                  Optimization theory (this file)
+────────────────────────────────────────────   ──────────────────────────────────────────
+Condition number κ(A) = ‖A‖·‖A⁻¹‖             Condition number κ = L/μ
+  → determines round-off amplification in        → same ratio: L = largest curvature
+    Gaussian elimination                              μ = smallest curvature
+  → determines convergence rate of CG on Ax=b  → ill-conditioned loss ↔ elongated ellipse
+  → well-conditioned (κ≈1): fast, stable        → CG on Ax=b converges in O(√κ) iterations
+  → ill-conditioned (κ≫1): slow, numerically       same rate as Nesterov GD: O(1/T²)
+    fragile
+
+Conjugate gradient (Ax=b):                    Nesterov accelerated gradient:
+  Converges in O(√κ) iterations                Converges in O(1/√κ) per step
+  Optimal for quadratic objectives             Optimal for smooth convex objectives
+  Uses Krylov subspace Span{r₀,...,r_{t-1}}   Uses "lookahead" momentum
+  → Both achieve the same √κ improvement       Both are lower bound-achieving
+
+Preconditioning Ax=b → P⁻¹Ax = P⁻¹b:         Adaptive gradient methods (Adam, Adagrad):
+  Choose P to make κ(P⁻¹A) ≈ 1                 Approximate diagonal preconditioning
+  → same number of CG iterations as            → per-parameter LR ≈ 1/√accumulated_grad²
+    perfectly conditioned system               K-FAC: full Kronecker-factored preconditioner
+
+Quasi-Newton (Nocedal & Wright, "Numerical     L-BFGS:
+  Optimization"):                               Same algorithm — same textbook
+  BFGS: O(d²) memory, superlinear convergence  L-BFGS: O(md) memory via limited history
+  L-BFGS: limited-memory variant               Standard in scipy.optimize.minimize
+
+Trust region methods (OR):                     SAM (Sharpness-Aware Minimization):
+  Constrain step to ball ‖δ‖ ≤ Δ               Maximize loss in ε-ball, then step
+  → solve subproblem, update trust radius      → same geometry: local worst-case over
+  Used in SQP, TRPO (RL)                         a norm ball
+
+Linear programming duality (OR):              Convex duality (Lagrangian):
+  Primal/dual gap → KKT conditions             Strong duality for convex problems
+  → same theory, same conditions               SVMs are LP duals in disguise
+
+Simplex (OR, linear programs):                 Coordinate descent (LASSO, GLMs):
+  Move along vertex of feasible polytope        Move along one coordinate at a time
+  → both exploit sparse structure              → both effective when coordinates
+  → both convergence guarantees known            are (approximately) uncorrelated
+```
+
+The core insight: **machine learning optimization is numerical optimization on
+high-dimensional, stochastic, non-convex objectives**. Every concept in this guide
+has a numerical analysis or OR ancestor — the theory is the same, the scale and
+the stochasticity are new.
+
+---
+
 ## 1. Convex Analysis — The Foundations
 
 **Convex set**: C is convex if ∀ x,y ∈ C, λ ∈ [0,1]: λx + (1-λ)y ∈ C

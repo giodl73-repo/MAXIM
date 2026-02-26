@@ -64,6 +64,36 @@ Classical theory bounds the generalization gap using measures of hypothesis clas
 
 ---
 
+## Bridge: Classical Statistics → ML Generalization Theory
+
+Classical statistics and ML generalization theory are the same enterprise viewed from different angles. The connections are direct:
+
+```
+CLASSICAL STATISTICS                 ML GENERALIZATION THEORY
+────────────────────────────────     ────────────────────────────────────
+Cramér-Rao lower bound               Sample complexity lower bounds
+  Var(θ̂) ≥ 1/I(θ) for unbiased θ̂    m = Ω(d/ε²) is tight — no learner
+  — fundamental estimation limit       beats it, parallel to C-R structure
+
+Minimax estimation (Le Cam)          Distribution-free PAC lower bounds
+  min_{θ̂} max_{P} E[loss(θ̂, θ)]      min_{A} max_{D, c*} Pr[err > ε]
+  — worst case over distributions      — worst case over distributions D
+
+Fano's inequality                    Sample complexity lower bounds
+  P_e ≥ 1 - (I(X;Y) + 1)/log|M|     m = Ω(d/ε²) in agnostic PAC
+  — information-theoretic lower bd     — via packing in hypothesis space
+
+Le Cam's two-point method            VC lower bounds
+  Binary hypothesis test → lower       Embed binary testing in shattering;
+  bound on minimax risk                VCdim = d → Ω(d/ε²) samples needed
+
+M-estimators                         Empirical risk minimization
+  θ̂ = argmin Σᵢ ρ(xᵢ, θ)             h_ERM = argmin R_S(h)
+  Influence functions / robustness     Stability analysis (Bousquet-Elisseeff)
+```
+
+The PAC sample complexity lower bound proof is a Fano/Le Cam argument in disguise: construct 2^d near-orthogonal functions using a shattered set of size d, then show distinguishing them requires Ω(d/ε²) samples via the information-theoretic limit. The lower bound half of the Fundamental Theorem of Statistical Learning is classical nonparametric statistics.
+
 ## Taxonomy of Generalization Bounds
 
 ```
@@ -248,6 +278,16 @@ SYMMETRIZATION LEMMA
 | 08-INFORMATION-THEORETIC | Compression = generalization | PAC-Bayes bound, MI bound |
 | 09-OPEN-PROBLEMS | Frontier questions | — |
 
+**Planned modules** (not yet written — gaps in learner's stated "learning" zone):
+
+| Module | Core Concept | Why It Matters |
+|--------|-------------|----------------|
+| 10-TRANSFORMERS | Attention mechanism formally; positional encoding; multi-head structure | Architecture internals at depth; ICL theory |
+| 11-DIFFUSION-MODELS | Score matching, SDEs (forward/reverse), denoising score matching | Generative model theory; Langevin dynamics connection |
+| 12-RLHF | KL-constrained reward maximization; reward modeling; PPO theory | Alignment theory; policy optimization |
+
+The current series (01–09) covers classical theory and modern phenomenology. Modules 10–12 address the architectures and training paradigms driving the current frontier.
+
 ---
 
 ## Mathematical Prerequisites
@@ -263,6 +303,31 @@ SYMMETRIZATION LEMMA
 | Combinatorics | VC shattering, growth function counting, Sauer's lemma |
 
 All of this is MIT Mathematics + TCS territory — treated as given throughout.
+
+**Bridge: Classical Optimization → ML Optimization Theory.** Classical convex analysis (Rockafellar) gives convergence rates for gradient descent on smooth strongly-convex objectives: O(log(1/ε)) iterations for strongly convex, O(1/ε) for convex, O(1/ε²) for nonconvex (to stationary point). KKT conditions and Slater's constraint qualification give strong duality for the SVM primal/dual pair and the representer theorem. What ML theory adds on top of classical optimization:
+
+```
+CLASSICAL OPTIMIZATION THEORY        ML THEORY ADDS
+──────────────────────────────────   ────────────────────────────────────────
+Convergence to global/local min      Which minimum the algorithm finds matters:
+  — unique for strongly convex         implicit regularization selects among
+  — multiple local optima otherwise    infinitely many global minima in
+                                       overparameterized settings
+
+Convergence rate O(1/√T)            Generalization of the iterate, not just
+  — standard for nonconvex SGD        convergence — stability analysis
+                                       (Hardt-Recht-Singer: uniform stability
+                                        of SGD controls generalization gap)
+
+Smooth convergence theory            Phase transitions: grokking, loss spikes,
+  — loss decreases monotonically      double descent — non-monotone dynamics
+                                       not covered by classical theory
+
+KKT conditions + duality             Lagrangian relaxations appear in:
+  — constraint satisfaction           PAC-Bayes (Lagrangian over posteriors)
+                                       SVM dual (kernelizes the primal)
+                                       Mirror descent (implicit regularization)
+```
 
 ---
 

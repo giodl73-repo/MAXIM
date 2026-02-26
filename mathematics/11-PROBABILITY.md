@@ -26,6 +26,37 @@ PROBABILITY LANDSCAPE
 
 ## 1. Kolmogorov Axioms — The Foundation
 
+### Measure-Theoretic Grounding
+
+Probability theory is a branch of measure theory. The triple (Ω, ℱ, P) is a
+measure space where P is a normalized measure (P(Ω) = 1).
+
+```
+  σ-algebra ℱ ⊆ 2^Ω: closed under complement and countable union.
+  Why σ-algebras? On uncountable Ω (like ℝ), not every subset is measurable —
+  the Banach-Tarski paradox shows non-measurable sets exist under AC.
+  ℱ specifies which events are "observable."
+
+  Random variable: X: (Ω, ℱ) → (ℝ, ℬ(ℝ)) is a measurable function.
+  Measurability means: {ω : X(ω) ≤ x} ∈ ℱ for all x  (preimages of Borel sets are events)
+
+  Expectation as Lebesgue integral:
+    E[X] = ∫_Ω X(ω) dP(ω)
+  This is the Lebesgue integral of X with respect to measure P.
+  For continuous distributions: E[X] = ∫ x f(x) dx  (Radon-Nikodym: f = dP/dλ)
+  For discrete: E[X] = Σ x P(X=x)
+  Both are special cases of the same integral.
+
+  Lᵖ spaces: X ∈ Lᵖ(Ω, P) iff E[|X|ᵖ] < ∞.
+    L¹: finite mean    L²: finite variance (the natural Hilbert space)
+    Covariance = inner product on L²: ⟨X,Y⟩ = E[XY] (centered)
+```
+
+This framework is load-bearing for everything downstream:
+- Convergence types are defined in terms of Lᵖ norms and the measure P
+- Martingales are processes adapted to a filtration (increasing σ-algebras)
+- The law of a random variable is its pushforward measure on (ℝ, ℬ(ℝ))
+
 ### Probability Space (Ω, ℱ, P)
 
 | Component | Definition | Example (fair die) |
@@ -46,6 +77,45 @@ PROBABILITY LANDSCAPE
     P(Aᶜ) = 1 - P(A)
     P(A∪B) = P(A) + P(B) - P(A∩B)          (inclusion-exclusion)
     P(A) ≤ P(B) if A ⊆ B
+```
+
+### Convergence Hierarchy
+
+Four modes of convergence for a sequence of random variables Xₙ → X:
+
+```
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  CONVERGENCE MODES (strongest to weakest)                           │
+  │                                                                     │
+  │  Almost sure (a.s.):   P(lim Xₙ = X) = 1                          │
+  │    Xₙ(ω) → X(ω) for all ω outside a null set.                     │
+  │                                                                     │
+  │  In Lᵖ (mean pth power): E[|Xₙ - X|ᵖ] → 0                        │
+  │    Most useful: L² (mean square convergence, geometry of Hilbert)  │
+  │                                                                     │
+  │  In probability:  P(|Xₙ - X| > ε) → 0  for all ε > 0             │
+  │                                                                     │
+  │  In distribution: F_Xₙ(x) → F_X(x) at continuity points of F_X   │
+  │    Weakest: only the law (distribution) converges, not the values  │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  Implications:
+    a.s. ⟹ in probability ⟹ in distribution
+    Lᵖ (p≥1) ⟹ in probability ⟹ in distribution
+    L² ⟹ L¹ (by Jensen/Cauchy-Schwarz)
+
+  None of the arrows reverse in general:
+
+  Counterexample (in prob ↛ a.s.): the "typewriter sequence"
+    Enumerate dyadic intervals on [0,1]: [0,1], [0,1/2], [1/2,1], [0,1/4], ...
+    Xₙ = 1_{Iₙ} where Iₙ is the nth interval.
+    P(|Xₙ| > ε) = |Iₙ| → 0  (converges in probability to 0).
+    But for any ω, Xₙ(ω) = 1 infinitely often (ω always lies in infinitely many intervals).
+    So Xₙ(ω) ↛ 0 for any ω — does not converge a.s.
+
+  Strong LLN: X̄ₙ → μ a.s.        (strongest convergence)
+  Weak LLN:   X̄ₙ → μ in prob     (weaker)
+  CLT:        √n(X̄ₙ-μ)/σ → N(0,1) in distribution  (weakest)
 ```
 
 ### Conditional Probability
@@ -206,11 +276,56 @@ PROBABILITY LANDSCAPE
     Exponentially tight — use for randomized algorithm analysis
 ```
 
+### Concentration Inequalities — The Hierarchy
+
+These are the workhorses of PAC learning, VC-dimension bounds, and algorithm analysis.
+
+```
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │  CONCENTRATION HIERARCHY (increasing generality)                        │
+  │                                                                         │
+  │  Chernoff (sums of independent {0,1} r.v., sharpest for Bernoullis):   │
+  │    P(Σ Xᵢ ≥ (1+δ)μ) ≤ e^(-μδ²/3)   for δ ∈ (0,1]                   │
+  │    Derived from M_X(t) directly; exponentially tight.                  │
+  │                                                                         │
+  │  Hoeffding (bounded independent r.v., aᵢ ≤ Xᵢ ≤ bᵢ):                │
+  │    P(Σ(Xᵢ - E[Xᵢ]) ≥ t) ≤ exp(-2t²/Σ(bᵢ-aᵢ)²)                    │
+  │    Replaces MGF bound with variance proxy from the range [aᵢ,bᵢ].     │
+  │    Key use: uniform convergence in PAC learning over finite hypotheses  │
+  │                                                                         │
+  │  Azuma-Hoeffding (martingale differences, |Xᵢ - Xᵢ₋₁| ≤ cᵢ):        │
+  │    P(|Xₙ - X₀| ≥ t) ≤ 2 exp(-t²/(2Σcᵢ²))                           │
+  │    Drops the independence requirement — only needs bounded increments.  │
+  │    Doob martingale converts function of independent r.v. to martingale. │
+  │                                                                         │
+  │  McDiarmid / Bounded Differences (function of independent inputs):     │
+  │    f(x₁,...,xₙ) stable: changing xᵢ → x'ᵢ changes f by at most cᵢ.  │
+  │    P(f - E[f] ≥ t) ≤ exp(-2t²/Σcᵢ²)                                 │
+  │    This is Azuma applied via Doob's martingale construction.            │
+  │    Use: VC-dimension bounds, Rademacher complexity, any f of iid data.  │
+  │                                                                         │
+  │  Talagrand (convex distance, product measures):                         │
+  │    Strongest — concentration for functions that are "Lipschitz in       │
+  │    each coordinate and convex." Captures that a random set is close to  │
+  │    its median with probability 1-2e^{-t²/4}. Used for order statistics, │
+  │    random graphs, longest common subsequences.                          │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+  Relationship to PAC learning:
+    n ≥ (1/2ε²) log(2|H|/δ) samples suffices for uniform convergence over
+    finite hypothesis class H  [Hoeffding + union bound].
+    For infinite H: swap |H| → VC dimension d → n = O(d/ε² · log 1/δ).
+```
+
 ---
 
 ## 5. Master Theorem — Recurrences
 
 Used to analyze divide-and-conquer algorithms. Appears everywhere in CS theory.
+
+The Master Theorem is a deterministic result, but it appears here because
+(a) randomized algorithm analysis (quicksort, hashing) depends on the same
+recurrence structure and (b) random recursion trees connect to branching processes.
 
 ### The Setup
 
@@ -346,6 +461,39 @@ Used to analyze divide-and-conquer algorithms. Appears everywhere in CS theory.
   Thinning: Keep each event with prob p → Poisson(pλ)
 ```
 
+### Martingales and Brownian Motion
+
+```
+  Martingale: a stochastic process {Mₜ} adapted to filtration {ℱₜ} with
+    E[Mₜ | ℱₛ] = Mₛ   for all s ≤ t
+  "Fair game": given all current information, future expected value = current value.
+
+  Examples:
+    - Simple random walk Sₙ = X₁ + ... + Xₙ (Xᵢ iid ±1)
+    - Sₙ² - n is a martingale (variance correction)
+    - e^(θSₙ - nψ(θ)) for any θ (exponential martingale — basis for Chernoff)
+    - Likelihood ratio p(X₁,...,Xₙ|H₁)/p(X₁,...,Xₙ|H₀) under H₀
+
+  Optional stopping theorem: if τ is a stopping time with E[τ] < ∞ (and bounded
+  increments), then E[M_τ] = E[M₀]. Application: expected duration of gambling
+  games, first passage times.
+
+  Martingale convergence theorem: if {Mₙ} is a martingale with sup E[|Mₙ|] < ∞,
+  then Mₙ → M_∞ a.s. and in L¹.
+
+  Brownian motion (Wiener process) W_t: continuous-time limit of random walk.
+    W₀ = 0
+    W_t - W_s ~ N(0, t-s)   for s < t   (independent increments)
+    Continuous paths a.s.
+    Quadratic variation: [W]_t = t  (paths are nowhere differentiable)
+
+  Brownian motion is the canonical continuous martingale.
+  Itô's lemma: for smooth f(t, x),
+    df(t, W_t) = ∂f/∂t dt + ∂f/∂x dW_t + ½ ∂²f/∂x² dt
+  The extra ½∂²f/∂x² dt term (Itô correction) arises from quadratic variation.
+  This drives stochastic calculus, Black-Scholes, and Feynman-Kac.
+```
+
 ---
 
 ## 7. Bayesian Inference
@@ -425,6 +573,44 @@ Used to analyze divide-and-conquer algorithms. Appears everywhere in CS theory.
     → 0 iff X,Y independent
 ```
 
+### Information Theory — Deeper Results
+
+```
+  Data processing inequality:
+    If X → Y → Z is a Markov chain (Z conditionally independent of X given Y):
+      I(X;Z) ≤ I(X;Y)
+    Processing can only destroy information, never create it.
+    ML implication: any learned representation Z = g(Y) satisfies I(X;Z) ≤ I(X;Y).
+    Information bottleneck principle: find Z minimizing I(Y;Z) subject to
+    I(X;Z) ≥ required — compress representation while preserving label information.
+
+  Source coding theorem (Shannon): minimum expected bits to encode X losslessly
+  = H(X). Huffman coding achieves H(X) + ε. Entropy is the information floor.
+
+  Channel capacity (Shannon's noisy-channel theorem):
+    For channel with input X, output Y: capacity C = max_{p(x)} I(X;Y).
+    Reliable transmission possible iff rate R < C.
+    Additive white Gaussian noise channel: C = B log₂(1 + SNR)  (Shannon-Hartley).
+
+  Asymptotic equipartition property (AEP):
+    For iid X₁,...,Xₙ with distribution p:
+      -(1/n) log p(X₁,...,Xₙ) → H(X)  in probability.
+    Most probability mass concentrates on ~2^{nH(X)} "typical" sequences of equal
+    weight 2^{-nH(X)}. Basis of compression and coding theory.
+
+  Fisher information and Cramér-Rao bound:
+    Fisher information: I(θ) = E[(∂/∂θ log p(X;θ))²] = -E[∂²/∂θ² log p(X;θ)]
+    Cramér-Rao: Var(θ̂) ≥ 1/I(θ) for any unbiased estimator θ̂.
+    Achieves equality iff the estimator is the MLE (for exponential families).
+
+  Variational inference (ML):
+    True posterior p(z|x) often intractable. Fit approximate q_φ(z|x) by minimizing
+    D_KL(q_φ || p) = E_q[log q_φ(z|x)] - E_q[log p(x,z)] + const.
+    Equivalently: maximize ELBO = E_q[log p(x,z)] - E_q[log q_φ(z|x)].
+    ELBO = Evidence Lower BOund: log p(x) = ELBO + D_KL(q||p) ≥ ELBO.
+    VAEs optimize ELBO: reconstruction term + KL regularization.
+```
+
 ---
 
 ## 9. Common Distributions in Physics and CS
@@ -456,12 +642,16 @@ Used to analyze divide-and-conquer algorithms. Appears everywhere in CS theory.
 | Update beliefs given data | Bayes' theorem |
 | Bound tail probability, any distribution | Chebyshev |
 | Bound tail for bounded r.v., tight | Chernoff |
+| Bound function of independent r.v. | McDiarmid's inequality |
+| Bound martingale with bounded increments | Azuma's inequality |
 | Analyze divide-and-conquer T(n) | Master Theorem |
 | Find long-run behavior of system | Markov chain stationary π |
 | Sample from intractable posterior | MCMC (Metropolis/Gibbs) |
 | Model physical state probabilities | Boltzmann e^(-βE)/Z |
 | Quantify information / compression | Shannon entropy H(X) |
 | Measure distribution distance | KL divergence D_KL |
+| Bound estimation variance | Cramér-Rao: Var(θ̂) ≥ 1/I(θ) |
+| Fit approximate posterior in ML | Variational inference / ELBO |
 
 ---
 
@@ -484,3 +674,6 @@ The Master Theorem doesn't cover all cases: T(n) = 2T(n/2) + n/log(n) falls in t
 
 **6. Entropy and physical entropy differ by scale**
 Shannon H (bits) = k_B·S_physics / (k_B ln 2). Both measure the same thing (missing information / uncertainty), just in different units. The Boltzmann factor e^(-E/kT) can be understood as maximum-entropy inference given a mean energy constraint.
+
+**7. a.s. convergence vs. convergence in probability**
+Strong LLN gives a.s. convergence; Weak LLN gives convergence in probability. The typewriter sequence shows in-probability convergence does not imply a.s. convergence. For most applied purposes the distinction doesn't matter, but for stochastic process theory (martingale limits, ergodic theorems) the a.s. mode is the correct one.

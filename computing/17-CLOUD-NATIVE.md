@@ -131,7 +131,27 @@ Queue (point-to-point)             Topic / Pub-Sub (fan-out)
 
 ### Kafka
 
-<!-- @editor[bridge/P1]: Critical distinction flagged in calibration notes: the Azure Service Bus → Kafka bridge must make the event streaming vs. message queuing distinction explicit. Azure Service Bus is a message broker: messages are consumed and deleted, delivery is guaranteed-once to a single consumer group. Kafka is an event log: messages are retained, multiple independent consumer groups each read the full stream, replay is possible. This is architecturally different, not just a scale difference. A reader coming from Service Bus will expect Kafka to behave like a queue — that mental model is wrong and leads to bad partition/consumer group design. Add: "If you know Azure Service Bus: Kafka is not a faster Service Bus. It's a different abstraction — a durable, replayable log rather than a delivery mechanism. The consumer group model (each group reads all messages independently) has no Service Bus equivalent." -->
+> **Azure Service Bus → Kafka mental model**
+>
+> This is the most important conceptual shift in this section. Getting it wrong leads to subtle consumer group bugs.
+>
+> **Azure Service Bus** is a message broker / task queue. Each message is delivered to one consumer, then deleted. It is a delivery mechanism: messages have a lifecycle, a lock, a dead-letter queue. Two competing consumers on the same queue split the messages — that's by design for scale-out.
+>
+> **Kafka** is an append-only distributed log. Messages are retained for a configurable duration (hours, days, weeks). Consumer groups each maintain their own offset pointer and read the full stream independently. Adding a new consumer group does not affect other consumer groups — each reads from the beginning (or wherever it left off) completely independently.
+>
+> ```
+> Azure Service Bus             Kafka
+> ─────────────────             ─────
+> Message → consumed → deleted  Message written → retained → never deleted (until TTL)
+> One consumer gets the message Each consumer group reads ALL messages
+> Competing consumers = scale   Multiple consumer groups = fan-out
+> No replay                     Replay from any offset (re-process old events)
+> Push to consumer              Consumer pulls at own pace
+> ```
+>
+> The mental model inversion: **Service Bus = task queue** (each message is a unit of work, delivered once). **Kafka = event log** (each message is a fact that happened, readable by any number of independent observers).
+>
+> If you apply Service Bus thinking to Kafka — treating consumer groups as competing workers — you'll end up with each consumer group consuming only a fraction of messages. That's the opposite of the intended design. In Kafka, consumer groups cooperate by partitioning: instances within one group split partitions. Groups across the system each get the full stream.
 
 Apache Kafka is the dominant event streaming platform for high-throughput, durable event logs.
 
@@ -197,6 +217,64 @@ await consumer.run({
   },
 });
 ```
+
+---
+
+## gRPC
+
+> **WCF → gRPC bridge**
+>
+> WCF had contract-first typed service definitions: `[ServiceContract]` / `[OperationContract]` attributes, WSDL schema, proxy generation, and SOAP/XML wire format. The programming model was strong — you coded against an interface, the framework handled serialization and transport.
+>
+> gRPC is the modern equivalent for high-performance inter-service RPC. Same contract-first philosophy; different everything else.
+>
+> ```
+> WCF                              gRPC
+> ───                              ────
+> [ServiceContract]                service OrderService { ... }  (.proto)
+> [OperationContract]              rpc PlaceOrder(OrderRequest) returns (OrderResponse)
+> WSDL                             .proto file (Protocol Buffers schema)
+> SOAP/XML (text, verbose)         Protobuf (binary, ~10x smaller than XML)
+> HTTP/1.1 or net.tcp              HTTP/2 (multiplexed streams, bidirectional)
+> svcutil.exe generates proxy      protoc generates client + server stubs
+> Requires SOAP envelope           Binary frame — no envelope overhead
+> ```
+>
+> Sample `.proto` alongside WCF equivalent:
+>
+> ```protobuf
+> // orders.proto
+> syntax = "proto3";
+>
+> service OrderService {
+>   rpc PlaceOrder (PlaceOrderRequest) returns (PlaceOrderResponse);
+>   rpc StreamOrderUpdates (OrderId) returns (stream OrderUpdate);  // server streaming
+> }
+>
+> message PlaceOrderRequest {
+>   string customer_id = 1;
+>   repeated OrderItem items = 2;
+> }
+>
+> message PlaceOrderResponse {
+>   string order_id = 1;
+>   OrderStatus status = 2;
+> }
+> ```
+>
+> ```csharp
+> // WCF equivalent
+> [ServiceContract]
+> public interface IOrderService
+> {
+>     [OperationContract]
+>     PlaceOrderResponse PlaceOrder(PlaceOrderRequest request);
+> }
+> ```
+>
+> Key advantages of gRPC over WCF for microservices: binary encoding (bandwidth and CPU), HTTP/2 multiplexing (no head-of-line blocking), bidirectional streaming (neither WCF net.tcp nor REST supports this cleanly), and language-neutral `.proto` contracts (generate clients in Go, TypeScript, Python, C# from the same schema).
+>
+> In .NET, `Grpc.AspNetCore` brings gRPC server hosting into Kestrel. The API Gateway pattern commonly uses protocol translation: external clients send REST → API Gateway translates to gRPC → internal services.
 
 ---
 
@@ -316,8 +394,6 @@ Order Saga (Choreography)
 ## Service Mesh
 
 When you have many services, cross-cutting concerns (retries, mTLS, observability) get duplicated in every service. A service mesh moves them to the infrastructure layer.
-
-<!-- @editor[bridge/P2]: WCF service contracts → gRPC is flagged in calibration notes as a bridge that belongs here but is absent from the file entirely. gRPC isn't covered at all — not in this section, not in the bridge table. The service mesh section is where it naturally fits (mTLS, protocol translation). The bridge table row should call out: WCF typed service contracts / SOAP → gRPC (Protocol Buffers, typed service definitions, HTTP/2). Currently the table maps WCF service host → containerized HTTP service, which skips the protocol contract layer. Either add a gRPC subsection or at minimum add it to the bridge table and note the concept here. -->
 
 ```
 Without service mesh               With service mesh (Istio / Linkerd)
@@ -452,8 +528,6 @@ Decouple deployment from release. Ship code to prod dark; enable for 1% of users
 
 ## The 12-Factor App
 
-<!-- @editor[bridge/P2]: Factor III (config in env vars) and Factor X (dev/prod parity) have direct .NET bridge points that are absent here. Factor III: `App.config` / `web.config` with `<appSettings>` was the .NET pattern — the 12-factor replacement is env vars, which is a deliberate inversion (config lives outside the artifact). Factor VI (stateless processes): ASP.NET session state stored in-process was the anti-pattern; out-of-process session (Redis, SQL) is the cloud-native equivalent. A one-line callout per relevant factor would help the reader map new to known. -->
-
 The foundational checklist for cloud-native services. Originally from Heroku (2011), still the canonical reference.
 
 ```
@@ -476,6 +550,12 @@ XI.  Logs       Treat logs as event streams. Write to stdout. Platform aggregate
 XII. Admin      Run admin tasks as one-off processes. Not cron in app. Not manual.
      Processes
 ```
+
+> **.NET bridges for key factors**
+>
+> **Factor III — Config**: The .NET pattern was `App.config` / `web.config` with `<appSettings>` and `<connectionStrings>` — XML files baked into the deployment artifact or alongside it. The 12-factor replacement is environment variables set outside the artifact. In Azure: App Service configuration blade, Key Vault references, or Azure App Configuration. The inversion: config is no longer part of the artifact; it is injected at runtime by the platform. `IConfiguration` in .NET already supports env vars natively — `CONNECTIONSTRINGS__DEFAULT` maps to `ConnectionStrings:Default`.
+>
+> **Factor VI — Processes**: Classic ASP.NET stored session state in-process (`HttpSessionState` in `System.Web`) — a single server held user state in memory. This is the anti-pattern Factor VI prohibits. Cloud-native equivalent: move all shared state to a backing service. In Azure: distributed session via Redis (`StackExchange.Redis`) or Azure Cache for Redis, or go fully stateless (JWT in the client, no server-side session at all). If a pod crashes and restarts, a stateless service loses nothing — the client re-authenticates, state is reconstituted from the DB or token.
 
 ---
 
@@ -503,10 +583,9 @@ They're also for kill switches (disable a component under load), A/B testing, gr
 
 ## Old World Bridge
 
-<!-- @editor[content/P2]: WCF service contracts → gRPC is missing from the bridge table entirely. WCF had typed, contract-first service definitions (WSDL / ServiceContract attributes). gRPC uses Protocol Buffers (.proto files) as the contract — same concept, different serialization. This is a direct 1:1 analog the learner will recognize immediately. Add a row: "WCF ServiceContract / WSDL → gRPC + Protocol Buffers (.proto)" with a note that gRPC is the modern equivalent for typed, high-performance inter-service RPC in a microservices architecture. -->
-
 | WCF / SOA / .NET Enterprise Patterns | Cloud-Native Equivalent |
 |---|---|
+| WCF ServiceContract / OperationContract / WSDL | gRPC + Protocol Buffers (`.proto` schema) — contract-first typed RPC, binary encoding, HTTP/2, bidirectional streaming |
 | WCF service host | Containerized HTTP service (Kestrel / Express) |
 | ESB (Enterprise Service Bus) | Event broker (Kafka, Azure Service Bus) + choreography |
 | MSMQ | Azure Service Bus Queue / AWS SQS |
@@ -517,7 +596,8 @@ They're also for kill switches (disable a component under load), A/B testing, gr
 | Azure Traffic Manager (weighted routing) | Canary deployments via Istio / Argo Rollouts |
 | Azure APIM | API Gateway pattern (same tool, same concept) |
 | Deployment slots (App Service) | Blue/green deployments on K8s |
-| App.config / web.config | Environment variables (Factor III) |
+| App.config / web.config `<appSettings>` | Environment variables (Factor III) — injected by platform, not baked into artifact |
+| In-process `HttpSessionState` (ASP.NET) | External Redis / Cosmos session store — stateless processes (Factor VI) |
 | Windows Service (background worker) | K8s Deployment with no ingress / CronJob |
 
 ---
@@ -531,6 +611,8 @@ They're also for kill switches (disable a component under load), A/B testing, gr
 | Decouple services so they don't need to be up simultaneously | Async messaging (Service Bus / SQS / Kafka) |
 | Fan out one event to many consumers | Pub-Sub topic (Event Grid / SNS / Kafka topic) |
 | High-throughput durable event log with replay | Kafka |
+| Multiple independent consumers reading the same events | Kafka consumer groups (not Service Bus — messages would be split) |
+| Typed contract-first inter-service RPC, binary, HTTP/2 | gRPC + Protocol Buffers |
 | Prevent cascading failures | Circuit breaker (Opossum) + timeouts |
 | Handle transient network errors | Retry with exponential backoff + jitter |
 | Coordinate a multi-service write without 2PC | Saga pattern |

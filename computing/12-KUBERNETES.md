@@ -53,9 +53,78 @@ Kubernetes — Full Architecture
   kubelet = agent on each node that talks to control plane
 ```
 
-<!-- @editor[diagram/P1]: Missing K8s object relationship landscape diagram. The calibration note is explicit: "K8s objects (Pod/ReplicaSet/Deployment/Service/Ingress/ConfigMap/Secret) need a landscape diagram showing the relationship between objects." The cluster architecture diagram above shows physical topology (nodes, control plane) but not the logical object hierarchy. A second diagram showing Deployment → ReplicaSet → Pod with Service pointing at Pods, Ingress pointing at Service, ConfigMap/Secret injected into Pod — this is what the learner needs to orient to the object model before drilling into each. Place between the intro and the first ##. -->
+---
 
-<!-- @editor[bridge/P1]: No Azure Service Fabric bridge. The calibration note flags this as a primary bridge: the learner knows Service Fabric (Microsoft's internal orchestrator). The concepts map directly: Service Fabric Application → K8s Deployment; Service Fabric Service → K8s Service; Service Fabric partition → K8s ReplicaSet; Service Fabric health model → readinessProbe/livenessProbe; SF upgrade domains → rolling update strategy. This is the single strongest anchor for this learner and it's completely absent. A named comparison table or bridge box belongs here at the intro, before the Core Concepts section. -->
+### K8s Object Relationship Landscape
+
+```
+Kubernetes Object Hierarchy
+============================
+
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  Namespace  (scopes everything below — like a folder in a cluster)  │
+  │                                                                     │
+  │  ┌──────────────────────────────────────────────────────────────┐   │
+  │  │  Deployment  ──manages──►  ReplicaSet  ──manages──►  Pod(s)  │   │
+  │  │      │                                              │        │   │
+  │  │      │ declares desired state                       │        │   │
+  │  │      │ (image, replicas, update strategy)           │        │   │
+  │  │                                                     │        │   │
+  │  │  Service  ──────────────────selects──────────────►  Pod(s)   │   │
+  │  │      │       (via label selector: app=api)          │        │   │
+  │  │      │                                              │        │   │
+  │  │  Ingress  ──────────routes to──────────►  Service(s)         │   │
+  │  │      │       (URL path / host rules)                │        │   │
+  │  │                                                     │        │   │
+  │  │  ConfigMap  ──────────────mounted into──────────►  Pod(s)    │   │
+  │  │  Secret     ──────────────mounted into──────────►  Pod(s)    │   │
+  │  │      │       (as env vars or volume files)          │        │   │
+  │  │                                                     │        │   │
+  │  │  PersistentVolumeClaim  ──────────attached to────►  Pod(s)   │   │
+  │  │  HorizontalPodAutoscaler  ──scales──►  Deployment             │   │
+  │  └──────────────────────────────────────────────────────────────┘   │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  Deployment   = "keep N replicas of this container running"
+  ReplicaSet   = implementation detail; Deployment manages it for you
+  Pod          = one running container instance (the actual process)
+  Service      = stable DNS name + load balancer across matching pods
+  Ingress      = HTTP router in front of services (like ARR / App Gateway)
+  ConfigMap    = non-secret configuration injected into pods
+  Secret       = sensitive config (base64-encoded; use Key Vault in prod)
+  Namespace    = logical isolation boundary within a cluster
+```
+
+You almost never create ReplicaSets directly. The hierarchy is: you write a Deployment manifest, K8s creates the ReplicaSet, the ReplicaSet creates Pods.
+
+---
+
+### Azure Service Fabric → Kubernetes Bridge
+
+The learner has deep Service Fabric (SF) experience. K8s and SF solve the same problem — container/microservice orchestration at scale — with different design philosophies.
+
+```
+SF was stateful-first (Reliable Services, Reliable Collections).
+K8s is stateless-first — stateful workloads are possible but require more work.
+```
+
+| Azure Service Fabric Concept | Kubernetes Equivalent | Notes |
+|---|---|---|
+| SF Cluster | K8s Cluster | SF cluster = VMs + SF runtime; K8s cluster = nodes + control plane |
+| SF Application | K8s Namespace | Scoping/isolation boundary for a set of services |
+| SF Service (stateless) | K8s Deployment + Service | Deployment manages replicas; Service provides stable endpoint |
+| SF Service (stateful, partitioned) | K8s StatefulSet | StatefulSet gives pods stable identity + ordered startup/shutdown |
+| SF Partition (named/ranged) | K8s StatefulSet replica index | No native partition routing in K8s — app-layer concern |
+| SF Reliable Collections | K8s PersistentVolumeClaim + StatefulSet | K8s externalizes state to volumes; no in-process distributed state store |
+| SF Health Model (primary/secondary) | readinessProbe + livenessProbe | readiness = traffic gate; liveness = restart trigger |
+| SF Upgrade Domain | rolling update `maxUnavailable` / `maxSurge` | Same concept — limit blast radius of a rolling deploy |
+| SF Service Manifest (replicas, resources) | Deployment spec (replicas, resources) | Direct structural equivalent |
+| SF Application Manifest | Namespace + Helm chart | Helm packages the set of K8s manifests for an application |
+| SF named endpoints | K8s Service (ClusterIP + DNS) | `api.production.svc.cluster.local` vs SF naming service |
+| SF placement constraints | K8s node affinity / taints+tolerations | Control which nodes a workload lands on |
+| SF reverse proxy (built-in) | Ingress controller (nginx, AGIC) | K8s has no built-in reverse proxy — you install one |
+
+**Key philosophical difference:** SF's Reliable Services let you hold distributed state in-process (Reliable Dictionary, Reliable Queue). K8s has no equivalent — stateful workloads use external storage (Postgres, Redis, Azure Storage) accessed via PVCs or direct connection. If you're migrating an SF stateful service, the state management piece requires architectural rework, not just repackaging.
 
 ---
 
@@ -208,7 +277,31 @@ spec:
                   number: 80
 ```
 
-<!-- @editor[bridge/P2]: No bridge from Application Gateway / ARR (IIS Application Request Routing) to Ingress. The learner configured ARR and URL rewriting in IIS extensively. Ingress is the same concept: a reverse proxy with URL-based routing rules sitting in front of backend services. AGIC (Application Gateway Ingress Controller) is literally "use Azure Application Gateway as your K8s Ingress" — this is the exact bridge and it gets only a mention in the AKS integrations list rather than a named explanation here where the learner would benefit most. -->
+**Application Gateway / IIS ARR → K8s Ingress bridge:**
+
+```
+IIS ARR (Application Request Routing)    K8s Ingress
+======================================   ===========
+
+ARR sits in front of IIS sites.         Ingress controller sits in front
+Routing rules: URL path, host header.   of Services. Same concept.
+SSL termination at ARR.                 SSL termination at Ingress.
+
+ARR routing rule:                       Ingress path rule:
+  /api/* → backend pool A                 path: /api → service: api:80
+  /auth/* → backend pool B                path: /auth → service: auth:80
+
+SSL cert on ARR                         TLS cert in K8s Secret,
+                                        referenced in Ingress spec
+
+Azure Application Gateway               AGIC (Application Gateway Ingress
+(IIS-tier reverse proxy)                Controller) = use Azure App Gateway
+                                        AS your K8s ingress controller.
+                                        Literal bridge: same Azure resource,
+                                        controlled by K8s Ingress manifests.
+```
+
+AGIC lets you keep Azure Application Gateway as the edge (WAF, SSL, routing) and drive it from K8s manifest YAML instead of the Azure portal. If you've configured App Gateway rules manually, AGIC is the same rules as code.
 
 ### ConfigMap & Secret
 
@@ -445,7 +538,60 @@ Key AKS integrations:
 - **Azure Monitor**: container insights, log analytics
 - **AGIC**: Application Gateway Ingress Controller (Azure LB as ingress)
 
-<!-- @editor[bridge/P1]: Missing Azure Container Apps comparison. The calibration note specifically calls out: "AKS, Azure Container Apps, and Service Fabric comparisons are bridges worth making." Azure Container Apps (ACA) is K8s with the operational complexity abstracted — no nodes to manage, no kubectl required, built on KEDA for scale-to-zero. For the learner's context (Azure App Service → containerization), ACA is often the right answer before AKS. The decision boundary (ACA vs AKS) belongs here in the Managed Kubernetes section as a named comparison. -->
+### AKS vs Azure Container Apps vs Service Fabric Managed Clusters
+
+Coming from Azure App Service and Service Fabric, the decision between these three is the actual operational choice you'll face.
+
+```
+                AKS                  Azure Container Apps       SF Managed Cluster
+                ===                  ====================       ==================
+
+What it is      Full K8s cluster     Serverless K8s             Managed SF cluster
+                you manage           (MS manages cluster)       (MS manages SF infra)
+
+Mental model    K8s with Azure       Azure App Service,         Service Fabric,
+                integrations         but container-native       but MS ops it
+
+Node pools      You manage           None — serverless          You choose VM SKUs
+                (VM SKUs, count,                                MS handles SF nodes
+                auto-scale)
+
+Scaling         HPA, KEDA,           Built-in scale-to-zero     SF autoscale
+                cluster autoscaler   via KEDA                   (less flexible)
+
+Deployment      kubectl / Helm       az containerapp / portal   SF manifests / ARM
+
+Ingress         You install nginx    Built-in HTTP ingress       SF reverse proxy
+                or AGIC              (no nginx needed)           (built-in)
+
+State           StatefulSet + PVC    Dapr state stores           Reliable Services
+                                     (no StatefulSet)            (in-process state)
+
+Secrets         K8s Secret +         Key Vault references        SF secrets store
+                CSI Key Vault        built-in
+
+Pricing         Pay for VMs          Pay per CPU/memory          Pay for VMs
+                (even idle)          consumed (scale-to-zero)    (even idle)
+
+Best for        Full K8s control,    Teams that want             Teams already
+                custom networking,   container hosting with      on SF, not ready
+                complex workloads,   App Service UX.             to migrate to K8s.
+                existing K8s tooling No K8s expertise needed.    MS handles SF ops.
+```
+
+**Decision table:**
+
+| I want to... | Use |
+|---|---|
+| Full K8s control, custom ingress, existing K8s manifests | AKS |
+| Container hosting with minimal ops, App Service simplicity | Azure Container Apps |
+| Scale to zero (no traffic = no cost) | Azure Container Apps (KEDA built-in) |
+| Migrate from Azure App Service to containers | Azure Container Apps (closest model) |
+| Keep using SF reliable services / reliable collections | SF Managed Cluster (migration to K8s is a bigger lift) |
+| Multi-region, blue/green at cluster level | AKS with Traffic Manager |
+| HTTP API, event-driven, microservices with Dapr | Azure Container Apps |
+
+ACA is built on K8s and KEDA under the hood — you just don't see or manage the cluster. Think of it as the next generation of Azure App Service that happens to run containers. If you're containerizing an IIS/App Service workload and don't need advanced K8s features, ACA is the right first destination.
 
 ---
 
@@ -526,20 +672,29 @@ They're base64-encoded in etcd. Treat K8s Secrets as a transport mechanism, not 
 
 | Azure / Windows / VSTS Concept | Kubernetes Equivalent |
 |---|---|
+| Azure Service Fabric Cluster | K8s Cluster |
+| SF Application | K8s Namespace |
+| SF Stateless Service | K8s Deployment + Service |
+| SF Stateful Service (partitioned) | K8s StatefulSet |
+| SF Reliable Collections | External state: PVC + database (no in-process equivalent) |
+| SF Health Model (primary/secondary replicas) | readinessProbe + livenessProbe |
+| SF Upgrade Domains | Rolling update `maxUnavailable` / `maxSurge` |
+| SF Named Endpoints / naming service | K8s Service (ClusterIP + DNS) |
+| SF Placement Constraints | Node affinity / taints + tolerations |
 | Azure App Service Plan (scale units) | Node Pool |
 | Azure App Service (web app) | Deployment + Service |
 | Deployment slot (staging) | Separate namespace or separate Deployment |
 | App Service autoscale rules | HorizontalPodAutoscaler (HPA) |
 | Azure Load Balancer | Service (type: LoadBalancer) |
 | Application Gateway + URL routing | Ingress + Ingress Controller |
+| IIS ARR routing rules | Ingress path rules |
+| SSL termination at ARR/App Gateway | TLS termination at Ingress |
 | web.config / App Settings | ConfigMap + Secret + envFrom |
 | Azure Key Vault | K8s Secret + CSI driver → Azure Key Vault |
 | Azure Container Registry | Image registry (pull in pod spec) |
 | Azure Monitor / App Insights | Prometheus + Grafana + OpenTelemetry (15-OBSERVABILITY) |
 | VSTS Release Pipeline stages | kubectl apply in CI/CD pipeline (13-CICD) |
 | Blue/green deployment | Two Deployments + Service selector switch |
-
-<!-- @editor[bridge/P1]: The Old World Bridge table is missing Service Fabric entirely. The calibration note calls it out explicitly as a primary bridge. The learner built systems on Service Fabric — it is Microsoft's own container/microservice orchestrator. The mapping: SF cluster → K8s cluster; SF application → K8s namespace; SF service → K8s Deployment + Service; SF partition → ReplicaSet; SF health model (primary/secondary) → readinessProbe/livenessProbe; SF upgrade domains → rolling update maxUnavailable/maxSurge; SF named partitions → StatefulSet. This is the most relevant old-world anchor for this entire guide and it's absent from the bridge table. -->
 
 ---
 
@@ -561,6 +716,8 @@ They're base64-encoded in etcd. Treat K8s Secrets as a transport mechanism, not 
 | Isolate teams or environments in one cluster | Namespaces |
 | Run K8s without managing control plane | AKS / EKS / GKE |
 | Run K8s serverlessly (no node management) | AKS with Virtual Nodes / Fargate |
+| Container hosting with App Service simplicity | Azure Container Apps (ACA) |
+| Scale-to-zero (pay only when traffic exists) | Azure Container Apps |
+| Keep SF Reliable Services / stateful partitions | SF Managed Cluster (K8s migration is architectural rework) |
+| Use Azure App Gateway as K8s ingress | AGIC (Application Gateway Ingress Controller) |
 | Debug a crashing pod | `kubectl logs --previous` + `kubectl describe pod` |
-
-<!-- @editor[structure/P2]: Missing AKS vs Azure Container Apps vs Service Fabric decision row in the cheat sheet. The calibration note flags the decision between these three as primary value for this learner. The cheat sheet has "Run K8s without managing control plane → AKS" but no "I want App-Service-like simplicity with containers → Azure Container Apps" or "I'm already on Service Fabric, should I migrate → ?" row. These are the decisions this learner will actually face. -->

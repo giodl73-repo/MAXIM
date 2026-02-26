@@ -298,6 +298,67 @@ Apple's wide window is a deliberate design choice.
   Performance cost: 5–30% on some workloads.
 ```
 
+
+## Meltdown (CVE-2017-5754)
+
+Meltdown is architecturally distinct from Spectre. Where Spectre manipulates branch prediction, Meltdown exploits a different property: OOO loads can complete and pass their results to dependent instructions before a permission fault is raised and delivered.
+
+```
+  THE MELTDOWN EXPLOIT:
+
+  1. An unprivileged process reads a kernel virtual address.
+     Architecturally: this is illegal — a page fault will be raised.
+
+  2. HOWEVER: the OOO engine speculatively completes the load
+     BEFORE the permission check causes the fault.
+     The load result (kernel data) flows into the physical register file
+     and is used by subsequent instructions — all still speculative.
+
+  3. The attacker uses the secret kernel byte to index an array:
+     x = kernel_mem[secret_addr];
+     y = probe_array[x * 4096];       ← cache-load a specific line
+
+  4. The fault arrives and flushes the speculative state.
+     Architectural registers are clean. The kernel byte is gone.
+     BUT: probe_array[x * 4096] is still warm in the cache.
+
+  5. Time every probe_array slot. The fast one reveals x.
+
+  WHY MELTDOWN ≠ SPECTRE:
+  Spectre:  manipulates BRANCH PREDICTION to execute the wrong path.
+            The CPU was working correctly; the predictor was deceived.
+            Requires JIT or Spectre gadget in victim code.
+  Meltdown: the load and dependent instructions run before
+            the EXCEPTION is raised — exception ordering bug.
+            Any kernel memory readable by any process (in theory).
+            Simpler to exploit; no branch training required.
+
+  HARDWARE FIX vs SOFTWARE MITIGATION:
+  Meltdown — HARDWARE FIXED on newer CPUs:
+    Intel: fixed on Tiger Lake+ (Ice Lake server+) and Cascade Lake+
+    AMD: Zen 2+ is not vulnerable (AMD handled exception ordering
+         differently — fault delivered before dependent instruction)
+    On older hardware: KPTI (Kernel Page Table Isolation) required.
+
+  KPTI (Linux) / KVA Shadow (Windows):
+    Maintain SEPARATE page tables for user and kernel mode.
+    Kernel addresses are unmapped from user-mode page tables entirely.
+    Cost: TLB flush on every syscall/interrupt → 5–30% overhead
+          on syscall-heavy workloads.
+    Mitigated with PCID (Process-Context IDs) to tag TLB entries.
+
+  Spectre — NOT FULLY HARDWARE FIXED (ongoing):
+    Requires software mitigations per-generation (retpoline, IBRS,
+    IBPB, eIBRS, BHI mitigations).
+    Even Alder Lake / Zen 4 require software patching for new
+    Spectre variants as they are discovered.
+
+  COMBINED PICTURE (2024):
+  Tiger Lake / Zen 2+ desktop: Meltdown hardware-fixed, KPTI optional.
+  Pre-Ice Lake Intel server: KPTI required for Meltdown protection.
+  All generations: Spectre retpoline + eIBRS still active.
+```
+
 ---
 
 ## Decision Cheat Sheet

@@ -119,6 +119,47 @@ Prisma is the Entity Framework Core equivalent for Node.js. Schema-first, type-s
   NuGet EntityFrameworkCore        npm prisma + @prisma/client
 ```
 
+**ADO.NET connection pool → Prisma connection pool bridge**: In ADO.NET, the connection pool is managed by the runtime automatically — `SqlConnection.Open()` is O(1) because it draws from a pre-established pool, and this is transparent to application code. Developers rarely think about it unless tuning `Min Pool Size` / `Max Pool Size` in the connection string. `PrismaClient` does the same for long-running servers: default pool size is CPU cores × 2, managed automatically, transparent to query code.
+
+The difference surfaces in **serverless deployments** and is the most common production footgun in Prisma:
+
+```
+  TRADITIONAL SERVER (long-running process):
+  +------------------+
+  | Node.js process  |  One PrismaClient instance
+  | (Express)        |  Pool: 10 connections
+  +------------------+  Reused across all requests
+
+  SERVERLESS (each invocation may be a new instance):
+  +------------------+  +------------------+  +------------------+
+  | Function inst. 1 |  | Function inst. 2 |  | Function inst. 3 |  ...100 instances
+  | PrismaClient     |  | PrismaClient     |  | PrismaClient     |
+  | Pool: 10 conns   |  | Pool: 10 conns   |  | Pool: 10 conns   |
+  +------------------+  +------------------+  +------------------+
+        10                     10                     10          = 1000 connections
+                                                                    Postgres default max: 100
+                                                                    → CONNECTION EXHAUSTION
+
+  The failure mode: traffic spike → 100 Lambda/Vercel invocations
+  → 100 new PrismaClient pools → 1000 Postgres connections → crash.
+  Postgres's default max_connections is 100.
+
+  SOLUTIONS:
+  PgBouncer          Self-hosted connection pooler. Multiplexes app
+                     connections into fewer Postgres connections.
+                     Sits between app and DB.
+
+  Supabase pooler    Built-in PgBouncer mode. Transaction pooling.
+                     Enable in Supabase dashboard.
+
+  Neon serverless    HTTP-based Postgres driver — no persistent TCP
+  driver             connection, no pool per function.
+
+  Prisma Accelerate  Managed pooler + edge caching. Prisma's SaaS answer.
+```
+
+Recognize this pattern: it's the same class of problem as `SqlConnection` pool exhaustion under high concurrency in .NET — except in serverless it happens even at moderate traffic because the pool is not shared across instances.
+
 ### schema.prisma — The Central Definition
 
 ```prisma
@@ -479,6 +520,40 @@ Drizzle is gaining fast on Prisma. Different philosophy: write SQL-like TypeScri
 
 Redis (Remote Dictionary Server) is an in-memory data structure store. "Cache" understates it.
 
+**Bridge from .NET**: Redis has no single equivalent in the pre-cloud .NET world — these capabilities were scattered across multiple systems. The mapping:
+
+```
+  .NET EQUIVALENT                 REDIS CAPABILITY
+  ---------------                 ----------------
+  IMemoryCache                    Redis SET/GET with TTL
+  (in-process, single server)     (distributed, survives process restart)
+
+  IDistributedCache               Redis (via StackExchange.Redis)
+  + StackExchange.Redis           The actual .NET Redis client library.
+  (the standard .NET Redis client) Used with AddStackExchangeRedisCache().
+
+  Azure Cache for Redis           Redis Cloud / Upstash
+  (managed Redis on Azure)        (same product, different clouds)
+
+  System.Runtime.Caching          Redis cache (more features, distributed)
+  .MemoryCache
+
+  SQL Server Service Broker       Redis Pub/Sub / Redis Streams
+  (message queuing)               (lightweight real-time messaging)
+
+  SQL Server in-memory OLTP       Redis sorted sets, hashes
+  (fast key-value in SQL Server)  (purpose-built, simpler API)
+
+  No equivalent                   Redis distributed locks (SET NX EX)
+  No equivalent                   Redis rate limiting (INCR + EXPIRE)
+  No equivalent                   BullMQ job queues (Redis-backed)
+
+  The gap isn't that .NET had nothing — it's that these capabilities
+  were scattered across IMemoryCache, Service Broker, SQL Server OLTP,
+  and Azure Cache for Redis separately. Redis unifies them in one tool
+  with a consistent O(1)-or-O(log n) API.
+```
+
 ```
   REDIS USE CASES:
 
@@ -772,6 +847,10 @@ Redis (Remote Dictionary Server) is an in-memory data structure store. "Cache" u
 | Stored procedures | Mostly avoided; raw SQL if needed | ORMs prefer application-side logic |
 | SQL Server Agent jobs | pg_cron / BullMQ / cron jobs | Scheduled tasks |
 | Always On / replication | Managed service handles this | Supabase/Neon/RDS manage HA |
+| `IMemoryCache` | Redis (in-process → distributed) | `IMemoryCache` is single-server only |
+| `IDistributedCache` + `StackExchange.Redis` | `redis` npm package (`createClient`) | The .NET Redis client; same concept |
+| Azure Cache for Redis | Upstash / Redis Cloud | Managed Redis; same product, different cloud |
+| `SqlConnection` pool (auto, transparent) | PrismaClient pool (auto for servers, footgun in serverless) | See Connection Pooling section |
 
 ---
 
@@ -799,3 +878,4 @@ Redis (Remote Dictionary Server) is an in-memory data structure store. "Cache" u
 | Mobile offline-first sync | Firestore or PocketBase |
 | A dev database, zero setup | SQLite (via Prisma or Drizzle) |
 | Visualize / edit data in browser | Prisma Studio (`npx prisma studio`) |
+| Avoid serverless connection exhaustion | PgBouncer / Neon serverless driver / Prisma Accelerate |

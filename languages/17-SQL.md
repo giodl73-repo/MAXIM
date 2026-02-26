@@ -17,6 +17,82 @@
 
 ---
 
+## SQL Execution Pipeline & Relational Model Landscape
+
+```
+QUERY EXECUTION PIPELINE
+─────────────────────────────────────────────────────────────────────────
+
+  SQL text           "SELECT u.name, COUNT(o.id)
+  (your query)        FROM users u JOIN orders o ON u.id = o.user_id
+                       WHERE u.active = true GROUP BY u.name"
+       │
+       ▼
+   Parser              Validates syntax; builds parse tree
+       │               Fails fast: syntax errors caught here
+       ▼
+   Binder /            Resolves names to schema objects
+   Name Resolution     (table refs → actual tables, column names → types)
+       │               Fails: "column does not exist", "ambiguous column"
+       ▼
+   Logical Plan        Relational algebra tree
+                       σ(active=true) ⋈ (users, orders) → π(name) → γ(COUNT)
+       │               Abstract — no physical decisions yet
+       ▼
+   Optimizer           The planner's job: find the cheapest physical plan
+   ┌────────────────────────────────────────────────────────────────┐
+   │  • Index selection: can we seek instead of scan?               │
+   │  • Join reordering: smaller table on the outer loop            │
+   │  • Predicate pushdown: filter early to reduce row count        │
+   │  • Join algorithm: nested loop vs hash join vs merge join       │
+   │  • Materialization: should a CTE be computed once or inlined?  │
+   └────────────────────────────────────────────────────────────────┘
+       │
+       ▼
+   Physical Plan       Concrete operators: IndexScan, HashJoin, Sort, Agg
+       │               EXPLAIN / EXPLAIN ANALYZE shows this tree
+       ▼
+   Executor            Runs the plan; pulls rows through operator tree
+       │
+       ▼
+   Result Set          Rows returned to client
+
+─────────────────────────────────────────────────────────────────────────
+C# / LINQ PARALLEL:
+
+  C# LINQ:  IQueryable<T> expression tree
+                │
+                ▼
+            EF Core / LINQ provider
+                │
+                ▼
+            SQL text generated  ──►  Same pipeline above
+                                     (you're writing logical intent;
+                                      provider + optimizer do the rest)
+
+  Key insight: IQueryable defers execution exactly like SQL defers HOW.
+  Both are declarative transformations over sets. The "query object" in
+  LINQ is the same as the logical plan — not yet physical.
+
+─────────────────────────────────────────────────────────────────────────
+RELATIONAL MODEL FOUNDATION:
+
+  Relation  = table (set of tuples with named attributes)
+  Tuple     = row
+  Attribute = column (has a domain / type)
+  Key       = minimal set of attributes that uniquely identifies a tuple
+  Foreign key = attribute(s) referencing a key in another relation
+
+  Relational algebra operators → SQL surface syntax:
+    σ (selection)     → WHERE
+    π (projection)    → SELECT col1, col2
+    ⋈ (join)          → JOIN
+    γ (grouping/agg)  → GROUP BY + aggregate functions
+    ∪ (union)         → UNION
+    − (difference)    → EXCEPT
+    ∩ (intersection)  → INTERSECT
+```
+
 ## Dialect Note
 
 SQL is a standard (ANSI/ISO) but every database adds extensions. This file covers:
@@ -508,3 +584,127 @@ FROM employees;
 | Regex | `LIKE` only | `~` (POSIX), `SIMILAR TO`, `regexp_match()` |
 | Array type | `TABLE` type | `integer[]`, `text[]`, etc. |
 | CTE | `WITH cte AS (...)` | Same — both support recursive CTEs |
+
+---
+
+## Decision Cheat Sheet
+
+### Query structure: CTE vs subquery vs temp table
+
+| Approach | Use when | Trade-off |
+|----------|----------|-----------|
+| CTE (`WITH`) | Query is complex; intermediate step needs a readable name; recursive traversal | Optimizer may inline it (not always materialized) — same performance as subquery in most engines |
+| Subquery (`SELECT ... FROM (SELECT ...)`) | Simple one-off derivation; no reuse needed | Can be harder to read when nested 3+ levels deep |
+| Temp table (`CREATE TABLE #t` / `CREATE TEMP TABLE`) | Result set is large and reused multiple times in the same session; need an index on the intermediate result | Explicit materialization — always written to disk/memory; can add indexes; ideal for multi-step ETL |
+| CTE with `MATERIALIZED` hint (PG) | Force CTE to be computed once even if optimizer would inline it | Use when CTE has side effects or when re-execution is expensive |
+
+### Existence check: `JOIN` vs `EXISTS` vs `IN`
+
+| Pattern | Use when | NULL behavior |
+|---------|----------|--------------|
+| `WHERE id IN (SELECT id FROM b)` | Small, static list; subquery has no NULLs | Dangerous if subquery can return NULL — NOT IN becomes empty |
+| `WHERE EXISTS (SELECT 1 FROM b WHERE b.id = a.id)` | Correlated existence check; subquery may return NULLs | Safe — EXISTS returns TRUE/FALSE, not UNKNOWN |
+| `INNER JOIN` | You also need columns from the joined table | Produces duplicates if b has multiple matches per a.id — use DISTINCT or EXISTS instead |
+| `LEFT JOIN ... WHERE b.id IS NULL` | Anti-join (rows in a NOT in b) | Explicit; works reliably; common pattern |
+
+**Default rule**: Use `EXISTS` / `NOT EXISTS` for existence checks. It's NULL-safe and the optimizer usually handles it as well as IN.
+
+### Aggregation: window function vs `GROUP BY`
+
+| Approach | Use when | What you get |
+|----------|----------|-------------|
+| `GROUP BY` + aggregate | You want one summary row per group | Collapses rows — you lose individual row data |
+| Window function `OVER (PARTITION BY ...)` | You want the aggregate value AND the individual row | Retains all rows; aggregate is a new column alongside originals |
+
+**Example**: "Show each employee's salary and their department's average salary" — requires a window function. GROUP BY would collapse to one row per department.
+
+### Set operations: `UNION` vs `UNION ALL`
+
+| Operator | Behavior | Use when |
+|----------|----------|----------|
+| `UNION` | Deduplicates rows (implicit DISTINCT) | You genuinely need unique rows across two sets; accept sort/hash cost |
+| `UNION ALL` | Returns all rows including duplicates | Default — use unless dedup is required; significantly faster |
+
+**Rule**: Always use `UNION ALL` unless you explicitly need deduplication. The sort/hash step for `UNION` is expensive on large sets.
+
+### Filter placement: `HAVING` vs `WHERE`
+
+| Clause | Filters | Runs after | Use when |
+|--------|---------|-----------|----------|
+| `WHERE` | Individual rows | Row scan (before GROUP BY) | Filtering on base column values; can use indexes |
+| `HAVING` | Groups / aggregates | GROUP BY + aggregation | Filtering on aggregate results (`HAVING COUNT(*) > 5`) |
+
+**Performance rule**: Push as much filtering as possible into WHERE. The optimizer can use indexes on WHERE predicates; HAVING runs on the already-aggregated result.
+
+### Index type selection
+
+| Index type | Use when | Notes |
+|------------|----------|-------|
+| B-tree (default) | Equality, range, ORDER BY, LIKE 'prefix%' | Default in every DB; handles most cases |
+| Hash index (PG) | Equality-only lookups; no range queries needed | Faster for pure equality; no range support; smaller |
+| Partial index | Only a subset of rows is queried (e.g., `WHERE status = 'active'`) | Much smaller index; high selectivity gains |
+| Covering index (`INCLUDE`) | Query reads only indexed columns — avoids heap fetch | Index-only scans; reduces I/O significantly for frequent queries |
+| GIN (PG) | Full-text search, JSONB containment (`@>`), array membership | Inverted index — multiple keys per row |
+| GiST (PG) | Geometric types, range types, full-text (tsvector) | Generalized search tree |
+
+---
+
+## Bridge: SQL → Power Query M
+
+You know both T-SQL and Power Query M from ADF pipelines. They're both relational algebra in different surface syntax — the conceptual mapping is direct.
+
+```
+SQL Operation          Power Query M Equivalent        Notes
+─────────────────────────────────────────────────────────────────────────
+
+SELECT col1, col2      Table.SelectColumns(           Projection — pick columns
+FROM t                   t, {"col1", "col2"})
+
+SELECT *               t                              No-op in M — table is already all columns
+FROM t
+
+WHERE col > 5          Table.SelectRows(              Filter — row predicate
+                         t, each [col] > 5)
+
+SELECT col1,           Table.Group(                   Grouping + aggregation
+  COUNT(*) AS n          t,
+FROM t                   {"col1"},
+GROUP BY col1            {{"n", each Table.RowCount(_),
+                              Int64.Type}})
+
+JOIN (INNER)           Table.Join(                    Join two tables
+                         t1, "key_col",
+                         t2, "key_col",
+                         JoinKind.Inner)
+                       -- or Table.NestedJoin + Table.ExpandTableColumn
+
+LEFT JOIN              Table.Join(... JoinKind.LeftOuter)
+
+ORDER BY col ASC       Table.Sort(                    Sort
+                         t, {{"col", Order.Ascending}})
+
+SELECT TOP 10          Table.FirstN(t, 10)            Limit rows
+
+SELECT DISTINCT        Table.Distinct(t)              Deduplication
+
+UNION ALL              Table.Combine({t1, t2})        Append tables
+
+WITH cte AS (...)      let cte = ... in ...           Named intermediate step — M's let..in
+SELECT * FROM cte        (M's let block is the CTE pattern)
+
+CASE WHEN ... THEN     if ... then ... else ...       M uses functional if expression
+  ELSE END               (inside Table.AddColumn or Table.TransformColumns)
+
+```
+
+**Key conceptual bridge**: Both SQL and Power Query M are declarative transformations over tabular data — you describe the shape of the output, not the iteration. The difference is surface syntax and evaluation model:
+
+| Dimension | SQL | Power Query M |
+|-----------|-----|---------------|
+| Evaluation | Set-based; optimizer chooses physical plan | Lazy functional pipeline; evaluated top-to-bottom |
+| State | Stateless queries; transactions handle state | Immutable steps — each `let` binding is a new table |
+| Extensibility | UDFs, stored procedures | Custom functions, `List.Accumulate` |
+| Streaming | Cursor / row-by-row in procedural | M folds steps into source query pushdown where possible |
+| Null handling | Three-valued logic (UNKNOWN) | `null` propagates; use `Value.ReplaceErrorWith` |
+
+**ADF context**: When you write a Data Flow in ADF, the transformation steps are M-like logical operations that ADF compiles down to Spark. The SQL you write in ADF SQL activities bypasses this layer and goes directly to the engine's query pipeline above. Understanding both lets you choose: SQL activity (full engine power, T-SQL syntax) vs. Data Flow (visual pipeline, M-style operations on Spark).

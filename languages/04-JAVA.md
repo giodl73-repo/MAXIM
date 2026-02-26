@@ -17,6 +17,66 @@
 
 ---
 
+## JVM Ecosystem Landscape
+
+The JVM is the CLR's direct ancestor in concept — same idea, independent lineage. The pipeline maps cleanly.
+
+```
+SOURCE → COMPILER → BYTECODE → RUNTIME
+
+  Java source (.java)
+       │
+       ▼
+  ┌─────────┐
+  │  javac  │  ← Java compiler (produces platform-neutral bytecode)
+  └─────────┘
+       │
+       ▼
+  .class files (JVM bytecode — stack-based instruction set, not native)
+       │
+       ▼
+  ┌──────────────────────────────────────────────────────────┐
+  │                      JVM Runtime                         │
+  │                                                          │
+  │  ┌──────────────┐    ┌──────────────┐    ┌───────────┐  │
+  │  │ Class Loader │───▶│ JIT Compiler │───▶│  Native   │  │
+  │  │              │    │  (HotSpot)   │    │   Code    │  │
+  │  └──────────────┘    └──────────────┘    └───────────┘  │
+  │         │                   │                            │
+  │         ▼                   ▼                            │
+  │  ┌──────────────┐    ┌──────────────┐                    │
+  │  │  Bytecode    │    │  GC (G1GC /  │                    │
+  │  │ Interpreter  │    │  ZGC / etc.) │                    │
+  │  │  (warmup)    │    └──────────────┘                    │
+  │  └──────────────┘                                        │
+  └──────────────────────────────────────────────────────────┘
+
+  JVM also hosts: Kotlin · Scala · Clojure · Groovy
+  (all compile to the same .class bytecode format)
+```
+
+**CLR analogy — the parallel is direct:**
+
+```
+C#  pipeline:  .cs  →  csc   →  IL (MSIL)  →  CLR  →  native
+Java pipeline: .java →  javac →  bytecode   →  JVM  →  native
+
+  csc       ≈  javac          (ahead-of-time compiler to intermediate form)
+  MSIL/IL   ≈  JVM bytecode   (portable stack-machine instructions)
+  CLR       ≈  JVM            (runtime: class loader + JIT + GC + type system)
+  RyuJIT    ≈  HotSpot JIT    (tiered JIT with profile-guided optimization)
+  .NET GC   ≈  G1GC / ZGC     (generational garbage collectors)
+  NuGet     ≈  Maven Central  (package repository)
+  .csproj   ≈  pom.xml / build.gradle
+```
+
+Key JVM differences from CLR worth knowing:
+- JVM JIT (HotSpot) uses **tiered compilation** — interpreted first, then C1 (fast compile), then C2 (optimizing). The JVM gets *faster as it runs* (warmup cost).
+- **GC generations**: Young (Eden + Survivor) → Old Gen → (Metaspace for class metadata). G1GC uses region-based layout instead of contiguous generations.
+- **No value types on the heap** until Project Valhalla (in progress). Every non-primitive is a heap-allocated object — contrast with C# structs.
+
+---
+
 ## Syntax Reference Card
 
 ### Variables & Types
@@ -260,6 +320,74 @@ try (var stream = new FileInputStream("file")) {
 
 ---
 
+## Bridge from C#: Virtual-by-Default vs Non-Virtual-by-Default
+
+This is the single highest-impact behavioral difference between Java and C#. Every Java instance method is virtual unless explicitly sealed. Every C# instance method is non-virtual unless explicitly opened.
+
+```
+METHOD DISPATCH — THE DEFAULT FLIP
+
+  Java (virtual by default):          C# (non-virtual by default):
+  ┌─────────────────────────┐         ┌─────────────────────────┐
+  │ class Animal {          │         │ class Animal {          │
+  │   void speak() { ... }  │         │   void Speak() { ... }  │
+  │ }                       │         │ }                       │
+  │                         │         │                         │
+  │ class Dog extends Animal│         │ class Dog : Animal {    │
+  │   void speak() { ... }  │  ←OK    │   void Speak() { ... } │ ←HIDES
+  │ }                       │         │ }                       │  (no poly)
+  └─────────────────────────┘         └─────────────────────────┘
+
+  Animal a = new Dog();               Animal a = new Dog();
+  a.speak()  →  Dog.speak()  ✅       a.Speak()  →  Animal.Speak() ⚠️
+  (virtual dispatch works)            (non-virtual — Dog hides, not overrides)
+```
+
+**Keyword mapping:**
+
+| Intent | Java | C# |
+|--------|------|----|
+| Override a method | `@Override void speak()` | `override void Speak()` |
+| Prevent override | `final void speak()` | `sealed override void Speak()` (or just no `virtual`) |
+| Allow override in C# | *(default)* | `virtual void Speak()` |
+| Prevent subclassing | `final class Dog` | `sealed class Dog` |
+
+**The `@Override` annotation in Java:**
+- It is *optional* but strongly recommended — the compiler will catch if you're not actually overriding anything (typo, wrong signature).
+- In C#, `override` is *mandatory* — the compiler enforces it.
+
+**When this matters:**
+
+```java
+// Java — unexpected polymorphism
+class Base {
+    void process() { log("Base"); }       // virtual — always was
+}
+class Derived extends Base {
+    void process() { log("Derived"); }    // overrides silently (no keyword needed)
+}
+
+Base b = new Derived();
+b.process();   // prints "Derived" — virtual dispatch
+```
+
+```csharp
+// C# — no polymorphism without explicit opt-in
+class Base {
+    void Process() { Log("Base"); }       // non-virtual
+}
+class Derived : Base {
+    new void Process() { Log("Derived"); } // 'new' = hide, not override
+}
+
+Base b = new Derived();
+b.Process();   // prints "Base" — no dispatch through reference type
+```
+
+**Practical consequence:** Writing Java-style subclasses in C# will silently fail to dispatch correctly unless you add `virtual`/`override`. Writing C#-style classes in Java will dispatch to the subclass even when you didn't intend to open the method for override — add `final` to lock it down.
+
+---
+
 ## Ecosystem
 
 | Tool | Purpose |
@@ -295,3 +423,20 @@ try (var stream = new FileInputStream("file")) {
 - Large teams with Java expertise
 - When you need the full JVM ecosystem and don't want to adopt Kotlin/Scala
 - Interop with existing Java codebases
+
+---
+
+## Decision Cheat Sheet
+
+| Decision | Use X when... |
+|----------|---------------|
+| **`ArrayList` vs `LinkedList`** | `ArrayList` almost always — O(1) random access, CPU-cache-friendly. `LinkedList` only when you need O(1) insert/delete at arbitrary positions with an iterator in hand (rare in practice). |
+| **`ArrayList` vs `array`** | Array when size is fixed and you need raw performance or primitive storage (`int[]`). `ArrayList` when you need dynamic sizing or collection API. |
+| **`HashMap` vs `LinkedHashMap`** | `LinkedHashMap` when insertion order matters (predictable iteration, LRU cache with `removeEldestEntry`). `HashMap` otherwise — faster. |
+| **`HashMap` vs `TreeMap`** | `TreeMap` when you need keys in sorted order or range queries (`headMap`, `tailMap`, `subMap`). `HashMap` otherwise — O(1) vs O(log n). |
+| **Checked vs unchecked exception** | Checked (`extends Exception`) when the caller can reasonably recover and you want the compiler to enforce handling — e.g., `IOException`, `SQLException`. Unchecked (`extends RuntimeException`) for programming errors or unrecoverable conditions. When in doubt: unchecked. Checked exceptions are controversial; Kotlin, C#, Scala all dropped them. |
+| **`interface` vs `abstract class`** | `interface` for defining a contract a class can implement alongside others (multiple interface implementation allowed). `abstract class` when you need shared state (fields) or non-public members. Java 8+ `default` methods blurred the line — interfaces can now have implementations, so the gap is smaller. Still: a class can only extend one abstract class. |
+| **`Stream` vs `Collection`** | `Stream` for lazy pipeline processing — chaining `filter/map/reduce` without materializing intermediates. `Collection` when you need to iterate multiple times, random access, or mutate. Streams are single-use and lazy; collections are reusable and eager. |
+| **`Optional<T>` vs null** | `Optional<T>` for method return types where absence is a legitimate outcome and you want to force callers to handle it. Do NOT use `Optional` for fields, parameters, or collection elements — it adds boxing overhead and API noise without benefit. Null + `@Nullable` annotation is fine for internal fields. |
+| **Java vs Kotlin (new JVM project)** | Kotlin for greenfield Android, new Spring Boot services, or when your team is comfortable — better null safety, less boilerplate, coroutines. Java when you need maximum library compatibility, Java-only tooling, or a larger hiring pool. |
+| **`record` vs `class`** | `record` for pure immutable data carriers (DTOs, value objects, response types). `class` when you need mutability, inheritance, or non-trivial construction logic. |

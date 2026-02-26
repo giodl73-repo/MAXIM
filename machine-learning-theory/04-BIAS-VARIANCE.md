@@ -65,6 +65,40 @@ DERIVATION KEY STEP
 
 ---
 
+## Bridge: Stein's Phenomenon and James-Stein → Bias-Variance Tradeoff
+
+The bias-variance tradeoff is not a new insight from ML — it is the content of Stein's phenomenon (1956) and the James-Stein estimator (1961), which resolved an open question in classical statistics.
+
+```
+THE STEIN PARADOX
+  Estimating the mean θ ∈ ℝᵈ of a Gaussian: X ~ N(θ, I).
+  Natural (unbiased) estimator: θ̂_MLE = X.
+  Expected squared error: E[‖X - θ‖²] = d.
+
+  James-Stein estimator (d ≥ 3):
+    θ̂_JS = (1 - (d-2)/‖X‖²) · X
+
+  Risk: E[‖θ̂_JS - θ‖²] < d for all θ.
+
+  θ̂_MLE is INADMISSIBLE in ≥ 3 dimensions:
+  A biased estimator uniformly dominates the unbiased one.
+```
+
+This is the bias-variance tradeoff in its purest form: θ̂_JS introduces bias (shrinks toward 0) to reduce variance (each coordinate's estimate becomes more stable). The reduction is exactly:
+
+```
+  Risk(θ̂_JS) = d - (d-2)² · E[1/‖X‖²]
+              = d - (variance reduction from shrinkage)
+                + (bias² from shrinkage toward 0)
+
+  The net effect is negative (better than MLE) for d ≥ 3
+  because the variance reduction outweighs the bias introduced.
+```
+
+**Stein's Unbiased Risk Estimate (SURE).** For any estimator θ̂(X) of a Gaussian mean, SURE gives an unbiased estimate of E[‖θ̂ - θ‖²] from data alone (without knowing θ). SURE = ‖θ̂(X) - X‖² + 2·div(θ̂(X)) - d, where div is the divergence of the estimator function. This allows bias-variance optimization without a held-out set — directly applicable to denoising, ridge regression (SURE selects λ), and wavelet thresholding.
+
+**Lasso via soft-thresholding = Stein-type shrinkage.** Soft-thresholding estimator θ̂ᵢ = sign(Xᵢ) max(|Xᵢ| - λ, 0) is a componentwise James-Stein-type shrinkage. Stein's framework predicts its optimality for sparse θ.
+
 ## What Each Term Represents
 
 ```
@@ -218,6 +252,8 @@ DROPOUT (neural nets)
 
 ---
 
+**AIC and BIC derivations.** AIC = -2 log L + 2k follows from Akaike (1974): minimizing AIC is asymptotically equivalent to minimizing expected KL divergence KL(P_true || P_model) — the expected information loss from using the model instead of the true distribution. The 2k penalty is an asymptotic bias correction: the MLE overfits by approximately k/m in expected KL, so penalizing by 2k (on the -2 log L scale) corrects this. BIC = -2 log L + k log m follows from the Laplace approximation to the marginal likelihood: ∫ P(data|θ) P(θ) dθ ≈ P(data|θ̂_MAP) · (2π/m)^{k/2} · |I(θ̂)|^{-1/2}, where the (2π/m)^{k/2} term gives the k log m penalty. BIC is a model evidence approximation; AIC is a predictive risk estimator.
+
 ## Model Selection Methods
 
 ```
@@ -260,6 +296,26 @@ KERNEL RIDGE REGRESSION
 
   Optimal λ ~ m^{-2/(2β+d)} for Sobolev spaces (β smoothness, d dims)
   → Regularization must decrease as m grows
+
+**Spectral decomposition of kernel ridge regression bias-variance.** Via Mercer decomposition of the kernel (eigenfunctions φⱼ, eigenvalues μⱼ), the kernel ridge estimator decomposes as:
+
+```
+  BIAS²    = Σⱼ (   λ/(λ + μⱼ)  )² fⱼ²    (signal filtered by regularization)
+  VARIANCE = σ² Σⱼ ( μⱼ/(λ + μⱼ) )² / m    (noise amplified by kernel)
+
+  where fⱼ = ⟨f*, φⱼ⟩ are the signal's projections onto eigenfunctions.
+
+  As λ → 0:  bias → 0, variance → σ² Σⱼ 1/m  (explodes if Σμⱼ diverges)
+  As λ → ∞:  variance → 0, bias → Σⱼ fⱼ² = ‖f*‖²  (complete shrinkage)
+
+  Optimal λ balances dBIAS²/dλ = -dVARIANCE/dλ.
+
+SOBOLEV EIGENVALUE DECAY AND OPTIMAL RATES
+  For β-smooth f* in d dimensions, eigenvalues decay μⱼ ~ j^{-2β/d}.
+  Optimal λ ~ m^{-2β/(2β+d)} balances bias and variance sums,
+  giving excess risk O(m^{-2β/(2β+d)}) — the classical nonparametric rate.
+  More smoothness (large β) → faster rate; higher dimension (large d) → slower.
+```
 
 THE DOUBLE DESCENT PROBLEM
   Classical theory says: increase complexity → increase variance → overfit

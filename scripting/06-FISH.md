@@ -2,6 +2,90 @@
 
 > Friendly Interactive SHell — breaks POSIX intentionally to achieve discoverability and consistency. Your interactive shell; not for scripts others will run.
 
+## The Shell Landscape
+
+```
+Shell Space: POSIX Compatibility vs Interactive UX Quality
+
+  High  │
+  Inter-│                              ╔══════════════╗
+  active│                              ║     Fish     ║  <- designed for humans
+  UX    │                              ║  autosugg.   ║     not for /bin/sh compat
+        │               ┌─────────────╫──────────────╫──┐
+        │               │    Zsh      ╚══════════════╝  │
+        │               │  (+ Oh My   Zsh is mid-POSIX, │
+        │               │    Zsh)     high UX w/plugins  │
+        │               └─────────────────────────────-─┘
+        │    ┌──────────────────┐
+        │    │      Bash        │
+        │    │   ubiquitous;    │
+        │    │   POSIX-close;   │
+        │    │   UX: workable   │
+        │    └──────────────────┘
+  Low   │  ┌──────┐
+  Inter-│  │  sh  │  <- POSIX reference; minimal; CI/container default
+  active│  └──────┘
+  UX    │
+        └──────────────────────────────────────────────────────
+             Low POSIX compat            High POSIX compat
+
+  Practical read:
+    Fish  = best daily-driver terminal; worst script portability
+    Zsh   = good balance; POSIX-compatible enough; extensible
+    Bash  = universal automation; fine interactively; not exciting
+    sh    = /bin/sh in containers, CI, Makefiles; zero extras
+
+  Decision axis:
+    "Will a human type in this shell daily?" → Fish wins
+    "Will a machine run this script?"        → Bash/sh wins
+```
+
+---
+
+## When to Choose Fish
+
+Fish is an interactive shell designed to serve the human at the keyboard. It is not a scripting language for automation. The choice is orthogonal to your OS or stack.
+
+```
+Decision tree for any developer:
+
+  ┌─────────────────────────────────────────┐
+  │ Is this your daily interactive terminal?│
+  └────────────────┬────────────────────────┘
+                   │
+           YES ────┤
+                   ▼
+          ┌─────────────────────────────────────────────┐
+          │ Fish gives you: autosuggestions from history │
+          │ syntax highlighting as you type              │
+          │ tab completion auto-generated from man pages │
+          │ web config UI (fish_config)                  │
+          │ consistent syntax (no POSIX legacy quirks)   │
+          └────────────────────┬────────────────────────┘
+                               │
+                     Do you need Zsh?
+                               │
+           YES if: you already have heavy Zsh config,
+                   you need POSIX-compatible scripting
+                   inline with interactive use,
+                   or team standardizes on Zsh.
+                               │
+           NO if:  starting fresh; don't script in
+                   your interactive shell; want the
+                   best UX out of the box.
+
+  NO ─────┤
+          ▼
+    CI/CD scripts, Dockerfiles, Makefiles, cron jobs:
+    → Use bash or sh. Fish may not be installed.
+      Even if Fish is installed, don't shebang #!/usr/bin/fish
+      for scripts others will run.
+```
+
+**Zsh vs Fish directly:** Zsh with Oh My Zsh approaches Fish's UX — but requires plugin configuration. Fish gives you the same capability out of the box. If you want to think about your terminal as a product that "just works," Fish is cleaner. If you want POSIX script compatibility in your interactive shell, Zsh is the call.
+
+---
+
 ## Language Snapshot
 
 | Attribute | Value |
@@ -31,6 +115,50 @@ Design choices in Fish:
   │       CI/CD can't run Fish scripts directly (no /bin/fish)   │
   └──────────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## POSIX Incompatibility: The Boundary You Must Internalize
+
+Fish's syntax is a clean break from POSIX — not a superset, not compatible. This has practical consequences beyond "syntax is different."
+
+```
+Things that silently break when you run them in Fish or source them from Fish:
+
+  .env files:
+    POSIX:  export DATABASE_URL=postgres://...    # works in bash
+    Fish:   export DATABASE_URL=postgres://...    # FAILS — not Fish syntax
+
+  Makefiles that shell out:
+    make uses /bin/sh by default — runs POSIX sh, not Fish
+    Your Fish config (aliases, functions, $PATH changes) is NOT visible to make
+
+  CI/CD steps:
+    GitHub Actions, GitLab CI, Azure Pipelines — all default to bash or sh
+    A .fish script uploaded as a CI step will fail unless the runner has Fish installed
+    and the step explicitly invokes fish script.fish
+
+  Source-ing shell configs:
+    source ~/.bashrc              # FAILS in Fish — bash syntax inside
+    source .env                   # FAILS — export syntax
+    # Correct in Fish:
+    set -x DATABASE_URL "postgres://..."   # set individual vars
+    # Or: use 'bass' plugin to evaluate bash expressions inside Fish
+```
+
+**The rule:** Fish is your keyboard interface. The moment automation or portability enters the picture, write bash. The two don't mix without a compatibility shim.
+
+**Common POSIX idioms and their Fish equivalents:**
+
+| POSIX / Bash | Fish equivalent |
+|---|---|
+| `export VAR=value` | `set -gx VAR value` |
+| `source file.sh` | `source file.fish` (only works on Fish files) |
+| `if [ condition ]` | `if test condition` |
+| `$(command)` | `(command)` |
+| `$?` | `$status` |
+| `$@` / `$*` | `$argv` |
+| `export -f funcname` | Functions don't export across processes in Fish |
 
 ---
 
@@ -74,6 +202,56 @@ $argv                               # script/function arguments (NOT $@ or $*)
 $__fish_config_dir                  # ~/.config/fish
 $__fish_data_dir                    # fish data dir
 ```
+
+---
+
+## Universal Variables: Fish's Persistent Store
+
+`set -U` is Fish's most architecturally distinct feature. It has no equivalent in bash or zsh.
+
+```
+Variable scope comparison across shells:
+
+  Shell / scope    Survives current    Survives new      Survives
+                   command             terminal window   reboot
+  ──────────────────────────────────────────────────────────────
+  Bash env var     YES (exported)      NO                NO
+  Zsh env var      YES (exported)      NO                NO
+  Fish global (-g) YES (in session)    NO                NO
+  Fish export (-x) YES (exported)      NO                NO
+  Fish universal   YES                 YES               YES  ← unique
+  (-U)
+```
+
+**Storage:** `~/.local/share/fish/fish_variables` — a plain text file Fish manages.
+
+**How it works:**
+
+```fish
+set -U EDITOR nvim               # Set once. Persists across all terminals, reboots.
+set -U my_project_root /src/myapp
+
+# In a new terminal, tomorrow:
+echo $EDITOR                     # → nvim   (no .bashrc equivalent needed)
+
+# Universal vars are shared across ALL open Fish sessions simultaneously.
+# Change it in one terminal → immediately visible in all others.
+set -U THEME dark
+# → terminal A, B, C all see THEME=dark without restart
+```
+
+**When to use each scope:**
+
+| Scope | Flag | Use for |
+|---|---|---|
+| Local | `-l` | Temp var inside a function |
+| Global | `-g` | Session-duration state; cleared on shell exit |
+| Exported | `-x` | Passing env vars to child processes |
+| Universal | `-U` | Personal config (EDITOR, GOPATH, etc.) — replaces ~/.bashrc exports |
+
+**Universal variables replace** the pattern of adding `export EDITOR=nvim` to `~/.bashrc`. You set it once with `set -U`, and it's there forever across all sessions. Fish's `~/.config/fish/config.fish` therefore tends to be much shorter than a typical `.bashrc`.
+
+---
 
 ### String Quoting
 
@@ -316,6 +494,55 @@ functions greet                     # show source of greet
 functions --erase greet             # delete
 ```
 
+---
+
+## Function Autoloading
+
+Fish autoloads functions by filename — the same pattern as Ruby autoload, Node module resolution, and Python's `__init__.py` conventions. This is how Fish's entire standard library works.
+
+```
+~/.config/fish/functions/
+├── greet.fish          ← defines function greet
+├── mkcd.fish           ← defines function mkcd
+├── fish_prompt.fish    ← defines your prompt (special name)
+└── fish_greeting.fish  ← defines startup greeting (special name)
+
+When you type: mkcd /tmp/test
+Fish sees:     "mkcd" is not a builtin or known function
+Fish searches: ~/.config/fish/functions/mkcd.fish
+Fish sources:  the file (defines the function)
+Fish calls:    mkcd /tmp/test
+```
+
+**How to use this in practice:**
+
+```fish
+# Create a new function file
+funced mkcd                         # opens $EDITOR for mkcd function
+funcsave mkcd                       # saves to ~/.config/fish/functions/mkcd.fish
+
+# Or write directly
+# ~/.config/fish/functions/mkcd.fish:
+function mkcd --description "mkdir and cd into it"
+    mkdir -p $argv[1] && cd $argv[1]
+end
+
+# Now 'mkcd' is available in all Fish sessions, instantly.
+# No 'source', no 'export', no restart needed.
+```
+
+**Startup files (always sourced, not autoloaded):**
+
+```
+~/.config/fish/config.fish          ← runs on every Fish startup (like .bashrc)
+~/.config/fish/conf.d/*.fish        ← sourced alphabetically at startup
+~/.config/fish/functions/*.fish     ← autoloaded on demand (not at startup)
+```
+
+The autoload model means Fish sessions start fast — function files are parsed only when called. For large personal toolkits with dozens of functions, this matters.
+
+---
+
 ### I/O & Redirection
 
 ```fish
@@ -415,6 +642,132 @@ my_cmd -n Alice -v
 
 ---
 
+## Abbreviations vs Aliases vs Functions
+
+Three mechanisms for shortening commands. They behave differently in ways that matter for shell hygiene.
+
+```
+Execution model comparison:
+
+  abbr (abbreviation):
+    You type:   gc
+    Fish sees:  gc<space> or gc<enter>
+    Fish does:  inline text expansion → "git commit" in the command line
+    History:    "git commit" (the expansion, not "gc")
+    Sharing:    If someone sees your history, they see the real command
+
+  alias:
+    You type:   gc
+    Fish does:  calls a function named gc, which calls "git commit"
+    History:    "gc" (the alias name — opaque)
+    Sharing:    Someone reading your history sees "gc" — no context
+
+  function:
+    You type:   mkcd /tmp/test
+    Fish does:  runs function body
+    History:    "mkcd /tmp/test"
+    Use for:    multi-line logic, argument handling, anything beyond simple aliasing
+```
+
+**Side-by-side comparison:**
+
+| | `abbr` | `alias` | `function` |
+|---|---|---|---|
+| Expansion | Inline text | Function call | Function call |
+| History shows | Expanded form | Alias name | Function name + args |
+| Multi-line logic | No | No | Yes |
+| Arguments (`$argv`) | No (static text) | No (simple wrapper) | Yes |
+| Persisted with | `abbr --add` (auto-saved) | `funcsave` | `funcsave` |
+| Interactive benefit | High (readable history) | Low | N/A |
+| Best for | Git shortcuts, common commands | Compatibility shims | Real tooling |
+
+**Fish's preference is abbreviations for interactive shortcuts.** The reason: your shell history is a debugging artifact. When something goes wrong and you look back at your history, `git commit -m "wip"` tells you what happened. `gc` does not.
+
+```fish
+# Adding abbreviations
+abbr --add gc 'git commit'
+abbr --add gca 'git commit -a'
+abbr --add gp 'git push'
+abbr --add ll 'ls -la'
+
+# List all abbreviations
+abbr --list
+
+# Remove
+abbr --erase gc
+
+# Abbreviations persist automatically — no funcsave needed
+# Stored in universal variable fish_user_abbreviations
+```
+
+---
+
+## Plugin Managers: Fisher and Oh My Fish
+
+Fish's ecosystem is managed through one of two plugin managers. Every modern interactive shell has this layer — Fish is no different.
+
+```
+Plugin ecosystem:
+
+  ┌────────────────────────────────────────────────────────┐
+  │                    Fisher (recommended)                 │
+  │  - Pure Fish implementation (no dependencies)          │
+  │  - Install: curl -sL git.io/fisher | source && ...     │
+  │  - Usage: fisher install <github-user/repo>            │
+  │  - Stores plugins in: ~/.config/fish/functions/ etc.   │
+  │  - Lightweight; plugins are just Fish functions        │
+  └────────────────────────────────────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────┐
+  │                 Oh My Fish (OMF) — older               │
+  │  - Heavier framework; more opinionated structure       │
+  │  - Install: curl ... | fish                            │
+  │  - Usage: omf install <plugin>                         │
+  │  - Larger plugin registry (but overlap with Fisher)    │
+  │  - Less actively maintained                            │
+  └────────────────────────────────────────────────────────┘
+
+  Recommendation: Fisher for new setups.
+```
+
+**Fisher quickstart:**
+
+```fish
+# Install Fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+
+# Install plugins
+fisher install jorgebucaran/autopair.fish      # auto-close brackets/quotes
+fisher install PatrickF1/fzf.fish              # fzf for Ctrl-R, Ctrl-T, Ctrl-Alt-F
+fisher install jethrokuan/z                    # smart directory jumping (z proj)
+fisher install edc/bass                        # run bash utilities (source .env, etc.)
+fisher install jorgebucaran/nvm.fish           # nvm without bash dependency
+
+# Prompt themes
+fisher install IlanCosman/tide@v6              # tide: configurable powerline-style prompt
+fisher install pure-fish/pure                  # pure: minimal async prompt
+
+# Manage
+fisher list                                    # installed plugins
+fisher update                                  # update all
+fisher remove jethrokuan/z                     # uninstall
+```
+
+**Plugins worth knowing:**
+
+| Plugin | What it does |
+|---|---|
+| `PatrickF1/fzf.fish` | Fuzzy file/history/directory search — replaces Ctrl-R with fzf |
+| `jethrokuan/z` | `z projectname` jumps to most-visited matching dir |
+| `edc/bass` | Lets you run bash scripts inside Fish: `bass source .env` |
+| `jorgebucaran/nvm.fish` | Node version management without bash dependency |
+| `jorgebucaran/autopair.fish` | Auto-closes `(`, `[`, `"` as you type |
+| `IlanCosman/tide` | Prompt: shows git status, node version, last command time, etc. |
+
+**`bass` deserves special mention** — it's the bridge between Fish's clean world and the bash-centric tooling ecosystem. When you need to `source .env` or run a bash-based SDK setup script from within Fish, `bass` executes it in bash and imports the resulting environment changes into Fish.
+
+---
+
 ## Ecosystem
 
 | Tool | Purpose |
@@ -445,6 +798,30 @@ my_cmd -n Alice -v
 | Universal vars persist | `set -U x 1` persists forever | Clean up with `set -eU x` |
 | No `~/.fishrc` | Config is `~/.config/fish/config.fish` | XDG convention |
 | Word-split in `()` | `for x in (cmd)` splits on whitespace | Fish has no workaround (use file or null-sep) |
+
+---
+
+## Common Confusion Points
+
+These are conceptual mismatches — not syntax errors, but mental model collisions that send you to the wrong diagnosis.
+
+**"I can just source my .bashrc in Fish"**
+No. Fish syntax is incompatible with bash. `source ~/.bashrc` will fail or produce garbage. Fish's config model is different: use `set -U` for persistent vars (no `.bashrc` equivalent needed), and `~/.config/fish/config.fish` for startup logic. Use the `bass` plugin if you need to evaluate bash environment setup.
+
+**"Fish scripts will work in CI"**
+No. CI runners (GitHub Actions, GitLab CI, Azure Pipelines) default to bash or sh. Even if you write valid Fish scripts, the runner won't have Fish unless you explicitly install it. Keep CI scripts in bash.
+
+**"Universal variables are like .env files"**
+Not quite. `.env` files are text files you source into a shell session — they're per-invocation and scoped to that session. Universal variables are Fish's own persistent store, shared across all Fish sessions simultaneously. They're closer to user preferences (like `EDITOR`, `GOPATH`) than to project-scoped configuration. Don't use universal variables for project secrets — use `.env` files sourced with `bass source .env`.
+
+**"abbr is just a faster alias"**
+The distinction matters for history readability. `abbr` expands to the full command in the command line before execution — your history shows `git commit -m "fix bug"`. `alias` is a function wrapper — your history shows `gc`. For daily interactive use, abbreviations give you transparent, searchable shell history.
+
+**"I need to restart Fish to pick up config changes"**
+Usually not. New functions saved with `funcsave` are available immediately in all open Fish sessions (autoloaded on demand). Universal variable changes (`set -U`) are visible across all open terminals instantly. The only thing that requires a restart is changing `config.fish` or `conf.d/` files — but even then, `exec fish` replaces the current session cleanly.
+
+**"Fish's `if` needs [ ] like bash"**
+No. `if [ condition ]` is POSIX. In Fish, `if` takes a command and checks its exit code. The equivalent of `[ -f file ]` is `test -f file`. Fish does support `[ ]` syntax because `[` is a command, but Fish's own idiom is `test`.
 
 ---
 

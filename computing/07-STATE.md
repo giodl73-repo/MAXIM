@@ -21,14 +21,16 @@ State management is the most over-engineered topic in frontend. Most complexity 
 |  React Router          React Hook Form        Zustand + persist  |
 |  Next.js router        Formik                 localStorage       |
 |  useSearchParams       Zod (validation)       IndexedDB          |
+|                                                                  |
+|  SIGNALS (alternative reactivity model — see Signals section)   |
+|  SolidJS (signals-first) · Vue 3 (signals under the hood)       |
+|  Angular 16+ (adopted signals) · TC39 proposal (stage 1)        |
 +------------------------------------------------------------------+
 
   KEY INSIGHT: Server state (API data) is NOT the same problem
   as client state. TanStack Query handles server state so well
   that most apps need almost NO client state library at all.
 ```
-
-<!-- @editor[content/P2]: The calibration note specifically calls out "signals" as a topic to cover (Vue signals, Solid signals, TC39 signals proposal). Signals represent a fundamentally different reactivity model — fine-grained, push-based, with no virtual DOM diffing. The landscape diagram omits them entirely. Signals are gaining traction (Angular adopted them in v16+, Vue's reactivity is signal-based under the hood, SolidJS is signals-first). For the learner's mental model: signals are the alternative reactivity primitive to React's re-render model. Add a row or callout in this diagram and a section below covering: what signals are, how they differ from useState/Zustand, and when they matter. -->
 
 ---
 
@@ -132,7 +134,7 @@ When `useState` has too much related state that changes together, or update logi
 
 `useReducer` is a local Redux. Same reducer pattern — action → pure function → new state. No library needed. This is Redux's core pattern, now built into React.
 
-<!-- @editor[bridge/P2]: The CQRS / Event Sourcing connection is the most important .NET bridge for this reader and it's missing here where it would land hardest. The learner built Azure DevOps / VSTS — which uses an event-sourced architecture internally. The Redux pattern (action dispatched → reducer → new state, never mutate) IS the Elm architecture, IS event sourcing at the UI layer: an append-only log of actions, a fold to derive current state, pure functions only. The `useReducer` example above is the right place to say: "If you've worked with CQRS or event sourcing (VSTS work items are a good example), this pattern is identical: a command (action) is dispatched, a pure function folds it into a new aggregate state. The store is the aggregate root. Time-travel debugging in Redux DevTools works because you replay the action log — exactly as event sourcing replays events." This bridge is the highest-value addition this file could have for this specific reader. -->
+**CQRS / Event Sourcing bridge**: If you've worked with CQRS or event sourcing — and VSTS work items are a textbook example — this pattern is architecturally identical. A command (action) is dispatched. A pure handler function (reducer) folds it into a new aggregate state. The store is the aggregate root. The action log is append-only; current state is derived by replaying it from initial state. Redux DevTools' time-travel debugging works for exactly the same reason event sourcing enables audit replays: you have the full history of state transitions as an immutable sequence, and you can rewind by replaying a prefix of that sequence. React's constraint that you never mutate state in place — always return a new object — is the same invariant that makes event sourcing sound: events describe what happened, they are never edited. `useReducer` at the component level and Redux Toolkit at the app level are both just the Elm architecture applied to UI state, which is event sourcing applied to a single aggregate.
 
 ---
 
@@ -441,7 +443,139 @@ Bottom-up approach. Instead of one store, define individual atoms. Components su
   simpler mental model.
 ```
 
-<!-- @editor[content/P2]: This is the right place to introduce signals as a concept, since Jotai's atoms are the closest React-ecosystem analog to signals. Signals (as in SolidJS, Vue 3 reactivity, Angular 16+, TC39 proposal) are the push-based reactivity primitive that eliminates virtual DOM diffing entirely. The distinction matters architecturally: React's model is "re-render the component when state changes, diff the output"; signals' model is "push the specific value to the specific DOM node that subscribed to it, skip everything else." For the learner: this is analogous to the difference between polling and event-driven architectures — React polls for changes via re-renders, signals push changes directly. Include a brief section on: what signals are, SolidJS as the reference implementation, Angular's adoption, and when signal-based frameworks will matter for architecture decisions. -->
+Jotai's atoms are the React-ecosystem tool closest in spirit to **signals** — but they still operate within React's re-render model. See the Signals section below for the architectural distinction.
+
+---
+
+## Signals — A Different Reactivity Model
+
+Signals are gaining traction across the frontend ecosystem and represent a fundamentally different approach to reactivity. Understanding them matters for architecture decisions, not just framework trivia.
+
+### What Is a Signal?
+
+A signal is a **reactive cell** — a value container that tracks which computations read it and pushes updates directly to those computations when the value changes.
+
+```
+  REACT MODEL (pull / re-render):
+  State changes → React re-runs the entire component function
+  → produces a new virtual DOM tree → diffs against previous
+  → patches the real DOM
+
+  Component is the unit of re-execution.
+  Even if only one value changes, the whole function reruns.
+
+  SIGNALS MODEL (push / fine-grained):
+  Signal changes → only the specific DOM nodes (or computations)
+  that subscribed to this signal are updated
+  → no virtual DOM diff, no component re-run
+
+  The individual reactive value is the unit of update.
+```
+
+This is analogous to the difference between polling and event-driven architecture. React polls for changes on each render cycle. Signals push changes directly to subscribers. For a system with many fine-grained updates (live dashboards, real-time collaboration, games), this matters significantly.
+
+### Signal Mechanics
+
+```typescript
+  // SolidJS — the reference signal implementation
+  import { createSignal, createEffect, createMemo } from 'solid-js'
+
+  const [count, setCount] = createSignal(0)
+  const doubled = createMemo(() => count() * 2)  // derived signal — auto-tracked
+
+  createEffect(() => {
+    console.log('count changed:', count())   // runs when count changes, nothing else
+  })
+
+  // Note: reading a signal requires calling it as a function: count()
+  // This is what enables automatic dependency tracking —
+  // the signal knows who's reading it at this moment.
+
+  setCount(5)  // → triggers only the effect above and DOM nodes bound to count()
+               //    no component re-render, no virtual DOM diff
+```
+
+```
+  REACTIVE PRIMITIVES IN SIGNALS:
+
+  Signal       Writable reactive value.    createSignal(0)
+  Memo         Derived computed value.     createMemo(() => count() * 2)
+               Cached, only recomputes
+               when dependencies change.
+  Effect       Side-effectful subscriber.  createEffect(() => log(count()))
+               Runs when any read signal
+               in its body changes.
+```
+
+### Where Signals Are Today (2026)
+
+```
+  FRAMEWORK        STATUS
+  ---------        ------
+  SolidJS          Signals-first from day one. The reference impl.
+                   No virtual DOM. Compiles to direct DOM updates.
+
+  Vue 3            Reactivity system is signals-based under the hood
+                   (ref(), reactive(), computed()). Vue calls them
+                   "reactive references" but the mechanism is signals.
+                   Component still re-renders, but the system is fine-grained.
+
+  Angular 16+      Adopted signals as first-class API (signal(), computed(),
+                   effect()). Replacing Zone.js for change detection.
+                   Angular 17+ pushes signals as the primary approach.
+
+  Preact Signals   @preact/signals-react: bolt-on signals for React.
+                   Works but fights React's rendering model.
+
+  TC39 Proposal    Signals are a Stage 1 TC39 proposal (JavaScript language).
+                   Stage 1 = "worth exploring" — not imminent.
+                   If it lands, signals become a JS primitive,
+                   frameworks share a common reactivity layer.
+
+  React            No signals. React team has explored but not adopted.
+                   React's model (re-run function, reconcile) is philosophically
+                   different. RSC + compiler (React Forget) are React's answers
+                   to the performance concerns signals address.
+```
+
+### Push vs Pull — The Architectural Distinction
+
+```
+  PULL (React):
+  +-----------+       re-render        +-----------+
+  | Component |  <------ triggered --- | setState  |
+  |  function |                        |  called   |
+  +-----------+                        +-----------+
+        |
+        v  runs entire function, builds vDOM, diffs
+        |
+  +----------+
+  | DOM patch|
+  +----------+
+
+  PUSH (Signals):
+  +--------+         +------------+         +----------+
+  | Signal |  value  | Subscriber | direct  | DOM node |
+  |  count | ~~~~~~> |  (effect)  | ~~~~~~> |  update  |
+  +--------+         +------------+         +----------+
+   setCount(5)        only runs if           only this
+                      it read count          node updates
+
+  For high-frequency updates or large component trees,
+  signals' surgical updates outperform React's batch re-render.
+  For typical CRUD UIs, the difference is imperceptible.
+```
+
+### When Signals Matter for Architecture
+
+Signals are not a replacement for React in most applications. They matter when:
+
+- Rendering performance is the bottleneck (not API latency, not business logic)
+- State changes are high-frequency (per-frame animations, real-time collaboration, live metrics)
+- You're choosing a framework for a new project and want minimal JS overhead
+- The team is comfortable with a different mental model
+
+For the learner's context: if you're evaluating Angular 16+ for a new Microsoft-adjacent project, the signals-based change detection is a meaningful architectural shift from Zone.js. SolidJS is worth understanding as the clean reference implementation even if you never use it — it clarifies what React is actually doing.
 
 ---
 
@@ -786,8 +920,8 @@ Before reaching for any library, ask: **can this state live lower?**
 | Command pattern | Action dispatch (Redux/useReducer) | Explicit intent → state change |
 | Service layer | Zustand actions / TanStack Query queryFn | Business logic outside UI |
 | Undo/Redo | Redux DevTools time travel / custom history state | |
-
-<!-- @editor[bridge/P2]: The bridge table has a "Redux pattern" row but doesn't make the CQRS/event sourcing connection that is the highest-value bridge for this reader. The learner built VSTS/Azure DevOps — a system with event-sourced work item tracking. Redux is architecturally identical to event sourcing at the UI layer: immutable append-only action log, pure fold function (reducer) to derive current state, no in-place mutation. Redux DevTools' time-travel works for the same reason event sourcing enables audit replays. Add a row: "CQRS / Event Sourcing (work item history in VSTS)" → "Redux action log + reducer" with a note explaining the isomorphism. This is the single bridge that will make Redux instantly intuitive rather than a foreign pattern. -->
+| CQRS command → handler → event | Redux/useReducer action → reducer → new state | Isomorphic: immutable action log + pure fold function. VSTS work item history IS this pattern. Time-travel debugging works because you replay the action log — same reason event sourcing enables audit replays. |
+| Event sourcing aggregate root | Redux store / useReducer state | Current state = initial state folded over action log |
 
 ---
 
@@ -809,3 +943,4 @@ Before reaching for any library, ask: **can this state live lower?**
 | State shared between React and non-React code | Zustand (works outside React) |
 | Optimistic UI updates | TanStack Query `onMutate` |
 | Prefetch data before navigation | TanStack Query `prefetchQuery` |
+| High-frequency fine-grained updates, minimal JS overhead | Consider SolidJS (signals-first) or Angular 16+ signals |

@@ -465,6 +465,269 @@ A **topological invariant** is a property preserved by homeomorphisms:
   Appears in: QM state space (Bloch sphere), liquid crystal defects
 ```
 
+## 9. Homology Groups
+
+Before TDA, the algebraic machinery needs to be in place.
+
+```
+  SIMPLICIAL COMPLEX: a combinatorial model for a topological space.
+  Built from simplices glued along faces.
+  0-simplex: point (vertex)
+  1-simplex: edge (between two vertices)
+  2-simplex: filled triangle (three vertices + three edges + interior)
+  k-simplex: convex hull of k+1 affinely independent points
+
+  CHAIN COMPLEX:
+  Cₙ = free abelian group on n-simplices  (formal ℤ-linear combinations)
+  Boundary operator ∂ₙ: Cₙ → Cₙ₋₁:
+  ∂[v₀,...,vₙ] = Σᵢ (-1)ⁱ [v₀,...,v̂ᵢ,...,vₙ]  (omit the i-th vertex)
+
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  ... → C₂ →^∂₂ C₁ →^∂₁ C₀ → 0                                    │
+  │                                                                     │
+  │  KEY IDENTITY: ∂²= 0  (boundary of a boundary is empty)            │
+  │  Algebraic proof: the (-1)ⁱ signs cause exact cancellation.        │
+  │  This mirrors d²=0 from differential forms — same structure.        │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  SINGULAR HOMOLOGY Hₙ(X; ℤ):
+  Hₙ = ker(∂ₙ) / im(∂ₙ₊₁)  =  (n-cycles) / (n-boundaries)
+  ├── n-cycle: chain with zero boundary (∂z = 0) — a "closed" loop or surface
+  ├── n-boundary: chain that is ∂ of something — "fills in"
+  └── Hₙ measures cycles that are NOT boundaries = "genuine holes"
+
+  EXAMPLES:
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │  Space X     │  H₀      │  H₁      │  H₂      │  Interpretation    │
+  ├──────────────────────────────────────────────────────────────────────┤
+  │  Point       │  ℤ       │  0       │  0       │  1 component       │
+  │  S¹ (circle) │  ℤ       │  ℤ       │  0       │  1 loop            │
+  │  S²          │  ℤ       │  0       │  ℤ       │  1 enclosed void   │
+  │  Torus T²    │  ℤ       │  ℤ²      │  ℤ       │  2 independent loops│
+  │  RP²         │  ℤ       │  ℤ/2ℤ   │  0       │  torsion!          │
+  │  Klein bottle│  ℤ       │  ℤ⊕ℤ/2  │  0       │  non-orientable    │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  BETTI NUMBERS bₙ = rank(Hₙ) over ℤ (free part):
+  b₀ = number of connected components
+  b₁ = number of independent loops
+  b₂ = number of enclosed voids
+  EULER CHARACTERISTIC: χ = Σₙ (-1)ⁿ bₙ  (Betti numbers → χ)
+  For the torus: χ = b₀ - b₁ + b₂ = 1 - 2 + 1 = 0 ✓
+
+  MAYER-VIETORIS SEQUENCE (computing homology of glued spaces):
+  If X = U ∪ V:
+  ... → Hₙ(U∩V) → Hₙ(U) ⊕ Hₙ(V) → Hₙ(X) → Hₙ₋₁(U∩V) → ...
+  Long exact sequence. Works like Van Kampen for π₁ but for all Hₙ.
+
+  EXAMPLE (Torus T² = S¹ × S¹):
+  Use Künneth formula: Hₙ(X×Y) = ⊕_{i+j=n} Hᵢ(X) ⊗ Hⱼ(Y)
+  H₀(T²) = ℤ, H₁(T²) = ℤ², H₂(T²) = ℤ ✓
+
+  COMPARISON WITH π₁:
+  Hₙ is ABELIAN (always); π₁ can be non-abelian.
+  In fact: H₁(X) = π₁(X)^{ab} (abelianization of fundamental group).
+  Homology is computable; homotopy groups are generally undecidable (πₙ(Sⁿ) hard).
+  This is why TDA uses homology, not homotopy.
+```
+
+## 10. Topological Data Analysis
+
+```
+  TDA CONNECTS: algebraic topology → point cloud data → computable invariants.
+
+  THE FILTRATION IDEA:
+  Given a point cloud X ⊂ ℝᵈ, build a family of simplicial complexes:
+  for each scale r: Xᵣ = (complex built from X at scale r)
+
+  As r increases, more simplices are added → topological features appear/disappear.
+
+  VIETORIS-RIPS COMPLEX at scale r:
+  Include the k-simplex [v₀,...,vₖ] if d(vᵢ,vⱼ) ≤ r for all pairs i,j.
+  (Complete graph on all points within distance r, then fill cliques.)
+
+  ČECH COMPLEX at scale r:
+  Include [v₀,...,vₖ] if the balls B(vᵢ, r/2) have a common intersection.
+  (More geometrically natural; Nerve Lemma: Čech ≃ ∪ₓ B(x,r) homotopically.)
+  Vietoris-Rips ⊆ Čech ⊆ Vietoris-Rips(2r): they're interleaved.
+
+  PERSISTENT HOMOLOGY:
+  Track how homology classes appear and disappear as r increases.
+
+  BIRTH-DEATH PAIRING:
+  Each connected component, loop, void is "born" at some scale r_birth
+  and "dies" (merges/fills) at some scale r_death.
+
+  ┌────────────────────────────────────────────────────────────────────┐
+  │  PERSISTENCE BARCODE: one horizontal bar per feature              │
+  │  r:   0  ──────────────────────────────────────────────► ∞       │
+  │  H₀:  ───── ──── ──── ──  ─    (components merging)             │
+  │  H₁:                ────────  ──── ─  (loops appearing/dying)    │
+  │  Long bars = topologically significant features                   │
+  │  Short bars = noise                                               │
+  │                                                                    │
+  │  PERSISTENCE DIAGRAM: scatter plot of (birth, death) pairs.       │
+  │  Points near the diagonal = noise; points far from diagonal =     │
+  │  genuine topological signal.                                       │
+  └────────────────────────────────────────────────────────────────────┘
+
+  STABILITY THEOREM (Cohen-Steiner-Edelsbrunner-Harer):
+  If point clouds X and Y have Hausdorff distance δ:
+  Wasserstein distance between their persistence diagrams ≤ δ.
+  TDA features are stable under small perturbations — they're not noise artifacts.
+
+  MAPPER ALGORITHM (Singh-Mémoli-Carlsson 2007):
+  Graph-based summary of high-dimensional data shape.
+
+  1. Choose filter function f: X → ℝ (e.g., density, first PCA component)
+  2. Cover range of f with overlapping intervals U₁,...,Uₖ
+  3. For each Uᵢ: cluster f⁻¹(Uᵢ) → each cluster = a node
+  4. Connect nodes whose clusters share data points (overlapping intervals)
+  5. Result: a graph that captures topological shape
+
+  Mapper discovers "flares," "loops," "branches" in data — structure
+  invisible to PCA (which only captures linear subspaces).
+  Used to discover cancer subtypes, athlete motion patterns.
+
+  COMPUTATIONAL ENTRY POINTS:
+  Ripser (C++/Python) — fastest persistent homology for Vietoris-Rips
+  Gudhi (Python/C++) — full TDA library: Rips, Čech, alpha, Mapper
+  scikit-tda — sklearn-compatible TDA tools
+  giotto-tda — end-to-end TDA pipeline for ML
+
+  # Compute H₁ of a point cloud
+  import ripser
+  dgms = ripser.ripser(X)['dgms']  # dgms[k] = persistence diagram for Hₖ
+  # Each row: [birth, death] pair
+
+  APPLICATIONS IN ML:
+  ├── Shape of loss landscapes: H₁ of sublevel sets counts "basins"
+  ├── Topological regularization: add persistence-based penalties to loss
+  ├── Cycle detection in data: H₁ detects loops (e.g., in time series)
+  └── Network architecture analysis: topology of activation spaces
+```
+
+### 10.1 Topological Complexity and TCS Connections
+
+```
+  TOPOLOGICAL COMPLEXITY (Farber 2003):
+  TC(X) = the motion planning complexity of a space.
+
+  PROBLEM: Given a configuration space X, plan a path from any start to any goal.
+  A motion planner is a continuous map s: X×X → PX (path space), s(x,y) = a path from x to y.
+  TC(X) = minimum number of open sets U covering X×X, each admitting a continuous local planner.
+
+  TC(ℝⁿ) = 1  (trivial: go in a straight line — one global planner)
+  TC(S¹) = 2   (circle: need two planners — the "antipodal" case requires separate handling)
+  TC(Sⁿ) = 2 for n odd, 1 for n even (connected to vector field problems)
+  TC(T²) = 3  (torus — reflects non-commutativity of path composition)
+
+  Related to Schwarz genus (sectional category) of the fibration:
+  PX → X×X.  TC(X) is a homotopy invariant — homeomorphic spaces have the same TC.
+
+  APPLICATIONS: robot motion planning, automated surgery (minimizing
+  the number of "control regimes" needed to cover all configurations).
+
+  ────────────────────────────────────────────────────────────────────
+  π₁ AND THE WORD PROBLEM:
+
+  The fundamental group π₁(X) of a CW-complex X is presented by:
+  Generators: one per 1-cell
+  Relations: one per 2-cell (boundary word = identity)
+
+  Example: torus T² = one 0-cell, two 1-cells (a,b), one 2-cell (boundary = aba⁻¹b⁻¹)
+  π₁(T²) = ⟨a, b | aba⁻¹b⁻¹⟩ = ℤ × ℤ  (the relation makes a,b commute)
+
+  THE WORD PROBLEM for a group G = ⟨generators | relations⟩:
+  Given a word w in generators: is w = identity in G?
+
+  For π₁: deciding if a loop is contractible = solving the word problem for π₁.
+  For general finitely presented groups: UNDECIDABLE (Novikov 1955, Adian 1957).
+  For specific groups: decidable (hyperbolic groups via automatic group theory).
+
+  This connects topology directly to computability theory:
+  The topology of a space can encode undecidable decision problems.
+
+  ────────────────────────────────────────────────────────────────────
+  HOMOTOPY TYPE THEORY (HoTT):
+
+  HoTT (Voevodsky et al.) identifies:
+  Types (in type theory)    ↔  Spaces (in homotopy theory)
+  Terms of type A           ↔  Points in space A
+  Propositions              ↔  Spaces with at most one point (contractible or empty)
+  Equality proofs p: a=b    ↔  Paths from a to b
+  Proofs of proofs          ↔  Homotopies between paths
+  Higher identity types     ↔  Higher homotopy groups πₙ
+
+  UNIVALENCE AXIOM (Voevodsky): equivalent types are equal.
+  This makes isomorphisms "computationally real" — transport along proofs
+  of equivalence is function application.
+
+  Implemented in: Agda, Coq (with HoTT library), Lean 4 (Mathlib).
+  HoTT provides a foundation for mathematics where proof = computation,
+  directly in the spirit of the Curry-Howard correspondence.
+```
+
+### 5.1 The Galois Correspondence for Covering Spaces
+
+```
+  UNIVERSAL COVER X̃:
+  The unique simply-connected covering space of X (when it exists).
+  Every other covering space is a quotient of X̃ by a subgroup of π₁(X).
+
+  THE GALOIS CORRESPONDENCE:
+  (Covers of X up to isomorphism) ↔ (Subgroups of π₁(X, x₀))
+
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  Cover p: X̃ → X        │  Subgroup H ≤ π₁(X, x₀)               │
+  │  Universal cover        │  H = {e} (trivial subgroup)             │
+  │  X itself (trivial)     │  H = π₁(X) (whole group)               │
+  │  n-sheeted cover        │  [π₁:H] = n (index n subgroup)         │
+  │  Normal cover           │  H ◁ π₁ (normal subgroup)              │
+  │  Deck transformations   │  π₁/H (quotient when H normal)         │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  This is exactly analogous to Galois theory:
+  (Field extensions of F) ↔ (Subgroups of Gal(L/F))
+  Covering space theory IS Galois theory, with π₁ playing the role of the
+  Galois group. Both are instances of the same categorical structure.
+
+  DECK TRANSFORMATIONS (covering automorphisms):
+  A deck transformation is a homeomorphism φ: X̃ → X̃ with p∘φ = p.
+  For the universal cover X̃: Deck(X̃/X) ≅ π₁(X).
+  The group acts freely and properly discontinuously on X̃.
+  X ≅ X̃ / π₁(X)  (original space = universal cover mod the group action).
+
+  EXAMPLES:
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  X = S¹:  X̃ = ℝ,  π₁(S¹) = ℤ                                    │
+  │  Deck transformations: t ↦ t + n (integer translations)            │
+  │  S¹ = ℝ/ℤ ✓                                                        │
+  │                                                                     │
+  │  X = SO(3):  X̃ = SU(2) ≅ S³,  π₁(SO(3)) = ℤ/2ℤ                │
+  │  Deck transformations: {id, antipodal map on S³}                   │
+  │  SO(3) = S³/(ℤ/2ℤ) = RP³ ✓                                        │
+  │                                                                     │
+  │  X = torus T²:  X̃ = ℝ²,  π₁(T²) = ℤ²                            │
+  │  Deck transformations: (m,n) integer lattice translations           │
+  │  T² = ℝ²/ℤ² ✓                                                      │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  MONODROMY REPRESENTATION:
+  Given a cover p: X̃ → X and basepoint x₀ ∈ X, choose fiber F = p⁻¹(x₀).
+  A loop γ ∈ π₁(X, x₀) permutes the fiber F (lift γ, see where each fiber
+  point ends up). This gives a group homomorphism:
+  ρ: π₁(X, x₀) → Sym(F)   (the monodromy representation)
+
+  For an n-sheeted cover: ρ: π₁(X) → Sₙ.
+  Normal cover ↔ image of ρ acts transitively AND ρ factors through a
+  normal subgroup → regular representation.
+
+  IN PHYSICS: monodromy of the Schrödinger equation around a singularity
+  in parameter space gives the monodromy matrix — the quantum analog of
+  deck transformations for energy level crossings (conical intersections).
+```
+
 ---
 
 ## Decision Cheat Sheet

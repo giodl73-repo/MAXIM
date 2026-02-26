@@ -364,6 +364,124 @@ CRYPTO AGILITY — ARCHITECTURAL REQUIREMENT:
   HTTP security headers: HPKP (removed); Certificate Transparency → flexible
   Azure/AWS KMS: plan for algorithm versioning in all key management APIs
 
+```
+ENABLING HYBRID PQC IN TLS — CONCRETE CONFIGURATION:
+
+  GO (1.23+):
+    // X25519MLKEM768 is the hybrid KEM: X25519 + ML-KEM-768
+    // Available as of Go 1.23; enabled by default in TLS 1.3 when X25519MLKEM768 is listed
+    import "crypto/tls"
+
+    cfg := &tls.Config{
+        CurvePreferences: []tls.CurveID{
+            tls.X25519MLKEM768,  // hybrid PQC first
+            tls.X25519,          // classical fallback
+            tls.CurveP256,
+        },
+        MinVersion: tls.VersionTLS13,
+    }
+    // Go 1.23 ships X25519MLKEM768 by default; no external deps
+
+  OPENSSL 3.2+ WITH OQS-PROVIDER (liboqs):
+    # Install OQS-Provider: https://github.com/open-quantum-safe/oqs-provider
+    # Add to openssl.cnf:
+    [provider_sect]
+    default = default_sect
+    oqsprovider = oqsprovider_sect
+
+    [oqsprovider_sect]
+    activate = 1
+    module = /path/to/oqsprovider.so
+
+    # Generate ML-KEM-768 key
+    openssl genpkey -algorithm mlkem768 -out mlkem768.key
+
+    # TLS with hybrid KEM (x25519_mlkem768 group)
+    openssl s_server -groups x25519_mlkem768:x25519 -cert server.crt -key server.key
+    openssl s_client -groups x25519_mlkem768:x25519 -connect localhost:4433
+
+  BORINGSSL (Chrome, Android):
+    // BoringSSL ships X25519Kyber768 (draft name for hybrid) — ENABLED BY DEFAULT in Chrome
+    // For BoringSSL-based applications (use the named group):
+    SSL_CTX_set1_groups_list(ctx, "X25519Kyber768:X25519:P-256");
+    // Chrome 116+: sends both X25519 and Kyber768 key_shares by default
+
+  NGINX (with OpenSSL OQS-Provider compiled in):
+    ssl_ecdh_curve x25519_mlkem768:x25519;  # hybrid first; classical fallback
+    ssl_protocols TLSv1.3;
+
+  JAVA (Bouncy Castle 1.78+):
+    // BC implements ML-KEM; hybrid KEM via manual HKDF combination
+    // Native JCA support via BC provider; no standard Java TLS integration yet
+    Security.addProvider(new BouncyCastleProvider());
+    KeyPairGenerator kpg = KeyPairGenerator.getInstance("ML-KEM", "BC");
+    kpg.initialize(new MLKEMParameterSpec(MLKEMParameterSpec.ml_kem_768));
+
+  VERIFY HYBRID PQC IS ACTIVE:
+    openssl s_client -connect example.com:443 -groups x25519_mlkem768 2>&1 | grep "Server Temp Key"
+    # Expected: Server Temp Key: X25519Kyber768, 1216 bits  (hybrid = X25519 + ML-KEM)
+    # Or check via Wireshark: ClientHello key_share extension will contain both X25519 and ML-KEM shares
+
+  CURRENT STATUS (2025):
+    Chrome 116+: X25519Kyber768 by default (BoringSSL)
+    Firefox 128+: X25519MLKEM768 enabled
+    Go 1.23+: X25519MLKEM768 by default in TLS 1.3
+    OpenSSH 9.0+: mlkem768x25519 (hybrid KEM) for SSH key exchange
+    curl 8.9+: hybrid PQC support via OpenSSL OQS-Provider
+```
+
+```
+PQC PERFORMANCE BENCHMARKS (x86-64, ~3 GHz, AVX2; 2024 data):
+
+  KEY EXCHANGE / KEM:
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  Algorithm          │ KeyGen    │ Encaps    │ Decaps    │ PK size  │ CT size │
+  ├─────────────────────────────────────────────────────────────────────────────┤
+  │  X25519 (classical) │ ~15 µs    │ ~20 µs    │ ~20 µs    │ 32 B     │ 32 B   │
+  │  ML-KEM-512         │ ~25 µs    │ ~30 µs    │ ~35 µs    │ 800 B    │ 768 B  │
+  │  ML-KEM-768         │ ~40 µs    │ ~45 µs    │ ~50 µs    │ 1184 B   │ 1088 B │
+  │  ML-KEM-1024        │ ~55 µs    │ ~65 µs    │ ~70 µs    │ 1568 B   │ 1568 B │
+  │  X25519+ML-KEM-768  │ ~55 µs    │ ~65 µs    │ ~70 µs    │ 1216 B   │ 1120 B │
+  └─────────────────────────────────────────────────────────────────────────────┘
+  Latency overhead: hybrid KEM adds ~50 µs vs X25519; negligible vs TLS RTT (~10 ms)
+  Bandwidth overhead: +1152 bytes in ClientHello key_share; +1088 bytes in ServerHello
+  TLS handshake total additional bytes: ~2.2 KB — immaterial for most traffic
+
+  DIGITAL SIGNATURES:
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  Algorithm          │ KeyGen    │ Sign      │ Verify    │ Sig size           │
+  ├─────────────────────────────────────────────────────────────────────────────┤
+  │  Ed25519 (classical)│ ~5 µs     │ ~20 µs    │ ~50 µs    │ 64 B               │
+  │  ECDSA P-256        │ ~50 µs    │ ~60 µs    │ ~80 µs    │ ~71 B              │
+  │  ML-DSA-44          │ ~80 µs    │ ~100 µs   │ ~55 µs    │ 2420 B             │
+  │  ML-DSA-65          │ ~100 µs   │ ~130 µs   │ ~70 µs    │ 3293 B             │
+  │  ML-DSA-87          │ ~130 µs   │ ~165 µs   │ ~90 µs    │ 4595 B             │
+  │  FN-DSA-512 (FALCON)│ ~700 µs*  │ ~200 µs   │ ~15 µs    │ 666 B              │
+  │  SLH-DSA-128f       │ ~5 µs     │ ~15 ms    │ ~1 ms     │ 17,088 B           │
+  └─────────────────────────────────────────────────────────────────────────────┘
+  * FALCON keygen uses Gaussian sampler — complex; slow keygen is acceptable for long-lived keys
+
+  Key observations:
+    ML-DSA signing: ~5-7× slower than Ed25519; verification comparable
+    FALCON signing: fast; tiny signatures; keygen expensive; side-channel-sensitive Gaussian sampler
+    SLH-DSA signing: very slow (~15 ms); impractical for interactive signing; good for CA use
+    For code signing (offline): SLH-DSA acceptable; for TLS client auth or JWT signing: ML-DSA
+
+  IOT / CONSTRAINED DEVICES:
+  ┌─────────────────────────────────────────────────────────────────────────────┐
+  │  Algorithm    │ RAM (Cortex-M4) │ Flash overhead │ Fit in 32KB RAM?          │
+  ├─────────────────────────────────────────────────────────────────────────────┤
+  │  X25519       │ ~2 KB           │ ~5 KB          │ Yes                       │
+  │  ML-KEM-512   │ ~4 KB           │ ~12 KB         │ Yes (tight)               │
+  │  ML-KEM-768   │ ~6 KB           │ ~16 KB         │ Yes                       │
+  │  ML-DSA-44    │ ~6 KB           │ ~15 KB         │ Yes                       │
+  │  FALCON-512   │ ~15 KB          │ ~20 KB         │ Marginal                  │
+  │  SLH-DSA-128f │ ~3 KB           │ ~8 KB          │ Yes (hash-only)           │
+  └─────────────────────────────────────────────────────────────────────────────┘
+  PQC on MCUs: feasible; ML-KEM and ML-DSA fit in typical 32KB-256KB embedded targets
+  FALCON Gaussian sampler: RAM-intensive; avoid on < 16KB RAM devices
+```
+
 PRACTICAL MIGRATION PRIORITIES:
   ┌───────────────────────────────────────────────────────────────────────┐
   │  Tier │ System                │ Action                │ Urgency       │
@@ -442,3 +560,74 @@ DO NOT CONFUSE QKD AND PQC:
 **SPHINCS+ is stateless but XMSS/LMS are not:** XMSS and LMS (RFC 8391/8554) are older hash-based signatures that are stateful — you must track which one-time keys have been used. If device resets and reuses a one-time key → security broken. SPHINCS+ solves this with randomized message hashing and random tree selection. Stateless = operationally simpler but larger signatures (~3-7KB vs ~1-3KB for XMSS).
 
 **Migration urgency varies by data lifetime:** A TLS session protecting an ephemeral web request has no HNDL risk (who cares about yesterday's cat video?). But: a TLS session carrying health records, corporate secrets, or government communications might still need to be confidential in 2040. The correct question is: "If an adversary records this traffic today, what is the harm if decrypted in 10-20 years?" That answer determines whether to migrate NOW vs 2027 vs 2030.
+
+```
+IETF PQC STANDARDS PIPELINE — PROTOCOL INTEGRATION MAP:
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────┐
+  │  Algorithm      │ NIST FIPS     │ IETF RFC / Draft                │ Protocol Status    │
+  ├────────────────────────────────────────────────────────────────────────────────────────┤
+  │  ML-KEM (Kyber) │ FIPS 203 ✓   │ RFC 9496: HPKE with ML-KEM ✓    │ Chrome/Firefox     │
+  │  (KEM)          │ 2024         │ draft-ietf-tls-hybrid-design    │ shipping X25519+   │
+  │                 │              │ (TLS hybrid KEM; not yet RFC)   │ ML-KEM-768 now     │
+  ├────────────────────────────────────────────────────────────────────────────────────────┤
+  │  ML-DSA         │ FIPS 204 ✓   │ draft-ietf-lamps-dilithium-x509 │ X.509 cert profile │
+  │  (Dilithium)    │ 2024         │ (cert profile; in progress)     │ in progress        │
+  │  (signature)    │              │ draft-ietf-tls-mlkem (TLS sig)  │ TLS client/server  │
+  ├────────────────────────────────────────────────────────────────────────────────────────┤
+  │  SLH-DSA        │ FIPS 205 ✓   │ draft-ietf-lamps-sphincs-x509   │ CA signing; code   │
+  │  (SPHINCS+)     │ 2024         │ (cert profile; in progress)     │ signing use cases  │
+  │  (signature)    │              │                                 │                    │
+  ├────────────────────────────────────────────────────────────────────────────────────────┤
+  │  FN-DSA (FALCON)│ NIST IR 8413 │ draft-ietf-lamps-pq-composite   │ Composite certs    │
+  │  (signature)    │ 2024         │ (composite: classical + PQC)    │ (dual algorithm)   │
+  ├────────────────────────────────────────────────────────────────────────────────────────┤
+  │  SSH hybrid KEM │ —            │ mlkem768x25519 (OpenSSH 9.0+)   │ Deployed;          │
+  │                 │              │ RFC in progress (IETF SSHM WG)  │ interoperable      │
+  ├────────────────────────────────────────────────────────────────────────────────────────┤
+  │  OpenPGP PQC    │ —            │ draft-ietf-openpgp-pqc          │ Hybrid ML-KEM +    │
+  │                 │              │ (PGP 6 extension)               │ X25519 + ML-DSA +  │
+  │                 │              │                                 │ Ed25519            │
+  └────────────────────────────────────────────────────────────────────────────────────────┘
+
+  KEY DOCUMENTS TO FOLLOW:
+    RFC 9496:  HPKE with ML-KEM — the KEM integration for application-layer protocols
+    draft-ietf-tls-hybrid-design: TLS 1.3 hybrid KEM code points (defines X25519MLKEM768 group)
+    draft-ietf-lamps-dilithium-x509: how to embed ML-DSA keys in X.509 certificates
+    draft-ietf-openpgp-pqc: PQC extension for OpenPGP (email, software signing)
+    IETF TLS WG: https://datatracker.ietf.org/wg/tls/ (working group for TLS PQC integration)
+
+  Practical implication:
+    For TLS KEM migration: use X25519MLKEM768 group name in TLS config — already RFC-grade (RFC 9496)
+    For certificate migration: wait for X.509 profile RFCs before issuing PQC certs (avoid incompatibility)
+    For SSH: mlkem768x25519 is deployed; add to sshd_config KexAlgorithms now
+    For PGP signing: wait for draft-ietf-openpgp-pqc to stabilize before tooling commitment
+```
+
+```
+CODE-BASED DECISION FRAMING — WHEN TO CHOOSE OVER LATTICE:
+
+  Default answer for 2025+: use ML-KEM (lattice) for new systems.
+    ML-KEM has smaller keys (~1 KB public key) and comparable security assumption confidence.
+    LWE has been studied since 2005 (Regev); lattice community is large; NIST primary standard.
+
+  Case for Classic McEliece (narrow):
+    Assumption age: McEliece (1978) vs LWE (2005); 47-year track record for error-correcting codes
+    Lattice concern: some researchers worry that LWE has structural weakness not yet found;
+      the Module-LWE structure in ML-KEM introduces some algebraic regularity above plain LWE.
+    Accept: ~1 MB public key + complexity
+    Use if: threat model requires maximum conservative assumption (government intelligence,
+      long-lived key generation, trust anchor for infrastructure with 30+ year lifetime)
+    Reject if: key size matters, performance matters, or NIST FIPS compliance is required
+
+  BIKE / HQC (NIST round 4 alternates):
+    Practical key sizes (~3 KB); better than McEliece
+    Younger analysis: decryption failure probability and correlation attacks still being refined
+    Use only: if NIST selects as a FIPS standard (expected 2025-2026); not before
+
+  Summary decision:
+    New system, production, standard compliance: ML-KEM-768 (FIPS 203)
+    High-value key material, 30+ year lifetime, maximum conservatism: Classic McEliece + ML-KEM dual
+    Waiting for more options: watch NIST round 4 (BIKE/HQC finalization ~2025-2026)
+    Never: hard-code a single algorithm; design for crypto agility regardless of which you pick
+```

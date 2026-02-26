@@ -29,7 +29,52 @@ Git is a **distributed version control system**. Every clone is a full copy of h
 
 **Key insight vs Source Depot / TFS**: There is no check-out lock. Multiple people can edit the same file simultaneously. Merging is the norm, not the exception. The repository lives entirely on your machine — you don't need the server to commit, branch, or view history.
 
-<!-- @editor[bridge/P2]: Source Depot "enlistment" model not bridged here. SD enlistments map a depot path to a local path in the client spec (MAPPINGS file); the local machine only holds files explicitly mapped. Git inverts this: the working tree IS the full repository clone, and .git/ is the object store. The mental model shift — from "I have a view into a server" to "I have the server" — is non-obvious and worth an explicit note at this intro point. -->
+### Source Depot → Git: The Inversion of Ownership
+
+If you came from Source Depot (SD), this is the single most important mental model shift:
+
+```
+  SOURCE DEPOT MENTAL MODEL           GIT MENTAL MODEL
+  ========================            ================
+
+  Server holds the depot.             Every clone IS the depot.
+
+  +-------------------+               +-------------------+
+  |   SD SERVER       |               |   origin (GitHub) |
+  |   (the truth)     |               |   (just a clone   |
+  |   Full history    |               |    everyone agrees|
+  |   All branches    |               |    is canonical)  |
+  +-------------------+               +-------------------+
+           |                                   |
+           | enlistment:                       | git clone:
+           | "map these depot                  | "give me the ENTIRE
+           |  paths to my local                |  repository — all history,
+           |  workspace"                        |  all branches, all objects"
+           v                                   v
+  +-------------------+               +-------------------+
+  |   LOCAL MACHINE   |               |   LOCAL MACHINE   |
+  |   Only files in   |               |   .git/ = full    |
+  |   your client     |               |   object store    |
+  |   spec mappings   |               |   (the whole repo)|
+  |   (a view)        |               |   working tree =  |
+  +-------------------+               |   checked-out     |
+                                      |   snapshot        |
+                                      +-------------------+
+
+  SD: "I have a view into the server"
+  Git: "I have the server — origin is just a named remote I sync with"
+```
+
+**Concrete consequence**: In SD, `sd sync` goes to the server and pulls down changes. In Git, `git fetch` downloads objects to your local `.git/` store — the server is not involved in any subsequent operation. You can commit, branch, merge, and view full history entirely offline. `git fetch` is the SD `sd sync` equivalent, but `git merge` (or `git rebase`) is a separate step that you do locally against the already-downloaded objects.
+
+```
+  SD workflow:       sd sync          (get + integrate in one step)
+  Git equivalent:    git fetch        (download remote objects)
+                   + git merge        (integrate into your working branch)
+  Or combined:       git pull         (fetch + merge — the sd sync analog)
+```
+
+The three-tree model (working tree / index / HEAD) is described in the next section. The key SD translation: your client workspace maps to the working tree; SD shelvesets map to `git stash`; a changeset maps to a commit (but commits are snapshots, not diffs — see Core Concepts).
 
 ---
 
@@ -559,7 +604,40 @@ A pull request (PR) is NOT a Git concept — it's a **platform feature** (GitHub
   different UI. Branch policies enforce review requirements.
 ```
 
-<!-- @editor[bridge/P2]: Azure DevOps branch policies → GitHub branch protection rules bridge is absent. The learner built VSTS and knows ADO branch policies deeply (required reviewers, build validation, work item linking, merge strategy enforcement, comment resolution). GitHub's equivalent ("branch protection rules" + required status checks + required reviews + CODEOWNERS) maps directly but uses entirely different terminology and is configured in repo Settings → Branches, not in the pipeline. A side-by-side table here would be high-value: ADO "Build validation" → GitHub "Required status checks"; ADO "Minimum number of reviewers" → GitHub "Required number of approving reviews"; ADO "Require a merge strategy" → GitHub "Require linear history". GitHub Actions as the CI trigger (on: pull_request) replacing Azure Pipelines branch triggers is also not shown. -->
+### Azure DevOps Branch Policies → GitHub Branch Protection Rules
+
+You built branch policies in VSTS/ADO. GitHub calls them "branch protection rules" and configures them in repo **Settings → Branches → Add rule** rather than in the pipeline. The concepts map directly:
+
+| ADO Branch Policy | GitHub Branch Protection Rule | Notes |
+|---|---|---|
+| Build validation | Required status checks | CI job must pass before merge. GitHub checks come from Actions workflow jobs; name the job in the required checks list. |
+| Minimum number of reviewers | Required number of approving reviews | Same enforcement; GitHub adds CODEOWNERS for automatic reviewer assignment. |
+| Require a merge strategy (squash / rebase / merge) | Require linear history / Allow squash merging | Configured both in protection rules and in repo Settings → General → Pull Requests. |
+| Require comment resolution | Require conversation resolution before merging | Direct equivalent; same intent. |
+| Work item linking | Not built-in | GitHub has issue references in commit messages (`Closes #123`), but no mandatory work-item gating like ADO. |
+| Require up-to-date branches | Require branches to be up to date before merging | GitHub equivalent: "Require branches to be up to date." Prevents merge if base branch advanced. |
+| Bypass policies (admins) | "Do not allow bypassing the above settings" | GitHub lets you explicitly exclude admins from bypass — ADO uses the same policy exception model. |
+
+**CI trigger wiring** — the ADO YAML pipeline's `trigger` and `pr` blocks map to GitHub Actions `on:` events:
+
+```yaml
+  ADO pipeline (azure-pipelines.yml):     GitHub Actions (.github/workflows/ci.yml):
+
+  trigger:                                 on:
+    branches:                               push:
+      include: [main]                         branches: [main]
+  pr:                                       pull_request:
+    branches:                                 branches: [main]
+      include: [main]
+
+  # ADO: pool + steps                      jobs:
+  pool:                                      build:
+    vmImage: ubuntu-latest                     runs-on: ubuntu-latest
+  steps:                                       steps:
+    - script: npm test                           - run: npm test
+```
+
+The required status check name in the GitHub protection rule must match the **job name** in the workflow file (e.g., `build`). This is the equivalent of ADO's "select build pipeline" in the Build validation policy.
 
 ---
 
@@ -764,7 +842,49 @@ Multiple working trees from one repository. Useful when you need to work on two 
 | ADO branch policy: min reviewers | GitHub: required approving reviews | Configured in branch protection rules |
 | ADO branch policy: merge strategy | GitHub: require linear history / squash | Same intent, repo Settings → Branches |
 
-<!-- @editor[content/P2]: git bisect appears in the Decision Cheat Sheet below ("Find when a bug was introduced → git bisect") but is never explained in the guide body. git bisect is a binary-search-over-commits tool — conceptually interesting to someone with algorithms background, and non-obvious. Add a brief section (or at minimum a paragraph) explaining: git bisect start, git bisect bad, git bisect good <sha>, and the binary search it performs to locate the first bad commit. -->
+### git bisect — Binary Search Over Commit History
+
+`git bisect` finds the exact commit that introduced a bug by performing a binary search over the commit graph. You tell it one "good" commit (bug absent) and one "bad" commit (bug present). It checks out the midpoint, you test, tell it good/bad, and it halves the search space. O(log n) steps to find the culprit in a history of n commits.
+
+```
+  Scenario: Bug exists in HEAD. It didn't exist at v2.0.0 (200 commits ago).
+  Manual inspection: 200 commits to check. git bisect: ~8 steps (log₂ 200 ≈ 7.6).
+
+  git bisect start          Begin the bisect session.
+  git bisect bad            Mark the current commit (HEAD) as bad.
+  git bisect good v2.0.0    Mark v2.0.0 as the last known-good commit.
+
+  Git checks out commit at the midpoint (~100 commits ago).
+  You test: does the bug exist?
+
+  git bisect good           If bug is absent — search the upper half.
+  git bisect bad            If bug is present — search the lower half.
+
+  Git checks out the next midpoint. Repeat.
+  After ~8 rounds, Git prints:
+  "a3f1c9d is the first bad commit"
+
+  Binary search over the commit DAG:
+  [v2.0.0 ... good ... good ... BISECT HERE ... bad ... bad ... HEAD]
+                                     ^
+                                Git checks out here first (~midpoint).
+                                Each answer cuts remaining range in half.
+```
+
+**Automating bisect** — if you have a script that exits 0 for good and non-zero for bad, Git runs the whole thing automatically:
+
+```bash
+  git bisect start
+  git bisect bad HEAD
+  git bisect good v2.0.0
+  git bisect run npm test   # runs npm test at each midpoint
+                            # exits 0 = good, non-zero = bad
+  # Git announces the first bad commit and exits.
+```
+
+When done: `git bisect reset` — restores your working tree to HEAD and ends the session.
+
+**When to reach for it**: any regression where you know a commit range. "This worked in the last release, it's broken now" is exactly this scenario.
 
 ---
 

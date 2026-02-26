@@ -32,6 +32,43 @@ PAC learning (Probably Approximately Correct, Valiant 1984) is the foundational 
 
 ---
 
+## Bridge: Hypothesis Testing and Minimax Estimation → PAC Learning
+
+PAC learning is minimax estimation with a specific loss structure. The vocabulary translates directly:
+
+```
+CLASSICAL HYPOTHESIS TESTING / MINIMAX     PAC LEARNING
+──────────────────────────────────────     ──────────────────────────────────
+Type I error α, Type II error β            Error parameter ε
+  P(reject H₀ | H₀ true) ≤ α               Pr[h(x) ≠ c*(x)] ≤ ε
+  P(accept H₀ | H₁ true) ≤ β               Confidence 1-δ ≈ 1-β
+
+Distribution-free / minimax                PAC is distribution-free
+  min_{test} max_{P∈P} risk(test, P)        Same sample bound for all D
+  — worst case over all distributions        — cannot exploit D structure
+
+Neyman-Pearson lemma                       ERM optimality
+  Likelihood ratio test is UMP              Consistent learner = optimal PAC
+  for simple vs simple testing               learner in realizable case
+
+Fano's inequality (lower bounds)           Sample complexity lower bounds
+  P_e ≥ (H(Y) - I(X;Y)) / log|Y|           m = Ω(d/ε²) (agnostic)
+  Embed d-ary hypothesis test               Embed shattering argument: d
+  → lower bound on error probability         hypotheses need Ω(log d / ε)
+                                             samples to distinguish
+
+Le Cam's two-point method                  VC lower bounds
+  Construct two hard distributions          Find shattered set of size d;
+  P₀, P₁ with total variation ≤ ½           two labelings require Ω(d) samples
+  → minimax rate lower bound                 via Le Cam applied to each bit
+
+Minimax optimal estimator                  Optimal PAC learner
+  Achieves min_{θ̂} max_P E[loss(θ̂,θ)]     Achieves Θ(d/ε²) sample bound
+  — tight upper and lower bounds match       — Fundamental theorem is tight
+```
+
+The PAC lower bound proof is exactly a Le Cam/Fano argument: construct 2^d concepts using a shattered set (each bit of the concept is a separate hypothesis test), invoke Fano to show distinguishing them requires many samples, conclude m = Ω(d/ε). The ε² in the agnostic setting follows from the variance of the relative error estimate.
+
 ## Formal Setup
 
 **Instance space**: X (typically {0,1}ⁿ or ℝⁿ)
@@ -85,6 +122,8 @@ Result:  m = O(log|H| / ε) examples suffice.
 ```
 
 **Insight**: You pay logarithmically in the size of the hypothesis class. This is why Occam's Razor has formal content — shorter descriptions → smaller H → fewer examples needed.
+
+**Information-theoretic reading of log|H|:** The finite-class sample complexity m = O(log|H|/ε) is exactly the description length of the target concept. Specifying one element of H requires log₂|H| bits; the learner needs roughly that many bits of information from the sample to identify h*, which costs ~1/ε samples per bit (each sample resolves ~ε uncertainty). This is the Minimum Description Length (MDL) principle in its simplest form — short descriptions generalize — and directly connects to the Occam's Razor theorem below. Kolmogorov complexity generalizes this: replace log|H| with K(h*), the shortest program computing h*, giving the tightest possible bound (but non-computable).
 
 ---
 
@@ -221,6 +260,16 @@ Corrupted labels        y = c*(x) XOR noise             Agnostic / noisy PAC
 ```
 
 **Active learning**: If you can choose which points to label (membership queries from D), sample complexity can drop dramatically — sometimes from O(d/ε²) to O(d · log(1/ε)/ε) for halfspaces.
+
+**Active learning: when does it help?** The savings from membership queries depend on the disagreement coefficient θ(h*, ε) (Hanneke 2014): the ratio of the probability mass of the "disagreement region" (where hypotheses near-optimal under D disagree) to ε. For halfspaces in ℝⁿ under log-concave distributions, θ = O(√n), giving sample complexity O(d · θ · log(1/ε)/ε) — exponentially better than passive O(d/ε²) when θ is small. For general VC classes, the improvement is θ-dependent and can vanish (θ = Ω(1/ε) makes active = passive).
+
+```
+PASSIVE PAC LEARNING     O(d / ε²)         — agnostic
+ACTIVE LEARNING          O(d · θ(h*,ε) / ε · log(1/ε))  — with membership queries
+
+If θ = O(polylog(1/ε)):  exponential improvement (halfspaces, threshold functions)
+If θ = Θ(1/ε):          no improvement (worst case; some concept classes)
+```
 
 ---
 

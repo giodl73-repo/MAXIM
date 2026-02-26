@@ -17,6 +17,87 @@
 
 ---
 
+## Kotlin Ecosystem Landscape
+
+Kotlin is not a new runtime — it compiles to the same JVM bytecode as Java. The value is entirely in what the compiler adds *before* that bytecode lands on the JVM.
+
+```
+KOTLIN SOURCE → COMPILER MAGIC → JVM BYTECODE → SAME RUNTIME AS JAVA
+
+  Kotlin source (.kt)
+       │
+       ▼
+  ┌─────────────────────────────────────────────────────────┐
+  │               Kotlin Compiler (kotlinc)                  │
+  │                                                         │
+  │  Null safety checks ──────────────────┐                 │
+  │  (T vs T? enforced at compile time)   │                 │
+  │                                       ▼                 │
+  │  data class codegen ──────────► .class files            │
+  │  (equals/hashCode/toString/copy)      │  (standard JVM  │
+  │                                       │   bytecode)     │
+  │  Coroutine transformation ────────────┘                 │
+  │  (suspend fun → state machine)                          │
+  └─────────────────────────────────────────────────────────┘
+       │
+       ▼
+  .class files (identical format to javac output)
+       │
+       ▼
+  ┌───────────────────────────────────┐
+  │           JVM Runtime             │  ← same JVM as Java
+  │  Class Loader → JIT → GC → Exec  │
+  └───────────────────────────────────┘
+
+  Kotlin also compiles to: Kotlin/JS (browser) · Kotlin/Native (LLVM, no JVM)
+  Kotlin Multiplatform (KMP): share business logic across JVM / iOS / Web
+```
+
+**What the Kotlin compiler generates that Java doesn't:**
+
+```
+  Kotlin feature          Compiler output (JVM bytecode level)
+  ──────────────────────────────────────────────────────────
+  String? (nullable)   →  null checks inserted at call sites
+                          @Nullable annotation on method sig
+  data class           →  equals() + hashCode() + toString()
+                          copy() + componentN() methods
+  extension fun        →  static method, receiver as first param
+                          (zero runtime cost — pure syntax)
+  object (singleton)   →  class with static INSTANCE field
+  sealed class         →  abstract class + exhaustiveness info
+  suspend fun          →  state machine class (CPS transform)
+                          each suspension point = a resume case
+```
+
+**Coroutine state machine — the key mental model:**
+
+```
+  suspend fun fetchAndProcess(): String {
+      val data = fetchData()    // suspend point 1
+      val result = process(data) // suspend point 2
+      return result
+  }
+
+  Compiler transforms to:
+  ┌──────────────────────────────────────────────────┐
+  │  State machine with label (continuation)         │
+  │                                                  │
+  │  label=0 → call fetchData(), suspend, save state │
+  │  label=1 → resume, call process(), suspend       │
+  │  label=2 → resume, return result                 │
+  │                                                  │
+  │  No OS thread blocked — just a heap object       │
+  │  Resumed by the coroutine dispatcher when ready  │
+  └──────────────────────────────────────────────────┘
+
+  C# async/await does the same CPS transform.
+  Kotlin coroutines generalize it further — composable,
+  structured, cancellable, with explicit dispatcher control.
+```
+
+---
+
 ## Syntax Reference Card
 
 ### Variables & Types
@@ -308,6 +389,8 @@ GlobalScope.launch {
     val result = fetchData()
     updateUI(result)
 }
+// NOTE: GlobalScope.launch leaks coroutines — shown here for clarity.
+// Production code: use coroutineScope { }, viewModelScope, or lifecycleScope instead.
 
 // Async/await
 val deferred = GlobalScope.async { fetchData() }
@@ -388,3 +471,18 @@ result.isSuccess  result.isFailure
 | `using (x)` for dispose | `use {}` on Closeable | Different syntax |
 | `IEnumerable<T>` everywhere | `Iterable<T>` / `Sequence<T>` | Same concept, different API |
 | async/await | suspend/coroutines | Coroutines are more composable |
+
+---
+
+## Decision Cheat Sheet
+
+| Decision | Use X when... |
+|----------|---------------|
+| **`data class` vs regular `class`** | `data class` for pure value/data carriers — DTOs, responses, domain value objects. You get `equals`/`hashCode`/`toString`/`copy` free. Regular `class` when you need mutable state, inheritance hierarchy, or non-trivial lifecycle. |
+| **`data class` vs `sealed class`** | `sealed class` when you have a fixed set of subtypes and need exhaustive `when` — discriminated unions. Think `Result`, `NetworkState`, `UiEvent`. `data class` for a single concrete type. Combine them: `sealed class` parent with `data class` children. |
+| **`val` vs `var`** | Default to `val`. Use `var` only when mutation is genuinely necessary. `val` in Kotlin is a read-only reference, not deeply immutable — the object it points to can still be mutable. Equivalent to C# `readonly` local. |
+| **`GlobalScope` vs `CoroutineScope` vs `coroutineScope {}`** | Never `GlobalScope` in production — coroutines escape structured concurrency, can't be cancelled, and leak on teardown. `coroutineScope {}` (lowercase) for suspend functions that launch parallel work and wait — cancellation propagates. `viewModelScope` / `lifecycleScope` in Android — tied to component lifecycle. `CoroutineScope(dispatcher)` when you own the lifecycle explicitly. |
+| **`Flow` vs `Channel`** | `Flow` for cold streams — nothing happens until `collect` is called; each collector gets its own execution. `Channel` for hot streams — producer and consumer are decoupled, values exist independently of observers. Use `Flow` for most reactive pipelines; `Channel` for event buses or producer/consumer queues. `StateFlow` / `SharedFlow` are hot `Flow` variants that bridge the gap. |
+| **Extension function vs utility object** | Extension function when the operation logically "belongs" on the type and you want call-site readability (`str.toSlug()`). Utility object (`object StringUtils`) when you're grouping unrelated helpers, need Java interop with static methods, or the operation is clearly external to the type. |
+| **`runBlocking` vs `runCatching`** | These are unrelated — name similarity is a trap. `runBlocking { }` bridges blocking and coroutine worlds — blocks the calling thread until the coroutine completes; use in `main()` or tests, never in production coroutine code. `runCatching { }` wraps a block in a `Result<T>` to capture success or exception without a try/catch; pure error handling, no coroutine semantics. |
+| **`Sequence` vs `List` operations** | `Sequence` (lazy, like Java `Stream`) for long chains of `filter/map` on large collections — avoids intermediate list allocations. `List` operations (eager) for short chains or small collections where the overhead of lazy evaluation exceeds the benefit. |

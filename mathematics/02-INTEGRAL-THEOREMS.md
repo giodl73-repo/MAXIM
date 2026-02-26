@@ -36,7 +36,8 @@ Two theorems do all the conversion:
                         of curl              of circulation (boundary)
 ```
 
-There is a single deeper pattern here — previewed at the end of this module.
+There is a single deeper pattern here — the generalized Stokes' theorem of
+differential geometry — developed in the next section.
 
 ---
 
@@ -160,9 +161,9 @@ nothing new conceptually. The volume element dV = dx dy dz in Cartesian.
 
 ---
 
-## The Fundamental Theorem Chain
+## The Fundamental Theorem Chain and the Generalized Stokes' Theorem
 
-Before the big theorems, notice the pattern across all of calculus:
+The pattern across all of calculus:
 
 ```
   FUNDAMENTAL THEOREM OF CALCULUS (1D):
@@ -201,9 +202,51 @@ Before the big theorems, notice the pattern across all of calculus:
     over volume        surface of volume
 ```
 
-**The pattern**: integral of a derivative over a region = integral over the
-boundary of that region. This is the single theorem of differential geometry
-(generalized Stokes' theorem). The topology module covers the deep version.
+**The single unifying theorem** — the generalized Stokes' theorem:
+
+```
+  ∫_M dω  =  ∫_{∂M} ω
+
+  Cast of characters:
+    M        — oriented k-manifold with boundary (curve, surface, volume, ...)
+    ∂M       — the (k-1)-dimensional boundary of M
+    ω        — a differential (k-1)-form (the object being integrated)
+    dω       — the exterior derivative of ω (a k-form)
+    d        — the exterior derivative operator: d: Ω^k → Ω^(k+1), d²=0
+
+  The four classical theorems are special cases in R³:
+
+  k=1: M = curve C, ∂M = {endpoints a,b}, ω = f (0-form), dω = df = ∇f·dl
+       → ∫_C df = f(b)−f(a)         ← Gradient theorem (FTC)
+
+  k=2: M = surface S, ∂M = boundary curve C, ω = F·dl (1-form), dω = (∇×F)·dA
+       → ∫∫_S (∇×F)·dA = ∮_C F·dl  ← Stokes' theorem
+
+  k=3: M = volume V, ∂M = bounding surface S, ω = F·dA (2-form), dω = (∇·F)dV
+       → ∫∫∫_V (∇·F) dV = ∮∮_S F·dA ← Divergence theorem
+
+  The identity d²=0 is why ∇×(∇f)=0 and ∇·(∇×F)=0 hold automatically —
+  they are both instances of d(dω)=0 applied to a 0-form and 1-form.
+```
+
+**Differential forms dictionary for R³**:
+
+```
+  0-form: scalar field f(x,y,z)
+  1-form: F₁dx + F₂dy + F₃dz  ↔  vector field F = (F₁,F₂,F₃)
+  2-form: F₁dy∧dz + F₂dz∧dx + F₃dx∧dy  ↔  vector field F (via Hodge ★)
+  3-form: f dx∧dy∧dz  ↔  scalar field f
+
+  d on 0-forms: d(f) = ∂f/∂x dx + ∂f/∂y dy + ∂f/∂z dz  ↔  gradient ∇f
+  d on 1-forms: d(F·dl) = (∇×F)·dA                        ↔  curl
+  d on 2-forms: d(F·dA) = (∇·F) dV                        ↔  divergence
+```
+
+The metric on R³ (the standard Euclidean inner product) is what the Hodge star ★
+uses to convert between k-forms and (3-k)-forms, allowing curl and divergence
+to be expressed as d in different degrees. On a general Riemannian manifold,
+the same exterior derivative d works, but the metric changes — this is why
+Maxwell's equations take the same coordinate-free form in curved spacetime.
 
 ---
 
@@ -394,16 +437,183 @@ pure gradient, and ∮ E·dl ≠ 0. This is Faraday's law.
 
 ---
 
+## Green's Theorem and Green's Identities
+
+Green's theorem is the 2D version of Stokes' theorem, and Green's identities
+are direct consequences of the divergence theorem that are foundational for
+PDE theory.
+
+**Green's theorem** (2D Stokes'):
+
+```
+  ∮_C (P dx + Q dy) = ∫∫_D (∂Q/∂x − ∂P/∂y) dA
+
+  where C is the boundary of region D in R²
+```
+
+**Green's first identity** (divergence theorem applied to u ∇v):
+
+```
+  ∫∫∫_V u ∇²v dV = ∮∮_S u (∇v)·dA − ∫∫∫_V ∇u·∇v dV
+```
+
+This is integration by parts for the Laplacian. It says: the Laplacian of v
+integrated against u equals the boundary flux term minus the "gradient
+interaction" term. Used to prove that harmonic functions satisfy the mean
+value property, and to derive weak formulations of Poisson's equation.
+
+**Green's second identity** (subtract the first with u and v exchanged):
+
+```
+  ∫∫∫_V (u ∇²v − v ∇²u) dV = ∮∮_S (u ∇v − v ∇u)·dA
+```
+
+This is the backbone of:
+- **Potential theory**: if ∇²u = 0 and ∇²v = 0 (both harmonic), then the
+  volume integral vanishes and the surface integrals are equal.
+- **Green's functions**: the fundamental solution G(r, r') to ∇²G = δ³(r−r')
+  is derived using Green's second identity. Once you have G, the solution to
+  ∇²u = f is u(r) = ∫ G(r,r') f(r') dV'.
+- **Boundary element method (BEM)**: Green's second identity lets you convert
+  a PDE over a volume into an integral equation on its boundary — reducing
+  3D problems to 2D surface calculations.
+- **Reciprocity theorems** in acoustics, EM, and elasticity: Green's second
+  identity applied to two solutions of the same PDE gives a relationship
+  between source and receiver that is symmetric in the two.
+
+**The Green's function connection**: the Dirac delta satisfies
+∇²G(r,r') = δ³(r−r'), whose fundamental solution in free space is:
+
+```
+  G(r,r') = −1/(4π |r−r'|)      (3D)
+  G(r,r') = (1/2π) ln|r−r'|    (2D)
+```
+
+Physically: G is the electric potential of a unit point charge. The superposition
+principle for electrostatics (∇²V = −ρ/ε₀) gives V(r) = (1/ε₀) ∫ G(r,r') ρ(r') dV'.
+
+---
+
+## De Rham Cohomology — Topology from Analysis
+
+The integral theorems have a topological shadow: the failure of a closed form
+to be exact detects holes in the domain.
+
+**Closed vs exact forms**:
+
+```
+  Closed form:  dω = 0     (zero exterior derivative)
+  Exact form:   ω = dη     (is itself an exterior derivative)
+
+  d²=0 means: every exact form is closed.
+  The converse — is every closed form exact? — depends on topology.
+```
+
+**De Rham cohomology** measures the failure:
+
+```
+  H^k_dR(M) = {closed k-forms} / {exact k-forms}
+             = ker(d: Ω^k → Ω^(k+1)) / im(d: Ω^(k-1) → Ω^k)
+
+  If H^k_dR(M) = 0: every closed k-form is exact
+  If H^k_dR(M) ≠ 0: there exist closed forms that are NOT exact
+                      → the domain has a topological obstruction
+```
+
+**What this means for line integrals and Stokes' theorem**:
+
+A vector field F with ∇×F = 0 (curl-free = closed 1-form) has path-independent
+line integrals iff F = ∇f (exact 1-form). The obstruction is H¹_dR of the domain:
+
+```
+  Simply connected domain (no holes): H¹_dR = 0 → every curl-free F = ∇f
+
+  Domain with a hole (e.g., R²\{0}):  H¹_dR ≅ R
+    The 1-form ω = (−y dx + x dy)/(x²+y²) has dω = 0 everywhere
+    but ∮_C ω = 2π for any loop C encircling the origin
+    → ω is closed but NOT exact; the hole makes F ≠ ∇f globally.
+```
+
+In E&M: the magnetic field around a long straight wire has ∇×B = 0 outside
+the wire but ∮ B·dl = μ₀I ≠ 0. The wire creates a topological hole in R³\{wire},
+and H¹ of that space is non-trivial. The integral form is globally defined even
+though no potential exists globally.
+
+**Higher cohomology**:
+
+```
+  H²_dR(M) ≠ 0: closed 2-forms (div-free vector fields) that aren't
+                  curls of 1-forms → detects enclosed 2D surfaces (voids)
+
+  Example: R³\{0} has H²_dR ≅ R, generated by the solid angle form
+           ω = r̂·dA / r². This is ∇·(r̂/r²) = 4πδ³(0) — the Coulomb field
+           has non-trivial second cohomology because of the point singularity.
+```
+
+**De Rham's theorem** (the payoff): H^k_dR(M) ≅ H^k(M; R) (singular cohomology
+with real coefficients). Analysis (differential forms, exterior derivative)
+gives the same topological invariants as algebraic topology. The integral
+theorems compute the pairing between homology classes (cycles) and cohomology
+classes (closed forms) — this is exactly the content of Stokes' theorem at
+the highest level.
+
+---
+
+## Connections
+
+**Complex analysis — Cauchy's theorem as 2D Stokes'.**
+In the complex plane, a holomorphic function f = u + iv satisfies the
+Cauchy-Riemann equations (which are simultaneously curl-free + divergence-free
+for the 2D vector field (u,v)). Stokes' theorem in 2D (Green's theorem) applied
+to holomorphic f gives:
+
+```
+  ∮_C f(z) dz = 0     for any simple closed curve C in a simply-connected
+                       domain where f is holomorphic (Cauchy's theorem)
+```
+
+If f has a singularity (pole) inside C, the cohomological obstruction is
+non-trivial and the integral equals 2πi × (residue at the pole) — the residue
+theorem. Every result in complex analysis that involves contour integrals is
+Stokes' theorem applied to the complex plane, with the Cauchy-Riemann equations
+encoding the holomorphic condition as a 1-form being closed.
+
+**Numerical methods — discrete divergence theorem.**
+Finite-volume methods for CFD discretize the divergence theorem directly:
+for each mesh cell, ∫∫∫ ∇·F dV = ∮∮ F·dA is enforced exactly by computing
+fluxes through cell faces. This conserves the diverged quantity (mass, momentum,
+energy) to machine precision regardless of cell size — the discrete analog of
+the theorem holds identically. The integral form is the natural home for
+conservation laws on irregular grids.
+
+**PDE theory — Green's functions.**
+The fundamental solution to ∇²G = δ is derived via the divergence theorem
+applied to a ball of radius ε centered at the source point, taking ε→0.
+Green's functions for elliptic, parabolic, and hyperbolic PDEs all use these
+integral identities as their derivation scaffolding. The heat kernel, wave
+kernel, and Coulomb kernel are all in this family.
+
+**Differential geometry — Stokes' theorem on manifolds.**
+The generalized Stokes' theorem ∫_M dω = ∫_{∂M} ω holds on any oriented
+compact smooth manifold with boundary. This is the foundation for characteristic
+classes (Chern-Weil theory), the Atiyah-Singer index theorem (which relates
+analytical data — dimension of solution spaces — to topological data — characteristic
+classes), and the Gauss-Bonnet theorem (∫_M K dA = 2πχ(M) for a surface).
+
+---
+
 ## Decision Cheat Sheet
 
-| You want to convert | Direction | Use |
-|---------------------|-----------|-----|
-| Volume integral of ∇·F | → surface integral | Divergence theorem |
-| Surface integral of ∇×F | → line integral | Stokes' theorem |
-| Line integral of ∇f | → endpoint values | Gradient theorem |
-| Differential Maxwell → integral | any | Both theorems |
-| Is ∮F·dl = 0? | check | Is ∇×F = 0? |
-| Is ∮∮F·dA = 0? | check | Is ∇·F = 0? |
+| You want to convert | Direction | Use | When valid |
+|---------------------|-----------|-----|------------|
+| Volume integral of ∇·F | → surface integral | Divergence theorem | F smooth on V∪S |
+| Surface integral of ∇×F | → line integral | Stokes' theorem | F smooth on S∪C |
+| Line integral of ∇f | → endpoint values | Gradient theorem | F = ∇f (conservative) |
+| Differential Maxwell → integral | any | Both theorems | — |
+| Is ∮F·dl = 0? | check | Is ∇×F = 0? | Only if domain simply connected |
+| Is ∮∮F·dA = 0? | check | Is ∇·F = 0? | Only if domain has no voids |
+| Solve ∇²u = f | → integral formula | Green's function | Fundamental solution known |
+| Is curl-free F a gradient? | check topology | H¹_dR(domain) = 0? | Yes iff no holes |
 
 ---
 
@@ -436,3 +646,8 @@ is not.
 Singularities (like the E field of a point charge at r = 0) require care.
 Gaussian surfaces are often chosen specifically to avoid singularities while
 still enclosing the charge that causes them.
+
+**"Closed" means two things — be careful.**
+A closed curve (∮) is one that loops back to its start. A closed form is one
+with dω = 0. A closed surface (∮∮) is one with no boundary. These are all
+distinct uses of "closed."

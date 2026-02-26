@@ -556,6 +556,304 @@ The full dictionary (building on module 08-QUANTUM-BRIDGE):
   [H, A] = 0 ↔ A conserved  (A commutes with Hamiltonian ↔ A is conserved)
 ```
 
+## 11. Numerical Linear Algebra
+
+The theoretical structures above have a direct computational implementation layer.
+
+```
+  THEORY → LAPACK/BLAS → NumPy/SciPy/PyTorch
+
+  BLAS (Basic Linear Algebra Subprograms):
+  Level 1: vector operations (dot products, norms, axpy: y ← αx + y)
+  Level 2: matrix-vector (gemv: y ← αAx + βy)
+  Level 3: matrix-matrix (gemm: C ← αAB + βC)  ← 90% of FLOPs in practice
+
+  LAPACK (Linear Algebra PACKage): built on BLAS
+  ├── Linear systems: gesv (LU+pivot), posv (Cholesky for SPD)
+  ├── Least squares:  gels (QR or SVD-based)
+  ├── Eigenvalues:    syev (symmetric), geev (general), heev (Hermitian)
+  └── SVD:           gesvd (full), gesdd (divide-and-conquer, faster)
+
+  numpy.linalg / scipy.linalg wrap LAPACK routines directly.
+  PyTorch and JAX expose the same LAPACK calls on CPU; cuBLAS on GPU.
+
+  BACKWARD STABILITY — why it matters:
+  ┌───────────────────────────────────────────────────────────────────┐
+  │  An algorithm is BACKWARD STABLE if the computed result is the   │
+  │  exact answer to a slightly perturbed problem.                    │
+  │                                                                   │
+  │  LU with partial pivoting: backward stable for most matrices,    │
+  │    but pathological cases exist (Wilkinson matrix)               │
+  │  QR (Householder): unconditionally backward stable for least sq. │
+  │  Normal equations AᵀAx = Aᵀb: condition number SQUARED → avoid  │
+  │                                                                   │
+  │  RULE: solve least squares via QR (scipy.linalg.lstsq uses it),  │
+  │  not via (AᵀA)⁻¹Aᵀ. The condition number of AᵀA = κ(A)².        │
+  └───────────────────────────────────────────────────────────────────┘
+
+  ITERATIVE METHODS for large sparse systems:
+  Direct methods (LU, Cholesky) scale as O(n³) — infeasible for n=10⁶.
+  Iterative methods build in the Krylov subspace K_m(A,b) = span{b, Ab, A²b, ...}
+
+  CONJUGATE GRADIENT (CG):
+  ├── Requires A symmetric positive definite
+  ├── Converges in at most n steps (exact arithmetic)
+  ├── In practice: converges in √κ(A) iterations (effective)
+  └── scipy.sparse.linalg.cg  /  torch.linalg utilities
+
+  GMRES (Generalized Minimal Residual):
+  ├── Works for any nonsingular A (non-symmetric)
+  ├── Minimizes ‖Ax_m - b‖ over K_m(A,b) at each step
+  ├── Requires a preconditioner M ≈ A⁻¹ to converge fast in practice
+  └── scipy.sparse.linalg.gmres
+
+  EIGENVALUE ALGORITHMS:
+  Characteristic polynomial approach (det(A-λI)=0) is numerically
+  catastrophic for n>3: roots of polynomials are hypersensitive to
+  coefficient perturbations (Wilkinson 1959).
+  Instead:
+  ├── QR iteration: produces Schur form A = QTQ* (upper triangular T)
+  │   Eigenvalues appear on diagonal of T. This is what eig() uses.
+  ├── Symmetric matrices: Divide-and-conquer or bisection (fast, stable)
+  └── Large sparse: Lanczos (symmetric) / Arnoldi (general) — projects
+      onto Krylov subspace, extracts Ritz approximations to eigenvalues
+      scipy.sparse.linalg.eigs  /  torch.lobpcg
+
+  WHEN TO USE WHAT:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  Dense n×n, n < 10⁴:      LAPACK (direct)  — numpy.linalg      │
+  │  SPD system:               Cholesky (2× faster than LU)         │
+  │  Least squares:            QR via lstsq (never normal equations) │
+  │  Large sparse Ax=b:        CG (SPD) or GMRES (general)          │
+  │  Large sparse eigenvalues: Lanczos (sym) or Arnoldi (general)   │
+  │  Low-rank approx:          Randomized SVD (see §11.5 below)      │
+  └──────────────────────────────────────────────────────────────────┘
+```
+
+### 6.5 SVD in Transformers and LLMs
+
+```
+  ATTENTION IS SCALED DOT-PRODUCT + WEIGHTED SUM:
+
+  Attention(Q,K,V) = softmax(QKᵀ/√d) · V
+
+  Q = XW_Q,  K = XW_K,  V = XW_V   (linear projections of input X)
+
+  ├── QKᵀ is a matrix of dot-products (inner products) between queries
+  │   and keys — exactly the bilinear form structure from §3.1.
+  ├── Dividing by √d stabilizes the softmax (controls the scale of the
+  │   inner products — same condition number concern as before).
+  ├── The output is a weighted linear combination of value vectors.
+  │   Each attention head computes a rank-d projection of the sequence.
+  └── Multi-head attention = several parallel low-rank projections
+      concatenated → richer subspace coverage.
+
+  SVD ANALYSIS OF WEIGHT MATRICES:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  A weight matrix W ∈ M_{m×n} has SVD W = UΣVᵀ.                 │
+  │  The singular value spectrum σ₁ ≥ σ₂ ≥ ... reveals:            │
+  │  ├── Effective rank: how many singular values are non-negligible │
+  │  ├── Information compression: top-k singular vectors span the   │
+  │  │   "important" subspace for that layer                        │
+  │  └── Stability: κ(W) = σ₁/σₙ — high = numerically sensitive    │
+  └──────────────────────────────────────────────────────────────────┘
+
+  LOW-RANK ADAPTATION (LoRA) — fine-tuning large models:
+  Idea: freeze pretrained W₀, fine-tune only a low-rank update ΔW = AB
+  where A ∈ M_{m×r}, B ∈ M_{r×n}, r << min(m,n).
+
+  W_fine-tuned = W₀ + AB   (AB has rank ≤ r)
+
+  ├── Storage: m·n parameters → (m+n)·r  (e.g., r=4 out of n=4096)
+  ├── Theory: hypothesis that weight updates during fine-tuning have
+  │   low intrinsic rank (supported empirically by SVD analysis)
+  └── This is Eckart-Young (§6.3) applied to parameter-efficient ML:
+      the update ΔW is approximated by its best rank-r matrix.
+
+  EMBEDDING GEOMETRY AND SVD:
+  Word/token embeddings lie in ℝ^d (d=768, 1024, etc.)
+  Key geometric properties (measurable via SVD of the embedding matrix):
+  ├── Anisotropy: singular values drop sharply → directions are
+  │   not uniformly used (degenerate geometry)
+  ├── Semantic directions: linear analogies (king-man+woman≈queen)
+  │   correspond to 1D subspaces in the singular vector basis
+  └── Isotropy regularization (e.g., in BERT fine-tuning) = equalizing
+      singular values to improve representation uniformity
+```
+
+## 12. Jordan Normal Form
+
+When geometric multiplicity < algebraic multiplicity, diagonalization fails.
+The Jordan form is the canonical answer.
+
+```
+  A DEFECTIVE MATRIX has an eigenvalue λ where dim N(A-λI) < algebraic mult.
+  Example: A = [0 1; 0 0] has λ=0 (mult 2) but eigenspace = span{(1,0)} (dim 1).
+
+  NILPOTENT MATRICES: N^k = 0 for some k, all eigenvalues 0.
+  The prototype: N = [0 1 0; 0 0 1; 0 0 0]  ("shift matrix")
+  N¹ ≠ 0, N² ≠ 0, N³ = 0.
+
+  JORDAN BLOCK of size k for eigenvalue λ:
+        ┌ λ 1 0 ··· 0 ┐
+        │ 0 λ 1 ··· 0 │
+  Jₖ(λ)=│ 0 0 λ ··· 0 │ = λI + N  (scalar + nilpotent)
+        │ ··  ·· ··   │
+        └ 0 0 0 ··· λ ┘
+
+  JORDAN DECOMPOSITION: A = PJP⁻¹
+  J = block diagonal: J = diag(Jₖ₁(λ₁), Jₖ₂(λ₂), ..., Jₖₘ(λₘ))
+  Always exists over ℂ (and ℝ if all eigenvalues real).
+
+  NUMBER OF JORDAN BLOCKS for eigenvalue λ = geometric multiplicity dim N(A-λI)
+  SIZE of largest block = index of λ (smallest k with N(A-λI)^k = N(A-λI)^(k+1))
+
+  EXAMPLE: A = [3 1 0; 0 3 1; 0 0 3]  (λ=3 with mult 3)
+  Eigenspace N(A-3I): one-dimensional → 3 algebraic, 1 geometric
+  Jordan form: one 3×3 block J₃(3) — the "maximally defective" case.
+
+  WHY IT MATTERS FOR ODEs (connection to §3.1 of 07-DIFFEQ):
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  System ẋ = Ax:  x(t) = e^(At) x(0)                            │
+  │  If A = P·J·P⁻¹:  e^(At) = P·e^(Jt)·P⁻¹                      │
+  │                                                                  │
+  │  For a Jordan block Jₖ(λ) = λI + N:                            │
+  │  e^(Jₖ(λ)t) = e^(λt) · e^(Nt)                                  │
+  │             = e^(λt) · (I + Nt + N²t²/2! + ... + Nᵏ⁻¹tᵏ⁻¹/(k-1)!)
+  │             (series terminates because Nᵏ=0)                    │
+  │                                                                  │
+  │  Result: solutions contain terms  tʲ e^(λt) for j=0,1,...,k-1  │
+  │  This is why repeated eigenvalues produce "polynomial × exponential"│
+  │  solutions — the xe^(λx) term in ODE theory is Jordan structure! │
+  └──────────────────────────────────────────────────────────────────┘
+
+  Aᵏ BEHAVIOR FROM JORDAN STRUCTURE:
+  ├── All eigenvalues |λ| < 1: Aᵏ → 0 (stable)
+  ├── Any |λ| > 1: Aᵏ diverges (unstable)
+  ├── |λ| = 1, Jordan block size 1: Aᵏ bounded (oscillates)
+  └── |λ| = 1, Jordan block size > 1: Aᵏ grows as kʲ (polynomial growth)
+      This is the subtle case: eigenvalues on the unit circle but defective
+      → Markov chains, resonance, power iteration near convergence.
+
+  GENERALIZED EIGENVECTORS:
+  If (A-λI)v = 0: ordinary eigenvector
+  If (A-λI)²v = 0 but (A-λI)v ≠ 0: generalized eigenvector of rank 2
+  If (A-λI)^k v = 0 but (A-λI)^(k-1)v ≠ 0: rank k
+  These fill out the Jordan basis.
+  Chain: vₖ → vₖ₋₁ = (A-λI)vₖ → ... → v₁ = eigenvector.
+```
+
+## 13. Spectral Theory in Infinite Dimensions
+
+The finite-dimensional spectral theorem generalizes to Hilbert spaces, but with
+essential new phenomena that don't exist in finite dimensions.
+
+```
+  HILBERT SPACE H: complete inner product space (ℝⁿ and ℂⁿ are the finite cases)
+  L²(ℝ): square-integrable functions, ⟨f,g⟩ = ∫f*g dx — the QM state space.
+
+  BOUNDED OPERATORS: T: H → H with ‖Tx‖ ≤ C‖x‖ for some C.
+  ‖T‖ = sup_{‖x‖=1} ‖Tx‖ (operator norm — finite iff T bounded).
+
+  UNBOUNDED OPERATORS (essential for QM):
+  Domain is a dense subspace, not all of H.
+  Example: d/dx on L²(ℝ) is unbounded: sin(nx) has ‖sin(nx)‖=1 but ‖(sin(nx))'‖=n.
+  Momentum p̂ = -iℏd/dx, Hamiltonian Ĥ = -ℏ²/2m d²/dx² are both unbounded.
+  This is why QM operators require careful domain specification (self-adjointness ≠ just symmetric).
+
+  THE SPECTRUM (replaces "eigenvalues"):
+  For T: H → H, the SPECTRUM σ(T) = {λ ∈ ℂ | (T - λI) is not invertible}
+
+  Three disjoint types:
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  POINT SPECTRUM σₚ(T): (T-λI) not injective → eigenvalues         │
+  │  Tx = λx for some x ≠ 0.  Same as finite-dim eigenvalues.         │
+  │  Example: H = -ℏ²/2m d²/dx² + V(x)                               │
+  │  Bound states: discrete energy levels ∈ σₚ(H)                     │
+  │                                                                     │
+  │  CONTINUOUS SPECTRUM σ_c(T): (T-λI) injective but not surjective  │
+  │  and range is dense. No eigenvector exists, but "approximate        │
+  │  eigenvectors" exist: ‖Txₙ - λxₙ‖→0 with ‖xₙ‖=1.               │
+  │  Example: free particle momentum p̂ on L²(ℝ)                      │
+  │  "Eigenfunctions" e^(ikx) are not in L² — they're distributions.  │
+  │  Scattering states, continuous spectrum = physical continuum.      │
+  │                                                                     │
+  │  RESIDUAL SPECTRUM σ_r(T): (T-λI) injective, range not dense.     │
+  │  Doesn't occur for self-adjoint operators — purely a curiosity     │
+  │  for asymmetric operators.                                          │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  SPECTRAL THEOREM FOR SELF-ADJOINT OPERATORS (the rigorous QM foundation):
+  If T is self-adjoint (T = T†, with proper domain), then:
+
+  T = ∫ λ dE(λ)    (spectral integral — the continuous analog of Σ λᵢ Pᵢ)
+
+  where E(λ) is the SPECTRAL MEASURE (projection-valued measure).
+  ├── For pure point spectrum: E(λ) = Σ_{λᵢ≤λ} |ψᵢ⟩⟨ψᵢ| — reduces to §5
+  ├── For continuous spectrum: E(λ) is a projection onto {Hψ ≤ λ states}
+  └── QM: ⟨ψ|E(λ)|ψ⟩ = probability that measurement gives value ≤ λ
+
+  COMPACT OPERATORS (best-behaved infinite-dim case):
+  T compact ↔ T maps bounded sets to precompact sets.
+  Spectral theorem for compact self-adjoint operators:
+  ├── Spectrum = {0} ∪ {discrete eigenvalues accumulating only at 0}
+  ├── Eigenvectors form an orthonormal basis for (ker T)⊥
+  └── Hilbert-Schmidt operators (integral operators ∫k(x,y)f(y)dy with ∫∫|k|²<∞)
+      are compact: this is why Sturm-Liouville problems have discrete spectra.
+
+  PHYSICS SUMMARY:
+  Discrete energy levels (bound states)   ↔  point spectrum
+  Continuous energy levels (scattering)   ↔  continuous spectrum
+  Energy not measured exactly possible    ↔  spectral measure E(λ)
+```
+
+### 11.5 Randomized Linear Algebra
+
+```
+  PROBLEM: Exact SVD of an m×n matrix costs O(mn·min(m,n)) FLOPs.
+  For n = 10⁶ (large embeddings, genomics, recommender systems): infeasible.
+  Randomized algorithms compute a rank-k approximation in O(mn log k + k²(m+n)).
+
+  JOHNSON-LINDENSTRAUSS LEMMA (the theoretical foundation):
+  For any set of N points in ℝᵈ and ε ∈ (0,1):
+  ∃ linear map f: ℝᵈ → ℝᵏ  with  k = O(log N / ε²)  such that:
+  (1-ε)‖x-y‖² ≤ ‖f(x)-f(y)‖² ≤ (1+ε)‖x-y‖²
+
+  A RANDOM Gaussian matrix satisfies this with high probability.
+  Consequence: distances are preserved under random projection into far
+  lower dimensions. k ≈ 20·log N suffices — independent of d!
+  This is the mathematical justification for random projections in ML.
+
+  RANDOMIZED SVD (Halko-Martinsson-Tropp 2011):
+  Goal: compute rank-k approximation Aₖ = UₖΣₖVₖᵀ.
+
+  Algorithm:
+  1. Draw Gaussian random matrix Ω ∈ M_{n×(k+p)}  (p = oversampling, e.g. 10)
+  2. Form Y = AΩ  (a "sketch" of the column space)
+  3. Compute Q via QR: Y = QR  (Q ∈ M_{m×(k+p)}, orthonormal cols)
+  4. Project: B = QᵀA  (B ∈ M_{(k+p)×n}, much smaller)
+  5. SVD of B: B = ŨΣVᵀ  (cheap — small matrix)
+  6. Recover: U = QŨ
+
+  ├── Error: ‖A - Aₖ‖ ≈ σₖ₊₁ (near-optimal, equals Eckart-Young bound)
+  ├── Two passes through A are enough for most applications
+  ├── Parallelizes naturally (AΩ = matrix-matrix multiply → Level 3 BLAS)
+  └── This is what sklearn.decomposition.TruncatedSVD uses internally
+
+  SKETCHING — the general framework:
+  Replace large Ax = b with SAx = Sb where S ∈ M_{k×m} is a random matrix.
+  ├── Gaussian sketches: S_{ij} ~ N(0,1/k) — JL guarantees preserve geometry
+  ├── CountSketch: S has exactly one nonzero ±1 per column — O(nnz(A)) time
+  ├── SRHT (subsampled randomized Hadamard transform): O(n log n) — FFT-based
+  └── For overdetermined least squares: sketch reduces m×n to k×n (k ≈ 4n)
+      Approximate solution within (1+ε) of optimal with k = O(n/ε²).
+
+  IN PRACTICE:
+  sklearn.utils.extmath.randomized_svd  — Halko-Martinsson-Tropp
+  torch.svd_lowrank(A, q=k)            — randomized SVD
+  scipy.sparse.linalg.svds             — Lanczos/Arnoldi for sparse
+```
+
 ---
 
 ## Decision Cheat Sheet

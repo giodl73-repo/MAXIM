@@ -1,0 +1,289 @@
+# Editorial Review Log
+
+Track which directories have been swept for `@editor` tags and which have graduated to clean status. Complements `TRACKER.md` (content completion) — this tracks quality.
+
+**Live tag count:** `grep -rc "@editor" . --include="*.md" | grep -v ":0" | sort -t: -k2 -rn`
+
+---
+
+## Status Key
+
+| Symbol | Meaning |
+|--------|---------|
+| `—` | Not swept |
+| `swept` | Tags injected, issues pending |
+| `clean` | All tags resolved — graduated |
+
+Only ✅ complete directories are listed. Stub directories (Batches 11–13) are omitted — review after content is written.
+
+---
+
+## Computing & Software
+
+| Directory | Files | Swept | Clean | Notes |
+|-----------|------:|-------|-------|-------|
+| `computing/` | 28 | 2026-02 | 2026-02 | 129 tags → 0 |
+| `ai-engineering/` | 5 | 2026-02 | 2026-02 | 16 tags → 0 |
+| `data-science/` | 17 | 2026-02 | 2026-02 | 27 tags → 0 |
+| `languages/` | 19 | 2026-02 | 2026-02 | 45 tags → 0; pilot section |
+| `query-languages/` | 13 | 2026-02 | 2026-02 | 84 tags → 0 |
+| `scripting/` | 10 | 2026-02 | 2026-02 | 56 tags → 0 |
+| `os/` | 8 | 2026-02 | 2026-02 | 34 tags → 0 |
+| `cryptography/` | 6 | 2026-02 | 2026-02 | 21 tags → 0 |
+| `computer-architecture/` | 10 | 2026-02 | 2026-02 | 8 tags → 0 |
+| `machine-learning-theory/` | 10 | 2026-02 | 2026-02 | 32 tags → 0 |
+
+---
+
+## Mathematics & Physics
+
+| Directory | Files | Swept | Clean | Notes |
+|-----------|------:|-------|-------|-------|
+| `mathematics/` | 24 | 2026-02 | — | 122 tags → pending |
+| `physics/` | 10 | — | — | |
+| `electronics/` | 8 | — | — | |
+| `materials/` | 7 | — | — | |
+| `quantum-computing/` | 5 | — | — | |
+| `control-theory/` | 5 | — | — | |
+| `information-theory/` | 5 | — | — | |
+| `signal-processing/` | 11 | — | — | |
+| `number-theory/` | 11 | — | — | |
+| `abstract-algebra/` | 11 | — | — | |
+| `topology/` | 11 | — | — | |
+| `probability-statistics/` | 10 | — | — | |
+| `differential-geometry/` | 10 | — | — | |
+| `numerical-methods/` | 10 | — | — | |
+| `complex-analysis/` | 10 | — | — | |
+| `fluid-dynamics/` | 10 | — | — | |
+| `statistical-mechanics/` | 10 | — | — | |
+| `partial-differential-equations/` | 10 | — | — | |
+| `variational-calculus/` | 10 | — | — | |
+| `lie-groups/` | 10 | — | — | |
+
+---
+
+## Mechanics
+
+| Directory | Files | Swept | Clean | Notes |
+|-----------|------:|-------|-------|-------|
+| `mechanical/` | 6 | — | — | |
+| `structural/` | 5 | — | — | |
+| `aeronautics/` | 6 | — | — | |
+| `chemical-eng/` | 6 | — | — | |
+| `nuclear/` | 6 | — | — | |
+| `energy-systems/` | 8 | — | — | |
+| `electrical-grid/` | 11 | — | — | |
+| `hvac/` | 10 | — | — | |
+| `plumbing/` | 10 | — | — | |
+| `construction-materials/` | 10 | — | — | |
+| `acoustics/` | 11 | — | — | |
+| `optics/` | 8 | — | — | |
+| `transportation/` | 9 | — | — | |
+| `manufacturing/` | 10 | — | — | |
+
+---
+
+## Technology
+
+| Directory | Files | Swept | Clean | Notes |
+|-----------|------:|-------|-------|-------|
+| `semiconductor-manufacturing/` | 11 | — | — | |
+| `telecommunications/` | 12 | — | — | |
+| `robotics/` | 10 | — | — | |
+| `biomedical-engineering/` | 9 | — | — | |
+| `formal-methods/` | 7 | — | — | |
+| `systems-engineering/` | 10 | — | — | |
+| `urban-planning/` | 7 | — | — | |
+| `environmental-engineering/` | 7 | — | — | |
+| `materials-processing/` | 10 | — | — | |
+
+---
+
+## Life Sciences
+
+| Directory | Files | Swept | Clean | Notes |
+|-----------|------:|-------|-------|-------|
+| `natural-sciences/` | 18 | — | — | |
+| `biology/` | 7 | — | — | |
+| `botany/` | 10 | — | — | |
+| `ecology/` | 11 | — | — | |
+| `human-biology/` | 11 | — | — | |
+| `neuroscience/` | 5 | — | — | |
+| `cognitive-science/` | 10 | — | — | |
+| `disease/` | 11 | — | — | |
+| `medicine/` | 11 | — | — | |
+| `nutrition/` | 10 | — | — | |
+| `genomics/` | 10 | — | — | |
+| `immunology/` | 10 | — | — | |
+| `microbiology/` | 10 | — | — | |
+| `evolutionary-biology/` | 10 | — | — | |
+| `virology/` | 10 | — | — | |
+| `biophysics/` | 10 | — | — | |
+| `pharmacology/` | 10 | — | — | |
+| `developmental-biology/` | 10 | — | — | |
+
+---
+
+## Earth & Space
+
+| Directory | Files | Swept | Clean | Notes |
+|-----------|------:|-------|-------|-------|
+| `astronomy/` | 12 | — | — | |
+| `geography/` | 8 | — | — | |
+| `geology/` | 12 | — | — | |
+| `meteorology/` | 11 | — | — | |
+| `climate-science/` | 7 | — | — | |
+| `oceanography/` | 12 | — | — | |
+| `hydrology/` | 10 | — | — | |
+| `paleontology/` | 11 | — | — | |
+| `agriculture/` | 11 | — | — | |
+| `mineralogy/` | 10 | — | — | |
+| `planetary-science/` | 10 | — | — | |
+| `geochemistry/` | 10 | — | — | |
+| `space-exploration/` | 10 | — | — | |
+| `astrobiology/` | 10 | — | — | |
+
+---
+
+## History & Ideas
+
+| Directory | Files | Swept | Clean | Notes |
+|-----------|------:|-------|-------|-------|
+| `historical-geography/` | 18 | — | — | |
+| `history-of-science/` | 10 | — | — | |
+| `economic-history/` | 10 | — | — | |
+| `military-history/` | 11 | — | — | |
+| `anthropology/` | 9 | — | — | |
+| `philosophy/` | 7 | — | — | |
+| `mythology/` | 12 | — | — | |
+| `religious-studies/` | 8 | — | — | |
+| `archaeology/` | 10 | — | — | |
+| `logic/` | 10 | — | — | |
+| `intellectual-history/` | 10 | — | — | |
+| `social-history/` | 10 | — | — | |
+| `political-history/` | 10 | — | — | |
+| `philosophy-of-mind/` | 10 | — | — | |
+| `ethics/` | 10 | — | — | |
+
+---
+
+## Social Sciences
+
+| Directory | Files | Swept | Clean | Notes |
+|-----------|------:|-------|-------|-------|
+| `economics/` | 5 | — | — | |
+| `finance/` | 5 | — | — | |
+| `behavioral-economics/` | 11 | — | — | |
+| `political-science/` | 7 | — | — | |
+| `law/` | 8 | — | — | |
+| `psychology/` | 7 | — | — | |
+| `sociology/` | 10 | — | — | |
+| `organizational-behavior/` | 7 | — | — | |
+| `game-theory/` | 6 | — | — | |
+| `statistics-applied/` | 6 | — | — | |
+| `public-health/` | 11 | — | — | |
+| `demography/` | 10 | — | — | |
+| `criminology/` | 10 | — | — | |
+| `media-studies/` | 10 | — | — | |
+| `education/` | 10 | — | — | |
+| `international-relations/` | 10 | — | — | |
+
+---
+
+## Language & Communication
+
+| Directory | Files | Swept | Clean | Notes |
+|-----------|------:|-------|-------|-------|
+| `linguistics/` | 10 | — | — | |
+| `world-languages/` | 15 | — | — | |
+| `codes/` | 10 | — | — | |
+| `typography/` | 12 | — | — | |
+| `printing-publishing/` | 10 | — | — | |
+| `cinema-film/` | 11 | — | — | |
+| `radio-television/` | 10 | — | — | |
+| `literature/` | 10 | — | — | |
+| `rhetoric/` | 10 | — | — | |
+| `philosophy-of-language/` | 10 | — | — | |
+| `semiotics/` | 10 | — | — | |
+| `translation/` | 10 | — | — | |
+
+---
+
+## Arts & Culture
+
+| Directory | Files | Swept | Clean | Notes |
+|-----------|------:|-------|-------|-------|
+| `art-history/` | 12 | — | — | |
+| `architecture-history/` | 10 | — | — | |
+| `architecture/` | 8 | — | — | |
+| `music-theory/` | 10 | — | — | |
+| `photography/` | 10 | — | — | |
+| `colors/` | 10 | — | — | |
+| `cartography/` | 12 | — | — | |
+| `games-history/` | 10 | — | — | |
+| `sports-history/` | 10 | — | — | |
+| `watchmaking/` | 10 | — | — | |
+| `theater-performance/` | 10 | — | — | |
+| `dance/` | 10 | — | — | |
+| `industrial-design/` | 10 | — | — | |
+| `graphic-design/` | 10 | — | — | |
+| `fashion/` | 10 | — | — | |
+| `comics-sequential-art/` | 10 | — | — | |
+| `sports-science/` | 10 | — | — | |
+
+---
+
+## Material Culture
+
+| Directory | Files | Swept | Clean | Notes |
+|-----------|------:|-------|-------|-------|
+| `pigments/` | 11 | — | — | |
+| `coatings/` | 10 | — | — | |
+| `textiles/` | 14 | — | — | |
+| `ceramics/` | 11 | — | — | |
+| `glassmaking/` | 11 | — | — | |
+| `jewelry/` | 11 | — | — | |
+| `metalworking/` | 10 | — | — | |
+| `plastics-polymers/` | 10 | — | — | |
+| `papermaking/` | 10 | — | — | |
+| `composite-materials/` | 10 | — | — | |
+| `furniture/` | 10 | — | — | |
+
+---
+
+## Natural World
+
+| Directory | Files | Swept | Clean | Notes |
+|-----------|------:|-------|-------|-------|
+| `periodic-table/` | 12 | — | — | |
+| `animal-phylogeny/` | 13 | — | — | |
+| `spices/` | 11 | — | — | |
+| `food-plants/` | 10 | — | — | |
+| `culinary-history/` | 10 | — | — | |
+| `fermentation-spirits/` | 10 | — | — | |
+| `mycology/` | 10 | — | — | |
+| `marine-biology/` | 10 | — | — | |
+| `entomology/` | 10 | — | — | |
+| `ornithology/` | 10 | — | — | |
+| `zoology/` | 10 | — | — | |
+| `horticulture/` | 10 | — | — | |
+
+---
+
+## Summary
+
+| Section | Dirs | Clean | Swept | Pending |
+|---------|-----:|------:|------:|--------:|
+| Computing & Software | 10 | 10 | 9 | 0 |
+| Mathematics & Physics | 20 | 0 | 0 | 20 |
+| Mechanics | 14 | 0 | 0 | 14 |
+| Technology | 9 | 0 | 0 | 9 |
+| Life Sciences | 18 | 0 | 0 | 18 |
+| Earth & Space | 14 | 0 | 0 | 14 |
+| History & Ideas | 15 | 0 | 0 | 15 |
+| Social Sciences | 16 | 0 | 0 | 16 |
+| Language & Communication | 12 | 0 | 0 | 12 |
+| Arts & Culture | 17 | 0 | 0 | 17 |
+| Material Culture | 11 | 0 | 0 | 11 |
+| Natural World | 12 | 0 | 0 | 12 |
+| **Total** | **168** | **10** | **9** | **149** |

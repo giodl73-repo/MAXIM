@@ -102,6 +102,8 @@ Cov(θ̂) ≥ I(θ)⁻¹   [matrix inequality: Cov - I⁻¹ is positive semidefi
 - Complete statistic: E[g(T)] = 0 for all θ implies g = 0 a.e. Rules out other unbiased estimators.
 - Exponential family members have complete sufficient statistics (natural parameters).
 
+<!-- @editor[content/P2]: Missing exponential family theory beyond the mention here — the exponential family (canonical form, natural parameter, cumulant generating function b(η)) underlies both MLE theory and GLMs. Specifically: the connection between natural parameter, mean parameter, and sufficient statistic; the fact that log-partition function b(η) generates cumulants; and the information-geometric structure (Fisher metric on the manifold of exponential family distributions). This unifies MLE, GLMs, and information theory. -->
+
 ### MAP Estimation (Bayesian Point Estimate)
 
 ```
@@ -202,6 +204,8 @@ Significance: p < 0.05 → reject at 5% level. Convention, not a law.
 ```
 This is the UMP (Uniformly Most Powerful) test for simple hypotheses.
 
+<!-- @editor[content/P2]: Missing UMP tests for composite alternatives — the one-sided t-test is UMP among all level-α tests for the normal mean (via the Karlin-Rubin theorem and monotone likelihood ratio). Also missing: uniformly most powerful unbiased (UMPU) tests. The theoretical machinery for constructing optimal tests is the payoff for the Neyman-Pearson framework and is absent here. -->
+
 ### Common Tests
 
 | Test | Hypotheses | Statistic | Assumptions |
@@ -249,6 +253,8 @@ Benjamini-Hochberg (FDR control): controls false discovery RATE, not FWER.
 ```
 
 **Why p-hacking inflates false positive rate**: If you test 20 hypotheses at α=0.05 and all are null, you expect 1 false positive. Reporting only significant result → 100% false discovery rate.
+
+<!-- @editor[bridge/P2]: Missing connection between multiple testing and ML model selection — hyperparameter search over k configurations is equivalent to k hypothesis tests. Early stopping via train/validation split is the statistical remedy. The "significance" of a reported benchmark improvement should be evaluated with multiple comparison corrections, which the ML community routinely ignores. The statistical interpretation of train/val/test split protocol maps directly onto the FWER problem. -->
 
 ---
 
@@ -335,6 +341,8 @@ Elastic Net: λ₁||β||₁ + λ₂||β||² — combines LASSO sparsity with rid
 Cross-validation for λ: k-fold CV to choose λ minimizing out-of-sample error.
 ```
 
+<!-- @editor[bridge/P2]: Missing the statistical learning theory perspective on regularization — bias-variance tradeoff as function of λ, the degrees of freedom of ridge (df(λ) = tr(H_λ) where H_λ = X(X'X+λI)⁻¹X'), the connection between ridge shrinkage and PCA (ridge keeps all principal components but shrinks small ones), and the double descent phenomenon — modern overparameterized models (p >> n) exhibit a second descent in test error. This last point is the key bridge between classical statistics and modern ML. -->
+
 ### Collinearity and Subset Selection
 
 **Best subset selection**: O(2^p). Not practical for p > 30.
@@ -420,6 +428,8 @@ Overdispersion: Var(Y) > E[Y] (data more variable than Poisson assumes).
   Check: deviance/df >> 1.
   Fixes: quasi-Poisson (scale dispersion parameter), Negative Binomial regression.
 ```
+
+<!-- @editor[content/P2]: Missing survival analysis — a major statistical domain absent from this guide. Censored outcomes (time-to-event data), Kaplan-Meier estimator, log-rank test, Cox proportional hazards model (semi-parametric, no baseline hazard specified), hazard ratios. This is standard graduate statistics and appears in clinical trials, reliability engineering, and churn modeling. -->
 
 ---
 
@@ -517,6 +527,8 @@ Classic: Efron-Morris (1975) "Stein's paradox": estimating 7+ group means simult
   shrinkage estimators dominate MLE by MSE — James-Stein estimator.
 ```
 
+<!-- @editor[bridge/P2]: Missing Bayes factors and model comparison — the Bayesian alternative to AIC/BIC. B₁₂ = p(X|M₁)/p(X|M₂) = ratio of marginal likelihoods. Interpretive scale (Jeffreys). The marginal likelihood p(X|M) = ∫p(X|θ,M)p(θ|M)dθ is the evidence for the model. This is the proper Bayesian answer to model selection and connects back to MDL and information theory. -->
+
 ### MCMC (Markov Chain Monte Carlo)
 
 When posterior has no closed form:
@@ -593,6 +605,8 @@ Difference-in-differences (DiD):
   ATT = (Ȳ_{treated,post} - Ȳ_{treated,pre}) - (Ȳ_{control,post} - Ȳ_{control,pre})
   Requires parallel trends assumption.
 ```
+
+<!-- @editor[bridge/P2]: Missing the connection between causal inference and ML — do-calculus (Pearl's interventional calculus), DAG-based identifiability, and the modern intersection with machine learning in "double machine learning" (Chernozhukov et al.) which uses ML estimators for nuisance parameters in causal estimation. Also: propensity score methods (inverse probability weighting) for observational causal inference. -->
 
 ---
 

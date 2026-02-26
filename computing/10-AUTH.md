@@ -35,6 +35,52 @@ Auth has two distinct problems that are often conflated. Get the distinction cle
 
 **Bridge from .NET**: You know this domain from the server side — Windows Auth, ADFS, Azure AD, Claims Identity, `[Authorize]`, WCF WS-Security. The concepts are identical. The protocols (OAuth2, OIDC, JWT) are the open standards that replaced proprietary Microsoft stack — and that Microsoft itself adopted. Entra ID IS an OIDC provider.
 
+### Kerberos / NTLM → OAuth2 / OIDC Bridge
+
+OAuth2's authorization code flow is architecturally isomorphic to Kerberos. The mental model transfers directly:
+
+```
+  KERBEROS (Windows Auth)          OAuth2 AUTHORIZATION CODE FLOW
+  -----------------------          ------------------------------
+  Client authenticates to KDC      User redirects to Authorization Server
+  (Key Distribution Center)        (Google, GitHub, Azure Entra)
+
+  KDC issues Ticket-Granting       Auth Server issues authorization code
+  Ticket (TGT) — short-lived,      — short-lived, single-use,
+  cryptographically signed         cryptographically bound (PKCE)
+
+  Client presents TGT to KDC       Client exchanges auth code at
+  to request Service Ticket        token endpoint for access_token
+  for a specific resource
+
+  Client presents Service Ticket   Client presents access_token in
+  to Resource Server               Authorization: Bearer header
+  (e.g., file server)              to Resource Server (API)
+
+  Resource Server verifies         Resource Server verifies JWT
+  ticket with KDC (or locally      signature (no network call for
+  if it has the session key)       RS256 — just verifies with public key)
+
+  KEY STRUCTURAL SIMILARITY:
+  Both involve a trusted third party (KDC / Auth Server).
+  Both issue short-lived tickets/tokens that prove identity.
+  Both let resource servers verify without storing credentials.
+  Both support delegation (service-to-service).
+
+  KEY DIFFERENCES:
+  Kerberos is intranet-only (requires KDC reachability).
+  OAuth2 is cross-domain by design — works over the public internet.
+  Kerberos tickets are binary, encrypted, Kerberos-specific.
+  OAuth2 tokens are JWTs — base64 JSON, signed, human-readable.
+  PKCE replaces Kerberos's session key exchange for public clients.
+  OAuth2 has explicit consent model; Kerberos is transparent (SSO).
+
+  NTLM is a different lineage entirely — challenge-response, no
+  redirect, no third party, connection-based. There is no modern
+  web equivalent; OAuth2/OIDC descends from the Kerberos model
+  (trusted third-party ticket), not NTLM.
+```
+
 ---
 
 ## Sessions vs Tokens — The Fundamental Choice
@@ -246,10 +292,10 @@ The correct flow for web and mobile apps.
        &code_challenge=abc123
        &code_challenge_method=S256
 
-                        3. User logs in, consents to scopes
+                      3. User logs in, consents to scopes
 
-                        4. Auth server redirects to callback:
-                           /callback?code=AUTH_CODE
+                      4. Auth server redirects to callback:
+                         /callback?code=AUTH_CODE
 
   5. Exchange code for tokens (server-to-server):
      POST /token
@@ -257,9 +303,45 @@ The correct flow for web and mobile apps.
        code_verifier=ORIGINAL_VERIFIER  ← proves you started flow
        client_secret=YOUR_SECRET
 
-                        6. Returns: { access_token, refresh_token, id_token }
+                      6. Returns: { access_token, refresh_token, id_token }
 
   7. Store tokens. User is authenticated.
+```
+
+**Why PKCE exists — the threat model**: PKCE (Proof Key for Code Exchange, RFC 7636) was designed to prevent authorization code interception attacks. Without PKCE:
+
+```
+  WITHOUT PKCE:
+  Attacker registers a malicious app with the same redirect_uri,
+  or intercepts the redirect at the OS level (mobile deep link hijack).
+
+  Auth server sends:  /callback?code=AUTH_CODE
+  Attacker intercepts: gets AUTH_CODE
+  Attacker POSTs:      /token { code: AUTH_CODE, client_id: ... }
+  Auth server:         ✓ valid code → issues access_token to attacker
+
+  The auth code alone is enough to get tokens.
+
+  WITH PKCE:
+  1. Legitimate client generates code_verifier (random, ≥43 chars)
+     and sends code_challenge = SHA256(code_verifier) at step 1.
+
+  2. Attacker intercepts AUTH_CODE at step 4 — same as before.
+
+  3. Attacker POSTs: /token { code: AUTH_CODE, client_id: ... }
+     Auth server:    "Where's the code_verifier?"
+     Attacker:       doesn't have it (was never transmitted)
+     Auth server:    ✗ rejects the exchange
+
+  The code_verifier was never sent over the wire — only its hash
+  (code_challenge) was. Intercepting the auth code is useless
+  without the original verifier that only the legitimate client holds.
+
+  Auth server checks: SHA256(verifier_submitted) == challenge_stored
+  This check is unforgeable without the original verifier.
+
+  PKCE is now required for all public clients (SPAs, mobile apps)
+  and recommended for confidential clients (server-side apps) too.
 ```
 
 ### Client Credentials Flow
@@ -285,6 +367,60 @@ Machine-to-machine. No user involved.
   This is how Azure service principals work.
   Same concept, now standardized as OAuth2.
 ```
+
+### Device Authorization Flow
+
+For devices that cannot launch a browser (CLI tools, IoT, smart TVs, Azure CLI, GitHub CLI). Defined in RFC 8628.
+
+```
+  THE PROBLEM:
+  A CLI tool or IoT device can't do a browser redirect.
+  The user can't type a URL and password into a terminal easily.
+
+  DEVICE FLOW (RFC 8628):
+
+  CLI / DEVICE              AUTH SERVER          USER'S BROWSER
+  -----------               -----------          --------------
+
+  1. POST /device/code
+     client_id=CLI_APP
+     scope=read:repos
+                        --> Returns:
+                            device_code = "GmRh...long opaque..."
+                            user_code   = "WDJB-MJHT"  ← short, human-readable
+                            verification_uri = "https://github.com/login/device"
+                            expires_in  = 900 (15 min)
+                            interval    = 5   (poll every 5s)
+
+  2. Show user:
+     "Open https://github.com/login/device
+      and enter code: WDJB-MJHT"
+
+  3. Start polling:                4. User opens browser,
+     POST /token                      enters WDJB-MJHT,
+       grant_type=device_code         logs in, approves.
+       device_code=GmRh...
+       client_id=CLI_APP
+                        <-- "authorization_pending"  (keep polling)
+                        <-- "authorization_pending"  (keep polling)
+                        <-- { access_token, refresh_token }  ← user approved!
+
+  5. CLI has tokens. Proceed.
+
+  SECURITY NOTES:
+  - user_code is intentionally short (8 chars) so users can verify
+    they're approving the right session — helps against phishing
+  - device_code is long and opaque — never shown to user
+  - polling interval (5s) enforced by server to prevent brute force
+  - expires_in bounds the attack window if user_code is intercepted
+
+  REAL EXAMPLES:
+  GitHub CLI:    gh auth login  → opens github.com/login/device
+  Azure CLI:     az login       → opens microsoft.com/devicelogin
+  Google:        gcloud auth login --no-launch-browser
+```
+
+The device flow is in your daily tooling. `az login` and `gh auth login` both use it. The key design insight: the device never handles credentials. It just polls. The auth happens entirely in the user's browser on a trusted device — the CLI cannot intercept it.
 
 ---
 
@@ -451,6 +587,14 @@ Building auth from scratch is an invitation for subtle security bugs. Use a prov
   - Short access token expiry (15-60 min)
   - Refresh token rotation + reuse detection
   - HttpOnly cookies (XSS can't read them)
+
+  AUTH CODE INTERCEPTION (without PKCE)
+  -------------------------------------
+  Attacker intercepts authorization code at redirect.
+  Exchanges it for tokens before legitimate client can.
+  Prevention:
+  - PKCE (required for public clients, recommended for all)
+  - The code_verifier was never transmitted, so interception is useless
 ```
 
 ---
@@ -518,6 +662,9 @@ Building auth from scratch is an invitation for subtle security bugs. Use a prov
 | .NET / Azure / Microsoft concept | Modern web auth equivalent | Notes |
 |---|---|---|
 | Windows Authentication | OIDC with Entra ID | Same protocol underneath |
+| Kerberos TGT (ticket-granting ticket) | OAuth2 authorization code | Both: redirect to trusted authority, receive short-lived ticket/token, present to resource server |
+| Kerberos Service Ticket | OAuth2 access_token | Short-lived credential for one specific resource |
+| NTLM challenge-response | No modern web equivalent | NTLM is connection-based; OAuth2/OIDC is redirect-based (Kerberos lineage) |
 | ADFS | Azure Entra ID / Auth0 | ADFS is the on-prem predecessor |
 | Azure AD / Entra ID | OIDC provider | It IS an OIDC provider |
 | WS-Federation / WS-Trust | OAuth2 / OIDC | Replaced by open standards |
@@ -536,6 +683,8 @@ Building auth from scratch is an invitation for subtle security bugs. Use a prov
 | Tenant ID | `issuer` / `tenantId` in OIDC config | Identifies the IdP |
 | Azure AD B2C | Auth0 / Clerk (consumer identity) | External user sign-up/sign-in |
 | `System.IdentityModel.Tokens.Jwt` | `jsonwebtoken` npm package | JWT library |
+| Azure CLI `az login` | OAuth2 Device Authorization Flow | Same flow — browse to devicelogin, enter code |
+| GitHub CLI `gh auth login` | OAuth2 Device Authorization Flow | Same flow |
 
 ---
 
@@ -549,6 +698,7 @@ Building auth from scratch is an invitation for subtle security bugs. Use a prov
 | Microsoft 365 / Entra integration | NextAuth MicrosoftEntraID provider |
 | Own all data, open source, free | NextAuth.js with Prisma adapter |
 | M2M / service-to-service | OAuth2 Client Credentials + JWT |
+| CLI tool / device without browser | OAuth2 Device Authorization Flow (RFC 8628) |
 | Store tokens securely | HttpOnly cookie (not localStorage) |
 | Instant token revocation | Server-side sessions |
 | Short-lived access, long-lived refresh | 15-60min access + 30-day HttpOnly refresh |
@@ -556,3 +706,4 @@ Building auth from scratch is an invitation for subtle security bugs. Use a prov
 | Social login | NextAuth.js providers |
 | Protect a Next.js page | `const session = await auth(); if (!session) redirect('/login')` |
 | Protect an API route | Check session, return 401 if missing, 403 if unauthorized |
+| Prevent auth code interception | PKCE (always use for public clients) |

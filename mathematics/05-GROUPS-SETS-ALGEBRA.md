@@ -27,7 +27,59 @@ THE LANDSCAPE
 
 ## 1. Sets — The Foundation
 
-### 1.1 Basic Operations
+### 1.1 ZFC Axioms — The Foundations
+
+Modern mathematics rests on the Zermelo-Fraenkel axioms with the Axiom of Choice (ZFC). These are the foundation the Cantor cardinality material below depends on.
+
+```
+  THE ZF AXIOMS (Zermelo-Fraenkel):
+
+  1. EXTENSIONALITY: Two sets are equal iff they have the same elements.
+     A = B  ⟺  ∀x (x ∈ A ⟺ x ∈ B)
+
+  2. PAIRING: For any a, b, the set {a, b} exists.
+
+  3. UNION: For any family F of sets, ∪F exists.
+
+  4. POWER SET: For any set A, the set 𝒫(A) = {X | X ⊆ A} exists.
+
+  5. INFINITY: There exists an infinite set (formalizes ℕ).
+     ∃S: ∅ ∈ S ∧ ∀x ∈ S, (x ∪ {x}) ∈ S
+
+  6. REPLACEMENT: If F is a class function, the image F[A] of any set A exists.
+
+  7. FOUNDATION (Regularity): Every non-empty set A has an element
+     disjoint from A. This prevents A ∈ A (no self-membership).
+
+  8. SEPARATION (Axiom schema): For any set A and formula φ,
+     {x ∈ A | φ(x)} exists. (Avoids Russell's paradox — set must be
+     carved from an existing set, not collected from all of V.)
+
+  AXIOM OF CHOICE (AC): For any family of non-empty sets, there exists
+  a choice function selecting one element from each.
+  ∀F (∅ ∉ F → ∃f: F→∪F such that ∀A ∈ F, f(A) ∈ A)
+```
+
+**Key equivalences to AC** (each is equivalent to AC over ZF):
+
+```
+  ZORN'S LEMMA: If every chain in a partial order has an upper bound,
+  the partial order has a maximal element.
+  → Used constantly in algebra: every vector space has a basis (Hamel basis),
+    every ring has a maximal ideal, every field has an algebraic closure.
+
+  WELL-ORDERING THEOREM: Every set can be well-ordered.
+  → Every set has a total order under which every non-empty subset has a minimum.
+
+  TYCHONOFF'S THEOREM: Arbitrary products of compact spaces are compact.
+  → The defining theorem of algebraic topology, equivalent to AC.
+```
+
+**Independence of AC from ZF**: Gödel (1938) showed that if ZF is consistent,
+so is ZF+AC (AC cannot be disproved from ZF). Cohen (1963, forcing technique)
+showed that ZF+¬AC is also consistent. AC is genuinely independent.
+
+### 1.2 Basic Operations
 
 ```
   A ∪ B   union: in A or B (or both)
@@ -43,7 +95,7 @@ THE LANDSCAPE
   (Same as Boolean algebra — NOT(A OR B) = NOT(A) AND NOT(B))
 ```
 
-### 1.2 Functions and Relations
+### 1.3 Functions and Relations
 
 ```
   Function f: A → B
@@ -60,13 +112,29 @@ THE LANDSCAPE
   Example: integers mod n — equivalence class [3] mod 7 = {...,-4,3,10,17,...}
 ```
 
-### 1.3 Cardinality
+### 1.4 Cardinality and Set-Theoretic Arithmetic
 
 ```
   Finite sets: |A| = number of elements
   Countably infinite: |ℕ| = |ℤ| = |ℚ| = ℵ₀   (Cantor: diagonalization)
   Uncountably infinite: |ℝ| = |[0,1]| > ℵ₀    (Cantor: diagonal argument)
   |𝒫(A)| > |A| always   (Cantor's theorem)
+
+  CARDINAL ARITHMETIC:
+  ℵ₀ + ℵ₀ = ℵ₀           (union of two countable sets is countable)
+  ℵ₀ × ℵ₀ = ℵ₀           (ℤ×ℤ is countable — enumerate by diagonals)
+  2^ℵ₀ = |ℝ| = |𝒫(ℕ)|    (beth number ℶ₁)
+
+  ORDINALS vs CARDINALS:
+  Ordinals encode order type: ω = {0,1,2,...}, ω+1 = {0,1,2,...,ω}
+  Cardinals encode size: ℵ₀ = |ω|, ℵ₁ = |ω₁| (first uncountable ordinal)
+  Ordinal arithmetic: ω+1 ≠ 1+ω (non-commutative); 2·ω = ω ≠ ω·2
+
+  CONTINUUM HYPOTHESIS (CH): Is ℵ₁ = 2^ℵ₀?
+  Is there a cardinal strictly between ℵ₀ and |ℝ|?
+  Gödel (1938): CH is consistent with ZFC (if ZFC is consistent)
+  Cohen (1963): ¬CH is consistent with ZFC
+  CH is INDEPENDENT of ZFC — it can neither be proved nor disproved.
 
   In physics: the Hilbert space of a quantum system can be
   separable (countable basis — bound states, discrete spectrum)
@@ -249,8 +317,8 @@ A **field** is a commutative ring where every nonzero element has a multiplicati
 
   KEY FINITE FIELDS:
   𝔽₂ = {0,1} mod 2 — Boolean arithmetic, error-correcting codes
-  𝔽₁₆ = GF(16)    — AES encryption uses 𝔽_{2⁸}
-  𝔽ₚ for prime p  — elliptic curve cryptography
+  𝔽_{2⁸} = GF(256)  — AES encryption uses this field for its S-box
+  𝔽ₚ for prime p  — RSA, Diffie-Hellman, elliptic curve cryptography
 
   In physics: ℝ and ℂ are the fields that matter.
   Quantum mechanics is linear algebra over ℂ.
@@ -394,7 +462,7 @@ You've read Artin. Here's the structure:
   └────────────────────────────────────────────────────────────────────────┘
 ```
 
-### 7.4 Representations
+### 7.4 Representations and Character Theory
 
 ```
   A REPRESENTATION of group G is a homomorphism ρ: G → GL(V)
@@ -417,9 +485,127 @@ You've read Artin. Here's the structure:
   Schur's Lemma: any map between two irreps is either 0 or an isomorphism
 ```
 
+**Character theory** — the complete theory of representations:
+
+```
+  CHARACTER of a representation ρ:
+  χ_ρ: G → ℂ,   χ_ρ(g) = Tr(ρ(g))
+
+  Key properties:
+  - Class function: χ_ρ(hgh⁻¹) = χ_ρ(g)  (constant on conjugacy classes)
+  - Determines the representation: two reps are isomorphic iff χ_ρ = χ_σ
+  - χ of direct sum: χ_{ρ⊕σ} = χ_ρ + χ_σ
+  - χ of tensor product: χ_{ρ⊗σ} = χ_ρ · χ_σ
+
+  ORTHOGONALITY OF CHARACTERS (for finite groups):
+  ⟨χ_ρ, χ_σ⟩ = (1/|G|) Σ_{g∈G} χ_ρ(g) χ_σ(g)* = δ_{ρσ}
+
+  For compact Lie groups (like SU(2), U(1)), the sum is replaced by a
+  Haar integral: ∫_G χ_ρ(g) χ_σ(g)* dg = δ_{ρσ}.
+
+  CHARACTER TABLE (for finite groups):
+  Rows = irreducible representations, Columns = conjugacy classes.
+  Entry = character value on that conjugacy class.
+
+  S₃ character table:
+  ┌──────┬───┬─────┬──────┐
+  │ irrep│ e │(12) │(123) │  ← conjugacy class
+  ├──────┼───┼─────┼──────┤
+  │ triv │ 1 │  1  │  1   │  dim 1: trivial representation
+  │ sgn  │ 1 │ -1  │  1   │  dim 1: sign representation (even/odd perm)
+  │ std  │ 2 │  0  │ -1   │  dim 2: standard representation
+  └──────┴───┴─────┴──────┘
+
+  Sum of squares of dimensions = |G|: 1² + 1² + 2² = 6 = |S₃| ✓
+
+  BURNSIDE'S LEMMA (orbit counting via characters):
+  |X/G| = (1/|G|) Σ_{g∈G} |X^g|
+  (number of orbits = average number of fixed points)
+  Used to count distinct colorings, necklaces, etc. under symmetry.
+
+  PETER-WEYL THEOREM (for compact Lie groups G):
+  L²(G) = ⊕_ρ V_ρ ⊗ V_ρ*
+  (Hilbert space of G decomposes as direct sum over irreps, each appearing
+  with multiplicity equal to its dimension)
+
+  For U(1) = S¹: the irreps are e^(inθ), n ∈ ℤ → Peter-Weyl = Fourier series.
+  Representation theory = generalized Fourier analysis on groups.
+```
+
 ---
 
-## 8. Noether's Theorem
+## 8. Cryptography — Where Finite Algebra Lives
+
+The algebraic structures in this file are the mathematical foundations of modern public-key cryptography. This is not tangential — it is one of the most consequential applications of abstract algebra in engineering.
+
+**RSA — ℤ/nℤ and Euler's theorem**:
+
+```
+  Setup: n = pq (product of large primes), public key (n, e), private key d
+  where ed ≡ 1 (mod φ(n)), φ(n) = (p-1)(q-1) = |ℤ/nℤ|*|
+
+  Encryption:  C ≡ Mᵉ (mod n)
+  Decryption:  M ≡ Cᵈ (mod n)
+
+  Correctness: Euler's theorem says M^(φ(n)) ≡ 1 (mod n) for gcd(M,n)=1
+  → M^(ed) = M^(1+kφ(n)) = M · (M^φ(n))^k ≡ M (mod n)
+
+  Security: computing φ(n) requires factoring n — hard for large n.
+  The ring ℤ/nℤ and its multiplicative group (ℤ/nℤ)* = {units mod n} are
+  the algebraic heart of RSA.
+```
+
+**Diffie-Hellman key exchange — cyclic groups**:
+
+```
+  Discrete logarithm problem: given g^x mod p, find x.
+  This is believed computationally hard in (ℤ/pℤ)* for large prime p.
+
+  Protocol: Alice sends g^a mod p, Bob sends g^b mod p.
+  Shared secret: (g^a)^b = (g^b)^a = g^(ab) mod p.
+
+  Security relies on the group (ℤ/pℤ)* being cyclic of order p-1,
+  with the discrete log being computationally indistinguishable from
+  random in the group — this is a statement about the group structure.
+```
+
+**Elliptic curve cryptography (ECC) — groups over finite fields**:
+
+```
+  Elliptic curve E over 𝔽_p: y² = x³ + ax + b (mod p)
+
+  Points on E form an abelian group under the chord-and-tangent law:
+  - Identity: the "point at infinity" O
+  - Inverse of (x,y): is (x,-y)
+  - Addition P+Q: draw line through P,Q, reflect third intersection
+
+  The discrete log problem in E(𝔽_p) is harder than in (ℤ/pℤ)*
+  → smaller key sizes for equivalent security (256-bit ECC ≈ 3072-bit RSA)
+
+  ECC is used in TLS 1.3, SSH, Bitcoin (secp256k1 curve), and Signal.
+  The algebraic structure is exactly the finite-field group theory of §5.2.
+```
+
+**AES — 𝔽_{2⁸} arithmetic**:
+
+```
+  AES SubBytes (S-box): evaluates a specific map over 𝔽_{2⁸} = GF(256).
+  𝔽_{2⁸} = 𝔽₂[x]/(x⁸ + x⁴ + x³ + x + 1)  ← quotient ring by irreducible poly
+
+  Elements: polynomials over 𝔽₂ of degree < 8 (256 of them)
+  Multiplication: polynomial multiplication mod the irreducible polynomial
+  The S-box computation is: take multiplicative inverse in 𝔽_{2⁸}, then
+  apply an 𝔽₂-affine transformation.
+
+  Lattice-based cryptography (post-quantum): hard problems on module lattices
+  over polynomial rings ℤ[x]/(xⁿ+1) — the ring-learning-with-errors (RLWE)
+  problem. These are quotient rings whose algebraic structure (NTT-friendly
+  factorization of xⁿ+1 over primes) enables efficient multiplication.
+```
+
+---
+
+## 9. Noether's Theorem
 
 The deepest connection between symmetry and physics:
 
@@ -444,7 +630,7 @@ The deepest connection between symmetry and physics:
 
 ---
 
-## 9. Quick Reference — Group Vocabulary
+## 10. Quick Reference — Group Vocabulary
 
 ```
   Order of group G:    |G| — number of elements
@@ -460,22 +646,58 @@ The deepest connection between symmetry and physics:
 
 ---
 
+## Connections to Adjacent Mathematics
+
+**Algebraic topology.** The fundamental group π₁(X, x₀) is literally a group
+associated to a topological space (homotopy classes of loops). The SU(2)/SO(3)
+double cover is already in the file — the algebraic fact that π₁(SO(3)) = ℤ₂
+(SO(3) is not simply connected) is what forces the double cover. Higher
+homotopy groups πₙ(X) are abelian for n ≥ 2 (Eckmann-Hilton argument).
+Covering space theory is the topological version of the Galois correspondence:
+subgroups of π₁(X) ↔ covering spaces of X, mirroring subgroups of Gal(K/F)
+↔ intermediate field extensions.
+
+**Algebraic number theory.** The integers ℤ generalize to rings of integers
+O_K in number fields K/ℚ. These rings share many group-theoretic properties:
+the ideal class group Cl(O_K) measures the failure of unique factorization
+(O_K has unique factorization iff Cl(O_K) is trivial). The class group is
+a finite abelian group classified by the structure theorem of §3.2 — its
+structure is deeply connected to the arithmetic of K. The Galois group
+Gal(K/ℚ) acts on Cl(O_K), giving the full machinery of class field theory.
+Dedekind domains generalize PIDs in exactly the way that accounts for this.
+
+**Category theory.** Groups, rings, and fields are categories: objects are
+groups (rings, fields), morphisms are homomorphisms. Free groups are free
+objects: the free group on a set S satisfies a universal mapping property —
+any function S → G (group) extends uniquely to a homomorphism F(S) → G.
+Free objects are the left adjoint to the forgetful functor. Products (direct
+products G×H), coproducts (free products G*H), kernels, and cokernels are
+all categorical constructions, computable uniformly across algebraic categories.
+The natural isomorphism theorem G/ker(φ) ≅ im(φ) is a universal property.
+At the MIT Math level, the categorical framing is the standard unifying language.
+
+---
+
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|---------|--------|
-| Is (ℤ, +) a group? | Yes — abelian, infinite |
-| Is (ℕ, +) a group? | No — no inverses |
-| Is (ℤ, ·) a group? | No — 0 has no inverse, and others don't either (e.g., 2·? = 1 has no integer solution) |
-| What's the gauge group of EM? | U(1) |
-| What's the gauge group of the weak force? | SU(2) |
-| What's the gauge group of QCD (strong)? | SU(3) |
-| Why does spin-½ need 720° rotation? | SU(2) double covers SO(3) |
-| How many gluons? | 8 (dim of SU(3) adjoint representation) |
-| How many photons? | 1 (dim of U(1) adjoint = 1) |
-| What does a normal subgroup give you? | A well-defined quotient group |
-| What does Galois theory connect? | Field extensions ↔ subgroups of Galois group |
-| What does Noether's theorem say? | Symmetry → conservation law |
+| Question | Answer | Why |
+|---------|--------|-----|
+| Is (ℤ, +) a group? | Yes — abelian, infinite | Closure, assoc, 0, negatives ✓ |
+| Is (ℕ, +) a group? | No — no inverses | 1 has no additive inverse in ℕ |
+| Is (ℤ, ·) a group? | No — no inverses | 2 has no multiplicative inverse in ℤ |
+| What's the gauge group of EM? | U(1) | Photon is the 1 generator |
+| What's the gauge group of the weak force? | SU(2) | W±, Z are the 3 generators |
+| What's the gauge group of QCD (strong)? | SU(3) | 8 gluons = 8 generators |
+| Why does spin-½ need 720° rotation? | SU(2) double covers SO(3) | π₁(SO(3)) = ℤ₂ |
+| How many gluons? | 8 | dim(𝔰𝔲(3)) = 3²−1 = 8 |
+| How many photons? | 1 | dim(𝔲(1)) = 1 |
+| What does a normal subgroup give you? | A well-defined quotient group | gN = Ng → G/N is a group |
+| What does Galois theory connect? | Field extensions ↔ subgroups of Gal(K/F) | Order-reversing bijection |
+| What does Noether's theorem say? | Symmetry → conservation law | Continuous symmetry of action |
+| Why is RSA secure? | Discrete log / factoring hard | Ring structure of ℤ/nℤ |
+| Why does ECC beat RSA in key size? | Discrete log harder on elliptic curves | Group structure of E(𝔽_p) |
+| How does AC connect to algebra? | Zorn → every vector space has a basis | Every ring has maximal ideal |
+| Is CH provable from ZFC? | No — independent (Gödel/Cohen) | Forcing / relative consistency |
 
 ---
 
@@ -495,6 +717,9 @@ O(3) includes all orthogonal matrices: rotations (det=+1) AND reflections (det=-
 
 **"Why is SU(2) a double cover of SO(3) and not equal to it?"**
 SU(2) ≅ S³ (simply connected). SO(3) ≅ ℝP³ (projective 3-space, not simply connected — has π₁ = ℤ₂). The 2:1 map sends ±U → same rotation. The non-triviality of this covering is *why half-integer spin exists*. If the universe were described by SO(3) alone, only integer spins would be possible. The physical electrons tell us the universe uses SU(2).
+
+**"What does the Axiom of Choice have to do with algebra?"**
+Without AC, you cannot prove that every vector space has a basis, that every ring has a maximal ideal, or that every field has an algebraic closure. These are all Zorn's lemma arguments. The statements are unprovable in ZF alone. In practice: AC is almost universally accepted, but it's worth knowing that these results are AC-dependent — they can't be "witnessed" constructively.
 
 ---
 

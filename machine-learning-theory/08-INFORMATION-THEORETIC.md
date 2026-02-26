@@ -32,6 +32,45 @@ Information-theoretic approaches to generalization bounds use mutual information
 
 ---
 
+## Bridge: Classical Information Theory → Generalization Bounds
+
+The information-theoretic generalization framework is Shannon's toolbox applied to learning. The translations are direct:
+
+```
+SHANNON INFORMATION THEORY          ML GENERALIZATION THEORY
+───────────────────────────────     ────────────────────────────────────────
+Channel capacity C = max_P I(X;Y)   MI bound: gap ≤ √(2σ² I(W;S) / m)
+  — fundamental limit on information   — algorithm W cannot overfit more than
+    transmission rate                    I(W;S) bits of information about S
+
+Rate-distortion R(D)                PAC-Bayes: KL(Q||P) as rate term
+  min rate to represent source        KL(Q||P) = excess description length
+  within distortion D                 of posterior Q over prior P
+  — tradeoff: compression vs fidelity   — tradeoff: generalization vs fit
+
+Fano's inequality                   Sample complexity lower bounds
+  P_e ≥ (H(Y|X) - 1) / log|Y|       m = Ω(d/ε²) via Fano applied to
+  — error floor from insufficient       d-ary hypothesis testing
+    channel capacity                    on the shattered set
+
+Source coding theorem               MDL principle
+  Optimal code length = H(source)     log|H| bits for finite class
+  — Shannon entropy = min code length   — description length of hypothesis
+
+Relative entropy / KL divergence    PAC-Bayes KL penalty
+  D_KL(P||Q) = E_P[log P/Q]          KL(Q||P) bounds how far posterior
+  — information cost of using Q        can deviate from prior
+    instead of P                        while maintaining generalization
+
+Data processing inequality          Generalization under composition
+  I(X;Z) ≤ I(X;Y) if Z ← Y ← X     Post-processing the model W = g(W')
+  — processing cannot increase MI       doesn't increase the MI bound
+```
+
+**The PAC-Bayes KL term is a relative entropy** between the learning algorithm's output distribution (posterior Q) and what it would have done without seeing data (prior P). Small KL means the algorithm is "barely surprised" by the data — it hasn't memorized it. This is the information-theoretic content of regularization: regularized learning keeps Q close to P.
+
+**Mutual information I(W; S) = rate used.** In rate-distortion terms, the algorithm "transmits" information about the training set S through the channel that produces the model W. The generalization bound says: you can only overfit as much information as you've transmitted. Small I(W; S) means the algorithm is an efficient compressor — it extracts the essential signal without memorizing noise.
+
 ## PAC-Bayes Theory
 
 PAC-Bayes is the information-theoretic framework with the longest history and tightest known bounds:
@@ -178,6 +217,8 @@ ADVANTAGE
 
 ---
 
+**Why CMI < I(W; S): content vs selection.** I(W; S) measures how much knowing W reveals about the content of the training set — the actual values of Z₁,...,Zₘ. For a deterministic algorithm that memorizes the training labels exactly, I(W; S) ≈ H(S) (huge — W contains S verbatim). CMI = I(W; U | Z₁,...,Z_{2m}) measures only how much W reveals about the selection index U (which m of the 2m examples were used for training), after already knowing all 2m examples. If the memorizing algorithm outputs the same model regardless of which partition was used (because it can reconstruct any partition from the data), CMI can be small. Formally: conditioning on all 2m examples "removes" the data-content information from I(W; S), leaving only the selection information. CMI ≤ I(W; S) always, with equality only when content and selection information are inseparable.
+
 ## MDL and Compression
 
 ```
@@ -189,6 +230,31 @@ the data most, i.e., minimizes description length:
   L(h) + L(data | h)
 
 where L(x) = -log₂ P(x) is the code length under a prior P.
+
+**Two-part MDL vs NML MDL.** The formulation above (encode h then encode data given h) is two-part MDL — an approximation. Rissanen's full theory uses Normalized Maximum Likelihood (NML):
+
+```
+TWO-PART MDL          L(h) + L(data | h)       = code length of h + residuals
+  Approximation: description of model + description of errors given model.
+  Problem: depends on how you encode h (parameterization-dependent).
+
+NML (PREQUENTIAL) MDL
+  L_NML(x^n) = -log P(x^n | θ̂(x^n)) + log ∫ P(x^n | θ̂(x^n)) dx^n
+               ────────────────────────────   ──────────────────────────────
+                    -log likelihood at MLE     "stochastic complexity" = log regret
+
+  The second term is model complexity: how many bits to specify the
+  best model for this dataset vs a universal predictor.
+  For exponential families: stochastic complexity ≈ (k/2) log(n/2π) — recovers BIC.
+
+FISHER INFORMATION CONNECTION
+  Stochastic complexity = (k/2) log n + log ∫ √det I(θ) dθ + O(1)
+  where I(θ) is the Fisher information matrix.
+  — The Jeffreys prior √det I(θ) appears naturally as the optimal code.
+  — More curved parameter space = more complex model = higher complexity.
+```
+
+NML MDL selects the model with minimum total description length, where complexity is measured by regret of the best code — a minimax-optimal characterization. The connection to PAC-Bayes: the Jeffreys prior P(h) ∝ √det I(h) in PAC-Bayes gives the tightest possible bound when the posterior concentrates on the MLE.
 
 CONNECTION TO PAC-BAYES
   PAC-Bayes with P = prior, Q = posterior:
@@ -270,6 +336,18 @@ LANGEVIN DYNAMICS
   SGD + Gaussian noise = discrete Langevin dynamics
   Converges to Gibbs distribution → PAC-Bayes posterior
   SGD is implicitly doing variational inference!
+
+**ELBO = PAC-Bayes objective.** The standard variational inference ELBO is:
+
+```
+  log P(data) ≥ E_{h~Q}[log P(data|h)] - KL(Q||P)
+               ─────────────────────────   ─────────
+                  expected log-likelihood   complexity penalty
+
+  Maximizing ELBO = minimizing -E_{h~Q}[R_S(h)] + KL(Q||P) / (const)
+```
+
+This is exactly the PAC-Bayes objective: maximize empirical fit while penalizing KL divergence from the prior. Catoni's PAC-Bayes bound is the finite-sample, high-probability version of the same tradeoff. The variational autoencoder trains a recognition network to minimize -ELBO = reconstruction loss + KL(Q||P) — the encoder is implicitly optimizing a PAC-Bayes objective. Langevin dynamics (SGLD) converges to the Gibbs posterior Q* ∝ P(h) exp(-β m R_S(h)), which is the PAC-Bayes optimal posterior at inverse temperature β — making SGLD an implicit PAC-Bayes posterior sampler.
 ```
 
 ---

@@ -170,7 +170,46 @@ When X → Y is confounded by unmeasured U, but there's a measured mediator M:
 
 ---
 
-## 6. Observational Methods
+## 6. Observational Methods — Provenance and Context
+
+Each observational method originates from a different discipline and carries
+discipline-specific vocabulary:
+
+```
+Method          Origin discipline    Key papers / provenance
+──────────────  ───────────────────  ─────────────────────────────────────────────
+PSM / IPW       Epidemiology /        Rosenbaum & Rubin (1983): propensity scores
+                clinical statistics   Robins (1994): marginal structural models
+                                      Standard in: drug/device trials, observational
+                                      health studies, comparative effectiveness
+
+Doubly robust   Semiparametric        Scharfstein et al. (1999); Robins & Rotnitzky
+                statistics            Consistent if *either* model is correct
+                                      → standard in modern epidemiology
+
+DiD             Labor economics /     Card & Krueger (1994): minimum wage study
+                policy evaluation     Classic "natural experiment" design
+                                      Standard in: policy analysis, program eval
+
+Synthetic       Comparative case      Abadie et al. (2003): California tobacco policy
+control         studies               For single treated unit (country, state, firm)
+                                      Common in: macroeconomics, political economy
+
+IV (2SLS)       Economics /           Card (1995): returns to schooling, distance to college
+                econometrics          Wright (1928): original supply/demand identification
+                                      Standard in: labor, health, development economics
+
+RD              Political economy /   Lee (2008): electoral RD
+                economics             Thistlethwaite & Campbell (1960): original concept
+                                      Standard in: education policy, political science
+
+DML             Semiparametric        Chernozhukov et al. (2018): econometrics + ML
+                econometrics + ML     Cross-fitting for valid inference post-ML
+                                      Now standard in academic economics papers
+
+Causal forests  ML × econometrics     Wager & Athey (2018): Stanford
+                                      Honest forests for heterogeneous effects
+```
 
 ### Propensity Score Matching (PSM)
 ```
@@ -289,7 +328,90 @@ When X → Y is confounded by unmeasured U, but there's a measured mediator M:
 
 ---
 
-## 8. Identifiability — What Can Be Identified?
+## 8. Sensitivity Analysis — When Assumptions Partially Fail
+
+Causal identification relies on untestable assumptions (no unmeasured confounders,
+parallel trends, exclusion restriction). Sensitivity analysis quantifies how wrong
+the estimate could be if those assumptions fail.
+
+### Rosenbaum Sensitivity Analysis (PSM / Observational Studies)
+
+```
+Setup: in a matched study, how strong must unmeasured confounding be to invalidate
+the conclusion?
+
+Γ (gamma) = odds ratio of exposure between matched units due to unmeasured confounder U
+
+  Γ = 1:  no unmeasured confounding (standard analysis)
+  Γ = 2:  units matched on X can still differ by factor 2 in odds of treatment due to U
+  Γ = k:  maximum plausible unmeasured effect is factor k
+
+Procedure:
+  For each Γ, compute worst-case p-value (assume U acts maximally to produce false positive)
+  Report: "The conclusion holds for Γ up to k; requires Γ > k to overturn."
+
+Example: smoking → lung cancer study
+  Rosenbaum (1993): conclusion holds for Γ up to 6
+  → An unmeasured confounder must increase odds of smoking 6× to explain away the effect
+  → Such a confounder is implausible → conclusion is robust
+```
+
+### Manski Partial Identification Bounds
+
+```
+Without strong identifying assumptions, report bounds on the causal effect:
+
+Sharp worst-case bounds (Manski 1990):
+  If Y ∈ [0, 1] and no assumption on assignment:
+    ATE ∈ [E[Y|D=1]·P(D=1) - P(D=0), E[Y|D=1]·P(D=1)]   (trivially wide)
+
+  With monotone treatment selection (selection into treatment is positive):
+    ATE ∈ [point estimate - bias bound, point estimate + bias bound]
+
+Partial identification approach:
+  State the minimum assumptions needed
+  Report the identified set (range of causal effects consistent with data + assumptions)
+  Let the width of the interval communicate the cost of weak assumptions
+```
+
+### DiD Parallel Trends Falsification (Pre-Trend Tests)
+
+```
+Core idea: if parallel trends holds, the treated/control groups should have had
+the same time trend *before* treatment. Test this directly with pre-treatment data.
+
+Event study specification:
+  Yᵢₜ = αᵢ + λₜ + Σ_{k≠-1} βₖ · 1{t - Tᵢ = k} · Dᵢ + εᵢₜ
+
+  k < 0: pre-treatment periods — βₖ should be ≈ 0 (pre-trends test)
+  k ≥ 0: post-treatment periods — βₖ are the dynamic treatment effects
+
+  Plot βₖ with confidence intervals:
+    Flat pre-trends (βₖ ≈ 0 for k < 0) → parallel trends plausible
+    Diverging pre-trends (βₖ ≠ 0 for k < 0) → parallel trends violated → DiD invalid
+
+Limitations:
+  Passing the pre-trends test does not prove parallel trends holds post-treatment.
+  It is a necessary, not sufficient, condition.
+  (The treatment itself may have changed the trend — then DiD captures the combined effect.)
+```
+
+### IV Exclusion Restriction — Local Sensitivity
+
+```
+The exclusion restriction Z → Y (only via X) is untestable. Sensitivity approach:
+  Parameterize the direct effect: Y = τX + δZ + g(X) + ε
+  δ = 0 is the maintained assumption
+
+  Contamination bias: τ̂_{IV} - τ = δ / (Cov(Z,X)/Var(Z)) = δ / β̂_{first_stage}
+
+  Report: "If Z had a direct effect of δ on Y, the LATE estimate would shift by Δ."
+  Conley et al. (2012): union of confidence intervals over plausible δ range
+```
+
+---
+
+## 9. Identifiability — What Can Be Identified?
 
 Not all causal queries are identifiable from observational data, even with a known graph.
 
@@ -309,7 +431,7 @@ Not all causal queries are identifiable from observational data, even with a kno
 
 ---
 
-## 9. Decision Cheat Sheet
+## 10. Decision Cheat Sheet
 
 | Method | When applicable | Identifies |
 |--------|----------------|-----------|
@@ -325,7 +447,7 @@ Not all causal queries are identifiable from observational data, even with a kno
 
 ---
 
-## 10. Common Confusion Points
+## 11. Common Confusion Points
 
 1. **"Controlling for more variables is always better"** — Controlling for a collider (or its descendant) opens a spurious path and introduces bias. You can make things worse by controlling for the wrong variables.
 

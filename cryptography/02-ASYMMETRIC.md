@@ -328,6 +328,36 @@ INSTANTIATIONS:
     More secure than RSA-OAEP in some analyses; less deployment
     Post-quantum threat: broken by Shor's; migrating to HPKE with ML-KEM
 
+```
+HPKE MODES (RFC 9180) — SENDER AUTHENTICATION:
+
+  mode_base:    anonymous sender; receiver can't verify who sent
+    ks, enc = SetupBaseS(receiver_pub, info)   -- sender
+    ks = SetupBaseR(enc, receiver_priv, info)  -- receiver
+
+  mode_auth:    sender-authenticated; receiver verifies sender's static key
+    ks, enc = SetupAuthS(receiver_pub, info, sender_priv)
+    ks = SetupAuthR(enc, receiver_priv, info, sender_pub)
+    Extra DH: DH(sender_priv, receiver_pub) mixed into key schedule → binds sender identity
+
+  mode_psk:     pre-shared key binds both parties; no identity public key needed
+  mode_auth_psk: combined: PSK + sender static key authentication (highest binding)
+
+  TLS ECH (Encrypted Client Hello — RFC draft):
+    Problem: TLS SNI (server name) is cleartext; leaks which server client is connecting to
+    Solution: client encrypts ClientHello with server's published HPKE public key (in DNS HTTPS record)
+    Mode: mode_base (client anonymous; server identified by HPKE public key in DNS)
+    Wire: ECHClientHello extension = enc || HPKE-sealed inner ClientHello
+    Server: decrypts with its HPKE private key; routes to inner server name
+    Key rotation: server publishes multiple HPKE public keys (for rotation) in HTTPS DNS records
+
+  MLS (Messaging Layer Security — RFC 9420):
+    HPKE used for Welcome messages: encrypt new member's leaf secret in the ratchet tree
+    Mode: mode_base (key package public key as receiver; sender = existing group member)
+    HPKE info string = group_id || epoch — domain-separates different groups and epochs
+    Each group member has a KeyPackage containing their HPKE public key (for leaf key derivation)
+```
+
 FORWARD SECRECY:
   Static RSA/EC key pair: compromise → all past sessions decryptable (long-term threat)
   Ephemeral ECDH (ECDHE in TLS): new key pair per session → past sessions safe even if long-term key compromised
@@ -337,6 +367,73 @@ FORWARD SECRECY:
 ```
 
 ---
+
+## 6a. Key Storage Formats and HSM Integration
+
+```
+KEY STORAGE FORMATS (private key portability vs security tradeoff):
+
+  PEM (Privacy Enhanced Mail — base64-encoded DER with header):
+    "-----BEGIN EC PRIVATE KEY-----" / "-----BEGIN RSA PRIVATE KEY-----"
+    Unencrypted by default → file permission is only protection
+    Encrypted PEM: AES-256-CBC wraps private key; passphrase via PKCS#5 KDF
+    Use: web server TLS private keys (nginx/Apache), SSH private keys, CA key files
+    Risk: passphrase stored nearby or in memory; whole key exposed if file accessed
+
+  PKCS#12 / PFX (RFC 7292):
+    Container: certificate chain + private key + optional chain certs in one file
+    Protected: 3DES-CBC (legacy) or AES-256-CBC + HMAC-SHA256 under passphrase
+    Use: browser certificate import/export; Windows certificate store; Java keystores
+    Export from HSM: HSM may allow export as PKCS#12 for backup (wraps key; not plaintext)
+    Risk: passphrase is the only barrier; 3DES in legacy PKCS#12 is weak — use -legacy flag awareness
+
+  JWK (JSON Web Key — RFC 7517):
+    JSON format: {"kty": "EC", "crv": "P-256", "x": "...", "y": "...", "d": "..."}
+    Private key in "d" field; public key in "x", "y" (EC) or "n", "e" (RSA)
+    JWK Set (JWKS): array of keys; URL-served public keys for JWT verification
+    Use: REST APIs, OAuth/OIDC (public JWKS URLs), cloud service key management
+    Risk: private JWK often stored in config files; easy to accidentally commit to git
+
+  PKCS#8 (RFC 5958):
+    DER-encoded private key container (algorithm OID + private key bytes)
+    Encrypted PKCS#8: EncryptedPrivateKeyInfo = algorithm + encrypted key
+    Use: Java's java.security.PrivateKey serialization; OpenSSL pkcs8 output
+
+KEY STORAGE COMPARISON:
+  ┌───────────────────────────────────────────────────────────────────────────┐
+  │  Format    │ Portable │ Encrypted │ Includes Cert │ Use Case              │
+  ├───────────────────────────────────────────────────────────────────────────┤
+  │  PEM       │ Yes      │ Optional  │ No (separate) │ Unix TLS, SSH         │
+  │  PKCS#12   │ Yes      │ Yes       │ Yes           │ Browser, Windows      │
+  │  JWK       │ Yes      │ Optional  │ No            │ APIs, OAuth, cloud    │
+  │  HSM slot  │ No       │ Hardware  │ No            │ Production keys       │
+  └───────────────────────────────────────────────────────────────────────────┘
+
+PKCS#11 INTERFACE MODEL (key never leaves HSM):
+
+  Model: application calls crypto operations on HSM via PKCS#11 API;
+         private key identified by handle (slot + object ID), never extracted to memory
+
+  C_Initialize() → C_OpenSession(slot, &hSession) → C_Login(hSession, PIN)
+  C_FindObjects → hKey (handle to private key object on token)
+  C_Sign(hSession, mechanism, hKey, data, &sig)  ← HSM performs signing
+  C_Decrypt(hSession, mechanism, hKey, ciphertext, &plaintext)  ← HSM decrypts
+
+  Mechanisms: CKM_RSA_PKCS_OAEP, CKM_ECDSA, CKM_AES_GCM, etc.
+  Application only sees: signature bytes, decrypted bytes — private key bytes never returned
+
+  Language bindings following same PKCS#11 model:
+    OpenSSL: pkcs11-provider (PKCS#11 engine); configure via openssl.cnf
+    Java JCA: SunPKCS11 provider; transparent to application (standard KeyStore API)
+    Go: crypto.Signer interface — Sign() method backed by PKCS#11 or cloud KMS
+    .NET: CNG (CryptoNG) for TPM/smartcard; PKCS#11 via third-party provider
+
+  HSM vs software key store decision:
+    HSM: private key material never in process memory; tamper-evident; FIPS 140-3 validated
+    Software: cheaper; faster; acceptable when key is ephemeral or threat model is lower
+    Rule of thumb: CA signing keys, TLS server keys for high-value services → HSM
+    Cloud HSM: AWS CloudHSM, Azure Dedicated HSM, Google Cloud HSM; PKCS#11 compatible
+```
 
 ## 7. Integer Factorization Details
 
@@ -402,3 +499,42 @@ CURRENT RECORDS (2024):
 **IBE solves one problem but creates another:** IBE eliminates certificate management (no need to distribute public key certificates). But it requires a trusted Key Generation Authority (KGA/PKG) that generates all private keys. This is inherent key escrow — the KGA can decrypt any message to any identity. Enterprise IBE often accepts this tradeoff; internet-scale IBE typically does not.
 
 **"RSA-PSS" vs "RSA-PKCS1v15" signatures:** Both use RSA math; the difference is the padding around the hash. PKCS1v15 is older, deterministic, widely deployed (TLS, X.509 certs). PSS is randomized, provably secure in ROM, required by FIPS 186-4 for new applications. Both are EUF-CMA; PSS is additionally sUF-CMA (no signature malleability). For new systems: RSA-PSS or Ed25519.
+
+## Post-Quantum Migration Map
+
+```
+CLASSICAL → PQC TRANSITION TABLE (see 05-POST-QUANTUM.md for full detail):
+
+  ┌────────────────────────────────────────────────────────────────────────────────┐
+  │  Classical Primitive    │ Broken by  │ PQC Replacement      │ Transition Path  │
+  ├────────────────────────────────────────────────────────────────────────────────┤
+  │  ECDH / X25519 (KEM)    │ Shor's     │ ML-KEM (FIPS 203)    │ Hybrid: X25519 + │
+  │                         │            │ Kyber-768 preferred  │ ML-KEM-768 NOW   │
+  ├────────────────────────────────────────────────────────────────────────────────┤
+  │  ECDSA P-256            │ Shor's     │ ML-DSA (FIPS 204)    │ Dual-sign during │
+  │                         │            │ Dilithium-65         │ transition       │
+  ├────────────────────────────────────────────────────────────────────────────────┤
+  │  Ed25519 (EdDSA)        │ Shor's     │ ML-DSA or FN-DSA     │ FN-DSA (FALCON)  │
+  │                         │            │ FALCON-512 smaller   │ if size matters  │
+  ├────────────────────────────────────────────────────────────────────────────────┤
+  │  RSA-PSS (signatures)   │ Shor's     │ ML-DSA (FIPS 204)    │ ML-DSA-44 for    │
+  │                         │            │ or FN-DSA (FALCON)   │ 128-bit equiv    │
+  ├────────────────────────────────────────────────────────────────────────────────┤
+  │  RSA-OAEP (encryption)  │ Shor's     │ ML-KEM (FIPS 203)    │ Replace with     │
+  │                         │            │ via HPKE (RFC 9180)  │ HPKE + ML-KEM    │
+  ├────────────────────────────────────────────────────────────────────────────────┤
+  │  BLS12-381 (pairings)   │ Shor's*    │ No direct equiv yet  │ Active research; │
+  │                         │ *harder    │ (BLS advantage lost) │ avoid new PQC    │
+  │                         │ for EC     │                      │ pairing designs  │
+  └────────────────────────────────────────────────────────────────────────────────┘
+
+  Size impact at 128-bit security:
+    KEM:       X25519 pub = 32B → ML-KEM-768 pub = 1184B  (+37×)
+    Signature: Ed25519 sig = 64B → ML-DSA-65 sig = 3293B  (+51×)
+    Signature: Ed25519 sig = 64B → FALCON-512 sig = 666B  (+10×; if complexity acceptable)
+
+  Hybrid strategy (transition period):
+    KEM:  X25519Kyber768 (RFC 9496 / TLS draft) — Chrome + Firefox shipping now
+    Sig:  dual-sign (both classical + PQC); verify either is sufficient
+    Timeline: remove classical component ~2030+ when confidence in PQC is established
+```

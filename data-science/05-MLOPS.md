@@ -180,6 +180,32 @@ wandb.agent(sweep_id, function=train_fn, count=30)
 
 A model registry is a versioned catalog of trained models with lifecycle states.
 
+**Software release lifecycle bridge**: the state machine is identical to standard
+software deployment gates — any DevOps engineer maps it immediately:
+
+```
+Software release lifecycle       MLflow model registry equivalent
+─────────────────────────────    ──────────────────────────────────────────────
+Dev / Feature branch             None (experimental run, not yet registered)
+QA / Staging environment         Staging  (validated on holdout; ready for test)
+Production                       Production  (serving live traffic)
+Deprecated / EOL                 Archived  (superseded; kept for reproducibility)
+
+Quality gate (CI/CD):
+  PR passes tests → merge to main     ERM run passes eval suite → promote Staging
+  Integration test passes → deploy    Integration test passes → promote Production
+  New version released → old retires  New model in Prod → old model archived
+
+Version pinning:
+  package.json "1.2.3" (exact)        models:/churn-predictor/5 (version number)
+  package.json "^1.2"  (compatible)   models:/churn-predictor/Production (alias)
+```
+
+The key ML-specific addition: promotion gates are metric-based, not just
+test-pass/fail. The eval suite compares the candidate model against the current
+Production model on a held-out dataset — a model only moves to Staging if it
+wins on the primary metric (AUC, RMSE, etc.) with a statistically meaningful margin.
+
 ### MLflow Model Registry
 
 ```python

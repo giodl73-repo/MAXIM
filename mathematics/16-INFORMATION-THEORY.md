@@ -182,6 +182,28 @@ max I(T;Y) − β I(T;X)      (β controls compression/accuracy tradeoff)
 ```
 Claimed to explain what deep networks learn (debated).
 
+### MI as a Nonparametric Independence Criterion
+
+Because I(X;Y) = 0 iff X ⊥ Y (regardless of distribution), mutual information is a
+**nonparametric independence criterion** that captures arbitrary dependencies —
+polynomial, periodic, multimodal — that correlation (which only detects linear
+dependence) completely misses.
+
+**HSIC** (Hilbert-Schmidt Independence Criterion) is a kernel-based analogue that is
+also zero iff X ⊥ Y, amenable to efficient computation.
+
+**MINE — Mutual Information Neural Estimator** (Belghazi et al. 2018): estimate I(X;Y)
+in high dimensions by exploiting the Donsker-Varadhan representation:
+```
+I(X;Y) = D(P_{XY} || P_X ⊗ P_Y)
+        = sup_{T: Ω→ℝ} E_{P_{XY}}[T] − log E_{P_X⊗P_Y}[eᵀ]
+```
+Maximize over a neural network T parameterized by θ. The supremum is achieved at
+T* = log p(x,y)/(p(x)p(y)) — the log density ratio. MINE makes MI estimation
+tractable for the high-dimensional continuous distributions that appear in deep learning,
+enabling MI-based regularizers, disentanglement losses, and contrastive objectives
+(InfoNCE, which underpins SimCLR and other self-supervised methods).
+
 ---
 
 ## KL Divergence
@@ -342,6 +364,42 @@ achieves average length per symbol in [H(X), H(X) + 1/n] → H(X) as n→∞.
 Encode a sequence as a single number in [0,1), partitioning the interval by
 probabilities. Approaches H(X) exactly for long sequences. Used in gzip, JPEG,
 H.264. The AEP (below) explains why it works.
+
+### Modern Compression: ANS and Capacity-Achieving Codes
+
+**Asymmetric Numeral Systems (ANS / tANS)**: Jarek Duda (2014). The practical
+successor to arithmetic coding — same asymptotic efficiency (approaches H(X) bits
+per symbol) but with significantly lower computational overhead. Used in:
+- **Zstandard** (Facebook, RFC 8478): tANS for literal lengths, match lengths
+- **LZ4** with Huffman for high-speed compression
+- **JPEG XL**: ANS-based entropy coding in the Brotli and JXL codecs
+
+ANS encodes symbols by treating the state as a big integer and interleaving symbol
+probabilities into it — conceptually a bijection between sequences and integers,
+like arithmetic coding but with integer arithmetic instead of interval subdivision.
+
+**Capacity-achieving channel codes** — the practical realization of Shannon's channel
+coding theorem:
+
+```
+Turbo codes (Berrou 1993):   iterative decoding, BER near Shannon limit
+  → 3G cellular, deep-space (NASA)
+
+LDPC codes (Gallager 1960, rediscovered 1990s):
+  Sparse parity-check matrices. Belief propagation decoding.
+  → 10Gb Ethernet, WiFi 802.11n, DVB-S2
+
+Polar codes (Arıkan 2009):
+  Provably capacity-achieving under successive cancellation decoding.
+  Mathematical construction via channel polarization: split N synthetic
+  channels into ~NC "good" ones and ~N(1-C) "bad" ones.
+  → 5G NR (control channel), Apple Data Compression Library
+```
+
+The connection: H(X) bits per symbol for sources → C bits per channel use for
+channels. Both are exact, information-theoretic limits that took decades to approach
+in practice. Polar codes are the first provably capacity-achieving codes with
+efficient O(N log N) encoding and decoding.
 
 ### Asymptotic Equipartition Property (AEP)
 
@@ -553,6 +611,31 @@ Rᵢ = max(½ log(μ/σᵢ²), 0)    where μ is chosen so Σ Rᵢ = R_total
 ```
 Allocate bits to less noisy (smaller σᵢ²) components first.
 
+### Rate-Distortion in Practice: Learned Compression and the Perception-Distortion Tradeoff
+
+**Water-filling and MIMO**: The water-filling solution is not just a compression
+result — it is the optimal power allocation for MIMO (multiple-input multiple-output)
+channels. Each spatial eigenmode of the channel has its own "noise level"; transmit
+more power on better eigenmodes, zero power on poor ones. The math is identical to
+Gaussian rate-distortion with σᵢ² replaced by noise-to-signal ratios.
+
+**Learned image compression** (neural codecs): BPG, WebP, HEIC, JPEG XL all push
+toward the R(D) limit for natural images. Neural approaches (Ballé et al. 2017+,
+used in Google's WebP and codec research) model images with a learned prior and
+optimize the ELBO — which is exactly R(D) in disguise. The trade-off is:
+```
+Rate: number of bits used = −log p(ẑ)  (quantized latent entropy)
+Distortion: reconstruction loss d(x, x̂)
+```
+
+**Blau-Michaeli perception-distortion tradeoff (2018)**: A fundamental result showing
+that perceptual quality (measured by any full-reference perceptual metric or divergence
+between distribution of real and reconstructed images) and distortion (MSE/PSNR) are
+in fundamental tension — you cannot simultaneously minimize both. The achievable
+region in (distortion, perception) space is a convex curve; moving along it requires
+trading one for the other. This explains why high-PSNR codecs look blurry while
+GAN-based codecs look sharp but have higher MSE.
+
 ---
 
 ## Minimum Description Length (MDL)
@@ -568,6 +651,45 @@ large L(M).
 
 **Rissanen's MDL**: parameter θ ∈ ℝᵈ estimated from n samples requires
 ≈ (d/2) log n bits to describe (analogous to BIC).
+
+### Kolmogorov Complexity — The Algorithmic Counterpart
+
+MDL's statistical foundation has a deeper TCS counterpart: **algorithmic information
+theory** (Solomonoff, Kolmogorov, Chaitin — 1960s).
+
+```
+Kolmogorov complexity of string x:
+  K(x) = min { |p| : U(p) = x }   (length of shortest program on universal TM U
+                                     that outputs x)
+```
+
+K(x) is the ultimate compression of x — the length of the shortest description.
+It is **uncomputable** (K is not computable by any algorithm), but it is
+conceptually prior to Shannon entropy.
+
+**Relationship to Shannon entropy**:
+```
+For a computable distribution P:    E[K(x)] ≈ H(X)     (to O(log n) terms)
+Conditional complexity:              K(x|y) ≈ H(X|Y)
+Joint complexity:                    K(x,y) ≈ K(x) + K(y|x)
+```
+These parallels are exact (up to lower-order additive constants), but K is an
+intrinsic property of individual strings while H is a property of distributions.
+
+**Solomonoff induction**: the theoretically optimal predictor — weight all
+computable hypotheses by 2^{−K(hypothesis)}. Learns any computable sequence in
+the limit. Uncomputable in practice, but bounds all computable prediction algorithms
+by the universal prior M(x) = Σ_{p: U(p)=x} 2^{−|p|}.
+
+**Incompressibility method** (combinatorial lower bounds): to show a problem
+requires Ω(f(n)) resources, exhibit an input x that is Kolmogorov-random (K(x) ≥ |x|),
+then show the algorithm would compress x if it ran faster. Classic applications:
+lower bounds for sorting decision trees, randomness extractors, communication complexity.
+
+**MDL vs K-complexity**: MDL uses a specific model class (parametric family) and
+penalizes by description length within that class. K-complexity is model-class-agnostic
+— it considers all programs. MDL is the computable, practical version; K is the
+Platonic ideal.
 
 ---
 
@@ -606,6 +728,36 @@ The reconstruction term E[log p(x|z)] forces good reconstructions.
 The KL term D(q||p(z)) forces the posterior to stay close to the prior N(0,I).
 Tension between the two = compression/accuracy tradeoff.
 
+### Information-Theoretic Generalization Bounds
+
+A fundamental question: why do overparameterized neural networks generalize?
+Information theory provides one lens through the **mutual information between
+training data and learned weights**.
+
+**Russo-Zou bound** (2016): For a learning algorithm A that takes training set S
+and outputs weights W:
+```
+E[generalization gap] ≤ √(I(S; W) / (2n))    (for bounded losses)
+```
+where I(S; W) is the mutual information between the training set and the output
+weights. Algorithms that don't "memorize" their training data (small I(S;W)) must
+generalize well.
+
+**Connection to PAC learning and VC dimension**: the classical VC bound says
+```
+generalization gap ≤ O(√(VC-dimension / n))
+```
+This bounds capacity via the hypothesis class complexity. The information-theoretic
+bound instead tracks the actual compression of S into W by the specific algorithm —
+potentially much tighter for stochastic optimizers like SGD, which have limited
+information about the training set due to noise.
+
+**CMI (Conditional Mutual Information) bounds** (Steinke-Zakynthinou 2020):
+condition on a supersample and use ghost samples to eliminate the exponential
+union bound. Gives tighter bounds for algorithms that are stable with respect to
+individual examples (data-dependent, algorithm-dependent bounds rather than
+worst-case over hypothesis class).
+
 ---
 
 ## Decision Cheat Sheet
@@ -624,6 +776,9 @@ Tension between the two = compression/accuracy tradeoff.
 | Optimizer invariant to reparameterization | Natural gradient = I(θ)⁻¹∇L |
 | Which model fits data without overfitting? | MDL / BIC: penalize by (d/2) log n |
 | Maximum entropy distribution for given mean/var | Gaussian N(μ, σ²) |
+| Nonparametric independence test | I(X;Y) = 0 iff X⊥Y; estimate via MINE for high-d |
+| Modern lossless compression | ANS (Zstandard), polar codes approach capacity |
+| Generalization bound for learning algorithm | I(S;W) mutual info bound (Russo-Zou) |
 
 ---
 
@@ -656,3 +811,9 @@ decomposition is I(X;Y,Z) = I(X;Y) + I(X;Z|Y) (chain rule for MI).
 
 **Shannon capacity is per channel use, not per second**: C bits/use × W uses/second
 = CW bits/second. The Shannon-Hartley formula already incorporates bandwidth W.
+
+**Kolmogorov complexity vs Shannon entropy**: K(x) is defined for individual strings
+and is uncomputable. H(X) is defined for distributions and is computable. They
+agree in expectation but diverge for individual strings. A Kolmogorov-random string
+(K(x) ≈ |x|) is individually incompressible; most strings drawn from a uniform
+distribution are Kolmogorov-random.

@@ -17,6 +17,91 @@
 
 ---
 
+## Conceptual Map
+
+C++ is best understood as four orthogonal complexity axes that interact but can be learned independently. Most confusion comes from conflating axes that are actually independent mechanisms.
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    C++ COMPLEXITY AXES                              │
+└─────────────────────────────────────────────────────────────────────┘
+
+AXIS 1 — OOP LAYER (runtime polymorphism)
+─────────────────────────────────────────
+  Base class                   Derived class
+  ┌──────────────────┐         ┌──────────────────────┐
+  │ class Shape {    │◄────────│ class Circle : Shape {│
+  │   virtual draw();│         │   void draw() override│
+  │   virtual ~Shape │         │ };                    │
+  │ }                │         └──────────────────────┘
+  └────────┬─────────┘
+           │ vtable pointer (one per object instance)
+           ▼
+  ┌──────────────────────────────┐
+  │  vtable for Circle           │  ← one per concrete type, not per instance
+  │  [0] → Circle::draw()        │    ~8 bytes added to every polymorphic object
+  │  [1] → Circle::~Circle()     │    virtual call = pointer chase (cache miss risk)
+  └──────────────────────────────┘
+
+AXIS 2 — TEMPLATE LAYER (compile-time polymorphism)
+────────────────────────────────────────────────────
+  template<typename T>          Instantiation at compile time:
+  T max(T a, T b) {             max<int>   → separate machine code
+    return a > b ? a : b;       max<double> → separate machine code
+  }                             Zero runtime overhead — no vtable, no boxing
+                                Code bloat tradeoff: N types = N copies
+
+  Pre-C++20: duck-typed (no constraint enforcement until instantiation error)
+  C++20 Concepts: explicit constraints, checked at point of call
+
+AXIS 3 — RAII LAYER (deterministic resource cleanup)
+─────────────────────────────────────────────────────
+  Constructor acquires          Destructor releases
+  ┌─────────────────────┐       ┌─────────────────────┐
+  │ MyFile(path) {      │       │ ~MyFile() {         │
+  │   fd = open(path);  │  ←──→ │   close(fd);        │
+  │ }                   │       │ }                   │
+  └─────────────────────┘       └─────────────────────┘
+         │                              ▲
+         │  object lifetime             │
+         └──────────────────────────────┘
+  Works through exceptions — destructor called on stack unwind
+  C# parallel: IDisposable + using() is RAII with manual trigger;
+               C++ destructor fires automatically at scope exit
+
+AXIS 4 — VALUE CATEGORIES (move semantics)
+───────────────────────────────────────────
+
+  Every expression has a value category:
+
+  lvalue — has a persistent address; can appear on left of =
+  ┌─────────────────────────────────────┐
+  │  int x = 5;    x is an lvalue      │
+  │  std::string s = "hello";          │
+  │  s is an lvalue (has address &s)   │
+  └─────────────────────────────────────┘
+
+  rvalue — temporary; no persistent address; right side of =
+  ┌─────────────────────────────────────┐
+  │  5           — integer literal     │
+  │  std::string("hello") — temporary  │
+  │  getStr()    — return value        │
+  └─────────────────────────────────────┘
+
+  move — transfer ownership of rvalue resource (no copy)
+  ┌──────────────────────────────────────────────────────┐
+  │  std::vector<int> a = {1,2,3};                      │
+  │  std::vector<int> b = std::move(a);  // a now empty │
+  │  // O(1) — no element copy; just pointer swap       │
+  └──────────────────────────────────────────────────────┘
+
+  T&    — lvalue reference (alias to existing object)
+  T&&   — rvalue reference (binds to temporaries; enables move)
+  const T& — binds to both lvalues and rvalues (universal const ref)
+```
+
+---
+
 ## Syntax Reference Card
 
 ### Variables & Types
@@ -247,6 +332,103 @@ else { log(result.error()); }
 3. **Undefined behavior** — C++'s major footgun. Signed overflow, out-of-bounds access, null deref, use-after-move — the compiler assumes these don't happen and optimizes accordingly.
 4. **Templates vs virtuals** — two orthogonal polymorphism mechanisms. Templates = compile-time (static dispatch, code bloat). Virtuals = runtime (vtable, flexible). Choosing wrong kills performance or flexibility.
 5. **Move semantics** — `&&` rvalue references enable transfer of ownership without copying. Foundational for performance; confusing syntax.
+
+---
+
+## Bridge: C++ Templates → C# Generics
+
+You know C# generics deeply. C++ templates look similar but operate on a fundamentally different model. The key distinction: **C# generics are constrained at definition time; C++ templates are duck-typed at instantiation time.**
+
+### The Same Constraint, Three Ways
+
+Suppose you want a function that adds two values of the same type, where that type must support `+`.
+
+**C# — constraint enforced at definition, checked at call site:**
+```csharp
+// IAddable doesn't exist in BCL, but the pattern is familiar:
+T Add<T>(T a, T b) where T : IComparable<T>
+{
+    return a.CompareTo(b) > 0 ? a : b;   // contrived but shows constraint
+}
+
+// Real BCL pattern with operator constraint (C# 11+):
+T Sum<T>(T a, T b) where T : INumber<T>
+{
+    return a + b;   // only compiles because INumber<T> guarantees +
+}
+```
+
+**C++ pre-C++20 — no constraint; error appears at instantiation, not definition:**
+```cpp
+template<typename T>
+T add(T a, T b) {
+    return a + b;   // compiles fine even if T has no operator+
+}                   // error fires only when you call add<SomeType>()
+                    // and the error message is a template instantiation wall
+
+add(1, 2);          // fine — int has +
+add(MyStruct{}, MyStruct{});  // error here, not at the template definition
+```
+
+**C++20 Concepts — the direct analog to C# `where` constraints:**
+```cpp
+// Define a concept (like a C# interface constraint)
+template<typename T>
+concept Addable = requires(T a, T b) {
+    { a + b } -> std::convertible_to<T>;   // T must support +, result convertible to T
+};
+
+// Apply it — error fires at call site with a readable message
+template<Addable T>
+T add(T a, T b) {
+    return a + b;
+}
+
+// Shorthand with standard library concepts
+template<std::integral T>           // std::integral is a built-in concept
+T addInts(T a, T b) { return a + b; }
+
+// Or with requires clause inline
+template<typename T>
+    requires std::floating_point<T> || std::integral<T>
+T addNumeric(T a, T b) { return a + b; }
+```
+
+### Mental Model Comparison
+
+| Aspect | C# Generics | C++ Templates (pre-C++20) | C++20 Concepts |
+|--------|-------------|--------------------------|----------------|
+| Constraint enforcement | Definition time | Instantiation time | Definition time |
+| Error location | Call site, readable | Instantiation site, cryptic | Call site, readable |
+| Mechanism | Interface/delegate matching | Duck typing — any type that compiles | Named constraints (`concept`) |
+| Reification | One IL method, boxing for value types | Separate machine code per type (monomorphization) | Same as templates — separate code per type |
+| Analog to `where T : IComparable<T>` | Native syntax | Write SFINAE (arcane) | `requires std::totally_ordered<T>` |
+| Runtime cost | Possible boxing overhead | Zero — fully inlined/specialized | Zero |
+
+> **Key insight**: C++ templates are more powerful than C# generics (they can constrain on arbitrary syntactic properties, not just interface membership), but pre-C++20 the error messages are famously terrible. C++20 Concepts close most of that gap. If you're writing modern C++, use Concepts wherever you'd use `where` in C#.
+
+---
+
+## Decision Cheat Sheet
+
+| Decision | Use When | Avoid When / Watch Out For |
+|----------|----------|---------------------------|
+| **`std::unique_ptr<T>`** | Single, clear owner; ownership transfers via move; no sharing needed | Sharing across threads or callbacks that outlive the owner; use `shared_ptr` then |
+| **`std::shared_ptr<T>`** | Shared ownership; lifetime uncertain; multiple holders | Default choice "because it's safe" — ref-counting has cost; prefer `unique_ptr` when ownership is clear |
+| **Raw pointer `T*`** | Non-owning observer (you know owner outlives you); C interop; performance-critical inner loops | Owning a heap allocation — use smart pointers; uninitialized raw pointers = UB |
+| **`std::vector<T>`** | Dynamic-size contiguous storage; most collections | When size is truly fixed at compile time (`std::array` is better); when you need non-contiguous storage |
+| **`std::array<T, N>`** | Fixed-size stack-allocated array; know size at compile time | When size varies; prefer over raw arrays — has `.size()`, range-for, no decay |
+| **`std::span<T>`** | Non-owning view over contiguous data (vector, array, raw array); function parameter that shouldn't copy | Storing — span does not own; dangling span if underlying container is destroyed |
+| **Virtual dispatch** | Runtime polymorphism; set of types not known at compile time; plugin/extension points | Performance-critical hot paths (vtable = indirect call + cache miss); when all types are known at compile time |
+| **Templates** | Compile-time polymorphism; all types known at compile time; zero-overhead abstractions | When binary size matters (each instantiation = separate code); deeply recursive templates (compile time cost) |
+| **`std::variant<A,B,C>` + `std::visit`** | Closed set of types known at compile time; want exhaustive pattern matching; value semantics preferred | Open-ended extension (use virtual then); when types share no common behavior |
+| **RAII via destructor** | The default — any resource with clear ownership (file, lock, connection, memory) | When cleanup order across objects is complex (carefully consider destruction order) |
+| **`unique_ptr` custom deleter** | Non-memory resources (file descriptors, C library handles) needing RAII wrapping | When you need the deleter to be stateful and shared — `shared_ptr` custom deleter instead |
+| **`std::string`** | Owning, mutable string data; building/modifying strings | Passing read-only string to a function — use `std::string_view` to avoid copies |
+| **`std::string_view`** | Non-owning read-only view of string data; function parameters; parsing | Storing — does not own memory; dangling view if source string is destroyed or reallocated |
+| **C++17** | Conservative target; widely supported (GCC 7+, Clang 5+, MSVC 2017+); `if constexpr`, `std::optional`, structured bindings | Cutting-edge features — use C++20/23 only if your toolchain guarantees it |
+| **C++20** | Modern baseline for new projects; Concepts, `std::span`, `std::format`, coroutines | Embedded or constrained toolchains still on C++14/17 |
+| **C++23** | `std::expected`, `std::print`, `std::flat_map`; opt in feature by feature | Broad deployment — compiler support still catching up as of 2025 |
 
 ---
 

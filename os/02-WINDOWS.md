@@ -1889,6 +1889,221 @@ from `dotnet list package --vulnerable`. Migrate to PackageReference.
 
 ---
 
+## Windows Security Internals — Kernel-Level Architecture
+
+### VBS / HVCI / Credential Guard
+
+```
+VIRTUALIZATION-BASED SECURITY (VBS) ARCHITECTURE
+══════════════════════════════════════════════════
+
+  Hardware (CPU VT-x / AMD-V + IOMMU)
+  │
+  ├─ Hyper-V Hypervisor (Ring -1 / VMX root mode)
+  │   ├─ Virtual Trust Level 0 (VTL0) — Normal World
+  │   │   ├─ NT Kernel (ring 0) — ntoskrnl.exe, drivers
+  │   │   └─ User space (ring 3) — your apps, even SYSTEM processes
+  │   │
+  │   └─ Virtual Trust Level 1 (VTL1) — Secure World
+  │       ├─ Secure kernel (securekernel.exe)
+  │       ├─ Isolated User Mode (IUM) — trustlets
+  │       │   ├─ lsaiso.exe  ← Credential Guard isolate
+  │       │   │   Holds NTLM hashes, Kerberos TGTs in VSM
+  │       │   │   Even kernel-mode rootkit in VTL0 cannot reach them
+  │       │   └─ Other VSM trustlets (TPM virt, attestation)
+  │       └─ HVCI enforcement (see below)
+
+HVCI (Hypervisor-Protected Code Integrity):
+  The hypervisor controls what code can run in ring 0 (VTL0 kernel)
+  Kernel page table enforcement: all kernel-executable pages must be
+  signed by WDAC policy — no unsigned kernel memory execution
+  Effect: driver signing is not enough; driver code must also be WDAC-approved
+  Tools: SiPolicy.p7b / WDAC policy; CiTool.exe; VBSKey events in Event Log
+```
+
+### Kernel Patch Protection (KPP / PatchGuard)
+
+```
+PATCHGUARD MECHANICS
+════════════════════
+
+  PatchGuard protects against runtime kernel patching — the technique used
+  by rootkits and (historically) AV vendors to hook kernel structures.
+
+  What it monitors (periodically, randomized interval ~5-15 min):
+  ├─ SSDT (System Service Descriptor Table) — syscall dispatch table
+  ├─ IDT (Interrupt Descriptor Table) — interrupt handler pointers
+  ├─ GDT (Global Descriptor Table)
+  ├─ MSRs (Model-Specific Registers) — LSTAR (syscall entry point)
+  ├─ Kernel code pages — key ntoskrnl functions
+  └─ Critical kernel data structures (KPCR, KPRCB, etc.)
+
+  On violation: immediate BSOD — 0x109 CRITICAL_STRUCTURE_CORRUPTION
+  No exceptions. No signed exception. Not bypassable in production.
+  Only way to "disable" it: kernel debugger attached (KD) — which flags
+  the machine and disables some VBS features.
+
+  Implication for security vendors:
+  Before PatchGuard (pre-Vista x64): AV hooks SSDT to intercept syscalls.
+  After PatchGuard: must use documented kernel callbacks:
+    PsSetCreateProcessNotifyRoutine() — process create/exit
+    PsSetCreateThreadNotifyRoutine()  — thread create/exit
+    PsSetLoadImageNotifyRoutine()     — image load (DLL, EXE, driver)
+    CmRegisterCallback()             — registry operation intercept
+    ObRegisterCallbacks()            — object open/duplicate intercept
+    MiniFilter (FltRegisterFilter)   — filesystem I/O intercept
+  This is how Microsoft Defender and EDR products work post-Vista x64.
+```
+
+### PPL (Protected Process Light) Trust Hierarchy
+
+```
+WINDOWS PROCESS PROTECTION LEVELS
+════════════════════════════════════
+
+  Protection Level    Value   Who runs at this level
+  ─────────────────   ─────   ─────────────────────────────────────────
+  PP  (full)          Full    wininit.exe, smss.exe, csrss.exe
+  PPL WinTcb          High    services.exe, lsass.exe (if PPL configured)
+  PPL Windows         Med     spoolsv.exe, taskhostw.exe, audiodg.exe
+  PPL Antimalware     AM      AV/EDR kernel driver (special trust chain)
+  PPL Store           App     Windows Store app hosts
+  None                0       Normal processes (your app)
+
+  Rules:
+    Higher protection level process → cannot be opened for memory read/write
+    by lower protection level process (even SYSTEM privilege)
+    SYSTEM + SeDebugPrivilege does NOT bypass PPL
+    WinDbg cannot attach to PP/PPL processes without kernel debugger
+
+  lsass.exe PPL:
+    Enabled in Credential Guard scenarios
+    Prevents LSASS memory dump attacks (mimikatz targets lsass)
+    Even administrator cannot OpenProcess(PROCESS_ALL_ACCESS) on it
+    Enable: HKLM\SYSTEM\CurrentControlSet\Control\Lsa → RunAsPPL = 1
+    (Requires Secure Boot; otherwise attacker can boot offline and clear it)
+
+  Antimalware PPL:
+    AV vendor's kernel driver signs with Microsoft's Early Launch AM cert
+    Gets elevated trust to intercept process creation before other drivers
+    ELAM driver runs before all 3rd-party drivers at boot
+```
+
+### Windows I/O Model — IOCP and Overlapped I/O
+
+```
+WINDOWS ASYNC I/O ARCHITECTURE
+════════════════════════════════
+
+  COMPLETION-BASED MODEL: initiate I/O, OS does it, notifies you when done.
+  Never blocks the issuing thread.
+
+  ┌─────────────────────────────────────────────────────────────────┐
+  │                     YOUR APPLICATION                            │
+  │                                                                 │
+  │  CreateFile(handle, ..., FILE_FLAG_OVERLAPPED)                  │
+  │  ReadFile(handle, buf, size, NULL, &overlapped)  ← returns fast │
+  │         │                                                       │
+  │         │ (I/O queued to kernel; thread continues)              │
+  │         ▼                                                       │
+  │  GetQueuedCompletionStatus(iocp, &bytes, &key, &overlapped, -1) │
+  │         │ ← thread blocks HERE (not during I/O)                 │
+  │         ▼                                                       │
+  │  Process completion — overlapped.Internal = status              │
+  └─────────────────────────────────────────────────────────────────┘
+
+  ┌─────────────────────────────────────────────────────────────────┐
+  │                     KERNEL                                      │
+  │                                                                 │
+  │  I/O Request Packet (IRP) → I/O Manager → driver stack         │
+  │         │                                                       │
+  │         │ DMA / hardware completes I/O                          │
+  │         ▼                                                       │
+  │  I/O completion routine (APC) or IOCP queue                     │
+  │  → completion packet queued to IOCP object                      │
+  └─────────────────────────────────────────────────────────────────┘
+
+  I/O Completion Port (IOCP):
+    CreateIoCompletionPort(handle, iocp, key, threadCount)
+    Associates file/socket handle to IOCP
+    Multiple threads call GetQueuedCompletionStatus() on same IOCP
+    OS wakes only as many threads as there are CPU cores (thundering herd prevention)
+    Ideal: threadCount = 0 → use CPU count threads
+
+  .NET mapping:
+    ThreadPool sits on IOCP — every await over I/O uses it
+    async/await over Socket, Stream, HttpClient → overlapped I/O → IOCP
+    No thread consumed during the I/O wait — just an OVERLAPPED struct
+    This is why .NET async I/O scales: 10k concurrent requests ≠ 10k threads
+```
+
+```
+COMPARISON: IOCP vs epoll vs kqueue vs io_uring
+
+  API              IOCP                 epoll              kqueue            io_uring
+  ──────────       ──────────────────   ──────────────     ──────────────    ──────────────────
+  Model            Completion           Readiness          Readiness         Completion (rings)
+  Open file I/O    Yes (FILE_FLAG_OVR)  No (only socket)   Yes (vnode)       Yes (full file AIO)
+  Associate        CreateIoCompPort()   epoll_ctl(ADD)     kevent(EVFILT_*)  io_uring_register()
+  Wait             GetQueuedCS()        epoll_wait()       kevent()          io_uring_enter()
+  Thread model     N workers on 1 port  1 thread / N ports  1 thread / N ports  SQ/CQ ring per thread
+  Syscalls/op      0 (work in kernel)   1 per event poll   1 per event poll  ~0 (ring batching)
+  .NET backed by   Yes (ThreadPool)     Yes (SocketEngine)  Yes (SocketEngine)  Not yet (.NET 9+)
+```
+
+### Configuration Store Cross-OS Bridge
+
+Every OS needs a persistent configuration store. The choice of design (hierarchical DB vs files vs typed plists) has deep architectural consequences.
+
+```
+CONFIGURATION STORE COMPARISON
+════════════════════════════════════════════════════════════════════
+
+  Windows Registry               Linux /etc + ~/.config         macOS plist
+  ────────────────               ──────────────────────         ───────────
+  Hierarchical binary DB         Flat text files                Binary or XML property lists
+  Stored as "hive" files:        No central store:              CFPreferences layer:
+    SYSTEM, SOFTWARE, SAM,         each app owns its files        ~/Library/Preferences/
+    SECURITY, DEFAULT              /etc/<app>.conf                  com.apple.Terminal.plist
+    (in %SystemRoot%\System32\     ~/.config/<app>/               /Library/Preferences/
+     Config\)                      ~/.local/share/<app>/          (machine-wide)
+    NTUSER.DAT (per user)          /run/<app>/ (runtime)
+
+  Hive → memory mapping:         No caching layer:              CFPreferences in-memory cache:
+    OS maps hive into kernel       cat /etc/nginx.conf            defaults write ... → cache
+    memory; reads are fast         reads disk every time          defaults synchronize → flush
+                                   (page cache helps)             In-code: must call sync
+
+  Transaction support:           No transactions:               No transactions:
+    TxR (Transactional Registry)   Write new file, rename         Write new plist, rename
+    KTM + TxF for file+reg         atomically (mv is atomic)      (atomic rename on APFS)
+    Rollback on failure            Common pattern:                Common pattern:
+    Used by: MSI installer,          write .tmp, rename to real     write to .plist.tmp,
+    MSIX install, system updates                                     rename
+
+  Change notification:           inotify / fanotify:            FSEvents / kqueue:
+    RegNotifyChangeKeyValue()      inotify_add_watch(fd, path)    FSEventStreamCreate()
+    WM_SETTINGCHANGE broadcasts    poll or epoll on inotify fd    kqueue EVFILT_VNODE
+    Immediate, in-process          Works for files AND dirs       Works for files AND dirs
+
+  Access control:                File-level DAC:                File-level DAC:
+    Per-key ACLs (DACL/SACL)       chmod / chown on /etc files    chmod / chown on plist
+    regedit → Permissions menu      No per-key sub-entry ACLs     No sub-entry ACLs
+    Group Policy (GPO):             Policy: puppet/ansible/salt    Profile: MDM (Jamf/Intune)
+      pushes via HKLM policies        manages /etc files            manages .plist files
+
+  Monitoring / introspection:    Human-readable:                Human-readable (XML):
+    regedit, reg.exe, RegEdit32     cat /etc/nginx.conf            plutil -p ~/Library/Preferences/
+    Process Monitor (Sysinternals)  grep, sed, awk on configs        com.company.app.plist
+    PowerShell: Get-ItemProperty    diff for change review           PlistBuddy -c "Print" ...
+    ETW: Microsoft-Windows-Kernel-  git-tracked in /etc             defaults read com.company.app
+     Registry provider              (e.g., etckeeper)
+```
+
+**The design philosophy gap:** The Registry stores _everything_ — OS settings, app preferences, driver parameters, COM registration, service configuration — in one place. Linux treats configuration as files: each app/service is responsible for its own config files in standard locations, with no central authority. macOS is in between: plist files in standard locations, but with a daemon (`configd`) and API layer (`CFPreferences`) that provides some caching and notification.
+
+**Practical implication when porting software:** A Windows app that reads from `HKCU\Software\Company\App` needs to be rewritten to read from `~/.config/company/app.conf` on Linux or `~/Library/Preferences/com.company.app.plist` on macOS. There is no automatic mapping. The cross-platform configuration library of choice is typically: `platformdirs` (Python), `dirs` crate (Rust), `System.Environment.SpecialFolder` (.NET), or `appdirs` (Go).
+
 ## Appendix: Sysinternals Tools Every Windows Developer Should Know
 
 ```

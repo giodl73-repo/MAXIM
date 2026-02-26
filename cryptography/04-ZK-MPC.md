@@ -141,6 +141,46 @@ COMPOSITION: CONJUNCTIONS AND DISJUNCTIONS:
     One real transcript + one simulated transcript → share overall challenge
     → "proof that x₁ OR x₂ holds" without revealing which
   Applications: anonymous credentials (prove attribute matches one of N without saying which)
+
+```
+ANONYMOUS CREDENTIALS — ZK PRIMITIVE TO DEPLOYED SYSTEM MAP:
+
+  ┌─────────────────────────────────────────────────────────────────────────────────────┐
+  │  System      │ ZK Primitive            │ Selective  │ Unlinkable │ Issuer-hiding    │
+  │              │                         │ Disclosure │            │                  │
+  ├─────────────────────────────────────────────────────────────────────────────────────┤
+  │  BBS+        │ Pairing-based Σ-proto   │ Yes (any   │ Yes (per-  │ No (issuer pub   │
+  │  (W3C VC DI) │ on BLS12-381; Pedersen  │ attribute  │ show proof │ key visible)     │
+  │              │ commitment per attr)    │ subset)    │ randomized)│                  │
+  ├─────────────────────────────────────────────────────────────────────────────────────┤
+  │  iDemix      │ Camenisch-Lysyanskaya   │ Yes        │ Yes (fresh │ No               │
+  │  (Hyperledger│ (CL) signatures; RSA-   │            │ pseudonym  │                  │
+  │  Fabric)     │ based commitments       │            │ per show)  │                  │
+  ├─────────────────────────────────────────────────────────────────────────────────────┤
+  │  U-Prove     │ Discrete-log blind sig; │ Yes (token │ Partial    │ No               │
+  │  (Microsoft) │ Schnorr-style; one-show │ per show;  │ (one-show  │                  │
+  │  Research    │ tokens                  │ selective) │ tokens)    │                  │
+  ├─────────────────────────────────────────────────────────────────────────────────────┤
+  │  zk-SNARK    │ Groth16/Plonk circuit   │ Yes (any   │ Yes        │ Yes (circuit     │
+  │  based ID    │ for credential checks   │ predicate) │            │ can hide issuer) │
+  └─────────────────────────────────────────────────────────────────────────────────────┘
+
+  Key ZK primitive in BBS+: prover holds Schnorr-style proof of knowledge of signature
+    without revealing which attributes were signed or which presentation corresponds to
+    which credential issuance → unlinkability from issuer and between presentations.
+
+  W3C Verifiable Credentials ecosystem:
+    Credential: JSON-LD document; issuer signs with BBS+ or Ed25519
+    Presentation: holder produces selective-disclosure proof; verifier checks
+    BBS+ advantage over plain EdDSA signatures: EdDSA reveals full credential on presentation;
+      BBS+ proves "I hold a valid credential with age ≥ 18" without showing full credential or
+      creating a linkable identifier between presentations.
+
+  EU Digital Identity Wallet (ARF spec): mandates selective disclosure credentials;
+    likely BBS+ or SD-JWT (a lighter-weight standard without full unlinkability).
+    SD-JWT: not ZK-based; issuer pre-commits to attribute hash set; holder reveals subset;
+    simpler but presentations are linkable (no Σ-protocol blindness).
+```
 ```
 
 ---
@@ -391,6 +431,112 @@ FEDERATED LEARNING WITH MPC / DP:
   Secure aggregation: MPC to sum gradients without coordinator seeing individuals
   Differential privacy: add calibrated noise to aggregated gradients
   Production: Google Gboard federated learning; Apple keyboard suggestion
+```
+
+```
+ENTERPRISE ZK/MPC APPLICATIONS (non-blockchain):
+
+  THRESHOLD SIGNING FOR CLOUD KMS:
+    Problem: single HSM holds signing key → single point of failure + compromise
+    MPC solution: signing key distributed across 2+ parties; any single party cannot sign
+    Pattern: 2-of-3 threshold ECDSA; sign requires quorum; no party has full key
+    Production: Fireblocks (MPC wallet infrastructure), Coinbase Custody, Azure Managed HSM
+      multi-party authorization (requires multiple admin approvals; conceptually MPC-like)
+    FROST (RFC 9591): threshold Schnorr/Ed25519; standardized; usable in any signing pipeline
+    Use case: code signing where build system + security team must both approve; CA signing key
+
+  PSI IN HEALTHCARE AND AD-TECH:
+    Healthcare consortia:
+      Hospital A + Hospital B: compute intersection of patient IDs (for cohort studies)
+        without either hospital learning patients not in the intersection
+      Protocol: DH-PSI (OPRF-based); O(n log n); n = dataset size
+      Use: FDA Sentinel Network (safety signal detection); HIPAA-compliant cross-institution studies
+
+    Ad attribution:
+      Advertiser has set of users who saw ad; Publisher has set of users who made purchase
+      PSI reveals count (or set) of overlap without either party learning the other's full set
+      Production: Google PAIR (Publisher Advertiser Identity Reconciliation) uses PSI concepts
+      Also: Apple's SKAdNetwork uses aggregation; Meta's Private Lift uses MPC
+
+  ZK PROOFS FOR COMPLIANCE REPORTING:
+    Classic problem: prove compliance without disclosing sensitive data
+    ZK approach: prove a predicate about your data using a ZK circuit
+
+    Examples:
+      "My company holds valid SOC2 certification" (without revealing audit report details)
+        → ZK proof that auditor's signature over certification is valid
+      "All transactions in this batch are ≤ $10,000" (AML reporting threshold)
+        → Range proof (Bulletproofs) proving sum or max without revealing individual values
+      "This entity is not on the OFAC sanctions list"
+        → ZK set non-membership proof
+      EU Digital Identity Wallet: present "age ≥ 18" without revealing date of birth or
+        credential identifier (unlinkable across verifiers) — BBS+ selective disclosure
+
+    Current maturity: ZK for compliance is emerging; most production systems still use
+      trusted auditors; ZK infrastructure is reaching usability (2024-2026 window).
+```
+
+## 8a. Library and Framework Bridge
+
+```
+ZK/MPC LIBRARY LANDSCAPE — FROM THEORY TO IMPLEMENTATION:
+
+  zkSNARK TOOLCHAINS:
+  ┌────────────────────────────────────────────────────────────────────────────────┐
+  │  Library / Tool  │ Proof System    │ Language  │ Key Property                  │
+  ├────────────────────────────────────────────────────────────────────────────────┤
+  │  circom + snarkjs│ Groth16         │ JS/TS     │ Widely used; Groth16 (circuit-│
+  │                  │                 │           │ specific setup); zkRollup std  │
+  │  halo2           │ PLONKish (IPA)  │ Rust      │ No trusted setup; recursive;  │
+  │                  │                 │           │ Zcash Orchard, scroll use it  │
+  │  arkworks        │ Groth16, Plonk  │ Rust      │ Modular; any curve; research   │
+  │                  │                 │           │ + production; full ecosystem   │
+  │  gnark           │ Groth16, Plonk  │ Go        │ Fast prover; production use   │
+  │                  │                 │           │ in ConsenSys zkEVM             │
+  │  bellman         │ Groth16         │ Rust      │ Original Zcash Sapling lib;   │
+  │                  │                 │           │ well-audited; more rigid API   │
+  └────────────────────────────────────────────────────────────────────────────────┘
+
+  MPC FRAMEWORKS:
+  ┌────────────────────────────────────────────────────────────────────────────────┐
+  │  Library         │ Protocol        │ Language  │ Key Property                  │
+  ├────────────────────────────────────────────────────────────────────────────────┤
+  │  MP-SPDZ         │ SPDZ, GMW, semi │ C++/Python│ Most protocol variants; used  │
+  │                  │ -honest models  │           │ by researchers and industry    │
+  │  SCALE-MAMBA     │ SPDZ2k, SPDZ   │ C++       │ Production-ready fork of SPDZ │
+  │  Sharemind       │ Additive SS     │ C++       │ Privacy analytics platform;   │
+  │                  │                 │           │ enterprise deployment          │
+  │  OpenMPC         │ Yao GC + GMW    │ C++       │ Two-party focused; research    │
+  └────────────────────────────────────────────────────────────────────────────────┘
+
+  THRESHOLD SIGNATURES (production-ready):
+  ┌────────────────────────────────────────────────────────────────────────────────┐
+  │  Library         │ Algorithm       │ Language  │ Key Property                  │
+  ├────────────────────────────────────────────────────────────────────────────────┤
+  │  FROST (RFC 9591)│ Threshold       │ Rust/Go   │ IETF standard; threshold      │
+  │                  │ Schnorr/Ed25519 │ (multiple)│ Schnorr with preprocessing    │
+  │  tss-lib         │ Threshold ECDSA │ Go        │ GG18 protocol; used in        │
+  │  (binance)       │ (GG18)          │           │ Binance Chain, Fireblocks     │
+  │  CGGMP21         │ Threshold ECDSA │ Rust      │ Latest ECDSA TSS protocol;    │
+  │  (dfns)          │                 │           │ better security than GG18     │
+  │  dkls18          │ 2-party ECDSA   │ Go/Rust   │ Most efficient 2-of-2;        │
+  │                  │                 │           │ used in MPC wallets            │
+  └────────────────────────────────────────────────────────────────────────────────┘
+
+  FROST (RFC 9591) is the clearest starting point for threshold signatures:
+    Threshold t-of-n Ed25519 or Schnorr; IETF RFC 9591 (2023)
+    DKG phase: parties collectively generate (public_key, shares) without trusted dealer
+    Signing: t parties each produce a partial signature; coordinator aggregates
+    Binding factor: prevents rogue-key attacks; each party's nonce commits to participant set
+    Use case: cloud KMS multi-party authorization, distributed validator technology
+
+  CIRCOM WORKFLOW (most accessible zkSNARK entry point):
+    1. Write circuit in circom: template Multiplier() { signal input a; signal input b;
+       signal output c; c <== a * b; }
+    2. npm install circom snarkjs; circom circuit.circom --r1cs --wasm
+    3. snarkjs groth16 setup circuit.r1cs pot12.ptau circuit_0000.zkey (trusted setup)
+    4. Generate witness + proof: snarkjs groth16 prove; verify: snarkjs groth16 verify
+    5. Generate Solidity verifier: snarkjs zkey export solidityverifier
 ```
 
 ---

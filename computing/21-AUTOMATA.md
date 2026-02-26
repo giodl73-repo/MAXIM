@@ -8,7 +8,46 @@ You know the theory. DFA, NFA, PDA, Turing machine, Rice's theorem, the undecida
 
 The answer is: everywhere, usually disguised. The Chomsky hierarchy isn't just a taxonomy in a textbook — it's a load-bearing constraint in parser design, security tool architecture, and protocol implementation. This guide maps the theory to the concrete artifacts.
 
-<!-- @editor[diagram/P1]: No landscape diagram — guide opens with wall of text before the first ##. Missing a visual map of the theory-to-artifact connections (Chomsky hierarchy → regex engines / parsers / static analysis tools / state machines). The summary map appears at the end but the style contract requires it at the top. -->
+```
+THE CHOMSKY HIERARCHY — THEORY TO PRODUCTION MAP
+==================================================
+
+  Type 0    Recursively Enumerable
+  ┌─────────────────────────────────────────────────────────┐
+  │  Turing Machine                                         │
+  │  ▸ General computation, general-purpose languages       │
+  │  ▸ C++/TypeScript templates (accidentally TC)           │
+  │                                                         │
+  │  Type 1   Context-Sensitive                             │
+  │  ┌──────────────────────────────────────────────┐       │
+  │  │  Linear-Bounded Automaton (LBA)              │       │
+  │  │  ▸ Rarely used in practice                  │       │
+  │  │  ▸ Natural language parsing (approx)        │       │
+  │  │  ▸ Some template languages                  │       │
+  │  │                                              │       │
+  │  │  Type 2   Context-Free                       │       │
+  │  │  ┌───────────────────────────────────┐       │       │
+  │  │  │  PDA / CFG                        │       │       │
+  │  │  │  ▸ LL/LR parsers                 │       │       │
+  │  │  │  ▸ ANTLR4 (LL(*), batch parse)   │       │       │
+  │  │  │  ▸ tree-sitter (LR(1), incr.)    │       │       │
+  │  │  │  ▸ Programming languages, JSON   │       │       │
+  │  │  │                                   │       │       │
+  │  │  │  Type 3   Regular                 │       │       │
+  │  │  │  ┌──────────────────────┐         │       │       │
+  │  │  │  │  DFA / NFA / Regex   │         │       │       │
+  │  │  │  │  ▸ RE2, Hyperscan    │         │       │       │
+  │  │  │  │  ▸ PCRE, .NET Regex  │         │       │       │
+  │  │  │  │  ▸ grep, lexers      │         │       │       │
+  │  │  │  └──────────────────────┘         │       │       │
+  │  │  └───────────────────────────────────┘       │       │
+  │  └──────────────────────────────────────────────┘       │
+  └─────────────────────────────────────────────────────────┘
+
+  Containment is strict: Regular ⊂ CFL ⊂ CSL ⊂ RE
+  Each boundary is a hard limit on what the recognizer can express.
+  "Can a regex do this?" = "Is this language regular?"
+```
 
 ---
 
@@ -31,7 +70,7 @@ The question "can I parse this with a simple parser?" = "is this CFL?"
 
 ### Why the Boundary Between Type 3 and Type 2 Matters
 
-<!-- @editor[audience/P2]: The examples (balanced parens require counting, why you can't parse HTML with regex) are the standard pumping-lemma lecture examples from 6.840. This person could recite them. The value here is the engineering consequence ("this is why CSS is mostly regular but JavaScript is not"), not the derivation. Trim to the engineering punchline; cut the "critical insight: no DFA can count" block. -->
+DFAs have no memory — they can't count matching parens. This is why HTML/CSS are not regular and regex-based HTML parsing is famously wrong. The engineering punchline: CSS selectors are (mostly) regular — the selector grammar is a regular language, which is why CSS engines can tokenize via DFA. HTML attributes and nested tags are not regular. JavaScript (nested functions, closures, block scope) is definitely not regular.
 
 ```
 Regular (DFA can recognize):
@@ -39,18 +78,18 @@ Regular (DFA can recognize):
   Integer literals: [0-9]+
   Whitespace:     \s+
   Keywords:       if|else|while|...
+  CSS selectors:  div > .class + span[attr]   ← regular grammar
 
 Context-free (DFA cannot, PDA can):
   Balanced parens:  { ... { ... } ... }
-  Nested structure: <tag><tag></tag></tag>
+  Nested tags:      <tag><tag></tag></tag>
   Expression trees: a + (b * (c - d))
   Block structure:  begin ... begin ... end ... end
 
-The critical insight:
-  No DFA can count. It has no stack.
-  Balanced delimiters require counting → CFL, not regular.
-  This is why you cannot parse HTML with regex.
-  This is why CSS is (mostly) regular but JavaScript is not.
+HTML: the abstract balanced-tag grammar is CFL, but HTML5 parsing rules
+are not even CFL — error recovery and context-dependent behavior
+(script/style element content unparsed as HTML) require a state machine
+parser, not a CFG parser. This is why browsers are complex.
 ```
 
 The Stack Overflow answer "you can't parse HTML with regex" that gets 5000 upvotes is just a restatement of the pumping lemma for regular languages. The underlying theorems are doing real engineering work.
@@ -293,38 +332,15 @@ The machine is serializable, visualizable, and testable — properties you don't
 
 PDAs appear at every parser boundary. The stack is the core data structure of recursive descent parsing.
 
-### Recursive Descent = Explicit Call Stack = PDA
+### Recursive Descent = PDA
 
-<!-- @editor[audience/P2]: This subsection explains that the call stack IS the PDA stack and why balanced parens require a stack. That's the content of the PDA lecture in 6.840 — this reader proved this. The code example adds nothing new. What would add value: where recursive descent breaks down in practice (left recursion elimination, operator precedence climbing, Pratt parsing as an alternative), not the basic PDA correspondence. -->
+Recursive descent is a hand-coded PDA — the call stack is the pushdown stack. Each function call pushes a frame (push); each return pops it. The nested structure that the PDA's stack enables is exactly what lets you parse arbitrary nesting depth.
 
-```
-Recursive descent parser for:  E → T ('+' T)*  T → F ('*' F)*  F → '(' E ')' | id
+Where recursive descent breaks down in practice:
 
-parseE():
-  left = parseT()
-  while peek() == '+':
-    consume('+')
-    right = parseT()
-    left = BinOp('+', left, right)
-  return left
-
-parseT(): ...similar...
-parseF():
-  if peek() == '(':
-    consume('(')
-    e = parseE()           ← push stack frame for parseE
-    consume(')')
-    return e
-  else:
-    return Var(consume(IDENT))
-
-The call stack IS the PDA stack.
-Each function call is a push; each return is a pop.
-The fact that this can parse arbitrary nesting (balanced parens, etc.)
-is exactly the CFL expressiveness given by the stack.
-```
-
-### LL vs LR: Two Ways to Simulate a PDA
+- **Left recursion**: `E → E + T | T` causes infinite recursion in a top-down parser. LL grammars must eliminate left recursion by rewriting (`E → T E'`, `E' → + T E' | ε`), which obscures the natural grammar structure.
+- **Operator precedence**: Naively encoding precedence in an LL grammar requires one production rule per precedence level, leading to deep parse trees and slow parsers. Pratt parsing (top-down operator precedence) is the standard fix — it handles left-recursion and precedence without grammar transformation.
+- **LL(k) limitations**: LL grammars need left-recursion elimination and right-factoring to work. LR handles left recursion naturally (bottom-up shift-reduce), which is why most language-grade parsers are LR-based even when the user-facing grammar looks left-recursive.
 
 ```
 LL(k) — top-down, leftmost derivation
@@ -363,7 +379,26 @@ pest        PEG              Rust        Zero-copy, ordered choice resolves ambi
 chevrotain  LL(k)            TS          Hand-rolled parser toolkit, very fast
 ```
 
-<!-- @editor[bridge/P2]: tree-sitter's distinguishing feature over yacc/bison is incremental parsing — it re-parses only the changed subtree, which is why it works in editors on every keystroke. The table lists it without this key architectural detail. The theory connection: tree-sitter maintains the LR parse stack across edits and replays only the affected portion. This is the gap-between-theory-and-practice content that adds value for this reader. -->
+**tree-sitter's distinguishing feature is incremental parsing.** It maintains the LR parse stack state across edits and replays only the affected subtree rather than re-parsing the whole file. The mechanism: each node in the concrete syntax tree is annotated with a checksum of its source range; on an edit, tree-sitter finds the smallest subtree whose range was touched and re-runs the LR parser from the appropriate stack state.
+
+This makes it suitable for editor integration (LSP servers, syntax highlighting, code navigation) where re-parsing the entire file on every keystroke is too slow.
+
+```
+Comparison: ANTLR4 vs tree-sitter
+
+  ANTLR4           = batch parsing
+    Parse once, offline, build tooling (Presto, compiler frontends)
+    Full LL(*) grammar class, rich error recovery options
+    Output: parse tree, listener/visitor API
+    Not designed for interactive use
+
+  tree-sitter      = streaming / incremental parsing
+    Parse continuously as user types
+    Maintains parse stack across edits, O(edit size) re-parse
+    Output: concrete syntax tree, query API (S-expressions)
+    Designed for: editors (Neovim, Helix, Zed), GitHub code nav,
+                  LSP servers that need syntax at every keystroke
+```
 
 ### Earley Parsing — Handling Ambiguous Grammars
 
@@ -532,3 +567,5 @@ Turing completeness    C++ templates, TypeScript types, Helm
 | Explain why balanced parens can't be regex | Pumping lemma — regular languages can't count |
 | Parse HTML correctly | Don't write one — use a spec-compliant parser (parse5, WHATWG) |
 | Understand TypeScript type checking limits | Turing completeness of the type system (23-PL-THEORY) |
+| Need incremental parsing for an editor/LSP | tree-sitter — maintains LR stack across edits |
+| Need batch parsing for a compiler frontend | ANTLR4 — richer grammar class, full parse tree API |

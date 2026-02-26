@@ -26,7 +26,7 @@ JavaScript is a runtime language. TypeScript is a compile-time layer on top of i
 
 **The key insight**: TypeScript is a *static analysis tool* that happens to compile. The output is plain JavaScript. If you want to check a type at runtime, you do it yourself with `typeof` or `instanceof` — TypeScript can't help you there.
 
-<!-- @editor[audience/P1]: This file covers JS language features (destructuring, optional chaining, async/await runtime model, class syntax) and TypeScript type system internals (primitive types, utility types, generics, structural typing deep-dive) that belong in the companion language guides — languages/07-JAVASCRIPT.md and languages/08-TYPESCRIPT.md. This file's distinct value is the toolchain and module system layer: CJS vs ESM, module resolution algorithms, tsconfig settings, the compilation pipeline split between tsc and esbuild. The language-level content should be cut or heavily summarized here with a pointer to the language guides, and the toolchain content expanded (module resolution algorithm, how "moduleResolution": "Bundler" vs "NodeNext" actually differ, path alias resolution, declaration file discovery). See calibration note in CLAUDE.md for this directory. -->
+> **Scope of this guide**: This guide covers the **toolchain and module system** — CJS vs ESM, module resolution algorithms, tsconfig compilation pipeline, declaration file discovery. For JS/TS language features (destructuring, optional chaining, async/await, classes, generics, utility types), see `languages/07-JAVASCRIPT.md` and `languages/08-TYPESCRIPT.md`. The language content below is retained for `target`/`lib` context; the toolchain sections are the primary focus.
 
 ---
 
@@ -183,7 +183,79 @@ This is the #1 source of confusion in the JS ecosystem. There are **two incompat
   - Use a bundler (Vite, Webpack) which handles this for you
 ```
 
-<!-- @editor[content/P2]: Module resolution algorithm is absent. The learner has compiler theory background — the resolution algorithm (how Node/bundlers locate a bare specifier like `import x from 'lodash'`) is the interesting part. The algorithm: (1) check node_modules/ starting from current dir, walking up to filesystem root; (2) find package.json "exports" field (conditional exports: "import" vs "require" vs "browser"); (3) fall back to "main" or "module" fields; (4) for relative imports, check file extension, then index files. The "exports" field is especially important — it's how dual-mode packages expose different entry points to CJS vs ESM consumers. This is the toolchain depth this file is supposed to provide. -->
+### Module Resolution Algorithm
+
+How does `import x from 'lodash'` actually find the file? The resolution algorithm has two distinct phases:
+
+**Phase 1 — Find the package** (the node_modules walk):
+
+```
+  Current file: /project/src/utils/format.ts
+  Import: 'lodash'
+
+  Node walks UP the directory tree looking for node_modules/:
+
+  /project/src/utils/node_modules/lodash/   (check — not found)
+  /project/src/node_modules/lodash/          (check — not found)
+  /project/node_modules/lodash/              (found — stop here)
+
+  This is why node_modules/ can exist at multiple levels
+  (monorepos use this for package-level isolation).
+```
+
+**Phase 2 — Find the entry point within the package** (the `package.json` fields priority):
+
+```
+  /project/node_modules/lodash/package.json
+  {
+    "name": "lodash",
+    "exports": { ... },     <- checked FIRST (Node 12+)
+    "module": "lodash.esm.js",  <- bundler hint (not Node-native)
+    "main": "lodash.js"     <- fallback for old resolution
+  }
+
+  Priority order:
+  1. "exports" field  (if present, it is authoritative — "main" is ignored)
+  2. "module" field   (bundlers like Vite/Rollup use this; Node ignores it)
+  3. "main" field     (legacy fallback — the old way)
+```
+
+**The `"exports"` field — conditional exports** (the most important part):
+
+The `"exports"` field lets a package expose different entry points depending on the consumer's environment. This is how dual-mode (CJS + ESM) packages work:
+
+```json
+  {
+    "name": "my-lib",
+    "exports": {
+      ".": {
+        "import":  "./dist/index.esm.js",   // ESM consumer gets this
+        "require": "./dist/index.cjs.js",   // CJS consumer gets this
+        "browser": "./dist/index.browser.js" // bundler/browser gets this
+      },
+      "./utils": {
+        "import":  "./dist/utils.esm.js",   // sub-path export
+        "require": "./dist/utils.cjs.js"
+      }
+    }
+  }
+```
+
+The condition (`"import"` vs `"require"` vs `"browser"`) is matched based on how the caller imported the package and what environment the resolver is targeting. A bundler activates `"browser"` conditions; Node.js native ESM activates `"import"`; CJS `require()` activates `"require"`.
+
+**Relative imports** follow simpler rules:
+
+```
+  import './utils'             ->  try ./utils.ts, ./utils.js,
+                                   ./utils/index.ts, ./utils/index.js
+                                   (extension/index resolution)
+
+  import './utils.js'          ->  exact file — required by Node ESM
+                                   (TypeScript still writes .js even for .ts source;
+                                    the compiler resolves it to the .ts file)
+```
+
+**Why `moduleResolution` matters**: the tsconfig `"moduleResolution"` setting controls which of these resolution algorithms TypeScript's type checker simulates. Get it wrong and TypeScript can't find types for packages that Node/bundler resolves fine — or vice versa. See the `moduleResolution` decision table below.
 
 ---
 
@@ -234,7 +306,7 @@ TypeScript finds an entire class of bugs at *edit time* (in your IDE) and *build
   // (unreachable code, exhaustive checks)
 ```
 
-<!-- @editor[audience/P2]: The primitive types, interfaces, generics, utility types, and structural typing sections below are language guide content belonging in languages/08-TYPESCRIPT.md. The structural typing / nominal vs structural comparison is genuinely valuable for this reader (C# background), but it belongs in the TypeScript language guide. This file should either cut these sections with a pointer to 08-TYPESCRIPT.md, or keep only the structural typing bridge (since it has direct toolchain implications in how .d.ts files work) and remove the rest. -->
+> **Note**: The following sections cover TypeScript's type system. For structural vs nominal typing intuition and the full type system reference, see `languages/08-TYPESCRIPT.md`. The sections here focus on the `.d.ts` declaration file model and what structural typing means for toolchain interop.
 
 #### Object Types and Interfaces
 
@@ -432,7 +504,40 @@ This file controls the TypeScript compiler. Key settings:
   Library (dual output):      Two tsconfig files, one per output format
 ```
 
-<!-- @editor[structure/P2]: Missing a diagram showing how "moduleResolution" interacts with the module resolution algorithm. The four values ("Node", "Node16", "NodeNext", "Bundler") have meaningfully different behaviors: "Node" uses the old algorithm (ignores package.json "exports" field); "Node16"/"NodeNext" enforce ESM-compatible resolution with explicit file extensions; "Bundler" allows extensionless imports and respects "exports" but doesn't require .js extensions. A decision table or flow diagram here — pairing which moduleResolution value to use with which runtime/toolchain — is the core of what a toolchain guide for this audience should provide. -->
+### `moduleResolution` Decision Table
+
+`moduleResolution` tells TypeScript's type checker which file-finding algorithm to simulate. It does not affect your runtime — that's determined by Node/bundler. But it must match your runtime's behavior or TypeScript will fail to find types for packages it should find (or incorrectly accept imports that will break at runtime).
+
+| Value | Pair with | Resolution behavior | Key restriction |
+|---|---|---|---|
+| `"Node"` | Legacy Node.js / old Webpack | Old Node CJS algorithm. Ignores `package.json` `"exports"` field entirely. Allows extensionless imports. | Do not use for new projects. Won't resolve conditional exports or sub-path exports. |
+| `"Node16"` | Node.js 16+ native ESM or CJS | Respects `"exports"` field and conditional exports. **Requires explicit `.js` file extensions** in relative imports (even when source is `.ts`). Enforces ESM/CJS boundary. | Extension requirement surprises TS devs. Use when targeting Node.js native ESM. |
+| `"NodeNext"` | Node.js current (same as Node16, evolves with Node) | Same as `Node16` today. Tracks Node's resolution semantics as they evolve. | Use this instead of `Node16` for forward compatibility on Node.js projects. |
+| `"Bundler"` | Vite, esbuild, Rollup, webpack 5 | Respects `"exports"` field. Allows extensionless imports (bundler handles extension resolution). Does not enforce the `.js` extension rule. | Bundler must be present — this mode assumes a bundler resolves the final paths. Wrong choice for direct Node.js execution without a bundler. |
+
+```
+  Which moduleResolution should I use?
+
+  Writing code that runs in Node.js natively (no bundler)?
+  +-- Node.js 12+?  --> "NodeNext"
+  +-- Very old Node? --> "Node" (legacy, accept the limitation)
+
+  Writing code for a browser/bundler project (Vite, webpack, etc.)?
+  --> "Bundler" (modern choice)
+  --> "Node" only if using Webpack 4 / very old toolchain
+
+  Writing a library that ships to npm?
+  --> "NodeNext" (most compatible; enforces .js extensions in your source)
+  --> If dual CJS+ESM: two tsconfig files, one per output format
+
+  Why Node16/NodeNext require .js extensions in source:
+  import { foo } from './utils'     // ERROR with NodeNext
+  import { foo } from './utils.js'  // OK  (TypeScript resolves to utils.ts)
+
+  The .js extension in the import = the extension that will exist at runtime.
+  TypeScript lets you write .js in source and resolves to the .ts file.
+  Bundler mode doesn't require this because the bundler handles the mapping.
+```
 
 ---
 
@@ -514,7 +619,7 @@ This file controls the TypeScript compiler. Key settings:
 
 ## JavaScript Runtime Features You Use Daily
 
-<!-- @editor[audience/P2]: The async/await, destructuring, optional chaining, and classes sections below are JavaScript language content. For this audience (MIT CS, knows async models deeply) the async/await section adds marginal value here — the Promise model is well understood conceptually. The destructuring and optional chaining sections belong in languages/07-JAVASCRIPT.md. The classes section is similarly language-guide territory. Consider replacing these with a single "see languages/07-JAVASCRIPT.md and languages/08-TYPESCRIPT.md for language-level features" pointer, and using the space for deeper toolchain content: the module graph, how bundlers handle dynamic import(), conditional exports in package.json, etc. -->
+> **Note**: The following runtime features (async/await, destructuring, optional chaining, classes) are language-level content covered in `languages/07-JAVASCRIPT.md`. They appear here for tsconfig `target` context — understanding which features TypeScript will downlevel-compile vs emit as-is. If the runtime supports the feature natively (per the `target` setting), TypeScript passes it through unchanged; if not, it emits a polyfill or transform.
 
 ### Async / Await
 

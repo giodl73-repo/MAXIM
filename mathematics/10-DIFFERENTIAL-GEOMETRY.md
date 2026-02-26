@@ -456,6 +456,344 @@ THE LANDSCAPE
   (One of the deepest theorems in 20th century mathematics)
 ```
 
+## 11. Differential Geometry in Modern ML
+
+```
+  GEODESICS AND OPTIMAL TRANSPORT:
+  The Wasserstein distance W_p(μ,ν) between probability distributions
+  is a geodesic distance on the space of distributions.
+  The space of probability measures on a manifold carries a Riemannian
+  structure (Otto calculus) where geodesics = optimal transport plans.
+  W₂ is the Riemannian distance on (Prob(M), g_Fisher).
+
+  Practical consequence: diffusion model training = minimizing Wasserstein
+  distance between learned and data distributions via score matching.
+
+  NATURAL GRADIENT DESCENT (Amari 1998):
+  For a statistical model parameterized by θ ∈ Θ:
+  Fisher information matrix I(θ)_{ij} = E[∂_i log p_θ · ∂_j log p_θ]
+  defines a Riemannian metric on the STATISTICAL MANIFOLD.
+
+  Natural gradient:  θ_{t+1} = θ_t - α I(θ)⁻¹ ∇L(θ)
+  ├── Steepest descent in the intrinsic geometry of the parameter space
+  ├── Invariant under reparameterization of the model
+  ├── Geodesics of the Fisher metric = minimum-KL paths between distributions
+  └── K-FAC (Kronecker-Factored Approximate Curvature): practical approximation
+      to I(θ)⁻¹ for neural networks using Kronecker products.
+
+  RIEMANNIAN GRADIENT DESCENT ON MATRIX MANIFOLDS:
+  (Introduced in 09-MANIFOLDS.md §10; connection to curvature here)
+
+  Why curvature matters for optimization:
+  ├── Sectional curvature κ of Stiefel St(n,k): bounded, κ ∈ [-1, ¼]
+  ├── SPD manifold Sym⁺(n): non-positive sectional curvature (Hadamard space)
+  │   → unique geodesics, convex optimization has unique global minimum
+  └── Grassmannian Gr(n,k): positive curvature → geodesics can converge
+      faster than in flat space, BUT conjugate points exist (geodesics stop
+      being length-minimizing after certain distance)
+
+  Geodesic equation on Stiefel St(n,k):
+  d²X/dt² + X(ẊᵀẊ) = 0  (zero covariant acceleration in the induced metric)
+  Solved by matrix exponential: X(t) = X(0)·exp(t·A) for skew-symmetric A.
+
+  GEOMETRIC DEEP LEARNING (Bronstein-Bruna-LeCun-Szlam-Vandergheynst):
+  Blueprint: G-equivariant neural networks respect symmetry G acting on M.
+
+  Layers of the hierarchy:
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  Group G on domain M  →  Function space on M  →  Equivariant maps  │
+  │                                                                     │
+  │  G=translation on ℝ²:  CNN (convolutional layers)                  │
+  │  G=SO(2) on sphere:    Spherical CNNs                               │
+  │  G=SE(3) on ℝ³:        E(3)-equivariant (molecular property pred.) │
+  │  G=Diff(M) on mesh:    Gauge-equivariant mesh CNNs                 │
+  │  G=permutations Sₙ:    Graph Neural Networks (on graphs)           │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  The key operation: equivariant convolution uses the group structure to
+  define "filters" that respect geometry:
+  (f ★ ψ)(g) = ∫_G f(h) ψ(g⁻¹h) dh  (convolution on the group)
+
+  CURVATURE OF LOSS LANDSCAPES:
+  The Hessian H = ∇²L(θ) at a point θ acts as a Riemannian metric on
+  parameter space (locally). Key differential-geometric facts:
+  ├── Trace(H) = sum of eigenvalues = total curvature in all directions
+  ├── det(H) > 0, all eigenvalues > 0: local minimum (positive definite Hessian)
+  ├── Negative eigenvalues: saddle point (directions of descent)
+  └── Zero eigenvalues: flat directions (degenerate — related to symmetries,
+      overparameterization, or BN-induced scale invariances)
+
+  SECTIONAL CURVATURE of the loss surface along the 2D slice {θ₀ + su + tv}:
+  κ(u,v) involves 4th-order derivatives of L. Practically approximated by
+  Hessian-vector products (Pearlmutter's trick, O(n) not O(n²)).
+
+  DIFFUSION MODELS AS RIEMANNIAN FLOWS:
+  Score function: s(x,t) = ∇_x log p_t(x) = a vector field on data manifold.
+  Denoising SDE: dx = -½ β(t) x dt + √β(t) dW
+  Score-based reverse: dx = [-½ β(t) x - β(t) s(x,t)] dt + √β(t) dW̄
+  The score is the gradient of log-density = gradient vector field on Riemannian
+  data manifold. Score matching loss = enforcing this vector field is correct.
+```
+
+## 12. Gauge Theory and Chern-Weil Theory
+
+```
+  THE PARALLEL BETWEEN GRAVITY AND GAUGE THEORY:
+
+  GRAVITY (GR)                    YANG-MILLS GAUGE THEORY
+  ─────────────────────────────────────────────────────────────────────
+  Spacetime manifold M             Principal G-bundle P → M
+  Metric gμν                       Bundle metric (via representation)
+  Levi-Civita connection Γⁱⱼₖ      Connection 1-form A (gauge potential)
+  Curvature Rⁱⱼₖˡ                  Field strength F = dA + A∧A
+  Bianchi identity ∇[μRνρ]σλ=0     Bianchi: DF = dF + [A,F] = 0
+  Einstein equations Gμν = 8πG Tμν Yang-Mills equations: D★F = J
+  Gauge freedom: coordinate change  Gauge freedom: A → g⁻¹Ag + g⁻¹dg
+
+  Both are "curvature = source" equations.
+  GR: curvature of tangent bundle (rank-2 tensor bundle) = matter stress.
+  YM: curvature of internal symmetry bundle = matter current.
+
+  EXPLICIT YANG-MILLS:
+  Connection 1-form: A = Aμ^a T^a dxμ  (g-valued 1-form, T^a = Lie algebra basis)
+  Field strength: Fμν = ∂μAν - ∂νAμ + [Aμ, Aν]
+  (The [Aμ,Aν] term is new vs EM and encodes the non-abelian self-interaction.)
+
+  For G = U(1) (electromagnetism): [Aμ,Aν] = 0 → Fμν = ∂μAν - ∂νAμ ✓
+  For G = SU(2) (weak force): [Aμ,Aν] ≠ 0 → W bosons interact with each other.
+  For G = SU(3) (strong force): gluon self-coupling → confinement.
+
+  CHERN-WEIL THEOREM:
+  Characteristic classes are cohomology classes computed from curvature
+  using invariant polynomials of the Lie algebra.
+
+  CHERN CLASSES (complex vector bundles):
+  c₁ = [tr(iF/2π)] ∈ H²(M;ℤ)          first Chern class
+  c₂ = [tr(iF/2π)² - (tr(iF/2π))²/2] ∈ H⁴(M;ℤ)  (second Chern class)
+  ∫_M c₁ = n ∈ ℤ   (integer! — the "instanton number" or monopole charge)
+
+  PONTRYAGIN CLASSES (real vector bundles):
+  p₁ = [-tr(F∧F)/8π²] ∈ H⁴(M;ℤ)
+
+  INSTANTONS (self-dual Yang-Mills solutions):
+  F = ★F  (self-dual: field strength = its own Hodge dual)
+  Solutions in Euclidean 4-space with ∫ tr(F∧F) = 8π²n (topological charge n).
+  Yang-Mills action ≥ 8π²|n| (from Cauchy-Schwarz: tr(F∧F) ≤ ‖F‖²dV).
+  Equality iff F = ±★F.
+  Instantons are absolute minima of the Yang-Mills action in each topological sector.
+
+  CHERN-SIMONS THEORY:
+  The 3D action S = ∫_M tr(A∧dA + 2/3 A∧A∧A) depends only on topology.
+  Quantization of CS theory produces invariants of 3-manifolds and knots
+  (Jones polynomial, Witten-Reshetikhin-Turaev invariants).
+  Relevant to: topological quantum computing (anyons), 3-manifold topology.
+
+  ATIYAH-SINGER INDEX THEOREM (briefest statement):
+  For a Dirac operator D on a compact Riemannian manifold:
+  dim ker D - dim coker D = ∫_M Â(M) ∧ ch(E)
+  LHS = analytical index (solution space)
+  RHS = topological index (Chern-Weil integrals of curvature)
+  Unifies Gauss-Bonnet, Hirzebruch-Riemann-Roch, and Chern-Gauss-Bonnet.
+  The Â genus and Chern character ch(E) are computed from Pontryagin/Chern classes.
+```
+
+## 13. Spin Geometry and the Dirac Operator
+
+```
+  CLIFFORD ALGEBRA Cl(n):
+  Generated by {e₁,...,eₙ} with the relation: eᵢeⱼ + eⱼeᵢ = -2δᵢⱼ
+  (Anticommuting generators — the square of each basis element = -1.)
+  dim Cl(n) = 2ⁿ as a vector space.
+
+  For n=1: Cl(1) = {a + be₁ | a,b ∈ ℝ},  e₁² = -1 → Cl(1) ≅ ℂ
+  For n=2: Cl(2) = {a + be₁ + ce₂ + de₁e₂},  (e₁e₂)² = -1 → Cl(2) ≅ ℍ (quaternions!)
+  For n=3: Cl(3) ≅ M₂(ℂ) ⊕ M₂(ℂ)   (relates to Pauli matrices)
+
+  PAULI MATRICES generate Cl(3):
+  σ₁=[0 1;1 0], σ₂=[0 -i;i 0], σ₃=[1 0;0 -1]
+  σᵢσⱼ + σⱼσᵢ = 2δᵢⱼ   (Clifford relation with positive signature)
+
+  SPIN GROUPS:
+  Spin(n) = double cover of SO(n), realized inside Cl(n).
+  Spin(2) ≅ U(1) → SO(2) (2-to-1)
+  Spin(3) ≅ SU(2) → SO(3) (2-to-1 — the spinor cover from 08-TOPOLOGY.md)
+  Spin(4) ≅ SU(2) × SU(2) → SO(4)
+  Spin(6) ≅ SU(4) → SO(6)
+
+  Physical spinors (spin-½ particles) are vectors in a representation of Spin(3)=SU(2)
+  that does NOT factor through SO(3). They pick up a factor -1 under 360° rotation:
+  need 720° to return to identity. This is not a physical oddity — it's the
+  topology of SO(3): π₁(SO(3)) = ℤ/2ℤ, and spinors "see" the ℤ/2ℤ.
+
+  SPINOR BUNDLE:
+  For an oriented Riemannian n-manifold M (with spin structure):
+  the spinor bundle S → M is an associated bundle to the spin frame bundle.
+  Fibers = spinor representations of Spin(n).
+  For n=4 (spacetime): Dirac spinors ∈ ℂ⁴ at each point.
+  The spinor bundle has a connection (spin connection) derived from the
+  Levi-Civita connection + the Clifford algebra structure.
+
+  DIRAC OPERATOR:
+  D = Σμ γμ ∇μ   where γμ = Clifford generators, ∇μ = spin connection
+
+  ├── D is a first-order elliptic differential operator: sections of S → sections of S
+  ├── D is self-adjoint (on a compact manifold without boundary)
+  ├── D² = ∇*∇ + R/4   (Lichnerowicz formula: Laplacian + scalar curvature)
+  └── This is the Weitzenböck formula: D² relates analysis (Laplacian) to geometry (R)
+
+  LICHNEROWICZ THEOREM:
+  If R > 0 everywhere, then D has no zero eigenvalues (no harmonic spinors).
+  Proof: D²ψ = 0 ⟹ ∫(∇*∇ + R/4)ψ·ψ̄ = 0 ⟹ ∫|∇ψ|² + R/4|ψ|² = 0.
+  With R > 0: both terms non-negative and must both be zero → ψ = 0.
+  CONSEQUENCE: positively curved spin manifolds have trivial index → topological constraint.
+  This is an analytic proof of a TOPOLOGICAL fact about curvature-topology interaction.
+
+  ATIYAH-SINGER (revisited with spinors):
+  ind(D) = dim ker D - dim coker D   (analytical index = "excess of zero modes")
+  = ∫_M Â(M)   (Â = "A-roof genus" = topological invariant from Pontryagin classes)
+
+  For surfaces (n=2): ind = χ/2 = (1 - genus) ← Gauss-Bonnet!
+  For 4-manifolds: ind = (p₁ - sign)/8  (relates to 4-manifold topology)
+
+  PHYSICAL IMPLICATIONS:
+  ├── Zero modes of the Dirac operator count topological invariants
+  ├── In QCD: zero modes of the Dirac operator on gauge backgrounds ↔ instantons
+  │   (Atiyah-Singer: index = instanton number = ∫ tr(F∧F)/8π²)
+  ├── Anomalies in QFT: when the path integral measure fails to be invariant
+  │   under gauge transformations → traced back to the index of the Dirac operator
+  └── Topological insulators: zero modes of the Dirac operator at interfaces
+      (Jackiw-Rebbi solitons) = protected edge states (10-TOPOLOGY.md §7.1)
+```
+
+## 14. Computational Differential Geometry
+
+```
+  NUMERICAL GEODESICS:
+  The geodesic equation (§7.1) is a system of 2n ODEs in (xᵏ, ẋᵏ):
+
+  d²xᵏ/dt² = -Γⁱⱼᵏ ẋⁱ ẋʲ
+
+  Solve with RK4 / Dormand-Prince (scipy.integrate.solve_ivp).
+  Given initial position x₀ and velocity v₀, integrate forward.
+  Geodesic boundary value problem (start + end fixed): shooting method.
+
+  GEODESIC SHOOTING (Riemannian exponential map):
+  Exp_p(v) = γ(1)  where γ solves geodesic IVP with γ(0)=p, γ'(0)=v.
+  Implemented by integrating the geodesic ODE.
+
+  Log_p(q) = v  (inverse: find initial velocity to reach q from p)
+  Requires solving a BVP (boundary value problem) — harder, needs iteration.
+
+  FOR MATRIX MANIFOLDS (closed-form geodesics available):
+  SO(n):  Exp_R(V) = R · exp(RᵀV)      (matrix exponential of skew-symmetric)
+  SPD:    Exp_A(V) = A^{1/2} exp(A^{-1/2}VA^{-1/2}) A^{1/2}
+  Stiefel: use matrix exponential of augmented skew-symmetric matrix
+
+  DISCRETE CURVATURE ON MESHES:
+  For a triangle mesh (V,F), discretize the curvature tensors:
+  Gaussian curvature at vertex v: K(v) = 2π - Σ θᵢ  (angle defect)
+  (Σθᵢ = sum of angles at v in incident triangles)
+  Gauss-Bonnet check: Σᵥ K(v) = 2π χ(M) ✓  (exact, not approximate!)
+
+  Mean curvature at vertex v: H(v) = ½ |Lv|  (magnitude of Laplacian of position)
+  where L = cotangent Laplacian (from 09-MANIFOLDS.md §12).
+
+  Principal curvatures: from the shape operator S = gⁱᵏ Lₖⱼ on the mesh,
+  approximated via principal curvature directions fitting or discrete shape operator.
+
+  HEAT METHOD FOR GEODESIC DISTANCE (Crane-Weischedel-Wardetzky 2013):
+  1. Solve heat equation: (I - t·L) u = δ_v  (one backward Euler step from source v)
+  2. Normalize gradient: X = -∇u/|∇u|  (unit gradient field pointing away from source)
+  3. Solve Poisson: L φ = ∇·X   (integrate to get distance function φ)
+  Result: approximate geodesic distances from v to all vertices.
+  Cost: two sparse linear system solves (O(n) after factorization precomputed).
+  Far faster than Dijkstra on fine meshes.
+
+  import igl
+  V, F = igl.read_triangle_mesh("mesh.obj")
+  L = igl.cotmatrix(V, F)           # cotangent Laplacian
+  M_area = igl.massmatrix(V, F)     # vertex area matrix
+
+  # Gaussian curvature (angle defect)
+  K = igl.gaussian_curvature(V, F)  # K[i] = curvature at vertex i
+
+  # Geodesic distances from vertex 0
+  t = 0.01  # diffusion time (bandwidth parameter)
+  D = igl.heat_geodesics_precompute(V, F, t)
+  dist = igl.heat_geodesics_solve(D, np.array([0], dtype=np.int32))
+
+  FINITE ELEMENTS ON CURVED DOMAINS:
+  Laplace-Beltrami stiffness matrix = cotangent Laplacian L (see §09-MANIFOLDS §12).
+  Mass matrix M = diagonal (vertex areas) or lumped.
+  PDE ∂u/∂t = ∆_M u → implicit Euler: (M - Δt L) u_{n+1} = M u_n
+  Eigenvalue problem: L φ = λ M φ  (generalized eigenvalue → spectral geometry)
+
+  LIBRARIES:
+  libigl (C++/Python): geometry processing, discrete DG, FEM
+  PyGEL3D: half-edge meshes, Laplacians
+  Open3D: 3D data processing, mesh I/O
+  Geomstats (Python): Riemannian geometry + statistical learning on manifolds
+```
+
+### 8.3 Weyl Tensor and Conformal Geometry
+
+```
+  RIEMANN DECOMPOSITION:
+  In n ≥ 4 dimensions, the Riemann tensor decomposes uniquely as:
+
+  Rᵢⱼₖˡ = Wᵢⱼₖˡ + (n-2)⁻¹ (gᵢ[ₖRˡ]ⱼ - gⱼ[ₖRˡ]ᵢ) - (n-1)(n-2)⁻¹ R gᵢ[ₖgˡ]ⱼ
+
+  WEYL TENSOR Wᵢⱼₖˡ:
+  ├── Trace-free: gⁱᵏ Wᵢⱼₖˡ = 0 (vanishes on any contraction)
+  ├── Same symmetries as Riemann: antisymmetric in [ij] and [kl], symmetric under swap
+  ├── In 4D: 10 independent components (= Riemann 20 − Ricci 10)
+  └── Carries all curvature information NOT captured by Ricci
+
+  PHYSICAL MEANING:
+  Ricci tensor Rμν: source-dependent curvature (set by Einstein equations)
+  Weyl tensor Wμνρσ: vacuum ("free") curvature — exists even when Tμν = 0
+  Ricci = 0 (vacuum) ≠ Riemann = 0: gravitational waves and tidal forces live in Weyl.
+
+  ┌────────────────────────────────────────────────────────────────────┐
+  │  TIDAL FORCES (geodesic deviation equation):                      │
+  │  D²ξμ/dτ² = -Rμνρσ Uν ξρ Uσ                                    │
+  │  ξμ = separation vector between nearby geodesics                  │
+  │  Uμ = 4-velocity along geodesic                                   │
+  │  In vacuum: this is ENTIRELY due to the Weyl tensor.              │
+  │  Tidal disruption of infalling objects near black holes = Weyl.   │
+  └────────────────────────────────────────────────────────────────────┘
+
+  GRAVITATIONAL WAVES: perturbation of flat spacetime gμν = ημν + hμν
+  In TT gauge (transverse-traceless): hμν encodes the Weyl tensor perturbation.
+  The two polarizations h₊ and h× are the two independent Weyl degrees of freedom.
+
+  CONFORMALLY FLAT: W = 0 everywhere.
+  A manifold is conformally flat iff it's locally related to flat space by a
+  conformal (angle-preserving, not length-preserving) rescaling: g̃ = Ω²g.
+  Examples: Sⁿ, any 2D manifold (ALL surfaces are conformally flat!),
+            Robertson-Walker cosmological spacetimes.
+
+  CONFORMAL GEOMETRY:
+  CONFORMAL MAP f: M → N preserves angles but not distances.
+  In ℝ² ≅ ℂ: conformal maps = holomorphic functions with f'(z) ≠ 0!
+  This is the bridge between complex analysis and differential geometry.
+
+  WEYL TRANSFORMATION (physics): g → Ω²(x) g (local rescaling)
+  WEYL INVARIANT: theories where action is unchanged under Weyl transformations.
+  Weyl anomaly: classical Weyl invariance broken by quantum corrections
+  (the trace of the stress-energy tensor Tμμ ≠ 0 after quantization).
+  Central charge in CFT = coefficient of Weyl anomaly.
+  This anomaly-cancellation condition constrains string theory to 26 (bosonic)
+  or 10 (superstring) spacetime dimensions.
+
+  CONFORMAL BOUNDARY (AdS/CFT):
+  Anti-de Sitter space AdSₙ₊₁ has a conformal boundary = Sⁿ ≅ ℝⁿ ∪ {∞}.
+  The Weyl tensor vanishes on AdS (maximally symmetric space).
+  Holography: bulk fields in AdS_{n+1} ↔ operators in CFT_n on the boundary.
+  The conformal group SO(n,2) acts as isometries of AdS and as conformal
+  symmetries of the boundary CFT — same group, two realizations.
+```
+
 ---
 
 ## Decision Cheat Sheet

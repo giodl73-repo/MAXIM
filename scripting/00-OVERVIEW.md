@@ -2,6 +2,101 @@
 
 ---
 
+## 0. Object Pipeline → Text Stream: The Fundamental Shift
+
+The single most disorienting aspect of moving from PowerShell (or NuShell, or any object-pipeline shell) to Bash/Zsh/Fish is not the syntax — it is the pipeline model. Everything else follows from this.
+
+```
+OBJECT PIPELINE vs TEXT STREAM — THE CORE MENTAL MODEL
+═══════════════════════════════════════════════════════════════════════════════
+
+Object Pipeline (PowerShell, NuShell)
+─────────────────────────────────────
+  Get-Process | Where-Object { $_.CPU -gt 100 } | Select-Object Name, CPU
+       │                    │                           │
+   returns                 receives                 receives
+   [Process[]]          [Process]               [Process]
+   (.NET objects)       access .CPU              access .Name, .CPU
+                        (typed property)         (typed properties)
+
+  ┌──────────────────────────────────────────────────────┐
+  │  Objects flow through pipes. Properties are typed.   │
+  │  No parsing. No delimiter assumptions. No ambiguity. │
+  └──────────────────────────────────────────────────────┘
+
+Text Stream (Bash, Zsh, Fish, sh)
+──────────────────────────────────
+  ps aux | awk '$3 > 10 { print $1, $3 }' | sort -k2 -rn
+     │           │                               │
+  prints       receives text,               receives text,
+  lines of     splits on whitespace,        sorts as text
+  text         compares column 3            by column 2
+
+  ┌──────────────────────────────────────────────────────┐
+  │  Strings flow through pipes. Everything is text.     │
+  │  You parse structure out of strings at each stage.   │
+  │  Field position, delimiter, quoting — all manual.    │
+  └──────────────────────────────────────────────────────┘
+
+The consequence:
+  - PS:   pipeline stages NEVER need to parse — they query properties
+  - Bash: pipeline stages ALWAYS need to parse — grep/awk/cut/sed are parsers
+  - PS:   structured data is first-class (objects, hashtables)
+  - Bash: structured data is emergent (you impose structure via tools)
+```
+
+### Concept-Level Bridge: Object Shell → Text Shell
+
+This mapping holds for any typed/object pipeline shell moving to a text stream shell — PowerShell is just the most common instance.
+
+| Concept | Object Shell (PS) | Text Stream Shell (Bash/Zsh) | Notes |
+|---------|-------------------|------------------------------|-------|
+| Pipeline unit | .NET object | newline-delimited string | Fundamental difference |
+| Property access | `$_.PropertyName` | `awk '{print $3}'` or `cut -f3 -d,` | Parse out of text |
+| Filtering | `Where-Object { $_.Size -gt 100 }` | `awk '$3 > 100'` or `grep` | Text needs positional logic |
+| Sorting | `Sort-Object -Property CPU -Descending` | `sort -k3 -rn` | Column position in text |
+| Formatting | `Select-Object Name, CPU \| Format-Table` | `column -t` or `printf` | No intrinsic structure |
+| Error channel | Separate error stream (`$ErrorActionPreference`) | stderr (fd 2) / `$?` | Both use separate channels |
+| Exit status | `$LASTEXITCODE` (external) / `$?` (cmdlet, bool) | `$?` (integer, 0=success) | PS `$?` is bool, not int |
+| Null sink | `Out-Null` or `> $null` | `> /dev/null` | Discard pipeline output |
+| Startup profile | `$PROFILE` | `~/.bashrc` / `~/.bash_profile` | Interactive-only by default |
+| Script security gate | `ExecutionPolicy` (RemoteSigned, Bypass) | `chmod +x` + shebang | Unix: file permission model |
+| Structured data | Hashtables, PSCustomObject, .NET types | jq (JSON), awk (CSV), python | No native structured types |
+| Error on failure | `$ErrorActionPreference = "Stop"` | `set -euo pipefail` | Both "strict mode" patterns |
+| Print to stderr | `Write-Error "msg"` | `echo "msg" >&2` | Redirect to fd 2 |
+| Print without pipeline | `Write-Host "msg"` (terminal-only) | `echo "msg" >&2` (idiom) | Neither goes into pipeline |
+| Capture output | `$x = Get-Thing` | `x=$(cmd)` | Subshell in bash captures stdout |
+| Time a command | `Measure-Command { Get-Process }` | `time cmd` | |
+| PATH variable | `$env:PATH` | `$PATH` | env: namespace in PS |
+| Temp variables | `$env:TMPDIR` / `$env:TEMP` | `$TMPDIR` / `/tmp` | |
+| Env vars | `$env:FOO = "bar"` | `export FOO=bar` | PS scopes to process |
+
+### The Quoting Shift
+
+Both shells have quoting rules, but the mechanics differ:
+
+```
+PowerShell quoting:
+  'literal — no $expansion'          → single = literal always
+  "interpolates $var and $($expr)"   → double = interpolates
+  ` (backtick)                       → escape character (NOT backslash)
+  @' ... '@                          → here-string (literal)
+  @" ... "@                          → here-string (interpolating)
+
+Bash quoting:
+  'no $expansion whatsoever'         → single = literal always (same)
+  "$var expands, \n escapes"         → double = interpolates (same idea)
+  \ (backslash)                      → escape character (different from PS backtick)
+  <<EOF                              → heredoc (interpolating by default)
+  <<'EOF'                            → heredoc (literal, like @' '@)
+  $'tab\there\nnewline'             → ANSI-C quoting (bash-only, no PS equiv)
+
+The trap: PS uses backtick as escape; Bash uses backslash.
+  PS:    Write-Host "column1`tcolumn2"     # tab
+  Bash:  echo -e "column1\tcolumn2"        # tab (echo -e or printf)
+  Both:  printf "column1\tcolumn2\n"       # portable (printf is both PS and Unix)
+```
+
 ## 1. The Landscape
 
 ```
@@ -298,6 +393,52 @@ POSIX COMPLIANCE SPECTRUM
 
 **The `#!/bin/sh` trap:** On macOS, `/bin/sh` is bash in POSIX-compat mode. On Debian/Ubuntu, `/bin/sh` is dash (a fast, minimal POSIX-only shell). On Alpine, it's busybox ash. Code that works on macOS with `#!/bin/sh` may fail on Alpine.
 
+### shellcheck — Static Analysis for Shell Scripts
+
+`shellcheck` is the standard linter for `bash`/`sh` scripts. Think of it as the ESLint or Roslyn analyzer for shell: it catches POSIX violations, quoting bugs, deprecated patterns, and portability hazards before runtime.
+
+```bash
+# Install
+brew install shellcheck          # macOS
+apt-get install shellcheck       # Debian/Ubuntu
+# Or in CI: https://github.com/koalaman/shellcheck
+
+# Basic usage
+shellcheck script.sh             # check with inferred dialect (from shebang)
+shellcheck -s sh script.sh       # enforce POSIX sh compliance
+shellcheck -s bash script.sh     # check as bash
+shellcheck -s dash script.sh     # check against dash (Alpine default)
+
+# In CI (GitHub Actions)
+- run: shellcheck **/*.sh
+  shell: bash
+```
+
+**What shellcheck catches:**
+
+| Category | Example bug | shellcheck message |
+|----------|-------------|-------------------|
+| Unquoted expansion | `for f in $list` | SC2068: quote $list to prevent word splitting |
+| POSIX violation | `[[ $a == $b ]]` with `#!/bin/sh` | SC2039: [[ ]] is bash, not sh |
+| Deprecated syntax | `\`cmd\`` (backtick) | SC2006: use $() instead |
+| Array misuse | `"${arr[@]}"` in sh context | SC2039: arrays not in POSIX sh |
+| Missing quotes | `if [ $a = $b ]` | SC2086: double-quote $a |
+| Bad shebang | `#!/bin/bash` on non-bash system | SC1008: shebang variation note |
+| Unused variables | `local x=5` (never read) | SC2034: x appears unused |
+| `set -e` edge cases | `if bad_cmd; then` | notes where -e won't trigger |
+
+**CI integration pattern:**
+
+```yaml
+# GitHub Actions: enforce sh compliance on Docker scripts
+- name: Lint shell scripts
+  run: |
+    shellcheck -s sh Dockerfile.scripts/*.sh    # enforce POSIX for Alpine compat
+    shellcheck -s bash ci/**/*.sh               # bash lint for CI scripts
+```
+
+`shellcheck` is the difference between "it works on my Mac" and "it works in your Alpine container". For anyone shipping Dockerfiles or GitHub Actions, run it.
+
 ---
 
 ## 6. Binding & Type Theory Note
@@ -376,6 +517,98 @@ Perl: full compile to op-tree           ┌────────────�
 - `-o pipefail`: pipe failure propagates (pipe exit code = rightmost non-zero)
 
 This gives you some of the safety of strict typing but only at the coarsest granularity (exit codes), not at the value level.
+
+### Perl's Context System — A Formal Look
+
+Perl's scalar/list context duality is the single most disorienting feature for any programmer coming from a statically typed language. The surface confusion is syntax ("why does the same variable give different answers?"). The deep issue is that Perl implements **context-directed dispatch** — a mechanism with no direct analog in C#, Java, Go, or Rust.
+
+```
+PERL CONTEXT DISPATCH — FORMAL MODEL
+═══════════════════════════════════════════════════════════════════════════════
+
+Standard type dispatch (C#, Go, Rust):
+  The TYPE of the VALUE determines which operation runs.
+  int x = 5;   // x's type determines what + means
+
+Perl context dispatch:
+  The CONTEXT OF THE CALL SITE determines how a value is evaluated.
+  The expression itself doesn't change — the caller's expectation does.
+
+  my @arr = (1, 2, 3);
+
+  Scalar context (caller wants one thing):
+    my $n = @arr;          → 3      (count of elements)
+    if (@arr)              → true   (truthy if non-empty)
+    print "len=" . @arr;  → "len=3" (stringifies to count)
+
+  List context (caller wants a list):
+    my @copy = @arr;       → (1, 2, 3)   (all elements)
+    my ($a, $b) = @arr;    → $a=1, $b=2  (destructuring)
+    push @other, @arr;     → appends all three elements
+```
+
+**The formal model:** Perl's context propagates *downward* through the expression tree. The left-hand side of an assignment determines the context in which the right-hand side is evaluated. A scalar variable (`$x = ...`) imposes scalar context. An array variable (`@x = ...`) imposes list context.
+
+```perl
+# Context flows from the assignment target downward
+
+$x  = localtime();     # scalar context → "Wed Feb 25 14:00:00 2026"
+@x  = localtime();     # list context   → (0, 0, 14, 25, 1, 126, 3, 55, 0)
+                       #                   sec min hr  mday mon  yr  wday yday isdst
+
+# Identical call; completely different return value
+# localtime() inspects its calling context and returns accordingly
+```
+
+**The type-theoretic framing:** This is runtime-resolved *overloading on calling context*, not on argument type. The closest analogy in a statically typed language is a C# method that checks whether its caller is in an `IEnumerable` vs scalar context — except Perl does this at runtime, pervasively, for all expressions. Haskell's `Read` type class is the closest structural analog: `read "42" :: Int` vs `read "42" :: Double` — the type annotation at the call site determines what `read` returns. Perl's context system is the same mechanism made implicit and runtime-resolved.
+
+```perl
+# Sigils ($, @, %) are NOT types — they are access-mode indicators
+# The SAME underlying data accessed with different sigils:
+
+my @arr = (1, 2, 3);
+$arr[0]     # scalar access: element 0          → 1
+@arr[0..1]  # list slice: elements 0 and 1      → (1, 2)
+@arr        # list context: whole array          → (1, 2, 3)
+scalar @arr # forced scalar context: count       → 3
+
+my %hash = (a => 1, b => 2);
+$hash{a}    # scalar access: value at key 'a'   → 1
+@hash{qw(a b)}  # hash slice: values at a, b   → (1, 2)
+%hash       # list context: key-value pairs     → ('a',1,'b',2)
+scalar %hash    # hash statistics string (or bool in Perl 5.26+)
+
+# The sigil change ($arr vs @arr vs %hash) indicates HOW you're accessing,
+# not what type it is. This is the parser telling Perl which context to use.
+```
+
+**Why this matters in practice:**
+
+```perl
+# Classic bugs from context confusion:
+
+# Bug 1: wantarray — functions can detect their own context
+sub flexible {
+    if (wantarray()) { return (1, 2, 3) }  # list context
+    else             { return "single" }    # scalar context
+}
+my @list = flexible();    # → (1, 2, 3)
+my $val  = flexible();    # → "single"
+
+# Bug 2: grep and map impose list context
+my @found = grep { /pattern/ } @arr;    # @found = matching elements
+my $count = grep { /pattern/ } @arr;    # $count = NUMBER of matches  ← scalar context!
+
+# Bug 3: printf/print impose list context on args
+printf "%d\n", @arr;    # WRONG: prints element count (1 arg in scalar context)
+printf "%d\n", $arr[0]; # RIGHT: prints first element
+
+# Bug 4: sort returns list; in scalar context, undefined behavior pre-5.36
+my @sorted = sort @arr;   # correct
+my $sorted = sort @arr;   # undefined/warned in modern Perl — don't do this
+```
+
+**Quick rule of thumb:** When debugging unexpected Perl behavior, ask "what context is this expression in?" before anything else. Most Perl surprises reduce to "the context wasn't what I expected."
 
 ---
 

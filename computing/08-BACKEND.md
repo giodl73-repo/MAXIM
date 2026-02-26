@@ -31,7 +31,52 @@ A backend API is a contract between a server and its clients. The three dominant
 
 **Bridge from .NET**: You've consumed REST APIs from Azure services for years. This module is about *building* them in Node.js — and understanding what GraphQL and tRPC add. The patterns (routing, middleware, validation, auth) map directly from ASP.NET MVC.
 
-<!-- @editor[bridge/P2]: The calibration note calls out the WCF → REST → GraphQL evolution as a progression that should be narrated explicitly. Currently the file treats each paradigm in isolation. The learner knows WCF/SOAP deeply and has lived through the REST transition at Microsoft. A brief historical arc at the top would anchor everything: "WCF (2006): strongly-typed, XML/SOAP, contract-first via WSDL, generated client stubs — powerful but heavyweight. REST (2010s): HTTP verbs + resource URLs, no generated client, contract is informal until OpenAPI. GraphQL (2015): client-defined queries, SDL as contract, solves REST's over-fetching problem. tRPC (2021): TypeScript IS the contract, no schema language needed." This contextualizes why each exists and why someone would choose each one, which is exactly what this reader needs. -->
+### WCF → REST → GraphQL → tRPC: The Historical Arc
+
+You lived through this transition at Microsoft. Here it is as a coherent narrative:
+
+```
+  WCF (2006 — contract-first, strongly typed, heavyweight)
+  --------------------------------------------------------
+  Service defined by [ServiceContract] / [OperationContract] interfaces.
+  Wire format: SOAP/XML (or NetTcp for internal).
+  Contract published as WSDL — machine-readable, generated client stubs.
+  "Add Service Reference" in Visual Studio: point at a WSDL, get C# proxies.
+  Enforces full contract at both ends: client and server share the same types.
+  Cost: heavyweight (WS-* standards stack, XML verbosity, config complexity).
+
+  REST (2010s — resource-oriented, HTTP-native, informal contract)
+  ---------------------------------------------------------------
+  No WSDL by default. Contract is informal (documentation, convention).
+  Wire format: JSON over HTTP. Verbs as actions, URLs as resource addresses.
+  Multiple clients (web, mobile) can consume without generated stubs.
+  OpenAPI (Swagger) emerged as the REST-era WSDL: machine-readable contract,
+  openapi-generator replicates "Add Service Reference" for REST.
+  Cost: no enforcement — server can change response shape, clients break silently.
+
+  GraphQL (2015 — client-defined queries, SDL as contract)
+  --------------------------------------------------------
+  Client specifies exactly what fields it needs.
+  Schema Definition Language (SDL) is the contract — typed, introspectable.
+  Solves REST's over-fetching/under-fetching: one request, exactly what asked for.
+  Used by GitHub, Shopify, Contentful — wherever many client types need flexibility.
+  Cost: caching harder, N+1 query problem, overkill for simple CRUD.
+
+  tRPC (2021 — TypeScript IS the contract, no schema language)
+  ------------------------------------------------------------
+  Define TypeScript functions on the server.
+  TypeScript types flow to the client automatically.
+  No schema file, no code generation, no "Add Service Reference" step.
+  Rename a procedure → TypeScript errors everywhere it's used instantly.
+  Constraint: TypeScript only, monorepo or shared package required.
+  Cost: not suitable for public APIs or non-TypeScript clients.
+
+  PROGRESSION:
+  WCF   → strong typing, code gen required, heavyweight, Windows-heavy
+  REST  → flexible, lightweight, informal contract, requires tooling to get typing
+  GQL   → strong contract (SDL), client-driven, complex for simple use
+  tRPC  → strong typing, no schema, live enforcement, TypeScript-only
+```
 
 ---
 
@@ -280,7 +325,7 @@ OpenAPI is the machine-readable contract for REST APIs. What WSDL was for SOAP �
           email: { type: string, format: email }
 ```
 
-<!-- @editor[bridge/P3]: The WSDL → OpenAPI bridge is correctly made in the comparison table, but one important nuance is missing: WCF's "Add Service Reference" in Visual Studio generated a strongly-typed C# proxy class automatically, with full IntelliSense. openapi-generator does the same thing for REST — generates a typed client in any language from the spec. The file mentions this in the ecosystem table ("openapi-generator: Generate typed clients in any language") but doesn't call out the workflow: spec file → run generator → typed client appears, same as "Add Service Reference." Worth one sentence explicitly connecting the two: "This is the REST equivalent of 'Add Service Reference' — point at an openapi.yaml, run the generator, get a typed client." The learner's muscle memory is "Add Service Reference" and that analog should be explicit, not left to inference. -->
+**OpenAPI = modern "Add Service Reference"**: Point `openapi-generator` at an `openapi.yaml`, run the generator, get a typed client in any language. This is exactly the "Add Service Reference" workflow from Visual Studio — the pattern is identical, the toolchain is different. The WSDL → generated C# proxy becomes openapi.yaml → generated TypeScript/C#/Python client. ASP.NET's Swashbuckle and NestJS's `@nestjs/swagger` are the code-first generators, equivalent to how WCF generated WSDL from your `[ServiceContract]` attributes.
 
 ---
 
@@ -486,7 +531,7 @@ tRPC (TypeScript Remote Procedure Call) takes a different approach: no schema la
   - When you want REST-like simplicity with type safety
 ```
 
-<!-- @editor[bridge/P2]: tRPC's type-safety story is the closest modern analog to WCF's strongly-typed service contracts — but the connection isn't made explicitly. WCF: you define a [ServiceContract] interface in C#, client stubs are generated, and the compiler enforces the contract at both ends. tRPC achieves the same guarantee without code generation: TypeScript structural typing flows across the client/server boundary at build time. The difference — and the reason tRPC is a step forward — is that WCF required a generation step (Add Service Reference → generated proxy) that broke on schema changes silently if not re-run. tRPC's type inference is live: rename a procedure and TypeScript immediately errors everywhere it's used, with no generation step. Worth a sentence: "This is WCF's strongly-typed service contract model — but without the code generation step. The contract is live TypeScript, not a generated stub." -->
+**tRPC = WCF's typed service contracts without the generation step**: WCF's `[ServiceContract]` + `[OperationContract]` defined a strongly-typed interface, client stubs were generated, and the compiler enforced the contract at both ends. tRPC achieves the same guarantee without any generation step — TypeScript structural typing flows across the client/server boundary at build time via the shared `AppRouter` type. The key improvement over WCF's model: WCF's "Add Service Reference" broke silently if you changed the service contract without re-running the generator. tRPC's type inference is live — rename a procedure and TypeScript immediately errors everywhere it's used, with no generation step. The contract is not a generated artifact; it is the source code itself.
 
 ---
 
@@ -852,9 +897,10 @@ Validation at the API boundary is mandatory. Zod is the standard in TypeScript b
 | Data Annotations (`[Required]`) | Zod schema | Declarative validation |
 | `IActionFilter` / Middleware | Express middleware | Request/response pipeline |
 | `IExceptionFilter` | Express error handler `(err, req, res, next)` | Global error handling |
-| WCF service contract | OpenAPI spec / GraphQL schema | Machine-readable API contract |
+| WCF `[ServiceContract]` / `[OperationContract]` | tRPC router + procedures | tRPC = live TypeScript contract; no generation step |
+| WCF service contract (public) | OpenAPI spec / GraphQL SDL | Machine-readable API contract |
 | WSDL | openapi.yaml | Contract file |
-| "Add Service Reference" | `openapi-generator` / `graphql-codegen` | Generate typed clients |
+| "Add Service Reference" | `openapi-generator` / `graphql-codegen` | Point at spec, get typed client |
 | `HttpClient` (consuming) | `fetch()` / `axios` | HTTP client |
 | IIS hosting | Azure App Service (Node.js) / Vercel / Railway | Cloud hosting |
 | Azure Functions (.NET) | Azure Functions (Node.js) / Vercel Functions | Serverless |
@@ -877,7 +923,7 @@ Validation at the API boundary is mandatory. Zod is the standard in TypeScript b
 | Deploy to edge (Cloudflare Workers, Vercel Edge) | Hono |
 | Validate incoming request body | Zod `safeParse()` |
 | Document my REST API | OpenAPI spec + swagger-ui |
-| Generate typed client from REST API | `openapi-generator` or `orval` |
+| Generate typed client from REST API | `openapi-generator` or `orval` (same as "Add Service Reference") |
 | Handle real-time (chat, live updates) | WebSockets (`ws`) or Server-Sent Events |
 | Scale to zero, pay per request | Serverless (Azure Functions, Vercel) |
 | Run code close to the user globally | Edge functions |

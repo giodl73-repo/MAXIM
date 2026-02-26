@@ -21,43 +21,65 @@ T-SQL is your home base. This file isn't a tutorial — it's a bridge from the S
 ## LANDSCAPE
 
 ```
-┌───────────────────────────────────────────────────────────────────────────┐
-│                      SQL Server / Azure SQL Surface                        │
-├───────────────────────────────────────────────────────────────────────────┤
-│  DEPLOYMENT TARGETS                                                        │
-│  ──────────────────────────────────────────────────────────────────────── │
-│  SQL Server 2022 (on-prem/VM)                                             │
-│  Azure SQL Database (PaaS, DTU or vCore)                                  │
-│  Azure SQL Managed Instance (PaaS, near-100% compat, VNet)                │
-│  Azure SQL Hyperscale (vCore, read replicas, 100TB+)                      │
-│  Azure Synapse Analytics (MPP, 60 nodes, analytics workloads)             │
-├───────────────────────────────────────────────────────────────────────────┤
-│  LANGUAGE FEATURES BY ERA                                                  │
-│  ──────────────────────────────────────────────────────────────────────── │
-│  Pre-2005 (your home base)    │ 2005–2008                                  │
-│  ─────────────────────────── │ ──────────────────────────────────────────  │
-│  SELECT/INSERT/UPDATE/DELETE  │ CTEs (WITH), APPLY, ROW_NUMBER()           │
-│  Stored procs, cursors, UDFs  │ PIVOT/UNPIVOT, TRY/CATCH, DMVs            │
-│  SET-based + cursor patterns  │ Table-valued parameters (TVPs)             │
-│                               │ GEOGRAPHY / GEOMETRY types                  │
-│                               │ MERGE, GROUPING SETS, DATE/TIME types       │
-│  2012–2014                    │ 2016–2017                                   │
-│  ─────────────────────────── │ ──────────────────────────────────────────  │
-│  Full window functions        │ JSON, Row-Level Security                    │
-│  THROW, sequences             │ Temporal tables (system-versioned)          │
-│  IIF, CHOOSE, CONCAT          │ STRING_SPLIT, COMPRESS/DECOMPRESS           │
-│  In-memory OLTP (Hekaton)     │ R/Python extensibility services            │
-│                               │ STRING_AGG, CONCAT_WS, TRIM                 │
-│  2019–2022                    │                                             │
-│  ─────────────────────────── │                                             │
-│  UTF-8 native support         │                                             │
-│  APPROX_COUNT_DISTINCT        │                                             │
-│  IS [NOT] DISTINCT FROM       │                                             │
-│  LEAST / GREATEST             │                                             │
-│  GENERATE_SERIES              │                                             │
-│  DATE_BUCKET                  │                                             │
-│  JSON improvements (2022)     │                                             │
-└───────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        SQL Server Engine Architecture                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  CLIENT PROTOCOLS                                                            │
+│  TDS (Tabular Data Stream) over TCP/IP · Named Pipes · Shared Memory        │
+│  ADO.NET / ODBC / JDBC / OLE DB / SSMS / sqlcmd                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  PROTOCOL LAYER                                                              │
+│  SNI (Server Network Interface) — connection mgmt, TLS, auth negotiation   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  RELATIONAL ENGINE (Query Processor)                                        │
+│  ┌──────────────┐  ┌──────────────────┐  ┌──────────────────────────────┐ │
+│  │   Parser      │→│   Algebrizer      │→│   Query Optimizer             │ │
+│  │  ─────────── │  │  ──────────────  │  │  ──────────────────────────  │ │
+│  │  Syntax check│  │  Name resolution │  │  Cost-based, ~220K transform  │ │
+│  │  Parse tree  │  │  Type derivation  │  │  rules; produces memo+plan   │ │
+│  │  T-SQL→AST   │  │  Bound tree       │  │  Trivial plan fast-path       │ │
+│  └──────────────┘  └──────────────────┘  └──────────────────────────────┘ │
+│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  │  Query Executor                                                      │   │
+│  │  Iterator model (pull / volcano) · Parallel execution (DOP)        │   │
+│  │  Adaptive Joins (2017+) · Batch Mode for rowstore (2019+)          │   │
+│  └─────────────────────────────────────────────────────────────────────┘   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  STORAGE ENGINE                                                              │
+│  ┌────────────────┐  ┌─────────────────┐  ┌───────────────────────────┐   │
+│  │  Buffer Manager│  │  Lock Manager    │  │  Transaction Log Manager  │   │
+│  │  ─────────────│  │  ───────────────│  │  ────────────────────────  │   │
+│  │  Buffer pool   │  │  Lock/latch      │  │  WAL protocol (write log   │   │
+│  │  8KB pages     │  │  escalation      │  │  before data pages)        │   │
+│  │  NUMA-aware    │  │  deadlock detect │  │  Log buffer → VLFs → disk  │   │
+│  │  Lazy writer   │  │  row/page/table  │  │  ADR: PVS + SLOG (2019+)  │   │
+│  │  Checkpoint    │  │  granularity     │  │  Log truncation on backup  │   │
+│  └────────────────┘  └─────────────────┘  └───────────────────────────┘   │
+│  ┌────────────────┐  ┌─────────────────┐  ┌───────────────────────────┐   │
+│  │  Access Methods│  │  Version Store   │  │  Plan Cache               │   │
+│  │  ─────────────│  │  ───────────────│  │  ────────────────────────  │   │
+│  │  B-tree index  │  │  tempdb (SI/     │  │  Parameterized plan reuse  │   │
+│  │  Heap (RID)    │  │  RCSI) or PVS   │  │  Query Store (2016+)       │   │
+│  │  Columnstore   │  │  (ADR, user DB) │  │  Plan forcing              │   │
+│  │  In-mem OLTP   │  │  Row versioning  │  │  PSP optimization (2022+) │   │
+│  └────────────────┘  └─────────────────┘  └───────────────────────────┘   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  DATA FILES                                                                  │
+│  .mdf / .ndf (data + index pages, 8KB)                                     │
+│  .ldf (transaction log, sequential VLF segments)                            │
+│  In-Memory: memory-optimized filegroup + checkpoint files                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  DEPLOYMENT TARGETS                                                          │
+│  SQL Server 2022 (on-prem/VM/Linux)                                        │
+│  Azure SQL Database (PaaS) · Azure SQL Managed Instance                    │
+│  Azure SQL Hyperscale (disaggregated log+storage, 100TB+)                  │
+│  Azure Synapse Analytics (MPP, 60 nodes, distributed T-SQL)                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+T-SQL lives at the Relational Engine boundary — it enters as text and exits as a
+bound tree handed to the Query Optimizer. Everything below (lock escalation, WAL
+flushing, buffer eviction) is invisible to T-SQL but is what determines whether
+your query runs in 5ms or 500ms.
 ```
 
 ---
@@ -145,6 +167,111 @@ CROSS APPLY STRING_SPLIT(p.tags, ',') AS s;
 ```
 
 **Use APPLY when:** you need TOP N per group, you're calling a TVF per row, or when a correlated subquery would need to appear in SELECT multiple times.
+
+---
+
+## TABLE-VALUED PARAMETERS (TVPs)
+
+Pass a set of rows into a stored procedure without a temp table. The cleanest ADO.NET-to-SQL boundary for batch operations.
+
+```sql
+-- ── 1. DEFINE THE TYPE ─────────────────────────────────────────────────────
+CREATE TYPE dbo.OrderLineType AS TABLE (
+    ProductID  INT           NOT NULL,
+    Quantity   INT           NOT NULL,
+    UnitPrice  DECIMAL(10,2) NOT NULL,
+    PRIMARY KEY (ProductID)   -- optional; affects plan inside proc
+);
+
+-- ── 2. USE IT IN A STORED PROCEDURE ────────────────────────────────────────
+-- TVP parameter is always READONLY — no DML against it inside the proc
+CREATE PROCEDURE dbo.usp_InsertOrderLines
+    @OrderID   INT,
+    @Lines     dbo.OrderLineType READONLY   -- READONLY is mandatory
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO dbo.OrderLines (OrderID, ProductID, Quantity, UnitPrice, LineTotal)
+    SELECT @OrderID, ProductID, Quantity, UnitPrice, Quantity * UnitPrice
+    FROM   @Lines;                          -- TVP used as a normal table
+
+    -- Can join TVP against real tables
+    UPDATE inv
+    SET    inv.QuantityOnHand -= l.Quantity
+    FROM   dbo.Inventory inv
+    JOIN   @Lines l ON inv.ProductID = l.ProductID;
+END;
+```
+
+```csharp
+// ── 3. ADO.NET: SqlDataRecord pattern (preferred for IEnumerable<T>) ────────
+// Define schema matching CREATE TYPE
+var metaData = new SqlMetaData[]
+{
+    new SqlMetaData("ProductID",  SqlDbType.Int),
+    new SqlMetaData("Quantity",   SqlDbType.Int),
+    new SqlMetaData("UnitPrice",  SqlDbType.Decimal, 10, 2)
+};
+
+// Stream rows — no DataTable allocation, suitable for large sets
+IEnumerable<SqlDataRecord> ToSqlRecords(IEnumerable<OrderLine> lines)
+{
+    var rec = new SqlDataRecord(metaData);
+    foreach (var line in lines)
+    {
+        rec.SetInt32(0,   line.ProductID);
+        rec.SetInt32(1,   line.Quantity);
+        rec.SetDecimal(2, line.UnitPrice);
+        yield return rec;   // streaming — not buffered
+    }
+}
+
+using var cmd = new SqlCommand("dbo.usp_InsertOrderLines", conn)
+    { CommandType = CommandType.StoredProcedure };
+
+cmd.Parameters.AddWithValue("@OrderID", orderId);
+
+var tvpParam = cmd.Parameters.AddWithValue("@Lines", ToSqlRecords(lines));
+tvpParam.SqlDbType    = SqlDbType.Structured;
+tvpParam.TypeName     = "dbo.OrderLineType";   // must match CREATE TYPE name
+
+await cmd.ExecuteNonQueryAsync();
+```
+
+```csharp
+// ── DataTable pattern (simpler, buffered) ───────────────────────────────────
+var dt = new DataTable();
+dt.Columns.Add("ProductID", typeof(int));
+dt.Columns.Add("Quantity",  typeof(int));
+dt.Columns.Add("UnitPrice", typeof(decimal));
+
+foreach (var line in lines)
+    dt.Rows.Add(line.ProductID, line.Quantity, line.UnitPrice);
+
+var tvpParam = cmd.Parameters.AddWithValue("@Lines", dt);
+tvpParam.SqlDbType = SqlDbType.Structured;
+tvpParam.TypeName  = "dbo.OrderLineType";
+```
+
+### TVP vs Temp Table vs JSON — Tradeoff Table
+
+| | TVP | Temp Table | JSON (NVARCHAR) |
+|---|-----|-----------|-----------------|
+| Schema enforced | Yes (CREATE TYPE) | Yes (CREATE TABLE #t) | No — parse at runtime |
+| Statistics | No — optimizer guesses ~1 row | Yes — auto-created | No |
+| Indexable inside proc | No (READONLY; can't ALTER) | Yes | No |
+| Usable across calls | No — scope = call | Yes (same session) | Yes (pass around as string) |
+| ADO.NET binding | `SqlDbType.Structured` | Insert rows first | Single string param |
+| Ideal row count | 1 – ~10K | Any | Small payloads only |
+| Network overhead | Streamed (SqlDataRecord) | Round-trip insert | Single string |
+
+**Critical gotcha — no statistics on TVPs.** The query optimizer has no histogram for a TVP. It assumes 1 row when the primary key column is in a predicate, or a small fixed cardinality estimate otherwise. This means plans joining a TVP against a large table can get nested loop estimates that blow up under real data. Workarounds:
+- `OPTION (RECOMPILE)` — recompile with actual cardinality visible at execution time; fixes plan, adds ~0.5ms compile overhead per call
+- Temp table instead — stats are created, optimizer can build a better plan for large row counts
+- `OPTIMIZE FOR UNKNOWN` — uses average density, not 1-row estimate; mediocre but better than nothing
+
+**READONLY is not optional.** The T-SQL spec requires it. You cannot INSERT/UPDATE/DELETE against a TVP inside a proc. If you need to modify the data, INSERT it into a local temp table first.
 
 ---
 
@@ -653,6 +780,8 @@ FROM a INNER MERGE JOIN b ON a.id = b.id
 
 Built-in query performance history. Replaces the "plan disappeared and I don't know what it was" problem.
 
+**Old world → new world:** SQL Trace / Extended Events captured a plan only at the moment of execution — once the connection closed, the plan was gone. DMV queries against `sys.dm_exec_cached_plans` showed what was in the plan cache *right now*, but the cache was evicted under memory pressure and you had no history. When a regression happened overnight, you had no evidence. Query Store persists query text, plans, and runtime stats (CPU, duration, logical reads, wait categories) in the user database, queryable days or weeks after the fact. It also exposes plan regressions directly and can auto-correct them (SQL Server 2017+, Azure SQL auto-tuning).
+
 ```sql
 -- ── ENABLE ────────────────────────────────────────────────────────────────
 ALTER DATABASE [YourDB] SET QUERY_STORE = ON (
@@ -694,7 +823,186 @@ EXEC sys.sp_query_store_force_plan @query_id = 42, @plan_id = 7;
 
 -- ── UNFORCE A PLAN ────────────────────────────────────────────────────────
 EXEC sys.sp_query_store_unforce_plan @query_id = 42, @plan_id = 7;
+
+-- ── IDENTIFY REGRESSED QUERIES: compare recent vs. historical runtime stats ─
+-- "Which queries got slower in the last 2 hours vs. their 7-day average?"
+SELECT TOP 20
+    qt.query_sql_text,
+    recent.avg_cpu_time    / 1000.0   AS recent_avg_cpu_ms,
+    baseline.avg_cpu_time  / 1000.0   AS baseline_avg_cpu_ms,
+    (recent.avg_cpu_time - baseline.avg_cpu_time) / 1000.0 AS regression_ms,
+    recent.plan_id   AS regressed_plan_id,
+    baseline.plan_id AS good_plan_id
+FROM (
+    -- recent: last 2 hours
+    SELECT qrs.plan_id, q.query_id, AVG(qrs.avg_cpu_time) AS avg_cpu_time
+    FROM sys.query_store_runtime_stats qrs
+    JOIN sys.query_store_runtime_stats_interval qrsi
+         ON qrs.runtime_stats_interval_id = qrsi.runtime_stats_interval_id
+    JOIN sys.query_store_plan qp ON qrs.plan_id = qp.plan_id
+    JOIN sys.query_store_query q ON qp.query_id = q.query_id
+    WHERE qrsi.start_time >= DATEADD(HOUR, -2, GETUTCDATE())
+    GROUP BY qrs.plan_id, q.query_id
+) AS recent
+JOIN (
+    -- baseline: 7-day average, excluding last 2 hours
+    SELECT qrs.plan_id, q.query_id, AVG(qrs.avg_cpu_time) AS avg_cpu_time
+    FROM sys.query_store_runtime_stats qrs
+    JOIN sys.query_store_runtime_stats_interval qrsi
+         ON qrs.runtime_stats_interval_id = qrsi.runtime_stats_interval_id
+    JOIN sys.query_store_plan qp ON qrs.plan_id = qp.plan_id
+    JOIN sys.query_store_query q ON qp.query_id = q.query_id
+    WHERE qrsi.start_time BETWEEN DATEADD(DAY, -7, GETUTCDATE())
+                               AND DATEADD(HOUR, -2, GETUTCDATE())
+    GROUP BY qrs.plan_id, q.query_id
+) AS baseline ON recent.query_id = baseline.query_id
+JOIN sys.query_store_query_text qt
+     ON recent.query_id = (SELECT query_id FROM sys.query_store_plan WHERE plan_id = recent.plan_id)
+WHERE recent.avg_cpu_time > baseline.avg_cpu_time * 2   -- 2x regression threshold
+ORDER BY regression_ms DESC;
+
+-- ── WAIT STATISTICS PER QUERY (SQL Server 2017+) ───────────────────────────
+-- Query Store captures wait categories — not just CPU/duration
+SELECT TOP 10
+    qt.query_sql_text,
+    ws.wait_category_desc,
+    ws.avg_query_wait_time_ms,
+    ws.total_query_wait_time_ms
+FROM sys.query_store_query_text qt
+JOIN sys.query_store_query q      ON qt.query_text_id = q.query_text_id
+JOIN sys.query_store_plan  p      ON q.query_id       = p.query_id
+JOIN sys.query_store_wait_stats ws ON p.plan_id       = ws.plan_id
+WHERE ws.wait_category_desc NOT IN ('Unknown', 'CPU')
+ORDER BY ws.avg_query_wait_time_ms DESC;
 ```
+
+### Azure SQL — Automatic Plan Correction
+
+Azure SQL Database and Azure SQL Managed Instance can detect regressions and force the last known good plan automatically — no manual `sp_query_store_force_plan` required.
+
+```sql
+-- Enable automatic tuning (Azure SQL Database / Managed Instance)
+ALTER DATABASE [YourDB]
+SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON);
+
+-- Check what automatic tuning has done
+SELECT
+    name,
+    reason,
+    score,
+    JSON_VALUE(details, '$.planForceDetails.queryId')        AS query_id,
+    JSON_VALUE(details, '$.planForceDetails.regressedPlanId') AS regressed_plan_id,
+    JSON_VALUE(details, '$.planForceDetails.forcedPlanId')    AS forced_plan_id,
+    state_transition_reason
+FROM sys.dm_db_tuning_recommendations
+WHERE type = 'FORCE_LAST_GOOD_PLAN'
+ORDER BY score DESC;
+-- score: estimated improvement in seconds of CPU saved per second
+-- state: Active (currently forcing), Verifying (measuring improvement), Reverted (plan no longer good)
+```
+
+The automatic correction mechanism: Query Store detects that a query's new plan is regressing vs. the previous plan (using CPU time as the signal). It forces the previous plan, monitors whether the improvement holds, and reverts if the forced plan itself degrades. This is essentially production incident response automation for plan regressions — the most common SQL Server performance fire drill.
+
+---
+
+## ACCELERATED DATABASE RECOVERY (ADR — SQL Server 2019+)
+
+ADR is a redesign of the SQL Server recovery subsystem, motivated by a fundamental limitation of the classic ARIES-based approach: rollback time scales linearly with transaction size.
+
+### The Classic Problem
+
+```
+Traditional ARIES Recovery (pre-ADR)
+─────────────────────────────────────────────────────────────────────────────
+  Transaction starts
+  INSERT 1,000,000 rows  →  each row written to data pages + log (forward phase)
+  Application calls ROLLBACK
+
+  SQL Server must now:
+    1. Scan the log backward from the abort LSN to the BEGIN LSN   ← O(n log entries)
+    2. Apply undo records for each row in reverse order            ← O(n) page writes
+    3. Release locks only after all undo is complete
+
+  Result: 10-minute forward transaction = up to 10-minute rollback
+          Instance crash during rollback = recovery replays forward then undoes again
+          Long-running transactions hold the log tail — can't truncate the log
+          tempdb version store grows if RCSI/SI are on — affects all databases
+```
+
+### ADR's Solution — Three Components
+
+```
+ADR Architecture (SQL Server 2019+)
+─────────────────────────────────────────────────────────────────────────────
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  PVS — Persistent Version Store                                     │
+  │  ─────────────────────────────────────────────────────────────────  │
+  │  Lives in the USER database (not tempdb)                            │
+  │  Stores previous row versions alongside the data                    │
+  │  Survives crash/restart — always available for undo                 │
+  │  Separate cleanup agent reclaims PVS space asynchronously           │
+  └─────────────────────────────────────────────────────────────────────┘
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  SLOG — Singly-Linked Log                                           │
+  │  ─────────────────────────────────────────────────────────────────  │
+  │  In-memory structure tracking short-lived operations (system txns)  │
+  │  Non-versioned operations (page allocations, lock state) land here  │
+  │  Provides fast undo path for operations that don't need PVS         │
+  └─────────────────────────────────────────────────────────────────────┘
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  Logical Revert                                                     │
+  │  ─────────────────────────────────────────────────────────────────  │
+  │  Instead of log scan backward, ADR marks the transaction aborted    │
+  │  using a "logical revert" entry — O(1), instant                     │
+  │  The PVS serves as the undo source; old versions are visible        │
+  │  immediately without replaying the log                              │
+  └─────────────────────────────────────────────────────────────────────┘
+```
+
+### Operational Impact
+
+| Behavior | Classic Recovery | ADR |
+|----------|-----------------|-----|
+| Rollback time | O(transaction size) — can be minutes | Near-instant — O(1) logical revert |
+| Crash recovery time | Long if aborted transactions at crash | Fast — PVS available immediately |
+| Long-running transactions | Hold log tail, block truncation | Log can be truncated independently |
+| Version store location | tempdb (affects all databases) | User database (PVS, isolated) |
+| Storage overhead | Low (tempdb cleared on restart) | Ongoing PVS size; cleanup agent needed |
+| Backup/restore | Standard | Backup must capture PVS; slightly larger |
+
+### Enabling ADR
+
+```sql
+-- Enable on a database (immediate; no offline required)
+ALTER DATABASE [YourDB]
+SET ACCELERATED_DATABASE_RECOVERY = ON;
+
+-- Check ADR status
+SELECT name, is_accelerated_database_recovery_on
+FROM sys.databases
+WHERE name = 'YourDB';
+
+-- Monitor PVS size and cleanup lag
+SELECT
+    DB_NAME(pvss.database_id)          AS db_name,
+    pvss.persistent_version_store_size_kb / 1024 AS pvs_size_mb,
+    pvss.online_index_version_store_size_kb / 1024 AS online_index_pvs_mb,
+    pvss.current_aborted_transaction_count,
+    pvss.oldest_aborted_transaction_id,
+    pvss.oldest_active_transaction_id
+FROM sys.dm_tran_persistent_version_store_stats pvss;
+```
+
+### When NOT to Use ADR
+
+ADR is not free. The PVS cleanup agent runs asynchronously — under heavy write workloads or many aborted transactions, the PVS can grow significantly before it is reclaimed. Specifically:
+
+- **Storage costs:** The PVS lives in the user database. A workload with frequent large rollbacks can cause the data file to grow unexpectedly. Monitor `pvs_size_mb` above.
+- **Version cleanup overhead:** The cleanup agent is a background thread. Under extreme load it can fall behind. The symptom: PVS grows, query performance degrades (longer version chain traversal).
+- **Backup/restore size:** Backups must capture the PVS. For databases with high ADR churn, backups are slightly larger.
+- **Not needed when:** Your workloads are short-lived transactions, your tempdb version store growth (from RCSI/SI) is not a problem, and you don't have the crash-recovery or long-transaction scenarios ADR was designed for.
+
+ADR is enabled by default on **Azure SQL Database and Azure SQL Managed Instance**. For on-prem SQL Server 2019+, it is opt-in per database.
 
 ---
 
@@ -829,6 +1137,66 @@ SELECT * FROM dbo.Orders;   -- automatically filtered to user 42; user can't see
 | Azure SQL Hyperscale | vCore tier of Azure SQL DB | Read scale-out replicas; near-instant backup/restore up to 100TB |
 | Azure SQL Serverless | Compute tier of Azure SQL DB | Auto-pause + auto-resume; bill per vCore-second; cold start ~1s |
 | Elastic Pools | Shared resource pool | Multiple databases share DTUs/vCores; cost optimization |
+
+### Azure SQL Hyperscale — Architecture
+
+Hyperscale is not "Azure SQL with a bigger disk." It is a fundamentally different storage architecture where compute and storage are fully disaggregated. If you're used to Azure SQL Database General Purpose (compute + attached managed disk), Hyperscale's behavior will surprise you.
+
+```
+Azure SQL Hyperscale — Disaggregated Architecture
+─────────────────────────────────────────────────────────────────────────────
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  PRIMARY COMPUTE NODE                                               │
+  │  Runs SQL Server engine (query processor + buffer pool)            │
+  │  Generates log records → ships to Log Service immediately          │
+  │  Does NOT write data pages directly to storage                     │
+  └────────────────────┬────────────────────────────────────────────────┘
+                       │ log stream (continuous, low-latency)
+                       ▼
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  LOG SERVICE                                                        │
+  │  Durable, distributed log — the source of truth                    │
+  │  All compute nodes (primary + replicas) subscribe to this stream   │
+  │  Backup = ship log to Azure Blob Storage — near-instant            │
+  │  Restore = provision new compute + page servers, replay from log   │
+  └───────┬─────────────────────────────────────────────────────────────┘
+          │ log replayed
+          ▼
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  PAGE SERVERS (1–N, auto-scaled)                                   │
+  │  Each page server owns a subset of the database's page range       │
+  │  Applies log records to its pages (replay, not bulk write)         │
+  │  Primary and replicas fetch pages from page servers on demand       │
+  │  Pages are cached in the compute node's buffer pool after first    │
+  │  fetch — subsequent access is local buffer hit                     │
+  └─────────────────────────────────────────────────────────────────────┘
+          │ page requests (fetch-on-demand)
+          │
+  ┌───────▼──────────────────────────────────────────────────────────────┐
+  │  NAMED READ REPLICAS (0–4)                                          │
+  │  Each replica has its own compute node + buffer pool                │
+  │  Subscribes to Log Service — lag is typically <1 second            │
+  │  Reads pages from page servers (same as primary)                   │
+  │  ApplicationIntent=ReadOnly connection string routes here           │
+  └─────────────────────────────────────────────────────────────────────┘
+```
+
+**Why near-instant backup/restore?** A backup is essentially a log position marker plus a pointer to the page servers' durable state — not a copy of all data pages. Restore provisions new compute and page servers, which replay the log from the marked position. A 10TB database restores in minutes, not hours.
+
+**Why read replicas have sub-second lag?** Replicas do not receive data files from the primary — they subscribe to the Log Service stream and apply log records to their page server cache. There is no traditional replication lag caused by bulk data transfer; the bottleneck is log apply latency, which is in the millisecond range.
+
+**What works differently in Hyperscale vs. standard Azure SQL:**
+
+| Feature | Standard Azure SQL | Azure SQL Hyperscale |
+|---------|-------------------|---------------------|
+| Max database size | 4TB (General Purpose) | 100TB+ |
+| Backup time | Proportional to DB size | Near-instant (log position snapshot) |
+| Restore time | Hours for large DBs | Minutes regardless of size |
+| Read scale-out | Not available (General Purpose) | Up to 4 named read replicas |
+| `DBCC SHRINKFILE` | Works normally | Supported, but shrink behavior differs — page servers reclaim space asynchronously |
+| Log truncation | Standard checkpoint/backup cycle | Log Service manages truncation; VLF model still visible but less operator-controllable |
+| IO latency | Remote storage, ~1-5ms | Page servers + local buffer; first fetch may be higher, subsequent hits are local |
+| Scaling compute | Requires storage scale as well | Compute scales independently — storage stays, new compute node attaches to same page servers |
 
 ### Azure SQL-Only Features
 
@@ -973,7 +1341,7 @@ AS SELECT * FROM dbo.ExtRawSales;
 
 **`APPLY` vs `JOIN`.** A `JOIN` cannot produce a different number of columns per outer row based on that row's data. `APPLY` can — the subquery is re-evaluated per outer row and can be correlated. Also, `APPLY` is the only way to call a TVF per row.
 
-**`VARCHAR` vs `NVARCHAR`.** `VARCHAR` stores 1 byte per character (collation-dependent). `NVARCHAR` stores 2 bytes per character (UTF-16). Any column holding user-entered text, names, or international data must be `NVARCHAR`. Mixing `VARCHAR` and `NVARCHAR` in joins causes implicit conversion and index scan instead of seek.
+**`VARCHAR` / `NVARCHAR` implicit conversion kills index seeks.** Mixing `VARCHAR` and `NVARCHAR` in a JOIN predicate or WHERE clause forces an implicit `CONVERT_IMPLICIT` operator — the optimizer cannot seek on a converted column expression. The execution plan shows the implicit conversion; the index seek becomes a scan. `VARCHAR` collation can also affect plan reuse: a parameter declared `VARCHAR` compared against an `NVARCHAR` column produces a different plan signature than the same query with an `NVARCHAR` parameter. Watch for `CONVERT_IMPLICIT` in execution plan warnings — it is the silent index killer most often caused by an `int` parameter compared against a `varchar` column (or vice versa), or mismatched string types across JOINs.
 
 **`sp_executesql` N-prefix.** The `@params` definition string and all string literals in it must be `NVARCHAR`. Always use the `N'...'` prefix. `EXEC sp_executesql @sql, '@p VARCHAR(20)', ...` will silently work in some cases but cause character conversion issues with extended characters.
 

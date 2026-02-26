@@ -2,6 +2,8 @@
 
 SQLite is in every smartphone, every browser, and every Python installation. It is not a client-server database — it is a C library that reads and writes a single file. The design constraints are completely different from SQL Server: no separate server process, no network, no users/permissions, one writer at a time. But it is full SQL, ACID-compliant, and the right tool for an enormous number of use cases.
 
+If you've used SQL Server LocalDB for test harnesses or CI pipelines, SQLite occupies a similar niche — but where LocalDB is still a full SQL Server engine running in a lightweight process (with named pipes, a Windows service entry, and the full T-SQL feature set), SQLite is a library with no server component at all. There is no process to start, no named pipe to connect to, no authentication model, and no `sqllocaldb` command to manage instances. The database is a single file your application opens directly via a C API call.
+
 ---
 
 ## Ecosystem Position
@@ -156,6 +158,33 @@ INSERT INTO strict_t VALUES (1, 'Alice', '3.14');       -- ERROR: '3.14' is TEXT
 
 Comparison behavior without STRICT: `'123' = 123` can be TRUE (coercion). Use STRICT on new tables to eliminate this class of bug.
 
+### From SQL Server to SQLite: Type Enforcement
+
+SQL Server enforces column types at the storage engine level. Declaring `INT` means the engine rejects `'hello'` at insert time — no exceptions. That behavior is what you know. SQLite without `STRICT` is the opposite: declared types are advisory hints, not enforced constraints. The engine picks the most efficient storage class for whatever value you actually provide. `VARCHAR(255)` and `INTEGER` are equally fictional at runtime — SQLite stores what you give it.
+
+```sql
+-- SQL Server: hard error
+-- INSERT INTO t (int_col) VALUES ('hello')  -- Conversion failed: varchar to int
+
+-- SQLite without STRICT: succeeds silently
+CREATE TABLE t (id INTEGER, name TEXT, val REAL);
+INSERT INTO t VALUES ('hello', 42, 'not_a_number');   -- all succeed
+SELECT typeof(id), typeof(name), typeof(val) FROM t;
+-- text | integer | text   (stored as given, not as declared)
+```
+
+`typeof()` is the diagnostic tool — it returns the actual storage class of a value at runtime. There is no SQL Server equivalent because in SQL Server the storage class IS the declared type.
+
+`STRICT` mode (SQLite 3.37+, 2021) recovers SQL Server behavior: declared type is enforced, the engine rejects incompatible values with an error. Add `STRICT` to all new table DDL to get the type safety you're used to.
+
+```sql
+CREATE TABLE t (id INTEGER NOT NULL, name TEXT NOT NULL, val REAL) STRICT;
+INSERT INTO t VALUES ('hello', 'Alice', 3.14);  -- ERROR: 'hello' is not INTEGER
+SELECT typeof(id) FROM t;                        -- always 'integer' in a STRICT table
+```
+
+The `ANY` affinity is STRICT mode's escape hatch — a column declared `ANY` accepts any storage class, giving you a dynamically-typed column in an otherwise strictly-typed table.
+
 ---
 
 ## 5. WAL Mode — Enabling Concurrent Reads
@@ -187,28 +216,112 @@ PRAGMA wal_checkpoint(TRUNCATE);    -- FULL + truncate WAL file to zero
 PRAGMA wal_autocheckpoint = 1000;   -- auto-checkpoint every 1000 pages (default)
 ```
 
-### Critical PRAGMAs
+### Critical PRAGMAs — from sp_configure to PRAGMA
+
+SQL Server configuration lives in three places: `sp_configure` (server-level), `ALTER DATABASE ... SET` (database-level), and `ALTER SERVER CONFIGURATION` (newer server config). SQLite's equivalent is `PRAGMA` — a single command namespace that covers per-connection settings, per-database settings, and schema introspection. Most PRAGMAs are per-connection (session state), not persisted — the exception is `journal_mode` and `page_size` which write to the database file header.
+
+```
+SQL Server config → SQLite PRAGMA mapping:
+
+  sp_configure 'max server memory'      → PRAGMA cache_size = -65536  (64MB, negative = KiB)
+  ALTER DATABASE SET RECOVERY SIMPLE    → PRAGMA journal_mode = DELETE  (or WAL, MEMORY, OFF)
+  ALTER DATABASE SET AUTO_SHRINK OFF    → (no equivalent — SQLite doesn't auto-shrink)
+  ALTER DATABASE SET PAGE_VERIFY        → PRAGMA integrity_check  (run manually)
+  DBCC CHECKDB                          → PRAGMA integrity_check
+  EXEC sp_configure 'user connections'  → (no equivalent — no connection model)
+  USE [database] (switch context)        → ATTACH DATABASE 'other.db' AS other
+  SELECT @@VERSION                       → SELECT sqlite_version()
+  ALTER AUTHORIZATION / user_version    → PRAGMA user_version = 42  (schema version counter)
+```
 
 ```sql
 -- Foreign key enforcement — OFF by default, must set per connection
-PRAGMA foreign_keys = ON;
+-- THE #1 GOTCHA for SQL Server developers: FK constraints are DISABLED by default
+-- SQL Server enforces FKs automatically; SQLite does not unless you opt in per connection
+PRAGMA foreign_keys = ON;   -- add this to every connection open in your app
 
--- Synchronous mode
+-- Synchronous mode (= SQL Server's disk write strategy)
 PRAGMA synchronous = FULL;     -- fsync on every write — safest (default for DELETE mode)
 PRAGMA synchronous = NORMAL;   -- fsync on WAL checkpoint — good balance with WAL
 PRAGMA synchronous = OFF;      -- no fsync — fastest, data loss on OS crash
 
--- Page cache size (negative = kibibytes)
-PRAGMA cache_size = -64000;    -- 64MB page cache
+-- Page cache size (negative = kibibytes, positive = pages)
+PRAGMA cache_size = -64000;    -- 64MB page cache (SQL Server equivalent: buffer pool)
 
--- Page size (must set before any tables are created)
+-- Page size (must set BEFORE any tables are created — cannot change afterward)
 PRAGMA page_size = 4096;       -- default 4096; powers of 2 from 512 to 65536
+                                -- set to 16384 for analytics-heavy databases
 
 -- Temp storage
-PRAGMA temp_store = MEMORY;    -- temp tables and indices in RAM
+PRAGMA temp_store = MEMORY;    -- temp tables and indices in RAM (= SQL Server tempdb in RAM)
 
--- Analyze statistics (updates query planner)
-PRAGMA optimize;               -- run ANALYZE on tables that need it (call before close)
+-- Schema integrity check (= SQL Server DBCC CHECKDB)
+PRAGMA integrity_check;        -- checks structural integrity of all tables and indexes
+PRAGMA quick_check;            -- faster subset — no cross-table checks
+
+-- Schema version counter (useful for migration tracking)
+PRAGMA user_version;           -- read current version
+PRAGMA user_version = 7;       -- write version (your migration system manages this)
+
+-- Analyze statistics (= SQL Server UPDATE STATISTICS)
+PRAGMA optimize;               -- smart ANALYZE — only updates tables that need it (call before close)
+PRAGMA analysis_limit = 1000;  -- limit rows sampled per index (trade accuracy for speed)
+```
+
+**The FK gotcha deserves a callout:** SQL Server enforces FK constraints automatically at the engine level. You declare them and they work. SQLite's default is `PRAGMA foreign_keys = OFF` — FK declarations are stored in the schema but ignored at runtime, for backward compatibility with legacy databases that have invalid FK data. This means a freshly-created SQLite database with FK constraints will not enforce them until you explicitly set `PRAGMA foreign_keys = ON` on each connection. In EF Core, the SQLite provider sets this automatically. In raw ADO.NET (`Microsoft.Data.Sqlite`), you must set it yourself.
+
+### SQL Server Recovery Models → SQLite Journal Modes
+
+SQL Server has three recovery models (FULL / BULK_LOGGED / SIMPLE) that control transaction log behavior and what recovery operations are possible. SQLite has four journal modes that control the write-ahead/rollback mechanism. The conceptual parallel is real, but the mechanics differ significantly.
+
+```
+SQL Server recovery models → SQLite journal modes (rough mapping):
+
+  FULL            ── no analog: SQL Server FULL enables point-in-time restore
+                     and log shipping. SQLite has no log-based replication.
+
+  SIMPLE          ── DELETE journal (SQLite default)
+                     Before a write: copies the original page to a .journal file.
+                     On commit: deletes the .journal file.
+                     On rollback: restores from .journal.
+                     Writer acquires EXCLUSIVE lock — blocks ALL readers during write.
+
+  BULK_LOGGED     ── WAL (closest analog in spirit, not mechanism)
+                     Writer appends new page images to the -wal file.
+                     Readers continue reading from the main db file + visible WAL pages.
+                     Readers and writers do NOT block each other.
+                     Main file stays clean until checkpoint.
+
+  (no equivalent)  ── MEMORY journal: rollback journal in RAM only, never on disk.
+                     Fastest. Zero durability on OS crash. Test scenarios only.
+
+  (no equivalent)  ── OFF: no rollback journal at all. Maximum speed, zero safety.
+```
+
+**Key differences from SQL Server's transaction log:**
+
+- SQLite WAL is **opt-in per database file** via `PRAGMA journal_mode = WAL`. The default is DELETE (rollback journal), not WAL.
+- SQL Server's log is always-on and is the source of truth for ARIES-based recovery. SQLite's WAL is not used for replication — it is not analogous to SQL Server log shipping or CDC.
+- SQLite WAL **checkpoint** is a background merge operation: it writes committed WAL pages back to the main db file. You control it explicitly. There is no analog to SQL Server's checkpoint that flushes dirty buffer pages — SQLite's checkpoint is more like a log truncation combined with a buffer flush.
+- WAL mode ships the database as **3 files**: `database.db`, `database.db-wal`, `database.db-shm`. All three must travel together. The `-wal` and `-shm` files merge back into the main file on a clean connection close or explicit checkpoint.
+- SQL Server log-based replication, log shipping, and Always On depend on the sequential transaction log. SQLite has no equivalent mechanism — replication strategies for SQLite (e.g., Litestream, rqlite) work at the page level or via external tooling, not via the WAL protocol.
+
+```sql
+-- Set WAL mode (persists in db file header — set once per database file)
+PRAGMA journal_mode = WAL;
+
+-- Checkpoint variants
+PRAGMA wal_checkpoint;               -- passive: checkpoint what's possible without blocking readers
+PRAGMA wal_checkpoint(FULL);         -- wait for all readers to finish, then checkpoint everything
+PRAGMA wal_checkpoint(TRUNCATE);     -- FULL + truncate the -wal file to zero bytes
+
+-- WAL grows unbounded if never checkpointed. Auto-checkpoint triggers at:
+PRAGMA wal_autocheckpoint = 1000;    -- 1000 pages (default ~4MB at 4K page size)
+
+-- Recommended WAL + performance settings (set at connection open):
+PRAGMA journal_mode = WAL;
+PRAGMA synchronous = NORMAL;         -- fsync at checkpoint, not every write — safe with WAL
+PRAGMA wal_autocheckpoint = 10000;   -- 40MB before auto-checkpoint (tune for your workload)
 ```
 
 ---
@@ -483,6 +596,95 @@ var keepAlive = new SqliteConnection("Data Source=TestDb;Mode=Memory;Cache=Share
 keepAlive.Open();  // keep this open to prevent the in-memory DB from being destroyed
 ```
 
+### EF Core: SQL Server Provider → SQLite Provider
+
+The EF Core SQLite provider uses the same model and migrations API as the SQL Server provider, but there are behavioral differences that will bite you if you assume parity.
+
+**Connection strings:**
+```csharp
+// SQL Server provider
+options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=MyDb;Trusted_Connection=True");
+
+// SQLite file-based
+options.UseSqlite("Data Source=myapp.db");
+
+// SQLite in-memory (per connection — each DbContext gets its own isolated DB)
+options.UseSqlite("Data Source=:memory:");
+
+// SQLite shared in-memory (multiple connections share one DB — keep a connection open)
+options.UseSqlite("Data Source=TestDb;Mode=Memory;Cache=Shared");
+```
+
+**`.UseInMemoryDatabase()` vs `.UseSqlite(":memory:")` — a critical distinction:**
+```csharp
+// EF Core in-memory provider — NOT a relational database
+// - No SQL executed. No schema. No FK enforcement. No UNIQUE constraints enforced.
+// - Great for pure unit tests of business logic with mocked queries
+// - Will NOT catch SQL-level bugs or constraint violations
+options.UseInMemoryDatabase("TestDb");
+
+// SQLite in-memory — IS a relational database
+// - Full SQL executed. Schema created by migrations. FK and UNIQUE constraints enforced.
+// - Catches constraint violations, cascade behavior, computed columns
+// - Required for integration tests that need actual relational semantics
+options.UseSqlite("Data Source=:memory:");
+// IMPORTANT: keep the connection open for the test lifetime, or the DB is destroyed
+```
+
+**EF Core SQLite provider gotchas vs SQL Server provider:**
+
+| Capability | SQL Server Provider | SQLite Provider |
+|---|---|---|
+| `ALTER COLUMN` in migrations | Native | Not supported — EF Core rewrites as table-rebuild |
+| `DROP COLUMN` | Native | EF Core 6+ rewrites as table-rebuild |
+| Server-generated defaults | `GETDATE()`, sequences, etc. | Must use `datetime('now')` — no SQL Server functions |
+| `HasDefaultValueSql("GETDATE()")` | Works | Fails at runtime — rewrite as `datetime('now')` |
+| Computed columns | `HasComputedColumnSql(...)` | Supported in SQLite 3.31+ (`GENERATED ALWAYS AS`) |
+| `IDENTITY` / `UseIdentityColumn()` | Full control | Ignored — SQLite uses `INTEGER PRIMARY KEY` autoincrement |
+| `decimal` precision/scale | Enforced | Not enforced — SQLite stores as REAL or TEXT |
+| `ROWVERSION` / concurrency tokens | Native | Must use manual timestamp column |
+| Row-level security | Yes (SQL Server RLS) | None |
+| Always Encrypted | Yes | None |
+| Full-text search from EF | Not directly modeled | Not directly modeled (use raw SQL for FTS5) |
+| `EnableSensitiveDataLogging()` | Parameter values in logs | Works — but SQLite uses positional `?` params, not named |
+
+**FK enforcement gotcha in EF Core + SQLite:**
+```csharp
+// EF Core SQLite provider enables FK enforcement on every connection it opens:
+//   PRAGMA foreign_keys = ON
+// But if you open a raw SqliteConnection alongside EF Core, YOU must set it too.
+using var raw = new SqliteConnection(connectionString);
+raw.Open();
+using var cmd = raw.CreateCommand();
+cmd.CommandText = "PRAGMA foreign_keys = ON";
+cmd.ExecuteNonQuery();   // required — not inherited from EF Core's connection
+```
+
+**Test setup pattern for EF Core SQLite integration tests:**
+```csharp
+public class TestDbFixture : IDisposable
+{
+    private readonly SqliteConnection _keepAlive;
+    public DbContextOptions<AppDbContext> Options { get; }
+
+    public TestDbFixture()
+    {
+        // Shared in-memory: one DB, multiple test DbContext instances
+        _keepAlive = new SqliteConnection("Data Source=TestDb;Mode=Memory;Cache=Shared");
+        _keepAlive.Open();
+
+        Options = new DbContextOptionsBuilder<AppDbContext>()
+            .UseSqlite("Data Source=TestDb;Mode=Memory;Cache=Shared")
+            .Options;
+
+        using var ctx = new AppDbContext(Options);
+        ctx.Database.EnsureCreated();
+    }
+
+    public void Dispose() => _keepAlive.Dispose();
+}
+```
+
 ---
 
 ## 13. Date and Time
@@ -644,6 +846,25 @@ ON CONFLICT (user_id, key) DO UPDATE SET value = excluded.value;
 | Config / cache / queue / log storage | Need complex user-defined functions in pure SQL |
 | Prototyping (zero setup) | Network-accessible shared database required |
 | IoT / edge / embedded devices | HTAP or analytics workloads > a few GB (use DuckDB instead) |
+
+### SQLite vs SQL Server LocalDB — the dev/test decision
+
+Both are "lightweight SQL for dev/test" but they are not interchangeable:
+
+| Factor | SQL Server LocalDB | SQLite |
+|---|---|---|
+| Architecture | Full SQL Server engine, lightweight process | Library embedded in your application process — no separate process |
+| Installation | Requires SQL Server LocalDB install (`sqllocaldb` runtime) | Zero install — one NuGet package or system lib |
+| T-SQL compatibility | 100% — stored procs, TVFs, columnstore, full type system | Subset of SQL — no stored procs, no ALTER COLUMN, no permissions |
+| EF Core migrations | Full support including ALTER COLUMN, computed columns | Table-rebuild workaround for schema changes |
+| FK enforcement | On by default | Off by default — must set `PRAGMA foreign_keys = ON` per connection |
+| Deployment / CI | Requires LocalDB install on CI agent | Zero setup — SQLite ships in-process, file or `:memory:` |
+| File portability | Tied to SQL Server data format, attached via `(LocalDB)\instance` | Single `.db` file — copy it anywhere |
+| Network access | Named pipes — other local processes can connect | None — file locking only |
+| Performance tooling | Query Store, execution plans, SQL Profiler | `EXPLAIN QUERY PLAN`, `sqlite_stat1` |
+| **Use when** | Need T-SQL parity: stored procs, TVFs, columnstore, complex migrations | Need a relational store in tests with zero infrastructure overhead |
+
+**Pragmatic decision rule:** use LocalDB if your tests exercise T-SQL-specific features (stored procedures, TVFs, columnstore indexes, complex computed columns, full migration fidelity). Use SQLite in-memory if you just need a relational store to validate EF Core queries and constraint semantics — CI setup is simpler, tests run faster, no agent dependency.
 
 ---
 

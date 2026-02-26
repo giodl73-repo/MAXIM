@@ -17,6 +17,80 @@
 
 ---
 
+## JavaScript Runtime Landscape
+
+JavaScript is single-threaded. All concurrency is achieved by the event loop handing work to the platform, then scheduling callbacks when that work completes. This is the model that makes async JS coherent — or maddening, if you come in expecting a thread pool.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        JAVASCRIPT RUNTIME (V8 + Platform)                   │
+│                                                                             │
+│  ┌──────────────────┐       ┌──────────────────────────────────────────┐   │
+│  │   CALL STACK     │       │   WEB APIs (browser) / Node.js C++ APIs  │   │
+│  │  (synchronous)   │ ───── │                                          │   │
+│  │                  │ offld │  setTimeout(cb, t)   ──────────────────┐ │   │
+│  │  main()          │       │  fetch(url)           HTTP/network      │ │   │
+│  │  ├─ foo()        │       │  readFile(path, cb)   libuv I/O         │ │   │
+│  │  │   └─ bar()    │       │  addEventListener()   DOM events        │ │   │
+│  │  │       ...     │       │                                         │ │   │
+│  │  └─ [returns]    │       │  When work completes, push cb ──────────┘ │   │
+│  │                  │       │  to the appropriate queue                 │   │
+│  └──────────────────┘       └──────────────────────────────────────────┘   │
+│           ▲                               │                                 │
+│           │                               ▼                                 │
+│           │          ┌────────────────────────────────────────────┐         │
+│           │          │           QUEUES                           │         │
+│           │          │                                            │         │
+│           │          │  ┌─────────────────────────────────────┐  │         │
+│           │          │  │  MICROTASK QUEUE  (higher priority)  │  │         │
+│           │          │  │  • Promise .then() / .catch()        │  │         │
+│           │          │  │  • async/await continuations         │  │         │
+│           │          │  │  • queueMicrotask()                  │  │         │
+│           │          │  └─────────────────────────────────────┘  │         │
+│           │          │                                            │         │
+│           │          │  ┌─────────────────────────────────────┐  │         │
+│           │          │  │  MACROTASK QUEUE (lower priority)    │  │         │
+│           │          │  │  • setTimeout / setInterval cbs      │  │         │
+│           │          │  │  • I/O callbacks (Node)              │  │         │
+│           │          │  │  • UI rendering events (browser)     │  │         │
+│           │          │  └─────────────────────────────────────┘  │         │
+│           │          └────────────────────────────────────────────┘         │
+│           │                               │                                 │
+│           │          ┌────────────────────┴──────────────────────┐          │
+│           └──────────│           EVENT LOOP TICK                 │          │
+│                      │                                            │          │
+│                      │  1. Is call stack empty?  (if not, wait)  │          │
+│                      │  2. Drain ALL microtasks (loop until empty)│          │
+│                      │  3. Pick ONE macrotask → push to stack     │          │
+│                      │  4. Repeat                                 │          │
+│                      └────────────────────────────────────────────┘          │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+**Priority rule**: Microtasks (Promises) always drain completely before any macrotask runs. A microtask that enqueues another microtask will run before any `setTimeout` callback, even a `setTimeout(cb, 0)`.
+
+```javascript
+setTimeout(() => console.log("macrotask"), 0);
+Promise.resolve().then(() => console.log("microtask"));
+console.log("sync");
+// Output: sync → microtask → macrotask
+```
+
+### vs. C# async/await
+
+| Aspect | JavaScript event loop | C# async/await |
+|--------|----------------------|----------------|
+| Threading model | **Single thread** — one call stack, ever | **Thread pool** — `await` can resume on a different thread |
+| Blocking danger | Any synchronous CPU work blocks the whole runtime | Blocking one thread wastes a pool thread, but others keep running |
+| `await` mechanics | Suspends the current microtask; event loop picks up next work | Suspends the method, posts a continuation to the scheduler |
+| Parallelism | Not available in one JS process (need Worker threads) | Task.WhenAll runs continuations in parallel on the pool |
+| I/O model | Callbacks handed to platform; single thread handles results | Overlapped I/O (IOCP on Windows); thread pool continuations |
+| `ConfigureAwait(false)` | N/A — no synchronization context problem | Needed to avoid deadlocks in UI/ASP.NET classic contexts |
+
+The key shift: in C# you think "free up a thread while waiting." In JavaScript you think "don't block the one thread while waiting." Same outcome (non-blocking I/O), completely different execution model.
+
+---
+
 ## Syntax Reference Card
 
 ### Variables & Types
@@ -353,3 +427,92 @@ process.on("unhandledRejection", (reason) => { ... });
 | `Dictionary<K,V>` has only string-compatible keys | `{}` keys are strings/symbols; use `Map` for anything else | Object keys coerce to string |
 | Non-virtual methods are stable | `this` can change based on call site | Arrow functions or `.bind(this)` |
 | Integer division: `5/2 = 2` | `5/2 = 2.5` (one number type) | Use `Math.floor(5/2)` for int division |
+
+---
+
+## Decision Cheat Sheet
+
+### `===` vs `==`
+
+| Use | When |
+|-----|------|
+| `===` | Always, for equality checks |
+| `==` | Only one valid idiom: `x == null` to check for null-or-undefined in one shot |
+
+`==` coercion rules are a table of special cases with no consistent logic. The cognitive overhead of knowing them exceeds any benefit. `===` is zero-surprise.
+
+### `const` vs `let` vs `var`
+
+| Use | When |
+|-----|------|
+| `const` | Default — for any binding you don't reassign (objects/arrays can still mutate internally) |
+| `let` | When you need to reassign the binding (loop counter, accumulated result) |
+| `var` | Never in new code — function-scoped and hoisted to the top of the function, causing non-obvious bugs |
+
+`const` doesn't make objects immutable — it prevents rebinding the variable. `Object.freeze()` is needed for deep immutability.
+
+### Arrow function vs `function` declaration
+
+| Use | When |
+|-----|------|
+| Arrow `() => {}` | Default for callbacks, methods passed as values, anything that needs lexical `this` |
+| `function` declaration | Top-level named functions you want hoisted; methods that need their own `this` (e.g. event handlers that reference `this.element`) |
+| `function` expression | Rarely — named function expressions for recursion or stack traces |
+
+The critical difference is `this`: arrow functions capture `this` from the enclosing lexical scope at definition time. Regular functions receive `this` from the call site. This is the source of most `this is undefined` bugs in callbacks.
+
+```javascript
+class Foo {
+    value = 42;
+    broken()  { setTimeout(function()  { console.log(this.value); }, 0); } // undefined
+    working() { setTimeout(() =>       { console.log(this.value); }, 0); } // 42
+}
+```
+
+### `Map` vs plain object `{}`
+
+| Use | When |
+|-----|------|
+| `{}` plain object | Keys are known strings/identifiers, shape is fixed, JSON serialization needed |
+| `Map` | Keys are dynamic, non-string keys (objects, numbers), need insertion-order iteration, need `.size` |
+
+Plain objects have `Object.prototype` in their prototype chain — keys like `"constructor"` or `"toString"` collide. `Map` has no such issue. For high-churn key/value stores, `Map` is also faster at insertion/deletion.
+
+### `Promise` chains vs `async/await`
+
+| Use | When |
+|-----|------|
+| `async/await` | Default — reads as sequential code, error handling via try/catch |
+| `.then()` chains | Parallel fan-out patterns (`Promise.all`, `Promise.race`); piping transformations without needing intermediate variables |
+| Mixed | `async` function calling `await Promise.all([...])` — best of both |
+
+```javascript
+// async/await — clear sequential reads
+async function load() {
+    const user = await getUser(id);
+    const orders = await getOrders(user.id);
+    return { user, orders };
+}
+
+// Promise.all for parallel (async/await still works here)
+async function loadParallel() {
+    const [user, settings] = await Promise.all([getUser(id), getSettings(id)]);
+    return { user, settings };
+}
+```
+
+### `null` vs `undefined`
+
+| Value | Meaning | When you produce it |
+|-------|---------|---------------------|
+| `undefined` | Not set — JS default | Uninitialized variable, missing object property, missing function argument, function with no `return` |
+| `null` | Intentional absence — you set this | Explicitly clearing a value, API responses signaling "no value" |
+
+**Convention**: emit `undefined` for "not applicable," emit `null` for "deliberately absent." In practice, both get the same `== null` check. The two-nil problem doesn't exist in C# — `null` is the only null. In JS you can receive `undefined` where you expected a value and have no way to distinguish "key missing" from "key present but undefined" without `"key" in obj`.
+
+```javascript
+const obj = { a: undefined };
+"a" in obj      // true  — key exists
+obj.b           // undefined — key absent
+// Both read as undefined. Use 'in' or hasOwnProperty to distinguish.
+```

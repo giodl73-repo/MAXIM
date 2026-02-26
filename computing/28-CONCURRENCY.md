@@ -186,41 +186,45 @@ while (!flag.load(std::memory_order_acquire));  // Sees all writes that preceded
 
 ## 3. Lock-Based Concurrency
 
-<!-- @editor[audience/P2]: The mutex properties (mutual exclusion, progress, bounded waiting), Dekker's algorithm, Peterson's algorithm, TAS/TTAS definitions, Coffman conditions, and Banker's algorithm are CS curriculum material this learner wrote multi-threaded .NET code with professionally for years. They know Monitor.Enter/Exit, ReaderWriterLockSlim, and Interlocked from production use. What's valuable in this section: CLH/MCS queue locks (AQS internals — probably new), the priority inversion explanation, and the deadlock detection/recovery discussion. Consider trimming Dekker/Peterson/TAS definitions to one-liners and leading with CLH/MCS since that's what actually runs in JVM's AbstractQueuedSynchronizer. -->
+### Mutex Reference
 
-### Mutex (Mutual Exclusion)
+| Algorithm / Primitive | What it demonstrates | Production use |
+|----------------------|---------------------|----------------|
+| Dekker's algorithm | First software mutex without hardware support; uses shared memory + turn variable | Never — requires memory barriers; hardware atomics are available |
+| Peterson's algorithm | Two-thread mutex with acquire/release semantics; clean correctness proof | Never — two-thread only; use OS mutex |
+| TAS (Test-and-Set) | Simplest spinlock; CAS on a single byte | Rarely — causes cache line invalidation storm under contention |
+| TTAS (Test-and-Test-and-Set) | Spin on regular read (MESI S state); attempt TAS only when lock looks free | Low-contention spinlocks; reduces coherence traffic vs TAS |
+| CLH / MCS queue lock | Fair queuing; each waiter spins on its own cache line | Linux kernel rwlock, Java AbstractQueuedSynchronizer (AQS) |
+| OS blocking mutex | Kernel-assisted sleep/wake; ~1–5 μs context switch | Standard choice for long critical sections |
+
+### CLH / MCS Queue Locks
+
+CLH (Craig-Landin-Hagersten) and MCS (Mellor-Crummey-Scott) are the production-grade fair queuing mutexes. The key insight: each thread spins on its own node's flag, not on a shared variable — so lock release doesn't broadcast a cache invalidation to all waiters simultaneously (the thundering herd problem with TAS/TTAS).
 
 ```
-Properties:
-  Mutual exclusion: at most one thread in critical section
-  Progress: if no thread in CS and some want in, one enters eventually
-  Bounded waiting: each thread enters within bounded time (starvation-freedom)
+MCS queue structure:
+  Each thread allocates a QNode: { volatile bool locked; QNode* next; }
+  Global tail pointer (atomic).
 
-Spinlock: active poll (busy wait). Good for short CS, bad for long.
-  pro: no context switch overhead, good with many cores
-  con: wastes CPU, causes priority inversion
+  Acquire:
+    qnode.locked = true; qnode.next = null
+    prev = fetch_and_store(tail, qnode)    // atomic swap
+    if prev != null:
+      prev.next = qnode
+      while qnode.locked: spin            // spin on OWN node's field
 
-Blocking mutex: OS-assisted sleep/wake. Good for long CS.
-  con: context switch overhead (~1-5 μs)
+  Release:
+    if qnode.next == null:
+      if CAS(tail, qnode, null): return   // no waiters
+      while qnode.next == null: spin      // wait for enqueuing thread
+    qnode.next.locked = false             // hand lock to successor
+
+Each waiter spins on its own cache line (private to that thread).
+Lock release touches exactly ONE other cache line (the successor's).
+No broadcast invalidation storm.
 ```
 
-**Dekker's algorithm** (first mutex without hardware support): Complex, requires memory barriers. Never used in practice — hardware atomics are available.
-
-**Peterson's algorithm** (two-thread only): Works with acquire/release semantics. Clean, proof-friendly. Two variables: `flag[2]` and `turn`.
-
-**Test-and-Set (TAS)**: `atomic { old = x; x = 1; return old; }` — simplest spinlock. High contention → cache line invalidation storm.
-
-**Test-and-Test-and-Set (TTAS)**: Spin on regular read (shared state S in MESI); only attempt TAS when it looks free. Reduces coherence traffic dramatically.
-
-**CLH / MCS Queue Lock** (Craig-Landin-Hagersten, Mellor-Crummey-Scott):
-```
-Queue lock: each thread spins on its own cache line (not shared).
-  Eliminates thundering herd on lock release.
-  MCS: intrusive linked list of waiters.
-  CLH: implicit linked list via predecessor's node.
-Both: O(1) lock/unlock, each waiter spins on private cache line.
-Used in Linux kernel rwlock, Java AbstractQueuedSynchronizer (AQS).
-```
+CLH is the implicit version (predecessor's node, not own). Java's `AbstractQueuedSynchronizer` (the backing class for `ReentrantLock`, `Semaphore`, `CountDownLatch`) implements a CLH-variant. Linux kernel's `rwlock` uses MCS for the write path.
 
 ### Monitors and Condition Variables
 
@@ -267,21 +271,47 @@ Upgrade: hold read → acquire write. Risks deadlock if two threads try simultan
 
 ### Deadlock
 
-<!-- @editor[audience/P2]: The four Coffman conditions and Banker's algorithm are OS curriculum material (Dijkstra 1965). This learner has reviewed deadlock post-mortems in production .NET codebases. The conditions are useful as a quick reference checklist, but the Banker's algorithm explanation ("O(n²) check per request; too slow") is textbook content that adds no value beyond "it's too slow, nobody uses it." The valuable content here is lock ordering and the practical note about hard enforcement in large codebases. Consider collapsing Coffman conditions to a reference table and cutting Banker's to one sentence. -->
+**Four Coffman conditions** — all must hold simultaneously for deadlock:
 
-**Four Coffman conditions** (all must hold for deadlock):
-1. Mutual exclusion
-2. Hold and wait
-3. No preemption
-4. Circular wait
+| Condition | Break it by |
+|-----------|-------------|
+| Mutual exclusion | Use lock-free data structures (atomics, MPSC queues) |
+| Hold and wait | Acquire all locks atomically (std::lock, Monitor.TryEnter with timeout) |
+| No preemption | Lock timeouts; tryLock patterns |
+| Circular wait | Global lock ordering — always acquire in consistent order |
 
-**Prevention**: Break one condition. Circular-wait prevention: acquire locks in global order.
+**Lock ordering** (canonical production approach): Define a global total order on locks (by memory address, by assigned ID, by resource hierarchy). Every code path acquires locks in that order. Circular wait becomes impossible.
 
-**Avoidance**: Banker's algorithm — only grant if system stays in safe state. O(n²) check per request; too slow for most systems.
+```csharp
+// C# — acquire two locks without deadlock
+// std::lock equivalent: acquire both or neither, retry internally
+lock (LockOrderer.First(lockA, lockB))   // order by address or ID
+{
+    lock (LockOrderer.Second(lockA, lockB))
+    {
+        // safe
+    }
+}
 
-**Detection and recovery**: Allow deadlock; detect via wait-for graph cycle; recover by killing a thread.
+// Or use Monitor.TryEnter with timeout:
+if (Monitor.TryEnter(lockA, TimeSpan.FromMilliseconds(100)))
+{
+    try {
+        if (Monitor.TryEnter(lockB, TimeSpan.FromMilliseconds(100)))
+        {
+            try { /* critical section */ }
+            finally { Monitor.Exit(lockB); }
+        }
+    }
+    finally { Monitor.Exit(lockA); }
+}
+```
 
-**Lock ordering**: Most practical deadlock prevention. Define global lock hierarchy; always acquire in order. Hard to enforce across large codebases → use single high-level lock or STM.
+**C++ std::lock**: Acquires multiple mutexes without deadlock using a deadlock-avoidance algorithm (tries, backs off, retries in different order). `std::scoped_lock(m1, m2)` in C++17.
+
+**Lock-free elimination**: The best deadlock prevention is removing the lock. Use `Interlocked.Increment` for counters, MPSC (multi-producer single-consumer) queues for work distribution — no lock, no deadlock.
+
+**Banker's algorithm**: O(n²) per allocation decision; requires knowing maximum resource demands in advance. Textbook concept; unused in production OS or databases.
 
 ---
 
@@ -360,7 +390,7 @@ Two pointers: head (dummy node), tail.
   Handles concurrent pushes via tail chasing.
   Handles concurrent pops via head movement.
 
-Memory reclamation: problematic — use hazard pointers or EBR (epoch-based reclamation).
+  Memory reclamation: problematic — use hazard pointers or EBR (epoch-based reclamation).
 ```
 
 **Java's ConcurrentLinkedQueue** implements Michael-Scott queue.
@@ -465,8 +495,6 @@ transfer from to amount = do
 
 ## 6. Message Passing Models
 
-<!-- @editor[content/P2]: The CSP vs Actors section correctly identifies Go channels (CSP) and Erlang/Akka (Actors) but is missing the third major model this learner will encounter: the .NET Channel<T> API (System.Threading.Channels, introduced in .NET Core 3.0). This is the modern C# replacement for BlockingCollection<T> and the TPL Dataflow pipeline. The learner knows TPL Dataflow from Azure Data Factory internals — there is a direct bridge from Dataflow pipelines → Channel<T> + async pipelines that's missing. Also absent: the comparison between Channel<T> (bounded/unbounded, single producer/multi producer) and Go's buffered channels — they're solving the same problem with different ergonomics. -->
-
 ### CSP (Communicating Sequential Processes — Hoare 1978)
 
 ```
@@ -502,6 +530,46 @@ case <-time.After(1 * time.Second):
 ```
 
 **Go runtime scheduler**: M:N threading. M goroutines on N OS threads. Work-stealing scheduler. Goroutines multiplex onto OS threads via GOMAXPROCS-many P (processor) structures.
+
+### System.Threading.Channels (.NET)
+
+`System.Threading.Channels` (added in .NET Core 3.0) is the modern C# replacement for `BlockingCollection<T>` and TPL Dataflow pipelines for producer/consumer work. It's the .NET equivalent of Go's buffered channels: typed, async-first, and supports back-pressure.
+
+```csharp
+// Bounded channel — back-pressure when full
+var channel = Channel.CreateBounded<WorkItem>(new BoundedChannelOptions(capacity: 100)
+{
+    FullMode = BoundedChannelFullMode.Wait  // or DropOldest, DropNewest, DropWrite
+});
+
+ChannelWriter<WorkItem> writer = channel.Writer;
+ChannelReader<WorkItem> reader = channel.Reader;
+
+// Producer (async — awaits when channel is full)
+await writer.WriteAsync(new WorkItem(...));
+writer.Complete();  // signal no more items
+
+// Consumer (async — awaits when channel is empty)
+await foreach (var item in reader.ReadAllAsync())
+{
+    await ProcessAsync(item);
+}
+```
+
+**Unbounded channel**: `Channel.CreateUnbounded<T>()` — no back-pressure; producer never blocks. Use only when producer rate is bounded by other constraints.
+
+**Bridge to Go channels**:
+
+| Feature | Go channel | .NET Channel<T> |
+|---------|-----------|-----------------|
+| Buffered | `make(chan T, n)` | `Channel.CreateBounded<T>(n)` |
+| Unbuffered | `make(chan T)` | `Channel.CreateUnbounded<T>()` with `SingleProducerSingleConsumer` option |
+| Select / multiplex | `select { case v := <-ch: }` | No direct equivalent; use `Task.WhenAny` |
+| Close / completion | `close(ch)` | `writer.Complete()` |
+| Async consumer | Range over channel in goroutine | `await foreach` + `ReadAllAsync()` |
+| Back-pressure | Goroutine blocks on send | `await WriteAsync()` suspends producer |
+
+**Migration path from BlockingCollection**: `BlockingCollection<T>` blocks threads (synchronous); `Channel<T>` suspends tasks (async). For Azure Data Factory-style pipeline stages (transform → validate → persist), `Channel<T>` + async pipeline eliminates the dedicated blocking threads that TPL Dataflow required.
 
 ### Actor Model (Hewitt-Bishop-Steiger 1973)
 
@@ -593,7 +661,52 @@ async Task<string> FetchDataAsync(string url) {
 // CancellationToken: cooperative cancellation throughout async chains.
 ```
 
-<!-- @editor[bridge/P2]: The C# async/await section is correct but misses the SynchronizationContext trap that bites .NET developers most frequently: library code that calls .GetAwaiter().GetResult() or .Wait() on a Task from a context that has a SynchronizationContext (ASP.NET classic, WPF, WinForms) deadlocks because the continuation tries to resume on the captured context which is blocked waiting for the task. This is not mentioned. The ConfigureAwait(false) note is present but the *why it deadlocks without it* explanation is absent. For someone who built async pipelines in Azure Data Factory, this is a known failure mode worth documenting explicitly. -->
+### SynchronizationContext and the Deadlock Trap
+
+The most common C# async failure mode, and the reason `ConfigureAwait(false)` exists.
+
+**How `SynchronizationContext` works**: In ASP.NET classic (not Core), WinForms, and WPF, a `SynchronizationContext` is installed on the thread. When you `await` a task, the runtime captures the current context. When the task completes, the continuation is **scheduled back onto that captured context** — meaning it needs the original thread to run.
+
+**The deadlock**:
+```csharp
+// WinForms button click handler (runs on UI thread, which has a SynchronizationContext)
+private void Button_Click(object sender, EventArgs e)
+{
+    // .Result blocks the UI thread waiting for FetchDataAsync to complete.
+    var data = FetchDataAsync().Result;   // DEADLOCK
+    label.Text = data;
+}
+
+async Task<string> FetchDataAsync()
+{
+    // await captures the UI thread's SynchronizationContext.
+    // When GetAsync completes, the continuation tries to resume on the UI thread.
+    // But the UI thread is blocked in .Result above, waiting for this method.
+    // Neither can proceed. Deadlock.
+    var response = await httpClient.GetAsync("https://api.example.com/data");
+    return await response.Content.ReadAsStringAsync();
+}
+```
+
+**Why `ConfigureAwait(false)` fixes it**:
+```csharp
+async Task<string> FetchDataAsync()
+{
+    // ConfigureAwait(false): do NOT capture the current SynchronizationContext.
+    // Continuation resumes on a thread pool thread instead of the UI thread.
+    // The UI thread (blocked in .Result) is no longer needed for the continuation.
+    var response = await httpClient.GetAsync("https://...").ConfigureAwait(false);
+    return await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+}
+```
+
+**Rules**:
+1. **Library code**: always use `ConfigureAwait(false)`. Libraries don't own the `SynchronizationContext`; they shouldn't capture it.
+2. **Application code** (event handlers, controller actions, top-level tasks): `ConfigureAwait(false)` is optional — you typically want to resume on the original context (UI thread for WinForms, request context for ASP.NET classic).
+3. **ASP.NET Core**: there is no `SynchronizationContext`; `ConfigureAwait(false)` has no effect but is harmless. Many teams still use it for library portability.
+4. **The real fix**: don't block async code with `.Result` or `.GetAwaiter().GetResult()`. If you're in an async method, await the task. If you're in synchronous code that calls async code, the method should be async all the way up (async all the way).
+
+**`GetAwaiter().GetResult()` vs `.Result`**: Both block. `.Result` wraps exceptions in `AggregateException`; `.GetAwaiter().GetResult()` rethrows the original exception type. Neither is safe from a `SynchronizationContext` that owns the continuation thread.
 
 **Rust async/await** (zero-cost abstraction):
 ```rust
@@ -617,16 +730,23 @@ async fn fetch(url: &str) -> Result<String, Error> {
 - `asyncio.gather()` for concurrent tasks.
 - GIL means threads don't help CPU-bound code; async helps I/O-bound.
 
-<!-- @editor[bridge/P2]: Missing an explicit bridge from C# Task-based Parallel Library (which this learner knows deeply: Task.Run, Task.WhenAll, CancellationToken, async/await with ConfigureAwait) to structured concurrency in Swift and Kotlin. The learner knows the C# model; what's new is how Swift's `async let` / TaskGroup and Kotlin's coroutines + CoroutineScope enforce the parent-child lifetime contract at the type level (cancellation propagates, exceptions can't escape the scope). A "C# TPL vs Swift structured concurrency vs Kotlin coroutines" comparison table showing what each enforces and what it doesn't would make this section genuinely useful rather than just listing syntax. -->
-
 ### Structured Concurrency
 
 **Problem with raw async**: fire-and-forget tasks leak; cancellation doesn't propagate; errors are lost.
 
-**Structured concurrency**: tasks have bounded lifetime of their parent scope.
+**Structured concurrency**: tasks have bounded lifetime of their parent scope. The analogy to structured programming is exact: structured programming replaced goto with blocks (code cannot jump out of a block's scope); structured concurrency replaces fire-and-forget with task scopes (a spawned task cannot outlive its enclosing scope).
+
+| Model | Language | What's enforced | C# equivalent |
+|-------|----------|-----------------|---------------|
+| `Task.Run()` unstructured | C# | Nothing — fire-and-forget is possible; exceptions can be lost | — |
+| `async Task` method | C# | Caller must `await` to observe result; exceptions propagate on await | — |
+| `coroutineScope { }` | Kotlin | All child coroutines complete before scope exits; cancellation propagates | No direct equivalent (`TaskGroup` is closest) |
+| `async let` + `withTaskGroup` | Swift | Child tasks scoped to enclosing async block; cancellation propagates on throw | — |
+| `TaskGroup` (Python 3.11+, PEP 654) | Python | All tasks complete before `async with` block exits; first exception cancels rest | — |
+| Nursery (Trio) | Python | Child tasks cannot outlive nursery; exception from any child cancels all | — |
 
 ```python
-# Python 3.11+ TaskGroup (PEP 654)
+# Python 3.11+ TaskGroup (PEP 654) — closest to structured concurrency in Python
 async with asyncio.TaskGroup() as tg:
     task1 = tg.create_task(fetch_a())
     task2 = tg.create_task(fetch_b())
@@ -639,6 +759,18 @@ async let imageA = downloadImage("a.jpg")
 async let imageB = downloadImage("b.jpg")
 let images = await [imageA, imageB]  // both start concurrently, await both
 ```
+
+```csharp
+// C# approximation with Task.WhenAll — not truly structured
+// (tasks start before WhenAll, exceptions may be lost if not awaited carefully)
+var t1 = FetchA();
+var t2 = FetchB();
+var results = await Task.WhenAll(t1, t2);
+// If t1 throws before WhenAll: t2 is still running, exception propagation
+// depends on whether you awaited t1 separately. Less safe than TaskGroup.
+```
+
+The C# gap: `Task.WhenAll` is not truly structured. A spawned `Task.Run` that throws and is never awaited silently swallows the exception (it goes to `TaskScheduler.UnobservedTaskException`). Kotlin's `coroutineScope` and Python's `TaskGroup` make this impossible by enforcing scope.
 
 ---
 
@@ -688,7 +820,7 @@ thread::spawn(move || {
 **Producer-consumer** (bounded buffer):
 ```
 mutex + two condition variables (not-full, not-empty).
-Or: use a channel (Go, Rust mpsc, Java BlockingQueue).
+Or: use a channel (Go, Rust mpsc, Java BlockingQueue, .NET Channel<T>).
 ```
 
 **Work stealing** (Cilk, Go runtime, Rayon, .NET ThreadPool):
@@ -746,6 +878,7 @@ private volatile Singleton instance;
 | Linux kernel | Locks + RCU + lock-free | RCU dominant for read-heavy shared data |
 | Java concurrent collections | Lock-free (CAS) | ConcurrentHashMap: lock-striped then tree per bucket |
 | .NET concurrent collections | Lock-free + lock-based | ConcurrentDictionary: lock striping by key hash |
+| .NET Channel<T> | Lock-free MPSC/SPSC queue | Async producer/consumer; replaces BlockingCollection |
 | Node.js | Single-thread event loop | No data races; long sync blocks event loop |
 | Go runtime | CSP channels + goroutines | M:N scheduler, work-stealing |
 | Erlang/Elixir | Actor model | Lightweight processes, OTP supervision |
@@ -763,6 +896,7 @@ Problem:                                     Solution:
 ────────────────────────────────────────     ──────────────────────────────────────────
 Short critical section, low contention       Spinlock (TTAS) or std::mutex
 Long critical section, many waiters          Blocking mutex + condition variable
+Fair queuing under high contention           CLH/MCS queue lock (Java ReentrantLock/AQS)
 Readers >> writers                           RwLock (shared_mutex)
 Need composable atomic multi-object ops      STM (Clojure refs, Haskell STM)
 Avoid locks entirely, high read throughput   Lock-free data structure (skip list, LCRQ)
@@ -770,9 +904,12 @@ I/O-bound concurrent work                   Async/await (tokio, asyncio, .NET Ta
 CPU-bound parallel work                      Thread pool (rayon, .NET ThreadPool, Java FJ)
 Independent concurrent tasks                 Goroutines (Go) or async tasks
 Message-based component isolation            Actor model (Akka, Erlang)
+Producer/consumer pipeline in C#            System.Threading.Channels (Channel<T>)
 Distributed shared state                     CRDTs or consensus-based log
 Fine-grained parallel list/tree traversal    RCU (Linux), hazard pointers, EBR
 Guarantee no data races at compile time      Rust ownership + Arc<Mutex<T>>
+Child tasks must not outlive parent scope    Structured concurrency (Kotlin coroutineScope,
+                                             Swift TaskGroup, Python TaskGroup)
 
 Consistency model needed?
   One operation atomic on one object         CAS / fetch_add (hardware atomic)
@@ -800,3 +937,5 @@ Consistency model needed?
 **async/await does not automatically parallelize**: `await` suspends the current task and resumes later; it does not start a parallel task. For parallelism, explicitly create tasks: `Task.WhenAll()`, `asyncio.gather()`, `join!()`.
 
 **Go channels are not always the right tool**: For simple mutual exclusion, `sync.Mutex` is faster than a channel with 1 capacity. Channels shine for sequential communication and coordination. Don't use channels as a lock.
+
+**ConfigureAwait(false) is for libraries, not top-level app code**: Library methods should always use it to avoid capturing the caller's SynchronizationContext. Application code (UI event handlers, controller actions) often wants the context captured — that's what brings the continuation back to the UI thread or request context after the await.

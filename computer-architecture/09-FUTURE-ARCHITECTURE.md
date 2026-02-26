@@ -120,7 +120,20 @@ CXL (Compute Express Link) is a PCIe 5.0-based open interconnect standard enabli
   Dynamic allocation as workloads change.
   "Memory disaggregation" — decouple memory from compute.
 
-  AZURE RELEVANCE:
+  DATACENTER USE CASE (general):
+  Memory-capacity-hungry workloads (in-memory databases, ML training,
+  analytics) often need more DRAM than physically fits in a single
+  server's DIMM slots. CXL enables:
+  - Rack-scale memory pools: add CXL memory shelves, share across hosts
+  - Dynamic overcommit: allocate more memory to a VM than host DIMMs hold
+  - Cost optimization: right-size compute vs memory independently
+  - Memory tiering: fast local DRAM + slower CXL-attached DRAM as tier 2
+
+  All major cloud providers (AWS, GCP, Azure, hyperscalers) are
+  building toward CXL-backed memory expansion. This is not
+  Azure-specific — it is the direction of the entire industry.
+
+  CLOUD INSTANCE EXAMPLE (Azure):
   CXL-based memory expansion allows VMs to have more DRAM than
   the physical host's DIMMs provide.
   Azure HBv4 and ND H100 v5 families are building toward CXL.

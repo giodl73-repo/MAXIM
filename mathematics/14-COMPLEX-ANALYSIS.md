@@ -517,6 +517,82 @@ Functional equation: ζ(s) = 2^s π^{s−1} sin(πs/2) Γ(1−s) ζ(1−s).
 Equivalent to the sharpest possible error term in the prime counting function:
 π(x) = Li(x) + O(√x log x).
 
+### Zeta Function and the Primes
+
+The deepest connection between ζ and number theory runs through complex analysis:
+
+```
+Euler product (Re s > 1):
+  ζ(s) = Π_{p prime} (1 − p^{-s})^{-1}
+
+This is the fundamental bridge between ζ and the primes.
+Proof: Σ n^{-s} = Π_p (1 + p^{-s} + p^{-2s} + ...) = Π_p (1-p^{-s})^{-1}
+by unique factorization.
+
+Consequence: ζ(s) ≠ 0 for Re s > 1 (product of nonzero factors).
+The behavior of ζ near Re s = 1 governs the distribution of primes.
+
+Prime number theorem via complex analysis:
+  π(x) ~ x/log x  as x → ∞.
+  Proof strategy: Perron's formula converts sum Σ_{n≤x} f(n) to a contour
+  integral (1/2πi) ∫_{c-i∞}^{c+i∞} F(s) x^s/s ds.
+  For f(n) = Λ(n) (von Mangoldt): ψ(x) = (1/2πi) ∫ (-ζ'/ζ)(s) x^s/s ds.
+  Moving the contour left: contributions come from poles of -ζ'/ζ.
+  The pole at s=1 gives ψ(x) ~ x.
+  Non-trivial zeros ρ of ζ give error terms x^ρ/ρ.
+  Zero-free region Re s > 1 - c/log|Im s| bounds the error:
+    ψ(x) = x + O(x e^{-c√log x})  → PNT with error bound.
+  Riemann Hypothesis ⟹ ψ(x) = x + O(√x log² x)  (optimal).
+
+Dirichlet L-functions: L(s, χ) = Σ_{n=1}^∞ χ(n) n^{-s}
+  χ: (ℤ/qℤ)* → ℂ* is a Dirichlet character (completely multiplicative).
+  Euler product: L(s, χ) = Π_p (1 - χ(p)p^{-s})^{-1}.
+  Same analytic methods prove Dirichlet's theorem:
+    If gcd(a,q) = 1, there are infinitely many primes p ≡ a (mod q).
+  Proof: show L(1, χ) ≠ 0 for non-principal χ, so the product doesn't vanish.
+```
+
+---
+
+## Riemann Surfaces
+
+Riemann surfaces are the natural domain for multivalued functions like log z and
+√z — they make these functions single-valued by "unfolding" the sheets.
+
+```
+Definition: A Riemann surface is a 1-dimensional complex manifold:
+  a Hausdorff space with a holomorphic atlas (compatible complex charts).
+  Every open subset of ℂ is trivially a Riemann surface.
+  Non-trivial examples are constructed via analytic continuation or as
+  algebraic curves.
+
+Construction: algebraic curves P(z, w) = 0.
+  Given a polynomial relation P(z, w) = 0, the set of solutions (z, w) ∈ ℂ²
+  (with smooth points) forms a Riemann surface. The function w = f(z)
+  defined implicitly by P is single-valued on this surface.
+
+Example: w² = z (square root)
+  2-sheeted surface: two solutions w = ±√z glued along the branch cut.
+  Branch points at z = 0 and z = ∞ (where the two sheets join).
+  Topologically: S² with two punctures glued in a specific way — a sphere.
+
+Example: w² = z(z-1)(z-2)  (genus-1 curve)
+  4 branch points (0, 1, 2, ∞). Glue two sheets along two cuts.
+  Topologically: a torus (genus 1 — one handle).
+
+Genus formula (Riemann-Hurwitz):
+  For a degree-d holomorphic map f: S → T between compact Riemann surfaces:
+    2g(S) - 2 = d(2g(T) - 2) + Σ (e_p - 1)
+  where the sum is over ramification points p and e_p is the ramification index.
+  For an algebraic curve defined by w^n = Π(z - aᵢ)^{mᵢ}: count branch points,
+  compute genus. Genus 0 = rational function (sphere). Genus 1 = elliptic curve.
+
+Compact Riemann surfaces = smooth projective algebraic curves over ℂ.
+  This is the entry point into algebraic geometry.
+  Classification: completely determined (up to isomorphism) by genus g and
+  moduli — for g ≥ 2, by 3g−3 complex parameters (Riemann's moduli count).
+```
+
 ---
 
 ## Applications
@@ -566,9 +642,38 @@ giving f(t) = 1 − e^{-t}. Every inverse Laplace table entry is a residue compu
 ### Signal Processing: Hardy Spaces
 
 H² (Hardy space) = holomorphic functions on the unit disk with bounded L²-norm
-on the boundary. The inner-outer factorization of H² functions underlies
-Wiener filter theory and prediction theory for stationary processes.
-H∞ functions (bounded analytic functions on the disk) appear in robust control (H∞ control theory).
+on the boundary.
+
+```
+Paley-Wiener theorem (precise bridge between Fourier and complex analysis):
+  f ∈ L²(ℝ) with supp(f) ⊆ [0, ∞)
+  ⟺  its Fourier transform F(ω) = ∫ f(t)e^{-iωt}dt
+      extends to a holomorphic function in the upper half-plane with
+      sup_{y>0} ∫ |F(x+iy)|² dx < ∞  (i.e., F ∈ H²(upper half-plane)).
+
+  In other words: causal L² signals in time ↔ H² functions in frequency.
+  This gives the precise complex-analytic characterization of causality.
+
+Inner-outer factorization:
+  Every H² function f = f_inner · f_outer (uniquely up to constants).
+
+  Inner function: |f_inner(e^{iθ})| = 1  a.e. on the boundary.
+    Finite Blaschke products: f_inner = e^{iθ} Π (z-aₖ)/(1-āₖz)
+    (zeros inside the disk with their reflections outside — all-pass filters)
+    Infinite Blaschke products or singular inner functions: pure phase, no zeros.
+    Engineering interpretation: inner functions = all-pass filters (magnitude 1,
+    only phase shift). Minimum phase condition: no zeros in the disk.
+
+  Outer function: determined entirely by its boundary modulus |f_outer(e^{iθ})|.
+    f_outer(z) = exp((1/2π) ∫ e^{iθ}+z/e^{iθ}-z · log|f(e^{iθ})| dθ)
+    Engineering interpretation: outer functions = minimum-phase components —
+    the part of a filter that can be causally inverted.
+
+H∞ (bounded analytic functions on disk): appear in robust control theory.
+  H∞ control: minimize ‖T‖_∞ = sup_ω |T(jω)| over stabilizing controllers.
+  The H∞ norm bounds worst-case gain over all frequencies.
+  Solved via Riccati equations and related to the small-gain theorem.
+```
 
 ---
 
@@ -589,6 +694,7 @@ H∞ functions (bounded analytic functions on the disk) appear in robust control
 | **Picard's great theorem** | Near an essential singularity, f takes every value except one, infinitely often |
 | **Open mapping** | Non-constant holomorphic maps are open maps |
 | **Maximum modulus** | |f| cannot have an interior maximum |
+| **Riemann-Hurwitz** | 2g(S)−2 = d(2g(T)−2) + Σ(e_p−1) for branched cover S → T |
 
 ---
 
@@ -606,6 +712,10 @@ H∞ functions (bounded analytic functions on the disk) appear in robust control
 | Find type of singularity at z₀ | Compute Laurent series; count negative-index terms |
 | Compute a specific residue | For simple pole: lim (z−z₀)f(z); for order m: derivative formula |
 | Extend f to a larger domain | Analytic continuation along paths; unique where it exists |
+| Count zeros of f inside a contour | Argument principle: (1/2πi)∮ f'/f dz = Z − P |
+| Connect primes to ζ(s) | Euler product + Perron's formula + zero-free region |
+| Characterize causal L² signals | Paley-Wiener: Fourier transform ∈ H²(upper half-plane) |
+| Factor a filter into all-pass + minimum-phase | Inner-outer factorization of H² |
 
 ---
 
@@ -635,3 +745,9 @@ Stokes' theorem (and it is Stokes' theorem).
 **Multi-valuedness and path-dependence**: ∫_γ dz/z from 1 to 1 around a
 circle gives 2πi, not 0, because log z is multi-valued. Cauchy's theorem requires
 f holomorphic on the enclosed region — here z=0 prevents that.
+
+**Riemann surfaces vs. branch cuts**: A branch cut is a surgery that makes a
+multivalued function single-valued by forbidding certain paths. A Riemann surface
+is the intrinsic geometric object — no forbidden paths, just a different space.
+The branch cut approach is local and convenient; the Riemann surface is global and
+canonical. For topology (monodromy, fundamental group), always use the surface.

@@ -389,6 +389,8 @@ Example: Multiplication operator (Mf)(x) = x·f(x) on L²[0,1]. σ(M) = [0,1]. N
 
 ---
 
+<!-- @editor[bridge/P1]: The quantum mechanics connection is stated in the landscape diagram and the cheat sheet but never developed in the body. The self-adjoint operators → quantum observables → spectral theorem → measurement postulate connection is the single most important application of functional analysis in physics and deserves a dedicated section. Key content missing: (1) the quantum mechanics dictionary (observables = self-adjoint operators on L², states = unit vectors, expectation value = ⟨ψ,Aψ⟩); (2) Stone's theorem (U(t) = e^{itH} gives unitary time evolution from self-adjoint H — Schrödinger equation in operator form); (3) the distinction between bounded observables and unbounded ones (position, momentum) with the domain subtlety; (4) C*-algebras as the algebraic abstraction of QM observables. The landscape diagram promises "QM (Schrödinger operator, C*-alg)" but the body delivers only the Schrödinger operator definition — C*-algebras are never mentioned. -->
+
 ## 7. Unbounded Operators
 
 ### Why Unbounded Operators Matter
@@ -424,6 +426,8 @@ T is essentially self-adjoint: T̄ (closure) is self-adjoint.
 - V(x) = potential (multiplication operator).
 - For "nice" V: H is essentially self-adjoint. Self-adjointness = physical observability.
 - Spectrum: discrete eigenvalues (bound states) + continuous spectrum (scattering states).
+
+<!-- @editor[bridge/P2]: Stone's theorem should be stated explicitly in the body, not only referenced in the cheat sheet. The statement: if A is self-adjoint (possibly unbounded), then U(t) = e^{itA} is a strongly continuous one-parameter unitary group, and conversely (Stone's theorem). This is the mathematical engine behind time evolution in quantum mechanics (A = H/ℏ) and the connection between self-adjoint operators and unitary groups. A two-paragraph treatment here would complete the QM bridge. -->
 
 ---
 
@@ -482,6 +486,8 @@ Poincaré inequality: ||u||_{L²} ≤ C||∇u||_{L²} for u ∈ H₀¹.
 
 **FEM (Finite Element Method)**: Discretize H₀¹(Ω) by piecewise polynomial finite-dimensional subspace V_h. Solve Galerkin approximation: find u_h ∈ V_h s.t. a(u_h, v_h) = F(v_h) for all v_h ∈ V_h. Leads to sparse linear system.
 
+<!-- @editor[bridge/P2]: Numerical analysis / computational bridge is absent. Functional analysis underpins the convergence theory for iterative solvers: Krylov methods (CG, GMRES) minimize residuals over Krylov subspaces — this is projection onto an approximating subspace in a Hilbert space; convergence rates follow from the spectral distribution of the operator. Also: operator splitting methods (Lie-Trotter, Strang splitting) decompose e^{t(A+B)} ≈ e^{tA}e^{tB} — the error depends on [A,B] via the BCH formula. A paragraph connecting the abstract spectral theory to why these algorithms work would complete the computational bridge. -->
+
 ---
 
 ## 9. Fredholm Theory
@@ -506,6 +512,8 @@ Simplest case: for a Fredholm operator T,
   ind(T) = dim ker(T) - dim ker(T*)
   This is a stable quantity: ind(T+K) = ind(T) for K compact.
 ```
+
+<!-- @editor[bridge/P2]: The attention mechanism in transformers can be framed as a kernel/operator perspective: the attention matrix is a discretized integral operator with kernel K(q,k) = softmax(qᵀk/√d). The RKHS framework makes this precise: each head computes a projection in a function space. This connection (RKHS → attention / neural operators → operator learning) is a high-value bridge between Section 9 (Fredholm) and Section 10 (RKHS) that is entirely absent. At minimum a note at the top of Section 10 pointing this direction. -->
 
 ---
 

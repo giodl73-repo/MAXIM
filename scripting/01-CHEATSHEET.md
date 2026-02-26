@@ -1,5 +1,159 @@
 # Universal Scripting Cheat Sheet
 
+```
+SCRIPTING TOOL LANDSCAPE — TWO-AXIS MAP
+═══════════════════════════════════════════════════════════════════════════════
+
+                        SCRIPTING / AUTOMATION POWER
+                                    ▲
+                                    │
+                         Perl ──────┤──────── PowerShell
+                    (full lang,     │         (full lang,
+                     text DSL,      │          .NET objects,
+                     CPAN)          │          cmdlet pipe)
+                                    │
+              AWK ──────────────────┼──────────────── Python (ref)
+         (text DSL,                 │                 (general purpose;
+          record model)             │                  not covered here)
+                                    │
+              sed ──────────────────┤
+         (stream editor,            │
+          line regex)               │
+                                    │
+               sh ──────────────────┤── Bash ─────────────────── Zsh
+         (POSIX min,                │   (superset,           (superset+,
+          Alpine/Docker)            │    arrays, [[]])        interactive++)
+                                    │
+                        Batch ──────┤
+                   (Windows legacy; │
+                    no real power)  │
+                                    │
+◄───────────────────────────────────┼────────────────────────────────────────►
+ SCRIPT-ONLY                        │                            INTERACTIVE
+ (not interactive REPLs)            │                            (great REPL
+                                    │                             experience)
+                                    │
+                                    │──────────────────────────── Fish
+                                    │                      (interactive-first,
+                                    │                       non-POSIX, modern UX)
+                                    ▼
+                        LOW SCRIPTING POWER / NARROW SCOPE
+```
+
+**How to read this map:**
+
+- **Top-right quadrant** (PowerShell, Python): high scripting power AND good interactive use — general-purpose work
+- **Top-left quadrant** (Perl, AWK, sed): high scripting/text power but not interactive shells — invoke from shell pipelines
+- **Bottom-right quadrant** (Fish, Zsh, Bash): interactive shells you actually type in; scripting power varies
+- **Bottom-left** (Batch, sh): minimal feature set; sh for portability, Batch for legacy Windows only
+
+---
+
+## Task → Tool Decision Table
+
+| I need to... | Reach for | Why |
+|---|---|---|
+| Process CSV/TSV columns, sum/count/filter fields | `awk` | Record model, field splitting, arithmetic — designed for this |
+| Substitute text patterns in a stream | `sed` | Line-by-line substitution; `-i` for in-place |
+| In-place file edit with complex logic | `perl -i -pe` | More power than sed; regex with captures and code |
+| Parse/transform arbitrary text (complex) | `perl` or `python` | Full language; AWK runs out of headroom |
+| Write a portable script (any Linux/Docker/CI) | `sh` (POSIX) | Runs everywhere: dash, bash, busybox ash |
+| Write a Linux CI script (GitHub Actions, ubuntu) | `bash` | Default shell in ubuntu runners; `[[`, arrays available |
+| Script for Alpine or minimal Docker | `sh` (POSIX) | Alpine uses busybox ash — no bash |
+| Automate Windows / work with .NET objects | PowerShell | Object pipeline, .NET access, Azure CLI integration |
+| Interactive terminal experience on macOS | `zsh` | macOS default since 10.15; Oh My Zsh ecosystem |
+| Modern interactive shell (opinionated) | `fish` | Autosuggestions, syntax highlighting; non-POSIX |
+| Maintain a legacy Windows automation script | Batch | Only if you can't replace it; otherwise rewrite in PS |
+| One-liner: extract column from log | `awk '{print $3}'` | Field splitting by default |
+| One-liner: replace string in file | `sed -i 's/old/new/g'` | Canonical stream substitution |
+| One-liner: extract all regex matches | `grep -o` or `perl -ne` | grep for simple; perl for groups |
+| Script with error handling, cleanup traps | `bash` | `set -euo pipefail` + `trap` |
+
+---
+
+## PowerShell ↔ Bash Bridge
+
+The conceptual shift: PowerShell passes **typed objects** through its pipeline; Bash passes **text strings**. Everything else follows from that. This table maps the idiom, not just the syntax.
+
+### Idiom Translation Table
+
+| Task | PowerShell | Bash / Unix |
+|---|---|---|
+| **Setup / safety** | | |
+| Strict mode (exit on error) | `$ErrorActionPreference = "Stop"` | `set -euo pipefail` |
+| Unbound var = error | `Set-StrictMode -Version Latest` | `set -u` (part of `set -euo`) |
+| Strict mode in script header | `Set-StrictMode -Version Latest` + `$EAP="Stop"` | `#!/usr/bin/env bash` + `set -euo pipefail` |
+| **Variables** | | |
+| Assign | `$name = "value"` | `name=value` (no spaces!) |
+| Expand | `$name` | `"$name"` (always quote) |
+| Env var assign | `$env:FOO = "bar"` | `export FOO=bar` |
+| Env var read | `$env:PATH` | `$PATH` |
+| Null/empty default | `$x ?? "default"` | `${x:-default}` |
+| **Output** | | |
+| Print to pipeline/stdout | `Write-Output "text"` or bareword | `echo "text"` |
+| Print to terminal only (no capture) | `Write-Host "text"` | `echo "text" >&2` (idiom: log to stderr) |
+| Print to error stream | `Write-Error "msg"` | `echo "msg" >&2` |
+| Discard output | `cmd \| Out-Null` or `> $null` | `cmd > /dev/null` or `cmd &>/dev/null` |
+| **Exit codes** | | |
+| Exit with code | `exit 0` / `exit 1` | `exit 0` / `exit 1` |
+| Last external exit code | `$LASTEXITCODE` | `$?` |
+| Last cmdlet success | `$?` (bool: True/False) | `$?` (int: 0=success) |
+| Check external command failed | `if ($LASTEXITCODE -ne 0)` | `if [ $? -ne 0 ]` or `cmd \|\| handler` |
+| **Flow control** | | |
+| If/else | `if ($x -eq 5) { } else { }` | `if [[ $x -eq 5 ]]; then ...; else ...; fi` |
+| Comparison (equal) | `-eq` | `-eq` (numeric) / `==` (string in `[[ ]]`) |
+| Null/empty test | `if ($null -eq $x)` or `if (-not $x)` | `if [[ -z "$x" ]]` |
+| **Loops** | | |
+| For-each (array) | `foreach ($item in $arr)` | `for item in "${arr[@]}"; do ...; done` |
+| For-each (pipeline) | `$arr \| ForEach-Object { $_ }` | `printf '%s\n' "${arr[@]}" \| while read -r item` |
+| C-style for | `for ($i=0; $i-lt10; $i++)` | `for (( i=0; i<10; i++ )); do ...; done` |
+| While | `while ($cond) { }` | `while [[ $cond ]]; do ...; done` |
+| **File tests** | | |
+| File exists | `Test-Path "file"` | `[[ -f file ]]` |
+| Directory exists | `Test-Path "dir" -PathType Container` | `[[ -d dir ]]` |
+| Anything exists | `Test-Path "path"` | `[[ -e path ]]` |
+| **Functions** | | |
+| Declare | `function Verb-Noun { param(...) ... }` | `func_name() { local x="$1"; ...; }` |
+| Named params | `param([string]$Name, [int]$Port = 8080)` | `getopts` or manual `while/case` arg parsing |
+| Advanced function | `[CmdletBinding()] param(...)` | No direct equivalent; getopts for -flag style |
+| Return value | last expression / `return $val` | `echo "value"` → capture with `$(func)` |
+| **Strings** | | |
+| Concatenation | `"hello" + " " + "world"` | `"hello world"` (adjacent in double-quotes) |
+| Substring | `$str.Substring(0,5)` or `$str[0..4]` | `${str:0:5}` |
+| Replace | `$str -replace 'old','new'` | `${str//old/new}` (pattern) or `sed` |
+| Length | `$str.Length` | `${#str}` |
+| Split | `$str -split ','` | `IFS=',' read -ra arr <<< "$str"` |
+| **Timing / profiling** | | |
+| Time a command | `Measure-Command { Get-Process }` | `time cmd` |
+| **Cleanup on exit** | | |
+| Run on exit/error | `try { } finally { cleanup }` | `trap 'cleanup' EXIT` |
+| Run on Ctrl+C | `[Console]::CancelKeyPress` handler | `trap 'cleanup' INT` |
+
+### The Pipeline Translation Pattern
+
+```
+PowerShell pipeline (objects):
+  Get-ChildItem *.log |
+      Where-Object { $_.Length -gt 1MB } |
+      Sort-Object Length -Descending |
+      Select-Object Name, Length |
+      Format-Table
+
+Bash pipeline (text):
+  ls -la *.log |
+      awk '$5 > 1048576' |          # filter: size > 1MB (field 5 in ls -la)
+      sort -k5 -rn |                 # sort by field 5, reverse numeric
+      awk '{print $9, $5}'           # select name (field 9) and size (field 5)
+
+The bash version requires knowing the column positions in ls -la output.
+The PS version queries named typed properties — no parsing required.
+
+For real structured data (JSON, CSV), bash reaches for jq/awk/python
+rather than native pipeline features.
+```
+
+---
+
 8 languages × 12 topics. Comparison tables first (feature-first lookup), language quick cards second (language-first lookup).
 
 Languages covered: Batch, PowerShell, Bash, sh (POSIX), Zsh, Fish, AWK, Perl
@@ -574,6 +728,220 @@ param(
 )
 # Called as: .\script.ps1 -Target prod -Port 443 -Verbose
 ```
+
+---
+
+### Topic 13: Trap / Signal Handling — Cleanup on Exit
+
+Every serious scripting language has a mechanism to run cleanup code when a script exits, whether normally, on error, or on a signal (Ctrl+C, SIGTERM). This is the difference between scripts that leave temp files/locks behind and scripts that don't.
+
+**The universal pattern:**
+
+```
+Script starts
+  │
+  ├── Register cleanup handler (at the top of the script)
+  │
+  ├── ... do work ...
+  │
+  ├── Exit normally (exit 0)
+  │     │
+  │     └── cleanup handler runs
+  │
+  └── Exit abnormally (error, signal, Ctrl+C)
+        │
+        └── cleanup handler STILL runs
+```
+
+**Bash — `trap`:**
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Register cleanup function
+cleanup() {
+    echo "Cleaning up..." >&2
+    rm -f /tmp/my-lockfile.$$    # $$ = PID of current script
+    rm -f /tmp/my-tempfile
+}
+
+# Trap signals:
+# EXIT  — runs on ANY exit (normal, error, signal) — most useful
+# ERR   — runs when a command exits non-zero (only with set -e active)
+# INT   — Ctrl+C (SIGINT, signal 2)
+# TERM  — kill (SIGTERM, signal 15)
+trap cleanup EXIT
+trap 'echo "Interrupted" >&2; exit 130' INT   # 128 + signal number
+trap 'echo "Killed" >&2; exit 143' TERM
+
+# Create temp file safely
+tmpfile=$(mktemp)
+trap "rm -f '$tmpfile'" EXIT   # override — now cleanup removes this specific file
+
+# Work that might fail
+process_data "$tmpfile"
+# cleanup runs automatically when script exits here
+```
+
+**Key bash trap patterns:**
+
+```bash
+# Canonical production pattern
+set -euo pipefail
+TMPDIR_WORK=$(mktemp -d)
+trap 'rm -rf "$TMPDIR_WORK"' EXIT    # always clean up temp dir
+
+# Error with line number
+trap 'echo "Error on line $LINENO (exit $?)" >&2' ERR
+
+# Multiple signals in one trap
+trap 'echo "Signal received"; exit 1' INT TERM HUP
+
+# Remove a trap
+trap - EXIT                           # reset EXIT to default (no cleanup)
+
+# List active traps
+trap -p
+```
+
+| Signal | Trap name | When triggered | Typical use |
+|--------|-----------|----------------|-------------|
+| (any exit) | `EXIT` | Script exits for any reason | Cleanup temp files, release locks |
+| SIGINT (2) | `INT` | Ctrl+C | Graceful interrupt handling |
+| SIGTERM (15) | `TERM` | `kill PID` | Graceful shutdown from orchestrator |
+| SIGHUP (1) | `HUP` | Terminal closed / hangup | Reload config or exit |
+| (non-zero exit) | `ERR` | Command fails (with `set -e`) | Log error context |
+
+**PowerShell — `try/finally` and `Register-EngineEvent`:**
+
+```powershell
+# Method 1: try/finally — cleanup guaranteed on block exit
+try {
+    $tmpFile = [System.IO.Path]::GetTempFileName()
+    # ... do work ...
+} finally {
+    # Runs on: normal exit, exception, Ctrl+C (in interactive PS)
+    if (Test-Path $tmpFile) { Remove-Item $tmpFile -ErrorAction SilentlyContinue }
+}
+
+# Method 2: Register-EngineEvent — script-level cleanup on exit
+Register-EngineEvent -SourceIdentifier PowerShell.Exiting -Action {
+    Write-Host "PowerShell exiting — running cleanup" -ForegroundColor Yellow
+    # cleanup code here
+}
+
+# Method 3: [Console]::CancelKeyPress for Ctrl+C handling
+[Console]::CancelKeyPress += {
+    param($sender, $e)
+    $e.Cancel = $true        # prevent immediate termination
+    Write-Host "`nCtrl+C caught; cleaning up..." >&2
+    # cleanup code
+    [Environment]::Exit(130)
+}
+
+# Practical pattern for pipeline scripts
+$ErrorActionPreference = "Stop"
+$tempDir = New-TemporaryFile | ForEach-Object { Remove-Item $_; New-Item -Type Directory $_.FullName }
+try {
+    # ... work in $tempDir ...
+} finally {
+    Remove-Item -Recurse -Force $tempDir -ErrorAction SilentlyContinue
+}
+```
+
+**Fish — no native `trap`:**
+
+```fish
+# Fish has no trap builtin. Workaround options:
+
+# Option 1: Use a function for cleanup and call explicitly
+function cleanup
+    rm -f /tmp/mylock
+end
+# You must call cleanup manually at each exit point — no automatic hook
+
+# Option 2: Delegate the trap to a bash wrapper
+# run_with_cleanup.sh:
+#   #!/usr/bin/env bash
+#   trap 'fish_cleanup_script.fish' EXIT
+#   exec fish main_script.fish
+
+# Option 3: Use event handlers for job completion (limited scope)
+function __fish_prompt --on-event fish_exit
+    cleanup
+end
+# Note: fish_exit fires when the fish *session* exits, not each script exit
+```
+
+**AWK — `END` block as exit handler:**
+
+```awk
+# AWK's END block is the closest analog to trap EXIT
+# It runs after all records are processed, including on exit and errors
+
+BEGIN {
+    # setup
+    tmpfile = "/tmp/awk-work.$$"
+}
+
+{
+    # per-record processing
+    print $0 > tmpfile
+}
+
+END {
+    # cleanup — always runs (analogous to trap EXIT)
+    close(tmpfile)
+    system("rm -f " tmpfile)
+
+    # Also useful for: final summaries, aggregate output
+    print "Processed", NR, "records" > "/dev/stderr"
+}
+
+# Note: AWK has no signal handling — if killed with SIGKILL, END doesn't run
+# For signal safety, wrap the awk invocation in a bash trap
+```
+
+**Perl — `END` blocks and `$SIG`:**
+
+```perl
+# Perl END blocks run on normal exit and die(), not on signals by default
+END {
+    print STDERR "Perl cleanup running\n";
+    unlink "/tmp/perl-work.$$";
+}
+
+# For signal handling, use %SIG hash
+$SIG{INT}  = sub { print STDERR "Caught Ctrl+C\n"; exit 130 };
+$SIG{TERM} = sub { print STDERR "Caught SIGTERM\n"; exit 143 };
+$SIG{__DIE__} = sub {
+    my $err = shift;
+    # Note: __DIE__ fires on eval { die } too — check if inside eval
+    die $err if $^S;   # $^S = in eval; re-throw
+    print STDERR "Fatal: $err";
+    exit 1;
+};
+
+# DESTROY method on objects runs at object cleanup — useful for RAII patterns
+package TempFile;
+sub new { my ($class, $name) = @_; return bless { name => $name }, $class }
+sub DESTROY { my $self = shift; unlink $self->{name} }
+# Object goes out of scope → DESTROY runs → file deleted
+```
+
+**Summary: signal/exit handling across languages:**
+
+| Language | Mechanism | Runs on exit? | Runs on error? | Runs on Ctrl+C? | Notes |
+|----------|-----------|--------------|----------------|-----------------|-------|
+| Bash | `trap cmd EXIT` | Yes | Yes (with `set -e` + `ERR`) | Yes | Most flexible; `EXIT` is the safe default |
+| Bash | `trap cmd ERR` | No | Yes | No | Fires on failed commands with `set -e` |
+| PowerShell | `try/finally` | Yes (block scope) | Yes | Partial | `finally` guaranteed within the block |
+| PowerShell | `Register-EngineEvent` | Yes | Yes | Partial | Session-level; unreliable in scripts |
+| Fish | (none native) | No | No | No | Must restructure or wrap in bash |
+| AWK | `END { }` block | Yes | Yes (on `exit`) | No | Not signal-safe; SIGKILL skips it |
+| Perl | `END { }` block | Yes | Yes | No (add `$SIG{INT}`) | `END` runs on `die`; signals need `%SIG` |
+| Perl | `%SIG` handlers | N/A | N/A | Yes | `$SIG{INT}`, `$SIG{TERM}` etc. |
 
 ---
 

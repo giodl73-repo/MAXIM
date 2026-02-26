@@ -20,6 +20,10 @@ THE LANDSCAPE
   WHY THIS MATTERS FOR YOU:
   Fourier transform, Laplace, phasors, EM waves, quantum states —
   all collapse to complex exponentials. Trig is just the real/imag parts.
+
+  COMPLEX UNIFICATION: sin z and cos z are entire functions on ℂ defined by
+  the same power series. Circular and hyperbolic functions are the SAME
+  function on different axes: cos(iz) = cosh(z), sin(iz) = i sinh(z).
 ═══════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -171,6 +175,30 @@ This is the most important formula in applied mathematics:
   Imag parts:  θ − θ³/3! + θ⁵/5! − ... = sin θ  ✓
 ```
 
+**The full complex statement.** The formula holds for all z ∈ ℂ, not just
+real θ. The functions e^z, sin z, cos z are each defined on all of ℂ by the
+same power series — they are entire functions (analytic on all of ℂ, no
+singularities anywhere). Key consequences of the complex extension:
+
+```
+  Periodicity:  e^(z + 2πi) = e^z  for all z ∈ ℂ
+                The imaginary axis adds periodicity; the real part adds growth.
+
+  Zeros of sin z:  sin z = 0 iff z = nπ  for n ∈ ℤ  (no other zeros)
+  Poles of tan z:  tan z = sin z/cos z has poles at z = π/2 + nπ
+
+  Pythagorean identity over ℂ:  sin²z + cos²z = 1  holds for all z ∈ ℂ
+  (follows from the power series definitions, not geometry)
+
+  cos z = (e^(iz) + e^(-iz)) / 2     holds for all z ∈ ℂ
+  sin z = (e^(iz) − e^(-iz)) / 2i    holds for all z ∈ ℂ
+```
+
+The real trig functions are restrictions of these entire functions to the real
+line. The complex viewpoint reveals why, e.g., the Taylor series for 1/cos x
+has radius of convergence π/2 — the nearest singularity in ℂ is the pole of
+cos z at z = ±π/2, distance π/2 from the origin.
+
 ### Consequences — Everything Follows
 
 ```
@@ -266,6 +294,20 @@ These appear in transmission lines, wave mechanics, relativistic physics, and so
   Connection: sinh(ix) = i sin(x)
               cosh(ix) = cos(x)        ← substitute ix into circular
 ```
+
+**The unification over ℂ**: sin z and sinh z are the same function evaluated
+at different arguments. Specifically:
+
+```
+  cos(iz) = cosh(z)     for all z ∈ ℂ
+  sin(iz) = i sinh(z)   for all z ∈ ℂ
+
+  Proof: cos(iz) = (e^(i·iz) + e^(-i·iz))/2 = (e^(-z) + e^z)/2 = cosh(z) ✓
+```
+
+The complex plane has the real axis for circular behavior and the imaginary
+axis for hyperbolic behavior. They are not two different families of functions —
+they are one entire function on ℂ, restricted to two perpendicular axes.
 
 ### 5.2 Identities — Parallel to Circular (with sign flip)
 
@@ -466,21 +508,153 @@ For triangles that aren't right-angled:
 
 ---
 
+## 10. Fourier Series — The Payoff of Orthogonality
+
+The orthogonality integrals in §6.2 are not just computational tools — they
+say that {1, cos θ, sin θ, cos 2θ, sin 2θ, ...} forms an orthonormal basis
+for L²([0, 2π]), the Hilbert space of square-integrable functions on the circle.
+
+**The Fourier series** of f ∈ L²([0, 2π]):
+
+```
+  f(θ) = a₀/2 + Σ (aₙ cos nθ + bₙ sin nθ)
+                n=1
+
+  Coefficients (L² inner products with the basis elements):
+
+  a₀ = (1/π) ∫₀²π f(θ) dθ
+  aₙ = (1/π) ∫₀²π f(θ) cos(nθ) dθ    n ≥ 1
+  bₙ = (1/π) ∫₀²π f(θ) sin(nθ) dθ    n ≥ 1
+
+  Complex form (cleaner for computation):
+  f(θ) = Σ cₙ e^(inθ)    where cₙ = (1/2π) ∫₀²π f(θ) e^(-inθ) dθ
+          n∈ℤ
+```
+
+**L² convergence theorem**: For any f ∈ L²([0, 2π]), the Fourier series
+converges to f in the L² norm:
+
+```
+  ‖f − Sₙ‖₂ → 0  as  n → ∞
+
+  where Sₙ is the nth partial sum. Equivalently (Parseval's identity):
+
+  ∫₀²π |f(θ)|² dθ = π(a₀²/2 + Σ (aₙ² + bₙ²)) = 2π Σ |cₙ|²
+```
+
+The coefficients cₙ are the projections of f onto the orthonormal basis
+vectors e^(inθ)/√(2π) — exactly the same Gram-Schmidt decomposition you'd
+do in any Hilbert space. This is not a physics approximation; it is exact
+in L².
+
+**Pointwise convergence** is subtler (Dirichlet kernel, Gibbs phenomenon):
+
+```
+  Dirichlet's theorem: if f has one-sided limits and is piecewise smooth,
+  the Fourier series converges pointwise to (f(θ⁺) + f(θ⁻))/2 at each point
+  — the average of left and right limits.
+
+  Gibbs phenomenon: at a jump discontinuity, the partial sums overshoot by
+  ~9% of the jump height, regardless of how many terms are included.
+  The overshoot doesn't disappear — it concentrates near the discontinuity.
+  This matters for signal processing: Gibbs ringing in bandlimited systems.
+```
+
+**Connection to the DFT**: the discrete Fourier transform is exactly the
+Fourier series formula applied to a periodic sequence sampled at N evenly
+spaced points. The DFT coefficients Cₖ = Σₙ f[n] e^(-2πink/N) are the
+discrete analog of cₙ. The FFT computes all N coefficients in O(N log N)
+vs the naive O(N²) — this is the single most important algorithm in signal
+processing, and its correctness relies on the orthogonality of roots of unity.
+
+In NumPy: `np.fft.fft(x)` computes the DFT; `np.fft.rfft(x)` for real inputs.
+
+---
+
+## 11. Chebyshev Polynomials — Trig Over [-1,1]
+
+The substitution x = cos θ transforms trig functions over [0,π] into
+polynomials over [-1,1]:
+
+```
+  Tₙ(x) = cos(n arccos x)     ← nth Chebyshev polynomial of the first kind
+
+  T₀(x) = 1
+  T₁(x) = x
+  T₂(x) = 2x² − 1
+  T₃(x) = 4x³ − 3x
+  Tₙ₊₁(x) = 2x Tₙ(x) − Tₙ₋₁(x)    ← three-term recurrence
+```
+
+**Why Chebyshev polynomials matter** (the equioscillation theorem):
+The best degree-n polynomial approximation to f on [-1,1] in the L∞ norm
+equioscillates between its extrema at least n+2 times. Chebyshev polynomials
+are extremal: |Tₙ(x)| ≤ 1 for x ∈ [-1,1], and Tₙ oscillates between ±1
+exactly at n+1 Chebyshev nodes. Consequences:
+
+```
+  1. Interpolation at Chebyshev nodes minimizes the maximum interpolation
+     error (avoids Runge's phenomenon for high-degree polynomial interpolation).
+
+  2. The Chebyshev basis expands functions with exponential convergence for
+     analytic functions on [-1,1] — far faster than the Taylor basis.
+
+  3. Orthogonality: ∫₋₁¹ Tₘ(x)Tₙ(x) / √(1−x²) dx = (π/2) δₘₙ  (m,n > 0)
+     This is the trig orthogonality ∫₀π cos(mθ)cos(nθ)dθ under x = cos θ.
+
+  4. Spectral methods (pseudospectral PDE solvers) expand solutions in
+     Chebyshev series: scipy.special.chebyt(n) gives the nth polynomial;
+     numpy.polynomial.chebyshev.chebval evaluates Chebyshev expansions.
+```
+
+The connection: trig orthogonality over [0,π] is exactly polynomial orthogonality
+with the Chebyshev weight 1/√(1−x²) over [-1,1]. Fourier series on the circle
+and Chebyshev approximation on an interval are the same mathematics.
+
+---
+
+## Connections to Adjacent Mathematics
+
+**Complex analysis.** Over ℂ, sin z and cos z are entire functions (no
+singularities in ℂ). Their zeros are exactly at the expected real points:
+sin z = 0 at z = nπ, cos z = 0 at z = π/2 + nπ, for n ∈ ℤ. The periodicity
+e^(z+2πi) = e^z means the complex exponential is doubly periodic on ℂ (when
+extended — this connects to elliptic functions, which are meromorphic functions
+with two independent periods, generalizing trig to genus-1 surfaces).
+
+**Representation theory.** The functions e^(inθ) for n ∈ ℤ are the characters
+of the irreducible representations of U(1) = S¹ (the circle group). Fourier
+series is harmonic analysis on U(1): decomposing L²(S¹) into irreducible
+U(1)-representations. This generalizes: for compact groups G, the
+Peter-Weyl theorem says L²(G) decomposes into matrix coefficients of
+irreducible representations. Fourier analysis on ℝ (using e^(iωt)) is the
+non-compact analog, and the irreducible representations of ℝ are exactly
+the characters x ↦ e^(iωx) — one for each ω ∈ ℝ.
+
+**Functional analysis.** The Fourier basis {e^(inθ)/√(2π)} is a complete
+orthonormal system in L²([0,2π]). Completeness means: if f ∈ L² and all
+Fourier coefficients vanish, then f = 0 a.e. The L² theory of Fourier series
+is the prototype for spectral theory of self-adjoint operators on Hilbert spaces.
+
+---
+
 ## Decision Cheat Sheet
 
-| Need to... | Use... |
-|-----------|--------|
-| Find a value from the unit circle | Memorize the 30-45-60 triangle |
-| Simplify sin²+cos² expressions | Pythagorean identity |
-| Expand sin(A±B), cos(A±B) | Angle addition formulas |
-| Integrate sin² or cos² | Half-angle identities |
-| Multiply two sinusoids | Product-to-sum formulas |
-| Add two nearly-equal sinusoids | Sum-to-product → beats |
-| Represent AC signals algebraically | Phasors via Euler's formula |
-| Solve a general triangle | Law of sines or cosines |
-| Work with exponential decay + oscillation | Hyperbolic trig |
-| Take roots/powers of complex numbers | De Moivre's theorem |
-| Build Fourier / Laplace intuitively | Orthogonality + Euler |
+| Need to... | Use... | When condition holds |
+|-----------|--------|----------------------|
+| Find a value from the unit circle | Memorize the 30-45-60 triangle | — |
+| Simplify sin²+cos² expressions | Pythagorean identity | — |
+| Expand sin(A±B), cos(A±B) | Angle addition formulas | — |
+| Integrate sin² or cos² | Half-angle identities | — |
+| Multiply two sinusoids | Product-to-sum formulas | — |
+| Add two nearly-equal sinusoids | Sum-to-product → beats | ω₁ ≈ ω₂ |
+| Represent AC signals algebraically | Phasors via Euler's formula | Fixed ω |
+| Decompose periodic function into frequencies | Fourier series | f ∈ L²([0,2π]) |
+| Best polynomial approximation on interval | Chebyshev polynomials | x ∈ [-1,1] |
+| Solve a general triangle | Law of sines or cosines | — |
+| Work with exponential decay + oscillation | Hyperbolic trig | Evanescent fields |
+| Take roots/powers of complex numbers | De Moivre's theorem | — |
+| Evaluate trig at complex argument | Entire function extension | z ∈ ℂ |
 
 ---
 
@@ -501,6 +675,11 @@ Phase velocity is how fast the crests of a single frequency move. Group velocity
 **"I keep confusing sinh and sin."**
 The real difference: sin oscillates (bounded between ±1), sinh grows without bound. At small x: sinh x ≈ x ≈ sin x (both start linear). For large x: sinh x ≈ e^x /2 (exponential growth). The Pythagorean identity: sin²+cos²=1 (circle), cosh²−sinh²=1 (hyperbola, minus sign!).
 
----
+**"Does the Fourier series converge to f everywhere?"**
+L² convergence: yes, the series converges in the L² norm to f (for any f ∈ L²).
+Pointwise convergence: at points where f is smooth, yes. At jump discontinuities,
+the series converges to the average of left and right limits, and exhibits Gibbs
+overshoot near the jump. For continuous f with absolutely convergent Fourier
+coefficients (Σ|cₙ| < ∞), the convergence is uniform.
 
 *Next: `mathematics/04-POWER-SERIES.md` — Taylor, Maclaurin, radius of convergence, asymptotic expansion, the generating functions that connect everything.*

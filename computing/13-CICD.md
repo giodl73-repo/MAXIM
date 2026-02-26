@@ -2,34 +2,7 @@
 
 ## The Big Picture
 
-```
-CI/CD — What It Actually Is
-=============================
-
-  Continuous Integration (CI)          Continuous Delivery/Deployment (CD)
-  ============================          =====================================
-
-  Every push → automated pipeline      Verified build → automated deploy
-
-  ┌─────────────────────────┐           ┌──────────────────────────────────┐
-  │  push / pull request    │           │  merge to main                   │
-  │         ↓               │           │         ↓                        │
-  │  lint + type check      │           │  build artifact                  │
-  │         ↓               │           │         ↓                        │
-  │  unit tests             │           │  deploy to staging               │
-  │         ↓               │           │         ↓                        │
-  │  integration tests      │           │  smoke tests                     │
-  │         ↓               │           │         ↓                        │
-  │  security scan          │           │  deploy to production            │
-  │         ↓               │           │  (automatic or with approval)    │
-  │  ✅ / ❌ status on PR   │           └──────────────────────────────────┘
-  └─────────────────────────┘
-
-  CI = fast feedback on every change
-  CD = the change reaches production reliably and repeatably
-```
-
-<!-- @editor[audience/P1]: The intro explains CI/CD philosophy from first principles. This learner built VSTS CI/CD at Microsoft — they invented this. The "CI = fast feedback on every change / CD = the change reaches production reliably" framing is correct but it's teaching someone their own invention. The Big Picture should be inverted: acknowledge the learner already knows CI/CD deeply, then orient immediately to the syntax and ecosystem differences (GitHub Actions vs Azure Pipelines YAML). Something like: "You built this at VSTS. This guide is about GitHub Actions syntax specifically, and the delta from Azure Pipelines YAML you already know." The conceptual walkthrough of what CI and CD mean should be cut or compressed to a one-liner. -->
+This guide covers GitHub Actions and Azure Pipelines YAML syntax. You built VSTS — the concepts are yours. The delta is syntax and ecosystem.
 
 ```
 The Two Major Platforms
@@ -53,7 +26,72 @@ The Two Major Platforms
                                          Need VSTS release gates / approvals
 ```
 
-<!-- @editor[bridge/P1]: Missing GitHub Actions YAML vs Azure Pipelines YAML side-by-side syntax comparison. The calibration note calls this "essential": "A YAML pipeline spec (GitHub Actions) vs Azure Pipelines YAML comparison is essential." The comparison table above covers conceptual/ecosystem differences, but not the YAML syntax mapping. The learner needs to see: `trigger:` vs `on:`, `pool: vmImage:` vs `runs-on:`, `steps: - task:` vs `steps: - uses: / run:`, `variables:` vs `env:`, `stages:` vs top-level `jobs:`, `dependsOn:` vs `needs:`. This is the concrete translation layer the learner needs and it belongs right here as a named side-by-side code block, not buried in the Azure Pipelines section later. -->
+---
+
+### ADO → GitHub Actions Vocabulary Map
+
+Side-by-side YAML for the same pipeline expressed in both systems:
+
+```
+Concept              Azure Pipelines YAML              GitHub Actions YAML
+───────              ──────────────────────────────    ──────────────────────────────
+
+Trigger              trigger:                          on:
+                       branches:                         push:
+                         include: [main]                   branches: [main]
+
+Runner               pool:                             runs-on: ubuntu-latest
+                       vmImage: ubuntu-latest
+
+Step (shell)         - script: npm ci                 - run: npm ci
+                       displayName: Install deps         name: Install deps
+
+Step (task/action)   - task: NodeTool@0               - uses: actions/setup-node@v4
+                         inputs:                          with:
+                           versionSpec: '20'               node-version: '20'
+
+Variables            variables:                        env: (job-level)
+                       nodeVersion: '20'                 NODE_VERSION: '20'
+                     $(nodeVersion)                    ${{ vars.NODE_VERSION }}
+                                                       (repo/org variables)
+
+Secrets              $(mySecret)                       ${{ secrets.MY_SECRET }}
+
+Job dependency       dependsOn: Build                  needs: build
+
+Condition            condition: succeeded()            if: success()
+                     condition: and(succeeded(),       if: github.ref ==
+                       eq(variables['Build.Source       'refs/heads/main'
+                       Branch'], 'refs/heads/main'))
+
+Environment          environment: production           environment: production
+(approval gate)      (Pipelines → Environments)        (Settings → Environments)
+
+Service connection   serviceConnection: myConn         uses: azure/login@v2
+(Azure auth)         (stored credential in ADO)          with:
+                                                           client-id: ...
+                                                           # OIDC — no stored secret
+
+Build number         $(Build.BuildId)                  ${{ github.run_number }}
+Commit SHA           $(Build.SourceVersion)            ${{ github.sha }}
+
+Artifact (publish)   - task: PublishPipelineArtifact  - uses: actions/upload-artifact@v4
+Artifact (download)  - task: DownloadPipelineArtifact - uses: actions/download-artifact@v4
+
+Stages               stages: / stage:                  jobs: (no native stage concept;
+                     (first-class concept)             use job dependencies instead)
+
+Variable Groups      variables:                        No direct equivalent.
+(Key Vault link)       - group: my-vg                  Use OIDC + az keyvault secret
+                     (Library → link to KV)            show, or azure/get-keyvault-
+                                                       secrets action.
+```
+
+**Gaps where ADO is richer than GitHub Actions:**
+- ADO Variable Groups linked to Key Vault → no direct GHA equivalent
+- ADO Azure Monitor gates, ServiceNow gates, Jira gates → not available in GHA environments
+- ADO `deployment` job with `canary` / `rolling` strategy → GHA has no native equivalent (you implement manually)
+- ADO exclusive lock (only one deploy to an environment at a time) → GHA environments have concurrency groups, but less granular
 
 ---
 
@@ -327,22 +365,20 @@ stages:
                     containers: myregistry.azurecr.io/myapp:$(Build.BuildId)
 ```
 
-### Pipelines vs Releases (Old vs New)
+### ADO Classic → ADO YAML → GitHub Actions
 
 ```
-VSTS / Classic ADO                     Modern YAML Pipelines
-==================                     =====================
+VSTS / Classic ADO                 ADO YAML                   GitHub Actions
+==================                 ========                   ==============
 
-GUI-built pipelines                    Code in azure-pipelines.yml
-"Build Definition"                     pipeline (stages + jobs + steps)
-"Release Pipeline"                     stages with deployment jobs
-Environments as tabs                   environment: keyword + approvals
-Artifacts dropdown                     pipeline artifacts / container images
-Variable Groups (UI)                   variables + variable groups + Key Vault
-Agent Queues                           pool: vmImage or name: (self-hosted)
+GUI-built pipelines                azure-pipelines.yml        .github/workflows/*.yml
+"Build Definition"                 pipeline (stages/jobs)     workflow (jobs)
+"Release Pipeline"                 stages + deployment jobs    jobs with environment:
+Environments as tabs               environment: keyword        environment: keyword
+Artifacts dropdown                 pipeline artifacts          upload/download-artifact
+Variable Groups (UI)               variables + var groups      secrets + vars context
+Agent Queues                       pool: vmImage / name:       runs-on:
 ```
-
-<!-- @editor[bridge/P2]: The "Pipelines vs Releases" table above is the right idea but it should be extended with a concrete YAML syntax side-by-side: Azure Pipelines YAML vs GitHub Actions YAML. The calibration note flags this as "essential." The table compares conceptual model changes within ADO, but not the translation between ADO YAML and GitHub Actions YAML. A developer moving from ADO to GitHub Actions needs to know: `trigger:` → `on: push:`, `pool: vmImage:` → `runs-on:`, `- task: NodeTool@0` → `- uses: actions/setup-node@v4`, `stages:` → top-level `jobs:` (no native stage concept), `dependsOn:` → `needs:`, `$(Build.BuildId)` → `${{ github.run_number }}`. This translation table is the core value for this learner in this section. -->
 
 ### Azure-Native Integrations
 
@@ -399,19 +435,21 @@ For Azure Pipelines, self-hosted agents run as services. Common pattern: Azure V
 
 ## Environments & Approvals
 
-Environments represent deployment targets (staging, production). Gate them with required reviewers.
+| Concept | ADO | GitHub Actions |
+|---|---|---|
+| Environment definition | Pipelines → Environments | Settings → Environments |
+| Required reviewers | Approvals and checks | Required reviewers |
+| Approval timeout | Configurable | Configurable |
+| Deployment history | Per-environment timeline | Per-environment timeline |
+| Exclusive lock | Yes (one deploy at a time) | Concurrency groups (less granular) |
+| Wait timer | Yes | Yes |
+| Azure Monitor gate | Yes (built-in) | No native equivalent |
+| ServiceNow gate | Yes (extension) | No native equivalent |
+| Jira gate | Yes (extension) | No native equivalent |
+| Required pipeline template | Yes | No native equivalent |
+| Deployment branches filter | Yes | Yes |
 
-```
-GitHub Actions                         Azure Pipelines
-==============                         ===============
-
-Settings → Environments                Pipelines → Environments
-  → Required reviewers                   → Approvals and checks
-  → Wait timer                           → Required templates
-  → Deployment branches                  → Exclusive lock (only one deploy)
-                                         → Azure Monitor gates
-                                         → ServiceNow/Jira gates (enterprise)
-```
+**Gap to know:** GitHub Actions environments are simpler than ADO. If you need Azure Monitor quality gates, ServiceNow approval integration, or pipeline template enforcement, stay on Azure Pipelines for the CD stage. A common hybrid: GitHub Actions for CI → Azure Pipelines for CD (deploy stages with ADO-grade gates).
 
 ```yaml
 # GitHub Actions — environment gate
@@ -422,9 +460,7 @@ jobs:
       url: https://myapp.example.com    # shows link in GitHub UI
 ```
 
-When a job targets a protected environment, the workflow pauses and sends a notification to required reviewers. Deploy doesn't proceed until approved.
-
-<!-- @editor[audience/P2]: The approvals/gates section explains the concept ("required reviewers, deploy doesn't proceed until approved") as if new. The learner designed VSTS release gates, approval workflows, and ServiceNow integration. The valuable content here is the GitHub Actions syntax for environments and the mapping to ADO's richer gate model. The "When a job targets a protected environment..." explanation is handholding for this reader. Consider cutting the prose and leading with the syntax + the gap callout: "GitHub Actions environments are simpler than ADO — no Azure Monitor gates, no ServiceNow integration out of the box. If you need ADO-grade gates, use Azure Pipelines for the CD stage." -->
+When a job targets a protected environment and required reviewers are configured, the workflow pauses at that job until approved.
 
 ---
 
@@ -543,7 +579,11 @@ Regular jobs have no deployment semantics. `deployment` jobs are tracked in the 
 **Pipeline YAML lives in the repo — treat it as code.**
 Review changes to CI/CD files in PRs. A compromised pipeline file can exfiltrate secrets or push malicious images. In GitHub Actions, `pull_request` from forks runs with read-only token by default (safe). `pull_request_target` has write access — be careful with untrusted forks.
 
-<!-- @editor[content/P2]: Missing confusion point specific to this learner's context: GitHub Actions has no native equivalent to ADO's Variable Groups linked to Key Vault, no pipeline-level gates (Azure Monitor, ServiceNow), and no native multi-stage release pipeline with promotion between environments built into the UI. GitHub Actions environments are simpler. This gap is the most likely source of confusion for someone migrating from ADO and expecting feature parity. It should be named explicitly: "GitHub Actions environments are not ADO release pipelines — the gate model is simpler. If you need ADO-grade quality gates, use Azure Pipelines for the CD stage and GitHub Actions for CI only." -->
+**GitHub Actions environments are not ADO release pipelines.**
+GHA lacks: Variable Groups linked to Key Vault, Azure Monitor gates, ServiceNow/Jira integration, pipeline template enforcement, exclusive deployment locks. If you need ADO-grade quality gates on the CD side, use Azure Pipelines for deployment stages and GitHub Actions for CI. The two systems compose well: build in GHA, deploy in ADO by triggering a pipeline via REST or using a self-hosted runner registered in both.
+
+**Service connections (ADO) → OIDC (GHA).**
+ADO stores credentials in service connections (client secret or cert). GHA best practice is OIDC federated identity: no stored secret, the runner gets a short-lived token via identity federation. `azure/login@v2` supports OIDC — no `AZURE_CREDENTIALS` JSON needed, just configure federated credentials on the Azure AD app registration.
 
 ---
 
@@ -559,11 +599,14 @@ Review changes to CI/CD files in PRs. A compromised pipeline file can exfiltrate
 | Release Environment | `environment:` keyword with approval gates |
 | Artifact drop | `upload-artifact` / `PublishPipelineArtifact` |
 | Variable Group | `secrets` context / variable group + Key Vault link |
-| Service Connection | Stored credential for Azure/Docker/K8s |
+| Variable Group linked to Key Vault | ADO: native. GHA: OIDC + az keyvault secret show |
+| Service Connection | ADO: service connection. GHA: OIDC federated identity |
 | Gated check-in | Branch protection + required status checks |
 | Test Results tab | `PublishTestResults` / Codecov integration |
 | Deployment slots swap | Rolling deploy to K8s or App Service slot action |
 | Build number | `github.run_number` / `Build.BuildId` |
+| Azure Monitor release gate | ADO only — no GHA equivalent |
+| ServiceNow approval gate | ADO extension — no GHA equivalent |
 
 ---
 
@@ -582,4 +625,5 @@ Review changes to CI/CD files in PRs. A compromised pipeline file can exfiltrate
 | Deploy only when tests pass | `needs: test` + `if: success()` |
 | Access Azure resources from pipeline | OIDC federated identity (no stored secrets) |
 | Run on private network | Self-hosted runner in your VNet |
+| Need ADO-grade gates (Azure Monitor, ServiceNow) | Azure Pipelines for CD stage |
 | Both GitHub + Azure together | GitHub Actions for CI → Azure Pipelines for CD (or GitHub Actions throughout with `azure/login`) |

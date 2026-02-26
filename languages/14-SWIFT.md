@@ -17,6 +17,86 @@
 
 ---
 
+## Memory Models — Conceptual Landscape
+
+```
+SWIFT'S THREE MEMORY MODELS
+┌─────────────────────────────────────────────────────────────────────┐
+│  struct / enum / tuple — VALUE SEMANTICS                           │
+│                                                                     │
+│  let a = Point(x: 1, y: 2)                                         │
+│  var b = a         ← COPY on assignment (independent value)        │
+│  b.x = 99          ← a.x is still 1                                │
+│                                                                     │
+│  Storage: stack or inline in containing type                        │
+│  Lifetime: deterministic — freed when binding goes out of scope     │
+│  Collections (Array, Dict, String): copy-on-write (COW)            │
+│    var c = a  ← shares buffer until either mutates                  │
+│    c.append(x) ← NOW a copy is made (O(n) at mutation, not assign) │
+│                                                                     │
+│  C# comparison: like C# struct, but ALL collections are value types │
+└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────┐
+│  class — REFERENCE SEMANTICS + ARC                                 │
+│                                                                     │
+│  let a = Node(val: 1)   refcount=1                                 │
+│  let b = a              refcount=2  ← b and a point to same object │
+│  b.val = 99             ← a.val is now 99!                         │
+│                                                                     │
+│  ARC lifecycle (compiler-inserted):                                 │
+│  ┌──────────┐  assign   ┌──────────────────┐  last ref gone        │
+│  │  object  │──────────►│  retain (rc++)   │                       │
+│  │  on heap │  release  │  release (rc--)  │──────►  deinit()      │
+│  └──────────┘◄──────────│  rc==0 → dealloc │         deallocate    │
+│                          └──────────────────┘                       │
+│                                                                     │
+│  Retain cycles: A → B → A  neither rc ever reaches 0               │
+│  Fix: break with weak var (Optional) or unowned (non-Optional)      │
+│                                                                     │
+│  C# comparison: like C# class (GC handles cycles; ARC does not)    │
+└─────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────┐
+│  actor — ARC + SERIAL EXECUTOR ISOLATION                           │
+│                                                                     │
+│  actor Counter { var value = 0 }                                   │
+│                                                                     │
+│  External access must go through actor's serial queue:             │
+│                                                                     │
+│  Task 1 ──► await counter.increment() ─┐                           │
+│  Task 2 ──► await counter.get()       ─┼─► serial executor        │
+│  Task 3 ──► await counter.increment() ─┘   (one at a time)        │
+│                                              ↓                      │
+│                                         counter.value (safe)       │
+│                                                                     │
+│  ARC manages lifetime (same as class)                               │
+│  Serial executor prevents data races (no locks needed!)            │
+│                                                                     │
+│  C# comparison: like a class protected by a SemaphoreSlim(1),      │
+│  but enforced by the compiler via async/await protocol             │
+└─────────────────────────────────────────────────────────────────────┘
+
+DECISION FLOWCHART — which memory model?
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                     │
+│  Does it need to be shared across multiple owners?                  │
+│         │                                                           │
+│        YES ──────────────────────────────────────────────────────► │
+│         │                        Does it need thread-safe           │
+│         │                        isolated mutable state?           │
+│         │                              │                            │
+│         │                             YES ──────────► actor        │
+│         │                              │                            │
+│         │                              NO ───────────► class       │
+│         │                                                           │
+│        NO                                                           │
+│         │                                                           │
+│         └──────────────────────────────────────────────► struct    │
+│                                                          (default)  │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## Syntax Reference Card
 
 ### Variables & Types
@@ -446,3 +526,21 @@ await counter.increment()
 | `using` for IDisposable | `defer` for cleanup | `defer` is statement-based, not scope-based |
 | `interface` declared separately | Protocol conformance in `extension` | Retroactive conformance is normal |
 | Generics at runtime | Generics at compile time (monomorphized) | Can't use `T` at runtime for type checks |
+
+---
+
+## Decision Cheat Sheet
+
+| Decision | Use X | When Y |
+|----------|-------|--------|
+| **`struct` vs `class` vs `actor`** | `struct` | Value semantics; no shared mutable state; default choice for data models |
+| | `class` | Shared identity across multiple owners; inheritance needed; Objective-C interop |
+| | `actor` | Shared mutable state accessed from concurrent contexts; replaces class + lock |
+| **`weak` vs `unowned`** | `weak var` | Reference may become nil during its lifetime; delegate patterns; Optional required |
+| | `unowned let/var` | Reference outlives current object and will never be nil; parent-child ownership where child can't outlive parent; crash if assumption violated |
+| **`throws` vs `Result<T,E>`** | `throws` / `try` / `catch` | Synchronous error propagation; integrates with `async throws`; most Swift APIs |
+| | `Result<T,E>` | Storing errors as values; callbacks/completion handlers; explicit error type needed at call site without do/catch |
+| **`async let` vs `TaskGroup`** | `async let` | Fixed number of parallel tasks known at compile time; bind results directly |
+| | `TaskGroup` | Dynamic number of tasks (loop-generated); collecting results from variable-count work items |
+| **protocol with `associatedtype` vs generic constraint** | generic constraint `<T: Protocol>` | Caller chooses the concrete type; static dispatch; preferred when type is known at call site |
+| | `associatedtype` protocol | Protocol defines a family of related types; type is determined by the conforming type, not the caller; use with `some Protocol` or `any Protocol` (Swift 5.7+) |

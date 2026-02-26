@@ -1,5 +1,41 @@
 # Scripting: Perl
 
+```
+SCRIPTING LANGUAGE LANDSCAPE
+═══════════════════════════════════════════════════════════════════════════════
+
+  Unix text tools          Perl                   Modern successors
+  ─────────────────        ──────────────────────  ─────────────────────────────
+  sed  awk  sh             "Swiss Army chainsaw"   Python    Ruby    Node.js
+  ─────────────────        ──────────────────────  ─────────────────────────────
+  single-purpose tools     ate the entire left     data science, web, async
+  line-at-a-time           column in one language  explicit OOP, readable
+  no data structures       regex-native grammar    large ecosystems
+  no CPAN                  BioPerl, DBI, Moose     pip/npm vs CPAN
+  1970s–1980s              1987–present            1991–present
+
+  Perl's three modes — spatially:
+  ┌───────────────────────────────────────────────────────────────────────────┐
+  │                                                                           │
+  │  ONE-LINER             SCRIPT FILE             MODULE / OOP               │
+  │  ─────────────────     ──────────────────────  ───────────────────────    │
+  │  perl -e 'code'        #!/usr/bin/perl          package My::Module;        │
+  │  perl -n -e '...'      use strict;              use Moose;                 │
+  │  perl -p -e '...'      use warnings;            has 'attr' => (...);       │
+  │  perl -i -e '...' f    # full program           method dispatch, roles     │
+  │                        # file I/O, CPAN         CPAN-deployable            │
+  │  ← replaces sed/awk →  ← replaces shell  →     ← replaces Java beans →    │
+  │                                                                           │
+  │  Language surface:                                                        │
+  │    $scalar  @array  %hash                 ← data                         │
+  │    =~  s///  tr///  qr//                  ← regex (grammar, not library) │
+  │    map grep sort reverse                  ← functional list ops           │
+  │    open / close / <$fh> / print           ← I/O                          │
+  │    eval / die / $@                        ← error handling               │
+  │    use Module / CPAN                      ← ecosystem                    │
+  └───────────────────────────────────────────────────────────────────────────┘
+```
+
 > "The Swiss Army chainsaw." AWK+sed+sh in one coherent language. The original practical scripting language that built the early internet's infrastructure and still runs in bioinformatics, sysadmin tooling, and legacy codebases everywhere.
 
 ---
@@ -38,6 +74,54 @@ Perl exists in three modes:
      package My::Module;
      use Moose;                  class hierarchies, method dispatch
      # CPAN-deployable modules, type constraints, roles
+```
+
+---
+
+## Bridge: Typed Language → Perl Data Structures
+
+Any developer coming from a typed language (C#, Java, Go, TypeScript) needs this map. Perl's type system is dynamic and context-sensitive — the same container can hold any value at runtime. The sigil (`$`, `@`, `%`) reflects the *shape* you're accessing, not a declared type.
+
+```
+TYPED LANGUAGE          PERL EQUIVALENT         NOTES
+──────────────────────  ──────────────────────  ────────────────────────────────────────────
+string / int / float    $scalar                 No type distinction at runtime. "42" and 42
+object                                          are the same thing in different contexts.
+null / nil / None       undef                   The absence of a value. Warns under
+                                                'use warnings' if used without check.
+T?? / null coalescing   // defined-or operator  $x = $val // "default";
+                                                // is undef-safe; || fires on 0 and ""
+List<T> / ArrayList     @array                  Ordered, resizable, 0-indexed.
+                                                push/pop/shift/unshift/splice.
+Dictionary<K,V>         %hash                   Unordered key-value. Keys are strings.
+HashMap<K,V>            $href = {k => v}        Anonymous hash ref for nesting.
+T[]  / new T[]{...}     [1, 2, 3]               Anonymous array ref — a reference (pointer).
+string[]  literal       qw(foo bar baz)         Whitespace-delimited string list.
+                                                Equivalent to ('foo', 'bar', 'baz').
+pointer / reference     \@array  \%hash  \$x    Reference to existing container.
+                        $aref = [...]           Anonymous array ref — like new T[]{...}
+                        $href = {...}           Anonymous hash ref — like new Map<>()
+lambda / delegate       sub { ... }             Anonymous subroutine — a code reference.
+                        $cref = \&func_name
+caller context          wantarray()             No typed-language equivalent.
+                                                Returns true in list context, false in scalar.
+                                                Perl functions can change their return shape
+                                                based on how the caller receives the value.
+```
+
+Sigil-shift rule — the one thing that surprises every typed-language developer:
+
+```perl
+# The sigil on ACCESS reflects the return TYPE, not the container type
+my @arr   = (1, 2, 3);
+$arr[0]               # $ — single scalar element from @arr
+@arr[0, 1]            # @ — slice (multiple elements) from @arr
+
+my %hash  = (a => 1, b => 2);
+$hash{a}              # $ — single scalar value from %hash
+@hash{qw(a b)}        # @ — hash slice (multiple values) from %hash
+
+# This is NOT a type error. It is intentional: the sigil tells you the shape of the result.
 ```
 
 ---
@@ -301,6 +385,70 @@ my $str   = join(", ", @parts);         # join with separator
 # Compiled regex object
 my $pat = qr/\d{4}-\d{2}-\d{2}/;       # compiled once
 if ($date =~ $pat) { ... }
+```
+
+---
+
+## Regex Bridge: PCRE → Perl
+
+Perl regex is the origin. PCRE (Perl Compatible Regular Expressions) is named after Perl — Python `re`, Java `Pattern`, .NET `System.Text.RegularExpressions`, PHP `preg_*` are all implementations of the Perl regex spec. If you know any PCRE-flavored engine, you already know most of Perl regex. The differences are few but worth mapping explicitly.
+
+```
+FEATURE                PCRE (common denominator)       Perl-specific behavior
+─────────────────────  ──────────────────────────────  ──────────────────────────────────────
+Match                  m.match(str) / str.match(pat)   $str =~ /pattern/
+Non-match              (negate result)                 $str !~ /pattern/
+Substitution           re.sub / str.replaceAll         $str =~ s/pattern/replacement/
+Positional captures    $1 $2 (most tools)              $1 $2 — same
+Named captures         (?P<name>...) Python            (?<name>...) — same as .NET / JS
+                       (?<name>...) .NET, JS, PCRE2
+Named cap access       group dict / Groups["name"]     $+{name}
+Non-greedy             .*? .+? .{n,m}?                 .*? .+? — same
+Flags: case-insensitive /i or RegexOptions.Ignorecase  /i — same position, suffix
+Flags: global          re.sub replaces all             /g on s/// or =~ in list context
+Flags: multiline       re.MULTILINE / (?m)             /m — ^ and $ match per line, same
+Flags: dotall          re.DOTALL / (?s)                /s — . matches \n, same
+Flags: verbose         re.VERBOSE / (?x)               /x — same; inline comments
+Non-destructive        re.sub returns new string       /r modifier: $new = $str =~ s/a/b/r
+                       (original unchanged)            returns modified copy; $str unchanged
+Eval replacement       no equivalent                   /e: s/(\d+)/$1*2/e (eval as code)
+\K keep / reset-start  not in most PCREs               \K: resets start of match; no lookbehind
+                                                        needed for "replace after prefix" patterns
+\b word boundary        \b — same                      \b — same
+Precompile             re.compile(pat)                 qr/pattern/ — compiled regex object
+```
+
+What this means in practice:
+
+```perl
+# Named captures — same syntax as .NET / modern PCRE
+if ($str =~ /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/) {
+    print $+{year};      # $+{name} — different from Python's .group('name')
+}                        #            but same as .NET Groups["year"]
+
+# /r — non-destructive (5.14+)
+my $new = $str =~ s/foo/bar/r;   # $str is unchanged; $new has the result
+# Python equiv: new = re.sub('foo', 'bar', str)  — same semantics
+
+# /e — evaluate replacement as code (no PCRE equivalent)
+$str =~ s/(\d+)/$1 * 2/e;              # double every number
+$str =~ s/(\w+)/ucfirst(lc $1)/ge;     # title-case every word
+
+# /x — verbose mode (same as Python re.VERBOSE)
+$str =~ /
+    (\d{4})    # year
+    -
+    (\d{2})    # month
+    -
+    (\d{2})    # day
+/x;
+
+# \K — avoid lookbehind (Perl-specific, not in standard PCRE)
+$str =~ s/PREFIX\K.*/replacement/;     # replace everything AFTER PREFIX
+# without \K you'd need: s/(?<=PREFIX).*/ -- but \K is simpler and no length limit
+
+# /s — dot matches newline (needed for multiline content in one string)
+perl -0777 -pe 's/START.*?END/REDACTED/s' file   # whole-file mode + /s
 ```
 
 ---

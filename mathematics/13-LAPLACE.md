@@ -38,6 +38,34 @@ LAPLACE LANDSCAPE
 
 ## 1. Definition and Region of Convergence
 
+### Bilateral Laplace Transform and the Fourier Bridge
+
+The bilateral (two-sided) Laplace transform is the general form:
+
+```
+  F(s) = ∫_{-∞}^{∞} f(t) e^{-st} dt      s = σ + iω ∈ ℂ
+
+  ROC of bilateral transform: a vertical strip {s : σ₁ < Re(s) < σ₂}
+  — not a half-plane, but a strip between two abscissas of convergence.
+
+  The Fourier transform is bilateral Laplace restricted to the imaginary axis:
+    F(iω) = ∫_{-∞}^{∞} f(t) e^{-iωt} dt   (set σ = 0 in the bilateral form)
+
+  This is exact, not analogical. The Fourier transform exists iff the ROC
+  includes the imaginary axis (σ = 0 is in the convergence strip).
+
+  Causality vs. stability are separate concerns in the bilateral picture:
+    Causal f(t) (supported on t ≥ 0): ROC is {σ > σ_min} (right half-plane)
+    Anti-causal: ROC is {σ < σ_max} (left half-plane)
+    Two-sided (non-causal): ROC is a strip σ₁ < σ < σ₂
+    If ROC strip contains σ = 0, Fourier transform exists.
+    A causal signal with all poles in LHP has ROC {σ > max pole Re} ⊃ {σ > 0}
+    — includes the imaginary axis, so both Fourier and Laplace exist.
+```
+
+The one-sided (unilateral) transform is the engineering workhorse for causal
+systems with initial conditions:
+
 ### One-Sided (Unilateral) Laplace Transform
 
 ```
@@ -47,6 +75,32 @@ LAPLACE LANDSCAPE
   f(t) = ℒ⁻¹{F(s)} = (1/2πi) ∫_{σ-i∞}^{σ+i∞} F(s) e^(st) ds   (Bromwich integral)
 
   In practice: use partial fractions + table lookup, not direct integration.
+  The Bromwich integral is evaluated by residue theorem (14-COMPLEX-ANALYSIS).
+```
+
+### Connection to Probability — Moment Generating Functions
+
+```
+  The bilateral Laplace transform of a probability density f_X(x) is
+  exactly the moment generating function:
+
+    M_X(t) = E[e^{tX}] = ∫_{-∞}^{∞} e^{tx} f_X(x) dx = ℒ{f_X}(-t)
+
+  MGF = bilateral Laplace at s = -t.
+
+  Consequences:
+    Derivatives of M_X at 0 give moments: M_X^(n)(0) = E[X^n]
+    For independent X,Y: M_{X+Y}(t) = M_X(t)·M_Y(t)
+      ← corresponds to convolution theorem for Laplace
+    Cumulant generating function: K_X(t) = log M_X(t)
+      K_X'(0) = E[X],  K_X''(0) = Var(X),  K_X'''(0) = third cumulant
+    Lévy-Khintchine formula: K_X(t) = iμt - σ²t²/2 + ∫(e^{itx}-1-itx/(1+x²))ν(dx)
+    characterizes all infinitely divisible distributions (Poisson, Gaussian, stable)
+    via the Lévy measure ν.
+
+  The characteristic function φ_X(t) = E[e^{itX}] = M_X(it) is the bilateral
+  Laplace evaluated on the imaginary axis — same as the Fourier transform of f_X.
+  It always exists (unlike MGF, which may not for heavy-tailed distributions).
 ```
 
 ### Region of Convergence (ROC)
@@ -285,22 +339,96 @@ LAPLACE LANDSCAPE
     D term in some controllers only on output, not error (avoids setpoint kick)
 ```
 
+### Nyquist Stability Criterion
+
+The Nyquist criterion connects complex analysis (winding numbers / argument
+principle) directly to feedback stability:
+
+```
+  Setup: closed-loop system with open-loop L(s) = C(s)G(s).
+  Question: how many closed-loop poles are in the RHP?
+
+  Argument principle: if F(s) is meromorphic, as s traverses a closed contour
+  Γ clockwise, F(s) encircles the origin N = Z - P times clockwise,
+  where Z = zeros and P = poles of F inside Γ.
+
+  Nyquist contour Γ: indented semicircle enclosing the entire RHP (jω axis
+  from -j∞ to +j∞, semicircle at ∞, small indentations around jω-axis poles).
+
+  Apply argument principle to F(s) = 1 + L(s):
+    Closed-loop poles = zeros of 1 + L(s).
+    Poles of 1 + L(s) = poles of L(s) (open-loop poles).
+    Clockwise encirclements of -1 by L(jω) as ω goes from -∞ to +∞:
+      N = Z_RHP_closed - P_RHP_open
+    Stable closed loop: Z_RHP_closed = 0
+      → N = -P_RHP_open  (counterclockwise encirclements = # open-loop RHP poles)
+
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  Nyquist stability criterion:                                       │
+  │  Closed-loop is stable iff the Nyquist plot of L(jω)               │
+  │  encircles −1 exactly P times counterclockwise,                    │
+  │  where P = number of open-loop RHP poles.                          │
+  │                                                                     │
+  │  For open-loop stable L(s) (P=0): closed-loop stable iff           │
+  │  Nyquist plot does NOT encircle −1 at all.                         │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  Connection to margins:
+    Phase margin = how much additional phase lag before −1 is encircled.
+    Gain margin = how much gain increase before −1 is encircled.
+    These are not just numerical targets — they're distances to instability
+    on the Nyquist plot.
+
+  Routh-Hurwitz: algebraic test (polynomial coefficients) for LHP roots.
+    All coefficients of char. poly. aₙsⁿ+...+a₀ must be positive (necessary).
+    Routh array: systematic test for sufficient conditions.
+    Useful when you have an explicit characteristic polynomial and no plot.
+```
+
 ---
 
 ## 8. z-Transform — Discrete-Time Counterpart
 
-### Definition
+### Definition and the Sampling Derivation
+
+The z-transform is not analogical to Laplace — it is the exact Laplace
+transform of a sampled (impulse-train) signal:
 
 ```
-  X(z) = Σₙ₌₋∞^∞ x[n] z^(-n)    z ∈ ℂ
+  Sampling: x_s(t) = x(t) · Σₙ δ(t - nT) = Σₙ x[n] δ(t - nT)
 
-  One-sided (causal):  X(z) = Σₙ₌₀^∞ x[n] z^(-n)
+  Laplace transform of x_s(t):
+    X_s(s) = ∫ x_s(t) e^{-st} dt = Σₙ x[n] e^{-snT}
 
-  Relationship to Laplace:
-    z = e^(sT)   where T = sampling period
-    Imaginary axis (s = jω) maps to unit circle (z = e^(jωT))
-    Left half-plane (stable) maps to inside unit circle
-    Right half-plane (unstable) maps to outside unit circle
+  Define z = e^{sT}:
+    X(z) = Σₙ x[n] z^{-n}   ← the z-transform
+
+  The substitution z = e^{sT} is exact, not an approximation.
+  Every z-domain property follows from this derivation:
+
+  s-plane → z-plane mapping via z = e^{sT}:
+  ┌─────────────────────┬──────────────────────────────────────────┐
+  │  s-plane region     │  z-plane image                          │
+  ├─────────────────────┼──────────────────────────────────────────┤
+  │  Left half-plane    │  Inside unit circle |z| < 1             │
+  │  σ < 0              │  |e^{σT}| = e^{σT} < 1 since σ < 0     │
+  │  Right half-plane   │  Outside unit circle |z| > 1            │
+  │  Imaginary axis     │  Unit circle |z| = 1                    │
+  │  σ = 0, s = jω      │  z = e^{jωT} — unit circle traversal    │
+  └─────────────────────┴──────────────────────────────────────────┘
+
+  Stability: poles inside unit circle ← not an analogy, it's the same
+  condition "poles in LHP" mapped through z = e^{sT}.
+
+  Analog prototype to digital filter conversion:
+    Impulse invariant: match h[n] = h(nT) at sample points.
+      Direct: zₖ = e^{pₖT} maps s-poles to z-poles exactly.
+      Problem: aliasing if H(s) is not bandlimited.
+
+    Bilinear transform (Tustin): s = (2/T)(z-1)/(z+1)
+      Exact mapping that takes the entire jω axis bijectively onto the unit circle.
+      No aliasing, but frequency warping: ω_analog = (2/T)tan(ω_digital·T/2)
+      Requires pre-warping the critical frequencies before designing the prototype.
 ```
 
 ### Region of Convergence (z-domain)
@@ -364,8 +492,8 @@ LAPLACE LANDSCAPE
 
   Unified picture:
     s = σ + jω   (continuous)
-    z = e^(sT)   (sampled version)
-    ω real: Fourier (s on imaginary axis)
+    z = e^(sT)   (sampled version — exact, not approximate)
+    ω real: Fourier (s on imaginary axis = Laplace with σ=0)
 
   DTFT: let z = e^(jω) in z-transform → frequency response of discrete system.
   DFT: sample DTFT at N equally spaced frequencies → FFT computable.
@@ -403,6 +531,7 @@ LAPLACE LANDSCAPE
 | Analyze steady-state sinusoidal response | H(jω) = H(s)|_{s=jω} (Bode) |
 | Design a filter for continuous circuit | H(s) poles/zeros, then realize as RLC/op-amp |
 | Check stability of continuous system | Routh-Hurwitz or: all poles in LHP? |
+| Check stability with loop gain known | Nyquist criterion: encirclements of -1 |
 | Design digital filter | z-transform, poles inside unit circle |
 | Analyze sampling and aliasing | z = e^(sT), unit circle = Nyquist |
 | Understand frequency shaping | Bode plots — slopes reveal pole/zero structure |
@@ -411,6 +540,7 @@ LAPLACE LANDSCAPE
 | Find DC gain | H(0) (s→0) or H(1) (z→1, z-domain DC) |
 | Find bandwidth | Frequency where |H(jω)| drops to -3 dB |
 | Tune feedback controller | PM and GM from Bode, then adjust C(s) |
+| Compute E[X^n] of a distribution | MGF: M_X^(n)(0) = E[X^n] = bilateral Laplace at -t |
 
 ---
 
@@ -433,3 +563,6 @@ In z-domain: z^(-1) is a unit delay operator, not a fraction. H(z) = z^(-1) mean
 
 **6. Bilinear transform warps frequency**
 Converting analog filter H(s) to digital via s = 2(z-1)/[T(z+1)] (Tustin's method) introduces frequency warping: ω_digital = (2/T)arctan(ω_analog·T/2). The analog cutoff ωc should be pre-warped: ωc_analog = (2/T)tan(ωc_digital·T/2) before designing the prototype. This is called pre-warping and must be done to get the specified digital cutoff.
+
+**7. Bilateral vs unilateral Laplace — which ROC is a strip vs half-plane**
+The unilateral (one-sided, causal) transform always has ROC = right half-plane {σ > σ_min}. The bilateral transform has ROC = a strip {σ₁ < σ < σ₂}. The Fourier transform exists iff σ = 0 is inside the bilateral ROC. Stability (ROC containing the jω axis) and causality (support on t ≥ 0) are separate properties that happen to coincide for stable causal systems.

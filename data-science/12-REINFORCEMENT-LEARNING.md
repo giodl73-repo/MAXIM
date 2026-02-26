@@ -50,6 +50,50 @@ THE RL FRAMEWORK
 
 ---
 
+## Operations Research / Control Theory Bridge
+
+Anyone with an OR, control theory, or quantitative finance background already knows
+the Bellman framework under different names:
+
+```
+Operations Research / Control Theory            RL / ML vocabulary
+───────────────────────────────────────────     ────────────────────────────────────────
+Stochastic dynamic program (Bellman 1952)       Markov Decision Process (MDP)
+  State variable s_t                              State s ∈ S
+  Decision variable u_t                           Action a ∈ A
+  System dynamics f(s,u,w) (w = noise)            Transition P(s'|s,a)
+  Stage reward g_t(s,u)                           Reward R(s,a)
+
+Backward induction (finite horizon DP)          Value iteration (infinite horizon)
+  Vₙ(s) = max_u [ g(s,u) + E[V_{n+1}(f(s,u,w)) ]  V(s) = max_a Σ P(s'|s,a)[R + γV(s')]
+
+Contraction mapping (Banach fixed point)        Bellman operator is γ-contraction
+  T is contraction ⟹ unique fixed point V*       → guaranteed convergence to V*
+  Geometric convergence rate                      Same proof, same rate
+
+Hamilton-Jacobi-Bellman (HJB) equation         Continuous-time Bellman equation
+  ∂V/∂t + max_u[ f(x,u)·∇V + L(x,u) ] = 0     (Bellman in continuous time)
+  Used in: LQR, stochastic control (Itô)         Connects RL to control theory
+
+Discount factor in NPV analysis                 Discount factor γ in RL
+  V = Σₜ (1/(1+r))^t · CF_t                     G_t = Σₖ γᵏ r_{t+k}
+  r = discount rate = time value of money        γ ∈ [0,1) = time preference parameter
+  r small → long horizon; r large → myopic       γ→1 long horizon; γ→0 myopic
+
+Linear Quadratic Regulator (LQR)                Model-based RL with linear dynamics
+  Minimize Σ (xᵀQx + uᵀRu)                      Quadratic cost ↔ quadratic reward
+  Solved by Riccati equation                     Exact solution exists; rare in practice
+
+Policy evaluation (solve V for fixed π)         Policy evaluation = linear system
+  V^π = (I - γPπ)^{-1} r_π                      Same equation: iterate or solve directly
+```
+
+The core contribution of the RL literature is scaling these ideas to large/continuous
+state spaces using function approximation (neural networks) and handling the case
+where the model P is unknown (model-free learning).
+
+---
+
 ## 2. Value Functions and Bellman Equations
 
 **State-value function**: `V^π(s) = E_π[G_t | sₜ = s]`

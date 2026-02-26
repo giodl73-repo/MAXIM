@@ -56,6 +56,54 @@ DYNAMICS OF RESIDUALS
 
 ---
 
+## Bridge: Random Matrix Theory → NTK Eigenvalue Spectrum
+
+The NTK matrix K^(0) ∈ ℝ^{m×m} at initialization is a random matrix (a random feature kernel matrix). Its eigenvalue spectrum controls both convergence rate and generalization. Random matrix theory (RMT) is the natural framework:
+
+```
+MARCHENKO-PASTUR LAW
+  For a random feature matrix Φ ∈ ℝ^{m×n} with iid entries (n = width),
+  the empirical spectral distribution of (1/n)ΦΦᵀ converges as m,n → ∞
+  with γ = m/n fixed to the Marchenko-Pastur distribution:
+
+    ρ_MP(λ) = (1/2πγ) √((λ+ - λ)(λ - λ-)) / λ
+    λ± = (1 ± √γ)²
+
+  λ_min(K) ≈ (1 - √γ)² · σ²   (if γ < 1, i.e., n > m)
+  If γ > 1 (m > n): K is rank-deficient; λ_min = 0.
+
+NTK SPECTRUM AND TRAINING CONVERGENCE
+  Convergence rate of gradient descent = λ_min(K^∞).
+  For K^∞ determined by a PD kernel over m points:
+
+  • If K^∞ has all eigenvalues bounded away from 0 (full rank, well-conditioned):
+    linear convergence rate = λ_min(K^∞) > 0.
+
+  • Condition number κ(K^∞) = λ_max/λ_min determines convergence speed:
+    large κ → slow convergence (stiff system of ODEs).
+
+  • For ReLU NTK on uniform sphere data:
+    eigenvalues decay polynomially ~ j^{-d-1} where d = input dimension.
+    λ_min → 0 as m grows relative to d — generalization degrades.
+
+WIGNER SEMICIRCLE AND WEIGHT INITIALIZATION
+  At initialization, weight matrices Wˡ have iid Gaussian entries.
+  The singular value distribution of Wˡ follows the Marchenko-Pastur law.
+  The signal propagation through layers (mean field theory) depends on:
+    q¹(x,x') = E[(Wˡ·x)(Wˡ·x')] = σ²_w · ‖x‖² δ_{x=x'}
+  Controlled by the weight variance σ²_w — the "edge of chaos" initialization
+  (σ²_w = 2 for ReLU) corresponds to spectral radius ≈ 1, keeping gradients
+  from vanishing or exploding.
+
+FREE PROBABILITY (operator-valued generalization)
+  For compositional models (deep networks), the spectral distribution of
+  products of random matrices is analyzed via free convolution (Voiculescu):
+    ρ_{AB} = ρ_A ⊞ ρ_B  (free convolution, not classical convolution)
+  This is the correct tool for deep network spectra where layer widths vary.
+```
+
+The practical implication: NTK theory predicts that wider networks (more neurons → larger n relative to m) have better-conditioned K^∞, faster convergence, and better generalization. This aligns with empirical scaling laws. RMT quantifies exactly how the conditioning improves with width.
+
 ## Convergence of Infinite-Width Networks
 
 ```
@@ -219,6 +267,18 @@ MEAN FIELD LIMIT (different from NTK)
   Feature learning is represented as distribution over neurons shifting.
 
   This gives a separate theory closer to practical training.
+
+**Mean field theory: Wasserstein gradient flow perspective (Mei, Montanari, Nguyen 2018).** In the mean field limit, treat each neuron as a particle with weight vector θᵢ ∈ ℝᵈ. The network is a weighted sum f(x; μ) = ∫ h(x, θ) dμ(θ) where μ is a probability measure over weight space. Training minimizes a functional F[μ] = R(μ) + λ·Ω(μ) over the space of measures (the Wasserstein space W₂). The gradient flow in W₂ is:
+
+```
+  ∂μ/∂t = div(μ · ∇_θ (δF/δμ))
+
+  — the continuity equation of the measure μ evolving under velocity field ∇_θ (δF/δμ).
+  — This is a PDE on the space of probability measures.
+  — Neurons evolve as interacting particles driven by the functional gradient.
+```
+
+Unlike the NTK (where parameters barely move), mean field theory allows the measure μ to change significantly — neurons cluster, split, and rearrange. Feature learning is captured as the measure μ concentrating on neurons that represent task-relevant features. The NTK and mean field regimes are distinct infinite-width limits depending on the parameterization (NTK parameterization vs mean field / μP parameterization).
 ```
 
 ---
@@ -235,6 +295,18 @@ NTK ←→ GAUSSIAN PROCESSES
   with covariance kernel = NNGP kernel (related to NTK)
   Training neural net with squared loss = GP posterior inference
   (in the NTK/infinite-width limit)
+
+**NNGP vs NTK: two kernels, two views of the infinite-width network.** The NNGP kernel K_NNGP(x, x') = E_θ[f(x;θ) f(x';θ)] is the covariance of the random function at initialization — the prior in GP regression. The NTK kernel K_NTK(x, x') = E_θ[⟨∇_θ f(x;θ), ∇_θ f(x';θ)⟩] captures how the function changes during training. Recursively:
+
+```
+  K_NNGP(x, x') = Σᵣ₌₀ᴸ K̃ᵣ(x, x')       (sum of layer-wise covariance kernels)
+
+  K_NTK(x, x')  = Σᵣ₌₀ᴸ K̃ᵣ(x, x') · Σᵣ'≥ᵣ Σ̃ᵣ'(x, x')   (includes derivative contributions)
+
+  Schematically: K_NTK = K_NNGP + (derivative / backpropagation terms)
+```
+
+Training the network with MSE loss corresponds to GP posterior inference with kernel K_NTK (not K_NNGP). The random network at initialization is a GP with kernel K_NNGP. The trained network (in the NTK limit) is a GP posterior with kernel K_NTK and likelihood determined by the training data. These are different — and for deep networks, K_NTK has richer structure due to the depth-dependent derivative terms.
 
 NTK ←→ DOUBLE DESCENT
   In NTK regime, the interpolating solution is unique (kernel is PD)

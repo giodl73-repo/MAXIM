@@ -37,6 +37,92 @@ Denotational semantics        → ⊥ (bottom) = non-termination; laziness = lif
 
 ---
 
+## Typeclass Hierarchy: Functor → Applicative → Monad
+
+The three core abstractions form a strict inclusion chain. Every Monad is an Applicative; every Applicative is a Functor. The laws are not advisory — they are the mathematical contract.
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              FUNCTOR                                        │
+│                                                                             │
+│  class Functor f where                                                      │
+│    fmap :: (a -> b) -> f a -> f b                                           │
+│                                                                             │
+│  Laws:                                                                      │
+│    fmap id       = id                    -- identity                        │
+│    fmap (f . g)  = fmap f . fmap g       -- composition                    │
+│                                                                             │
+│  Instances: Maybe, [], Either e, IO, ((->) r)                               │
+│    fmap (+1) (Just 5)     = Just 6                                          │
+│    fmap (+1) Nothing      = Nothing                                         │
+│    fmap (*2) [1,2,3]      = [2,4,6]                                         │
+│    fmap show (Right 42)   = Right "42"                                      │
+│                                                                             │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
+│  │                         APPLICATIVE                                  │   │
+│  │                                                                      │   │
+│  │  class Functor f => Applicative f where                              │   │
+│  │    pure  :: a -> f a                                                 │   │
+│  │    (<*>) :: f (a -> b) -> f a -> f b                                 │   │
+│  │                                                                      │   │
+│  │  Laws:                                                               │   │
+│  │    pure id <*> v        = v               -- identity                │   │
+│  │    pure (.) <*> u <*> v <*> w = u <*> (v <*> w)  -- composition     │   │
+│  │    pure f <*> pure x    = pure (f x)      -- homomorphism            │   │
+│  │    u <*> pure y         = pure ($ y) <*> u -- interchange            │   │
+│  │                                                                      │   │
+│  │  Instances: Maybe, [], Either e, IO, ZipList                         │   │
+│  │    Just (+3) <*> Just 5 = Just 8                                     │   │
+│  │    [(+1),(*2)] <*> [10,20] = [11,21,20,40]   -- cartesian product   │   │
+│  │    ZipList [(+1),(*2)] <*> ZipList [10,20]                          │   │
+│  │                           = ZipList [11,40]  -- pointwise            │   │
+│  │                                                                      │   │
+│  │  ┌────────────────────────────────────────────────────────────────┐  │   │
+│  │  │                          MONAD                                 │  │   │
+│  │  │                                                                │  │   │
+│  │  │  class Applicative m => Monad m where                         │  │   │
+│  │  │    return :: a -> m a          -- same as pure                 │  │   │
+│  │  │    (>>=)  :: m a -> (a -> m b) -> m b                         │  │   │
+│  │  │                                                                │  │   │
+│  │  │  Laws:                                                         │  │   │
+│  │  │    return a >>= f     = f a         -- left identity           │  │   │
+│  │  │    m >>= return       = m           -- right identity          │  │   │
+│  │  │    (m >>= f) >>= g    = m >>= (\x -> f x >>= g)  -- assoc.    │  │   │
+│  │  │                                                                │  │   │
+│  │  │  Instances and their computational meaning:                   │  │   │
+│  │  │                                                                │  │   │
+│  │  │  Maybe    — short-circuit on Nothing (absent value)           │  │   │
+│  │  │    Just 5 >>= \x -> Just (x+1)  = Just 6                      │  │   │
+│  │  │    Nothing >>= \x -> Just (x+1) = Nothing                     │  │   │
+│  │  │                                                                │  │   │
+│  │  │  []       — non-determinism (all combinations)                │  │   │
+│  │  │    [1,2] >>= \x -> [x, x*10]   = [1,10,2,20]                 │  │   │
+│  │  │                                                                │  │   │
+│  │  │  IO       — sequencing real-world effects                      │  │   │
+│  │  │    getLine >>= putStrLn                                        │  │   │
+│  │  │                                                                │  │   │
+│  │  │  Either e — error propagation, Left short-circuits            │  │   │
+│  │  │    Right 5 >>= \x -> Right (x+1)  = Right 6                   │  │   │
+│  │  │    Left "err" >>= \x -> Right x   = Left "err"                │  │   │
+│  │  │                                                                │  │   │
+│  │  │  State s  — threading state through a computation             │  │   │
+│  │  │    runState (do { put 5; x <- get; return (x+1) }) 0          │  │   │
+│  │  │            = (6, 5)    -- (result, final state)               │  │   │
+│  │  └────────────────────────────────────────────────────────────────┘  │   │
+│  └──────────────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+do-notation desugars to >>= chains:
+
+  do { x <- m; y <- n; return (f x y) }
+  ≡  m >>= \x -> n >>= \y -> return (f x y)
+
+The do block is not special syntax for IO — it works for any Monad.
+Every do-block in Haskell is a >>= chain with a lambda for each bind.
+```
+
+---
+
 ## Syntax Reference Card
 
 ### Variables & Bindings
@@ -390,3 +476,29 @@ throwIO (SomeException (ErrorCall "msg"))
 | `async Task<T>` | `IO a` (synchronous) or `async` libraries | Different concurrency model |
 | Integer overflow | Integer is arbitrary precision (Int can overflow) | Use Integer for big numbers |
 | `++` increments | `++` is list concatenation! | Different operator |
+
+---
+
+## Decision Cheat Sheet
+
+| Decision | Use X | When Y |
+|----------|-------|--------|
+| `Maybe` vs `Either` | `Maybe` | Value might be absent; caller does not need a reason — `lookup`, `find`, optional fields |
+| `Maybe` vs `Either` | `Either e` | Failure has a cause the caller needs to act on — parse errors, validation, API responses |
+| `do`-notation vs `>>=` chains | `do`-notation | Sequential steps where intermediate names clarify intent; reading top-to-bottom matters |
+| `do`-notation vs `>>=` chains | `>>=` chains | Point-free pipelines; one-liners; explicit data flow is the documentation |
+| `foldl'` vs `foldr` | `foldl'` (strict left) | Summing, counting, accumulating a single result — avoids thunk build-up and space leaks |
+| `foldl'` vs `foldr` | `foldr` | Building a new list or structure; processing infinite lists (laziness is the point) |
+| `Data.Map.Strict` vs `Data.Map.Lazy` | `Data.Map.Strict` | Values are always evaluated; lazy map causes space leaks when values are cheap scalars |
+| `Data.Map.Strict` vs `Data.Map.Lazy` | `Data.Map.Lazy` | Values are expensive and rarely accessed; you want to defer evaluation deliberately |
+| `newtype` vs `data` | `newtype` | Single-field wrapper for type safety — `newtype UserId = UserId Int`; zero runtime cost |
+| `newtype` vs `data` | `data` | More than one constructor or more than one field; genuine algebraic structure |
+| `class` (typeclass) vs type family | Typeclass (`class`) | Ad-hoc polymorphism — same operation behaves differently for different types (`show`, `==`) |
+| `class` (typeclass) vs type family | Type family | Type-level function — compute a type from another type; associated types in class hierarchies |
+| `String` vs `Data.Text` vs `Data.ByteString` | `String` | GHCi, quick scripts, `Show` output — never in production text processing |
+| `String` vs `Data.Text` vs `Data.ByteString` | `Data.Text` | Human-readable text: filenames, user input, display strings |
+| `String` vs `Data.Text` vs `Data.ByteString` | `Data.ByteString` | Binary data, network I/O, UTF-8 wire format |
+| `IORef` vs `STRef` vs `MVar` vs `TVar` | `IORef` | Single-threaded mutable cell in IO; simple counter or cache |
+| `IORef` vs `STRef` vs `MVar` vs `TVar` | `STRef` | Local mutation inside `runST` — escapes as a pure value; no IO needed |
+| `IORef` vs `STRef` vs `MVar` vs `TVar` | `MVar` | Shared mutable state between threads; one thread blocks while another holds the lock |
+| `IORef` vs `STRef` vs `MVar` vs `TVar` | `TVar` | Shared state with atomic multi-step transactions (STM) — composable, deadlock-free |

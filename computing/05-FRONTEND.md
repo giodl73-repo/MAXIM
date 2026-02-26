@@ -147,6 +147,192 @@ JSX is a syntax extension that lets you write HTML-like markup inside JavaScript
 
 JSX is not required (you can call `React.createElement` directly) but nobody does that. Babel/esbuild transform JSX to function calls at build time.
 
+### The Virtual DOM and Reconciliation
+
+The virtual DOM is the mechanism that makes `UI = f(state)` practical. Without it, re-running the render function on every state change would mean rebuilding the entire DOM — expensive because real DOM mutations trigger layout, paint, and composite passes in the browser engine. React inserts a diffing layer between your render function and the real DOM.
+
+```
+  VIRTUAL DOM: A LIGHTWEIGHT JS OBJECT TREE
+
+  Your component function returns JSX:
+  <div className="card">
+    <h2>Alice</h2>
+    <p>alice@example.com</p>
+  </div>
+
+  JSX compiles to React.createElement() calls, producing a plain JS object tree:
+  {
+    type: 'div', props: { className: 'card' },
+    children: [
+      { type: 'h2', props: {}, children: ['Alice'] },
+      { type: 'p',  props: {}, children: ['alice@example.com'] }
+    ]
+  }
+
+  This object tree is the virtual DOM — a cheap in-memory description
+  of what the real DOM should look like. Creating it is ~10x cheaper
+  than touching the real DOM.
+```
+
+**Reconciliation — the diff algorithm**:
+
+```
+  State changes → React re-runs your component function → new vdom tree
+
+  PREVIOUS VDOM             NEW VDOM                REAL DOM ACTION
+  ─────────────             ────────                ───────────────
+  <div.card>                <div.card>              no change (same element)
+    <h2>Alice</h2>            <h2>Alice</h2>        no change
+    <p>alice@ex.com</p>       <p>bob@ex.com</p>     update text node only
+
+  React walks both trees in parallel (O(n) — one pass).
+  Only the changed node gets a real DOM mutation.
+```
+
+**The two reconciliation heuristics** (what makes it O(n) instead of O(n³)):
+
+```
+  HEURISTIC 1: Element type at same position
+
+  <div> → <div>    Same type. React updates props. Keeps DOM node.
+  <div> → <span>   Different type. React TEARS DOWN the entire
+                   subtree and rebuilds from scratch.
+                   This is why swapping a component for a different
+                   one causes all child state to reset.
+
+  HEURISTIC 2: Keys for list items
+
+  Without keys:          With keys:
+  [A, B, C]              [A(k=1), B(k=2), C(k=3)]
+  [A, B, C, D]           [A(k=1), B(k=2), C(k=3), D(k=4)]
+
+  React compares by      React matches by key.
+  position. Adding D     New key=4 added at end.
+  at end is fine.        Key identifies identity
+                         across re-renders.
+
+  [A, B, C]    →  [X, A, B, C] (prepend X)
+  Without key: React thinks position 0 changed A→X, 1 changed B→A, etc.
+               Destroys and recreates all 4 DOM nodes.
+  With key:    React sees key=X new, keys 1/2/3 moved.
+               Creates 1 new node, moves 3 existing nodes.
+```
+
+**The full pipeline for a state change**:
+
+```
+  setState() called
+        |
+        v
+  ┌─────────────────────────────────────────────────────────┐
+  │ RENDER PHASE (pure, no side effects)                    │
+  │  Component function re-runs → new vdom tree             │
+  │  React diffs new tree vs previous (reconciliation)      │
+  │  Produces a list of DOM mutations needed                │
+  └─────────────────────────────────────────────────────────┘
+        |
+        v
+  ┌─────────────────────────────────────────────────────────┐
+  │ COMMIT PHASE (applies changes to real DOM)              │
+  │  React applies only the mutations computed in render    │
+  │  Runs useLayoutEffect (synchronous, after DOM update)   │
+  │  Runs useEffect (asynchronous, after browser paint)     │
+  └─────────────────────────────────────────────────────────┘
+        |
+        v
+  Browser paints the updated pixels
+```
+
+**Why immutability is required**: React detects changes by reference equality (`===`). If you mutate an object in place, the reference is the same — React sees no change, skips reconciliation, no re-render. `setUser({ ...user, name: "New" })` creates a new reference, React sees a change, reconciliation runs.
+
+```
+  REACT'S RENDERING MODEL
+
+  State change (setState called)
+         |
+         v
+  +------------------+
+  | Component fn     |  Re-runs to produce new JSX tree
+  | re-executes      |
+  +------------------+
+         |
+         v
+  +------------------+     +------------------+
+  | New Virtual DOM  | --> | Previous Virtual |
+  | (JS object tree) | diff| DOM (stored by   |
+  +------------------+     | React in memory) |
+                           +------------------+
+         |
+         v  (reconciliation)
+  +------------------+
+  | Minimal DOM      |  Only changed nodes updated
+  | patch applied    |  (~10x cheaper than full re-render)
+  +------------------+
+
+  Re-renders propagate DOWN the tree.
+  A parent re-rendering always re-renders its children (unless memoized).
+  State change in a leaf component re-renders only that leaf.
+```
+
+### When Does React Re-render?
+
+```
+  A component re-renders when:
+  1. Its own state changes (useState setter called)
+  2. Its parent re-renders (even if props didn't change — unless React.memo)
+  3. A context it consumes changes (useContext)
+
+  Implications:
+  - State high in the tree → expensive (many children re-render)
+  - State near the leaf → cheap (only that component re-renders)
+  - React.memo() wraps a component: skip re-render if props are shallowly equal
+  - useMemo() / useCallback() prevent new references on every render
+    (new reference = React thinks prop changed even if value is same)
+```
+
+**Re-render cascade — the performance implication**:
+
+```
+  COMPONENT TREE                 STATE CHANGES AT <B>
+
+         <A>                            <A>         ← does NOT re-render
+         / \                            / \           (state change is in B,
+        /   \                          /   \           not A)
+      <B>   <E>                      <B>*  <E>     ← <B> re-renders (owns state)
+      / \                            / \           ← <E> does NOT re-render
+    <C> <D>                        <C>* <D>*      ← <C> and <D> re-render
+                                                    (children of B, no memo)
+
+  Default React behavior: parent re-renders → ALL children re-render.
+  Even if <C>'s and <D>'s props did not change.
+
+  WITH React.memo:
+
+         <A>
+         / \
+       <B>   <E>
+       / \
+  memo(<C>)  <D>
+
+  State changes at <B>:
+  <B> re-renders. React checks <C>'s props — shallow equal? Yes → SKIP.
+  <D> re-renders (no memo).
+
+  This is the motivation for React.memo, useMemo, useCallback:
+  ┌────────────────────────────────────────────────────────────┐
+  │ React.memo(Component)  — skip re-render if props unchanged │
+  │ useMemo(fn, deps)      — skip re-computation if deps same  │
+  │ useCallback(fn, deps)  — stable function reference         │
+  │                          (new function ref = React.memo    │
+  │                           sees a "changed" prop and        │
+  │                           re-renders anyway)               │
+  └────────────────────────────────────────────────────────────┘
+
+  Rule: put state as low in the tree as possible.
+  State at root → everything re-renders on every change.
+  State in a leaf → only that leaf re-renders.
+```
+
 ### Functional Components
 
 The modern way to write React (since hooks in 2019). Class components still exist but new code should always use functions.
@@ -422,6 +608,71 @@ Vue 3 with the Composition API is the closest to React in feel. The Options API 
 - `:prop` shorthand for `v-bind:prop`
 - Single File Components (`.vue`) colocate template, script, style
 
+**Vue reactivity → Rx.NET / IObservable bridge**:
+
+Vue 3's reactivity is a signal-based dependency graph — conceptually identical to `IObservable<T>` chains in Rx.NET, and to Angular 16+ signals. This is the opposite of React's model:
+
+```
+  REACT MODEL                        VUE 3 / SIGNALS MODEL
+  ===========                        =====================
+
+  State changes → re-run the         State changes → propagate ONLY
+  entire component function.         through the reactive graph nodes
+  Framework decides what's           that depend on the changed state.
+  actually different via vdom diff.
+
+  Coarse-grained (component level)   Fine-grained (value level)
+
+  ──────────────────────────────     ──────────────────────────────
+
+  RX.NET MAPPING:
+
+  ref(0)                             new BehaviorSubject<int>(0)
+    ↓                                  ↓
+  computed(() => x.value * 2)        .Select(x => x * 2)  ← derived stream
+    ↓                                  ↓
+  watchEffect(() => render())        .Subscribe(v => render(v))
+
+  Vue tracks dependencies at READ time (like Rx Subscribe):
+  when computed() runs, Vue records every ref() it reads.
+  When those refs change, only that computed() re-evaluates.
+
+  REACTIVE GRAPH EXAMPLE:
+
+  const price = ref(100)                // BehaviorSubject<number>(100)
+  const qty   = ref(3)                  // BehaviorSubject<number>(3)
+  const total = computed(               // derived observable
+    () => price.value * qty.value       // subscribes to price AND qty
+  )
+  // total.value === 300
+
+  price.value = 200
+  // Vue sees: total depends on price → re-evaluate total only
+  // total.value === 600
+  // qty did not change → nothing else runs
+
+  // Compare React: you'd call setState({price: 200}),
+  // entire component re-runs, total recomputed as part of render.
+```
+
+**Why you can't destructure `reactive()`**:
+
+```typescript
+  const state = reactive({ price: 100, qty: 3 })
+
+  const { price } = state    // WRONG: price is now a plain number,
+                              // not a reactive ref — loses reactivity
+
+  const { price } = toRefs(state)  // CORRECT: price is now a Ref<number>
+
+  // Analogy: reactive() is like IObservable<T> where T is an object.
+  // Destructuring pulls out the current VALUE of one property,
+  // not a subscription to that property's changes.
+  // toRefs() wraps each property in its own BehaviorSubject.
+```
+
+**Angular 16+ signals** follow the same model as Vue refs — `signal(0)` is `BehaviorSubject<int>(0)`, `computed(() => x() * 2)` is `.Select(x => x * 2)`. The convergence toward fine-grained reactivity across frameworks (Vue refs, Angular signals, Solid.js) represents the industry move away from React's coarse re-render model for performance-sensitive code.
+
 ---
 
 ## Angular
@@ -481,6 +732,50 @@ The most opinionated of the three. Full framework — routing, forms, HTTP, DI a
   ASP.NET routing                  Angular Router
   HttpClient                       HttpClient (literally same name)
 ```
+
+**Angular DI → .NET DI lifetime bridge**:
+
+Angular's DI maps directly to `Microsoft.Extensions.DependencyInjection`. The same three lifetimes, the same constructor injection pattern, and a hierarchical injector tree that mirrors `IServiceProvider` scope nesting.
+
+| Angular | .NET DI (Microsoft.Extensions.DI) | Notes |
+|---|---|---|
+| `providedIn: 'root'` | `services.AddSingleton<T>()` | One instance for the entire application lifetime. |
+| Provided in an `NgModule` | `services.AddScoped<T>()` (module-scoped) | One instance per module load. Conceptually scoped to that module's lifetime. |
+| Provided in a `@Component` (`providers: [UserService]`) | `services.AddTransient<T>()` / `IServiceScope` | New instance per component. Destroyed when the component is destroyed. |
+| `constructor(private svc: UserService)` | `public MyClass(IUserService svc)` | Identical constructor injection pattern. Angular resolves from the injector; .NET DI resolves from `IServiceProvider`. |
+
+**Hierarchical injector** — this is where Angular goes further than typical .NET DI:
+
+```
+  Angular DI tree mirrors the component tree:
+
+  AppModule injector (root)
+  ├── Router
+  ├── HttpClient
+  └── UserService  (providedIn: 'root' → lives here, singleton)
+
+      FeatureModule injector (child of root)
+      └── FeatureSpecificService  (provided in module → module-scoped)
+
+          AdminComponent injector (child of module)
+          └── AdminService  (provided in component → component-scoped)
+              ┌────────────────────────────────────────────────────┐
+              │ AdminComponent can see:                            │
+              │  - AdminService (own)                              │
+              │  - FeatureSpecificService (parent)                 │
+              │  - UserService (root)                              │
+              │                                                    │
+              │ A child injector can OVERRIDE a parent service     │
+              │ by providing the same token.                       │
+              └────────────────────────────────────────────────────┘
+
+  .NET equivalent: IServiceProvider scope hierarchy
+  var scope = rootProvider.CreateScope()
+  scope.ServiceProvider.GetService<T>()
+  // scope-level registrations shadow root registrations for same interface
+```
+
+The override behavior (child injector shadows parent for same token) maps to `IServiceScope` overrides in .NET — a child scope can register its own `IMyService` that takes precedence over the root registration within that scope's lifetime. Angular just makes this happen automatically along the component tree.
 
 Angular is TypeScript-first by design. It was built at Google for large enterprise apps — strong opinions, strong structure, great tooling. The learning curve is steeper but the structure pays off at scale.
 

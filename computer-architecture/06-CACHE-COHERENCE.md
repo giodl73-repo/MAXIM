@@ -300,34 +300,53 @@ Cache coherence ensures that reads see the most recent write to a GIVEN address.
 
 ## The Memory Model Stack
 
+The full stack from language ordering guarantees down to hardware coherence — shown universally with language instances alongside each other.
+
 ```
-  +-------------------------------------------+
-  |  C# LANGUAGE MODEL                        |
-  |  volatile, Interlocked, lock              |
-  |  Thread.MemoryBarrier()                   |
-  +-------------------------------------------+
-              ↕ compiles to
-  +-------------------------------------------+
-  |  .NET CLR MEMORY MODEL                    |
-  |  Stronger than C# minimum                 |
-  |  Explicit fences at volatile access       |
-  +-------------------------------------------+
+  +------------------------------------------------------------------------+
+  |  LANGUAGE LEVEL — acquire/release semantics                            |
+  |                                                                        |
+  |  C++: memory_order_acquire/release on std::atomic<T>                  |
+  |  Java: volatile fields, synchronized, VarHandle.getAcquire()          |
+  |  Go: sync.Mutex, sync/atomic.Load/Store (seq_cst by default)         |
+  |  Rust: Ordering::Acquire / Ordering::Release on atomics               |
+  |  C#: volatile keyword, Interlocked, Thread.MemoryBarrier()            |
+  +------------------------------------------------------------------------+
+              ↕ compiler translates to
+  +------------------------------------------------------------------------+
+  |  RUNTIME / COMPILER LAYER                                              |
+  |  C++ / Rust: direct ISA fence emission (no separate runtime layer)    |
+  |  JVM: JMM specifies happens-before; HotSpot JIT emits fences          |
+  |  .NET CLR: CLR memory model (stronger than C# spec minimum);          |
+  |            explicit fences at volatile read/write                      |
+  |  Go runtime: inserts barriers at goroutine sync points                |
+  +------------------------------------------------------------------------+
               ↕ emits
-  +-------------------------------------------+
-  |  CPU INSTRUCTIONS                         |
-  |  x86: MFENCE, LOCK XCHG, LFENCE          |
-  |  ARM: DMB ISH, LDAR, STLR                |
-  +-------------------------------------------+
-              ↕ hardware
-  +-------------------------------------------+
-  |  CACHE COHERENCE PROTOCOL                 |
-  |  MESI/MOESI snooping/directory            |
-  +-------------------------------------------+
-              ↕ observable
-  +-------------------------------------------+
-  |  MEMORY CONSISTENCY MODEL                 |
-  |  x86: TSO; ARM: WMO; Java: JMM           |
-  +-------------------------------------------+
+  +------------------------------------------------------------------------+
+  |  ISA FENCE INSTRUCTIONS                                                |
+  |  x86-64: MFENCE (full), SFENCE (stores), LFENCE (loads),             |
+  |          LOCK prefix on RMW operations                                |
+  |  ARM64:  LDAR (load-acquire), STLR (store-release),                  |
+  |          DMB ISH (full data memory barrier)                           |
+  |  RISC-V: FENCE r,rw / FENCE rw,w (per RVWMO)                        |
+  |                                                                        |
+  |  x86 NOTE: TSO is so strong that acquire/release often maps to        |
+  |  plain load/store — no fence emitted. ARM requires LDAR/STLR.        |
+  +------------------------------------------------------------------------+
+              ↕ hardware enforces
+  +------------------------------------------------------------------------+
+  |  CACHE COHERENCE PROTOCOL                                              |
+  |  MESI / MOESI — snooping (small core count) or directory (large)      |
+  |  Ensures: a read sees the most recent write to that address            |
+  +------------------------------------------------------------------------+
+              ↕ defines what is observable
+  +------------------------------------------------------------------------+
+  |  MEMORY CONSISTENCY MODEL                                              |
+  |  x86: TSO (Total Store Order) — near-sequential, only store-buffer   |
+  |  ARM: WMO (Weak Memory Ordering) — aggressive reorder, fences needed |
+  |  RISC-V: RVWMO (weak + composable fence semantics)                   |
+  |  Java JMM: SC for DRF (data-race-free programs see SC behavior)      |
+  +------------------------------------------------------------------------+
 ```
 
 ---

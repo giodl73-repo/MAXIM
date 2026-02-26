@@ -293,6 +293,61 @@ Everything below the ISA is the microarchitecture — invisible to correctly-wri
 
 ---
 
+## Language Memory Models → ISA Fence Instructions
+
+Every concurrent programmer needs to map: language ordering guarantee → ISA fence instruction → hardware memory model. The chain is universal across language ecosystems.
+
+```
+  LANGUAGE LEVEL — acquire/release semantics
+
+  C++:   std::atomic<T> with memory_order_acquire / memory_order_release
+         std::atomic_thread_fence(memory_order_seq_cst)
+  Java:  volatile fields (JMM happens-before)
+         synchronized / VarHandle.setVolatile / VarHandle.getAcquire
+  Go:    sync.Mutex, sync/atomic, channel send/receive
+  Rust:  std::sync::atomic::Ordering::{Acquire, Release, SeqCst}
+  C#:    volatile, Interlocked, Thread.MemoryBarrier()
+
+  All provide acquire/release semantics at the language level.
+  The COMPILER maps these to ISA fence instructions.
+
+         ↓  compiles to
+
+  ISA LEVEL — fence instructions
+
+  x86-64:  MFENCE (full), SFENCE (stores), LFENCE (loads)
+           LOCK prefix on RMW implies full fence
+           (TSO is strong enough that acquire/release
+            compiles to NO fence on x86 in many cases)
+
+  ARM64:   LDAR  (load-acquire)    — pairs with release stores
+           STLR  (store-release)   — pairs with acquire loads
+           DMB ISH  (full barrier) — for seq_cst / full fence
+
+  RISC-V:  FENCE r,rw / FENCE rw,w (RVWMO acquire/release)
+           FENCE.TSO (total store order subset)
+
+         ↓  governs
+
+  HARDWARE LEVEL — coherence model
+
+  x86 TSO:    near-sequential; store buffer is the only relaxation
+  ARM WMO:    aggressive reordering; fences are load-bearing
+  RISC-V RVWMO: weak by default; composable fence types
+
+  KEY INSIGHT:
+  A C++ memory_order_acquire on x86 compiles to a plain load
+  (TSO does the work). The same code on ARM64 compiles to LDAR
+  (explicit hardware instruction). The language guarantee is
+  identical; the hardware cost is not.
+
+  A memory_order_seq_cst load on x86 requires MFENCE before
+  the load. On ARM64 it is LDAR. Both are more expensive than
+  acquire/release — only use seq_cst when you actually need it.
+```
+
+---
+
 ## Common Confusion Points
 
 **The "RISC is faster" claim is 1980s era**: At the time, RISC chips had 3–5× higher clock rates than CISC. Today, Intel and AMD implement RISC micro-ops internally after decode. The real advantages of ARM64 today are power efficiency (simpler decode logic = fewer transistors = less heat) and clean register file design.

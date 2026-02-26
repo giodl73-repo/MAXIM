@@ -4,6 +4,8 @@
 
 Representation theory studies how groups act on vector spaces — it is the bridge between abstract algebraic symmetry and concrete linear algebra. It is the mathematical language of particle physics (SU(2), SU(3), the Standard Model), quantum mechanics (angular momentum, spin), and crystallography. From your MIT background in groups and linear algebra, you have all the prerequisites — this guide builds from finite groups to Lie groups to the physics applications.
 
+<!-- @editor[diagram/P1]: The landscape diagram covers finite groups, Lie groups, physics, and applications — but the ML/computation column is entirely absent. The calibration explicitly calls out equivariant neural networks and geometric deep learning as high-value bridges. The diagram should have a fourth quadrant: "ML & Computation — equivariant networks (G-CNNs), geometric deep learning, SE(3)-equivariant architectures, representation theory on graphs (graph neural networks as message-passing on Cayley graphs), non-abelian Fourier analysis for signal processing on non-Euclidean domains." The current diagram gives the impression this is purely a physics topic. -->
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │  REPRESENTATION THEORY LANDSCAPE                                             │
@@ -537,6 +539,10 @@ Dirac equation: (iγμ∂μ - m)ψ = 0
 
 ---
 
+<!-- @editor[bridge/P1]: Equivariant neural networks and geometric deep learning are entirely absent. This is the highest-value modern application of representation theory to ML and the calibration flags it explicitly. The core idea: a function f: X → Y is G-equivariant if f(g·x) = g·f(x); CNNs are translation-equivariant by construction; G-CNNs (Cohen & Welling 2016) generalize this to any compact group G by using irreps as filter banks; SE(3)-equivariant networks (tensor field networks, SEGNN) use SO(3) irreps to build 3D-equivariant architectures for molecular modeling. Key content: (1) definition of G-equivariant map; (2) equivariant linear maps between G-representations are exactly intertwiners — Schur's lemma constrains the architecture; (3) the general construction: convolve with functions in L²(G) expanded in irreps; (4) examples: rotation-equivariant CNNs (SO(2)-equivariant), 3D molecular networks (SE(3)-equivariant), permutation-equivariant networks for sets (S_n-equivariant). This deserves a full section. -->
+
+<!-- @editor[bridge/P1]: The connection between representation theory and signal processing / analysis on non-Euclidean domains (graphs, manifolds, meshes) is absent. The spectral graph theory / graph neural network perspective: the graph Laplacian L = D-A has eigenvectors that play the role of Fourier modes; graph convolutions are defined by spectral filtering. For groups, the Peter-Weyl theorem generalizes this to non-abelian settings: functions on G expand in irreps as generalized Fourier modes, and convolutions on G correspond to multiplication of Fourier coefficients by irrep matrices. This connects Section 10 (harmonic analysis) to the fast-growing GNN/graph learning literature. -->
+
 ## 10. Harmonic Analysis on Groups
 
 ### Spherical Harmonics from SO(3) Reps
@@ -578,6 +584,8 @@ Pontryagin duality: For locally compact abelian G:
 
 ---
 
+<!-- @editor[content/P2]: The Decision Cheat Sheet has no entries for the ML/equivariant network use cases. Once the equivariant networks section is added, the cheat sheet should include: "Build a G-equivariant network layer → constrain weights to be intertwiners (Schur's lemma); G-equivariant filter bank → decompose L²(G) into irreps; Signal processing on group G → Peter-Weyl + irrep decomposition; Dimension count for equivariant maps between irrep spaces → Schur's lemma (0 or isomorphism)." -->
+
 ## Decision Cheat Sheet
 
 ```
@@ -613,5 +621,9 @@ Spinors vs tensors                          (½,0)⊕(0,½) vs (½,½) Lorentz r
 **Compact vs non-compact Lie groups**: Compact groups (U(n), SU(n), SO(n)) have unitary finite-dimensional irreps. Non-compact groups (SL(2,ℝ), Lorentz group) have no faithful unitary finite-dimensional reps — their unitary reps are infinite-dimensional (principal series, complementary series). This is why Lorentz reps are tricky.
 
 **Root systems classify semisimple Lie algebras**: ADE classification connects Lie algebras, surface singularities (Du Val singularities), and McKay correspondence (finite subgroups of SL(2,ℂ)). This unexpected unity is a deep result.
+
+<!-- @editor[bridge/P3]: The McKay correspondence is mentioned but not explained. Given the learner's background, a two-sentence unpacking would add value: finite subgroups Γ ≤ SL(2,ℂ) correspond bijectively to ADE Dynkin diagrams — the McKay graph of Γ (built from irreps and the natural 2D representation) is exactly the extended Dynkin diagram. This connects finite group representation theory, algebraic geometry (resolution of C²/Γ singularities), and Lie algebra classification in an unexpected way. -->
+
+<!-- @editor[bridge/P3]: The connection between representation theory and symmetric functions / combinatorics (Schur polynomials as characters of GL(n) representations, the Littlewood-Richardson rule for tensor product decompositions) is absent. The RSK correspondence is mentioned in Section 8 but its role as a bridge between Sₙ-representation theory and symmetric function theory (Schur polynomials, Hall inner product) is not developed. This is a clean mathematical connection at grad level. -->
 
 **Quark color vs quark flavor**: SU(3)_color (gauge symmetry of QCD) vs SU(3)_flavor (approximate global symmetry of up/down/strange quarks — broken by mass differences). Both are SU(3) but very different physics. Gell-Mann's eightfold way used flavor SU(3); the actual forces are color SU(3).

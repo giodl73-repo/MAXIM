@@ -1,9 +1,21 @@
 # Universal Language Cheat Sheet
 
+> **Navigation** — This file is ~51KB / ~1,400 lines. Use your editor's symbol search or Ctrl+F on the section headers below to jump directly to a language or topic.
+>
+> **Part 1 — Mainstream & Enterprise** (C, C++, Java, C#, Python, JavaScript, TypeScript):
+> [C](#c-1) · [C++](#c-2) · [Java](#java-1) · [C# (Home Base)](#c-home-base) · [Python](#python-1) · [JavaScript](#javascript-1) · [TypeScript](#typescript-1)
+>
+> **Part 2 — Systems, Functional & Specialist** (Rust, Go, Swift, Kotlin, Haskell, F#, Scala, Ruby, SQL):
+> [Rust](#rust-1) · [Go](#go-1) · [Haskell](#haskell-1) · [F#](#f-1) · [Kotlin](#kotlin-1) · [Swift](#swift-1) · [Scala](#scala-1) · [Ruby](#ruby-1) · [SQL](#sql-1)
+>
+> **Comparison tables** (feature-first, all 16 languages): Variable Declaration · Equality · Logical/Bitwise · Delimiters · Collections · Conditionals · Strings · Null/Option · Functions · Error Handling
+
 16 languages × 10 topics. Comparison tables first (feature-first lookup),
 language quick cards second (language-first lookup).
 
 ---
+
+## Part 1: Mainstream & Enterprise Languages
 
 ## Part A — Comparison Tables
 
@@ -518,6 +530,10 @@ FUNC     function f(x: T): R { }    ARROW   (x: T): R => expr
 OVERLOAD function f(x: string): string;  function f(x: number): number;
 ERROR    try { } catch (e: unknown) { if (e instanceof Error) ... }
 ```
+
+---
+
+## Part 2: Systems, Functional & Specialist Languages
 
 ---
 
