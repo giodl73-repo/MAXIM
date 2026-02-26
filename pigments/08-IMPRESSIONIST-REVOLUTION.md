@@ -345,6 +345,7 @@ WILLIAM HENRY PERKIN (1838–1907):
 |----------|--------|
 | What did tube paint specifically enable? | Plein air (outdoor) oil painting — portability + hours of usable paint without preparation |
 | What year were tin paint tubes invented? | 1841, John Goffe Rand |
+<!-- @editor[content/P2]: Question says "two developments" but answer lists three — either change to "what developments" or pick the two most critical -->
 | What two developments made Impressionism materially possible? | Tube paint (1841) + synthetic ultramarine (1826) + cadmium/viridian pigment availability |
 | Why does the cadmium series span yellow to red? | Mixed CdS₁₋ₓSeₓ — continuous band gap tuning with selenium substitution for sulfur |
 | Why is Renoir's pink fading? | Heavy use of lake pigments (organic chromophore on alumina substrate) — ASTM II lightfastness |

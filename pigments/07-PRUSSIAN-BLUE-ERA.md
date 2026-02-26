@@ -29,6 +29,7 @@
 ## Prussian Blue (1704) — The Accident That Changed Everything
 
 ```
+<!-- @editor[structure/P3]: Prussian blue narrative (discovery, Hokusai, pharmaceutical use) largely duplicates 04-BLUE-RARITY.md — consider making this section a brief recap with cross-reference, and using the space for 18th-century adoption patterns unique to this guide's era focus -->
 FULL STORY (see 04-BLUE-RARITY.md for blue context):
 
 IRON(III) HEXACYANOFERRATE(II): Fe₄[Fe(CN)₆]₃
