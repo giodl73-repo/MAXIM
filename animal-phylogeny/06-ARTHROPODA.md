@@ -68,6 +68,7 @@ SCLEROTIZATION: irreversible hardening
   Cannot be softened → must MOLT to grow
 ```
 
+<!-- @editor[content/P2]: No mention of trilobites — dominant Paleozoic arthropods (~20,000 species), important for understanding arthropod fossil diversity and the Permian extinction -->
 ### Molting (Ecdysis)
 
 ```
@@ -386,6 +387,7 @@ WHY HOLOMETABOLA WINS:
 | Odonata | Dragonflies/damselflies | Two pairs membranous wings, aerial predators | ~6,000 | First flying animals; compound eyes cover head |
 | Blattodea | Cockroaches + termites | Termites are social roaches | ~7,000 | 300M year old lineage |
 
+<!-- @editor[bridge/P2]: Eusocial colony as a superorganism maps to distributed systems with no single point of failure — queen is not a "server" but a specialized reproductive node; worker task allocation is stigmergic (like message queues without central dispatch) -->
 ### Eusociality
 
 ```

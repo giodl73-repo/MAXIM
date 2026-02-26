@@ -88,6 +88,7 @@ Phanerozoic       541–present
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — cladistics is maximum parsimony / graph theory (minimum spanning tree on character-state matrices); learner with MIT TCS background would connect immediately to NP-hard optimization -->
 ## How Phylogeny Works
 
 ### Cladistics: The Core Method
@@ -126,6 +127,7 @@ Interpretation:
 - Branch length = meaningful in phylograms, not in cladograms
 ```
 
+<!-- @editor[bridge/P3]: Natural bridge to sequence alignment algorithms (Needleman-Wunsch, BLAST) and distance matrices — learner would appreciate the computational pipeline behind molecular phylogenetics -->
 ### Molecular vs Morphological Phylogenetics
 
 | Approach | Data Source | Strengths | Weaknesses |

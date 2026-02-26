@@ -187,6 +187,7 @@ WHALE SHARK (Rhincodon typus):
   Ovoviviparous; may carry 300+ embryos
 ```
 
+<!-- @editor[bridge/P3]: Ampullae of Lorenzini electroreception is a natural bridge to signal processing — detecting sub-microvolt signals in a noisy medium is analogous to SNR optimization problems the learner knows from information theory -->
 ### Electric Rays and Sawfish
 
 ```
@@ -396,6 +397,7 @@ TETRAPOD SISTER:
   BUT lungfish are NOT the direct ancestor (they have their own specializations)
 ```
 
+<!-- @editor[content/P2]: Lobe-finned fish section is thin on the living lungfish species — only 6 species paragraphed briefly; ecological context of obligate air-breathing in modern Protopterus and aestivation physiology could be expanded -->
 ### Tiktaalik — The Key Transitional Fossil
 
 ```

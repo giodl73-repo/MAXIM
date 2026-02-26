@@ -254,6 +254,7 @@ NEURAL CREST IN PHYLOGENETIC CONTEXT:
   Full neural crest in gnathostomes (jawed vertebrates)
 ```
 
+<!-- @editor[bridge/P3]: Whole-genome duplication is essentially a fork() of the entire codebase — paralogs diverge like feature branches that never merge back; learner with software engineering background would connect immediately -->
 ### Two Rounds of Whole-Genome Duplication (2R WGD)
 
 ```

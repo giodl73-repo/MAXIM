@@ -114,6 +114,7 @@ ARCHAEA ECOLOGICAL NICHES (extremophiles + mainstream)
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge for the whole file — bacterial/archaeal classification is a clustering problem on high-dimensional feature vectors; learner with MIT TCS would connect metabolic type matrix to k-means/hierarchical clustering immediately -->
 ## Layer 2 — The Great Oxidation Event
 
 ```
@@ -251,6 +252,7 @@ OPISTHOKONTA (animals + fungi share this ancestor)
     → DIRECT ANCESTOR-TYPE of animals
 ```
 
+<!-- @editor[bridge/P3]: Choanoflagellate-to-animal transition parallels the monolith-to-microservice architecture transition — cells specializing like service decomposition; learner would appreciate the analogy -->
 ### The Transition to Multicellularity
 
 ```

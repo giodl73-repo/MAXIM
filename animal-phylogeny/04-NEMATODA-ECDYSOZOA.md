@@ -64,6 +64,7 @@ LOCOMOTION: body waves in dorsoventral plane
   (contrast with earthworm: peristalsis in any substrate)
 ```
 
+<!-- @editor[bridge/P2]: C. elegans connectome is a directed graph (302 nodes, 7000 edges) — natural bridge to graph theory, adjacency matrices, shortest-path algorithms the learner owns from MIT TCS -->
 ### C. elegans — The Most Important Research Animal
 
 ```

@@ -255,8 +255,8 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `periodic-table/` | 12 | — | — | |
-| `animal-phylogeny/` | 13 | — | — | |
+| `periodic-table/` | 12 | 2026-02 | — | 20 tags → pending |
+| `animal-phylogeny/` | 13 | 2026-02 | — | 15 tags → pending (3 polished) |
 | `spices/` | 11 | 2026-02 | — | 0 tags -- polished |
 | `food-plants/` | 10 | — | — | |
 | `culinary-history/` | 10 | 2026-02 | — | 4 tags → pending |
