@@ -311,6 +311,8 @@ GOYA'S DISASTERS: WHAT THEY DO
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge in this guide -- photography's disruption of painting is a direct parallel to any technology disruption: the incumbent medium redefines its value proposition when a cheaper/faster alternative captures its commodity function. This is the same pattern as mainframes vs PCs, or on-prem vs cloud. The learner would instantly grasp the structural logic if the parallel were made explicit. -->
+
 ## Photography Arrives: 1839
 
 Louis Daguerre publicly demonstrates the daguerreotype in 1839 (Paris);

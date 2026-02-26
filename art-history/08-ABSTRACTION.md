@@ -476,6 +476,8 @@ improper:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge in this guide -- the Bauhaus dual-master system (Meister der Form + Meister des Handwerks) maps directly to the design-engineering partnership model the learner knows from software: designers who understand materials produce better results than designers who hand off specs. The Bauhaus Vorkurs (preliminary course) is literally a bootcamp that strips preconceptions before rebuilding -- the same pedagogical strategy as any good onboarding program. -->
+
 ## Greenberg's Critical Theory: Formalist Doctrine
 
 Clement Greenberg (1909–1994) is the most influential American art critic:

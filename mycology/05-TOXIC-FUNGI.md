@@ -195,6 +195,7 @@ CLINICAL EFFECTS:
   "Entheogenic" effects: religious/mystical use in Siberian shamanism
     (Siberian reindeer herders; "urine drinking" tradition to recycle muscimol)
   Anticholinergic effects also present (salivation, lacrimation, urination — SLUDE)
+<!-- @editor[content/P2]: SLUDE symptoms (salivation, lacrimation, urination, defecation, emesis) are cholinergic, not anticholinergic — the sentence above says "anticholinergic" but then lists cholinergic symptoms. Clarify: muscimol is GABAergic; the cholinergic/muscarinic confusion is the historical naming accident -->
     → Actually from muscarinic receptors? Debate ongoing
   Deaths: rare; require very large doses
   Treatment: supportive; benzodiazepines for seizures if severe

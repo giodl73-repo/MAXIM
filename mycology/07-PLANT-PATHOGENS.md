@@ -72,6 +72,7 @@ THE Ug99 THREAT:
     → Sr35, Sr22, Sr57, Lr34 (multisite resistance genes)
   Current status: spread slower than worst-case; resistant varieties being deployed
     → Not an emergency yet; but biosecurity threat maintained
+<!-- @editor[content/P2]: Ug99 status may be outdated — check current spread status and whether CIMMYT deployment of pyramided resistance varieties has changed the threat assessment since original writing -->
 ```
 
 ### Flax Rust — The Gene-for-Gene Model
@@ -339,6 +340,7 @@ CHESTNUT BLIGHT: Cryphonectria parasitica (Ascomycete)
     Transgenic approach: wheat oxalate oxidase gene introduced into American chestnut
     → Neutralizes oxalic acid → allows tree to survive canker
     → SUNY ESF research: field trials; regulatory approvals pending (2024)
+<!-- @editor[content/P2]: Transgenic chestnut regulatory status dated 2024 — check whether USDA deregulation decision has landed -->
     Hypovirulence biocontrol: CHV1 virus infects Cryphonectria → attenuates virulence
     → Works in Europe; American strains more genetically diverse → less effective
 ```
@@ -364,6 +366,7 @@ CHESTNUT BLIGHT: Cryphonectria parasitica (Ascomycete)
 
 **Biotrophs vs. necrotrophs**: Biotrophs (rusts, powdery mildews, smuts) require living tissue. Necrotrophs (Botrytis, Sclerotinia) kill tissue and then feed on it. This distinction fundamentally affects control: killing the plant cell (as some defenses do) stops a biotroph but has no effect on a necrotroph, which is happy to feed on dead tissue.
 
+<!-- @editor[bridge/P3]: The gene pyramiding → HAART analogy is excellent; could add a one-liner bridge to defense-in-depth / layered security architecture for the CS-minded reader -->
 **Wheat rust resistance gene pyramiding**: No single R gene is durable long-term — the pathogen evolves. The strategy now is pyramiding multiple R genes with different recognition specificities. Breaking all of them simultaneously requires multiple mutations = much lower probability. This is analogous to combination antiretroviral therapy (HAART) for HIV — targeting multiple points simultaneously reduces resistance evolution.
 
 **The Cavendish banana crisis**: The banana in your supermarket is a specific cultivar (Cavendish). It replaced the Gros Michel (which tasted different — more banana-flavored by historical accounts) after Panama disease Race 1 devastated that cultivar. Tropical Race 4 (TR4) now threatens the Cavendish worldwide. This is an exact parallel — monoculture + globally distributed trade = global vulnerability.

@@ -470,6 +470,8 @@ RENAISSANCE PATRONAGE ARC
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge anywhere in this guide -- the learner coming from engineering/CS would benefit from: linear perspective as a projection algorithm (3D-to-2D transform, equivalent to a pinhole camera model); Alberti's construction as a rendering pipeline (ground plane, vanishing point, transversals = viewport transform in computer graphics). The mathematical substrate is the same and would land immediately with this reader. -->
+
 ## Disegno vs Colorito: The Central Debate
 
 The Renaissance organized a major debate about the basis of painting:

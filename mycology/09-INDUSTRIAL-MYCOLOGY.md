@@ -434,6 +434,7 @@ MYCELIUM LEATHER AND TEXTILES:
     → Hermès: shelf bag in Reishi mycelium leather (2021, "Sylvania")
     → Extremely tight fine mycelium → mechanical properties closer to
        traditional leather than earlier composites
+<!-- @editor[content/P2]: Mycelium materials market status dated 2024 — check whether Bolt Threads (Mylo) and MycoWorks (Reishi) have scaled, pivoted, or folded since then; this is a fast-moving space -->
   Limitations (2024): price still premium vs. synthetic alternatives;
     scaling production challenging; durability data still being gathered
 

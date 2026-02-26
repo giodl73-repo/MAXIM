@@ -23,6 +23,7 @@
 |  LICHENS: fungus + photosynthetic partner                       |
 |  Pioneer colonizers; extreme environment specialists           |
 +------------------------------------------------------------------+
+<!-- @editor[diagram/P2]: Diagram lists five ecological roles but doesn't show the carbon/nutrient flow connecting them — a flow diagram (atmosphere → plant → mycorrhizal fungus → saprotroph → CO2 → atmosphere) would make the ecosystem cycling visible -->
 ```
 
 ---

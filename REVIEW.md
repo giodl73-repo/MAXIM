@@ -213,7 +213,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `art-history/` | 12 | — | — | |
+| `art-history/` | 12 | 2026-02 | — | 12 tags → pending (1 polished) |
 | `architecture-history/` | 10 | — | — | |
 | `architecture/` | 8 | — | — | |
 | `music-theory/` | 10 | — | — | |
@@ -261,7 +261,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `food-plants/` | 10 | 2026-02 | — | 13 tags → pending |
 | `culinary-history/` | 10 | 2026-02 | — | 4 tags → pending |
 | `fermentation-spirits/` | 10 | 2026-02 | — | 3 tags → pending |
-| `mycology/` | 10 | — | — | |
+| `mycology/` | 10 | 2026-02 | — | 17 tags → pending |
 | `marine-biology/` | 10 | 2026-02 | — | 0 tags -- polished |
 | `entomology/` | 10 | 2026-02 | — | 10 tags → pending |
 | `ornithology/` | 10 | 2026-02 | — | 16 tags → pending |

@@ -404,6 +404,8 @@ BAROQUE                          ROCOCO
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge in this guide -- the Dutch Republic's open art market (no church/royal patron, bourgeois buyers, commodity market with fairs and dealers) is a natural bridge for any reader who understands market economics: the shift from commission-based to market-based models parallels any industry's move from bespoke to commodity production. Worth making explicit. -->
+
 ## Patronage Shift: Church vs Secular
 
 The Baroque period witnesses a decisive shift in patronage:

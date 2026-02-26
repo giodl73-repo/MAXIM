@@ -181,6 +181,7 @@ TRUFFLES (Tuber spp.):
 ---
 
 ## Cultivation Technology
+<!-- @editor[bridge/P3]: Natural bridge to process engineering / fermentation control systems — substrate preparation, contamination control, and environmental parameter management (CO2, RH, temperature) parallel industrial process control that this learner would recognize from manufacturing contexts -->
 
 ```
 SUBSTRATE TYPES AND PREPARATION:
