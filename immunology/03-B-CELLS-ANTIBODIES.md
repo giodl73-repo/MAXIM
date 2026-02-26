@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P3]: No CS/engineering analogy bridge — VDJ recombination parallels combinatorial search or hash-space generation; antibody affinity maturation parallels gradient descent (used in 02-ADAPTIVE but not carried here) -->
 # B Cells and Antibodies
 
 ## The Big Picture

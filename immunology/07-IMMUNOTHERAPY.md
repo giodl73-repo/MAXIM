@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P3]: No CS/engineering analogy bridge — checkpoint inhibitors parallel removing rate limiters on an already-provisioned service; CAR-T parallels hot-patching a running process with a new event handler that bypasses the normal dispatch table (MHC) -->
 # Immunotherapy
 
 ## The Big Picture
@@ -102,6 +103,7 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   └────────────────────────────────────────────────────────────────┘
 
   NEXT-GENERATION CHECKPOINTS:
+  <!-- @editor[content/P2]: Typo — "approal" should be "approval" -->
   Anti-LAG-3 (relatlimab): First LAG-3 approal combined with nivo
   Anti-TIM-3: Phase II/III trials for several tumors
   Anti-TIGIT (vibostolimab, tiragolumab): Active development
