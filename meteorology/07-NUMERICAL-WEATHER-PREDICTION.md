@@ -130,6 +130,7 @@ Sea ice           Thermodynamic + dynamic models    Arctic forecasting
 ## GFS vs ECMWF — Skill Comparison
 
 ```
+<!-- @editor[content/P3]: GFS table header says "(2024)" — verify grid spacings are current for 2025-2026 -->
 MODEL          SPONSOR      GRID(2024)   ENSEMBLE    NOTABLE STRENGTH
 -----------    ----------   ----------   ---------   ----------------------
 GFS            NOAA/NCEP    ~13 km Δx    GEFS        Free/open data;
@@ -183,6 +184,7 @@ SOLUTION: 4D-Variational Data Assimilation (4D-Var):
   background) with observations, weighted by their error statistics.
 ```
 
+<!-- @editor[bridge/P2]: 4D-Var is a large-scale variational optimization (minimize cost function J subject to PDE constraints) — natural bridge to inverse problems and constrained optimization the learner knows from MIT. One sentence: "4D-Var is essentially constrained nonlinear optimization over ~10^9 variables" would connect immediately -->
 **EnKF (Ensemble Kalman Filter)** — alternative to 4D-Var; uses ensemble spread to estimate background error covariances. Less computationally demanding for background error estimation. Many operational centers now use hybrid EnKF/4D-Var.
 
 **Key observation types** (by impact rank):

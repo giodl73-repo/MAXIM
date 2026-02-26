@@ -126,6 +126,7 @@ Climatic        Decades–       Global         ENSO, PDO, ice ages
 
 ---
 
+<!-- @editor[bridge/P2]: No computational bridge for the learner — meteorology is applied PDE solving (Navier-Stokes), optimization (data assimilation), and chaos theory. A 3-sentence bridge here connecting "atmosphere as a system" to the math/CS concepts that govern it would orient an MIT TCS reader powerfully -->
 ## Directory Map
 
 | File | Core Concept |
@@ -142,6 +143,7 @@ Climatic        Decades–       Global         ENSO, PDO, ice ages
 
 ---
 
+<!-- @editor[structure/P1]: Missing Decision Cheat Sheet section — "which guide do I read for X?" table would orient the reader -->
 ## Common Confusion Points
 
 **Weather vs climate** — Weather is the atmospheric state at a specific time and place; climate is the statistical distribution of that state over decades. "Climate is what you expect; weather is what you get." A heat wave is weather; an increasing trend in heat wave frequency is climate.
