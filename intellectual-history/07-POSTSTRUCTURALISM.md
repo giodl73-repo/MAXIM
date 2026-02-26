@@ -307,6 +307,8 @@ and historiography internationally.
 
 ---
 
+<!-- @editor[bridge/P2]: Saussure's "meaning as difference" maps to how identifiers work in programming — a variable name means what it means by differing from all other names in scope, not by intrinsic property. Derrida's trace/differance parallels pointer indirection and lazy evaluation. Natural bridges for this learner, currently absent -->
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |

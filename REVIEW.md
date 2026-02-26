@@ -158,12 +158,12 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `mythology/` | 12 | 2026-02 | — | 5 tags → pending |
 | `religious-studies/` | 8 | 2026-02 | — | 3 tags → pending |
 | `archaeology/` | 10 | 2026-02 | — | 12 tags → pending |
-| `logic/` | 10 | — | — | |
-| `intellectual-history/` | 10 | — | — | |
+| `logic/` | 10 | 2026-02 | — | 5 tags → pending |
+| `intellectual-history/` | 10 | 2026-02 | — | 15 tags → pending |
 | `social-history/` | 10 | — | — | |
 | `political-history/` | 10 | — | — | |
 | `philosophy-of-mind/` | 10 | — | — | |
-| `ethics/` | 10 | — | — | |
+| `ethics/` | 10 | 2026-02 | — | 0 tags -> pending |
 
 ---
 

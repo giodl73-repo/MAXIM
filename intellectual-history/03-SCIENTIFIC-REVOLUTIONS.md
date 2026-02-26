@@ -327,6 +327,8 @@ Popper is the foil and interlocutor Kuhn most directly challenges.
 
 ---
 
+<!-- @editor[bridge/P1]: Missing paradigm-shift bridge to software — Kuhn's normal science / revolution cycle maps to platform transitions (mainframe->client-server->web->cloud->AI), framework churn, and breaking-change migrations. Any senior engineer coming from long platform tenures needs this anchor -->
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -359,6 +361,7 @@ loosely for "worldview" or "framework" in ordinary speech. In precision use, ref
 Kuhn's later "exemplar" (paradigm = model problem-solution) or "disciplinary matrix"
 (paradigm = community's shared beliefs and techniques).
 
+<!-- @editor[bridge/P2]: Lakatos's progressive vs. degenerative research programmes parallel progressive vs. legacy codebases — protective belt = adapter layers, hard core = architecture invariants. Natural bridge missing -->
 **Lakatos's programmes are retrospective.**
 You can only call a programme "progressive" or "degenerative" in retrospect.
 At the time, you cannot always tell whether auxiliary hypothesis modifications are

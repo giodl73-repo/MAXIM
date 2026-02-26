@@ -350,6 +350,8 @@ Together they are the intellectual roots of modernity and its discontents.
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from Darwin's mechanism (variation + selection + inheritance) to evolutionary/genetic algorithms in CS — the learner with MIT TCS background would immediately connect these, but the guide never makes the link explicit -->
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -382,6 +384,7 @@ His sister Elisabeth Förster-Nietzsche was a nationalist; she edited his papers
 Nietzsche was contemptuous of German nationalism and anti-Semitism. He broke with Wagner
 partly over these issues. Nazi appropriation of Nietzsche was a deliberate distortion.
 
+<!-- @editor[bridge/P3]: Marx's base-superstructure model has a natural analogy to layered architecture (infrastructure determines what application logic is possible) — would help a technical reader anchor the concept -->
 **"Survival of the fittest" is Spencer's phrase, not Darwin's.**
 Darwin used it in later editions of the Origin only as a shorthand for natural selection.
 Spencer's meaning (competitive, quasi-economic) was not Darwin's. Darwin emphasized

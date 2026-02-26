@@ -307,6 +307,8 @@ postcolonial and feminist scholarship.
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from Enlightenment's "submit everything to rational scrutiny" to engineering culture's equivalent — code review, evidence-based decision making, blameless postmortems. The parallel is direct and would ground the material for a technical leader -->
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |

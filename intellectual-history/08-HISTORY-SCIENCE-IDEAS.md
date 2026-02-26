@@ -299,6 +299,8 @@ through internalist-externalist debates, to contextual, sociological, and postco
 
 ---
 
+<!-- @editor[bridge/P2]: The internalist-externalist debate maps to a familiar engineering tension: "did this system succeed because of its technical design (internalist) or because of market conditions, team culture, and timing (externalist)?" — e.g., VHS vs. Betamax, Windows vs. OS/2. Bridge missing -->
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -329,6 +331,7 @@ Phlogiston, ether, and caloric were not just "wrong" — they were sophisticated
 theoretical frameworks that did real work. History of science that dismisses losers
 as mere errors distorts the past.
 
+<!-- @editor[content/P2]: Daston and Galison's "objectivity" section is thin — the three historical epistemic virtues (truth-to-nature, mechanical objectivity, trained judgment) deserve their own table or expanded treatment given how directly they map to data science and ML evaluation practices -->
 **"Science and colonialism" is not anti-science.**
 Historians showing science's entanglement with colonial projects are not arguing
 science is bad or false. They are showing that the production of scientific knowledge
