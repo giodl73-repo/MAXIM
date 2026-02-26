@@ -41,6 +41,8 @@ LEVELS OF ANALYSIS (Tinbergen's 4 Questions):
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — genetic algorithms, A/B testing = selection, version control branching = speciation, Hardy-Weinberg = null model -->
+
 ## Natural Selection
 
 ```

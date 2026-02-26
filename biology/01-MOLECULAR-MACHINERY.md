@@ -28,6 +28,8 @@ SCALE:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: DNA replication = version control (copy-on-write, error correction), protein folding = NP-hard optimization -->
+
 ## DNA Structure
 
 ### Double Helix (Watson-Crick 1953)
@@ -346,3 +348,5 @@ snoRNA: guide RNA modification in nucleolus (rRNA 2'-O-methylation, pseudouridyl
 | Histone-based chromatin | No (most) | Yes |
 | Operon organization | Yes | Rare |
 | Transcription start | σ factor–10/–35 box | GTFs + TATA box / BRE |
+
+<!-- @editor[structure/P2]: Missing Common Confusion Points section (e.g., "junk DNA" misnomer, mRNA is not a 1:1 copy of a gene) -->

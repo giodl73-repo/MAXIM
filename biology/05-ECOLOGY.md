@@ -32,6 +32,8 @@ ECOLOGY ↔ EVOLUTION FEEDBACK:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — carrying capacity = autoscaling ceiling, predator-prey = load balancer oscillation, food web = dependency graph, keystone species = SPOF -->
+
 ## Population Ecology
 
 ```

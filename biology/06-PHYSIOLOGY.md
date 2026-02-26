@@ -43,6 +43,8 @@ INTEGRATION:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — homeostasis = PID controller, nervous system = low-latency event bus, endocrine = pub-sub, immune system = adaptive IDS -->
+
 ## Nervous System
 
 ```

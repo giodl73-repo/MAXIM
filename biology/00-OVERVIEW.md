@@ -1,4 +1,6 @@
 # Biology — Overview
+<!-- @editor[diagram/P2]: Landscape diagram lists items linearly — rework as layered system view showing relationships between modules -->
+<!-- @editor[bridge/P1]: Missing universal CS bridge upfront — Biology as Information Science should anchor the opening, not be buried at bottom -->
 
 ---
 
@@ -290,3 +292,6 @@ The `natural-sciences/` directory covers overlapping material from a chemistry-f
 
 The biology/ modules go deeper on the biological narrative, evolution, and physiology.
 The natural-sciences/ modules integrate chemistry ↔ biology connections.
+
+<!-- @editor[structure/P1]: Missing Decision Cheat Sheet — needs "which module for what question" in "use X when Y" format -->
+<!-- @editor[structure/P2]: Missing Common Confusion Points section -->

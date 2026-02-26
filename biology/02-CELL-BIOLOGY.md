@@ -28,6 +28,8 @@ THE CELL AS A SYSTEM:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: cell membrane = firewall + API gateway, vesicle trafficking = message routing, cell cycle checkpoints = CI/CD quality gates -->
+
 ## Cell Membrane
 
 ### Lipid Bilayer
@@ -359,3 +361,5 @@ BCL-2 FAMILY:
 | DNA damage response | Checkpoint kinases | ATM/ATR → Chk1/2 → p53 |
 | Cell cycle progression | Cyclin-CDK complexes | Rb/E2F, securin, APC/C |
 | Apoptosis commitment | Mitochondria (MOMP) | Bcl-2 family, caspase cascade |
+
+<!-- @editor[structure/P2]: Missing Common Confusion Points section (e.g., apoptosis vs necrosis, 30-32 ATP is modern corrected number) -->

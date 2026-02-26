@@ -37,6 +37,8 @@ FIELDS:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — genetic code = encoding scheme (redundant, error-minimizing, nearly universal = standardized protocol), CRISPR = find-and-replace with regex -->
+
 ## Mendelian Genetics
 
 ```
