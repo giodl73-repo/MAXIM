@@ -432,6 +432,8 @@ perturbing their function:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — natural parallels: signal processing / SNR analysis to single-molecule detection limits, feedback control systems to force clamp and position clamp, calibration theory in metrology to trap stiffness calibration -->
+
 ## Decision Cheat Sheet
 
 | Goal | Best technique | Key parameter |

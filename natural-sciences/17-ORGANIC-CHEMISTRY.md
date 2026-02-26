@@ -1,4 +1,4 @@
-# 17 — Organic Chemistry
+# 17-ORGANIC-CHEMISTRY — Organic Chemistry
 
 ## Functional Groups, Reaction Mechanisms, Stereochemistry, Synthesis
 
@@ -469,6 +469,7 @@ PALLADIUM-CATALYZED CROSS-COUPLING
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to CS — retrosynthetic analysis is backward chaining (like Prolog or theorem provers). Corey's disconnection approach is graph search on a molecular DAG. This learner's TCS background would immediately recognize the connection to planning algorithms and means-ends analysis. -->
 ## Retrosynthetic Analysis
 
 ```

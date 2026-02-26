@@ -1,3 +1,4 @@
+<!-- @editor[diagram/P2]: No landscape diagram — guide opens with enzyme mechanism details. Needs a visual map: catalysis fundamentals → Michaelis-Menten kinetics → inhibition types → allostery/cooperativity → covalent regulation → enzyme classification. The full enzymology landscape as a system. -->
 # 07-ENZYMES — Enzyme Kinetics & Catalysis
 
 > Michaelis-Menten derivation, inhibition types, allostery, covalent modification.

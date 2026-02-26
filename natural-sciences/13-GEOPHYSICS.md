@@ -140,6 +140,7 @@ Convection pattern:
   660 km discontinuity: partial filter → mostly whole-mantle with some ponding
 ```
 
+<!-- @editor[bridge/P2]: No old-world bridge — mantle convection (Rayleigh number, Navier-Stokes) connects directly to classical fluid mechanics and thermal engineering (convection cells, Benard cells). A senior engineer would benefit from seeing the parallel to heat exchanger design and industrial fluid dynamics. -->
 ### Heat Sources
 
 ```

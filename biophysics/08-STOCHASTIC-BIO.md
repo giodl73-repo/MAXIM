@@ -454,6 +454,8 @@ Some gene networks are bistable: two stable states with noise-driven switching:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — strong parallels exist: Markov chains and queuing theory (CS/probability) to master equations, Wiener process / Brownian motion in finance to Langevin dynamics, Shannon entropy to gene expression noise analysis -->
+
 ## Decision Cheat Sheet
 
 | Question | Concept | Key Formula |

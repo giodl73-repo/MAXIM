@@ -1,3 +1,4 @@
+<!-- @editor[diagram/P1]: No landscape diagram — guide opens with MHD equilibrium equations without establishing the full picture. Needs a visual map: equilibrium → instabilities (interchange, kink, tearing) → reconnection → confinement approaches (tokamak, stellarator, ICF) → astrophysical + industrial applications. This is a rich field that needs a structural overview before diving into force balance. -->
 # 16-PLASMA-DYNAMICS — Plasma Dynamics & Confinement
 
 > MHD instabilities, magnetic reconnection, tokamaks, stellarators,

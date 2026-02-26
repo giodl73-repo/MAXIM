@@ -20,6 +20,7 @@
 │  2013-present: Cryo-EM resolution revolution (Kühlbrandt, Frank, Henderson│
 │                Nobel 2017) displaced X-ray for large complexes            │
 │                                                                            │
+<!-- @editor[content/P2]: PDB statistics may be outdated — as of 2024-2025, PDB had ~220,000+ total entries; X-ray ~170,000, NMR ~14,000, cryo-EM ~30,000+; verify current numbers -->
 │  2024 PDB statistics:                                                      │
 │  X-ray:   ~86,000 entries (~60% of total)                                 │
 │  NMR:     ~13,000 entries (~9%)                                            │
@@ -85,6 +86,7 @@ each reflection.
 ```
 
 ### The Phase Problem
+<!-- @editor[audience/P3]: The learner knows Fourier analysis from MIT — the explanation that you need amplitude and phase for inverse FT can be tightened; the physical insight (detector loses phase) is the important part, not the Fourier transform definition -->
 
 This is the fundamental difficulty in crystallography. The detector measures
 intensities I(hkl) = |F(hkl)|², which gives only the amplitude of each structure
@@ -410,6 +412,8 @@ The ribosome (2.5 MDa), SARS-CoV-2 spike (3 MDa trimers), and nuclear pore compl
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge section — natural parallels: Fourier transforms / signal processing to crystallographic phase problem and NMR, Bayesian inference to cryo-EM particle classification, inverse problems in imaging to structural biology reconstruction -->
 
 ## Decision Cheat Sheet
 

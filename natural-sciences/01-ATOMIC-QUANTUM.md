@@ -1,3 +1,4 @@
+<!-- @editor[diagram/P1]: No landscape diagram — guide opens with hydrogen atom detail instead of establishing the full picture (atomic structure → multi-electron → periodic table → spectroscopy → computation). Needs a visual map showing how the pieces relate before drilling in. -->
 # 01-ATOMIC-QUANTUM — Atomic Structure & Quantum Mechanics of Chemistry
 
 > The hydrogen atom solved exactly. Multi-electron approximations. Quantum numbers
@@ -341,6 +342,7 @@ In practice: relativistic ECPs (effective core potentials) handle this in DFT/HF
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — e.g., classical mechanics → quantum mechanics transition, or numerical methods (Gaussian elimination, matrix diagonalization) → computational chemistry methods. A senior engineer with linear algebra background would benefit from connecting SCF iteration to iterative eigenvalue solvers they already know. -->
 ## Quantum Chemistry Computation — The Ladder
 
 ```

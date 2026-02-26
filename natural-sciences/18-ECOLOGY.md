@@ -1,4 +1,4 @@
-# 18 — Ecology
+# 18-ECOLOGY — Ecology
 
 ## Ecosystems, Population Dynamics, Food Webs, Biogeochemical Cycles, Conservation
 
@@ -61,6 +61,7 @@ NICHE CONSTRUCTION:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to CS/math — Lotka-Volterra equations are coupled nonlinear ODEs; Leslie matrix is a linear recurrence (eigenvalue problem). The learner's MIT math background maps directly: population dynamics = dynamical systems theory, metapopulations = graph connectivity. -->
 ## Population Ecology
 
 ```

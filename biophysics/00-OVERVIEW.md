@@ -7,6 +7,7 @@ electrostatics, mechanics, optics — to biological systems. It operates at scal
 ranging from individual atoms (protein folding, ion channels) to cells (membrane
 mechanics) to tissues (collective cell dynamics).
 
+<!-- @editor[diagram/P2]: Landscape diagram categorizes items but doesn't show how subfields feed into each other — consider adding arrows or layering to show that structural methods feed dynamical studies, which inform functional understanding -->
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                    BIOPHYSICS LANDSCAPE                           │
@@ -170,6 +171,7 @@ describes a particle subject to both a deterministic force and thermal noise:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge in this overview — a brief bridge from classical physics/engineering (e.g., circuit theory to ion channels, continuum mechanics to membrane elasticity, signal processing to noise analysis) would orient the learner across the whole catalog -->
 ## Decision Cheat Sheet
 
 | Question | Biophysics framework | Module |

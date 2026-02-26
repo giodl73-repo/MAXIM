@@ -229,6 +229,7 @@ Founder effect: new population established by few individuals → genetic drift 
   subset of original alleles
 ```
 
+<!-- @editor[bridge/P3]: Natural bridge to CS — coalescent theory is essentially a backward-looking Markov chain, and the Wright-Fisher model is a discrete-time stochastic process. For a learner with MIT TCS + probability background, connecting to random walk, coupon collector, and MCMC would deepen understanding. -->
 ### The Wright-Fisher Model
 
 ```
