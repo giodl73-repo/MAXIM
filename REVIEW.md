@@ -263,7 +263,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `fermentation-spirits/` | 10 | 2026-02 | — | 3 tags → pending |
 | `mycology/` | 10 | — | — | |
 | `marine-biology/` | 10 | 2026-02 | — | 0 tags -- polished |
-| `entomology/` | 10 | — | — | |
+| `entomology/` | 10 | 2026-02 | — | 10 tags → pending |
 | `ornithology/` | 10 | — | — | |
 | `zoology/` | 10 | 2026-02 | — | 0 tags -- polished |
 | `horticulture/` | 10 | — | — | |
