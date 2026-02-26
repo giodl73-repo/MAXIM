@@ -135,7 +135,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `climate-science/` | 7 | 2026-02 | — | 16 tags → pending |
 | `oceanography/` | 12 | 2026-02 | — | 22 tags → pending |
 | `hydrology/` | 10 | 2026-02 | — | 11 tags → pending |
-| `paleontology/` | 11 | 2026-02 | — | 21 tags → pending |
+| `paleontology/` | 11 | 2026-02 | — | 22 tags → pending |
 | `agriculture/` | 11 | — | — | |
 | `mineralogy/` | 10 | — | — | |
 | `planetary-science/` | 10 | — | — | |
