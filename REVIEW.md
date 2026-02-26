@@ -136,12 +136,12 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `oceanography/` | 12 | 2026-02 | — | 22 tags → pending |
 | `hydrology/` | 10 | 2026-02 | — | 11 tags → pending |
 | `paleontology/` | 11 | 2026-02 | — | 22 tags → pending |
-| `agriculture/` | 11 | — | — | |
+| `agriculture/` | 11 | 2026-02 | — | 11 tags → pending |
 | `mineralogy/` | 10 | — | — | |
 | `planetary-science/` | 10 | 2026-02 | — | 7 tags → pending |
 | `geochemistry/` | 10 | — | — | |
 | `space-exploration/` | 10 | — | — | |
-| `astrobiology/` | 10 | — | — | |
+| `astrobiology/` | 10 | 2026-02 | — | 11 tags → pending |
 
 ---
 

@@ -26,6 +26,7 @@ Irrigation enables agriculture where rainfall is insufficient or unreliable. It 
 ```
 
 ---
+<!-- @editor[bridge/P2]: No old-world bridge — irrigation scheduling is a classic control problem: sense (soil moisture), decide (ET model), actuate (valve/pump). The efficiency ladder from flood to drip maps to increasing precision in any resource-allocation system. The learner will recognize PID-like feedback immediately; connect it. -->
 
 ## Water Requirements — Crop ET
 

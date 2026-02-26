@@ -29,6 +29,7 @@ Aquaculture surpassed wild-catch fishing as the primary source of fish for human
 ```
 
 ---
+<!-- @editor[bridge/P2]: No old-world bridge — RAS is a closed-loop control system with sensor/actuator pairs (ammonia sensor → biofilter, O2 sensor → aerator) identical to industrial process control. IMTA is a microservices architecture where each trophic level consumes the waste output of another. The learner designs these systems in software; anchor the biology to those patterns. -->
 
 ## Production Systems — From Extensive to Intensive
 

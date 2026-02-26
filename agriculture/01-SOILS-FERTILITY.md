@@ -25,6 +25,7 @@ Soil is the living foundation of agriculture — not just dirt but a complex sys
 ```
 
 ---
+<!-- @editor[bridge/P2]: No old-world bridge — CEC and nutrient cycling are buffered reservoir systems (capacitor analogy for the MIT/EE reader); soil pH controlling availability parallels a state variable governing system behavior. Connect to systems thinking the learner already owns. -->
 
 ## Soil Texture — Physical Framework
 

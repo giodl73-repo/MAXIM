@@ -23,6 +23,7 @@ The constraints are clear: feed 10 billion by 2050 while using less water, less 
 ```
 
 ---
+<!-- @editor[bridge/P2]: No old-world bridge — the precision agriculture technology stack (positioning → sensing → analytics → application) is the same layered architecture as any IoT/edge-computing system. CRISPR-Cas9 is literally a find-and-replace on a genome string. Vertical farming is a controlled-environment datacenter for plants. The learner's entire career maps to these abstractions; make the bridges explicit. -->
 
 ## Precision Agriculture — The Data-Driven Farm
 

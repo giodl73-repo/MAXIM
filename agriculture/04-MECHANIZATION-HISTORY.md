@@ -27,6 +27,7 @@ Agricultural mechanization is the story of substituting energy (animal, then fos
 ```
 
 ---
+<!-- @editor[bridge/P2]: No old-world bridge — the three mechanization waves (physical→chemical→data) parallel computing's own progression (mainframe→PC→cloud). The GPS/sensor layer is literally the same IoT stack the learner knows from Azure IoT. Draw the parallel explicitly. -->
 
 ## Ancient Plow Evolution — Soil Tillage History
 

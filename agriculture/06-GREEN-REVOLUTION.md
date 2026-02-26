@@ -25,6 +25,7 @@ The Green Revolution (roughly 1960–1990) was the deliberate application of gen
 ```
 
 ---
+<!-- @editor[bridge/P2]: No old-world bridge — the Green Revolution is a system-of-systems deployment story: genetics + chemistry + infrastructure + institutions, where removing any one pillar collapses the system. This maps to platform engineering (runtime + SDK + distribution + ecosystem). The harvest index concept is directly analogous to throughput efficiency — same total resources, more directed to useful output. Connect for the systems thinker. -->
 
 ## The Pre-Revolution Malthusian Crisis
 
