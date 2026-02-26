@@ -28,7 +28,38 @@ THE CELL AS A SYSTEM:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: cell membrane = firewall + API gateway, vesicle trafficking = message routing, cell cycle checkpoints = CI/CD quality gates -->
+## Engineering Bridges
+
+```
+CELL ARCHITECTURE ←→ DISTRIBUTED SYSTEMS
+
+Cell membrane = firewall + API gateway
+  Lipid bilayer: default-deny permeability barrier
+  Ion channels (gated): stateful packet filters — voltage or ligand opens the gate
+  Transporter proteins: typed APIs (GLUT1 for glucose, SERT for serotonin)
+  Na⁺/K⁺ ATPase: active transport = paying energy cost to maintain gradient
+  ABC transporters (MDR1): efflux pumps = the cell's rate limiter for drug accumulation
+
+Vesicle trafficking = message routing with typed envelopes
+  COPII coats ER→Golgi: outbound message queue (forward direction)
+  COPI coats Golgi→ER: return path / error correction
+  Clathrin-coated pits: receiver-side queue for receptor-mediated endocytosis
+  SNARE proteins: delivery receipt mechanism (v-SNARE + t-SNARE = matched pair)
+  Rab GTPases: routing table — each compartment has a different Rab identity
+
+Cell cycle checkpoints = CI/CD quality gates
+  G1/S checkpoint: "is DNA intact and environment permissive?" — like pre-build validation
+  Intra-S checkpoint: "is replication fork stalling?" — like mid-build health check
+  G2/M checkpoint: "is replication complete?" — like pre-deploy gate
+  Spindle assembly checkpoint: "are all chromosomes attached?" — deploy only if canary passes
+  p53: the master incident response coordinator (halts pipeline or triggers rollback/apoptosis)
+
+Mitochondria = distributed power plant with event sourcing
+  Proton gradient (Δψ + ΔpH): stored electrochemical potential = capacitor charge
+  ATP synthase: rotary motor driven by proton flow = converting potential to ATP
+  mtDNA: separate genome inherited from endosymbiont ancestor (matrilineal, 37 genes)
+  ~30-32 ATP/glucose: the corrected modern number (older textbooks say 36-38)
+```
 
 ## Cell Membrane
 
@@ -362,4 +393,21 @@ BCL-2 FAMILY:
 | Cell cycle progression | Cyclin-CDK complexes | Rb/E2F, securin, APC/C |
 | Apoptosis commitment | Mitochondria (MOMP) | Bcl-2 family, caspase cascade |
 
-<!-- @editor[structure/P2]: Missing Common Confusion Points section (e.g., apoptosis vs necrosis, 30-32 ATP is modern corrected number) -->
+---
+
+## Common Confusion Points
+
+**30-32 ATP per glucose, not 36-38**: Older biochemistry textbooks cite 36-38 ATP. The modern corrected value is ~30-32, accounting for the actual H⁺/ATP ratio of ATP synthase (~2.7 H⁺ per ATP), proton leak, and transport costs across the inner mitochondrial membrane. Use 30-32.
+
+**Apoptosis vs necrosis — opposite outcomes**:
+- Apoptosis: programmed, clean, no inflammation. Cell shrinks, packages itself into apoptotic bodies, displays "eat me" signal (phosphatidylserine flip). Macrophages phagocytose silently.
+- Necrosis: uncontrolled, inflammatory. Cell swells, membrane ruptures, contents spill → danger signals (DAMPs) → inflammatory cascade.
+- A third pathway: pyroptosis — inflammatory programmed death (gasdermin pores, IL-1β release) — common in pathogen response.
+
+**Vesicle coat proteins are not permanent**: COPII, COPI, and clathrin coats are shed before fusion. A vesicle cannot fuse while still coated. Coat shedding (uncoating by Hsp70 for clathrin) is required for SNARE pairing and fusion.
+
+**Lipid rafts are real but dynamic**: They are transient (nanoseconds to seconds), small (<200 nm), and below the resolution of conventional light microscopy. The controversy is about their size, lifetime, and in vivo relevance — not about whether ordered lipid domains exist at all.
+
+**Cell signaling cascades amplify**: One GPCR activation → activates hundreds of Gs → activates hundreds of adenylyl cyclase → generates thousands of cAMP → activates thousands of PKA. Signal amplification is geometric. This is why receptor concentrations can be low (femtomolar range) and still drive strong cellular responses.
+
+**Cyclin levels oscillate; CDK levels don't**: CDK proteins are constitutively present but inactive alone. Cyclin binding activates CDK. Cyclin is synthesized and destroyed each cell cycle — the oscillating level is the clock. Targeting cyclins (CDK4/6 inhibitors: palbociclib) is a viable cancer therapy.

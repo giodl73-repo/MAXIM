@@ -363,7 +363,79 @@ JOSEON DYNASTY (1392–1910):
 
 ---
 
-<!-- @editor[content/P2]: Vietnam (Dai Viet) absent — a significant feudal state that repelled Mongol invasions three times, maintained Confucian bureaucracy, and warrants at least a brief section parallel to Korea -->
+---
+
+## Dai Viet (Vietnam) — The Southern Buffer State
+
+Dai Viet occupies a structurally distinct position in East Asia: a Sinicized state that absorbed Chinese administrative culture while fighting persistently to remain politically independent from China.
+
+```
+DAI VIET — STRUCTURE AND SIGNIFICANCE
+=======================================
+
+BACKGROUND: 1,000 YEARS OF CHINESE RULE
+  111 BCE – 939 CE: Northern Vietnam under Han, then Tang administration
+  Vietnamese elite absorbed Chinese writing, Confucian administration,
+  Buddhism — but maintained distinct ethnic and linguistic identity
+  939 CE: Ngo Quyen's victory at Bach Dang River → independence restored
+
+LY DYNASTY (1009–1225): Consolidation
+  Moved capital to Thang Long (Hanoi) — Vietnamese name: "Rising Dragon"
+  1070: Temple of Literature (Van Mieu) — Confucian academy
+  1075: Civil service examinations (modeled on Tang/Song China)
+  = Vietnamese state uses Chinese bureaucratic tools for non-Chinese goals
+  Expanded south: wars with Champa kingdom
+
+TRAN DYNASTY (1225–1400): The Mongol Wars
+  THREE MONGOL INVASIONS — THREE REPULSIONS:
+  +──────────────────────────────────────────────────────+
+  | 1257–58: Uriyangkhadai's forces enter Thang Long     |
+  |          → Vietnamese scorched earth; city abandoned |
+  |          → Mongols withdraw (supply lines overstretched)|
+  +──────────────────────────────────────────────────────+
+  | 1284–85: Kublai Khan sends 500,000 troops (sources vary)|
+  |          Tran Hung Dao: guerrilla tactics in Red River  |
+  |          delta; naval ambush at Ham Tu; Mongols retreat |
+  +──────────────────────────────────────────────────────+
+  | 1287–88: Third invasion; Tran Hung Dao repeats        |
+  |          Bach Dang River strategy (iron stakes in river)|
+  |          Mongol fleet destroyed; land forces withdraw  |
+  +──────────────────────────────────────────────────────+
+  Context: Mongols conquered Song China, Korea, Burma, Cambodia
+           Dai Viet was one of very few to repel them, multiple times
+
+TACTICAL PATTERN (applicable to any era):
+  Avoid decisive pitched battle with superior force
+  Retreat inland; let supply lines overextend
+  Strike at logistics (river ambush, scorched earth)
+  Counter-attack when enemy is supply-constrained
+  = the same doctrine the Viet Minh and NVA used in 1945–1975
+
+LE DYNASTY (1428–1788): Classical Confucian State
+  Le Loi expelled Chinese (Ming) after 20-year occupation (1407–27)
+  "Proclamation of Victory" (Le Loi's 1428 document): explicit assertion
+  of Vietnamese civilizational equality with China
+  Hong Duc Code (1483): Confucian-based legal code, but with notable
+  differences — women had stronger property and inheritance rights than
+  in Chinese law
+  Continued southern expansion: absorbed Champa (1471); pushed into
+  Mekong delta region
+
+SOUTHERN EXPANSION PATTERN:
+  Vietnamese "nam tien" (southward march): compressed Cham kingdom,
+  pushed into Khmer territory
+  By 18th century: Vietnam reaches Mekong Delta (former Khmer territory)
+  = 1,000-year territorial expansion along narrow coastal strip
+
+ADMINISTRATIVE STRUCTURE:
+  Divided into provinces (thua), districts (huyen), communes (xa)
+  Village commune (lang xa): strong self-governing unit
+  Two-tier reality: Confucian state at top; village autonomy below
+  Tax, corvee, military service flows upward; villages run themselves
+```
+
+**Why Dai Viet fits the regional pattern and why it doesn't:**
+Korea and Vietnam both ran Confucian bureaucratic states while preserving distinct identities. Korea maintained tributary subordination to China diplomatically while keeping internal sovereignty. Vietnam fought repeated wars for that same internal sovereignty against Chinese attempts at direct rule. The comparison reveals how the Confucian administrative framework was separable from Chinese political dominance.
 
 ## Decision Cheat Sheet — East Asian Dynasties
 

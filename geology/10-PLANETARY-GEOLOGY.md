@@ -1,6 +1,6 @@
 # Planetary Geology — Comparative Planetology, Moon, Mars, Venus
 
-<!-- @editor[bridge/P2]: No old-world bridge — comparative planetology as "A/B testing by nature": same physical laws, different initial conditions (size, distance, volatiles) → radically different outcomes — the engineering mindset of isolating variables to understand system behavior applies directly -->
+**Bridge — comparative planetology as natural A/B testing with controlled variables:** Planetary geology is the closest geology gets to controlled experimentation. The same physical laws govern all rocky bodies; what varies are the initial conditions: mass (determines internal heat budget and gravity), heliocentric distance (solar flux, volatile inventory, temperature), volatile content (water changes everything — viscosity, melting point, plate tectonics feasibility), and age of differentiation. Holding one variable constant and varying another isolates its effect. Mars vs Earth: similar rocky composition, Mars has 1/10th the mass → faster interior cooling → tectonics ceased ~3 Ga → no recycling → full 4.5 Ga surface record preserved. Venus vs Earth: nearly identical size and composition, but Venus lost its water → no plate tectonics → stagnant lid → 92-bar CO₂ atmosphere → 465°C surface. Water is the single variable that explains most of Earth's uniqueness. Io vs Europa: both tidally heated by Jupiter, but Io has no water → pure volcanism; Europa has subsurface ocean → geology mediated by ice-water interface. Each planet is a natural experiment that constrains what Earth would look like if one parameter were changed.
 
 ## The Big Picture
 
@@ -198,7 +198,97 @@ EUROPA:
 
 ---
 
-<!-- @editor[content/P2]: Mercury and outer icy moons (Titan, Enceladus, Ganymede) absent — Mercury's heavily cratered surface + lobate scarps (cooling contraction) and Titan's methane cycle / Enceladus's geysers are significant comparative geology topics -->
+## Mercury — The Shrunken Cratered World
+
+Mercury is the smallest terrestrial planet (radius 2,440 km, ~38% of Earth's), yet has the largest metallic core relative to its size (~85% of planetary radius). The MESSENGER mission (2011–2015) revealed:
+
+```
+MERCURY GEOLOGY HIGHLIGHTS:
+
+SURFACE:
+  Heavily cratered highlands — ancient (~4.0 Ga), like Lunar highlands
+  Smooth plains — volcanic resurfacing event ~3.7 Ga (younger than surface)
+  Caloris Basin: 1,550 km multi-ring impact basin; antipodal chaotic terrain
+    ("weird terrain") from converging seismic waves through planet
+
+UNIQUE FEATURES — LOBATE SCARPS:
+  Long, curved cliff systems crossing all terrain types
+  Hundreds to thousands of km long; up to 3 km high
+  Interpreted as global compressional thrust faults
+  Cause: Mercury cooled and contracted after formation
+         → planetary radius decreased ~7 km
+         → surface buckled and thrust-faulted in compression
+  This is a one-way ratchet: cooling shrinkage cannot be reversed
+
+VOLATILE INVENTORY:
+  MESSENGER detected H₂O ice in permanently shadowed polar craters
+  Radar-bright polar deposits confirmed = ice (despite surface T swings
+    of −170°C to +430°C; polar craters never see sunlight)
+  Also: sulfur, carbon, other volatiles (unexpectedly volatile-rich for
+    planet that close to Sun — challenges formation models)
+
+MAGNETIC FIELD:
+  Weak but real dipole (~1% of Earth's field strength)
+  Suggests partially liquid outer core — surprising for small, old body
+  Offset ~20% of planetary radius northward from center (unexplained)
+```
+
+## Titan, Enceladus, and Ganymede — Geology at the Outer Limits
+
+The outer Solar System icy moons demonstrate that geologic activity doesn't require rocky composition or solar heating:
+
+```
+TITAN (Saturn's largest moon, radius 2,574 km):
+
+  ATMOSPHERE: Dense N₂ + CH₄ atmosphere; 1.5 bar surface pressure
+              Photochemistry produces organic haze (orange color)
+
+  METHANE CYCLE (analog to Earth's water cycle):
+    Methane plays the role water plays on Earth:
+    - Methane rain fills lakes and seas (Ligeia Mare, Kraken Mare)
+    - Lakes concentrated at north pole (currently summer)
+    - Rivers cut channels in water-ice bedrock
+    - Methane evaporates → clouds → rain → rivers → lakes
+    Problem: UV destroys atmospheric methane in ~10 Ma;
+    source must be replenished (subsurface reservoir or volcanism?)
+
+  GEOLOGY:
+    Water-ice bedrock (crust); methane/ethane seas
+    Dunes of organic tholin particles (Belet Dune Sea)
+    Cryovolcanism possible (Sotra Patera — candidate cryovolcano)
+    Subsurface liquid water-ammonia ocean (inferred from Cassini gravity)
+    Dragonfly mission (NASA, ~2034): helicopter lander on Titan surface
+
+ENCELADUS (Saturn's sixth-largest moon, radius 252 km):
+
+  GEYSERS: Active water-vapor plumes from south polar region
+           Tiger stripe fractures (Baghdad Sulcus etc.) are vents
+           Plumes contain: H₂O, CO₂, CH₄, H₂, organic molecules
+           H₂ suggests hydrothermal reactions between water and rock
+           → Actively hydrothermal subsurface ocean
+
+  SUBSURFACE OCEAN: Global ocean under ~20–25 km ice shell
+                    Confirmed by Cassini gravity + plume chemistry
+                    pH ~11 (alkaline), warm at vents
+                    Feed material into Saturn's E-ring
+
+  HABITABILITY: Water + chemistry + energy (tidal + hydrothermal)
+                → among most promising astrobiology targets
+
+GANYMEDE (Jupiter's largest moon; largest moon in Solar System):
+
+  SIZE: Larger than Mercury (radius 2,634 km), but lower density
+  ICE SHELL: ~800 km thick water-ice mantle over rocky interior
+  MAGNETIC FIELD: Only moon with its own intrinsic magnetic field
+                  (dipole ~1.5% of Earth's; embedded in Jupiter's field)
+  GEOLOGY:
+    Dark terrain (sulci): ancient, heavily cratered (~4 Ga)
+    Bright terrain: younger, grooved/ridged (extensional tectonics)
+      → Ancient tectonic episode reshaped ~1/3 of surface
+    Subsurface ocean: ~800 km depth, confirmed by Hubble aurorae
+      oscillation in Jupiter's magnetic field
+  JUICE mission (ESA, arrives 2034): dedicated Ganymede orbiter
+```
 
 ## Impact Geology on Earth
 

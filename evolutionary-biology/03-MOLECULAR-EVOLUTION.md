@@ -155,7 +155,49 @@ models like PAML M7/M8 is required to detect this.
 
 ## Molecular Clock
 
-<!-- @editor[content/P2]: Codon usage bias thin — mentioned in the landscape diagram but not covered in the body; codon usage bias is a well-studied force shaped by translational selection and drift that deserves its own subsection -->
+## Codon Usage Bias
+
+The genetic code is degenerate: most amino acids are encoded by 2–6 synonymous
+codons. Usage among synonymous codons is non-random — this is codon usage bias (CUB).
+
+```
+CAUSES OF CODON USAGE BIAS:
+
+  1. TRANSLATIONAL SELECTION:
+     Codons matching abundant tRNA species → faster, more accurate translation
+     "Preferred" codons = those with cognate tRNA at high cellular concentration
+     Selection for preferred codons detectable at 4Nes > 1 (effective population
+     size must be large enough for selection to act on the small per-codon benefit)
+
+     Magnitude of benefit: ~0.01–0.1% per synonymous codon for elongation speed
+     → only effective in large-N organisms (bacteria, yeast) not small-N (mammals)
+     → highly expressed genes show stronger CUB: more selection pressure
+
+  2. MUTATIONAL BIAS:
+     Asymmetric mutation rates (e.g., GC-biased gene conversion in mammals)
+     → CUB reflects underlying genome nucleotide composition
+     Distinguishing selection vs. mutation: compare expressed vs. unexpressed regions
+
+  3. mRNA SECONDARY STRUCTURE:
+     Local codon usage affects mRNA folding → ribosome stall sites
+     5' end of CDS: rare codons slow initial elongation → helps co-translational folding
+     "Ramp" effect: deliberate deceleration at start helps prevent ribosome collisions
+
+MEASUREMENT:
+  Codon Adaptation Index (CAI): ratio of codon frequency to most frequent codon
+    for same amino acid, relative to highly expressed reference genes
+  Effective number of codons (ENC): ranges from 20 (extreme bias) to 61 (no bias)
+  Relative synonymous codon usage (RSCU): observed / expected under uniform use
+
+APPLICATIONS:
+  Codon optimization for heterologous expression:
+    Replace rare host codons with preferred codons → higher protein yield
+    Tool: used routinely in synthetic biology (vaccine antigen production, etc.)
+  Codon deoptimization: attenuate viruses for live vaccines (many rare codons → slow growth)
+  Evolutionary inference: CUB as proxy for gene expression history
+    Highly expressed ancient genes maintain CUB; recently duplicated/transferred genes do not
+```
+
 ### The Concept
 
 If substitution rate r (substitutions per site per unit time) is constant across
@@ -255,7 +297,58 @@ chloroplasts themselves are ancient HGT events (endosymbiosis).
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — the substitution models (JC69 through GTR) are Markov chains on a 4-state alphabet; this learner has automata/formal languages from MIT TCS and would immediately grasp these as continuous-time Markov processes if the bridge were explicit -->
+## Substitution Models — Markov Chain Bridge
+
+Nucleotide substitution models (JC69, HKY, GTR) are continuous-time Markov
+chains on a 4-state alphabet {A, C, G, T}. The TCS framing is exact:
+
+```
+CONTINUOUS-TIME MARKOV CHAIN ON 4 STATES:
+
+  State space: Σ = {A, C, G, T}
+  Rate matrix Q (4×4, off-diagonal = instantaneous substitution rates):
+
+  JC69 (Jukes-Cantor 1969):
+    Q = μ · [−3  1   1   1 ]    (all rates equal, λ = 3μ)
+            [  1 −3  1   1 ]
+            [  1  1 −3  1 ]
+            [  1  1   1 −3]
+
+  HKY85: transitions (A↔G, C↔T) at rate κ·μ; transversions at rate μ
+    Biological reason: purine↔purine and pyrimidine↔pyrimidine (same ring size)
+    are ~2–10× more frequent than purine↔pyrimidine substitutions
+
+  GTR: full 4×4 with 6 free rate parameters + 4 base frequencies
+    = most general time-reversible chain on 4 states
+    9 free parameters total; rate matrix satisfies detailed balance (πᵢQᵢⱼ = πⱼQⱼᵢ)
+
+MATRIX EXPONENTIATION FOR TRANSITION PROBABILITIES:
+  P(t) = exp(Qt)    (matrix exponential — same as time-homogeneous CTMC)
+
+  P(t)ᵢⱼ = probability that nucleotide i becomes j after time t
+  Computed via: eigendecomposition Q = VDV⁻¹ → P(t) = V·exp(Dt)·V⁻¹
+
+  JC69 solution:
+    P(same, t)     = ¼ + ¾·e^(-4μt)
+    P(different, t) = ¼ − ¼·e^(-4μt)
+
+  At t → ∞: P → stationary distribution (uniform for JC69; π for GTR)
+  At short t: P ≈ I + Qt (linear approximation; first-order Taylor expansion)
+
+SATURATION PROBLEM = MARKOV CHAIN MIXING:
+  At large divergence t, the chain approaches stationarity
+  → multiple substitutions at same site → observed differences underestimate true distance
+  → model correction (JC distance = −¾ ln(1 − 4/3 · p)) recovers true distance
+  Analogous to: distinguishing short random walks from long ones in a well-mixed chain —
+  at stationarity, all state information is lost
+
+RATE VARIATION ACROSS SITES = MIXTURE MODEL:
+  GTR+Γ: each site drawn from a Gamma(α,α) distribution of rates
+  → mixture of CTMCs with different time scales
+  → α → ∞: uniform rates; α → 0: most sites invariant, few hypervariable
+  Identical to: mixture-of-experts model where each site selects its rate class
+```
+
 ## Detecting Selection in Genomic Data
 
 ### Population-level tests (within-species polymorphism)

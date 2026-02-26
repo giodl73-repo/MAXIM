@@ -174,7 +174,50 @@ The electron transport chain (ETC) in the inner mitochondrial membrane.
 Electrons flow from NADH/FADH₂ through protein complexes to O₂, pumping
 protons to create the electrochemical gradient that drives ATP synthesis.
 
-<!-- @editor[bridge/P2]: No old-world bridge for oxidative phosphorylation — Mitchell's chemiosmotic hypothesis is essentially a charge-separation capacitor driving a rotary motor. For a learner with engineering background, the analogy to electrochemical cells (05-ELECTROCHEMISTRY.md) and turbines is natural and missing here. -->
+### Oxidative Phosphorylation — Engineering Bridge
+
+Mitchell's chemiosmotic hypothesis (Nobel 1978) describes a machine that any
+engineer should find familiar. Strip away the biology and the structure is:
+
+```
+ELECTROCHEMICAL GRADIENT AS STORED ENERGY:
+
+  Inner mitochondrial membrane ≈ capacitor / charged battery
+  ┌─────────────────────────────────────────────────────┐
+  │  Intermembrane space  (high H⁺ — positive terminal) │
+  │  ~ +180 mV electrical potential across membrane     │
+  │  ~ 1 pH unit ΔpH (0.06 V per pH unit contribution) │
+  │  Total proton-motive force: Δp ≈ 220 mV            │
+  ╔═════════════════════════════════════════════════════╗
+  ║  Inner mitochondrial membrane (insulator + machine) ║
+  ╚═════════════════════════════════════════════════════╝
+  │  Matrix  (low H⁺ — negative terminal)              │
+  └─────────────────────────────────────────────────────┘
+
+ETC (Complexes I–IV) = pumps building the gradient
+  → like charging a battery or compressing a spring
+  → NADH/FADH₂ are the "fuel" (oxidized to drive pumping)
+  → O₂ is the terminal electron acceptor (the "drain")
+
+ATP synthase (Complex V) = turbine / motor driven by the gradient
+  → F₀ c-ring: 8–15 subunits; H⁺ flow drives mechanical rotation
+  → F₁ head: α₃β₃γ; γ rotation drives conformational changes
+     (binding change mechanism: O → L → T sites cycle, releasing ATP)
+  → ~2.7 H⁺ per ATP; ~3 ATP per revolution of c-ring
+
+PARALLEL TO ELECTROCHEMICAL CELLS (05-ELECTROCHEMISTRY.md):
+  E°(NADH → O₂) = +1.14 V
+  ΔG° = −nFE° = −2 × 96485 × 1.14 = −220 kJ/mol per 2e⁻ pair
+  → enough free energy to synthesize ~2.5 ATP
+  The ~2.5–3 ATP/NADH efficiency reflects this thermodynamic budget.
+
+PARALLEL TO HYDRAULIC TURBINES:
+  Proton gradient (Δp) = hydraulic head
+  H⁺ flux through ATP synthase = water flow
+  ATP = mechanical work output
+  Uncouplers (DNP, FCCP) = bypass bypass — flow without doing work → heat
+```
+
 ### The Five Complexes
 
 ```

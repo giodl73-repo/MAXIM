@@ -29,8 +29,9 @@ Isotope geochemistry uses the natural variation in isotopic compositions to cons
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from the learner's math/physics background to the isochron method — the isochron is fundamentally linear regression on a scatter plot where slope = f(time), a concept an MIT math major grasps instantly. Framing it as "linear regression where the slope encodes age" would anchor the entire section -->
 ## Radioactive Decay Fundamentals
+
+The isochron method is linear regression where the slope encodes age. Starting from the decay equation D = D₀ + N(e^(λt) - 1), dividing through by a stable reference isotope D_ref gives D/D_ref = (D/D_ref)₀ + (N/D_ref)(e^(λt) - 1). Plot D/D_ref on the y-axis and N/D_ref on the x-axis for a set of co-genetic samples (same initial ratio, different parent/daughter ratios): the data fall on a straight line. The slope is (e^(λt) - 1), which you solve for t. The y-intercept is the initial ratio — geochemically useful because it tells you the isotopic composition of the reservoir the samples came from. Scatter around the line quantifies open-system behavior (mobility of parent or daughter after crystallization). The age uncertainty is the standard error on the slope regression — statistics you already know.
 
 ```
 DECAY EQUATIONS

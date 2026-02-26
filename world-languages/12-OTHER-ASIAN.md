@@ -152,7 +152,6 @@ Bệnh viện / Sân bay / Khách sạn — Hospital/Airport/Hotel
 
 ---
 
-<!-- @editor[content/P2]: Vietnamese section is solid but Thai/Burmese/Khmer/Lao sections are noticeably thinner — Thai gets tone/script overview but no grammar core; Burmese/Khmer/Lao get only a few paragraphs each with minimal survival phrases -->
 ## Thai
 
 ### Profile
@@ -228,6 +227,50 @@ VOWEL DIACRITICS — appear above, below, before, or after consonant:
 No spaces between words:
   อยากกินข้าวผัดกุ้งไหม = Do you want to eat fried rice with shrimp?
   A Thai reader segments this mentally; a learner struggles.
+```
+
+### Thai Grammar Core
+
+```
+THAI GRAMMAR — ISOLATING LANGUAGE
+===================================
+No inflection. No conjugation. No grammatical gender. No case.
+Word order (SVO) + particles + context carry all grammatical information.
+
+VERBS — invariant:
+  ผมกิน (phom kin) — I eat / I am eating / I ate
+  เธอกิน (thoei kin) — She eats / She ate
+  Time markers and aspect particles add precision.
+
+TENSE AND ASPECT — particles and adverbs:
+  แล้ว (laeo) — already/completion: กินแล้ว (kin laeo) = ate/already eaten
+  กำลัง (kamlang) — progressive: กำลังกิน = is eating right now
+  จะ (ja) — future intent: จะกิน = will eat
+  ยัง...อยู่ (yang...yuu) — still ongoing: ยังกินอยู่ = still eating
+  ไม่เคย (mai khoei) — never: ไม่เคยกิน = has never eaten
+
+NEGATION:
+  ไม่ (mai, low tone) — general negation: ไม่กิน (not eat)
+  ไม่ใช่ (mai chai) — "is not": ไม่ใช่คนไทย (not Thai)
+  ยัง...ไม่ (yang...mai) — not yet: ยังไม่กิน (haven't eaten yet)
+
+QUESTIONS — particle-based:
+  ไหม? (mai, rising tone) — yes/no question tag (appended to statement)
+    คุณกินข้าวไหม? (Khun kin khao mai?) — Do you eat rice?
+  หรือเปล่า? (rueplao?) — alternative yes/no question form
+  อะไร? (arai?) — What?     ที่ไหน? (thi nai?) — Where?
+  ใคร? (khrai?) — Who?      เมื่อไร? (muearai?) — When?
+
+CLASSIFIERS — like Mandarin/Japanese measure words:
+  คน (khon) — people       ตัว (tua) — animals, shirts
+  เล่ม (lem) — books, knives ใบ (bai) — flat objects, tickets, leaves
+  คัน (khan) — vehicles     ขวด (khuat) — bottles
+
+POLITENESS PARTICLES — appended to nearly every sentence:
+  Male speaker:    ครับ (khrap) — assertive/polite
+  Female speaker:  ค่ะ (kha, falling) — assertive/polite
+                   คะ (kha, rising) — question/polite
+  These are mandatory in formal speech. Omitting = blunt/rude.
 ```
 
 ### Thai Survival Phrases
@@ -385,10 +428,23 @@ Sample consonants (partial): က ခ ဂ ဃ င (velar row)
   Syllable structure: consonant + vowel mark + optional final
   Stacked consonants for clusters: တ + ျ + ာ = ကြာ
 
-Key phrases:
+Grammar highlights:
+  SOV word order — verb at end like Japanese/Korean.
+  No tense morphology — time particles and context.
+  4 tones: creaky (low-register, creaky phonation), low, high, stopped (abrupt).
+  Elaborate politeness particle system:
+    Male speaker: ပါ (pa) formal, ဗျ (bya) informal
+    Female speaker: ရှင့် (shin) formal
+  Verb serialization — multiple verbs in sequence without conjunction:
+    သွားဝယ် (thwa wan) = go-buy = "go and buy"
+
+Key survival phrases:
   မင်္ဂလာပါ (Mingalaba) — Hello
   ကျေးဇူးတင်ပါတယ် (Kyay zu tin ba deh) — Thank you
   မသိဘူး (Ma thi buu) — I don't know/understand
+  ဘယ်လောက်လဲ? (Beh lau leh?) — How much?
+  ဘယ်မှာလဲ? (Beh hma leh?) — Where is ___?
+  ကူညီပါ! (Ku nyi pa!) — Help!
 ```
 
 ### Khmer (Cambodian)
@@ -413,10 +469,24 @@ Script characteristics:
 Sample: ស្រុកខ្មែរ (Srok Khmer = Cambodia/Khmer country)
   ស = s, ្រ = r (subscript), ុ = u, ក = k → sruk
 
-Key phrases:
+Grammar highlights:
+  SVO order, isolating morphology — minimal inflection.
+  Not a tonal language in the same sense as Thai/Mandarin;
+    has a register system (2 series of consonants create "high"/"low" register)
+    affecting vowel quality more than pitch.
+  Extensive system of honorifics and register:
+    Formal vocabulary vs colloquial vocabulary differs substantially.
+  No definite/indefinite articles — context determines.
+  Classifiers used with numbers: ១ + ដើម (one + classifier for trees = one tree).
+
+Key survival phrases:
   ជំរាបសួរ (Chomreab suor) — Hello (formal)
+  សួស្ដី (Suosdei) — Hello (informal)
   អរគុណ (Aw-kun) — Thank you
   ខ្ញុំមិនយល់ (Kh'nyom min yul) — I don't understand
+  តម្លៃប៉ុន្មាន? (Thamlai ponman?) — How much?
+  នៅទីណា? (Nou ti na?) — Where is ___?
+  សូមជួយផង! (Saum chuoy phong!) — Please help!
 ```
 
 ### Lao
@@ -440,10 +510,22 @@ Lao vs Thai: ~85% mutually intelligible in written form.
 Thai speakers can read Lao with moderate effort and vice versa.
 For practical purposes: if you learn Thai, Lao is accessible.
 
-Key phrases:
+Grammar highlights:
+  Isolating morphology — like Thai and Vietnamese, no inflection.
+  6 tones (some dialects 5 — regional variation).
+  SVO word order.
+  Classifiers like Thai.
+  Politeness: particles ເດ (deh) and ເນາ (nao) mark informal registers.
+  Lao is particularly important for Isan (NE Thailand) — 20M+ speakers
+    of what is effectively Lao with Thai loanwords.
+
+Key survival phrases:
   ສະບາຍດີ (Sabai dii) — Hello / How are you
   ຂອບໃຈ (Khob jai) — Thank you
   ບໍ່ເຂົ້າໃຈ (Bo khao jai) — I don't understand
+  ຈ່ອຍເທົ່າໃດ? (Joi thao dai?) — How much?
+  ຢູ່ໃສ? (Yuu sai?) — Where is ___?
+  ຊ່ວຍດ້ວຍ! (Suay duay!) — Help!
 ```
 
 ---

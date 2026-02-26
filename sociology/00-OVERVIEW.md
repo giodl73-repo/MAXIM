@@ -243,7 +243,20 @@ FEMINIST AND INTERSECTIONAL SOCIOLOGY
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — learner's MIT formal-systems background and organizational leadership map naturally to Weber's rationalization, Bourdieu's field theory, and network analysis; a "CS/management → sociology" bridge paragraph would anchor the whole module set -->
+## From Systems and Networks to Social Structure
+
+Sociology is formal social science — it builds models of collective behavior from structural primitives, not from individual psychology. The entry points for a formal-systems thinker are direct:
+
+**Network science is embedded sociology.** Granovetter's strength-of-weak-ties result (1973) is a graph-theoretic finding: weak ties are bridges across sparse subgraph clusters; strong ties are dense within-cluster edges. Burt's structural holes are vertices with high betweenness centrality. Watts-Strogatz small-world networks formalize how epidemics and norms propagate. Sociologists discovered much of this before the network-science formalism was developed; reading them together is mutually clarifying.
+
+**Institutions are coordination equilibria.** Weber's bureaucracy is a stable Nash equilibrium in a coordination game: everyone follows the rules because everyone else follows them, and deviating is costly. Institutional isomorphism (DiMaggio/Powell) is the basin of attraction that pulls organizational forms toward a common configuration under legitimacy pressure — not efficiency pressure. The formal analog: convergence in a social learning dynamic.
+
+**Stratification is a topology problem.** Weber's three-dimensional stratification (class × status × power) is a low-dimensional embedding of a high-dimensional social space. Bourdieu operationalizes this: agents are points in capital-space; fields are structured subspaces with their own metric. Social mobility is movement through that space, subject to path-dependent constraints (habitus as inertia).
+
+**Durkheim's collective conscience is an information-theoretic object.** A society's collective conscience is the shared probability distribution over values and norms — higher entropy means more anomie (normlessness), lower entropy means stronger mechanical solidarity. Socialization is the process of transmitting that distribution to new members; deviance is the tail of the distribution that gets punished back toward the mean.
+
+**Bourdieu's fields are competitive games with endogenous rules.** Each field (academic, economic, artistic) is a game where the rules, the stakes, and the valid moves are themselves contested by players with different capital positions. This is a repeated game with evolving strategy spaces — agents compete both within the rules and over the rules.
+
 ## Bridges to Adjacent Fields
 
 | Field | Connection |

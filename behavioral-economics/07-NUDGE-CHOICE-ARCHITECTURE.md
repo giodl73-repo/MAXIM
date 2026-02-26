@@ -209,7 +209,47 @@ EMPIRICAL META-ANALYSIS (Hummel & Maedche 2019):
   Smallest effects: information provision alone.
 ```
 
-<!-- @editor[bridge/P3]: Natural bridge to Azure/VSTS/.NET concept missing here — the Microsoft-specific section is useful but should follow a universal bridge (e.g., from classical optimization/search theory to choice architecture as "designing the search space") that any senior engineer would benefit from -->
+## Engineering Bridge: Choice Architecture as Search Space Design
+
+Choice architecture maps directly onto a concept every senior engineer knows: designing a search or solution space to steer agents toward desired outcomes without changing the objective function.
+
+```
+CLASSICAL OPTIMIZATION FRAMING:
+  Agent has utility function U(x) over outcomes x ∈ X.
+  Standard assumption: agent explores X and finds argmax U(x).
+
+  Choice architecture insight: agents don't explore X globally.
+  They use local search with bounded cognitive resources:
+    - Default = starting point (agents often stop searching immediately)
+    - Framing = topology of the solution space (which moves are salient)
+    - Option order = search sequence (first option explored gets preference)
+    - Choice set size = branching factor (more options → more likely to stop early)
+    - Anchoring = initial seed for the search (biases toward nearby solutions)
+
+  DESIGNING THE SEARCH SPACE:
+  Choice architect doesn't change U(x) — can't tell people what to want.
+  Choice architect changes the search landscape over X:
+    Make desired outcome the default (search terminates at the starting point)
+    Reduce friction to desired option (lower the path cost)
+    Make alternatives prominent (change salience = change exploration probability)
+    Limit choice set (reduce branching factor → reduce decision paralysis)
+
+  CS ANALOGIES:
+  Default effect    ← greedy initialization: optimizer returns default if not restarted
+  Simplification    ← reducing search space dimensionality (fewer parameters to tune)
+  Ordered options   ← sequential search with early termination (first-fit vs. best-fit)
+  Commitment device ← constraint propagation: add constraints to prune future options
+  Social proof      ← warm-starting with population solution (majority choice as prior)
+  Loss framing      ← asymmetric cost function (losses weighted more than gains)
+
+LIBERTARIAN PATERNALISM IN CONTROL THEORY TERMS:
+  Traditional regulation: mandate x ∈ {allowed set} (hard constraint)
+  Libertarian paternalism: design search space so desired x is found most often
+    while preserving feasibility of all x ∈ X (soft guidance, no hard constraint)
+  Analogous to: soft constraints in constrained optimization vs. hard constraints
+  Trade-off: soft guidance is weaker but preserves autonomy (no feasibility violations)
+```
+
 ## Microsoft and Large-Tech Behavioral Design Context
 
 ```

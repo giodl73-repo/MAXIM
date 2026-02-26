@@ -2,7 +2,8 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P2]: Missing natural-experiment bridge — comparative criminology is essentially a natural-experiment research design (same input, different policy treatment, different outcome). Any engineer familiar with A/B testing or controlled experiments would grasp the methodology instantly through that lens -->
+**Natural-experiment bridge:** Comparative criminology is a natural-experiment research design: nations are treated as quasi-experimental units that received different "treatments" (policy regimes) while sharing overlapping baseline conditions (industrialization, urbanization, demographic structure). The design enables a form of cross-national difference-in-differences analysis: if crime rates are similar across nations but incarceration rates differ by 10x, the difference cannot be attributed to crime inputs and must be attributed to policy choices. Portugal's 2001 drug decriminalization is a classic before/after natural experiment with a comparison group (other EU nations that did not decriminalize) — the design is close to a controlled trial. Germany's post-reunification variation (West vs. East German justice institutions converging) is a natural experiment exploiting historical institutional divergence. The main threats to causal inference are confounds (Scandinavia's low incarceration might be caused by cultural homogeneity or oil wealth rather than by sentencing policy) — the same confound problem that arises in any observational study. The counter-argument is dose-response: the magnitude of the US-Norway incarceration difference (600 vs. 55 per 100,000) is so large that a confound would have to be implausibly large to explain it away, analogous to dismissing the smoking-cancer correlation because of unmeasured genetic confounds.
+
 Comparative criminology examines crime and justice across nations to separate universal patterns from policy-contingent ones. The central lesson: incarceration rates, crime responses, and criminal justice practices are political choices, not natural outcomes of crime rates. Similar crime inputs produce radically different outputs depending on institutions, culture, and politics.
 
 ```
@@ -374,6 +375,19 @@ Common claim: Nordic models work because of cultural homogeneity or wealth. Coun
 **Adversarial vs. Inquisitorial Is Not Pure**
 Modern legal systems mix features. Germany has adversarial elements; US has investigative magistrate-like elements (grand jury). The distinction is a heuristic for key structural differences, not a binary classification.
 
-<!-- @editor[content/P2]: Transitional justice absent — truth commissions (South Africa TRC, Colombia), lustration, and reparations are major comparative criminology topics that don't appear anywhere in the directory. At minimum a note pointing to the gap -->
+**Transitional Justice:** A major comparative criminology domain not covered elsewhere in this directory. Transitional justice addresses how societies reckon with mass atrocities, state crime, and systematic human rights violations after regime transitions — without the option of prosecuting every perpetrator through ordinary criminal courts.
+
+The main mechanisms are:
+
+*Truth commissions:* Non-prosecutorial bodies tasked with creating an authoritative public record. South Africa's Truth and Reconciliation Commission (1996-2003) granted amnesty in exchange for full disclosure — trading criminal accountability for historical truth and reconciliation. Colombia's Comisión para el Esclarecimiento de la Verdad (2017-2022) operated alongside the Special Jurisdiction for Peace (JEP), a hybrid tribunal combining restorative and criminal justice elements. The core tension in all truth commission design is the prosecutorial trade-off: full amnesty (South Africa model) maximizes testimony and truth; no amnesty maximizes accountability but reduces cooperation.
+
+*Lustration:* Administrative exclusion of former regime collaborators from public office, without criminal prosecution. Applied most systematically in post-communist Central and Eastern Europe (Czech Republic, Germany). Less retributive than prosecution; more institutional than truth commissions. The policy challenge is accuracy: secret police files are incomplete, and lustration creates both false positives (wrongly accused) and false negatives (collaborators who evaded records).
+
+*Reparations:* Financial or symbolic acknowledgment of harm to victims. Germany's reparations program for Holocaust survivors (Wiedergutmachung) is the most extensive in history. Most transitional justice contexts have inadequate reparations relative to documented harm.
+
+*Hybrid tribunals:* Mix international and domestic law and personnel. The Special Court for Sierra Leone, the Extraordinary Chambers in the Courts of Cambodia (Khmer Rouge tribunal), and the Special Tribunal for Lebanon. These represent attempts to build local legitimacy while maintaining international legal standards.
+
+The criminological interest in transitional justice lies in whether conventional deterrence logic applies to mass atrocity — whether the threat of eventual international prosecution actually deters genocide or war crimes. The evidence is mixed and the causal identification is extremely difficult.
+
 **The ICC Is Not a World Government**
 The ICC has no enforcement power. It depends on states to arrest and transfer defendants. If the host country won't arrest, the ICC warrant is symbolic. This is why Putin can travel to some countries and not others. The ICC is an institution with normative force, not coercive power.

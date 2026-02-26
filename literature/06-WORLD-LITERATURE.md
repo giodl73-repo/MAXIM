@@ -353,7 +353,80 @@ Calvino, García Márquez. Borges called Scheherazade
 
 ---
 
-<!-- @editor[content/P2]: Hebrew/biblical literary tradition absent — Psalms' parallelism (the defining formal feature), Song of Songs, Lamentations, and their influence on Western lyric and prose rhythm mentioned in 00-OVERVIEW but never treated here -->
+## Hebrew Biblical Literature
+
+```
+HEBREW BIBLE AS FORMAL LITERARY SYSTEM
+
+The Hebrew Bible is the most influential literary object in
+Western literature — not as theology but as a formal system
+that shaped every subsequent genre: the lyric, the elegy,
+the love poem, the epic, the philosophical dialogue.
+
+BIBLICAL PARALLELISM (Robert Lowth, "Lectures," 1753):
+The defining formal feature of Hebrew poetry.
+Not meter in the Greek/Latin sense — no syllable counting or
+quantity. Instead: semantic/syntactic parallelism across lines.
+
+Three types (Lowth's taxonomy, still foundational):
+
+  Synonymous parallelism:
+    Line A states X; Line B restates X in different words.
+    "The heavens declare the glory of God;
+     the firmament showeth his handiwork."  (Psalm 19:1)
+    Formal structure: f(a) || f(a') where a ≈ a'
+
+  Antithetical parallelism:
+    Line A states X; Line B states not-X (the opposite).
+    "A merry heart maketh a cheerful countenance:
+     but by sorrow of the heart the spirit is broken." (Prov. 15:13)
+    Formal structure: f(a) || f(¬a)
+
+  Synthetic parallelism:
+    Line B completes or extends Line A — not synonymous,
+    not antithetical, but additive or causal.
+    "I have set my king upon my holy hill of Zion.
+     I will declare the decree." (Psalm 2:6-7)
+    Formal structure: f(a) ∧ g(a,b)
+
+WHY THIS MATTERS FOR WESTERN LITERARY FORM:
+  The King James Bible (1611) rendered Hebrew parallelism
+  into English prose. This gave English literary prose its
+  characteristic rhythm of paired or tripled clauses.
+  Lincoln's Second Inaugural ("With malice toward none, with
+  charity for all, with firmness in the right") is biblical
+  parallelism in political rhetoric.
+  Martin Luther King's repetitive structure derives directly
+  from the sermon form which derives from Psalm parallelism.
+
+SONG OF SONGS (Shir HaShirim):
+  The most formally unusual book in the Hebrew Bible.
+  A sequence of erotic poems with no narrative frame,
+  no theological content, no moral instruction.
+  Inclusion in the canon attributed to Rabbi Akiva (c. 100 CE):
+  "All the world is not worth the day on which the Song of
+  Songs was given to Israel, for all the Writings are holy,
+  but the Song of Songs is the Holy of Holies."
+  Formal features: alternating speakers (lover/beloved/chorus),
+  dense natural imagery (apple trees, vineyards, mountains),
+  the extended simile (wasf) comparing body parts to landscapes.
+  It is the Western love poem's formal origin.
+
+PSALMS — 150 POEMS, FULL GENRE RANGE:
+  Lament (most common): address → complaint → appeal → trust → praise
+  Praise (hallelujah psalms): imperative + reason structure
+  Royal psalms: political theology in lyric form
+  Wisdom psalms: gnomic, didactic, Proverbs-adjacent
+
+LAMENTATIONS:
+  5 poems on the destruction of Jerusalem (586 BCE).
+  Chapters 1, 2, 4: acrostic — each verse begins with successive
+  Hebrew letter (aleph to tav). Chapter 3: triple acrostic (3×22=66 verses).
+  The formal constraint (acrostic) imposed on maximum grief content
+  is a formal analog of the constraint-satisfaction tension
+  identified in 02-EPIC-AND-LYRIC.md's lyric section.
+```
+
 ## African Oral Traditions
 
 ### Sundiata: The Mande Epic
@@ -415,7 +488,104 @@ PRAISE POETRY AS FORM:
 
 ---
 
-<!-- @editor[content/P2]: Japanese literature section absent — Genji Monogatari (world's first novel?), haiku tradition (Basho/Buson/Issa), mono no aware aesthetic, and modern Japanese fiction (Tanizaki, Kawabata, Mishima, Murakami) all mentioned in landscape but never given a subsection -->
+## Japanese Literature
+
+```
+JAPANESE LITERARY TRADITION — KEY PERIODS AND FORMS
+
+HEIAN PERIOD (794–1185): court literature
+  The defining achievement: Heian court culture produced two
+  of the world's most formally sophisticated texts.
+
+MURASAKI SHIKIBU: Genji Monogatari (c. 1000-1010 CE)
+  Often called "the world's first novel" — contested but useful.
+  What makes it novel-like:
+    - Sustained psychological interiority (not epic externality)
+    - Character development over time (Prince Genji ages, declines)
+    - Social world as the medium of the narrative
+    - Free indirect discourse (the narrator slides into character POV)
+  54 chapters; ~1,000 named characters.
+  Mono no aware (物の哀れ): "the pathos of things" — the melancholy
+  beauty of impermanence. The aesthetic is structurally Buddhist:
+  beauty intensified by its transience.
+  Formal innovation: the narrative has no clear climax and
+  no resolution. The final chapters (Uji chapters) shift to
+  a different protagonist. Western narrative teleology does
+  not apply.
+
+SEI SHONAGON: Makura no Soshi (The Pillow Book, c. 996-1002)
+  A zuihitsu (miscellany): not narrative but accumulative.
+  Lists, observations, anecdotes, judgments.
+  "Things that make one's heart beat faster."
+  "Awkward things." "Things that are near but seem far."
+  The form is a pre-database database: categorical enumeration
+  of the phenomenal world. Each list is a type instance.
+
+HAIKU — THE FORMAL STRUCTURE
+  Origin: haiku emerged from haikai no renga (comic linked verse).
+  Hokku (opening verse of renga) → haiku (standalone).
+  Matsuo Basho (1644–1694) elevated haiku to serious literary form.
+
+  FORMAL CONSTRAINTS:
+    5 / 7 / 5 on (Japanese sound units, ≠ English syllables)
+    Kigo (季語): seasonal reference word (spring = cherry blossoms;
+      autumn = harvest moon; winter = snow; etc.)
+      Every haiku is indexed to a season.
+    Kireji (切れ字): "cutting word" — a syntactic break that
+      juxtaposes two images or perceptions.
+      In English translation: often rendered as em-dash or line break.
+
+  FORMAL ANALYSIS:
+    The kireji is a discontinuity operator. The haiku is not
+    a unified image but a juxtaposition: image A | image B.
+    Meaning arises in the gap (ma, 間 — interval/pause).
+    The reader performs the semantic connection.
+    This is not ellipsis (missing content) but a formal feature:
+    the poem IS the gap.
+
+  BASHO'S FROG HAIKU (the canonical example):
+    古池や (furuike ya)     — old pond / [kireji]
+    蛙飛び込む (kawazu tobikomu) — frog jumps in
+    水の音 (mizu no oto)   — sound of water
+    The kireji after "old pond" creates the juxtaposition.
+    The sound follows the silence of the old pond.
+    The meaning is the relationship between stillness and
+    disturbance — the poem does not state this; it enacts it.
+
+  OTHER MASTERS:
+    Yosa Buson (1716–1784): more painterly, imagistic
+    Kobayashi Issa (1763–1828): personal, humane, often about
+      small creatures; different emotional register from Basho
+
+MEIJI AND MODERN JAPANESE FICTION:
+  Meiji Restoration (1868): Japan opens to Western literary forms.
+  Natsume Soseki (1867–1916): I Am a Cat (1905), Kokoro (1914).
+    Kokoro: a novel of psychological alienation and Meiji-era guilt.
+    Soseki studied English literature in London; his work is
+    a negotiation between Western novel form and Japanese interiority.
+
+  Junichiro Tanizaki (1886–1965): In'ei Raisan (In Praise of Shadows,
+    1933) — an essay on Japanese aesthetics and modernity.
+    The Makioka Sisters (1948): social novel of Osaka merchant family.
+
+  Yasunari Kawabata (1899–1972): Nobel 1968.
+    Snow Country (1956): mono no aware applied to doomed love.
+    The formal technique: present-tense fragmentary perception.
+
+  Yukio Mishima (1925–1970): Sea of Fertility tetralogy (1965–1970).
+    Obsession with beauty, death, Japanese identity, samurai code.
+    Formal range: realism, surrealism, Noh drama.
+
+  Haruki Murakami (1949–): global reach, deeply Western influence.
+    Norwegian Wood (1987): realist; The Wind-Up Bird Chronicle (1994):
+    magical realist + thriller. Kafka on the Shore (2002): parallel
+    narratives alternating chapters — the structure enacts the
+    characters' disconnection.
+    Murakami's formal technique: deadpan surrealism.
+    The bizarre event is narrated in the same flat register as cooking
+    pasta. The mundane and the uncanny share a syntax.
+```
+
 ## Latin American Tradition
 
 ### The Boom Novel (1960s–70s)

@@ -2,7 +2,59 @@
 
 ## The Big Picture
 
-<!-- @editor[diagram/P2]: Opening diagram is a timeline, not a landscape — consider a layered diagram showing how investment banking, gold standard, trusts, and capital markets structurally relate to each other -->
+```
+FINANCIAL CAPITALISM — STRUCTURAL LAYERS (1840–1914)
+=====================================================
+
+LAYER 1: INFORMATION INFRASTRUCTURE
+  Telegraph (1844 US; 1866 transatlantic cable): price and news
+  instantaneous across markets → arbitrage opportunities compress
+  Railroad timetable integration: first standardized time zones
+  Financial press: Reuters (1851), AP: real-time price dissemination
+
+LAYER 2: CAPITAL MARKETS
+  ┌──────────────────────────────────────────────────────────┐
+  │  SOVEREIGN BONDS  │  RAILWAY BONDS  │  EQUITY (stocks)  │
+  │  (Rothschilds,    │  (dominant      │  (US: post-Civil  │
+  │  Barings: core    │  1840s–1890s)   │  War; trusts)     │
+  │  business)        │                 │                   │
+  └──────────────────┴─────────────────┴───────────────────┘
+  London (dominant) ← Paris ← Frankfurt ← New York (rising)
+
+LAYER 3: BANKING ARCHITECTURE
+  ┌──────────────────┬───────────────────────────────────────┐
+  │ UK MODEL:        │ GERMAN MODEL:                         │
+  │ Merchant banks   │ Universal banks (Deutsche, Dresdner)  │
+  │ (Rothschilds,    │ Take equity stakes in industrial firms│
+  │ Barings, Morgan  │ Sit on supervisory boards             │
+  │ in US)           │ Long-term relationship banking        │
+  │ Separation of    │ → "Hausbank" model                   │
+  │ deposit and      │ Result: German industry financed      │
+  │ investment       │ more patiently; US/UK more market-   │
+  │                  │ dependent                             │
+  └──────────────────┴───────────────────────────────────────┘
+
+LAYER 4: MONETARY COORDINATION
+  Gold Standard (1870s–1914):
+  Each currency pegged to gold at fixed rate
+  → Automatic balance-of-payments adjustment
+  → No exchange rate risk for international transactions
+  → BUT: no monetary policy independence (gold flows out → must
+    contract money supply regardless of domestic conditions)
+
+LAYER 5: INDUSTRIAL CONCENTRATION
+  Trusts and cartels (1880s–1900s):
+  Standard Oil, US Steel, AT&T, railroad combinations
+  Control via: vertical integration, horizontal combination,
+  interlocking directorates, holding companies
+  Response: Sherman Antitrust Act 1890 → Standard Oil 1911
+
+FAILURE MODES BUILT IN:
+  - No global lender of last resort (IMF didn't exist)
+  - Gold standard = deflationary bias in downturns
+  - US: no central bank until 1913 (Panic of 1907)
+  - Information advantage → concentrated in banking houses
+```
 
 The period 1870-1913 was the first era of financial globalization. Capital moved across borders at rates not seen again until the 1990s. The gold standard coordinated the international monetary system. Investment banks organized the capital for railroads, steel, and electrification. Concentration produced oligopolies and trusts. And the institutional infrastructure that failed in 1929 was being built — and the seeds of its failure planted.
 
@@ -77,10 +129,15 @@ INFORMATION ADVANTAGE:
   Was faster than any government communication system until telegraph
   Rothschilds received news of Waterloo outcome (June 18, 1815)
   before official government courier reached London (June 20)
-  MYTH: They shorted British bonds; actually they bought heavily
-        immediately, knowing the genuine outcome
-<!-- @editor[content/P3]: The Waterloo trading story is heavily mythologized — Niall Ferguson's "The House of Rothschild" gives the most careful treatment; the "bought heavily" claim is one version but evidence is fragmentary -->
-  The information advantage was real; the specific story may be apocryphal
+  MYTH: They shorted British bonds, knowing Wellington had won
+  REALITY: The primary historical record is fragmentary. Ferguson's
+           "The House of Rothschild" (1998) — the most careful scholarly
+           treatment — finds the evidence for the specific trading story
+           (whether short or long) is thin and largely apocryphal.
+           What is documented: Nathan did receive early intelligence;
+           what precisely he did with it is unclear.
+  The information advantage was structural and real;
+  the specific Waterloo trade story is probably legend
 
 SCALE:
   By 1825: Rothschilds had underwritten bonds for:
@@ -388,8 +445,21 @@ RULE OF REASON (Standard Oil case, 1911):
   Court said not all monopolies are illegal; only UNREASONABLE ones
   Introduced balancing test: market power + anticompetitive conduct
   This is still the basic framework of US antitrust
+
+STRUCTURAL PARALLEL — RAILROAD REBATES → IE BUNDLING:
+  Standard Oil's strategy: exclusive dealing with railroads;
+  preferential rebates that competitors couldn't match;
+  control the distribution bottleneck (railroads) to lock out
+  competing refiners from the market
+  US v. Microsoft (2001): same Sherman Act, same rule of reason
+  framework, same "control the distribution bottleneck" strategy:
+  IE bundling into Windows → locked out Netscape from the browser
+  market → threatened Java (cross-platform runtime would have
+  reduced Windows lock-in); OEM restrictions prevented pre-installing
+  rival browsers. The DOJ's market definition (browsers as separate
+  market within OS), the tying theory, and the conduct-plus-power
+  analysis all track the Standard Oil precedent.
 ```
-<!-- @editor[bridge/P3]: Natural bridge to Microsoft antitrust (US v. Microsoft, 2001) — same Sherman Act, same rule of reason framework, same "control the distribution bottleneck" strategy (IE bundling parallels railroad rebates); this learner knows this history firsthand -->
 
 ---
 

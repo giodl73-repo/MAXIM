@@ -5,41 +5,47 @@
 Org design is the choice of how to divide and coordinate work. Every organizational structure is a set of tradeoffs between efficiency and flexibility, depth and breadth, control and autonomy. Mintzberg's configurations provide the best taxonomy of how organizations actually look. Conway's Law adds the essential tech-org insight: your system architecture will mirror your communication structure whether you intend it or not.
 
 ```
-<!-- @editor[diagram/P2]: Decision tree is useful but purely top-down branching — doesn't show the Mintzberg structural dimensions (specialization, formalization, centralization) that cut across all configurations; a second diagram mapping configurations to dimensions would complete the picture -->
-ORG DESIGN DECISION TREE
-==========================
+ORG DESIGN DECISION TREE + STRUCTURAL DIMENSIONS
+==================================================
 
-WHAT IS THE PRIMARY WORK?
-         |
-    ———————————————————————————————
-    |               |              |
-Repetitive       Knowledge        Crisis/
-Predictable      Complex          Emergency
-    |               |              |
-Machine          Professional     Adhocracy
-Bureaucracy      Bureaucracy      (project-based)
-(standardize     (standardize     (mutual adjustment)
- processes)       skills)
+WHAT IS THE PRIMARY WORK?          HOW BIG IS THE ORG?
+         |                                  |
+  ───────────────────             ──────────────────────
+  |        |        |             |                    |
+Repet.  Knowl.  Crisis        Small/new          Large/mature
+  |        |        |             |                    |
+Machine  Prof.  Adhoc-        Simple           Division/functional
+Bureau.  Bureau. racy         structure        choice
+                                   |
+                    HOW DYNAMIC IS THE ENVIRONMENT?
+                             |
+                    ──────────────────
+                    |                |
+                 Stable           Dynamic
+                    |                |
+                Mechanistic       Organic
+                (tall, rules)     (flat, lateral)
 
-HOW BIG IS THE ORG?
-         |
-    ———————————————————————
-    |                      |
-Small/new             Large/mature
-    |                      |
-Simple structure       Division/functional choice
-(centralized,
- entrepreneurial)
+STRUCTURAL DIMENSIONS THAT CUT ACROSS ALL CONFIGURATIONS:
+─────────────────────────────────────────────────────────────────────────────
+Dimension            Low                     High
+─────────────────────────────────────────────────────────────────────────────
+Specialization       Generalists; wide        Deep specialists;
+(horizontal)         role scope               narrow role scope
+Formalization        Judgment; informal        Written rules;
+                     norms; discretion         documented procedures
+Centralization       Distributed authority;    Decisions at apex;
+                     local decision rights     approval chains
+─────────────────────────────────────────────────────────────────────────────
 
-HOW COMPLEX/DYNAMIC IS THE ENVIRONMENT?
-         |
-    ———————————————————
-    |                  |
-Stable/simple    Dynamic/complex
-    |                  |
-Mechanistic org  Organic org
-(tall hierarchy, (flat; flexible;
- standardization) lateral communication)
+CONFIGURATIONS MAPPED TO DIMENSIONS:
+                        Specialization  Formalization   Centralization
+Simple structure            Low            Low              High
+Machine bureaucracy         High           High             High
+Professional bureaucracy    High (skills)  Low              Low (to professionals)
+Divisionalized form         Moderate       Moderate         Mixed (strategy central;
+                                                            ops decentralized)
+Adhocracy                   High (expert)  Low              Low (mutual adjustment)
 ```
 
 ---
@@ -337,7 +343,59 @@ INTERACTION MODES:
 
 ---
 
-<!-- @editor[content/P2]: Missing coverage of platform organization as a distinct structural form — the learner works at a platform company; internal platform teams (Azure DevOps, GitHub) don't fit neatly into Mintzberg's taxonomy; this gap matters -->
+## Platform Organization as a Structural Form
+
+Mintzberg's taxonomy was developed before platform businesses existed at scale. Platform organizations require an additional structural lens.
+
+```
+PLATFORM ORGANIZATION — STRUCTURAL CHARACTERISTICS
+====================================================
+
+A platform org has two structural layers operating simultaneously:
+
+LAYER 1: INTERNAL PLATFORM (infrastructure for producers)
+  Team Topologies model:
+  Platform teams → Stream-aligned teams → Complicated-subsystem teams
+  The platform team provides capabilities-as-a-service; stream-aligned teams
+  are the "customers" of the internal platform
+
+  Structural form: Professional bureaucracy for the platform teams
+    (coordination by standardization of skills; high autonomy)
+  + Machine bureaucracy elements for reliability and SLA guarantees
+    (standardized processes for deployment, incident response, SLAs)
+  → The tension: professional autonomy vs machine bureaucracy reliability
+     is the core engineering org design problem for platform teams
+
+LAYER 2: EXTERNAL ECOSYSTEM (coordination of external producers + consumers)
+  Platform governance: the policies, APIs, and contracts that govern
+    external developer relations and ecosystem health
+  This layer has no Mintzberg analog — it is governance of a
+    multi-sided market, not management of employees
+
+PLATFORM GOVERNANCE DIMENSIONS:
+  API contract stability: how much notice before breaking changes?
+    Strict: enterprise trust; slow evolution; technical debt accumulation
+    Loose: fast innovation; ecosystem fragmentation; developer attrition
+  Developer relations: onboarding friction; documentation investment;
+    support model (community / tiered / partner)
+  Revenue model alignment: does the platform's revenue model create
+    incentive alignment with ecosystem participants, or does it extract
+    from them? (app store 30% take rate vs. metered consumption pricing)
+  Governance legitimacy: how are rule changes decided?
+    Unilateral (Apple App Store) vs consultative (W3C-style) vs market
+    (fees signal policy via pricing)
+
+INTERNAL PLATFORM ANTIPATTERNS (Team Topologies / Skelton & Pais):
+  Platform as gatekeeper: platform team controls too much; stream teams blocked
+    → Symptom: pull request queues measured in weeks; "we're waiting for platform"
+    → Fix: X-as-a-service model with clear SLAs; self-service APIs
+  Platform team as service desk: stream teams treat platform as on-call support
+    → Symptom: platform team reactive; no investment in platform capabilities
+    → Fix: product mindset; platform team has roadmap; stream teams consume APIs
+  Cognitive load overload on stream teams: platform surface area too large
+    → Symptom: stream engineers spend >30% on infrastructure concerns
+    → Fix: platform abstraction layer; internal developer experience investment
+```
 
 ## Bureaucracy Paradox and Greiner Growth
 

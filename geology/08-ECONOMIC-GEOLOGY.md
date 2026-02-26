@@ -1,6 +1,6 @@
 # Economic Geology — Ore Deposits, Petroleum Systems, Critical Minerals
 
-<!-- @editor[bridge/P2]: No old-world bridge — concentration factor as the central concept maps to "signal-to-noise ratio" or data enrichment: you need 250,000x enrichment for gold just as you might need orders-of-magnitude data filtering to extract actionable signal — any engineer with data pipeline experience gets this immediately -->
+**Bridge — ore concentration factor as signal-to-noise ratio:** Economic geology is fundamentally about enrichment ratios. Gold averages 4 ppb in continental crust; an economic deposit runs 1–10 g/t (ppm), representing 250,000–2,500,000× enrichment above background. This is identical to extracting actionable signal from noisy data — the geological processes that form ore deposits are the physical-chemical filters that amplify signal (target metal) while rejecting noise (gangue). Hydrothermal fluid flow is a natural column chromatograph: different metals precipitate at different temperatures and chemical conditions, separating them from the bulk rock matrix. Placer deposits are gravity-sorted arrays: specific gravity differences act as a filter, concentrating dense metals (Au SG=19.3, Cassiterite SG=7.0) while washing away silicate gangue (SG≈2.6). Cutoff grade is the signal threshold: below it, the cost of extraction exceeds the value of signal recovered. Changing metal price shifts the threshold, reclassifying "noise" as "signal" — exactly like adjusting a classifier's decision boundary.
 
 ## The Big Picture
 
@@ -78,7 +78,37 @@ PRECIPITATION: Cooling + pressure drop
 | **Orogenic Au** | Au (+ Sb, W, As) | Metamorphic belts, quartz veins | Kalgoorlie (Australia), Mother Lode (CA) |
 | **Mississippi Valley Type (MVT)** | Pb, Zn | Carbonate-hosted; brines in sedimentary basins | Tri-State (OK-KS-MO), Pine Point |
 
-<!-- @editor[content/P2]: Hydrothermal deposit section lacks a diagram showing fluid flow paths (heat source -> fracture network -> deposition zone) — a system-level flow diagram would tie the table entries together -->
+```
+HYDROTHERMAL SYSTEM — FLUID FLOW ARCHITECTURE
+
+  HEAT SOURCE          FLUID SOURCE          FLUID PATH
+  (magmatic           (magmatic water,      (faults, fractures,
+   intrusion, or       meteoric water,       permeable beds,
+   radiogenic heat)    seawater, brines)     contact zones)
+        |                    |                    |
+        v                    v                    v
+  +---------------------------------------------+
+  |  HOT FLUID (150–500°C)                       |
+  |  Metal-bearing, saline, acidic              |
+  |  Migrates upward along pressure gradient    |
+  +---------------------------------------------+
+        |
+        v (cooling + chemical change → precipitation)
+  +-------------------------------------------------+
+  | DEPOSITION ZONE:                                |
+  | Temperature drop → sulfide/oxide precipitation  |
+  |   (porphyry: stockwork veins in fractured rock) |
+  |   (epithermal: boiling zone, 50–300m depth)     |
+  |   (VHMS: cold seawater mixing at seafloor vent) |
+  |   (MVT: brine mixing in carbonate, low T)       |
+  +-------------------------------------------------+
+        |
+        v
+  ALTERATION HALO (diagnostic zonation):
+  Potassic (K-feldspar, biotite) → Phyllic (sericite) →
+  Argillic (kaolinite, illite) → Propylitic (chlorite, epidote)
+  Zoning maps distance from fluid conduit
+```
 
 ### Sedimentary and Weathering Deposits
 

@@ -160,9 +160,137 @@ Risk / quant    VaR, stress testing, CVA/DVA         Very high — stochastic
 
 ---
 
-<!-- @editor[content/P2]: ML in Finance box appears in landscape diagram but has no drill-down section — significant gap given current industry relevance -->
-<!-- @editor[content/P2]: No mention of data infrastructure (Bloomberg, CRSP, WRDS, Quandl) — practitioners need to know where to get data -->
-<!-- @editor[bridge/P2]: No bridge from classical optimization tools (scipy, cvxpy, MATLAB) to financial optimization — learner knows optimization theory from MIT but not the finance-specific toolchain -->
+---
+
+## ML in Finance
+
+Current applications of machine learning in quantitative finance:
+
+```
+SIGNAL GENERATION (alpha research):
+  Factor discovery:  LASSO/Ridge on return panel → sparse factor model
+  NLP/LLM:          Sentiment from earnings calls, news, SEC filings
+                    BERT fine-tuned on financial text → earnings surprise signal
+  Alternative data:  Satellite imagery (parking lots → retail foot traffic)
+                    Credit card transaction data → revenue estimates
+                    Web scraping, job postings → hiring/capex signals
+  Earnings forecasts: Gradient boosted trees on fundamentals → improve sell-side forecasts
+
+VOLATILITY AND RISK:
+  GARCH extensions:  Neural network GARCH (LSTM on vol surface)
+  Jump detection:    Changepoint models on intraday data
+  Regime detection:  HMM on macro factors → risk-on/risk-off regimes
+  Correlation modeling: Deep learning on high-dimensional covariance structure
+
+EXECUTION AND MICROSTRUCTURE:
+  Optimal execution: RL for TWAP/VWAP improvement (Almgren-Chriss as baseline)
+  Market impact:     GBM/RF on order book state → price impact prediction
+  HFT signal decay:  Predict how fast an alpha decays post-detection
+  Adverse selection: Classify informed vs. uninformed order flow
+
+LIMITATIONS AND PITFALLS:
+  Small T/large N:   Financial time series are short (decades) relative to features
+  Non-stationarity:  Regime changes invalidate historical training distributions
+  Overfitting:       "Factor zoo" problem — 500+ published factors, most spurious
+  Transaction costs: ML signals often too small to survive execution costs at scale
+  Short horizons:    ML dominates. Long horizons (3+ months): classic factors still win.
+```
+
+---
+
+## Data Infrastructure
+
+Sources finance practitioners actually use:
+
+```
+MARKET DATA:
+  Bloomberg Terminal  — industry standard; real-time prices, analytics, news
+                        ~$20K/seat/year; most institutional desks use it
+  Refinitiv (LSEG)    — competitor to Bloomberg; Thomson Reuters data backbone
+  ICE Data Services   — fixed income and derivatives data
+  Nasdaq Global Data  — US equities tick data
+
+ACADEMIC / RESEARCH DATABASES:
+  CRSP               — Center for Research in Security Prices (U Chicago)
+                        Survivorship-bias-free US equity returns back to 1926
+                        Required for any serious empirical asset pricing research
+  Compustat          — corporate fundamentals (quarterly/annual); S&P Global
+                        Paired with CRSP via Wharton Research Data Services
+  WRDS (Wharton)     — unified access portal for CRSP, Compustat, OptionMetrics,
+                        Markit, TAQ, many others. Academic + buy-side use.
+  Ken French Data    — free Fama-French factor returns; http://mba.tuck.dartmouth.edu/
+  FRED (St Louis Fed) — macroeconomic data; free
+
+ALTERNATIVE DATA:
+  Quandl (now Nasdaq Data Link) — curated alt data marketplace
+  Bloomberg BVOX     — alternative data integration layer
+  Refinitiv Datascope — corporate actions, ESG, earnings
+  Preqin             — private equity and hedge fund data
+
+DERIVATIVES:
+  OptionMetrics      — historical implied vol surfaces; options prices back to 1996
+  CME Group DataMine — futures tick data
+  DTCC               — CDS trade repository data (regulatory)
+
+FIXED INCOME:
+  Bloomberg BVAL     — evaluated bond pricing
+  ICE BofA indices   — credit index data (widely used benchmark)
+  TRACE (FINRA)      — US corporate bond trade reporting; public
+```
+
+---
+
+## Optimization Toolchain Bridge
+
+Classical optimization maps directly onto financial portfolio problems:
+
+```
+FROM OPTIMIZATION THEORY → FINANCE PRACTICE:
+
+Quadratic programming (QP):
+  Theory: min xᵀQx + cᵀx  s.t. Ax = b, lb ≤ x ≤ ub
+  Finance: min wᵀΣw − λwᵀμ  s.t. wᵀ1 = 1, wi ≥ 0
+  Tools: cvxpy (Python, convex), Gurobi/CPLEX (commercial), scipy.optimize.minimize
+
+  cvxpy example:
+    import cvxpy as cp
+    w = cp.Variable(n)
+    ret = mu @ w
+    risk = cp.quad_form(w, Sigma)
+    prob = cp.Problem(cp.Maximize(ret - lam * risk),
+                      [cp.sum(w) == 1, w >= 0])
+    prob.solve()
+
+Second-order cone programming (SOCP):
+  Robust optimization: min wᵀμ - λ||Σ^{1/2}w|| with uncertainty sets
+  Tracking error: ||w - w_bench||_Σ ≤ TE   → SOCP constraint
+  cvxpy handles SOCP automatically; no reformulation needed
+
+Integer programming (MIP):
+  Cardinality constraints: invest in at most K assets
+  Round-lot constraints: integer numbers of shares
+  Tools: Gurobi, CPLEX; cvxpy + GLPK/Gurobi for mixed-integer
+
+Stochastic programming:
+  Multi-period portfolio optimization with scenarios
+  ALM (asset-liability matching): match pension liabilities across scenarios
+  Tools: PyStochOpt, MOSEK; custom scenario tree models
+
+Linear programming (LP):
+  Transaction cost optimization (piece-wise linear costs)
+  Index replication (track index with fewer stocks)
+  cvxpy LP: fast, handles 10K+ assets easily
+
+Key libraries (Python ecosystem):
+  cvxpy        — unified convex optimization interface (recommended starting point)
+  scipy.optimize — unconstrained/constrained (BFGS, SLSQP); less scalable
+  Gurobi       — commercial; fastest for large MIP/QP; free academic license
+  MOSEK        — commercial; excellent for cones; used in finance heavily
+  PyPortfolioOpt — portfolio-specific wrappers around cvxpy/scipy
+  riskfolio-lib  — risk parity, HRP, Black-Litterman in Python
+```
+
+---
 
 ## Session Arc for This Directory
 

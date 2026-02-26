@@ -314,7 +314,23 @@ FEMALE HPG AXIS (cyclic):
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- endocrine = pub/sub messaging, negative feedback = thermostat/PID, pulsatile GnRH = clock-driven polling vs continuous (continuous = receptor downregulation like queue overflow), nuclear receptors = gene-level config vs membrane receptors = runtime signal -->
+## Engineering Bridges
+
+**Endocrine system as pub/sub over a shared broadcast medium**
+Hormones are messages broadcast into the bloodstream (shared medium). Target cells are subscribers filtered by receptor expression — only cells expressing the matching receptor respond. This is a loosely coupled, one-to-many architecture: the hypothalamus does not need to know which cells will respond to CRH; it just publishes. Receptor downregulation (desensitization) is the biological equivalent of a subscriber rate-limiting or dropping a queue when message volume is too high — continuous GnRH causes receptor internalization, effectively unsubscribing the pituitary.
+
+**Pulsatile GnRH as clock-driven polling vs continuous signal**
+GnRH must be pulsatile (~every 90 min) to drive LH/FSH secretion. Continuous GnRH is paradoxically suppressive: it saturates receptors → receptor internalization and downregulation → gonadotroph refractoriness. This is not a bug; it is deliberately exploited therapeutically (GnRH agonist therapy for prostate cancer: initial flare, then sustained suppression). The analog: a service that responds to periodic polling but ignores a held-open connection that never releases. Message rate matters; duty cycle matters.
+
+**Nuclear receptors as gene-level configuration vs membrane receptors as runtime signals**
+Steroid hormones (cortisol, estrogen, testosterone) are lipophilic — they cross the membrane and bind intracellular nuclear receptors. The receptor-hormone complex binds hormone response elements in DNA → changes transcription → new protein synthesis over hours. This is static configuration: changes the executable, not the current process state. Peptide hormones (insulin, ACTH) bind membrane GPCRs or RTKs → activate kinase cascades → phosphorylate existing proteins within seconds. This is runtime signal injection: no new code written, just existing machinery switched on. The two systems operate on different timescales for different reasons.
+
+**Negative feedback axes as PID controllers with hierarchy**
+The HPA axis (CRH → ACTH → cortisol → feedback inhibition) is a three-stage cascade, each with its own gain. The hypothalamus integrates circadian + stress signals (set point modulation); the pituitary amplifies the hypothalamic signal; the adrenal amplifies the pituitary signal. Negative feedback acts at two points (hypothalamus and pituitary) with different gain. This is not a single PID loop but a cascaded controller where the outer loop (circadian) sets the reference for the inner loop (acute stress response). Loss of feedback (Addison's disease) → runaway ACTH; primary Cushing's = output stuck high despite feedback.
+
+**Insulin signaling as RTK cascade with memory**
+The insulin receptor is a receptor tyrosine kinase: ligand binding → autophosphorylation → IRS-1 phosphorylation → PI3K → PIP₃ → Akt/PKB. Akt is the central node: it phosphorylates dozens of substrates in parallel (GLUT4 translocation, glycogen synthase, mTOR). This is a branching tree of phosphorylation events — rapid, reversible, dose-dependent. Insulin resistance (Type 2 DM) is a desensitized receiver: the signal is present but the downstream cascade fails to respond. Mechanistically it involves IRS-1 serine phosphorylation (by inflammatory kinases) blocking normal tyrosine phosphorylation — a signal-to-noise problem.
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

@@ -37,7 +37,7 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — 10% trophic efficiency is an energy cascade analogous to multi-stage amplifier losses; the microbial loop is a feedback/recycling loop similar to regenerative circuits; MSY from logistic growth is the same optimization problem as maximum power transfer in electrical engineering -->
+Marine trophic dynamics map cleanly to information/energy cascades you already know. The 10% trophic efficiency is a multi-stage efficiency loss: each trophic level passes roughly 10% of energy input to the next, exactly as a cascade of lossy amplifiers each with 10 dB loss — the product of n stages is 10⁻ⁿ. The microbial loop is a feedback path that recycles DOC back into the food web, analogous to regenerative feedback in circuits: it increases system efficiency in the sense of recovering energy that would otherwise be lost, but at the cost of retaining carbon in the surface rather than exporting it. Maximum Sustainable Yield (MSY) from logistic population growth (MSY = rK/4 at N = K/2) is the same peak-power-transfer problem: maximum power is extracted from a source when the load matches the source impedance — in ecological terms, when the harvest rate equals half the maximum intrinsic growth rate.
 
 ## Primary Producers
 
@@ -361,4 +361,52 @@ ICE EDGE PRODUCTIVITY:
 
 **Baleen whale feeding isn't filtering seawater randomly**: Baleen whales don't swim with mouths open filtering all water. They target dense krill aggregations — lunge-feeding (rorquals like blue and fin whales), skim-feeding (right whales), benthic-feeding (gray whales). Krill aggregate in patches of 10,000+ individuals/m³, and whales target these patches efficiently. Blue whales consume ~3.6 tonnes of krill per day during summer feeding season.
 
-<!-- @editor[content/P2]: Invasive species absent — no mention of lionfish invasion (Atlantic/Caribbean), Caulerpa taxifolia (Mediterranean), ship ballast water introductions — significant gap for marine ecology -->
+## Marine Invasive Species
+
+Invasive species are among the most significant human-caused perturbations to marine ecosystems, primarily vectored by ballast water discharge from global shipping.
+
+```
+BALLAST WATER PROBLEM:
+  Ships take on ballast water at port of origin, discharge at destination
+  ~10 billion tonnes of ballast water transferred globally per year
+  Contains: ~7,000 species of microorganisms, larvae, plankton per voyage
+  IMO BWM Convention (2004, in force 2017): requires ballast water treatment
+  (filtration + UV or chemical disinfection) — implementation still patchy
+
+MAJOR INVASIONS:
+
+  LIONFISH (Pterois volitans/miles) in W. Atlantic / Caribbean:
+    Native: Indo-Pacific (Red Sea to Pacific)
+    Vector: aquarium trade releases, Florida 1985–1992
+    Spread: entire US East Coast, Bermuda, Gulf of Mexico, Caribbean by 2009
+    Impact: ~65% prey fish decline on invaded reefs within 5 weeks of arrival
+      (lionfish have no learned predator avoidance in Atlantic fish)
+    No natural predators in Atlantic; some groupers may learn to eat them
+    Control: commercial harvest, SCUBA culling — neither ecologically sufficient
+
+  CAULERPA TAXIFOLIA in Mediterranean (1984 Monaco):
+    Toxic alga escaped from Monaco Oceanographic Museum aquarium
+    Covered ~30,000 ha of Mediterranean seafloor by 1997
+    Outcompetes native seagrass (Posidonia), mussels, other benthic fauna
+    Eradicated from California (found 2000, response within weeks, chlorine)
+    Still established in Mediterranean after failed eradication attempts
+
+  COMB JELLY (Mnemiopsis leidyi) in Black Sea:
+    Native: US East Coast estuaries
+    Introduced 1982 via ballast water
+    By 1989: 500 million tonnes biomass in Black Sea (~10× all fish biomass)
+    Consumed anchovy eggs and larvae → anchovy fishery collapsed
+    Partially controlled by accidental introduction of Beroe (its predator)
+
+  ZEBRA / QUAGGA MUSSELS (Dreissena) in North American freshwater:
+    Ballast water from Ponto-Caspian region; Great Lakes since 1988
+    Filter phytoplankton → reduced zooplankton → food web collapse
+    Clog water intake pipes → billions in infrastructure damage
+    Now in most major river systems east of Rockies; westward spread ongoing
+
+MANAGEMENT:
+  Prevention >> control: ballast water treatment mandated but compliance mixed
+  Early detection networks: eDNA monitoring at ports
+  Physical removal: effective only at very early stage (Caulerpa CA success)
+  Biological control: rarely viable in marine systems (can't contain the predator)
+```

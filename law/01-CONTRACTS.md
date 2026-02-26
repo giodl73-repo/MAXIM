@@ -304,7 +304,44 @@ SELLER'S REMEDIES on buyer breach:
 
 ## 7. Software Licensing
 
-<!-- @editor[content/P2]: Missing SaaS/cloud-specific contract issues (subscription terms, SLA structure, data portability clauses, vendor lock-in provisions) — highly relevant for this learner's daily contracting -->
+### SaaS / Cloud Contract Terms
+
+```
+SAAS AGREEMENT STRUCTURE:
+  Subscription: right to access service for defined term; not a purchase
+  Automatic renewal: common; watch for evergreen clauses (auto-renew unless notice)
+  Seats vs usage: per-seat pricing (headcount) vs consumption-based (API calls, compute)
+  Enterprise vs SMB: different SLAs, support, data handling, customization rights
+
+SLA (Service Level Agreement):
+  Uptime commitment: typically 99.9% (8.7 hrs/yr downtime) to 99.99% (52 min/yr)
+  Measurement: often monthly, not annual; often excludes scheduled maintenance,
+    force majeure, third-party failures (cloud substrate, BGP routing, DNS)
+  Remedy: typically service credits (5-25% of monthly fee) — NOT actual damages
+  Important: service credits ≠ actual damages; if downtime costs you $1M and SLA
+    gives you $5K in credits, the SLA caps your practical remedy unless contract says otherwise
+  Carve-out for consequential damages: check whether SLA remedy is your only recourse
+
+DATA PORTABILITY AND LOCK-IN:
+  Right to export your data before or after termination
+  Export format: CSV/JSON/standard format vs proprietary format (lock-in risk)
+  Transition period: vendor access after termination to allow migration
+  Data deletion: when does vendor delete your data after termination?
+    Key question: does deletion apply to backups? (30/60/90 day backup retention common)
+  Data residency: contractual commitments to keep data in specific geography (EU/US/APAC)
+
+VENDOR LOCK-IN PROVISIONS (watch for):
+  Termination-for-convenience penalties (exit fees, breakage)
+  Minimum commit terms (3-year deals with heavy discounts)
+  IP ownership of derived works or configurations
+  Source code escrow (if SaaS goes dark — vendor provides source code to escrow agent)
+
+OWNERSHIP AND LICENSING TERMS:
+  Customer data: customer retains ownership; vendor gets license to process only
+  Derived data/aggregated insights: watch for vendor rights to anonymized usage data
+  Customer configurations/IP: customizations, training data, model outputs — who owns?
+  Work product in professional services: separate from SaaS license; needs explicit assignment
+```
 
 ```
 LICENSE vs SALE DISTINCTION:

@@ -206,34 +206,17 @@ GROWTH RATE TREND:
 
 ## Decomposing Population Change
 
-<!-- @editor[structure/P2]: Country decomposition data below would be more scannable as a markdown table — code block hides the columnar comparison -->
-```
-CONTRIBUTION TO GROWTH:
+### Country Decomposition of Growth (approx. 2020s)
 
-Country examples (approx. 2020s):
-                CBR   CDR   RNI   NM     Total growth
-United States:   11    8     0.3%  0.4%   0.7%
-Germany:          9    12   -0.3%  0.4%   0.1%
-Nigeria:         38    10    2.8%  -0.1%  2.7%
-Japan:            7    12   -0.5%  0.1%  -0.4%
-India:           17     7    1.0%  -0.1%  0.9%
+| Country | CBR | CDR | RNI | Net Migration Rate | Total Growth | Key dynamic |
+|---|---|---|---|---|---|---|
+| United States | 11 | 8 | +0.3% | +0.4% | +0.7% | Below-replacement fertility sustained by high immigration |
+| Germany | 9 | 12 | −0.3% | +0.4% | +0.1% | Natural decrease offset by immigration — common in Western Europe |
+| Nigeria | 38 | 10 | +2.8% | −0.1% | +2.7% | Very high natural increase dominates; migration marginal |
+| Japan | 7 | 12 | −0.5% | +0.1% | −0.4% | Natural decrease + minimal net migration → sustained population decline |
+| India | 17 | 7 | +1.0% | −0.1% | +0.9% | Declining from TFR 2.0; growth rate decelerating toward zero |
 
-KEY OBSERVATIONS:
-- Germany: natural decrease offset by immigration (common in Western Europe)
-- Japan: natural decrease + minimal migration → declining population
-- Nigeria: very high natural increase dominates
-- US: below-replacement fertility + high immigration = modest growth
-
-DEMOGRAPHIC DECOMPOSITION:
-Population change decomposed into:
-  1. Change due to fertility shifts
-  2. Change due to mortality shifts
-  3. Change due to migration
-  4. Change due to age structure interaction effects (pure compositional shift)
-
-Kitagawa decomposition (1955): standard method to decompose rate differences
-into rate vs. compositional components. Widely used in demographic analysis.
-```
+**Demographic decomposition**: population change is decomposed into contributions from (1) fertility shifts, (2) mortality shifts, (3) migration, and (4) age structure interaction effects (pure compositional shift). The **Kitagawa decomposition (1955)** is the standard method for separating rate effects from compositional effects; widely used in comparative demographic analysis.
 
 ## Decision Cheat Sheet
 

@@ -1,9 +1,38 @@
-<!-- @editor[diagram/P1]: No landscape diagram — guide opens with hydrogen atom detail instead of establishing the full picture (atomic structure → multi-electron → periodic table → spectroscopy → computation). Needs a visual map showing how the pieces relate before drilling in. -->
 # 01-ATOMIC-QUANTUM — Atomic Structure & Quantum Mechanics of Chemistry
 
 > The hydrogen atom solved exactly. Multi-electron approximations. Quantum numbers
 > as orbital taxonomy. Periodic table as electron-configuration map. Spectroscopy
 > as the experimental bridge between QM and chemistry.
+
+---
+
+## Landscape
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                  ATOMIC STRUCTURE & QUANTUM CHEMISTRY               │
+│                                                                      │
+│  EXACT SOLUTION     MULTI-ELECTRON          PERIODIC TABLE          │
+│  ─────────────      ───────────────         ─────────────────       │
+│  H atom             Shielding / Zeff         s/p/d/f blocks         │
+│  (Schrödinger)      SCF iteration            Aufbau filling         │
+│  Quantum numbers    Orbital energy ordering  Periodic trends        │
+│  emerge from BCs    HF → DFT ladder          IE, EA, EN, radius     │
+│       │                   │                        │                │
+│       └────────────────┬──┴────────────────────────┘                │
+│                        │                                             │
+│                  SPECTROSCOPY                COMPUTATION             │
+│                  ───────────                 ───────────             │
+│                  Emission/absorption         HF: O(N⁴)              │
+│                  X-ray fingerprinting        DFT: O(N³) workhorse   │
+│                  Selection rules             CCSD(T): benchmark     │
+│                  Rydberg series              Basis sets             │
+└─────────────────────────────────────────────────────────────────────┘
+
+Reading order: H atom exact solution → why multi-electron breaks it →
+SCF/shielding as the fix → periodic table as the result →
+spectroscopy as experimental verification → computation as the tool.
+```
 
 ---
 
@@ -342,7 +371,62 @@ In practice: relativistic ECPs (effective core potentials) handle this in DFT/HF
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — e.g., classical mechanics → quantum mechanics transition, or numerical methods (Gaussian elimination, matrix diagonalization) → computational chemistry methods. A senior engineer with linear algebra background would benefit from connecting SCF iteration to iterative eigenvalue solvers they already know. -->
+## Computational Chemistry — Numerical Methods Bridge
+
+The quantum chemistry hierarchy is a sequence of progressively better approximations
+to the full N-electron Schrödinger equation. Each level maps to numerical methods
+a practitioner of scientific computing already knows:
+
+```
+QUANTUM CHEMISTRY       NUMERICAL ANALOGY           COST
+────────────────────────────────────────────────────────────────────────
+Schrödinger equation    PDE eigenvalue problem       Intractable for N > 2
+                        Ĥψ = Eψ is linear algebra
+
+HF/SCF                  Fixed-point iteration        O(N⁴)
+  Mean-field approx     (Power iteration / Krylov)
+  Fock matrix rebuilt   Same structure as PageRank
+  each cycle            or self-consistent FEM
+
+DFT                     Conjugate gradient /         O(N³)
+  Solve ρ(r), not ψ     quasi-Newton on ρ
+  Exchange-correlation  → functional approximation
+  is the unknown        analogous to closure
+  (like turbulence model in CFD)
+
+MP2                     Perturbation theory          O(N⁵)
+                        (first-order correction to
+                        mean-field approximation)
+
+CCSD                    Exponential ansatz           O(N⁶)
+                        (iterative solve of coupled
+                        nonlinear amplitude equations)
+
+CCSD(T)                 Single perturbative step     O(N⁷)
+  "Gold standard"       on top of CCSD
+
+FCI                     Full enumeration of          O(exp N)
+  Exact (within basis)  Slater determinants
+```
+
+**SCF as an iterative solver**: Each SCF cycle solves Fc = εSc (generalized
+eigenvalue problem). Algorithms used — DIIS (direct inversion in iterative
+subspace) — are Krylov-type extrapolation, identical to GMRES/MINRES in
+linear systems. Convergence failure (oscillating SCF) is the same as divergent
+iteration in other numerical contexts.
+
+**Basis sets as discretization grids**: Choosing a basis set is analogous to
+choosing a finite element mesh. Larger basis → higher resolution → more accurate
+but more expensive. aug-cc-pVTZ adds diffuse basis functions → critical for
+anions and long-range properties, just as adaptive mesh refinement matters at
+boundaries.
+
+**DFT exchange-correlation as the unresolved closure problem**: HF is formally
+exact within mean-field; DFT replaces the unknown many-body exchange-correlation
+energy E_xc[ρ] with approximations (LDA, GGA, hybrid). This is structurally
+identical to the turbulence closure problem in Navier-Stokes — the fundamental
+physics is exact but the many-body term is replaced by a parameterized model.
+
 ## Quantum Chemistry Computation — The Ladder
 
 ```

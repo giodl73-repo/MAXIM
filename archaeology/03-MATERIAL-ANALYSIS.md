@@ -21,7 +21,10 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No signal-processing / data-engineering bridge — provenance tracing via elemental fingerprints is structurally identical to log correlation in distributed systems (match signature to source); aDNA signal-to-noise ratio is a familiar concept from any noisy-channel problem -->
+**Engineering bridges for material analysis:**
+- **Provenance tracing via elemental fingerprints** is structurally identical to log correlation in distributed systems: you have a set of sources (obsidian quarries, pottery clay beds, metal ore deposits), each with a characteristic signature (trace element profile, isotope ratio), and you match an unknown artifact's signature to the source — the same pattern-matching problem as attributing a log event to a service instance or a request to an origin node. The math is nearest-neighbor classification in feature space.
+- **aDNA signal-to-noise** is an instance of the noisy-channel problem: ancient DNA is chemically degraded, fragmented (~50–100 bp reads vs. ~150 bp modern), contaminated with environmental DNA and modern human DNA from excavators. Pipeline steps — deamination damage profiling (C→T substitutions at read ends are authentic; modern contamination lacks them), duplicate removal, alignment to reference — are signal-recovery operations. "Authentication" of an aDNA result means demonstrating that the signal is above the noise floor.
+- **Isotope ratio mass spectrometry (IRMS)** measures δ values (deviations from a standard in parts per mille). The fractionation physics is deterministic; the inference problem is inversion: given δ¹³C = −15‰, reconstruct the diet. This is the same structure as inferring a source distribution from an observed sample distribution — Bayesian isotope mixing models (e.g., FRUITS, MixSIAR) are literal posterior inference under dietary composition constraints.
 
 ## Stable Isotope Analysis
 

@@ -9,25 +9,34 @@ drainage patterns. Overlay climate and you get soils and landforms.
 Understanding the physical template is prerequisite to understanding where
 humans have settled and why.
 
-<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework to show internal→external process interaction (tectonics creates relief, surface processes reduce it) as a cycle, with rock cycle and soils as outputs -->
 ```
 +----------------------------------------------------------------------+
-|                    PHYSICAL GEOGRAPHY SYSTEMS                         |
+|              PHYSICAL GEOGRAPHY — PROCESS CYCLE                      |
 |                                                                      |
-|  INTERNAL PROCESSES                  EXTERNAL PROCESSES              |
-|  ─────────────────                   ────────────────                |
-|  Plate tectonics                     Weathering + erosion            |
-|  Volcanism                           Fluvial (rivers)                |
-|  Earthquakes                         Glacial                         |
-|  Mountain building                   Aeolian (wind)                  |
-|  → Creates relief                    Coastal (waves)                 |
-|                                      → Reduces relief                |
+|     INTERNAL ENGINE                      EXTERNAL ENGINE             |
+|  (radioactive decay + primordial heat)  (solar energy + water cycle) |
+|              │                                    │                  |
+|              ▼                                    ▼                  |
+|    Mantle convection                     Weathering + erosion        |
+|         │                                      │                     |
+|         ▼                                      ▼                     |
+|  Plate tectonics → Mountain building    Rivers, glaciers, wind,      |
+|  Volcanism → new crust                  coastal processes            |
+|  Earthquakes → relief disruption        → Reduce relief              |
+|         │                                      │                     |
+|         └──────────────┬───────────────────────┘                     |
+|                        ▼                                             |
+|              ROCK CYCLE (connects both engines)                      |
+|  Igneous (from magma) → weathering → Sedimentary (burial →          |
+|  lithification) → heat/pressure → Metamorphic → melting → Igneous   |
+|                        │                                             |
+|                        ▼                                             |
+|          SOILS (CLORPT) + DRAINAGE BASINS                            |
+|  Parent material + climate + organisms + relief + time               |
+|  → Horizon profiles; fertility; erosion risk                         |
+|  → Watershed structure; stream order; base level control             |
 |                                                                      |
-|  ROCK CYCLE           SOILS               DRAINAGE BASINS            |
-|  ─────────            ─────               ───────────────            |
-|  Igneous → erode      CLORPT factors      Watershed divides          |
-|  Sedimentary          Horizon profiles    Stream order               |
-|  Metamorphic          Degradation risks   Base level control         |
+|  FEEDBACK: Erosion → sediment load → sea level → isostasy → uplift  |
 +----------------------------------------------------------------------+
 ```
 
@@ -86,7 +95,17 @@ humans have settled and why.
 ## Section 2: Earthquakes
 
 ```
-<!-- @editor[bridge/P2]: No log scale → seismic measurement bridge despite obvious parallel — any engineer from signal processing or database indexing knows log scales; connect Mw log₁₀ to familiar exponential relationships -->
+  MAGNITUDE SCALES — LOG SCALE CALIBRATION:
+  Moment magnitude Mw is a log scale where each unit = 10× amplitude
+  AND 31.6× energy (10^1.5 = 31.6). This is the same math as:
+  → Decibels (sound pressure level): 20 dB = 10× amplitude, 100× power
+  → RAID rebuild time: each additional disk roughly doubles
+  → Database index performance: B-tree depth is log₂(N)
+  The non-intuitive part: Mw 9.0 releases ~1000× MORE energy than Mw 7.0
+  (not 2× or 10×). Two magnitude units = 31.6² ≈ 1000× energy.
+  2011 Tōhoku (Mw 9.1) released ~45× the energy of 1994 Northridge (Mw 6.7)
+  despite feeling like a "small" difference in the number.
+
   SEISMIC WAVES:
   P waves (Primary/compressional): travel through solid + liquid; arrives first
   S waves (Secondary/shear): only solid; arrives second
@@ -188,12 +207,40 @@ humans have settled and why.
   │   Slate: low-grade metamorphism of shale                       │
   └────────────────────────────────────────────────────────────────┘
 
-<!-- @editor[content/P2]: Section is thin — human significance deserves more depth on economic geology (critical minerals, ore deposits, resource extraction geography) to connect with 06-GEOPOLITICS -->
-  HUMAN SIGNIFICANCE:
-  Granite: foundation and building stone (massive continental cratons)
-  Limestone: aquifer (karst), building material, cement production
-  Coal/oil: sedimentary (organic accumulation + burial)
-  Basalt: road aggregate; oceanic floor globally
+  HUMAN SIGNIFICANCE — ROCK TYPE TO RESOURCE:
+  ┌────────────────────────────────────────────────────────────────┐
+  │ IGNEOUS ROCK RESOURCES:                                        │
+  │ Granite: building/dimension stone; stable cratonic foundations │
+  │ Basalt: road aggregate; oceanic crust globally                 │
+  │ Pegmatite: gem minerals (tourmaline, emerald, beryl); REE-     │
+  │   bearing minerals (spodumene for Li; columbite for Nb/Ta)    │
+  │ Porphyry intrusions: largest Cu-Mo deposits (~75% of global   │
+  │   Cu production from porphyry deposits; Bingham Canyon UT,   │
+  │   Escondida Chile)                                            │
+  │ Kimberlite pipes: primary diamond source (>50 km depth mantle │
+  │   xenoliths; South Africa, Botswana, Russia, Canada)          │
+  │                                                                │
+  │ SEDIMENTARY ROCK RESOURCES:                                    │
+  │ Limestone: cement feedstock (CaCO₃ → CaO + CO₂ at 900°C);   │
+  │   karst aquifer; building stone (Paris Basin limestone)       │
+  │ Coal: organic accumulation + burial; Carboniferous swamps     │
+  │ Oil/gas: organic-rich shale buried to "oil window" (~60-120°C)│
+  │   migration to porous reservoir; trap + seal required         │
+  │ Evaporites: potash (fertilizer; K is a critical crop nutrient)│
+  │   halite (chemical feedstock); gypsum (drywall/plaster)      │
+  │ Iron formation (BIF): world's largest iron ore deposits;      │
+  │   Proterozoic age (Hamersley Basin Australia; Carajas Brazil) │
+  │                                                                │
+  │ CRITICAL MINERAL GEOGRAPHY:                                    │
+  │ REE (rare earth elements): carbonatite-hosted (Mountain Pass  │
+  │   CA; Bayan Obo China); China dominates processing (~90%)     │
+  │ Lithium: pegmatite spodumene (Australia) + brine evaporites   │
+  │   (Lithium Triangle: Chile/Argentina/Bolivia)                 │
+  │ Cobalt: DRC (70%); magmatic Ni-Cu-Co deposits (Sudbury,       │
+  │   Norilsk) + Congo Basin laterites                            │
+  │ → Connects to geopolitics: resource geography ≈ mineral       │
+  │   deposit geography (see 06-GEOPOLITICS-RESOURCES.md)        │
+  └────────────────────────────────────────────────────────────────┘
 ```
 
 ---

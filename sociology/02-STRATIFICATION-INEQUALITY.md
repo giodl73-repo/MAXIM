@@ -4,23 +4,40 @@
 
 Social stratification is **the structural ranking of social groups in a hierarchy of unequal access to valued resources** — income, wealth, power, status, education, health. Unlike individual differences in resources, stratification is systematic, institutionalized, and transmitted across generations.
 
-<!-- @editor[diagram/P2]: Diagram lists three dimensions as columns but doesn't show how they relate — Weber's key insight (they're correlated but separable) deserves a visual showing divergence cases, not just parallel lists -->
 ```
-DIMENSIONS OF STRATIFICATION
+DIMENSIONS OF STRATIFICATION — CORRELATED BUT SEPARABLE
 
-  ECONOMIC                STATUS              POWER
-  ─────────              ────────            ───────
-  Income                 Prestige             Decision-making authority
-  Wealth (stock)         Honor                Political influence
-  Occupation             Social deference     State coercive capacity
-  Market position        Lifestyle            Organizational control
-  Credit access          Community standing
+  ECONOMIC              STATUS               POWER
+  ─────────             ────────             ───────
+  Income                Prestige             Decision-making authority
+  Wealth (stock)        Honor                Political influence
+  Occupation            Social deference     State coercive capacity
+  Market position       Lifestyle            Organizational control
+  Credit access         Community standing
 
-  Weber's key insight: these three are correlated but SEPARABLE
-    A religious leader may have high status + power but low income
-    A "new money" entrepreneur may have high income but low status
-    An academic may have high status but low income and power
-    A gangster may have high income + power but low legitimate status
+Weber's key insight: the three axes are correlated in general but
+  can diverge — and the divergence cases expose how the system works:
+
+  CASE                  ECONOMIC    STATUS    POWER
+  ──────────────────────────────────────────────────
+  Senior professor         Low        High      Low
+  New-money entrepreneur   High       Low       Low
+  Organized crime boss     High       Low       High
+  Old-money aristocrat     Moderate   High      Moderate
+  Political party boss     Low        Moderate  High
+  Celebrity                High       High      Low
+  Career bureaucrat        Moderate   Low       High
+  ──────────────────────────────────────────────────
+  Correlation is real; perfect alignment is not
+
+WHY DIVERGENCE MATTERS:
+  The axes can be mobilized independently:
+  → High-status actors defend status even when it costs income
+     (professors reject industry salaries; the "status floor" effect)
+  → High-power actors use power to acquire income (regulatory capture)
+  → High-income actors buy status over time (philanthropy, endowments)
+  Mobility is partial: moving one dimension doesn't automatically move others
+  → "New money" is a lived phenomenon, not just a category
 
 FORMS OF STRATIFICATION SYSTEM:
   SLAVERY: persons owned as property; extreme; legally abolished globally (though persists)
@@ -344,7 +361,18 @@ MECHANISMS:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — learner's career in large tech organizations provides direct experience of credentialing as closure (Collins), meritocracy narrative, and status-vs-class divergence in corporate hierarchies; a bridge from corporate ladder → Weber's multidimensional stratification would land immediately -->
+## From Corporate Hierarchies to Stratification Theory
+
+The stratification concepts in this module map cleanly onto dynamics visible inside large technology organizations.
+
+**Weber's multidimensional model explains the tech title/pay/influence decoupling.** A distinguished engineer may have high status (technical reputation) and moderate power (architectural influence) but lower formal economic capital than a director who manages their budget. A product manager may have high organizational power (roadmap control) but low status in the engineering field. These are not anomalies — they are Weber's point: the three axes are correlated on average but decouple at the individual level, and actors strategically trade across them (taking a pay cut for a prestigious research role; accepting less autonomy for a more senior title).
+
+**Credentialing as closure (Randall Collins) describes tech hiring exactly.** The requirement for CS degrees from elite universities, the weight given to Google/Meta/Stripe tenure in hiring decisions, the prestige gradient of PhD programs — these are closure mechanisms that restrict access to high-value positions, legitimated by meritocracy rhetoric. Collins' point: the credential often predicts little about job performance; its function is to restrict the supply of qualified candidates and signal group membership. The "FAANG brand on the resume" operates as social closure.
+
+**Bourdieu's capital conversion describes the engineering-to-management transition.** Technical capital (deep domain expertise, engineering credibility) does not automatically convert to organizational capital (budget authority, political influence, management legitimacy). The conversion requires active work — relationship-building, visibility into non-technical domains, tolerance of ambiguity — and involves transaction costs. Engineers who fail at this transition have not failed at "leadership"; they have encountered the friction of cross-field capital conversion.
+
+**The "meritocracy narrative" is sociologically a legitimation story.** The claim that outcomes in tech are determined by skill and effort functions to naturalize the advantages of those who already have high cultural capital (elite education, professional networks, code-fluent upbringing). It converts a structurally biased outcome into an apparently earned one. This is Bourdieu's symbolic violence: the dominated accept the terms of their domination because the terms appear neutral.
+
 ## Decision Cheat Sheet
 
 | Phenomenon | Best explanation |

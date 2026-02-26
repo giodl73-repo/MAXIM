@@ -31,28 +31,25 @@ diversity of life.
 
 ## Biological Species Concept
 
-<!-- @editor[audience/P3]: Tone slightly instructional — the BSC definition and its failures are textbook-level material; this learner would benefit more from a terse comparison table of species concepts with their failure modes than the narrative introduction -->
-Mayr (1942): "Species are groups of actually or potentially interbreeding natural
-populations which are reproductively isolated from other such groups."
+## Biological Species Concept
 
-This is the most widely used definition but has well-known failures:
+Mayr (1942): reproductive isolation is the criterion. All major species concepts,
+their failure domains, and the formal property each captures:
 
-| Situation | Problem with BSC |
-|-----------|-----------------|
-| Allopatric populations | "Potentially interbreeding" is untestable |
-| Bacteria, asexuals | No interbreeding at all; the concept is inapplicable |
-| Hybridizing plants | Many plant "species" hybridize freely |
-| Fossil taxa | Cannot test reproductive isolation |
-| Ring species | Endpoints cannot interbreed but connected by interbreeding intermediates |
+| Concept | Criterion | Fails for | What it captures |
+|---------|-----------|-----------|-----------------|
+| Biological (BSC) | Reproductive isolation | Asexuals, bacteria, allopatric pops, ring species | Gene flow barrier |
+| Phylogenetic (PSC) | Smallest diagnosable clade | Over-splits (many more "species" than BSC) | Genealogical exclusivity |
+| Ecological | Distinct adaptive zone | Hard to define zone objectively | Niche occupation |
+| Cohesion | Genetic + ecological exchangeability | Complex to operationalize | Both forces of cohesion |
+| Genotypic cluster | Statistical gap in genotype space | Arbitrary threshold | Empirical data-driven |
 
-Alternative concepts:
-- **Phylogenetic species concept**: smallest clade diagnosable by shared derived characters
-- **Ecological species concept**: lineage occupying a distinct adaptive zone
-- **Cohesion species concept**: most inclusive population sharing mechanisms of
-  cohesion (genetic exchangeability + ecological interchangeability)
+"Species" is a human category on a continuum. The 26 competing concepts reflect
+that speciation is a process, not a discrete transition.
 
-The plurality of species concepts reflects the reality that "species" is a human
-category imposed on a continuum of divergence.
+**Formal framing**: reproductive isolation RI ∈ [0,1]. Total RI = 1 − ∏(1 − RIᵢ)
+where each barrier i contributes a partial isolation value. Two populations can be
+70% reproductively isolated with no principled threshold where they "become species."
 
 ---
 
@@ -250,7 +247,43 @@ What genes actually cause reproductive isolation?
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the speciation continuum (partial reproductive isolation 0-1, decomposed into barrier components) maps directly to probabilistic independence/coupling in formal systems; the D-M incompatibility snowball k(k-1)/2 is a combinatorial argument this learner would appreciate framed as such -->
+## Reproductive Isolation — Probability and Combinatorics Bridge
+
+```
+SPECIATION CONTINUUM AS PROBABILISTIC COUPLING:
+
+  Total reproductive isolation = 1 − P(successful hybrid gene flow)
+  Each barrier is (approximately) independent:
+    RI_total = 1 − ∏ᵢ (1 − RIᵢ)
+  → Probability that at least one of k independent barriers blocks exchange
+  → Same structure as: probability that at least one of k independent failure
+    modes kills a system (reliability engineering complement)
+  → k barriers each at RI = 0.5 → total RI = 1 − (0.5)^k
+    3 barriers → RI = 0.875; 5 barriers → RI = 0.969
+
+DOBZHANSKY-MULLER INCOMPATIBILITY SNOWBALL:
+
+  After divergence, two populations accumulate substitutions independently.
+  DM incompatibilities arise when alleles that evolved separately interact
+  in the hybrid (A evolved in background of ancestral B; B' evolved in
+  background of ancestral A — pair (A, B') is untested by selection).
+
+  Number of potential incompatibilities grows combinatorially:
+    k substitutions accumulated → C(k,2) = k(k-1)/2 potential incompatible pairs
+    → quadratic growth even under constant substitution rate
+
+  "Snowball" prediction (Orr 1995):
+    RI grows faster than linearly with divergence time
+    Confirmed empirically: Drosophila (Matute et al. 2010), Arabidopsis
+
+  COMBINATORIAL FRAMING:
+    Each substitution is a variable; each pair is a potential interaction term
+    Number of pairwise interactions = C(k,2) = O(k²)
+    This is exactly the complexity argument for why epistatic landscapes are rugged:
+    k mutations → O(k²) pairwise interactions → exponentially many fitness peaks
+    Same as: k boolean variables → C(k,2) potential 2-SAT clauses
+```
+
 ## Speciation Rate — Macroevolutionary Perspective
 
 Why do some clades speciate faster than others?
@@ -287,7 +320,54 @@ divergence (many species more similar than human populations).
 
 ---
 
-<!-- @editor[content/P2]: Chromosomal speciation absent — significant gap; chromosome rearrangements (inversions, fusions, Robertsonian translocations) as isolating mechanisms deserve a section, especially given polyploidy coverage -->
+## Chromosomal Speciation
+
+Chromosome rearrangements can create reproductive isolation mechanically —
+independent of gene sequence divergence:
+
+```
+MECHANISM: MEIOTIC INCOMPATIBILITY FROM STRUCTURAL REARRANGEMENTS
+
+  1. INVERSIONS:
+     Paracentric (does not include centromere) and pericentric (includes centromere)
+     inversions suppress recombination in heterozygotes (inverted region forms loop
+     during meiosis → crossovers produce unbalanced gametes → inviable offspring)
+     → Inversion heterozygote has reduced fertility → postzygotic barrier
+     → Inversions act as "recombination suppressors" that protect co-adapted gene
+       complexes from being broken up by recombination
+
+     Evidence: many speciation loci are clustered inside inversions
+     Examples: Anopheles gambiae (M/S forms separated by 2 inversions)
+               Mimulus (monkeyflowers): inversions differentiate ecotypes
+
+  2. ROBERTSONIAN TRANSLOCATIONS (Rb fusions):
+     Two acrocentric chromosomes fuse at centromere → one metacentric chromosome
+     Heterozygote (one fused + two unfused): trivalent at meiosis I
+     → non-disjunction → aneuploid gametes → reduced fertility
+     Fixation of Rb chromosomes in isolated populations → karyotypic incompatibility
+
+     Example: house mice (Mus musculus domesticus) in Swiss Alps
+     Local populations with 2n = 22–40 (vs. ancestral 2n = 40)
+     Multiple Rb fusions fixed → hybrids between races have reduced fertility
+     → parapatric speciation in progress (hybrid zones with partial RI)
+
+  3. POLYPLOIDY (Whole Genome Duplication):
+     Allopolyploidy: hybrid between species + WGD → fertile allopolyploid
+     → instantly reproductively isolated from both parents (triploid block)
+     → accounts for ~15% of angiosperm speciation events
+     Examples: wheat (2n=42, hexaploid AABBDD), cotton, Spartina (salt marsh grass)
+
+     Autopolyploidy: WGD within a single species
+     → tetraploid cannot mate with diploid parent (triploid offspring sterile)
+     Surprisingly common: ~30% of fern species are autopolyploids
+
+KARYOTYPE EVOLUTION RATE:
+  Insects: very slow (many genera have identical karyotype)
+  Mammals: moderate (Muntjac deer: 2n=6 to 2n=70 across species)
+  Plants: rapid (polyploidy, Rb fusions common → karyotypic variation
+          within genera is the norm, not the exception)
+```
+
 ## Common Confusion Points
 
 **Allopatric speciation doesn't require selection for isolation.** Drift and

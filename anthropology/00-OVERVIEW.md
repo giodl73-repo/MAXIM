@@ -432,52 +432,70 @@ relationship to counterinsurgency.
 
 ---
 
-## Section 6: Bridge — Anthropology at Microsoft
+## Section 6: Bridge — Anthropology in Engineering Organizations
 
-<!-- @editor[bridge/P3]: Bridge section title and framing are Microsoft-specific — style contract requires universal CS bridges first, stack-specific as supplementary flavor. Rename to "Bridge — Anthropology in Engineering Organizations" and lead with universal concepts (user research, org culture, localization) before Microsoft examples -->
-This is not abstract to someone running engineering organizations:
+This is not abstract to anyone running engineering organizations at scale:
 
 ```
-  ANTHROPOLOGICAL METHOD         MICROSOFT / ENGINEERING APPLICATION
+  ANTHROPOLOGICAL METHOD         ENGINEERING / PRODUCT APPLICATION
   ─────────────────────────────────────────────────────────────────
   Thick description (Geertz)  -> User research: what users *do*,
                                   not what they say they do.
                                   PARC's Lucy Suchman showed the gap
                                   between plans and situated action.
+                                  Survey data ≠ behavior data.
 
   Participant observation     -> Contextual inquiry (Holtzblatt):
                                   field interviews, shadowing users
                                   in their own environment.
                                   "Follow the user home" methodology.
+                                  Standard practice at PARC, IDEO,
+                                  Intel (Genevieve Bell), EPIC conference.
 
-  Cultural models             -> Design ethnography (IDEO/PARC):
+  Cultural models             -> Design ethnography:
   (Bourdieu habitus)            mapping hidden practices that users
                                   cannot articulate in a survey.
+                                  Gap between front-stage ("how we're
+                                  supposed to work") and back-stage
+                                  ("how work actually happens").
 
   WEIRD problem               -> Global product design: features built
   (Henrich 2010)                for WEIRD psychology fail in East/
                                   South Asian, African, Latin American
                                   markets. The "universal user" is not.
+                                  Individualistic account model, direct
+                                  communication defaults, flat org tools
+                                  all encode WEIRD assumptions.
+                                  (Any tech company shipping globally
+                                  faces this, not just US companies.)
 
   Boasian relativism          -> True localization requires understanding
                                   cultural logic, not just translating
                                   strings and reformatting dates.
+                                  Internationalization (i18n) ≠ cultural
+                                  adaptation; the latter requires
+                                  anthropological method.
 
   Mauss's The Gift            -> Engineering team culture: peer review
   (gift/obligation)             norms, oncall help, knowledge sharing —
                                   informal obligations that govern
                                   cooperation without explicit contract.
+                                  Works the same at any tech org.
 
   Practice theory (Bourdieu)  -> Why org change programs fail:
                                   the habitus of "how we do things here"
                                   is embodied, pre-reflective, and
                                   resists top-down redesign.
+                                  Changing stated values without changing
+                                  structural conditions (incentives,
+                                  promotion criteria) leaves habitus
+                                  intact. Universal in any large org.
 ```
 
-The discipline that invented participant observation is the same one Microsoft
-Research uses when studying how engineers collaborate and why global products
-succeed or fail. The WEIRD problem is a direct constraint on product design
-decisions made at the VP level for a global user base.
+The discipline that invented participant observation is the same one applied
+at PARC, IDEO, Intel, and Microsoft Research when studying how engineers
+collaborate and why global products succeed or fail. The WEIRD problem is
+a constraint on product architecture for any engineering org shipping globally.
 
 ---
 

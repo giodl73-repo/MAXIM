@@ -12,7 +12,8 @@ domains of life.
 +----------------------------------------------------------------------+
 |              EAST ASIAN RELIGIOUS LANDSCAPE                          |
 |                                                                      |
-|  "THREE TEACHINGS" (Sanjiao, China)                                  |
+|  CHINA: THREE TEACHINGS (Sanjiao) + Chinese Folk Religion            |
+|                                                                      |
 |  +-------------------+-------------------+-------------------+       |
 |  |   CONFUCIANISM    |      DAOISM       |    BUDDHISM       |       |
 |  +-------------------+-------------------+-------------------+       |
@@ -22,11 +23,23 @@ domains of life.
 |  | Government by     | Inner alchemy.    | Bodhisattva ideal.|       |
 |  | virtue.           | Immortality.      | Pure Land.        |       |
 |  +-------------------+-------------------+-------------------+       |
+|            ↓ absorbed elements from all three ↓                      |
+|  +----------------------------------------------------------+        |
+|  |              CHINESE FOLK RELIGION                       |        |
+|  | No founder, no scripture, no institution — yet arguably  |        |
+|  | the largest religion by adherents (400–500M+)            |        |
+|  | Ancestor veneration + local deities (Mazu, Guan Yu,     |        |
+|  | Tudigong) + divination + qi cosmology + domestic ritual  |        |
+|  | Structural position: the ground-level practice into which|        |
+|  | the Three Teachings feed; most Chinese participate in    |        |
+|  | folk religion regardless of which "teaching" they follow |        |
+|  +----------------------------------------------------------+        |
 |                                                                      |
 |  A traditional Chinese scholar might practice Confucian ethics       |
-|  in government service, Daoist meditation for health and             |
-|  inner cultivation, and Buddhist rituals for funerary rites.         |
-|  Not contradiction — different teachings for different purposes.     |
+|  in government service, Daoist meditation for inner cultivation,     |
+|  Buddhist rituals for funerary rites, and folk religious practices   |
+|  (ancestral offerings, Kitchen God, temple visits) year-round.       |
+|  All four layers operate simultaneously without contradiction.       |
 |                                                                      |
 |  JAPAN:                                                              |
 |  +-------------------+-------------------+                           |
@@ -424,7 +437,6 @@ political party (Komeito).
 ---
 
 ## Chinese Folk Religion
-<!-- @editor[structure/P2]: Section not anchored to landscape diagram — the opening diagram covers Three Teachings + Japan's Shinto/Buddhism but omits Chinese folk religion as a distinct category; add it to the diagram or explain its structural relationship -->
 
 Often excluded from standard taxonomies because it has no institutional form,
 no single founder, no unified doctrine. Yet it may be the world's largest

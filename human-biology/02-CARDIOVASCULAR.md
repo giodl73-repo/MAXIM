@@ -313,7 +313,23 @@ Counter-regulatory: opposes RAAS. Elevated BNP = sensitive marker of heart failu
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- heart = pump with check valves, dual circuit = two-stage pipeline, Poiseuille r^4 = bandwidth scaling, baroreceptor reflex = auto-scaling with PID, Starling forces = hydrostatic pressure balancing -->
+## Engineering Bridges
+
+**Heart as two-stage pipeline pump**
+The heart is a dual centrifugal pump running two circuits in series. The right ventricle is a low-pressure, high-compliance pump (output ~25 mmHg systolic) feeding a low-resistance pulmonary loop. The left ventricle is a high-pressure, thick-walled pump (output ~120 mmHg systolic) driving the high-resistance systemic loop. Same flow rate through both — like two pipeline stages in series where the second stage must develop much higher head pressure. Series topology means any reduction in right-side output immediately starves the left side.
+
+**Poiseuille's law as bandwidth scaling**
+Flow ∝ r⁴ is the vascular equivalent of pipe bandwidth: doubling the radius yields 16× the throughput. Arterioles (r ≈ 15–100 μm) are the dominant resistance element — small radius changes produce enormous flow changes. This is why vasodilation/constriction at arterioles is the primary control mechanism for tissue perfusion, not changes at capillaries or large vessels.
+
+**Baroreceptor reflex as proportional controller**
+The carotid/aortic baroreceptors → NTS → ANS loop is a negative-feedback control system: BP deviation → proportional correction via HR and vasomotor tone. Response time: seconds. It corrects for acute perturbations (standing, hemorrhage) but adapts (resets) over days — so chronic hypertension resets the set point upward, which is why long-standing hypertension is not "corrected" by the baroreceptor reflex.
+
+**Starling forces as hydrostatic balancing across a membrane**
+The Starling equation models net filtration across a semipermeable membrane as the difference between two opposing pressure pairs: hydrostatic gradient (pushes fluid out) vs oncotic gradient (pulls fluid in). This is Darcy's law with a reflection coefficient for large molecules. Clinically: falling albumin (cirrhosis, nephrotic syndrome) removes the oncotic brake → edema regardless of hydrostatic pressure. The math is identical to pressure-driven flow across a membrane filter with partial solute retention.
+
+**Frank-Starling law as length-dependent gain**
+Increasing preload stretches sarcomeres from ~1.8 μm toward the optimal ~2.2 μm, increasing myosin-actin overlap AND troponin C calcium sensitivity simultaneously. This is an intrinsic gain mechanism that lets the heart automatically match output to venous return without neural input — analogous to a feedback amplifier whose gain increases with input amplitude up to a saturation point (beyond ~2.2 μm, overlap decreases and force drops).
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

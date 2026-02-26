@@ -1,4 +1,3 @@
-<!-- @editor[bridge/P3]: No CS/engineering analogy bridge — checkpoint inhibitors parallel removing rate limiters on an already-provisioned service; CAR-T parallels hot-patching a running process with a new event handler that bypasses the normal dispatch table (MHC) -->
 # Immunotherapy
 
 ## The Big Picture
@@ -103,8 +102,7 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   └────────────────────────────────────────────────────────────────┘
 
   NEXT-GENERATION CHECKPOINTS:
-  <!-- @editor[content/P2]: Typo — "approal" should be "approval" -->
-  Anti-LAG-3 (relatlimab): First LAG-3 approal combined with nivo
+  Anti-LAG-3 (relatlimab): First LAG-3 approval combined with nivo
   Anti-TIM-3: Phase II/III trials for several tumors
   Anti-TIGIT (vibostolimab, tiragolumab): Active development
   Anti-VISTA, anti-NKG2A: Earlier development
@@ -324,6 +322,77 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
 | Allogeneic off-the-shelf CAR-T | CRISPR-edited (TCR KO + HLA KO) + CAR knock-in |
 
 ---
+
+## Checkpoint Inhibitors and CAR-T as Systems Engineering
+
+```
+CHECKPOINT INHIBITORS ↔ REMOVING RATE LIMITERS FROM A PROVISIONED SERVICE
+──────────────────────────────────────────────────────────────────────────────
+THE SITUATION:
+  Tumor-reactive T cells exist in the tumor microenvironment.
+  They are NOT absent — they are present but throttled.
+  The tumor has activated the immune system's built-in rate limiter (PD-1/PD-L1)
+  to avoid being killed.
+
+  This is not a question of capacity (enough T cells exist).
+  This is a question of rate limiting (they are being deliberately throttled).
+
+CHECKPOINT INHIBITOR = REMOVE THE RATE LIMITER:
+  Anti-PD-1 (pembrolizumab): Blocks PD-1 on T cells → PD-L1 can't bind → no brake
+  Anti-PD-L1: Blocks PD-L1 on tumor → T cells can activate normally
+  Anti-CTLA-4: Blocks CTLA-4 on T cells → CD28 can outcompete → full activation
+
+  What happens: the provisioned compute (T cells) now operates without throttling
+  Response requires: pre-existing T cells at the site (immunological desert → fails)
+  Doesn't add capacity: if no tumor-reactive T cells exist, anti-PD-1 does nothing
+
+IMMUNE-RELATED ADVERSE EVENTS (irAEs) = RATE LIMITER REMOVED FROM OTHER SERVICES:
+  The PD-1/CTLA-4 brakes also throttle self-reactive T cells (autoimmune protection)
+  Remove the rate limiter → self-reactive T cells now active → attack normal tissue
+  irAE = the T cells were always there; the rate limiter was the only protection
+  Grade 3-4 irAE = production incident; treatment = add back the rate limiter (steroids)
+
+CAR-T ↔ HOT-PATCHING WITH A NEW EVENT HANDLER THAT BYPASSES THE DISPATCH TABLE
+──────────────────────────────────────────────────────────────────────────────
+NORMAL T CELL DISPATCH:
+  TCR (receptor) → must match MHC:peptide (specific dispatch key)
+  If MHC I downregulated by tumor → T cell cannot dispatch (no binding)
+  Normal T cell is constrained to the MHC dispatch table
+
+CAR-T = REPLACE THE DISPATCH MECHANISM ENTIRELY:
+  scFv (antibody fragment): binds tumor surface antigen DIRECTLY, no MHC needed
+  CD3ζ domain: hijacks the T cell's killing machinery (same effectors as TCR)
+  The CAR = new event handler wired to the existing effector stack
+
+  ANALOGY:
+  Normal TCR  ↔  Standard HTTP handler registered with a router
+  MHC I       ↔  URL routing table (tumor subverts by removing routes)
+  CAR-T       ↔  Low-level socket handler that bypasses the router entirely
+                 and directly dispatches on a different binding key (surface antigen)
+  scFv        ↔  The custom binding predicate (binds CD19, BCMA, etc.)
+  CD3ζ        ↔  The existing killing machinery (reused, not reimplemented)
+
+  CONSEQUENCE:
+  CAR-T is MHC-independent: even if tumor downregulates MHC I → CAR-T still kills
+  Requires surface antigen to be accessible (inside membrane = invisible)
+  On-target off-tumor: the handler fires on any cell expressing the antigen
+    → CD19 CAR → kills normal B cells too (B cell aplasia = acceptable side effect)
+    → Wide-expression antigens (e.g., carbonic anhydrase IX) → organ toxicity
+
+MANUFACTURING AS SOFTWARE BUILD PIPELINE:
+  Leukapheresis → collect raw material (T cells from patient)
+  Viral transduction → inject CAR gene into T cell genome (compile + link)
+  Ex vivo expansion → scale-out in bioreactor (~2 weeks)
+  QC → expression testing, potency assay, sterility
+  Infusion → deploy to production
+
+  Timeline: leukapheresis → patient infusion = ~3–4 weeks
+  Cost: ~$400,000–600,000 per treatment (autologous, bespoke)
+  Allogeneic CAR-T = shared binary: CRISPR-edit donor T cells
+    (TCR KO = remove self-dispatch table; HLA KO = prevent host rejection)
+    → Off-the-shelf; lower cost; current frontier
+──────────────────────────────────────────────────────────────────────────────
+```
 
 ## Common Confusion Points
 

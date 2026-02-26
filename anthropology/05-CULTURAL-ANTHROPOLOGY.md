@@ -551,7 +551,71 @@
 
 ---
 
-<!-- @editor[bridge/P2]: Old-world-to-new-world bridges are scattered inline (gift exchange -> code review, communitas -> hackathons) but no consolidated bridge section. A dedicated "Bridge" section pulling these together would serve the layered drill-down structure better — any senior engineer scanning the ToC should see the applied connections at a glance -->
+## Bridge — Cultural Anthropology in Engineering Organizations
+
+The inline connections throughout this file deserve consolidation. Any senior engineer running teams at scale will find direct structural parallels:
+
+```
+  ANTHROPOLOGICAL CONCEPT       ENGINEERING / ORG PARALLEL
+  ─────────────────────────────────────────────────────────────────
+  Gift exchange (Mauss):        Peer code review, oncall coverage,
+  Gift creates obligation;      knowledge sharing, internal tools
+  refusal to give =             contributions — informal reciprocal
+  social rupture.               obligations without explicit contract.
+                                Orgs that treat everything as a market
+                                transaction destroy this layer.
+
+  Potlatch (prestige economy):  Open-source contribution, conference
+  Give away to gain status;     talks, public technical writing.
+                                Status accrues to the giver, not
+                                the hoarder. Same psychological
+                                mechanism, different goods.
+
+  Liminality + Communitas       Hackathons, offsites, onboarding
+  (Turner): threshold states    cohorts. Suspension of normal
+  dissolve hierarchy and        hierarchy; temporary role equality;
+  create intense solidarity.    bonding effects that persist.
+                                Works cross-culturally because it
+                                activates universal social dynamics.
+
+  Rites of passage (van Gennep):Engineering bootcamps, initiation
+  Separation → Transition →     into on-call rotation, first prod
+  Reincorporation.              deploy. Social function: mark role
+                                transition publicly; integrate the
+                                individual into the group's identity.
+
+  Front stage / Back stage      Official process (PR review checklist,
+  (Goffman): public performance sprint ceremonies) vs. actual work
+  vs. private reality.          (Slack DMs, informal decisions, the
+                                real decision made before the meeting).
+                                Org redesigns that only change the
+                                front stage fail because back stage
+                                is where the work happens.
+
+  Thick description (Geertz):   User research that goes beyond survey
+  Interpret behavior in its     data to observe what users actually
+  full cultural context.        do, in their environment, over time.
+                                The gap between stated and actual
+                                behavior is the fieldwork gap.
+
+  Habitus (Bourdieu):           Engineering culture as embodied
+  Internalized dispositions     practice, not stated values.
+  that generate practice        "Move fast" or "reliability first"
+  without explicit reasoning.   is habitus — felt, not articulated.
+                                You cannot change it by announcing
+                                new values; only by restructuring
+                                the conditions that produce it
+                                (incentives, promotion criteria,
+                                what gets rewarded vs. punished).
+
+  Cultural relativism:          Feature localization requires
+  Evaluate practices within     cultural-logic understanding,
+  their own logic, not by       not just translation.
+  external standards.           Why a feature "feels wrong" in
+                                one market but not another is
+                                usually a cultural-logic mismatch,
+                                not a translation error.
+```
 
 ## Decision Cheat Sheet
 

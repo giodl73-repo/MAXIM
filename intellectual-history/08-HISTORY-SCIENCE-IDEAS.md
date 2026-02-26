@@ -270,10 +270,60 @@ through internalist-externalist debates, to contextual, sociological, and postco
 
   DASTON AND GALISON (Objectivity, 2007):
   "Objectivity" is a historical concept, not a timeless value.
-  18th century: "truth-to-nature" (idealized images).
-  19th century: "mechanical objectivity" (suppress interpretation; let instruments speak).
-  Late 19th century: "trained judgment" (expert interpretation required).
-  Each epistemic virtue responds to specific problems in scientific practice.
+  Each epistemic virtue emerged in response to specific problems in scientific practice:
+
+  +-------------------------------------------------------------------+
+  |               THREE EPISTEMIC VIRTUES (Daston & Galison)          |
+  |                                                                   |
+  |  ERA          VIRTUE             PROBLEM IT SOLVED                |
+  |  +-----------+-----------------+--------------------------------+  |
+  |  | 18th C    | TRUTH-TO-NATURE | Individual specimens are       |  |
+  |  |           | Idealized images| imperfect; the type must be    |  |
+  |  |           | that represent  | extracted by expert judgment.  |  |
+  |  |           | the ideal type  | The ideal fern, the ideal      |  |
+  |  |           | (atlas images)  | crystal: not any one specimen. |  |
+  |  +-----------+-----------------+--------------------------------+  |
+  |  | 19th C    | MECHANICAL      | Human observers introduce      |  |
+  |  |           | OBJECTIVITY     | bias; trained judgment cannot  |  |
+  |  |           | Suppress the    | be trusted. Let instruments    |  |
+  |  |           | self; let the   | speak: photography, self-      |  |
+  |  |           | instrument speak| recording devices, automatic   |  |
+  |  |           |                 | tracing machines.              |  |
+  |  +-----------+-----------------+--------------------------------+  |
+  |  | Late 19th | TRAINED         | Instruments produce noise;     |  |
+  |  | C - 20th C| JUDGMENT        | data requires interpretation.  |  |
+  |  |           | Expert pattern  | The radiologist, the particle  |  |
+  |  |           | recognition as  | physicist, the geologist must  |  |
+  |  |           | epistemic virtue| learn to "see" what matters.   |  |
+  |  +-----------+-----------------+--------------------------------+  |
+  +-------------------------------------------------------------------+
+
+  ML / DATA SCIENCE PARALLEL:
+  The three virtues map exactly onto the phases of the machine learning
+  evaluation problem:
+
+  Truth-to-nature -> Curated benchmark datasets:
+    ImageNet, MNIST are "idealized" specimens selected by experts to
+    represent the canonical distribution. The benchmark is a truth-
+    to-nature atlas: imperfect real data filtered to the ideal type.
+
+  Mechanical objectivity -> Automated evaluation pipelines:
+    Suppress human judgment; let the metric speak. BLEU score for MT,
+    accuracy on held-out test set. The evaluation is reproducible,
+    instrument-driven, and explicitly excludes expert interpretation.
+
+  Trained judgment -> Expert human evaluation:
+    LLM evaluation has returned to trained judgment: RLHF (human
+    raters), red-teaming, domain expert evaluation. The instrument
+    (the model) cannot evaluate itself; the trained expert must
+    interpret whether a response is "good." This is Daston and
+    Galison's third phase re-enacted at AI scale.
+
+  KEY INSIGHT: Mechanical objectivity emerged as a reaction to the
+  subjectivity problems of trained judgment; trained judgment is now
+  returning because mechanical metrics (BLEU, accuracy) have shown
+  exactly the limitations the 19th century feared: they measure what
+  they measure, not what matters. The historical cycle is live.
 ```
 
 ### Global History of Science
@@ -299,7 +349,22 @@ through internalist-externalist debates, to contextual, sociological, and postco
 
 ---
 
-<!-- @editor[bridge/P2]: The internalist-externalist debate maps to a familiar engineering tension: "did this system succeed because of its technical design (internalist) or because of market conditions, team culture, and timing (externalist)?" — e.g., VHS vs. Betamax, Windows vs. OS/2. Bridge missing -->
+## Engineering Bridge: Internalist-Externalist Debate in Technology Adoption
+
+The internalist-externalist debate in history of science has an exact parallel in every "why did technology X win?" question in engineering. It is not merely analogous — the same explanatory moves appear, and the same false dichotomy tempts.
+
+**Internalist explanation**: the technology succeeded because of its technical properties. VHS beat Betamax because VHS had longer recording time. TCP/IP beat OSI because it was simpler and more pragmatic. Unix beat Multics because the kernel was smaller and more composable. The technical design is the cause.
+
+**Externalist explanation**: the technology succeeded because of social, market, and institutional conditions. VHS beat Betamax because Matsushita licensed the format aggressively to OEM manufacturers while Sony kept tight control. TCP/IP beat OSI because DARPA funded implementations before standards were frozen; OSI was captured by telecoms with conflicting interests. Unix spread because AT&T had to license it cheaply under antitrust constraints.
+
+**Both are necessary; neither is sufficient.** The "false dichotomy" resolution in history of science applies directly: technical properties set the feasibility envelope (a system that is genuinely inferior on every dimension has a ceiling), but within that envelope, social, institutional, and market conditions determine which feasible technologies actually spread. This is why "technically superior" systems lose all the time — not randomly, but for identifiable externalist reasons.
+
+**Case studies in the resolution**:
+- Windows vs. OS/2: OS/2 was technically superior in many respects (better memory protection, better multitasking). IBM's enterprise sales model, Microsoft's OEM ecosystem, and IBM-Microsoft political breakdown explain the outcome — externalist factors within a range of technical parity.
+- Git vs. Mercurial: roughly comparable technical designs. GitHub's social features (pull requests, forks, the social graph) — externalist factors — drove adoption asymmetrically.
+- REST vs. SOAP: REST won not because it was technically superior on every axis (SOAP has stronger typing, better tooling for enterprise integrations) but because the web development community's practices, tooling culture, and the rise of JavaScript converged on REST — externalist.
+
+**The engineering implication**: when evaluating whether to adopt a technology, pure technical evaluation (internalism) misses the adoption dynamics that will determine whether the ecosystem survives. And pure adoption-dynamics thinking (externalism) risks committing to technologies that have structural technical limits that will assert themselves at scale.
 
 ## Decision Cheat Sheet
 
@@ -331,7 +396,6 @@ Phlogiston, ether, and caloric were not just "wrong" — they were sophisticated
 theoretical frameworks that did real work. History of science that dismisses losers
 as mere errors distorts the past.
 
-<!-- @editor[content/P2]: Daston and Galison's "objectivity" section is thin — the three historical epistemic virtues (truth-to-nature, mechanical objectivity, trained judgment) deserve their own table or expanded treatment given how directly they map to data science and ML evaluation practices -->
 **"Science and colonialism" is not anti-science.**
 Historians showing science's entanglement with colonial projects are not arguing
 science is bad or false. They are showing that the production of scientific knowledge

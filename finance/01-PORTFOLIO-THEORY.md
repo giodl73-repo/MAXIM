@@ -7,23 +7,47 @@ maximize expected return for a given risk level?** The mathematics is convex opt
 applied to a stochastic problem — Markowitz (1952) founded the field, CAPM extended it to
 equilibrium, and factor models added explanatory power.
 
-<!-- @editor[diagram/P2]: Diagram is a chronological timeline — doesn't show how Markowitz, CAPM, factor models, and Black-Litterman relate as a layered system (optimization → equilibrium → factors → Bayesian update) -->
 ```
+LAYERED SYSTEM — HOW THE MODELS RELATE:
+
+LAYER 1: OPTIMIZATION (Markowitz 1952)
+  Given μ (expected returns) and Σ (covariance matrix):
+  min wᵀΣw  s.t. wᵀμ = μ*, wᵀ1 = 1   → efficient frontier
+  Problem: μ estimated with large uncertainty → optimizer amplifies errors
+        ↓ ask: what equilibrium μ is consistent with everyone holding the market?
+
+LAYER 2: EQUILIBRIUM PRICING (CAPM 1964)
+  If all investors solve Markowitz with same beliefs, market clears when everyone
+  holds the market portfolio → CAPM pricing: E[Ri] - Rf = βi(E[Rm] - Rf)
+  CAPM gives prior for μ: Π = λΣw_mkt  (implied equilibrium returns)
+  Problem: single-factor, many empirical failures (size, value, momentum anomalies)
+        ↓ add systematic risk factors beyond the market
+
+LAYER 3: FACTOR MODELS (Fama-French 1992, APT 1976)
+  ri = αi + Σk βik Fk + εi    (k factors explain return covariance)
+  Factors identified empirically (SMB, HML) or theoretically (APT arbitrage)
+  Factor model gives structured Σ = BF_cov Bᵀ + D  (reduces parameters)
+  Problem: raw Markowitz on factor model μ still unstable — need Bayesian structure
+        ↓ combine equilibrium prior with investor views
+
+LAYER 4: BAYESIAN UPDATE (Black-Litterman 1990)
+  Prior: CAPM equilibrium returns Π
+  Likelihood: investor views P·μ = Q + ε
+  Posterior: μ_BL = [...] (see BL section below)
+  Result: portfolio tilted from market weights by views, proportional to conviction
+  No layer is complete alone — they compose into the practical workflow.
+
 HISTORICAL ARC:
   1952: Markowitz — mean-variance optimization, efficient frontier
-  1964: Sharpe — CAPM (single-factor model, market beta)
-  1973: Merton — ICAPM (multi-factor, dynamic)
-  1976: Ross — APT (Arbitrage Pricing Theory, factor model)
-  1992: Fama-French — 3-factor model (Mkt + SMB + HML)
+  1964: Sharpe — CAPM (single-factor market equilibrium)
+  1973: Merton — ICAPM (multi-factor, dynamic; intertemporal hedging demands)
+  1976: Ross — APT (Arbitrage Pricing Theory; factor model without equilibrium)
+  1990: Black-Litterman — Bayesian updating of CAPM equilibrium prior
+  1992: Fama-French — 3-factor model (Mkt + SMB + HML, empirical)
   1997: Carhart — 4-factor (+ MOM momentum)
+  2002: Ledoit-Wolf — analytical covariance shrinkage
   2015: Fama-French — 5-factor (+ RMW profitability + CMA investment)
-  Today: 100s of "factors" published; factor zoo; replication crisis
-
-MATHEMATICAL TOOLKIT:
-  Mean-variance: quadratic programming
-  CAPM: linear regression
-  Factor models: multivariate regression + PCA
-  Black-Litterman: Bayesian updating of prior = CAPM equilibrium
+  Today: 500+ published factors; factor zoo; replication crisis; ML factor research
 ```
 
 ---
@@ -345,7 +369,90 @@ factor_loadings = Beta[1:, :]   # 3 × n factor betas
 
 ---
 
-<!-- @editor[content/P2]: Missing transaction cost models (Almgren-Chriss execution) and multi-period dynamic optimization — significant for practical portfolio management -->
+---
+
+## Transaction Cost Models and Execution
+
+### Almgren-Chriss Optimal Execution
+
+```
+PROBLEM: Liquidate (or acquire) X shares over time horizon T.
+  Trading fast → price impact (market impact cost).
+  Trading slow → market risk (price moves against you).
+
+ALMGREN-CHRISS MODEL (2001):
+  Price dynamics:
+    S_k = S_{k-1} − g(v_k) − h(v_k) + σ√τ ξ_k   (permanent + temporary impact)
+    v_k = trading rate (shares/time) at step k
+    τ = time interval, ξ_k ~ N(0,1)
+
+  Linear impact (tractable case):
+    Permanent impact: g(v) = γv       (permanently moves price)
+    Temporary impact: h(v) = η v / τ  (reflects bid-ask + market depth)
+
+  Execution cost: C = Σ h(vk) · |vk| · τ    (temporary impact cost)
+  Market risk:    Var(X) = σ² Σ remaining_shares² · τ
+
+  MEAN-VARIANCE OPTIMAL SOLUTION:
+  min  E[Cost] + λ·Var(Cost)    over trajectory {v_k}
+
+  For linear impact: optimal trajectory is closed-form:
+    x(t) = X · sinh(κ(T-t)) / sinh(κT)   (hyperbolic sine decay)
+    κ = √(λσ²/η)
+    κ→0: uniform (TWAP); κ→∞: front-loaded (urgent liquidation)
+
+PARTICIPATION RATE HEURISTIC:
+  Don't trade > 10-20% of average daily volume (ADV) to avoid excessive impact.
+  Practical execution algorithms:
+    TWAP: uniform rate over horizon (ignores market conditions)
+    VWAP: proportional to expected intraday volume curve
+    IS (Implementation Shortfall): minimize arrival-price slippage (Almgren-Chriss spirit)
+    POV (Percent of Volume): track fraction of real-time volume
+
+MARKET IMPACT SCALING:
+  Square-root law (empirical): impact ∝ √(Q / ADV)
+  Kissell-Glantz: more detailed model with spread, volatility, urgency parameters
+  Impact + spread typically dominate for funds >$100M AUM
+```
+
+### Multi-Period Dynamic Optimization
+
+```
+SINGLE-PERIOD MARKOWITZ vs MULTI-PERIOD DYNAMIC:
+
+Single-period:
+  Choose w today; evaluate at horizon T.
+  Ignores: rebalancing, changing investment opportunity set, liability timing.
+
+MULTI-PERIOD MEAN-VARIANCE (Samuelson, Merton 1969):
+  Continuous-time: investor maximizes E[∫ u(c,t)dt + B(W_T)]
+  Merton (1973): ICAPM — optimal portfolio = myopic portfolio (Markowitz at each t)
+  PLUS intertemporal hedging demand (hedge changes in investment opportunity set)
+  For CRRA utility + constant investment opportunities: myopic is optimal (no hedging demand)
+  For time-varying risk premium: hedge state variable (e.g., long bonds hedge rate risk)
+
+LQR / STOCHASTIC CONTROL APPROACH:
+  State: [portfolio weights, current prices, factor exposures]
+  Control: [rebalancing trades]
+  Objective: quadratic cost in tracking error + transaction costs
+  LQR gives linear optimal policy in state; solvable by Riccati equation
+  Extensions: quadratic + transaction costs → QCQP at each step
+  This is the RL/control framing: Almgren-Chriss is a special case
+
+REBALANCING WITH TRANSACTION COSTS:
+  "No-trade zone" (linear TC): optimal policy is not to rebalance continuously
+  but to let weights drift within a tolerance band; only trade when outside band.
+  Dumas-Luciano (1991), Cadenillas-Pliska (1999): band width ∝ TC^{1/3}
+  In practice: rebalance monthly or when drift > threshold (e.g., 5% from target)
+
+MULTI-PERIOD PORTFOLIO CONSTRUCTION (practical):
+  t=1: Markowitz QP with transaction cost penalty → w₁
+       min  (w−w_target)ᵀΣ(w−w_target) + λ_tc Σ|wi−wi_prev|
+  t=2: repeat with updated μ, Σ, w_prev = w₁
+  Convex optimization at each step; full stochastic DP only for low-dimensional state
+```
+
+---
 
 ## Decision Cheat Sheet
 

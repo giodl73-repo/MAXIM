@@ -269,7 +269,60 @@ central to the Extended Evolutionary Synthesis.
 
 ---
 
-<!-- @editor[bridge/P3]: No formal old-world bridge section — the selection equation is gradient ascent on fitness, the breeder's equation is SGD, and 4Nes is a signal-to-noise ratio; this learner's math/CS background would benefit from one explicit bridge box mapping these parallels -->
+## Optimization and Signal Processing Bridge
+
+Selection, heritability, and the drift threshold are optimization and signal
+processing concepts with exact formal mappings:
+
+```
+SELECTION AS GRADIENT ASCENT:
+
+  Fitness landscape W(genotype): maps genotype space → R (fitness value)
+  Selection equation:  Δp = p·q·[p(w₁₁-w₁₂) + q(w₁₂-w₂₂)] / w̄
+
+  This is gradient ascent on mean fitness w̄:
+    Δw̄ ∝ (∂w̄/∂p) · Var(p) × selection_strength
+  Fisher's Fundamental Theorem: rate of increase of mean fitness =
+    additive genetic variance in fitness (exact analog of gradient magnitude)
+
+  Epistasis = non-convexity: fitness interaction between loci →
+    multiple local optima on the landscape →
+    Wright's "problem of peaks": populations can get stuck at local optima
+    Drift = stochastic perturbation to escape local optima (same role as
+    momentum / noise in SGD escaping sharp minima)
+
+BREEDER'S EQUATION AS SGD:
+
+  R = h² · S
+
+  R = response (parameter update Δθ)
+  S = selection differential (gradient estimate from data)
+  h² = narrow-sense heritability = fraction of variation that is "signal"
+     = V_A / V_P = additive variance / total phenotypic variance
+     ≈ effective learning rate × signal-to-noise ratio
+
+  If h² = 0: no heritable variation → no response (like zero learning rate)
+  If h² = 1: all variation is additive genetic → maximal response
+  h² < 1:   noise (environmental variance V_E) reduces effective learning
+
+4Nes AS SIGNAL-TO-NOISE RATIO:
+
+  Effective selection: benefit = s (selection coefficient per generation)
+  Drift noise: σ²(Δp) = p(1-p)/(2Ne) ≈ 1/(8Ne) at p = 0.5
+
+  SNR analog: beneficial allele is "detectable" above drift noise when:
+    s >> 1/(2Ne)  →  4Nes >> 1
+
+  Below threshold (4Nes < 1): allele behaves as effectively neutral
+    → fixed by drift with probability ~1/(2Ne) (same as neutral allele)
+  Above threshold (4Nes >> 1): probability of fixation ≈ 2s
+    → selection is the dominant force
+
+  This is exactly the SNR threshold in detection theory:
+    signal power s² vs. noise power σ² = 1/(2Ne)
+    SNR = s / σ = s·√(2Ne) ∝ s·√Ne
+```
+
 ## Decision Cheat Sheet
 
 | Scenario | Framework | Key quantity |

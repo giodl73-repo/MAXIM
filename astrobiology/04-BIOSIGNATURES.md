@@ -330,7 +330,13 @@ BIOSIGNATURE vs. TECHNOSIGNATURE:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the false positive / ensemble approach is Bayesian inference (posterior from multiple independent priors); the "no single biosignature is sufficient" principle is a direct analog of defense-in-depth / multi-factor authentication reasoning — natural bridge to probability theory and systems design -->
+## Computational and Mathematical Parallels
+
+**Biosignature ensemble as Bayesian combination of independent evidence.** The "no single biosignature is sufficient" principle is a direct statement of Bayesian updating: each biosignature contributes a likelihood ratio P(observed | life) / P(observed | no life), and the posterior for life given the full ensemble is the product of those ratios times the prior. O₂ alone: likelihood ratio ~10 (weak, abiotic sources exist). O₂ + CH₄: ~10⁴ (chemical disequilibrium is hard to maintain abiotically). Add N₂O, red edge, carbon isotopes: likelihood ratio approaches values that make the abiotic explanation probabilistically negligible, even if each individual signal is explicable abiotically. This is the formal version of "the ensemble is stronger than any single signal."
+
+**The false-positive analysis as a security threat model.** For every biosignature, there is a known or hypothesized abiotic source — the "attack surface" for false positives. The scientific methodology for biosignature validation mirrors the threat modeling process: enumerate all plausible abiotic pathways (threat vectors), assess whether the planetary context rules them out (threat mitigations), and require that the remaining signal be explicable only by the hypothesis being tested (residual risk). The Venus phosphine episode (2020-2021) is a case study in this process: the initial claim was that no abiotic source was sufficient; subsequent analysis identified instrumental artifacts and revised the signal downward, illustrating why claimed signals require independent replication before policy actions are taken.
+
+**Molecular assembly index as a Kolmogorov complexity proxy.** The Marshall et al. molecular assembly index (MA) — the minimum number of bond-formation steps required to assemble a molecule — is a discrete analog of Kolmogorov complexity applied to chemistry. Abiotic chemistry produces molecules with low MA (short description length); biology produces copies of specific high-MA molecules (long description length, but highly non-random). The biosignature is not complexity per se, but non-random complexity: a planet that preferentially produces copies of one high-MA molecule over the random ensemble of lower-MA molecules has a selection process operating — and selection is a defining property of life.
 
 ## The False Positive Problem
 

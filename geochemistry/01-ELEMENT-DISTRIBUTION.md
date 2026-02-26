@@ -4,17 +4,27 @@
 
 The distribution of elements in Earth and the solar system is the result of nucleosynthesis (what the universe made), nebular condensation (what condensed where), and planetary differentiation (what went where inside planets).
 
-<!-- @editor[diagram/P2]: Diagram shows a linear pipeline (nucleosynthesis -> reservoirs) but doesn't show the feedback loops — igneous processes recycle material back into reservoirs, subduction returns crust to mantle. A one-way arrow chain undersells the cyclic nature of element redistribution -->
 ```
-+------------------------------------------------------------------+
-|              ELEMENT DISTRIBUTION HIERARCHY                       |
+ELEMENT DISTRIBUTION: HIERARCHY + FEEDBACKS
 +------------------------------------------------------------------+
 |                                                                  |
-|  NUCLEOSYNTHESIS   →  SOLAR SYSTEM  →  PLANET  →  RESERVOIRS   |
-|  (Big Bang + stars)   composition      formation    (core, mantle,|
-|  sets cosmic         Nebula cond.      Differenti-  crust, ocean) |
-|  abundances          sets planet       ation        Igneous proc. |
-|                      starting comp.                 re-distribute |
+|  NUCLEOSYNTHESIS → SOLAR SYSTEM COMPOSITION → PLANET FORMATION  |
+|  (Big Bang + stars   (CI chondrites ≈ solar    (differentiation: |
+|   set cosmic abund.)  photosphere composition)   core/mantle/crust)|
+|                                                        |         |
+|       ←————————————————————————————————————————————————         |
+|       RECYCLING LOOPS (cyclic, not one-way):                     |
+|                                                                  |
+|  CRUST ——[subduction]——→ MANTLE                                  |
+|    ↑ [volcanism / arc magmatism]  ↓                              |
+|    ←————[partial melting]—————————                               |
+|                                                                  |
+|  ATMOSPHERE ←→ OCEAN ←→ SEDIMENTS ←→ CRUST                      |
+|  (weathering; diagenesis; carbonate burial; uplift erosion)      |
+|                                                                  |
+|  The system has been cycling for 4+ Gyr: the continental crust  |
+|  is the enriched residue of billions of years of this loop,     |
+|  not a static reservoir from initial differentiation.           |
 +------------------------------------------------------------------+
 ```
 
@@ -232,7 +242,8 @@ SPIDER DIAGRAM INTERPRETATION
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from the learner's general chemistry/physics background to the concept of trace element partitioning as a diagnostic tool — an analogy to how signal processing extracts source signatures from mixed signals (something an MIT engineer understands) would ground the spider diagram interpretation framework -->
+**Spider diagrams as source deconvolution**: A spider diagram (trace element concentrations normalized to a reference composition, elements ordered by incompatibility) is a source fingerprint. The shape encodes the history of which phases were present during melting and metasomatism. Reading a spider diagram is analogous to matching a signal's frequency-domain signature against known source templates: the Nb-Ta trough is as diagnostic of subduction involvement as a specific spectral notch is of a known filter. Different mantle reservoirs (DMM, HIMU, EM1, EM2) have distinct spider diagram shapes; mixing between them produces intermediate patterns. This is geochemical signal processing — decompose the observed pattern into contributions from end-member sources.
+
 ## Mantle Heterogeneity
 
 ```

@@ -59,6 +59,24 @@ HOX GENE CONNECTION:
   All bilaterian animals share Hox genes (common ancestry ~600 Ma)
   Gene duplication + co-option → diversity of body plans from conserved toolkit
   "Toolbox" developmental biology: same genes, different expression → butterfly vs. worm
+
+  HOX GENES AS POSITIONAL ADDRESSING:
+    Each Hox gene controls the identity of body segments in anterior-posterior order
+    Hox gene 1 → head; Hox gene 2 → next segment; ... Hox gene N → posterior
+    Same positional addressing as: array index → memory address; segment register in x86
+    COLINEARITY: physical position in Hox cluster = position along body axis
+      → Gene 1 is transcribed first (anterior); gene 13 last (posterior)
+      → Physical order on chromosome = execution order (rare in gene regulation)
+    MODULARITY: same Hox gene expressed in different contexts → different structure
+      Hox gene 6 in vertebrates: rib-bearing thoracic; in snakes: all vertebrae
+      → Same "instruction" (gene) but different regulatory context → different output
+      → Exactly like: one interface method with different implementations per class;
+        or one opcode with different addressing modes in different ISAs
+    GENE DUPLICATION = INSTRUCTION SET EXPANSION:
+      Invertebrate genome: ~8 Hox genes (1 cluster)
+      Vertebrate genome: ~39 Hox genes (4 clusters, from 2 whole-genome duplications)
+      More genes → finer positional resolution → more complex body plans possible
+      Analogous to: expanding opcode space by widening the instruction register
 ```
 
 ---
@@ -256,6 +274,29 @@ SEPKOSKI'S DIVERSITY CURVE:
   Pattern: each fauna plateau-level after radiation → replaced by next
   Statistical artifact? Or real ecological replacement?
   Modern view: curve biased but broadly correct; detailed analysis supports faunal replacement
+
+REGIME CHANGE FRAMING (CS/statistics perspective):
+  Each evolutionary fauna = an attractor state in a stochastic diversity process
+  Transitions between faunas = changepoint events in a time series
+    Cambrian → Paleozoic transition: triggered by End-Ordovician extinction
+    Paleozoic → Modern transition: triggered by End-Permian extinction
+  Detection method: changepoint analysis (Pettitt test, PELT, BOCPD)
+    → Find points where mean/variance of diversity time series shifts
+    → Mass extinctions are the most obvious changepoints; subtler transitions exist
+
+  PLATFORM SUCCESSION ANALOGY:
+    Cambrian Fauna dominated Cambrian seas → replaced by Paleozoic Fauna
+    Just as one computing platform (mainframe) dominates → then client-server →
+    then cloud — not because old platform failed, but because new platform
+    colonized previously inaccessible niches (deep water, new substrate types)
+    Mass extinction = platform disruption event that eliminates incumbents
+    and allows next-generation fauna to colonize vacated ecological space
+
+  LOGISTIC GROWTH MODEL (Sepkoski's original model):
+    dN_i/dt = r_i × N_i × (K - ΣN_j) / K
+    Each fauna i grows logistically, competing for shared "carrying capacity" K
+    When mass extinction resets diversity → recovery competitive dynamics favor
+    those fauna whose growth rates exceed incumbents in the new environment
 
 PALEOZOIC CLIMATE SUMMARY:
   EARLY: Warm greenhouse; sea level high

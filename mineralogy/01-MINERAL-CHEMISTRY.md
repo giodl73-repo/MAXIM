@@ -87,8 +87,15 @@ Si⁴⁺ in O²⁻: r_c/r_a ≈ 0.26 → tetrahedral coordination
 → This is why SiO₄ tetrahedra are the universal silicate building block
 ```
 
-<!-- @editor[content/P2]: Rules 2-5 are compressed into a single sentence — Pauling's rules are foundational enough to deserve individual one-liners for each rule, especially rule 3 (edge/face sharing) and rule 5 (parsimony) -->
-**Rules 2–5**: govern how polyhedra share corners/edges/faces; face-sharing destabilizes structures (reduces coordination); the principle of parsimony (few distinct cation environments per structure). These rules predict stability without quantum chemistry.
+**Rule 2: Electrostatic valence principle.** The charge on each anion is exactly balanced by the sum of electrostatic bond strengths from surrounding cations: s = z/CN. This determines which polyhedral linkages are locally neutral and therefore stable.
+
+**Rule 3: Polyhedral linking stability.** Shared edges destabilize a structure more than shared corners; shared faces destabilize it most. The reason: bringing cation centers closer together increases cation–cation repulsion. SiO₄ tetrahedra in silicates share only corners (never edges or faces) for exactly this reason.
+
+**Rule 4: Cation avoidance.** In crystals with multiple cation types, high-charge/small-radius cations avoid sharing polyhedral elements with each other. The Coulomb repulsion between Si⁴⁺ centers is so strong that SiO₄ tetrahedra never share edges.
+
+**Rule 5: Parsimony.** The number of structurally distinct environments in a crystal is minimized. Nature tends toward the fewest distinct site types consistent with the stoichiometry. This explains why most minerals have only one or two inequivalent cation sites despite complex chemistry.
+
+These five rules together predict structural stability from electrostatics alone, without quantum chemistry — an early success of applying physics reasoning to crystallography.
 
 ---
 
@@ -127,8 +134,7 @@ KEY SOLID SOLUTION SERIES
 
 ## Polymorphism — Same Formula, Different Structure
 
-<!-- @editor[audience/P3]: The software analogy is helpful but slightly condescending for this learner — the MIT TCS background makes "same interface, different implementation" obvious; a materials-science bridge (same composition, different unit cell = different physical properties) would be more peer-level -->
-This is the mineralogical version of software abstraction: same interface, different implementation, dramatically different behavior.
+Same composition, different unit cell geometry — and the physical properties diverge completely. Polymorphism is the crystallographic version of the same fact that matters across materials science: macroscopic behavior is a function of structure, not just composition. The bonding connectivity and geometry determine the energy landscape, which determines hardness, cleavage, conductivity, and optical behavior.
 
 ```
 POLYMORPHIC PAIRS AND TRIPLETS
@@ -193,7 +199,8 @@ Si⁴⁺ and Al³⁺ (0.26 vs 0.54 Å) → substitute in tetrahedral sites only,
 Ca²⁺ and Na⁺ (1.00 vs 1.02 Å) → substitutable with charge coupling → plagioclase
 ```
 
-<!-- @editor[bridge/P2]: No bridge from ionic radii / coordination to semiconductor doping concepts — the learner's materials background makes the analogy (dopant size vs. lattice site) natural and would deepen understanding -->
+The size/charge matching logic is the same physics underlying semiconductor doping: a dopant atom substitutes into a lattice site only if its radius and valence are close enough to the host. In silicon doping, As⁵⁺ (r = 0.46 Å) replaces Si⁴⁺ (r = 0.26 Å) with a charge mismatch that provides the free electron — the crystal tolerates the substitution because the size is close. In minerals, Al³⁺ (r = 0.54 Å) substitutes for Si⁴⁺ in tetrahedral sites because the sizes are similar, but the charge mismatch requires compensation elsewhere (a cation added nearby), exactly as in compound semiconductor heterojunctions. The concept is universal.
+
 **Incompatible elements**: elements too large (Rb⁺, Cs⁺, Ba²⁺) or too small/high charge to fit common mineral sites concentrate in late-stage melts and hydrothermal fluids → enriched in granites and ore deposits.
 
 ---

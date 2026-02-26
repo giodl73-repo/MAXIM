@@ -47,12 +47,20 @@ WATER DENSITY MAXIMUM AT 4°C:
   → Lakes freeze from the top down → fish survive under ice
   → If ice were denser (like most materials), lakes would freeze solid
 
-<!-- @editor[bridge/P2]: Density stratification is directly analogous to atmospheric lapse rate and fluid dynamics concepts -->
 FALL OVERTURN:
   Surface cools → density increases → sinks
   → Whole lake mixes (fall turnover)
   → Nutrients from hypolimnion brought to surface
   → Autumn algal bloom common
+
+FLUID DYNAMICS CONNECTION:
+  Lake stratification is the same physics as atmospheric lapse rate: both are
+  gravitationally stable density gradients (dense fluid below light fluid).
+  The thermocline is the lake's equivalent of the atmospheric inversion layer —
+  it suppresses vertical mixing (convective stability).
+  Buoyancy frequency (Brunt-Väisälä): N² = -(g/ρ)(dρ/dz) > 0 → stable stratification
+  When N² < 0 → convective instability → mixing (fall overturn is N² → 0 as surface cools)
+  Same N² appears in internal wave theory, ocean circulation, and atmospheric science.
 
 SPRING OVERTURN:
   Ice melts → 0°C water warms → reaches ~4°C density max
@@ -98,7 +106,74 @@ Salmonids                 Mixed fish               Carp, catfish
 
 ---
 
-<!-- @editor[content/P2]: Open ocean ecology absent -- pelagic zones, upwelling, thermohaline circulation, ocean productivity patterns are major subtopics not covered -->
+## Open Ocean Ecology — Pelagic Zones and Productivity
+
+```
+PELAGIC ZONE DEPTH STRUCTURE:
+
+EPIPELAGIC (0–200 m): Photic zone — light penetrates, photosynthesis possible
+  Primary production by phytoplankton (diatoms, cyanobacteria, coccolithophores)
+  ~50% of global NPP from phytoplankton despite very low standing biomass
+  Dominated by microbial loop: bacteria → protists → zooplankton
+
+MESOPELAGIC (200–1000 m): "Twilight zone" — dim light, no photosynthesis
+  Highest biodiversity of pelagic zones; largest fish biomass by weight
+  Diel vertical migrants: zooplankton and fish descend by day, ascend at night
+  Biological pump: sinking organic particles carry carbon to depth
+
+BATHYPELAGIC (1000–4000 m): No light; depends entirely on sinking particles
+  Bioluminescence common; chemoreception dominates sensory ecology
+  Low temperature (~4°C), high pressure, low food
+
+ABYSSOPELAGIC (4000–6000 m): Abyssal plain; manganese nodules
+  Extremely low productivity; food web dependent on "marine snow" input
+
+HADALPELAGIC (6000–11,000 m): Ocean trenches
+  Highest pressure environment on Earth; amphipod crustaceans dominant
+```
+
+**Ocean productivity patterns:**
+
+```
+LOW PRODUCTIVITY (oligotrophic gyres):
+  Open ocean subtropical gyres: ~100 gC/m²/yr
+  Nutrient-depleted: permanent thermocline prevents deep nutrient upwelling
+  "Blue deserts" — clear blue water = low chlorophyll = low phytoplankton
+
+HIGH PRODUCTIVITY ZONES:
+  Coastal upwelling: ~400 gC/m²/yr (California, Peru/Humboldt, Benguela, Canary)
+  → Trade winds drive Ekman transport → surface water pushed offshore
+  → Deep, cold, nutrient-rich water rises to surface
+  → Peru upwelling: ~10% of global fish catch from ~0.1% of ocean area
+
+  Polar seas: seasonal high productivity (summer light + deep winter mixing = nutrients)
+  Continental shelves: shallow + nutrient inputs from rivers = high productivity
+
+EL NIÑO IMPACT:
+  Normal: upwelling on, cold SST, high productivity, anchovy abundant
+  El Niño: trade winds weaken, warm water floods eastern Pacific
+  → Thermocline deepens → upwelling suppressed → nutrients cut off
+  → Phytoplankton crash → anchovy crash → sea lion crash → seabird crash
+  → Trophic cascade from ocean circulation change
+```
+
+**Thermohaline circulation (global ocean conveyor):**
+```
+MECHANISM:
+  North Atlantic: warm surface water flows north → cools + becomes saltier by evaporation
+  → Becomes dense → sinks (NADW: North Atlantic Deep Water)
+  → Flows south along Atlantic floor → enters Southern Ocean → spreads globally
+  → Upwells in Indian + Pacific → returns as surface current
+
+TIMESCALE: ~1000 years for complete circuit
+ECOLOGICAL SIGNIFICANCE:
+  Controls nutrient distribution globally
+  AMOC (Atlantic Meridional Overturning Circulation) — a regime shift risk:
+  Freshwater from Greenland ice melt → reduces NADW formation → AMOC weakens
+  → Less heat transport to Northern Europe → regional cooling
+  → Altered monsoons, ocean productivity patterns
+```
+
 ## Stream Ecology — River Continuum Concept
 
 Rivers change in character from headwaters to mouth:
@@ -168,7 +243,54 @@ KEY ESTUARY PROCESSES:
 
 ---
 
-<!-- @editor[content/P2]: Deep sea ecosystems absent -- hydrothermal vents, chemosynthetic communities, abyssal ecology listed in landscape diagram but not covered -->
+## Deep Sea and Chemosynthetic Ecosystems
+
+```
+HYDROTHERMAL VENTS (discovered 1977, Galápagos Rift):
+  Found at mid-ocean ridges: magma heats seawater → hydrothermal fluid
+  Temperatures: 2°C ambient → 350–400°C at vent opening
+  Chemistry: H₂S, CH₄, H₂ in vent fluid (from rock-water interaction)
+
+CHEMOSYNTHESIS (base of vent food web):
+  No sunlight → no photosynthesis
+  Chemoautotrophic bacteria: oxidize H₂S → CO₂ + organic carbon
+    H₂S + CO₂ + O₂ → organic carbon + H₂SO₄
+  Bacteria either free-living or endosymbiotic in tube worms, clams, mussels
+
+ECOLOGICAL STRUCTURE:
+  Tube worms (Riftia pachyptila): up to 2 m; fastest-growing marine invertebrate
+    → Endosymbiotic sulfur-oxidizing bacteria in trophosome organ
+  Giant clams (Calyptogena): filter-feed bacteria + harbor endosymbionts
+  Pompeii worm (Alvinella pompejana): lives at ~60°C at vent walls
+  Vent shrimp (Rimicaris): clustered on vent walls; bacteria-grazing
+  Octopus, crabs: higher-trophic-level predators
+
+VENT ECOLOGY TIMELINE:
+  Vents are ephemeral (active for decades; then shut off)
+  Species must disperse to new vents → high isolation, high endemism
+  Parallel evolution at geographically separated vent fields
+
+COLD SEEPS (different energy source):
+  Methane + sulfide from sediment → methane-oxidizing archaea (anaerobic)
+  + sulfate-reducing bacteria → same chemosynthesis base
+  Slower than vents; persist longer
+  Methane hydrate (clathrate): ice-like solid at cold, high-pressure conditions
+    → Vast stores in continental margins (possible energy resource / climate risk)
+```
+
+**Abyssal ecology:**
+```
+ABYSSAL PLAIN (3000–6000 m depth):
+  ~60% of Earth's surface; least-studied biome
+  Food source: marine snow (particle flux from surface, ~1% of surface production)
+  Biodiversity surprisingly high: mega/macrofauna adapted to food scarcity
+  Bioturbation: bottom-dwelling fauna mix sediments → affects carbon burial rates
+  Manganese nodules: mineral concretions ~5–10 cm; rich in Mn, Ni, Co, Cu
+    → Target of deep-sea mining proposals; ecological risk poorly understood
+  Disturbance: extremely rare (centuries between physical disturbances)
+    → Resilience very low; recovery from mining disturbance estimated >100 years
+```
+
 ## Coral Reef Ecology
 
 Coral reefs occupy <0.1% of ocean area but harbor ~25–30% of all marine species — the "rainforests of the sea":

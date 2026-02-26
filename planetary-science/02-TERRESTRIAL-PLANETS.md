@@ -4,25 +4,35 @@
 
 Four rocky planets, one star, similar building blocks — wildly different outcomes. Comparative planetology treats them as natural experiments.
 
-<!-- @editor[diagram/P2]: Opening diagram is a data table in a box — doesn't show comparative relationships (distance vs mass vs outcomes). Rework to show how similar starting materials at different distances produced divergent planets — the central thesis of comparative planetology -->
 ```
-+------------------------------------------------------------------+
-|              TERRESTRIAL PLANET OVERVIEW                          |
+COMPARATIVE PLANETOLOGY: SAME STARTING MATERIALS, DIVERGENT OUTCOMES
 +------------------------------------------------------------------+
 |                                                                  |
-|  Mercury    Venus      Earth      Mars                           |
-|  -------    -----      -----      ----                           |
-|  0.38 AU    0.72 AU    1.00 AU    1.52 AU                        |
-|  0.055 M⊕   0.815 M⊕  1.000 M⊕   0.107 M⊕                      |
-|  No atm.    92 bar     1 bar      0.006 bar                      |
-|  440°C day  464°C mean  15°C mean  -63°C mean                    |
-|  No mag.    No global  Yes        No global                      |
-|  field      field      (0.3 T)    field (crustal remnants)       |
+|  DISTANCE    0.38 AU    0.72 AU    1.00 AU    1.52 AU           |
+|              Mercury    Venus      Earth      Mars               |
 |                                                                  |
-|  TREND: Mass decreases from Venus to Mercury/Mars                |
-|         Temperature: set by distance + greenhouse, not just dist |
-|         Magnetic: only active dynamo at Earth                    |
+|  MASS        0.055 M⊕  0.815 M⊕  1.000 M⊕   0.107 M⊕          |
+|  (outcome)   lost mantle?  twin?  reference  too small          |
+|                                                                  |
+|  ATMOSPHERE  none       92 bar    1 bar       0.006 bar         |
+|  (outcome)   stripped   runaway   stable      lost (no dynamo)  |
+|                                                                  |
+|  SURFACE T   ~167°C avg  464°C    15°C mean   -63°C mean        |
+|  (outcome)   solar-driven GH+500K  GH+33K     GH+5K            |
+|                                                                  |
+|  DYNAMO      none       none      active      extinct ~3.9 Ga   |
+|  (outcome)   too small? slow rot? plate tecton.→ core convects  |
+|                                                                  |
+|  WATER       ice (poles) trace D/H oceans     ancient; now ice  |
+|  (outcome)   cold trap   lost     retained    lost w/ dynamo    |
+|                                                                  |
 +------------------------------------------------------------------+
+
+The central question comparative planetology asks: which parameters at t=0
+(distance, mass, composition, spin) determine which of these divergent
+outcomes? Mass and distance explain a lot; the residual variance drives
+the field — Venus's lack of magnetic field, Mars's dynamo extinction,
+Earth's plate tectonics are all poorly understood from first principles.
 ```
 
 ---

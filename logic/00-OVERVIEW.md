@@ -221,17 +221,19 @@ dependent type theory in Module 09.
 
 ## Decision Cheat Sheet
 
-| Question | Go to |
-|----------|-------|
-| What is propositional logic, SAT, CNF? | 01-PROPOSITIONAL.md |
-| What is FOL, predicates, quantifiers? | 02-PREDICATE.md |
-| What are formal proof systems? | 03-PROOF-THEORY.md |
-| What exactly did Gödel prove? | 04-GODEL.md |
-| What is a model? What is completeness? | 05-MODEL-THEORY.md |
-| What is modal logic, possible worlds? | 06-MODAL-LOGIC.md |
-| What is LTL/CTL, how does model checking work? | 07-TEMPORAL-LOGIC.md |
-| How does logic connect to undecidability? | 08-COMPUTABILITY.md |
-| How is logic used in verification/AI? | 09-APPLICATIONS.md |
+| Use this logic / tool when... | What / where | Notes |
+|-------------------------------|-------------|-------|
+| You need a decidable Boolean constraint solver (SAT, circuit verification) | Propositional logic → 01-PROPOSITIONAL.md | DPLL/CDCL solvers; NP-complete but industrially fast; basis of SMT |
+| You need to quantify over a domain (all x, some x) | First-order logic (FOL) → 02-PREDICATE.md | Semi-decidable; complete proof system (Gödel 1929); sweet spot for mathematics |
+| You want to understand proof as a mathematical object (cut elimination, normalization) | Proof theory → 03-PROOF-THEORY.md | Curry-Howard: proofs = programs; sequent calculus for meta-proofs |
+| You need to understand exactly what Gödel proved and what it means | Incompleteness → 04-GODEL.md | Gödel 1931: no consistent r.e. extension of PA is complete; Gödel 1929: FOL proof system IS complete — these are different results |
+| You need to reason about structures that satisfy a theory (non-standard models, compactness) | Model theory → 05-MODEL-THEORY.md | Compactness; Löwenheim-Skolem; ultraproducts; quantifier elimination → decidability |
+| You need necessity/possibility, knowledge, provability operators | Modal logic → 06-MODAL-LOGIC.md | Kripke semantics; K/S4/S5/GL; GL is the provability logic of PA |
+| You need to verify temporal properties of a finite-state system | Temporal logic + model checking → 07-TEMPORAL-LOGIC.md | LTL (path quantification) vs. CTL (branching time); symbolic model checking; SPIN/NuSMV/TLA+ |
+| You want to connect logic and computability theory | Computability → 08-COMPUTABILITY.md | Halting problem via diagonalization; arithmetical hierarchy (Σₙ, Πₙ); Rice's theorem |
+| You want to verify programs, use SAT/SMT, or write machine-checked proofs | Applications → 09-APPLICATIONS.md | Hoare logic; Dafny/Frama-C; Z3/CVC5; Lean 4/Coq/Isabelle; description logics |
+| Expressiveness is the constraint (need to quantify over sets/relations) | Second-order / higher-order logic | Accept: no complete proof system, no compactness; gain: full mathematical expressiveness |
+| Decidability is the hard constraint (e.g., automated verification must terminate) | Choose a decidable fragment: PL, Presburger arithmetic, DLO, RCF, description logics | Quantifier elimination gives decidability for specific theories |
 
 ---
 

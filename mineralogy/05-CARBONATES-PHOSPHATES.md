@@ -148,8 +148,14 @@ Flowstone: sheet deposits on floors and walls
 Cave pearl: concentric calcite around grain in pool
 ```
 
-<!-- @editor[content/P2]: Speleothem climate records are thin — this is a major intersection with climate science; worth 2-3 more lines on how δ18O time series from cave records compare to ice core and ocean sediment records -->
-**Speleothem paleoclimate records**: Oxygen isotope ratios (δ¹⁸O) in speleothem calcite record past rainfall and temperature. Uranium-thorium (U-Th) dating gives precise ages. Together: high-resolution climate records extending back 500,000+ years.
+**Speleothem paleoclimate records**: Oxygen isotope ratios (δ¹⁸O) in speleothem calcite record past rainfall amount and source, with a temperature component. Uranium-thorium (U-Th) dating gives precise ages independent of the climate signal — unlike ice cores (layer counting) or ocean sediment cores (orbital tuning). Together they produce high-resolution climate records extending back 500,000+ years, and some Chinese cave records reach 640,000 years.
+
+The three major Quaternary climate archives — speleothems, ice cores, and marine sediment cores — record overlapping but distinct signals:
+- Marine forams (δ¹⁸O): global ice volume + deep-ocean temperature; continuous record but lower temporal resolution (~1–5 kyr)
+- Ice cores (δ¹⁸O, δD): polar atmospheric temperature; annual layers preserved; limited to ~800 kyr in Antarctica
+- Speleothems (δ¹⁸O, δ¹³C): regional hydroclimate (monsoon strength, rainfall); U-Th absolute ages with ±100–500 yr precision; strong monsoon = more negative δ¹⁸O in Asian cave records (amount effect dominates)
+
+These archives cross-calibrate each other: the Dongge Cave (China) speleothem δ¹⁸O record correlates with the Greenland ice-core stadial/interstadial sequence across the last glacial cycle, demonstrating teleconnected global climate reorganizations.
 
 ---
 
@@ -200,12 +206,18 @@ ECONOMIC SIGNIFICANCE:
     Florida phosphate district (mined out or depleting)
     China, Russia (significant reserves)
 
-<!-- @editor[bridge/P2]: Peak phosphorus is a strategic resource risk analogous to rare earth supply concentration — worth a one-liner bridge to the critical minerals framework in 08-ECONOMIC-GEOLOGY for cross-referencing -->
 PEAK PHOSPHORUS:
   Phosphate rock is a non-renewable resource on human timescales
   Recoverable reserves: ~50–300 years at current consumption
   No substitute in fertilizer; no industrial synthesis from non-mineral P
   → Genuine long-term strategic resource risk
+
+  The supply concentration parallels the rare earth situation (see 08-ECONOMIC-GEOLOGY):
+  Morocco controls ~75% of world phosphate reserves (Western Sahara included),
+  creating a single-country chokepoint for global food production. Unlike REE,
+  there is no recycling pathway — phosphorus dispersed into agriculture
+  eventually reaches the ocean as dissolved phosphate. Recovery from wastewater
+  (struvite precipitation) exists but operates at a small fraction of the needed scale.
 ```
 
 ### Other Phosphate Minerals

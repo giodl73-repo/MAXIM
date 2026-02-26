@@ -1,13 +1,40 @@
 # Ancient Writing Materials: Clay, Papyrus, Parchment, Wax, Bamboo, Silk
 
 ## The Big Picture
-<!-- @editor[diagram/P2]: Diagram lists items with properties but doesn't show how they relate — a timeline/flow showing material succession (clay -> papyrus -> parchment -> paper) with regional branching would better establish the landscape that sections drill into -->
 
 Every writing material reflects a tradeoff between durability, portability, cost, and the ease of writing on it. The choice of substrate shaped what could be written, how it was distributed, and who had access.
 
 ```
-WRITING MATERIAL PROPERTIES MATRIX
+WRITING MATERIAL SUCCESSION — TIMELINE WITH REGIONAL BRANCHING
 
+~3400 BCE          ~3000 BCE        ~200 BCE         ~105 CE         ~1450 CE
+     |                  |               |                 |               |
+CLAY TABLETS ──────────────────────────────────────────────── [Mesopotamia only]
+(cuneiform; fired = permanent record)
+
+                 PAPYRUS ─────────────────────────────────── [Egypt → Mediterranean]
+                 (roll format; fast, portable, humidity-sensitive)
+
+                                 PARCHMENT / VELLUM ───────── [Europe, Near East]
+                                 (replaced papyrus in codex form; durable, expensive)
+
+     WAX TABLETS ──────────────────────────────────────────── [Greece, Rome: reusable scratch]
+
+     BAMBOO / WOOD ────────────────────────────────────────── [China, SE Asia: strips → books]
+
+     SILK ──────────────────────────────────────────────────── [China: luxury, portable]
+
+                                                  PAPER ────── [China 105 CE →
+                                                                Arab world 8thC →
+                                                                Europe 12thC → Global]
+
+KEY TRANSITIONS (material protocol upgrades):
+  Clay → Papyrus    : weight/portability (clay = local; papyrus = networked trade)
+  Roll → Codex      : random access vs. sequential (parchment enabled codex ~300 CE)
+  Papyrus → Parchment: supply chain resilience (papyrus = single-source Egypt)
+  Parchment → Paper : cost collapse (~10x cheaper; enables mass literacy)
+
+PROPERTY MATRIX:
 Material         | Durable | Portable | Cheap | Reusable | Write Speed | Region
 -----------------+---------+----------+-------+----------+-------------+----------
 Clay (wet)       |   NO*   |    NO    |  YES  |    NO    |    Slow     | Mesopotamia

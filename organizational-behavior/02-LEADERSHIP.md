@@ -214,56 +214,40 @@ PRACTICAL MANAGEMENT IMPLICATION:
 
 ---
 
-<!-- @editor[audience/P3]: Situational Leadership section is thorough for a theory with weak evidence — the learner would benefit more from a brief dismissal and redirection to what does work, rather than a full explication of the D1-S4 matching -->
-
 ## Situational Leadership
 
 ```
-SITUATIONAL LEADERSHIP (HERSEY & BLANCHARD)
-============================================
+SITUATIONAL LEADERSHIP (HERSEY & BLANCHARD) — VERDICT: USE WITH SKEPTICISM
+============================================================================
 
-Paul Hersey and Ken Blanchard (1969; later Blanchard updated model)
+Wide adoption: used by majority of Fortune 500 for manager training
+Evidence: meta-analytic support is weak; the specific D1→S1, D2→S2 matching
+  rule is not empirically demonstrated; no validated measure of "development level"
 
-THE MODEL:
- Four leadership styles matched to follower "development level":
-  (combination of competence + commitment/motivation)
+THE ACCURATE UNDERLYING INSIGHT:
+ Different followers at different stages need different things
+ → a new hire needs more direction than a 10-year expert
+ → the principle is correct; the quadrant-matching rule is not
 
- D1: Low comp / High commit (enthusiastic beginner)
-  → S1: Directing (high task / low relationship)
-  Clear instructions; close supervision; "do it this way"
+WHY IT SPREAD DESPITE WEAK EVIDENCE:
+ Intuitive narrative; easy to teach in a half-day workshop
+ Gives managers a simple framework that feels actionable
+ → "development level" gives managers permission to direct beginners and
+    delegate to experts, which they were going to do anyway
 
- D2: Low-moderate comp / Low commit (disillusioned learner)
-  → S2: Coaching (high task / high relationship)
-  Direction + explanation + encouragement + feedback
+WHAT ACTUALLY WORKS INSTEAD:
+ → For new hires: goal-setting (specific + feedback); explicit role clarity;
+   structured onboarding with measurable milestones
+ → For experts: SDT (support autonomy; avoid controlling surveillance);
+   eliminate task-routine friction; provide challenging stretch goals
+ → For recovering performers: diagnostic using E×I×V (expectancy theory):
+   is the gap in skill (expectancy), in the reward link (instrumentality),
+   or in motivation alignment (valence)?
+ → For all: psychological safety (enable speaking up); LMX development
+   (invest deliberately in relationship quality with all direct reports)
 
- D3: Moderate-high comp / Variable commit (capable but cautious performer)
-  → S3: Supporting (low task / high relationship)
-  Less direction; more encouragement; collaborative problem-solving
-
- D4: High comp / High commit (self-reliant achiever)
-  → S4: Delegating (low task / low relationship)
-  Empower; provide resources; stay out of the way
-
-WIDE ADOPTION:
- One of the most widely used leadership frameworks in corporate training
- Intuitive; easy to teach; appears actionable
- Versions: SL I (Hersey), SL II (Blanchard separately)
-
-EVIDENCE CRITIQUE:
- Meta-analytic evidence: weak; does not consistently replicate
- Problems:
-  No validated measure of "development level"
-  The four-quadrant matching rule not empirically demonstrated
-  Leader style self-assessment (LEAD instrument): questionable validity
-  Alternative explanation: better leaders just adapt generally; the
-   specific D1-S1, D2-S2 matching isn't uniquely predictive
- Professional verdict: widely used, intuitively useful as a communication
-  framework, not a reliable predictive theory
-
-THE USEFUL INSIGHT BEHIND IT:
- Different followers at different stages genuinely need different things
- → a new hire needs more direction than a 10-year veteran
- → the principle is correct; the specific quadrant-matching rule is not
+The adaptability principle is real and important; the specific D-S matching
+formula adds no predictive value beyond "adapt to the person and situation."
 ```
 
 ---
@@ -311,7 +295,17 @@ AUTHENTIC LEADERSHIP (Luthans, Avolio, others)
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from the learner's direct experience running engineering orgs — VP-level leadership selection, performance reviews, and 360 feedback are personal territory; connect predictors to what a VP actually decides when hiring directors/principals -->
+## From VP-Level Leadership Decisions to Psychometric Theory
+
+The evidence in this section maps directly onto the most consequential decisions a VP of Engineering makes: who to hire into director and principal roles, how to structure performance feedback systems, and how to read the signals in a 360 report.
+
+**When hiring for director-level roles, the validity hierarchy tells you exactly what to trust.** The structured behavioral interview (r≈.51) is the highest-validity tool you can readily use. This means: same behavioral questions for all candidates, grounded in specific past situations ("tell me about a time when your team missed a critical deadline — what happened and what did you do?"), with a scoring rubric anchored to specific behavioral indicators. The contrast: unstructured "culture fit" conversations that feel rich and informative have validity r≈.20 — barely above chance. The perceived richness of unstructured interviews is a cognitive illusion; the interviewer's confidence is not correlated with predictive accuracy.
+
+**GMA combined with conscientiousness is the strongest compound predictor for engineering leadership roles.** GMA (r≈.27 for leadership effectiveness; higher for complex, novel environments) captures the ability to handle strategic ambiguity, synthesize across technical domains, and learn quickly in unfamiliar territory — which is what directors and principals are hired to do. Conscientiousness (r≈.28) captures the execution reliability that distinguishes people who get things done from those who generate insights without delivery. Neither alone is sufficient; the compound matters because high-GMA, low-conscientiousness leaders produce brilliant strategies that never execute, while high-conscientiousness, moderate-GMA leaders produce reliable execution without strategic adaptation.
+
+**360 feedback as a development tool works; 360 as an evaluation tool fails.** The mechanism: when engineers know that their peer evaluations affect their manager's compensation or promotion, they adjust their ratings strategically — protecting allies, hedging against people who might rate them, and averaging toward safety. The development-only context allows calibrated honesty because the stakes are growth, not accountability. The practical implication for performance calibration: use structured manager assessments and documented behavioral evidence; use 360 data only as development input, not as calibration evidence.
+
+**Self-other agreement in 360 data is a diagnostic signal, not just noise.** Leaders who systematically overrate themselves relative to their raters' assessments tend to perform worse than those who are accurate or who underestimate. The mechanism: over-raters have a weaker feedback loop — they see a world that doesn't match others' experience of them, so corrective signals don't register. In a calibration conversation, a principal who gives themselves all 4s when their peers and reports give them 2s-3s is exhibiting the dark triad overlap problem (narcissism correlates with self-other disagreement) or a genuine blind spot — both of which are high-signal for further investigation.
 
 ## Psychometric Predictors and Assessment
 

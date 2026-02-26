@@ -223,7 +223,49 @@ Lumumba's assassination became a symbol of Cold War interference in African deco
 
 ---
 
-<!-- @editor[content/P2]: Portuguese decolonization pattern absent — the Carnation Revolution (1974) drove decolonization from metropolitan military coup, not peripheral nationalism; this is a distinct third model beyond British (negotiated) and French (fought and lost) that the section title implies but doesn't cover -->
+### Portuguese Model: Metropolitan Collapse Driving Decolonization
+
+The Portuguese case is analytically distinct from both the British and French models and deserves explicit treatment.
+
+Portugal held its colonies (Angola, Mozambique, Guinea-Bissau, Cape Verde, São Tomé) into the 1970s, fighting protracted colonial wars on three African fronts simultaneously from 1961. The Estado Novo dictatorship (Salazar, then Caetano) was ideologically committed to empire; the colonies were constitutionally "overseas provinces," not colonies at all in official terminology.
+
+The mechanism of decolonization was not peripheral nationalism successfully defeating a metropolitan power, nor negotiated withdrawal by a metropolitan power calculating costs. It was metropolitan implosion: on April 25, 1974, the *Movimento das Forças Armadas* (MFA) — junior officers radicalized by 13 years of colonial warfare — staged a coup in Lisbon. The Carnation Revolution ended the dictatorship within hours, and within 18 months all the African territories were independent.
+
+```
+PORTUGUESE DECOLONIZATION — THIRD MODEL
+════════════════════════════════════════════════════════════════
+
+  METROPOLITAN MILITARY COUP (April 25, 1974)
+  Cause: 13 years of colonial warfare in three theaters
+         (Angola, Mozambique, Guinea-Bissau) — no military path to victory
+         — radicalized junior officer corps
+         │
+         ▼
+  Carnation Revolution ends Estado Novo dictatorship
+         │
+         ▼
+  Rapid political negotiation / transfer of power
+  Guinea-Bissau: Sept 1974
+  Mozambique:    June 1975 (FRELIMO)
+  Cape Verde/São Tomé: July 1975
+  Angola:        Nov 1975 (immediate civil war — MPLA vs. FNLA vs. UNITA)
+         │
+         ▼
+  Outcome: Most rapid formal decolonization of any European empire
+           Angola civil war runs 1975-2002 — Cold War proxy conflict
+
+  CONTRAST WITH OTHER MODELS:
+  British: Metropolitan calculation — negotiate before forced out
+           → maintain Commonwealth ties → managed continuity
+  French:  Metropolitan resistance — fight to hold (Indochina, Algeria)
+           → military defeat → forced withdrawal
+  Portuguese: Metropolitan state collapse drives decolonization —
+              periphery didn't win; metropole imploded
+```
+
+The Portuguese case demonstrates that the internal politics of the colonial power can be the proximate cause of decolonization even when peripheral nationalist movements are active. The MFA coup was motivated primarily by the military's own assessment that the colonial wars were unwinnable — not by metropolitan popular anti-colonialism. This is the Robinson-Gallagher logic inverted: instead of local collaborative structures collapsing and forcing formalization, the metropolitan state's military capacity collapsed and forced withdrawal.
+
+The Angolan outcome (immediate civil war between MPLA, FNLA, and UNITA, with Cuban troops backing MPLA and US/South Africa backing UNITA) illustrates what happens when metropolitan collapse is faster than post-colonial state formation: no successor state had consolidated enough before the colonial power left to fill the institutional vacuum.
 
 ## Cold War and Decolonization Entanglement
 
@@ -314,7 +356,13 @@ Fanon was wrong about some things (his view of violence as cathartic is psycholo
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — decolonization's "flag independence without structural change" parallels the software concept of interface change without implementation change (new API surface, same backend); dependency theory's persistent extraction structures are a natural bridge to lock-in and path dependence that the learner knows from platform economics -->
+## Bridges: Decolonization as Structural Analysis
+
+**"Flag independence without structural change" → interface change without implementation change**: Fanon's critique of bourgeois nationalism is precisely the observation that formal decolonization changed the API surface (flag, currency, head of state, UN seat) while leaving the backend implementation unchanged (extraction economy, colonial-era borders, comprador elite integrated into global capital, trade flows to former metropole). The user-facing contract looked different; the underlying data model and infrastructure were identical. This is not a metaphor — the physical infrastructure (railways built to move commodities to ports, not to connect population centers; legal systems designed for commercial law governing extraction contracts, not for land tenure security) materially constrained what economic policies were available to the new state.
+
+**Persistent extraction structures → lock-in with network effects**: Dependency theory's core claim — that once in the periphery, you tend to stay there — is path dependence with structural reinforcement. The mechanism is not just capital stock (sunk costs in extraction infrastructure) but network effects: trade relationships, credit ratings, currency denomination of debts, professional training institutions, international agreements — all co-evolved around the extraction role. Switching to a diversified development model requires writing off this entire ecosystem and rebuilding a different one, which requires the political capacity to overcome concentrated incumbents (commodity exporters, foreign creditors, trading partners) who benefit from the existing structure. The East Asian developmental states that exited (Korea, Taiwan) used state capacity to force the coordination across all dimensions simultaneously — which required insulation from the incumbent interest coalitions.
+
+**Colonial borders as arbitrary API boundaries**: Colonial-era borders (Berlin Conference 1884-85 and subsequent bilateral treaties) cut across ethnic, linguistic, and ecological units. Post-colonial states inherited borders designed by administrators who were solving a different problem (apportioning spheres of influence among European powers) with no regard for the administrative coherence of the resulting units. The result is the political-science equivalent of inheriting a codebase where the module boundaries were drawn by accounting convention rather than by domain logic — constant leakage across boundaries, wrong dependencies, impossible to refactor without breaking everything.
 
 ## What Decolonization Did and Didn't Change
 

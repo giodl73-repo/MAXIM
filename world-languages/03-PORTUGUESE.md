@@ -31,33 +31,52 @@ GEOGRAPHIC SPLIT: Brazilian Portuguese (BP) vs European Portuguese (EP)
 
 ---
 
-<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view showing Portuguese vs Spanish divergence across pronunciation/grammar/vocabulary dimensions with a visual diff -->
 ## The Big Picture: What Makes Portuguese Distinct from Spanish
 
 ```
-PORTUGUESE vs SPANISH COMPARISON
-==================================
+SPANISH vs PORTUGUESE — LAYERED DIVERGENCE
+===========================================
 
-  89% lexical similarity — highest among Romance pairs
-  But:
+LAYER 1 — VOCABULARY (89% shared — highest in Romance)
+  Same word: casa/casa, libro/livro, agua/água, grande/grande
+  Diff word: carro(ES)=coche / carro(PT)=car  [false friends exist]
+  False friend: embarazada(ES)=pregnant / embaraçada(PT)=embarrassed
+  Assessment: Reading Portuguese after Spanish = mostly free transfer.
 
-  PRONUNCIATION DIVERGES SHARPLY
-  +--------------------------+------------------------------+
-  | Feature                  | Portuguese                   |
-  +--------------------------+------------------------------+
-  | Unstressed vowels        | Reduced/swallowed (EP)       |
-  |                          | Clearer in Brazilian         |
-  | Nasal vowels             | Distinctive: ã, em, ão, im   |
-  | S at end of syllable     | [ʃ] in EP ("sh"), [s] in BP  |
-  | Vowel reduction          | EP sounds "mumbled" to       |
-  |                          | Spanish speakers             |
-  +--------------------------+------------------------------+
+LAYER 2 — WRITTEN GRAMMAR (mostly parallel, some divergence)
+  +-----------------------------+-------------------+------------------+
+  | Feature                     | Spanish           | Portuguese       |
+  +-----------------------------+-------------------+------------------+
+  | Future/conditional pronoun  | clitic at end:    | mesoclisis: pro- |
+  | position                    | dártelo-he (rare) | noun inserts IN  |
+  |                             |                   | verb: dar-to-ei  |
+  | Temporal/conditional clause | present subj:     | future subj:     |
+  |                             | cuando llegues    | quando chegares  |
+  | Infinitive with its own     | not used (use     | personal infin:  |
+  | person agreement            | subjunctive)      | vocês estudarem  |
+  | "To have" (existential)     | hay (haber)       | há (haver) EP;   |
+  |                             |                   | tem (ter) BP     |
+  +-----------------------------+-------------------+------------------+
 
-  UNIQUE GRAMMAR FEATURES
-  - Future subjunctive (virtually extinct elsewhere in Romance)
-  - Mesoclisis: object pronouns INSERT into future/conditional
-  - Personal infinitive (infinitive conjugates by person)
-  - Ter vs Haver: both mean "to have" (ter dominant in BP)
+LAYER 3 — PRONUNCIATION (major divergence — cannot transfer)
+  +-----------------------------+-------------------+------------------+
+  | Feature                     | Spanish           | Portuguese       |
+  +-----------------------------+-------------------+------------------+
+  | Unstressed vowels           | Clear: "a" = [a]  | EP: brutally     |
+  |                             |                   | reduced/deleted  |
+  | Nasal vowels                | None              | ã, ão, em, im, um|
+  | S at syllable-end/word-end  | [s]               | EP: [ʃ]; BP: [s] |
+  | R (intervocalic)            | flap [ɾ]          | BP: like H/soft X|
+  |                             |                   | EP: trill        |
+  | Overall impression to ES    | —                 | "sounds Slavic"  |
+  | speaker                     |                   | (EP especially)  |
+  +-----------------------------+-------------------+------------------+
+
+LAYER 4 — DIALECTS (internal variation in both)
+  Spanish: Spain vs LatAm (seseo, vosotros, vos)
+  Portuguese: EP vs BP (vowels, clitic position, gerund vs a+inf)
+  Key: BP (~85% of speakers) is the globally prominent variant.
+  Learn BP first. EP is a dialect of a language you'll recognize.
 ```
 
 ---

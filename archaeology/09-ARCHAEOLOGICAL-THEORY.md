@@ -18,10 +18,41 @@
 |  "What?" / "When?"       "Why?" / "How?"         "Who says?"    |
 +------------------------------------------------------------------+
 
-<!-- @editor[bridge/P2]: Missing software-engineering paradigm bridge — culture history -> processualism -> post-processualism parallels waterfall -> agile -> DevOps/SRE: from classification to systematic process to acknowledging human context and reflexivity. This learner lived through the same paradigm shifts in engineering. -->
-The Kuhnian model (Structure of Scientific Revolutions) maps neatly:
-  Each shift = anomalies accumulate → crisis → new paradigm
-  The learner knows Kuhn from history-of-science/
+**Software engineering paradigm parallel**: The three-phase shift in archaeological theory maps directly onto software development paradigm shifts, and the structural logic is the same in both cases.
+
+```
+ARCHAEOLOGY                              SOFTWARE ENGINEERING
+
+CULTURE HISTORY (1880s–1960s):          WATERFALL (1950s–1980s):
+  Classify and describe artifacts         Define requirements fully upfront
+  Types → cultures → periods             Phases: spec → design → code → test → deploy
+  Ask "what?" and "when?"                Ask "what is the complete spec?"
+  Assumes: cultures are homogeneous      Assumes: requirements are stable
+  Failure mode: misses process and       Failure mode: delivered product mismatches
+    agency; treats change as external      what users actually needed
+    (migration, diffusion)
+
+PROCESSUALISM (1960s–1980s):            AGILE / ITERATIVE (1990s–2000s):
+  Hypothetico-deductive method            Sprint-based hypothesis testing
+  Quantitative, systems theory            Measure outcomes, not just outputs
+  Ecological + demographic models         Data-driven decisions, feedback loops
+  Ask "why?" and "how?"                  Ask "what is the measured effect?"
+  Failure mode: treats culture as         Failure mode: can optimize locally
+    a system without individual agency;    without addressing structural/
+    top-down, variable-measuring           organizational constraints
+
+POST-PROCESSUALISM (1980s–present):     DEVOPS / SRE / TEAM TOPOLOGIES (2010s–):
+  Agency, meaning, identity, power        Acknowledge human/organizational context
+  Political reflexivity: who is           Psychological safety, team structure,
+    doing archaeology and for whom?        cognitive load, on-call equity
+  Ask "who says?" and "from whose         Ask "what does the system do to the
+    perspective?"                          people in it?"
+  Contribution: forced awareness          Contribution: failure modes that are
+    that "objectivity" is a position,       human and organizational, not just
+    not an absence of perspective          technical, must be addressed
+```
+
+The Kuhnian structure (Structure of Scientific Revolutions) applies in both domains: anomalies accumulate within the dominant paradigm (culture history can't explain why cultures change; waterfall can't explain why delivered software misses the mark) → crisis → a new paradigm that solves the old anomalies but introduces new blind spots → eventual recognition of the new paradigm's limits → next shift. Current practice in both archaeology and software engineering is pluralistic: processualist methods (hypothesis testing, quantitative analysis) continue alongside post-processualist reflexivity, just as agile methodologies continue alongside SRE practices.
 ```
 
 ---

@@ -205,7 +205,55 @@ Media studies analyzes how media forms, industries, and texts shape culture, pow
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — learner's CS/engineering background has natural parallels (information theory, signal/noise, feedback loops, system architecture) that would anchor this entire field for a technical reader -->
+## CS/Engineering Bridges to Media Studies
+
+Media studies concepts map onto formal CS and information-theory frameworks precisely enough to make the field immediately legible to a technical reader:
+
+```
+MEDIA STUDIES CONCEPT          CS / INFORMATION-THEORY PARALLEL
+======================          ================================
+
+Medium shapes message           Protocol determines what can be
+(McLuhan)                       transmitted — TCP vs. UDP impose
+                                different constraints on application design.
+                                The channel is not neutral.
+
+Culture industry:               Lossy compression of cultural space:
+standardization +               template instantiation with parameterized
+pseudo-individuation            variation. Same class, different constructor args.
+
+Agenda-setting                  Attention allocation as a scarce-resource
+                                scheduling problem. Media is the
+                                scheduler determining which topics
+                                get CPU time in public deliberation.
+
+Framing effects                 Cognitive encoding: the same data
+                                (poverty statistics) produces different
+                                predictions (policy output) depending
+                                on the feature representation chosen
+                                (individual failure vs. structural blockage).
+
+Network effects in              Metcalfe's law: value = n(n-1)/2.
+platform media                  Explains winner-take-all concentration.
+                                Same formal model, different domain.
+
+Filter bubbles                  Feedback loop in recommendation systems:
+                                training data reflects prior engagement,
+                                model learns biased distribution,
+                                outputs reinforce bias. Classic model collapse
+                                / training data shift problem.
+
+Surveillance capitalism         Data exhaust from user interactions
+                                → behavioral prediction products.
+                                Same as telemetry → ML inference pipeline.
+
+Propaganda model's              Sequential filtering pipeline: 5 stages,
+five filters                    each removing content threatening
+                                to system constraints. Output is the
+                                intersection of what survives all filters.
+```
+
+The critical theory tradition (Frankfurt School, Baudrillard) is less reducible to formal models but addresses a question familiar from AI alignment: when a system optimizes for a proxy metric (engagement, profit), what properties of the output space does it sacrifice? The culture industry thesis is essentially the observation that engagement optimization produces standardization as a side effect of minimizing cognitive load (reducing inference cost for the audience).
 
 ## Common Confusion Points
 

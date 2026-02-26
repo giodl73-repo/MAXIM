@@ -371,7 +371,60 @@ After Vietnam, the US Army had to rebuild around the real threat: Soviet convent
 
 ## Proxy Wars: Geography of Cold War Competition
 
-<!-- @editor[structure/P2]: Section not anchored to landscape diagram — proxy wars are listed but not connected to the strategic/operational/sub-conventional levels shown in the opening diagram; no analysis of how proxy war fits the deterrence-escalation framework -->
+```
+PROXY WAR IN THE DETERRENCE-ESCALATION FRAMEWORK:
+
+  The opening diagram shows three levels:
+    NUCLEAR (MAD umbrella)
+    CONVENTIONAL (direct superpower confrontation)
+    SUB-CONVENTIONAL (proxy / guerrilla / covert)
+
+  Proxy war is the answer to a specific constraint problem:
+    Both superpowers want to advance interests.
+    Direct conventional confrontation risks nuclear escalation.
+    Doing nothing cedes ground to the adversary.
+
+  SOLUTION: fight at the sub-conventional level,
+  where escalation to nuclear is implausible because
+  the stakes are regional, not existential.
+
+  ┌──────────────────────────────────────────────────┐
+  │  NUCLEAR (MAD):  neither side can act here       │
+  │     ↑ escalation ceiling                         │
+  │                                                  │
+  │  CONVENTIONAL:   too risky (triggers escalation  │
+  │                  to tactical nuclear threshold)  │
+  │     ↑ floor of direct confrontation              │
+  │                                                  │
+  │  SUB-CONVENTIONAL:  proxy wars operate here      │
+  │     → supply arms, advisors, intelligence        │
+  │     → client bears casualties, not superpower    │
+  │     → deniability maintained                     │
+  │     → escalation control: constrain client if    │
+  │       they win "too much" (risk of direct clash) │
+  └──────────────────────────────────────────────────┘
+
+  The deterrence framework predicts proxy war:
+  MAD removes the top option; conventional risk
+  removes the middle option; leaving sub-conventional
+  as the only available competition space.
+  Proxy wars are not failures of deterrence theory —
+  they are exactly what the theory predicts when
+  both sides have secure second-strike capability.
+
+  ESCALATION MANAGEMENT PROBLEM:
+  The constraint on proxy war was the same as on
+  conventional war: avoid actions that could plausibly
+  drag the other superpower into direct confrontation.
+  Angola: US/Cuba both deployed forces — but neither
+  fired on the other; the line held.
+  Korea: China entered; US accepted the constraint
+  of not bombing Manchurian bases (Chapter 4 above).
+  Afghanistan: US supplied Stingers but not US pilots.
+  Each case: the sub-conventional ceiling was enforced
+  by the fear of the conventional-to-nuclear ladder.
+```
+
 ```
 PROXY WAR MAP:
   Both superpowers fought ideological competition through

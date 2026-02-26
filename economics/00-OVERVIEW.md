@@ -4,30 +4,40 @@
 
 ## Big Picture
 
-<!-- @editor[diagram/P2]: Diagram lists items in a hierarchy but doesn't show how micro, game theory, mechanism design, and macro relate to each other — rework as layered system view showing information economics feeding into mechanism design, game theory underpinning market equilibria, etc. -->
 ```
-ECONOMICS
-  │
-  ├── MICROECONOMICS — individual agents, markets
-  │     Consumers (utility maximization)
-  │     Firms (profit maximization)
-  │     Markets (supply, demand, equilibrium, efficiency)
-  │     Market failures (externalities, public goods, asymmetric info)
-  │
-  ├── GAME THEORY — strategic interaction
-  │     Normal form games (Nash equilibrium)
-  │     Extensive form games (backward induction)
-  │     Cooperative games (coalitions, Shapley value)
-  │     Repeated games (folk theorem, cooperation)
-  │
-  ├── MECHANISM DESIGN — "inverse game theory"
-  │     Design rules of the game to achieve desired outcome
-  │     Auctions, voting, matching, incentive compatibility
-  │     Nobel 2007 (Hurwicz, Maskin, Myerson)
-  │
-  └── MACROECONOMICS — aggregate phenomena
-        GDP, inflation, interest rates, business cycles
-        Monetary/fiscal policy, growth theory
+LAYERED STRUCTURE OF ECONOMICS:
+
+MICROECONOMICS — atomic building blocks
+  Individual optimization: max U(x) s.t. budget; max π = pQ − C(Q)
+  Market equilibrium: supply = demand → price vector clears all markets
+  Efficiency: First Welfare Theorem — competitive equilibrium is Pareto optimal
+         ↓ extends to
+INFORMATION ECONOMICS — micro with private types
+  Adverse selection, moral hazard, signaling
+  When agents have asymmetric info, competitive equilibrium can collapse
+  (Akerlof lemons; Spence signaling; Mirrlees optimal taxation)
+         ↓ private types + strategic agents =
+GAME THEORY — strategic interaction (multiple optimizing agents)
+  Each agent's optimal action depends on others' strategies
+  Solution concepts: Nash equilibrium, SPE, PBE, BNE
+  Game theory does NOT design the rules; it analyzes given rules
+         ↓ flip the question: design rules to achieve target outcome
+MECHANISM DESIGN — "inverse game theory" / algorithmic incentive engineering
+  Social planner chooses rules given agents will play Nash/Bayes-Nash
+  Revelation principle: restricts search to direct truthful mechanisms
+  VCG (efficient outcomes), Myerson (revenue-optimal), DA (stable matching)
+  Connects directly to: distributed systems incentive design, auction platforms
+         ↓ zoom out from individual markets to economy-wide dynamics
+MACROECONOMICS — aggregate phenomena
+  Not just "big micro" — emergent dynamics from coordination failures,
+  sticky prices, monetary/fiscal policy, capital accumulation
+  IS-LM, AS-AD, Solow, DSGE models
+
+CROSS-LINKS:
+  Information economics → mechanism design (private types are the input)
+  Game theory ↔ mechanism design (same math, opposite direction)
+  Macro uses micro foundations (DSGE = game theory + optimization + equilibrium)
+  Information economics ↔ macro (credit markets, bank runs, asymmetric info cycles)
 ```
 
 ---
@@ -52,30 +62,35 @@ ECONOMICS
 
 ## Field Map
 
-<!-- @editor[diagram/P2]: Field Map repeats the hierarchy pattern — three separate trees with no cross-links showing how game theory feeds mechanism design, how information economics bridges micro and mechanism design, etc. -->
 ```
-MICROECONOMICS TREE:
-  Consumer theory → demand curves
-  Producer theory → supply curves, cost minimization
-  Competitive equilibrium → first welfare theorem (Pareto efficiency)
-  Monopoly, oligopoly → market power, deadweight loss
-  Information economics → adverse selection, moral hazard, signaling
-  Externalities → Pigouvian tax, Coase theorem
-  Public goods → free rider problem, mechanism design needed
+FIELD MAP WITH CROSS-LINKS:
 
-GAME THEORY TREE:
-  Static games → Nash equilibrium, iterated dominance
-  Dynamic games → backward induction, subgame perfect equilibrium
-  Bayesian games → incomplete information, Bayesian Nash equilibrium
-  Evolutionary games → evolutionary stable strategy (ESS)
-  Cooperative games → core, Shapley value
-
-MECHANISM DESIGN TREE:
-  Social choice → Arrow impossibility, voting rules
-  Revelation principle → truthful mechanisms
-  VCG mechanism → efficient mechanism (public goods, combinatorial auctions)
-  Myerson optimal auction → revenue maximization
-  Matching theory → stable matching (Gale-Shapley)
+MICROECONOMICS                         GAME THEORY
+─────────────────────────────          ─────────────────────────────
+Consumer theory → demand curves        Static: Nash equilibrium
+Producer theory → supply curves        Dynamic: SPE, backward induction
+Competitive equilibrium                Bayesian: BNE (incomplete info)
+  └→ First Welfare Theorem             Evolutionary: ESS, replicator dyn.
+Monopoly, oligopoly → market power     Cooperative: core, Shapley value
+Information economics:                       │
+  Adverse selection (Akerlof)               │ "given rules → predict play"
+  Moral hazard (principal-agent)            ▼
+  Signaling (Spence)              ←── feeds types/strategies into ───→
+Externalities → Pigouvian tax
+Public goods → free rider                MECHANISM DESIGN
+  └→ needs mechanism design ──────→  ──────────────────────────────
+                                       "design rules to achieve outcome"
+         ▲                             Revelation principle (DSIC / BIC)
+         │                             VCG: efficient allocation
+  micro foundation                     Myerson: revenue-optimal auction
+         │                             DA / TTC: stable/Pareto matching
+MACROECONOMICS                         Arrow impossibility: social choice
+─────────────────────────────
+IS-LM → AD-AS short run                INFORMATION ECONOMICS bridges:
+Solow → long-run growth                Micro ──→ private types as inputs
+DSGE → NK business cycles              Game theory: Bayesian games
+Taylor rule, ZLB, QE                   Mechanism design: revelation principle
+Exchange rates, trilemma               Macro: credit market failures
 ```
 
 ---
@@ -91,11 +106,43 @@ MECHANISM DESIGN TREE:
 
 ---
 
+---
+
+## Decision Cheat Sheet
+
+| Goal | Tool | Where covered |
+|------|------|---------------|
+| Model a single agent's optimal choice | Utility/profit maximization (micro) | 01-MICROECONOMICS |
+| Model several agents choosing simultaneously | Normal-form game, Nash equilibrium | 02-GAME-THEORY |
+| Model sequential strategic decisions | Extensive-form game, SPE, backward induction | 02-GAME-THEORY |
+| Model agents with private information (types) | Bayesian game, BNE | 02-GAME-THEORY |
+| Design rules to achieve a social objective | Mechanism design, revelation principle | 03-MECHANISM-DESIGN |
+| Maximize seller revenue from an auction | Myerson optimal auction (virtual valuations) | 03-MECHANISM-DESIGN |
+| Allocate objects stably/efficiently | Gale-Shapley DA, Top Trading Cycles | 03-MECHANISM-DESIGN |
+| Attribute value fairly to coalition members | Shapley value | 03-MECHANISM-DESIGN |
+| Model market failure from information gaps | Adverse selection, signaling, moral hazard | 01-MICROECONOMICS |
+| Explain aggregate output, inflation, cycles | IS-LM, AS-AD, Solow, Taylor rule | 04-MACROECONOMICS |
+| Correct externalities | Pigouvian tax, Coase theorem | 01-MICROECONOMICS |
+
+---
+
+## Common Confusion Points
+
+**Game theory vs decision theory**: Decision theory is single-agent optimization under uncertainty (no strategic opponent). Game theory models multiple agents whose payoffs depend on each other's choices. When you have one optimizing agent and nature draws states: decision theory. When outcomes depend on other rational agents' strategies: game theory.
+
+**Mechanism design vs market design**: Mechanism design is the theoretical framework (revelation principle, DSIC, VCG). Market design is the applied discipline — using mechanism design tools for real markets (kidney exchange, spectrum auctions, school choice). Roth (Nobel 2012) built market design from mechanism design theory.
+
+**Micro vs macro boundaries**: Macroeconomics is not simply "aggregated microeconomics." Aggregation creates emergent properties: coordination failures, liquidity traps, self-fulfilling expectations, nominal rigidities. DSGE models try to provide micro foundations for macro but require additional assumptions (sticky prices, financial frictions) that don't flow from standard micro.
+
+**Nash equilibrium is not unique, optimal, or stable in general**: Most games have multiple Nash equilibria. NE says nothing about which equilibrium is reached (focal points, refinements needed). NE is not Pareto optimal (Prisoner's Dilemma: unique NE is Pareto dominated). NE is not a stable attractor in general (finding NE is PPAD-complete; best-response dynamics need not converge).
+
+**Mechanism design vs regulation**: Mechanism design assumes the planner can commit to rules and agents respond rationally. Real-world regulation faces non-commitment, bounded rationality, political constraints. VCG is theoretically optimal but rarely deployed as written because of budget imbalance and computational complexity.
+
+---
+
 ## Historical Arc
 
 ```
-<!-- @editor[structure/P1]: Missing Decision Cheat Sheet section — guide needs a "what do I use when" table (e.g., "need to model strategic agents → game theory", "need to design incentive-compatible rules → mechanism design") -->
-<!-- @editor[structure/P2]: Missing Common Confusion Points section — natural gotchas include game theory vs decision theory, mechanism design vs market design, micro vs macro boundaries, Nash equilibrium misconceptions -->
 1776: Adam Smith — Wealth of Nations (invisible hand, specialization)
 1890: Marshall — Principles of Economics (supply and demand diagrams)
 1938: Hicks, Allen — formal consumer theory (ordinal utility)

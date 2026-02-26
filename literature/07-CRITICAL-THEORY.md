@@ -193,7 +193,81 @@ Relation to Chomsky:
 
 ---
 
-<!-- @editor[content/P2]: Marxist literary criticism absent as a Layer section — Lukacs on realism, Althusser on ideology and ISAs, Jameson's "Political Unconscious" (1981), and the Frankfurt School (Adorno on the culture industry) all listed in landscape but never treated; this is a significant gap given Marxism's influence on New Historicism, postcolonial theory, and cultural studies -->
+## Layer 2b: Marxist Literary Criticism
+
+```
+MARXIST CRITICISM — BASE/SUPERSTRUCTURE MODEL
+
+Marx's base/superstructure:
+  Base (Basis): economic relations of production
+  Superstructure: law, politics, religion, art, literature
+  Claim: superstructure is determined (in the last instance)
+         by the economic base.
+  Literary application: literature is superstructure —
+         it reflects, reproduces, or contests economic conditions.
+
+GEORG LUKACS (1885–1971): REALISM AND IDEOLOGY
+  The Historical Novel (1937), Studies in European Realism (1950).
+  Realism = the capacity to represent the totality of social forces
+  operating through individual characters.
+  Balzac (arch-conservative politically) is a great realist
+  because his novels reveal the logic of capitalism against
+  his own intentions. The form exceeds the author's ideology.
+  Modernism (Joyce, Kafka) = pathological: it fragments the
+  social totality into isolated subjectivities. Decadent form.
+  Lukacs's formalism: the correct form (realism) contains
+  more historical truth than incorrect content (conservative ideology).
+
+LOUIS ALTHUSSER (1918–1990): IDEOLOGY AND ISAS
+  Ideology and Ideological State Apparatuses (1970).
+  ISAs: institutions that reproduce ideology non-coercively
+  (schools, churches, media, literature).
+  Ideology: "the imaginary relationship of individuals
+  to their real conditions of existence."
+  Ideology is not a set of false beliefs; it is a lived
+  practice that constitutes subjects.
+  Literary application: texts interpellate (hail) readers
+  into subject positions. "Hey, you!" — ideology calls,
+  and you turn around, recognizing yourself as the subject
+  being addressed. The realist novel interpellates a
+  bourgeois subject who believes in individual psychology
+  and free will as natural.
+
+FREDRIC JAMESON (1934–2024): THE POLITICAL UNCONSCIOUS
+  The Political Unconscious (1981): "Always historicize!"
+  The literary text is a "socially symbolic act" —
+  it produces imaginary solutions to real social contradictions.
+  The text cannot openly acknowledge the contradiction
+  (ideology forecloses this); it displaces it into formal
+  problems. Reading for the political unconscious = reading
+  the formal tensions as symptoms of historical contradiction.
+  Example: the unresolvable formal tensions in Conrad's
+  Lord Jim are symptoms of the contradiction between
+  the official ideology of imperial heroism and the
+  material reality of colonial exploitation.
+
+FRANKFURT SCHOOL: ADORNO AND THE CULTURE INDUSTRY
+  Horkheimer + Adorno, Dialectic of Enlightenment (1944):
+  The "culture industry" (film, radio, mass-market fiction)
+  produces standardized products that create false needs
+  and pacify the working class.
+  The culture industry is not propaganda but a system:
+    - Standardization: each product is the same template
+    - Pseudo-individuation: surface variety, structural sameness
+    - The happy ending as ideology: the world is bearable
+  Adorno's aesthetics: only modernist art that refuses
+  easy consumption can preserve critical consciousness.
+  Beckett = good; jazz = ideological (Adorno's most contested claim).
+
+CRITIQUE OF MARXIST CRITICISM:
+  Reductionism risk: all texts become class documents.
+  The base/superstructure model is too mechanical;
+  later Marxists (Gramsci, Raymond Williams) introduced
+  "hegemony" and "structures of feeling" to complicate it.
+  Jameson's "always historicize" becomes: always find the
+  contradiction — a method that can become a formula.
+```
+
 ## Layer 3: Poststructuralism and Deconstruction
 
 ### The Crisis Point: 1966
@@ -355,7 +429,6 @@ BHABHA: HYBRIDITY
 
 ---
 
-<!-- @editor[content/P2]: Section is thin — feminist criticism gets one code block where Marxist/postcolonial/formalist each get full layers with multiple subsections; Kristeva (abjection, intertextuality), Cixous (ecriture feminine), and Irigaray (mimicry/fluidity) named in the comparison table but never discussed -->
 ## Layer 5: Feminist and Gender Theory
 
 ```
@@ -371,9 +444,62 @@ First wave (1970s): recover women writers excluded from canon.
 Second wave (1980s): critique of representation.
   Images of women in male-authored texts.
   How "woman" functions as a sign in patriarchal discourse.
+  Sandra Gilbert + Susan Gubar, The Madwoman in the Attic (1979):
+  women writers internalize the male-authored literary tradition
+  and experience "anxiety of authorship" — the inverse of Harold
+  Bloom's male "anxiety of influence."
+
+FRENCH FEMINIST THEORY — THREE MAJOR FIGURES
+
+JULIA KRISTEVA (1941–):
+  Intertextuality: no text is original; every text is a mosaic of
+  quotations from prior texts (further developed from Bakhtin).
+  Kristeva coined the term "intertextuality" (1966) in her
+  reading of Bakhtin for a French audience.
+  Abjection (Powers of Horror, 1980):
+    The abject is what we expel to constitute the self as subject —
+    bodily waste, the corpse, the maternal body.
+    Literature of abjection (Céline, Artaud) makes visible
+    the boundary-setting that constitutes the subject.
+    Horror literature as a genre operates through abjection.
+  The Semiotic and the Symbolic:
+    Symbolic: structured language, the Law, the paternal
+    Semiotic: pre-linguistic drives, rhythm, tone, the maternal
+    Poetic language disrupts the Symbolic with semiotic impulses.
+    This maps to: the structured/computational dimension of language
+    vs. the rhythmic/excessive dimension that exceeds syntax.
+
+HÉLÈNE CIXOUS (1937–):
+  Écriture féminine ("feminine writing") — not a fixed style
+  but a mode of writing that exceeds phallocentric logic:
+  non-linear, excessive, close to the body, multiple.
+  "The Laugh of the Medusa" (1975):
+  "Write yourself. Your body must be heard."
+  The call is political, not essentialist: women must claim writing
+  from a tradition that has excluded female embodied experience.
+  Critical debate: does écriture féminine essentialize "the feminine"?
+  Cixous's position: the feminine is not biologically fixed;
+  it is a mode of writing available to any subject who
+  exceeds the economy of the Proper (property, propriety).
+
+LUCE IRIGARAY (1930–):
+  Speculum of the Other Woman (1974):
+  Psychoanalysis (Freud, Lacan) constructs "woman" as lack —
+  as the negative term defined by the absence of the phallus.
+  Irigaray mimics and subverts this construction:
+  she takes the male philosophical texts (Plato, Freud) and
+  reads them against themselves, showing how they suppress
+  and exclude the feminine.
+  Mimicry as critical strategy: perform the patriarchal text
+  so faithfully and completely that its exclusions become visible.
+  Formal parallel: a proof by contradiction that reveals the
+  axioms' inconsistency by deriving them faithfully to an absurd conclusion.
+  "This Sex Which Is Not One" (1977):
+  Female sexuality is multiple, non-unified — not "one" but plural.
+  Challenges the (male) model of a unified, bounded, singular subject.
 
 JUDITH BUTLER: GENDER PERFORMATIVITY
-  Gender and Trouble (1990):
+  Gender Trouble (1990):
   Gender is not a natural fact but a PERFORMANCE —
   a repeated set of acts that constitutes gender through
   repetition. There is no pre-discursive gender behind
@@ -387,14 +513,17 @@ JUDITH BUTLER: GENDER PERFORMATIVITY
   Butler draws on Derrida (performative speech acts
   cite prior speech acts) and Foucault (discourse produces
   subjects). Gender performance is a form of citationality.
+  Drag: makes the performative construction visible.
+  Literary analog: cross-dressed characters who reveal
+  gender as performance (Shakespeare's comedies; Virginia
+  Woolf's Orlando).
 ```
 
 ---
 
-<!-- @editor[content/P2]: Section is thin — ecocriticism gets one code block; Lawrence Buell's "The Environmental Imagination" (1995) not mentioned; no examples of ecocritical reading in practice; contrast with the multi-subsection treatment of other schools -->
 ## Layer 6: Ecocriticism
 
-The most recent of the major critical schools, emerging in the 1990s:
+The most recent of the major critical schools, emerging in the 1990s. ASLE (Association for the Study of Literature and Environment) founded 1992; journal ISLE launched 1993.
 
 ```
 ECOCRITICISM
@@ -418,11 +547,113 @@ THE NATURE-CULTURE BINARY
   literature is an ideological move that obscures real
   agricultural labor and class relations.
 
+LAWRENCE BUELL: THE ENVIRONMENTAL IMAGINATION (1995)
+  The foundational text of American ecocriticism.
+  Buell identifies four features of "environmental texts":
+    1. The nonhuman environment is not merely framing but
+       is present as a character or co-protagonist
+    2. Human interest is not the only legitimate interest
+    3. Human accountability to the environment is part of
+       the text's ethical orientation
+    4. Some sense of the environment as a process, not just
+       a backdrop (change, nonhuman time scales)
+  Applied to Thoreau's Walden: it meets all four criteria.
+  Applied to most "nature writing": it often fails criterion 2.
+
+ECOCRITICISM IN PRACTICE — A READING
+  The Tempest (Shakespeare): Caliban's relationship to the island.
+    Traditional reading: Caliban as colonial subject (postcolonial).
+    Ecocritical reading: Caliban as native ecological knowledge-holder.
+    "I'll show thee every fertile inch o' th' island" —
+    Caliban knows the island's ecology; Prospero knows magic.
+    The colonial dispossession is also an epistemological dispossession:
+    Caliban's local knowledge is displaced by Prospero's textual magic.
+
   POSTHUMANISM:
   The challenge to anthropocentrism: humans are not
   the only actors; the nonhuman has agency.
   Timothy Morton "Ecology Without Nature" (2007):
   "nature" as a stable category is itself the problem.
+  "Dark Ecology" (2016): ecological thinking after we abandon
+  the romantic-pastoral idea of nature as pure/separate.
+  Jane Bennett "Vibrant Matter" (2010): political ecology —
+  nonhuman objects (food, electricity, metal) have "thing-power."
+  Actor-Network Theory (Latour) applied to literary analysis:
+  what nonhuman actors does the text mobilize?
+```
+
+## Layer 7: Psychoanalytic Criticism
+
+```
+PSYCHOANALYTIC CRITICISM — CORE CONCEPTS
+
+FREUD'S LITERARY APPLICATIONS
+  "Creative Writers and Daydreaming" (1908):
+    Literary fiction = adult version of the child's play.
+    The writer transforms daydream (wish-fulfillment) into art
+    by giving it formal pleasure (aesthetic "incentive bonus")
+    that allows the reader to access material that would
+    otherwise be repressed. Literature as disguised wish-fulfillment.
+  "The Uncanny" (Das Unheimliche, 1919):
+    Unheimlich = un-homely; what was familiar and has become strange.
+    More precisely: what was repressed and has returned.
+    Freud's examples: doubles, automata, the severed hand,
+    compulsive repetition, the "evil eye."
+    Literary form: the Gothic novel, horror, ghost stories.
+    The uncanny is a quality of effect, not of subject matter.
+    E.T.A. Hoffmann's "The Sandman" is Freud's primary text.
+
+DREAMWORK ↔ LITERARY FORM
+  Primary process (dream logic) ↔ literary devices:
+    Condensation: one element represents many → metaphor, symbol
+    Displacement: emotional charge shifts from real object to proxy → metonymy
+    Secondary revision: dreamwork imposes narrative coherence → plot
+    Representability: abstract idea converted to visual image → imagery
+  This mapping is precise: Roman Jakobson's "Two Aspects of Language"
+  (1956) identified condensation/metaphor and displacement/metonymy
+  as the two fundamental axes of language — connecting Freud to
+  structural linguistics.
+
+LACAN'S THREE REGISTERS (RSI):
+  Real: the unsymbolizable remainder; what escapes language.
+       Not "reality" but the traumatic kernel that resists representation.
+  Symbolic: the order of language, law, social structure.
+            The subject is constituted by entry into the Symbolic.
+            The "signifying chain" (Saussure's langue, for Lacan).
+  Imaginary: the order of images, the ego, identification, dyadic relations.
+             The mirror stage (1936): the infant identifies with
+             its mirror image, constituting the ego as an external image.
+
+  Applied to literature:
+    Narrative = symbolic order
+    Character psychology = imaginary
+    The text's irresolvable gaps = the Real
+    The drive toward resolution in narrative = desire structured by
+    the symbolic (what we pursue) vs. drive (what we circle around
+    without resolution).
+
+DESIRE AND THE OBJET PETIT A:
+  Lacan's objet a: the object-cause of desire — not what we want
+  but the fantasy object that organizes wanting.
+  Literary application: what does the text's protagonist desire?
+  Answer: not the named goal (the girl, the treasure, the truth)
+  but the objet a that keeps desire in motion.
+  The plot's engine is the gap between the goal (stated object)
+  and the objet a (what desire is actually organized around).
+  Hitchcock's "MacGuffin" (the briefcase in Pulp Fiction,
+  the microfilm in North by Northwest) is the objet a exactly:
+  the object that matters because characters desire it,
+  not because of any intrinsic property.
+
+LACAN ↔ FEMINISM: THE GAZE
+  Lacan's gaze (the look that precedes the subject).
+  Laura Mulvey "Visual Pleasure and Narrative Cinema" (1975):
+  applied Lacanian gaze theory to Hollywood film.
+  The camera's gaze = masculine; woman = object of gaze.
+  The male spectator identifies with the gaze;
+  the female spectator must adopt a masculine position
+  or accept being the object of her own look.
+  This became a foundational text for feminist film theory.
 ```
 
 ---
@@ -439,7 +670,6 @@ THE NATURE-CULTURE BINARY
 | New Historicism | How do text and context interpenetrate? | Negotiation, circulation, power, anecdote | Greenblatt, Gallagher | "Thick description" risks losing the text |
 | Postcolonial | Who speaks? On whose terms? | Orientalism, subaltern, hybridity, mimicry | Said, Spivak, Bhabha | Western theory applied to anti-western project |
 | Feminist | How is gender constructed in/by the text? | Performativity, the gaze, patriarchal discourse | Showalter, Butler, Cixous, Irigaray | Multiple feminisms; no unified position |
-<!-- @editor[content/P2]: Psychoanalytic criticism absent as a Layer section — listed in landscape and comparison table but never given its own treatment; Freud's dreamwork/literary analysis, Lacan's Real/Symbolic/Imaginary, and the uncanny deserve at least one subsection -->
 | Psychoanalytic | What does the text desire/repress? | Uncanny, displacement, condensation, suture | Freud, Lacan, Kristeva | Theory may explain theory more than texts |
 | Ecocriticism | How does the text represent the nonhuman? | Nature/culture binary, agency, posthumanism | Williams, Morton, Buell | Recent; methods still developing |
 

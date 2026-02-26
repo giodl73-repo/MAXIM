@@ -30,6 +30,25 @@
 ## Lithostratigraphy
 
 ```
+STRATIGRAPHIC HIERARCHY AS CONTAINMENT SCHEMA:
+
+  Bed < Member < Formation < Group < Supergroup
+  → Containment hierarchy: each unit fully nested inside the next
+  → Same structure as: Java packages (com.group.formation.member.bed)
+                        DNS labels, URL path segments, filesystem directories
+  Formation = "table" in relational DB: bounded, named, independently mappable
+  Member = "partition" of a table: subset by lithologic criteria
+  Unconformity = schema migration break: older "schema" (rock type) ends;
+    new schema begins; gap in record (some versions were never committed)
+
+  Walther's Law: vertical facies sequence = spatial-to-temporal projection
+    In a conformable sequence, lateral environments map to vertical layers
+    as shoreline migrates: beach → lagoon → offshore, seen in time as a
+    vertical stack: offshore mudstone → lagoonal limestone → beach sandstone
+    ANALOGY: reading a spatial grammar as a time series
+    (same logic as: compiler parsing a sequential token stream that encodes
+    a spatial structure — the parse tree reconstructs the grammar)
+
 LITHOSTRATIGRAPHIC UNITS (rock type and character):
   Formation: fundamental unit — named body of rock with distinctive lithology
     Named: geographic locality + rock type (e.g., Green River Formation, Entrada Sandstone)
@@ -173,6 +192,35 @@ MAGNITUDE OF GAPS:
 ## Sequence Stratigraphy
 
 ```
+SEQUENCE STRATIGRAPHY AS CYCLICAL SIGNAL DETECTION:
+
+  Forcing signal: sea level oscillation (Milankovitch orbital cycles, tectonics)
+  → Periodic input drives predictable sediment stacking patterns
+  → Pattern recognition in rock record = deconvolving the signal from noise
+    (diagenesis, local tectonics, erosion gaps = noise on the global signal)
+
+  SYSTEMS TRACTS = STATE MACHINE driven by sea level position:
+
+    State 1: LOWSTAND (sea level below shelf edge)
+      Entry: sea level falls below shelf break
+      Action: incised valleys cut into shelf; submarine fans build in deep water
+      Transition: sea level rises above shelf edge → go to State 2
+
+    State 2: TRANSGRESSION (sea level rising)
+      Entry: flooding surface
+      Action: shoreline retreats landward; retrogradational stacking
+      Transition: rate of rise slows → sediment supply exceeds accommodation → State 3
+
+    State 3: HIGHSTAND (sea level near maximum, slowing)
+      Entry: maximum flooding surface (MFS)
+      Action: progradational stacking; shoreline builds seaward
+      Transition: sea level falls → State 1 (unconformity marks transition)
+
+  Each cycle (State 1→2→3→1) = one depositional sequence bounded by unconformities
+  Parasequence = one shallowing-upward event within a systems tract (smaller cycle)
+  Stacking patterns: retrogradational (TST), aggradational, progradational (HST)
+    → reading the "phase" of the sea level cycle from rock geometry
+
 CONCEPT (Vail, Mitchum, and Posamentier, Exxon Production Research, 1977):
   Sea level changes create predictable rock stacking patterns
   Same pattern repeated worldwide → global sea level signal recognizable everywhere

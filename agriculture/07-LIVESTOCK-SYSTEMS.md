@@ -25,7 +25,83 @@ Livestock occupy ~26% of Earth's ice-free land (pasture) plus ~33% of cropland (
 ```
 
 ---
-<!-- @editor[bridge/P2]: No old-world bridge — FCR is a conversion efficiency metric identical to energy conversion efficiency in any engineering system; the ruminant digestion pipeline is a staged processing architecture (pipeline stages with different transformations at each stage). The learner will map this to compiler pipelines or ETL chains immediately if prompted. -->
+## Engineering Bridge: Livestock as Processing Architecture
+
+```
+LIVESTOCK CONCEPT               SYSTEMS / ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+RUMINANT FOUR-COMPARTMENT       Multi-stage processing pipeline
+DIGESTION:                      with batch recirculation
+  RUMEN: primary fermentation   → Stage 1: input parsing + tokenization
+    pH 6–7; cellulolytic microbes  (break cellulose into simple sugars)
+    anaerobic; VFAs produced       (microbial compute cluster inside organ)
+  RETICULUM: filter + sort      → Stage 2: input validation / filter
+    hardware trap; ejects debris   (reject oversized / metal objects)
+  REGURGITATION (cud-chewing)   → Recirculate partial results
+    bolus returned to mouth        (reprocess undigested fiber; retry loop)
+    → further mechanical break-up → analogous to: retry queue for failed
+       of fiber → re-enter rumen    parse jobs with smaller chunk size
+  OMASUM: water extraction      → Stage 3: data compression (remove water
+    laminar folds; absorb water    before downstream processing)
+  ABOMASUM: acid digestion      → Stage 4: acid hydrolysis of microbial
+    pH 2–3; enzymatic breakdown    biomass (the microbes themselves are
+    of rumen microbes → AA          the substrate at this stage)
+  → The microbes are the product  → Side-channel output: use the compute
+    as much as the food: ruminant   cluster's metabolic waste as feedstock
+    digests the processor that      (pipeline eats the workers downstream)
+    processed its food
+
+METHANOGENESIS                  Unavoidable overhead / mandatory side-channel
+  H₂ byproduct of fermentation  → H₂ is an intermediate result that must
+  must be removed or fermentation   be drained or the pipeline stalls
+  STOPS (H₂ back-pressure)      → Methanogenesis = mandatory background
+  Methanogenic archaea oxidize    worker consuming overflow; cannot be
+  H₂ → CH₄ (6–10% energy loss)   simply disabled without stalling system
+  → CH₄ is not optional waste:  → GHG emission = unavoidable protocol tax
+    it is H₂ disposal; removing    on rumen chemistry at this evolutionary
+    methanogens without H₂         design point
+    alternative → system halts
+
+FCR (FEED CONVERSION RATIO)    Energy conversion efficiency
+  FCR = kg feed / kg weight gain → Useful work output / total energy input
+  Lower FCR = more efficient    → Higher efficiency = less energy wasted
+                                   on heat, overhead, side-effects
+  BROILER: FCR ~1.7            → 59% efficiency (poultry as monogastric:
+    6 weeks to market; no CH₄     no fermentation overhead, fast cycle)
+  BEEF (feedlot): FCR ~6–8     → 13–17% efficiency
+    3 reasons for high FCR:       3 reasons:
+    1. Large body maintenance     1. Base load >> compute work
+       (60–70% feed just to         (fixed overhead dominates)
+       maintain homeostasis)
+    2. Cellulose fermentation     2. Slow input parser; lower energy
+       lower energy density         density per parse cycle
+    3. CH₄ loss (6–10% energy)   3. Mandatory protocol overhead (GHG)
+
+PROTEIN CONVERSION EFFICIENCY   Compression ratio for useful payload
+  = edible protein out /        → Useful bits out / bits in
+    protein in feed
+  BROILER: ~40%                 → 40% of input protein reaches output
+  BEEF: ~5–8%                   → 5–8% compression ratio (poor)
+  DAIRY: ~40% (milk protein)    → Milk: continuous stream; high efficiency
+  INSECTS: ~55%                 → Best ratio: low maintenance, ectotherm
+
+ECTOTHERM ADVANTAGE             No thermoregulation overhead
+  Fish, insects: no body temp   → No fixed overhead for temperature
+    regulation overhead            management (no background daemon
+  FCR ~1.2 (salmon), ~2.0        burning CPU to maintain 37°C)
+    (insects) vs ~6–8 (beef)   → All metabolic energy → growth output
+  → Same reason JVM startup cost   → efficient if long-running; fish
+    matters less in long-running    are long-running processes
+    processes vs short scripts
+
+CAFO VERTICAL INTEGRATION       Platform / supply chain architecture
+  Breed → feed → grow-out →    → Full-stack ownership: own the OS,
+    slaughter → process → retail   runtime, compiler, and app store
+  Company owns animals + feed;  → Asset-light franchise:
+    farmer owns building           farmer = hardware provider; company
+  → Farmer bears capital risk;    = software + supply chain owner
+    company captures margin      → Platform captures rent on both sides
+```
 
 ## Ruminant Digestion — The Four-Compartment System
 

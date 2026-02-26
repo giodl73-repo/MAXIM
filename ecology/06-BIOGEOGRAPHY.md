@@ -69,7 +69,6 @@ SPECIES RICHNESS MODEL:
    Mechanism: Immigrants boost small populations near extinction
 ```
 
-<!-- @editor[bridge/P2]: S = cA^z is a power law; connect to other power-law distributions (Zipf, Pareto) and fractal dimension for MIT math learner -->
 **Species-area relationship (SAR):**
 ```
 log(S) = log(c) + z × log(A)
@@ -84,6 +83,10 @@ IMPLICATION:
   Reducing habitat to 1/10 → losing ~46% of species
   (converse of SAR: habitat loss reduces species)
 ```
+
+**Power-law connection:** S = cA^z is a pure power law — the same mathematical form as Zipf's law (word frequency ∝ rank^-1), the Pareto distribution (wealth ∝ rank^-1.16), and the degree distribution of scale-free networks (P(k) ∝ k^-γ). In log-log space, all power laws are straight lines with slope z (or -γ). The species-area exponent z ≈ 0.25 for oceanic islands is empirically consistent across taxa and biogeographic regions — suggesting a universal underlying process rather than a taxon-specific mechanism.
+
+**Fractal dimension connection:** The species-area relationship can be derived from fractal habitat structure. If a habitat has fractal dimension D (between 1 and 2 for a 2D surface), and species territories scale with area, then z = 2/D in the simplest model. Real landscapes have fractal coastlines, fractal elevation contours — the irregular geometry of habitat edges contributes to the SAR exponent. Habitat loss that increases fragmentation (reduces effective D) steepens the effective z, making species loss worse than the simple SAR predicts.
 
 **Simberloff and Wilson (1969)** — experimentally defaunated small mangrove islands in Florida and tracked recolonization. Confirmed equilibrium theory and turnover predictions.
 
@@ -247,8 +250,7 @@ CONSEQUENCES:
 | What fraction of species lost if habitat reduced to 10%? | ~46% (if z=0.25); 10^0.25 ≈ 1.78 |
 | Why is tropical diversity higher than temperate? | Energy, evolutionary time, stability (multiple hypotheses) |
 | Why do Australian mammals look so different? | Long isolation (vicariance); marsupials filled niches convergently |
-<!-- @editor[content/P2]: "McArthur-Wilson" should be "MacArthur-Wilson" -- typo in the name (Robert MacArthur) -->
-| Why does island have fewer species than mainland of same area? | Colonization rate lower; extinction rate higher (McArthur-Wilson) |
+| Why does island have fewer species than mainland of same area? | Colonization rate lower; extinction rate higher (MacArthur-Wilson) |
 
 ---
 

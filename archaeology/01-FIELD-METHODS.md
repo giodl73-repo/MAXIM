@@ -356,16 +356,18 @@ PROBLEM: grey literature
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" decision tool (e.g., "Use magnetometry when: fast site-wide coverage needed; use GPR when: 3D structural resolution needed") -->
-
-| Question | Answer |
-|----------|--------|
-| Why not dig everything? | Excavation is irreversible; data collection before destruction; future methods will be better |
-| What is a context? | A single stratigraphic unit with unique number — the basic recording entity |
-| What is the Harris Matrix? | Directed acyclic graph of stratigraphic relationships = relative chronology |
-| Best geophysics for quick site survey? | Magnetometry (fastest, ~1 ha/day); GPR for 3D structure resolution |
-| What does LiDAR reveal that other methods miss? | Sub-canopy features; subtle earthworks; vast scale survey (km²) |
-| Who pays for archaeological excavation? | Usually the developer (UK/EU developer-funded model); grant-funded (research); emergency (salvage) |
+| Use this method when... | Method | Notes |
+|-------------------------|--------|-------|
+| Fast site-wide coverage needed (1 ha/day) | Magnetometry | Best for pits, hearths, ditches; poor on non-magnetic stone walls |
+| 3D structural resolution needed (walls, voids) | Ground-Penetrating Radar (GPR) | Slower; best in dry sand; poor in wet clay |
+| Large-scale terrain mapping under forest canopy | LiDAR | Reveals sub-canopy earthworks; km² coverage; has rewritten Maya and Angkor archaeology |
+| Assessing a site before any physical intervention | Desk-based assessment + geophysics | Always first; establishes what is already known |
+| Exposing a full settlement plan of one period | Open-area excavation | Reveals spatial relationships; hard to get deep earlier levels simultaneously |
+| Excavating a burial mound or circular monument | Quadrant method | Reveals construction sequence and primary vs. secondary burials |
+| Tracking all finds back to exact location after excavation | Single Context Recording (SCR) | Context number = permanent foreign key; every find, photo, sample references it |
+| Dating a timber structure to single-year precision | Dendrochronology | Requires surviving timber; matches tree-ring master sequences |
+| Reconstructing deposit formation at microscopic scale | Micromorphology (soil thin sections) | Identifies hearth ashes, dung layers, phytoliths invisible to naked eye |
+| Developer-funded work with planning constraints | Watching brief + evaluation trenches | Standard UK/EU model; developer pays; data archived in HER |
 
 ---
 

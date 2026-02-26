@@ -4,19 +4,26 @@
 
 Space exploration is the application of physics, engineering, and systems design to put objects and humans beyond Earth's atmosphere. The physics is orbital mechanics and propulsion; the engineering is reliability under extreme conditions; the systems challenge is the hardest integration problem humans routinely tackle.
 
-<!-- @editor[diagram/P2]: Diagram lists items in columns but doesn't show how physics feeds engineering feeds operations — rework as layered system view with flow arrows -->
 ```
 +------------------------------------------------------------------+
 |                    SPACE EXPLORATION LANDSCAPE                    |
 +------------------------------------------------------------------+
 |                                                                  |
-|  PHYSICS               ENGINEERING             OPERATIONS        |
-|  -------               -----------             ----------        |
-|  Orbital mechanics     Launch vehicles         Mission design    |
-|  Propulsion theory     Spacecraft design       Ground control    |
-|  Radiation physics     Thermal control         Navigation        |
-|  Celestial mechanics   Power systems           Communications    |
-|  Atmospheric entry     Life support            Data handling     |
+|  GOVERNING PHYSICS                                               |
+|  -----------------------------------------------                |
+|  Orbital mechanics  Propulsion theory  Radiation physics         |
+|       |                   |                  |                   |
+|       v                   v                  v                   |
+|  ENGINEERING CONSTRAINTS (physics sets the envelope)             |
+|  -----------------------------------------------                |
+|  Launch vehicles    Spacecraft design   Thermal/power systems    |
+|  (rocket equation)  (mass/power budget) (T⁴ radiation law)      |
+|       |                   |                  |                   |
+|       v                   v                  v                   |
+|  OPERATIONS (engineering capability shapes mission options)      |
+|  -----------------------------------------------                |
+|  Mission design     Ground control      Navigation/comms         |
+|  (Δv budget)        (DSN coverage)      (link budget)            |
 |                                                                  |
 |  ERA / ACTOR           CAPABILITY              MARKET            |
 |  ----------            ----------              ------            |
@@ -175,7 +182,18 @@ SPACE SECTOR TAXONOMY
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world-to-new-world bridge anywhere in overview — natural parallel: cost-plus government contracting (VSTS-era Microsoft procurement) vs fixed-price commercial (SpaceX model) maps directly onto waterfall-vs-agile or on-prem-vs-cloud transitions the learner lived through -->
+## Engineering Parallels
+
+Space exploration maps cleanly to problems a systems engineer already understands.
+
+**The rocket equation as exponential constraint.** Δv = Isp × g₀ × ln(m₀/mf) is the same structure as any exponential resource constraint: doubling the mission requirement (Δv) doesn't double the cost, it squares the mass ratio. This is why "just add more fuel" fails the same way "just add more servers" fails without architectural change — you need staging (sharding), higher Isp (efficiency), or gravity assists (offloading work to the environment).
+
+**Orbital mechanics as optimization on a manifold.** Trajectories are geodesics on a curved energy surface. The Hohmann transfer is the minimum-cost path between two circular orbits — the Floyd-Warshall shortest path applied to a continuous state space. Gravity assists are graph-search shortcuts: exploiting existing nodes (planets) in the trajectory graph to gain or shed energy for free, at the cost of time.
+
+**Cost-plus vs. fixed-price contracting.** The shift from government-owned, cost-plus contracts (Atlas V, SLS) to fixed-price commercial contracts (Falcon 9, Commercial Crew) maps directly onto the procurement model transition from waterfall/on-prem to agile/cloud. Cost-plus rewards spending; fixed-price rewards efficiency. SpaceX's vertical integration and reusability margin are the same structural advantages a hyperscaler has over a traditional data center operator: amortize fixed costs over volume, own the full stack, iterate on the hardware.
+
+**Communications as signal-to-noise engineering.** The link budget (P_received = EIRP − path_loss + G_receive) is a standard RF engineering problem. Deep space links are extreme cases: Voyager 1 at 23 light-hours transmits 22.4 W and the DSN receives signals in the femtowatt range — 120 dB of path loss. The same SNR reasoning governs ADC design, wireless protocols, and optical fiber.
+
 ## Common Confusion Points
 
 **Orbital velocity ≠ escape velocity**: To stay in LEO you need ~7.8 km/s (just enough centripetal balance). To leave Earth entirely you need 11.2 km/s (another ~3.4 km/s more). The rocket equation means that extra 3.4 km/s is enormously expensive in propellant.

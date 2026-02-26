@@ -133,7 +133,6 @@ Modern synthesis:
 
 ## Resilience and Stability
 
-<!-- @editor[bridge/P2]: Engineering resilience is literally borrowed from control theory; Holling resilience maps to basin-of-attraction analysis in nonlinear dynamics -->
 C.S. Holling (1973) distinguished two stability concepts:
 
 ```
@@ -141,14 +140,28 @@ ENGINEERING RESILIENCE:
   How fast a system returns to equilibrium after disturbance
   (speed of recovery)
   → Assumes single equilibrium; small disturbances
-  → Applicable to highly stable, simplified systems
+  → Directly maps to control theory: return time ≈ 1/Re(dominant eigenvalue)
+     of the linearized system at equilibrium
+  → Applicable to highly stable, simplified systems near a single fixed point
 
 ECOLOGICAL (HOLLING) RESILIENCE:
   How large a disturbance can be absorbed before the system
   reorganizes into a different state
-  → Multiple equilibria possible
-  → The KEY concept for managing ecosystems near thresholds
-  → High resilience = large "basin of attraction"
+  → Multiple equilibria possible (nonlinear dynamics)
+  → Each stable state has a basin of attraction in state space
+     (set of initial conditions that converge to that equilibrium)
+  → High Holling resilience = large basin of attraction
+  → Low resilience = system near a basin boundary → small perturbation
+     → state jumps to different attractor
+  → The KEY concept for managing ecosystems near tipping points
+
+CONTROL THEORY CONNECTION:
+  Engineering resilience = stability margin of a single-equilibrium linear system
+  Holling resilience = volume of basin of attraction in nonlinear state space
+  A system can have high engineering resilience (fast return from small kicks)
+  but low Holling resilience (a large kick crosses the basin boundary → new state)
+  Real management implication: measuring return time from small disturbances
+  does NOT tell you how close the system is to a regime shift threshold
 ```
 
 ```
@@ -170,8 +183,9 @@ __/        \__        __/     |__
 
 ## Regime Shifts and Hysteresis
 
-<!-- @editor[bridge/P3]: Magnetic hysteresis, capacitor charge/discharge curves are exact analogs of ecological hysteresis; MIT physics background makes this immediate -->
-A regime shift = transition between alternative stable states; typically triggered when a slow variable (nutrient loading, temperature, grazing pressure) crosses a threshold:
+A regime shift = transition between alternative stable states; typically triggered when a slow variable (nutrient loading, temperature, grazing pressure) crosses a threshold.
+
+**Physics analog:** The bifurcation diagram for a regime shift (fold bifurcation) is structurally identical to a magnetic hysteresis loop or the charge/discharge curve of a system with a switching threshold. In all three cases: (1) the state depends on history, not just the current input; (2) the forward transition occurs at a different threshold than the reverse transition; (3) the system has two stable states and one unstable state in the bistable region; (4) to return to the prior state requires driving the control variable well past the original transition point. The ecological "slow variable" (nutrient loading) maps to the magnetic field H; the ecosystem state (clear/turbid) maps to magnetization M. Same fold bifurcation, same hysteresis, same mathematical structure.
 
 ```
 CLASSIC EXAMPLE: Clear lake → Turbid lake (eutrophication)

@@ -256,8 +256,49 @@ COMMON MEASURE WORDS:
 When unsure: 个 (gè) works for almost anything with people/objects.
 ```
 
-<!-- @editor[bridge/P2]: No tense-vs-aspect bridge despite obvious parallel — learner knows automata theory; Mandarin aspect markers (了/着/过) are state-machine transitions (completion/continuation/experience) rather than absolute timestamps — connecting to finite-state concepts would make this click -->
-### Aspect Markers
+### Aspect Markers — The State-Machine Model
+
+Mandarin does not have grammatical tense (no verb inflection for time). Time is expressed by adverbs (yesterday, next year) and context. What verbs carry is **aspect** — the state of the action with respect to its internal temporal structure. The three core aspect markers are state-machine transitions, not timestamps:
+
+```
+FINITE-STATE MODEL OF MANDARIN ASPECT:
+
+States:
+  [NOT_YET] ──了(le)──→ [COMPLETED]
+  [STATIC] ──着(zhe)──→ [ONGOING_STATE]  (entered by verbs of state or position)
+  [NEVER_DONE] ──过(guò)──→ [EXPERIENCED]
+
+Transitions (markers):
+  了(le):  completion / change of state
+           TRIGGER: action reached its endpoint, OR new situation emerged
+           他吃了。Tā chī le. — He ate [finished eating].
+           下雨了。Xià yǔ le. — It has started raining. [state change]
+
+  着(zhe): ongoing / continuous state — result state persisted
+           门开着。Mén kāi zhe. — The door is open [in open state].
+           他笑着说。Tā xiào zhe shuō. — He said, smiling [smiling ongoing].
+
+  过(guò): experiential — event occurred at least once in lifetime
+           我去过北京。Wǒ qù guò Běijīng. — I have been to Beijing [at some point].
+           DOES NOT say WHEN. Says "has this been part of the subject's experience?"
+
+TEMPORAL LOCATION IS SEPARATE — specified by adverbs:
+  PAST:    昨天 (yesterday), 上个月 (last month), 以前 (before)
+  FUTURE:  明天 (tomorrow), 下个星期 (next week), 以后 (after)
+  PRESENT: 现在 (now), 今天 (today)
+
+  Any aspect marker can combine with any time adverb:
+  昨天他吃了饭。 Yesterday he ate [completed].
+  明天他要吃了就走。 Tomorrow, once he has eaten [completed], he will leave.
+
+NEGATION IS ASPECT-SENSITIVE:
+  了: negated with 没 (méi), not 不 (bù):
+      没 = "did not reach completion" (prevents the [COMPLETED] state)
+      不 = habitual/general negation (no aspect entailment)
+  过: negated with 没... 过 = "has never [experienced]"
+```
+
+**The key insight:** Asking "when?" in Mandarin is a separate question from "what aspect?" These are orthogonal parameters. An English speaker's instinct is to conflate them (past tense ≈ completed = happened before now). Mandarin decouples them completely. 了 does not mean "past" — it means "bounded/completed," which often correlates with past time but is logically independent.
 
 ```
 ASPECT MARKERS — not tenses (no tense in Mandarin)

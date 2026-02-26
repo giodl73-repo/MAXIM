@@ -238,7 +238,8 @@ Field test: "heft" — a rock that feels surprisingly heavy for its size
 
 ### Birefringence (Double Refraction)
 
-<!-- @editor[bridge/P2]: Birefringence is a direct consequence of anisotropic permittivity tensors — the learner's MIT physics background makes a one-liner on dielectric tensor / optical indicatrix a natural bridge from wave optics to crystallography -->
+Birefringence is the optical consequence of an anisotropic dielectric permittivity tensor ε. In a cubic crystal, ε is a scalar (ε_xx = ε_yy = ε_zz) — one refractive index, isotropic. In a hexagonal or trigonal crystal, ε has two independent components (ε_⊥ and ε_∥ to the c-axis) — two principal refractive indices n_o and n_e, giving birefringence Δn = |n_e - n_o|. In orthorhombic, monoclinic, and triclinic crystals, all three diagonal components of ε differ — the optical indicatrix (an ellipsoid with three semiaxes proportional to n_α, n_β, n_γ) describes the angular dependence of the refractive index. The petrographic microscope exploits this: a thin crystal section in cross-polarized light produces interference colors directly related to the retardation Γ = Δn × thickness, which is read off the Michel-Lévy chart.
+
 Light entering an anisotropic crystal splits into two rays polarized perpendicular to each other, traveling at different velocities. The difference in refractive indices = **birefringence**.
 
 ```
@@ -296,11 +297,10 @@ Some minerals emit visible light when irradiated with UV:
 
 ### Piezoelectricity and Pyroelectricity
 
-<!-- @editor[bridge/P3]: Natural bridge to the learner's electronics context — quartz oscillators are the frequency reference in every UART, every clock domain on a PCB; this connects physical mineralogy to digital systems timing -->
 **Quartz** (SiO₂): piezoelectric — mechanical stress generates electric polarization. Exploited in:
-- Frequency standards (quartz oscillator in watches, electronics)
+- Frequency standards: quartz oscillators are the clock reference in every digital system — every UART baud rate, every SPI clock domain, every microcontroller crystal. A 32.768 kHz watch crystal (2¹⁵ Hz, convenient for binary division to 1 Hz) is a thin quartz plate cut at a specific crystallographic angle (AT-cut at 35°15' to suppress temperature dependence of frequency). The mineral's piezoelectric response is the physical basis of digital timing.
 - Pressure sensors
-- Sonar transducers (pre-electronic era)
+- Sonar transducers
 
 **Tourmaline**: pyroelectric (electric polarization changes with temperature) and piezoelectric.
 

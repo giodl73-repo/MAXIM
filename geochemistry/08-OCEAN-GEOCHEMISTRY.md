@@ -54,8 +54,9 @@ MAJOR ION COMPOSITION OF SEAWATER (S = 35‰)
 
 ---
 
-<!-- @editor[bridge/P2]: Residence time is formally identical to the mean lifetime in a first-order decay/removal system (tau = stock/flux) — connecting this to the learner's math background (exponential decay, steady-state reservoir models) would make the concept trivially obvious rather than requiring domain-specific framing -->
 ## Residence Times
+
+Ocean residence time τ = stock / flux is the mean lifetime of an atom in the ocean reservoir — formally identical to the time constant of a first-order linear system. If you add an impulse of element X to the ocean, it decays exponentially with time constant τ: [X](t) = [X]₀ e^(-t/τ). This is the same math as RC circuit discharge, radioactive decay, or any linear removal process. Elements with τ >> ocean mixing time (~1000 yr) become uniformly distributed (conservative elements: Na, Cl, Mg). Elements with τ << mixing time are heterogeneous in concentration across ocean basins (scavenged elements: Al, Fe, Co, Pb, Th). The residence time concept directly determines which elements can be used as tracers of ocean circulation (short τ → records recent changes) versus which are robust records of total input (long τ → integrated signal).
 
 ```
 ELEMENT RESIDENCE TIMES IN SEAWATER

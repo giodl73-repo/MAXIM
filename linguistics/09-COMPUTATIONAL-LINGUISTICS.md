@@ -408,7 +408,40 @@ GPT family:
   Scaled to LLM sizes → emergent few-shot learning.
 ```
 
-<!-- @editor[content/P2]: Transformer section could note that subword tokenization (BPE) is a morphological compromise — it recapitulates some morpheme boundaries without linguistic design, which connects to 02-MORPHOLOGY's segmentation discussion -->
+**Subword tokenization as morphological approximation:** BPE (Byte-Pair Encoding), WordPiece, and SentencePiece are data-driven morphological segmenters without linguistic design. BPE merges the most frequent character-pair at each step; the result is a vocabulary that recapitulates morpheme boundaries when those boundaries happen to be high-frequency junctions.
+
+```
+LINGUISTIC MORPHOLOGY              BPE TOKENIZATION
+---------------------              ----------------
+Morpheme: minimal unit            BPE token: most frequent
+  of meaning or grammar             subword unit (emergent)
+
+Rule-based: -ing, -ed,            Data-driven: "##ing", "##ed"
+  -tion are productive              emerge because they are
+  morphological operations          statistically productive
+
+Linguist designs the              Algorithm discovers the
+  segmentation                      segmentation from corpus
+
+"unbelievable" →                  "unbelievable" →
+  [un][believe][able]               ["un", "##believ", "##able"]
+  (linguistic)                       or ["un", "##believe", "##able"]
+                                     depending on vocabulary size
+
+Allomorphy handled by rules:      Allomorphs become separate tokens:
+  in-/im-/il-/ir- are              "incomplete" gets "in##" but
+  phonologically conditioned        "impossible" starts with "im##"
+  variants of one morpheme
+
+Paradigm: all forms of            Multiple tokens for inflected forms:
+  a lexeme share a lemma           "ran" ≠ "run" — no shared root
+                                   (tokenizer doesn't lemmatize)
+```
+
+**The consequence:** Transformers operating on BPE tokens must learn morphological structure implicitly from context, since the tokenizer does not provide it explicitly. This is why models struggle more with rare words (low-frequency morphological patterns don't surface in BPE merges), highly agglutinative languages (Turkish, Finnish — word forms are exponentially more varied than English, so BPE vocabulary runs out), and morphologically rich languages where inflections carry syntactic information (case, agreement).
+
+**The linguistically motivated alternative:** Morphological pre-processing before tokenization — running an FST analyzer first, then tokenizing on morphemes — improves downstream performance on morphologically complex languages, at the cost of requiring a language-specific morphological tool. The tradeoff is the same as hand-engineered features vs. end-to-end learning.
+
 **What transformers learn linguistically:**
 
 ```

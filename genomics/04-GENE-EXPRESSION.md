@@ -388,8 +388,58 @@ FROM DNA TO EXPRESSION MEASUREMENT
 
 ---
 
+## DESeq2 Shrinkage as Empirical Bayes
+
+DESeq2's dispersion shrinkage is not just a statistical trick — it is empirical Bayes applied to the multiple-testing regime.
+
+```
+EMPIRICAL BAYES IN DESEQ2
+──────────────────────────────────────────────────────────────────────────────
+THE PROBLEM: 20,000 genes × n=3 replicates per condition
+  Per-gene dispersion estimate from 3 data points = unreliable
+  MLE estimate for low-expression genes: wild swings, many false positives
+
+CLASSICAL BAYES SOLUTION:
+  Place a prior over dispersion parameter
+  Posterior = prior × likelihood
+  Prior shrinks noisy estimates toward a shared mean
+
+DESEQ2'S EMPIRICAL BAYES APPROACH:
+  1. Estimate dispersion for all ~20,000 genes independently (MLE)
+  2. Fit a curve to the dispersion-mean relationship
+     (genes with similar mean expression tend to have similar dispersion)
+  3. Use this fitted curve as the PRIOR
+  4. Shrink each gene's MLE estimate toward the prior
+     → Low-expression genes (noisy MLE) shrink strongly
+     → High-expression genes (reliable MLE) shrink weakly
+
+INFORMATION-THEORETIC VIEW:
+  The prior is learned FROM the data itself (empirical → "empirical Bayes")
+  Each gene borrows information from all other genes with similar expression
+  → Regularization across the feature space
+
+ANALOGY (large-scale inference):
+  Same principle as: James-Stein estimator, ridge regression, elastic net
+  All are shrinkage estimators that trade bias for variance reduction
+  In high-dimensional settings (many tests, few samples), shrinkage dominates
+
+LFCSHRINK (Log2 Fold Change Shrinkage):
+  Same logic applied to effect size estimates
+  Low-count genes: raw log2FC is extremely noisy (2 vs 4 reads = 2.0 fold change
+    but this is meaningless with n=2 molecules)
+  lfcShrink() compresses unreliable FC estimates toward zero
+  Result: ranked gene list by biological signal, not noise
+  Default method: apeglm (adaptive Student's t prior)
+
+PARALLEL IN SIGNAL PROCESSING:
+  Wiener filter: optimal linear filter shrinks toward noise model
+  Kalman filter: recursive Bayesian estimation with state prior
+  Both are shrinkage in the frequency or state domain
+  DESeq2 does the same in the gene expression domain
+──────────────────────────────────────────────────────────────────────────────
+```
+
 ## Common Confusion Points
-<!-- @editor[bridge/P3]: Natural bridge opportunity -- DESeq2 negative binomial model and shrinkage estimation parallel Bayesian inference in signal processing / empirical Bayes in large-scale hypothesis testing, which the learner knows from statistics -->
 
 **TPM vs. FPKM**: FPKM normalizes library size first, then gene length — the resulting values don't sum to a constant across samples. TPM normalizes length first, then library size — sums to 10^6 per sample. TPM is directly comparable across samples; FPKM is not. Use TPM for reporting.
 

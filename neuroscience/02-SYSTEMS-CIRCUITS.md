@@ -1,24 +1,41 @@
-<!-- @editor[diagram/P2]: Landscape shows 5 systems as independent pipelines -- add cross-system connections (BG + cerebellum both feed motor, hippocampus consolidates to cortex, visual streams feed motor planning and memory) -->
 # Neural Systems and Circuits
 
 ## The Big Picture
 
 ```
-    SYSTEMS NEUROSCIENCE LANDSCAPE
-    ══════════════════════════════════════════════════════════
+    SYSTEMS NEUROSCIENCE LANDSCAPE — WITH CROSS-SYSTEM CONNECTIONS
+    ══════════════════════════════════════════════════════════════════
 
-    VISUAL SYSTEM: retina → LGN → V1 → V2-V5 → IT (what) / MT (where/how)
-    MOTOR SYSTEM:  cortex → BG/cerebellum → brainstem/spinal cord → muscle
-    HIPPOCAMPUS:   EC → DG/CA3/CA1 → subiculum → EC → memory consolidation
-    BASAL GANGLIA: striatum → GP/SNr → thalamus → cortex (action selection)
-    CEREBELLUM:    mossy/climbing fibers → Purkinje cells → deep nuclei → motor
+    VISUAL SYSTEM                        MOTOR SYSTEM
+    retina → LGN → V1 → V2-V5           M1 → CST → spinal cord → muscle
+       ↓ ventral (IT: what)                 ↑ disinhibition
+       ↓ dorsal (MT/parietal: how/where) ┌──┴────────────────────┐
+       └──→ MOTOR PLANNING (parietal) ───┤  BASAL GANGLIA        │
+       └──→ MEMORY (hippocampus) ────────┤  action selection     │
+                                         │  (Go/NoGo)            │
+    HIPPOCAMPUS                          └──────────────┬────────┘
+    EC → DG → CA3 → CA1 → subiculum              ↑ also feeds motor
+       │    │                                           │
+       │    └──→ pattern separation                  CEREBELLUM
+       │         (orthogonalize)                    error correction
+       └──→ consolidation during sleep SWRs             │
+              ↓                                         │ forward model
+         NEOCORTEX (long-term memory)                   ↓
+              ↑ index (hippocampal indexing theory) motor output correction
+              ↑ retrieval cue reactivates cortex
+
+    Cross-system interactions:
+    • BG + cerebellum BOTH feed thalamus → M1: parallel channels for action
+    • Visual dorsal stream → parietal → motor: visuomotor transformation
+    • Hippocampus → prefrontal → BG: episodic memory gates action selection
+    • Cerebellum ↔ BG: connected via thalamus; cerebellar timing + BG selection = coordinated action
 
     Common themes across systems:
     • Hierarchical processing (simple → complex features)
-    • Feedforward + feedback connections (both directions)
-    • Lateral inhibition (contrast enhancement, winner-take-all)
+    • Feedforward + feedback (bidirectional at every level)
+    • Lateral inhibition (contrast enhancement, winner-take-all selection)
     • Topographic maps (visual retinotopy, auditory tonotopy, motor somatotopy)
-    • Oscillatory synchronization for communication
+    • Oscillatory synchronization for inter-area communication
 ```
 
 ---
@@ -69,7 +86,6 @@
     K (koniocellular) between layers: color (S-cone), diffuse projections
 ```
 
-<!-- @editor[bridge/P2]: No CNN/Gabor-filter bridge despite direct biological motivation for convolutional networks -- at minimum add forward reference to 04-AI-BRIDGE.md -->
 ### Primary Visual Cortex (V1)
 
 Hubel and Wiesel (Nobel 1981): discovered orientation selectivity and ocular dominance columns.
@@ -79,7 +95,27 @@ Hubel and Wiesel (Nobel 1981): discovered orientation selectivity and ocular dom
     Respond to oriented edges at specific angle and position
     Model: linear sum of LGN inputs arranged in rows
     Gabor function approximation: g(x,y) = exp(-x²/2σ_x² - y²/2σ_y²)cos(2πfx + φ)
-    → Gabor filter ≈ V1 simple cell receptive field (this is WHY CNNs work → see 04-AI-BRIDGE)
+    → Gabor filter ≈ V1 simple cell receptive field
+
+    CNN/GABOR BRIDGE (direct biological motivation):
+    LeCun's convolutional neural networks (1989) were explicitly motivated by Hubel & Wiesel.
+    The architectural isomorphism:
+      LGN center-surround cells  ←→  early CNN filters (edge detectors, Laplacian of Gaussian)
+      V1 simple cells (Gabor RF) ←→  first convolutional layer filters (oriented edges)
+      V1 complex cells           ←→  max-pooling over phase-shifted simple cells (position invariance)
+      V2/V4 (texture, curvature) ←→  deeper CNN layers (more complex feature selectivity)
+      IT cortex (object identity) ←→  final CNN layers (class-selective units)
+
+    The weight sharing in CNNs (same filter applied across all spatial positions) is
+    the mathematical formalization of the biological observation that similar receptive
+    field properties appear at every location in the visual field (translation invariance
+    of the processing machinery, not of the representation).
+
+    Key divergence: V1 also implements divisive normalization (responses normalized by
+    local population activity) — this is not in basic CNNs but is in some newer architectures
+    (local response normalization in AlexNet was an approximate version).
+
+    Full systematic treatment: see 04-AI-BRIDGE.md.
 
     Complex cells (V1 layers 2,3,5):
     Respond to oriented edges regardless of exact position within RF
@@ -212,7 +248,6 @@ Hubel and Wiesel (Nobel 1981): discovered orientation selectivity and ocular dom
 
 ---
 
-<!-- @editor[bridge/P2]: Basal ganglia direct/indirect pathway is isomorphic to Go/NoGo in RL -- no bridge to action selection, scheduling, or priority queues from distributed systems -->
 ## Basal Ganglia: Action Selection
 
 ### Circuit Structure
@@ -252,6 +287,22 @@ Hubel and Wiesel (Nobel 1981): discovered orientation selectivity and ocular dom
     → First loses indirect pathway (D2 striatum) → hyperkinesia (chorea)
     → Then direct pathway → final hypokinesia + dementia
 ```
+
+### Basal Ganglia as Action Selection and RL Substrate
+
+**Go/NoGo isomorphism with reinforcement learning**
+The direct (Go) and indirect (NoGo) pathways implement a biological actor-critic architecture. The striatum receives value-weighted cortical inputs and segregates them by dopamine receptor type: D1 neurons report "value of acting" (Go); D2 neurons report "cost of acting / value of not acting" (NoGo). The net output (disinhibition of thalamus) represents the action selection decision.
+
+Dopamine from SNc encodes reward prediction error (Schultz 1997): DA bursts when reward exceeds expectation (positive RPE), DA dips when reward is worse than expected (negative RPE). This is the temporal difference (TD) error: δ = r + γV(s') - V(s). D1 synapses potentiate with DA bursts (LTP, Go pathway strengthened); D2 synapses depress with DA bursts (LTD, NoGo pathway weakened). Together they implement TD learning in biology.
+
+**Scheduler analogy for distributed systems**
+The BG architecture is a winner-take-all scheduler:
+- Many cortical areas (representing competing actions/plans) send excitatory input to striatum
+- The striatum selects the "best" action based on current dopamine-modulated weights
+- The selected action gets disinhibited through thalamus; all others remain suppressed
+- The hyperdirect pathway (cortex → STN, bypassing striatum) is the interrupt mechanism: fast NoGo that cancels the current selection (stop-signal task analog)
+
+This maps to: N runnable processes → scheduler selects highest-priority → other processes blocked → interrupt handler can preempt. Parkinson's = scheduler stuck; Huntington's early = scheduler too permissive (too many actions allowed simultaneously → chorea).
 
 ---
 
@@ -409,4 +460,18 @@ strengthening that supports learning. But:
 (4) The relationship between synaptic plasticity and behavioral learning is complex
     and active research area
 
-<!-- @editor[structure/P1]: Missing old-world bridge section entirely -- visual hierarchy = CNN layers, basal ganglia = Go/NoGo in RL, hippocampal indexing = database indexing, cerebellar forward model = Kalman filter / PID control -->
+## Engineering Bridges: Systems-Level Correspondences
+
+| Neural System | Engineering / CS Analog | Key Parallel |
+|---------------|------------------------|--------------|
+| Visual hierarchy V1→V2→V4→IT | Convolutional neural network layers | Each layer extracts more complex features; Gabor filters = convolutional kernels; max-pooling = complex cell position invariance |
+| V1 divisive normalization | Batch normalization / layer norm | Normalizes responses by local population activity; prevents saturation; efficient coding of natural images |
+| Basal ganglia direct/indirect | Go/NoGo actor in RL; process scheduler | Winner-take-all action selection; dopamine = TD reward prediction error; D1/D2 = value vs cost signals |
+| Cerebellum (Marr-Albus-Ito model) | Kalman filter + forward model | Predicts sensory consequences of motor command; error signal (climbing fiber) corrects model; internal model reduces feedback delay |
+| Cerebellar learning (LTD at granule-Purkinje synapse) | Supervised learning with error signal | Climbing fiber = teaching signal; supervised weight update; error-based not reward-based |
+| Hippocampal indexing | Database index / content-addressable memory | Hippocampus stores compressed indices to distributed cortical representations; recall = pointer dereference into cortex |
+| CA3 pattern completion | Hopfield associative memory | Recurrent connections complete partial patterns; attractor dynamics; retrieval degrades gracefully (not catastrophically) |
+| CA3/DG pattern separation | Locality-sensitive hashing | DG orthogonalizes similar inputs → distinct CA3 attractors; prevents false-alarm pattern completion |
+| Sharp-wave ripple memory consolidation | Write-back cache flush to persistent storage | Fast hippocampal traces replayed into slow neocortex during offline (sleep) → long-term storage |
+| Motor cortex population vector | Distributed read-out of high-dimensional code | No single neuron encodes direction; population weighted sum gives movement direction (Georgopoulos 1986) |
+| Top-down visual attention | Query-key attention mechanism | PFC sends attention signal that gates which V4/IT neurons are amplified — selective gain control by relevance |

@@ -192,21 +192,37 @@ then φᵢ(v) = φⱼ(v) whenever i and j are symmetric
   φ_B - φ_A = 1 allocated to "medium category" users = B only
   φ_C - φ_B = 1 allocated to "large category" users = C only
 
-<!-- @editor[content/P1]: Airport game computation shows draft working ("let me be exact") and approximate results — clean up to show definitive Shapley value derivation with all 6 orderings and verified arithmetic -->
-  More precisely: φ_A = 11/6, φ_B = 5/6, φ_C = 3/6? — let me be exact.
-
   The cost game: c({A}) = 1, c({B}) = 2, c({C}) = 3, c({A,B}) = 2,
-  c({A,C}) = 3, c({B,C}) = 3, c({N}) = 3.
+  c({A,C}) = 3, c({B,C}) = 3, c({N}) = c({A,B,C}) = 3.
 
-  By nucleolus / Shapley for cost games:
-  A pays: average over orderings of (marginal cost when A arrives)
-  Ordering ABC: A first → pays 1. B arrives at cost 2, marginal 1. C at 3, marginal 1.
-  Ordering ACB: A first → pays 1. C at 3, marginal 2. B next, marginal 0 (already 3).
-  Ordering BAC: B first → pays 2. A arrives, no extra cost (runway already ≥ 1). C → 1.
-  ...etc.
+  Shapley value for COST games: φᵢ = average over all 3! = 6 orderings
+  of player i's marginal cost contribution when they arrive.
 
-  Shapley value (cost): φ_A = 11/18 ≈ 0.61, φ_B = 7/9 ≈ 0.78, φ_C = 47/18 ≈ 2.61
-  (sums to 3 = c(N)) — each airline pays their fair share based on runway usage.
+  Marginal cost when player arrives = c(preceding players ∪ {i}) − c(preceding players)
+  For the airport game this equals max(0, cᵢ − max cost of preceding players).
+
+  All 6 orderings with marginal contributions:
+
+  Order   A   B   C       Note
+  ─────────────────────────────────────────────────────────────────
+  ABC     1   1   1       A: max=1. B: max rises to 2, marg=1. C: to 3, marg=1.
+  ACB     1   0   2       A: 1. C: to 3, marg=2. B: max already 3, marg=0.
+  BAC     0   2   1       B: 2. A: max already 2, marg=0. C: to 3, marg=1.
+  BCA     0   2   1       B: 2. C: to 3, marg=1. A: max already 3, marg=0.
+  CAB     0   0   3       C: 3 (covers all). A: marg=0. B: marg=0.
+  CBA     0   0   3       C: 3. B: marg=0. A: marg=0.
+  ─────────────────────────────────────────────────────────────────
+  Sum     2   5   11      (over 6 orderings)
+
+  Shapley values:
+  φ_A = 2/6  = 1/3  ≈ 0.333
+  φ_B = 5/6         ≈ 0.833
+  φ_C = 11/6        ≈ 1.833
+  Check: 1/3 + 5/6 + 11/6 = 2/6 + 5/6 + 11/6 = 18/6 = 3 = c(N)  ✓
+
+  Each airline pays strictly less than going alone (A < 1, B < 2, C < 3).
+  C, who needs the longest runway, bears the majority of the cost — but
+  receives a subsidy because A and B also benefit from the shared runway.
 ```
 
 ### Alternative Axiomatization (Young 1985)
@@ -445,7 +461,19 @@ from losing to winning.
 
 ---
 
-<!-- @editor[bridge/P2]: No explicit old-world bridge section — cooperative GT connects to the learner's background: LP duality (MIT), cost allocation in shared infrastructure (Azure shared services), fair division in org budgets, Shapley/SHAP for ML model interpretability -->
+## CS and Systems Bridges
+
+| Cooperative GT concept | Formal / systems analogue |
+|---|---|
+| Characteristic function v(S) | Submodular/supermodular set functions — well-studied in combinatorial optimization; supermodularity of v is exactly the convex game condition that guarantees the core is non-empty |
+| Core (coalition stability) | Dual feasibility in LP: the core is non-empty iff the LP relaxation of a covering problem is tight (Bondareva-Shapley = LP duality for balanced collections) |
+| Shapley value axioms (EFF + SYM + NULL + ADD) | Uniqueness via axioms mirrors type-class laws in functional programming — the axioms pin down a single implementation; any two implementations satisfying them are extensionally equal |
+| Shapley value computation | SHAP in ML explainability: φᵢ = average marginal contribution of feature i to model prediction across all feature subsets — direct application of Shapley to the feature coalition game |
+| Nucleolus (lex-min max excess) | Lexicographic minimax optimization; computed via sequence of LPs — each LP reduces the feasible set, exactly as cutting-plane methods narrow integer programs |
+| Nash bargaining solution | Geometric: maximizes product of utility gains from disagreement point — same structure as maximizing a log-sum objective in constrained optimization |
+| Rubinstein bargaining → δ → 1 | Continuous-time limit of a discrete protocol: as δ → 1 the unique SPE converges to the Nash bargaining solution; same limiting argument as discounted reward → average reward in MDP theory |
+| Cost sharing (airport game) | Shared-infrastructure billing: how to allocate Azure Reserved Instance costs or CDN capacity costs across teams with different usage profiles — Shapley is the standard fair-division answer |
+
 ## Common Confusion Points
 
 **"Core = Shapley value"**: These are completely different concepts. The core is a set

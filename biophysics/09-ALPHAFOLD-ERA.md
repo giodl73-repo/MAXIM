@@ -520,11 +520,7 @@ functional annotation, no experimental validation, and no knowledge of cellular
 context. The database is a hypothesis repository — useful for hypothesis generation
 but not a replacement for experiment.
 
-<!-- @editor[content/P2]: AlphaFold3 access status may be outdated — AF3 weights were released in late 2024; verify current availability and whether Boltz-1/Chai-1 remain the primary open alternatives -->
-**AlphaFold3 is not fully open.** Unlike AF2 (published with full code and weights),
-AF3 was initially released as a server with restricted access and without full
-model weights. This limits community use and validation. The open-source community
-responded with Boltz-1 and Chai-1 as open alternatives.
+**AlphaFold3 access has evolved.** AF3 was initially released (May 2024) as a server-only tool with restricted weights. In November 2024, Google DeepMind released the AF3 model weights under a non-commercial research license, enabling local deployment. The restrictions (no commercial use, no training derived models) remain more restrictive than AF2's open Apache 2.0 license. The open-source community produced Boltz-1 (MIT license, November 2024) and Chai-1 (Apache 2.0, September 2024) as fully open alternatives that approach AF3 accuracy on biomolecular interaction prediction tasks including protein-small molecule, protein-nucleic acid, and protein-protein complexes.
 
 **Structure prediction did not solve protein design.** Knowing the native fold
 does not tell you the inverse: what sequence will fold to a desired structure.

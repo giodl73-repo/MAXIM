@@ -331,12 +331,10 @@ in an argument about behavior, cognition, society, and change over time.
   │        │ Type B: ░░░░░████████████████░░░░  │         │
   │        │ Type C:     ░░░░░░████████████████ │         │
   └────────┴───────────────────────────────────┴─────────┘
-<!-- @editor[diagram/P2]: Stray closing box-drawing bracket on the line after "retro trends" — no matching opener. Remove or restructure the ASCII block -->
   Each type rises, peaks, and falls. Works for ceramics,
   projectile points, glass types, coins.
   Does NOT work for items that never go out of style, or
   for items that revive (retro trends).
-  └────────────────────────────────────────────────────────┘
 ```
 
 ---

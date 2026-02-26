@@ -40,7 +40,18 @@ ANTHROPOGENIC PERTURBATION (~10 GtC/yr fossil + ~1.5 GtC/yr LUC):
 
 ---
 
-<!-- @editor[structure/P2]: No comparison tables — entire guide is ASCII code blocks. Add at least one rendered Markdown table (e.g., reservoir comparison: name, stock GtC, turnover time, trend) -->
+## Carbon Reservoir Summary
+
+| Reservoir | Stock (GtC) | Turnover time | Trend |
+|-----------|------------|---------------|-------|
+| Atmosphere | ~870 | ~4 yr (molecules); centuries (perturbation) | +2.5 ppm/yr, accelerating |
+| Ocean (total) | ~38,000 | ~1,000 yr (deep water) | Absorbing ~3 GtC/yr; acidifying |
+| Terrestrial biosphere | ~2,250 (veg+soil) | Decades–centuries | Net sink ~3 GtC/yr; vulnerable above 2–3°C |
+| Permafrost | ~1,500 | Millennia (frozen); decades when thawed | Slowly mobilizing; not in IPCC models fully |
+| Accessible fossil fuels | ~5,000 | N/A (geological) | ~11 GtC/yr extracted; net source |
+| Deep lithosphere | ~40,000,000 | Millions of years | ~0.1 GtC/yr volcanic outgassing |
+
+---
 
 ## Reservoir Deep Dive
 
@@ -83,9 +94,9 @@ ANTHROPOGENIC PERTURBATION (~10 GtC/yr fossil + ~1.5 GtC/yr LUC):
   (44× more than atmosphere — ocean is the dominant carbon reservoir)
 ```
 
-<!-- @editor[bridge/P2]: No old-world bridge in the guide. Natural bridge here: the learner knows equilibrium chemistry and Henry's Law from MIT — connect "you know Le Chatelier's principle and carbonate equilibria; the Revelle factor is the climate-scale consequence of the buffer capacity you learned in gen chem" -->
-
 ### The Revelle Factor (Buffer Chemistry)
+
+The Le Chatelier principle you know from equilibrium chemistry has a climate-scale consequence here. The carbonate system in seawater is a pH buffer: when CO₂ dissolves, it reacts with CO₃²⁻ to form HCO₃⁻, consuming the very buffer capacity that enabled absorption. As CO₂ rises and pH falls, less CO₃²⁻ remains — the buffer weakens and ocean uptake efficiency declines. The Revelle factor quantifies exactly how much.
 
 ```
   WHY OCEAN UPTAKE IS LIMITED:

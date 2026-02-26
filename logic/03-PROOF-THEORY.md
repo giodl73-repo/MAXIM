@@ -327,21 +327,52 @@ are literally lambda terms.
 
 ## Ordinal Analysis and Proof Strength
 
-Proof theory measures the "strength" of formal systems using ordinals.
+Proof theory measures the "strength" of formal systems using ordinals. This is not abstract bookkeeping — it answers three concrete questions:
+
+1. **What does this system actually prove?** Two systems may look different syntactically but prove exactly the same arithmetic theorems — their proof-theoretic ordinal identifies them as equiconsistent.
+2. **What axioms do you actually need?** Reverse mathematics (Harvey Friedman) inverts the usual direction: instead of proving theorems from axioms, you ask what axioms are *necessary* for a theorem. The proof-theoretic ordinal calibrates this.
+3. **How long can proofs get?** Systems with larger proof-theoretic ordinals can produce much shorter proofs of theorems that weaker systems can also prove but only with enormous proofs — proof length is sensitive to the strength hierarchy.
 
 ```
   PROOF-THEORETIC ORDINALS (strength hierarchy):
 
-  PA (Peano Arithmetic):         epsilon_0 = omega^omega^omega^...
-  ATR_0 (Arithmetical Transfinite Recursion):   Gamma_0
-  ID_1 (one inductive definition): phi_epsilon_0(0)
-  ...
-  ZFC:                           enormous (unknown in full)
+  System                              Ordinal          What it measures
+  ─────────────────────────────────────────────────────────────────────
+  PRA (Primitive Recursive Arithmetic) omega^omega     Finitary arithmetic;
+                                                       Hilbert's "safe" base
+  PA (Peano Arithmetic)               epsilon_0        Full first-order arithmetic
+                                       = omega^omega^omega^...  (tower)
+  ACA_0 (Arithmetical Comprehension)  epsilon_0        Same ordinal as PA —
+                                                       ACA_0 is conservative
+                                                       over PA for arithmetic
+  ATR_0 (Arithmetical Trans. Rec.)    Gamma_0          Needed for: comparability
+                                                       of well-orderings,
+                                                       open Ramsey theory
+  Pi^1_1-CA_0                        Psi(Omega_omega)  Needed for: Kruskal's
+                                                       tree theorem, graph minor
+                                                       theorem (Robertson-Seymour)
+  ID_1 (one inductive definition)    phi_{epsilon_0}(0) Iterated inductive defs
+  ZFC                                very large /       Most of mathematics;
+                                     unknown in full    exact ordinal not computed
 ```
 
-This gives a precise measure of "how much induction" a system can carry out. Gentzen proved
-the consistency of PA by transfinite induction up to epsilon_0 — which cannot itself be
-proved within PA.
+**Why epsilon_0 specifically?** Gentzen (1936) proved PA consistent using transfinite induction up to epsilon_0 — the smallest ordinal that cannot be proved well-founded within PA itself. This is a precise statement: PA can handle induction up to any specific ordinal below epsilon_0, but not "up to epsilon_0" uniformly. Gentzen's proof is therefore not circular (it uses a principle PA cannot express) but it does require trusting transfinite induction, which is a meaningful assumption.
+
+**Reverse mathematics — the practical payoff**: Harvey Friedman's program asks: for each mathematical theorem T, what is the weakest subsystem of second-order arithmetic that proves T? The answer sorts mathematics into a small number of "natural" strength levels:
+
+```
+  RCA_0       (Recursive comprehension): computable analysis; most basic analysis
+  WKL_0       (Weak König's Lemma): Hahn-Banach, Brouwer fixed-point, compactness
+  ACA_0       (Arithmetical comprehension): Bolzano-Weierstrass, sequential completeness
+  ATR_0       (Arithmetical transfinite recursion): open Ramsey, comparability of ordinals
+  Pi^1_1-CA_0 (Pi^1_1 comprehension): Kruskal's tree theorem, Nash-Williams
+
+  FINDING: The vast majority of ordinary mathematical theorems fall into one of
+  these five levels. The axioms you need are precisely calibrated — not "all of ZFC"
+  but a specific, minimal fragment. This is audit-grade axiom accounting.
+```
+
+**Proof-search complexity and ordinals**: In cut-free sequent calculus, proof search terminates because the subformula property bounds the search space. But proof length can be non-elementary in the nesting depth of quantifiers. The relationship between proof-theoretic strength and proof-search complexity (how long proofs can be) is captured by: stronger systems have longer "shortest proofs" for the theorems they share with weaker systems. This is the proof-theoretic analog of the gap between polynomial-time computability and what requires exponential certificates.
 
 ---
 

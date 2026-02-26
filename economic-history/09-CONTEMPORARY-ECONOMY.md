@@ -2,7 +2,67 @@
 
 ## The Big Picture
 
-<!-- @editor[diagram/P1]: No landscape diagram — guide opens with a timeline but no system diagram showing how Washington Consensus, hyperglobalization, 2008 crisis, and deglobalization structurally relate as cause-and-effect -->
+```
+CONTEMPORARY ECONOMY — CAUSAL LANDSCAPE (1989–PRESENT)
+=======================================================
+
+WASHINGTON CONSENSUS (1989–2008)
+  ┌─────────────────────────────────────────────────────────┐
+  │ DOCTRINE: liberalize trade, privatize SOEs, deregulate  │
+  │ capital, maintain fiscal discipline, independent central│
+  │ banks, flexible exchange rates                          │
+  │ VECTOR: IMF conditionality + World Bank structural adj. │
+  │ APPLIED: Latin America, Africa, Eastern Europe, FSU     │
+  └──────────────────────────┬──────────────────────────────┘
+                             │
+          ┌──────────────────┼──────────────────┐
+          ▼                  ▼                  ▼
+   SUCCESSES:          FAILURES:           CHINA EXCEPTION:
+   Chile stabiliz.     Russia 1990s        Grew without WC
+   E. Europe EU accession  Argentina 2001  State capitalism
+   India liberaliz.    Asian crisis 1997   Selective integration
+
+HYPERGLOBALIZATION WAVE (1994–2016)
+  ┌─────────────────────────────────────────────────────────┐
+  │ NAFTA 1994 · WTO 1995 · China WTO accession 2001        │
+  │ Global supply chains: design in US, components in Asia, │
+  │ assembly in China, retail in West                        │
+  │ Trade as % of world GDP: 39% (1990) → 61% (2008)        │
+  └──────────────────────────┬──────────────────────────────┘
+                             │ enables
+          ┌──────────────────┼──────────────────┐
+          ▼                  ▼                  ▼
+   WAGE MODERATION     "CHINA SHOCK"       CORPORATE PROFIT
+   in West             manufacturing       expansion via
+   (import competition  job loss           global arbitrage
+   → workers can't      W. Midwest,        of labor costs
+   demand raises)       UK Midlands
+
+2008 FINANCIAL CRISIS — THE BREAK POINT
+  MBS → CDO → CDO-squared: nested abstraction failure
+  Correlation model wrong: housing defaults correlated, not
+  independent → AAA tranches worthless
+  Bank balance sheet implosion → credit freeze → recession
+  → TARP, QE, zero lower bound for 7+ years
+                             │
+                             ▼
+POST-2008 POLICY DIVERGENCE
+  ┌────────────────┬──────────────────────────────────────┐
+  │ AUSTERITY CAMP │ STIMULUS CAMP                        │
+  │ Eurozone 2010–15│ US (Obama stimulus, QE)             │
+  │ UK 2010–2015   │ China ($586B package 2009)           │
+  │ Result: deeper │ Result: faster recovery              │
+  │ recession, debt│ but: balance sheet of central banks  │
+  │ ratio ROSE     │ expanded 4–6x (unprecedented)        │
+  └────────────────┴──────────────────────────────────────┘
+
+DEGLOBALIZATION PRESSURE (2016–PRESENT)
+  Populist politics (Brexit, Trump) · US-China decoupling ·
+  COVID supply chain fragility → reshoring/nearshoring ·
+  Industrial policy return (IRA, CHIPS Act, EU industrial strategy)
+  = the Washington Consensus framework partially abandoned
+  even by its original proponents
+```
 
 The period from 1989 to the present has been shaped by three massive economic experiments: the Washington Consensus (1989-2008), hyperglobalization via WTO and China's rise (1994-2016), and the aftermath of the 2008 financial crisis (2008-present). The third experiment broke the policy consensus of the previous two. We are now in an era of industrial policy return, deglobalization pressures, and unresolved questions about secular stagnation.
 
@@ -434,7 +494,22 @@ CDO: COLLATERALIZED DEBT OBLIGATION
 
   CDO-SQUARED: pool CDO tranches into another CDO
   Distance from underlying assets: three layers removed
-<!-- @editor[bridge/P3]: Natural bridge to software abstraction layers — CDO-squared is nested indirection where the abstraction leaks catastrophically; any engineer who has debugged a 3-layer-deep dependency failure will recognize this pattern -->
+
+  ABSTRACTION STACK ANALOGY:
+  Layer 1: Mortgage (individual loan → homeowner default risk)
+  Layer 2: MBS (pool of mortgages → "diversified" risk)
+  Layer 3: CDO (pool of MBS tranches → "further diversified")
+  Layer 4: CDO-squared (pool of CDO tranches → "fully diversified")
+  At layer 4, no analyst could trace back to the underlying
+  mortgage quality. The abstraction leaked catastrophically when
+  the correlation assumption (layer 2: defaults are independent)
+  was wrong — and the error propagated through every layer above it.
+  Any engineer who has debugged a 3-layer-deep dependency failure
+  recognizes this: a flawed assumption at the base level generates
+  incorrect behavior that becomes invisible and uncheckable at the
+  top of the stack. The fix (in software and in structured finance)
+  is the same: maintain transparency through abstraction layers;
+  never let a layer hide properties that layers above it depend on.
 
   THE CORRELATION PROBLEM:
   Gaussian copula model (Li, 2000): used to estimate correlation
@@ -599,13 +674,57 @@ MMT (MODERN MONETARY THEORY) DEBATE:
   Implication: do not fear deficits; fear inflation; adjust fiscal
   stance based on inflation target, not deficit target
 
-  MAINSTREAM CRITIQUE:
-  MMT is accounting, not economics; tells you what you can do,
-  not what is optimal; inflation risk understated; credibility
-  effects on bond markets understated
-  Japan: evidence for MMT? (Debt 260% of GDP; no inflation...until 2022)
-  2022: inflation arrived in Japan; complicated the MMT story
-<!-- @editor[content/P3]: MMT section is thin — Mosler-Wray-Kelton framework deserves a more structured treatment: the accounting identity argument vs the behavioral/institutional constraints argument; currently reads as "some people say X, others say not-X" -->
+  MOSLER-WRAY-KELTON FRAMEWORK — STRUCTURED:
+
+  ACCOUNTING IDENTITY ARGUMENT (the strong claim):
+  A monetary sovereign (issues its own non-convertible currency;
+  debts denominated in that currency) cannot involuntarily default:
+  it can always create the currency to pay. Therefore:
+    (1) The federal government is not like a household
+    (2) Taxes don't fund spending — taxes destroy currency;
+        spending creates it; their sequencing doesn't matter
+    (3) Government deficit = private sector surplus (sectoral
+        balance identity: G - T = S - I + NX, rearranged)
+    (4) The binding constraint is real resources, not money:
+        inflation = too much spending chasing too few real resources
+
+  BEHAVIORAL/INSTITUTIONAL CONSTRAINTS ARGUMENT:
+  Even if (1)–(4) are true, bond market psychology, capital flight,
+  exchange rate effects, and institutional credibility create
+  PRACTICAL constraints that aren't present in the accounting framework.
+  MMT proponents (Wray, Kelton) accept these exist but argue they're
+  empirically manageable via taxes as inflation control tool, not
+  via deficit limits as such.
+
+  THE JAPAN TEST CASE:
+  Japan: government debt ~260% of GDP; central bank owns ~50% of JGBs;
+  near-zero interest rates for 25 years; no hyperinflation... until 2022.
+  2022: global supply shock + weak yen → Japan got inflation (~3–4%)
+  MMT reading: fiscal space is real but inflation can arrive from
+  external supply shocks, not just domestic demand excess
+  Mainstream reading: Japan eventually proved the constraint is real;
+  the 25-year delay was unusual conditions, not proof of no constraint
+
+  WHAT MMT IS AND IS NOT:
+  IS: A description of monetary operations (accurate for monetary
+      sovereigns in non-convertible fiat currency systems)
+  IS: A policy framework emphasizing inflation, not deficits, as
+      the binding constraint
+  IS NOT: A claim that spending is free or that deficits never matter
+  IS NOT: Applicable to euro-zone members (they surrendered monetary
+          sovereignty; cannot print euros unilaterally — the Greek
+          crisis is precisely the failure mode MMT predicts for
+          non-sovereign currency users)
+
+  MAINSTREAM CRITIQUE (structured):
+  1. ACCOUNTING ≠ POLICY PRESCRIPTION: knowing you *can* spend more
+     doesn't tell you whether you *should* or by how much
+  2. INFLATION DETECTION LAG: by the time tax increases can slow
+     spending, inflation may already be embedded in expectations
+  3. CREDIBILITY EFFECTS: bond markets might price in inflation risk
+     before it arrives; interest rates could rise preemptively
+  4. EXCHANGE RATE: capital flight and currency depreciation can import
+     inflation before domestic fiscal tools can respond
 ```
 
 ---

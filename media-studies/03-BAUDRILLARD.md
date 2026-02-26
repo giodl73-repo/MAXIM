@@ -322,8 +322,15 @@ Baudrillard's most controversial application -- and most misunderstood:
 
   5. EMPIRICAL VACUITY:
      What would count as evidence that we are NOT
-     in hyperreality? The theory seems unfalsifiable.
-<!-- @editor[audience/P3]: The unfalsifiability critique connects to Popper's demarcation criterion — worth a one-line nod for a reader who knows formal methods and scientific method from MIT -->
+     in hyperreality? The theory seems unfalsifiable
+     by Popper's demarcation criterion: a theory that
+     cannot in principle be disconfirmed by any evidence
+     is not a scientific theory. Baudrillard's response
+     would be that falsifiability is itself a positivist
+     criterion that simulation has superseded — which is
+     either a profound meta-theoretical move or a
+     convenient immunization strategy, depending on
+     your philosophical prior.
 ```
 
 ---
@@ -367,7 +374,58 @@ Baudrillard's most controversial application -- and most misunderstood:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — "map precedes territory" has a direct parallel in software: ORMs and schemas define the data model before the data exists; credit scoring is a classifier that constitutes what it measures; the learner's database/Azure Data Factory background makes this immediately graspable -->
+## Engineering Bridge: Baudrillard in Software and Data Systems
+
+"Map precedes territory" is a structural condition that engineers build routinely:
+
+```
+BAUDRILLARD CONCEPT        ENGINEERING PARALLEL
+===================        ====================
+
+Map precedes territory     Schema-first database design:
+                           the data model (schema) defines
+                           what can exist as "data" before
+                           any row is inserted. The territory
+                           (actual business entities) must
+                           conform to the map (schema).
+                           The schema IS the reality constraint.
+
+                           ORM (Object-Relational Mapping):
+                           the class definition precedes and
+                           constitutes the database structure.
+                           Entity Framework / Hibernate generate
+                           tables from code models — the map
+                           literally generates the territory.
+
+Credit score as simulacrum Credit scoring is a classifier that
+                           constitutes the property it appears
+                           to measure. "Creditworthiness" is
+                           defined by the score, not the other way.
+                           You are creditworthy because the model
+                           says so; there is no creditworthiness
+                           independent of the model's outputs.
+                           The simulacrum (score) precedes the
+                           referent (creditworthy person).
+
+AI training data creates   ML classifiers trained on labeled data
+the categories it learns   constitute the categories they classify.
+                           "Face" in a face-recognition model is
+                           what the training labels called "face."
+                           The model's output distribution is not
+                           discovered from reality; it is
+                           instantiated from the training corpus.
+                           This is Baudrillard's third order:
+                           the model precedes and produces the
+                           "reality" it appears to represent.
+
+Sign value in SaaS pricing Pricing tiers (Starter / Pro / Enterprise)
+                           are sign systems as much as utility systems.
+                           "Enterprise" pricing is not primarily
+                           about feature cost; it signals positioning
+                           within the customer's sign economy
+                           (who they want to appear to be). SaaS
+                           packaging is sign-value engineering.
+```
 
 ## Common Confusion Points
 

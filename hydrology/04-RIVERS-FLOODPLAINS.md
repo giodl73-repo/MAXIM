@@ -297,7 +297,50 @@ FLOODPLAIN INUNDATION:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge section — Manning equation is an empirical transport law analogous to Ohm's law for flow in a conduit; Muskingum routing is a discrete linear filter (IIR); Lane's balance is a constraint equilibrium; these analogies would land well for this learner -->
+## Bridges from CS and Engineering
+
+```
+RIVER/FLOODPLAIN CONCEPT      CS / ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Manning equation              Empirical transport law (Ohm's law for open channels)
+  Q = (1/n) A R^{2/3} S^{1/2}  → Q ∝ conductance × driving force
+  n (roughness)                 → resistance in a conduit; 1/n = conductance
+  Hydraulic radius R            → "effective diameter" for non-circular pipes
+  Manning ↔ Darcy-Weisbach      → same structure; different parameterization
+
+Muskingum flood routing       Discrete-time IIR filter
+  Q(t) = C0·I(t) + C1·I(t-1) + C2·Q(t-1)
+  C0 + C1 + C2 = 1             → coefficients sum to 1 (bounded-input stable)
+  K parameter (travel time)    → group delay through reach
+  x parameter (0 to 0.5)       → damping: x=0 is maximally attenuating (level
+                                   pool); x=0.5 is pure translation (wave passes
+                                   through undistorted)
+  Saint-Venant ↔ PDE routing   → moving from discrete filter to continuous PDE
+                                   (Muskingum is the linearized finite-difference
+                                   approximation)
+
+Lane's balance                Constraint equilibrium / invariant
+  Q_s × D₅₀ ∝ Q_w × S         → sediment supply × grain size ∝ water power × slope
+  Disturb one term              → system adjusts others to restore balance
+  Channelization doubles slope  → shear stress doubles → incision → re-meandering
+  Equivalent to: coupled ODEs  → stability analysis around equilibrium point
+
+Hydraulic geometry scaling    Power-law self-similarity
+  W ~ Q^b, D ~ Q^f, V ~ Q^m   → log-log linear (same as Zipf, Moore's law)
+  b + f + m = 1                → conservation constraint on exponents
+
+River meandering              Emergent pattern from convective instability
+  Secondary helical flow       → positive feedback loop: bend → erosion → deeper
+                                   bend → stronger secondary flow → more erosion
+  Meander cutoff               → cycle reset: abrupt discontinuity in channel path
+  Chaos analogy                → sensitive to initial perturbation of channel
+
+HEC-RAS 1D/2D routing        PDE solver (Saint-Venant equations)
+  Continuity + momentum PDEs   → conservation laws discretized on channel mesh
+  1D: centerline cross-sections → one spatial dimension, lateral homogeneity assumed
+  2D: full 2D shallow water    → finite volume / finite element on triangulated mesh
+  Timestep stability (CFL)     → Courant number constraint (same as any wave solver)
+```
 
 ## Flood Routing
 

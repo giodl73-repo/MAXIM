@@ -93,8 +93,11 @@ VIRTUAL SCREENING / AI-BASED
   Molecular docking: computational simulation of binding.
   Generative AI: design novel compounds in silico.
   AlphaFold: predict 3D structure of target when crystallography unavailable.
-<!-- @editor[content/P3]: AI drug discovery reference says "2024" — update to reflect current state (2025-2026 milestones, Phase II results, additional companies) -->
-  AI-designed drugs entering clinical trials (2024): Insilico Medicine, Recursion.
+  AI-designed drugs in clinical trials (as of 2025-2026): Insilico Medicine's ISM001-055
+  (IPF, Phase II completed with signals of efficacy); Recursion Pharmaceuticals multiple
+  programs in Phase I/II; Exscientia/Evotec partnerships; Absci (zero-shot antibody design);
+  Generate Biomedicines (protein design). The first AI-designed drug to reach Phase II
+  efficacy data was ISM001-055 (Insilico/Corcept) in 2024.
 
 LEAD OPTIMIZATION
   Hit → Lead → Candidate:
@@ -250,7 +253,68 @@ POST-MARKETING SURVEILLANCE (PHARMACOVIGILANCE)
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the drug development pipeline is the closest pharmacology analog to a software release pipeline. Phase I = alpha (internal safety), Phase II = beta (limited efficacy signal), Phase III = GA candidate (large-scale validation), FDA review = compliance/certification, PV = production monitoring. Failure rates map to the "funnel" concept in product development. The IND filing is analogous to a design review gate -->
+## Engineering Bridge: Drug Development as Software Release Pipeline
+
+The drug development pipeline and Bayesian clinical trial design have direct engineering analogs.
+
+```
+  DRUG DEVELOPMENT              SOFTWARE RELEASE / ENGINEERING PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Target identification         Requirements definition:
+                                What is the biological problem to solve?
+                                What is the measurable endpoint?
+
+  Lead discovery (HTS + AI)     Architecture / proof-of-concept:
+                                Does the approach work at all?
+                                Hit rate 0.01-0.1% → architecture studies
+                                have similar low-signal searches.
+
+  Preclinical testing           Unit + integration testing:
+                                In vitro = unit tests; in vivo = integration
+                                tests. NOAEL is the passing threshold.
+                                IND filing = design review gate (FDA has 30
+                                days to object before "approval by silence").
+
+  Phase I (safety, PK, MTD)     Alpha / internal testing:
+                                20-80 users; find failure modes;
+                                dose-escalation = binary search for MTD.
+                                3+3 design = conservative escalation with
+                                DLT stop rule. Bayesian adaptive (BOIN) =
+                                online learning dose-escalation.
+
+  Phase II (efficacy signal)    Beta / limited GA rollout:
+                                50-300 users; preliminary efficacy signal.
+                                Go/no-go gate: is this worth a Phase III?
+                                Power often limited → many false negatives.
+
+  Phase III (confirmatory RCT)  GA candidate / staged rollout:
+                                300-5000+ users; powered for hard endpoint.
+                                Double-blind RCT = the A/B test. Interim
+                                analysis with alpha-spending = sequential
+                                hypothesis testing. Adaptive design =
+                                midpoint sample-size re-estimation.
+
+  FDA review (NDA/BLA)          Compliance certification / security audit:
+                                Independent review of all evidence. Advisory
+                                committee = external security review board.
+                                Accelerated approval = conditional production
+                                deploy with required follow-up confirmation.
+
+  Post-marketing surveillance   Production monitoring / incident response:
+  (pharmacovigilance)           FAERS = incident database. REMS = privileged
+                                access control for dangerous drugs (requires
+                                a certified process to use). Phase IV =
+                                post-deploy validation studies.
+
+  Failure rate (~90% attrition) Product funnel: 10,000 compounds → 1 NDA.
+                                Phase II → Phase III: ~30% success.
+                                Oncology has the lowest Phase III success
+                                (~40%); CNS the lowest overall (~8%).
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## Generics, Biosimilars, and Drug Pricing
 
 ```

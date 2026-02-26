@@ -39,7 +39,34 @@
 
 ## The Fossil Record as Version History
 
+The fossil record is the Earth's version history — but it also maps to other
+CS abstractions that illuminate its structure:
+
 ```
+GEOLOGIC TIME SCALE = HIERARCHICAL NAMESPACE / TYPE HIERARCHY
+
+  Eon → Era → Period → Epoch → Age
+  Phanerozoic → Mesozoic → Cretaceous → Late Cretaceous → Maastrichtian
+
+  This is a containment hierarchy: each level is a partition of the level above.
+  Same structure as: Java packages (com.domain.module.class)
+                     DNS labels (age.epoch.period.era.eon — reversed)
+                     URL paths (/eon/era/period/epoch/age)
+  The GSSP (Global Stratotype Section and Point) = the precise definition of each
+  boundary: the physical rock layer that anchors the abstract schema to reality.
+  Equivalent to: a schema migration marker (Flyway/Liquibase version number).
+
+BIOSTRATIGRAPHY = COMPOSITE INDEX ON THE FOSSIL RECORD
+  Index fossil criteria:        → query optimization problem:
+    Wide geographic range          → high recall (found in many locations)
+    Short stratigraphic range      → high precision (tight date resolution)
+    Easy to identify               → O(1) lookup (distinctive morphology)
+    Abundant                       → index density (frequent occurrences)
+  Biozone = the stratigraphic interval defined by one index fossil
+  Zone stacking = composite index → multi-column key reduces lookup range
+  Zone conflict (species appears  → same as index fragmentation; resolve by
+    "early" in one basin)           adding another index column (another taxon)
+
 ANALOGY: FOSSIL RECORD = GIT LOG OF EARTH'S BIOSPHERE
 
   git commit = organism dies in preservable condition

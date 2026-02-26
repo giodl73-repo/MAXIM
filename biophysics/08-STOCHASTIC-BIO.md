@@ -454,7 +454,73 @@ Some gene networks are bistable: two stable states with noise-driven switching:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — strong parallels exist: Markov chains and queuing theory (CS/probability) to master equations, Wiener process / Brownian motion in finance to Langevin dynamics, Shannon entropy to gene expression noise analysis -->
+## Probability, CS, and Information Theory Bridges
+
+Stochastic biology uses exactly the same mathematical machinery as stochastic processes in CS, probability theory, and quantitative finance.
+
+```
+  STOCHASTIC BIOLOGY            CS / PROBABILITY PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Master equation               CTMC (continuous-time Markov chain):
+  dP_n/dt = Σ [W(n|m)P_m - W(m|n)P_n]   the standard formulation of any
+                                CTMC. Gene expression birth-death process
+                                is a standard M/M/∞ queue: birth rate k_s
+                                (arrivals), degradation k_d·n (service
+                                rate proportional to queue length).
+                                Steady-state is Poisson — exactly as for
+                                a Poisson process in queuing theory.
+
+  Transcriptional bursting      Compound Poisson process (burst arrivals):
+  (Gamma-distributed noise,     genes fire at rate kf (burst rate) with
+  Fano > 1)                     geometric burst size b. The resulting
+                                protein distribution is Negative Binomial
+                                (or Gamma for continuous approximation).
+                                This is the shot noise model: Poisson
+                                number of bursts, random burst size.
+
+  Langevin equation             Stochastic differential equation (Ito SDE):
+  γẋ = F(x) + ξ(t)             ẋ = -dU/dx·(1/γ) + √(2D)·dW_t
+                                where W_t is a Wiener process. The Einstein
+                                relation D = k_BT/γ connects diffusivity to
+                                temperature — the same relation as in
+                                Brownian motion models in quantitative
+                                finance (though without the biology context).
+
+  Fokker-Planck equation        Probability flux continuity equation:
+  ∂P/∂t = -∂(μFP)/∂x + D∂²P/∂x²   formally identical to the convection-
+                                diffusion PDE. Steady-state P_eq ∝ exp(-U/k_BT)
+                                is the Boltzmann distribution — also the
+                                invariant measure of the Langevin SDE.
+
+  Fluctuation-dissipation       Johnson-Nyquist noise in electrical circuits:
+  theorem                       S_V(f) = 4k_BT·R. Thermal noise voltage across
+  ⟨ξ(t)ξ(t')⟩ = 2γk_BT·δ(t-t') a resistor equals 2γk_BT in the mechanical
+                                analog. Active systems violate FDT — they have
+                                an "effective temperature" > T_bath because
+                                ATP-driven motors inject non-thermal noise.
+
+  Jarzynski equality            Exponential moment identity from probability:
+  ⟨exp(-βW)⟩ = exp(-βΔF)      If W = -ΔF in all trajectories (reversible),
+                                equality holds exactly. Away from reversibility,
+                                rare low-W trajectories dominate the exponential
+                                average — same bias problem as importance
+                                sampling with the wrong proposal distribution.
+
+  Gene expression noise         Shannon entropy and mutual information:
+  (intrinsic vs extrinsic)      intrinsic noise is shot noise (fundamental
+                                irreducible noise of a counting process);
+                                extrinsic noise is parameter variation
+                                (variability in the channel). The Elowitz
+                                two-reporter decomposition is exactly a
+                                variance decomposition — analogous to
+                                decomposing total variability into within-
+                                cell and between-cell components.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+**Key number**: for a gene expressed at mean ⟨n⟩ proteins, Poisson noise gives CV = 1/√⟨n⟩. At ⟨n⟩ = 10 (common for transcription factors), CV = 32% — this is not a defect of cellular machinery but the irreducible noise floor of a counting process. Cells exploit this variability; they do not simply tolerate it.
+
+---
 
 ## Decision Cheat Sheet
 

@@ -1,4 +1,3 @@
-<!-- @editor[bridge/P3]: No CS/engineering analogy bridge — VDJ recombination parallels combinatorial search or hash-space generation; antibody affinity maturation parallels gradient descent (used in 02-ADAPTIVE but not carried here) -->
 # B Cells and Antibodies
 
 ## The Big Picture
@@ -303,6 +302,67 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
 | Why do polysaccharide vaccines generate poor memory? | T-independent → no germinal center → mainly IgM, no class switch |
 
 ---
+
+## B Cell Immunology as Combinatorial Search and Optimization
+
+```
+VDJ RECOMBINATION ↔ COMBINATORIAL SEARCH SPACE GENERATION
+──────────────────────────────────────────────────────────────────────────────
+THE PROBLEM: Build a receptor library capable of binding ANY pathogen,
+             without knowing in advance what pathogens will appear.
+
+NAIVE SOLUTION: Enumerate all antibodies → impossible (10¹⁸ is too large)
+ACTUAL SOLUTION: Combinatorial sampling of a constrained search space
+
+  SEGMENTS AS BUILDING BLOCKS:
+  V segments (~40–50): Encode one region of binding domain
+  D segments (~25):    Encode middle of binding loop
+  J segments (~6):     Encode junction
+
+  RECOMBINATION = random sampling from cartesian product of V × D × J
+  N-nucleotide additions: inject entropy at junctions (junctional diversity)
+  Heavy × light chain pairing: multiply two independently sampled spaces
+
+  RESULT: ~10¹⁸ unique antibodies generated from ~1,000 genomic segments
+  Compression ratio: 10¹⁸ diverse sequences from ~10 KB of germline DNA
+  Mechanism: the same principle as combinatorial code/address spaces —
+             n-bit addresses → 2^n values from n hardware lines
+
+AFFINITY MATURATION ↔ GRADIENT DESCENT IN SEQUENCE SPACE
+  After initial binding (rough match), somatic hypermutation applies
+  point mutations to the VDJ region at high rate (~10⁻³/bp/division;
+  vs. normal ~10⁻⁹/bp/division)
+
+  AID (activation-induced cytidine deaminase) introduces mutations.
+  Germinal center selection: Cells with higher affinity survive + proliferate;
+  cells with lower affinity undergo apoptosis.
+
+  This IS gradient descent:
+    Loss function: Kd (dissociation constant — lower = better binding)
+    Perturbation:  AID-mediated point mutations (random local search)
+    Selection:     Positive selection of cells with improved Kd
+    Iterations:    Multiple rounds of SHM + selection
+    Result:        Kd improves 1,000–10,000-fold over ~2–3 weeks
+
+  Differences from SGD:
+    - Non-convex: Multiple optima possible (different antibodies to same antigen)
+    - Population-based: Many clones evolve in parallel (genetic algorithm flavor)
+    - Discrete: Sequence space, not real-valued parameters
+    - Non-differentiable: Selection acts on fitness, not gradient
+
+  Antibody optimization in AI drug discovery (e.g., AbLang, ESM-IF) uses
+  actual gradient descent on protein language model embeddings — directly
+  paralleling the biological process.
+
+CLONAL SELECTION ↔ HORIZONTAL SCALING ON DEMAND
+  Naive B cell encounters antigen → receives activation signal → clonal expansion
+  One specific cell → 1,000-10,000 clonal copies in days
+  Scale-out triggered by: antigen signal + T cell help (CD40L/IL-21)
+  Scale-down after clearance: contraction phase → 90-95% of clones die
+  → Only long-lived plasma cells + memory B cells persist
+  Exactly: auto-scaling group triggered by demand spike, scaled down after
+──────────────────────────────────────────────────────────────────────────────
+```
 
 ## Common Confusion Points
 

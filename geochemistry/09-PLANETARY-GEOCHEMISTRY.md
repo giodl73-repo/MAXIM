@@ -217,8 +217,9 @@ HIGHLY SIDEROPHILE ELEMENTS (HSE)
 
 ---
 
-<!-- @editor[bridge/P2]: The mass-independent isotope anomaly as a "planetary fingerprint" is a powerful concept — bridging it to the familiar idea of a unique identifier or hash (each body has a distinct isotopic signature that acts as an unforgeable provenance marker) would make the concept immediately concrete for the learner -->
 ## Isotopic Fingerprinting of Solar System Bodies
+
+The mass-independent oxygen isotope composition of a planetary body acts as a provenance hash: a value computed from the body's isotopic state that reflects its formation location in the solar nebula and cannot be altered by subsequent geological processing. Unlike mass-dependent fractionation (which shifts isotope ratios by amounts proportional to the mass difference — any chemical or physical process can do this), mass-independent anomalies (Δ¹⁷O ≠ 0) record nuclear heterogeneity in the original nebular material inherited from different stellar nucleosynthesis sources. Chemical reactions cannot change the nucleosynthetic mixing ratio — it is "unforgeable" in the sense that no planetary process can shift a body's position on the three-isotope diagram. If two fragments share the same Δ¹⁷O value, they almost certainly formed from the same nebular reservoir — a provenance match analogous to a hash collision that is effectively impossible by chance.
 
 ```
 MASS-INDEPENDENT ISOTOPE ANOMALIES
@@ -235,8 +236,7 @@ MASS-INDEPENDENT ISOTOPE ANOMALIES
     Mars: Δ¹⁷O ≈ +0.32
     Vesta (HED): Δ¹⁷O ≈ -0.24
     CAIs: Δ¹⁷O ≈ -0.50 (highly anomalous)
-    → EACH BODY HAS A UNIQUE OXYGEN ISOTOPE SIGNATURE
-    → This is a "planetary fingerprint"
+    → EACH BODY HAS A UNIQUE OXYGEN ISOTOPE SIGNATURE (its provenance hash)
 
   IMPLICATIONS:
     Earth + Moon have IDENTICAL oxygen isotopes → Theia (Moon impactor)

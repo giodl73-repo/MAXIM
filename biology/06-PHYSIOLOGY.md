@@ -43,7 +43,53 @@ INTEGRATION:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — homeostasis = PID controller, nervous system = low-latency event bus, endocrine = pub-sub, immune system = adaptive IDS -->
+## Engineering Bridges
+
+```
+PHYSIOLOGY ←→ CONTROL SYSTEMS AND DISTRIBUTED ARCHITECTURES
+
+Homeostasis = PID controller (mostly the I and P terms)
+  Proportional: response scales with deviation from set point (shiver harder if colder)
+  Integral: accumulated error drives long-term correction (RAAS for blood pressure)
+  Derivative: rate of change triggers preemptive response (feed-forward: exercise → HR
+    rises before O₂ drops)
+  Set point is not fixed: fever resets thermostat upward (hypothalamic response to IL-1β)
+  Cascaded loops: HPA axis is an outer loop modulating inner cortisol feedback loop
+
+Nervous system = low-latency event bus with specialized routing
+  Action potential: binary spike (all-or-nothing); frequency = signal intensity
+  Myelinated axons (Aα): 70-120 m/s — fast path for motor and proprioception
+  Unmyelinated C-fibers: 0.5-2 m/s — slow path for pain and temperature
+  Synapse: the routing node — can be excitatory (glutamate) or inhibitory (GABA)
+  Summation (spatial + temporal): logical OR/AND on incoming signals at the dendrite
+  CNS = hierarchical routing: spinal cord handles reflexes locally (low latency);
+    cortex handles complex decisions (high latency, high bandwidth)
+
+Endocrine system = pub-sub with slow delivery and long TTL
+  Publisher: endocrine gland (pancreas, thyroid, adrenal)
+  Topic: hormone (insulin, T₃, cortisol) — travels in bloodstream = the message bus
+  Subscriber: any cell expressing the receptor — promiscuous fan-out
+  Latency: minutes to hours (vs ms for neural)
+  Duration: minutes to days (vs ms to seconds for neural)
+  Feedback: negative feedback loops close the loop (TSH → T₃ → inhibit TRH/TSH)
+
+Immune system = adaptive intrusion detection system
+  Innate (pattern matching): fast, fixed signatures (PAMPs, TLR recognition)
+  Adaptive (signature learning): slow first response; generates custom antibodies
+  Memory: second exposure → pre-trained response, 100× faster, higher affinity
+  Self/non-self discrimination: central tolerance (thymic deletion) + peripheral tolerance
+  Failure modes:
+    Autoimmune = false positive (attacks self)
+    Immunodeficiency = false negative (misses pathogen)
+    Allergy = excessive response to harmless antigen
+  Affinity maturation = iterative ML: somatic hypermutation + antigen-selection rounds
+
+Cardiac output = queueing theory applied to a biological pump
+  CO = HR × SV (heart rate × stroke volume): throughput = rate × batch size
+  Starling's law: SV increases with preload (end-diastolic volume) — demand-responsive
+  Baroreflex: closed-loop control of MAP = CO × TPR — fast feedback (seconds)
+  RAAS: long-loop controller for chronic BP (minutes to hours)
+```
 
 ## Nervous System
 

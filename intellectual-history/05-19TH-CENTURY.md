@@ -350,7 +350,26 @@ Together they are the intellectual roots of modernity and its discontents.
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from Darwin's mechanism (variation + selection + inheritance) to evolutionary/genetic algorithms in CS — the learner with MIT TCS background would immediately connect these, but the guide never makes the link explicit -->
+## Engineering Bridge: Darwin's Mechanism in Computation
+
+Darwin's three-component mechanism (variation + selection + inheritance) is not just analogous to genetic algorithms — it is the exact computational abstraction they implement. The MIT TCS framing: Darwin's mechanism is a search algorithm over a fitness landscape.
+
+**Genetic algorithms (Holland, 1975)** encode Darwin's mechanism directly:
+- **Variation**: mutation operators (bit flips, crossover) generate candidate solutions with random perturbations — exactly "offspring vary (slight, random variation)"
+- **Selection**: fitness function evaluates candidates; high-fitness candidates are retained with higher probability — exactly "individuals with favorable variations survive and reproduce more"
+- **Inheritance**: the next generation is seeded from survivors — exactly "variation is heritable"
+
+The algorithm does not converge because it is "smart" — it converges because the fitness landscape has structure that selection can exploit over accumulated iterations. Darwin's insight is that no designer is needed; local selection pressure, applied repeatedly, produces global complexity.
+
+**Evolutionary computation taxonomy**:
+- Genetic algorithms: fixed-length binary strings; crossover-dominant
+- Genetic programming (Koza): variable-length parse trees; evolves programs
+- Evolutionary strategies: real-valued vectors; mutation-dominant; used in neural architecture search (NAS)
+- Neuroevolution (NEAT, OpenAI ES): evolves neural network weights/topology
+
+**The fitness landscape as a formal object**: evolutionary algorithms operate on a fitness function f: genotype-space → ℝ. The algorithm's performance depends entirely on the landscape's structure — smooth landscapes (with a clear gradient) favor gradient descent; rugged landscapes (many local optima) favor stochastic search like EA. This is the formal bridge between evolutionary biology and optimization theory.
+
+**Inheritance without DNA — the computational generalization**: inheritance in GAs is not biological; it is the preservation of information across generations. Any system with variation + selection + inheritance will exhibit evolutionary dynamics. This is why evolutionary dynamics appear in markets (firms vary, markets select, successful practices spread), programming language ecosystems (languages vary, adoption selects, features are copied), and software architectures (patterns vary, production incidents select, surviving patterns spread).
 
 ## Decision Cheat Sheet
 
@@ -384,7 +403,8 @@ His sister Elisabeth Förster-Nietzsche was a nationalist; she edited his papers
 Nietzsche was contemptuous of German nationalism and anti-Semitism. He broke with Wagner
 partly over these issues. Nazi appropriation of Nietzsche was a deliberate distortion.
 
-<!-- @editor[bridge/P3]: Marx's base-superstructure model has a natural analogy to layered architecture (infrastructure determines what application logic is possible) — would help a technical reader anchor the concept -->
+**Base-superstructure as layered architecture.** Marx's model has a direct structural analogue in systems engineering: the infrastructure layer (hardware, OS, network) determines what the platform layer (runtimes, databases, service mesh) can do, which in turn constrains what application logic is possible. The "superstructure" (the business logic, the user interface, the organizational policies) is not determined in a simple linear way — but it is constrained by the base. Changing the base (migrating from on-prem to cloud) does not automatically change the superstructure (organizational structures, development practices), but it creates new contradictions that eventually force the superstructure to adapt. This is exactly Marx's "ultimately determines, with complex mediation."
+
 **"Survival of the fittest" is Spencer's phrase, not Darwin's.**
 Darwin used it in later editions of the Origin only as a shorthand for natural selection.
 Spencer's meaning (competitive, quasi-economic) was not Darwin's. Darwin emphasized

@@ -412,7 +412,63 @@ Not yet dominant -- most papers still traditional.
 
 ---
 
-<!-- @editor[content/P3]: Open science policy movement thin — FAIR data principles (Findable, Accessible, Interoperable, Reusable), Plan S open-access mandates, and the broader shift toward open science as institutional policy deserve a paragraph; these are the governance layer complementing the statistical reforms -->
+### Open Science as Institutional Policy
+
+The statistical reforms (preregistration, registered reports, power analysis) address research design. Open science policy addresses the infrastructure layer: who can access data, code, and publications, and under what conditions.
+
+```
+OPEN SCIENCE GOVERNANCE LAYER
+================================
+
+FAIR DATA PRINCIPLES (Wilkinson et al., 2016):
+  Published in Scientific Data; now adopted by most major funders
+  FINDABLE:    data has a persistent identifier (DOI, URL); indexed
+  ACCESSIBLE:  data retrievable via standard protocol; long-term stable
+  INTEROPERABLE: standard vocabularies; machine-readable formats
+  REUSABLE:    clear license; rich metadata; domain-relevant standards
+
+  Why this matters:
+  ~80% of scientific data is "dark" — exists only on the researcher's
+  hard drive; inaccessible after paper publication; unusable for
+  meta-analysis or replication
+  FAIR targets the data infrastructure layer; complements
+  preregistration (which targets the analysis layer)
+  Analogy: FAIR is to research data as open APIs + documentation
+  are to software — necessary but not sufficient for reuse
+
+PLAN S (cOAlition S, 2018):
+  Coalition of major European research funders (UKRI, NWO, Wellcome, etc.)
+  Mandate: any research funded by cOAlition S members must be
+  immediately and freely available open access (no embargo period)
+  Covers: journal articles, conference papers
+  Challenge: subscription journals (Nature, Science, Cell) still
+  dominate prestige; researchers face career incentives vs funder mandates
+  Result (2019–2024): accelerated shift to open access, but
+  "transformative agreements" (read-and-publish deals) created a
+  new APC (article processing charge) revenue model for publishers
+  — open access but now authors or institutions pay rather than readers
+
+PREPRINT CULTURE (arXiv, bioRxiv, medRxiv, SSRN):
+  arXiv (physics/math/CS): launched 1991; now ~2M papers; preprints
+  posted before (or instead of) formal peer review
+  bioRxiv: launched 2013; accelerated by COVID-19 (papers posted
+  days after results, not 12–18 months after submission)
+  COVID policy use case: most consequential COVID research (vaccine
+  mechanisms, transmission dynamics) was read as preprints before
+  peer review; policy decisions made on preprint evidence
+  Tradeoff: speed + access vs peer review quality gate
+
+OPEN SOURCE IN SCIENCE:
+  Computational biology/genomics: virtually all major tools are open
+  source (BLAST, Bowtie, GATK → GitHub)
+  Jupyter notebooks as reproducible analysis: executable documentation
+  that bundles code + narrative + results
+  Contrast: proprietary statistical software (SPSS, SAS) → reproducibility
+  requires the same software version; open source tools (R, Python)
+  → anyone can reproduce with free tools
+  The open-source norm in computing is being imported into science:
+  "methods should be as open as results"
+```
 
 ## Layer 6: AI in Science
 
@@ -691,7 +747,22 @@ Do our epistemological frameworks still work?
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — the learner would immediately connect: p-hacking as overfitting to a test suite (passing tests by tuning to the specific dataset rather than learning the underlying pattern); preregistration as locking the test spec before writing code; Registered Reports as design review before implementation; the replication crisis maps to "works on my machine" — results that don't reproduce in independent environments; AlphaFold2's prediction-without-understanding parallels the neural-net-as-black-box debate in ML engineering -->
+## Bridges — Contemporary Science as Quality Engineering at Scale
+
+**p-hacking → overfitting to a test suite**
+P-hacking is running multiple analyses until one reaches p < 0.05, then reporting only that analysis as if it were the pre-specified one. The structural parallel is exact: overfitting a model to a test suite by iterating on the model until it passes the specific tests, without having learned the underlying pattern. In both cases, the "test passing" result is artifact of optimization against a particular dataset, not evidence of generalization. The difference: p-hacking is typically unconscious; the researcher makes legitimate-seeming decisions (which outliers to exclude, which covariates to include) while the data is visible, without realizing these decisions are being driven by the desire for significance. The fix in both domains: commit to the test specification before seeing the data (preregistration) or before seeing the test set (held-out test set, only touched once).
+
+**Preregistration → lock the spec before coding**
+Preregistration requires the researcher to specify: the hypothesis, the sample size, the primary outcome measure, and the analysis plan — before data collection. The study's confirmatory claims are then evaluated only against the pre-specified plan. Exploratory analyses are permitted but must be labeled as such. This is locking the requirements specification before implementation. The guarantee it provides: the analysis cannot have been reverse-engineered from the data. The limit: a preregistered study can still be badly designed, underpowered, or ask the wrong question. Preregistration ensures the study does what it said it would do; it doesn't ensure the study is worth doing.
+
+**Registered Reports → design review before implementation**
+Registered Reports reverse the publication decision: the journal reviews the hypothesis, methods, and analysis plan *before* data collection and makes a conditional acceptance decision. If the study is conducted as specified, the journal publishes the results regardless of outcome. This is design review before implementation approval — the architectural review gate. The structural effect: eliminates publication bias (results that don't matter for publication decision); researchers have incentive to design well rather than to obtain significant results; null results appear in the literature. Studies accepted as Registered Reports replicate at significantly higher rates than traditional publications — evidence that the incentive structure change works.
+
+**Replication crisis → "works on my machine"**
+A scientific result that fails to replicate is one that worked in the original environment (this lab, this protocol, this sample) but fails to work in independent environments (different lab, different protocol, independent sample). The "works on my machine" failure mode in software: the system runs correctly in the developer's environment but fails in production, on different OS versions, with different data inputs, or under different load conditions. The cure is the same in both domains: run in the target environment, not your development environment; test on independent data, not training data; document environmental dependencies explicitly; make the environment reproducible (Docker :: protocols + materials lists). The replication crisis revealed that most published scientific results had been tested only in their own "local environment" with no independent validation.
+
+**AlphaFold2 → neural-net-as-black-box in high-stakes domains**
+AlphaFold2 solved protein structure prediction at near-experimental accuracy using a deep learning model that does not implement explicit biophysics. It predicts the right answer without modeling the physical process that produces the answer. This is the ML black-box debate in its purest form: a model that predicts extremely well but does not explain. For many downstream applications (drug target identification, protein engineering), the accurate structure is sufficient — you don't need the mechanism, you need the coordinates. For understanding the physics of protein folding (Levinthal's paradox, folding pathways, disease mechanisms), the black box is not sufficient. The engineering parallel: a model that predicts correctly in-distribution but has no interpretable mechanism will fail in ways you cannot predict when the distribution shifts.
 
 ## Common Confusion Points
 

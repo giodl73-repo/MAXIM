@@ -4,7 +4,42 @@
 
 Dietary fat is the most energy-dense macronutrient (9 kcal/g), the primary fuel at rest, and the source of essential fatty acids and fat-soluble vitamins. It's also the most politically charged topic in nutrition: the 1977 fat-reduction hypothesis, 40 years of low-fat dietary guidelines, and subsequent evidence that upended the simple narrative.
 
-<!-- @editor[diagram/P2]: Opening diagram shows molecular structure of fatty acids but doesn't map the guide's landscape — need a system view connecting SFA/MUFA/PUFA/trans -> digestion/absorption -> lipoproteins (chylomicron/VLDL/LDL/HDL) -> ApoB/atherogenesis -> clinical markers and decision points -->
+```
+FAT SYSTEM — LANDSCAPE VIEW
+──────────────────────────────────────────────────────────────────────────────
+FATTY ACID TYPES:
+  SFA (saturated)       MUFA (monounsaturated)      PUFA (polyunsaturated)
+  Palmitic C16:0        Oleic C18:1 ω-9             ω-6: LA, AA
+  Stearic C18:0         (can synthesize via Δ9-des)  ω-3: ALA, EPA, DHA
+  Myristic C14:0                                     Trans FA: industrial (harmful)
+         │                      │                           │
+         └──────────────────────┼───────────────────────────┘
+                                ↓ DIGESTION / ABSORPTION
+  Dietary fat → bile emulsification → pancreatic lipase → monoglycerides + FFA
+  Enterocytes → re-esterify → TG → package with ApoB-48 → CHYLOMICRONS → lymph → blood
+
+                                ↓ LIPOPROTEIN TRANSPORT
+  Chylomicron TG → hydrolyzed by LPL at tissues → chylomicron remnants → liver
+  Liver → VLDL (ApoB-100) → LPL hydrolysis → IDL → LDL (cholesterol-enriched)
+  LDL → cells via LDL receptor; excess → oxidized LDL → macrophage foam cells
+
+  HDL: reverse cholesterol transport (load: peripheral → liver)
+  ApoB: 1 per atherogenic particle → ApoB = particle count = best atherogenic marker
+
+                                ↓ ATHEROGENESIS RISK
+  LDL-C: total cholesterol in LDL particles (can mislead: particle size matters)
+  LDL-P / ApoB: particle count (better predictor; captures sdLDL burden)
+  Small dense LDL (sdLDL): more oxidizable; longer circulation; penetrates arterial wall
+  sdLDL driver: high-carb / insulin resistance → shift to small particles
+
+                                ↓ CLINICAL MARKERS + DECISIONS
+  ApoB > LDL-C: captures discordant high-risk patients (T2DM, metabolic syndrome)
+  TG: driven by VLDL; reduced by omega-3 (4g/day); elevated by fructose/refined carbs
+  Replace SFA with PUFA or MUFA (not refined carbs) → CVD benefit
+  Trans FA (industrial): raise LDL-C + lower HDL-C → worst of both worlds; now banned
+──────────────────────────────────────────────────────────────────────────────
+```
+
 ```
 FATTY ACID STRUCTURE:
 

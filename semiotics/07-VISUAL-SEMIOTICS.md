@@ -246,6 +246,8 @@ Laura Mulvey's "Visual Pleasure and Narrative Cinema" (1975) introduced psychoan
   further complicates who sees whom how.
 ```
 
+In Peircean terms: the gaze is the viewer's interpretant-producing activity — the viewer is not a passive receiver but an interpretant-producer who, in the act of looking, generates a sign-relation (the viewed image → interpretant in the viewer → further signs about desire, identification, power). Mulvey's insight is that the camera position structures which interpretant-producing position is available — the classical Hollywood apparatus sets up a specific interpretant chain that positions the male viewer as the interpretant-producer and the female image as the object-sign. The semiotic framing makes explicit what is otherwise presented as natural: the spectatorial position is a sign relation, not a natural fact of vision.
+
 ---
 
 ## Codes in Visual Communication
@@ -321,18 +323,79 @@ Laura Mulvey's "Visual Pleasure and Narrative Cinema" (1975) introduced psychoan
 
 ## Decision Cheat Sheet
 
-| Concept | Definition |
-|---------|-----------|
-| Anchorage (Barthes) | Text fixing the ambiguous meaning of an image to a preferred reading |
-| Relay (Barthes) | Text and image are complementary — each contributes what the other lacks |
-| Demand vs Offer (gaze) | Demand: subject looks at viewer; Offer: subject does not look at viewer |
-| Grande Syntagmatique | Metz's 8 types of shot sequence organization in classical film |
-| Modality (Kress) | The degree to which a visual claim presents itself as "real" — context-dependent |
-| Given/New (composition) | Left = given (familiar); Right = new (information value in composition) |
-| Ideal/Real (composition) | Top = promise/aspiration; Bottom = factual/grounded |
-| Double articulation | Meaningful units (morphemes) composed of meaningless units (phonemes) — film lacks this |
+| I'm asking... | Use this concept |
+|--------------|-----------------|
+| Why does this image need its caption? What would it mean without it? | Anchorage — text fixes the image's floating meaning to a preferred reading |
+| Do the text and image say the same thing, or does each add what the other lacks? | Anchorage (redundant) vs. relay (complementary — each contributes uniquely) |
+| What power relationship does this image create with the viewer? | Kress: demand (subject looks at viewer = power claim) vs. offer (subject is on display) + social distance (close/medium/far) + angle (frontal/oblique) |
+| How "real" does this image present itself as being? | Modality (Kress) — naturalistic / abstract / sensory modality; context-dependent coding |
+| Why is the navigation on the left and the content on the right? | Given/New composition (left = given/known; right = new/information) — a visual grammar convention |
+| What kind of shot sequence is this? | Metz's grande syntagmatique (for classical Hollywood film) — 8 types of sequence organization |
+| Does this visual system have the same structure as language? | Double articulation test: meaningful units composed of meaningless units — film generally lacks this; icons/logos may have it partially |
 
 ---
+
+## Formal Systems Bridge
+
+```
+VISUAL SEMIOTICS ↔ UI DESIGN CONVENTIONS
+
+ANCHORAGE / RELAY ↔ LABEL + ICON PATTERNS:
+  Icon without label: high visual salience, low semiotic precision.
+    An ambiguous icon (what does this wrench mean? settings? tools?)
+    relies on the user's pre-existing sign knowledge.
+  Icon + tooltip: the tooltip anchors — it fixes the floating
+    meaning of the icon to a specific preferred reading.
+    This is Barthes's anchorage in pure form: the verbal
+    fixes the visual's polysemy.
+  Chart + title: anchorage — the title tells you which dimension
+    of the chart's possible meanings to attend to.
+  Chart + narrative paragraph: relay — the text and chart are
+    complementary; each contributes what the other lacks.
+    The chart shows the shape; the text names the interpretation.
+    Neither can do the other's work.
+
+KRESS'S GIVEN/NEW ↔ LEFT-SIDE NAVIGATION:
+  Kress and van Leeuwen: in Western reading culture,
+    Left = Given (familiar, already known to the viewer)
+    Right = New (the information being communicated)
+  This is a visual grammar that maps onto UI layout:
+    Navigation on the left (Given: the structure you know)
+    Content on the right (New: the information you came for)
+  Top = Ideal (promises, branding, aspirational content)
+  Bottom = Real (grounded, factual, detailed information)
+  This explains why "above the fold" = branding/promise,
+  "below the fold" = specification/detail.
+
+  These are not arbitrary conventions — they are derived from
+  the reading direction and page composition conventions of
+  Western print culture. Designers who learned this from
+  "best practices" are applying Kress without knowing it.
+
+DEMAND / OFFER ↔ PERSONA AND AUTHORITY IN UI COPY:
+  Demand (subject looks at viewer): used in advertising,
+    recruitment, urgent calls-to-action.
+    "You are the kind of person who..." → demand position.
+  Offer (subject is displayed for inspection): product images,
+    documentation screenshots, neutral informational UI.
+  When a UI element addresses the user directly (error messages
+  that say "YOU made an error" vs. "There was an error"),
+  it shifts between offer and demand.
+  The tone of copy is partly determined by this visual grammar:
+  does the UI look AT the user or display ITSELF for the user?
+
+MODALITY ↔ INTERFACE FIDELITY SIGNALS:
+  High modality: the image presents itself as highly real
+    (photo, high-resolution, naturalistic).
+  Low modality: abstract, diagrammatic, schematic.
+  UI wireframes have low modality — they present themselves
+  as diagrams, not as reality. High-fidelity mockups have
+  high modality — they claim to show "what it will look like."
+  The modality choice communicates what kind of commitment
+  the artifact is making. Presenting a high-modality design
+  in a review meeting commits to details that low-modality
+  would leave open.
+```
 
 ## Common Confusion Points
 

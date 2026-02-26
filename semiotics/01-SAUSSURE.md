@@ -242,21 +242,65 @@ Every linguistic act operates on two structural dimensions simultaneously:
 
 ## Decision Cheat Sheet
 
-| Concept | Definition | Why It Matters |
-|---------|-----------|----------------|
-| Sign | Signifier + signified (dyadic) | Unit of semiotic analysis |
-| Signifier | Acoustic image / written form | The expression-side |
-| Signified | Concept / mental content | The content-side |
-| Arbitrariness | No natural motivation for the link | Explains linguistic diversity |
-| Difference | Value through opposition, not intrinsic content | Foundation of structuralism |
-| Paradigmatic | Substitution axis; what COULD be there | Type/class relation |
-| Syntagmatic | Combination axis; what IS there in sequence | Syntactic relation |
-| Langue | The shared system/code | Object of linguistics |
-| Parole | Actual utterances | Instances of langue |
-| Synchrony | Cross-section at a moment | Saussure's methodology |
-| Diachrony | Historical change | Comparative philology |
+| I need to... | Use this concept |
+|-------------|-----------------|
+| Separate the form of a sign from its content | Signifier / signified split |
+| Ask why the same concept has different words across languages | Arbitrariness of the sign |
+| Analyze which choices were made from a set of alternatives | Paradigmatic axis (substitution; what COULD be here) |
+| Analyze the structure of what is actually present in sequence | Syntagmatic axis (combination; what IS here in order) |
+| Study the system that makes a particular sign meaningful | Langue (the code/system) vs. parole (the instance) |
+| Understand why a term means what it means in a system | Difference: value comes from contrast, not from intrinsic content |
+| Analyze a system at a single moment (vs. its history) | Synchronic analysis |
+| Analyze how a system has changed over time | Diachronic analysis |
+| Understand the mental/psychological vs. physical dimension | Signifier = acoustic image (mental); not the physical sound wave |
 
 ---
+
+## Formal Systems Bridge
+
+```
+SAUSSURE ↔ TYPE SYSTEMS AND RELATIONAL ALGEBRA
+
+PARADIGMATIC AXIS ↔ TYPE / DOMAIN:
+  The paradigmatic axis is the set of items that could
+  occupy a given position in a structure — items related
+  by substitutability.
+  In a type system: the type of a variable is the set of values
+  that can occupy that position. String | Int | Bool are
+  paradigmatic alternatives for a parameter slot.
+  In relational algebra: a column domain is the paradigmatic
+  set — all valid values for that attribute position.
+  Saussure: "Je mange du pain" — paradigmatic set at the
+  verb position: mange, vois, donne, etc.
+
+SYNTAGMATIC AXIS ↔ EXPRESSION SEQUENCE / ROW TUPLE:
+  The syntagmatic axis is the linear combination of items
+  actually present — items related by co-presence and order.
+  In a type system: an expression sequence, a function call
+  with its ordered arguments, a tuple type (Int × String × Bool).
+  In relational algebra: a row is the syntagmatic realization —
+  the specific values occupying each column position in order.
+  Saussure: "Je mange du pain" — the four-element syntagm
+  is the actual sequence instantiated from paradigmatic choices.
+
+LANGUE / PAROLE ↔ SCHEMA / INSTANCE:
+  Langue (the system/code) = the relational schema;
+    the type signatures; the grammar.
+  Parole (individual utterances) = instances / rows / programs.
+  No individual speaker has access to all of langue;
+  they have a model of it that enables production and recognition.
+  Exactly as no program has access to the type system;
+  it operates within and according to it.
+
+VALUE THROUGH DIFFERENCE ↔ ENUMERATION SEMANTICS:
+  Saussure: a sign's meaning is constituted by its differences
+  from other signs in the system, not by intrinsic content.
+  In enumeration types: NORTH, SOUTH, EAST, WEST have no
+  intrinsic meaning — only their distinctness from each other
+  within the type. Change the type and the meanings shift.
+  This is why Saussure says "in language there are only
+  differences without positive terms."
+```
 
 ## Common Confusion Points
 

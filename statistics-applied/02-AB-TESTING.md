@@ -72,7 +72,28 @@ RATIO METRICS (careful):
   Var(Y/X) ≈ (1/μ_X)² × Var(Y) + (μ_Y/μ_X²)² × Var(X) − 2(μ_Y/μ_X³)Cov(Y,X)
   All major platforms use delta method automatically; know when to question it
 ```
-<!-- @editor[structure/P2]: No comparison tables in body sections — metric taxonomy, CUPED properties, or bandit-vs-A/B tradeoffs would benefit from tabular format -->
+
+### Metric Taxonomy Summary
+
+| Type | Purpose | Example | If violated / regresses |
+|---|---|---|---|
+| Guardrail | Do no harm — hard stop | p99 latency, crash rate, core DAU | Block ship regardless of primary metric win |
+| Primary / OEC | Ship/no-ship decision (one metric) | Session conversion rate, revenue | Treatment wins iff statistically significant improvement |
+| Secondary / diagnostic | Explain primary movement | Add-to-cart rate, funnel stages | Informational only — not decision criteria |
+| North star | Long-term company health (too noisy for per-experiment detection) | Weekly active users, LTV | Validated via proxy: does proxy moving actually move north star? |
+| Ratio metric | Normalized engagement (CTR, AOV) | clicks/session, revenue/visitor | Use delta method for variance; naive variance is wrong |
+
+### Bandit vs. A/B Test Comparison
+
+| Dimension | A/B Test | Multi-Armed Bandit |
+|---|---|---|
+| Allocation during experiment | Fixed 50/50 (equal exploration) | Adaptive — shifts toward better arm |
+| Primary objective | Estimate causal effect | Minimize regret during exploration |
+| Treatment effect estimate | Unbiased | Biased (arms selected more after looking good) |
+| Use case | Clean causal knowledge, feature launch, guardrail checking | Many variants, ad creative, recommendation selection |
+| Statistical framework | Frequentist / anytime-valid inference | Bayesian (Thompson) or frequentist (UCB) |
+| Interference detection | Full SRM checks, SUTVA auditing | Not standard |
+| When NOT to use | (rarely wrong choice for serious decisions) | When you need a causal estimate or regulatory rigor |
 
 ---
 
@@ -399,7 +420,18 @@ HTE IN PRACTICE:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: A/B assignment + feature flags = Azure DevOps deployment rings; experiment logging pipeline = VSTS build/release telemetry; guardrail metrics = Application Insights alert rules -->
+## CS and Systems Bridges
+
+| A/B testing concept | CS / systems analogue |
+|---|---|
+| Assignment via hash(user_id + experiment_id) | Deterministic sharding: the same input always produces the same shard — consistent, sticky assignment with no central state; identical to consistent hashing for cache or load-balancer routing |
+| Feature flag gates (config, not deploy) | Feature toggles / dark launches: the treatment is a runtime config change, not a code deployment — same operational model used in continuous delivery to decouple deploy from release |
+| SRM detection (chi-squared on assignment counts) | Data pipeline integrity check: SRM is an invariant violation in the logging pipeline; detecting it is equivalent to running a checksum on pipeline output — the statistical test is the audit |
+| Guardrail metrics (hard stop on regression) | Service-level objectives (SLOs) with automated rollback: p99 latency or error rate guardrails are structurally identical to SLO breach alerts that trigger automatic traffic reversal |
+| CUPED (regress out pre-experiment covariate) | Control variate in Monte Carlo simulation: reduce variance by subtracting a correlated known quantity — the reduction factor is (1-ρ²), same as variance reduction from control variates in numerical integration |
+| mSPRT / anytime-valid inference | Streaming analytics with valid stopping: computes a likelihood ratio that is a valid test statistic at every sample size, enabling continuous monitoring without type I error inflation — analogous to online algorithms that maintain invariants at every step |
+| Multiple testing (Bonferroni / BH) | Multiple comparison correction in benchmarking: testing 20 performance metrics against a baseline requires family-wise error rate control to avoid false regressions; same methods apply |
+| Causal forests / Double ML for HTE | Heterogeneous subgroup analysis with ML: modern CATE estimation methods (grf, econml) replace the naive "split by segment" approach with calibrated, uncertainty-aware effect estimates — reduces false discovery in personalization |
 
 ## Common Confusion Points
 

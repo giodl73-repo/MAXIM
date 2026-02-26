@@ -102,7 +102,59 @@ Cov(θ̂) ≥ I(θ)⁻¹   [matrix inequality: Cov - I⁻¹ is positive semidefi
 - Complete statistic: E[g(T)] = 0 for all θ implies g = 0 a.e. Rules out other unbiased estimators.
 - Exponential family members have complete sufficient statistics (natural parameters).
 
-<!-- @editor[content/P2]: Missing exponential family theory beyond the mention here — the exponential family (canonical form, natural parameter, cumulant generating function b(η)) underlies both MLE theory and GLMs. Specifically: the connection between natural parameter, mean parameter, and sufficient statistic; the fact that log-partition function b(η) generates cumulants; and the information-geometric structure (Fisher metric on the manifold of exponential family distributions). This unifies MLE, GLMs, and information theory. -->
+### Exponential Family — The Unifying Structure
+
+The **exponential family** is the class of distributions that unifies MLE theory,
+GLMs, conjugate priors, and information geometry. Canonical form:
+
+```
+CANONICAL FORM:
+  f(x; η) = h(x) · exp[ηᵀT(x) − A(η)]
+
+  η:    natural parameter (vector)
+  T(x): sufficient statistic (same dimension as η)
+  A(η): log-partition function (cumulant generating function)
+  h(x): base measure
+
+EXAMPLES:
+  Normal N(μ, σ²) with σ known:  η = μ/σ², T(x) = x, A(η) = η²σ²/2
+  Bernoulli(p):                  η = log(p/(1-p)) (log-odds), T(x) = x, A(η) = log(1+eη)
+  Poisson(λ):                    η = log λ, T(x) = x, A(η) = eη
+  Gamma(α, β):                   η = (α-1, -β), T(x) = (log x, x)
+  Multinomial(n, p):             η_k = log(p_k/p_K), T(x) = (x₁,...,x_{K-1})
+```
+
+**Key properties** that make exponential families analytically tractable:
+```
+CUMULANT GENERATING FUNCTION:
+  E[T(X)] = ∇A(η)              [mean is gradient of log-partition]
+  Cov[T(X)] = ∇²A(η)           [covariance is Hessian of log-partition]
+  → A is convex (Hessian is PSD: it's a covariance matrix)
+  → ∇A is injective: natural and mean parameters are in bijection
+
+MLE IN EXPONENTIAL FAMILY:
+  Score equation: Σᵢ T(xᵢ)/n = ∇A(η̂)
+  "Match empirical sufficient statistics to their expected values."
+  → MLE always exists and is unique (when model is identifiable)
+  → Equivalent to moment matching
+
+FISHER METRIC:
+  I(η) = ∇²A(η) = Cov[T(X)]   [Fisher information = Hessian of log-partition]
+  This is the Riemannian metric on the statistical manifold of exponential family
+  distributions — the foundation of information geometry.
+  Natural gradient: η_{t+1} = ηₜ + α·I(η)⁻¹·∇L(η) (geodesic steps on the manifold)
+```
+
+**Mean parameters and the bijection**:
+```
+Mean parameter: μ = E_η[T(X)] = ∇A(η)
+Mean parameter space: M = {μ : μ = ∇A(η) for some η} = interior of convex hull of T's support
+
+The map η ↦ μ = ∇A(η) is a diffeomorphism from the natural parameter space to M.
+The inverse η = (∇A)⁻¹(μ) exists and is smooth.
+This bijection is the source of the "canonical link" in GLMs:
+  g(μ) = η makes the link function equal to the inverse mean-parameter map.
+```
 
 ### MAP Estimation (Bayesian Point Estimate)
 
@@ -204,7 +256,51 @@ Significance: p < 0.05 → reject at 5% level. Convention, not a law.
 ```
 This is the UMP (Uniformly Most Powerful) test for simple hypotheses.
 
-<!-- @editor[content/P2]: Missing UMP tests for composite alternatives — the one-sided t-test is UMP among all level-α tests for the normal mean (via the Karlin-Rubin theorem and monotone likelihood ratio). Also missing: uniformly most powerful unbiased (UMPU) tests. The theoretical machinery for constructing optimal tests is the payoff for the Neyman-Pearson framework and is absent here. -->
+### Optimal Tests for Composite Alternatives
+
+For **one-sided composite alternatives** H₁: θ > θ₀, the Neyman-Pearson framework
+extends via the **monotone likelihood ratio (MLR)** property.
+
+**Karlin-Rubin theorem**: if the likelihood ratio L(θ₁;x)/L(θ₀;x) is a monotone
+non-decreasing function of T(x) for all θ₁ > θ₀ (the family has MLR in T), then the
+test "reject H₀ when T(x) > c" is **UMP** (Uniformly Most Powerful) of level α for
+H₁: θ > θ₀.
+
+```
+EXAMPLE — one-sided t-test is UMP:
+  X₁,...,Xₙ ~ N(μ, σ²) (σ known or unknown).
+  H₀: μ = μ₀  vs  H₁: μ > μ₀.
+  Normal family has MLR in X̄ (or t-statistic when σ unknown).
+  → One-sided t-test (reject when t > t_{n-1,α}) is UMP among all level-α tests.
+  No other test achieves higher power uniformly over all μ > μ₀.
+
+EXAMPLE — sign test is UMP:
+  For testing H₀: median = 0 vs H₁: median > 0 among sign-invariant distributions,
+  the sign test (count of positive observations) is UMP.
+```
+
+**UMPU (Uniformly Most Powerful Unbiased) tests**: for two-sided alternatives H₁: θ ≠ θ₀,
+no UMP test exists in general (one-sided rejection regions can't be both high-powered
+for θ > θ₀ and θ < θ₀). Restricting to **unbiased** tests (power ≥ α for all θ in H₁)
+restores optimality:
+```
+Two-sided t-test: UMPU for H₁: μ ≠ μ₀ when data is normal.
+Chi-squared test for variance: UMPU for H₁: σ² ≠ σ₀².
+F-test in ANOVA: UMPU for simultaneous equality of multiple means.
+```
+
+**Generalized likelihood ratio test (GLRT)**:
+```
+Λ(x) = max_{θ ∈ Θ₁} L(θ;x) / max_{θ ∈ Θ₀} L(θ;x)
+
+Wilks' theorem: under H₀ (regular model), -2 log Λ →_d χ²_{dim(Θ) - dim(Θ₀)}
+  This is the basis for likelihood ratio tests in all GLMs.
+  The χ² degrees of freedom = number of constrained parameters.
+```
+
+The GLRT is not always UMP, but is asymptotically optimal (achieves the Rao-Cramér
+efficiency bound for the testing problem) and is the default when structure isn't
+available to construct UMP or UMPU tests.
 
 ### Common Tests
 
@@ -254,7 +350,53 @@ Benjamini-Hochberg (FDR control): controls false discovery RATE, not FWER.
 
 **Why p-hacking inflates false positive rate**: If you test 20 hypotheses at α=0.05 and all are null, you expect 1 false positive. Reporting only significant result → 100% false discovery rate.
 
-<!-- @editor[bridge/P2]: Missing connection between multiple testing and ML model selection — hyperparameter search over k configurations is equivalent to k hypothesis tests. Early stopping via train/validation split is the statistical remedy. The "significance" of a reported benchmark improvement should be evaluated with multiple comparison corrections, which the ML community routinely ignores. The statistical interpretation of train/val/test split protocol maps directly onto the FWER problem. -->
+### Multiple Testing and ML Model Selection
+
+The multiple testing problem appears throughout ML in disguise. The statistical
+machinery for controlling false discovery rates is directly applicable.
+
+**Hyperparameter search as multiple comparisons**: evaluating k hyperparameter
+configurations on a validation set is equivalent to k hypothesis tests. Each time
+you evaluate a new configuration, you're effectively testing "does this configuration
+outperform the current best?" The probability that *some* configuration beats the
+baseline by chance scales with k — identical to the familywise error rate problem.
+
+```
+Implication: to trust a reported validation accuracy improvement:
+  1. The improvement should be large relative to the uncertainty (SE of the estimate)
+  2. Corrections should be applied for the number of configurations tried
+  3. The test set should only be used ONCE (after model selection on validation)
+
+A "p-value" for benchmark improvement:
+  Treat the test set as a hypothesis test. Standard error of accuracy p̂:
+  SE(p̂) ≈ √(p̂(1-p̂)/n_test)
+  Meaningful improvement requires effect size >> SE.
+  With n_test = 10,000 and p̂ ≈ 0.9: SE ≈ 0.003 → need >0.6% to be meaningful.
+```
+
+**Train/validation/test split as FWER control**:
+```
+CORRECT PROTOCOL:
+  Train set:      fit model parameters (θ)
+  Validation set: select hyperparameters, architecture (= multiple testing)
+  Test set:       report final performance ONCE (= final hypothesis test)
+
+  Using the test set multiple times (reporting best-ever test accuracy) inflates
+  the false positive rate — equivalent to running thousands of hypothesis tests
+  and reporting the minimum p-value without correction.
+
+HOLDOUT CORRECTION (Dwork et al. 2015): if you must reuse the test set k times,
+  add Gaussian noise with variance ~k/n to each query. Achieves adaptive data analysis
+  while controlling false discovery rate — essentially differential privacy for
+  statistical testing.
+```
+
+**Statistical significance of benchmark improvements**:
+The ML community routinely publishes improvements of 0.1-0.5% on standard benchmarks
+without reporting significance. Given typical test set sizes and the number of papers
+competing on the same benchmark, many reported improvements may not be statistically
+distinguishable from noise. McNemar's test is the appropriate paired test for comparing
+two classifiers on the same test set.
 
 ---
 
@@ -341,7 +483,68 @@ Elastic Net: λ₁||β||₁ + λ₂||β||² — combines LASSO sparsity with rid
 Cross-validation for λ: k-fold CV to choose λ minimizing out-of-sample error.
 ```
 
-<!-- @editor[bridge/P2]: Missing the statistical learning theory perspective on regularization — bias-variance tradeoff as function of λ, the degrees of freedom of ridge (df(λ) = tr(H_λ) where H_λ = X(X'X+λI)⁻¹X'), the connection between ridge shrinkage and PCA (ridge keeps all principal components but shrinks small ones), and the double descent phenomenon — modern overparameterized models (p >> n) exhibit a second descent in test error. This last point is the key bridge between classical statistics and modern ML. -->
+### Regularization, Double Descent, and the Bias-Variance Tradeoff
+
+**Degrees of freedom of ridge regression**: the ridge estimator β̂(λ) satisfies
+Ŷ(λ) = H(λ)Y where H(λ) = X(X'X + λI)⁻¹X'. The effective degrees of freedom are:
+```
+df(λ) = tr(H(λ)) = Σᵢ σᵢ² / (σᵢ² + λ)
+
+where σᵢ are the singular values of X.
+  λ → 0:  df → p  (OLS, use all predictors)
+  λ → ∞:  df → 0  (null model, predict mean)
+
+The bias-variance tradeoff is:
+  E[||Ŷ(λ) - Y||²] = Var (= df(λ)·σ²) + Bias² (increases with λ)
+  Optimal λ: minimize the sum — classical U-shaped test error curve.
+```
+
+**Ridge regression and PCA**: ridge shrinks coefficients in directions of small
+singular values of X. The relationship to PCA is exact:
+```
+In the basis of right singular vectors V of X = UΣVᵀ:
+  β̂_ridge = V · diag(σᵢ²/(σᵢ² + λ)) · Uᵀy
+  β̂_OLS   = V · diag(1/σᵢ) · Uᵀy       [on the column space]
+
+Ridge = OLS with shrinkage factors σᵢ²/(σᵢ² + λ) ∈ (0,1) applied to each PC.
+Small singular values (weak directions) are shrunk most.
+PCR (principal component regression): hard threshold — keep top k PCs, discard rest.
+Ridge: soft threshold — shrink all PCs proportionally.
+Ridge is smoother than PCR and typically outperforms it.
+```
+
+**Double descent phenomenon** (Belkin et al. 2019, Hastie et al. 2020): the classical
+bias-variance picture predicts a single minimum in the test error curve. Modern
+overparameterized models (p >> n) exhibit a second descent:
+
+```
+TEST ERROR VS MODEL COMPLEXITY (p/n ratio):
+
+                       Classical regime    |  Overparameterized regime
+                       (p < n)             |  (p > n)
+                                           |
+   Error              ╭──────────╮         │         ╲
+                      ╯          ╰──────── │ ──────────╲─────────
+              bias²↓,var↑                  │            minimum again
+                    p/n=1: interpolation threshold (||β̂_min-norm|| → ∞)
+
+At p = n (interpolation threshold): test error spikes (model memorizes perfectly,
+  some directions have infinite variance).
+For p >> n with minimum-norm interpolating solution (implicit regularization):
+  bias → 0, but variance can also decrease as overparameterization averages out noise.
+  → Second descent below classical minimum.
+```
+
+The double descent curve is observed empirically in neural networks, random forests,
+and kernel machines. The theoretical explanation involves implicit regularization:
+gradient descent on overparameterized models converges to the minimum-norm solution,
+which behaves like ridge regression with an implicit λ determined by the optimization
+trajectory and architecture.
+
+**Practical implication**: large model + explicit regularization (weight decay/ridge)
+can outperform classical "just right" model size. The standard train/validation/test
+protocol still selects the best model, but the shape of the test error curve is more
+complex than classical bias-variance suggests.
 
 ### Collinearity and Subset Selection
 
@@ -429,7 +632,56 @@ Overdispersion: Var(Y) > E[Y] (data more variable than Poisson assumes).
   Fixes: quasi-Poisson (scale dispersion parameter), Negative Binomial regression.
 ```
 
-<!-- @editor[content/P2]: Missing survival analysis — a major statistical domain absent from this guide. Censored outcomes (time-to-event data), Kaplan-Meier estimator, log-rank test, Cox proportional hazards model (semi-parametric, no baseline hazard specified), hazard ratios. This is standard graduate statistics and appears in clinical trials, reliability engineering, and churn modeling. -->
+### Survival Analysis
+
+Survival analysis handles **time-to-event outcomes** with **censoring** — the event
+may not have occurred by the end of the study. Omitting this from a statistics guide
+omits a major branch used in clinical trials, reliability engineering, and churn modeling.
+
+**Setup**: T is the survival time (a positive random variable). Observe (t, δ) where
+t = min(T, C) (either event time or censoring time) and δ = 1[T ≤ C].
+
+```
+SURVIVAL FUNCTION: S(t) = P(T > t) = 1 - F(t)   [probability of surviving past t]
+
+HAZARD FUNCTION: h(t) = lim_{Δ→0} P(t ≤ T < t+Δ | T ≥ t) / Δ
+  "Instantaneous rate of event given survival to t"
+  h(t) = f(t) / S(t)   where f(t) = -S'(t) is the density
+  S(t) = exp(-∫₀ᵗ h(u) du) = exp(-H(t))   where H(t) is the cumulative hazard
+
+KAPLAN-MEIER ESTIMATOR (nonparametric):
+  At each event time tⱼ: Ŝ(t) = Π_{tⱼ ≤ t} (1 - dⱼ/nⱼ)
+  dⱼ = events at tⱼ, nⱼ = at risk just before tⱼ.
+  Handles censored observations correctly.
+  Step function. 95% CI via Greenwood's formula.
+  Log-rank test: compare survival curves of two groups (nonparametric).
+```
+
+**Cox Proportional Hazards model** (Cox 1972) — the workhorse of survival analysis:
+```
+h(t|X) = h₀(t) · exp(βᵀX)
+
+h₀(t): baseline hazard (left unspecified — semiparametric model)
+β: log hazard ratios
+exp(βⱼ): hazard ratio for unit increase in Xⱼ
+
+PARTIAL LIKELIHOOD (Cox's key insight):
+  Don't need to specify h₀(t). The regression coefficients β estimated from:
+  L(β) = Π_{i: δᵢ=1} [ exp(βᵀxᵢ) / Σ_{j ∈ R(tᵢ)} exp(βᵀxⱼ) ]
+  where R(tᵢ) = risk set at time tᵢ (all subjects still at risk).
+
+INTERPRETATION: exp(βⱼ) is the hazard ratio — how much faster/slower the event
+  happens per unit increase in Xⱼ, controlling for all other predictors.
+  HR = 2: twice the instantaneous risk at any time point.
+  HR = 0.5: half the risk (50% reduction in hazard).
+
+PROPORTIONAL HAZARDS ASSUMPTION: hazard ratio is constant over time.
+  Diagnostic: Schoenfeld residuals vs time (should be flat).
+  Violation fix: time-varying covariates, stratified Cox.
+```
+
+**Python**: `lifelines` library. `lifelines.CoxPHFitter`, `lifelines.KaplanMeierFitter`.
+**R**: `survival` package. `coxph()`, `survfit()`.
 
 ---
 
@@ -527,7 +779,67 @@ Classic: Efron-Morris (1975) "Stein's paradox": estimating 7+ group means simult
   shrinkage estimators dominate MLE by MSE — James-Stein estimator.
 ```
 
-<!-- @editor[bridge/P2]: Missing Bayes factors and model comparison — the Bayesian alternative to AIC/BIC. B₁₂ = p(X|M₁)/p(X|M₂) = ratio of marginal likelihoods. Interpretive scale (Jeffreys). The marginal likelihood p(X|M) = ∫p(X|θ,M)p(θ|M)dθ is the evidence for the model. This is the proper Bayesian answer to model selection and connects back to MDL and information theory. -->
+### Bayes Factors and Model Comparison
+
+The Bayesian answer to model selection: rather than penalized likelihood (AIC/BIC),
+compute the **marginal likelihood** (evidence) for each model.
+
+```
+MARGINAL LIKELIHOOD:
+  p(X|M) = ∫ p(X|θ, M) p(θ|M) dθ
+
+  This integrates out parameters — models with more parameters are automatically
+  penalized unless the extra parameters improve the likelihood substantially.
+  (Occam's razor emerges from the prior predictive.)
+
+BAYES FACTOR:
+  B₁₂ = p(X|M₁) / p(X|M₂)
+
+  = ratio of marginal likelihoods = how much more M₁ explains X than M₂.
+
+JEFFREYS' INTERPRETIVE SCALE:
+  B₁₂ < 1:         Evidence favors M₂
+  1 < B₁₂ < 3:     Anecdotal evidence for M₁
+  3 < B₁₂ < 10:    Moderate evidence for M₁
+  10 < B₁₂ < 30:   Strong evidence for M₁
+  30 < B₁₂ < 100:  Very strong evidence for M₁
+  B₁₂ > 100:       Decisive evidence for M₁
+```
+
+**Connection to MDL and AIC/BIC**:
+```
+LAPLACE APPROXIMATION of marginal likelihood (Gaussian approximation at MAP):
+  log p(X|M) ≈ log p(X|θ̂_MAP, M) + log p(θ̂_MAP|M) − (d/2) log(2π/n) + log|I(θ̂)|/n
+
+  Under non-informative prior and large n, this becomes:
+  ≈ ℓ(θ̂_MLE) − (d/2) log n + O(1)
+
+  This is exactly −BIC/2 (Schwarz criterion).
+  BIC approximates log Bayes factor when comparing models.
+
+EXACT MARGINAL LIKELIHOODS: tractable for conjugate models.
+  For linear regression with normal-inverse-gamma prior:
+    log p(Y|X, M) = −n/2 log(2π) + log Γ((n+α)/2) − log Γ(α/2)
+                   + α/2 log(β₀) − (n+α)/2 log(β_n) + ½ log(κ₀/κₙ) − ½ log det(X'X)
+
+INTRACTABILITY: for non-conjugate models, marginal likelihoods require numerical
+  integration (thermodynamic integration, annealed importance sampling, variational
+  bounds like ELBO, or bridge sampling).
+```
+
+**Connection to information theory**: the marginal likelihood is related to the
+coding length of the data under the model — it is the negative of the negative log
+predictive probability (the description length when using the model's predictive
+distribution to encode the data). MDL model selection (minimum description length)
+is equivalent to Bayesian model selection with a universal prior in the limit. Both
+seek the model that compresses the data most efficiently.
+
+**AIC vs BIC vs Bayes factors**:
+```
+AIC = 2p - 2ℓ:     consistent if true model has many parameters, selects for prediction
+BIC ≈ -2 log BF:    consistent for model identification, penalizes heavily
+Bayes factor:        exact Bayesian answer, requires prior specification, tractability issues
+```
 
 ### MCMC (Markov Chain Monte Carlo)
 
@@ -606,7 +918,71 @@ Difference-in-differences (DiD):
   Requires parallel trends assumption.
 ```
 
-<!-- @editor[bridge/P2]: Missing the connection between causal inference and ML — do-calculus (Pearl's interventional calculus), DAG-based identifiability, and the modern intersection with machine learning in "double machine learning" (Chernozhukov et al.) which uses ML estimators for nuisance parameters in causal estimation. Also: propensity score methods (inverse probability weighting) for observational causal inference. -->
+### Causal Inference Meets ML: do-Calculus and Double ML
+
+**Pearl's do-calculus** provides a formal language for causal queries that cannot
+be answered from observational data alone without causal structure:
+
+```
+CAUSAL DAG: a directed acyclic graph where X → Y means X causally affects Y.
+
+INTERVENTIONAL DISTRIBUTION:
+  P(Y | do(X=x)): probability of Y when we SET X = x (not just condition on X=x)
+  ≠ P(Y | X=x):  the conditional — conditioning selects a subset of the population
+                  with X=x, including confounders. do() cuts all incoming arrows to X.
+
+IDENTIFICATION: when can P(Y|do(X)) be computed from observational P(X,Y,Z,...)?
+  Adjustment formula (backdoor criterion):
+    If Z blocks all backdoor paths from X to Y (no unblocked paths into X):
+    P(Y|do(X)) = Σ_Z P(Y|X,Z) P(Z)    [adjusted regression]
+
+  Front-door criterion: useful when confounders unobserved but mediator M observed.
+    P(Y|do(X)) = Σ_M P(M|X) Σ_X' P(Y|X',M) P(X')
+
+  do-calculus (complete): three rules for rewriting interventional distributions.
+    Pearl proved these three rules are complete for identification.
+```
+
+**Propensity score methods**: e(x) = P(T=1|X=x) (probability of treatment given
+covariates). Under ignorability, T ⊥ (Y(0),Y(1)) | e(X):
+```
+INVERSE PROBABILITY WEIGHTING (IPW):
+  Â_TE = (1/n) Σᵢ [Tᵢ Yᵢ / ê(xᵢ) - (1-Tᵢ) Yᵢ / (1-ê(xᵢ))]
+
+  Estimate propensity score ê(xᵢ) via logistic regression or any classifier.
+  Weights up-weight under-represented treated/control units.
+  Double robustness (AIPW): combine IPW with outcome model — consistent if either
+  the propensity model OR the outcome model is correctly specified.
+```
+
+**Double Machine Learning** (Chernozhukov et al. 2018): use ML for nuisance
+parameter estimation (propensity scores, outcome regression) while maintaining
+√n-consistent, asymptotically normal estimates of causal effects.
+```
+PARTIALING OUT (Robinson 1988 extended):
+  Y = θT + g(X) + ε    [θ = causal effect, g = nonparametric confounding]
+  T = m(X) + v           [T = treatment, m = propensity]
+
+DML PROCEDURE:
+  1. Estimate ŷ(X) = Ê[Y|X] using any ML method (cross-fitted)
+  2. Estimate m̂(X) = Ê[T|X] using any ML method (cross-fitted)
+  3. Regress residuals: (Y - ŷ(X)) ~ θ(T - m̂(X))
+
+  Key: cross-fitting (train on one half, predict on the other) removes regularization
+  bias. Allows using high-dimensional/complex ML models without needing them to
+  converge at √n rate — only need n^{1/4} rate for nuisance estimators.
+  → θ̂ achieves √n rate and has valid confidence intervals.
+  → econometrics + ML engineering: use any model (LASSO, random forest, neural net)
+    for nuisance parameters.
+
+Implemented in: EconML (Microsoft Research), DoubleML (Python/R).
+```
+
+**DAG-based identifiability** is the algorithmic complement to regression: use the
+causal graph structure to determine which adjustment formula applies, then use any
+regression method for the statistical estimation step. The tools are separate:
+- Structural: DAG, do-calculus, identification
+- Statistical: regression, ML estimators, bootstrap
 
 ---
 
@@ -628,11 +1004,15 @@ Continuous outcome, predict from features OLS regression
 Binary outcome                            Logistic regression
 Count outcome                             Poisson (or NegBin if overdispersed)
 Positive continuous outcome               Gamma GLM
+Time-to-event with censoring              Cox proportional hazards + Kaplan-Meier
 Multiple testing (large scale, e.g. GWAS) Benjamini-Hochberg FDR control
 Bayesian updating, closed form            Conjugate prior (Beta-Binomial, etc.)
+Bayesian model comparison                 Bayes factor B₁₂ = p(X|M₁)/p(X|M₂)
 Complex hierarchical model               MCMC via Stan/PyMC (NUTS sampler)
 Causal effect, RCT                       t-test on randomized assignment
 Causal effect, observational             IV, DiD, RD — match the design
+Causal effect, ML nuisance parameters    Double ML (EconML/DoubleML)
+Select hyperparameters over k configs     Treat as k tests; use held-out test set once
 ```
 
 ---
@@ -654,3 +1034,11 @@ Causal effect, observational             IV, DiD, RD — match the design
 **Bootstrap doesn't fix small samples**: Bootstrap approximates the sampling distribution of θ̂. If n=5 and data is non-normal, the bootstrap distribution may still be a poor approximation. Bootstrap works best when n is moderate-large (n ≥ 30 as rough guide).
 
 **Logistic regression coefficients are log-odds, not probabilities**: exp(β) = odds ratio. The probability increase for a unit change in X depends on the baseline probability (nonlinear).
+
+**Exponential family ≠ exponential distribution**: the exponential family is a broad class of distributions (normal, binomial, Poisson, gamma, etc.) sharing the canonical form. The exponential distribution is one specific member. The name refers to the form of the density, not the distribution.
+
+**Bayes factors require prior specification**: unlike p-values which are determined by the model and the null, Bayes factors depend on the prior over parameters. Improper priors (like the flat prior) often make Bayes factors undefined or pathological. Objective Bayesian methods (Jeffreys prior, unit information prior) provide defaults that connect to BIC.
+
+**Kaplan-Meier is not regression**: KM gives the marginal survival curve. Cox regression gives conditional survival (adjusted for covariates). Use KM for descriptive/comparison; Cox for explanatory/adjusted analysis.
+
+**do(X=x) ≠ conditioning on X=x**: the interventional distribution P(Y|do(X=x)) is NOT P(Y|X=x). Conditioning selects individuals where X happened to be x; do-intervention forces X to be x for everyone. These coincide only when X is not causally affected by any variable that also affects Y (no confounding).

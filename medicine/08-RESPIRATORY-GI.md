@@ -335,26 +335,24 @@ IBD DRUGS:
 
 ---
 
-<!-- @editor[structure/P3]: Decision Cheat Sheet uses Q&A format rather than "use X when Y" table -- consider reformatting for consistency with other guides -->
-
 ## 8. Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Asthma rescue inhaler? | SABA (albuterol/salbutamol); 4-6hr; onset 5 min |
-| LABA in asthma without ICS? | CONTRAINDICATED (SMART trial: increased mortality); always combine with ICS |
-| COPD first-line maintenance? | LAMA (tiotropium) or LABA; dual LABA+LAMA preferred for symptomatic/exacerbation prevention |
-| Theophylline therapeutic range? | 5-15 mg/L; toxicity: seizures/arrhythmias >20 mg/L; monitor levels |
-| PPI timing relative to meals? | 30-60 min BEFORE meals (pump must be active when drug reaches parietal cell) |
-| Long-term PPI risk mnemonic? | Mg (hypomagnesemia), C. diff, Ca/B12/Mg malabsorption, fractures, pneumonia |
-| Why can't we block M2 with bronchodilators? | M2 presynaptic → inhibits ACh release; block M2 → paradox ↑ ACh → bronchospasm; tiotropium selectively avoids M2 |
-| Best antiemetic for CINV? | 5-HT3 antagonist (ondansetron) + dexamethasone; add NK1 antagonist (aprepitant) for highly emetogenic chemo |
-| Loperamide mechanism and caution? | μ-opioid peripheral only; avoid in bloody diarrhea/fever (toxic megacolon risk) |
-| ICS adverse effects (local)? | Oropharyngeal candidiasis, dysphonia; prevent with spacer + gargle after |
-| Mesalazine / 5-ASA for which IBD? | Ulcerative colitis (very effective); minimal benefit in Crohn's disease |
-| Metoclopramide maximum duration? | 12 weeks (FDA); tardive dyskinesia risk with long-term (irreversible) |
-| Lubiprostone and linaclotide class? | Secretagogues: lubiprostone (ClC-2 activator); linaclotide (GC-C agonist → CFTR) |
-| Anti-TSLP biologic advantage? | Works regardless of eosinophil count; broadest severe asthma coverage |
+| Condition / Situation | Drug / Approach | Key Notes |
+|----------------------|-----------------|-----------|
+| Asthma rescue | SABA (albuterol/salbutamol) | Onset 5 min; 4-6 hr duration; use PRN, not scheduled |
+| Asthma maintenance (persistent) | ICS ± LABA | LABA alone in asthma = CONTRAINDICATED (SMART trial: ↑ mortality without ICS) |
+| COPD maintenance | LAMA (tiotropium) or LABA; dual LABA+LAMA | LAMA preferred initial single-agent; dual preferred for symptomatic or exacerbation prevention |
+| Severe asthma (add-on biologic) | Anti-IL-5 (mepolizumab) if eosinophilic; anti-TSLP (tezepelumab) for any phenotype | Tezepelumab works regardless of eosinophil count — broadest coverage |
+| Acid suppression (GERD, PUD) | PPI 30-60 min BEFORE meals | Pump must be active (acid secretion occurring) when PPI arrives to get activated |
+| CINV (chemotherapy-induced nausea/vomiting) | 5-HT3 antagonist (ondansetron) + dexamethasone ± NK1 antagonist (aprepitant) | Add aprepitant for highly emetogenic regimens (cisplatin, AC) |
+| H. pylori eradication | Triple therapy: PPI + clarithromycin + amoxicillin × 14d | Check local clarithromycin resistance; bismuth quadruple if high resistance area |
+| Diarrhea (traveler's, non-infectious) | Loperamide (μ-opioid peripheral) | Avoid in bloody diarrhea or fever (risk toxic megacolon in C. diff / invasive infection) |
+| IBD — ulcerative colitis | 5-ASA (mesalazine) for mild-moderate; corticosteroids for flare; biologics for moderate-severe | 5-ASA has minimal benefit in Crohn's disease |
+| IBD — Crohn's disease | Corticosteroids (flare); anti-TNF (infliximab, adalimumab); vedolizumab; ustekinumab | Aminosalicylates not effective; "top-down" biologics increasingly preferred |
+| Prokinetic (gastroparesis) | Metoclopramide ≤ 12 weeks (FDA) | Tardive dyskinesia risk irreversible with long-term use |
+| ICS local side effects prevention | Spacer device + mouth rinse/gargle after each use | Prevents oropharyngeal candidiasis and dysphonia |
+| Constipation (CIC or IBS-C) | Linaclotide (GC-C agonist) or lubiprostone (ClC-2 activator) | Secretagogues: both increase luminal fluid; linaclotide also has visceral analgesic effect |
+| Theophylline monitoring | Target 5-15 mg/L; narrow TI | Toxicity (seizures, arrhythmias) at >20 mg/L; multiple CYP interactions |
 
 ---
 

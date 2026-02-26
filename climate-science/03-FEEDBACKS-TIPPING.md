@@ -40,7 +40,19 @@ MATH:
 
 ---
 
-<!-- @editor[structure/P2]: No comparison tables — all content is in ASCII code blocks. Add at least one rendered Markdown table (e.g., all five feedbacks side-by-side: name, sign, magnitude W/m^2/K, confidence level, key uncertainty) -->
+## Climate Feedbacks — Summary
+
+| Feedback | Sign | Magnitude (W/m²/K) | Confidence | Key uncertainty |
+|----------|------|-------------------|------------|-----------------|
+| Planck (OLR ∝ T⁴) | − (stabilizing) | −3.2 | Very high | None — fundamental thermodynamics |
+| Water vapor | + (amplifying) | +1.5 to +2.0 | High | Upper tropospheric humidity distribution |
+| Lapse rate | − (net) | −0.4 | Medium-high | Tropical hot-spot observational evidence |
+| Surface albedo (ice) | + (amplifying) | +0.3 to +0.5 | High | Sea ice loss directly observed |
+| Cloud (net) | + to − | −0.4 to +0.8 | Low | Low cloud response to warming |
+
+**Net feedback parameter λ ≈ −0.8 to −1.5 W/m²/K → ECS = 3.7/|λ| ≈ 2.5–4.6°C**
+
+---
 
 ## The Major Feedbacks
 
@@ -213,11 +225,11 @@ MATH:
 
 ---
 
-<!-- @editor[bridge/P3]: The bifurcation framework maps directly to dynamical systems theory the learner knows from MIT applied math — attractor basins, saddle-node bifurcations, hysteresis loops. Make the bridge explicit: "you know bifurcation diagrams from nonlinear dynamics; tipping elements are physical systems exhibiting exactly these transitions" -->
-
 ## Tipping Points: Theory
 
 ### The Bifurcation Framework
+
+Tipping elements are physical systems undergoing saddle-node bifurcations. You know the framework from nonlinear dynamics: as a control parameter (temperature) increases, a stable fixed point and an unstable fixed point approach each other, collide, and annihilate — the system then falls to the only remaining attractor (a qualitatively different state). The hysteresis loop follows directly: the return path lies on a different branch, so restoring the original state requires decreasing the parameter far below the forward tipping threshold. Early warning signals (critical slowing down — recovery from small perturbations becomes exponentially slower as the bifurcation approaches) are in principle detectable from time-series statistics.
 
 ```
   DYNAMICAL SYSTEMS CONCEPT:
@@ -249,9 +261,18 @@ MATH:
 
 ---
 
-<!-- @editor[content/P2]: Missing a summary comparison table of all tipping elements with columns: element, threshold range, timescale, sea level contribution, reversibility. The individual sections are detailed but the reader has no single-glance comparison -->
+| Tipping element | Threshold (°C above pre-industrial) | Timescale to full impact | SLR contribution | Reversibility |
+|----------------|--------------------------------------|--------------------------|-----------------|---------------|
+| Greenland Ice Sheet (GIS) | ~1.5–2.0 | Centuries–millennia | +7 m | Effectively irreversible |
+| West Antarctic Ice Sheet (WAIS) | ~1.5 (possibly crossed) | Centuries–millennia | +3–5 m | Effectively irreversible |
+| East Antarctic Ice Sheet (EAIS) | ~3–5 | Millennia | +26 m | Irreversible |
+| AMOC collapse | ~1.5–4 (uncertain) | Decades onset; centuries full | +20–30 cm (US East Coast only) | Centuries |
+| Amazon dieback | ~2–3 + deforestation | Decades | 0 (SLR); 90 GtC to atm. | Decades–centuries |
+| Permafrost (thermokarst) | ~1.5 (initiating) | Decades–centuries | 0 (SLR); adds CO₂/CH₄ | Millennia |
+| Boreal forest dieback | ~4 | Decades | 0 (SLR); large CO₂ | Centuries |
+| Coral reef system | ~1.5 | Decades | 0 (SLR); ecosystem loss | Unknown |
 
-## Major Tipping Elements (Lenton et al. 2022 Update)
+---
 
 ### Greenland Ice Sheet
 

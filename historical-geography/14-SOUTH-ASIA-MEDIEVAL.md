@@ -388,6 +388,73 @@ Five different dynasties over 320 years, each with different origins, policies, 
 **Akbar didn't abolish Islam**
 Din-i-Ilahi was not a state religion; it had fewer than 20 adherents. Akbar's empire was administered through Muslim legal norms; he was personally curious and heterodox but didn't impose that on his subjects. The idea that he tried to create a new religion is an exaggeration of his court syncretism.
 
-<!-- @editor[content/P2]: Marathas deserve their own section — Shivaji's guerrilla state-building, the Peshwa system, and Maratha dominance 1720–1818 are too significant for a 4-line footnote in Confusion Points -->
-**The Maratha Confederacy (briefly)**
-By the 18th century the Marathas (centered in Maharashtra) under Shivaji (1627–1680) and his successors had become the dominant military power in India. The Maratha Confederacy (Peshwa-led after 1713) controlled more of India than the Mughals by 1750. The Third Anglo-Maratha War (1817–1818) ended this — replaced by British paramountcy.
+---
+
+## The Maratha Confederacy — India's Last Indigenous Empire
+
+The Marathas represent a distinct political system built against Mughal overextension: guerrilla state-building, confederal organization, and peak territorial control before British supremacy.
+
+```
+MARATHA RISE AND STRUCTURE
+============================
+
+SHIVAJI BHONSALE (1627–1680): Founder
+  Background: son of a Mughal mansabdar; raised in Deccan
+  Strategy: guerrilla warfare in Sahyadri Mountains (Western Ghats)
+    → hit-and-run against Mughal and Bijapur forces
+    → fortified hill forts as operational bases (Raigad, Pratapgad)
+  1674: crowned Chhatrapati (paramount sovereign) at Raigad
+    First assertion of independent Hindu sovereignty in Deccan
+
+SWARAJ SYSTEM (self-rule):
+  Revenue directly to crown (bypassed Mughal/Deccan intermediaries)
+  Light cavalry (pindaris): fast-moving; lived off the land
+  Strategic: avoided pitched battle with larger forces;
+             raided supply lines; controlled terrain
+  = 17th-century asymmetric warfare doctrine
+
+MUGHAL-MARATHA WAR (1680–1707):
+  Aurangzeb spent last 27 years and drained treasury trying to
+  eliminate Marathas in Deccan
+  Failed: Marathas absorbed punishment, dispersed, reconstituted
+  Aurangzeb's death 1707: Mughal empire fractured; Marathas expanded
+
+PESHWA SYSTEM (post-1713):
+  Peshwa (Prime Minister) accumulated actual power;
+  Chhatrapati became ceremonial
+  Peshwas: Brahmin family (Bhat) based at Pune
+  Under Peshwa Bajirao I (1720–1740): greatest expansion
+
+MARATHA CONFEDERACY AT PEAK (~1760):
+  +─────────────────────────────────────────+
+  | Punjab (raids to Lahore and beyond)     |
+  +─────────────────────────────────────────+
+  | Rajputana (tributary states)            |
+  +─────────────────────────────────────────+
+  | Maratha CORE (Maharashtra + Deccan)     |
+  +─────────────────────────────────────────+
+  | Bengal (Calcutta raided 1742)           |
+  | Orissa | Tamil Nadu (raids)             |
+  +─────────────────────────────────────────+
+  Effective control: 2.8 million km² — more than the Mughals by 1750
+
+  FIVE HOUSES of the Confederacy:
+  Peshwa (Pune) · Scindia (Gwalior) · Holkar (Indore)
+  Bhonsale (Nagpur) · Gaekwad (Baroda)
+  = semi-autonomous chiefs acknowledging Peshwa leadership
+
+THIRD BATTLE OF PANIPAT (1761):
+  Maratha army (under Viswasrao + Bhau Saheb) vs Ahmad Shah Durrani
+  (Afghan invader): decisive Maratha defeat
+  ~40,000–60,000 Maratha casualties; Peshwa's son killed
+  The confederacy survived but never regained full momentum
+
+THREE ANGLO-MARATHA WARS:
+  First (1775–1782): British-Maratha standoff; Treaty of Salbai
+  Second (1803–1805): British seize Delhi + Agra; Scindia + Bhonsale submit
+  Third (1817–1819): Peshwa abolished; Maratha chiefs reduced to subsidiary
+                      alliances; British paramountcy established
+```
+
+**Why the Marathas matter for the South Asian arc:**
+The Mughal collapse did not produce British rule automatically — it produced a multi-decade interregnum during which the Marathas were the dominant power. British India was built not on Mughal ruins but on Maratha defeat. The Peshwa system also illustrates how confederal structures can expand rapidly but fail to coordinate when facing a unified adversary with naval logistics superiority.

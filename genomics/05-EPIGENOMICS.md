@@ -347,8 +347,71 @@ EPIGENOMICS: THE CHEMICAL LAYER ABOVE THE SEQUENCE
 
 ---
 
+## The Epigenome as a Configuration Layer
+
+```
+EPIGENOME ↔ SOFTWARE CONFIGURATION / BUILD SYSTEMS
+──────────────────────────────────────────────────────────────────────────────
+THE CORE METAPHOR:
+  Same source code (DNA sequence) → different binary behavior
+  depending on configuration state (epigenome).
+
+  A liver cell and a neuron have identical DNA.
+  The epigenome is what makes one act like liver and one act like brain.
+
+SPECIFIC MAPPINGS:
+
+DNA METHYLATION at promoter CpG islands:
+  Hard-disable: commenting out a function permanently at compile time.
+  Code is present in the repository but the preprocessor removes it.
+  Example: X-chromosome inactivation = entire chromosome silenced
+           = disabling half your codebase permanently in every cell.
+
+HISTONE MARKS — ACTIVE (H3K4me3, H3K27ac):
+  Feature flag: ON.
+  Chromatin is accessible; RNA Pol II has a landing pad.
+  Equivalent to: env variable FEATURE_X=true at runtime.
+
+HISTONE MARKS — REPRESSIVE (H3K27me3, H3K9me3):
+  Feature flag: OFF (soft vs. hard disable).
+  H3K27me3 = Polycomb repression = developmental silencing; reversible.
+  H3K9me3 = constitutive heterochromatin = hard disable;
+             almost never transcribed (repeats, centromeres).
+
+BIVALENT DOMAINS (H3K4me3 + H3K27me3 simultaneously):
+  Poised / staged deployment: build artifact ready, deployment held.
+  Stem cells: developmental genes carry both active + repressive marks.
+  On differentiation: one mark wins → gene committed ON or OFF.
+  Resolution = deployment gate passing (commit to one state).
+
+ATAC-seq (open chromatin):
+  Process table scan: which memory pages are currently accessible.
+  Open chromatin = transcription factor can bind = executable region.
+  Closed chromatin = swapped to disk / inaccessible.
+
+TADs (Topologically Associating Domains):
+  Namespace / module boundary.
+  Enhancers inside a TAD contact only promoters in the same TAD.
+  TAD boundary disruption (CTCF deletion) = namespace collision.
+  Example: MYC oncogene brought into contact range of a strong enhancer
+           by TAD boundary loss → overexpression → cancer.
+  Same as: removing private/internal modifier from a function so an external
+           caller can now invoke it directly.
+
+INHERITANCE ACROSS CELL DIVISION:
+  DNMT1 (maintenance methyltransferase): copies marks to daughter strand.
+  Post-commit hook that reruns on every build to preserve configuration.
+  Epigenetic inheritance: configuration persists across cell generations.
+
+REPROGRAMMING (iPSC = induced pluripotent stem cells):
+  Yamanaka factors (Oct4, Sox2, Klf4, c-Myc): reset epigenome to stem cell state.
+  Equivalent: git reset --hard; wipe all config back to baseline.
+  Not trivial: requires transcription factor overexpression; stochastic;
+               reprogramming efficiency ~0.01–1% of cells.
+──────────────────────────────────────────────────────────────────────────────
+```
+
 ## Common Confusion Points
-<!-- @editor[bridge/P2]: No old-world -> new-world bridge anywhere in this file -- natural parallel: epigenome as a configuration layer over source code (same source, different build config -> different binary). Histone marks = compiler flags / feature toggles; methylation = commenting out code permanently. Any senior engineer would benefit from this framing -->
 
 **H3K4me3 vs. H3K4me1**: Both methylations on the same residue but with different numbers of methyl groups — and completely different biological meanings. Trimethylation (me3) marks active promoters. Monomethylation (me1) marks enhancers. The distinction is experimentally determined by the antibody specificity used in ChIP-seq.
 

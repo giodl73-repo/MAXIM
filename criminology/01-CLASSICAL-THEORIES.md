@@ -2,7 +2,8 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P2]: Missing decision-theory bridge — any developer with formal CS background knows expected utility from game theory or mechanism design. One sentence connecting Beccaria's EU model to von Neumann-Morgenstern or minimax would anchor this instantly for the learner -->
+**Decision-theory bridge:** Classical criminology is mechanism design in reverse — it asks what punishment parameters (certainty, severity, swiftness) push the expected-utility calculation below zero for a rational agent. The model is precisely EU(crime) = p(detection) × U(punishment) + (1-p(detection)) × U(gain), which is von Neumann-Morgenstern expected utility under uncertainty. Beccaria's insight that certainty dominates severity maps to discounted future costs: hyperbolic discounting steeply devalues distant punishments, so p(detection) — which determines whether punishment is immediate or distant — is the dominant term. The policy implication (invest in detection over sentence length) follows directly from the discounting structure of the utility function, not from intuition.
+
 Classical criminology grounds crime explanation in economics: crime is a choice made by a rational actor weighing expected benefits against expected costs. Deterrence policy flows directly from this model -- manipulate the cost side of the ledger and behavior changes.
 
 ```
@@ -346,7 +347,8 @@ Classical rational choice assumes full rationality (utility maximization with st
                               preferences
 ```
 
-<!-- @editor[bridge/P3]: Natural bridge to dual-process theory from cognitive science/AI: System 1 vs System 2 maps directly to fast/slow thinking in ML agent design. This learner would recognize Kahneman immediately -->
+**Dual-process bridge:** The behavioral economics critique maps directly onto Kahneman's System 1 / System 2 distinction. Classical rational choice assumes System 2 (slow, deliberative, consequentialist) governs criminal decisions. The behavioral evidence shows System 1 (fast, emotional, present-biased) dominates in most street crime — especially under intoxication, anger, or peer pressure. This is not merely a psychological curiosity: it has architectural implications for intervention. If crime is System 1-driven, then deterrence via expected-penalty calculation (a System 2 mechanism) is largely inert, while environmental friction (removing opportunities before System 1 can act) and hot-state triggers (alcohol policy, de-escalation) are the effective levers. The Routine Activity and Situational Prevention frameworks are implicitly System 1-targeted; classical deterrence theory is implicitly System 2-targeted.
+
 **Implication**: If most crime is impulsive rather than calculated, certainty of swift apprehension matters even more than deterrence theory already suggests -- but so do interventions that reduce hot-state triggers (alcohol policy, conflict de-escalation).
 
 ---

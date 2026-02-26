@@ -148,7 +148,20 @@ THE RHETORICAL PROBLEM:
   and audience) is replaced by the content's apparent
   ethos — what the screenshot LOOKS like it says.
 
-<!-- @editor[bridge/P2]: No bridge from decontextualization to software engineering — the learner has dealt with out-of-context code review comments, pull request quotes, and Slack screenshots in escalations; a one-line bridge ("the same decontextualization dynamic operates in engineering culture when a Slack message is screenshotted to an exec without the thread") would land well -->
+DECONTEXTUALIZATION IN ENGINEERING CULTURE:
+  The same rhetorical dynamic operates whenever a message is
+  extracted from its context in a technical organization:
+  a code review comment taken without the surrounding PR discussion,
+  a Slack message screenshotted and forwarded to an exec without
+  the thread, a design doc quote extracted without the "alternatives
+  considered" section that frames it.
+  In each case: the ethos of the original message (collaborative,
+  exploratory, provisional) is destroyed by decontextualization;
+  the extracted fragment carries a different illocutionary force
+  than it had in context.
+  The classical remedy: insist on the thread; always link to context;
+  treat extracted quotes as adversarial framings until proven otherwise.
+
 THE DEEPFAKE EXTENSION:
   Audio/video decontextualization is now computable.
   A deepfake is a decontextualized video of a person
@@ -347,14 +360,35 @@ A deepfake is a synthetic media artifact (audio or video)
 that represents a person saying or doing something
 they did not say or do.
 
-<!-- @editor[content/P2]: Deepfakes section may be outdated — as of 2025-2026, diffusion models have largely supplanted GANs for synthetic media; also missing LLM-generated text as a parallel synthetic media threat (the learner works with AI tools daily) -->
 TECHNICAL MECHANISM (brief):
-  Generative adversarial networks (GANs) or diffusion models
-  trained on a person's image/audio can synthesize
-  new footage in that person's likeness.
+  Current state (2025-2026): diffusion models have largely supplanted
+  GANs for synthetic video and image generation.
+  GAN-based deepfakes (2017-2022): face-swap via encoder-decoder
+  trained adversarially. Required significant target footage.
+  Diffusion model synthesis (2022+): text/image-conditioned generation
+  via latent diffusion (Stable Diffusion, DALL-E 3, Sora).
+  Lower training data requirements; higher quality; more controllable.
+  Audio synthesis (VALL-E, ElevenLabs): voice cloning from seconds
+  of source audio. Text → speech in a specific person's voice.
   Detection is an arms race: detectors improve; so do generators.
-  As of 2024, high-quality deepfakes are increasingly
-  difficult to distinguish from authentic video.
+  As of 2025, high-quality deepfakes are difficult to distinguish
+  from authentic video without forensic analysis.
+
+LLM-GENERATED TEXT AS PARALLEL SYNTHETIC MEDIA:
+  The deepfake for audio/video has a direct analog in text:
+  LLM-generated text attributed to a person who did not write it.
+  A high-quality GPT-4/Claude output imitating a specific person's
+  writing style is indistinguishable from authentic text for most
+  readers. Unlike video deepfakes, text has no visual tells.
+  The rhetorical threat:
+    Fabricated quotes in the person's voice.
+    Fake emails that pass casual authenticity checks.
+    Synthetic "leaked" documents.
+  The liar's dividend applies equally: "That email was AI-generated"
+  becomes a plausible denial for authentic communications.
+  Organizational implication: cryptographic signing of communications
+  (PGP, document signing) becomes a rhetorical authenticity tool,
+  not just a security tool.
 
 THE RHETORICAL ATTACK:
   Deepfakes do not need to be believed to be effective.

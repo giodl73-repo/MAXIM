@@ -328,7 +328,59 @@ PROJECTED CHANGES:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge section — water allocation across competing users is a constrained optimization / linear programming problem; transboundary negotiations map to game theory (Nash bargaining, Pareto frontiers); virtual water trade is an application of comparative advantage (Ricardo) applied to water endowments — the learner's quant background would immediately engage with these framings -->
+## Bridges from CS and Engineering
+
+```
+GLOBAL FRESHWATER CONCEPT     CS / ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Water allocation across users Constrained optimization / LP / LP relaxation
+  Maximize Σ benefit_i × Q_i   → linear objective (if linear benefits)
+  Subject to: Σ Q_i ≤ Q_avail  → capacity constraint (river flow)
+    Q_i ≥ 0 (no negative flow) → non-negativity
+    Priority rules              → lexicographic ordering (first-in-time priority)
+  Stochastic: Q_avail varies   → stochastic programming / robust optimization
+  Reservoir optimization       → dynamic programming (DP) on state = storage level
+    Deterministic: exact DP    → Bellman's equation: V(s) = max{r + γ V(s')}
+    Stochastic (SDP)           → state × inflow distribution → policy function
+
+Transboundary river negotiation Game theory (Nash bargaining, Pareto frontier)
+  Upstream/downstream conflict  → sequential game (upstream acts first)
+  Nash bargaining solution      → maximize product of surplus above disagreement
+  Pareto frontier               → set of allocations where no player can improve
+                                  without harming another
+  Repeated game                → cooperation sustained by future punishment
+                                  (same logic as tit-for-tat in iterated PD)
+  International water treaties  → binding mechanism to enforce equilibrium
+
+Virtual water trade           Comparative advantage (Ricardo)
+  Each country "exports" water  → specialize in goods where water is cheap/abundant
+  embedded in goods             → import where water is expensive
+  Water-rich exporting grains   → implicit water transfer (1 tonne wheat ≈ 1500 m³)
+  Water footprint accounting   → hidden resource flows in supply chains
+                                  (same principle as carbon footprint of traded goods)
+  Policy implication            → free trade in food CAN reduce global water use
+                                  if prices reflect true scarcity
+
+Groundwater depletion         Debt accumulation model
+  Withdrawal > recharge        → deficit spending against a finite reserve
+  Ogallala: 25 km³/yr out,    → ~250 km³ cumulative deficit since irrigation began
+    <1 km³/yr recharge         → ~200-year depletion horizon at current rates
+  Non-renewable use            → fossil water; no recharge on human timescale
+  Price signal failure         → water priced at extraction cost not scarcity rent
+
+Water scarcity metrics        Dimensionless stress indicators
+  Falkenmark index (<1000 m³/cap/yr → scarcity) → per-capita normalized resource
+  Water exploitation index     → WEI = withdrawal / availability (dimensionless ratio)
+  (WEI > 0.4 = severe stress)    threshold analysis: system stress when ratio crosses
+  Blue water footprint          → fractional usage of renewable flow; same structure
+                                  as CPU utilization or network bandwidth fraction
+
+Desalination economics        Trade-off analysis (OpEx vs. scarcity cost)
+  Cost: $0.50–$1.50/m³         → energy ≈ 3–10 kWh/m³ (minimum thermodynamic: ~1)
+  Break-even: where scarcity   → same as build-vs-buy decision in capacity planning
+    cost > desalination cost
+  Brine disposal               → externality not in price; constraint on siting
+```
 
 ## Decision Cheat Sheet
 

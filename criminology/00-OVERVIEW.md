@@ -2,35 +2,39 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P2]: No old-world bridge — a natural parallel exists: criminology's theory-to-policy pipeline mirrors the software engineering feedback loop (model/hypothesis -> instrument/measure -> evaluate/iterate). A senior engineer would anchor faster with that framing -->
+**Systems-thinking bridge:** Criminology's theory-to-policy pipeline is a control loop: a theory specifies a causal model (e.g., blocked opportunity causes crime), measurement instruments operationalize variables (self-report surveys, arrest records), and intervention evaluation closes the loop (does expanding opportunity reduce crime?). The field's perpetual debate between theories is a model-selection problem under observational data constraints — causal identification is hard precisely because randomized experiments on criminal justice policy are rare and ethically constrained. Comparative criminology (09) partially compensates by treating nations as natural experiments.
+
 Criminology spans explanatory theory (why crime occurs), institutional analysis (how justice systems respond), and policy evaluation (what interventions actually work). The field sits at the intersection of sociology, psychology, economics, and law.
 
-<!-- @editor[diagram/P2]: Diagram lists items in four quadrants but doesn't show how they relate — no arrows from theories to policy levers, or crime types to justice system responses. Rework as layered system view showing the causal/institutional flow: theory explains -> crime type manifests -> justice system responds -> policy lever applied -->
 ```
-+------------------------------------------------------------------+
-|                     CRIMINOLOGY LANDSCAPE                        |
-+------------------------------------------------------------------+
-|                                                                  |
-|  EXPLANATORY THEORIES          CRIMINAL JUSTICE SYSTEM           |
-|  --------------------          -----------------------           |
-|  Why do people offend?         How does society respond?         |
-|                                                                  |
-|  Classical / Rational Choice   Police                            |
-|  Strain / Anomie               Courts                            |
-|  Social Control                Corrections                       |
-|  Differential Association      Probation / Parole                |
-|  Labeling / Conflict           Reentry                           |
-|  Life-Course / Desistance                                        |
-|                                                                  |
-|  CRIME TYPES                   POLICY LEVERS                     |
-|  -----------                   -------------                     |
-|  Street / violent              Deterrence                        |
-|  Property                      Incapacitation                    |
-|  White-collar                  Rehabilitation                    |
-|  Organized / transnational     Restoration                       |
-|  Cybercrime                    Prevention                        |
-|  State crime / genocide                                          |
-+------------------------------------------------------------------+
+CRIMINOLOGY CAUSAL-INSTITUTIONAL FLOW
+======================================
+
+EXPLANATORY THEORIES          CRIME TYPES
+(causal model)                (phenomena to be explained)
+--------------------          ----------------------
+Classical / Rational Choice   Street / violent
+Strain / Anomie          -->  Property
+Social Control                White-collar
+Differential Association      Organized / transnational
+Labeling / Conflict           Cybercrime
+Life-Course / Desistance      State crime / genocide
+        |
+        | theory predicts incidence and distribution
+        v
+JUSTICE SYSTEM RESPONSE       POLICY LEVERS
+(institutional reaction)      (intervention targets)
+-----------------------       ----------------
+Police (detection)            Deterrence (raise cost)
+Courts (adjudication)    -->  Incapacitation (remove offender)
+Corrections (custody)         Rehabilitation (change offender)
+Probation / Parole            Restoration (repair harm)
+Reentry (transition)          Prevention (reduce opportunity)
+        |
+        | outcomes feed back to theory evaluation
+        v
+POLICY EVALUATION
+(does the intervention work? causal identification challenge)
 ```
 
 ---
@@ -274,6 +278,5 @@ Classical and most mainstream criminology assumes criminal law reflects societal
 **Correlation vs. Causation in Crime Research**
 Poverty correlates with crime. Poverty does not straightforwardly cause crime -- most poor people do not offend. The causal mechanisms run through social disorganization, strain, and weakened bonds, not poverty itself.
 
-<!-- @editor[bridge/P3]: Natural bridge to software testing/QA: certainty of detection >> severity of punishment mirrors the QA principle that high test coverage (certainty of catching bugs) outperforms severe penalties for bugs shipped -->
 **Punishment vs. Deterrence**
 Deterrence has two levers: *certainty* of punishment and *severity* of punishment. Research consistently shows certainty matters far more than severity. Mandatory minimums increase severity without increasing certainty -- limited deterrent effect.

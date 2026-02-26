@@ -395,7 +395,14 @@ NATIONAL SPACE POLICIES AND PROGRAMS
 
 ---
 
-<!-- @editor[bridge/P2]: No explicit old-world bridge section — the content implicitly bridges (cost-plus vs fixed-price, platform economics) but deserves a dedicated bridge callout: the shift from cost-plus to fixed-price competitive contracts is the same shift the learner saw from waterfall government IT procurement to cloud marketplace models; Starlink's platform economics mirror Azure's infrastructure-as-a-service model -->
+## Engineering Parallels
+
+**Cost-plus vs. fixed-price as procurement model transition.** The structural shift in NASA contracting — from cost-plus (government pays actual cost + margin, government owns hardware) to fixed-price milestone-based (company owns design, government pays on delivery) — maps directly onto the waterfall-to-agile transition in government IT procurement. Cost-plus rewards spending; it has no incentive to optimize. Fixed-price rewards efficiency: SpaceX's profit on a Crew Dragon mission is the difference between actual cost and contract price. The same dynamic drove the shift from enterprise software licensing (cost-plus-like: pay for seats regardless of use) to cloud consumption pricing (fixed-price-like: pay for what you deliver).
+
+**Starlink as infrastructure platform economics.** Starlink is an infrastructure platform: SpaceX owns the network layer, customers access it via subscriptions. The economic structure mirrors a hyperscaler: massive upfront capital investment (5,000+ satellites, ~$10B+), near-zero marginal cost to add a subscriber, and flywheel dynamics where higher subscription revenue funds constellation expansion which improves service quality which attracts more subscribers. The military Starshield variant and maritime/aviation tiers are the equivalent of enterprise and government cloud contracts layered on top of the consumer offering — higher margin, lower churn, different SLAs.
+
+**GPS as a platform externality.** GPS is the clearest example of government infrastructure creating enormous private value — ~$300B/year in US GDP from a system that costs ~$2B/year to operate. This is infrastructure-as-a-platform: the government built the roads, and every logistics company, mapping application, and financial transaction timing system drives on them for free. The policy question of who captures that value (and who pays for maintenance and modernization) is directly analogous to debates about open-source infrastructure, cloud provider lock-in, and platform API access.
+
 ## Common Confusion Points
 
 **Launch cost is not the dominant cost in space**: Launch is $3,000-10,000/kg but is just a fraction of the value. GPS downstream is worth 30× the entire launch market. Satellite services are 14× the launch market. Launch cost matters for mission feasibility but "space economy" is mostly about applications, not getting there.

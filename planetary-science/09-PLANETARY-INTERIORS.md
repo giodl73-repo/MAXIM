@@ -33,8 +33,13 @@ We cannot drill to the core of any planet (except partially Earth). Everything w
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from classical wave physics (MIT TCS/physics: Fourier analysis, wave equations, eigenmode decomposition) to planetary seismology — the learner already owns the math; connecting normal modes and travel-time tomography to signal processing would anchor this section -->
 ## Seismology: Reading the Interior with Waves
+
+The mathematics of planetary seismology is the wave equation applied to an elastic medium with spatially varying parameters. Two complementary approaches:
+
+**Travel-time tomography**: P and S waves are ray-like at high frequency. Measure arrival time differences at multiple stations for many earthquakes → invert for the velocity field v(r,θ,φ) that best explains the travel times. This is exactly the same inverse problem as CT scanning: project measurements + algebraic reconstruction. The Earth's core was identified via the S-wave shadow zone (S-waves vanish beyond ~105° from the source because liquid iron has G=0); the inner core boundary by PKiKP reflections.
+
+**Normal mode seismology**: At low frequencies, a planet rings like a bell in its normal modes — discrete eigenfrequencies of the elastic wave equation with spherical boundary conditions. Earth has ~10,000 observable modes below 10 mHz. The eigenfrequency spectrum is the Fourier transform of the seismogram in the long-period limit; fitting observed mode frequencies to model predictions constrains density and elastic moduli as functions of depth. The 1960 Chilean earthquake was the first event that excited a resolvable normal mode spectrum; InSight's detection of Martian normal modes in 2021-22 was the first such observation on another planet.
 
 ### Wave Types
 
@@ -322,10 +327,12 @@ INTERIOR MODELING APPROACH
     From precession rate + J₂ gravity harmonic
     Lower C/MR² = more centrally concentrated
 
-<!-- @editor[content/P1]: Claim may be incorrect — LAPACK is a linear algebra library (eigenvalue/SVD routines), not an SPH simulation code; giant impact simulations typically use codes like Gadget, SWIFT, or custom SPH solvers. LAPACK may be used internally by those codes but citing it as the simulation tool is misleading — verify and correct -->
   CURRENT FRONTIER:
     Ab initio molecular dynamics (DFT-MD) for high-P/T EOS
-    LAPACK for giant impact simulations (SPH: smoothed particle hydrodynamics)
+    Giant impact simulations: SPH (smoothed particle hydrodynamics) codes
+      such as Gadget, SWIFT, and custom solvers (e.g., Benz & Asphaug codes)
+      — these use LAPACK internally for linear algebra but LAPACK itself is
+      a dense linear algebra library, not a simulation code
     Exoplanet interior models: mass-radius relations predict bulk composition
     (radius gap in exoplanets visible in mass-radius diagram)
 ```

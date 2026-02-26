@@ -324,8 +324,134 @@ MECHANISTIC EXPLANATION (Machamer, Darden, Craver):
 
 ---
 
-<!-- @editor[content/P2]: Reductionism listed in landscape diagram (Metaphysics of Science) but not covered — relevant debate about whether all science reduces to physics; inter-level explanation matters for this learner's systems-thinking background -->
-<!-- @editor[content/P2]: Natural kinds listed in landscape diagram but absent — connects to Kripke (covered in 03-METAPHYSICS) and classification in biology/chemistry; deserves a brief subsection or cross-reference -->
+## 5b. Reductionism and the Unity of Science
+
+```
+THE REDUCTIONIST THESIS:
+  All sciences reduce to physics. Chemistry reduces to quantum mechanics.
+  Biology reduces to chemistry. Psychology reduces to neuroscience.
+  Ultimately: one fundamental science; all others are applied physics.
+
+OPPENHEIM AND PUTNAM (1958) — UNITY OF SCIENCE HIERARCHY:
+  Social groups
+  Individual organisms
+  Cells
+  Molecules
+  Atoms
+  Elementary particles
+  Each level reduces to the level below.
+
+ARGUMENTS FOR REDUCTIONISM:
+  Historical success: chemistry was successfully reduced to quantum
+    mechanics (chemical bonding = electron orbital overlap).
+  Explanatory ideal: reduce to fundamental mechanisms; eliminate
+    unexplained primitives. "Why does this material conduct?"
+    → electron band structure → Pauli exclusion principle → QM.
+  Ontological parsimony: one fundamental ontology rather than
+    multiple irreducible levels.
+
+ARGUMENTS AGAINST REDUCTIONISM (anti-reductionism):
+
+  MULTIPLE REALIZABILITY (Putnam):
+    Mental states, functional states, and high-level properties
+    can be instantiated in multiple different physical substrates.
+    "Pain" is realizable in neurons, silicon, or octopus neurons.
+    If chemistry reduced entirely to QM, there would be no way to
+    explain why the SAME chemical properties appear in many QM implementations.
+    Higher-level properties are real because they pick out genuine
+    invariants across substrate variation.
+
+  EMERGENCE:
+    Some properties of wholes genuinely cannot be predicted from
+    the properties of parts alone — they are emergent.
+    Weak emergence: in principle reducible but too computationally
+      complex to derive in practice. (Most thermodynamics.)
+    Strong emergence (contested): properties that are in principle
+      irreducible. Consciousness is the usual candidate.
+    Practical: consciousness, economic behavior, and ecosystem
+    dynamics have not been reduced to physics. This may be
+    epistemic limitation or genuine ontological irreducibility.
+
+  CAUSAL AUTONOMY OF HIGHER LEVELS:
+    Economic explanations work. "The company went bankrupt because
+    it could not service its debt" is a good explanation that
+    doesn't require a particle-physics account to be valid.
+    Higher-level causal explanations are not eliminated by the
+    existence of lower-level ones; they carve out different
+    causal structures.
+    Davidson's anomalous monism: mental events are physical events;
+    but there are no strict psychophysical laws (the mental is
+    anomalous). Reason-based explanation is not reducible to
+    physical-causal explanation even if the events are identical.
+
+INTER-LEVEL EXPLANATION IN SYSTEMS THINKING:
+  Complex software systems exhibit the same structure:
+    Network effects, emergent behaviors, performance under load,
+    cascading failures — cannot be predicted purely from
+    component specifications.
+    "The service degrades above 10k req/s" is a system-level
+    property not derivable from any single component's spec.
+    Reductionist engineering tries to derive all system properties
+    from components; systems engineering acknowledges that
+    system-level properties require system-level models.
+    This is the engineering instantiation of the reductionism debate.
+```
+
+## 5c. Natural Kinds
+
+```
+NATURAL KINDS: categories that "cut nature at its joints" (Plato's Phaedrus).
+  A natural kind is a real category in the world, not a human convenience.
+  Gold: all instances share an underlying nature (atomic number 79).
+  Water: all instances are H₂O (Kripke/Putnam).
+  Tiger: all members share an essence (species membership, genetic).
+
+KRIPKE AND PUTNAM ON NATURAL KINDS (1972-1975):
+  Traditional view (Frege/Russell): "water" is defined by description
+    ("the colorless, drinkable liquid"). Meaning determines reference.
+  Kripke: names are rigid designators — they pick out the same object
+    in all possible worlds, not by description but by causal connection.
+  Putnam: "water" refers to whatever shares the microstructural essence
+    of what we called "water" when we introduced the term.
+    In 1750, chemists didn't know water is H₂O. But "water" was already
+    referring to H₂O — the reference was fixed by samples, not description.
+    "Meaning ain't in the head": the extension of "water" is partly
+    determined by the world (H₂O), not just by mental content.
+
+THE ESSENCE STRUCTURE:
+  Surface features: liquid, transparent, quenches thirst.
+  Deep structure: H₂O (the microstructural essence).
+  Scientific discovery: reveals the essence that was always there.
+  Consequence: XYZ that looks exactly like water but is not H₂O is
+    not water — even if every behavioral/functional criterion is met.
+    (Putnam's "Twin Earth" thought experiment.)
+
+CONTESTED NATURAL KINDS:
+  Biological species: is "species" a natural kind?
+    Multiple species concepts (biological, phylogenetic, ecological)
+    suggest no unique answer. Kinds may be pragmatic relative to
+    explanatory goals.
+  Social categories: is "race" a natural kind? Most biologists: no
+    (human genetic variation is clinal; racial categories don't track
+    genomic clusters in any robust way). Social theorists: "race" is
+    socially real even if not biologically natural.
+  Mental states: is "depression" a natural kind? If so, it picks out
+    a real mechanism. If not, it's a clinical convention that may
+    obscure diverse underlying mechanisms.
+
+RELEVANCE TO CLASSIFICATION SYSTEMS:
+  Ontologies and taxonomies: are categories natural kinds (real)
+    or conventions (useful fictions)?
+  Medical ontologies (SNOMED, ICD): disease categories — natural kinds
+    with real mechanisms, or pragmatic groupings for clinical convenience?
+  ML classification: does a neural network learn natural kinds when it
+    learns to classify objects? Or convenient clusters in input space?
+    Naturalness of learned representations is an active research question.
+  Data modeling: "customer," "order," "product" — are these natural kinds
+    in the business domain or modeling conventions? The answer affects
+    how the ontology should behave under domain evolution.
+```
+
 ## 6. Quantum Mechanics — Interpretations
 
 ```
@@ -375,7 +501,119 @@ QBism (Quantum Bayesianism — Fuchs, Mermin):
 
 ---
 
-<!-- @editor[bridge/P1]: Missing old-world → new-world bridge section — natural parallel: Kuhn's paradigm shifts → platform migrations (mainframe→client-server→web→cloud→AI); Lakatos's progressive vs degenerative → healthy vs dying frameworks — any senior engineer has lived through paradigm shifts and would immediately connect -->
+## Bridge — Philosophy of Science and Engineering Practice
+
+Every senior engineer has lived through paradigm shifts and framework evolution. The philosophy of science provides a precise vocabulary for analyzing what you've experienced:
+
+```
+PHILOSOPHY OF SCIENCE              ENGINEERING / TECHNOLOGY PARALLEL
+─────────────────────────────────────────────────────────────────
+KUHN: PARADIGM SHIFTS
+─────────────────────────────────────────────────────────────────
+Normal science: puzzle-solving      Production engineering within a
+within accepted framework.          stable stack. Optimizing, fixing
+Anomalies accumulate that           bugs, adding features. Works
+the paradigm cannot explain.        within the paradigm's terms.
+
+Crisis: anomalies can no longer     The scaling/maintenance cliff:
+be ignored; the paradigm is         existing architecture cannot absorb
+strained. Multiple competing        the new requirements. Competing
+approaches emerge. Nobody can       frameworks emerge. Debates about
+agree on fundamentals.              "what we should migrate to."
+
+Revolution: new paradigm replaces   Platform migration:
+the old. Incommensurability:        mainframe → client-server (1980s)
+the new paradigm's ontology         client-server → web (1995-2005)
+is incompatible with the old's;     web → cloud + microservices (2010s)
+you cannot fully evaluate the       cloud → AI-native (2020s)
+new from within the old.            The old paradigm's vocabulary
+                                    (batch jobs, two-tier apps, VMs)
+                                    doesn't translate directly.
+                                    "Containers aren't VMs" — this
+                                    is incommensurability.
+
+────────────────────────────────────────────────────────────────
+LAKATOS: RESEARCH PROGRAMMES
+────────────────────────────────────────────────────────────────
+Hard core: protected assumptions    Core framework commitments:
+that define the programme.          "We are building on Kubernetes."
+  Never falsified directly;         "We use the actor model."
+  protected by auxiliary            These assumptions are not revisited
+  hypotheses.                       every sprint; they are protected.
+
+Protective belt: auxiliary          Framework-level problem-solving:
+hypotheses that absorb anomalies    When Kubernetes doesn't handle our
+and protect the hard core.          load pattern, we adjust the
+  Modified when experiments fail;   deployment configuration (auxiliary
+  hard core unchanged.              hypothesis), not the platform choice.
+
+Progressive programme:              Healthy framework:
+Predicts novel facts before         Framework is gaining ground, solving
+they are observed.                  new problems, attracting talent,
+Expanding empirical content.        generating useful abstractions.
+                                    Kubernetes: extended from containers
+                                    to serverless, ML workflows, edge.
+
+Degenerative programme:             Dying framework:
+Explains anomalies post-hoc;        Framework is sustained by heroic
+no novel predictions.               auxiliary-hypothesis patching.
+Losing ground to competitors.       "Yes, but you just need to configure
+Hard to distinguish from            it correctly." The docs are longer
+progressive from the inside.        than the code they're trying to
+                                    explain. New projects don't choose it.
+
+────────────────────────────────────────────────────────────────
+POPPER: FALSIFICATIONISM
+────────────────────────────────────────────────────────────────
+Scientific claim: bold, risky       Testable hypothesis in A/B testing:
+predictions that could be           "This feature will increase 7-day
+falsified by specific observations. retention by 3% in the treatment
+                                    group." Falsifiable; specific;
+                                    risky. A real scientific claim.
+
+Unfalsifiable claim: no possible    "This change will improve the
+observation could disprove it.      user experience." Non-falsifiable
+Irrefutable but unscientific.       without operationalization.
+                                    Product claims that survive any
+                                    outcome are unfalsifiable.
+
+Corroboration:                      Surviving rigorous tests:
+A hypothesis is corroborated if     A/B tests, load tests, adversarial
+it has survived many severe tests.  testing. The hypothesis that survived
+Not "confirmed" — still            hardest scrutiny is most trustworthy;
+tentative.                          not "proven."
+
+────────────────────────────────────────────────────────────────
+SCIENTIFIC REALISM / INSTRUMENTALISM
+────────────────────────────────────────────────────────────────
+Scientific realism:                 Model realism:
+Theoretical entities (electrons)    The ML model's internal
+really exist; theories describe     representations correspond to
+the world approximately correctly.  real structure in the domain.
+                                    "The model has learned a concept
+                                    of 'edge' in layer 3." This is a
+                                    realist reading.
+
+Instrumentalism:                    Model instrumentalism:
+Theories are tools for prediction;  "The model works" is all that
+whether they describe reality is    matters. Whether it "understands"
+a meaningless question.             anything is a category error.
+                                    The realist/instrumentalist debate
+                                    about science is also the debate
+                                    about AI interpretability.
+
+Duhem-Quine underdetermination:     Multiple consistent architectures:
+Same data fits many theories;       Multiple model architectures can
+theory choice requires extra-       achieve the same benchmark scores.
+empirical virtues (simplicity,      Architecture choice requires
+scope, coherence with background    extra-empirical criteria: compute
+theory).                            efficiency, interpretability,
+                                    engineering simplicity.
+                                    "The data underdetermine the model"
+                                    is exactly the Duhem-Quine thesis
+                                    applied to ML.
+```
+
 ## Decision Cheat Sheet
 
 | Topic | Key Positions | Current Status |

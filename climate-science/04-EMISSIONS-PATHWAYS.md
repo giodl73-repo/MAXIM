@@ -2,9 +2,38 @@
 
 ## RCP/SSP Scenarios, Carbon Budget Math, Sector Contributions, Net Zero
 
-<!-- @editor[diagram/P2]: Opening diagram is a linear causal chain (emissions → concentration → forcing → impacts) — not a landscape of the emissions-pathways field. Consider a landscape diagram showing the full space: scenarios (RCP/SSP), carbon budgets, sector contributions, policy mechanisms, and net-zero math as interconnected nodes -->
+## The Big Picture: Emissions-Pathways Landscape
 
-## The Big Picture
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│               EMISSIONS PATHWAYS FIELD MAP                          │
+│                                                                     │
+│  SCENARIO SPACE              SECTOR CONTRIBUTIONS                   │
+│  ─────────────────           ─────────────────────                  │
+│  SSP1-1.9: ~1.0°C ─┐         Energy/power:  ~34%                   │
+│  SSP1-2.6: ~1.8°C  │         Industry:      ~24%                   │
+│  SSP2-4.5: ~2.7°C  │─→ TCRE  AFOLU:         ~22%                   │
+│  SSP3-7.0: ~3.6°C  │  model  Transport:     ~16%                   │
+│  SSP5-8.5: ~4.4°C ─┘         Buildings:      ~6%                   │
+│       ↑                                ↓                            │
+│  CARBON BUDGET MATH         POLICY MECHANISMS                       │
+│  ───────────────────        ─────────────────                       │
+│  TCRE ≈ 0.45°C/1000 GtCO₂  Carbon tax (price → quantity)          │
+│  1.5°C (50%): ~380 GtCO₂   Cap-and-trade (quantity → price)        │
+│  2.0°C (50%): ~1230 GtCO₂  Regulations / standards                 │
+│  at current ~40 GtCO₂/yr:  Technology mandates (BEV, RE %)         │
+│  1.5°C budget ≈ 9-10 yr            ↓                               │
+│       ↓                    NET-ZERO MATH                            │
+│  IMPLEMENTATION GAP         ──────────────                          │
+│  Current policy: ~2.5-3°C  Gross residual + CDR = net zero         │
+│  Full NDCs:      ~2.0-2.4°C Hard sectors need ~5-10 GtCO₂/yr CDR  │
+│  Net-zero pledges: ~1.7°C   DAC / BECCS / natural CDR portfolio    │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Causal Chain
 
 ```
 EMISSIONS → TEMPERATURE: THE CAUSAL CHAIN
@@ -229,9 +258,9 @@ EMISSIONS → TEMPERATURE: THE CAUSAL CHAIN
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge opportunity: carbon pricing is a direct application of Pigouvian tax / externality internalization from microeconomics — the learner likely encountered this in an MIT economics elective or MBA-adjacent context. A one-line bridge ("this is the Pigouvian tax from Econ 101 applied at planetary scale") would land well -->
-
 ## Carbon Pricing Mechanisms
+
+Carbon pricing is the Pigouvian tax from microeconomics applied at planetary scale: CO₂ emissions are a negative externality (harm imposed on third parties without compensation), and the standard Econ 101 remedy is to set a price equal to the marginal social cost, causing emitters to internalize what they previously offloaded. The policy debate is entirely about the practical choice between tax (price certainty, quantity uncertainty) and cap-and-trade (quantity certainty, price uncertainty) — the theoretical optimum is identical.
 
 ```
   THE BASIC PROBLEM:

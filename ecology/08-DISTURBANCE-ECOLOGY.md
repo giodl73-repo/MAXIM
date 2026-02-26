@@ -2,7 +2,6 @@
 
 ## The Big Picture
 
-<!-- @editor[content/P2]: Windthrow and ice storm ecology thin -- listed as disturbance types in diagram but receive no coverage; hurricane/cyclone disturbance is significant gap -->
 Disturbance — any event that disrupts ecosystem structure and releases resources — was once viewed as purely destructive. The modern view: disturbance is a fundamental driver of biodiversity and community composition. Many ecosystems are maintained *by* disturbance (fire-adapted grasslands, flood-maintained riparian forests). The key variables are disturbance frequency, intensity, extent, and predictability.
 
 ```
@@ -65,7 +64,7 @@ HIGH DISTURBANCE:
 
 **Critique of IDH:** Meta-analyses show the unimodal pattern is not universal. Diversity may peak at low disturbance in some systems. Taxonomic group, spatial scale, and disturbance type all matter. But IDH is still useful as a conceptual framework.
 
-<!-- @editor[bridge/P2]: Intermediate disturbance creating maximum diversity is structurally identical to exploration/exploitation tradeoffs in optimization and reinforcement learning -->
+**Exploration-exploitation connection:** The IDH is structurally identical to the exploration/exploitation tradeoff in reinforcement learning and optimization. Low disturbance = pure exploitation: dominant competitor wins, all "resource" allocated to best-known option, diversity collapses. High disturbance = pure exploration: too much randomness, only disturbance specialists survive, diversity collapses. Intermediate disturbance = epsilon-greedy or Thompson sampling: competitive dominants occasionally reset, inferior competitors get opportunities, diversity maintained. The ε-greedy RL agent and the intermediate-disturbance forest are maximizing different objectives but experiencing the same tradeoff dynamics.
 
 ---
 
@@ -129,6 +128,78 @@ MIXED SEVERITY: Intermediate (most western North American forests)
 **Fire exclusion consequences** — 20th century fire suppression in western US (Smokey Bear era) accumulated fuel loads far above historical levels. Result: larger, more intense fires when they occur; loss of fire-adapted species; altered forest structure. Prescribed fire programs attempt to restore fire to these systems.
 
 **Boreal forest and fire:** Fire is the dominant disturbance in boreal forest (taiga). Large fires (millions of hectares in Siberia, Canada) are normal ecosystem dynamics, not disasters. Climate change is increasing fire activity globally — higher temperature + drought + lightning ignition.
+
+---
+
+## Wind and Ice Disturbances
+
+**Windthrow (treethrow, blowdown):**
+```
+MECHANISM:
+  High winds exceed drag resistance of individual trees or stands
+  → Uprooting (root anchorage failure) or stem breakage
+
+SCALES:
+  Single treefall: creates canopy gap (~0.01–0.1 ha); most common
+  Blowdown patch: storm event; 0.1–10 ha; complex post-disturbance mosaic
+  Catastrophic blowdown: tornado path, orographic wind (foehn/chinook events)
+    → 1000s of hectares; e.g., 1999 Boundary Waters blowdown, Minnesota (~160,000 ha)
+
+ECOLOGICAL SIGNIFICANCE:
+  Single treefalls: primary mechanism of gap-phase dynamics in tropical and
+    temperate forests; drives ~40% of tree regeneration in some systems
+  Creates structural diversity: root throw mounds, tip-up pits, coarse woody debris
+  → Habitat for specialized invertebrates, fungi, cavity nesters
+  Blowdown patches: initiates secondary succession within a matrix of intact forest
+```
+
+**Ice storms:**
+```
+MECHANISM:
+  Freezing rain (supercooled water droplets) → ice accumulation on branches
+  Ice loading: even 1 cm radial ice = 10× branch weight
+  → Branch breakage, stem bending, whole-tree uprooting
+
+ECOLOGICAL PATTERNS:
+  Selective: species with dense crowns, brittle wood, high crown mass most vulnerable
+    (sugar maple, beech > white pine, red oak)
+  Epiphytes and canopy lichens: ice loading → brittle lichen mat loss
+  Recovery: rapid sprouting from epicormic buds; regeneration from seed bank
+
+HISTORICAL EXAMPLE: January 1998 North American Ice Storm
+  Affected Quebec, Ontario, New York, Maine
+  Destroyed 100+ million trees in southern Quebec maple-beech forests
+  Pulp/paper industry losses ~$1.5B; power outages for 28 days in some areas
+  Ecological: maple stands severely damaged; compositional shift in some areas
+```
+
+**Hurricane/Cyclone disturbance:**
+```
+ECOLOGICAL IMPACTS:
+  Defoliation: wind removes leaves → light pulse to forest floor → understory flush
+  Branch + stem damage: opens canopy; increases coarse woody debris
+  Uprooting: same gap dynamics as windthrow but spatially extensive
+  Rainfall: massive hydrological pulse → nutrient flushing, stream scour
+
+CHARACTERISTIC PATTERNS:
+  Damage heterogeneous: topographic position matters (ridges more exposed)
+  Species-selective: shallow-rooted species (Cecropia) vs deep-rooted (mahogany)
+  Intensity gradient: outer bands low-damage; eyewall catastrophic
+  Recovery: typically fast in the wet tropics (high NPP, resilient root systems)
+    → 1989 Hurricane Hugo (Caribbean): 80% canopy loss → substantial recovery in 10 years
+
+HURRICANE DISTURBANCE REGIME (Caribbean/SE US):
+  Return interval: ~25–100 years at a given point in hurricane-prone regions
+  → Shapes successional trajectories across the entire region
+  → Wind-adapted traits selected for: higher wood density in Atlantic vs Pacific forests
+    of same species (Atlantic exposed to more frequent hurricanes)
+
+CLIMATE CHANGE AND HURRICANE INTENSITY:
+  Warming SST → more intense (Category 4–5) hurricanes
+  Rapid intensification events more common
+  Ecological implication: fewer but more severe disturbance events
+    → Less frequent but larger-magnitude regime disruption
+```
 
 ---
 

@@ -372,7 +372,61 @@ emerging chain and begin folding before synthesis completes.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — natural parallels: combinatorial search/pruning (CS) to funnel-guided folding, NP-hard optimization landscapes to protein energy landscapes, error-correction codes to chaperone quality control -->
+## CS and Optimization Bridges
+
+Protein folding is a search and optimization problem over an astronomically large combinatorial space — with the same structural features that make NP-hard problems hard.
+
+```
+  BIOLOGY                         CS / OPTIMIZATION PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Levinthal's paradox             Exponential search space: 3¹⁰⁰ ≈ 10⁴⁸
+  (exhaustive search impossible)  states. Brute-force search is Θ(3ⁿ).
+                                  This is exactly why random restarts and
+                                  heuristic search are needed for NP-hard
+                                  combinatorial problems.
+
+  Energy funnel                   Branch-and-bound / heuristic pruning:
+  (guides search to native state) each productive contact lowers free energy
+                                  → prunes the search space. The funnel IS
+                                  the heuristic. Proteins with high contact
+                                  order fold slowly — analogous to problems
+                                  with long-range dependencies being harder
+                                  to solve by local search.
+
+  Rugged energy landscape         Non-convex objective function with many
+  (local minima = kinetic traps)  local minima. The challenge in protein
+                                  folding (and training neural networks) is
+                                  escaping local minima. Thermal fluctuations
+                                  are the equivalent of stochastic gradient
+                                  noise or simulated annealing.
+
+  Chaperone quality control       Error correction and retry logic:
+  (GroEL/GroES retry cycle)       GroEL is a fault-isolation sandbox (one
+                                  molecule per chamber), detects failure
+                                  (misfolded → rebind), and retries (multiple
+                                  ATP cycles). If irrecoverably failed → send
+                                  to degradation (proteasome = garbage
+                                  collector). Functionally: circuit breaker
+                                  + retry + dead-letter queue pattern.
+
+  Phi-value analysis              Perturbation / sensitivity analysis:
+  (maps transition state)         ΔΔG‡/ΔΔG_fold measures whether a residue's
+                                  contacts are formed in the TS. This is
+                                  ablation testing on the folding pathway —
+                                  same logic as removing a component and
+                                  measuring performance impact.
+
+  Two-state vs multi-state        Two-state = simple threshold function;
+  folding                         multi-state = piecewise or sigmoid with
+                                  intermediate plateaus. DSC can distinguish
+                                  them; the test (van't Hoff vs calorimetric
+                                  ΔH) is exactly a model comparison test.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+**AlphaFold2 as a search oracle**: AF2 does not solve the folding mechanism — it learned a mapping from sequence to structure from the PDB, bypassing the kinetic search problem entirely. It is a compressed lookup table built from evolutionary co-variation data. Understanding this distinction matters: AF2 tells you the static ground-state structure, not how the protein folds or what conformations it visits dynamically.
+
+---
 
 ## Decision Cheat Sheet
 

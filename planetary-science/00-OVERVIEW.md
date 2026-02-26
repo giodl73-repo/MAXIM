@@ -4,36 +4,40 @@
 
 Planetary science bridges astronomy, geology, atmospheric physics, and geochemistry. The central question: how do planets form, evolve, and (sometimes) become habitable?
 
-<!-- @editor[diagram/P2]: Diagram lists items in columns but doesn't show how Formation → Bodies → Processes relate — rework as layered system view showing causal flow (e.g., nebular hypothesis → accretion → differentiation → volcanism/tectonics) -->
 ```
-+------------------------------------------------------------------+
-|                    PLANETARY SCIENCE LANDSCAPE                    |
-+------------------------------------------------------------------+
-|                                                                  |
-|  FORMATION           BODIES              PROCESSES               |
-|  ---------           ------              ---------               |
-|  Nebular hypothesis  Terrestrial         Accretion               |
-|  Core accretion      Giant planets       Differentiation         |
-|  Disk instability    Ice giants          Volcanism               |
-|  Nice model          Dwarf planets       Tectonics               |
-|  Grand Tack          Moons               Impact cratering        |
-|                      Asteroids           Atmospheric escape      |
-|                      Comets              Magnetic dynamos        |
-|                      KBOs / TNOs         Climate feedbacks       |
-|                                                                  |
+PLANETARY SCIENCE: CAUSAL FLOW
 +------------------------------------------------------------------+
 |                                                                  |
-|  OBSERVATIONAL TOOLS           THEORETICAL FRAMEWORKS           |
-|  ------------------            ----------------------           |
-|  Telescopes (ground/space)     N-body dynamics                  |
-|  Spacecraft flyby/orbit        Planetary interior models        |
-|  Landers / rovers              Radiative transfer               |
-|  Sample return                 Hydrodynamic escape              |
-|  Radar / sonar sounding        Condensation sequences           |
-|  Seismometry                   Geochemical box models           |
-|  Spectroscopy                  Giant impact simulations         |
+|  NEBULAR DISK (gas + dust)                                       |
+|       |                                                          |
+|       v  [condensation sequence: refractory → icy beyond frost  |
+|           line; N-body dynamics; core accretion / disk instab.] |
+|  PLANETESIMALS → PROTOPLANETS → PLANETS                         |
+|       |                                                          |
+|       v  [differentiation: dense metals sink to core;           |
+|           silicates form mantle; volatiles → atmosphere]        |
+|  INTERNAL STRUCTURE                                              |
+|  (core / mantle / crust / atmosphere)                           |
+|       |                                                          |
+|       +———————————→ VOLCANISM (internal heat escapes)           |
+|       +———————————→ TECTONICS (lithospheric stress releases)    |
+|       +———————————→ MAGNETIC DYNAMO (convecting liquid core)    |
+|       |                                                          |
+|       v  [surface-atmosphere coupling; solar forcing;           |
+|           impact bombardment; volatile delivery/loss]           |
+|  SURFACE EVOLUTION + CLIMATE                                     |
+|  (impact craters; erosion; atmospheric chemistry; habitability) |
 |                                                                  |
 +------------------------------------------------------------------+
+
+OBSERVATIONAL TOOLS          THEORETICAL FRAMEWORKS
+Telescopes (ground/space)    N-body dynamics (orbital evolution)
+Spacecraft flyby/orbit       Planetary interior models (EOS, seismology)
+Landers / rovers             Radiative transfer (atmospheric T profile)
+Sample return                Hydrodynamic escape (atmosphere loss)
+Radar / sonar sounding       Condensation sequences (composition gradients)
+Seismometry                  Geochemical box models (element cycling)
+Spectroscopy (remote sensing)Giant impact simulations (SPH/AMR codes)
 ```
 
 ---

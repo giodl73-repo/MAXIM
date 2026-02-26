@@ -37,6 +37,10 @@ underlie knowledge graphs and OWL ontologies.
 
 ---
 
+**Formal verification lineage — from Code Contracts to Dafny**: The Hoare logic pipeline below has a direct lineage you may have encountered: Microsoft Research's **Spec#** (2004–2010) was a C# extension adding preconditions, postconditions, and object invariants as `requires`/`ensures`/`invariant` annotations, checked by the **Boogie** verifier (which translates to verification conditions discharged by Z3). **.NET Code Contracts** (shipped in .NET 4.0, 2010) were a library-level version of the same idea: `Contract.Requires(...)`, `Contract.Ensures(...)`, runtime checking + static analysis via cccheck. Both were direct Hoare-logic implementations: the annotation language IS the precondition/postcondition language, and the static checker IS a VC generator feeding an SMT solver.
+
+The modern successor pipeline: **Dafny** (Rustan Leino, also from MSR) is Spec#'s intellectual heir — a language designed from the ground up for verification, compiling to Boogie → Z3. **Frama-C** does the same for C (using the ACSL annotation language → Why3 → multiple backends including Z3 and CVC5). The conceptual pipeline is identical to what Spec# did; the tooling matured substantially. If you wrote `[Requires]` annotations in .NET Code Contracts, you were writing Hoare preconditions.
+
 ## Hoare Logic and Program Verification
 
 ### Hoare Triples
@@ -360,6 +364,26 @@ The isomorphism between proofs and programs (covered in Module 03, extended here
 ---
 
 ## Knowledge Representation and Reasoning
+
+**Relational-to-graph query bridge**: Knowledge graphs and SPARQL occupy the same conceptual space as relational databases and SQL, but with a different data model and a different formal semantics. The key differences and correspondences:
+
+```
+  RELATIONAL (SQL / Entity Framework)     KNOWLEDGE GRAPH (OWL / SPARQL)
+  ─────────────────────────────────────   ─────────────────────────────────
+  Table                                   Class (OWL: owl:Class)
+  Row                                     Individual (ABox assertion)
+  Foreign key                             Object property (RDF triple: s p o)
+  Schema (DDL)                            Ontology / TBox (class + property defs)
+  JOIN                                    Triple pattern matching in SPARQL
+  NULL (absence)                          Open World Assumption: absence ≠ false
+  Unique row identity (PRIMARY KEY)       IRI as global identifier
+  SQL query → result set                  SPARQL SELECT → result bindings
+  Stored procedure                        SPARQL CONSTRUCT / DESCRIBE
+  CHECK constraint                        OWL class restriction (owl:maxCardinality)
+  Foreign key constraint enforcement      Closed World reasoning (requires extra step)
+```
+
+The critical semantic difference: relational databases use **Closed World Assumption** (if a fact is not in the database, it is false — the database is complete). OWL/RDF uses **Open World Assumption** (if a fact is not asserted, it may still be true — the knowledge base is incomplete). This is why SPARQL queries can return surprising results: `ASK { :Alice :hasSibling :Bob }` can return false even if Alice exists, because Alice's siblings are simply not asserted, not because she has none. For the EF/SQL programmer: this is the opposite of `WHERE NOT EXISTS (...)` semantics — the OWA turns every such query into a maybe rather than a no.
 
 ### Description Logics and OWL
 

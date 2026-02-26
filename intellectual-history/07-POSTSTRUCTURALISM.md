@@ -307,7 +307,21 @@ and historiography internationally.
 
 ---
 
-<!-- @editor[bridge/P2]: Saussure's "meaning as difference" maps to how identifiers work in programming — a variable name means what it means by differing from all other names in scope, not by intrinsic property. Derrida's trace/differance parallels pointer indirection and lazy evaluation. Natural bridges for this learner, currently absent -->
+## Engineering Bridge: Structural Semantics in Programming Languages
+
+Saussure's core insight — "in language there are only differences without positive terms" — is not merely analogous to how identifiers work in programming; it describes the formal semantics precisely:
+
+**Meaning as difference in naming and scope.** The identifier `x` means what it means in a function body not because of any intrinsic property of the three pixels that render as "x", but because it differs from all other names in scope. Rename every binding consistently (`x → q`) and the semantics is preserved — the meaning is the relational structure, not the symbol. This is why alpha-equivalence is the foundation of lambda calculus: `λx.x` and `λy.y` are the same term because meaning is structural, not positional.
+
+**Saussure's langue/parole → type system/runtime.** Langue (the underlying system, the structure of differences) corresponds to the type system or grammar: the abstract relational structure. Parole (actual utterances) corresponds to runtime execution: the specific instantiation. The type checker operates on langue; the runtime operates on parole.
+
+**Derrida's differance and pointer indirection.** Derrida argues meaning is always deferred — a sign points to other signs, never to a fully present meaning. This is structurally identical to pointer indirection: a pointer does not contain the value, it contains an address that points to the value (which may itself be a pointer). Derrida's "trace" (every sign carries the trace of other signs) maps to the reference graph: every object carries references to other objects; no object contains its meaning independently.
+
+**Differance (deferral) and lazy evaluation.** Haskell's lazy evaluation defers computation until a value is forced — the thunk is a promise, not a value. The "meaning" (the evaluated form) is always deferred until the moment of forcing. An unevaluated thunk carries the trace of its computation graph without resolving it. Derrida's claim that presence (full, immediate meaning) is always deferred is precisely the structure of call-by-need semantics.
+
+**Barthes's "Death of the Author" and API contracts.** Once an API is published, the author's intention is irrelevant: the meaning is determined by what clients do with it (the "reader"). This is Hyrum's Law — any observable behavior of the API, regardless of specification, becomes a dependency. The specification is the author's intention; the actual semantic contract is constituted by the differential field of usage patterns.
+
+**Foucault's discourse → API governance.** A discourse is a system of rules about what can be said, by whom, under what conditions. An API's versioning policy, deprecation rules, and access controls constitute exactly this: they define which calls are "valid," who has permission, and what the conditions of legitimate usage are. The "power-knowledge" relation maps to API authorization — the ability to make a call is inseparable from the knowledge encoded in the response.
 
 ## Decision Cheat Sheet
 

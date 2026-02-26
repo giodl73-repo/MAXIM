@@ -47,18 +47,20 @@ TOTAL FERTILITY RATE (TFR):
   at birth ~1.05 males/female and mortality before reproductive age)
   In high-mortality settings: >2.5-3.0 (more women die before completing reproduction)
 
-<!-- @editor[structure/P2]: Global TFR values below are comparison data — convert from code block to a markdown table for scannability -->
-  GLOBAL VALUES (2023):
-  Niger:        6.9 (highest globally)
-  Somalia:      6.0
-  Mali:         5.9
-  Sub-Saharan Africa: 4.5 (range 3.5-7.0)
-  India:        2.0 (below replacement; reached milestone ~2021)
-  US:           1.62
-  Germany:      1.46
-  Italy:        1.24
-  South Korea:  0.72 (lowest recorded for any country, 2023)
-  Japan:        1.20
+### TFR Global Reference Values (2023)
+
+| Country / Region | TFR | Note |
+|---|---|---|
+| Niger | 6.9 | Highest globally |
+| Somalia | 6.0 | |
+| Mali | 5.9 | |
+| Sub-Saharan Africa | 4.5 | Range 3.5–7.0 |
+| India | 2.0 | Below replacement; crossed milestone ~2021 |
+| United States | 1.62 | |
+| Germany | 1.46 | |
+| Italy | 1.24 | |
+| Japan | 1.20 | |
+| South Korea | 0.72 | Lowest ever recorded for a country (2023) |
 
 GROSS REPRODUCTION RATE (GRR):
   GRR = TFR × (proportion of births that are female)
@@ -225,32 +227,22 @@ SECOND DEMOGRAPHIC TRANSITION (SDT, van de Kaa & Lesthaeghe 1986):
 
 ## Fertility Globally — Current Patterns
 
-```
-<!-- @editor[structure/P2]: Regional TFR comparison below belongs in a markdown table — parallel structure with the Decision Cheat Sheet -->
-REGIONAL FERTILITY (TFR, 2023 estimates):
-  Sub-Saharan Africa:          4.5  (declining but slowly)
-  Middle East & N. Africa:     2.7  (rapid decline in progress)
-  South Asia:                  2.1  (India just below replacement)
-  Southeast Asia:              2.1  (wide variation: Philippines 2.8, Thailand 1.3)
-  Latin America:               1.8  (below replacement in most countries)
-  East Asia:                   1.2  (extreme low: S.Korea 0.72, Japan 1.2, China 1.0)
-  Europe:                      1.5  (large variation: France 1.68, Spain 1.16)
-  North America:               1.7  (US 1.62, Canada 1.4)
+### Regional Fertility (TFR, 2023 Estimates)
 
-  Convergence toward low fertility is real but incomplete.
-  Sub-Saharan Africa remains high-fertility outlier.
-  East Asia shows unprecedented low fertility with no recovery in sight.
-  Low fertility "trap" hypothesis: once below ~1.5, return to replacement difficult.
+| Region | TFR | Trend / Key variation |
+|---|---|---|
+| Sub-Saharan Africa | 4.5 | Declining but slowly; high-fertility outlier |
+| Middle East & N. Africa | 2.7 | Rapid decline in progress |
+| South Asia | 2.1 | India just below replacement |
+| Southeast Asia | 2.1 | Wide variation: Philippines 2.8, Thailand 1.3 |
+| Latin America | 1.8 | Below replacement in most countries |
+| Europe | 1.5 | Wide variation: France 1.68, Spain 1.16 |
+| North America | 1.7 | US 1.62, Canada 1.4 |
+| East Asia | 1.2 | Extreme low: South Korea 0.72, Japan 1.2, China ~1.0 |
 
-LOWEST-LOW FERTILITY (<1.3):
-  South Korea, Singapore, Taiwan, Hong Kong, China, Spain, Italy, Poland, ...
-  Causes: extreme housing costs, education costs, labor market insecurity,
-  gender inequality at home (women work + all housework → overwhelming double burden)
-  Pronatalist policies: maternity leave, childcare subsidies → modest TFR recovery
-  (France, Nordic countries: TFR ~1.6-1.9 with strong family policies)
-  South Korea: world's most generous childcare subsidy → TFR still falling
-  Conclusion: economic factors + cultural values interact; no easy fix
-```
+Convergence toward low fertility is real but incomplete. East Asia shows unprecedented below-replacement fertility with no recovery in sight. The **low-fertility trap** hypothesis: once TFR falls below ~1.5, population momentum and cultural entrenchment make return to replacement difficult.
+
+**Lowest-low fertility (<1.3)** — South Korea, Singapore, Taiwan, China, Spain, Italy, Poland: driven by extreme housing and education costs, labor market insecurity, and gender inequality at home (women face the double burden of full employment plus primary household labor). Pronatalist policies (maternity leave, childcare subsidies) achieve modest TFR recovery in France and Nordic countries (~1.6-1.9), but South Korea has the world's most generous childcare subsidy with TFR still declining. Economic factors and cultural values interact; no simple policy lever exists.
 
 ## Decision Cheat Sheet
 

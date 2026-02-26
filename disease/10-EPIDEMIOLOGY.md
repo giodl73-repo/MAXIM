@@ -35,7 +35,36 @@ Core question types:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- epidemiological study design hierarchy (RCT > cohort > case-control > cross-sectional) maps to evidence quality in any empirical discipline; RR vs OR parallels prospective measurement vs retrospective estimation -->
+**Systems Bridge:** The epidemiological study design hierarchy is the same evidence quality hierarchy used in any empirical discipline — it is not biology-specific, it is epistemology. The principle: the closer the study design comes to a controlled experiment, the fewer confounds are unaccounted for, and the stronger the causal claim.
+
+```
+Design              Causal claim strength    Analogy
+──────────────────────────────────────────────────────────────────────
+RCT (randomized     Strong — randomization   A/B test: random assignment
+controlled trial)   controls confounders     eliminates selection bias
+                    by design
+
+Cohort (prospective) Moderate — exposure     Observational logging: track
+                    measured before outcome; a defined cohort forward in time;
+                    confounders measured,    can measure incidence and
+                    statistically adjusted   compute relative risk (RR)
+
+Case-control        Weaker — retrospective   Post-hoc log analysis: start
+(retrospective)     selection; recall bias;  from known outcomes, look back
+                    can only compute OR,     at what differed; selection
+                    not RR                   bias and recall bias degrade
+                                             causal inference
+
+Cross-sectional     Weakest for causality    A snapshot / point-in-time
+                    — exposure and outcome   metric — can't tell which
+                    measured simultaneously  came first
+
+Ecological          Confounded by            Aggregate metrics — group-level
+                    aggregation fallacy      correlation ≠ individual-level
+                                             correlation
+```
+
+**RR vs OR:** Relative Risk (RR) is a prospective ratio — "how much more likely is disease in exposed vs unexposed" — and is directly interpretable. Odds Ratio (OR) is what you compute when you can't measure incidence (case-control design starts from outcome, not population) — it approximates RR well when disease prevalence is low ("rare disease assumption"). When prevalence is high, OR overestimates RR. The confusion between OR and RR in the literature is a systematic bias toward inflated effect sizes in case-control studies on common diseases.
 
 ## 1. Epidemiological Measures
 

@@ -4,7 +4,7 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No CS bridge -- resistance mechanisms (mutation, gene transfer, efflux pumps) map to adversarial security model (attack surfaces, horizontal propagation, defense-in-depth stewardship) -->
+**Systems Bridge:** Antibiotic resistance is an adversarial system where the defender (antibiotic) has a specific attack surface (the drug target), and the adversary (bacteria) evolves countermeasures through both vertical transmission (mutation under selective pressure) and horizontal propagation (lateral transfer of resistance genes via plasmids — the biological equivalent of a zero-day exploit shared across unrelated systems). The four resistance mechanisms map directly to defensive strategies in security: enzymatic inactivation = exploit neutralization before it reaches the target; target modification = patching the vulnerability so the exploit no longer works (MRSA's PBP2a); reduced permeability = network-level filtering so the attack payload never reaches the system; efflux pumps = active ejection before the payload can act. Plasmid-mediated horizontal gene transfer is the most dangerous because a single conjugation event can transfer a suite of resistance genes across bacterial species in a single step — equivalent to a shared exploit toolkit propagating across unrelated codebases. Antibiotic stewardship is defense-in-depth: narrow-spectrum preferred when possible (reduce selection pressure on off-target organisms), shortest effective duration (minimize evolutionary pressure duration), de-escalation on culture results (don't maintain broad pressure once the specific adversary is identified). The analogy to not keeping unused ports open or running unnecessary services is direct.
 
 ## Big Picture: Antibiotic Target Map
 

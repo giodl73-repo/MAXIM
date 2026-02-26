@@ -2,7 +2,7 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P2]: No old-world bridge — the documents-vs-material-record gap is structurally identical to logs-vs-actual-behavior in production systems (what teams report vs. what telemetry shows); Garbage Project findings parallel observability gaps in self-reported metrics -->
+**Documents-vs-material record as logs-vs-telemetry**: The central methodological insight of historical archaeology — that material culture often contradicts, supplements, or reveals what written records omit — is structurally identical to the gap between reported behavior and observed telemetry in production systems. What teams say they do (retrospective documentation, incident reports, architecture diagrams) consistently diverges from what the system actually does (distributed traces, heap dumps, network captures). William Rathje's Garbage Project (Tucson, 1970s–90s) is a direct parallel to production observability: participants consistently self-reported consuming less alcohol and more healthy food than their garbage documented. The material record doesn't lie — it records what was actually discarded, not what people wished to report. This is the same logic as "trust the logs, not the status page." Historical archaeology's value proposition is that written sources are authored (someone chose what to record and how) while material culture is deposited (it accumulates through behavior, not representation).
 
 ```
 +------------------------------------------------------------------+
@@ -295,16 +295,15 @@ DIGITAL HERITAGE:
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" rows (e.g., "Use plantation archaeology when: written record is from enslaver perspective only; Use conflict archaeology when: reconstructing troop movements from artifact scatter") -->
-
-| Question | Answer |
-|----------|--------|
-| Why do archaeology where written records exist? | Documents record what their authors chose; material culture records what people actually did |
-| What does slave quarter archaeology find that documents miss? | Spiritual practices, dietary supplementation, personal possessions, resistance evidence |
-| What is colonoware? | Hand-built low-fired pottery in American South; now understood as partly African-derived, hybrid tradition |
-| What is the primary method in battlefield archaeology? | Metal detecting + GIS + spatial analysis of projectile distribution |
-| Why is forensic archaeology important? | Chain-of-custody recovery of evidence from mass graves for war crimes tribunals |
-| What did the Garbage Project show? | Self-reported consumption significantly underestimates actual food and alcohol use |
+| Use this when... | Method / approach | Notes |
+|-----------------|------------------|-------|
+| The written record is exclusively from the dominating group's perspective | Plantation archaeology / archaeology of the enslaved | Documents are authored by enslavers; slave quarter excavation recovers the material record of enslaved people's own lives — spiritual objects, food supplementation, personal items, evidence of resistance |
+| Troop movements and battle dynamics need reconstruction beyond official accounts | Conflict archaeology: metal detecting + GIS + projectile scatter analysis | Spent cartridge and bullet distribution maps troop positions and movement; official battle accounts are often post-hoc narratives |
+| Self-reported consumption data seems unreliable | Garbage Project methodology (material discard vs. self-report) | Material record corrects for social desirability bias; works for food, alcohol, household consumption patterns |
+| Contact-era cultural mixing needs to be understood | Colonoware and hybrid material culture analysis | Mixed-tradition ceramics (African + European techniques) reveal cultural synthesis that neither African nor European documentary sources describe |
+| Industrial processes need reconstruction | Industrial archaeology: fabric analysis + experimental replication | Machinery, production waste, spatial layout of factory floors preserve process knowledge not recorded in manuals |
+| Mass grave evidence is needed for legal proceedings | Forensic archaeology: chain-of-custody recording + aDNA identification | Methods identical to standard excavation but with legal evidentiary standards; supports war crimes tribunals |
+| The gap between official account and material record is the finding | Documents-vs-material cross-analysis | When they agree: corroboration; when they diverge: the divergence is the data — what was systematically omitted or misrepresented |
 
 ---
 

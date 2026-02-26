@@ -4,35 +4,39 @@
 
 Education science spans how learning works (cognitive and developmental science), how teaching is designed (pedagogy and curriculum), how systems are organized (institutional structure and policy), and how power operates within and through education (sociology and equity). The field is uniquely practical: every finding eventually confronts the classroom, the teacher, and the learner.
 
-<!-- @editor[diagram/P2]: Landscape diagram lists items in quadrants but doesn't show how the four areas relate — the genealogy timeline below does the relational work, but the opening diagram could show arrows between learning science and pedagogy, between sociology and policy -->
 ```
-+------------------------------------------------------------------+
-|                      EDUCATION LANDSCAPE                         |
-+------------------------------------------------------------------+
-|                                                                  |
-|  LEARNING SCIENCE                 PEDAGOGY / CURRICULUM          |
-|  ---------------                  ----------------------         |
-|  Behaviorism                      Learning objectives taxonomy   |
-|  Cognitive / information          Curriculum design models       |
-|  processing                       Instructional design           |
-|  Constructivism                   Assessment (formative/         |
-|  Social-cultural theory           summative)                     |
-|  (Vygotsky)                       Project-based learning         |
-|  Cognitive science                Universal Design for Learning  |
-|  applied (spacing, retrieval)                                    |
-|                                   EDUCATIONAL TECHNOLOGY         |
-|  DEVELOPMENTAL LEARNING           ----------------------         |
-|  -------------------              MOOCs, LMS platforms           |
-|  Piaget: stages                   Adaptive learning              |
-|  Vygotsky: ZPD                    AI tutors                      |
-|  Socialization                    Completion crisis              |
-|  Language acquisition                                            |
-|                                   SOCIOLOGY OF EDUCATION         |
-|                                   ----------------------         |
-|                                   Social reproduction            |
-|                                   Cultural capital               |
-|                                   Equity and access              |
-+------------------------------------------------------------------+
+EDUCATION SYSTEM: CAUSAL RELATIONSHIPS
+=======================================
+
+  LEARNING SCIENCE                    PEDAGOGY / CURRICULUM
+  (how learning works)   --------->   (how to design instruction)
+  ---------------        informs      ----------------------
+  Behaviorism                         Learning objectives taxonomy
+  Cognitive/information               Curriculum design models
+  processing                          Instructional design
+  Constructivism                      Assessment (formative/summative)
+  Social-cultural (Vygotsky)          Project-based learning
+  Cognitive science applied           Universal Design for Learning
+  (spacing, retrieval)
+       |                                        |
+       | theory shapes                          | design shapes
+       v                                        v
+  DEVELOPMENTAL LEARNING              EDUCATIONAL TECHNOLOGY
+  (who can learn what, when)          (tools that implement design)
+  -------------------    --------->   ----------------------
+  Piaget: stages         constrains   MOOCs, LMS platforms
+  Vygotsky: ZPD                       Adaptive learning
+  Socialization                       AI tutors / ITS
+  Language acquisition                Completion crisis
+       |                                        |
+       | explains gaps in                       | measured by / produces
+       v                                        v
+  SOCIOLOGY OF EDUCATION              POLICY OUTCOMES
+  (who gets what education)           (equity, access, attainment)
+  ----------------------   ------->   ----------------------
+  Social reproduction      drives     Achievement gaps
+  Cultural capital         policy     Completion rates
+  Equity and access        reform     Credential value
 ```
 
 ---

@@ -4,7 +4,52 @@
 
 Protein is the most functionally diverse macronutrient — structural material, catalysts, hormones, antibodies, neurotransmitter precursors, oxygen carriers. From a dietary standpoint, the key questions are: what quality, what quantity, and what timing?
 
-<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view connecting intake -> digestion -> amino acid pool -> mTOR/MPS -> quality metrics (PDCAAS/DIAAS) -> animal vs plant -> aging/sarcopenia -> requirements by goal -->
+```
+PROTEIN SYSTEM — LAYERED VIEW
+──────────────────────────────────────────────────────────────────────────────
+INTAKE LAYER:
+  Animal proteins              Plant proteins
+  (complete; DIAAS 0.9–1.2)   (often incomplete; DIAAS 0.4–0.9)
+  high leucine (~8–10.5%)      lower leucine (~6–8%)
+         │                              │
+         └──────────┬───────────────────┘
+                    ↓ DIGESTION
+  Pepsin (stomach) → trypsin/chymotrypsin (pancreatic) → brush-border peptidases
+  Output: free amino acids + di/tripeptides → portal vein
+
+                    ↓ AMINO ACID POOL
+  Liver:     transamination, urea cycle, gluconeogenesis, NEAA synthesis
+  Muscle:    protein synthesis (requires mTOR activation)
+  Gut:       enterocyte fuel (glutamine)
+  Immune:    glutamine + arginine
+
+                    ↓ mTOR / MPS SIGNAL
+  Leucine + resistance exercise → Rag GTPase → mTORC1 → S6K1 + 4E-BP1
+  → ribosome assembly → muscle protein synthesis
+  Leucine threshold: ~2–3g/meal to saturate signal
+  → maps to ~25–40g high-quality protein or ~30–40g+ plant protein
+
+                    ↓ QUALITY METRICS (PDCAAS / DIAAS)
+  PDCAAS: capped at 1.0; uses fecal digestibility (less accurate)
+  DIAAS:  uses ileal digestibility; uncapped; picks limiting AA
+  Practical: DIAAS < 0.75 = incomplete; requires complementation
+
+                    ↓ ANIMAL vs PLANT (see section below)
+  Animal: complete AAs; high leucine; heme iron; B12; EPA/DHA
+  Plant: complementary pairs needed (grains + legumes); ferment to reduce phytate
+
+                    ↓ AGING / SARCOPENIA
+  Anabolic resistance → higher dose needed → 1.2–2.0g/kg in older adults
+  Combined with resistance exercise → partially overcomes resistance
+
+                    ↓ REQUIREMENTS BY GOAL
+  Sedentary RDA: 0.8 g/kg (minimum)
+  Resistance training: 1.6–2.2 g/kg
+  Cutting: 2.2–3.1 g/kg (preserve LBM)
+  Older adult: 1.2–2.0 g/kg
+──────────────────────────────────────────────────────────────────────────────
+```
+
 ```
 PROTEIN INTAKE
      │

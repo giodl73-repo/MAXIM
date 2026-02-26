@@ -2,19 +2,42 @@
 
 ## Overview
 
-<!-- @editor[diagram/P2]: Overview block compares brain vs AI as text lists -- replace with ASCII correspondence diagram mapping neuroscience mechanisms to AI analogs with connection lines -->
 ```
-    NEUROSCIENCE ←──────────────────────────── AI / ML
+    NEUROSCIENCE ←──────────────────────── AI / ML
+    ═══════════════════════════════════════════════════════════════════
 
-    Biology: evolved over 500M years    Math: developed over 80 years
-    Wet, hot, noisy, 20W                Dry, cool, precise, 700W per chip
+    MECHANISM CORRESPONDENCE MAP:
+
+    Neuroscience mechanism          Connection strength    AI analog
+    ──────────────────────────────────────────────────────────────────
+    Action potential (rate code)    ████████░░  strong     ReLU activation (rate-like)
+    Hebbian LTP/STDP                ██████░░░░  moderate   Hebb-style weight update / STDP in SNNs
+    Backpropagation?                ████░░░░░░  weak/none  Backprop (biologically implausible)
+    NMDA coincidence detection      ████████░░  strong     AND gate / attention key-query match
+    V1 simple cells (Gabor)         ██████████  exact      CNN first-layer filters (LeCun inspired by this)
+    V1→IT hierarchy                 ████████░░  strong     Convolutional network depth
+    Basal ganglia (BG) RL           ████████░░  strong     Temporal difference learning, actor-critic
+    Dopamine RPE                    ██████████  exact      TD error δ = r + γV(s') - V(s)
+    Hippocampus pattern completion  ██████░░░░  moderate   Hopfield / associative memory
+    Hippocampal indexing            ████████░░  strong     RAG (retrieval-augmented generation)
+    Working memory (PFC sustained)  ████████░░  strong     KV-cache in transformers
+    Attention (top-down, PFC→V4)    ████████░░  strong     Transformer attention mechanism
+    Predictive coding               ████████░░  strong     Diffusion/VAE latent priors; error signals
+    Sleep consolidation (SWR)       ████████░░  strong     Replay-based continual learning
+
+    PROPERTIES COMPARISON:
+    Biology: evolved over 500M years    AI: developed over 80 years
+    Wet, hot, noisy, 20W budget         Dry, cool, precise, 700W per chip
     Self-organizing, self-repairing     Engineered, manually updated
-    Online, continuous learning         Mostly batch, offline training
+    Online, continuous, few-shot        Mostly batch, offline, data-hungry
+    Sparse firing (~1-5% active)        Dense activation (50-80% in MLPs)
+    ~10⁸ synapses/neuron (top-end)      ~10⁸ parameters/model (GPT-2 scale)
 
     THE HONEST TRUTH:
-    Most AI is not "brain-inspired" in any deep sense.
-    The similarities are real but shallow; the differences are deep.
-    Understanding BOTH directions is where the interesting science is.
+    Most modern AI is NOT brain-inspired in any deep sense.
+    CNNs and RL are the real success cases of neuroscience → AI transfer.
+    Transformers were inspired by machine translation attention, not biology.
+    The interesting science runs BOTH ways: AI tools help us understand brains.
 ```
 
 ---
@@ -545,7 +568,37 @@
 
 ---
 
-<!-- @editor[structure/P2]: Missing Decision Cheat Sheet -- Open Problems table is "what solving X unlocks" not "use X when Y". Add: "To understand [AI concept], study [neuroscience mechanism]" format -->
+## Decision Cheat Sheet: Cross-Reference Guide
+
+Use this when you know one side and want to find the corresponding concept on the other side.
+
+**To understand an AI concept, study this neuroscience mechanism:**
+
+| AI / ML concept | Neuroscience mechanism to study | Why the parallel is strong |
+|----------------|--------------------------------|---------------------------|
+| Convolutional filters (especially early layers) | V1 simple cells, Gabor receptive fields, Hubel & Wiesel | CNNs were explicitly motivated by V1 architecture; the math is essentially identical |
+| Temporal difference (TD) learning | Dopamine reward prediction error (Schultz 1997) | δ = r + γV(s') - V(s) appears in both; DA bursts/dips are biological TD errors |
+| Actor-critic RL | Basal ganglia direct/indirect pathways | Striatum = actor; SNc dopamine = critic signal; D1/D2 receptor split = value vs cost |
+| Attention mechanism (transformers) | Top-down attention (PFC → visual cortex), neuromodulatory gain | Query-key dot product = relevance-weighted gating; matches top-down attentional modulation |
+| Retrieval-augmented generation (RAG) | Hippocampal indexing theory | Hippocampus stores indices to cortical memory traces; retrieval = pointer dereference; same two-stage architecture |
+| KV-cache in transformers | PFC working memory (sustained activity) | Both maintain a context buffer that can be queried; capacity-limited; gated by relevance |
+| Few-shot learning | One-shot learning in hippocampus | Single-trial episodic memory; contrast with cortical slow learning; complementary learning systems |
+| Catastrophic forgetting | Absence of sleep-based consolidation | Brain avoids forgetting via replay during SWRs; AI methods: experience replay, EWC, progressive nets |
+| Mixture of experts (MoE) | Sparse cortical coding (~1-5% active neurons) | Both avoid dense activation; routing = neural competition; sparse = energy-efficient |
+| Predictive coding / VAE | Predictive coding theory (Rao & Ballard 1999) | Top-down predictions generate prior; bottom-up inputs carry prediction error; same math |
+| Hopfield network / associative memory | CA3 recurrent hippocampal circuit | CA3 is a Hopfield network; pattern completion = attractor dynamics; same energy function |
+| Spiking neural networks (SNNs) | Biological neurons (H-H, LIF, STDP) | SNNs are direct computational models of biology; trade accuracy for temporal/energy efficiency |
+
+**To understand a neuroscience mechanism, find the AI analog:**
+
+| Neuroscience mechanism | AI analog | Insight gained from comparison |
+|-----------------------|-----------|-------------------------------|
+| NMDA coincidence detection | AND gate; attention key-query matching | Both detect co-occurrence with a multiplicative gate |
+| Cerebellar LTD (error-based learning) | Supervised gradient descent | Climbing fiber error = δL/δw; but learning is local (no weight transport problem) |
+| Hebbian STDP | Local Hebb update (no backprop) | Preserves biological locality; converges for associative tasks without global error signal |
+| Sharp-wave ripple replay | Experience replay (DQN) | Offline consolidation of recent experience; both improve stability of long-term learning |
+| Grid cells (hex lattice in EC) | Positional encoding in transformers; manifold learning | Both implement a metric embedding of a structured space; grid spacing = resolution level |
+
 ## Open Problems: Neuroscience × AI Table
 
 | Neuroscience mystery | What solving it would unlock for AI |
@@ -565,7 +618,16 @@
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to .NET/Azure expertise unused -- Azure Service Bus as neurotransmitter broadcast, VSTS gated check-in as BG NoGo pathway, Azure CDN caching as cortical memory consolidation. Supplementary flavor per style contract -->
+## Software Architecture Flavor Bridges
+
+For readers with distributed systems and enterprise software backgrounds, some additional entry points:
+
+**Neuromodulators as broadcast message infrastructure**: Dopamine, serotonin, ACh, and norepinephrine are released into the extracellular space and diffuse broadly (volume transmission), reaching thousands of target neurons. This is a broadcast message bus (publish/subscribe), not point-to-point signaling. Receptors are the subscribers; neuromodulator systems are the message brokers. The brainstem nuclei that generate these signals (VTA, raphe, LC, basal forebrain) are the message producers — small populations that have outsized influence on global brain state.
+
+**BG gating as a gated check-in process**: The BG-thalamus-cortex loop functions as a gate that must be opened before an action (motor or cognitive) proceeds to execution. Without sufficient dopamine (Parkinson's), the gate stays closed — actions are initiated but not released. This parallels a manual approval step in a CI/CD pipeline: the change (action plan) is ready in the staging area (motor cortex), but requires explicit approval (BG disinhibition) before merging (execution via spinal cord).
+
+**Cortical memory consolidation as tiered cache with background flush**: Working memory (PFC) is L1 cache — fast, small, active. Hippocampus is L2 — recent episodic storage, content-addressable, medium-term. Neocortex is long-term storage — slow to write, durable. Sleep-based consolidation via SWRs is the background cache-flush process that writes hippocampal L2 entries to neocortical long-term storage. The brain can't do this during active use (SWRs are suppressed during exploration, active during rest/sleep) — analogous to a write-back policy that batches persistence to reduce runtime overhead.
+
 ## Common Confusion Points
 
 **"AI is inspired by the brain" is mostly myth**: Perceptrons (Rosenblatt 1957) were inspired

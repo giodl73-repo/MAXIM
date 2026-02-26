@@ -25,7 +25,7 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — estuary mixing (salt wedge / partial / well-mixed) is a classic two-fluid stratified flow problem from fluid dynamics; the sediment budget approach (inputs - outputs = net change) is identical to mass balance in chemical or civil engineering; the Bruun rule is a geometric scaling law -->
+Estuary mixing is a two-fluid stratified flow problem from fluid dynamics: the salt wedge is a stable density-stratified two-layer flow (heavier salt water below lighter fresh water), with the Richardson number determining whether the interface is stable or goes turbulent. The transition from salt wedge → partially mixed → well-mixed estuary maps directly to increasing Reynolds/Richardson regime mixing. The sediment budget (inputs − outputs = net accumulation) is a mass balance equation — the same conservation-of-mass framework used in chemical engineering process design. The Bruun rule (shoreline retreat = SLR × [profile width / vertical range]) is a geometric scaling law derived by assuming the active profile shape is conserved: it's a first-order dimensional analysis result that predicts ~50–100 m of shoreline retreat per meter of sea level rise.
 
 ## Estuaries — Mixing Zones
 
@@ -370,4 +370,57 @@ SETBACK LINE MANAGEMENT:
 
 **Mangrove carbon is conditional**: Mangroves are among the highest carbon-storing ecosystems per unit area. BUT: destroying mangroves releases the stored peat carbon RAPIDLY (aerobic decomposition in drained soil). A cleared mangrove plantation that grows shrimp for 20 years may emit more CO₂ than it ever sequestered. The carbon stock is a debt: the longer the mangrove stood, the larger the penalty for clearing it.
 
-<!-- @editor[content/P3]: Coral reef geomorphology absent — while mentioned in 08-MARINE-BIOLOGY, reef types (fringing, barrier, atoll — Darwin's subsidence theory) and reef accretion/erosion budgets are coastal system topics that belong here as well -->
+## Coral Reef Geomorphology
+
+Coral reefs are coastal structures built by biological calcification. Darwin's (1842) subsidence theory correctly predicted the fringing → barrier reef → atoll progression before confirmation by drilling.
+
+```
+REEF TYPE PROGRESSION (Darwin's Subsidence Theory):
+
+  FRINGING REEF:
+    Coral grows directly adjacent to shoreline
+    No significant lagoon; reef flat exposed at low tide
+    Young volcanic island, low subsidence rate
+    Example: Hawaii nearshore reefs, Red Sea fringing reefs
+
+  BARRIER REEF:
+    Island has subsided; lagoon separates reef from shore
+    Lagoon 5–75 m deep, 10–100 km wide
+    Example: Great Barrier Reef (2300 km), Belize Barrier Reef (300 km)
+    Darwin predicted: same island that once had fringing reef, now subsided
+
+  ATOLL:
+    Volcanic island fully submerged; only reef ring remains
+    Lagoon enclosed (or mostly enclosed) by reef
+    Low, flat coral islands (motu) on reef crest at most
+    Example: Maldives, Marshall Islands, Tuamotus
+    Confirmed by Bikini Atoll drilling (1952): basalt basement at depth
+    below thick coral carbonate → confirmed Darwin's prediction
+
+NET CARBONATE BUDGET:
+  Reef growth = calcification - dissolution - physical erosion (bioerosion + abrasion)
+
+  HEALTHY REEF: net accretion ~1–10 mm/yr
+    Calcification: corals, coralline algae, mollusks
+    Bioerosion: parrotfish (scrape ~0.1 mm/yr from hard substrate),
+      sea urchins, sponges, boring mollusks, boring worms
+    Physical: wave abrasion, storm breakage
+
+  DEGRADED REEF: net erosion
+    Bleaching → coral death → bioerosion exceeds calcification
+    Acidification reduces calcification rates
+    "Carbonate budget" modeled at reef scale to predict reef future
+
+  REEF ACCRETION RATE vs. SEA LEVEL RISE:
+    Maximum accretion rate: ~10 mm/yr (healthy, warm, shallow)
+    Current SLR: ~4 mm/yr and accelerating
+    Many reefs: accretion 1–3 mm/yr → falling behind SLR already
+    Degraded reefs: net erosion → no longer growing toward sea level
+    → Reef islands (atolls) lose structural foundation
+
+HOLOCENE REEF RECORDS:
+  Reef growth since last glacial maximum (~20 ka BP):
+  Sea level rose ~120 m in ~10,000 years (~12 mm/yr average)
+  Reefs "kept up" during some phases, "drowned" during rapid SLR pulses
+  Paleoclimate record shows reefs are sensitive sea level change indicators
+```

@@ -508,7 +508,33 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world→new-world bridge section — natural parallels: HPA negative feedback = control loop (the learner knows control theory); allostatic load = accumulated technical debt from chronic overload without recovery; adaptive→maladaptive transition = the same pattern as a system designed for burst traffic failing under sustained load. These are not metaphors — they are the same dynamical systems principles applied to different substrates. -->
+**Formal systems bridge — stress physiology as control systems:**
+
+These are not metaphors. The dynamical systems principles are structurally identical;
+the substrate is different.
+
+The HPA axis is a negative feedback control loop. CRH → ACTH → cortisol is the
+forward path. Cortisol binding to hippocampal receptors → suppressed CRH is the
+feedback path. Normal stress response = excitation → feedback suppression → return
+to setpoint. Allostatic dysregulation = the feedback loop fails to suppress, either
+because the gain is wrong (chronic activation) or the receptor density is down-regulated
+(as happens with prolonged high cortisol → reduced hippocampal glucocorticoid receptors
+→ reduced feedback sensitivity → higher cortisol setpoint). This is integral windup:
+the integrator accumulates error faster than feedback can cancel it.
+
+Allostatic load is accumulated wear from sustained operation above design parameters.
+A system designed for burst traffic failing under sustained load is the structural
+analog: the stress response is designed for acute high-load periods (acute threat),
+not for chronic sustained activation (modern social stressors). The physiological
+"degradation metrics" (cortisol, BP, HbA1c, telomere length) are exactly the
+cumulative damage indicators you'd instrument in a system running above rated capacity.
+Technical debt from chronic overload without recovery time is the organizational analog.
+
+The adaptive → maladaptive transition (acute immune boost → chronic immune suppression)
+is a common systems pattern: the mechanism that optimizes for the frequent short-load
+case degrades performance in the rare sustained-load case. Short-circuit protection
+designed for brief current spikes is the electrical engineering analog; it trips
+correctly for surges, but sustained overcurrent destroys it even at sub-trip levels.
 
 ## Decision Cheat Sheet
 

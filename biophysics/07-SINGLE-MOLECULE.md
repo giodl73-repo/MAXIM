@@ -432,7 +432,64 @@ perturbing their function:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — natural parallels: signal processing / SNR analysis to single-molecule detection limits, feedback control systems to force clamp and position clamp, calibration theory in metrology to trap stiffness calibration -->
+## Signal Processing, Control, and Metrology Bridges
+
+Single-molecule experiments are precision measurement instruments. Every design decision maps onto classical signal processing and control systems theory.
+
+```
+  SINGLE-MOLECULE TECHNIQUE     SIGNAL PROCESSING / CONTROL PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Optical trap SNR and          SNR = signal / noise floor:
+  detection limits              thermal noise floor σ_x = sqrt(k_BT/k_trap)
+                                (equipartition). At k = 0.1 pN/nm:
+                                σ = 6.4 nm rms. To resolve 8 nm kinesin
+                                steps, need k_trap >> k_BT/(8 nm)² ≈ 0.06
+                                pN/nm. Detection bandwidth (10 kHz for
+                                motor experiments) sets Nyquist limit.
+
+  Force clamp (position clamp)  PID feedback control loop:
+                                The stage servo moves to hold bead at
+                                fixed displacement from trap center →
+                                constant applied force. The feedback
+                                bandwidth must be > step rate (100 Hz for
+                                kinesin) to faithfully follow motor steps.
+                                Overshoot → force artifacts; underdamped
+                                response → ringing on step detection.
+
+  Trap stiffness calibration    Metrology: two independent methods
+  (equipartition + power        (equipartition and Lorentzian fit) must
+  spectrum + Stokes drag)       agree within calibration error. The
+                                Lorentzian fit is the more robust method
+                                because it detects bandwidth artifacts
+                                directly from the corner frequency shape.
+                                This is exactly calibration traceability
+                                in metrology.
+
+  FRET efficiency E = 1/(1+(r/R₀)⁶)  Nonlinear distance sensor with
+                                strong sensitivity in the 0.5-2×R₀ range.
+                                The 1/r⁶ dependence is a very steep transfer
+                                function — useful for detecting small
+                                distance changes near R₀ but poor outside
+                                this range. Analogous to a log-scale sensor.
+
+  Magnetic tweezers torque      Torsional mechanics: rotating magnets apply
+  (DNA supercoiling)            a torque τ = dF/dθ to the bead. Extension
+                                vs. turns experiments measure the writhe
+                                compliance of DNA — directly analogous to
+                                measuring torsional spring constant of a
+                                physical shaft.
+
+  Photobleaching as clock       Single-step photobleaching is a stochastic
+                                process (exponential lifetime) used to count
+                                labeled molecules (1 step = 1 molecule,
+                                2 steps = 2, etc.) — discrete counting
+                                statistics.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+**The fundamental challenge**: every single-molecule measurement is dominated by thermal noise at the relevant scale. The experimenter's job is to design feedback systems and calibration protocols that separate signal from noise — the same challenge as any precision measurement system operating near its noise floor.
+
+---
 
 ## Decision Cheat Sheet
 

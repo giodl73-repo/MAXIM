@@ -702,7 +702,17 @@ DUE DILIGENCE FAILURE:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from traditional software development lifecycle (waterfall/V-model) that the learner lived through at VSTS/Azure DevOps — connecting SDLC evolution to change theory models would make the Agile section resonate with personal history -->
+## From SDLC Evolution to Change Theory
+
+The trajectory from waterfall → iterative → Agile → continuous delivery is not just a methodology story — it is a case study in second-order organizational change, and every change theory model in this module describes a mechanism that was active in that transition.
+
+**The waterfall-to-Agile transition was a double-loop learning requirement, not a single-loop fix.** Lewin's unfreeze-move-refreeze model describes what was attempted; Argyris' double-loop model describes why it was hard. Single-loop change would have meant: our waterfall process isn't working → improve the requirements phase → better waterfall. Double-loop change required questioning the governing values: fixed requirements before code → continuous discovery with customers; schedule certainty as the success metric → working software delivered frequently; handoff-based coordination → cross-functional team ownership. Organizations that attempted single-loop Agile adoption got better waterfall with Agile vocabulary — the "cargo cult Agile" pattern.
+
+**Kotter's urgency problem explains why Agile transformations stalled in large organizations.** In organizations like VSTS/Azure DevOps (building dev tooling), the case for Agile was visible from the outside: the product you were building was used by engineers practicing Agile, and your own development process was the counter-example. But in most enterprise organizations, the urgency signal was external and delayed — competitors' faster release cadences took years to translate into lost revenue, which meant there was no internal felt urgency. Without urgency (Kotter Step 1), the guiding coalition (Step 2) never formed at sufficient seniority to protect the transformation from organizational antibodies.
+
+**The SDLC transition is a platform migration, and platform migration change models apply.** Moving from a waterfall delivery system to a continuous delivery system is structurally identical to migrating a data platform or re-platforming a service: there is a period of dual-running (old system and new system simultaneously), migration cost is front-loaded (teams are slower during the learning curve), and the benefits are backloaded (faster delivery velocity emerges weeks to months after the transition). Weick's sensemaking framework applies: the transition looks like regression before it looks like progress, and the narrative that "Agile is making us slower" is a predictable sense-making artifact of the gap between investment and return.
+
+**Schein's decoupling (artifact vs basic assumption) explains every failed Agile transformation.** The artifact layer changes immediately: Jira boards, sprint ceremonies, velocity tracking. The espoused values layer changes with training: "we value working software over documentation." The basic assumption layer — that management's job is oversight and control, that certainty is the primary deliverable to stakeholders, that engineers are resources to be allocated rather than knowledge workers to be empowered — does not change without leadership replacement or organizational crisis. The Agile transformation "completed" in the artifacts and espoused values while the basic assumptions stayed intact: which is exactly why most transformations produced "doing Agile" rather than "being Agile."
 
 ## Agile Transformation
 
@@ -770,7 +780,53 @@ SCALING FRAMEWORKS:
   Works best when: genuinely product-focused; fewer dependencies; empowered teams
   Critique: requires significant organizational restructuring as prerequisite
 
-<!-- @editor[content/P2]: Section is thin on AI/automation-driven organizational change — given the current wave of LLM adoption transforming engineering orgs, this is a significant gap for a 2026 reference -->
+AI/LLM ADOPTION AS ORGANIZATIONAL CHANGE (2023-2026):
+ The current wave of LLM integration into engineering workflows is a
+ second-order organizational change, not a tooling upgrade.
+
+ WHAT IS ACTUALLY CHANGING:
+  Role redefinition: coding assistants shift engineer work from syntax/boilerplate
+    to problem specification, validation, and judgment — the skill mix changes
+  Task decomposition: work that was indivisible (write + debug + test as one flow)
+    is now decomposable (specify → generate → validate → accept/reject)
+  Velocity asymmetry: individual output increases faster than team coordination
+    overhead decreases → bottlenecks shift from coding to review, integration,
+    and architectural coherence
+  Knowledge work economics: the marginal cost of certain outputs (first-draft code,
+    documentation, test cases) drops near zero → the scarce resource shifts to
+    judgment, taste, and problem formulation
+
+ CHANGE THEORY APPLIED TO AI ADOPTION:
+  Lewin/unfreeze: urgency is high and clear (competitive displacement risk);
+    the "burning platform" is visible to engineers who can see the productivity delta
+  Kotter coalition: the advocates are primarily individual contributors; middle
+    management is the layer most threatened (if AI makes teams 2x productive,
+    do you need as many engineering managers?)
+  Schein/basic assumptions: the deep assumption challenged is "engineers produce
+    value by writing code" → shifting to "engineers produce value by solving the
+    right problems" requires identity-level change in engineering culture
+  Argyris/double-loop: single-loop adoption = "use Copilot to write code faster"
+    Double-loop adoption = "what problems should we be solving now that
+    code generation is cheap? What should we stop building entirely?"
+
+ ORGANIZATIONAL CHANGE FAILURE MODES FOR AI ADOPTION:
+  Tool adoption without workflow redesign: engineers have Copilot; nothing else
+    changes; velocity increase is captured by adding scope to same teams
+  Skills gap hiding: AI-assisted code looks complete but masks shallow understanding;
+    review quality degradation not visible until production incidents
+  Review throughput bottleneck: code generation speed increases; code review
+    velocity does not scale proportionally → queue builds; PR cycle time increases
+  Security and quality regression: AI-generated code that passes review but
+    introduces vulnerability patterns that reviewers aren't trained to detect
+  Middle management role crisis: if teams produce more with same headcount,
+    the justification for manager spans and levels is under pressure
+
+ WHAT IS NOT CHANGING (yet):
+  The coordination overhead of multi-team dependencies
+  The architecture decisions that create or remove those dependencies
+  The human judgment required in ambiguous stakeholder problems
+  The organizational power dynamics that shape what work gets done
+
  SPOTIFY MODEL:
   Tribes/Squads/Chapters/Guilds — highly influential because it came from a credible source
   Critical point: it's a description of what Spotify tried in 2012; not a prescription

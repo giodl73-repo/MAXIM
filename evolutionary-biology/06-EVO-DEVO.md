@@ -173,7 +173,51 @@ Heterochrony: evolutionary change in the timing or rate of developmental events.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — cis-regulatory modularity is directly analogous to separation of interface from implementation (same function, different call sites); enhancer evolution = changing the binding/dispatch without modifying the shared library; this learner's software architecture background makes this bridge natural -->
+## Cis-Regulatory Architecture — Software Architecture Bridge
+
+The separation of cis-regulatory elements from coding sequences is the biological
+equivalent of separating interface from implementation. The architectural parallels
+are exact and non-metaphorical:
+
+```
+CIS-REGULATORY MODULE = INTERFACE SPECIFICATION
+
+  Coding sequence (CDS)     =  shared library / function implementation
+  Enhancer (cis-reg element) =  call site / configuration that invokes the function
+  Transcription factor binding =  function call with specific arguments
+  Promoter                   =  function signature
+
+  SAME FUNCTION, DIFFERENT CALL SITES:
+    Shh (Sonic Hedgehog): single gene expressed in 17+ different contexts
+    Each context has its own enhancer — independent regulatory modules
+    ZRS enhancer: controls limb bud expression
+    FP enhancer: controls floor plate (neural tube midline) expression
+    → Mutating ZRS affects only limb expression; all other contexts unaffected
+    → Exactly like: changing code at one call site does not affect other callers
+
+  WHY CIS-REGULATORY EVOLUTION DOMINATES MORPHOLOGICAL EVOLUTION:
+    Changing CDS: affects all contexts simultaneously → pleiotropic → usually deleterious
+    Changing enhancer: affects only that context → low pleiotropy → evolvable
+    "Tinkering" (Jacob 1977): evolution modifies regulatory connections, not proteins
+
+TOOLKIT GENE AS API:
+  PAX6 (eye identity), DLX (limb), HOX (positional identity):
+    Highly conserved protein sequences (like a stable API)
+    Diverse regulatory connections (like plugins that call the same API differently)
+    Different animal body plans = same API, different calling code
+    → Explains deep homology: camera eyes in vertebrates and cephalopods
+      both use PAX6 (same API) but build the camera differently (different implementation)
+
+REGULATORY NETWORK AS DEPENDENCY GRAPH:
+  Transcription factor → target gene = directed edge
+  Feed-forward loop (FFL): A → B → C + A → C = common motif
+    (coherent FFL: sign-consistent; incoherent FFL: sign-flip)
+  Auto-regulatory loop (A → A): common for master regulators
+  → Same analysis as: dependency graphs in build systems (make, bazel)
+    Bottleneck nodes (high in-degree / out-degree) = hub TFs (master regulators)
+    Disrupting hub = cascading failure; disrupting leaf = local effect
+```
+
 ## Convergent Evolution — What the Toolkit Tells Us
 
 Convergent evolution: independent evolution of similar phenotypes in unrelated lineages.
@@ -250,7 +294,58 @@ can evolve independently.
 
 ---
 
-<!-- @editor[content/P2]: Epigenetic inheritance and transgenerational effects absent — relevant to Extended Evolutionary Synthesis debate mentioned in 00-OVERVIEW; chromatin modifications, DNA methylation, and small RNAs as non-genetic inheritance channels deserve at least a subsection -->
+## Epigenetic Inheritance and Transgenerational Effects
+
+A contentious topic at the boundary of evo-devo and the Extended Evolutionary
+Synthesis (EES): can acquired epigenetic states be inherited across generations?
+
+```
+EPIGENETIC INHERITANCE MECHANISMS:
+
+  1. DNA METHYLATION (most studied in mammals and plants):
+     CpG methylation in mammals: generally represses transcription
+     Maintenance methylase (DNMT1): copies methylation pattern to daughter strand
+       at replication (semi-conservative methylation maintenance)
+     Imprinting: parent-of-origin-specific methylation — Igf2, H19, >100 genes
+       Maternal allele methylated differently from paternal → monoallelic expression
+       → persists through life of organism
+     Transgenerational: imprints are erased at PGC (primordial germ cell) stage
+       in mammals — major mechanism resisting transgenerational inheritance
+       BUT: incomplete erasure documented at some loci → epigenetic inheritance?
+
+  2. HISTONE MODIFICATIONS:
+     H3K27me3 (Polycomb repression), H3K4me3 (active promoters):
+     Can be re-established after replication (reader-writer mechanism)
+     Polycomb domains: inherited through cell division — basis of cell memory
+     Germline transmission: generally NOT inherited (reset at fertilization)
+     Exceptions: some histone marks retained in sperm; documented in nematodes
+
+  3. SMALL RNAs (strongest case for transgenerational inheritance):
+     C. elegans piRNA / siRNA pathway: heritable RNAi across 80+ generations
+     Mechanism: HRDE-1 (nuclear Argonaute) amplifies small RNA signal → targets
+       chromatin modification → inherited by offspring
+     Plants: paramutation (heritable silencing transmitted across generations
+       in maize — allele-specific silencing inherited meiotically)
+     Mammals: sperm-borne small RNAs (miRNA, tRNA-derived fragments)
+       documented to affect offspring metabolism; mechanism unclear
+
+EVOLUTIONARY SIGNIFICANCE (EES debate):
+  Classic Modern Synthesis: only DNA sequence transmitted across generations
+  EES proponents: epigenetic channels provide additional inheritance layer
+    → Lamarckian-like? (acquired states transmitted to offspring)
+
+  The skeptical view (mainstream):
+    Most epigenetic variation is reset at fertilization and PGC stage
+    Documented transgenerational effects are real but typically last 2–3 generations
+    No evidence of long-term evolutionary inheritance competing with DNA sequence
+    "Soft inheritance" ≠ Lamarckian evolution of the genetic material
+
+  Open questions:
+    How often does epigenetic variation contribute to fitness differences?
+    Do epialleles (variable methylation states at a locus) experience natural selection?
+    Can stress-induced epigenetic changes be adaptive? (Some evidence in plants)
+```
+
 ## Common Confusion Points
 
 **HOX genes do not "make" structures — they specify positional identity.** HOX genes

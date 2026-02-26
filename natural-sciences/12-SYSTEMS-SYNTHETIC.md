@@ -50,7 +50,52 @@ Example: negative feedback oscillator
   Delayed negative feedback → oscillation (circadian clock motif)
 ```
 
-<!-- @editor[bridge/P3]: Natural bridge to CS — Boolean networks are finite state automata. Kauffman NK model maps to random Boolean circuits. This learner's TCS background (MIT) would benefit from explicit connection to automata theory, SAT, and state-space explosion. -->
+### Boolean Network Models — Automata Theory Bridge
+
+Boolean gene regulatory networks are finite-state automata — the TCS connection
+is direct and the computational complexity results transfer exactly:
+
+```
+BOOLEAN GENE NETWORK = SYNCHRONOUS FINITE STATE AUTOMATON
+
+  States:        2^N possible states for N genes (each ON/OFF)
+  Transitions:   deterministic update function F: {0,1}^N → {0,1}^N
+  Attractors:    fixed points + limit cycles = stable cell states
+                 (cell types = attractors; differentiation = transient toward basin)
+
+KAUFFMAN NK MODEL = RANDOM BOOLEAN CIRCUIT ANALYSIS
+
+  N genes, each regulated by K random inputs, random Boolean function
+  Computational analog: random K-SAT / random circuit satisfiability
+
+  Phase transitions (same as in random K-SAT):
+  K < 2:  ordered phase → few attractors, large basins, robust
+           like easy SAT regime — most initial conditions reach same attractor
+  K = 2:  critical (self-organized criticality) — maximal complexity
+           corresponds to phase transition in random 2-SAT (solvable in polytime)
+  K > 2:  chaotic phase → 2^(N/2) attractors, exponential sensitivity
+           like hard 3-SAT — small perturbation → different attractor
+
+STATE-SPACE EXPLOSION:
+  N = 20,000 genes: 2^20000 possible states — computationally intractable to enumerate
+  Practical approach: identify attractors by random sampling of trajectories
+  Equivalent to: SAT solving by local search (random restart hill climbing)
+
+SAT CONNECTION:
+  "Is gene X eventually always ON for all initial conditions?"
+  = reachability / liveness property of the automaton
+  = model checking problem (CTL/LTL model checking on Boolean circuit)
+  = NP-hard in general (known from model checking complexity theory)
+
+ATTRACTOR LANDSCAPE AS EPIGENETIC LANDSCAPE (Waddington 1957):
+  Height = energy / instability
+  Valleys = attractors (cell types)
+  Ridges = unstable states / separatrices between basins
+  Differentiation = gradient descent into valley
+  Reprogramming (Yamanaka factors) = add energy to escape local minimum
+  → same vocabulary as optimization on non-convex landscapes
+```
+
 ### Boolean Network Models
 
 Simplest abstraction: each gene is ON (1) or OFF (0).

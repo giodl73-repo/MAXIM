@@ -339,7 +339,13 @@ These must have been solved simultaneously or in close succession — that's wha
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the chicken-and-egg resolution via RNA World maps to the bootstrap problem in computing (compiler that compiles itself); Eigen's error threshold is pure information theory (Shannon channel capacity analog); natural bridge to MIT TCS background -->
+## Computational and Mathematical Parallels
+
+**RNA World as the bootstrap problem.** The DNA/protein chicken-and-egg paradox — DNA needs proteins to replicate, proteins need DNA to be synthesized — is structurally identical to the compiler bootstrap problem: you need a compiler to compile a compiler. The RNA World resolution is the same as the historical resolution to compiler bootstrapping (write the first compiler in assembly, or an earlier language): find a single molecule that can do both jobs, even imperfectly, and use that as the substrate from which the specialized dual-track system can evolve. Ribosomes are still fundamentally RNA machines today — the proteins in the ribosome are structural scaffolding added later, exactly as higher-level languages now handle the tasks that early assembly bootstraps did.
+
+**Eigen's error threshold as a Shannon channel capacity analog.** Eigen's error threshold (1971) states that a self-replicating RNA sequence can only maintain its information content if the per-nucleotide copy error rate is below 1/L, where L is the sequence length. Above this threshold, the sequence "melts" into noise — information is lost faster than it is replicated. This is the channel capacity theorem applied to molecular replication: the maximum information that can be reliably transmitted per replication cycle is bounded by the fidelity of the copying process. A 100-nucleotide RNA requires <1% per-base error rate; modern DNA replication achieves ~10⁻⁹ using proofreading, repair, and mismatch correction — the molecular equivalent of error-correcting codes layered on a noisy channel.
+
+**Autocatalytic networks as the bootstrapping problem generalized.** Metabolism-first models (Wachtershauser, Kauffman) propose that life began as an autocatalytic chemical network — a set of reactions where the products catalyze their own synthesis. This is the generalization of the bootstrap problem to network form: instead of one molecule that copies itself, a set of reactions where A catalyzes B, B catalyzes C, and C catalyzes A. Kauffman's work on autocatalytic sets uses graph theory: above a critical connectivity threshold, a random chemical network almost certainly contains an autocatalytic subset. This is a phase transition result with the same structure as percolation theory.
 
 ## Decision Cheat Sheet
 

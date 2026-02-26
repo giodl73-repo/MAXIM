@@ -126,7 +126,10 @@ Climatic        Decades–       Global         ENSO, PDO, ice ages
 
 ---
 
-<!-- @editor[bridge/P2]: No computational bridge for the learner — meteorology is applied PDE solving (Navier-Stokes), optimization (data assimilation), and chaos theory. A 3-sentence bridge here connecting "atmosphere as a system" to the math/CS concepts that govern it would orient an MIT TCS reader powerfully -->
+## Computational Bridge
+
+Meteorology is numerical PDE solving under chaos. The atmosphere obeys the Navier-Stokes equations on a rotating sphere — the same equations as computational fluid dynamics, constrained to a thin stratified shell. Data assimilation (4D-Var, EnKF) is Bayesian state estimation at 10⁹-variable scale: blend a prior (model forecast) with heterogeneous observations weighted by error covariances to produce the best initial condition. Ensemble forecasting is Monte Carlo uncertainty propagation through a deterministic chaotic system — the Lorenz attractor is not a metaphor, it is the actual dynamics. Teleconnections (ENSO, NAO) are the leading eigenvectors of spatiotemporal covariance matrices: PCA on global atmospheric fields. The hard 2-week predictability limit follows from positive Lyapunov exponents, not insufficient compute.
+
 ## Directory Map
 
 | File | Core Concept |
@@ -143,7 +146,22 @@ Climatic        Decades–       Global         ENSO, PDO, ice ages
 
 ---
 
-<!-- @editor[structure/P1]: Missing Decision Cheat Sheet section — "which guide do I read for X?" table would orient the reader -->
+## Decision Cheat Sheet
+
+| I need to... | Go to |
+|---|---|
+| Understand why the jet stream meanders | `02-ATMOSPHERIC-DYNAMICS.md` — Rossby waves, potential vorticity |
+| Know how a mid-latitude cyclone develops | `04-CYCLONES-ANTICYCLONES.md` — vorticity, divergence |
+| Understand why storms form where they do | `03-AIR-MASSES-FRONTS.md` — baroclinic zones |
+| Know how NWP models actually work | `07-NUMERICAL-WEATHER-PREDICTION.md` — primitive equations, 4D-Var, ensemble |
+| Understand why forecasts fail past 2 weeks | `07-NUMERICAL-WEATHER-PREDICTION.md` — Lorenz chaos, Lyapunov exponents |
+| Know what the radar is showing | `08-OBSERVATION-SYSTEMS.md` — Doppler, dual-pol, NEXRAD |
+| Understand seasonal climate signals (El Niño, etc.) | `09-TELECONNECTIONS.md` — ENSO, MJO, NAO |
+| Understand why tornado alleys exist | `06-SEVERE-WEATHER.md` — supercell environments, wind shear |
+| Know why CAPE and CIN matter | `01-ATMOSPHERIC-THERMODYNAMICS.md` — parcel theory, stability |
+
+---
+
 ## Common Confusion Points
 
 **Weather vs climate** — Weather is the atmospheric state at a specific time and place; climate is the statistical distribution of that state over decades. "Climate is what you expect; weather is what you get." A heat wave is weather; an increasing trend in heat wave frequency is climate.

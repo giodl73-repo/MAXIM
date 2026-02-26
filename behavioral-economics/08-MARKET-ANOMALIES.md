@@ -184,14 +184,63 @@ ANALYST FORECAST BIAS (De Bondt & Thaler 1990):
 ## Behavioral Explanations for Additional Anomalies
 
 ```
-<!-- @editor[content/P2]: Volatility puzzle section is thin — Shiller's variance bounds test is a major result that deserves the same depth as the equity premium puzzle above (formal setup, behavioral mechanism, quantitative calibration) -->
-VOLATILITY PUZZLE:
-  Stock price volatility far exceeds what dividends alone justify.
-  Shiller (1981): if prices = PV(future dividends), prices should vary less than dividends.
-  But: prices are ~5-10× more volatile than dividends.
-  Behavioral explanation: investor sentiment drives prices away from fundamentals.
-  Noise traders (DeLong et al. 1990): irrational traders create noise → rational traders
-  can't fully arbitrage (noise trader risk is systematic, non-diversifiable).
+VOLATILITY PUZZLE (Shiller 1981 — variance bounds test):
+
+  SETUP: Under rational expectations, stock price = PV of future dividends.
+    P_t = E_t[Σ_{k=1}^∞ d_{t+k} / (1+r)^k]   (present value formula)
+    If r is constant, define P* = ex-post rational price = actual PV of realized dividends
+
+  VARIANCE BOUNDS TEST:
+    P* is the "correct" price a rational agent would set if they knew future dividends.
+    By the law of iterated expectations: Var(P*) ≥ Var(P_t)
+    (P* has more information than P_t; variance should be at least as large)
+
+    Shiller's finding: empirically, Var(P_t) >> Var(P*) — prices are MORE volatile
+    than the ex-post rational benchmark that knows the actual dividend stream.
+    Prices are ~5-13× more volatile than justified by dividends alone.
+
+    This is a direct violation of the rational expectations PV model.
+    Not a failure at the margin — a factor of 5-10× discrepancy.
+
+  QUANTITATIVE CALIBRATION:
+    S&P 500 dividend yield std dev: ~0.5-1% per year
+    S&P 500 price std dev: ~15-20% per year (annualized)
+    Rational model with constant discount rate predicts price std dev ≈ divided by r^2
+    At r = 5%: implies price std dev ≈ 20× dividend std dev (comparable to observed)
+    But: LeRoy & Porter (1981), Shiller (1981) test more carefully using realized dividends
+    → Prices still "too volatile" even accounting for plausible discount rate variation.
+
+  CRITICISMS AND REFINEMENTS:
+    West (1988): test requires dividend stationarity; unit root in dividends complicates it
+    Marsh & Merton (1986): dividends are smoothed → dividend volatility understates
+    Campbell & Shiller (1988): log-linearized return decomposition:
+      log return = dividend yield + capital gain
+      Variance decomposition: most of price variance = discount rate variation, not dividend news
+      Time-varying risk premium explains much of excess price volatility
+
+  BEHAVIORAL EXPLANATIONS:
+    Investor sentiment (DeLong, Shleifer, Summers, Waldmann 1990 — noise trader model):
+      Noise traders have stochastic misperceptions of asset value
+      Rational arbitrageurs can't fully correct because noise trader risk is systematic
+      (arbitrage requires a risky short position; noise traders can push price further wrong)
+      Sentiment risk is priced → persistent excess volatility even with rational arbitrageurs
+
+    Excess extrapolation (Barberis, Greenwood, Jin, Shleifer 2015):
+      Investors extrapolate recent returns into future expectations
+      Rising prices → bullish expectations → more buying → further price rise
+      Falling prices → bearish → more selling → further fall
+      Creates momentum + mean-reversion at different horizons; amplifies fundamental volatility
+
+    Overconfidence (Odean 1998, DeBondt-Thaler 1985):
+      Investors overestimate precision of private signals
+      Trade excessively; disagree more than rational agents would → inflated volume and volatility
+
+  PRACTICAL IMPLICATION:
+    Market prices fluctuate for reasons beyond dividend news — shifts in risk appetite,
+    sentiment, and discount rates drive most short- to medium-run variance.
+    This is the empirical basis for the Shiller CAPE ratio as a valuation tool:
+    CAPE smooths 10-year earnings to filter out cyclical noise; high CAPE historically
+    predicts low subsequent 10-year returns (r ≈ −0.6 over 1880-2020 in US data).
 
 CALENDAR ANOMALIES:
   January effect: small-cap stocks abnormally high returns in January.

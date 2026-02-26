@@ -4,7 +4,7 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No systems bridge -- RAAS/SNS feedback loops are classic negative feedback control systems; coagulation cascade is a DAG with convergent paths -->
+**Systems Bridge:** The cardiovascular pharmacology landscape is organized around two negative-feedback control systems and one cascading activation network. The RAAS (renin-angiotensin-aldosterone system) is a classic multi-level feedback loop: ↓ renal perfusion pressure → ↑ renin → Ang I → ACE → Ang II → ↑ aldosterone + ↑ vasoconstriction → ↑ blood pressure and volume → restore renal perfusion. Chronic activation of this loop in heart failure causes remodeling and fluid overload — so ACEi/ARBs/ARNi are not just antihypertensives, they interrupt pathological compensatory feedback. The coagulation cascade is a directed acyclic graph (DAG) with convergent paths: the intrinsic pathway (contact activation, XII→XI→IX) and extrinsic pathway (tissue factor, VII) both converge on factor X → thrombin (IIa) → fibrin. Two paths in, one bottleneck (thrombin), one output (clot). This convergent architecture means anticoagulants that block the bottleneck (thrombin inhibitors: dabigatran; Xa inhibitors: rivaroxaban, apixaban) are more efficient than blocking upstream branches. Warfarin is an unusual target: it blocks the synthesis of all vitamin K-dependent factors (II, VII, IX, X) simultaneously — not one node in the cascade but the shared post-translational modification step.
 
 ## Big Picture: CV Drug Landscape
 
@@ -399,7 +399,7 @@ GP IIb/IIIa INHIBITORS: abciximab (mAb), eptifibatide, tirofiban
 
 ---
 
-<!-- @editor[bridge/P3]: Vaughan-Williams classes map to ion channel conductance modifications (Na/K/Ca channels = circuit elements; antiarrhythmics = parameter tuning on coupled oscillator) -->
+**Systems Bridge:** The Vaughan-Williams classification is parameter tuning on a coupled oscillator network. Cardiac action potentials are RC circuits in series: Na⁺ channels control depolarization rate (phase 0 — the fast upstroke), Ca²⁺ channels sustain the plateau (phase 2), K⁺ channels drive repolarization (phase 3). Action potential duration (APD) and refractory period are the timing parameters. Reentrant arrhythmias are the result of pathological timing loops — a circuit where some paths conduct slower than others, allowing the wave front to circle back and re-excite tissue that has recovered. Class I drugs (Na⁺ channel blockers) slow conduction — reducing Vmax of phase 0; Class III drugs (K⁺ channel blockers) prolong APD, extending the refractory period and making the reentrant circuit non-viable by enlarging the wavelength. Class II (β-blockers) reduce the pacemaker current from the SA node — lowering the oscillator frequency. Class IV (Ca²⁺ channel blockers: diltiazem, verapamil) slow conduction through the AV node specifically — AV nodal tissue is Ca²⁺-dependent rather than Na⁺-dependent, making it selectively sensitive. The subclass distinctions within Class I (Ia/Ib/Ic) correspond to different degrees of Na⁺ channel block at different heart rates — a frequency-dependent effect analogous to rate-adaptive buffering.
 
 ## 6. Antiarrhythmics — Vaughan-Williams Classification
 

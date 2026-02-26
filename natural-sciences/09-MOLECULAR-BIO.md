@@ -324,8 +324,30 @@ Layers of eukaryotic regulation:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to CS — CRISPR-Cas is a biological pattern-matching + find-and-replace system. The PAM requirement is a search constraint (like regex anchoring). For a software leader, the analogy to sed/grep with a guide RNA as the search pattern would be instantly clarifying. -->
 ## CRISPR-Cas9 Mechanism
+
+**CS bridge — pattern matching with search constraints:**
+CRISPR-Cas9 is a biological find-and-replace operating on a 3-billion-character
+genome. The guide RNA is the search pattern; cleavage is the replace operation.
+
+```
+CRISPR AS A SEARCH SYSTEM:
+
+  Guide RNA (20 nt)  ≈  regex pattern (exact match required)
+  PAM sequence (NGG) ≈  anchor constraint (like regex ^ or $ or lookahead)
+                         Cas9 scans DNA for NGG first, THEN checks 20-nt match.
+                         Without PAM: Cas9 does not interrogate — fast exclusion.
+  R-loop formation   ≈  full string comparison after anchor hit
+  3-nt upstream cut  ≈  fixed offset from match position (like sed offset)
+
+  Off-target problem:  mismatches in seed region (positions 1-12 adjacent to PAM)
+                       are tolerated — like fuzzy regex matching
+                       High-fidelity variants (SpCas9-HF1, eSpCas9) reduce this
+                       by destabilizing off-target R-loops → stricter matching
+
+  Multiplexing: deliver multiple sgRNAs → search for multiple targets simultaneously
+    → like parallel grep on a genome-scale text file
+```
 
 ```
 NATURAL FUNCTION (bacterial adaptive immunity):

@@ -192,7 +192,58 @@ DIURETIC CLASSES AND MECHANISMS
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the RAAS cascade is a feedback control loop (renin = sensor, angiotensin II = actuator, aldosterone = effector, blood pressure = controlled variable). ACE-I/ARB are injecting a break into the loop — exactly like breaking a runaway feedback cycle in a distributed system. The Vaughan Williams classification below is essentially a taxonomy of which component in the cardiac state machine each drug class targets -->
+## Engineering Bridge: Cardiovascular Pharmacology as Control Systems
+
+The cardiovascular system is a closed-loop feedback control system with sensors, actuators, and multiple regulatory cascades. Each drug class targets a specific component of the loop.
+
+```
+  CARDIOVASCULAR PHARMACOLOGY   CONTROL SYSTEMS / FEEDBACK PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  RAAS cascade                  Nested feedback control loop:
+    Renin (JGA sensor)          → Sensor: detects low renal perfusion/Na+
+    Angiotensin I → ACE → Ang II → Signal amplification cascade
+    Aldosterone (effector)      → Actuator: Na+/H₂O retention
+    Blood pressure              → Controlled variable (setpoint = normotension)
+
+  ACE inhibitor / ARB           Loop-breaking intervention:
+                                Cut the signal path at different points:
+                                ACE-I: blocks Ang I → Ang II (signal transduction)
+                                ARB: blocks Ang II at AT1 receptor (actuator input)
+                                Either breaks the runaway positive feedback
+                                in heart failure (↑AngII → vasoconstriction →
+                                ↑afterload → ↓CO → ↑renin → more AngII).
+
+  Vaughan Williams classes       State machine taxonomy — each class targets
+                                a different component of the cardiac AP
+                                state machine:
+    Class I: block the AP upstroke driver (Na+ channel = fast depolarizer)
+    Class II: block sympathetic override (β-adrenergic modulator)
+    Class III: prolong the refractory period (K+ channel = repolarizer)
+    Class IV: block the pacemaker/AV node (Ca2+ channel = slow depolarizer)
+    Adenosine: hyperpolarize the AV node (K+ current activator)
+
+  β-blockers in heart failure   Counter-intuitive feedback inversion:
+                                Acute HF → sympathetic hyperactivation →
+                                tachycardia → ↓diastolic filling time →
+                                β-receptor downregulation → further ↓function.
+                                Chronic β-blocker: interrupt the positive
+                                feedback → receptors upregulate → improved
+                                function at lower baseline activation.
+                                Starting during acute decompensation = removing
+                                the compensatory drive too early.
+
+  Statins → PCSK9 inhibition    Two-level intervention on the same pathway:
+                                HMG-CoA → statin blocks endogenous synthesis.
+                                PCSK9 degrades LDL receptors → PCSK9-I blocks
+                                degradation → more recycling of receptors.
+                                Additive mechanism targeting different
+                                rate-limiting steps of the same control
+                                variable (plasma LDL).
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## Antiarrhythmics: The Vaughan Williams Classification
 
 ```
@@ -271,8 +322,97 @@ BILE ACID SEQUESTRANTS
 
 ---
 
-<!-- @editor[content/P2]: SGLT2 inhibitors (empagliflozin, dapagliflozin) absent — now a cornerstone of HFrEF, HFpEF, and CKD treatment with mortality benefit. Deserves its own subsection alongside statins and diuretics -->
-<!-- @editor[structure/P2]: Landscape diagram lists "Coagulation: Anticoagulants, antiplatelets" but no corresponding drill-down section — DOACs (rivaroxaban, apixaban, dabigatran) and antiplatelets (aspirin, clopidogrel, ticagrelor) are absent. Layering broken for this node -->
+---
+
+## SGLT2 Inhibitors
+
+```
+SGLT2 INHIBITORS (Gliflozins)
+───────────────────────────────
+  Empagliflozin (Jardiance), dapagliflozin (Farxiga), canagliflozin (Invokana)
+
+  PRIMARY MECHANISM:
+    Block SGLT2 (sodium-glucose cotransporter 2) in proximal tubule.
+    → Prevents glucose reabsorption → glucosuria even at normal glucose.
+    → Osmotic diuresis + natriuresis → ↓preload, ↓blood pressure.
+
+  CARDIOVASCULAR BENEFIT (beyond glucose control):
+    EMPA-REG OUTCOME (empagliflozin, 2015): ↓CV death 38%, ↓hospitalization for HF 35%
+    DAPA-HF (dapagliflozin, 2019): benefit in HFrEF regardless of diabetes status
+    EMPEROR-Preserved (empagliflozin, 2021): first drug to show benefit in HFpEF
+    DAPA-CKD: renal protection in CKD with or without T2D
+
+  WHY THE HEART BENEFIT?
+    Hemodynamic: ↓preload/afterload via diuresis + natriuresis
+    Metabolic: shift from glucose to ketone/fat oxidation (more efficient cardiac fuel)
+    Direct cardiac: anti-fibrotic, anti-inflammatory, ↓inflammation
+    Renal: reduce glomerular hyperfiltration → preserve kidney → preserve CV
+
+  NOW STANDARD OF CARE FOR:
+    HFrEF (EF < 40%): add to ACE-I/ARB + β-blocker + MRA regardless of diabetes
+    HFpEF (EF ≥ 50%): first proven pharmacotherapy
+    CKD (eGFR 20-75 + albuminuria): renal + CV protection
+    T2D with high CV risk: empagliflozin or dapagliflozin
+
+  SAFETY:
+    Genital mycotic infections (glucosuria → fungal niche)
+    DKA risk: rare in T2D, higher in T1D (not approved for T1D in US)
+    Fournier's gangrene: very rare, severe necrotizing fasciitis
+    Hold before surgery/prolonged fasting (DKA risk)
+```
+
+---
+
+## Anticoagulants and Antiplatelets
+
+```
+DIRECT ORAL ANTICOAGULANTS (DOACs)
+────────────────────────────────────
+  Mechanism: direct inhibition of coagulation factors (no warfarin cofactor)
+
+  DIRECT THROMBIN INHIBITORS:
+    Dabigatran (Pradaxa): IIa (thrombin) inhibitor. Renal clearance 80%.
+    Reversal: idarucizumab (Praxbind) — specific antibody fragment.
+
+  DIRECT FACTOR Xa INHIBITORS:
+    Rivaroxaban (Xarelto): once daily, hepatic CYP3A4/P-gp
+    Apixaban (Eliquis): twice daily, lower bleeding risk in trials
+    Edoxaban (Savaysa): once daily
+    Reversal: andexanet alfa (Andexxa) for Xa inhibitors; 4F-PCC as alternative.
+
+  vs. WARFARIN:
+    DOACs: fixed dosing, no INR monitoring, fewer drug interactions, faster onset
+    Warfarin: CYP2C9/VKORC1 genetic variation → highly variable dosing; INR 2-3;
+              reversible with vitamin K; preferred in mechanical heart valves,
+              antiphospholipid syndrome, severe renal failure (CrCl < 15)
+
+ANTIPLATELETS
+──────────────
+  ASPIRIN:
+    Irreversibly acetylates COX-1 → ↓TXA2 → ↓platelet aggregation.
+    Low dose (81 mg): minimal GI effect; antiplatelet without anti-inflammatory.
+    Effect lasts platelet lifetime (7-10 days) — platelets have no nucleus.
+
+  P2Y12 RECEPTOR ANTAGONISTS (ADP receptor blockade):
+    Clopidogrel (Plavix): prodrug → CYP2C19 → active metabolite
+      CYP2C19 loss-of-function alleles → poor activation → ↑MACE risk
+      (*2 allele: 30% prevalence in East Asians, 15% in Europeans)
+    Ticagrelor (Brilinta): reversible, non-prodrug; consistent effect
+      Better outcomes in ACS vs clopidogrel (PLATO trial)
+    Prasugrel (Effient): prodrug, faster/stronger; not in prior stroke/TIA
+
+  DUAL ANTIPLATELET THERAPY (DAPT):
+    Aspirin + P2Y12 inhibitor:
+    Mandatory post-PCI (stent): ≥1 year (bare metal), ≥12 months (drug-eluting)
+    Acute coronary syndrome (ACS): 12 months regardless of stent
+
+  GP IIb/IIIa INHIBITORS (IV):
+    Abciximab, eptifibatide, tirofiban: block final common path of aggregation.
+    Used only in high-risk PCI; IV only; high bleeding risk.
+```
+
+---
+
 ## Decision Cheat Sheet
 
 | Clinical Scenario | Preferred Drug Class | Key Drug |

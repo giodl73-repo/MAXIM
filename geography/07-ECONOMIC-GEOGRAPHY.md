@@ -106,7 +106,28 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │ across all occupations                                        │
   └────────────────────────────────────────────────────────────────┘
 
-<!-- @editor[bridge/P2]: No lock-in → agglomeration bridge despite obvious parallel — any engineer from platform ecosystems (Windows, Azure, AWS) recognizes path dependency and switching costs; connect SV lock-in to platform lock-in explicitly -->
+  BRIDGE — AGGLOMERATION AS PLATFORM LOCK-IN:
+  Silicon Valley's persistence despite astronomical costs is identical
+  to platform network effects: the value of being in the ecosystem
+  increases with the number of participants, creating switching costs
+  that exceed the cost differential of leaving. For an AI startup:
+  recruiting from SV's talent pool costs 2× but reduces time-to-hire
+  by 10×; Sand Hill Road VC proximity means warm intros vs cold outreach;
+  the informal knowledge network (what's real vs hype in current LLM
+  research) diffuses through coffee shop conversations that can't be
+  replicated remotely. These are the same three forces as platform
+  lock-in: complementary asset availability (talent/VC), knowledge
+  spillovers (tacit information), and coordination benefits (thick market).
+  The counterfactual (a new SV in Austin or Miami) requires simultaneously
+  reaching critical mass on all three dimensions — the same bootstrapping
+  problem as launching a two-sided marketplace from zero. Path dependency:
+  the current equilibrium is self-reinforcing because the best people
+  want to work with other best people, and the best companies want the
+  best people. Breaking this requires either a technology discontinuity
+  (remote-first AI tools may be doing this gradually) or a coordinated
+  migration (Israel → Tel Aviv; China → Shenzhen) that only states or
+  major anchor firms can catalyze.
+
   THE SILICON VALLEY PARADOX:
   Why does SV persist despite housing ~$2M median, wages far above
   alternatives, and remote work enabling dispersal?
@@ -134,7 +155,29 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
 ## Section 3: New Economic Geography (Krugman 1991)
 
 ```
-<!-- @editor[bridge/P2]: No equilibrium → bifurcation bridge despite obvious parallel — Krugman's tipping points between concentration and dispersion are bifurcation dynamics; learner with MIT TCS/math background will recognize phase transitions -->
+  BRIDGE — KRUGMAN'S CORE-PERIPHERY AS BIFURCATION / PHASE TRANSITION:
+  New Economic Geography is dynamical systems theory applied to spatial
+  economics. The core-periphery model has two stable equilibria
+  (symmetric dispersion vs full concentration) separated by a tipping
+  point in transport-cost parameter space. At high transport costs:
+  dispersed production is stable (serve each local market locally).
+  At low transport costs: concentration is stable (serve all markets
+  from one efficient center). At intermediate costs: two equilibria
+  exist; small perturbations can tip to either. This is a bifurcation
+  diagram — the same as in non-linear dynamics where a parameter
+  crossing a critical value causes qualitative behavior change.
+  The "break point" (transport cost below which concentration is
+  self-sustaining) and "sustain point" (below which dispersed
+  equilibrium cannot be maintained) define a bistable regime between
+  them — exactly the hysteresis region in a first-order phase transition.
+  Historical application: containerization in the 1960s reduced transport
+  costs dramatically, crossing the break point for many industries →
+  massive geographic concentration of manufacturing (China coastal belt)
+  even though the symmetric state had been stable for decades.
+  Policy implication: once concentration forms, subsidies to lagging
+  regions rarely reverse it — you'd need to push below the sustain
+  point in a new direction, not just reduce the advantage.
+
   CORE INSIGHTS (Krugman won 2008 Nobel Prize in Economics):
 
   WHY DOES MANUFACTURING CONCENTRATE?
@@ -354,8 +397,51 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   Central Asia-China: Eurasian Land Bridge (China-Europe by rail)
   Maritime Silk Road: SE Asia → Indian Ocean → E Africa → Mediterranean
 
+  BRI GEOGRAPHIC PATTERN:
+  ┌────────────────────────────────────────────────────────────────┐
+  │ LAND CORRIDORS (Silk Road Economic Belt):                      │
+  │ CPEC: China-Pakistan; Kashgar → Gwadar port ($62B); strategic  │
+  │   access to Indian Ocean bypassing Malacca Strait             │
+  │ AIIB/Central Asia: Xinjiang → Central Asia → Iran → Europe     │
+  │   rail (China-Europe cargo rail grew from 0 to 15k trains/yr) │
+  │ BCIM: Bangladesh-China-India-Myanmar; politically stalled      │
+  │                                                                │
+  │ MARITIME SILK ROAD:                                            │
+  │ South China Sea → Malacca → Indian Ocean → East Africa →       │
+  │   Suez → Mediterranean                                         │
+  │ Port investments: Gwadar (Pakistan), Hambantota (Sri Lanka),   │
+  │   Piraeus (Greece, acquired by COSCO), Mombasa (Kenya),        │
+  │   Djibouti (China's first overseas military base)              │
+  │ String of pearls: port network providing logistics + potential  │
+  │   naval basing options along Indian Ocean                      │
+  └────────────────────────────────────────────────────────────────┘
+
+  COMMITMENTS vs DISBURSEMENTS (the gap):
+  AidData (2021): $843B in BRI commitments 2013–2021 across 165 countries
+  Actual disbursements: ~$380B (< 50% of commitments)
+  Peak years 2016–2018; significant slowdown post-2019 (COVID + defaults)
+  Reason for gap: many projects delayed by local opposition, contract
+    renegotiation, financing shortfalls, host country capacity
+
+  DEBT SUSTAINABILITY:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ Countries at high BRI debt distress risk (AidData + IMF):    │
+  │ Pakistan: ~$27B to Chinese state entities; IMF bailouts;      │
+  │   CPEC debt service ~40% of export earnings in some years    │
+  │ Zambia: first African sovereign default 2020; Chinese          │
+  │   creditors ~30–40% of external debt; protracted restructuring│
+  │ Sri Lanka: Hambantota port lease (2017); forced by inability  │
+  │   to service $1.4B Hambantota loan; politically contested     │
+  │ Ecuador: oil-for-loans; ~$18B to China; debt restructured     │
+  │ Ethiopia: Addis-Djibouti railway + industrial parks; debt     │
+  │   burden significant relative to export base                  │
+  │                                                                │
+  │ COUNTER-NARRATIVE: Many BRI loans are commercial terms,        │
+  │ not concessional; some are refinanceable; debt-trap narrative  │
+  │ overstates Chinese leverage (Deborah Brautigam, SAIS research) │
+  └──────────────────────────────────────────────────────────────┘
+
   GEOPOLITICAL READING:
-<!-- @editor[content/P2]: BRI section is thin — what's missing is the geographic pattern of BRI investment (land vs maritime corridors), the debt sustainability data (how many countries are at risk), and comparison of actual BRI disbursements vs commitments -->
   Debt trap concerns: Hambantota Port (Sri Lanka) leased to China 99 years
   Commercial reading: Chinese banks making commercial loans, not aid
   Infrastructure gap: LICs need $15T in infrastructure by 2040 (ADB)
@@ -382,7 +468,88 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   Reefer (refrigerated) container share growing: 10% of container fleet
   Kenya flowers → Amsterdam → Europe (air cold chain via Nairobi hub)
 ```
-<!-- @editor[content/P2]: Digital economy geography absent — significant gap; data center siting (energy, cooling, latency), submarine cable routes, and the physical geography of the internet are increasingly important economic geography topics -->
+
+---
+
+## Section 9: Digital Economy Geography
+
+```
+  THE INTERNET HAS PHYSICAL GEOGRAPHY:
+  Despite being "the cloud," internet infrastructure is profoundly
+  physical — and its geography creates both economic concentrations
+  and geopolitical chokepoints.
+
+  SUBMARINE CABLE NETWORK:
+  ┌────────────────────────────────────────────────────────────────┐
+  │ ~400 active submarine cable systems carrying ~99% of           │
+  │   international internet traffic (satellite handles <1%)       │
+  │                                                                │
+  │ Key routes:                                                    │
+  │ Trans-Atlantic: ~20 cables (US Northeast ↔ UK/Ireland/Europe) │
+  │ Trans-Pacific: ~15 major cables (US West Coast ↔ Japan/Asia)  │
+  │ Indian Ocean: connecting Middle East, India, SE Asia, Africa   │
+  │                                                                │
+  │ Chokepoints:                                                   │
+  │ Suez Canal cable corridor: most Asia-Europe cables pass nearby │
+  │   → Houthi disruption 2023-24: several cables severed/at risk │
+  │ Luzon Strait (Philippines): multiple Asia-Pacific cables pass  │
+  │ Taiwan: ~14 cables land in Taiwan; TSMC + cable geography      │
+  │   create compound strategic concentration                      │
+  │                                                                │
+  │ Ownership concentration: Hyperscalers (Google, Meta, Amazon,  │
+  │   Microsoft) now own or co-own ~40%+ of submarine capacity;   │
+  │   previously dominated by telcos (AT&T, NTT, STC)             │
+  └────────────────────────────────────────────────────────────────┘
+
+  DATA CENTER GEOGRAPHY — SITING FACTORS:
+  ┌──────────────────────────────────────────────────────────────┐
+  │ ENERGY:                                                      │
+  │ Data centers: ~1–2% of global electricity; growing rapidly   │
+  │ AI training clusters: 100–1000+ MW per hyperscale campus     │
+  │ Iceland: geothermal + cool air → low PUE; bitcoin mining hub  │
+  │ US Pacific Northwest (Oregon/Washington): hydropower → AWS,  │
+  │   Google, Microsoft campuses in The Dalles, Quincy, etc.     │
+  │ Northern Europe (Sweden, Finland, Norway): renewables + cold  │
+  │                                                               │
+  │ COOLING:                                                      │
+  │40–50% of data center energy is cooling; cold climates reduce │
+  │ mechanical cooling need (free cooling > 90% of year in       │
+  │ Scandinavia); water cooling for GPU clusters → water rights  │
+  │ conflicts (drought-prone regions facing data center water use)│
+  │                                                               │
+  │ LATENCY:                                                      │
+  │ Edge computing: bring compute close to users (CDN nodes)     │
+  │ Financial HFT: microseconds matter → co-location at exchange  │
+  │   (NY4 data center in Secaucus NJ ↔ NYSE; London ↔ LD4)     │
+  │ Consumer applications: 50ms+ acceptable; AI inference: 100ms+│
+  │                                                               │
+  │ REGULATORY / POLITICAL:                                       │
+  │ GDPR: EU data must stay in EU; data localization laws create  │
+  │   fragmented geographic requirements (India, Russia, China)  │
+  │ CLOUD REGION MAP reflects regulatory + latency geography:    │
+  │   AWS (35 regions), Azure (60+), GCP (40+) distributed       │
+  │   to meet latency SLAs + data residency requirements         │
+  └──────────────────────────────────────────────────────────────┘
+
+  DIGITAL DIVIDE AS ECONOMIC GEOGRAPHY:
+  Broadband access: strong predictor of economic development;
+    fiber-to-home vs 4G LTE vs satellite (Starlink opening remote access)
+  Africa: mobile-first internet; M-Pesa (Kenya) → mobile money
+    ecosystems bypassing wired banking infrastructure entirely
+  Southeast Asia: rapid mobile internet growth → different app
+    ecosystem than West (WeChat-adjacent, TikTok-native)
+  China: Great Firewall creates de facto separate internet geography
+    (Baidu/WeChat/Alibaba vs Google/Meta/Amazon)
+
+  PLATFORM ECONOMIC GEOGRAPHY:
+  Network effects → winner-take-most → massive geographic concentration
+  of economic value in a handful of metro areas:
+  San Francisco Bay Area: ~$4T in market cap (FAANG + VC portfolio)
+  Seattle: Amazon + Microsoft
+  New York: financial tech, ad tech, media
+  → "Superstar city" phenomenon: spatial inequality driven by
+    platform/tech concentration compounds housing/wage inequality
+```
 
 ---
 

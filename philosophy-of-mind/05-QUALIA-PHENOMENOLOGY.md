@@ -225,8 +225,6 @@ BLOCK'S NATION OF CHINA (revisited as absent qualia):
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from formal type systems or interface design to Husserl's noesis/noema distinction — the act/content separation maps naturally to method signatures vs. return types, or to the observer pattern -->
-
 ## Husserlian Phenomenology
 
 ### Intentionality of Consciousness
@@ -263,6 +261,38 @@ NOESIS / NOEMA DISTINCTION:
   exists ("epoché" or phenomenological reduction).
   Study the structure of consciousness itself, regardless of
   whether the intended objects are real.
+
+CS BRIDGE — NOESIS/NOEMA AS METHOD/RETURN-TYPE SEPARATION:
+  The noesis/noema distinction separates the act of intending
+  from the content intended — a clean separation between process
+  and data that formal systems handle explicitly.
+
+  Noesis (act) ≈ the method call — the computational event,
+  the operation-as-happening, with its own causal context.
+
+  Noema (content) ≈ the return type / semantic value — what
+  the act is about, independent of the specific act instance.
+
+  The same noema (the meaning "Paris") can be the content of
+  very different noetic acts: perceiving Paris, remembering Paris,
+  imagining Paris, fearing Paris. The content is invariant across
+  different act types, just as a return type specifies what a method
+  produces independently of how it's implemented.
+
+  Husserl's epoché (bracket existence; study structure of content)
+  is the philosopher's analog of interface testing: specify and test
+  the contract without committing to any particular implementation.
+  What matters is what the consciousness is *about*, not whether
+  the object exists — just as interface testing verifies behavior
+  against a specification without instantiating a concrete class.
+
+  This separation also maps to the observer pattern:
+  the noematic content is the observable state;
+  different noetic acts are different observers registering
+  the same observable. Husserl's key insight is that multiple
+  acts with the same content can cohere as being about the same
+  thing — this is intentional identity, and it is what allows
+  thought to refer stably across different mental episodes.
 ```
 
 ### Time-Consciousness
@@ -389,23 +419,14 @@ HIGHER-ORDER THEORIES (HOT):
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Cheat sheet is definitional — needs "if debating X, the key move is Y" decision structure -->
-
-| Concept | Definition | Key figure |
-|---|---|---|
-| Qualia | Intrinsic, subjective, qualitative properties of experience | C.I. Lewis (coined), Chalmers |
-| Mary's Room | Mary knows all physics but learns something new about red | Jackson 1982 |
-| Ability hypothesis | Mary gains ability, not new propositional knowledge | Lewis, Nemirow |
-| Inverted spectrum | Same function, different qualia -- argues against functionalism | Locke, Shoemaker |
-| Absent qualia | Same function, no qualia -- strengthens zombie argument | Block |
-| Intentionality (Husserl) | Consciousness is always consciousness *of* something | Husserl |
-| Noesis/noema | Act of consciousness / content of consciousness | Husserl |
-| Time-consciousness | Living present: retention, primal impression, protention | Husserl |
-| Body-subject (M-P) | Body as subject of experience, not object | Merleau-Ponty |
-| Motor intentionality | Pre-reflective bodily skill and know-how | Merleau-Ponty |
-| NCC | Neural correlates of consciousness | Crick & Koch |
-| Global workspace | Consciousness = widespread cortical broadcast | Dehaene/Baars |
-| IIT / phi | Consciousness = integrated information | Tononi |
+| If debating... | The key move is... |
+|---|---|
+| Whether Mary learns something new (knowledge argument) | Distinguish propositional knowledge from ability: Lewis/Nemirow say she gains the ability to recognize, imagine, and remember red — not a new proposition. Jackson himself eventually accepted this. |
+| Whether inverted spectra are possible | Ask whether the spectrum inversion is functionally detectable. Functionalists say no: what makes a quale "red" IS its functional role, so undetectable inversion = no real inversion. Chalmers: the scenario is coherent because qualia have intrinsic properties beyond functional role. |
+| Whether absent qualia refute functionalism | Grant Block's point: if the Nation of China has the right functional organization but no qualia, qualia are not functional states. The functionalist must deny that the thought experiment is coherent — i.e., deny that absent qualia are genuinely possible for a system with the right functional organization. |
+| Whether LLMs have qualia | The hard problem applies: no behavioral or functional test settles this. IIT gives a tentative "low phi" verdict; GWT gives "some access consciousness analog, no phenomenal consciousness verdict." Neither is conclusive. |
+| Whether phenomenology (Husserl) is relevant to AI | Husserl's intentionality is essential: consciousness is always consciousness *of* something — it has a directedness and a content structure. LLMs can be described as having intentional states (they process inputs that are *about* things), but whether the noetic act (the processing event) has phenomenal character is the hard problem again. |
+| Whether embodiment is necessary for qualia | Merleau-Ponty: qualia emerge in the context of sensorimotor engagement — the redness of red is tied to the lived body's relationship to light sources, colored surfaces, and contexts of use. Disembodied systems might have functional analogs without the sensorimotor grounding that constitutes the phenomenal character. |
 
 ---
 

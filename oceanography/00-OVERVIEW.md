@@ -175,7 +175,11 @@ MODERN OBSERVING SYSTEMS
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge in overview — consider a brief "if you know X from engineering/CS, here's how oceanography maps" orientation paragraph (e.g., signal processing → sonar/acoustic methods, fluid dynamics → geostrophic balance, thermodynamics → stratification) -->
+## Computational and Engineering Bridges
+
+The ocean is a geophysical fluid dynamics problem on a rotating sphere. If you know Navier-Stokes, the governing equations are the same — plus salinity as a second scalar, plus buoyancy-driven convection from thermohaline forcing. Geostrophic balance (Coriolis ≈ pressure gradient) is the large-scale force balance, analogous to the hydrostatic approximation in atmospheric dynamics. Stratification is simply a stable density gradient resisting vertical mixing — the same stability analysis as in control theory (Brunt-Väisälä frequency is the natural frequency of the linearized perturbation).
+
+Signal processing maps directly: sonar is active acoustic sensing (matched filtering, Doppler processing for current velocity via ADCP), the SOFAR channel is a waveguide (acoustic normal modes), and ocean noise spectra are analyzed with the same FFT/spectral estimation tools as any engineering signal. Thermodynamics drives stratification: the T-S diagram is a phase diagram for seawater, with density as the state variable. Heat transport is solved as a diffusion-advection PDE. The thermohaline circulation is buoyancy-driven convection at planetary scale — the same physics as a convective heat exchanger, but the fluid is saltwater and the domain is the global ocean basin.
 
 ## Cross-Library Connections
 

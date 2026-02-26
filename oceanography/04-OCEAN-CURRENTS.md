@@ -28,9 +28,9 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — geostrophic balance (pressure gradient vs. Coriolis) is directly analogous to steady-state force balance in engineering statics; the Sverdrup relation is a vorticity conservation law analogous to Kelvin's circulation theorem; western boundary intensification parallels boundary layer theory in aerodynamics -->
-
 ## Geostrophic Balance — The Dominant Balance
+
+Geostrophic balance is steady-state force equilibrium between the pressure gradient and Coriolis — exactly analogous to static force balance in engineering mechanics, except one of the forces is the Coriolis pseudo-force from the rotating reference frame. The Sverdrup relation (β v = curl τ / ρ) is a conservation law for potential vorticity — the same concept as Kelvin's circulation theorem in inviscid fluid dynamics: the wind imparts vorticity to the ocean, and vorticity must be conserved as fluid columns stretch and squash while moving in latitude. Western boundary intensification is a boundary layer phenomenon: the β-effect creates an asymmetry that concentrates the entire gyre return flow into a thin viscous boundary layer on the western wall, just as aerodynamic boundary layers concentrate drag at solid surfaces — the interior is nearly inviscid, the boundary layer dissipates.
 
 In the interior of the ocean (away from boundaries, surface, bottom), the dominant momentum balance is:
 
@@ -335,4 +335,47 @@ SUBMESOSCALE (<10 km):
 
 **The Gulf Stream does not heat Europe by itself**: While AMOC transports heat, so do the mid-latitude westerly winds over warm SST, the land distribution, and the general circulation. "The Gulf Stream keeps Europe warm" is correct in direction but overstated in magnitude. Some studies suggest atmospheric circulation differences (land vs. ocean at the same latitude) account for most of the N. Atlantic–N. Pacific temperature asymmetry.
 
-<!-- @editor[content/P2]: Antarctic Circumpolar Current (ACC) absent — the largest current by volume transport (~130-150 Sv), the only current circling the globe, and the primary mechanism distributing NADW/AABW globally; deserves its own section or at least substantial coverage -->
+## Antarctic Circumpolar Current (ACC)
+
+The ACC is the largest current on Earth by volume transport (~130–150 Sv) and the only current that circles the globe unobstructed by continents. It connects all three major ocean basins and is the primary distributor of NADW and AABW to the Indian and Pacific oceans.
+
+```
+ACC STRUCTURE:
+  Driven by: strong westerly winds in the "Roaring Forties" (40–60°S)
+  No continental barriers between Cape Horn and Antarctic Peninsula
+  → unobstructed zonal flow
+
+  Transport: ~130–150 Sv at Drake Passage (measured by DRAKE array)
+    Compare: Gulf Stream ~30 Sv; AMOC ~17 Sv thermohaline component
+
+  Frontal system (from north to south):
+    Subtropical Front       SST ~12–15°C; northern edge
+    Subantarctic Front      SST ~8–10°C; boundary of AAIW subduction
+    Polar Front (Antarctic Convergence)  SST ~5°C; Antarctic Intermediate Water
+    Southern ACC Front      SST ~2°C; deepest winter mixing
+    Southern Boundary ACC   contact with Antarctic slope
+
+  Each front: ~0.5–1 m/s core velocity, ~100–300 km wide
+  Between fronts: broad, slower background flow
+
+KEY ROLES:
+  1. CONNECTS OCEAN BASINS:
+     NADW (from N. Atlantic) → enters Southern Ocean → upwells here
+     → mixed with Antarctic waters → redistributed to Indian + Pacific
+
+  2. BUOYANCY BUDGET:
+     Wind stress drives surface divergence (Ekman) south of Drake Passage
+     → upwelling of deep water → exchange with atmosphere
+     Southern Ocean takes up ~40% of anthropogenic CO₂ + ~50% of excess heat
+
+  3. EDDY FLUX CRITICAL:
+     Unlike mid-latitude gyres, ACC cannot balance wind stress with
+     sea-level tilt (no boundaries) → mesoscale eddies carry the
+     northward heat + momentum flux ("eddy saturation" regime)
+     This is why ACC models require resolving eddies (<10 km grid)
+
+DRAKE PASSAGE EFFECT:
+  Opening of Drake Passage ~30 Ma (Antarctica–S. America separation)
+  → ACC established → thermal isolation of Antarctica → glaciation
+  Closing Drake would redirect warm water to Antarctica → deglaciation
+```

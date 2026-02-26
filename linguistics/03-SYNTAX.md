@@ -184,8 +184,31 @@ John's book = [DP [D' [D John's] [NP book]]]
 
 ## Part IV: Transformations — Movement
 
-<!-- @editor[bridge/P3]: Natural bridge to AST transformations (source-to-source compilers, optimization passes that rewrite tree nodes) missing here — would strengthen the "surface ≠ deep structure" point for this learner -->
-**The basic insight**: Surface word order ≠ underlying structure. Some structures are derived by movement operations.
+**The basic insight**: Surface word order ≠ underlying structure. Some structures are derived by movement operations. This is exactly what source-to-source compilers and optimization passes do: an AST transformation that rewrites tree nodes while preserving semantic equivalence. The surface string (what you hear/read) is the linearized, post-transformation output; the underlying structure is the pre-transformation tree.
+
+```
+SOURCE-TO-SOURCE TRANSFORMATION        SYNTACTIC MOVEMENT
+
+  Source AST:                            Deep structure (D-structure):
+  BinOp(+, x, ReadVar(y))                [IP you [VP see [DP what]]]
+
+  Optimization pass: hoist ReadVar       Wh-movement (Internal Merge):
+  out of expression context              "what" raises to SpecCP
+
+  Target AST:                            Surface structure (S-structure):
+  Let(tmp=ReadVar(y),                    [CP what_i [IP you see [t_i]]]
+    BinOp(+, x, tmp))
+
+  The transformation is MEANING-         Movement is MEANING-PRESERVING:
+  PRESERVING: the computation            "What did you see?" has the
+  is identical; the tree structure       same propositional content as
+  has changed.                           the underlying form, just with
+                                         wh-phrase in different position.
+```
+
+**Islands as ill-formed AST rewrites:** Movement island constraints are constraints on which tree nodes can be legally extracted. Extracting from within a complex NP or an embedded question is like attempting to hoist a variable out of a scope where it is not in scope — the operation fails because it violates structural constraints, not because of the semantics of the individual items being moved.
+
+**Deep structure vs. Logical Form:** In GB theory, D-structure is where theta-roles are assigned (like a typed IR where argument roles are resolved). LF (Logical Form) is where scope is computed (like a desugared, fully-explicit IR after all syntactic sugar is expanded). These are different levels of the compilation pipeline, not the same thing.
 
 ### Wh-Movement
 

@@ -213,7 +213,13 @@ FEASIBLE WITH JWST:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the noise floor problem (2 ppm atmospheric signal vs. 10-30 ppm instrument precision) is a signal-to-noise / sampling theory problem; the scale height equation is dimensional analysis; the coronagraph contrast ratio (10^-10) parallels dynamic range challenges in ADC/DAC design — natural bridge to signal processing and information theory -->
+## Signal Processing and Information Theory Parallels
+
+**The noise floor problem as an SNR engineering constraint.** An Earth twin around a sun-like star produces an atmospheric transit signal of ~2 ppm (atmospheric scale height contribution to transit depth). JWST's photometric precision is ~10-30 ppm per transit. Detecting a 2 ppm signal against a 10-30 ppm noise floor requires combining ~100 transits to average down the noise by √N — the same root-N averaging argument that applies to any signal buried in Gaussian noise. At Earth's 365-day period, this would take ~100 years of JWST time. For M-dwarf targets with shorter orbital periods (6-12 day orbits), the same number of transits accumulates in months rather than centuries, which is precisely why the TRAPPIST-1 system is the priority target.
+
+**The scale height equation as dimensional analysis.** H = kT/(μg) — atmospheric scale height is proportional to temperature and inversely proportional to molecular weight and gravity. This is pure dimensional analysis: the only combination of the relevant physical quantities (thermal energy kT, molecular mass μ, gravitational acceleration g) with dimensions of length. "Hotter, lighter-composition, lower-gravity atmospheres are puffier and easier to detect" falls directly from inspection of this expression. It also explains why hot Jupiters are easy targets (H ~1000 km, high temperature, low mean molecular weight) while super-Earths are hard (H ~30 km, lower temperature, higher g).
+
+**The coronagraph contrast requirement as a dynamic range problem.** Direct imaging of an Earth twin requires suppressing the star's light by a factor of 10⁻¹⁰ at visible wavelengths — the planet/star contrast ratio for Earth/Sun at 550 nm. JWST's coronagraph achieves ~10⁻⁴. The required improvement is six orders of magnitude. This is a dynamic range challenge identical to the problem of detecting a microvolt signal in the presence of a 1-volt reference — solved in electronics by combining high dynamic range ADCs, differential measurement, and active cancellation. In coronagraphy, the equivalent techniques are shaped-pupil masks, deformable mirror wavefront correction, and starshade external occulters. The Habitable Worlds Observatory targets 10⁻¹⁰ contrast, which requires all of these simultaneously.
 
 ## Future Telescopes: The Path to Earth Twins
 

@@ -349,7 +349,46 @@ INTENSITY-DURATION-FREQUENCY (IDF) RELATIONSHIPS:
 
 ---
 
-<!-- @editor[bridge/P2]: No dedicated bridge section — the DSP/convolution connection (UH = impulse response) and Kriging/GP regression analogy are excellent but inline; gather these into a "Bridges from CS and Engineering" callout box for the learner who scans for them -->
+## Bridges from CS and Engineering
+
+```
+RAINFALL-RUNOFF CONCEPT       CS / ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Unit Hydrograph (UH)          LTI system impulse response
+  Q(t) = UH ⊛ P_excess(t)      → discrete convolution (same as FIR filter)
+  UH shape = catchment TF       → characterizes gain + timing at each frequency
+  Superposition of periods      → linearity allows addition of responses
+  Limitation (large storms)     → nonlinear regime; LTI breaks down
+                                  (same as small-signal approximation in EE)
+
+Kriging (spatial rainfall)    Gaussian process (GP) regression
+  Variogram γ(h)                → covariance kernel as function of separation h
+  Kriging system (linear eq.)   → GP posterior mean; same closed-form solution
+  Kriging variance              → GP posterior variance (uncertainty estimate)
+  "Optimal unbiased estimator"  → minimum MSE under stationarity assumption
+
+Horton infiltration f(t)      First-order exponential decay
+  f(t) = fc + (f0-fc)e^{-kt}   → RC discharge curve; k = 1/time constant
+  "Saturated K" floor           → steady-state; equivalent to DC gain in a filter
+
+Green-Ampt model              Moving boundary problem
+  Sharp wetting front           → Stefan problem in heat conduction
+  Capillary suction ψ_f         → surface tension as a driving potential
+
+SCS Curve Number Q(P)         Nonlinear sigmoid mapping
+  Q = (P - Ia)² / (P - Ia + S) → threshold + nonlinear amplification
+  CN = 98 (impervious)          → near-unity gain; CN = 30 → heavy attenuation
+  Antecedent moisture           → state-dependent gain (system with memory)
+
+IDF Curves                    Extreme value statistics at fixed durations
+  i = a/(D+b)^n                 → power-law tail; same form as Pareto-type EVT
+  Return period T               → 1/P(exceedance) per year — not a fixed cycle
+  Design storm selection        → threshold for acceptable tail risk
+
+Snowmelt degree-day model     Linear threshold model
+  M = Mf × max(T_a - 0, 0)     → ReLU activation; accumulates as integral
+  SWE as state variable         → integrator (running sum of melt increments)
+```
 
 ## Decision Cheat Sheet
 

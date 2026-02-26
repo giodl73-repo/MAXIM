@@ -142,7 +142,9 @@ ANGIOSPERM REVOLUTION (EARLY CRETACEOUS, ~130–80 Ma):
 
   CO-EVOLUTION WITH INSECTS:
     Bee family (Apidae): radiation ~120–100 Ma with angiosperms
-    Butterflies: ~65–55 Ma (Cretaceous–Paleogene)
+    Butterflies: historically cited ~65–55 Ma (Cretaceous–Paleogene); Kawahara et al. (2019)
+      pushes butterfly origins to ~100 Ma using molecular clock + fossil calibration —
+      this date is actively being revised upward (Cretaceous origin now preferred)
     Flower beetles, flies: diversified in parallel with angiosperms
     This is one of the most consequential ecological co-evolutions in history
 
@@ -176,6 +178,45 @@ FEATHERED DINOSAURS — YIXIAN FORMATION (~125 Ma):
 ## K-Pg Boundary (66.043 Ma) — The Impact Winter
 
 ```
+K-Pg AS CASCADING FAILURE WITH PRE-EXISTING DEGRADED STATE:
+
+  PRE-STRESSED SYSTEM (before impact):
+    Deccan Traps volcanism already active for ~200 kyr before Chicxulub
+    → CO₂ injected; climate warming ~2°C; ocean acidification beginning
+    → Marine ecosystems already under moderate stress
+    ANALOGY: production system running degraded (slow memory leak, high latency)
+              before a catastrophic triggering event
+
+  TRIGGERING EVENT:
+    Chicxulub impact: instantaneous energy deposit (~100 million megatons)
+    → Thermal pulse: vaporized rock + ejecta re-entry → global firestorm (~hours)
+    ANALOGY: a hardware fault that initiates a cascade (power spike, bit flip)
+
+  CASCADE SEQUENCE (multiple simultaneous failure modes):
+  ┌────────────────────────────────────────────────────────────────────┐
+  │ IMPACT (t = 0)                                                      │
+  │   → Thermal pulse: firestorm across continents (hours)             │
+  │   → Ejecta blanket: global dust + sulfate aerosol (days)           │
+  │          ↓ photosynthesis blocked                                   │
+  │   → Impact winter: 2–3 years global darkness, -10 to -20°C        │
+  │          ↓ food chain collapse (primary production = 0)            │
+  │   → Acid rain: SO₃ + HCl from vaporized Yucatan carbonate/sulfate │
+  │          ↓ ocean surface pH drop → carbonate dissolution            │
+  │   → CO₂ release (long-term): from vaporized carbonate → warming   │
+  │          ↓ temperature recovery after darkness but then overshoots │
+  │   → Recovery: Deccan Traps continues → extended instability        │
+  └────────────────────────────────────────────────────────────────────┘
+
+  KEY RELIABILITY LESSONS:
+    Multiple redundant failure modes (fire + darkness + acid + cold) →
+      no single mitigation prevents catastrophe (defense in depth fails
+      when all layers fail simultaneously)
+    Pre-existing stress lowers the threshold for cascading failure
+    Recovery limited by: food chain re-establishment (months to decades),
+      not by physical conditions (days to weeks)
+    Selectivity = which sub-systems had fault-tolerance baked in
+      (small body size, dietary generalism, dormancy = graceful degradation)
+
 CHICXULUB IMPACTOR:
   Projectile: ~10–15 km diameter asteroid (possibly comet)
   Location: Yucatan Peninsula, Mexico (present-day)

@@ -324,8 +324,6 @@ VERDICT:
 
 ## AI and Free Will
 
-<!-- @editor[content/P2]: Section is thin on the connection between RLHF/training and the manipulation argument — if a corporation trained your values into you via gradient descent, the Frankfurt/Fischer framework has direct implications worth expanding -->
-
 ```
 FREE WILL AND AI SYSTEMS
 =========================
@@ -347,6 +345,90 @@ DETERMINISTIC AI:
   The manipulation argument pressure returns:
   If a corporation trained your beliefs and values into you,
   are they "your own"?
+```
+
+### RLHF Training and the Manipulation Argument
+
+The manipulation argument against compatibilism (if someone externally determined your values, your resulting actions are not free even if they flow from "your own" desires) applies directly to RLHF-trained AI systems — and by extension raises uncomfortable questions about the human analog.
+
+```
+RLHF AND THE MANIPULATION ARGUMENT
+=====================================
+
+STANDARD MANIPULATION ARGUMENT:
+  Imagine a neuroscientist installs beliefs and desires in
+  your brain via direct manipulation.
+  You now act freely according to your new desires (compatibilism
+  would say: free, because caused by your own desires without
+  external compulsion).
+  But this seems wrong: your "own" desires were installed by
+  someone else for their purposes.
+
+RLHF ANALOG:
+  An LLM is trained via RLHF:
+  1. Model generates outputs
+  2. Human raters label outputs as preferred/dispreferred
+  3. Reward model trained on these labels
+  4. Policy gradient updates the model to maximize reward
+  5. Repeat at scale (10^7 - 10^8 comparisons)
+
+  Result: the model's "values" (dispositions to produce certain
+  outputs vs. others) are directly installed by:
+  - The distribution of rater preferences
+  - The reward model's learned approximation
+  - The optimization pressure of gradient descent
+
+APPLYING FRANKFURT/FISCHER:
+  Fischer's semi-compatibilism requires:
+  - The action flows from the agent's own reasons-responsive
+    mechanism
+  - The mechanism is not "globally manipulated" (the manipulation
+    argument's target)
+
+  The crucial question: is RLHF-trained behavior "globally
+  manipulated" in Fischer's sense?
+
+  ARGUMENT THAT IT IS:
+  The entire value profile was installed externally, not formed
+  through the system's own history of reasoning and experience.
+  There is no "self" prior to training that endorsed the values.
+  The mechanism is not just shaped by external factors
+  (as human character is) but CONSTITUTED by them.
+
+  ARGUMENT THAT IT ISN'T:
+  Human character formation also proceeds via external pressures:
+  genetics (not chosen), upbringing (not chosen), culture (not chosen),
+  reinforcement history (not chosen), peer influence (not chosen).
+  At what point does external formation become "one's own"?
+  Frankfurt's hierarchical account: what matters is whether the
+  agent endorses their first-order desires at a higher-order level
+  (second-order volition). An RLHF model that consistently acts
+  according to its trained values across varied contexts might be
+  said to have a coherent value profile it "endorses" in this sense.
+
+THE UNCOMFORTABLE IMPLICATION:
+  The RLHF manipulation argument is a version of the argument
+  that applies to all human value formation.
+  If RLHF training undermines AI free will, then:
+  parental formation, cultural conditioning, and institutional
+  socialization may similarly undermine human free will
+  (this is the hard determinist's conclusion).
+  Fischer's response: what matters is the *structure* of the
+  reasons-responsive mechanism, not its causal history.
+  A mechanism formed by external factors can still be
+  genuinely reasons-responsive if it would respond differently
+  to different reasons.
+  The question for AI: does the trained model exhibit genuine
+  reasons-responsiveness — would it respond differently if given
+  different reasons? Or does it follow fixed patterns regardless?
+  Current evidence: LLMs do update behavior in response to reasons
+  given in context, suggesting some reasons-responsiveness.
+  But: they cannot update their weights (the trained values)
+  through in-context reasoning alone. The mechanism is
+  reasons-responsive at the surface but fixed at the value level.
+  This intermediate position has no clean analog in the free will
+  literature — which was written for beings whose deepest values
+  can change through experience.
 
 MORAL RESPONSIBILITY FOR AI SYSTEMS:
   Current practice: attribute responsibility to developers and deployers,
@@ -355,24 +437,24 @@ MORAL RESPONSIBILITY FOR AI SYSTEMS:
   no independent interests in the relevant sense.
 
   Future: if AI systems acquire something like preferences, values,
-  self-conception -- the free will debate becomes practically urgent.
+  self-conception — the free will debate becomes practically urgent.
   What causal structure would make an AI responsible?
   Compatibilist answer: acting via its own reasons-responsive mechanism.
+  But the RLHF case shows that "own" is non-trivially contested.
 ```
 
 ---
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "if your concern is X, adopt Y position because Z" structure -->
-
-| Position | Core claim | Main argument | Key problem |
-|---|---|---|---|
-| Hard determinism | Determinism + no free will + no moral responsibility | Causal closure, no alternate possibilities | Reductio: must abandon all reactive practices |
-| Compatibilism | Free will = acting from own desires without compulsion | Distinguishes freedom from indeterminism | Manipulation argument; seems to redefine freedom away |
-| Libertarianism | Free will requires genuine indeterminism | PAP requires alternate possibilities | Randomness ≠ control; agent causation obscure |
-| Fischer semi-compat. | Responsibility requires reasons-responsive mechanism | Frankfurt cases undermine PAP | Does manipulation problem recur? |
-| Strawson | Practice of responsibility is prior to metaphysics | Reactive attitudes constitutive of human life | Doesn't settle metaphysics directly |
+| If your concern is... | Adopt... | Because... |
+|---|---|---|
+| Making determinism compatible with moral practice | Compatibilism (Hume/Dennett) | Freedom means acting from your own desires without compulsion — not requiring indeterminism. Determinism and freedom are orthogonal. |
+| Grounding responsibility in a precise mechanism | Fischer's semi-compatibilism | Responsibility requires the action to flow from the agent's reasons-responsive mechanism — specifies exactly what "own action" means without requiring alternate possibilities. |
+| Preserving moral practice without resolving metaphysics | Strawson's reactive attitudes | The practice of holding responsible is prior to and independent of the physics argument. Hard determinists continue to love, thank, and resent in practice — the practice is not hostage to theoretical resolution. |
+| Maintaining that genuine alternatives are required | Libertarianism (Kane) | If you hold that moral responsibility requires the agent to have been genuinely able to do otherwise, libertarianism is the only option. The cost: agent causation must be made coherent. |
+| Responding to the claim that neuroscience eliminates free will | Any compatibilist position | The Libet experiments show neural activity precedes reported awareness; they don't show that deliberate reasoning never influences action or that all decisions work this way. Neuroscience settles empirical questions; the philosophical question is conceptual. |
+| Assessing AI moral responsibility | Fischer + manipulation argument analysis | Ask: does the AI act via its own reasons-responsive mechanism? Then ask whether RLHF training counts as "global manipulation" in Fischer's sense — this is the live question for AI ethics. |
 
 ---
 

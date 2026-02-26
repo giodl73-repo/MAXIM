@@ -1,6 +1,44 @@
 # Biology — Overview
-<!-- @editor[diagram/P2]: Landscape diagram lists items linearly — rework as layered system view showing relationships between modules -->
-<!-- @editor[bridge/P1]: Missing universal CS bridge upfront — Biology as Information Science should anchor the opening, not be buried at bottom -->
+
+---
+
+## Biology as Information Science — The CS Bridge
+
+Biology is the study of information systems that evolved over 3.8 billion years. Every major CS concept has a biological analog — not metaphorically, but mechanistically:
+
+```
+CS CONCEPT              BIOLOGICAL IMPLEMENTATION
+─────────────────────────────────────────────────────────────────────
+Source code             DNA sequence (genome)
+Runtime config          Epigenome (histone marks, methylation)
+Compilation             Transcription: gene → mRNA
+Execution               Translation: mRNA → protein
+JIT / function binding  Protein folding: sequence → active 3D structure
+Event-driven arch       Signal transduction: receptor → cascade → response
+Process fork            Cell division (mitosis/meiosis)
+Graceful termination    Apoptosis (programmed cell death)
+Unchecked infinite loop Cancer (growth control circuitry disabled)
+Genetic algorithm       Evolution (mutation + selection + drift + crossover)
+Staged deployment       Development (zygote → adult via gene expression waves)
+Adaptive IDS            Immune system (learned signatures, memory cells)
+Distributed system      Multicellular organism (37 trillion cooperating cells)
+Fault tolerance         DNA repair pathways, checkpoint kinases, redundant genes
+
+WHAT'S DIFFERENT FROM SYNTHETIC SYSTEMS:
+  - No separation of program and hardware (protein IS the machine)
+  - No clean read/write memory (expression is context-dependent)
+  - No foresight (evolution is online learning without a loss function)
+  - Stochasticity is load-bearing (gene expression noise = functional variability)
+  - 3.8 Gyr of optimization — no engineer has this runway
+
+INFORMATION THEORY VIEW:
+  Human genome: ~3.2 Gbp × 2 bits/base = ~6.4 Gbits raw; ~800 MB compressed
+  Information content is vastly amplified: ~20,000 genes → ~100,000 protein isoforms
+  (alternative splicing, PTMs, combinatorial TF logic)
+  Shannon entropy of amino acid usage ≈ 4.2 bits/position (20 AAs, not uniform)
+```
+
+The modules below drill into each layer of this system.
 
 ---
 
@@ -45,40 +83,45 @@ UNIFYING THEORIES:
 
 ---
 
-## Field Map
+## Field Map — System Architecture View
 
 ```
-BIOLOGY
-│
-├── Molecular Biology
-│     DNA/RNA structure, central dogma, transcription/translation
-│     Gene regulation, epigenetics, CRISPR
-│     → Module 01-MOLECULAR-MACHINERY.md
-│
-├── Cell Biology
-│     Cell organelles, membrane transport, cell signaling
-│     Cell cycle, division, apoptosis
-│     → Module 02-CELL-BIOLOGY.md
-│
-├── Genetics & Genomics
-│     Mendelian genetics, chromosome theory, molecular genetics
-│     Population genetics, genomics, epigenetics
-│     → Module 03-GENETICS.md
-│
-├── Evolution
-│     Natural selection, genetic drift, molecular evolution
-│     Speciation, phylogenetics, evo-devo
-│     → Module 04-EVOLUTION.md
-│
-├── Ecology
-│     Population dynamics, species interactions, community ecology
-│     Biogeochemical cycles, conservation biology
-│     → Module 05-ECOLOGY.md
-│
-└── Physiology
-      Organ systems, homeostasis, neural signaling
-      Immune system, endocrinology, integration
-      → Module 06-PHYSIOLOGY.md
+INFORMATION SUBSTRATE
+  ┌─────────────────────────────────────────────────────────────┐
+  │  01-MOLECULAR-MACHINERY — DNA, RNA, Proteins, Central Dogma │
+  │  Storage → transcription → translation → folding            │
+  │  Gene regulation, epigenetics, CRISPR                       │
+  └──────────────────────────┬──────────────────────────────────┘
+                             │ proteins are the machines
+             ┌───────────────┼───────────────────┐
+             ▼               ▼                   ▼
+  ┌──────────────────┐  ┌──────────────┐  ┌─────────────────┐
+  │ 02-CELL-BIOLOGY  │  │ 03-GENETICS  │  │ 06-PHYSIOLOGY   │
+  │ Membrane, signal │  │ Heredity,    │  │ Organ systems,  │
+  │ organelles,      │  │ genomics,    │  │ homeostasis,    │
+  │ cell cycle       │  │ epigenetics  │  │ neural/immune/  │
+  └──────────────────┘  └──────┬───────┘  │ endocrine       │
+                               │           └─────────────────┘
+                               │ allele frequencies change
+                               ▼
+                    ┌─────────────────────┐
+                    │ 04-EVOLUTION        │
+                    │ Selection, drift,   │
+                    │ speciation,         │
+                    │ phylogenetics       │
+                    └──────────┬──────────┘
+                               │ organism × environment
+                               ▼
+                    ┌─────────────────────┐
+                    │ 05-ECOLOGY          │
+                    │ Populations,        │
+                    │ communities,        │
+                    │ biogeochemical      │
+                    │ cycles              │
+                    └─────────────────────┘
+
+INFORMATION FLOWS DOWNWARD (molecular → system)
+SELECTION PRESSURE FLOWS UPWARD (ecology → evolution → genome)
 ```
 
 ---
@@ -293,5 +336,36 @@ The `natural-sciences/` directory covers overlapping material from a chemistry-f
 The biology/ modules go deeper on the biological narrative, evolution, and physiology.
 The natural-sciences/ modules integrate chemistry ↔ biology connections.
 
-<!-- @editor[structure/P1]: Missing Decision Cheat Sheet — needs "which module for what question" in "use X when Y" format -->
-<!-- @editor[structure/P2]: Missing Common Confusion Points section -->
+## Decision Cheat Sheet — Which Module for What Question
+
+| Your question | Go to | Why |
+|---------------|-------|-----|
+| How does DNA store information? How is it transcribed/translated? | 01-MOLECULAR-MACHINERY | Central dogma, replication, gene regulation |
+| How does CRISPR work mechanistically? | 01-MOLECULAR-MACHINERY | Cas9 mechanism, repair pathways |
+| How do cells communicate? What are signal cascades? | 02-CELL-BIOLOGY | RTK/GPCR/second messengers, cell signaling |
+| How does the cell cycle work? Why does cancer evade checkpoints? | 02-CELL-BIOLOGY | Cyclin-CDK, p53, Rb, apoptosis |
+| How do traits inherit? What does heritability mean? | 03-GENETICS | Mendelian genetics, population genetics |
+| How does GWAS work? What is linkage disequilibrium? | 03-GENETICS | Genomics, SNP association, epigenetics |
+| How does natural selection work mathematically? | 04-EVOLUTION | Selection equations, drift, neutral theory |
+| How do you build a phylogenetic tree? | 04-EVOLUTION | ML/Bayesian methods, molecular clock |
+| How do populations grow? What limits them? | 05-ECOLOGY | Logistic model, Leslie matrix, carrying capacity |
+| How does homeostasis work mechanistically? | 06-PHYSIOLOGY | PID-like feedback, HPA/HPT/HPG axes |
+| How does the immune system distinguish self from non-self? | 06-PHYSIOLOGY | MHC, T/B cells, innate vs adaptive |
+
+**Use 04-EVOLUTION when** the question is about *change across generations*. Use 05-ECOLOGY when the question is about *interactions within a generation*. The divide between evolutionary time and ecological time is the key axis.
+
+---
+
+## Common Confusion Points
+
+**Genotype vs phenotype**: The genome is fixed per cell (mostly); the expressed phenotype depends on which genes are active in which cell type, developmental stage, and environmental context. A cancer mutation in DNA does not mean every cell is cancerous — depends on which cell and whether checkpoints fire.
+
+**Gene count does not equal complexity**: ~20,000 protein-coding genes, but >100,000 protein isoforms (alternative splicing). Add post-translational modifications and combinatorial TF logic, and the effective proteome is vastly larger than the gene count suggests.
+
+**Evolution is not goal-directed**: Natural selection is a filter, not an optimizer with a target. Genetic drift is random. Most molecular evolution is neutral. The phrase "evolved *for* X" is shorthand — evolution has no intentions.
+
+**Epigenetics ≠ Lamarckism**: Epigenetic marks are reset in the germline (mostly). Dutch Hunger Winter effects are real but narrow exceptions. Acquired somatic epigenetic changes do not generally transmit to offspring.
+
+**"Junk DNA" is a misnomer**: ~50% of the genome is transposable elements (not junk — they drive genomic innovation). ~8% is regulatory elements (ENCODE). Only ~1.5% is protein-coding. The rest is complex, not random noise.
+
+**mRNA is not a 1:1 copy of a gene**: Pre-mRNA is processed (5' cap, poly-A tail, intron splicing). Alternative splicing means one gene can produce multiple distinct proteins. The mRNA reaching the ribosome may represent only some exons of the original locus.

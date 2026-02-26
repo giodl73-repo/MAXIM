@@ -1,9 +1,46 @@
-<!-- @editor[diagram/P2]: No landscape diagram — guide opens with enzyme mechanism details. Needs a visual map: catalysis fundamentals → Michaelis-Menten kinetics → inhibition types → allostery/cooperativity → covalent regulation → enzyme classification. The full enzymology landscape as a system. -->
 # 07-ENZYMES — Enzyme Kinetics & Catalysis
 
 > Michaelis-Menten derivation, inhibition types, allostery, covalent modification.
 > How biology achieves 10⁶–10¹⁷-fold rate enhancements while remaining
 > precisely regulated.
+
+---
+
+## Landscape
+
+```
+┌────────────────────────────────────────────────────────────────────┐
+│                        ENZYMOLOGY                                   │
+│                                                                      │
+│  CATALYSIS FUNDAMENTALS                                             │
+│  ─────────────────────────                                          │
+│  Lower ΔG‡ (both ΔH‡ and ΔS‡)     Rate enhancement 10⁶–10¹⁷      │
+│  Proximity / orientation            Does NOT change K or ΔG_rxn    │
+│  Electrostatic TS stabilization     EC number classification        │
+│          │                                                           │
+│          ▼                                                           │
+│  MICHAELIS-MENTEN KINETICS                                          │
+│  ──────────────────────────                                         │
+│  E + S ⇌ ES → E + P               v₀ = Vmax[S]/(Km + [S])         │
+│  kcat (turnover), Km (half-sat)    kcat/Km = catalytic efficiency  │
+│  Lineweaver-Burk linearization                                      │
+│          │                                                           │
+│     ┌────┴──────────────────────────┐                               │
+│     ▼                               ▼                               │
+│  INHIBITION                      ALLOSTERIC REGULATION             │
+│  ──────────                      ───────────────────                │
+│  Competitive (↑Km, Vmax same)    Hill equation (n > 1 = sigmoidal) │
+│  Uncompetitive (both ↓, parallel) MWC T⇌R model                   │
+│  Noncompetitive (↓Vmax, Km same)  Hemoglobin / Bohr effect         │
+│          │                                                           │
+│          ▼                                                           │
+│  COVALENT REGULATION                                                │
+│  ─────────────────────                                              │
+│  Phosphorylation (kinase/phosphatase)   Irreversible: proteolytic  │
+│  Cascade amplification (10⁸ glucose/min) activation (zymogens)    │
+│  Acetylation, ubiquitination, glycosylation                        │
+└────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 

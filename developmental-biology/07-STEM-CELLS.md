@@ -30,7 +30,57 @@ Stem cells are defined by two properties: self-renewal (can make more stem cells
 
 ---
 
-<!-- @editor[bridge/P2]: No CS/engineering bridge. The stem cell potency hierarchy is a "type hierarchy with narrowing casts" — totipotent is the base class, each step down restricts the interface. The niche concept maps to "dependency injection" — the environment determines behavior, not the cell alone. Bivalent chromatin is "feature flags on developmental genes — poised but not active." -->
+## Engineering Bridge: Stem Cells as Typed Objects with Environmental Injection
+
+The stem cell system is a class hierarchy with narrowing type constraints and environment-injected behavior.
+
+```
+  STEM CELL BIOLOGY             CS / SYSTEMS PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Potency hierarchy             Type hierarchy with narrowing casts:
+  Totipotent → Pluripotent       Totipotent = base class (implements all
+  → Multipotent → Unipotent      interfaces). Each step down narrows the
+                                 interface. A multipotent HSC implements
+                                 {Myeloid, Lymphoid} but not {Neural}.
+                                 Differentiation = irreversible downcast.
+                                 Yamanaka iPSC = upcast back to base class
+                                 (was thought to be prohibited — it isn't).
+
+  Stem cell niche               Dependency injection / IoC:
+  (HSC niche: CXCL12, SCF, TPO) The cell's behavior is not intrinsic alone.
+                                 The niche injects the signals that maintain
+                                 stem cell identity. Remove the niche →
+                                 cell differentiates. The niche IS the
+                                 runtime environment.
+
+  Bivalent chromatin            Feature flags on developmental genes:
+  (H3K4me3 + H3K27me3 at        Genes are "poised": the activating mark
+  developmental genes in ESCs)   (H3K4me3) is set, but the silencing mark
+                                 (H3K27me3) keeps them off. Neither fully
+                                 on nor off — exactly a feature flag that
+                                 can be quickly toggled. EZH2 writes
+                                 H3K27me3 (set to disabled); KDM6 removes it
+                                 (remove disabled flag → gene activates).
+
+  Asymmetric stem cell division  Fork with different inheritance:
+  (one stem + one progenitor)    Self-renewal: one daughter inherits the
+                                 full stem cell identity (niche contact
+                                 maintained, Notch signal). Other daughter
+                                 drifts away → reduced niche → differentiates.
+                                 Asymmetric distribution of fate determinants
+                                 during mitosis (e.g., Numb in Drosophila).
+
+  Clonal competition and niche   Resource contention with eviction:
+  replacement                    Stem cells compete for limited niche space.
+                                 Fitter clone (higher Wnt signal, APC mutation)
+                                 → expands, evicts wild-type neighbors.
+                                 Cancer initiation: winner-takes-all niche
+                                 competition after first oncogenic mutation.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## Embryonic Stem Cells (ESCs)
 
 ```
@@ -260,7 +310,57 @@ COMPETITION AMONG STEM CELLS
 
 ---
 
-<!-- @editor[content/P2]: Cancer stem cell hypothesis absent — a major stem cell topic: the idea that tumors are maintained by a stem-like subpopulation (CSCs) with implications for therapy resistance and relapse. Would fit naturally after the "Competition Among Stem Cells" section. -->
+## Cancer Stem Cells (CSC Hypothesis)
+
+```
+CANCER STEM CELL HYPOTHESIS
+─────────────────────────────
+Hypothesis: Tumors are maintained by a small subpopulation of cells with
+stem-like properties (self-renewal, differentiation capacity). These CSCs
+are responsible for therapy resistance, metastasis, and relapse.
+
+EVIDENCE FOR THE CSC MODEL
+  Bonnet & Dick (1997): Only CD34+CD38- AML cells could engraft immunodeficient
+  mice → only a subset had "leukemia-initiating" capacity.
+  Clarke et al. (2003): Breast cancer CD44+CD24-low cells had >100× higher
+  tumor-initiating capacity vs. CD44-CD24+ cells.
+  Glioblastoma (Singh et al. 2004): CD133+ cells initiated tumors at 100 cells;
+  CD133- cells failed at 100,000 cells.
+
+CSC MARKERS (by cancer type, approximate)
+  Breast cancer:     CD44+, CD24-/low, ALDH1+ (ALDH1A1 activity)
+  Leukemia (AML):    CD34+, CD38-, CD123+
+  Glioblastoma:      CD133+ (Prominin-1), SOX2, nestin
+  Colorectal cancer: LGR5+ (intestinal stem cell marker)
+  Pancreatic cancer: CD44+, CD24+, ESA+
+
+THERAPY RESISTANCE MECHANISMS
+  1. Quiescence: many CSCs are slow-cycling → spared by chemotherapy
+     (which targets rapidly dividing cells)
+  2. ABC transporters: CSCs overexpress MDR1 (P-gp), BCRP → drug efflux
+  3. Anti-apoptotic upregulation: BCL-2, BCL-XL high in CSCs
+  4. DNA damage repair: CSCs have enhanced DDR capacity (Rad51, ATM)
+  5. Reactive oxygen species: CSCs maintain low ROS via enhanced antioxidant
+     → resist oxidative-stress-mediated killing
+
+CLINICAL IMPLICATIONS
+  Traditional therapy kills the bulk tumor (non-CSC, highly proliferative)
+  → rapid initial response → relapse from surviving CSCs.
+  CSC-targeted approaches:
+    Differentiation therapy: ATRA in APL (forces CSC differentiation → gone)
+    CSC surface markers: anti-CD44, anti-CD133 antibodies + ADCs
+    Notch/Hedgehog/Wnt inhibitors: target CSC maintenance pathways
+    BET bromodomain inhibitors: disrupt MYC → CSC self-renewal suppressed
+
+CAVEATS AND CONTROVERSY
+  Plasticity: Non-CSC cells can acquire CSC traits (especially after chemo)
+  → the hierarchy is not fixed. Markers are imperfect. The degree to which
+  the CSC model applies varies by tumor type. In some tumors, all cells may
+  be tumorigenic in permissive conditions (stochastic model vs. hierarchical model).
+```
+
+---
+
 ## Decision Cheat Sheet
 
 | Stem Cell Type | Self-Renewal | Potency | Niche Signals | Clinical Relevance |

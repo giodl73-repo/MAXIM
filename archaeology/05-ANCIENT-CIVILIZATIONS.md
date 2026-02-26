@@ -296,16 +296,14 @@ INFORMATION MANAGEMENT AS STATE DRIVER:
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" rows (e.g., "Use comparative urbanism when: distinguishing independent invention from diffusion") -->
-
-| Question | Answer |
-|----------|--------|
-| Why did writing emerge? | Primarily for accounting/administration, not narrative |
-| Who built the Egyptian pyramids? | State-organized labor (paid workers), not slaves — administrative records show this |
-| Why is Indus Valley writing not deciphered? | Short inscriptions (~5 signs average); no bilingual text; not certain it represents language |
-| What is the Maya collapse? | Southern lowland city abandonment ~800–900 AD; multiple causes; Maya people survived |
-| What makes states archaeologically visible? | Monumental architecture, craft specialization, administrative records, evidence of social hierarchy |
-| What caused Bronze Age collapse? | Likely systems cascade: trade disruption + climate + invasions → interconnected economies all failed |
+| Use this approach when... | Method / concept | Notes |
+|--------------------------|-----------------|-------|
+| Distinguishing independent urban invention from diffusion | Comparative urbanism: timing, geographic separation, subsistence base | Simultaneous appearance in isolated regions (Mesopotamia, Indus, China, Mesoamerica) with different subsistence bases = convergent evolution, not diffusion |
+| The written record claims something the material record contradicts | Material culture analysis as primary evidence | Pyramid-builder villages with administrative records disprove "slave" narrative; Indus urban planning without monumental temples disproves theocratic model derived from analogies with Mesopotamia |
+| Explaining state formation without a single cause | Multi-factor systems model | Irrigation management, trade control, military coercion, ritual authority — weight each factor against archaeological evidence; no single variable explains all cases |
+| Interpreting a script that hasn't been deciphered | Internal analysis: sign frequency, distribution, Zipf's law | Can establish whether it is likely a writing system (language encoding) vs. a non-linguistic marking system before decipherment |
+| Tracing the spread of a specific technology or crop | Archaeobotany / zooarchaeology + radiocarbon sequencing | Dated first appearances at multiple sites + direction of spread establish diffusion trajectories |
+| Understanding "collapse" without implying extinction | Distinguish elite administrative collapse from population decline | The Maya "collapse" is the failure of the southern lowland palace economy; Maya population continued and the northern cities thrived for another 200+ years |
 
 ---
 

@@ -61,8 +61,41 @@ NICHE CONSTRUCTION:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to CS/math — Lotka-Volterra equations are coupled nonlinear ODEs; Leslie matrix is a linear recurrence (eigenvalue problem). The learner's MIT math background maps directly: population dynamics = dynamical systems theory, metapopulations = graph connectivity. -->
 ## Population Ecology
+
+**Dynamical systems bridge:**
+Population models are dynamical systems — continuous or discrete-time, linear or
+nonlinear. The MIT math background maps directly onto every model here.
+
+```
+MODEL TYPE               MATH STRUCTURE           KEY BEHAVIOR
+
+Exponential growth       1st-order linear ODE     Eigenvalue e^(rt): r > 0 unstable,
+  dN/dt = rN             (scalar)                 r < 0 stable, r = 0 neutral
+
+Logistic growth          1st-order nonlinear ODE  Fixed points: N*=0 (unstable),
+  dN/dt = rN(K-N)/K      Bernoulli / separable    N*=K (stable). Bifurcation at r=0.
+
+Lotka-Volterra           Coupled nonlinear ODEs   Center (neutrally stable cycles)
+  dH/dt = rH − aHP       (2D autonomous system)   No attractor: trajectories conserve
+  dP/dt = bHP − mP                                a Hamiltonian H = V + aH − b ln H...
+                                                   Real populations: limit cycles or
+                                                   damped oscillations (more realistic
+                                                   competition terms stabilize)
+
+Leslie matrix            Linear recurrence:       N(t+1) = L·N(t)
+  (age-structured)       N(t) = Lᵗ N(0)          Dominant eigenvalue λ₁ = long-run
+  Fecundity + survival   Eigenvalue problem        growth rate (λ₁ > 1: grow, < 1: decline)
+  rates in matrix L      on positive matrix        Eigenvector = stable age distribution
+
+METAPOPULATION = GRAPH CONNECTIVITY PROBLEM:
+  Each population = node; colonization/extinction rates = edge weights
+  Persistence requires: colonization rate > extinction rate (Levins model)
+  Threshold: ρ* = 1 − e/c  (fraction occupied patches at equilibrium)
+  Connected to: SIS epidemic model on networks (same mean-field ODE structure)
+  Fragmented habitat = low graph connectivity → metapopulation collapse below
+  minimum viable patch density (analogous to percolation threshold)
+```
 
 ```
 BASIC DEMOGRAPHIC EQUATION:

@@ -432,7 +432,110 @@ WAITING FOR GODOT (Beckett, 1952):
 
 ---
 
-<!-- @editor[content/P2]: Non-Western dramatic traditions absent — Sanskrit natya (Natyashastra, Kalidasa's Shakuntala), Chinese xiqu (Peking opera), Japanese noh and kabuki, and their formal systems deserve at least a compressed section given the world-literature scope of the set -->
+## Non-Western Dramatic Traditions
+
+### Sanskrit Natya
+
+```
+NATYASHASTRA (c. 200 BCE – 200 CE) — Bharata Muni
+The foundational theory of Sanskrit theater: not just playwriting rules
+but a complete performance theory covering movement, gesture, music, emotion.
+
+RASA THEORY (the formal core):
+  Theater's purpose: to produce rasa (aesthetic flavor/sentiment)
+  in the audience — not emotion but aesthetic contemplation of emotion.
+
+  8 (later 9) rasas:
+    Shringara (love/beauty)    ← dominant in court drama
+    Hasya (comedy/humor)
+    Karuna (pathos/compassion)
+    Raudra (fury)
+    Vira (heroism)
+    Bhayanaka (terror)
+    Bibhatsa (disgust)
+    Adbhuta (wonder)
+    Shanta (peace/serenity)    ← 9th, added later
+
+  Mapping: rasa ≈ a transfer function from performed
+  emotion (bhava) to aesthetic experience in the audience.
+  The actor does not feel the emotion; the actor encodes
+  the permanent emotion (sthayi-bhava) via specific gestures
+  (mudras) and expressions (abhinaya) to trigger rasa.
+
+KALIDASA (c. 4th-5th century CE):
+  Abhijnanasakuntalam (Shakuntala): the paradigmatic Sanskrit
+  court drama. Recognition plot (abhijnana = recognition —
+  compare Aristotle's anagnorisis). Protagonist: King
+  Dushyanta must recognize Shakuntala as his wife.
+  The dramatic engine is a curse that causes forgetting
+  (suppressed recognition), lifted by a physical token
+  (ring). Formal parallel to type-theoretic identity:
+  the ring is a witness term for the identity proposition.
+```
+
+### Chinese Xiqu (Opera)
+
+```
+XIQU — TOTAL PERFORMANCE FORM
+  Chinese theater is not primarily "drama" in the Aristotelian sense.
+  It is zonghe yishu: synthesis of music, movement, acrobatics, combat,
+  vocal technique, and text. The spoken/sung distinction is encoded
+  in role types, not scenes.
+
+ROLE TYPES (juese):
+  Sheng   — male (subdivided: laosheng/wensheng/wusheng)
+  Dan     — female (subdivided by age/type; historically male-played)
+  Jing    — painted-face (warriors, officials, supernatural beings)
+  Chou    — clown/comic (only type who can break fourth wall)
+
+  The role type determines costume, makeup, movement vocabulary,
+  and vocal register. This is a typed system: the role is the type,
+  and type determines the full behavioral repertoire.
+
+JINGJU (Peking/Beijing Opera, c. 1790):
+  Synthesized regional styles (Anhui, Hubei troupes)
+  for the Qing imperial court. Became dominant national form.
+  Repertoire: ~1,400 plays; ~200 regularly performed.
+
+FORMAL CONVENTIONS:
+  Minimal/symbolic scenography: a table = mountain, throne, or table
+  depending on how actors use it. Pure convention over representation.
+  Compare Brechtian alienation effect — but here convention is not
+  critical; it's the unmarked default.
+```
+
+### Japanese Noh and Kabuki
+
+```
+NOH (14th century — Zeami Motokiyo)
+  Extremely slow, formal, masked performance.
+  Zeami's treatises (Fushikaden, Kadensho) are the theory:
+  the concept of hana (flower) — the quality that makes
+  performance affecting is not skill alone but a quality
+  that cannot be technically specified, only cultivated.
+  Hana as an aesthetic version of tacit knowledge.
+
+  Structure: shite (protagonist, often a ghost or spirit)
+             waki (supporting character who encounters the shite)
+             chorus (narrates the shite's interior state)
+  The climax: shite dances the remembered event (often their death).
+  Time structure: the present is a frame for the past's re-enactment.
+  Formal parallel: continuation-passing style where the past is
+  the continuation and the present is the calling context.
+
+  Zeami's jo-ha-kyu (introduction-development-rapid finale):
+  a temporal rhythm applied at every structural level
+  (the scene, the play, the day's program). Fractal pacing.
+
+KABUKI (17th century):
+  Developed partly as "popular" alternative to noh's aristocratic form.
+  Onnagata: male actors playing female roles; the performance of
+  femininity made visible as technique (precedes Butler's performativity).
+  Mie: a frozen pose at a climactic moment, held for audience reaction.
+  Hanamichi: raised walkway through the audience — actors enter/exit
+  through the audience space. Dissolves the stage/audience boundary.
+```
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Key concept / section |

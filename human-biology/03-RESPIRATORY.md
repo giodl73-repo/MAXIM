@@ -298,19 +298,35 @@ PERIPHERAL CHEMORECEPTORS (carotid bodies + aortic bodies)
 
 ---
 
-<!-- @editor[content/P2]: Section is thin -- pulmonary circulation deserves comparison table contrasting with systemic circulation (pressure, resistance, hypoxia response) -->
 ## Pulmonary Circulation
 
-Different from systemic:
-- Normal pulmonary artery pressure: ~25/10 mmHg (vs 120/80 systemic)
-- Low resistance: allows entire cardiac output through delicate alveolar capillaries
-- **Hypoxic pulmonary vasoconstriction (HPV)**: low alveolar pO₂ → vasoconstrict that segment → redirect blood to better-ventilated alveoli (optimizes V/Q matching)
-  - Opposite of systemic circulation (hypoxia → systemic vasodilate to deliver more O₂)
-  - Global hypoxia (altitude, COPD) → global vasoconstriction → pulmonary hypertension → RV failure (cor pulmonale)
+| Parameter | Pulmonary | Systemic | Implication |
+|-----------|-----------|----------|-------------|
+| Systolic pressure | ~25 mmHg | ~120 mmHg | RV wall much thinner than LV |
+| Diastolic pressure | ~10 mmHg | ~80 mmHg | — |
+| Mean pressure | ~15 mmHg | ~93 mmHg | 5–6× pressure difference for same CO |
+| Vascular resistance | ~1 WU | ~15–20 WU | Pulmonary is low-resistance high-flow |
+| Response to hypoxia | **Vasoconstriction** (HPV) | Vasodilation | Opposite response — redirects blood to ventilated alveoli |
+| Wall thickness | Thin, compliant | Thick, muscular | Capillaries can accommodate entire CO at low pressure |
+| Fluid dynamics | Starling forces favor filtration | Net reabsorption at venular end | Pulmonary edema occurs at lower pressure rises than systemic edema |
+
+**Hypoxic pulmonary vasoconstriction (HPV)**: Regional low alveolar pO₂ → local arteriolar constriction → diverts blood to better-ventilated segments. This is the V/Q matching optimization mechanism — the vasculature routes flow toward high-ventilation regions rather than low ones. Mechanistically, HPV is mediated by inhibition of voltage-gated K⁺ channels in pulmonary arterial smooth muscle → membrane depolarization → Ca²⁺ influx → contraction.
+
+**Global hypoxia breaks HPV into a problem**: At altitude or in COPD with diffuse V/Q mismatch, HPV acts everywhere simultaneously → global pulmonary vasoconstriction → pulmonary hypertension → RV pressure overload → RV hypertrophy → eventual RV failure (cor pulmonale). The same local optimization mechanism becomes destructive when applied globally.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- V/Q matching = load balancing (shunt = server bypass, dead space = idle server), Henderson-Hasselbalch = ratio-based equilibrium, surfactant = interface stabilization -->
+## Engineering Bridges
+
+**V/Q matching as load balancing**
+The lung runs ~500 million alveolar units in parallel. Each unit needs matched ventilation (V) and perfusion (Q) for efficient gas exchange. V/Q = 0 (shunt) is a zero-throughput unit that still consumes perfusion — equivalent to a server that receives requests but is completely unresponsive; traffic bypasses it without gaining anything. V/Q = ∞ (dead space) is a ventilated-but-unperfused unit — equivalent to a server that gets no traffic but burns CPU idling. Optimal load balancing minimizes both failure modes: reroute perfusion away from collapsed alveoli (HPV), reroute ventilation away from unperfused regions (via CO₂ mediated bronchodilation). The lung's auto-balancing is imperfect, which is why a healthy young person has an A-a gradient of 5–10 mmHg.
+
+**Henderson-Hasselbalch as a ratio controller**
+pH = 6.1 + log([HCO₃⁻] / 0.03·pCO₂). The fraction inside the log is the controlled ratio; the respiratory system adjusts pCO₂ in seconds (the fast actuator); the renal system adjusts [HCO₃⁻] over days (the slow but high-precision actuator). Think of it as proportional control (respiratory) paired with integral control (renal) — the integral term eliminates steady-state error but is slow to respond. Compensation in mixed acid-base disorders is the system trying to restore the ratio without correcting the primary variable.
+
+**Surfactant as interfacial stabilization**
+The LaPlace equation (P = 2T/r) predicts that smaller alveoli should collapse into larger ones (higher internal pressure). Surfactant (DPPC) reduces surface tension as alveoli shrink — the opposite of most surfactants. This is a nonlinear stabilizing spring: the smaller the alveolus, the more it resists further collapse. DPPC operates at a lipid phase transition: at low surface area it forms a condensed film with near-zero tension; at high surface area it expands and tension rises, resisting over-inflation. Without this property, the lung would be mechanically unstable (all air into one big bubble).
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

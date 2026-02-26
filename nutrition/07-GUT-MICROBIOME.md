@@ -4,7 +4,72 @@
 
 The human gut harbors approximately 38 trillion microorganisms — roughly equal to the number of human cells — encoding 150× more unique genes than the human genome. These microbes are not parasites but **metabolic partners**: they digest substrates our enzymes cannot, produce essential metabolites, train the immune system, and communicate with the brain. The microbiome is increasingly recognized as a metabolic organ with systemic effects on health and disease.
 
-<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view connecting composition/diversity -> fiber fermentation -> SCFAs -> colonocyte health + immune training + gut-brain axis -> prebiotics/probiotics interventions -> dysbiosis and disease links -->
+```
+GUT MICROBIOME — SYSTEM ARCHITECTURE
+──────────────────────────────────────────────────────────────────────────────
+COMPOSITION / DIVERSITY LAYER:
+  ~38 trillion microbes; Firmicutes + Bacteroidetes + Proteobacteria + Actinobacteria
+  Keystone species: F. prausnitzii (butyrate), Akkermansia (barrier), Bifidobacterium
+  α-diversity (within-individual) = resilience marker; driven by diet diversity
+  β-diversity (between individuals) = high; no universal "healthy" microbiome exists
+  Determinants: diet (primary modifiable) > antibiotics > age > genetics
+
+                    ↓ substrate flow
+
+FIBER FERMENTATION:
+  Undigested polysaccharides → colon → obligate anaerobes
+  Fermentation rate: proximal colon fast (soluble fiber); distal slower (insoluble)
+  Cross-feeding: acetate-producers feed butyrate-producers
+
+                    ↓ metabolite production
+
+SCFAs (short-chain fatty acids):
+  Butyrate (C4) → colonocyte fuel (70% of colonocyte energy)
+                → HDAC inhibitor → anti-cancer via cell differentiation/apoptosis
+                → Treg induction → mucosal immune tolerance
+                → NF-κB inhibition → reduced systemic inflammation
+  Propionate (C3) → portal vein → liver gluconeogenesis; PYY satiety signal
+  Acetate (C2) → peripheral tissues; brain; substrate for cross-feeding
+
+                    ↓ two parallel downstream arms
+
+ARM 1: COLONOCYTE HEALTH + BARRIER + IMMUNE TRAINING:
+  Butyrate → tight junction protein expression → barrier integrity
+  Insufficient butyrate → leaky gut → LPS (gram-negative outer membrane)
+    into portal blood → TLR4 → low-grade systemic inflammation
+    → "metabolic endotoxemia" (Cani 2007)
+  Microbial antigens → mucosal DC training → Treg / IgA calibration
+  Germ-free animals: dysregulated mucosal + systemic immunity; restored by colonization
+
+ARM 2: GUT-BRAIN AXIS:
+  Enterochromaffin cells → 5-HT → vagal afferents (80-90% afferent) → brainstem
+  Microbiome → tryptophan metabolism → kynurenine/IDO pathway (mood-relevant)
+  SCFAs → GPR41/43 on enteroendocrine cells → GLP-1, PYY satiety hormones
+  GABA: Lactobacillus spp. produce GABA → enteric neurons → vagal signaling
+
+                    ↓ interventions to modulate
+
+PREBIOTICS (selective substrates):
+  FOS/inulin → Bifidobacterium + F. prausnitzii → butyrate production
+  Resistant starch RS3 (cooked-cooled) → Ruminococcus → butyrate
+  GOS → infant microbiome + immune calibration
+
+PROBIOTICS (live microorganisms — strain-specific effects):
+  L. rhamnosus GG → AAD and traveler's diarrhea (Level 1 evidence)
+  S. boulardii → C. diff prevention during antibiotics
+  FMT (not a probiotic; best microbiome intervention): recurrent C. diff 90%+ cure
+
+                    ↓ dysbiosis consequences
+
+DYSBIOSIS → DISEASE SPECTRUM:
+  Butyrate producer depletion + Proteobacteria expansion → leaky gut → LPS → inflammation
+  IBD: F. prausnitzii ↓, E. coli ↑; FMT 30% remission in UC (vs 90%+ for C. diff)
+  T2DM/Obesity: Akkermansia ↓; correlational not cleanly causal; metformin raises Akkermansia
+  CRC: Fusobacterium nucleatum overrepresentation; used as early detection marker
+  Mood: F. prausnitzii + Coprococcus depletion in depression; causality contested
+──────────────────────────────────────────────────────────────────────────────
+```
+
 ```
 GUT MICROBIOME — OVERVIEW:
 

@@ -26,10 +26,49 @@ Agriculture is humanity's single largest transformation of the biosphere — cov
 |  Biodiversity loss (agriculture = leading driver)               |
 +------------------------------------------------------------------+
 ```
-<!-- @editor[diagram/P2]: Diagram lists items in columns but doesn't show how inputs flow through processes to outputs or how constraints feed back — rework as layered system view with arrows showing relationships -->
-
 ---
-<!-- @editor[bridge/P2]: No systems-engineering bridge — agriculture is a complex adaptive system with feedback loops, resource constraints, and optimization trade-offs that map directly to control theory and systems design. The learner owns those concepts deeply; connect them here. -->
+
+## Agriculture as a Complex System
+
+Agriculture maps directly to systems-engineering concepts:
+
+```
+AGRICULTURE AS A FEEDBACK-CONTROLLED PRODUCTION SYSTEM:
+
+  EXTERNAL DRIVERS (disturbances):
+    Climate (rainfall, temperature, CO₂) ──────────────────┐
+    Pest/pathogen pressure ────────────────────────────────┤
+    Market prices ────────────────────────────────────────┤
+    Policy / subsidies ───────────────────────────────────┘
+                                           ↓ disturbances
+  INPUTS ──────────────────────────────► PROCESSES ──────► OUTPUTS
+  Land                                  Crop growth        Food (cal, protein)
+  Water                                 Livestock          Feed
+  Fertilizers (N, P, K)                 Pest mgmt          Biofuel
+  Pesticides                            Irrigation         GHGs
+  Labor                                 Mechanization      Soil state change
+  Energy                                Processing         Runoff / pollution
+  Seeds / genetics                      Trade              Land use change
+                                           ↓
+  CONSTRAINTS (limit feasible states):  FEEDBACK LOOPS (system responses):
+  Finite arable land                    ┌─ Soil degradation reduces future yield
+  Water scarcity                        │   (negative feedback on input use)
+  Soil degradation (33% already         ├─ Pest resistance to pesticides
+    degraded globally)                  │   (adversarial arms race)
+  Climate zone limits                   ├─ Price signals: yield ↑ → price ↓
+  Energy for Haber-Bosch N              │   → planting area adjusts
+  Biodiversity loss                     └─ Groundwater depletion limits
+                                              future irrigation capacity
+
+  OPTIMIZATION FRAMING:
+  Maximize: food output (calories, protein, diversity)
+  Subject to: land ≤ arable area; water ≤ renewable supply;
+              GHG ≤ carbon budget; soil health maintained
+  Trade-offs: maximum yield vs. minimum input vs. minimum externalities
+    → Multi-objective optimization (Pareto frontier)
+  Current industrial agriculture: maximizes yield per hectare
+    while ignoring other objectives → not Pareto-optimal overall
+```
 
 ## The Neolithic Revolution — 10,000 BCE Transition
 

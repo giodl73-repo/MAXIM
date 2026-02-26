@@ -21,7 +21,7 @@ PRIONS: misfolded proteins — no nucleic acid, no conventional pathogen structu
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- therapeutic challenge with fungi (eukaryote targeting eukaryote) parallels selectivity problem where attacker and defender share architecture; bridge to selective toxicity principle -->
+**Systems Bridge:** Antifungal drug discovery is the selective toxicity problem in its hardest form: attacker and defender share almost the same architecture (both are eukaryotes — same ribosomes, same membrane lipid pathways, same cell cycle machinery). This is exactly the challenge in any exploit-vs-defense scenario where the attacker runs on the same platform as the defender: you cannot use a weapon that destroys the platform itself. The solution in both domains is to find diverged components — features the target has that the host has replaced or omitted. Fungi use ergosterol where mammals use cholesterol (same membrane role, different molecule — a configuration difference, not an architectural one). Fungi have a cell wall (β-1,3-glucan); mammals have none. These are the only two viable target classes. The narrow drug toolkit follows directly from the narrow divergence. By contrast, bacteria are prokaryotes — fundamentally different architecture — which is why the antibiotic toolkit is much larger: 70S ribosomes (vs 80S), peptidoglycan, different RNA polymerase, folate synthesis pathway absent in mammals, all exploitable.
 
 ## Fungi
 

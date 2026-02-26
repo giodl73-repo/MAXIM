@@ -238,7 +238,67 @@ CRAFT NOTES:
   not end in melancholy.
 ```
 
-<!-- @editor[content/P2]: Roast structure absent — mentioned in the Common Confusion Points as blame-mode epideictic but no structural template is provided; given that roasts are a common professional occasion (retirement, team farewell), a brief template would be useful -->
+### The Roast
+
+```
+THE ROAST — PROFESSIONAL EPIDEICTIC IN BLAME MODE
+
+The roast is paradoxical epideictic: it praises by blaming.
+The formal logic: if we can mock this person publicly
+and they enjoy it, the roast demonstrates that the subject
+is securely embedded in the group — the mockery is
+a form of affection, not attack.
+The roast fails when: the subject is insecure, the
+jokes expose real wounds, or the audience does not
+know the subject well enough to read blame as praise.
+
+WHEN ROASTS OCCUR IN PROFESSIONAL SETTINGS:
+  - Retirement (the most common)
+  - Team farewell (someone leaving for another org or company)
+  - Award presentation (informal; "I'll say a few things about X")
+  - Anniversary milestone (10 years, etc.)
+
+STRUCTURAL TEMPLATE:
+
+1. FRAMING (30 sec):
+   Signal clearly that this is a roast, not a character assassination.
+   "I've been asked to say a few things about [X].
+    And since [X] is here and cannot stop me, I will."
+   The explicit framing protects the subject by telling
+   the audience how to interpret what follows.
+
+2. THE SIGNATURE FLAW (90 sec, 2-3 jokes):
+   One defining characteristic that is known, safe to mock,
+   and the subject has acknowledged publicly.
+   Structure: setup → escalation → punchline.
+   Safe material: professional habits, well-known quirks,
+     the subject's own acknowledged failures.
+   Dangerous material: anything the subject is actually
+     sensitive about, private life without explicit consent,
+     anything that could be quoted out of context.
+   The rule: a good roast joke is one the subject tells
+   about themselves.
+
+3. THE POSITIVE TURN (60 sec):
+   The roast must pivot from mock-blame to genuine praise.
+   The turn signals that the blame was always praise in disguise.
+   "All of which is to say: [X] is the person who [genuine
+    achievement, specific, concrete, true]."
+   The turn makes the entire roast retroactively legible
+   as affection. Without the turn, it is just mean.
+
+4. CLOSE WITH A TOAST (30 sec):
+   Raise a glass; address the room and the subject.
+   End on warmth.
+
+TONE CALIBRATION:
+  The roast tone is narrow. Too harsh → cruelty;
+  too gentle → not really a roast.
+  The register is "teasing a close colleague" not
+  "stand-up comedy" and not "polite toast."
+  Know your subject. Know your audience.
+  Test the specific jokes on someone who knows them.
+```
 
 ### The Commencement Address
 
@@ -264,7 +324,34 @@ THE PROBLEM:
   This is the template that speakers must decide
   whether to follow, modify, or subvert.
 
-<!-- @editor[audience/P2]: Commencement address section is the weakest VP-level connection — the learner is more likely to give an internal onboarding keynote or conference talk than a commencement; reframe the examples toward those occasions while keeping Wallace/Jobs as rhetorical models -->
+THE VP/ENGINEERING EQUIVALENT — ONBOARDING KEYNOTE AND CONFERENCE TALK:
+  The internal onboarding keynote and the conference talk share
+  the commencement's epideictic problem: highly conventional genre;
+  audience has strong expectations; breaking convention is risky.
+
+  ONBOARDING KEYNOTE (new employees, org intro):
+    Epideictic function: establish the group's values and identity.
+    The speaker = the community's representative; the audience = inductees.
+    Structural parallel to commencement: welcome → our story → what we believe
+    → what I ask of you.
+    The failure mode: reciting org chart and OKRs instead of making
+    the audience want to be part of the community.
+    The Wallace move: say something true and slightly uncomfortable
+    about the organization. It signals authenticity.
+
+  CONFERENCE TALK (external; professional audience):
+    Epideictic function: establish speaker's authority and the
+    community's standards. "Here is what we value; here is
+    work worth doing."
+    The audience knows the genre: 20-30 minute talk, slides,
+    Q&A. The conventions are stable.
+    The failure mode: a comprehensive literature review followed
+    by a result. The successful structure: open with the problem
+    as if the audience has never heard it framed this way, then
+    solve it.
+    The Jobs move: reserve the strongest claim for the end,
+    not the middle.
+
 DAVID FOSTER WALLACE — "THIS IS WATER" (2005):
   Kenyon College commencement. Perhaps the most
   influential recent commencement address.

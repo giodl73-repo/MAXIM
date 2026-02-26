@@ -4,7 +4,7 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No CS bridge -- oncogene addiction and synthetic lethality map to SPOF architecture and redundancy analysis; targeted therapy exploits lack of pathway redundancy like fault injection with no failover -->
+**Systems Bridge:** Targeted oncology therapy exploits two related architectural vulnerabilities. Oncogene addiction is a SPOF (single point of failure) problem: a cancer cell that has amplified or constitutively activated a single oncogenic pathway becomes dependent on that pathway for survival — it has traded pathway redundancy for proliferative gain. When you inhibit that pathway (imatinib → BCR-ABL; trastuzumab → HER2; erlotinib → mutant EGFR), the cell has no fallback. Normal cells have parallel signaling pathways and tolerate the loss of one; the addicted cancer cell cannot. Synthetic lethality is the redundancy analysis version: if two repair pathways (BRCA homologous recombination + PARP base excision repair) are both individually essential for survival under DNA damage, and you knock out one (BRCA mutation in the tumor), then the other becomes the sole critical path. Inhibit the sole remaining path (PARP inhibitor) → the system crashes — but only in the BRCA-mutant cell, not in normal cells that still have both pathways. This is exactly the logic of fault injection against a system that has one redundancy layer already removed: inject a fault in the remaining path → failure. The precision of targeted therapy relative to cytotoxic chemotherapy comes from this architectural specificity: cytotoxics kill all dividing cells (low specificity); targeted drugs kill only cells with the specific vulnerability.
 
 ## Big Picture: Oncology Drug Landscape
 
@@ -250,7 +250,7 @@ BCL-2 inhibitors:
 
 ---
 
-<!-- @editor[bridge/P2]: Checkpoint inhibitors are rate limiters/circuit breakers on T-cell activation; removing them causes irAEs -- same as removing safety interlock in distributed system -->
+**Systems Bridge:** Immune checkpoints (PD-1, CTLA-4) are rate limiters and circuit breakers on T-cell activation — they exist to prevent runaway immune responses against self-tissue (autoimmunity) and to terminate responses after the threat is cleared. Tumors exploit these checkpoints by expressing PD-L1 (the ligand for PD-1) on their surface — effectively flashing a "self" credential that tells T-cells to stand down. Checkpoint inhibitors (anti-PD-1/PD-L1, anti-CTLA-4) remove the rate limiter — they allow T-cells that were being suppressed to activate and attack the tumor. The consequence is the same as removing a safety interlock in any system: the desired process (anti-tumor immunity) is unleashed, but so are the pathological processes the interlock was preventing (immune-related adverse events, irAEs — colitis, pneumonitis, hepatitis, thyroiditis, dermatitis). These are not drug toxicities in the traditional sense; they are the immune system attacking self-tissues once the brakes are off. irAEs are managed with corticosteroids (re-engaging immune suppression) and, in severe cases, permanent checkpoint inhibitor discontinuation. The trade-off — remove the rate limiter to achieve the desired effect, accept the risk of runaway side effects — is exactly the design dilemma in any system where you need to turn off a protective constraint to unlock performance.
 
 ## 3. Immunotherapy
 

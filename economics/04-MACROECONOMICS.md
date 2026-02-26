@@ -4,22 +4,50 @@
 
 ## Big Picture
 
-<!-- @editor[diagram/P2]: Diagram lists key questions and analysis levels but doesn't show how the macro framework connects — e.g., how IS-LM produces AD, how AS-AD determines short-run output, how monetary policy feeds through the Taylor rule into IS-LM, how Solow determines long-run potential -->
 ```
-MACROECONOMICS: aggregate phenomena — entire economies, not individual agents
+MACROECONOMIC FRAMEWORK — HOW THE MODELS CONNECT:
 
-KEY QUESTIONS:
-  Why do countries grow rich or stay poor? (Growth theory)
-  Why do economies boom and bust? (Business cycle theory)
-  What should central banks do? (Monetary policy)
-  How much should governments tax and spend? (Fiscal policy)
-  Why is unemployment persistent? (Labor markets)
-  What determines exchange rates? (International macro)
+LONG RUN (Solow growth model):
+  Capital accumulation + technology → determines POTENTIAL OUTPUT Ȳ
+  Ȳ = A × F(K*, L)   at steady-state capital k*
+  Ȳ is the anchor for the medium and short run.
 
-LEVELS OF ANALYSIS:
-  Short run: prices sticky → output determined by demand
-  Medium run: wages/prices adjust → output returns to potential
-  Long run: capital accumulation and technology determine potential output
+MEDIUM RUN (AS-AD + wage adjustment):
+  Output returns to Ȳ as wages and prices adjust:
+  Negative output gap (Y < Ȳ) → unemployment → wages fall → SRAS shifts right → Y → Ȳ
+  Adjustment is slow ("in the long run we are all dead")
+
+SHORT RUN (IS-LM → Aggregate Demand):
+  Prices sticky → demand determines output.
+
+  IS CURVE (goods market):
+    Y = C(Y-T) + I(r) + G   →   IS: downward sloping in (Y,r) space
+    Fiscal policy (↑G, ↓T) shifts IS right; higher r reduces I → shifts IS left.
+
+  LM CURVE (money market):
+    M/P = L(Y,r)   →   LM: upward sloping in (Y,r) space
+    Monetary expansion (↑M) shifts LM right (lower r for same Y).
+    ZLB: LM becomes horizontal; monetary policy loses traction.
+
+  IS-LM intersection → (Y*, r*) = equilibrium output and interest rate.
+
+  AS-AD:
+    IS-LM at all price levels → AD curve (downward sloping in Y,P)
+    Combine AD + SRAS → short-run (Y, P) equilibrium
+    Policy shocks shift AD; supply shocks shift SRAS.
+
+MONETARY POLICY TRANSMISSION:
+  Central bank sets overnight rate i (Fed funds rate)
+  Taylor rule prescribes i = r* + π + 0.5(π-π*) + 0.5(Y-Ȳ)/Ȳ
+  i↓ → LM shifts right → IS-LM gives higher Y → AD shifts right → Y↑, P↑
+
+  ZLB breaks the chain: cannot cut i below ~0 → monetary policy loses IS-LM lever
+  → QE works through long-rate channel, not IS-LM r directly.
+
+KEY LEVELS:
+  Short run: prices sticky → output determined by demand (IS-LM)
+  Medium run: wages/prices adjust → output returns to Ȳ (AS-AD dynamics)
+  Long run: capital and technology determine Ȳ (Solow)
 ```
 
 ---
@@ -396,4 +424,18 @@ TRILEMMA (Mundell-Fleming):
 | PPP | S = P/P* | Exchange rate from price parity |
 | Debt sustainability | r < g → no primary surplus needed | Fiscal space condition |
 
-<!-- @editor[structure/P2]: Missing Common Confusion Points section — natural gotchas: real vs nominal interest rates, GDP vs GNP vs GNI, CPI vs GDP deflator vs PCE, Ricardian equivalence assumptions, why zero lower bound matters, money multiplier in practice vs theory -->
+---
+
+## Common Confusion Points
+
+**Real vs nominal interest rates — Fisher equation**: Nominal rate i = real rate r + expected inflation π^e (Fisher equation). The IS curve uses the *real* rate r (affects investment decisions). The Taylor rule and monetary policy set the *nominal* rate i. At the ZLB, i cannot go below zero, but if expected deflation makes π^e negative, real rates stay positive even when nominal rates are zero — monetary policy loses traction despite i ≈ 0.
+
+**GDP vs GNP vs GNI**: GDP (Gross Domestic Product) = output produced *within* a country's borders regardless of who owns the factors. GNP = GDP + net factor income from abroad = income earned by a country's residents regardless of where they work. GNI = GNP (modern terminology). For most large countries GDP ≈ GNP. The difference matters for open economies with large diaspora remittances (Philippines: GNP > GDP) or large foreign corporate presence (Ireland: GDP >> GNP due to multinational profit booking).
+
+**CPI vs GDP deflator vs PCE**: CPI = price of a *fixed* basket of consumer goods (Laspeyres index; overstates inflation by ignoring substitution). GDP deflator = prices of all goods in current GDP (Paasche index; understates inflation). PCE (Personal Consumption Expenditures deflator) = chain-weighted, adjusts for substitution — the Fed's preferred inflation measure. PCE typically runs 0.3-0.5pp below CPI. When comparing Fed's "2% target" to headlines, note Fed targets PCE, which runs below CPI.
+
+**Ricardian equivalence assumptions**: Ricardo-Barro theorem: tax cut today = future tax hike (government must repay debt); forward-looking consumers save the tax cut → no boost to AD; fiscal multiplier ≈ 0. The result requires: (1) infinite-horizon, rational consumers who can borrow/lend at the same rate as government, (2) non-distortionary taxes (lump-sum), (3) no liquidity constraints. All three fail in practice. Multiplier estimates empirically range 0.5–2.5; RE provides a lower bound reference, not a realistic prediction.
+
+**Zero lower bound vs liquidity trap**: ZLB is a hard constraint: nominal rates cannot go significantly below zero because agents can hold cash (zero nominal return). Liquidity trap (Keynes) is the related phenomenon: at low rates, money demand becomes infinitely elastic (everyone wants to hold cash, not bonds) → LM curve horizontal → monetary expansion has no effect on r or Y. Modern usage often conflates them. Japan 1990s–2000s, US/EU 2008–2015 showed both features simultaneously.
+
+**Money multiplier in practice vs theory**: Textbook: M = H × (1/reserve ratio), implying banks lend out a fixed multiple of reserves. Reality: money creation is demand-driven (banks create deposits when making loans; reserves are obtained after the fact from the central bank). The multiplier does not mechanically govern money supply. Post-2008 QE injected massive reserves but M2 grew slowly because loan demand was weak — the multiplier is endogenous, not a mechanical lever.

@@ -340,8 +340,7 @@ METALEPSIS: violating the hierarchy
 
 This is not just a postmodern trick — it makes the frame
 visible, like breaking the fourth wall in theater.
-<!-- @editor[content/P2]: Cross-reference to "04-MODERN-DRAMA.md" is wrong — the file is 03-DRAMA.md -->
-Brecht used this deliberately (see 04-MODERN-DRAMA.md).
+Brecht used this deliberately (see 03-DRAMA.md).
 ```
 
 ---

@@ -313,7 +313,15 @@ LENCIONI'S FIVE DYSFUNCTIONS:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to engineering team composition at scale (Microsoft-style org with hundreds of teams) — fault lines, diversity, and virtual team findings map directly to how a VP structures orgs across Redmond + Hyderabad + Dublin -->
+## From Multi-Site Engineering Organizations to Team Research
+
+Fault lines, diversity effects, and virtual team dynamics are the specific research domains that apply when a VP designs team structures across distributed sites.
+
+**Fault lines explain why Redmond-Hyderabad or Seattle-Dublin teams split into factions.** When multiple diversity attributes align (seniority correlates with geographic location; domain expertise correlates with time zone; tenure correlates with nationality), the team has a structural fault line — a latent fracture that activates under conflict or pressure. The research finding: teams whose diversity attributes are uncorrelated (a junior in Seattle paired with a senior in Hyderabad across multiple such pairings) are more resilient than teams where all the seniors are in one location. The organizational implication: in structuring engineering teams across sites, actively break the correlation between site membership and other attributes (seniority, domain, tenure, role) rather than creating a team where "the Hyderabad team is the testing team" — which creates both a fault line and a status hierarchy.
+
+**Information elaboration is the mechanism that determines whether diversity helps or hurts.** The net benefit of task-relevant diversity (different expertise, different institutional knowledge, different technical exposure) depends entirely on whether the team actually uses the diverse information. Teams with high psychological safety, rotating facilitation, and explicit "what do others think" processes elaborates diverse information and outperform homogeneous teams. Teams with status hierarchies that silence junior voices, dominant communicators who crowd out alternatives, and "efficiency over exploration" norms fail to elaborate and underperform. The diversity itself is not the variable — the process that enables or blocks elaboration is.
+
+**Virtual team trust dynamics require intentional structural intervention.** Swift trust at the start of a virtual team (task-based, not relationship-based) is fragile: it depends on initial reliability signals (do people do what they say? do they respond promptly?). Without face-to-face trust-building mechanisms, early reliability failures can permanently set a low-trust equilibrium. The intervention: front-load synchronous time at team formation (the equivalent of a co-location kickoff week), make reliability standards explicit and symmetric across locations, and treat documentation and async update quality as a leadership indicator, not an administrative obligation. Proximity bias — the systematic advantage of co-located team members in performance review outcomes — requires explicit mitigation in the calibration process, not just awareness.
 
 ## Diversity and Virtual Teams
 

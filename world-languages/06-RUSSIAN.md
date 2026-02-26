@@ -151,8 +151,40 @@ ADJECTIVE AGREEMENT (новый/new, MASC):
 
 ---
 
-<!-- @editor[bridge/P2]: Missing concept bridge — any developer coming from typed/relational systems needs this: aspect is orthogonal to tense like concurrency is orthogonal to scheduling — a 2x2 matrix (IMP/PERF x PAST/FUTURE) would click for this learner -->
 ## Aspect: Perfective vs Imperfective
+
+**The orthogonality model:** Aspect and tense are independent dimensions, like concurrency and scheduling. Tense locates an event in time (past/present/future). Aspect describes the internal temporal structure of the event — whether it is framed as a process/state (IMPERFECTIVE) or as a bounded, completed unit (PERFECTIVE). The two dimensions compose:
+
+```
+           IMPERFECTIVE              PERFECTIVE
+PAST:    ongoing/habitual past    completed past event
+         "Я читал книгу."          "Я прочитал книгу."
+         (I was reading the book / (I read [and finished]
+          I used to read the book.) the book.)
+
+FUTURE:  ongoing/habitual future  single completed future event
+         "Я буду читать книгу."    "Я прочитаю книгу."
+         (I will be reading the    (I will read [and finish]
+          book / I will read       the book.)
+          books [generally].)
+
+PRESENT: only IMPERFECTIVE        [no perfective present —
+         (ongoing action now)      perfective present form
+         "Я читаю."                has FUTURE meaning]
+         (I am reading.)
+
+CONCURRENCY ANALOGY:
+  TENSE = scheduler timestamp: which clock cycle (past/now/future)?
+  ASPECT = thread completion flag: still running (IMP) or finished (PERF)?
+  A task can be PAST+ONGOING (was running when interrupted)
+  or PAST+COMPLETE (ran to termination) — orthogonal bits.
+
+PRACTICAL RULE:
+  Is the action framed as a process / general truth / repeated habit?  → IMP
+  Is the action framed as a single completed event with a result?       → PERF
+  Negative imperatives: ALWAYS IMP ("Don't do X" = ongoing prohibition)
+  Positive imperatives: IMP (ongoing/process) or PERF (do it once, completely)
+```
 
 ```
 VERBAL ASPECT — the core Slavic grammatical innovation

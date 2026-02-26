@@ -63,8 +63,9 @@ CARBON RESERVOIR δ¹³C VALUES
 
 ## The Long-Term Carbon Cycle
 
-<!-- @editor[bridge/P2]: The silicate weathering thermostat is a textbook negative feedback loop — connecting it explicitly to control theory (negative feedback stabilizes a set point, the concept the learner knows from systems engineering) would make the geological timescale thermostat click immediately -->
 ### Silicate Weathering: The Thermostat
+
+This is a textbook negative feedback loop in the control theory sense: the plant variable is atmospheric CO₂/temperature, the error signal is the deviation from a set point, and the controller is the temperature-dependent weathering rate. The feedback gain is set by how sensitively weathering rate responds to temperature — empirically, weathering roughly doubles per 10°C (Arrhenius kinetics). The system time constant is ~100,000–500,000 years (the integration time of the carbonate burial reservoir). On timescales shorter than this, the thermostat is too slow to matter; on timescales longer, it stabilizes climate within a habitable range. Earth's long-term habitability over 4 Gyr depends on this feedback remaining active — which requires exposed land and liquid water. Venus lacks both; Mars lost both.
 
 ```
 SILICATE WEATHERING FEEDBACK

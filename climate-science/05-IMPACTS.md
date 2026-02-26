@@ -2,33 +2,36 @@
 
 ## Sea Level, Extreme Events, Agriculture, Ecosystems, Risk Framing
 
-<!-- @editor[diagram/P2]: Opening diagram is a simple three-level cascade (physical → biological → human). It lists impact categories but doesn't show how they relate or compound. Rework as a landscape showing cross-connections: e.g., sea level → infrastructure AND migration; drought → agriculture AND conflict; heat → health AND energy demand -->
-
-## The Big Picture
+## The Big Picture: Compound Impact Network
 
 ```
-CLIMATE IMPACTS: FROM PHYSICAL FORCING TO HUMAN CONSEQUENCES
+                    ΔT Global Mean Temperature
+                              ↓
+     ┌────────────────────────┬─────────────────────────┐
+     ▼                        ▼                         ▼
+SEA LEVEL RISE          EXTREME HEAT/DROUGHT       OCEAN CHANGES
+ + storm surge           + precip shift             (acid. + warm. + O₂↓)
+     │    │                  │     │                    │
+     │    └──→ MIGRATION ←───┘     └──→ AGRICULTURE ←──┘
+     │              │               yield loss/shift
+     │              ▼                     │
+     │          CONFLICT ←────────────────┘
+     │         (resource                  │
+     │          scarcity)                 ▼
+     ▼                              FOOD SECURITY
+INFRASTRUCTURE                     + nutrition
+ (roads, coastal,                        │
+  permafrost bldgs)                      ▼
+     │                             HEALTH BURDEN
+     └──→ ENERGY DEMAND SHIFT      (heat mortality,
+           (more cooling,           vector disease,
+            less heating)           air quality)
 
-  ΔT Global Mean Temperature
-          ↓
-  PHYSICAL CHANGES:
-    Sea level rise     Hydrology shifts     Cryosphere loss
-    Ocean changes      Extreme events       Biome shifts
-          ↓
-  BIOLOGICAL CHANGES:
-    Ecosystem disruption    Species range shifts
-    Phenology mismatch      Coral bleaching
-          ↓
-  HUMAN SYSTEM CHANGES:
-    Agriculture          Infrastructure
-    Water security       Human health
-    Migration            Conflict risk
-
-  RISK FRAMING:
-    Not all impacts are linear with temperature
-    Tipping elements create discontinuities (see 03-FEEDBACKS-TIPPING)
-    Fat tails in probability distribution matter for policy
-    Risk = probability × consequence × reversibility
+RISK FRAMING:
+  Not all impacts are linear with temperature
+  Tipping elements create discontinuities (see 03-FEEDBACKS-TIPPING)
+  Fat tails dominate expected-value calculation — see Risk Framing section
+  Risk = probability × consequence × (1 + irreversibility_premium)
 ```
 
 ---
@@ -438,9 +441,9 @@ CLIMATE IMPACTS: FROM PHYSICAL FORCING TO HUMAN CONSEQUENCES
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge in the guide. Natural bridge here: risk framing maps directly to decision theory and expected utility that the learner knows from MIT math — fat tails, option value, irreversibility premium are all concepts from stochastic optimization. Connect "you know expected-value vs risk-averse decision criteria from probability theory; climate risk is the canonical real-world case where tail risk dominates" -->
-
 ## Risk Framing
+
+Climate risk is the canonical real-world case for risk-averse decision criteria rather than expected-value maximization. From stochastic optimization and decision theory: when outcomes have fat tails (small probability of catastrophic, irreversible consequences), expected-value calculations severely underestimate appropriate action. The "irreversibility premium" — option value of avoiding a state you cannot exit — is a core concept from real-options theory. Climate tipping points (AMOC collapse, WAIS destabilization) are exactly the low-probability, high-consequence, irreversible outcomes that break expected-value reasoning. The Stern-Nordhaus debate is fundamentally about discount rates and tail-risk weighting, not empirical disagreement.
 
 ```
   IPCC "BURNING EMBERS" FRAMEWORK:

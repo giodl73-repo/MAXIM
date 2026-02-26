@@ -150,7 +150,6 @@ MINERALS IN THE MODERN ECONOMY
 
 ---
 
-<!-- @editor[bridge/P2]: No explicit bridge from group theory / finite groups to the learner's MIT TCS background — the 230 space groups are a direct application of the classification of finite groups, worth calling out here in the overview -->
 ## How Mineralogy Connects to Adjacent Fields
 
 ```
@@ -178,8 +177,9 @@ CHEMISTRY       (trace elements,
     supply chains)
 ```
 
-<!-- @editor[bridge/P3]: Natural bridge to semiconductor crystal growth (Czochralski Si, sapphire substrates) missing here — connects directly to the learner's tech industry context -->
-**The mineralogy→materials bridge**: silicon carbide, alumina (Al₂O₃), spinel — all are minerals first, engineering ceramics second. The crystal structures studied in mineralogy are the same structures controlled in semiconductor manufacturing.
+The 230 space groups are a direct application of finite group theory to 3D geometry: classifying all distinct ways a discrete symmetry group can act on Euclidean space subject to translational periodicity. The result (exactly 230, no more) was independently proven by Fedorov, Schoenflies, and Barlow in 1891–94 using pure group-theoretic enumeration — before X-rays were even discovered. Every mineral crystal is a physical instantiation of one of these 230 abstract symmetry classes.
+
+**The mineralogy→materials bridge**: silicon carbide, alumina (Al₂O₃), spinel — all are minerals first, engineering ceramics second. The crystal structures studied in mineralogy are the same structures controlled in semiconductor manufacturing. Czochralski-grown silicon single crystals (the entire semiconductor industry substrate) are grown by the same principles as hydrothermal crystal growth; sapphire (corundum, Al₂O₃) wafers for LED substrates and phone covers are synthetic versions of a common mineral. The crystal orientation you cut matters for etch rates, defect propagation, and optical properties — all direct consequences of crystallographic symmetry.
 
 ---
 

@@ -312,7 +312,34 @@ These represent ~100 years of research on thousands of studies.
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to VSTS/Azure DevOps calibration, Microsoft's "connect" performance model, and stack-ranking history missing here — this learner lived through these systems and the I-O research directly validates or challenges each; a paragraph connecting the research to what a VP of Engineering has actually experienced would land powerfully -->
+**Systems bridge — performance management research vs engineering org practice:**
+
+The I-O research on selection and performance management directly validates and
+challenges design choices in engineering organizations.
+
+Structured interviews (r~0.58) vs unstructured (r~0.20): the validity gap is large
+enough to matter at hiring scale. The mechanisms that make unstructured interviews fail
+— halo, confirmation bias, contrast effects — are predictable and documented. Adding
+scoring rubrics and standardized question sets is the interviewing equivalent of adding
+test coverage to a deployment pipeline: reduces a well-understood class of errors.
+
+Stack ranking and forced distributions: the GMA evidence shows cognitive ability
+differences are real and predictive. But forced-distribution systems conflate two
+separate problems: (1) identifying genuine performance differences (valid goal, hard
+measurement problem) and (2) manufacturing distribution shape to satisfy a quota
+(a different goal that adds noise to measurement). Rater bias literature explains the
+failure mode: central tendency and leniency cause rating compression, and calibration
+sessions are the evidence-based fix — not forced curves.
+
+Continuous feedback vs annual review: research supports more frequent feedback for
+engagement and development. But calibration (ensuring cross-manager consistency in
+standards) still requires periodic structured review. The engineering analogy:
+continuous integration doesn't replace a release process; it makes it cheaper.
+
+Maslach's six work mismatches (overload, lack of control, insufficient reward, community
+breakdown, absence of fairness, values mismatch) are directly applicable to engineering
+org design. Measuring them as separate survey constructs predicts attrition more
+precisely than measuring "engagement" as a single score.
 
 ## Decision Cheat Sheet
 

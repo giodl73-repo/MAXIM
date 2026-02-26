@@ -273,17 +273,87 @@ Another major contribution: against the assumption that meaning is controlled by
 
 ## Decision Cheat Sheet
 
-| Concept | Definition |
-|---------|-----------|
-| Différance | Derrida's portmanteau: meaning constituted by difference AND deferral — never fully present |
-| Logocentrism | Western tendency to privilege speech and presence as the ground of meaning |
-| Trace | What every sign carries of other signs — presence of absence |
-| Supplement | That which is "merely added" but turns out to be constitutive |
-| Deconstruction | Close reading that shows how texts undermine their own binary hierarchies |
-| Iterability | The capacity of a sign to be repeated in different contexts — constitutive of signhood |
-| Transcendental signified | A final meaning outside the sign chain that would ground all reference — Derrida denies there is one |
+| I'm asking... | Use this concept |
+|--------------|-----------------|
+| Does this text have a single correct reading? | Différance and iterability say no — meaning is constituted by difference and deferred; each reading context produces a new trace |
+| Why does this binary always need its excluded term? | Supplement logic — the "external" term that seems added turns out to be constitutive of the primary term |
+| Why does this text privilege speech over writing? | Logocentrism — Western metaphysics of presence; Derrida's deconstruction targets this |
+| What does this sign carry of other signs? | Trace — every sign carries the mark of what it is not; pure presence is impossible |
+| What is this text working against, what it's trying to exclude? | Deconstruction — find the hierarchy; invert it; show the dependency |
+| Can this sign mean the same thing in every context? | Iterability — yes it can be repeated; no it cannot mean exactly the same; context constitutively transforms the sign |
+| Is there a final ground of meaning outside the sign chain? | Transcendental signified — Derrida says no; there is no outside; no meta-language that escapes signification |
 
 ---
+
+## Formal Systems Bridge
+
+```
+DERRIDA'S KEY CONCEPTS ↔ COMPUTATION AND TYPE THEORY
+
+DIFFÉRANCE ↔ LAZY EVALUATION / DEFERRED COMPUTATION:
+  Différance encodes two things simultaneously:
+    differing: meaning constituted by DIFFERENCE (Saussure's heritage)
+    deferring: meaning never fully present; always deferred
+  The deferral is not a failure — it is the mechanism of signification.
+  Computation parallel: lazy evaluation (Haskell thunks, C# IEnumerable/yield).
+    A thunk is a deferred computation — the value is not present;
+    it will be produced when forced.
+    The "meaning" of a thunk is deferred until evaluation.
+    But: a thunk forced in different contexts produces different values
+    if it depends on context — exactly Derrida's iterability.
+  IEnumerable<T> with yield: the sequence is not computed;
+    it is deferred as a generator. The "meaning" (the values)
+    is produced incrementally as demanded — never fully present
+    in advance.
+  The transcendental signified = eager evaluation of the full sequence.
+  Derrida says: you can never force the full sequence;
+  the evaluation is always partial, always deferred.
+
+THE SUPPLEMENT ↔ DEPENDENCY INJECTION:
+  The supplement is what appears to be merely added, external,
+  inessential — but turns out to be constitutive of what it supplements.
+  Writing is the supplement to speech: apparently merely added
+  (you can speak without writing), but Derrida shows that the
+  properties of writing (iterability, deferral, absence of speaker)
+  are actually constitutive of language as such.
+  Computation parallel: dependency injection.
+    The injected dependency appears "external" — passed in, not intrinsic.
+    But the component cannot function without it.
+    The external dependency is constitutive of the component's behavior.
+    IoC container = the supplement made explicit: what appeared optional
+    is revealed as the structural condition of possibility.
+  More precisely: any API that takes a callback or strategy pattern
+  parameter is acknowledging that the "external" behavior is
+  constitutive of what the function does. The supplement was always
+  inside, waiting to be made visible.
+
+ITERABILITY ↔ REFERENTIAL TRANSPARENCY AND CONTEXT DEPENDENCE:
+  Iterability: a sign can be repeated in different contexts;
+  but repetition in a new context is not pure repetition —
+  the context constitutively transforms the meaning.
+  Type theory parallel: a function value is referentially
+  transparent (the same function when referenced anywhere)
+  but its application in different call sites may produce
+  different results if the arguments differ.
+  More precisely: a symbol f is iterable (can appear anywhere
+  a term is expected); but f(x) in context C1 ≠ f(x) in C2
+  if the free variables captured by f's closure differ.
+  Context is constitutive of application meaning.
+  Derrida's insight: this is not a failure of language;
+  it is the condition that makes signification possible.
+
+DECONSTRUCTION ↔ FINDING THE HIDDEN DEPENDENCY:
+  Deconstruction finds the binary hierarchy in a text
+  (speech/writing, presence/absence, literal/metaphorical),
+  shows that the devalued term is actually constitutive,
+  and inverts or complicates the hierarchy.
+  Computation parallel: finding a hidden dependency in a
+  "decoupled" system. You think module A is independent of
+  module B (B is external, B is the supplement). Deconstruction:
+  trace the actual call graph; find that A calls B via an
+  apparently external interface; the "decoupling" was nominal.
+  The dependency was always there; it needed to be made explicit.
+```
 
 ## Common Confusion Points
 

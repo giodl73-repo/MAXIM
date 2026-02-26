@@ -4,7 +4,28 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No CS bridge -- neurotransmitter systems map to message-passing (reuptake inhibitors = blocking GC of messages; receptor agonists/antagonists = API activation/blocking; allosteric modulators = middleware) -->
+**Systems Bridge:** Neurotransmitter systems are message-passing architectures, and CNS drugs modulate the message lifecycle at specific stages. The parallel is precise:
+
+```
+Message-passing concept         Neurotransmitter equivalent
+──────────────────────────────────────────────────────────────────────────
+Message production              Neurotransmitter synthesis (upstream)
+Message queuing                 Synaptic vesicle storage (VMAT2 loads vesicles)
+Message dispatch                Exocytosis on action potential (Ca²⁺-triggered release)
+Message receipt                 Postsynaptic receptor binding
+Message acknowledgment          Autoreceptor feedback (↓ release when enough sent)
+Garbage collection / cleanup    Reuptake transporter (SERT, NET, DAT) clears synapse
+Message degradation             MAO (monoamine oxidase), COMT enzymatic breakdown
+Receptor desensitization        Downregulation after chronic overstimulation
+```
+
+Drug classes map to specific intervention points:
+- **Reuptake inhibitors (SSRIs, SNRIs, bupropion):** Block GC of the message — the signal persists longer in the synapse because the transporter is occupied. Not more messages; longer-lived messages.
+- **MAOIs:** Block enzymatic degradation — again extending message lifetime, upstream of reuptake.
+- **Receptor agonists (opioids at μ, BZDs via GABA-A modulation):** Directly activate the API — bypass the natural ligand.
+- **Receptor antagonists (antipsychotics at D2, naloxone at μ):** Block the API — competitive occupancy with no activation.
+- **Allosteric modulators (BZDs at GABA-A, ketamine at NMDA):** Act on a non-orthosteric site — middleware that changes how the receptor responds to its natural ligand without directly activating or fully blocking it. BZDs increase the frequency of Cl⁻ channel opening in response to GABA; they do not open the channel without GABA present.
+- **VMAT2 inhibitors (tetrabenazine, valbenazine):** Block vesicle loading — reduce the queue depth (available neurotransmitter for release). Used for hyperkinetic disorders (Huntington's chorea, tardive dyskinesia) by depleting dopamine.
 
 ## Big Picture: CNS Drug Landscape
 

@@ -196,34 +196,24 @@ PROBABILISTIC FORECASTING:
 
 ## Illustrative Projections — Key Countries
 
-```
-<!-- @editor[structure/P2]: Country projection table below is key comparison data — convert from code block to markdown table for scannability and sort consistency -->
-UN WPP2022 POPULATION PROJECTIONS (2050 and 2100 median):
+### UN WPP2022 Population Projections — Median Variant
 
-Country         2023       2050       2100
-──────────────────────────────────────────────────
-India           1,428M     1,670M     1,530M   (peak ~2065)
-China           1,426M     1,317M       771M   (sustained decline)
-United States     340M       375M       394M
-Nigeria           224M       377M       546M
-Pakistan          231M       367M       421M
-Brazil            216M       231M       185M
-Bangladesh        173M       204M       151M
-DR Congo          101M       215M       432M
-Ethiopia          124M       216M       323M
-Tanzania          65M        129M       244M
-Germany            83M        81M        82M
-Japan             123M        97M        60M
-South Korea        52M        46M        24M
-Italy              60M        53M        43M
-
-KEY TAKEAWAYS:
-- India will remain world's most populous through 2100 (UN median)
-- China: sustained rapid decline; Japan-like trajectory
-- Nigeria, DRC, Tanzania, Ethiopia: dramatic growth; fertility transition speed = key uncertainty
-- Germany, Japan, South Korea, Italy: sustained population decline
-- US: slow growth (immigration sustaining it)
-```
+| Country | 2023 | 2050 | 2100 | Trajectory |
+|---|---|---|---|---|
+| India | 1,428M | 1,670M | 1,530M | Peaks ~2065; remains most populous through 2100 |
+| China | 1,426M | 1,317M | 771M | Sustained rapid decline; Japan-like trajectory |
+| United States | 340M | 375M | 394M | Slow growth; immigration sustaining it |
+| Nigeria | 224M | 377M | 546M | Dramatic growth; fertility transition speed = key uncertainty |
+| Pakistan | 231M | 367M | 421M | |
+| Brazil | 216M | 231M | 185M | Peaks mid-century then declines |
+| Bangladesh | 173M | 204M | 151M | |
+| DR Congo | 101M | 215M | 432M | More than 4× current size by 2100 |
+| Ethiopia | 124M | 216M | 323M | |
+| Tanzania | 65M | 129M | 244M | |
+| Germany | 83M | 81M | 82M | Near-stable; immigration offsets natural decrease |
+| Japan | 123M | 97M | 60M | Sustained decline; no significant immigration |
+| South Korea | 52M | 46M | 24M | Sharpest proportional decline among large countries |
+| Italy | 60M | 53M | 43M | Sustained decline |
 
 ## Decision Cheat Sheet
 

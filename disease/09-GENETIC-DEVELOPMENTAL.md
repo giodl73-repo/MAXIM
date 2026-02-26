@@ -37,7 +37,36 @@ Diagnostic tools: karyotype → chromosomal microarray → gene panel → WES/WG
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- genetic disease taxonomy (chromosomal -> single gene -> epigenetic -> multifactorial -> somatic) maps to defect granularity (platform failure -> module failure -> configuration error -> multi-factor degradation -> runtime corruption) -->
+**Systems Bridge:** The genetic disease taxonomy maps directly to defect granularity in any layered system, with increasing specificity as you move from left to right:
+
+```
+Defect Level          Genetic                    System analog
+─────────────────────────────────────────────────────────────────
+Platform failure      Chromosomal (aneuploidy,   Wrong hardware architecture /
+                      large deletion/dup)        OS incompatibility — affects
+                                                 everything built on top
+
+Module failure        Single-gene (Mendelian)    Bug in a specific library —
+                      CF, sickle cell, PKU       deterministic, all-or-nothing
+                                                 depending on zygosity (dose)
+
+Configuration error   Epigenetic / imprinting    Environment variable / registry
+                      (Prader-Willi, Angelman)   key set wrong — same code,
+                                                 different expression based on
+                                                 which parent the "config" came from
+
+Multi-factor          Multifactorial / polygenic  Degradation from accumulated
+degradation           (T2DM, CAD, schizophrenia) sub-threshold faults across
+                                                  many components — no single
+                                                  cause, threshold model
+
+Runtime corruption    Somatic mutation /          State corruption at runtime —
+                      mosaicism / cancer          not in the original build, not
+                                                  heritable from that cell,
+                                                  acquired after deployment
+```
+
+Diagnostic tool progression (karyotype → microarray → gene panel → WES/WGS) tracks resolution: you start with the coarsest view and increase magnification until you find the lesion, exactly as you would debug a system by starting with system-level metrics before drilling into component logs.
 
 ## 1. Chromosomal Disorders — Numerical
 

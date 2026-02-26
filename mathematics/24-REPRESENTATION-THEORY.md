@@ -2,9 +2,7 @@
 
 ## The Big Picture
 
-Representation theory studies how groups act on vector spaces — it is the bridge between abstract algebraic symmetry and concrete linear algebra. It is the mathematical language of particle physics (SU(2), SU(3), the Standard Model), quantum mechanics (angular momentum, spin), and crystallography. From your MIT background in groups and linear algebra, you have all the prerequisites — this guide builds from finite groups to Lie groups to the physics applications.
-
-<!-- @editor[diagram/P1]: The landscape diagram covers finite groups, Lie groups, physics, and applications — but the ML/computation column is entirely absent. The calibration explicitly calls out equivariant neural networks and geometric deep learning as high-value bridges. The diagram should have a fourth quadrant: "ML & Computation — equivariant networks (G-CNNs), geometric deep learning, SE(3)-equivariant architectures, representation theory on graphs (graph neural networks as message-passing on Cayley graphs), non-abelian Fourier analysis for signal processing on non-Euclidean domains." The current diagram gives the impression this is purely a physics topic. -->
+Representation theory studies how groups act on vector spaces — it is the bridge between abstract algebraic symmetry and concrete linear algebra. It is the mathematical language of particle physics (SU(2), SU(3), the Standard Model), quantum mechanics (angular momentum, spin), and crystallography. More recently it is the theoretical foundation for equivariant neural networks and geometric deep learning. From your MIT background in groups and linear algebra, you have all the prerequisites — this guide builds from finite groups to Lie groups to the physics and ML applications.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -18,13 +16,13 @@ Representation theory studies how groups act on vector spaces — it is the brid
 │  Character table                      Highest weight theorem                 │
 │  Regular, induced representations     Weyl character formula                 │
 │                                                                              │
-│  Key Groups in Physics               Applications                            │
+│  Key Groups in Physics               ML & Computation                        │
 │  ──────────────────────────────        ──────────────────────────────────     │
-│  U(1): electromagnetism              SU(2): spin-1/2, angular momentum      │
-│  SU(2) ≅ Spin(3): fermions           SU(3): color charge, quark model       │
-│  SU(3): strong force                 Lorentz/Poincaré: relativity, QFT     │
-│  SU(2)×U(1): electroweak             SO(3): rotations, spherical harmonics  │
-│  SU(3)×SU(2)×U(1): Standard Model   Permutation groups Sₙ: particle stats  │
+│  U(1): electromagnetism              G-equivariant networks (G-CNNs)        │
+│  SU(2) ≅ Spin(3): fermions           SE(3)-equivariant molecular modeling   │
+│  SU(3): strong force                 Permutation-equivariant (set networks) │
+│  SU(2)×U(1): electroweak             Spectral graph theory / GNNs           │
+│  SU(3)×SU(2)×U(1): Standard Model   Non-abelian Fourier (Peter-Weyl)       │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -464,6 +462,29 @@ For S₃ (n=3):
 
 **RSK correspondence** (Robinson-Schensted-Knuth): Bijection between permutations σ ∈ Sₙ and pairs (P,Q) of standard Young tableaux of the same shape λ. Key connection between representation theory, combinatorics, and symmetric functions.
 
+**Schur polynomials and symmetric functions**: The character of the GL(n)-representation with highest weight λ = (λ₁,...,λₙ) (a partition) evaluated on a diagonal matrix diag(x₁,...,xₙ) is the **Schur polynomial** s_λ(x₁,...,xₙ):
+
+```
+s_λ(x₁,...,xₙ) = χ_λ(diag(x₁,...,xₙ))
+               = Σ_{T standard Young tableau of shape λ} x^{content(T)}
+
+These form a basis for the ring of symmetric polynomials Λ.
+
+Hall inner product: ⟨s_λ, s_μ⟩ = δ_{λμ}  (Schur polynomials are orthonormal)
+
+Littlewood-Richardson rule: s_λ · s_μ = Σ_ν c^ν_{λμ} s_ν
+  c^ν_{λμ} = Littlewood-Richardson coefficient
+            = number of LR tableaux of shape ν/λ with content μ.
+
+This is exactly the decomposition rule for tensor products of GL(n) representations:
+  V_λ ⊗ V_μ = ⊕_ν (c^ν_{λμ}) V_ν
+
+The RSK correspondence establishes the bridge: permutation → Young tableau pair →
+Schur polynomial expansion. This connects Sₙ-representation theory (Young diagrams),
+GL(n)-representation theory (highest weights = partitions), and combinatorics (symmetric
+functions), all in one framework.
+```
+
 ### Schur-Weyl Duality
 
 ```
@@ -539,11 +560,146 @@ Dirac equation: (iγμ∂μ - m)ψ = 0
 
 ---
 
-<!-- @editor[bridge/P1]: Equivariant neural networks and geometric deep learning are entirely absent. This is the highest-value modern application of representation theory to ML and the calibration flags it explicitly. The core idea: a function f: X → Y is G-equivariant if f(g·x) = g·f(x); CNNs are translation-equivariant by construction; G-CNNs (Cohen & Welling 2016) generalize this to any compact group G by using irreps as filter banks; SE(3)-equivariant networks (tensor field networks, SEGNN) use SO(3) irreps to build 3D-equivariant architectures for molecular modeling. Key content: (1) definition of G-equivariant map; (2) equivariant linear maps between G-representations are exactly intertwiners — Schur's lemma constrains the architecture; (3) the general construction: convolve with functions in L²(G) expanded in irreps; (4) examples: rotation-equivariant CNNs (SO(2)-equivariant), 3D molecular networks (SE(3)-equivariant), permutation-equivariant networks for sets (S_n-equivariant). This deserves a full section. -->
+## 10. Equivariant Neural Networks and Geometric Deep Learning
 
-<!-- @editor[bridge/P1]: The connection between representation theory and signal processing / analysis on non-Euclidean domains (graphs, manifolds, meshes) is absent. The spectral graph theory / graph neural network perspective: the graph Laplacian L = D-A has eigenvectors that play the role of Fourier modes; graph convolutions are defined by spectral filtering. For groups, the Peter-Weyl theorem generalizes this to non-abelian settings: functions on G expand in irreps as generalized Fourier modes, and convolutions on G correspond to multiplication of Fourier coefficients by irrep matrices. This connects Section 10 (harmonic analysis) to the fast-growing GNN/graph learning literature. -->
+### Equivariance: The Core Idea
 
-## 10. Harmonic Analysis on Groups
+A function f: X → Y between spaces with G-actions is **G-equivariant** if:
+```
+f(g · x) = g · f(x)  for all g ∈ G, x ∈ X.
+
+G-invariant: f(g · x) = f(x)  [special case where G acts trivially on Y].
+
+Examples:
+  Translation equivariant: f(x + t) = f(x) + t  [CNNs are translation equivariant]
+  Rotation equivariant: f(Rx) = R f(x)  [SE(3)-equivariant networks]
+  Permutation equivariant: f(σ·x) = σ·f(x)  [set networks, graph networks]
+```
+
+**Why equivariance matters**: If the task has a symmetry group G (e.g., rotating a molecule doesn't change its energy), then the network should be G-equivariant. A non-equivariant network must learn the same function for all G-transforms of the input from data — requiring exponentially more samples. An equivariant architecture bakes in the symmetry for free.
+
+### Schur's Lemma Constrains the Architecture
+
+This is the key connection between representation theory and network architecture. Let V and W be G-representations (spaces on which G acts via irreps). The equivariant linear maps V → W are exactly the intertwiners:
+
+```
+Linear maps T: V → W satisfying T ∘ ρ_V(g) = ρ_W(g) ∘ T  for all g ∈ G.
+
+By Schur's lemma:
+  If V = ⊕_i m_i V_i and W = ⊕_j n_j V_j  (isotypic decompositions):
+
+  The space of equivariant maps is isomorphic to:
+    ⊕_i Hom(ℂ^{m_i}, ℂ^{n_i}) ⊗ I_{dim V_i}
+
+  i.e., one matrix per irrep type, multiplied by the identity on the irrep space.
+  Weight sharing across the irrep dimensions is enforced by Schur's lemma.
+```
+
+**Practical consequence for network design**: An equivariant linear layer between feature spaces V and W is parameterized by a block-diagonal matrix — one block per irrep type that appears in both V and W. The architecture is not arbitrary; Schur's lemma dictates the allowed weight structure. This reduces parameter count and guarantees exact equivariance.
+
+### G-CNNs (Group Convolutional Networks)
+
+Cohen & Welling (2016) generalized CNNs to arbitrary compact groups. The construction uses the Peter-Weyl theorem:
+
+```
+Standard CNN: features are functions on ℝ² (or ℤ²).
+  Convolution: (f * k)(x) = ∫ f(y) k(x-y) dy
+  Translation equivariant by construction.
+
+G-CNN: features are functions on a group G (or homogeneous space G/H).
+  Group convolution: (f * k)(g) = ∫_G f(h) k(g⁻¹h) dh
+  G-equivariant by construction.
+
+Steerable CNNs: features are sections of G-equivariant vector bundles.
+  Feature at each location x carries a representation of the stabilizer subgroup H_x.
+  Convolutional kernel k: ℝ² → Hom(V_in, V_out) is constrained to be H-equivariant.
+
+Irrep decomposition of feature spaces:
+  Features are expanded in irreps of G.
+  For G = SO(2) on ℝ²: irreps are e^{inθ} (angular frequency n = 0, ±1, ±2, ...).
+  For G = SO(3): irreps are spherical harmonics Y_l^m.
+  Equivariant convolution in frequency domain = multiplication by learnable coefficients
+  per irrep type (exactly the Schur's lemma block-diagonal structure).
+```
+
+### SE(3)-Equivariant Networks for 3D Molecular Modeling
+
+The group SE(3) = ℝ³ ⋊ SO(3) (rigid body motions: translations + rotations) is the symmetry group of 3D molecular geometry. A molecule's energy, forces, and properties must be rotation-invariant (scalar) or rotation-equivariant (vector/tensor).
+
+```
+SO(3) irreps: spherical harmonics Y_l^m, indexed by l = 0, 1, 2, ...
+  l=0: scalars (invariant)
+  l=1: vectors (equivariant under rotations as 3-vectors)
+  l=2: rank-2 tensors (quadrupole moments)
+  general l: rank-l tensors / "type-l features"
+
+Clebsch-Gordan product (tensor product decomposition):
+  V_l₁ ⊗ V_l₂ = ⊕_{l=|l₁-l₂|}^{l₁+l₂} V_l
+  This is the same Clebsch-Gordan formula as for SU(2) angular momentum addition.
+  Product of two SO(3) features combines irreps by angular momentum addition rules.
+
+Architecture (Tensor Field Networks, SE(3)-Transformers, NequIP, MACE):
+  1. Embed atoms as type-0 features (scalars: element, charge, ...).
+  2. For each edge (atom pair): compute spherical harmonics Y_l(r_ij/|r_ij|) of direction.
+  3. Equivariant message passing:
+       h_i^{l} ← Σ_j  (learnable radial filter)(|r_ij|)  ⊗_{CG}  Y_l(r̂_ij) ⊗  h_j^{l'}
+     where ⊗_{CG} means tensor product with Clebsch-Gordan decomposition.
+  4. Output: type-0 features (energy = scalar), type-1 features (forces = vectors).
+
+Key property: exact SE(3)-equivariance by construction → no data augmentation needed.
+  A rotated molecule gives exactly the rotated output. This is not an approximation.
+```
+
+### Permutation-Equivariant Networks (Sets and Graphs)
+
+For inputs that are sets {x₁,...,xₙ} (no canonical ordering), the relevant group is Sₙ:
+
+```
+Permutation equivariant: f({x_σ(1),...,x_σ(n)}) = {f_σ(1),...,f_σ(n)}
+Permutation invariant:   f({x_σ(1),...,x_σ(n)}) = f({x₁,...,xₙ})  [scalar output]
+
+Deep Sets (Zaheer et al.): The most general permutation-invariant function is:
+  f({x₁,...,xₙ}) = ρ(Σ_i φ(xᵢ))  [encode each element, sum, decode]
+
+Graph Neural Networks: graphs have node permutation symmetry (Sₙ) and edge permutation.
+  Message passing: h_i^{(k+1)} = UPDATE(h_i^{(k)}, AGGREGATE({h_j^{(k)} : j~i}))
+  AGGREGATE must be permutation-invariant over neighbors.
+
+Sₙ-equivariant layers (higher-order): The space of Sₙ-equivariant linear maps
+  (ℝⁿ)^⊗k → (ℝⁿ)^⊗k is spanned by permutation matrices → "tensor networks" for sets.
+  Maron et al. (2019): characterized all invariant and equivariant layers for sets.
+```
+
+### Signal Processing on Non-Euclidean Domains
+
+The Peter-Weyl theorem generalizes Fourier analysis to any compact group, and spectral graph theory does the same for graphs:
+
+```
+Classical Fourier (G = ℝ): irreps are e^{ikx}, Fourier modes indexed by frequency k.
+  f(x) = ∫ f̂(k) e^{ikx} dk     [Fourier inversion]
+  Convolution theorem: f * g → f̂ · ĝ  [pointwise in frequency domain]
+
+Peter-Weyl (G compact): irreps ρ play the role of Fourier modes.
+  f ∈ L²(G): f(g) = Σ_ρ (dim ρ) tr(f̂(ρ) ρ(g)*)
+  Convolution on G: (f * h)(g) = ∫_G f(gh⁻¹) h(g) dg
+  Fourier domain: (f * h)^(ρ) = f̂(ρ) ĥ(ρ)  [matrix product in each irrep block]
+
+Spectral graph theory (discrete setting):
+  Graph G = (V, E), Laplacian L = D - A  (degree matrix minus adjacency).
+  L is symmetric positive semidefinite: L = UΛUᵀ  (eigendecomposition).
+  Eigenvectors of L: graph Fourier modes  (analogous to e^{ikx} on ℝ).
+  Graph Fourier transform: f̂ = Uᵀ f  (project onto eigenvector basis).
+  Graph convolution: f * k → U (Uᵀf ⊙ Uᵀk)  [pointwise in spectral domain].
+
+ChebNet / spectral GNNs: parameterize filter as polynomial in L:
+  k_θ(L) = Σ_j θ_j T_j(L)  [Chebyshev polynomial of Laplacian]
+  Efficient: O(|E|) computation per layer without full eigendecomposition.
+  Connection: Chebyshev polynomials are the characters of SU(2) (Weyl formula above).
+```
+
+---
+
+## 11. Harmonic Analysis on Groups
 
 ### Spherical Harmonics from SO(3) Reps
 
@@ -584,8 +740,6 @@ Pontryagin duality: For locally compact abelian G:
 
 ---
 
-<!-- @editor[content/P2]: The Decision Cheat Sheet has no entries for the ML/equivariant network use cases. Once the equivariant networks section is added, the cheat sheet should include: "Build a G-equivariant network layer → constrain weights to be intertwiners (Schur's lemma); G-equivariant filter bank → decompose L²(G) into irreps; Signal processing on group G → Peter-Weyl + irrep decomposition; Dimension count for equivariant maps between irrep spaces → Schur's lemma (0 or isomorphism)." -->
-
 ## Decision Cheat Sheet
 
 ```
@@ -604,6 +758,13 @@ Non-abelian Fourier analysis on G           Peter-Weyl theorem
 Classify irreps of semisimple Lie group     Highest weight classification
 Dimension of irrep                          Weyl dimension formula
 Spinors vs tensors                          (½,0)⊕(0,½) vs (½,½) Lorentz reps
+Build a G-equivariant network layer        Parameterize weights as intertwiners (Schur's lemma)
+G-equivariant filter bank                   Decompose L²(G) into irreps (Peter-Weyl)
+SE(3)-equivariant 3D network               SO(3) irreps (spherical harmonics) + CG products
+Permutation-invariant network (sets)        Deep Sets: ρ∘Σ∘φ architecture
+Spectral convolution on graph              Graph Laplacian eigenvectors as Fourier modes
+Equivariant map between irrep spaces        Schur's lemma: must be 0 or scalar × identity
+GL(n) rep tensor product coefficients       Littlewood-Richardson rule (Schur polynomials)
 ```
 
 ---
@@ -620,10 +781,10 @@ Spinors vs tensors                          (½,0)⊕(0,½) vs (½,½) Lorentz r
 
 **Compact vs non-compact Lie groups**: Compact groups (U(n), SU(n), SO(n)) have unitary finite-dimensional irreps. Non-compact groups (SL(2,ℝ), Lorentz group) have no faithful unitary finite-dimensional reps — their unitary reps are infinite-dimensional (principal series, complementary series). This is why Lorentz reps are tricky.
 
-**Root systems classify semisimple Lie algebras**: ADE classification connects Lie algebras, surface singularities (Du Val singularities), and McKay correspondence (finite subgroups of SL(2,ℂ)). This unexpected unity is a deep result.
-
-<!-- @editor[bridge/P3]: The McKay correspondence is mentioned but not explained. Given the learner's background, a two-sentence unpacking would add value: finite subgroups Γ ≤ SL(2,ℂ) correspond bijectively to ADE Dynkin diagrams — the McKay graph of Γ (built from irreps and the natural 2D representation) is exactly the extended Dynkin diagram. This connects finite group representation theory, algebraic geometry (resolution of C²/Γ singularities), and Lie algebra classification in an unexpected way. -->
-
-<!-- @editor[bridge/P3]: The connection between representation theory and symmetric functions / combinatorics (Schur polynomials as characters of GL(n) representations, the Littlewood-Richardson rule for tensor product decompositions) is absent. The RSK correspondence is mentioned in Section 8 but its role as a bridge between Sₙ-representation theory and symmetric function theory (Schur polynomials, Hall inner product) is not developed. This is a clean mathematical connection at grad level. -->
+**Root systems classify semisimple Lie algebras**: The ADE classification connects Lie algebras, surface singularities (Du Val singularities), and the McKay correspondence. Finite subgroups Γ ≤ SL(2,ℂ) correspond bijectively to ADE Dynkin diagrams — the McKay graph of Γ (nodes = irreps of Γ, edges from the natural 2D representation ρ₂: connect V_i to V_j iff V_j ⊆ V_i ⊗ ρ₂) is the extended Dynkin diagram of the corresponding ADE Lie algebra. The McKay correspondence unifies: (1) finite group representation theory (irreps of Γ), (2) algebraic geometry (resolution of the quotient singularity ℂ²/Γ — the exceptional divisors correspond to nodes of the Dynkin diagram), and (3) Lie algebra classification. This unexpected unity is one of the deepest results connecting algebra, geometry, and combinatorics.
 
 **Quark color vs quark flavor**: SU(3)_color (gauge symmetry of QCD) vs SU(3)_flavor (approximate global symmetry of up/down/strange quarks — broken by mass differences). Both are SU(3) but very different physics. Gell-Mann's eightfold way used flavor SU(3); the actual forces are color SU(3).
+
+**Equivariance vs invariance in ML**: An equivariant function transforms its output coherently with the input transformation (forces = vectors, equivariant). An invariant function ignores the transformation (energy = scalar, invariant). Invariant = equivariant to the trivial representation. Most geometric deep learning papers want equivariant intermediate features and invariant final output (energy prediction).
+
+**Schur polynomials are characters, not just symmetric functions**: s_λ(x₁,...,xₙ) is the character of the GL(n) irrep with highest weight λ evaluated at the diagonal matrix. The Littlewood-Richardson coefficients c^ν_{λμ} are both tensor product multiplicities (rep theory) and structure constants of the symmetric function ring (combinatorics) — this double interpretation is the content of Schur-Weyl duality.

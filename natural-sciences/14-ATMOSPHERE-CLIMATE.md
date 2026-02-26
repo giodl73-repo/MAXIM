@@ -274,7 +274,57 @@ Feedback factor:
 
 ## General Circulation Models (GCMs)
 
-<!-- @editor[bridge/P2]: No old-world bridge for GCMs — these are fundamentally PDE solvers with parameterized subgrid physics, analogous to FEM/CFD codes. A software leader who built CI/CD at VSTS would connect to: spectral methods = FFT-based PDE solvers, parameterizations = plug-in physics modules, ensemble runs = Monte Carlo testing of chaotic systems. -->
+### GCMs — Scientific Computing Bridge
+
+A general circulation model is a large-scale numerical PDE solver. The software
+engineering and numerical methods architecture maps directly to other simulation
+domains:
+
+```
+GCM COMPONENT          NUMERICAL METHODS ANALOG
+
+Horizontal discretization:
+  Spectral transform     FFT-based PDE solver (Galerkin projection onto spherical
+  method (T42–T170)      harmonics; same as pseudo-spectral Navier-Stokes codes)
+                         Grid equivalent: ~300 km (T42) to ~100 km (T85) resolution
+
+  Finite volume / diff   Conventional CFD grid (MPAS, FV3 — modern GCMs)
+  (CAM-FV, E3SM)
+
+Vertical:
+  Hybrid σ-p levels      Stretched mesh near surface (like boundary layer refinement
+  (30–100+ levels)       in CFD — fine grid where gradients are large)
+
+Parameterizations:
+  Convection scheme      Plugin physics module with defined interface
+  Radiation code         (plug-in closure model, same idea as turbulence models
+  Boundary layer         in RANS CFD: k-ε, k-ω SST)
+  Cloud microphysics     Each scheme is swappable → model intercomparison (CMIP)
+                         is the climate equivalent of CFD solver benchmarking
+
+Time stepping:
+  Semi-implicit leapfrog Stability constraint: CFL condition same as any PDE solver
+  Δt ~ 20–30 min         Faster modes (sound waves) filtered or treated implicitly
+
+ENSEMBLE RUNS = MONTE CARLO UNCERTAINTY PROPAGATION:
+  Initial condition uncertainty: tiny perturbations → divergent trajectories (Lorenz)
+  ~ 2-week predictability limit for deterministic weather
+  Climate ensembles: vary initial conditions + model parameters
+  → sample distribution of outcomes rather than single trajectory
+  Identical to: Monte Carlo testing of chaotic / stochastic systems
+
+COUPLING = DISTRIBUTED SERVICE INTEGRATION:
+  Atmosphere model + Ocean model + Sea ice + Land surface
+  Exchange fields (heat flux, momentum, freshwater) across component boundaries
+  Coupler manages time synchronization (atmosphere Δt ≠ ocean Δt)
+  → Same challenge as microservices with different update frequencies
+
+COMPUTATIONAL SCALE:
+  CESM/E3SM: ~10⁷ grid cells, ~10⁵ timesteps, ~10¹² floating-point ops/simyear
+  Running at T85 resolution: ~50 simulated years/day on 10,000 CPU cores
+  Entire IPCC AR6 ensemble: ~10⁸ core-hours across ~30 modeling centers
+```
+
 ### Architecture
 
 ```

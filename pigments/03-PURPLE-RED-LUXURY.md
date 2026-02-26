@@ -287,9 +287,8 @@ BEFORE COCHINEAL:
   "Scarlet" historically referred to a specific fine woven cloth
     colored with kermes (the fabric name → color name)
 
-<!-- @editor[content/P1]: Claim may be incorrect — verify: "Portuguese brought cochineal" — the earlier section says Spanish (Cortés, 1523); this should likely read "Spanish" not "Portuguese" -->
 AFTER COCHINEAL:
-  Portuguese brought cochineal from Americas in 1523
+  Spanish brought cochineal from Americas in 1523 (Hernán Cortés)
   Within ~30 years: kermes priced out of market
   Quality and price difference = instant technological obsolescence
   One of the fastest technology displacements in textile history

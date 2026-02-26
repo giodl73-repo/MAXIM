@@ -1,6 +1,6 @@
 # Surficial Geology — Glacial, Fluvial, Karst, Coastal, Pedogenesis
 
-<!-- @editor[bridge/P2]: No old-world bridge — surficial processes as "user-facing layer" vs plate tectonics as "backend infrastructure": the surface is where external agents (ice, water, wind) shape the interface, while the deep processes provide the substrate — any full-stack engineer recognizes front-end vs back-end shaping -->
+**Bridge — surficial geology as the rendering layer over tectonic infrastructure:** Plate tectonics is the backend: it sets topographic relief, rock type distribution, and the substrate. Surficial processes are the rendering layer: ice, water, wind, and gravity continuously reshape the interface that humans actually experience. The backend creates the raw geometry (mountains via collision, valleys via rifting); the frontend optimizes it toward equilibrium (erosion reducing relief, deposition filling basins). This is full-stack geology — the backend processes operate on 10⁶–10⁸ year timescales; surficial processes render on 10²–10⁵ year timescales, fast enough to be observable in a human lifetime. Climate is the runtime environment that determines which surficial processes dominate: glacial at high latitude/altitude, fluvial in temperate zones, eolian in arid zones, chemical (karst) where carbonate rock and rainfall intersect. Change the climate, change the active process set — but the tectonic substrate persists.
 
 ## The Big Picture
 
@@ -191,7 +191,85 @@ Flowstone: sheet deposit on cave floor/walls
 
 ---
 
-<!-- @editor[content/P2]: Eolian (wind) processes section missing — dune types (barchan, transverse, longitudinal, star), loess deposits, and wind erosion (yardangs, ventifacts) are significant surficial processes not covered -->
+## Eolian (Wind) Processes
+
+Wind is a competent geologic agent in arid and semi-arid environments where vegetation is absent and fine-grained sediment is available.
+
+### Wind Erosion Features
+
+```
+FEATURE         FORMATION                            EXAMPLE LOCATION
+-----------     -----------------------------------  -------------------
+Yardangs        Wind abrasion sculpts soft rock      Sahara, Lut Desert
+                into streamlined ridges parallel      (Iran), Tibet
+                to prevailing wind; hard rock
+                protrudes as fins
+
+Ventifacts      Pebbles/cobbles faceted and          Desert pavements
+                polished by saltating sand;          worldwide
+                multiple faces = wind direction
+                changes
+
+Deflation       Removal of fine particles           Qattara Depression
+hollows         by wind, lowering surface;           (Egypt); many
+                leaves lag gravel (desert            inter-dune lows
+                pavement = armored surface)
+```
+
+### Dune Types — Diagnostic Wind Regime Indicators
+
+Dune morphology is controlled by sand supply and wind directionality:
+
+```
+DUNE TYPE        SHAPE              WIND           SAND     EXAMPLE
+-----------      ----------------   -----------    -------  ----------
+Barchan          Crescent;          Unidirectional Low      Namibia,
+                 horns point        (strong,       supply   Sahara
+                 downwind           steady)                  coastal dunes
+
+Transverse       Linear ridges      Unidirectional High     Great Sand
+                 perpendicular      (oblique to    supply   Dunes (CO),
+                 to wind            ridge)                   Sahara
+
+Seif (linear)    Long ridges        Bimodal        Moderate Sahara,
+                 parallel to        (two           supply   Arabian
+                 resultant wind     alternating             Peninsula
+                                    directions)
+
+Star (draa)      Radial arms        Multidirectional High   Erg Chebbi
+                 from central       (variable,     sand     (Morocco),
+                 point              no dominant)   supply   Rub' al Khali
+
+Parabolic        U-shape;           Unidirectional Moderate Coastal dunes
+                 horns point        (blowout from  with     with
+                 UPWIND             vegetated      veg.     vegetation
+                                    surface)
+```
+
+### Loess — Wind-Deposited Silt
+
+Loess is glacially-ground silt (rock flour) transported by wind and deposited as thick, unstratified blankets:
+
+```
+PROPERTIES:
+  Grain size: 20–50 μm (silt; too fine for dune, too coarse for dust)
+  Structure: vertical jointing; stands in near-vertical bluffs
+  Composition: quartz + feldspar + carbonates (not heavily weathered)
+  Thickness: up to 300m (Loess Plateau, China)
+
+GLOBAL DISTRIBUTION:
+  China Loess Plateau: 640,000 km²; 100–300m thick; source = Gobi Desert
+  US Great Plains: source = Pleistocene outwash from ice sheets
+  Pampas (Argentina): Southern Hemisphere equivalent
+  Rhine Valley, Ukraine: European loess from periglacial outwash
+
+AGRICULTURAL SIGNIFICANCE:
+  Among most fertile soils on Earth (Mollisols developed on loess)
+  US Midwest, Ukraine, North China = breadbaskets built on loess
+  High porosity + vertical jointing = excellent water retention
+  Vulnerability: gully erosion when disturbed (vertical jointing means
+  slopes fail suddenly along joint planes)
+```
 
 ## Pedogenesis — Soil Formation
 
@@ -234,7 +312,55 @@ R        Bedrock        Unweathered parent rock
 
 ---
 
-<!-- @editor[content/P2]: Mass wasting section missing — landslides, debris flows, rockfalls, creep, and solifluction are mentioned in the landscape diagram but never given their own treatment -->
+## Mass Wasting — Gravity-Driven Slope Processes
+
+Mass wasting moves material downslope under gravity, without a fluid transport medium (distinguishing it from fluvial/eolian transport). Classification hinges on material type, water content, and velocity:
+
+```
+TYPE              MATERIAL       WATER      VELOCITY    TRIGGER
+----------------  -------------  ---------  ----------  ------------------
+Rockfall          Bedrock        Dry        Free fall   Freeze-thaw,
+                  fragments                 (fast)      undercutting,
+                                                        earthquake
+
+Rock slide /      Coherent       Dry-wet    Fast        Weak plane
+Rock avalanche    rock mass                 (can exceed (bedding, joint,
+                                            300 km/h)   fault) + slope cut
+
+Debris flow       Rock + soil    High       Fast        Intense rainfall,
+(lahar = volcanic + water        water      (20–70      snowmelt,
+ version)                        content    km/h)       rapid snow melt
+
+Mudflow           Fine-grained   Very high  Moderate-   Prolonged rain;
+                  soil           water      fast        saturated slopes
+
+Slump             Rotational     Moderate   Slow        Clay-rich soil;
+(rotational       slip of                              slope undercutting;
+slide)            cohesive soil                        groundwater rise
+
+Earthflow         Saturated      High       Slow-mod    Clay-rich slopes;
+                  fine soil      water                  rainfall
+
+Creep             Soil + regolith Low        Very slow   Freeze-thaw,
+                                            (cm/yr)     wet-dry cycles,
+                                                        gravity
+
+Solifluction      Saturated      High       Slow        Permafrost below;
+                  active layer   (seasonal  (cm-m/yr)   seasonal thaw of
+                                  melt)                  active layer
+                                                        (periglacial)
+```
+
+**Slope stability factors:**
+- Angle: failure occurs when shear stress (driven by gravity component along slope) exceeds shear strength (cohesion + friction × normal stress)
+- Water: raises pore pressure → reduces effective normal stress → reduces friction → reduces shear strength; also adds weight
+- Clay minerals: low friction angle (~15°), expand/contract with moisture → plastic failure
+- Vegetation: root reinforcement stabilizes slopes; removal (logging, fire) dramatically increases failure probability
+
+**Notable events:**
+- Frank Slide (Alberta, 1903): rockslide from Turtle Mountain; 70 million tonnes, 90 dead, 3 km run-out in 100 seconds
+- Vargas (Venezuela, 1999): debris flows + mudflows on steep coastal slopes after extreme rainfall; ~30,000 dead
+- Oso (Washington, 2014): slow-moving earthflow that accelerated; 43 dead; site had prior movement history
 
 ## Decision Cheat Sheet
 

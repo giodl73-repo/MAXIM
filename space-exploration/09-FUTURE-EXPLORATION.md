@@ -161,12 +161,13 @@ COMMERCIAL LUNAR PAYLOAD SERVICES (CLPS)
     Effective cost: $5,000-$50,000/kg to lunar surface (vs Earth-to-LEO: $3,000/kg)
     Goal: cost reduction as competition + reuse improves the market
 
-<!-- @editor[content/P2]: [Tool/version/API] may be outdated — check current state: NASA cancelled VIPER in July 2024 due to cost overruns and delays; the rover was offered to industry but the cancellation is the current status, not just "uncertain" -->
   VIPER (VOLATILES INVESTIGATING POLAR EXPLORATION ROVER):
     NASA rover planned for Astrobotic Griffin delivery
     Goal: characterize water ice concentration and accessibility at south pole
     Instruments: neutron spectrometer, NIR spectrometer, drill
-    Critical data for Artemis planning; status uncertain after Griffin delays
+    Status: CANCELLED July 2024 — cost overruns and schedule delays;
+            rover was offered to industry partners but no taker confirmed;
+            cancellation represents a gap in pre-Artemis south pole characterization
 ```
 
 ---
@@ -454,7 +455,14 @@ LONG-HORIZON: SETTLEMENT SCENARIOS
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: ISRU (making propellant on Mars from local resources) is the same pattern as edge computing (processing data locally instead of shipping it back to the cloud/datacenter); the learner's Azure edge strategy is exactly this tradeoff — ship compute to the data vs ship data to the compute -->
+## Engineering Parallels
+
+**ISRU as edge computing applied to mass.** In-situ resource utilization — producing propellant on Mars from local CO₂ and water rather than launching it from Earth — is the edge computing tradeoff applied to physical mass: shipping compute (the Sabatier reactor) to the data (CO₂ atmosphere, water ice) instead of shipping the data (500+ tonnes of methane/LOX propellant) to where you need it. The economics are identical: at some crossover point, the cost of shipping the processing capability is less than the cost of shipping the output. For data, that crossover is governed by bandwidth and latency costs; for Mars propellant, it is governed by launch cost ($20,000/kg to LEO) vs. the mass and complexity of the ISRU plant.
+
+**The lunar Gateway as a cache layer.** The Gateway provides a persistent staging point in lunar orbit: crew and cargo can be deposited there, then transferred to lunar landers on demand. This is an L1/L2 cache between Earth and the lunar surface — reducing the cost of repeated surface access by staging assets at an intermediate point. The tradeoff is the same as any caching architecture: the cache is only worth maintaining if access frequency is high enough and the cache invalidation overhead (resupply, crew rotation) is manageable. Gateway critics argue the access frequency doesn't justify the overhead; proponents argue it reduces per-mission SLS dependency.
+
+**Mars settlement as the distributed systems challenge at civilizational scale.** A self-sustaining Mars settlement requires the same properties as a resilient distributed system: partition tolerance (must survive loss of Earth communication or supply), local state management (all data and resources managed locally), eventual consistency (can resync with Earth knowledge when the link is up), and graceful degradation under resource constraints. The "minimum viable settlement" question — how many people and what industrial base are needed to remain self-sustaining? — is the distributed systems minimum viable replica count question, but with human lives and 30-minute round-trip latency.
+
 ## Common Confusion Points
 
 **Artemis is not Apollo repeat**: Apollo was a geopolitical race with no sustainability mandate and no south pole focus. Artemis is explicitly building toward permanent presence; south pole resource utilization is the goal, not flag-planting. The architecture is fundamentally different (reusable commercial landers, international partnership, space station staging point).

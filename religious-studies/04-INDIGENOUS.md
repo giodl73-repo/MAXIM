@@ -43,7 +43,18 @@ Alice Kehoe (shamanism critique, 1990).
 
 ---
 
-<!-- @editor[structure/P2]: No comparison tables — guide is prose-only in the body sections; a table comparing animism/shamanism/totemism/ancestor veneration across regions would add structural value -->
+## Comparative Framework: Four Core Concepts Across Traditions
+
+| Concept | Core claim | Representative traditions | Analytic status |
+|---------|-----------|--------------------------|----------------|
+| **Animism** (Tylor 1871 / Harvey 2005) | Tylor: belief in spiritual beings as minimum of religion. Harvey: relational ontology — other-than-human entities treated as persons | Shinto (kami in objects), Amazonian perspectivism, Aboriginal Dreaming, Siberian shamanism | Tylor's evolutionary version is rejected; Harvey's relational reframe is productive — asks "what kinds of entities count as persons?" rather than "what false beliefs do primitives hold?" |
+| **Shamanism** (Eliade 1951) | Specialist practitioners mediate between ordinary and spirit worlds, using altered states; three-world cosmos; soul-flight | Siberian (Evenki, Buryat), Korean mudang, Sámi noaidi, some Amazonian specialists | Cross-cultural existence of spirit-specialists is real; Eliade's "universal archaic complex" over-generalizes; soul-flight vs. possession traditions are structurally distinct |
+| **Totemism** (Durkheim 1912 / Lévi-Strauss 1962) | Durkheim: clan totem = god = society; religious bond through shared emblem. Lévi-Strauss: animals are "good to think" — natural differences code social differences | Australian Aboriginal clans, Pacific Northwest (Eagle/Raven/Bear moieties), Ojibwe clans | Lévi-Strauss's demolition of "totemism" as a unified phenomenon is accepted; his structural alternative (classification system) is standard |
+| **Ancestor veneration** | Dead remain morally and socially present; living-dead relationship must be maintained through offerings and consultation | Yoruba (ancestral orisha), Chinese (ancestral tablets, Qingming), Zulu (izinyanya), Japanese (butsudan, Obon), Mesoamerican (Día de los Muertos) | Most widespread category; not synonymous with worship; structurally distinct from ghost belief (ancestors are integrated community members, not merely fearsome) |
+
+**Note on regional overlap**: A single tradition may deploy all four simultaneously. Shinto combines animism (kami in objects), ancestor veneration (imperial ancestors), no shamanism in the classical sense, and a rudimentary totemism in some clans. The categories are analytical, not exclusive.
+
+---
 
 ## Animism
 

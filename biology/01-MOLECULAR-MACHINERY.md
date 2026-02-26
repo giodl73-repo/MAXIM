@@ -28,7 +28,42 @@ SCALE:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: DNA replication = version control (copy-on-write, error correction), protein folding = NP-hard optimization -->
+## Engineering Bridges
+
+```
+MOLECULAR MACHINERY ←→ SYSTEMS ENGINEERING
+
+DNA replication = distributed copy-on-write with checksums
+  Semi-conservative: like copy-on-write — one old strand retained as reference
+  DNA Pol III: proofreading 3'→5' exonuclease = inline error correction
+  Mismatch repair (MMR): post-copy audit pass
+  Final error rate ~10⁻⁹/bp ≈ single-bit error in a 1 GB file
+
+Gene regulation = multi-layer access control + caching
+  Chromatin state: coarse-grained (open/closed) = filesystem permissions
+  Histone marks: fine-grained combinatorial code = role-based ACL
+  Transcription factors: combinatorial logic gates (AND/OR/NOT) on promoter
+  mRNA half-life: TTL on cached computation product
+
+Protein folding = constrained optimization on a high-dimensional energy landscape
+  Levinthal's paradox: brute force is 10^34 years; biology solves in milliseconds
+  Solution: guided funnel, not exhaustive search (like branch-and-bound, not brute force)
+  Chaperones: constraint-relaxation scaffolding during optimization
+  AlphaFold2: transformer + equivariant geometry → competitive with 50 years of crystallography
+
+CRISPR-Cas9 = regular expression search-and-cut on DNA
+  sgRNA (20 nt): the pattern — must match exactly + require PAM motif ("NGG")
+  Cas9: the engine — scans ~3 billion base pairs for the pattern
+  HNH + RuvC nucleases: the cutter — blunt DSB at match
+  Base editors (David Liu): search-and-replace without making the cut
+  Prime editing: piggyback the replacement sequence on the guide RNA itself
+
+Ribosome = programmable molecular machine with kinetic proofreading
+  Error rate ~10⁻⁴ per codon — two GTP hydrolysis checkpoints (reject wrong tRNA)
+  Kinetic proofreading (Hopfield 1974): use irreversible energy expenditure to
+  discriminate between substrates beyond equilibrium limits
+  → Same mechanism used in immune T cell receptor discrimination
+```
 
 ## DNA Structure
 
@@ -349,4 +384,18 @@ snoRNA: guide RNA modification in nucleolus (rRNA 2'-O-methylation, pseudouridyl
 | Operon organization | Yes | Rare |
 | Transcription start | σ factor–10/–35 box | GTFs + TATA box / BRE |
 
-<!-- @editor[structure/P2]: Missing Common Confusion Points section (e.g., "junk DNA" misnomer, mRNA is not a 1:1 copy of a gene) -->
+---
+
+## Common Confusion Points
+
+**"Junk DNA" is wrong**: The term originated when only protein-coding sequences were considered functional. ~50% of the human genome is transposable elements — many are functional or have been co-opted as regulatory elements. ~8% is under purifying selection (ENCODE). Only ~1.5% encodes protein. The non-coding majority is complex, not random.
+
+**mRNA is not a 1:1 copy of a gene**: Pre-mRNA undergoes 5' capping, 3' polyadenylation, and splicing (removing introns). ~95% of multi-exon genes are alternatively spliced → one gene locus → multiple distinct protein isoforms. The mRNA that reaches ribosomes may represent any of many possible exon combinations.
+
+**DNA polymerase cannot start de novo**: All DNA pols require a free 3' OH — hence the need for RNA primers laid down by primase. On the lagging strand this creates the Okazaki fragment problem. Telomere shortening is a direct consequence of this primer requirement.
+
+**Ribozymes are real catalysts**: The peptidyl transferase center of the ribosome (28S rRNA) is an RNA enzyme, not a protein enzyme. RNA predates proteins evolutionarily — this is the "RNA world" evidence. RNA can both store information (like DNA) and catalyze reactions (like protein).
+
+**Protein half-life varies 100-fold**: Some proteins (e.g., cyclins, c-Myc) turn over in minutes; others (histones, structural proteins) last weeks. The ubiquitin-proteasome system targets proteins with degradation signals (degrons). Half-life is regulated, not constant.
+
+**AlphaFold2 predicts structure, not dynamics**: AF2 produces a single static structure with per-residue confidence (pLDDT). It does not model conformational flexibility, allosteric changes, or binding-induced folding. Intrinsically disordered regions (IDRs) — common in regulatory proteins — are not well-handled.

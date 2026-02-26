@@ -500,40 +500,44 @@
 
 ### Implications for Product Design (Direct Bridge)
 
-<!-- @editor[bridge/P3]: Bridge title says "VP-LEVEL RELEVANCE AT MICROSOFT" — style contract requires universal framing first. The examples (shared accounts, high-context communication, trust models) are universal product design issues; lead with "any global product org" and use Microsoft as one illustration -->
 ```
-  VP-LEVEL RELEVANCE AT MICROSOFT:
+  FOR ANY GLOBAL PRODUCT ORGANIZATION:
 
   If your product is designed and tested by WEIRD engineers
   with WEIRD user researchers using WEIRD early adopters —
   and then shipped globally — you have systematically encoded
   WEIRD psychology into the product.
 
-  SPECIFIC EXAMPLES:
+  STRUCTURAL EXAMPLES (apply to any global product org):
   ┌────────────────────────────────────────────────────────┐
   │ Individualistic account model: Western norm is one     │
   │ person = one account. Many global cultures share       │
   │ devices within families. Product assumes individual    │
-  │ ownership.                                             │
+  │ ownership — fails in shared-device markets.            │
   │                                                        │
-  │ Direct/explicit communication defaults: Teams/Outlook  │
-  │ tools built for low-context communication styles.      │
-  │ High-context cultures (Japan, Korea, many others)      │
-  │ use indirect communication — the software feels        │
-  │ culturally abrasive.                                   │
+  │ Direct/explicit communication defaults: collaboration  │
+  │ tools (Slack, Teams, chat) are built for low-context   │
+  │ communication styles. High-context cultures (Japan,    │
+  │ Korea, many others) use indirect communication —       │
+  │ the software feels culturally abrasive or forces       │
+  │ inappropriate directness.                              │
   │                                                        │
   │ Trust model: Onboarding assumes trust in institutions  │
   │ (company, product). Markets where institutional trust  │
   │ is low require different trust-building flows.         │
+  │ Payment flows differ for same reason.                  │
   │                                                        │
-  │ Hierarchy representation: Flat org chart tools for     │
-  │ high power-distance cultures need different information│
-  │ architecture.                                          │
+  │ Hierarchy representation: flat org-chart tools and     │
+  │ "anyone can message anyone" communication defaults     │
+  │ are built for low power-distance cultures. High        │
+  │ power-distance cultures (most of the world) need       │
+  │ different information architecture.                    │
   └────────────────────────────────────────────────────────┘
 
   This is not "cultural sensitivity" — it is product
   architecture informed by actual variation in human
-  psychology documented across cultures.
+  psychology documented across cultures. The WEIRD problem
+  is a product quality issue, not a values issue.
 ```
 
 ---

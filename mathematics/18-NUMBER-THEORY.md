@@ -155,7 +155,39 @@ AKS PRIMALITY TEST (2002, Agrawal-Kayal-Saxena):
 LUCAS PRIMALITY TEST: uses factorization of n−1; deterministic but requires factor.
 ```
 
-<!-- @editor[bridge/P2]: Missing the connection between primality testing and the broader context of randomized algorithms — Miller-Rabin is a classic example of a coRP algorithm (always correct on composites, probably correct on primes). The question of whether PRIMES ∈ P was open until AKS. Connection to derandomization: is every BPP problem in P? AKS is evidence yes. -->
+### Miller-Rabin, Randomized Complexity, and Derandomization
+
+Miller-Rabin is a canonical example of a **coRP** algorithm (co-Randomized Polynomial
+time):
+```
+coRP: randomized algorithm that
+  • always correctly identifies composites (no false positives)
+  • occasionally misses primes with probability ≤ 1/4 (false negatives possible)
+
+The compositeness witnesses a ∈ [2, n−2] are "easy to find" — at least 3/4 of all
+bases are witnesses for any composite n. Random sampling finds one quickly.
+```
+
+The question "PRIMES ∈ P?" was one of the landmark open problems in complexity
+theory for decades. Algorithms like Miller-Rabin showed PRIMES ∈ coRP; the
+Solovay-Strassen test showed PRIMES ∈ coRP via Euler's criterion. Under GRH,
+deterministic polynomial witnesses exist — PRIMES ∈ P conditionally.
+
+**AKS (2002)** resolved this unconditionally: PRIMES ∈ P in O(log⁶ n). The proof
+uses the characterization that n is prime iff (x − a)ⁿ ≡ xⁿ − a (mod n, xʳ − 1)
+for small r and several a — a polynomial identity test over ℤ/nℤ.
+
+**Derandomization connection**: the existence of AKS is evidence for the broader
+conjecture that BPP = P — that every randomized polynomial-time algorithm can be
+derandomized. Primality testing (PRIMES ∈ BPP → PRIMES ∈ P) is the strongest
+known unconditional instance of this. It shows that at least for algebraic
+structure, randomness is not essential.
+
+**Cryptographic significance**: Miller-Rabin is the primality test actually used
+in OpenSSL, Java's `BigInteger.isProbablePrime()`, Python's `sympy.isprime()`, and
+all real cryptographic prime generation. AKS is too slow (the O(log⁶ n) constant
+is large). For 2048-bit primes, 20 rounds of Miller-Rabin gives error probability
+< 4⁻²⁰ ≈ 10⁻¹² — negligible for any practical purpose.
 
 ### 2.3 Integer Factorization
 
@@ -420,7 +452,45 @@ SQUARE ROOTS mod pq (RSA modulus):
   This is why RSA hardness = factoring hardness.
 ```
 
-<!-- @editor[bridge/P2]: Quadratic residues connect directly to the Rabin cryptosystem (squaring mod n, hardness = factoring) and to zero-knowledge proofs — the classic Goldwasser-Micali scheme encrypts bits using QR/QNR. Also useful: Blum integers (p ≡ q ≡ 3 mod 4) ensure −1 is QNR, giving the Blum-Blum-Shub PRNG. These are natural crypto payoffs for this section. -->
+### Quadratic Residues in Cryptography
+
+**Rabin cryptosystem**: encrypt m → m² mod n (n = pq). Decrypting requires taking
+√(m²) mod n, which requires knowing p and q. Breaking Rabin = factoring n
+(provably, unlike RSA where the reduction is not known to be tight). Rabin
+encryption is slightly faster than RSA but produces 4 square roots — need
+disambiguation.
+
+**Goldwasser-Micali encryption (1982)**: the first **semantically secure**
+(IND-CPA) public-key cryptosystem, based on the QR/QNR distinction.
+```
+Key: n = pq, y = QNR mod n  (public key)
+Encrypt bit b: choose random r, output yᵇ · r² mod n
+Decrypt: compute Legendre symbol (c/p). If QR → b=0, if QNR → b=1.
+Security: distinguishing encryptions of 0 and 1 requires deciding QR/QNR mod n,
+which requires factoring n (Quadratic Residuosity Assumption).
+```
+The scheme is inefficient (one ciphertext bit per plaintext bit), but its proof of
+semantic security was historically foundational — it defined what security *means*
+for encryption.
+
+**Blum integers and Blum-Blum-Shub PRNG**:
+```
+Blum integer: n = pq where p ≡ q ≡ 3 (mod 4).
+Key property: −1 is a QNR mod n when both factors ≡ 3 (mod 4).
+  → squaring is a 4-to-1 map (each x² has 4 roots), not 2-to-1.
+  → x ↦ x² mod n is a permutation on the QRs mod n (the Blum-Rabin function).
+
+Blum-Blum-Shub PRNG:
+  Seed: x₀ (random QR mod n)
+  Iteration: xᵢ₊₁ = xᵢ² mod n
+  Output: least significant bit of each xᵢ
+  Security: provably as hard as factoring n (under reasonable assumptions).
+  Slow in practice (each bit requires modular squaring), but security-proof is tight.
+```
+
+**Solovay-Strassen primality test**: uses Euler's criterion to test primality via the
+Jacobi symbol. Composite n passes with probability ≤ 1/2. Historical predecessor to
+Miller-Rabin; Miller-Rabin is strictly stronger (catches more composites per base).
 
 ---
 
@@ -615,7 +685,52 @@ DIRICHLET'S UNIT THEOREM:
   "Pell's equation = unit group of real quadratic field"
 ```
 
-<!-- @editor[content/P2]: Missing cyclotomic fields ℚ(ζₙ) — the algebraic number theory most directly tied to cryptography. Galois group Gal(ℚ(ζₙ)/ℚ) ≅ (ℤ/nℤ)×. Ring of integers ℤ[ζₙ]. Class number h(ℚ(ζₚ)) = 1 for p ≤ 19 (regular primes). This is the arithmetic behind RLWE-based cryptography (polynomial ring ℤ[x]/(xⁿ+1) ≅ ℤ[ζ_{2n}] for n a power of 2). Connection between algebraic NT and PQC is the core payoff here. -->
+### 8.3 Cyclotomic Fields and Connections to Cryptography
+
+**Cyclotomic field** ℚ(ζₙ): adjoin a primitive n-th root of unity ζₙ = e^{2πi/n}.
+
+```
+[ℚ(ζₙ) : ℚ] = φ(n)
+Gal(ℚ(ζₙ)/ℚ) ≅ (ℤ/nℤ)×   (the Galois group is the unit group)
+Ring of integers: 𝒪_{ℚ(ζₙ)} = ℤ[ζₙ]   (for all n, unlike general number fields)
+Discriminant: Δ = (−1)^{φ(n)/2} n^{φ(n)} / Π_{p|n} p^{φ(n)/(p-1)}
+```
+
+**Regular primes**: a prime p is regular if p does not divide the class number
+h(ℚ(ζₚ)). Kummer proved Fermat's Last Theorem for all regular exponents.
+All primes ≤ 19 are regular; first irregular prime is 37.
+
+**Connection to RLWE cryptography**: the ring used in lattice-based schemes is:
+```
+R = ℤ[x]/(xⁿ + 1)   where n = 2ᵏ (a power of 2)
+
+This ring is isomorphic to the ring of integers of ℚ(ζ_{2n}):
+  xⁿ + 1 = Φ_{2n}(x)   (the 2n-th cyclotomic polynomial for n a power of 2)
+  ℤ[x]/(xⁿ + 1) ≅ ℤ[ζ_{2n}]
+
+WHY THIS RING:
+  • x^n + 1 factors into exactly φ(2n) = n irreducible factors mod each prime p
+    (uniform splitting → balanced security across all moduli)
+  • NTT (Number Theoretic Transform) applies when p ≡ 1 (mod 2n) → O(n log n) multiplication
+  • The ideal structure inherits from the Dedekind domain ℤ[ζ_{2n}]
+  • Worst-case to average-case reduction: hardness of SVP/CVP on ideal lattices
+    (Lyubashevsky-Peikert-Regev 2010)
+```
+
+**RLWE hardness foundation**: the security of Kyber, CRYSTALS-Dilithium, and FALCON
+rests on the hardness of Ring Learning With Errors over this cyclotomic ring:
+```
+RLWE: given (a, as + e) ∈ R_q × R_q where s is secret, e is small,
+      distinguish from uniform (a, u).
+
+Hardness: reduces to worst-case ideal-SVP on the cyclotomic lattice.
+The ideal structure of ℤ[ζ_{2n}] is what enables the reduction.
+```
+
+**Key class number fact for security**: the class number of ℚ(ζₙ) grows with n.
+For the power-of-2 cyclotomic fields used in Kyber (n = 256, 512, 1024), the
+ring structure is well-understood and the algebraic number theory underpinning
+the security reductions is solid.
 
 ---
 
@@ -652,7 +767,53 @@ KEY SIZES (2024):
   Recommended transition to elliptic curves (256 bits → 128-bit security, much smaller).
 ```
 
-<!-- @editor[bridge/P2]: Missing common RSA attacks — small exponent attack (e=3, m small → m³ < n, just take cube root), Wiener's attack (small d via continued fractions), fault attacks (glitching CRT computation leaks p or q), timing side-channels. These are the reason why OAEP and constant-time implementations matter, and they're natural payoffs for the number theory developed above. -->
+### RSA Attack Landscape
+
+Understanding *why* RSA needs careful implementation requires knowing the attacks
+that break naive usage:
+
+**Small public exponent attacks**:
+```
+Small e = 3 with small message m: if m³ < n, then c = m³ over ℤ (no reduction mod n).
+  → Take exact cube root: m = ∛c.
+  Fix: always use OAEP padding (randomizes message before exponentiation).
+
+Håstad's broadcast attack: same message m sent to k recipients with same e,
+  each using different nᵢ. Given c₁,...,cₖ where cᵢ = mᵉ mod nᵢ:
+  CRT gives m^e mod (n₁⋯nₖ). If m^e < n₁⋯nₖ, compute exact e-th root.
+  → Fix: different randomized paddings for each recipient.
+```
+
+**Wiener's attack (small private exponent)**:
+```
+If d < n^{1/4}/3, then d can be recovered from (e, n) via continued fractions.
+Reason: e/n ≈ 1/d mod small number → convergents of e/n reveal d.
+  Fix: d must be large (same order as n). Never choose small d for efficiency.
+```
+
+**Fault attacks on CRT**:
+```
+RSA-CRT computes: mₚ = m^{dₚ} mod p,  mq = m^{dq} mod q, then CRT.
+If a fault is injected (voltage glitch, clock fault) during mₚ computation
+but not mq, the result m̃ satisfies:
+  m̃ ≡ m^d (mod p), but m̃ ≢ m^d (mod q).
+Then gcd(m̃^e − m, n) = p. The fault reveals the prime factorization!
+  Fix: verify the signature before returning (m̃^e mod n = m?).
+  Or: use Shamir's RSA-CRT with randomization factor (blinding).
+```
+
+**Timing side-channel**:
+```
+Square-and-multiply runs in variable time depending on bits of d.
+Measuring decryption time across many messages → statistical recovery of d.
+Kocher (1996) — demonstrated practically on smart cards.
+  Fix: Montgomery ladder or other constant-time exponentiation.
+  All modern implementations use constant-time modular arithmetic.
+```
+
+These are the reasons why PKCS#1 v1.5 padding is deprecated, why OAEP is
+required, and why "roll your own crypto" fails — the number theory is correct
+but the implementation attack surface is large.
 
 ### 9.2 Discrete Logarithm Problem
 
@@ -710,7 +871,53 @@ ECDSA: signing (k-random nonce critical! PS3 reuse → key recovery)
 ECDH: key exchange on elliptic curves (x25519 in TLS 1.3)
 ```
 
-<!-- @editor[content/P2]: Missing pairing-based cryptography — bilinear pairings e: E(𝔽_q) × E(𝔽_q) → 𝔽_{q^k}. Enable: identity-based encryption (IBE), BLS signatures (short, aggregatable — used in Ethereum 2.0), and the MOV attack (reduces ECDLP to DLP in 𝔽_{q^k}). Supersingular isogeny cryptography (SIKE) was also a PQC candidate (broken 2022). The diversity of EC-based constructions goes well beyond ECDH/ECDSA. -->
+### Pairing-Based Cryptography and the MOV Attack
+
+**Bilinear pairings**: a map e: E[n] × E[n] → μₙ ⊂ 𝔽_{q^k} where E[n] is the
+n-torsion subgroup and μₙ is the group of n-th roots of unity in an extension field.
+
+```
+BILINEARITY: e(aP, bQ) = e(P, Q)^{ab}   for a, b ∈ ℤ
+Non-degeneracy: e(P, Q) ≠ 1 when P, Q ≠ 𝒪
+
+Standard constructions: Weil pairing, Tate pairing, optimal Ate pairing.
+Embedding degree k: smallest k such that 𝔽_{q^k} contains n-th roots of unity.
+  Supersingular curves: k ≤ 6. Ordinary curves: k can be very large (by design).
+```
+
+**MOV attack** (Menezes-Okamoto-Vanstone 1993): reduces ECDLP to DLP in 𝔽_{q^k}.
+```
+Given Q = kP in E(𝔽_q), compute e(P, T) and e(Q, T) for some T.
+By bilinearity: e(Q, T) = e(kP, T) = e(P, T)^k.
+→ Finding k in 𝔽_{q^k} is a DLP problem, solvable by index calculus!
+
+DEFENSE: use curves with large embedding degree k (making 𝔽_{q^k} astronomically large).
+  NIST P-256 has k ≈ 10¹⁵ — MOV is infeasible.
+  Supersingular curves with k=2 are vulnerable.
+```
+
+**Pairing-enabled protocols**:
+```
+IDENTITY-BASED ENCRYPTION (IBE, Boneh-Franklin 2001):
+  Public key = identity string (email address, phone number).
+  Private key issued by a trusted authority.
+  No need for certificate infrastructure.
+
+BLS SIGNATURES (Boneh-Lynn-Shacham 2001):
+  Sign: σ = H(m)^x ∈ E (scalar multiplication by private key x)
+  Verify: check e(σ, G) = e(H(m), xG)
+  Properties:
+    • Short: 48 bytes at 128-bit security (vs 64 bytes for ECDSA)
+    • Aggregatable: Σ σᵢ verifies all messages simultaneously
+      e(Σσᵢ, G) = Π e(H(mᵢ), xᵢG)  — one pairing per verification regardless of n
+  Used in: Ethereum 2.0 consensus (validator signatures aggregate across thousands)
+           Zcash, Filecoin, various BFT protocols
+
+VERIFIABLE RANDOM FUNCTIONS (VRFs): pairing-based constructions.
+ZKSNARK PROOF SYSTEMS: Groth16, PLONK use pairings for the verification equation.
+```
+
+---
 
 ### 9.4 Post-Quantum Cryptography (Lattices)
 
@@ -810,6 +1017,8 @@ PRIME GAPS: consecutive prime gaps pₙ₊₁ − pₙ.
 | RSA setup | φ(n)=(p−1)(q−1), Bezout for d | Pick e=65537 |
 | ECDH key exchange | Group law on E(𝔽ₚ) | 256-bit → 128-bit security |
 | Post-quantum KEM | ML-KEM (Kyber) / LWE | NIST 2024 standard |
+| Short aggregatable signatures | BLS (pairings) | 48 bytes, aggregatable |
+| Randomized primality ∈ coRP | Miller-Rabin | Classic coRP example |
 
 ---
 
@@ -844,3 +1053,13 @@ hold at all — the proof requires serious machinery (Gauss sums, characters, et
 
 **Class number 1 does not mean ℤ[α] = 𝒪_K**: Sometimes the ring of integers is
 larger than ℤ[α]. E.g., ℤ[(1+√5)/2] vs ℤ[√5]. Always compute the discriminant.
+
+**Pairings break supersingular curves**: The MOV attack reduces ECDLP to DLP in an
+extension field. Supersingular curves have small embedding degree (k ≤ 6), making
+the extension field tractable. Standard NIST curves are chosen to have enormous
+embedding degree — the MOV attack is a complete non-issue in practice for them.
+
+**ℤ[x]/(xⁿ+1) vs ℤ[x]/(xⁿ−1)**: the cyclotomic polynomial Φ_{2n}(x) = xⁿ+1 for
+n a power of 2. Using xⁿ+1 is critical for RLWE security — xⁿ−1 factors into
+many small cyclotomic polynomials, breaking the ring into a product of smaller rings
+and reducing the effective security.

@@ -1,9 +1,47 @@
-<!-- @editor[diagram/P2]: No landscape diagram — guide opens with text explanation of redox. Needs an ASCII diagram showing the field: redox foundations → electrochemical cells (galvanic/electrolytic) → Nernst/thermodynamic links → applications (batteries, corrosion, electrolysis, Pourbaix). The Core Idea section is good content but not a structural map. -->
 # 05-ELECTROCHEMISTRY — Electrochemistry
 
 > Redox reactions, electrochemical cells, Nernst equation, batteries, electrolysis,
 > Pourbaix diagrams, and corrosion. The field where chemistry and electricity are
 > literally the same thing.
+
+---
+
+## Landscape
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│                       ELECTROCHEMISTRY                             │
+│                                                                    │
+│  REDOX FOUNDATIONS                                                 │
+│  ─────────────────                                                 │
+│  Oxidation states      Half-reaction balancing                    │
+│  Reduction potentials  Standard hydrogen electrode (SHE = 0 V)   │
+│          │                                                         │
+│     ┌────┴──────────────────┐                                      │
+│     ▼                       ▼                                      │
+│  GALVANIC CELL             ELECTROLYTIC CELL                      │
+│  ─────────────             ─────────────────                       │
+│  Spontaneous (ΔG < 0)      Driven (ΔG > 0, external power)       │
+│  Produces current          Consumes current                        │
+│  E°cell = E°cath − E°an    Faraday's laws: m = MIt/nF             │
+│          │                                                         │
+│     ┌────┴──────────────────┐                                      │
+│     ▼                       ▼                                      │
+│  THERMODYNAMIC LINKS       ELECTRODE KINETICS                     │
+│  ─────────────────         ──────────────────                      │
+│  ΔG° = −nFE°               Butler-Volmer equation                 │
+│  K = 10^(nE°/0.05916)      Overpotential η                        │
+│  Nernst: E = E°−(RT/nF)lnQ Tafel slope / exchange current j₀     │
+│          │                                                         │
+│     ┌────┴───────────────────────┐                                 │
+│     ▼                            ▼                                 │
+│  APPLICATIONS                  CORROSION / POURBAIX               │
+│  ────────────                  ─────────────────────               │
+│  Lead-acid, Li-ion batteries   E vs pH stability diagram           │
+│  Fuel cells (H₂/O₂)           Immunity / corrosion / passivation  │
+│  Electroplating / Hall-Héroult Sacrificial anodes, Cr passivation │
+└───────────────────────────────────────────────────────────────────┘
+```
 
 ---
 

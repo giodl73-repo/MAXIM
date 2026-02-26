@@ -281,13 +281,53 @@ The digital era created new forms of media/technology dominance:
     allowed anti-Rohingya hate speech to spread.
     UN investigators cited Facebook as playing "determining role."
 
-  AI TRAINING DATA:
+  AI TRAINING DATA (expanded):
     Large language models trained predominantly on
-    English-language internet data.
-    Underrepresentation of global majority languages.
-    AI "intelligence" encodes Western knowledge paradigms.
-    Non-Western knowledge systems marginalized in AI outputs.
-<!-- @editor[content/P2]: AI training data bias section is thin — by 2025 this is a major area with concrete examples (GPT-4 multilingual benchmarks, translation quality gaps, cultural bias in RLHF); deserves expansion given the learner's AI engineering interests -->
+    English-language internet data. The Common Crawl
+    dataset underlying most LLMs (GPT-4, Llama, Claude)
+    is ~45-55% English by token count; the remaining
+    ~6,000+ languages share the rest, with massive
+    skew toward European languages.
+
+    CONCRETE PERFORMANCE GAPS:
+    GPT-4 multilingual benchmarks (OpenAI, 2023):
+    - English MMLU: ~87% accuracy
+    - Chinese: ~80%
+    - Arabic: ~74%
+    - Swahili: ~65%
+    - Telugu: ~60%
+    Performance degrades predictably with training
+    data underrepresentation.
+
+    TRANSLATION QUALITY GAPS:
+    FLORES-200 benchmark (Meta, 2022): 200 languages.
+    High-resource pairs (EN-FR, EN-DE): near-human quality.
+    Low-resource pairs (EN-Amharic, EN-Igbo): substantially
+    below human quality.
+    Not just worse — systematically worse in ways that
+    encode source-language cultural concepts that don't
+    translate structurally.
+
+    RLHF CULTURAL BIAS:
+    Reinforcement Learning from Human Feedback uses
+    human rater preferences to shape model outputs.
+    Rater pools are disproportionately English-speaking,
+    Western, educated.
+    Preference data encodes culturally-specific norms
+    about argumentation style, appropriate topics,
+    acceptable speech, and factual framing.
+    The "helpful, harmless, honest" RLHF training
+    reflects culturally-situated definitions of all three.
+
+    KNOWLEDGE SYSTEM MARGINALIZATION:
+    Indigenous knowledge systems, non-Western medicine,
+    oral traditions, non-Latin-script historical archives:
+    largely absent from training data.
+    AI systems trained on Western scientific literature
+    will systematically devalue or misrepresent
+    alternative epistemic traditions.
+    This is not a technical oversight — it is a structural
+    outcome of training on the digitized Western canon.
 ```
 
 ---
@@ -377,7 +417,66 @@ The digital era created new forms of media/technology dominance:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — digital colonialism maps directly to platform lock-in and vendor dependency the learner knows from enterprise IT (Azure vs. AWS ecosystem lock-in, data sovereignty in cloud contracts, API dependency); the infrastructure ownership argument is the same argument as "who owns the cloud" — one paragraph bridging to enterprise platform politics would ground this for a VP of Engineering -->
+## Engineering Bridge: Digital Colonialism as Platform Lock-in at National Scale
+
+```
+DIGITAL COLONIALISM CONCEPT    ENTERPRISE IT PARALLEL
+===========================    ======================
+
+Infrastructure ownership       Cloud vendor lock-in:
+(US tech owns global internet  Nations dependent on AWS/Azure/GCP
+infrastructure)                are in the same structural position
+                               as enterprises locked into a cloud
+                               vendor: switching costs are high,
+                               alternatives are inferior, and the
+                               vendor controls pricing, API stability,
+                               and service availability. The difference
+                               is that nations have citizens' data,
+                               critical infrastructure, and sovereignty
+                               at stake, not just application availability.
+
+Data sovereignty               Data residency requirements in cloud
+                               contracts: GDPR, Germany's BSI C5,
+                               Australia's IRAP, UK's NHS requirements
+                               — all represent nations asserting that
+                               data about their citizens cannot flow
+                               freely to US-controlled infrastructure.
+                               Same tension as "data localization" in
+                               the digital colonialism debate.
+
+Facebook's Free Basics          Walled garden internet / private
+(free access only to           network: equivalent to an enterprise
+Facebook-approved sites)       providing "free internet" to employees
+                               via a corporate proxy that logs all
+                               traffic, blocks competing services,
+                               and shapes the information environment.
+                               India's rejection (net neutrality) is
+                               the same argument as enterprises
+                               rejecting vendor-controlled networking
+                               that monitors and shapes all traffic.
+
+API dependency                 Third-party API lock-in:
+(nations whose digital         When a nation's digital economy depends
+economy runs on                on Google Maps, Stripe, Twilio, AWS —
+US platform APIs)              those platforms have unilateral power
+                               to reprice, restrict access, or
+                               terminate service. Same risk analysis
+                               as single-vendor API dependency in
+                               software architecture. Mitigation is
+                               the same: invest in open alternatives,
+                               maintain on-premises capability,
+                               or accept the dependency cost.
+
+Content moderation asymmetry   SLA tiers and support asymmetry:
+(English-language content      Enterprise customers (high-value,
+reviewed 10x more carefully    English-language markets) get dedicated
+than non-English)              support; SMBs and global South users
+                               get self-service docs. Same tier logic:
+                               platform resources concentrate where
+                               economic value is highest, producing
+                               systematic underservice for lower-value
+                               markets regardless of population size.
+```
 
 ## Common Confusion Points
 

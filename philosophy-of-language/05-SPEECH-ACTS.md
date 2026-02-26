@@ -352,7 +352,52 @@ One of Searle's most important contributions.
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to software preconditions/contracts missing — felicity conditions map directly to API preconditions, could note parallel here -->
+## Speech Acts and Software Contracts
+
+Felicity conditions — the preconditions for a speech act to succeed — map precisely onto preconditions in software contracts and API design.
+
+```
+FELICITY CONDITIONS ↔ SOFTWARE PRECONDITIONS
+
+Austin's felicity conditions for a performative to succeed:
+  A1: There must be a conventional procedure with a certain effect.
+  A2: The circumstances and persons must be appropriate.
+  B1: The procedure must be executed correctly.
+  B2: The procedure must be executed completely.
+  C1: The persons must have the required intentions/thoughts.
+  C2: The persons must subsequently act accordingly.
+
+Misfires (A and B failures — act does not occur):
+  Wrong procedure → API call on wrong endpoint
+  Wrong person → insufficient permissions / authentication failure
+  Incomplete execution → partial transaction, uncommitted state
+
+Abuses (C failures — act occurs but is hollow):
+  Insincerity (promising without intention) →
+    returning a success code without completing the operation;
+    a "dry run" that reports completion without side effects
+
+API PRECONDITION PARALLEL:
+  Felicity condition          → Precondition contract
+  A1: conventional procedure  → API endpoint exists + spec
+  A2: appropriate authority   → authentication + authorization
+  B1: correct execution       → well-formed request (schema valid)
+  B2: complete execution      → transaction commits / rollback
+  C1: right intention         → idempotency / semantic contract
+
+Austin's distinction: misfires (void) vs. abuses (hollow).
+In API terms: a 4xx (misfire — act didn't happen) vs. a 200 with
+incorrect side effects (abuse — act happened but was hollow).
+The distinction matters for error handling: misfires are safe
+to retry; abuses require idempotency keys or compensation logic.
+
+Constitutive rules ("X counts as Y in context C"):
+  "An HTTP request with Authorization header counts as
+   an authenticated API call if the token is valid."
+  The constitutive rule is the API's semantic contract:
+  it specifies under what conditions a request "counts as"
+  the intended speech act.
+```
 
 ## Common Confusion Points
 

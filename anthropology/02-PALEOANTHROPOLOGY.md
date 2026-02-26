@@ -328,9 +328,11 @@ laboratory analysis — and remains contested at multiple points.
   │ and potentially COVID-19 susceptibility (both risk and │
   │ protective alleles identified in different populations) │
   │                                                        │
-<!-- @editor[content/P2]: "Africans: no Neanderthal ancestry" is outdated — Chen et al. 2020 (Cell) found ~0.3% Neanderthal ancestry in African populations via Eurasian back-migration. Revise to note minimal ancestry acquired indirectly -->
-  │ Africans: no Neanderthal ancestry (Neanderthals never  │
-  │ lived in Africa)                                       │
+  │ Africans: ~0.3% Neanderthal ancestry (Chen et al. 2020, │
+  │ Cell) — acquired indirectly via Eurasian back-migration │
+  │ into Africa, not direct contact. Neanderthals never    │
+  │ lived in Africa; the signal is a secondary effect of   │
+  │ later gene flow from admixed populations returning.    │
   └────────────────────────────────────────────────────────┘
 ```
 
@@ -514,7 +516,97 @@ laboratory analysis — and remains contested at multiple points.
 
 ---
 
-<!-- @editor[bridge/P3]: No old-world-to-new-world bridge section. Natural parallels exist: phylogenetic reconstruction as graph/tree algorithms, ancient DNA as a data pipeline problem, Bayesian radiocarbon modeling as inference under uncertainty — would connect to learner's computational background -->
+## Bridge — Paleoanthropology as Computational Inference
+
+Paleoanthropology's core methods are computational problems in disguise:
+
+```
+PHYLOGENETIC RECONSTRUCTION → GRAPH/TREE ALGORITHMS
+
+  Cladistics: given a set of taxa with shared/derived character
+  states, find the tree minimizing evolutionary steps.
+  Algorithm: maximum parsimony (NP-hard; heuristic search).
+  Modern approach: maximum likelihood + Bayesian MCMC.
+  Data structure: rooted or unrooted tree over n taxa.
+
+  This is directly the minimum spanning tree problem on
+  a character-state distance matrix — except the "distance"
+  is a probabilistic model of mutation rates, not Euclidean.
+  The phylogenetic inference problem is computationally harder
+  than MST; software (BEAST, MrBayes, RAxML) uses MCMC
+  sampling over tree topology space.
+
+ANCIENT DNA → DATA PIPELINE / SIGNAL RECOVERY PROBLEM
+
+  Input: bone or tooth from 50,000 years ago.
+  DNA degrades over time; cross-links; contaminated
+    with environmental DNA and modern human DNA
+    (from excavators, lab workers, reagents).
+  Signal: ~1-5% of reads are endogenous (ancient).
+  Noise: ~95-99% is modern contaminant.
+
+  Recovery pipeline:
+    1. Library prep: ligate adapters; amplify minimally.
+    2. Mapping: align reads to reference genome.
+       Ancient reads are SHORT (~30-60 bp, ends trimmed
+       by hydrolysis). Filter by read length + damage.
+    3. Damage authentication: ancient DNA shows C→T
+       deamination at 5' ends. If damage pattern absent:
+       contamination. Quantify endogenous fraction.
+    4. Consensus calling: low coverage → statistical
+       genotype calling; heterozygosity modeled explicitly.
+    5. Population analysis: PCA, ADMIXTURE, D-statistics
+       for admixture detection (the ABBA-BABA test).
+
+  This is a noisy channel decoding problem with a known
+  noise model (damage signature). The key innovation
+  of Paabo's lab was treating contamination as a
+  characterizable signal, not just noise to discard.
+
+RADIOCARBON DATING → BAYESIAN INFERENCE UNDER UNCERTAINTY
+
+  Problem: measure C14/C12 ratio in a sample.
+  C14 decays at a known rate (t½ = 5,730 years).
+  But atmospheric C14 varies over time (calibration
+    curve: IntCal20, Shcal20).
+  The calibration curve maps raw radiocarbon age
+    (BP before 1950) → calendar year range.
+
+  Complication: the calibration curve is non-monotonic
+  (plateaus exist where many calendar years map to the
+  same radiocarbon age → date is unresolvable without
+  additional constraints).
+
+  Bayesian OxCal:
+    Prior: stratigraphic ordering, cultural phase,
+           known historical dates.
+    Likelihood: radiocarbon measurement + measurement error.
+    Posterior: calibrated calendar date distribution.
+
+  Multiple dates from the same stratigraphic sequence →
+  update all simultaneously; stratigraphic ordering
+  is the prior constraint; dates must be internally
+  consistent. This is the same as constraint propagation
+  in a belief network.
+
+D-STATISTICS (ABBA-BABA TEST) → HYPOTHESIS TESTING ON TREES
+
+  Given populations (P1, P2, P3, outgroup), test:
+  Does P3 share more derived alleles with P1 or P2?
+  If tree is ((P1,P2),P3), expect symmetry.
+  Asymmetry → gene flow between P3 and one branch.
+
+  D = (ABBA - BABA) / (ABBA + BABA)
+  where ABBA/BABA count sites with specific allele patterns.
+  D = 0: no admixture. D ≠ 0: admixture detected.
+  Block jackknife: standard error on D accounts for
+    linkage disequilibrium in sliding windows.
+
+  This is a ratio statistic on 2×2 contingency tables
+  accumulated across the genome — the population genetics
+  equivalent of a chi-square test for independence, but
+  the "independence" hypothesis is tree topology.
+```
 
 ## Decision Cheat Sheet
 

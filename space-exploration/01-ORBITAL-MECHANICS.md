@@ -4,19 +4,28 @@
 
 Orbital mechanics is the application of Newtonian gravity and classical mechanics to spacecraft trajectories. The Tsiolkovsky rocket equation is the fundamental constraint; Kepler's laws govern orbits; the Hohmann transfer is the minimum-energy path between orbits.
 
-<!-- @editor[diagram/P2]: Diagram lists items in three columns but doesn't show the dependency chain — rework to show how governing physics constrains equations which constrain applications (layered flow) -->
 ```
 +------------------------------------------------------------------+
 |                    ORBITAL MECHANICS FRAMEWORK                    |
 +------------------------------------------------------------------+
 |                                                                  |
-|  GOVERNING PHYSICS         KEY EQUATIONS        APPLICATIONS    |
-|  -----------------         -------------        ------------    |
-|  Newton's gravity          Vis-viva equation    Orbit insertion |
-|  Conservation of energy    Tsiolkovsky Δv eqn.  Transfers       |
-|  Conservation of ang. mom. Kepler's laws        Gravity assists |
-|  Kepler's laws             Hohmann transfer     Station-keeping |
-|  Perturbation theory       Orbital elements     GTO, TLI, TMI   |
+|  GOVERNING PHYSICS  (sets the hard constraints)                  |
+|  -----------------------------------------------                |
+|  Newton's gravity (F=GMm/r²)                                     |
+|  Conservation of energy  +  Conservation of angular momentum     |
+|       |                               |                          |
+|       v                               v                          |
+|  KEY EQUATIONS  (closed-form results from the physics)           |
+|  -----------------------------------------------                |
+|  Vis-viva: v²=GM(2/r−1/a)    Tsiolkovsky: Δv=Isp·g₀·ln(m₀/mf) |
+|  Kepler T²∝a³                Hohmann: min-energy transfer orbit  |
+|  Orbital elements (6 params define any conic)                    |
+|       |                               |                          |
+|       v                               v                          |
+|  MISSION APPLICATIONS  (engineering choices within the envelope) |
+|  -----------------------------------------------                |
+|  Orbit insertion    Δv budget    Gravity assists                  |
+|  Station-keeping    Launch windows   GTO / TLI / TMI             |
 +------------------------------------------------------------------+
 ```
 
@@ -307,7 +316,16 @@ CUMULATIVE Δv BUDGET (km/s from Earth surface)
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: Δv budget as a resource-allocation optimization problem (learner's MIT optimization background); gravity assists as graph-search over a constrained trajectory space; Hohmann transfer as the minimum-cost path in a weighted graph -->
+## Engineering Parallels
+
+**Δv budget as a resource-allocation problem.** Total mission Δv is a fixed budget; every maneuver is a withdrawal. The planner allocates burns across mission phases to minimize total cost subject to constraints (launch vehicle capability, arrival conditions, mission duration). This is integer programming on a manifold — the state space is continuous, the decision points are discrete maneuvers, and the objective is the sum of |Δv| terms. Gravity assists add negative-cost arcs to the graph.
+
+**The Hohmann transfer as a shortest path.** Between two circular coplanar orbits, the Hohmann transfer is the minimum total Δv path — two impulsive burns at the endpoints of the transfer ellipse. This is Dijkstra's shortest path applied to orbital energy space, where "distance" is propellant cost. More general trajectories (bi-elliptic transfers, low-thrust spirals) are different cost-metric problems on the same graph.
+
+**Gravity assists as free energy from the graph topology.** Gravity assists exploit existing nodes in the solar system trajectory graph — planets moving through space — to add or remove orbital energy at zero propellant cost, at the expense of flight time and geometric constraints. The same principle appears in algorithm design: if a problem structure provides free transformations (symmetries, invariants), exploit them before spending computation. Voyager's Grand Tour was feasible in 1977 only because of a rare planetary alignment creating a favorable graph topology.
+
+**Lagrange points as saddle points on the effective potential.** L4/L5 are stable equilibria (local minima); L1/L2/L3 are saddle points requiring station-keeping (unstable equilibria). Any engineer who has studied convex vs. non-convex optimization recognizes this landscape immediately. JWST orbits L2 precisely because the saddle point, though unstable, is easy to station-keep with small periodic corrections — the same reason you might deploy a service at a resource-contested boundary node rather than at a stable but distant one.
+
 ## Common Confusion Points
 
 **Orbiting is not "escaping" gravity**: ISS is in Earth's gravity field. It's in free fall — falling in a circle. Gravity is providing the centripetal force. "Zero-g" is a misnomer; it's "free fall" or "microgravity" (tidal forces over the spacecraft volume cause tiny differential accelerations).

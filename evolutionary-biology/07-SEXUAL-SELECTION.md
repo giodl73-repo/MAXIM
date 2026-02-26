@@ -252,7 +252,55 @@ Hamilton (1964): altruistic behavior can evolve if it benefits genetic relatives
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — honest signaling (Zahavi handicap) maps directly to signaling theory in economics/game theory; Spence's job market signaling model has the same structure (costly signal credible because cost inversely correlated with quality); this learner would benefit from this cross-domain bridge -->
+## Honest Signaling — Game Theory and Economics Bridge
+
+The handicap principle is a special case of the general economic theory of costly
+signaling. The formal structure is identical across biology, economics, and
+mechanism design:
+
+```
+ZAHAVI HANDICAP ≈ SPENCE JOB MARKET SIGNALING (1973 Nobel):
+
+  Spence (1973): Why do employers value costly education?
+    High-quality workers can afford the cost of education (it's less costly for them)
+    Low-quality workers cannot rationally afford the same cost
+    → Education is a credible signal because cost is inversely correlated with quality
+    → Even if education adds no productivity, equilibrium with signaling is stable
+
+  Zahavi (1975): Why do peacocks have costly tails?
+    High-condition males can afford the survival cost of the tail
+    Low-condition males cannot sustain the same ornament without dying
+    → The tail is a credible signal because cost is inversely correlated with quality
+    → The ornament is honest precisely because it is costly
+
+  FORMAL CONDITION FOR HONEST SIGNALING (Riley 1979, Grafen 1990):
+    Cost of signal C(quality, signal_level):
+      dC/d(quality) < 0: high-quality signalers pay lower marginal cost
+      → separating equilibrium: each quality level chooses a different signal level
+      → no incentive to "cheat" by signaling above your quality
+
+  HONEST SIGNALING IN OTHER DOMAINS:
+    Handicap:      survival cost of ornament (peacock tail, stotting gazelle)
+    Physiological: immunocompetence handicap — testosterone suppresses immune function
+                   → large secondary sex characters = honest immune status report
+    Economics:     bond posting, warranties, "burning money" to signal commitment
+    Mechanism design: incentive-compatible contracts require costly revelation
+
+THE ALTERNATIVE: RUNAWAY SELECTION (Fisher's sexy sons):
+  No honesty required — female preference and male trait co-evolve via genetic
+  correlation. If females prefer long tails, sons of long-tailed males have
+  both long tails AND the allele for female preference → runaway.
+  This is NOT a signaling equilibrium — it is a co-evolutionary dynamic
+  without an information content constraint.
+
+DISTINGUISHING HANDICAP FROM RUNAWAY:
+  Handicap prediction: ornament honestly reflects condition (correlates with
+    parasite resistance, immune function, survival)
+  Runaway prediction: arbitrary trait, just correlated with female preference
+  Empirical tests: condition-manipulation experiments (control male condition →
+    ornament size should change with condition if handicap)
+```
+
 ## Decision Cheat Sheet
 
 | Question | Framework | Key concept |
@@ -267,7 +315,67 @@ Hamilton (1964): altruistic behavior can evolve if it benefits genetic relatives
 
 ---
 
-<!-- @editor[content/P2]: Sexual conflict absent — a major driver of rapid evolution; intra-locus (same trait optimal for different sexes) and inter-locus (chase-away, traumatic insemination) sexual conflict are well-established and deserve coverage alongside the cooperative mate-choice models -->
+## Sexual Conflict
+
+Sexual conflict arises when the evolutionary interests of males and females diverge —
+a major driver of rapid, sometimes coevolutionary, trait evolution:
+
+```
+INTRA-LOCUS SEXUAL CONFLICT:
+  Same locus/allele is under selection in opposite directions in each sex
+  (because the same gene is expressed in both sexes)
+
+  Example: Body size
+    Large body size: favored by male-male competition (advantage for males)
+    Large body size: costly for females (energetic burden, predation risk)
+    → Conflict over optimal allele at size-controlling loci
+    → Resolution: sexual dimorphism (different expression in each sex)
+    → Mechanism: sex-limited expression via sex chromosomes or hormonal regulation
+
+  Constraint: if conflict is strong and resolution incomplete,
+    mean fitness of each sex is below its unconstrained optimum
+    → "intralocus sexual conflict load"
+    → Experimental evidence: removing sexual conflict by enforcing monogamy
+      → female fitness increases as population adapts to her optimum
+
+INTER-LOCUS SEXUAL CONFLICT (antagonistic coevolution):
+  Different loci in males vs. females "battle" over outcomes
+
+  1. SEMINAL PROTEINS AND FEMALE RESISTANCE:
+     Male accessory gland proteins (ACPs / seminal fluid): transferred at mating
+     → manipulate female physiology (increase egg laying, reduce remating)
+     → costly to female (reduced lifespan at high doses)
+     Males evolve more potent ACPs → females evolve resistance
+     → Red Queen dynamics between male and female genomes
+
+     Evidence (Drosophila): experimental evolution of sex ratio
+       → males and females co-evolve in arms race
+       → faster evolution of seminal proteins than any other protein class
+
+  2. TRAUMATIC INSEMINATION:
+     Bedbugs (Cimex): male punctures female abdomen, injects sperm directly
+     → completely bypasses female reproductive tract (extreme male control)
+     → costly to female (wound infection, hemolymph loss)
+     Females: evolved paragenitalia (abdominal structure that channels wound)
+     → partial mitigation of cost
+
+  3. CHASE-AWAY SEXUAL SELECTION:
+     Female resistance to male signals evolves → males must escalate signal
+     → signal evolves beyond original female preference optimum
+     → "sensory exploitation gone wrong"
+     → predicts faster evolution of female preferences than good-genes model
+     Evidence: positive correlation between male signal elaboration and female
+       resistance (reduced sensory sensitivity) across populations
+
+ARMS RACE PREDICTION:
+  Inter-locus sexual conflict predicts:
+    Rapidly evolving genes at male-female interaction interface
+    (reproductive proteins, sperm proteins, egg coat proteins)
+  Data: highest dN/dS ratios in genome found in reproductive proteins
+    (ZP3, ZP2 egg coat; ADAM enzymes; accessory gland proteins)
+  Consistent with ongoing antagonistic coevolution between sexes
+```
+
 ## Common Confusion Points
 
 **Sexual selection is not a special type of natural selection.** Darwin treated them

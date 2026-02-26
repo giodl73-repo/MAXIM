@@ -4,7 +4,61 @@
 
 Carbohydrates are the most versatile class of biomolecules — they serve as fuel, structural material, cell signaling molecules, and gut ecosystem substrate. The simple classification (simple vs complex) obscures enormous biochemical diversity.
 
-<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view connecting taxonomy -> digestion -> blood glucose regulation -> GI/GL -> fiber fermentation -> fructose metabolism -> insulin response -->
+```
+CARBOHYDRATE SYSTEM — LAYERED VIEW
+──────────────────────────────────────────────────────────────────────────────
+TAXONOMY LAYER:
+  Monosaccharides          Disaccharides           Polysaccharides
+  Glucose / Fructose /     Sucrose / Lactose /      Starch (amylose + amylopectin)
+  Galactose                Maltose                  Glycogen / Dietary Fiber
+
+                    ↓ digestion (amylase, brush-border enzymes)
+
+DIGESTION + ABSORPTION:
+  Glucose ──[SGLT1, then GLUT2]──► portal vein ──► liver (glucokinase)
+  Fructose ──[GLUT5, then GLUT2]──► portal vein ──► liver (fructokinase)
+                                                         ↓ bypasses PFK → de novo lipogenesis
+  Galactose ──[SGLT1]──► portal vein ──► liver → converted to glucose
+
+  Fiber: passes to colon → fermentation by microbiome → SCFAs
+
+                    ↓
+
+BLOOD GLUCOSE REGULATION:
+  Postprandial rise → pancreatic β-cells → insulin → GLUT4 in muscle/adipose
+  Fasting → glycogenolysis (liver) → gluconeogenesis
+  Chronic hyperglycemia → glycation (HbA1c) → vascular damage
+
+                    ↓
+
+GI/GL (Practical Use):
+  GI: rate of glucose rise per 50g carb load (measure of metabolic speed)
+  GL = GI × grams/serving / 100  (adjusts for realistic serving size)
+  Clinical use: watermelon GI=76 but GL=8 → not concerning per serving
+
+                    ↓
+
+FIBER FERMENTATION ECONOMY:
+  Fiber → colonic bacteria → SCFAs:
+    Butyrate (15-20%): colonocyte fuel; HDAC inhibitor; anti-cancer
+    Propionate (25%):  hepatic gluconeogenesis; satiety (PYY)
+    Acetate (60%):     peripheral fuel; cardiac; substrate for cross-feeding
+
+                    ↓
+
+FRUCTOSE LIVER BYPASS:
+  Fructokinase (unregulated) → F1P → enters glycolysis below PFK rate-limit
+  → uncapped flux → acetyl-CoA → VLDL/TG; uric acid; no insulin/leptin signal
+
+                    ↓
+
+INSULIN RESPONSE IN CONTEXT:
+  Insulin is not the enemy — it's the effector
+  Pathology = chronic fasting hyperinsulinemia (insulin resistance)
+  Cause: caloric surplus + visceral fat, not carbohydrates per se
+──────────────────────────────────────────────────────────────────────────────
+```
+
 ```
 CARBOHYDRATE TAXONOMY
 

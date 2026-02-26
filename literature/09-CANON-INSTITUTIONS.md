@@ -317,37 +317,82 @@ NETWORK EFFECTS AGAIN:
 
 ---
 
-<!-- @editor[audience/P3]: World literacy statistics section reads as general-interest rather than structurally connected to the canon-formation argument — the learner profile would benefit more from data on how translation economies and publishing infrastructure create canon asymmetries than from raw literacy rates -->
-## Layer 5: World Literacy Statistics
+## Layer 5: Translation Economies and Publishing Infrastructure
 
 ```
-GLOBAL LITERACY — CONTEXT
---------------------------
-Adult literacy rate (UNESCO 2022): ~87% globally
-  But: literacy = basic reading/writing, not
-  "literary" reading.
+HOW PUBLISHING INFRASTRUCTURE CREATES CANON ASYMMETRIES
 
-READING BOOK-LENGTH FICTION:
-  US: ~73% read at least one book last year (Gallup)
-  UK: similar; bookshop visits declining, ebook flat
-  Pew Research: 25% of Americans have not read a book
-  in the past year; this has been roughly stable.
+The "world" in world literature is not the whole world.
+It is the world with the infrastructure to move texts across
+language boundaries. Canon formation at global scale is a
+structural problem of translation economies and publishing markets.
 
-LANGUAGE DISTRIBUTION:
-  Most-published languages: English, Chinese, German,
-  French, Japanese, Spanish, Russian.
-  Most-translated source language: English.
-  Most-translated target language: German.
-  "World literature" in practice = literature that
-  circulates in these 7-8 languages.
+TRANSLATION FLOWS (Index Translationum data):
+  Most-translated SOURCE language: English (~60% of translations)
+  Other major sources: French, German, Russian, Swedish, Italian
+  Most-translated TARGET language: German, then French, Spanish
 
-IMPLICATIONS FOR THE CANON:
-  The "world" in world literature is not the whole world.
-  It is the world with publishing infrastructure and
-  translation economies.
-  Literature in Yoruba, Amharic, or Swahili is "world
-  literature" in principle; in practice it is largely
-  absent from the global market.
+  Key asymmetry: most world literature flows OUT of English, not into it.
+  English-language publishers translate ~3% of books published annually.
+  German publishers: ~12-14%. French: ~8-10%.
+  Chad Post (Three Percent blog): "the 3 percent problem" in US publishing.
+  This means: non-Anglophone literature reaches US readers only through
+  the filter of what US/UK publishers choose to translate — a
+  very narrow gate with its own aesthetic and commercial biases.
+
+LANGUAGE DOMINANCE IN THE GLOBAL LITERARY MARKET:
+  Tier 1 (full infrastructure): English, French, German, Spanish, Japanese
+    — original publication, translation markets, prize ecosystems, criticism
+  Tier 2 (partial infrastructure): Italian, Russian, Dutch, Swedish, Polish
+    — significant original production; translations in and out, but asymmetric
+  Tier 3 (minimal global infrastructure): Yoruba, Amharic, Swahili, Tamil,
+    Quechua — large speaker populations; rich literary traditions;
+    minimal presence in global translation markets
+
+  Literature in Tier 3 languages is "world literature" in principle;
+  in practice it reaches global circulation only through exceptional
+  events (Nobel Prize, foreign publisher champion, diaspora readership).
+
+PRIZE SYSTEMS AS CANON INFRASTRUCTURE:
+  Nobel Prize: translates winner immediately into 30+ languages.
+  Swedish Academy's selection biases are widely noted (European-heavy
+  until 2010s; long underrepresentation of African, Asian, Latin American).
+  When Mo Yan won (2012) or Abdulrazak Gurnah won (2021), the prize
+  drove immediate translation into 40+ languages within 12 months.
+  The prize is a canon amplifier: it provides the market signal
+  that justifies translation investment.
+
+PUBLISHING CONCENTRATION AND ACCESS:
+  4 major groups (Bertelsmann/Penguin Random House, HarperCollins/Murdoch,
+  Simon & Schuster/KKR, Hachette/Lagardère) control ~60% of trade
+  publishing in English. Their acquisition decisions determine what
+  gets translated and marketed globally.
+  Independent presses (Archipelago Books, Deep Vellum, Restless Books
+  in US; Pushkin Press in UK) do most serious literary translation —
+  but with tiny budgets and limited distribution reach.
+
+DIGITAL DISTRIBUTION AND THE CANON:
+  E-books and print-on-demand have reduced barriers to publication
+  but not to discovery or critical attention.
+  The power law distribution of attention is steeper in digital,
+  not flatter: the top 1% of titles capture a larger share of
+  total attention because recommendation algorithms amplify existing
+  signals (reviews, prize wins, social media).
+  The long tail exists; it is not read.
+
+LANGUAGE POPULATION vs. LITERARY VISIBILITY (the asymmetry):
+  Language     | Native speakers | Nobel winners | Annual translations
+  Bengali      | 230M            | 1 (Tagore, 1913) | low
+  Hausa        | 85M             | 0             | minimal
+  Javanese     | 80M             | 0             | minimal
+  English      | 380M native     | 30+           | ~130,000/year source
+  Swedish      | 10M             | 8 (home court advantage) | significant
+
+  The Nobel Prize committee awarding 8 prizes to Swedish authors
+  (in a language spoken by 10M people) while Bengali literature
+  with 230M speakers has 1 prize (1913) is a concrete example
+  of how institutional infrastructure creates canon asymmetry
+  independent of literary quality.
 ```
 
 ---

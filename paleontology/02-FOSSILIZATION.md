@@ -277,6 +277,39 @@ RANCHO LA BREA TAR PITS (California):
 ## Statistical Aspects of the Fossil Record
 
 ```
+FOSSIL RECORD AS SURVIVAL ANALYSIS WITH CENSORED DATA:
+
+  Each taxon has a "true" first and last occurrence in time.
+  The observed fossil record gives: first and last occurrence in rock.
+  Problem: the observed last occurrence is EARLIER than the true extinction
+    (censored observation — event happened after the last data point)
+  This is right-censoring in survival analysis:
+    - True survival time T is unknown when observation ends
+    - Kaplan-Meier estimator handles right-censored survival times
+    - Strauss-Sadler formula = frequentist confidence bound on censored endpoint
+
+  MISSING AT RANDOM (MAR) assumption:
+    Fossilization probability is assumed to not depend on when the organism
+    goes extinct → MAR (same assumption required for valid inference in any
+    incomplete-data analysis, e.g., missing values in a clinical trial)
+    VIOLATION: organisms near extinction often decline to rare → last occurrences
+    are sparse → Signor-Lipps effect is a direct consequence of non-MAR
+
+  LAZARUS TAXA = Intermittent time-series with structural gaps
+    Taxon present in record, then absent, then reappears → "resurrected"
+    Two explanations: (1) truly rare (sampling miss) — MAR gap;
+                      (2) small refuge population persisted — true gap
+    Resolving: check multiple basins, independent of each other
+    → Equivalent to distinguishing true missing-at-random from censored observation
+
+  SIGNOR-LIPPS EFFECT = Right-censoring smears instantaneous events
+    Instantaneous mass extinction → each taxon's last fossil is scattered
+    across a stratigraphic interval before the true boundary
+    → Pattern-matching problem: how to recover the true signal shape
+      (step function) from right-censored observations?
+    Methods: confidence interval estimation (Strauss-Sadler);
+             maximum likelihood boundary estimation (Marshall 1995)
+
 PRESERVATION BIAS:
   Hard parts (bones, shells, teeth): 100–1000× more likely to preserve than soft tissue
   Marine > freshwater > terrestrial (burial probability)

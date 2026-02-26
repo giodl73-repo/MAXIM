@@ -424,7 +424,33 @@ The **Toledo School of Translators** (12th century) systematically translated Ar
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — the learner would immediately connect: Hunayn's textual criticism method maps to modern version control + code review (collect variants, compare, identify best, annotate errors); al-Khwarizmi's systematic classification of equation types is proto-pattern-cataloguing; the Translation Movement is history's first large-scale knowledge-transfer project (like migrating a legacy codebase to a new platform while extending it) -->
+## Bridges — Islamic Golden Age as Knowledge Engineering
+
+**The Translation Movement → large-scale codebase migration**
+The Abbasid Translation Movement (750–1050 CE) was the largest intentional knowledge-transfer project before the digital era: ~300 years of systematic translation, correction, extension, and institutionalization of Greek, Persian, and Indian knowledge into Arabic. The structural parallels to a legacy-to-modern migration:
+- *Inventory*: identify what exists and where (manuscript hunting across the Mediterranean)
+- *Translation*: convert representation (Greek → Arabic, with meaning-preservation verification)
+- *Validation*: Hunayn ibn Ishaq's method — collect multiple manuscript variants, compare, identify corruptions, produce a corrected canonical text. This is version control + code review applied to knowledge artifacts.
+- *Extension*: translators routinely added commentary identifying errors, contradictions, and gaps — not passive copying but active quality improvement
+- *Institutionalization*: House of Wisdom as a funded center with stable staffing — the equivalent of a platform team with dedicated headcount, not ad-hoc volunteers
+
+The failure mode is also familiar: when patronage collapsed (Mongol sack of Baghdad 1258, political instability), the institutional infrastructure dissolved and the accumulated tacit knowledge dispersed.
+
+**al-Khwarizmi's algebra → systematic API design**
+Al-Khwarizmi's *Kitab al-mukhtasar fi hisab al-jabr wal-muqabala* (c. 830) does something structurally important: it classifies all linear and quadratic equations into a finite set of canonical types, then provides a systematic procedure for each type. This is pattern cataloguing — identifying the minimal set of distinct cases and providing a solution method per case. The *Hisab al-Hindi* (Hindu arithmetic) did the same for positional notation algorithms. The move from "solve this specific problem" to "classify all problems of this form and provide a general method" is the abstraction step that makes algebra a discipline rather than a bag of tricks. This is the same move that takes you from "handle this HTTP request" to "define a REST interface contract."
+
+**Ibn al-Haytham's experimental optics → reproducible research norms**
+Ibn al-Haytham's camera obscura experiments (~1020 CE) established: (1) a controlled apparatus, (2) systematic variation of parameters, (3) results reproducible by anyone with the apparatus. The intromission theory (light travels from object to eye, not eye to object) was supported not by argument but by experimental demonstration that anyone could replicate. This is the reproducibility standard 1,000 years before the replication crisis revealed how often it's violated. His explicit statement that the reader should perform the experiments themselves — not just read his conclusions — is the ancestor of "show your work, share your data, enable replication."
+
+**Hunayn's textual criticism → diff and merge**
+Hunayn ibn Ishaq's method for producing accurate Arabic translations of Galen: collect all available Greek manuscripts → compare them textually → identify variants and corruptions → produce a synthetic "best text" → annotate known errors and uncertainties. This is:
+- Source collection: `git fetch --all`
+- Variant identification: `git diff`
+- Corruption annotation: inline comments with confidence levels
+- Canonical synthesis: the merge commit with documented decisions
+- Uncertainty flagging: `TODO: verify against manuscript X`
+
+The epistemological sophistication is striking: Hunayn did not claim certainty where the sources were inconsistent; he preserved uncertainty signals in his output.
 
 ## Common Confusion Points
 

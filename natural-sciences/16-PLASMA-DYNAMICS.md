@@ -1,9 +1,59 @@
-<!-- @editor[diagram/P1]: No landscape diagram — guide opens with MHD equilibrium equations without establishing the full picture. Needs a visual map: equilibrium → instabilities (interchange, kink, tearing) → reconnection → confinement approaches (tokamak, stellarator, ICF) → astrophysical + industrial applications. This is a rich field that needs a structural overview before diving into force balance. -->
 # 16-PLASMA-DYNAMICS — Plasma Dynamics & Confinement
 
 > MHD instabilities, magnetic reconnection, tokamaks, stellarators,
 > inertial confinement, astrophysical plasmas, and industrial applications.
 > Where plasma physics meets engineering and astrophysics.
+
+---
+
+## Landscape
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PLASMA DYNAMICS & CONFINEMENT                     │
+│                                                                      │
+│  MHD EQUILIBRIUM                                                     │
+│  ─────────────────                                                   │
+│  J × B = ∇p (force balance)    β = p / (B²/2µ₀)                   │
+│  Grad-Shafranov equation        Flux surfaces, q safety factor      │
+│          │                                                           │
+│          ▼                                                           │
+│  MHD INSTABILITIES (perturbation grows if energy is released)       │
+│  ─────────────────────────────────────────────────────────────      │
+│  Interchange / RT:  bad curvature → density finger penetrates       │
+│  Kink (m=1):        current column bends → j×B amplifies bend       │
+│  Tearing:           resistive layer → magnetic island formation     │
+│  NTM:               bootstrap current loss → self-reinforcing island│
+│  Disruption:        catastrophic confinement loss (ms timescale)    │
+│          │                                                           │
+│          ▼                                                           │
+│  MAGNETIC RECONNECTION                                               │
+│  ────────────────────────                                            │
+│  Topology change at X-point     Sweet-Parker vs. Petschek rate      │
+│  Converts B-field energy → heat + jets + particle acceleration      │
+│          │                                                           │
+│     ┌────┴──────────────────────────────────┐                       │
+│     ▼                                        ▼                       │
+│  MAGNETIC CONFINEMENT               INERTIAL CONFINEMENT            │
+│  ─────────────────────               ────────────────────           │
+│  Tokamak: helical B, plasma current  ICF: compress D-T capsule      │
+│  Stellarator: external helicity only fast → fusion before disassem  │
+│  Lawson criterion: nTτ_E threshold  RT instability is key challenge │
+│          │                                                           │
+│     ┌────┴──────────────────────────────────┐                       │
+│     ▼                                        ▼                       │
+│  ASTROPHYSICAL PLASMAS              INDUSTRIAL APPLICATIONS         │
+│  ──────────────────────              ────────────────────────       │
+│  Solar flares, CMEs, substorms       Plasma etching (chips)         │
+│  Accretion disks (MRI transport)     Sputtering deposition          │
+│  Pulsar/AGN jets                     Ion thrusters (SpaceX, Dawn)   │
+│  Radiation belts                     Arc furnaces                   │
+└─────────────────────────────────────────────────────────────────────┘
+
+Reading path: equilibrium → what breaks it (instabilities) →
+catastrophic topology change (reconnection) → confinement strategies →
+applications where same physics appears.
+```
 
 ---
 

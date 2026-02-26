@@ -164,29 +164,22 @@ PREREQUISITES FOR THE DIVIDEND:
 
 ## Comparison Across Dividend Cases
 
-```
-<!-- @editor[structure/P2]: Cross-country comparison below is the natural centerpiece table for this guide — convert from code block to a markdown table for consistent styling with Decision Cheat Sheet -->
-CROSS-COUNTRY COMPARISON:
+### Cross-Country Demographic Dividend Comparison
 
-Country/Region  Dividend Period  TFR at peak  Policy environment  Outcome
-────────────────────────────────────────────────────────────────────────────
-Japan           1950-1995        6.0 → 2.0    Strong state       Miracle growth
-South Korea     1965-2000        6.0 → 2.0    Strong state       Miracle growth
-Taiwan          1960-1995        5.5 → 2.0    Strong state       Miracle growth
-Thailand        1975-2010        5.5 → 1.5    Moderate state     Strong growth
-Indonesia       1980-2015        5.0 → 2.5    Moderate           Solid growth
-China           1975-2015        5.0 → 1.5    Strong (one-child) Strong growth
-Brazil          1960-2010        5.5 → 1.8    Weak-moderate      Partial dividend
-India           1990-2040        5.0 → 2.0    Weak-moderate      Partial dividend
-Bangladesh      1985-2030        6.0 → 2.0    Improving          Rising growth
-Sub-Sah. Africa 2030-2070(?)     4.5 → 2.0?  Varied — key risk  Uncertain
+| Country / Region | Dividend Window | TFR Decline | Policy Environment | Outcome |
+|---|---|---|---|---|
+| Japan | 1950–1995 | 6.0 → 2.0 | Strong developmental state | Miracle growth (~8-10% GDP/yr) |
+| South Korea | 1965–2000 | 6.0 → 2.0 | Strong developmental state | Miracle growth; 40× per-capita income increase |
+| Taiwan | 1960–1995 | 5.5 → 2.0 | Strong developmental state | Miracle growth |
+| China | 1975–2015 | 5.0 → 1.5 | Strong (one-child policy) | Strong growth; now aging rapidly |
+| Thailand | 1975–2010 | 5.5 → 1.5 | Moderate state | Strong growth |
+| Indonesia | 1980–2015 | 5.0 → 2.5 | Moderate | Solid growth |
+| Brazil | 1960–2010 | 5.5 → 1.8 | Weak–moderate | Partial dividend; governance and inequality limited capture |
+| Bangladesh | 1985–2030 | 6.0 → 2.0 | Improving | Rising growth; garment export sector absorbed labor |
+| India | 1990–2040 | 5.0 → 2.0 | Weak–moderate | Partial dividend; IT services captured it; manufacturing lag |
+| Sub-Saharan Africa | 2030–2070 (?) | 4.5 → 2.0? | Varied — key risk | Uncertain; conditional on fertility transition AND job creation |
 
-KEY PATTERN:
-Strong policy environment → captures most of dividend
-Weak policy environment → squanders opportunity
-No policy prerequisites → "demographic disaster" (Nigeria 2010s: rapid growth,
-    minimal dividend due to oil dependence, poor governance, job creation failure)
-```
+**Key pattern**: strong policy environment (export orientation, education investment, macro stability, manufacturing development) → captures most of dividend; weak environment → squanders it. Nigeria in the 2010s is the cautionary case: large working-age population, oil dependence, poor governance, and minimal job creation → demographic growth without dividend, with youth bulge risk instead.
 
 ## Second Dividend
 

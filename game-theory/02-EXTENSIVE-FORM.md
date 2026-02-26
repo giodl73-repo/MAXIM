@@ -512,7 +512,19 @@ to mimic high types.
 
 ---
 
-<!-- @editor[bridge/P2]: No explicit old-world bridge section — the learner's MIT background (tree induction, Bayes' theorem, graph theory) and VSTS experience (sequential decision gates, rollback strategies) map naturally to extensive form concepts but the connection is never called out -->
+## CS and Systems Bridges
+
+| Extensive form concept | Formal / systems analogue |
+|---|---|
+| Game tree (extensive form) | Computation tree — nodes are computation states, branches are transitions; backward induction is exactly the tree-recursion pattern (base case at leaves, combine upward) |
+| Information set | Indistinguishable states in partial-information search (POMDP belief states, imperfect-information game trees in alpha-beta pruning) |
+| Subgame | Well-defined recursive subproblem — SPE is optimal substructure (Bellman) applied to strategic games |
+| Backward induction / SPE | Dynamic programming: solve leaves first, propagate values up; non-credible threats are sub-optimal sub-solutions that disappear under DP |
+| Bayesian updating on path | Bayes' theorem applied at each information set — identical to exact inference in a directed graphical model along an observed path |
+| Grim trigger strategy | State machine with two states (cooperate / punish) and a one-way transition; the "no recovery" property is a design choice enforcing Nash credibility |
+| Folk theorem δ ≥ δ* | Discount factor threshold is a capacity-planning condition: sustained cooperation requires the future to be heavy enough to outweigh one-shot defection gain |
+| Sequential rationality (PBE) | Eliminates strategies with "dead code" — beliefs about unreached information sets must be consistent and on-path strategies must be best responses given those beliefs; analogous to liveness + safety invariants in concurrent systems |
+
 ## Common Confusion Points
 
 **"A strategy is a plan"**: A strategy in an extensive form game is a complete contingency

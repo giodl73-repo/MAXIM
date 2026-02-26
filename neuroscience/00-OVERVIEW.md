@@ -1,30 +1,41 @@
-<!-- @editor[diagram/P2]: Landscape diagram lists levels of analysis as stacked boxes but doesn't show how they interact -- add arrows showing cross-level causal flow (molecules enable synaptic transmission, circuits implement cognition) -->
 # Neuroscience — Brain Architecture Overview
 
 ## The Big Picture
 
 ```
-    NEUROSCIENCE LANDSCAPE
-    ══════════════════════════════════════════════════════════
+    NEUROSCIENCE LANDSCAPE — LEVELS WITH CROSS-LEVEL CAUSAL FLOW
+    ══════════════════════════════════════════════════════════════
 
-    LEVELS OF ANALYSIS
     ┌─────────────────────────────────────────────────────────┐
     │                    BEHAVIOR / COGNITION                  │
     │         (perception, memory, decision, language)         │
+    │  ↑ circuits IMPLEMENT cognition         ↑               │
     ├─────────────────────────────────────────────────────────┤
     │                 CIRCUITS & SYSTEMS                       │
     │   (visual pathway, motor system, hippocampus, PFC)       │
+    │  ↑ local circuits BUILD systems         ↓ top-down      │
     ├─────────────────────────────────────────────────────────┤
     │             SYNAPSES & LOCAL CIRCUITS                    │
     │     (EPSPs, LTP, inhibitory interneurons, columns)       │
+    │  ↑ APs arriving trigger transmission    ↓ activity       │
     ├─────────────────────────────────────────────────────────┤
     │             SINGLE NEURONS (biophysics)                  │
     │    (Hodgkin-Huxley, cable theory, dendritic computation) │
+    │  ↑ channel gating generates APs         ↓ shapes AP     │
     ├─────────────────────────────────────────────────────────┤
     │                 MOLECULES & GENES                        │
     │   (ion channels, receptors, second messengers, CRISPR)   │
     └─────────────────────────────────────────────────────────┘
-    Each level has its own theories, methods, and explanatory power.
+
+    Upward causation: molecules → channels → APs → synaptic release → circuit activity → cognition
+    Downward causation: attention (cognitive) modulates circuit gain; learning (behavioral)
+      changes synaptic weights; stress (behavioral) alters gene expression via CREB, BDNF
+
+    Energy constraint links all levels: 20W budget → sparse coding (~1% neurons active)
+      → energy cost shapes circuit architecture and neural code
+
+    Measurement methods span levels:
+      patch clamp (molecules/single neuron) → MEA/Ca2+ imaging (circuits) → fMRI (systems/behavior)
     Neuroscience is the science of bridging ALL these levels.
 ```
 
@@ -333,7 +344,22 @@ Neural dynamics = many-body system:
 - Neural oscillations (theta, gamma) = distributed synchronization protocol
 - Winner-take-all competition = consensus among uncertain processors
 
-<!-- @editor[bridge/P2]: No formal-languages/automata bridge despite MIT TCS background -- finite-state machines map to CPGs, pushdown automata to PFC stack-like working memory -->
+### Formal Languages and Automata Bridge
+
+The TCS-neuroscience correspondence is non-trivial and mechanistically grounded:
+
+**Finite-state machines and central pattern generators (CPGs)**
+CPGs are the spinal circuits that produce rhythmic motor outputs (locomotion, breathing, swallowing) without requiring continuous descending commands. A CPG is a network that cycles through a fixed sequence of states driven by internal recurrent connectivity and synaptic delays — it is a physical implementation of a finite-state machine where transitions are triggered by inhibitory interneuron timing (reciprocal inhibition creates alternating half-center oscillators). The FSM state space is small and well-defined; command descending from brainstem/cortex is essentially a start/stop signal plus speed modulation (analogous to a timer input to the FSM). Lamprey locomotor CPGs are the best-characterized, with explicit FSM-level computational models.
+
+**Stack-like structures and PFC working memory**
+The prefrontal cortex maintains items in working memory via sustained activity (persistent firing supported by recurrent excitatory connections and neuromodulation). Computational models (O'Reilly et al., Frank et al.) propose that the basal ganglia gates the PFC working memory buffer — dopamine signals "write" (update contents) vs "maintain" (keep current state). This is architecturally similar to a pushdown automaton: PFC is the stack, BG gating is the push/pop operation, and the rule-switch needed for correct stack manipulation is learned by the BG via RL. Human PFC damage causes the Wisconsin Card Sorting Test failure — inability to switch rules — which is exactly the behavior of an automaton missing its state-transition mechanism.
+
+**Temporal logic and sequence learning**
+The hippocampal-entorhinal system implements something resembling a temporal automaton: place cells encode current state (location), time cells encode elapsed time within an episode, and the sequence of (place, time) pairs over a trajectory is the state-machine trace. Sharp-wave ripple replay during sleep compresses this trace and transfers it to cortex — analogous to running a finite transducer over an input string and storing the output.
+
+**Turing completeness and neural computation**
+Any recurrent neural network with sigmoid neurons is Turing complete (Siegelmann and Sontag, 1992) — can simulate any Turing machine given appropriate weights and infinite precision. This is a theoretical result, not a claim about biological feasibility, but it establishes that the computational substrate is not the limitation. The real question is what the brain's particular connectivity and learning rules actually compute, which is the mechanistic question that computational neuroscience addresses.
+
 ### AI/ML Bridge
 See 04-AI-BRIDGE.md for systematic comparison.
 Short version: transformers are loosely inspired by cortical hierarchy +
@@ -342,7 +368,6 @@ RAG ≈ hippocampal indexing; but neuroscience has mechanisms AI doesn't yet.
 
 ---
 
-<!-- @editor[content/P1]: Claim may be incorrect -- verify: "RuBisCO" listed as neuromodulator release measurement technique. RuBisCO is a plant enzyme (carbon fixation). Should be dLight, GRAB-DA, or CNiFER for optical neuromodulator sensing -->
 ## Decision Cheat Sheet — What Method for What Question?
 
 | Question                                  | Best Method(s)                      |
@@ -355,7 +380,8 @@ RAG ≈ hippocampal indexing; but neuroscience has mechanisms AI doesn't yet.
 | Oscillation frequency, EEG rhythm         | EEG, LFP                           |
 | Ion channel kinetics                      | Patch clamp (whole-cell, outside-out)|
 | Population activity (100s of neurons)     | Two-photon calcium imaging          |
-| Neuromodulator release                    | Voltammetry (FSCV), RuBisCO        |
+| Neuromodulator release (optical, in vivo) | Genetically encoded sensors: dLight1 (dopamine), GRAB-DA (dopamine), GRAB-NE (norepinephrine), GRAB-5HT (serotonin); expressed via AAV, read with two-photon or fiber photometry |
+| Neuromodulator release (electrochemical)  | Fast-scan cyclic voltammetry (FSCV) — sub-second dopamine in striatum |
 | Gene expression in single neurons         | scRNA-seq (post-mortem or SMART-seq)|
 
 ---

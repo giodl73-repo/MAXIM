@@ -26,7 +26,7 @@ Most require 2–8 "driver" mutations; passenger mutations are just noise
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- oncogene gain-of-function (dominant) vs tumor suppressor loss-of-function (recessive, two-hit) maps to positive vs negative regulators in any control system -->
+**Systems Bridge:** The oncogene/tumor-suppressor distinction maps directly to positive vs negative regulators in any control system. Oncogenes are accelerators: a gain-of-function mutation in a single allele is sufficient to drive proliferation — the mutant protein is constitutively active regardless of signal (RAS G12C stuck in GTP-bound "on" state; BCR-ABL kinase always firing). This is dominance in the genetic sense, and it parallels any positive-feedback component where a stuck-open valve or stuck-on transistor overrides normal regulation. Tumor suppressors are brakes: both alleles must be inactivated before the brake is fully released — the "two-hit" model (Knudson). This is the redundancy model: the system is designed with two independent inhibitory mechanisms, and both must fail before function is lost. Any critical safety system is engineered this way. The clinical consequence: oncogene mutations are targetable with single inhibitors (imatinib blocks BCR-ABL; the target is the constitutively active mutant). TSG loss is harder to drug directly — you can't "restore" a deleted gene pharmacologically — which is why TSG-loss strategies focus on synthetic lethality (exploit the dependency that arises from the loss rather than trying to replace the loss).
 
 ## Oncogenes
 

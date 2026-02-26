@@ -36,8 +36,11 @@ THE POSTWAR LIBERAL INTERNATIONAL ORDER — ARCHITECTURE
   binding through institutions.                          excluded or
   Order outlasts any one                                 subordinated
   administration.                                      • "Liberal" was
-                                                          often not
-<!-- @editor[diagram/P2]: Critics box text truncated — "'Liberal' was often not" is an incomplete sentence; finish the thought (e.g., "often not liberal for the periphery") -->
+                                                          often not liberal
+                                                          for the periphery
+                                                          (Iran 1953, Latin
+                                                          America coups,
+                                                          South Africa)
 ```
 
 ---
@@ -202,7 +205,13 @@ EUROPEAN INTEGRATION LOGIC
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — Ikenberry's "constitutional order through institutional self-binding" is protocol design: the hegemon constrains its own future behavior through published rules, gaining adoption in exchange for predictability. Kindleberger's public goods framework maps directly to platform economics (who provides the infrastructure that everyone free-rides on?). These are natural bridges for a systems architect. -->
+## Bridges: International Order as Protocol and Platform Design
+
+**Ikenberry's constitutional order → protocol design with self-binding commitment**: The post-1945 US strategy was to constrain its own future behavior through published, institutionalized rules in exchange for other states accepting its leadership. This is exactly the logic of a network protocol: the protocol designer sacrifices the ability to unilaterally change the rules in exchange for network adoption. The GATT's MFN (most-favored-nation) principle is a self-binding rule — the US cannot selectively favor allies without triggering legal challenges — but it produces a stable trading order that benefits US exporters. The WTO dispute settlement mechanism is constitutional in Ikenberry's sense: even the hegemon is formally subject to it. When the US undermined it in the 2010s-2020s (blocking Appellate Body appointments), it was doing exactly what Ikenberry predicted would destroy the order's legitimacy: unilaterally exempting itself from rules it expected others to follow.
+
+**Kindleberger's hegemonic stability theory → platform economics with a single infrastructure provider**: The public goods that Kindleberger identifies (stable reserve currency, open markets, lender of last resort, security guarantees) are non-excludable and non-rival for the states participating in the order — classic public goods with the free-rider problem. When Britain was too weak and the US was too isolationist (1918-1939), no one provided the public infrastructure. The result: competitive protectionism (Smoot-Hawley spiral), competitive devaluation, no lender of last resort (1931 banking cascade), no security guarantee (appeasement). This is the platform economics problem: who builds and maintains the infrastructure when the returns are diffuse and the cost of provision is concentrated? Kindleberger's answer is: a single dominant power must be willing to bear the cost because its market size and security interests make the infrastructure worth providing even without full cost recovery from participants. The burden-sharing debates in NATO are the political-economy version of the platform provider problem: allies who free-ride on US security provision create the exact incentive for the US to withdraw that would destroy the order they depend on.
+
+**Bretton Woods → contract design for a monetary coordination game**: The competitive devaluations of the 1930s were a multi-player prisoner's dilemma: each country gained short-term export advantage by devaluing, but when all countries devalued simultaneously, no one gained export advantage and global trade contracted. Bretton Woods was a contract that solved the coordination game by removing the devaluation option (fixed rates, gold window) and providing an escape valve (IMF lending for balance-of-payments crises). The contract held while the US trade surplus provided system liquidity; it collapsed when the US fiscal deficit (Vietnam + Great Society) turned the surplus to deficit and the gold backing became implausible. This is the standard problem of credible commitment in mechanism design: the contract is credible only as long as the dominant party's incentives remain aligned with its terms.
 
 ## The American Century and Hegemonic Stability Theory
 

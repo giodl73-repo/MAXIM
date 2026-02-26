@@ -522,7 +522,64 @@ But: industry funds the clinical trials.
      Pricing reflects monopoly rents on government-funded science.
 ```
 
-<!-- @editor[content/P3]: Climate science as Big Science absent — IPCC, Earth observation satellite networks, and global climate modeling (CMIP) are arguably the largest contemporary Big Science enterprise by international coordination scope, and directly illustrate the science-policy interface -->
+### Climate Science as the Largest Contemporary Big Science Enterprise
+
+Climate science represents Big Science scaled to a planetary scope — and the most complex science-policy interface in history.
+
+```
+CLIMATE BIG SCIENCE ARCHITECTURE
+===================================
+
+EARTH OBSERVATION INFRASTRUCTURE:
+  ~3,000 operational Earth-observing satellites (as of 2024)
+  NASA: MODIS, GRACE (gravity → ice mass), Landsat (land use 1972–present)
+  ESA: Sentinel constellation (Copernicus programme — open data)
+  NOAA: GOES weather + ocean monitoring
+  Data volume: petabytes/year; requires dedicated data centers just
+  for ingestion and processing
+
+CMIP (Coupled Model Intercomparison Project):
+  Organizes global climate modeling efforts across ~30 modeling centers
+  CMIP6 (2016–2023): standardized experiments run by centers in
+  US, UK, Germany, France, Japan, China, Canada, Australia + others
+  Each center runs the same protocol → results compared + synthesized
+  Scale: ~1,000 simulations; petabytes of model output; years of compute
+  Purpose: understand model spread (why do models differ?) + constrain
+  uncertainty in projections
+
+IPCC (Intergovernmental Panel on Climate Change):
+  Not a research organization — a synthesis and assessment body
+  Working Group I: Physical Science Basis
+  Working Group II: Impacts, Adaptation, Vulnerability
+  Working Group III: Mitigation
+  Assessment Reports (AR1 1990 → AR6 2021–22): ~2,000 scientists,
+  thousands of reviewed papers synthesized into policy-relevant summaries
+  Approval process: line-by-line review by member governments → Summary
+  for Policymakers is both scientifically vetted AND politically
+  acceptable to member states
+  = the most scrutinized synthesis document in science history
+
+SCIENCE-POLICY INTERFACE (most complex in Big Science):
+  Manhattan Project: science → single decision (use the bomb)
+  HGP: science → medical/commercial applications (diffuse)
+  Climate science: science → global coordination problem
+    Involves: 195 countries with conflicting economic interests
+    UNFCCC / Paris Agreement: voluntary nationally-determined
+    contributions; not legally binding emissions targets
+    Science provides: attribution (human vs natural forcing),
+    projection (temperature trajectories vs scenarios), detection
+    (which changes are outside natural variability)
+    Science cannot provide: the policy choice of acceptable risk
+
+BERMUDA PRINCIPLES PARALLEL:
+  HGP established open data norms (Bermuda Principles, 1996):
+  sequence data released within 24 hours of assembly.
+  Copernicus programme (ESA): full, free, open data — any satellite
+  imagery available immediately to anyone
+  CMIP: model output posted publicly for any researcher to analyze
+  This open-data infrastructure is what makes independent verification
+  and third-party attribution studies possible
+```
 
 ### Big Science and the Higgs Boson as Economic Problem
 
@@ -567,7 +624,19 @@ ALTERNATIVE: LHC data still being analyzed (huge dataset).
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — the learner is a VP of Engineering and would immediately map: Groves vs Oppenheimer (compartmentalization vs open collaboration) is exactly the security-vs-velocity tension in enterprise software; the Bush Report's linear model (basic research→applied→product) is the waterfall assumption that was later challenged by agile/iterative models; Bayh-Dole's university patent rights parallel open-source licensing tensions (who owns output built on shared infrastructure?); the Matthew Effect in science funding is the same network effect that concentrates talent in FAANG -->
+## Bridges — Big Science as Large-Scale Engineering Organizations
+
+**Groves vs Oppenheimer → security-vs-velocity tension in enterprise software**
+The Manhattan Project's management structure pitted Groves's compartmentalization (need-to-know; no one knows the whole system; perfect information security) against Oppenheimer's insistence on open scientific discussion at Los Alamos. Oppenheimer won the internal argument for Los Alamos specifically because theoretical physics requires cross-pollination — a bomb designer working in isolation makes errors that a colleague would catch. Groves won everywhere else (Oak Ridge workers didn't know they were enriching uranium for a bomb). The organizational lesson is exactly the security-vs-velocity tension in enterprise software security: compartmentalization reduces leak surface but also reduces cross-team learning and increases duplicate work. The right answer depends on what your actual threat model is and what your velocity requirement is. Groves's answer (security is primary) was appropriate for a weapons program with genuine nation-state adversaries; it would be wrong for a product team trying to ship features.
+
+**Bush Report's linear model → waterfall assumption**
+Vannevar Bush's *Science: The Endless Frontier* (1945) proposed: basic research → applied research → product development, in sequence. Fund the basic research; applications follow. This linear model justified the NSF and shaped decades of US research policy. It also maps precisely to the waterfall assumption: requirements → design → implementation → test → deployment. The critique in both domains came from the same observation: in practice, the sequence is not linear. Applications research reveals gaps in basic science; product development reveals unanticipated applications of basic research; users discovering products creates new basic questions. The iterative/agile critique of waterfall applies equally to the Bush linear model of innovation — which is why DARPA's model (challenge-driven research that doesn't respect the basic/applied distinction) proved more productive for specific classes of technology.
+
+**Bayh-Dole Act → open-source licensing tensions**
+Before Bayh-Dole (1980), federally funded research results were owned by the government — universities couldn't patent discoveries made with federal funds. Bayh-Dole allowed universities to patent and license such discoveries. The result: massive increase in technology transfer (Stanford's Cohen-Boyer recombinant DNA patent, ~$200M royalties before expiration), but also: proprietary control over research built on taxpayer-funded infrastructure, conflicts of interest in publication, and drug pricing effects from monopoly patents on publicly-funded science. The structural tension is identical to open-source licensing debates: who owns output built on shared public infrastructure? GPL says: output must remain open. MIT license says: do what you want. Bayh-Dole is closer to MIT — you can privatize output of shared infrastructure — with all the downstream pricing and access consequences.
+
+**Matthew Effect → FAANG talent concentration as network effect**
+Merton's Matthew Effect in science: "For unto every one that hath shall be given." Scientists who have won prizes attract more funding, better students, more collaborations, more citations — advantage compounds. Funding follows track record; track record is built on funding. The same network effect concentrates talent at a handful of tech companies: reputation attracts talent, talent builds better products, better products build reputation. The asymmetry is structural, not just due to individual quality differences. The policy implications are the same in both domains: if you want distributed excellence (many strong independent teams/companies), you need structural interventions (antitrust, independent funding pools, geographic distribution requirements) to counteract the centralizing force of the network effect.
 
 ## Common Confusion Points
 

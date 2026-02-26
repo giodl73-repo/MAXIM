@@ -2,11 +2,21 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P2]: No universal CS bridge — geographic constraints on power projection map directly to network topology constraints on system design (latency, bandwidth, partition tolerance). The learner's distributed systems intuition (CAP theorem, partition handling) provides a ready mental model for why geography still constrains power despite technology. A brief bridge here would ground the entire guide -->
 Geopolitics examines how geography shapes power and strategy. The classical theorists
 mapped the fundamental competitive logic of land power vs. sea power that still
 structures great-power competition today — though technology has complicated but not
 eliminated geographic constraints.
+
+**Formal bridge:** Geographic constraints on power projection are structurally identical
+to network topology constraints on system performance. Physical distance and terrain
+impose latency and bandwidth limits on the delivery of force, just as network topology
+imposes latency and bandwidth limits on message delivery. Chokepoints (Strait of Hormuz,
+Malacca) are single points of failure in a network graph — high betweenness centrality
+nodes whose disruption maximally degrades throughput. The heartland/rimland debate is
+a graph theory argument about whether controlling the interior node or the perimeter
+nodes gives higher leverage. Even the CAP-like trilemma appears in geopolitics: states
+face tradeoffs between power projection range, local concentration, and sustainability
+of extended commitments — you generally cannot simultaneously maximize all three.
 
 ```
 +----------------------------------------------------------------------+

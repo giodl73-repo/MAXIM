@@ -175,24 +175,36 @@ making social history the dominant mode of historical practice from the 1970s on
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a directory rather than a decision tool — needs "use X when Y" structure (e.g., "studying long-term structural change over centuries -> Annales / longue duree; recovering voices of the marginalized -> history from below") -->
 ## Decision Cheat Sheet
 
-| Question | Go to |
-|----------|-------|
-| What is the Annales School? | 01-ANNALES-SCHOOL.md |
-| What is the longue durée? | 02-LONGUE-DUREE.md |
-| What is history from below? | 03-HISTORY-FROM-BELOW.md |
-| What is cliometrics? | 04-QUANTITATIVE-HISTORY.md |
-| What is gender as an analytical category? | 05-GENDER-HISTORY.md |
-| What is postcolonial history? | 06-POSTCOLONIAL.md |
-| What is material culture history? | 07-MATERIAL-CULTURE.md |
-| What are lieux de mémoire? | 08-MEMORY-HISTORY.md |
-| How do historians use big data? | 09-DIGITAL-HISTORY.md |
+| My question is... | Use this approach |
+|-------------------|-------------------|
+| Studying long-term structural change over centuries (climate, geography, deep culture) | Annales / longue durée (01, 02) |
+| Recovering the experiences and agency of workers, peasants, or the marginalized | History from below (03) |
+| Testing a causal historical claim with data (did X cause Y?) | Quantitative / cliometric history (04) |
+| Understanding how gender structured a historical phenomenon (not just "women's history") | Gender history / Scott's analytical category (05) |
+| Examining how colonial knowledge frameworks shaped what could be known or said | Postcolonial / subaltern studies (06) |
+| Following an object, commodity, or technology through its social biography | Material culture history (07) |
+| Analyzing how communities remember, commemorate, and forget the past | Memory studies / Nora (08) |
+| Applying text mining, GIS, or network analysis to large historical corpora | Digital history (09) |
+| Understanding why a large-scale social structure (class, race, empire) persisted | Annales structures + cliometrics institutions (01, 02, 04) |
+| Asking whether "ordinary people" had agency or were structurally determined | History from below vs. Annales: Thompson vs. Braudel |
+| Investigating how a category (gender, race, sexuality) was constructed historically | Gender (05), postcolonial (06), material culture (07) |
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: traditional "great man" narrative history maps to event-driven political history; social history's structural/quantitative turn parallels the shift from narrative case studies to data-driven analysis in any empirical discipline -->
+## Engineering Bridge: From Anecdote to Structural Analysis
+
+The social history revolution — from "great man" event-driven narrative to structural, quantitative, long-run analysis — is the same epistemic transition that any empirical discipline undergoes when it matures from case studies to systematic analysis:
+
+**Traditional history (event-driven narrative) → Anecdotal reasoning in any discipline.** "Napoleon caused the French Revolution" is structurally equivalent to "the rockstar engineer caused the startup's success" — it assigns causation to a visible individual actor rather than to the structural conditions that made the outcome possible. Both are compelling stories and both are likely wrong as causal claims.
+
+**Social history's structural turn → systems thinking and data analysis.** When epidemiologists moved from "miasma causes disease" to "demographic factors, sanitation infrastructure, and population density cause differential mortality," they made the same move the Annales school made. The question shifts from "what happened?" to "what structural conditions made this outcome likely?" This is how engineering postmortems should work: not "who made the mistake?" but "what system properties made this failure mode possible?"
+
+**Quantitative social history → data-driven decision-making.** Cliometrics (applying econometrics to historical data) is the historian's equivalent of moving from anecdote to A/B testing. The same causal inference methods that Fogel and North applied to historical data — instrumental variables, regression discontinuity, counterfactual analysis — are the standard toolkit of applied data science and product analytics. The methods are not "historical"; they are methods for causal inference from observational data, and they are domain-general.
+
+**The cultural turn → qualitative methods as complement.** Social history absorbed the cultural turn in the 1980s — recognizing that structural analysis missed meaning, agency, and subjective experience. This parallels the UX/product management challenge: quantitative data (conversion funnels, DAU, retention) tells you *what* is happening; qualitative methods (user interviews, ethnography, diary studies) tell you *why* and *what it means to users*. Neither alone is sufficient.
+
 ## Common Confusion Points
 
 **Social history is not the same as political history of the left.**

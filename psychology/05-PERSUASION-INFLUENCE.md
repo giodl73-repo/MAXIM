@@ -446,7 +446,34 @@ through field research. Each has a mechanism — not just a label.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world→new-world bridge section — natural parallels: Cialdini's principles are the mechanism vocabulary behind UX/product design patterns (onboarding flows use commitment/consistency; notification systems use social proof and scarcity); nudge theory's "choice architecture" is literally systems architecture applied to human decision interfaces. Any engineer designing user-facing systems is implicitly applying these principles. -->
+**Systems bridge — persuasion principles as UX/product design mechanisms:**
+
+Cialdini's six principles are the mechanism vocabulary for product design patterns.
+Every non-trivial user-facing system is already implementing several of them.
+
+Commitment/consistency: every onboarding flow that starts with small asks before
+requesting full commitment is FITD. The mechanism is documented; the effective pattern
+is the same across the literature and product case studies.
+
+Social proof: notification counts, "X others are reading this," trending tags, review
+counts. The mechanism is informational SI — in ambiguous cases, others' behavior is
+used as signal. Showing vs hiding "1,234 likes" is a deliberate manipulation parameter.
+
+Scarcity: countdown timers, inventory counts, limited-access features. Loss aversion
+(Kahneman) + reactance (Brehm). The design choice of which urgency signals to expose
+is a mechanism choice with documented effect sizes.
+
+Nudge theory's "choice architecture" is literally systems architecture for human
+decision interfaces. The default option, item order, framing, friction level — these
+are engineered parameters with documented behavioral effects. The difference between
+opt-in and opt-out changes outcomes by ~70 percentage points (organ donation data,
+401k enrollment). This is not a minor UI detail.
+
+The ELM central/peripheral routing distinction predicts when long-form technical
+content (motivated audience, high elaboration) vs quick-scan UX (peripheral cues,
+low motivation) will be effective. User research operationalizes this: you're
+measuring where on the elaboration continuum users are for a given decision and
+selecting the persuasion channel accordingly.
 
 ## Decision Cheat Sheet
 

@@ -174,7 +174,54 @@ VERNER'S LAW:
 
 ---
 
-<!-- @editor[bridge/P2]: No version-control/diff → comparative-method bridge — any developer coming from VCS would immediately grasp "reconstruct the common ancestor from divergent branches" as a git merge-base analogy -->
+## The Version Control Bridge
+
+The comparative method is phylogenetic diff analysis on language corpora. The parallel is close enough to reason with directly:
+
+```
+VERSION CONTROL                      COMPARATIVE METHOD
+---------------                      -----------------
+Repository with commit history       Language family with attested branches
+
+Two branches diverge from            Daughter languages diverge from
+  a common commit (merge-base)         a common ancestor (proto-language)
+
+Git diff between branches            Systematic sound correspondences
+  shows what changed                   between cognate sets across daughters
+
+git merge-base branch1 branch2       Reconstruct proto-form:
+  → finds common ancestor commit       the form that best explains
+                                       all the daughter forms via
+                                       regular sound rules
+
+Conflict: two branches modified      Irregular correspondence:
+  the same line differently            one daughter innovated, others
+                                       preserved — or borrowing occurred
+
+git blame: which commit               Etymology: which historical stage
+  introduced this line?                introduced this form?
+
+Branching model (tree)               Stammbaum (family tree) model.
+                                     Caveat: dialects in contact =
+                                     the wave model (merges happen;
+                                     pure trees are a simplification)
+
+.gitignore / filtered commits        Sound change is "blind" (Neogrammarian):
+  — only some files changed             change applies to ALL instances
+                                       of the sound in the environment,
+                                       not selected to certain words
+
+Force-push destroying history        Lexical replacement / analogy:
+                                       original form overwritten, but
+                                       other branches preserve the cognate
+```
+
+**The merge-base analogy is technically exact:** Given two daughter languages with attested forms, the comparative method finds the proto-form (the "merge-base" commit) that minimizes the total complexity of the change rules needed to derive each daughter. Parsimony is the optimization criterion — same as choosing the simplest hypothesis in Occam's razor terms.
+
+**Why PIE reconstruction is credible:** The same proto-form derives, via independent regular rules, into Latin, Greek, Sanskrit, Gothic, Old Irish, and Armenian, with no unexplained residuals beyond analogy and borrowing. The probability of this being coincidental is negligible — the reconstruction is not a guess, it is the maximum-likelihood common ancestor of attested data.
+
+---
+
 ## Part V: The Comparative Method
 
 The procedure for reconstructing proto-languages:

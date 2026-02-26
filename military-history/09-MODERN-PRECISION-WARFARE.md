@@ -307,27 +307,95 @@ FUNDAMENTAL CONSTRAINT:
 
 ### Counter-Drone Evolution
 
-<!-- @editor[content/P2]: Section is thin — missing specific engagement data (e.g., Ukraine FPV drone kill counts, Houthi cost-per-sortie analysis) and doctrinal response evolution compared to depth of Predator/Reaper section above -->
 ```
 LOW-COST DRONE THREAT (2015-present):
-  Commercial off-the-shelf (COTS) drones modified for attack:
-  ISIS used DJI Phantom 3s with grenades in Mosul (2016-2017).
-  Houthi/Iranian drones attacked Saudi Aramco (2019): 18 drones
-    + 7 cruise missiles; ~50% of Saudi oil production offline.
-  Ukraine 2022: FPV (first-person view) drones for anti-tank.
-  Cost: $500 FPV drone vs $1,000,000+ JDAM + $100M+ aircraft.
-  The asymmetry is economically devastating for the defender.
 
-COUNTER-DRONE SYSTEMS:
-  Kinetic: missiles (expensive), cannon (cheaper, limited ammo)
-  Electronic: GPS jamming, comm link jamming (drone loses control)
-  Directed energy: laser systems (unlimited ammo; power-constrained)
-  Physical: nets, trained eagles (briefly, Netherlands tried it)
+  PHASE 1 — COTS IMPROVISATION (ISIS, 2016-17):
+  Commercial off-the-shelf drones modified for attack:
+  ISIS used DJI Phantom 3s with 40mm grenade drops in Mosul.
+  Effect: forced soldiers to take cover; reconnaissance denial.
+  Volume: hundreds of sorties; cost per mission ~$1,000.
+  Doctrinal response: ad hoc (rifle fire, shotguns, jammers).
 
-  The key problem: shooting down a $500 drone with a $300,000
-  missile is not sustainable. Force defender into expensive
-  responses with cheap offense. Cost-exchange ratio massively
-  favors attacker.
+  PHASE 2 — STATE ACTOR SATURATION (Houthis/Iran, 2019-):
+  Saudi Aramco (September 14, 2019):
+    18 drones + 7 cruise missiles; coordinated swarm attack.
+    Result: ~50% of Saudi oil production offline; $5B+ losses.
+    Patriot batteries: not designed for low-slow-small targets;
+    failed to intercept the attack.
+  Houthi Red Sea campaign (2023-24):
+    300+ drone/missile attacks on shipping lanes.
+    US/UK response: SM-2 and SM-6 missiles at $2M-$4M each
+    to intercept $20,000-$50,000 Houthi one-way drones.
+    USS Carney expended most of its magazine in one engagement.
+    Cost exchange ratio: ~100:1 in attacker's favor.
+
+  PHASE 3 — FPV INDUSTRIAL WARFARE (Ukraine, 2022-):
+  FPV (first-person view) racing drone + 3D-printed warhead:
+    Unit cost: $400-$800 assembled.
+    Payload: RPG warhead, anti-tank grenade, RKG-3.
+    Range: ~10 km line-of-sight; ~20+ km with relay.
+  Scale of use:
+    Ukraine: producing ~200,000+ FPV drones/month by 2024.
+    Russia: similar production scale.
+    Estimated kills: 60-70% of armored vehicle losses in Ukraine
+    were drone-attributable by late 2024 (RUSI estimates).
+  Doctrinal impact:
+    Unarmored vehicles cannot approach the front line.
+    Electronic warfare (GPS/RC jamming) became primary defense.
+    Shaped steel protection ("cope cage") appeared on armor —
+    pre-detonation screen against shaped-charge drones.
+    Counter-FPV FPVs: drone-vs-drone interception emerging.
+
+  PHASE 4 — AI-AUTONOMOUS LOITERING (present):
+  Switchblade 600 (US): man-in-the-loop, but platform is attritable.
+  Shahed-136/131 (Iran → Russia): one-way attack, GPS nav,
+    cheap (~$20,000 each); defeated by cannon + laser systems.
+  Autonomous terminal homing: optical/IR target lock without
+    radio link → immune to comm jamming.
+  Swarm autonomy: coordination without central control.
+    Single jammer cannot stop a coordinated 50-drone swarm.
+
+COST-EXCHANGE CRISIS:
+  ┌────────────────────────┬───────────────┬──────────────────┐
+  │ Threat                 │ Cost (attack) │ Cost (intercept) │
+  ├────────────────────────┼───────────────┼──────────────────┤
+  │ FPV drone              │ $500          │ $30K (Coyote)    │
+  │ Shahed-136             │ $20K-50K      │ $500K (SM-2)     │
+  │ Houthi ballistic       │ $500K-2M      │ $4M (SM-6)       │
+  └────────────────────────┴───────────────┴──────────────────┘
+  Kinetic interception at these ratios depletes magazines
+  faster than they can be replenished. Western naval magazines
+  carry ~90 SM-2/SM-6; a 100-drone swarm exceeds the magazine.
+
+DOCTRINAL RESPONSE EVOLUTION:
+  First instinct (2016-19): soft-kill jamming, nets, geofencing.
+  Works against dumb COTS; fails against purpose-built drones
+    with frequency-hopping comm or autonomous nav.
+  Second generation (2020-22): layered defenses.
+    Long-range (Patriot/THAAD) + medium (C-RAM, Iron Dome) +
+    short-range (Coyote, laser).
+    Each layer has different cost-exchange; laser cheapest/round.
+  Third generation (2023-): directed energy at scale.
+    Laser systems: Iron Beam (Israel), HELIOS (US Navy).
+    Cost per shot ~$1-10 (electricity); no magazine limit.
+    Limitation: beam divergence in fog/rain; requires dwell time;
+    multiple simultaneous targets tax power budget.
+  Fourth generation (emerging): autonomous counter-swarm.
+    Loyal wingman drones intercept incoming drones kinetically.
+    Counter-FPV FPV: ~$1,000 interceptor vs $500 attacker.
+    Better cost ratio; question is whether autonomous engagement
+    meets legal requirements for meaningful human control.
+
+THE STRUCTURAL PROBLEM:
+  Industrial production asymmetry has reversed.
+  Ukraine/Russia each producing ~200,000 FPV/month.
+  US producing ~14,000 Stingers/year (before surge).
+  The Cold War assumption — Western precision systems dominate
+  through quality — breaks down when adversary achieves
+  mass production of cheap autonomous weapons.
+  Attritional drone warfare favors the side that can sustain
+  production volume, not the side with the best individual system.
 ```
 
 ---

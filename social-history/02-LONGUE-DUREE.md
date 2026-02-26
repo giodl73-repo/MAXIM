@@ -264,7 +264,16 @@ Braudel's masterwork structured the history of the Mediterranean world around th
 
 ---
 
-<!-- @editor[structure/P2]: No comparison tables — the three temporal levels (longue duree, conjuncture, evenement) would benefit from a structured comparison table with columns for timescale, subject matter, pace of change, typical sources, and representative historians -->
+## The Three Temporal Levels: Quick Reference
+
+| Level | Timescale | Subject Matter | Pace of Change | Typical Sources | Representative Work |
+|-------|-----------|---------------|----------------|-----------------|---------------------|
+| **Longue durée** | Centuries to millennia | Geography, climate, ecology, deep cultural mentalities, agricultural regimes | Near-immobile; barely moves in a human lifetime | Geographic surveys, climate proxies (tree rings, pollen), archaeological evidence, long-run settlement patterns | Braudel, *The Mediterranean*; Le Roy Ladurie, *History of Climate* |
+| **Conjuncture** | Decades to generations | Economic cycles, demographic trends, price movements, social rhythms, trade routes | Slow undulation; visible only across multiple decades | Price series, notarial records, trade statistics, demographic registers | Braudel, *Material Civilization*; Kondratiev wave analysis |
+| **Événement** | Days to years | Battles, treaties, reigns, political decisions, individual actions | Fast but ephemeral; conventional narrative history | State archives, diplomatic records, chronicles, personal accounts | Traditional political history; Braudel deliberately minimal in *Mediterranean* Part III |
+
+Braudel's argument: the weight of historical explanation should be inverted. Traditional history allocated 90% of attention to *événements*; Braudel argued the real explanatory action is at the longue durée level.
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -278,7 +287,46 @@ Braudel's masterwork structured the history of the Mediterranean world around th
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Braudel's three temporal levels map directly to layered system architecture (hardware/infra = longue duree, platform/services = conjuncture, user events = evenements); any engineer thinking in layers will recognize this immediately -->
+## Engineering Bridge: Braudel's Temporal Layers in System Architecture
+
+Braudel's three levels map exactly onto the change-rate layers of any large technical system. This is not metaphor — it describes the actual dynamics of how systems evolve:
+
+```
+  BRAUDEL LEVEL       CHANGE RATE     SYSTEM ARCHITECTURE ANALOGUE
+  ────────────────    ───────────     ────────────────────────────
+  Longue durée        Decades-        Physical infrastructure: datacenter
+  (geographical,      centuries       locations, network topology, hardware
+  climatic)                           generations, CPU architecture choices.
+                                      These barely move. A datacenter decision
+                                      made in 2010 still constrains options in
+                                      2030. TCP/IP was chosen in the 1970s and
+                                      is still the longue durée of the internet.
+
+  Conjuncture         Years-          Platform and services layer: cloud
+  (economic cycles,   decades         provider choice, service mesh, database
+  social trends)                      paradigm (relational → document → vector),
+                                      programming language ecosystem, CI/CD
+                                      toolchain. These change on 5-15 year
+                                      cycles. A "conjuncture" decision is a
+                                      platform bet: Kubernetes in 2016 was a
+                                      conjuncture-level adoption.
+
+  Événements          Hours-          Individual events: a deployment, an
+  (political          months          incident, a feature launch, a PR merge,
+  decisions,                          a user session. These are fast and
+  battles)                            ephemeral. A 5-nines availability SLA
+                                      is a longue-durée constraint on the
+                                      system; the individual incident is an
+                                      événement whose cause is structural.
+```
+
+**Braudel's inversion principle in engineering**: when a system fails, the instinct is to analyze the événement (the specific deployment, the specific request). The Braudelian move is to ask: what longue-durée or conjuncture-level structural property made this class of failure possible? A deployment that causes an outage is an événement; the absence of circuit breakers is a conjuncture-level decision; the synchronous coupling of all services is a longue-durée architectural choice that makes the failure mode structurally overdetermined.
+
+**Kondratiev waves → technology adoption cycles**: The ~50-year economic cycles Braudel used map onto technology waves in software:
+- K-wave 4 (1940s–1990s): mass production → mainframe and enterprise software
+- K-wave 5 (1990s–?): information technology → web, mobile, cloud, AI
+Each wave has a characteristic dominant architecture (mainframe → client-server → web → cloud-native → AI-augmented). These are conjuncture-level changes within the longue-durée constraint of digital computation.
+
 ## Common Confusion Points
 
 **Longue durée is not just "a long time."**

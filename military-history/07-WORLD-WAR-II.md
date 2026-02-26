@@ -464,7 +464,60 @@ PLUTO (Pipe Line Under The Ocean):
 
 ## Common Confusion Points
 
-<!-- @editor[bridge/P3]: Natural bridge to modern software-enabled coordination (microservices, event-driven architecture, decentralized C2 as organizational pattern) missing here — "radio-enabled OODA loop" maps directly to this learner's domain -->
+## Bridge — Decentralized Command as Organizational Architecture
+
+The critical Blitzkrieg enabler was not tanks — it was **radio-enabled decentralized command**: every unit had communication, so decision authority could be pushed to the edge while remaining coordinated.
+
+```
+MILITARY C2 → DISTRIBUTED SYSTEMS PARALLEL
+
+  Auftragstaktik (mission tactics):
+    Give subordinate the OBJECTIVE and CONSTRAINTS,
+    not the step-by-step procedure.
+    Subordinate adapts in real time to ground truth.
+
+  ≅ Microservices pattern:
+    Service owns its domain; exposes interface.
+    Caller does not dictate internal implementation.
+    Each service responds to local conditions.
+
+  OODA loop speed advantage:
+    German corps commander observed, oriented,
+    decided, and transmitted in MINUTES.
+    French HQ took 24-48 hours through telephone
+    relay chains — by which time the situation
+    had changed.
+
+  ≅ Synchronous vs event-driven architecture:
+    Synchronous call chains (telephone culture):
+      each hop waits for the previous to complete.
+      Latency accumulates multiplicatively.
+    Event-driven / message-passing (radio culture):
+      fire-and-forget; consumers act on latest state.
+      Latency is a single broadcast, not a chain.
+
+  Schwerpunkt (concentrated main effort):
+    Mass resources at one decisive point;
+    economy of force everywhere else.
+    Don't spread thin — overwhelm locally.
+
+  ≅ Resource allocation under constraint:
+    Don't distribute budget and headcount uniformly.
+    Pick the strategic bet; staff it to win.
+    "Peanut butter spreading" = no Schwerpunkt.
+
+  ULTRA intelligence advantage:
+    Allies read enemy plans before they executed.
+    Counterpart: telemetry + observability.
+    If you can see what's happening inside the
+    adversary's system in real time, you can
+    always be one move ahead.
+```
+
+The organizational lesson: **tempo is architecture**. France lost not because French soldiers were worse but because their decision-making pipeline was synchronous and centralized. Germany's was asynchronous and edge-enabled. The hardware (tanks) was similar; the command software was not.
+
+---
+
 **Blitzkrieg was not new doctrine in 1939.** The British had developed Tank Corps doctrine in 1917-18. Liddell Hart and Fuller wrote about mechanized warfare in the 1920s-30s and were ignored in Britain. Guderian, who created the German Panzer force, acknowledged reading Liddell Hart. Germany adopted the doctrine that Britain and France had invented and chose not to fully implement.
 
 **The T-34 was not the best tank.** The German Tiger and Panther had superior guns and armor. The T-34 won because the Soviets produced 57,000 of them (1944-45) while Germany produced ~1,347 Tigers total. Battlefield quality vs industrial quantity — the industrial argument won. In direct tank-on-tank engagements, German tanks often had kill ratios of 3:1 or 5:1 vs T-34s. This did not matter when Soviets had 10:1 numerical advantage.

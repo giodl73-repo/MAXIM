@@ -26,7 +26,56 @@ Irrigation enables agriculture where rainfall is insufficient or unreliable. It 
 ```
 
 ---
-<!-- @editor[bridge/P2]: No old-world bridge — irrigation scheduling is a classic control problem: sense (soil moisture), decide (ET model), actuate (valve/pump). The efficiency ladder from flood to drip maps to increasing precision in any resource-allocation system. The learner will recognize PID-like feedback immediately; connect it. -->
+## Engineering Bridge: Irrigation as a Control System
+
+```
+IRRIGATION CONCEPT            CONTROL SYSTEMS EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+IRRIGATION SCHEDULING         Closed-loop control system
+  Sense: soil moisture sensor → Error signal: actual θ vs. target θ
+    (FDR/TDR probe)
+  Decide: ET model (Penman-   → Controller: compute required irrigation dose
+    Monteith) + soil model      (PID-like: proportional to deficit + feed-forward
+                                from weather forecast)
+  Actuate: valve open/pump on → Actuator output: water applied to field
+  Target: maintain θ between  → Setpoint: keep state in feasible operating range
+    field capacity and wilting  (same as maintaining buffer above empty, below full)
+
+  OPEN LOOP (schedule-based): → Feed-forward only; no feedback
+    Fixed calendar schedule     Efficient when ET is predictable (constant climate)
+    No sensor needed            Fails when disturbances occur (heat wave, rain)
+  CLOSED LOOP (sensor-based): → Feedback control
+    Soil moisture triggers      Corrects for disturbances; more efficient
+    Reduces over-application    Same as: PID thermostat vs. open-loop furnace timer
+
+EFFICIENCY LADDER (flood → drip) = Precision increase in resource allocation
+  Flood/surface (50–65%):    → Broadcast delivery: no targeting; saturates field
+                                 same waste as sending a full 1 MB response when
+                                 client needs 10 bytes
+  Sprinkler (70–80%):        → Narrowcast delivery: targets field area;
+                                 still loses to wind drift + evaporation
+  Drip (85–95%):             → Point delivery: water at root zone exactly;
+                                 same as lazy evaluation — compute only what's needed
+  Subsurface drip (90–95%):  → Delivery below evaporation surface; maximum
+                                 efficiency; removes evaporation loss entirely
+                                 analog: in-memory cache vs. disk I/O
+
+EVAPOTRANSPIRATION (ET) MODEL  Feedforward term in control law
+  ETc = ETo × Kc             → Predict disturbance (water demand) from observable
+  ETo from weather data        inputs (solar, temp, humidity, wind)
+  Kc = crop coefficient        → Use model to pre-apply correction before error
+  Water stress threshold       → Saturating nonlinearity (when θ < threshold,
+                                   stomata close, growth stops — binary switch)
+
+IRRIGATION SALINITY           Feedback with integrating effect
+  Salts accumulate in root zone → every irrigation application deposits dissolved
+  when evaporation removes water  minerals; no drainage = all minerals stay
+  Leaching fraction (LF)       → Required "flush" to prevent salt accumulation
+    LF = EC_iw / (5·EC_threshold - EC_iw)  (steady-state salt balance)
+  Over-irrigation (no drainage) → Saturate integrator → irreversible soil damage
+  20% of irrigated land already → ~40 million ha of degraded state globally
+    salt-impaired
+```
 
 ## Water Requirements — Crop ET
 

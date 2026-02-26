@@ -213,7 +213,55 @@ EGFR (epidermal growth factor receptor)
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — pharmacogenomics is runtime configuration for human biology. CYP genotype = hardware capability profile; metabolizer phenotype = performance tier; the CPIC lookup table is a compatibility matrix (gene-drug pair → action). Pre-emptive PGx panels stored in EHR are exactly a capability manifest checked at deployment time (prescribing) — the same pattern as feature flags or hardware detection -->
+## Engineering Bridge: Pharmacogenomics as Runtime Configuration
+
+Pharmacogenomics is the biological equivalent of hardware capability detection and feature-flag-gated deployment.
+
+```
+  PHARMACOGENOMICS              SOFTWARE / HARDWARE PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  CYP genotype                  Hardware capability profile:
+    CYP2D6 *1/*1 (EM)           → Standard CPU with full clock speed
+    CYP2D6 *4/*4 (PM)           → Deprecated hardware: drug accumulates,
+                                   increase toxicity risk
+    CYP2D6 *1×N (UM)            → Overclocked: drug eliminated too fast,
+                                   underdosing at standard dose
+  Genotyping ≡ running CPUID instruction before drug deployment.
+
+  CPIC lookup table             Compatibility matrix / feature flag lookup:
+  (gene × drug → action)        Given (CYP2C19, clopidogrel) → reduce dose
+                                or switch drug. This is exactly a capability
+                                matrix: capability × workload → recommended
+                                configuration. CPIC is the published spec.
+
+  Pre-emptive PGx panel in EHR  Capability manifest stored at deploy time:
+  (genotype once, use at any Rx) Run genotyping once → store in EHR →
+                                alert at prescribing time. The manifest is
+                                checked at every prescription (deployment)
+                                event. No need to re-test.
+
+  Pharmacovigilance signal +    Production incident → post-deploy hotfix:
+  PGx retrospective analysis    Adverse event cluster → analyze by genotype →
+                                find PGx interaction → update CPIC guideline →
+                                add check to prescribing system. Full
+                                incident-to-patch cycle.
+
+  HLA-B*5701 screening          Whitelist for hardware compatibility:
+  (abacavir, carbamazepine)     HLA-B*5701 allele → severe hypersensitivity
+                                to abacavir. Screen before prescribing =
+                                compatibility check before enabling feature.
+                                HLA-B*1502 → carbamazepine SJS in Han Chinese.
+
+  TPMT / DPYD deficiency        Capacity estimation before heavy workload:
+  (thiopurines, 5-FU)           TPMT low/absent → thiopurine toxicity from
+                                excess active metabolite. DPYD deficiency
+                                → 5-FU neurotoxicity from drug accumulation.
+                                Check metabolic capacity before high-demand task.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## Pre-Emptive Pharmacogenomic Testing
 
 ```

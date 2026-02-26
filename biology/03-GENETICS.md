@@ -37,7 +37,41 @@ FIELDS:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — genetic code = encoding scheme (redundant, error-minimizing, nearly universal = standardized protocol), CRISPR = find-and-replace with regex -->
+## Engineering Bridges
+
+```
+GENETICS ←→ INFORMATION THEORY AND CS
+
+The genetic code = a near-optimal error-minimizing encoding scheme
+  4³ = 64 codons for 20 amino acids + 3 stop signals
+  Degenerate (redundant): multiple codons per amino acid (up to 6 for Ser/Arg/Leu)
+  Redundancy is structured: third position wobble absorbs most point mutations silently
+  → Physicochemically similar amino acids share similar codons
+    (e.g., Val/Ile/Leu all hydrophobic; Asp/Glu both acidic)
+  → Error minimization: a random mutation is ~70% likely to produce a conservative
+    amino acid change — this was a designed property of the code
+  Nearly universal: same code in bacteria, archaea, eukaryotes (minor mitochondrial exceptions)
+  → Implies a single common ancestor and strong purifying selection against code drift
+  → Enables horizontal gene transfer across domains of life (all code-compatible)
+
+GWAS = distributed feature importance analysis
+  Input: ~5 million SNP features across ~500,000 individuals
+  Task: find features associated with phenotype (binary or continuous)
+  Significance threshold: p < 5×10⁻⁸ (Bonferroni for ~1M independent tests)
+  Effect sizes: mostly tiny (OR 1.1–1.3); additive model dominates
+  Linkage disequilibrium: neighboring SNPs correlated (not independent features)
+    → tag SNPs stand in for haplotype blocks (like feature hashing)
+  Challenge: most hits in non-coding regions → functional interpretation requires
+    regulatory element annotation (ATAC-seq, ChIP-seq, Hi-C)
+
+Epigenetics = feature flags + runtime configuration layered over source code
+  DNA methylation (CpG): persistent flag (survives cell division via DNMT1 maintenance)
+    → CpG island methylation at promoter = feature disabled
+  Histone acetylation: transient flag (hours to days; reversed by HDAC)
+  Histone methylation: semi-persistent (H3K27me3 = Polycomb silencing, stable)
+  The "histone code": combinatorial (multiple marks on same tail = different reader output)
+  → BET bromodomain proteins read acetyl-lys marks → therapeutic targets (JQ1)
+```
 
 ## Mendelian Genetics
 

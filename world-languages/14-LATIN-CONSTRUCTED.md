@@ -34,8 +34,50 @@ WHY LEARN LATIN IN 2026:
 
 ---
 
-<!-- @editor[bridge/P2]: No case-system bridge despite obvious parallel — learner knows German 4-case from 05-GERMAN.md; a comparison table (Latin 6 cases vs German 4 vs Russian 6) showing which cases map and which are unique would anchor Latin in the learner's existing framework -->
-## The Latin Case System
+## The Latin Case System — Cross-Language Comparison
+
+The learner already has German (4 cases) and Russian (6 cases) from earlier files. Latin adds 6 (+ locative relic). Mapping across systems shows which cases are universal and which are language-specific innovations:
+
+```
+CASE COMPARISON: LATIN (6+1) vs GERMAN (4) vs RUSSIAN (6)
+
++---------------+---------+--------+--------+------------------------------------+
+| Function      | Latin   | German | Russian| Notes                              |
++---------------+---------+--------+--------+------------------------------------+
+| Subject       | NOM     | NOM    | NOM    | Universal — all three have this    |
+| Direct object | ACC     | ACC    | ACC    | Universal — all three have this    |
+| Possession/of | GEN     | GEN    | GEN    | Universal — all three have this    |
+| Indirect obj  | DAT     | DAT    | DAT    | Universal — all three have this    |
+| With/by/using | ABL(Lat)| (DAT)  | INS    | German merges into DAT;            |
+|               |         |        |        | Latin ABL ≈ Russian INS            |
+| In/at/about   | ABL     | (DAT)  | PREP   | Russian PREP = "prepositional"     |
+|               | (some)  |        |        | (only after prepositions);         |
+|               |         |        |        | Latin ABL carries both meanings    |
+| Direct address| VOC     | (NOM)  | (NOM)  | Latin has a dedicated vocative;    |
+|               |         |        |        | German/Russian use NOM for address |
+| At a place    | LOC     | —      | PREP   | Latin LOC = relic for cities;      |
+| (location)    | (relic) |        | (some) | Russian PREP covers this           |
++---------------+---------+--------+--------+------------------------------------+
+
+KEY DIFFERENCES:
+  Latin ABL is doing the work that BOTH German DAT and Russian INS do.
+  The ablative is the "catch-all" oblique case in Latin — most prepositions
+  take it. It encodes: motion-from, means/manner, accompaniment, time-when,
+  price, comparison, agent (in passive constructions).
+
+  Russian has a separate INS case for instrument/means/accompaniment
+  (я пишу ручкой = I write with a pen) that Latin would put in ABL.
+  German uses DAT for those functions instead.
+
+  Latin VOC is a dedicated case for direct address (O Caesar!).
+  German and Russian use the nominative for this (sie/Herr Müller!).
+  The vocative survives in Polish (7-case system that adds VOC back).
+
+PRACTICAL ANCHOR:
+  If you know German: Latin adds VOC and splits DAT into DAT+ABL.
+  If you know Russian: Latin merges INS+PREP into ABL; adds VOC.
+  The 4-case core (NOM/ACC/GEN/DAT) is shared across all three.
+```
 
 ```
 LATIN CASES — 6 core + locative
@@ -283,8 +325,11 @@ LEARNING ESPERANTO FIRST (the "propaedeutic effect"):
 
 ---
 
-<!-- @editor[structure/P2]: Language Endangerment section not anchored to landscape diagram — this is a standalone topic grafted onto a Latin/Esperanto file; either needs its own file or a clearer connection to the constructed-language theme (Esperanto as response to loss of neutral lingua franca) -->
 ## Language Endangerment
+
+**Why this section is in the Latin/Esperanto file:** Zamenhof created Esperanto (1887) in direct response to the language diversity and associated ethnic conflict in 19th-century eastern Europe. One of Esperanto's foundational arguments is that a politically neutral constructed language removes the cultural domination inherent in using a natural national language as a lingua franca — no nation's language wins. The endangerment crisis is the same problem at the other end: linguistic diversity is collapsing under economic and media pressure from dominant languages, the same pressure that drove Zamenhof's project. Constructed languages and endangered natural languages are two sides of the same question: what is the value of linguistic diversity, and who bears the cost of maintaining it?
+
+**Latin as a case study:** Latin did not go extinct — it transformed. Vulgar Latin differentiated into the Romance languages through a process that took ~600 years (roughly 400–1000 CE). No speaker experienced "the death of Latin." What died was the prestige written form, not the spoken vernacular. This is the most common mode of language "death": the spoken form continues, now called something else. Modern endangered languages may follow the same path — the linguistic heritage survives in the descendant language even after the name disappears.
 
 ```
 THE GLOBAL LANGUAGE CRISIS

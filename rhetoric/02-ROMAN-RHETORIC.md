@@ -214,7 +214,8 @@ BOOK XII — THE MATURE ORATOR:
   like a modern liberal arts + professional program.
 ```
 
-<!-- @editor[bridge/P2]: No old-world bridge for Quintilian's educational program — the learner's MIT experience (liberal arts + technical depth) IS the Quintilian model; a brief callout like "Quintilian's curriculum — philosophy, history, law, math — maps remarkably onto the MIT dual-major model" would be a natural anchor -->
+**Quintilian's curriculum as the liberal-arts + technical depth model**
+Quintilian's Institutio Oratoria proposes that the ideal orator must master grammar, dialectic, mathematics, music, philosophy, history, and law — not as separate credentials but as integrated capacities that mutually reinforce rhetorical power. This is structurally identical to the dual-degree liberal-arts-plus-technical-depth program that any strong research university produces. The MIT mathematics + TCS combination IS the Quintilian model: technical depth provides the dialectical precision; breadth provides the examples, the ethical grounding, and the audience modeling. Quintilian's argument (Book XII): rhetoric without philosophy is manipulation; philosophy without rhetoric is ineffective. The integration is the point.
 
 ### Quintilian's Style Advice
 
@@ -341,7 +342,54 @@ Quintilian's "good man skilled in speaking" is not a moral lecture. It is a clai
 **Stasis theory is practically useful right now**
 The four types of stasis (conjectural, definitional, qualitative, translative) map directly onto modern professional disagreements. Most engineering debates have an implicit stasis problem: people argue at different levels without noticing. Asking "What is the actual stasis here?" often resolves arguments faster than more argumentation.
 
-<!-- @editor[content/P2]: Rhetorica ad Herennium absent — the single most-read rhetoric textbook in the medieval period, long attributed to Cicero, and the source of the memory palace description; significant gap for the Roman rhetoric guide -->
+**Rhetorica ad Herennium (c. 86–82 BCE)**
+The most widely-read rhetoric textbook of the medieval period — and its author is unknown. Long attributed to Cicero (hence "Cicero" was the medieval world's rhetoric authority), the attribution was definitively rejected by Lorenzo Valla in 1491. The author is labeled "auctor ad Herennium" in modern scholarship.
+
+```
+RHETORICA AD HERENNIUM — KEY CONTRIBUTIONS
+
+WHAT IT IS:
+  The earliest surviving complete Latin rhetoric textbook.
+  Covers all five canons systematically.
+  Written for practical Roman legal education.
+  More concrete and prescriptive than Cicero's theoretical works.
+
+THE MEMORY PALACE (Artificial Memory) — SOURCE TEXT:
+  Book III, sections 16-24 contain the most detailed surviving
+  ancient description of the method of loci (memory palace).
+
+  THE METHOD:
+    Select a sequence of LOCI (places) you know well —
+    rooms in a house, columns in a building, landmarks
+    on a familiar route.
+    Place IMAGES at each locus — striking, active, bizarre,
+    emotionally charged images of the things to remember.
+    The images should be exaggerated, violent, strange:
+    "We ought, then, to set up images that are not many
+    or vague, but active (imagines agentes); if we assign to
+    them exceptional beauty or singular ugliness; if we
+    dress some of them with crowns or purple cloaks..."
+    To recall: mentally walk the route; find the images;
+    decode the information they represent.
+
+  WHY IT WORKS (modern account):
+    The method exploits spatial memory, which is separate
+    from semantic memory and extremely durable.
+    The hippocampus encodes spatial routes with high fidelity.
+    Place cells and grid cells (O'Keefe/Moser, Nobel 2014)
+    provide the neural substrate.
+    Modern memory champions use exactly this technique.
+
+SIGNIFICANCE FOR MEDIEVAL RHETORIC:
+  Medieval scholars knew classical rhetoric primarily through:
+    1. Rhetorica ad Herennium (attributed to Cicero)
+    2. Cicero's De Inventione (his own early work, which he
+       later repudiated as incomplete)
+  Both were called "old rhetoric" (ars vetus) and were
+  the foundation of scholastic rhetorical education.
+  Quintilian's Institutio Oratoria was rediscovered in full
+  only in 1416 (Poggio Bracciolini, St. Gall monastery).
+```
 
 **Roman rhetoric was not just academic**
 Cicero was executed because his speeches worked. Political rhetoric in Rome was not a decorative art — it was a survival skill with life-or-death consequences. The power that Gorgias's Encomium of Helen attributed to logos was, in Rome, real and demonstrable.

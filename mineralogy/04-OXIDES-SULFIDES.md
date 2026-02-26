@@ -22,8 +22,9 @@
 +------------------------------------------------------------------+
 ```
 
-<!-- @editor[bridge/P2]: No bridge from oxide crystal structures to semiconductor substrates — sapphire (Al2O3) wafers, spinel as engineering ceramic, and TiO2 as photocatalyst all connect oxides to the learner's tech industry context -->
 **Economic relevance**: These minerals are the primary sources of every metal in the periodic table. The silicates dominate by volume; oxides and sulfides dominate by economic value.
+
+**Oxide minerals in technology**: Corundum (Al₂O₃) grown by the Czochralski or EFG method becomes sapphire substrates for GaN LEDs, watch crystals, and phone camera covers — synthetic versions of a rock-forming mineral. Rutile (TiO₂) is both the dominant white pigment (replacing toxic lead white) and a photocatalyst for self-cleaning glass and water purification under UV light. Spinel (MgAl₂O₄) is an engineering refractory ceramic used in furnace linings and as a transparent armor material. The crystal structures of these oxides are the same whether they come out of the ground or a growth reactor.
 
 ---
 
@@ -145,8 +146,17 @@ LEAD-ZINC SULFIDES (Mississippi Valley Type deposits)
 |  → Indium Tin Oxide (ITO) = transparent conductor in all LCDs  |
 |    and touchscreens — sphalerite is the source of your phone's  |
 |    touchscreen material                                         |
-<!-- @editor[content/P2]: Germanium and gallium byproduct sourcing from sphalerite is critically important for semiconductor supply chains — deserves 2-3 lines rather than a single trailing sentence -->
-|  Also source of cadmium, germanium, gallium as byproducts      |
+|  Also principal source of germanium (Ge) and gallium (Ga):     |
+|  Ge substitutes for Zn in sphalerite lattice (~50-300 ppm);   |
+|  recovered from Zn smelter flue dusts and residues.           |
+|  → Ge: fiber optic cable cores, IR optics, SiGe transistors   |
+|  → Ga: GaAs/GaN semiconductors, high-frequency chips, LEDs    |
+|  China controls ~60% of Ge output and ~80% of Ga output —     |
+|  both almost entirely as Zn smelting byproducts. You cannot   |
+|  open a "germanium mine"; you need a zinc mine with the right  |
+|  trace element chemistry. This structural constraint on supply |
+|  is why China's 2023 export controls on Ga and Ge immediately |
+|  triggered supply chain alerts across the chip industry.       |
 +------------------------------------------------------------------+
 
 COPPER SULFIDES

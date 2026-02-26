@@ -24,7 +24,50 @@ How crops are arranged in space and time determines pest pressure, nutrient cycl
 ```
 
 ---
-<!-- @editor[bridge/P2]: No old-world bridge — the diversity spectrum maps to redundancy vs efficiency trade-offs the learner knows from distributed systems design (monoculture = single point of failure; polyculture = fault-tolerant). Make this explicit. -->
+## Engineering Bridge: Diversity as Fault Tolerance
+
+```
+CROP SYSTEM                   DISTRIBUTED SYSTEMS EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+MONOCULTURE                   Single point of failure (SPOF) architecture
+  One species over large area  → Single service with no redundancy
+  Uniform genetic base         → Identical replicas: same vulnerability in all
+  One pest adaptation kills all→ Exploit that works on one instance works on all
+  Irish Potato Famine 1845:   → Production outage: all replicas fail simultaneously
+    one pathogen (Phytophthora)
+    → nation-wide crop failure
+  Advantage: mechanization    → Operational simplicity; single deployment target
+    efficiency, low overhead    horizontal scaling is trivial if nothing goes wrong
+
+POLYCULTURE / ROTATION         Fault-tolerant distributed architecture
+  Multiple species / timing    → Service redundancy + diverse failure modes
+  Pest can't adapt to all      → No single vulnerability cascades to total failure
+  N-fixing legumes in rotation → Shared infrastructure (legume = free N source)
+    reduce external input need   for subsequent crop, like shared caching layer
+  "Portfolio diversification"  → Multiple uncorrelated risk streams; variance ↓
+  Cost: complexity             → Higher operational overhead; scheduling complexity
+
+ROTATION TIMING                Circuit breaker pattern
+  Planting a different crop    → Break the feedback loop: pest builds up on Host A
+  next year                      → no host available next season → population crash
+  Pathogen can't overwinter    → The "circuit breaker" opens the pathogen cycle;
+  without host                   prevents cascade to failure state
+
+CROP DIVERSITY SPECTRUM        Redundancy vs. efficiency trade-off
+  Monoculture (1 spp)          → RAID 0: maximum throughput, zero redundancy
+  Rotation (N seasons)         → Time-based redundancy: fault tolerance over time
+  Intercropping (2–3 spp)      → RAID 1: mirroring; slower throughput, failure isolated
+  Agroforestry (multi-layer)   → Multi-tier architecture: canopy, subcanopy, ground
+                                   cover each provide different "services"
+                                   (water retention, N fixation, pest habitat, shade)
+
+MONOCULTURE RISK QUANTIFICATION:
+  Single variety planted globally (e.g., Cavendish banana, IR8 rice):
+    Genetic diversity = 0 for that locus → all individuals share same susceptibility
+    P(at least 1 regional outbreak) = 1 - (1-p)^n where p = annual pathogen emergence
+    n = number of independent regions; for n=100, p=0.01 → P = 63% per year
+    → Why Ug99 wheat stem rust is a global threat: uniform genetic base globally
+```
 
 ## Monoculture — Industrial Baseline
 

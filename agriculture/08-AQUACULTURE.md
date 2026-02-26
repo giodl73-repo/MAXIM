@@ -29,7 +29,106 @@ Aquaculture surpassed wild-catch fishing as the primary source of fish for human
 ```
 
 ---
-<!-- @editor[bridge/P2]: No old-world bridge — RAS is a closed-loop control system with sensor/actuator pairs (ammonia sensor → biofilter, O2 sensor → aerator) identical to industrial process control. IMTA is a microservices architecture where each trophic level consumes the waste output of another. The learner designs these systems in software; anchor the biology to those patterns. -->
+## Engineering Bridge: Aquaculture as Control Systems and Service Architecture
+
+```
+AQUACULTURE CONCEPT             CONTROL SYSTEMS / ARCHITECTURE EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+RECIRCULATING AQUACULTURE       Closed-loop control system with
+SYSTEM (RAS):                   multiple sensor/actuator pairs
+
+  FISH TANK → DRUM FILTER       → Input queue → mechanical dequeue
+    removes suspended solids       (garbage collection: remove bulk waste
+    (feces, uneaten feed)          before it reaches downstream stages)
+
+  BIOREACTOR (nitrification)    → Catalytic pipeline stage
+    NH₄⁺ → NO₂⁻ → NO₃⁻            (Nitrosomonas, Nitrospira = workers)
+    Biofilm on media              Biofilm = stateful microservice with
+    Takes weeks to establish       warm-up period (spin-up latency)
+    If disrupted → ammonia spike  If biofilter crashes → backpressure
+    → fish kill within hours       → cascade failure → entire system down
+    → CRITICAL DEPENDENCY:         → Single point of failure in pipeline
+      most fragile stage in RAS     → must have monitoring + alerting
+
+  SENSOR/ACTUATOR PAIRS:        → Closed-loop control (feedback controller)
+    NH₃ sensor → biofilter       → Error signal: NH₃ above threshold
+      adjust + water exchange       → actuate: flush + add denitrification
+    O₂ sensor → aerator          → O₂ below setpoint → actuate: aerate
+    CO₂ sensor → degasser        → CO₂ above setpoint → actuate: strip
+    pH sensor → CO₂/acid dose    → pH drift → actuate: chemical dose
+    Temperature sensor → chiller → Temp above setpoint → actuate: chill
+
+  95–99% water recycled         → Stateful service with minimal I/O:
+    only 1–5% fresh water added    "near-zero external dependency" per cycle
+    → Near-closed material loop    → High memory / low network equivalent
+
+  RAS FAILURE MODE:             → Microservice cascade failure
+    Biofilter crash (common)      → Stateful worker fails; queue fills;
+    → NH₄⁺ accumulates             downstream consumers die; data loss
+    → pH drops; fish stress       → No graceful degradation designed in
+    → mass fish kill within 24 hr → Circuit breaker needed: detect early
+    → Mitigation: continuous NH₃    warning, divert load, isolate stage
+      monitoring + emergency
+      water exchange protocol
+
+PRODUCTION INTENSITY SPECTRUM   From stateless to stateful service model
+  EXTENSIVE (oyster longlines):  → Serverless / function-as-a-service
+    No feed; ecosystem-powered     (consume ambient resources; zero mgmt)
+    Zero operational overhead      Scale with environment, not config
+    Carrying capacity = resource   → Auto-scaling limited by cloud capacity
+      availability in the bay       (phytoplankton = the vCPU pool)
+
+  SEMI-INTENSIVE (shrimp ponds): → VM-based workload
+    Supplemental feed + some       Provision resources; manage yourself
+    aeration; periodic treatment   Burst capacity via aeration/feeding
+
+  INTENSIVE (net pens):          → Container-based deployment
+    Fully managed feed, health    Dedicated resources; bounded environment
+    Environmental exposure remains → Still connected to external network
+    (sea lice, escapes, weather)   → External attack surface remains open
+
+  RAS (land-based closed):       → Air-gapped, fully-isolated service
+    Complete control; no external   No external network; all I/O explicit
+    pathogens, no escapes          Maximum security; maximum overhead
+    High capital + energy cost     High infrastructure cost per workload
+
+IMTA (INTEGRATED MULTI-TROPHIC  Microservices with waste-consumption
+AQUACULTURE):                   dependency graph
+
+  SALMON (fed species)          → Service A: produces waste output streams
+    output: dissolved N, P        (dissolved: NH₄⁺, PO₄³⁻)
+    output: particulate waste     (particulate: feces, uneaten feed)
+
+  SEAWEED (extractive)          → Service B: consumes dissolved waste
+    input: NH₄⁺, PO₄³⁻            from Service A; outputs biomass
+    output: O₂ + biomass         (publisher/subscriber on N/P topics)
+
+  MUSSELS/OYSTERS (filter)      → Service C: consumes particulate waste
+    input: particulate organics    from Service A; outputs biomass
+    output: biomass + biodeposits (queue consumer for solids stream)
+
+  MATERIAL FLOW:                → Event-driven architecture:
+    Salmon waste = event stream    salmon excretion = event;
+    Seaweed + shellfish =         seaweed/shellfish = event consumers
+      downstream consumers         each consuming a different topic
+  → No waste escapes system:    → Zero message loss target:
+    "ecological optimization"      every output becomes an input elsewhere
+  CHALLENGE: seasonal mismatch  → Consumer SLA mismatch: shellfish
+    (shellfish/seaweed growth      growth rate != salmon waste rate;
+    not aligned with salmon        → buffer sizing problem; backpressure
+    production schedule)            handling required
+
+BIOFLOC TECHNOLOGY              In-memory cache + reactive system
+  Maintain C:N ratio with       → Add carbon to control the ratio:
+    molasses/tapioca additions     feed the worker pool (bacteria)
+  Heterotrophic bacteria        → Workers (bacteria) assimilate N
+    assimilate NH₄⁺ as biomass     into microbial mass (cache the N
+  Biofloc particles (~0.1–1mm):   rather than excreting it)
+    nutrition + water quality    → Workers are both the compute layer
+  Zero water exchange            and the output (microbial biomass
+    → Near-zero external I/O       is consumed by shrimp)
+    → Highest density possible   → Highest throughput; highest mgmt cost
+```
 
 ## Production Systems — From Extensive to Intensive
 

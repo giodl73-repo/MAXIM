@@ -328,7 +328,64 @@ Dallas Smythe's foundational insight: what does commercial television actually p
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — Smythe's "audience as product" is isomorphic to platform economics the learner knows from Azure (users are the product sold to enterprise customers via telemetry/analytics); the propaganda model's five filters map to pipeline architecture with sequential filtering stages -->
+## Engineering Bridge: Political Economy as Pipeline Architecture
+
+```
+POLITICAL ECONOMY CONCEPT     ENGINEERING PARALLEL
+=========================     ====================
+
+Smythe's audience-as-product  Two-sided platform revenue model:
+                               users are not the customer; they
+                               are the product. The customer is
+                               the enterprise paying for access
+                               to user behavioral data / attention.
+                               Identical structure to:
+                               - Google Analytics → paid advertising
+                               - Azure telemetry → enterprise sales insights
+                               - App Store → developer fees (Apple captures
+                                 value from the user-developer interaction)
+
+Propaganda model's 5 filters  Sequential filtering pipeline:
+                               Input (raw world events)
+                                 → Filter 1: ownership gate
+                                   (does this threaten owner interests?)
+                                 → Filter 2: advertising gate
+                                   (does this threaten advertiser revenue?)
+                                 → Filter 3: sourcing gate
+                                   (do we have official sources to cite?)
+                                 → Filter 4: flak gate
+                                   (will this generate organized opposition?)
+                                 → Filter 5: ideology gate
+                                   (does this fit the dominant frame?)
+                               Output: publishable news content
+                               The system is not a conspiracy;
+                               it is a multi-stage filter with
+                               each stage independently biased.
+                               Output is the intersection of what
+                               survives all stages — a conjunction
+                               of five independent constraints.
+
+Concentration / synergy        Vertical integration in platform stacks:
+                               Disney owning Marvel, ESPN, ABC, Hulu
+                               is the same architecture as Microsoft
+                               owning GitHub, Azure DevOps, Teams,
+                               LinkedIn, and Visual Studio. The same
+                               synergy pressures and conflicts of
+                               interest arise: will Azure threat
+                               reports cover GitHub vulnerabilities
+                               candidly? Will ABC News investigate
+                               Disney's labor practices?
+
+Advertising as bait for        Content as customer acquisition cost:
+audience-product               the "content" (articles, videos, podcasts)
+                               is the customer acquisition mechanism
+                               for the advertiser relationship. The
+                               unit economics are: cost-per-content
+                               / eyeballs-generated = CPM paid by
+                               advertiser. Content quality is a
+                               factor in audience acquisition cost,
+                               not an end in itself.
+```
 
 ## Common Confusion Points
 

@@ -32,8 +32,9 @@ Stable isotope ratios in ancient geological materials are frozen snapshots of pa
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge connecting the Rayleigh distillation model to a general concept the learner already owns — progressive Rayleigh fractionation is formally identical to exponential decay of a reservoir with preferential loss, a concept directly analogous to filtering or progressive signal attenuation that an engineer would recognize -->
 ## δ¹⁸O: The Master Paleoclimate Proxy
+
+**Rayleigh distillation is exponential decay of a reservoir with preferential loss.** The governing equation for the heavy isotope fraction in the remaining vapor is R/R₀ = f^(α-1), where f is the fraction of vapor remaining and α is the fractionation factor. This is formally the same as exponential decay: each incremental precipitation event removes a fixed fraction of the heavy isotope in excess of the light isotope. The vapor gets progressively more depleted as it travels poleward (f → 0), just as a signal passed through a series of lossy filters gets progressively attenuated. The "precipitation efficiency" of the atmosphere is the filter roll-off; the fractionation factor α(T) is the frequency-dependent attenuation. Polar ice captures the most depleted end of this process — the output of the maximum-loss filter — which is why Antarctic ice cores show δ¹⁸O values as low as -55‰ while tropical precipitation is near 0‰.
 
 ### How Oxygen Fractionates
 

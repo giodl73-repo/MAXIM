@@ -434,7 +434,19 @@ LIMITATIONS:
 
 ---
 
-<!-- @editor[bridge/P2]: Missing explicit bridge — SPC control charts are the statistical foundation for Azure Monitor / Application Insights alert thresholds; burn-in testing parallels canary/blue-green deployment phases; "the nines" SLA table is close but could explicitly bridge to Azure SLA thinking -->
+## CS and Systems Bridges
+
+| Reliability / SPC concept | CS / systems analogue |
+|---|---|
+| Control chart (Shewhart X̄/R chart) | Statistical process monitoring: control limits (±3σ from process mean) are the principled foundation for alert thresholds in application monitoring — the rules for detecting special causes (8 consecutive points above mean, 2 of 3 beyond 2σ) are exactly the alert sensitivity/specificity tradeoffs in SLO monitoring |
+| Common cause vs special cause variation | Noise vs signal in telemetry: common cause = intrinsic system variability (do not alert, do not adjust); special cause = assignable event (alert, investigate, eliminate) — tampering on common cause variation increases total variance, the same as over-eager autoscaling on random load spikes |
+| CUSUM / EWMA charts | Sequential change-point detection: CUSUM accumulates signed deviations to detect sustained shifts; EWMA exponentially weights recent observations — both are streaming anomaly detectors equivalent to those in time-series monitoring frameworks |
+| Weibull β < 1 (infant mortality) | Burn-in period / early-life failure: high initial failure rate that decreases over time — the statistical basis for burn-in testing hardware before deployment; in software, analogous to canary deployment catching integration failures that only manifest early in a component's operating life |
+| Weibull β = 1 (random failures, constant hazard) | Memoryless Poisson process: failures arrive at constant rate regardless of age; service request arrivals and hardware random failures both follow this; exponential inter-arrival times, constant MTBF |
+| Weibull β > 1 (wear-out) | Aging degradation: failure rate increases with age — storage device write endurance, battery cycle life, mechanical wear; reliability-centered maintenance (replace before wear-out inflection) mirrors proactive infrastructure replacement before MTTF distribution tail |
+| Six Sigma (3.4 DPMO, Cpk = 1.5) | Quality SLO: the "five nines" (99.999%) of manufacturing; 3.4 DPMO ≈ 0.00034% defect rate; Cpk = 1.5 is the process capability target — directly analogous to software availability SLAs and error budgets, where the allowed failure rate is the spec limit |
+| FMEA (Failure Mode and Effects Analysis) | Fault tree / threat model: systematic enumeration of failure modes, each with severity × probability → RPN (Risk Priority Number); prioritizes reliability investment — identical structure to security threat modeling (threat × impact × likelihood) |
+| Availability = MTBF/(MTBF+MTTR) | SLO availability budget: MTBF is the average up-time interval; MTTR is the average repair time; higher MTTR shrinks availability even with identical MTBF — the operational implication is that fast recovery (deployment speed, automated rollback) contributes as much to availability as failure prevention |
 
 ## Common Confusion Points
 

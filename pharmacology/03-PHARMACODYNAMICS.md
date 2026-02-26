@@ -247,7 +247,65 @@ WITHDRAWAL SYNDROMES (receptor upregulation phenomenon)
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — PK/PD modeling is control theory applied to biology. The link model (effect compartment) is a first-order lag system; hysteresis loops are exactly the phase plots an engineer sees in feedback systems. Dose-response sigmoid is a logistic function (activation function in ML, or a saturating transfer function in control systems) -->
+## Engineering Bridge: PD as Transfer Function and Control Theory
+
+Pharmacodynamics is the input-output model of the drug-target-effect system. PK/PD integration is applying system dynamics to a biology pipeline.
+
+```
+  PHARMACODYNAMICS              CONTROL THEORY / SIGNAL PROCESSING
+  ──────────────────────────────────────────────────────────────────────
+  Dose-response sigmoid         Saturating nonlinear transfer function:
+  E = Emax·Cⁿ/(EC50ⁿ+Cⁿ)       Logistic / Hill function. Same shape as
+                                a sigmoid activation function in ML, or
+                                a soft saturation in nonlinear control.
+                                Linear range: C << EC50 (→ E ≈ Emax·C/EC50,
+                                first-order linear gain).
+                                Saturated range: C >> EC50 (→ E ≈ Emax,
+                                zero-order saturation plateau).
+
+  Hill coefficient n            Steepness / cooperativity:
+  n = 1: standard Hill          n controls slope at EC50. n > 1 produces
+  n > 1: positive cooperativity a steeper, more switch-like dose-response.
+                                In control: a high-n Hill function is
+                                close to a Heaviside step — an approximation
+                                to a threshold comparator.
+
+  Effect compartment (ke0)      First-order lag (low-pass filter):
+  d[Ce]/dt = ke0([C]-[Ce])      Ce(s) = C(s) × ke0/(s + ke0).
+  (link model)                  Introducing a first-order lag between plasma
+                                concentration and effect-site concentration.
+                                The phase lag explains clockwise hysteresis:
+                                for the same C on the way up vs. down, Ce
+                                is lower on the ascending arm (lag) and
+                                higher on the descending arm.
+
+  Clockwise hysteresis          Phase lag in feedback: effect lags
+  (tolerance / acute effect)    concentration → on the C-E phase plot,
+                                the trajectory is clockwise (C rises before
+                                E does). Counter-clockwise hysteresis →
+                                counter-direction: E rises BEFORE C, which
+                                signals active metabolite accumulation or
+                                sensitization.
+
+  PK/PD cascade                 Cascade transfer function:
+  E(t) = PD[PK(t, dose, route)] H_total(s) = H_PK(s) × H_PD(Ce).
+                                PK provides the impulse response (distribution
+                                + elimination); PD is the static or dynamic
+                                output nonlinearity. Predicting optimum
+                                dosing regimen = finding input drive to
+                                maintain output within therapeutic band.
+
+  AUC/MIC ratio (antibiotics)   Energy delivery metric:
+                                Total drug exposure (AUC) relative to
+                                minimum inhibitory concentration (MIC) is
+                                the time-integrated "signal above threshold"
+                                — analogous to a signal-to-noise ratio
+                                integrated over time.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## PK/PD Modeling
 
 ```

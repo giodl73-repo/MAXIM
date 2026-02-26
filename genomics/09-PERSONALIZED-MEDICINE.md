@@ -335,8 +335,68 @@ PERSONALIZED MEDICINE: GENOMICS IN THE CLINIC
 
 ---
 
+## Clinical Genomics Pipelines as Decision Support Systems
+
+```
+CLINICAL GENOMICS ↔ DECISION SUPPORT / RULE ENGINES / MONITORING
+──────────────────────────────────────────────────────────────────────────────
+ACMG VARIANT CLASSIFICATION = WEIGHTED DECISION TABLE:
+
+  Problem: given a variant (row), classify as P/LP/VUS/LB/B (5-class output)
+  Method: sum weighted evidence criteria (28 named criteria: PVS1, PS1..., PM1..., etc.)
+
+  Evidence criteria structure:
+  ┌────────────────────────────────────────────────────────────────┐
+  │ Criterion  Weight   Type    Meaning                            │
+  │ PVS1       Very    Pathog.  Loss-of-function in LoF gene       │
+  │ PS1        Strong  Pathog.  Same AA change, known pathogenic   │
+  │ PM2        Moder.  Pathog.  Absent/low freq in gnomAD          │
+  │ BP7        Supp.   Benign   Synonymous, no splice prediction   │
+  └────────────────────────────────────────────────────────────────┘
+
+  This IS a decision tree / rule engine with evidence weights:
+  Equivalent to: rules engine in an expert system (Drools, CLIPS)
+  Modern variant interpretation tools (Emedgene, Fabric, Alissa) are
+  ML-augmented rule engines that automate this classification
+
+CANCER GENOMIC PROFILING (CGP) = MONITORING DASHBOARD WITH ALERT RULES:
+
+  CGP panel (FoundationOne CDx, MSK-IMPACT):
+  - Sequence 300–650 genes at high depth in tumor
+  - Filter: somatic variants only (subtract germline / normal sample)
+  - Alert on: variants in clinically actionable genes with FDA/guideline support
+  - Output: actionable alterations (like PagerDuty alerts from noisy telemetry)
+  - Noise: VUS, passenger mutations = monitoring noise without clinical signal
+
+  Mapping:
+  Tumor genome variants     ↔  System telemetry (millions of metrics)
+  Normal genome subtraction ↔  Baseline normalization / anomaly detection
+  Tier 1 actionable variant ↔  P0 alert (requires immediate response)
+  VUS                       ↔  Warning-level alert (monitor, no action yet)
+  Passenger mutation        ↔  Noise (no action, log only)
+  TMB / MSI-H               ↔  Aggregate system health metric
+  Serial ctDNA monitoring   ↔  Real-time uptime / SLA metric with trending
+
+LIQUID BIOPSY (ctDNA) = CONTINUOUS INTEGRATION TESTING:
+
+  Each blood draw = CI pipeline run
+  Detect ctDNA level        ↔  Test suite passing / failing
+  Rising ctDNA              ↔  Test failure trend → impending production issue
+  ctDNA clearance           ↔  All tests green → treatment is working
+  Resistance mutation        ↔  New failure mode discovered → need new fix
+  Detection threshold 0.1%  ↔  Signal-to-noise floor in the monitoring stack
+
+VARIANT INTERPRETATION PIPELINE = DATA QUALITY PIPELINE:
+
+  gnomAD allele frequency filter (AF < 0.1%) ↔  Outlier filtering (common = noise)
+  ClinVar lookup             ↔  Reference data join (known variants)
+  CADD score (deleteriousness)↔  Model score (ML feature in variant prioritization)
+  Inheritance filtering      ↔  Constraint satisfaction (de novo / recessive mode)
+  VUS reclassification over time ↔  Data quality label updates as new evidence arrives
+──────────────────────────────────────────────────────────────────────────────
+```
+
 ## Common Confusion Points
-<!-- @editor[bridge/P3]: Natural bridge to decision support systems / rule engines -- ACMG classification is effectively a decision table with weighted evidence criteria, and CGP panels are analogous to monitoring dashboards that surface actionable alerts from noisy telemetry -->
 
 **WES missing the diagnosis**: Whole exome sequencing misses: (1) deep intronic variants that affect splicing, (2) large structural variants (most CNVs), (3) repeat expansion diseases (Huntington's, fragile X, spinocerebellar ataxias — require specific assays), (4) mitochondrial DNA variants (poorly captured). WGS covers these but costs more.
 

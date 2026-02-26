@@ -300,16 +300,15 @@ BRONZE AGE COLLAPSE (~1200 BC):
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" decision tool (e.g., "Use lithic analysis when: dating pre-ceramic sites; Use aDNA when: tracking population movements") -->
-
-| Question | Answer |
-|----------|--------|
-| Oldest stone tools? | Lomekwian, 3.3 Ma (Kenya); Oldowan, 2.6 Ma |
-| What is the Levallois technique? | Prepared-core flaking: predetermines flake shape before detachment |
-| When did humans reach Australia? | ~50 Ka (Madjedbebe site; timing still contested) |
-| What caused megafauna extinction? | Most likely synergy: climate change + human hunting pressure |
-| Where did agriculture start? | Multiple independent centers: SW Asia (~10,000 BC), East Asia, Americas, Africa |
-| Why did Bronze Age need tin? | Copper + tin = bronze; tin not locally available → long-distance trade required |
+| Use this when... | Method / concept | Notes |
+|-----------------|-----------------|-------|
+| Dating pre-ceramic sites (no pottery, no carbon in useful contexts) | Lithic typology + OSL/TL dating | Typological sequences (Oldowan → Acheulean → Levallois) establish relative chronology; OSL dates sediment deposition directly |
+| Tracking population movements across continents | Ancient DNA (aDNA) | Haplogroup distribution + admixture modeling; can separate migration from cultural diffusion |
+| Reconstructing diet across individual lifetimes | Stable isotopes (δ¹³C, δ¹⁵N) from bone collagen | Bone collagen records ~10-year dietary average; tooth enamel records childhood; hair/nail record months |
+| Distinguishing independent invention from diffusion | Comparative typology + chronological distribution maps | Simultaneous appearance in distant regions with no plausible contact = independent invention; sequential spread along routes = diffusion |
+| Dating a site with abundant charcoal or short-lived organic material | Radiocarbon (AMS) | Precision ~±20–50 years for Holocene; becomes imprecise beyond ~50 Ka |
+| Establishing that humans caused megafauna extinction vs. climate | Chronological overlap testing | Compare extinction date to first human arrival date and to climate event date; if extinction tracks human arrival more tightly than climate shifts, human causation is implicated |
+| Understanding Bronze Age exchange networks | Tin and copper isotope provenancing | Tin isotopes fingerprint ore sources; matching finished bronze to ore region maps trade routes |
 
 ---
 

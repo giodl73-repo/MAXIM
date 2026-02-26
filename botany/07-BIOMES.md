@@ -288,7 +288,83 @@ COLD DESERT:
 
 ---
 
-<!-- @editor[content/P2]: Tundra and alpine biomes absent — tundra is referenced in the landscape diagram and confusion points but has no dedicated section; alpine biome (treeline ecology, krummholz, alpine meadow) not covered at all; both are major terrestrial biomes -->
+## Tundra and Alpine
+
+```
+ARCTIC TUNDRA
+──────────────────────────────────────────────────────────────────────────────
+Latitude:    >65° N (also Antarctic fringe)
+Temperature: Mean -10°C to -5°C; growing season <60 days; permafrost year-round
+Rainfall:    150-250 mm/year (classified as cold desert in precipitation terms)
+Soil:        Gelisol (permafrost within 2m); active layer 30-100cm seasonally thaws
+
+CONSTRAINTS:
+  Permafrost: ice in soil below active layer → drainage impossible → waterlogged
+  Growing season: 6-10 weeks maximum
+  Wind: desiccating; mechanical damage; ice crystal abrasion
+  Night length: months of polar night (no photosynthesis)
+
+PLANT ADAPTATIONS:
+  Low-growing mat form: escape wind, capture soil heat, reduce surface area
+  Dark leaf color: absorb more radiation (especially early season)
+  Cushion plants: dome shape traps warm microclimate; internal temperature
+    can be 10-15°C above ambient
+  Evergreen leaves: no cost to rebuild photosynthetic machinery each spring
+  Rapid phenology: flower-to-seed in <2 weeks (Papaver, Dryas, Saxifraga)
+  Clonal spread: vegetative reproduction more reliable than seed set
+  Deep roots impossible: permafrost; roots spread laterally in thin active layer
+
+CARBON DYNAMICS:
+  Permafrost contains ~1,500 Gt C (double all atmospheric CO₂)
+  Arctic warming: 3-4× faster than global average (Arctic amplification)
+  Permafrost thaw → aerobic decomposition → CO₂ + CH₄ release
+  → Positive feedback: warming → more thaw → more carbon → more warming
+  Methane (CH₄): 28× more potent per molecule than CO₂ (20-yr GWP)
+  Thermokarst: ground subsidence as ice melts → lake formation → more CH₄
+
+SPECIES EXAMPLES:
+  Dwarf birch (Betula nana), Arctic willow, cotton grass, sedges,
+  Dryas, Cassiope, Saxifraga, lichen (Cladonia), Sphagnum moss
+  No trees (treeline is permanent constraint, not recovery lag)
+```
+
+```
+ALPINE BIOME (High-Altitude Treeline and Above)
+──────────────────────────────────────────────────────────────────────────────
+Definition: Above treeline on mountains worldwide; similar appearance to
+            arctic tundra but different drivers and different taxa
+
+TREELINE MECHANICS:
+  Cold kills vs. limited growth season? Primary constraint: minimum growing
+    temperature for cell division (~5-7°C threshold for tree cambial activity)
+  Not direct cold killing, but insufficient warmth to complete seasonal growth
+  Timberline (~tree line): abrupt boundary; trees become krummholz (wind-pruned,
+    stunted, prostrate flag form) just below
+
+ALTITUDE vs. LATITUDE:
+  Treeline altitude: ~300m lower per 1° increase in latitude
+  Alps treeline: ~2,200m. Equatorial mountains (Kilimanjaro): ~3,500m
+  Same elevation ≠ same conditions (solar intensity, humidity differ by latitude)
+
+ALPINE MEADOW:
+  Grasses, sedges, forbs (Ranunculus, Gentiana, Primula, Edelweiss)
+  High UV: pigmentation responses (anthocyanins in petals → UV defense)
+  Pollinator pressure: showy flowers with nectar guides (UV patterns on petals
+    visible to bees)
+
+KRUMMHOLZ ("crooked wood"):
+  Conifers at treeline: prostrate, branching on leeward side only
+  Wind abrasion + ice crystal damage kills windward branches
+  Effective insulation: snow-covered branches in winter = protected
+  Can be centuries old despite <1m height
+
+DIFFERENCE FROM ARCTIC TUNDRA:
+  No permafrost at most alpine sites (better drainage)
+  UV intensity much higher (thinner atmosphere, direct angle)
+  Greater daily temperature fluctuation (cold nights, warm days year-round)
+  Different flora: arctic and alpine share some genera but many endemics per range
+```
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

@@ -239,16 +239,21 @@ Companion cells: metabolically active, support sieve tubes
 
 ## Hormones and Cell Growth
 
-<!-- @editor[content/P2]: Section is thin — only 5 major hormones listed; brassinosteroids, jasmonic acid, salicylic acid, and strigolactones are absent; hormone interactions (auxin:cytokinin ratio controlling root vs shoot) not covered -->
-Plants coordinate growth via chemical signals:
+Plants coordinate growth via chemical signals. The full set comprises nine major hormones; the auxin:cytokinin ratio is the master switch between growth modes.
 
-| Hormone | Source | Key Functions |
-|---------|--------|---------------|
-| **Auxin (IAA)** | Shoot apex | Cell elongation; phototropism; apical dominance |
-| **Cytokinins** | Root tips | Cell division; delay senescence |
-| **Gibberellins** | Various | Stem elongation; seed germination; Green Revolution Rht gene inhibits |
-| **Abscisic acid** | Wilting tissues | Stomata closure; seed dormancy |
-| **Ethylene** | Ripening fruits | Fruit ripening; leaf abscission; stress response |
+| Hormone | Source | Key Functions | Engineering note |
+|---------|--------|---------------|-----------------|
+| **Auxin (IAA)** | Shoot apex | Cell elongation; phototropism; apical dominance | High auxin:cytokinin → root formation; low ratio → shoot development |
+| **Cytokinins** | Root tips | Cell division; delay senescence | Counter-signal to auxin; promotes branching when apex removed |
+| **Gibberellins (GA)** | Various | Stem elongation; seed germination | Green Revolution: Rht dwarfing gene desensitizes wheat to GA → shorter, harvest-stable stems |
+| **Abscisic acid (ABA)** | Wilting tissues | Stomata closure; seed dormancy; drought response | Rapid production within minutes of water deficit; systemic stress signal |
+| **Ethylene** | Ripening fruits | Fruit ripening; leaf abscission; stress response | Autocatalytic: ethylene → more ethylene → sigmoid ripening curve |
+| **Brassinosteroids** | Shoots/leaves | Cell expansion; vascular differentiation; stress tolerance | Steroid hormones; brassinosteroid-insensitive mutants are dwarf with dark-green leaves |
+| **Jasmonic acid (JA)** | Wound sites | Herbivory defense; trichome induction; reproductive development | Biosynthesized from linolenic acid via lipoxygenase; systemic wound signal via vascular transport |
+| **Salicylic acid (SA)** | Infected tissue | Systemic acquired resistance (SAR); pathogen defense | Precursor to aspirin; SA wave propagates ahead of pathogen front (broadcast defense alert) |
+| **Strigolactones** | Root tips | Suppress axillary bud outgrowth; stimulate mycorrhizal symbiosis | Exuded into soil as symbiosis signal; parasitic plant *Striga* germinates on strigolactone detection |
+
+**Hormone interaction logic:** Auxin:cytokinin ratio is a two-variable control signal — tissue culture exploits this directly (high auxin → callus grows roots; high cytokinin → callus grows shoots). JA and SA act antagonistically: SA-mediated pathogen resistance suppresses JA-mediated herbivory resistance, creating a tradeoff that some pathogens exploit by inducing SA signaling in the host.
 
 ---
 

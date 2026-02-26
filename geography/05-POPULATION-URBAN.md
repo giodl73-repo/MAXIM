@@ -159,7 +159,22 @@ to economic and political geography.
 ## Section 4: City Size Distribution & Internal Structure
 
 ```
-<!-- @editor[bridge/P3]: Natural bridge to Zipf's Law in linguistics/information theory — learner knows Zipf from word frequency distributions; connect the same power-law mechanics across domains -->
+  BRIDGE — ZIPF'S LAW AS DOMAIN-INVARIANT POWER LAW:
+  The rank-size rule for cities (rank × size ≈ constant) is the same
+  mathematical structure as Zipf's Law for word frequencies in natural
+  language, income distributions (Pareto 80/20), internet traffic
+  (Ethernet frame size distribution), and firm size distributions.
+  All share the log-log linear signature: ln(size) = -z × ln(rank) + C.
+  The exponent z ≈ 1.0 for US cities (nearly perfect Zipf); deviates
+  in primate city systems (z > 1; one city dominates) or uniform systems
+  (z < 1; flatter distribution). Mechanistic explanation: Gabaix (1999)
+  showed that random multiplicative growth (each city grows at a random
+  rate each period, independently) generates a Zipf distribution as the
+  stationary distribution — the same argument as random multiplicative
+  processes generating log-normal or power-law distributions in physics.
+  The invariance of z across countries and historical periods suggests
+  the mechanism is deep — not a policy artifact.
+
   ZIPF'S LAW FOR CITIES:
   Rank × Size ≈ constant
   → 2nd largest city ≈ 1/2 size of largest
@@ -303,7 +318,13 @@ to economic and political geography.
 ## Section 7: Urban Heat Islands & Urban Environment
 
 ```
-<!-- @editor[structure/P2]: Section not anchored to landscape diagram — UHI is not in the opening diagram; either add it or note it as a cross-cutting environmental urban topic -->
+  NOTE: Urban Heat Island is a cross-cutting environmental-urban topic
+  linking the physical geography of cities (impervious surfaces, altered
+  energy balance, reduced vegetation) to the human geography of health,
+  energy demand, and inequality. It belongs with urban structure but
+  operates through physical processes not captured in the demographic
+  models above.
+
   URBAN HEAT ISLAND (UHI) EFFECT:
   Cities 1-3°C warmer than surrounding rural areas on average
   Peak difference at night (up to 10°C on calm, clear nights)

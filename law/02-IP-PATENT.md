@@ -229,8 +229,18 @@ Key fair use cases:
     (commercial use not automatically unfair; parody = transformative)
   Harper & Row v Nation (1985): quoting 300 words of Ford memoir = NOT fair use
     (heart of the work; scooped first-publication market)
-  AI training data: actively litigated 2023-2025; no definitive ruling yet
-  <!-- @editor[content/P2]: AI training data fair use status marked 2023-2025 — verify current rulings as of 2026; NYT v OpenAI, Doe v GitHub Copilot, and others may have progressed -->
+  AI training data (status as of early 2026):
+    NYT v OpenAI: ongoing; NYT alleges verbatim memorization as infringement (factor 3/4);
+      OpenAI asserts transformative use (factor 1) — no final ruling as of Feb 2026
+    Doe v GitHub Copilot (Andersen v Stability AI consolidated): class action; copyright +
+      DMCA 1202 claims (removal of copyright management information); status: motions practice
+    Kadrey v Meta: largely dismissed on standing; republished with amendment; ongoing
+    Key unresolved question: is training itself infringement (Ninth Circuit will eventually decide)
+      vs infringement only in outputs? Factor 4 (market harm) likely determinative
+    Getty Images v Stability AI (UK + US): image generation; strong market harm argument
+    Practical status: no definitive ruling on training data; licenses becoming industry practice
+      (OpenAI/NYT settlement talks; Google licensed Reddit data; most major players building
+      licensed training data sets to reduce litigation exposure)
 ```
 
 ### Copyright in Software

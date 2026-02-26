@@ -3,38 +3,40 @@
 ## The Big Picture
 
 ```
-+------------------------------------------------------------------+
-|                    PRIMATE ORDER                                   |
-|                                                                   |
-|  STREPSIRRHINI                    HAPLORHINI                      |
-|  (wet-nosed: tapetum,             (dry-nosed: no tapetum,        |
-|   dentition comb)                  retinal fovea)                 |
-|  ─────────────────                ────────────────               |
-|  Lemurs (Madagascar)              Tarsiers                        |
-|  Lorises (Asia/Africa)                   +                        |
-|  Galagos ("bush babies")          ANTHROPOIDEA                    |
-|                                          |                        |
-|                               ┌──────────┴──────────┐            |
-|                               |                      |            |
-|                        PLATYRRHINI            CATARRHINI          |
-|                        (New World)            (Old World)         |
-|                        Flat nose,             Narrow nose,        |
-|                        3-color poly           all female          |
-|                        morphism               trichromats         |
-|                               |                      |            |
-|                         Capuchins,      ┌─────────────┴────────┐  |
-|                         Spider monkeys, │                      │  |
-|                         Howler monkeys  Old World          APES    |
-|                                         Monkeys                 |  |
-|                                        (Macaques,           Lesser|
-|                                         Baboons,            Apes  |
-|                                         Colobus)           (Gibbon|
-|                                                            s)  + |  |
-<!-- @editor[diagram/P2]: Landscape diagram has broken ASCII alignment — "Gibbon|s)" wrap and "Great Apes" column misaligned. Reformat so tree renders cleanly in monospace -->
-|                                                      Great Apes    |
-|                                            (Orangutan,Gorilla,    |
-|                                             Chimp,Bonobo,Human)   |
-+------------------------------------------------------------------+
++--------------------------------------------------------------------+
+|                         PRIMATE ORDER                              |
++--------------------------------------------------------------------+
+|                                                                    |
+|  STREPSIRRHINI                        HAPLORHINI                   |
+|  (wet-nosed: tapetum,                 (dry-nosed: no tapetum,     |
+|   dental comb)                         retinal fovea)              |
+|  ──────────────────────               ────────────────────        |
+|  Lemurs (Madagascar)                  Tarsiers                     |
+|  Lorises (Asia/Africa)                       +                     |
+|  Galagos ("bush babies")              ANTHROPOIDEA                 |
+|                                              |                     |
+|                               ┌──────────────┴──────────────┐     |
+|                               |                              |     |
+|                        PLATYRRHINI                    CATARRHINI   |
+|                        (New World monkeys)            (Old World)  |
+|                        Flat nose,                     Narrow nose, |
+|                        broad nasal septum             all females  |
+|                        3-color polymorphism           trichromats  |
+|                               |                              |     |
+|                         Capuchins,            ┌─────────────┴──┐  |
+|                         Spider monkeys,       |                |  |
+|                         Howler monkeys,  Old World           APES  |
+|                         Squirrel monkeys Monkeys                |  |
+|                                          (Macaques,    ┌────────┴┐ |
+|                                           Baboons,     │         │ |
+|                                           Colobus,  Lesser    Great|
+|                                           Mandrills) Apes     Apes |
+|                                                     (Gibbons, (Org,|
+|                                                      Siamangs) Gor,|
+|                                                               Chi, |
+|                                                               Bon, |
+|                                                               Hum) |
++--------------------------------------------------------------------+
 ```
 
 ---

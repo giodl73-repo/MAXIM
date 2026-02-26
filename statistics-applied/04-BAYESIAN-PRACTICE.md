@@ -443,7 +443,19 @@ MODEL COMPARISON:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: Bayesian posterior updating = type narrowing/refinement in TypeScript or pattern matching; prior-to-posterior is constraint propagation; MCMC sampling efficiency parallels compiler optimization search-space traversal -->
+## CS and Formal Methods Bridges
+
+| Bayesian practice concept | CS / formal methods analogue |
+|---|---|
+| Prior → posterior updating (Bayes' theorem) | Belief state update in a Hidden Markov Model / Kalman filter: each observation refines the distribution over the hidden state; the posterior is the updated belief state; additional observations continue the update — Bayesian inference is online learning on the state space |
+| Conjugate prior (posterior has closed form) | Type-preserving transformation: a conjugate prior is one that makes the posterior the same distributional family as the prior — the algebraic closure property; Beta-Binomial, Normal-Normal, Gamma-Poisson are the "closed under update" families |
+| MCMC (Metropolis-Hastings, HMC) | Randomized search in state space: MCMC constructs a Markov chain whose stationary distribution is the posterior; each proposal is accepted/rejected based on the density ratio — identical in structure to simulated annealing and randomized optimization |
+| HMC / NUTS (Hamiltonian Monte Carlo) | Gradient-guided search: uses the gradient of log-posterior to propose samples along high-probability trajectories; analogous to gradient descent in optimization but over a probability landscape rather than a loss surface |
+| Divergences in Stan | Numerical instability diagnostic: divergences indicate the sampler encountered near-degenerate geometry (funnel, hard constraint boundary); they are a correctness warning, not just noise — equivalent to NaN propagation in floating-point computation signaling ill-conditioned operations |
+| Non-centered parameterization | Change of variables to improve conditioning: θ_j = μ + τ × z_j where z_j ~ N(0,1) removes the correlation between τ and θ_j that causes funnel geometry — identical to preconditioning a linear system to improve solver convergence |
+| Hierarchical / multilevel model (partial pooling) | Regularization via shared prior: group-level parameters are shrunk toward a grand mean; amount of shrinkage scales inversely with group sample size — identical to L2 regularization (ridge) in ML, where the prior precision matrix is the regularization strength |
+| PSIS-LOO cross-validation | Out-of-sample evaluation without refitting: importance-weighted leave-one-out CV using Pareto-smoothed importance sampling; k̂ > 0.7 flags influential observations — analogous to held-out set evaluation with a warning system for high-leverage test points |
+| Prior predictive check | Static analysis / type checking before runtime: simulate from the prior to verify the model produces plausible data ranges before fitting — catches modeling errors (scale misspecification, impossible predictions) without touching the data |
 
 ## Common Confusion Points
 

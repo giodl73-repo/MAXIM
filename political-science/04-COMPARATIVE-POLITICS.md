@@ -2,10 +2,23 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P2]: No universal CS bridge — institutional design constraints (veto players, electoral thresholds, coalition requirements) map directly to system architecture constraints (consensus protocols, quorum requirements, access control). The learner designed enterprise systems at Microsoft; the mapping from "veto player count determines policy change rate" to "consensus node count determines commit latency" would immediately click -->
 Comparative politics asks: why do political systems look different, and with what
 consequences? Electoral systems, regime types, state capacity, and institutional
 design all produce systematically different political and policy outcomes.
+
+**Formal bridge:** Institutional design choices in political systems are structurally
+identical to distributed system architecture choices. Veto player count directly
+controls the commit threshold: a US-style system with 3+ effective veto players is
+like a distributed consensus protocol requiring near-unanimity — high consistency,
+low availability for change, maximum safety. A Westminster single-party majority is
+like a single-node system: fast commits, no blocking, maximum policy throughput but
+no redundancy against error. Duverger's Law (FPTP produces two parties) is an
+equilibrium result from the same strategic voting logic as plurality-wins tournaments
+in any ranked-choice system. Electoral thresholds (Germany's 5% barrier) are the
+minimum quorum required for a partition to enter the decision process. The Tsebelis
+veto players framework is the clearest example: it is literally a formal model
+predicting policy change as a function of the number of consent-required actors and
+the spread of their ideal points in policy space.
 
 ```
 +----------------------------------------------------------------------+

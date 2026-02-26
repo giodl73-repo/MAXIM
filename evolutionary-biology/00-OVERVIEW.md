@@ -10,22 +10,34 @@ one axis of the full framework:
 |                  EVOLUTIONARY BIOLOGY LANDSCAPE                   |
 +------------------------------------------------------------------+
 |                                                                    |
-<!-- @editor[diagram/P2]: Diagram lists mechanism-pattern pairs but doesn't show how they interact or feed into each other — rework as layered system view showing forces acting on a population with arrows showing interactions (e.g., drift opposes selection at small N, mutation feeds variation to selection) -->
-|  MECHANISM              PATTERN                  TIMESCALE        |
-|  ─────────              ───────                  ─────────        |
-|  Natural selection  →   Adaptation               Generations      |
-|  Genetic drift      →   Allele frequency shift   Generations      |
-|  Mutation           →   New variants             Per replication  |
-|  Gene flow          →   Population mixing        Generations      |
-|  Sexual selection   →   Mate-choice traits       Generations      |
-|  Coevolution        →   Arms races               Coevolutionary   |
+|  FORCES ACTING ON ALLELE FREQUENCIES IN A POPULATION             |
+|  ─────────────────────────────────────────────────────────       |
 |                                                                    |
-|  MICROEVOLUTION         EVO-DEVO                 MACROEVOLUTION   |
-|  ───────────────         ────────                 ─────────────   |
-|  Within populations     Developmental toolkit    Across species   |
-|  Hardy-Weinberg         HOX genes                Phylogeny        |
-|  Wright-Fisher model    Modularity               Fossil record    |
-|  Fitness landscape      Deep homology            Mass extinction  |
+|  MUTATION ──────────────────────────────────────────────────┐    |
+|  (creates new variants; feeds raw material to all forces)   │    |
+|                                                             ▼    |
+|  NATURAL SELECTION ←──── FITNESS LANDSCAPE  ←── ENVIRONMENT│    |
+|  (gradient ascent on fitness; signal)          ┌───────────┘    |
+|  4Nes >> 1: selection dominates                │               |
+|  4Nes ≈ 1:  drift and selection equally strong ▼               |
+|  4Nes << 1: drift dominates                                      |
+|                                                                    |
+|  GENETIC DRIFT ─────────────────────────────────────────────     |
+|  (noise; opposes selection at small N; fixes neutral alleles)    |
+|  Bottleneck/founder → amplifies drift effect                     |
+|                           ↕ (gene flow reduces divergence)       |
+|  GENE FLOW ──────── mixes populations; opposes local adaptation  |
+|                                                                    |
+|  SEXUAL SELECTION ── subset of selection; mate-choice traits     |
+|                                                                    |
+|  RESULT AT DIFFERENT TIMESCALES:                                  |
+|  Generations:   allele frequency change (microevolution)         |
+|  103–105 gen:   speciation, reproductive isolation               |
+|  106–108 gen:   macroevolution, major clades, fossil record      |
+|                                                                    |
+|  BRIDGING LEVELS:                                                 |
+|  Evo-devo: HOX / toolkit genes constrain phenotypic variation    |
+|  Coevolution: between-species selection (arms races, mutualism)  |
 +------------------------------------------------------------------+
 ```
 
@@ -174,7 +186,59 @@ loss surfaces — Dauphin et al. 2014).
 
 ---
 
-<!-- @editor[bridge/P2]: No explicit "old world -> new world" bridge section — this learner would benefit from a bridge mapping evolutionary biology concepts to optimization, signal processing, or control theory concepts they already own from CS/math background -->
+## CS/Math Framework Bridges
+
+Every core evolutionary biology concept has a direct mapping to established
+CS, math, or systems-engineering frameworks:
+
+```
+EVOLUTIONARY CONCEPT          CS / MATH EQUIVALENT
+
+Natural selection             Gradient ascent on fitness landscape
+                              (same as gradient descent on loss surface — sign flip)
+                              Selection coefficient s = local gradient magnitude
+
+Breeder's equation R = h²S   Stochastic gradient descent update rule:
+                              R = parameter update, h² = effective learning rate
+                              (signal-to-noise of genetic variation), S = gradient
+
+4Nes criterion               Signal-to-noise ratio in communication theory:
+  selection effective if       SNR = selection signal / drift noise
+  4Nes >> 1                    Below threshold (small Ne): noise dominates — neutral
+
+Wright-Fisher model           Discrete-time stochastic process / random walk
+  Binomial sampling           Allele frequency = Markov chain on [0,1]
+                              Fixation/loss = hitting time to absorbing boundary
+
+Coalescent theory             Time-reversal of Wright-Fisher Markov chain
+  (Kingman 1982)              Ancestry tracing = backward stochastic process
+                              Expected coalescence time ~ 4Ne generations
+                              Same math as: MRCA problems in genealogies
+
+Phylogenetic inference (ML)   Maximum likelihood estimation with tree topology
+                              as the latent discrete structure (combinatorial
+                              state space: (2n-3)!! trees for n taxa)
+
+Bayesian MCMC phylogenetics   Posterior sampling on tree-topology × parameter space
+  (MrBayes, BEAST)            Same Metropolis-Hastings framework as any PGM
+                              Convergence diagnosis: multiple chains, Rhat
+
+Fitness landscape             Non-convex optimization landscape
+  (Wright 1932)               Local optima = adaptive peaks
+                              Drift = stochastic escape from local optima
+                              Recombination = crossover operator in genetic algorithms
+
+Neutral theory (Kimura)       Entropy / information-theoretic framing:
+                              Most sequence variation = noise, not signal
+                              dN/dS > 1 = detectable selection signal above noise floor
+
+Genetic algorithm             Literal implementation of selection + variation + drift
+                              (EA = evolutionary algorithm = approximation of selection)
+
+Red Queen dynamics            Adversarial coevolution = minimax optimization
+                              Host-parasite arms race ≈ GAN training dynamics
+```
+
 ## Connections to Other Reference Directories
 
 | Evolutionary concept | Where else it appears |

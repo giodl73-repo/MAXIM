@@ -130,8 +130,8 @@ BENGAL INDIGO REVOLT (1859–1860):
   1859: Bengal farmers refused to plant, organized resistance
   Indigo Revolt (Neel Bidraha) = major peasant uprising
   Preceded Indian independence movement's mass mobilization tactics
-<!-- @editor[content/P2]: "Gandhis" — should be "Gandhi" (singular); also the claim that Bengali indigo revolt "preceded" Gandhi's mass mobilization is valid but the direct "Gandhi later used similar" framing overstates the documented causal link — consider softening -->
-  Gandhis later used similar non-cooperation principles
+  Gandhi's later mass non-cooperation campaigns drew on similar principles of peasant resistance,
+  though direct organizational lineage from the 1859 revolt to the independence movement is debated.
 
 SYNTHETIC INDIGO (1897):
   Adolf von Baeyer: first synthesis 1865 (tiny quantities)

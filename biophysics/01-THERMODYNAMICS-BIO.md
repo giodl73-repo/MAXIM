@@ -371,7 +371,49 @@ invisible in most other techniques.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — natural parallels exist: chemical engineering energy balances to biological free energy transduction, electrical circuit theory to membrane equivalent circuits, or classical thermo engine efficiency to mitochondrial ATP yield -->
+## Engineering and Physics Bridges
+
+Biological thermodynamics is classical thermodynamics applied to a non-equilibrium machine. Every concept has a direct engineering analog.
+
+```
+  BIOLOGY                         CLASSICAL ENGINEERING PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Free energy transduction        Heat engine efficiency (Carnot):
+  (ATP coupling)                  ΔG_cell ≈ -12 kcal/mol per ATP is the
+                                  "work available per fuel cycle." The
+                                  mitochondrion is a proton-gradient engine
+                                  with ~32% efficiency — comparable to a
+                                  steam turbine.
+
+  Proton motive force             Electrochemical potential in batteries:
+  ΔμH⁺ = FΔΨ - 2.303RT·ΔpH      ΔΨ ≈ -180 mV is a ~200 meV stored EMF.
+                                  ATP synthase is the "load" driven by this
+                                  potential — exactly as a motor load is
+                                  driven by voltage across a circuit.
+
+  Membrane equivalent circuit     RC circuits in electrical engineering:
+  C_m × dV/dt = -Σ G_ion(V-E_ion) Kirchhoff's current law applied to a
+                                  capacitor (bilayer) in parallel with
+                                  conductances (channels). The Nernst
+                                  potential is a battery EMF for each ion.
+
+  NESS (non-equilibrium steady    Open thermodynamic systems in chemical
+  state): [ATP]/[ADP] ≈ 10⁶×Keq  engineering — a continuous flow reactor
+                                  maintained far from equilibrium by
+                                  continuous energy input (combustion fuel
+                                  input → products out).
+
+  ΔG°' vs ΔG in vivo              Standard state vs. operating point:
+  (-7.3 vs -12 kcal/mol)          ΔG°' is the property at standard conditions;
+                                  ΔG is the operating condition. A chemical
+                                  engineer always uses operating conditions,
+                                  not standard state, to evaluate feasibility.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+**Key insight**: life is not a closed system at equilibrium — it is an open chemical engine that continuously imports free energy (food, light) and exports entropy (heat, CO₂). Classical thermodynamics provides all the tools; the biological context adds the specific concentrations and coupling mechanisms.
+
+---
 
 ## Decision Cheat Sheet
 

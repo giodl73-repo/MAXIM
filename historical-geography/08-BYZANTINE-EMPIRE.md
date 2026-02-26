@@ -1,5 +1,54 @@
 # The Byzantine Empire — Eastern Rome, 330–1453
-<!-- @editor[diagram/P2]: No opening landscape diagram showing the empire's geographic extent and contraction over time — the file opens with the continuity argument (a timeline) but the style contract calls for a spatial Big Picture diagram first -->
+
+## The Big Picture — Geographic Extent and Contraction
+
+```
+BYZANTINE EMPIRE: SPATIAL CONTRACTION ACROSS TIME
+===================================================
+
+JUSTINIAN'S PEAK (c. 565 CE):
+  +──────────────────────────────────────────────────────+
+  |  SPAIN    |   ITALY    |     BALKANS    |            |
+  |  (Betica) |  (Sicily + | (up to Danube) | ANATOLIA  |
+  |           |  Ravenna)  |                | (all)     |
+  +───────────+────────────+───────────────+───────────+
+  |   NORTH AFRICA (coast)  |  EGYPT  |  SYRIA/LEVANT  |
+  +─────────────────────────+─────────+────────────────+
+  Mediterranean: controlled as a Roman lake
+
+AFTER ARAB CONQUESTS (c. 700 CE):
+  +──────────────────────────────+
+  |     BALKANS (reduced)        |
+  +──────────────────────────────+
+  |  W. ANATOLIA  | E. ANATOLIA |
+  +───────────────+─────────────+
+  [Syria, Egypt, N. Africa: LOST to Umayyads 636–698]
+
+MACEDONIAN PEAK (c. 1025 CE):
+  +───────────────────────────────────────────+
+  |  BALKANS (Bulgaria, Serbia — recovered)   |
+  +───────────────────────────────────────────+
+  |        ANATOLIA (full control)            |
+  +───────────────────────────────────────────+
+  |  ANTIOCH + N. SYRIA (reconquered)         |
+  +───────────────────────────────────────────+
+
+AFTER MANZIKERT (1071) + CRUSADER PERIOD:
+  Reduced to: Constantinople + Thrace + coastal strips
+  [Fourth Crusade 1204: Latins occupy Constantinople 57 years]
+
+LATE BYZANTINE (c. 1350 CE):
+  Constantinople + Morea (Peloponnese) + fragments
+  Surrounded by Ottoman, Genoese, Venetian territories
+
+STRATEGIC CHOKEPOINTS:
+  Constantinople → controls Bosphorus (Black Sea ↔ Mediterranean)
+  Dardanelles   → controls Sea of Marmara approach
+  Themes system → military districts that self-funded defense
+  Triple land walls → 5.6 km; held 1,000 years until 1453
+```
+
+---
 
 ## Self-Understanding and Modern Misconceptions
 

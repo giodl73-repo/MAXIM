@@ -287,27 +287,49 @@ Lumbar puncture: L3-L4 or L4-L5 space (below L1-2 where cord ends → no cord in
 
 ---
 
-<!-- @editor[diagram/P2]: Sensory pathways would benefit from ASCII diagram showing dorsal column vs spinothalamic side-by-side with decussation points marked -->
 ## Major Sensory Pathways
 
 ```
-DORSAL COLUMN–MEDIAL LEMNISCAL PATHWAY:
-  Fine touch, vibration, proprioception, 2-point discrimination
-  1° neuron: DRG → dorsal column (ipsilateral)
-  2° neuron: nucleus gracilis/cuneatus (medulla) → decussate → medial lemniscus → thalamus (VPL)
-  3° neuron: thalamus → somatosensory cortex (S1, postcentral gyrus)
+DORSAL COLUMN vs SPINOTHALAMIC — side-by-side with decussation
 
-SPINOTHALAMIC PATHWAY:
-  Pain, temperature, crude touch
-  1° neuron: DRG → dorsal horn
-  2° neuron: dorsal horn → immediate decussation → anterolateral funiculus → thalamus (VPL)
-  3° neuron: thalamus → S1
+Modality:   Fine touch / vibration /       Pain / temperature /
+            proprioception                 crude touch
 
-VISUAL PATHWAY:
-  Retina → optic nerve → optic chiasm (nasal fibers cross)
-  → optic tract → LGN (thalamus) → optic radiation → V1 (occipital)
-  Meyer's loop: inferior retina fibers loop through temporal lobe
-  (temporal lobe lesion → contralateral superior quadrantanopia "pie in the sky")
+            IPSILATERAL ASCENT             CONTRALATERAL ASCENT
+            (decussates HIGH in medulla)   (decussates LOW at spinal level)
+
+Cortex (S1) ← VPL thalamus             VPL thalamus → Cortex (S1)
+                  ↑                           ↑
+         Medial lemniscus              Anterolateral funiculus
+          (after decussation)           (after decussation)
+                  ↑                           ↑
+    MEDULLA: nucleus gracilis/       SPINAL CORD dorsal horn:
+             cuneatus → decussate    2° neuron decussates
+                  ↑                  immediately at entry level
+         Dorsal columns                     ↑
+         (ipsilateral ascent)         Dorsal horn (1° synapse)
+                  ↑                         ↑
+           DRG (1° neuron)            DRG (1° neuron)
+                  ↑                         ↑
+           Peripheral nerve            Peripheral nerve
+           (touch/vibration/prop)      (pain/temp/crude touch)
+
+KEY CLINICAL LOGIC:
+  Brown-Séquard (hemi-cord lesion at level X):
+    IPSILATERAL below X: ↓ dorsal column (touch/vibration/proprioception)
+                         ↓ motor (corticospinal already decussated above)
+    CONTRALATERAL below X: ↓ pain/temp (spinothalamic decussated at X)
+  → The two deficits are on opposite sides because decussation occurs at
+    different levels for the two pathways
+
+VISUAL PATHWAY (optic chiasm decussation):
+  Nasal retinal fibers (temporal visual field) cross at chiasm
+  Temporal retinal fibers (nasal visual field) stay ipsilateral
+  → Each optic tract contains full contralateral hemifield from both eyes
+  → Damage to optic tract/radiation → homonymous hemianopia
+  → Chiasm damage (pituitary mass): bitemporal hemianopia (nasal fibers cut)
+  Meyer's loop: inferior retina fibers loop through temporal lobe (anterior)
+  → Temporal lobe lesion → contralateral superior quadrantanopia ("pie in sky")
 ```
 
 ---
@@ -329,7 +351,23 @@ VISUAL PATHWAY:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- action potential = digital signal (all-or-nothing), synapse = API call (ionotropic = sync, metabotropic = async), BBB = firewall, cerebellum = error-correction coprocessor, basal ganglia = scheduler -->
+## Engineering Bridges
+
+**Action potential as digital signal on an analog wire**
+The AP is all-or-nothing — a fixed-amplitude, fixed-duration pulse (~100 mV, ~1 ms). The signal is digital in that information is carried in the timing and frequency of spikes, not in spike amplitude. This is pulse-frequency modulation: rate codes map analog quantities (force, light intensity) to firing rates (0–200 Hz). Unlike digital signals in silicon, the AP is not clocked: events are asynchronous, and precise spike timing carries information in some systems (auditory brainstem: submillisecond interaural differences).
+
+**Synapse as API call — ionotropic vs metabotropic**
+Ionotropic receptors (AMPA, NMDA, GABA-A, nAChR) are ligand-gated channels: binding directly opens an ion channel, current flows in ~1 ms. This is a synchronous RPC — the effector response is immediate, tightly coupled, and fast. Metabotropic receptors (mGluR, GABA-B, muscarinic, adrenergic) activate G-proteins → second messengers → downstream kinases. This is an asynchronous message queue: decoupled, slower (100 ms–seconds), amplified (one ligand → many second messenger molecules), and capable of long-lasting effects (gene expression via CREB). Choosing between them is choosing between tight coupling and scalability.
+
+**Blood-brain barrier as defense in depth**
+The BBB is a layered security perimeter: endothelial tight junctions (no paracellular leakage), astrocytic end-feet (metabolic gatekeeping), pericytes (permeability control), and active efflux pumps (P-glycoprotein, ABCB1). Only small lipophilic molecules cross passively; nutrients use specific carriers (GLUT1 for glucose, LAT for amino acids). P-glycoprotein is the MDR pump: it actively extrudes anything that diffuses in, which is why many drugs with good in vitro activity fail in CNS infections or CNS cancers. Circumventricular organs are intentional "holes" in the wall — areas where the brain needs to sample blood directly (area postrema, subfornical organ).
+
+**Cerebellum as error-correction coprocessor**
+The cerebellum implements a forward model: given a motor command, predict the sensory consequences, compare to actual, and generate a correction signal before the error reaches consciousness. This is predictive error-coding, equivalent to a Kalman filter running in parallel with the main motor system. Purkinje cells receive the error signal via climbing fibers (inferior olive) and adjust their output through LTD — analogous to gradient descent on motor performance. Cerebellar damage causes timing errors and dysmetria (overshooting), not weakness — the main motor path is intact but untuned.
+
+**Basal ganglia as action selection scheduler**
+The direct pathway (Go: cortex → striatum D1 → inhibit GPi → disinhibit thalamus → cortex) releases a selected action. The indirect pathway (NoGo: cortex → striatum D2 → less inhibit GPe → STN → activate GPi → inhibit thalamus) suppresses competing actions. The net architecture is a winner-take-all selector: one action is gated through while others are suppressed — exactly the function of a scheduler that must choose one runnable process from a ready queue. Dopamine from the SNc modulates both pathways: DA release biases toward action (D1 enhanced, D2 suppressed). Parkinson's = insufficient DA = scheduler stuck in suppression mode.
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

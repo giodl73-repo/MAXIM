@@ -191,7 +191,46 @@ BUDYKO FRAMEWORK:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world → new-world bridge section — this overview would benefit from a brief "CS/engineering concepts that map directly to hydrology" bridge (e.g., conservation laws → water balance, graph theory → drainage networks, diffusion equation → groundwater flow, signal processing → unit hydrograph) -->
+## CS and Engineering Bridges
+
+The hydrological cycle maps cleanly to CS and engineering abstractions:
+
+```
+HYDROLOGY CONCEPT             CS / ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Water balance (P = ET+Q+ΔS)   Conservation law / bookkeeping invariant
+                               Same structure as charge balance in a circuit,
+                               mass balance in a reactor, or packet counts in
+                               a router (in = out + Δstored)
+
+Drainage network              Directed acyclic graph (DAG)
+  Watershed                     → connected component rooted at outlet
+  Tributary confluence          → node merge (two edges → one)
+  Strahler stream order         → level in a binary-merging tree
+  Flow accumulation             → topological sort, then upstream cell count
+  Watershed delineation         → BFS/DFS on reversed flow-direction grid
+
+Unit hydrograph (UH)          Linear time-invariant (LTI) system
+  Catchment impulse response    → Q = UH ⊛ P_excess (discrete convolution)
+  Multi-event superposition     → same math as FIR filter applied to signal
+
+Groundwater flow (Darcy)      Diffusion PDE (heat equation)
+  Hydraulic head gradient       → potential gradient (voltage)
+  Darcy flux = -K ∇h            → Ohm's law (J = -σ ∇V)
+  Aquifer transmissivity T      → sheet conductance; well network = resistor mesh
+
+Kriging (rain gauge interp.)  Gaussian process regression
+  Variogram model               → covariance kernel (RBF, Matérn)
+  Kriging estimate              → GP posterior mean (same closed-form solution)
+
+Flood frequency analysis      Extreme value theory (EVT)
+  GEV / GPD distributions       → tail distributions for max-stable processes
+  Return period T               → 1/P(exceedance) per year; not "one per T years"
+
+Water balance model           Discrete-time state-space model
+  ΔS = f(P, ET, Q, ...)         → state transition equation; Kalman filtering
+                                   used directly for data assimilation
+```
 
 ## Cross-Library Connections
 

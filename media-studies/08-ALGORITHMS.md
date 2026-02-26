@@ -54,7 +54,11 @@ Algorithmic media is media whose curation, recommendation, and distribution is g
      +---------+------+------+------+------+
 
      User A's ? is predicted from User B's similar taste.
-<!-- @editor[audience/P3]: This learner has MIT math + CS — collaborative filtering is matrix factorization (SVD) which they know cold; content-based filtering is feature vector similarity (cosine distance); a one-line technical note connecting to the formal methods would be appropriate -->
+     Formally: matrix factorization — decompose the sparse
+     user-item matrix M ≈ UV^T via SVD or ALS, where U is
+     user latent factors and V is item latent factors.
+     Prediction for missing entry = row_u · col_i dot product.
+     Cold start problem (no history) is the sparsity problem.
 
   2. CONTENT-BASED FILTERING
      "You liked X (features); here is Y (similar features)"
@@ -400,6 +404,69 @@ The algorithm does not "want" to spread outrage. It maximizes engagement metrics
 **Chronological Feeds Are Not Neutral**
 A common regulatory proposal: let users see content in reverse-chronological order without algorithmic curation. This is better but not neutral -- the social graph (who you follow) is itself shaped by prior algorithmic recommendations, self-selection, and platform features. There is no "view from nowhere" in any feed.
 
-<!-- @editor[bridge/P2]: No explicit old-world bridge section — algorithmic curation is a recommender system engineering problem the learner understands as ML infrastructure; the "black box" debate maps to ML interpretability/XAI research; filter bubbles are a special case of training data feedback loops (model collapse); connecting to the learner's technical vocabulary would strengthen the entire guide -->
+## Engineering Bridge: Recommendation Systems as ML Infrastructure
+
+```
+MEDIA STUDIES CONCEPT         ML / SYSTEMS ENGINEERING PARALLEL
+=====================         ==================================
+
+Collaborative filtering        Matrix factorization (SVD / ALS):
+                               Sparse user-item matrix → decomposed
+                               into user-latent and item-latent factor
+                               matrices. Dot product predicts missing
+                               entries. PyTorch / TensorFlow implement
+                               this as an embedding lookup + dot product.
+
+Content-based filtering        Feature-vector similarity:
+                               Items represented as feature vectors
+                               (genre, topic, style embeddings).
+                               Cosine similarity or L2 distance
+                               ranks items near user's preference centroid.
+                               Spotify's audio embedding space encodes
+                               tempo, key, energy, valence as dimensions.
+
+Engagement optimization        Reinforcement learning from human feedback
+(maximize watch time, clicks)  (RLHF): reward = engagement signal
+                               (watch time, completion, like). Policy
+                               gradient methods update the recommendation
+                               policy to maximize expected reward.
+                               Same objective function as ChatGPT training,
+                               different domain. YouTube uses RL to
+                               optimize multi-step session reward, not
+                               just single-video engagement.
+
+Filter bubble (feedback loop)  Training data distribution shift / model
+                               collapse: model trained on user's prior
+                               engagement → recommends similar content →
+                               user engages → training data now more
+                               concentrated → model more confident in
+                               narrow distribution → tighter feedback loop.
+                               This is the same dynamics as LLM fine-tuning
+                               on generated outputs causing model collapse
+                               (Shumailov et al., 2023). The filter bubble
+                               is model collapse applied to taste.
+
+Black box / opaque algorithm   ML interpretability / XAI problem:
+                               Neural collaborative filtering and
+                               transformer-based recommenders are
+                               not interpretable by construction.
+                               SHAP values, LIME, attention visualization
+                               provide post-hoc approximations but not
+                               causal explanations. EU DSA's algorithmic
+                               transparency requirement hits the same wall
+                               as XAI in regulated industries (healthcare,
+                               credit scoring): the "explanation" is
+                               approximate and may not reflect actual
+                               model internals.
+
+Sock puppet auditing           Adversarial probing / red-teaming:
+(create fake accounts to       Create synthetic users with controlled
+test recommendations)          behavioral histories, test model outputs.
+                               Same methodology as red-teaming LLMs
+                               with adversarial prompts. Same limitation:
+                               the controlled probe does not replicate
+                               the full context of real users.
+```
+
 **Researchers Cannot Replicate Platform Experience**
 Sock puppet studies (creating fake accounts to test recommendations) are methodologically limited. Real users have years of behavioral history, social graph data, device fingerprints, and location data that the platform uses. A fresh account will have a different experience. This makes external audit of algorithmic effects genuinely difficult.

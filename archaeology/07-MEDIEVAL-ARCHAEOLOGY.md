@@ -114,7 +114,7 @@ CHURCH ARCHAEOLOGY:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — Hanseatic League trade networks and medieval supply chains (salt, wool, herring, grain) parallel modern supply chain management concepts this learner understands; dendro-dated timbers as audit trail is a natural bridge to versioned infrastructure -->
+**Supply chain and versioned infrastructure bridges**: The Hanseatic League (13th–17th c.) is a medieval supply chain network that solves the same problems as modern logistics: standardization (Lübeck barrel sizes for herring; Hamburg barrel sizes for beer), trust without central authority (merchant reputation systems enforced by exclusion from the network), multi-hub redundancy (Bergen, Bruges, London, Novgorod as the four Kontore), and network effects (monopoly pricing leverage through collective negotiation with rulers). The League's collapse follows the same pattern as platform lock-in failure: when alternative routes opened (Dutch bypassed the League; English merchants organized their own networks), the switching cost dropped below zero and the network disaggregated rapidly. Dendrochronology as a dating method has a direct engineering parallel: a dendro-dated timber is an immutable artifact with a tamper-evident timestamp (tree-ring sequences cannot be forged without growing the tree). Buildings containing dendro-dated timbers have an audit trail with single-year precision — closer to commit-stamped version control than to any document-based dating method. The "building biography" (combining dendro + documentary sources + architectural fabric analysis) is the medieval equivalent of reconstructing a service's deployment history from git log + monitoring data + infrastructure-as-code.
 
 ## Trade and Exchange
 
@@ -256,16 +256,15 @@ STANDING BUILDING RECORDING:
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" rows (e.g., "Use dendrochronology when: timber survives in medieval structure; Use pottery sequence when: dating occupation layers") -->
-
-| Question | Answer |
-|----------|--------|
-| What are deserted medieval villages? | Abandoned villages; UK has 3,000+; identified from aerial photos; excavated for social history |
-| Best dating method for medieval timber structures? | Dendrochronology — single-year precision; widely applicable |
-| Why is medieval pottery important? | Dating currency; trade indicator; production centers identifiable by clay and glaze analysis |
-| What did the Black Death leave archaeologically? | Mass burial grounds; verifiable by aDNA (Yersinia pestis); landscape change traceable |
-| How does zooarchaeology reveal medieval economy? | Species ratios, kill ages, butchery patterns → subsistence strategy, trade, specialization |
-| How does medieval archaeology relate to texts? | Complementary; documents record elite/admin; archaeology records everyone + actual practice |
+| Use this when... | Method / concept | Notes |
+|-----------------|-----------------|-------|
+| A medieval timber structure survives (roof truss, floor beam, wattle) | Dendrochronology | Single-year precision; master sequences for NW Europe, Scandinavia, N. America; requires ~50+ rings for reliable match |
+| Dating occupation layers in a medieval building | Pottery sequence analysis | Ceramic production centers, glaze types, and form sequences provide TPQ dates; pottery is the "commit timestamp" of medieval stratigraphy |
+| Identifying the pathogen in a mass burial | aDNA from dental pulp (Yersinia pestis for Black Death) | Dental pulp survives well; pathogen DNA distinguishable from host; confirmed Black Death cause at East Smithfield (London) cemetery |
+| Reconstructing medieval trade networks beyond documentary evidence | Distribution maps of imported pottery + coins + stable isotopes | Saintonge ware from SW France in English sites; North German stoneware across North Sea routes — maps Hanseatic trading geography |
+| Understanding rural social history without elite documents | Deserted Medieval Village (DMV) excavation | Village layout, house sizes, animal bones → subsistence economy, social stratification without a single written source |
+| Understanding why a village was abandoned | Multi-proxy analysis (pollen + zooarchaeology + documentary search) | Black Death, enclosure for sheep farming, and flooding are all archaeologically distinguishable by different assemblage signatures |
+| Investigating a standing building's construction history | Buildings archaeology: dendro + architectural fabric analysis + documentary research | The building itself is the primary source; fabric phasing reads like version control |
 
 ---
 

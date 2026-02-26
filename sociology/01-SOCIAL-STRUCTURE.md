@@ -354,7 +354,18 @@ BURT: STRUCTURAL HOLES
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — learner's organizational leadership experience maps directly to role conflict, institutional isomorphism, and Goffman's front-stage/back-stage (executives live this daily); a "management → social structure" bridge would connect immediately -->
+## From Engineering Organizations to Social Structure
+
+The concepts in this module are not abstract — they describe the operating dynamics of any large engineering organization. Three direct mappings:
+
+**Goffman's front-stage/back-stage is the architecture of professional performance.** An engineering VP presenting to the board versus running a staff meeting versus talking to a junior engineer in a hallway — these are different performances with different audiences, costumes (language register, technical depth), and stage sets. Impression management is not cynicism; it is the normal medium of organizational life. The dramaturgical insight is that all three performances are partially constructed, which is why the "authentic leader" literature is philosophically incoherent: there is no backstage self that precedes all staging.
+
+**Role conflict is the structural condition of middle management.** A director simultaneously reporting to a VP and managing engineers faces role strain by design: the VP role requires enforcing resource constraints; the manager role requires advocating for the team. This is not a personal failure — it is the structural consequence of occupying a status at a hierarchical boundary. Merton's "insulation" strategy (keeping role obligations ambiguous) is exactly what middle managers do when they say "I'll take it up the chain."
+
+**Bourdieu's field theory explains why technical credibility and organizational power diverge.** In a large engineering organization, the economic field (budget authority) and the technical field (engineering credibility) are relatively autonomous. A principal engineer may have high technical capital but limited organizational capital; a product manager may have high organizational capital but limited technical capital. Conversions between these are costly and friction-laden — which is why "getting engineers promoted into management" and "getting managers to earn engineering respect" are both hard problems, not just cultural ones.
+
+**Granovetter's weak ties explain why external hiring beats internal promotion for certain roles.** Strong internal networks are information-redundant — everyone connected to a candidate already knows the same things about them. External candidates bring weak-tie information from different organizational contexts, which is more novel. The implication: if you want genuinely new capability in an organization, referral networks (strong ties) systematically underproduce it.
+
 ## Decision Cheat Sheet
 
 | Phenomenon | Relevant concept |

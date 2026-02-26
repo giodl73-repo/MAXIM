@@ -22,7 +22,18 @@
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to formal language theory missing — learner knows automata/formal grammars from MIT; a note connecting fusional morphology to the concept of "paradigm as finite-state table" would resonate -->
+## Formal Language Theory Bridge
+
+Spanish is a **fusional** language (see 02-MORPHOLOGY.md typology section). The formal structure connects directly to finite-state models:
+
+**Paradigm as a finite-state table.** A Spanish verb paradigm is a 6-state FST: input = (stem, tense, person/number), output = inflected surface form. The "irregulars" are lexically specified exceptions — like hand-coded special cases in an otherwise regular FST. Strong verbs in German or English have the same structure.
+
+**Pro-drop as a null subject parameter.** Spanish is a [+null subject] language in the Principles & Parameters framework: the UG parameter that allows the subject to be phonologically empty (the agreement morphology on the verb recovers the subject). English is [-null subject]: subject required even when semantically recoverable ("It rains" — what is "it"?). The parameter is binary; Spanish sets it one way, English another.
+
+**Aspect as a two-state machine.** Preterite vs. imperfect is an aspectual distinction (see Russian 06 for the explicit IMP/PERF two-value system). Think of it as a one-bit flag: preterite = [+bounded] (event framed as a complete unit), imperfect = [-bounded] (process/state with no explicit endpoint). The flag is set by the choice of tense form, not by the temporal distance from now.
+
+---
+
 ## The Big Picture: Grammar System
 
 ```

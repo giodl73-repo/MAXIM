@@ -170,8 +170,9 @@ VERMEER'S "WOMAN IN BLUE READING A LETTER" (~1663–64):
 
 RAPHAEL'S "MADONNA OF THE GOLDFINCH" (c. 1505–06):
   Lead white + H₂S from Florentine urban atmosphere → PbS darkening
-<!-- @editor[content/P1]: Claim may be incorrect — verify: "~1500–2008 earthquake damage" — the painting was damaged in the 1547 flood/collapse (not an earthquake), restored multiple times, with major modern restoration completed ~2008; the date range and "earthquake" framing are misleading -->
-  Major restoration (~1500–2008 earthquake damage + subsequent cleaning)
+  Major restoration history: damaged in 1547 when a flood and partial wall collapse
+  struck the Uffizi; survived; subsequent cleanings and interventions over centuries;
+  most recent major restoration ~2008 using H₂O₂ vapor treatment
   H₂O₂ vapor treatment → PbS → PbSO₄ (white)
   Brightening documented and remarkable
 

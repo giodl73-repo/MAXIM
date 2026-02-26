@@ -226,7 +226,59 @@ FRAMING IMPLICATIONS:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from figures of speech to code/technical writing — the learner writes design docs and executive memos; a brief subsection or callout on figures that work in technical prose (antithesis for tradeoff framing, litotes for hedged claims, hypophora for FAQ-style sections) would connect this to professional practice -->
+## Figures in Technical and Professional Prose
+
+Classical figures are not ornamental in technical prose — several map directly onto professional writing patterns that engineers and executives use without naming them.
+
+```
+FIGURES THAT WORK IN TECHNICAL WRITING
+
+ANTITHESIS (juxtaposition of contrasting ideas in parallel structure):
+  Technical use: tradeoff framing in design docs and exec memos.
+  "Fast or correct — this architecture chooses correct."
+  "We could optimize for throughput or for tail latency.
+   This proposal optimizes for tail latency."
+  The parallel structure makes the tradeoff explicit and the
+  decision legible. Most design docs that bury tradeoffs in prose
+  would be clearer as antithesis.
+
+LITOTES (understatement via negation of the contrary):
+  Technical use: hedged claims in technical communication.
+  "This approach is not without risk." = (the risk exists but is bounded)
+  "The performance improvement is not negligible." = (substantial gain)
+  In engineering communication, litotes signals appropriate epistemic
+  humility while still asserting a positive claim. It is the register
+  of "we've done the analysis but acknowledge uncertainty."
+  Overuse → weaseling. Calibrated use → credibility.
+
+HYPOPHORA (raising a question then immediately answering it):
+  Technical use: FAQ-style sections; preemptive objection handling.
+  "Why not use gRPC instead of REST?
+   gRPC requires binary compatibility between client and server.
+   For public APIs, REST's negotiability is more important."
+  The hypophora format puts the objection explicitly on the page
+  rather than hoping the reader won't think of it.
+  Standard in RFC-style documents for good reason.
+
+ANAPHORA (repetition of a word/phrase at the start of successive clauses):
+  Technical use: enumerated architectural principles, strategic pillars.
+  "Simplicity first. Simplicity in the API contract.
+   Simplicity in the deployment model. Simplicity in the error messages."
+  Creates emphasis through repetition. Works in executive presentations
+  and strategy memos where the repeated term is the organizing principle.
+
+ASYNDETON (omission of conjunctions for compactness and speed):
+  Technical use: high-density summaries, bullet points, log messages.
+  "Read the spec. Write the test. Fix the code. Ship."
+  Engineering culture favors asyndeton: shorter, faster, imperative.
+  The pace mirrors the operational rhythm.
+
+RHETORICAL QUESTION (hypophora without an immediate answer):
+  Technical use: structuring an argument doc around a question.
+  "What should our consistency model be?"
+  If used as a section header, it invites the reader into the analysis.
+  If used at the start of a document, it frames the entire argument.
+```
 
 ## Common Confusions Among Figures
 

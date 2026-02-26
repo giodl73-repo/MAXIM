@@ -263,8 +263,39 @@ INTERNAL MIGRATION IN CHINA:
   Reform path: gradual relaxation; still significant constraint
   Economic effect: massive labor reallocation from low-productivity agriculture
     to higher-productivity manufacturing → major driver of Chinese growth
+
+INTERNAL MIGRATION IN INDIA:
+  ~450M internal migrants by some estimates — the largest absolute internal
+  migration flow in the world; larger than China's despite smaller total population
+  because registration barriers (hukou equivalent) are weaker.
+  Major patterns:
+  - Inter-state: UP and Bihar → Delhi, Mumbai, Gujarat (labor migration)
+  - Rural-to-urban: primary driver of India's urbanization from 28% (2001) → 36% (2021)
+  - Seasonal/circular: agricultural migrants return to villages at harvest;
+    construction migrants follow project cycles
+  COVID-19 reverse migration shock (2020): an estimated 10-40M circular migrants
+  returned to home states when lockdowns eliminated urban livelihoods overnight.
+  Visible in state-level consumption data and later election outcomes.
+  Unlike China's hukou, India has no formal registration barrier to inter-state
+  migration, but informal barriers (language, caste networks, housing access)
+  create similar friction.
+
+US INTERNAL MIGRATION — SUNBELT/RUSTBELT REALLOCATION:
+  The dominant post-WWII pattern: Rustbelt (Midwest + Northeast manufacturing)
+  → Sunbelt (South + West) driven by deindustrialization + amenities + cost of living.
+  Detroit: peak population 1.8M (1950) → 640K (2020) — population loss from
+  manufacturing decline, suburbanization, and white flight; later reinforcing cycle.
+  Net domestic migration flows (2015-2023, approx.):
+  - Losing states: California, New York, Illinois, Massachusetts
+  - Gaining states: Florida, Texas, Arizona, North Carolina, Tennessee
+  Causes of recent acceleration: remote work decoupling jobs from location
+  (tech workers in San Francisco → Austin/Miami), housing cost differential,
+  and state tax climate. Harris-Todaro framework applies: migration responds to
+  expected real wages (income − cost of living), not nominal wages.
+  REGIONAL CONVERGENCE: migration arbitrages wage differentials but also
+  drives up housing costs in receiving regions and erodes the cost-of-living
+  advantage that attracted migrants in the first place — a cumulative causation loop.
 ```
-<!-- @editor[content/P2]: Internal migration section covers only Harris-Todaro + China — India's internal migration (~450M, largest absolute flow) and US Sunbelt/Rustbelt patterns are significant gaps for this topic -->
 
 ## Climate Migration
 

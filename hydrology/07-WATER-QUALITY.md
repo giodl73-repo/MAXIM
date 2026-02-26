@@ -326,7 +326,55 @@ PHARMACEUTICALS AND PERSONAL CARE PRODUCTS (PPCPs):
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge section — Streeter-Phelps DO sag is a first-order linear ODE system (same structure as RC discharge/charge); advection-dispersion equation is the convection-diffusion PDE the learner knows from heat transfer; CT concept is a dose-response integral identical to impulse-energy arguments in signal processing -->
+## Bridges from CS and Engineering
+
+```
+WATER QUALITY CONCEPT         CS / ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Streeter-Phelps DO sag        First-order linear ODE system (RC circuit)
+  dD/dt = K_d·L - K_a·D       → two coupled first-order ODEs
+  BOD decay: dL/dt = -K_d·L   → exponential decay; K_d = 1/τ (time constant)
+  DO deficit D(t)              → analogous to capacitor voltage during
+                                  charge/discharge with two competing rates
+  DO minimum (critical point)  → undershoot; K_a >> K_d → fast re-aeration;
+                                  K_a << K_d → deep sag (oxygen debt)
+
+Advection-dispersion equation Convection-diffusion PDE
+  ∂C/∂t + v·∂C/∂x = D·∂²C/∂x² → same PDE as heat transfer / Fick's diffusion
+  v = advective velocity       → bulk transport (convection term)
+  D = dispersion coefficient   → spreading from turbulence + molecular diffusion
+  Analytical solution          → Gaussian plume centered at x = v·t, spreading
+                                  as √(2Dt) (same as Brownian motion)
+  Peclet number Pe = v·L/D     → advection-dominated (Pe >> 1) vs. diffusion-
+                                  dominated (Pe << 1); same as in heat transfer
+
+CT concept (disinfection)     Dose = integral of exposure signal
+  CT = C × t                  → energy under curve: ∫ C(t) dt
+  Chick-Watson law             → log-inactivation = k × CT (linear in dose)
+  CT table for pathogens       → lookup table of required dose for given kill level
+  Parallel to: radiation dose  → absorbed dose = intensity × time (Gray)
+
+TMDL (Total Maximum Daily Load) Resource budget / capacity planning
+  Load = point sources + NPS  → total allocated capacity across all consumers
+  TMDL = LA + WLA + MOS        → apportionment among sources + safety margin
+  Assimilative capacity        → system headroom; exceeding it triggers failure
+  Load allocation to users     → like bandwidth allocation in a shared medium
+
+Coagulation-flocculation      Aggregation algorithm
+  Charge neutralization        → reduce electrostatic repulsion between colloids
+  Particle collision rate ∝ N² → quadratic in concentration (all-to-all)
+  Orthokinetic flocculation    → shear-induced collisions (rate ∝ velocity gradient)
+  Settling rate ∝ d²           → Stokes' law; larger particles settle faster
+                                  (same as sorting by mass in a gravitational field)
+
+Activated sludge bioreactor   Continuous-flow CSTR with feedback recycle
+  Aerobic reactor + clarifier  → reactor stage + separator stage
+  Sludge recycle              → feedback loop maintaining microbial population
+  SRT (sludge retention time) → mean residence time of biomass (≠ HRT)
+  MLSS (mixed liquor suspended → working concentration of catalyst
+    solids)
+  F/M ratio (food/mass)        → substrate loading rate; controls kinetics
+```
 
 ## Decision Cheat Sheet
 

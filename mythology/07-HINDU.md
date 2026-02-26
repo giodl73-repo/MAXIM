@@ -402,24 +402,73 @@ One of the most distinctive Hindu cosmological contributions — time as cyclica
 
 ## The Devi: Goddess Traditions
 
-<!-- @editor[content/P2]: Devi/Shakti section is thin relative to the multi-section treatment of Vishnu (Dashavatara, Mahabharata, Ramayana) and Shiva. Shaktism is one of the three major devotional traditions — the Devi Mahatmya narrative (Durga slaying Mahishasura), the Dasha Mahavidyas' individual significance, and the philosophical concept of Shakti as the active principle deserve comparable depth -->
 ```
 SHAKTI — THE DIVINE FEMININE
 
 Shakti is not simply "the goddess" — she is the active creative power
 without which even Shiva is an inert corpse ("Shava" = corpse without Shakti).
+Shaktism is one of the three major Hindu devotional traditions alongside
+Vaishnavism and Shaivism. In Shakta theology, the Goddess (Devi) is the
+supreme reality: Brahman with attributes. All other deities, including
+Shiva and Vishnu, are subordinate manifestations of her.
+
+THE DEVI MAHATMYA (Markandeya Purana, ~400–600 CE):
+  The foundational Shakta scripture — 700 verses in three "episodes"
+  (charitas). It is the first text in which the Great Goddess is
+  explicitly presented as the supreme cosmic principle.
+
+  EPISODE 1 (Madhu-Kaitabha): The demons Madhu and Kaitabha threaten
+    creation while Vishnu sleeps on the cosmic ocean.
+    → Brahma calls on Mahamaya (the Great Illusion), who is Vishnu's
+      sleep itself. She withdraws; Vishnu wakes; destroys them.
+    → The lesson: even divine action requires the Goddess's permission.
+
+  EPISODE 2 (Mahishasura-Mardini): Mahishasura (buffalo-demon) has
+    conquered the three worlds. No male god can defeat him — he has
+    a boon granting immunity from any male killer.
+    → The male gods combine their energies (tejas) to create Durga.
+    → Each god gives her a weapon: Shiva's trident, Vishnu's discus,
+      Varuna's conch, Agni's spear, Indra's thunderbolt.
+    → She rides a lion. The battle spans three episodes of the text.
+    → She kills Mahishasura — the male cosmos restored through female power.
+    → Navratri ("nine nights") festival re-enacts this battle annually.
+
+  EPISODE 3 (Shumbha-Nishumbha): Two more demon-brothers demand the
+    Goddess as their consort. She refuses. Their generals Chanda and
+    Munda attack; she kills them (becoming Chamunda). The demon
+    Raktabija has a boon: every drop of his blood creates a new copy
+    of himself. Durga summons Kali, who devours the blood-drops before
+    they touch the ground, preventing replication.
+    → Structural insight: Kali solves a problem that is formally
+      analogous to an infinite-copy vulnerability — each "patch"
+      creates a new instance; you must intercept the replication
+      mechanism itself.
 
 PARVATI (Uma) — benign consort of Shiva; love, devotion, fertility
   → Fierce forms when invoked against evil:
-  DURGA — Warrior goddess; rides a lion/tiger; buffalo-demon Mahishasura
-           could not be killed by any male god (boon from Brahma)
-           → Only a female power can destroy him
-           Ten arms; each holding a weapon given by the male gods
+  DURGA — Warrior goddess; rides a lion/tiger; weapons from the gods
            Battle lasts nine days → Navaratri festival
   KALI — Durga's ultimate fury; black skin, tongue out, garland of skulls
-          Stands on Shiva's chest; her bloodlust can only be stopped
-          when she accidentally steps on her husband
+          Stands on Shiva's chest; her bloodlust stopped when she
+          accidentally steps on her husband (shame/recognition)
           Worshipped especially in Bengal; Tantric traditions
+          The "terrifying" face of the same compassion as Parvati
+
+PHILOSOPHICAL CONCEPT — SHAKTI AS ACTIVE PRINCIPLE:
+  In Shaiva-Shakta non-dual philosophy (Kashmir Shaivism):
+  Shiva = pure consciousness (chit), static, the witness
+  Shakti = the dynamic power that makes consciousness manifest
+           as will (iccha), knowledge (jnana), and action (kriya)
+  Neither can exist without the other:
+    Shiva without Shakti = Shava (corpse, inert)
+    Shakti without Shiva = blind energy with no awareness
+  The universe is their eternal dance (lila); liberation = recognizing
+  that your own awareness IS Shiva-Shakti unified.
+
+  Compare to information-theoretic terms:
+  Shiva ≈ the channel / logical structure
+  Shakti ≈ the signal / dynamic information flow
+  Neither channel nor signal is meaningful without the other.
 
 LAKSHMI — Vishnu's consort; wealth, fortune, beauty, good luck
   — Emerged from the Samudra Manthan (ocean churning)
@@ -437,9 +486,34 @@ THE TRIDEVI:
   = female counterpart to the Trimurti
 
 DASHA MAHAVIDYAS (Ten Great Wisdom Goddesses — Tantric tradition):
-  Kali, Tara, Tripura Sundari, Bhuvaneshvari, Bhairavi, Chhinnamasta,
-  Dhumavati, Bagalamukhi, Matangi, Kamala
-  — Each represents a different aspect of cosmic feminine power
+  A systematic taxonomy of the Goddess's ten aspects, each with
+  distinct iconography, associated mantras, and philosophical meaning:
+
+  1. KALI — time, dissolution, liberation beyond form
+  2. TARA — fierce compassion; guides across the ocean of existence
+             (closely related to Tibetan Buddhist Green Tara)
+  3. TRIPURA SUNDARI (Lalita, Shodashi) — beauty, erotic mysticism,
+             the totality of the universe as aesthetic experience
+  4. BHUVANESHVARI — space itself; "she whose body is the world"
+  5. BHAIRAVI — the fierce (bhairava) energy of destruction and
+             transformation; associated with Shiva's fiercer aspect
+  6. CHHINNAMASTA — "the self-decapitated goddess"; holds her own
+             severed head; blood jets from neck feed two attendants
+             and the head itself; represents ego-dissolution, the
+             sacrifice of the individual self to sustain others
+  7. DHUMAVATI — the widow; associated with deprivation, smoke,
+             ill-omens; the goddess beyond conventional auspiciousness;
+             models a kind of radical acceptance of what is rejected
+  8. BAGALAMUKHI — paralysis, the power to stop enemies mid-speech;
+             the goddess of strategic silence and power over speech
+  9. MATANGI — the "outcaste goddess"; associated with speech,
+             music, and transgression; she accepts polluted offerings
+  10. KAMALA — auspiciousness, abundance; a Tantric form of Lakshmi
+
+  The Dasha Mahavidyas as a set represent a complete map of
+  transformative spiritual states — including the terrifying, the
+  transgressive, and the inauspicious — as valid paths. No aspect
+  of reality is excluded from the sacred.
 ```
 
 ---

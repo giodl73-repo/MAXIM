@@ -30,7 +30,7 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — isostasy is Archimedes' principle applied to geophysics (same floating-body equilibrium from first-year statics); GIA relaxation is a viscoelastic creep response identical to polymer creep or dashpot models in materials science; return-period statistics are the same extreme value theory used in structural reliability engineering -->
+Isostasy is Archimedes' principle applied to the crust: the lithosphere floats on the viscous asthenosphere at a depth proportional to its density, exactly as a ship floats at a waterline proportional to its loaded mass. GIA (Glacial Isostatic Adjustment) relaxation is a viscoelastic creep response: apply the load (ice sheet), the elastic lithosphere deflects instantly, then the viscous asthenosphere creeps slowly to equilibrium over thousands of years — mathematically a dashpot-spring (Kelvin-Voigt) model where the relaxation timescale τ = viscosity/elastic modulus of the mantle. Return-period (100-year flood, 500-year storm surge) is Extreme Value Theory (Gumbel, GEV distributions) — the same framework used in structural reliability engineering to size foundations, dams, and flood walls for a specified annual exceedance probability. With sea level rise the parent distribution is non-stationary — the return period of a fixed water level decreases as the mean shifts, requiring recalibration of all infrastructure design standards.
 
 ## Isostasy — Crustal Adjustments
 
@@ -300,4 +300,51 @@ PROXIES FOR PAST SEA LEVEL:
 
 **Return periods are not memoryless in non-stationary climate**: A "100-year event" is defined relative to a stationary historical distribution. As sea level rises, that distribution shifts — the return period of the same flood level decreases. An event that was 100-year in 1990 may be a 10-year event by 2050 with 30 cm SLR. Engineering designed for 1% AEP becomes inadequate without recalibration.
 
-<!-- @editor[content/P3]: Coastal adaptation strategies absent — the Decision Cheat Sheet ends at physical processes; a brief treatment of protect-accommodate-retreat frameworks and managed realignment would connect the science to engineering practice -->
+## Coastal Adaptation Frameworks
+
+Coastal adaptation to sea level rise falls into three fundamental strategies — protect, accommodate, retreat — with different cost structures, timescales, and irreversibility.
+
+```
+THE PAR FRAMEWORK:
+
+  PROTECT:
+    Hard: seawalls, surge barriers, levees, tidal gates
+      Pros: effective in short term, politically tractable
+      Cons: high capex, ongoing opex, terminal failure mode (overtopping = catastrophic),
+            eliminates beach in front of seawall (no sediment bypass)
+      Scale: Netherlands Delta Works ($5B+), Thames Barrier (~£500M 1970s),
+             New Orleans levees (~$14B post-Katrina), proposed NYC surge barrier
+
+    Soft: beach nourishment, dune restoration, living shorelines, reef restoration
+      Pros: self-repairing (some), compatible with natural processes
+      Cons: temporary (~5 yr for beach nourishment), expensive ongoing, limited scale
+
+  ACCOMMODATE:
+    Elevate buildings on pilings (raised floor above flood level)
+    Flood-proof critical infrastructure (waterproof below 2 m, raise electrical)
+    Adaptive management: flood-compatible land use (parks, wetlands, parking in floodplains)
+    Insurance mechanisms: NFIP (National Flood Insurance Program) — currently cross-subsidizing
+      high-risk coastal development
+
+  RETREAT:
+    Managed retreat / realignment: allow coastline to migrate landward
+    Property buyout programs: FEMA Hazard Mitigation Grant Program (~$5B/yr US)
+    Planned relocation: Isle de Jean Charles (Louisiana, $48M federal grant, 2016)
+    Land use rezoning: remove density from high-risk zones over time
+
+COST TRADEOFFS:
+  Protect: high upfront (seawall $1–50M/km), low marginal cost if maintained,
+           catastrophic if exceeded
+  Accommodate: low upfront, distributed costs, keeps options open
+  Retreat: cheap long-term, politically very difficult (property rights, community ties)
+
+OPTIMAL STRATEGY depends on:
+  Asset value at risk (dense urban > rural)
+  SLR trajectory (1 m vs. 2 m by 2100 changes the math completely)
+  Lead time for relocation (can't move hospitals overnight)
+  Cultural ties to place (Isle de Jean Charles: tribal community, last members leave)
+
+Netherlands model: "living with water" — plan explicitly for managed flooding
+  in lower-value areas; protect high-value urban core
+  Floating houses, water squares (plazas that flood intentionally), Room for the River program
+```

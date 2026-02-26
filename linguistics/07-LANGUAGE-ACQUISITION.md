@@ -182,8 +182,42 @@ CLASSIC POS EXAMPLE: Aux-Inversion in Questions
 
 The nativist account is not uncontested. Usage-based linguistics argues statistical learning + social cognition is sufficient.
 
-<!-- @editor[bridge/P2]: No machine-learning → acquisition bridge — any ML engineer would immediately see Saffran's transition probabilities as unsupervised n-gram learning; the nativist/empiricist debate maps to inductive-bias vs. data-driven architecture choices -->
 ### Saffran et al. (1996) — Statistical Word Segmentation
+
+**The ML bridge:** Saffran's 8-month-olds are running unsupervised bigram learning over a phoneme stream. Transitional probability P(B|A) = freq(AB)/freq(A) is exactly the bigram co-occurrence ratio used in n-gram language models. The infants are computing maximum-likelihood bigram statistics over 2 minutes of input and using the learned distribution to identify word boundaries.
+
+The broader acquisition debate maps cleanly onto the central ML architecture choice:
+
+```
+NATIVIST                              USAGE-BASED / EMPIRICIST
+(Chomsky, Pinker)                     (Tomasello, Goldberg, Elman)
+
+Strong inductive bias:                Minimal inductive bias:
+  UG provides a highly                  Architecture is domain-general
+  constrained hypothesis space          (associative, statistical)
+  over possible grammars
+
+Few parameters to set:                Many parameters:
+  Acquire grammar by setting            Build grammar from data;
+  a small number of binary              no pre-specified parameter space
+  parameters (Principles &
+  Parameters)
+
+Poverty of the stimulus argument:     Data-driven argument:
+  Input is insufficient to             Input is richer than claimed;
+  determine the grammar                 statistical cues are sufficient
+
+Analogy to ML: hand-designed          Analogy to ML: large neural
+  feature engineering +                  network trained on raw data;
+  constrained model class               no hand-engineered features;
+  (SVM with linguistic kernels)         learns representations end-to-end
+  Sample-efficient but assumes          Data-hungry but makes fewer
+  the right inductive bias              assumptions
+```
+
+**Current state:** The field has moved toward a synthesis position analogous to the "inductive bias is real but it's domain-general, not language-specific" view. Recurrent neural networks and transformers trained on child-directed speech corpora do learn grammatical abstractions without explicit linguistic feature engineering — supporting the empiricist side. But the amount of data required still exceeds what children receive, and specific structural biases (structure-dependence, island constraints) appear early and robustly — supporting nativist priors.
+
+The debate is genuinely unresolved. It maps onto one of the deepest open questions in deep learning: how much of what GPT-4 "knows" is from pretraining inductive biases versus data, and whether there exists a domain-general architecture that achieves human-level sample efficiency.
 
 ```
 EXPERIMENT:

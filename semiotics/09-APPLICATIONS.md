@@ -393,16 +393,16 @@ Programming languages are formal sign systems. Analyzing them semiotically revea
 
 ## Decision Cheat Sheet
 
-| Domain | Semiotic Analysis Tool | Key Concept |
-|--------|----------------------|-------------|
-| Advertising | Barthes's levels | Myth: naturalizing connotation as denotation |
-| Brand | Peirce's triad | Logo = icon + index + symbol |
-| Architecture | Eco's primary/secondary functions | Communicative function persists when use function changes |
-| Postmodern architecture | Jencks's double coding | Speaking to experts (formal) and public (historical) simultaneously |
-| Code | Morris's triad | Syntax = syntactics, meaning = semantics, use = pragmatics |
-| Type system | Curry-Howard | Types as propositions; programs as proofs |
-| API design | Wittgenstein's use theory | API = language game; meaning = role in community practice |
-| Versioning | Speech act theory | SEMVER is declarative: "I hereby declare this breaking" |
+| When analyzing... | Reach for... | Key move |
+|------------------|-------------|---------|
+| An advertisement that makes something feel natural/inevitable | Barthes's myth analysis | What history is being erased? What ideology naturalized as denotation? |
+| A logo, icon, or brand mark | Peirce's icon/index/symbol triad | What relation does the mark have to its object? Resemblance (icon), causation (index), or pure convention (symbol)? |
+| A building that has outlived its original purpose | Eco's primary/secondary functions | Communicative function persists when use function changes — what does it now communicate? |
+| A UI or API naming convention that "everyone understands" | Saussure's arbitrariness + Wittgenstein's use theory | The convention is arbitrary; meaning = role in the community's practice |
+| A code system (type system, schema, formal language) | Morris's syntactics/semantics/pragmatics | Three levels of sign analysis: formation rules / meaning rules / use rules |
+| A versioning scheme or release declaration | Speech act theory | SEMVER is a declaration: "I hereby declare this breaking/compatible" — felicity conditions apply |
+| Why a technical convention feels "obvious" | Barthes's myth + semiosphere naturalization | The convention has been naturalized; its arbitrariness and history have been emptied out |
+| Conflict between two teams using the same terms differently | Semiosphere boundary dynamics | The teams are in different semiospheres; the same sign has different codings; translation is required |
 
 ---
 

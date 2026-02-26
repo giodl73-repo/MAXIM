@@ -129,27 +129,32 @@ PRIMATE CITIES:
 
 ## Megacities and Urban Systems
 
-```
-<!-- @editor[structure/P2]: City size definitions below are a natural comparison table — convert from code block to markdown table -->
-CITY SIZE DEFINITIONS (UN):
-  Small city:    < 500,000
-  Medium city:   500,000 – 1M
-  Large city:    1M – 5M
-  Mega city:     > 5M
-  Very large megacity: > 10M
+### City Size Definitions (UN) and Megacities (2023)
 
-  Megacities (> 10M, 2023):
-  Tokyo-Yokohama: ~37M (world's largest)
-  Jakarta: ~34M
-  Delhi: ~32M
-  Mumbai: ~21M
-  São Paulo: ~22M
-  Seoul: ~25M
-  Mexico City: ~22M
-  Shanghai: ~27M
-  New York: ~20M
-  Beijing: ~22M
-  Total: ~35 megacities globally
+| Size class | Population threshold | Examples |
+|---|---|---|
+| Small city | < 500,000 | |
+| Medium city | 500,000 – 1M | |
+| Large city | 1M – 5M | |
+| Mega city | > 5M | |
+| Very large megacity | > 10M | See below |
+
+**Megacities > 10M (2023, approx.):**
+
+| Urban agglomeration | Population | Region |
+|---|---|---|
+| Tokyo-Yokohama | ~37M | East Asia (world's largest) |
+| Jakarta | ~34M | Southeast Asia |
+| Delhi | ~32M | South Asia |
+| Shanghai | ~27M | East Asia |
+| Seoul | ~25M | East Asia |
+| São Paulo | ~22M | Latin America |
+| Mexico City | ~22M | Latin America |
+| Beijing | ~22M | East Asia |
+| Mumbai | ~21M | South Asia |
+| New York | ~20M | North America |
+
+Total: ~35 megacities globally.
 
 WORLD CITY NETWORK (Sassen, Taylor):
   Global command-and-control functions concentrated in:

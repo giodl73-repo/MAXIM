@@ -29,8 +29,26 @@
 ## Prussian Blue (1704) — The Accident That Changed Everything
 
 ```
-<!-- @editor[structure/P3]: Prussian blue narrative (discovery, Hokusai, pharmaceutical use) largely duplicates 04-BLUE-RARITY.md — consider making this section a brief recap with cross-reference, and using the space for 18th-century adoption patterns unique to this guide's era focus -->
-FULL STORY (see 04-BLUE-RARITY.md for blue context):
+FULL STORY: see 04-BLUE-RARITY.md for full blue-pigment context.
+This section focuses on what was distinctive about 18th-century adoption patterns.
+
+18TH-CENTURY ADOPTION: WHY PRUSSIAN BLUE SPREAD SO FAST
+  Pre-1704: no affordable, lightfast blue existed. Smalt (cobalt glass) was
+  unstable in oil paint (Co²⁺ leaches into binder → color fades). Azurite
+  converts to green malachite in alkaline environments. Ultramarine = more
+  expensive than gold. The market gap was enormous.
+
+  Prussian blue's chemistry solved all three problems simultaneously:
+  → Stable (Fe²⁺-CN-Fe³⁺ lattice robust to oil, lime, alkaline)
+  → Affordable (iron + blood/horn = industrial waste = cheap feedstock)
+  → Intense (intervalence charge transfer → extinction coefficient 10–100×
+    higher than d-d transition minerals = small quantity = vivid color)
+
+  Network effect: once one major pigment supplier (Diesbach, Berlin) had it,
+  trade routes distributed it to Paris, London, Venice within a decade.
+  A 1710 accidental discovery → 1750 global availability.
+  Compare: lapis ultramarine took 3,000 years to spread; synthetic blue
+  took 50 years — reflecting 18th-century trade network density.
 
 IRON(III) HEXACYANOFERRATE(II): Fe₄[Fe(CN)₆]₃
   Mixed-valence iron complex

@@ -1,7 +1,65 @@
 # Kievan Rus to Muscovy — Russia's Medieval Arc
 
 ## The Big Picture
-<!-- @editor[diagram/P2]: Opening diagram is a chronological timeline, not a spatial landscape — add a geographic diagram showing the river route system (Varangian trade routes), Kievan Rus principalities, Golden Horde territory, and Moscow's expansion -->
+
+```
+EASTERN EUROPE — RIVER NETWORKS, TRADE ROUTES, POLITICAL CONTROL
+==================================================================
+
+VARANGIAN RIVER SYSTEM (the geographic skeleton):
+
+  BALTIC SEA
+     |
+  Gulf of Finland → Neva → Lake Ladoga → Volkhov
+                                              |
+                                          NOVGOROD (commercial hub)
+                                              |
+                               ┌─────────────┴──────────────┐
+                               |                            |
+                           Lovat R.                    Volga R. →
+                           (portage)                   Caspian Sea
+                               |                       (Silk Road silver)
+                           Dnieper R.
+                               |
+                            SMOLENSK
+                               |
+                             KYIV (political center)
+                               |
+                           Dnieper rapids
+                               |
+                         Black Sea → Constantinople
+                         (Byzantium: silk, gold, wine)
+
+  THREE AXES:
+  Novgorod–Kyiv–Constantinople  (political + Orthodox Christianity)
+  Novgorod–Volga–Caspian        (Abbasid silver trade; Vikings↔Arabs)
+  Baltic–Dnieper                (amber, furs, slaves → south)
+
+TERRITORIAL CONTROL OVER TIME:
+  ┌────────────────┬──────────────────────────────────┐
+  │ ~880–1054      │ KIEVAN RUS                        │
+  │                │ Loose principalities under Kyiv   │
+  │                │ River trade cities: Novgorod,      │
+  │                │ Smolensk, Chernigov, Pereyaslavl  │
+  ├────────────────┼──────────────────────────────────┤
+  │ 1054–1240      │ FRAGMENTATION                     │
+  │                │ Rota succession → ~12 principalities│
+  │                │ Major centers: Kyiv, Novgorod,    │
+  │                │ Vladimir-Suzdal, Galicia-Volhynia │
+  ├────────────────┼──────────────────────────────────┤
+  │ 1240–1480      │ GOLDEN HORDE OVERLAY              │
+  │                │ Mongol suzerainty over steppe +   │
+  │                │ tribute from Russian principalities│
+  │                │ Sarai (Volga) = Horde capital     │
+  │                │ Moscow: tribute collector for Horde│
+  ├────────────────┼──────────────────────────────────┤
+  │ 1300–1547      │ MOSCOW EXPANSION                  │
+  │                │ Ivan I (Kalita) → Ivan III        │
+  │                │ Absorbs: Tver, Ryazan, Novgorod   │
+  │                │ Ivan III: repudiates Horde (1480) │
+  │                │ Claims Byzantine succession       │
+  └────────────────┴──────────────────────────────────┘
+```
 
 ```
 EASTERN SLAVIC POLITICAL EVOLUTION:

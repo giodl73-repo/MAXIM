@@ -39,7 +39,17 @@ SOURCES OF LAW HIERARCHY (US):
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge from engineering systems thinking (specs, versioning, precedent in RFCs) to legal reasoning (statutes, precedent, stare decisis) would ground this learner immediately -->
+**Formal system bridge:** Legal systems map cleanly onto formal specification systems.
+Statutes are closed specifications: enumerated rules with defined scope. Common law is
+an open inference system: a set of decided cases from which rules are derived by analogy,
+and new cases extend the rule set. Stare decisis is the common law's version of backward
+compatibility — you cannot break the prior interface without justification. Distinguishing
+a prior case is providing a formal justification for why the prior rule doesn't apply to
+these facts (incompatible types); overruling is deprecating the prior rule entirely.
+The ratio decidendi vs obiter dicta distinction is: ratio = the holding that is part of
+the formal proof; dicta = statements outside the proof that don't bind. Civil law codes
+are more like closed-world type systems: the code exhaustively specifies; courts apply
+deductively rather than inductively from prior cases.
 
 ## 1. Common Law vs Civil Law — Deep Difference
 
@@ -243,7 +253,18 @@ POST-TRIAL:
 
 ## 6. Major Substantive Law Fields
 
-<!-- @editor[content/P2]: Section is just a summary table — no drill-down or narrative connecting fields to each other or to the landscape diagram above -->
+The substantive fields divide into private law (governing relations between private
+parties: contracts, torts, property, IP, corporate) and public law (governing
+state power over individuals: constitutional, criminal, administrative, regulatory).
+The private/public boundary is not sharp — employment, antitrust, and securities law
+blend both, with private rights of action enforcing public regulatory schemes.
+
+**How the fields interlock:** Contracts define the ex-ante allocation of risk and
+obligations. Torts govern the residual duties not captured by contract. Property
+determines what can be owned, transferred, and excluded. IP extends property logic
+to information goods. Corporate law governs the internal structure of the firms that
+enter contracts, commit torts, and hold property. Administrative law governs the
+agencies that regulate all of the above. Criminal law adds state coercion.
 
 | Field | Core Concepts | Key Federal/Uniform Law |
 |-------|--------------|------------------------|

@@ -373,9 +373,173 @@ STRESS VaR (SVaR):
 
 ---
 
-<!-- @editor[content/P2]: Operational risk quantification absent — appears in landscape diagram and Basel RWA formula but has no drill-down (AMA, SMA, loss distribution approach) -->
-<!-- @editor[content/P2]: Liquidity risk models absent — appears in landscape but no section covers bid-ask models, market impact, Amihud illiquidity, or funding liquidity (Brunnermeier-Pedersen) -->
-<!-- @editor[content/P2]: "FRTB (2025 implementation)" — verify current rollout status; FRTB has been delayed multiple times and jurisdictions vary -->
+---
+
+## Operational Risk
+
+```
+DEFINITION: Risk of loss from inadequate or failed internal processes, people,
+  systems, or from external events. Distinct from market/credit risk.
+  Examples: rogue trader (Barings 1995, SocGen 2008), cyber attacks, legal fines,
+  system failures, fraud, natural disasters.
+
+BASEL FRAMEWORK FOR OPERATIONAL RISK CAPITAL:
+
+  BASIC INDICATOR APPROACH (BIA): OpRisk capital = 15% × average gross income (3yr)
+    Crude proxy; phased out under Basel IV.
+
+  STANDARDIZED APPROACH (TSA): Different percentages per business line.
+    Retail banking: 12%, commercial banking: 15%, trading: 18%
+    Slightly more granular than BIA; still income-based.
+
+  ADVANCED MEASUREMENT APPROACH (AMA — now discontinued):
+    Banks estimate own OpRisk capital using internal loss models.
+    Loss Distribution Approach (LDA) was the dominant methodology:
+
+    LOSS DISTRIBUTION APPROACH (LDA):
+      For each risk category (e.g., "Internal Fraud", "Systems Failure"):
+      Frequency model: N ~ Poisson(λ) or Negative Binomial (number of loss events/year)
+      Severity model:  X ~ Lognormal or GPD (size of each loss event)
+      Annual loss: L = Σᵢ₌₁ᴺ Xᵢ  (compound distribution)
+      Compute at 99.9% VaR over 1-year horizon (regulatory minimum)
+
+      Challenge: OpRisk losses are heavy-tailed (rare, catastrophic events dominate)
+      Tail estimation requires GPD fitting to extreme observations
+      "Internal loss data + external loss data + scenarios" required for tail
+
+  STANDARDIZED MEASUREMENT APPROACH (SMA — Basel IV, effective 2023+):
+    Replaces AMA with standardized formula:
+    SMA capital = BIC × ILM
+    BIC = Business Indicator Component (scaled to gross income buckets)
+    ILM = Internal Loss Multiplier = 1 + log(exp(1) − 1 + (LS/BIC)^0.8)
+    LS = loss component from historical internal losses (10-year average)
+    Rationale: banks with large historical losses should hold more capital.
+    Controversy: simple, but ignores forward-looking risk management improvements.
+
+KEY CATEGORIES (Basel event types):
+  ET1: Internal fraud (unauthorized activity, misappropriation)
+  ET2: External fraud (robbery, hacking, forgery)
+  ET3: Employment practices and workplace safety
+  ET4: Clients, products, business practices (mis-selling, fiduciary breaches)
+  ET5: Damage to physical assets
+  ET6: Business disruption and system failures
+  ET7: Execution, delivery, process management (trade errors, settlement fails)
+  ET4 typically dominates in retail banking (litigation, mis-selling)
+```
+
+---
+
+## Liquidity Risk
+
+```
+TWO TYPES OF LIQUIDITY RISK:
+  Market liquidity: ability to sell an asset without moving its price significantly
+  Funding liquidity: ability to meet cash obligations as they come due
+
+MARKET LIQUIDITY MEASURES:
+
+  BID-ASK SPREAD:
+    s = ask − bid   (direct transaction cost)
+    Percentage spread: s/P (mid-price)
+    Roll (1984) implicit spread from autocovariance of returns:
+      ŝ = 2√(−Cov(Δp_t, Δp_{t-1}))   (no transaction data needed; inferred from prices)
+
+  AMIHUD ILLIQUIDITY (2002):
+    ILLIQ_i = (1/T) Σ_t |r_{i,t}| / VOL_{i,t}
+    Ratio of absolute return to dollar volume: price impact per dollar traded
+    Higher ILLIQ → less liquid (large moves per dollar of trading)
+    Widely used in empirical asset pricing; predicts future returns (liquidity premium)
+
+  MARKET IMPACT MODELS:
+    Temporary impact: h(v) = η × v (Almgren-Chriss) — reverses after trade
+    Permanent impact: g(v) = γ × v — persistent price change
+    Kyle (1985): lambda (price impact coefficient) = √(Σ_ε / Σ_u)
+    where Σ_ε = informed trading variance, Σ_u = noise trading variance
+
+  LIQUIDITY-ADJUSTED VaR (LVaR):
+    LVaR = VaR + Liquidity Cost Adjustment
+    Liquidity cost = ½ × s × |position|   (spread cost to liquidate)
+    Bangia et al. (1999): incorporate bid-ask spread into VaR
+
+FUNDING LIQUIDITY (BRUNNERMEIER-PEDERSEN 2009):
+  Key insight: market liquidity and funding liquidity are mutually reinforcing.
+
+  FUNDING SPIRAL:
+    Asset prices fall → mark-to-market losses
+    → higher haircuts (collateral value falls)
+    → forced sales to meet margin calls
+    → asset prices fall further → ...
+
+  LOSS SPIRAL:
+    Losses → reduced equity → reduced borrowing capacity
+    → forced deleveraging → more asset sales → more losses
+
+  MARGIN SPIRAL:
+    Higher volatility → higher VaR → higher margin requirements
+    → less capacity to hold positions → forced sales → more volatility
+
+  LIQUIDITY CREATION:
+    Banks create liquidity: borrow short (deposits), lend long (loans)
+    Maturity mismatch = run risk (Diamond-Dybvig 1983)
+    Illiquid long assets + liquid short liabilities = fragile by design
+
+REGULATORY RESPONSES:
+  LCR (Liquidity Coverage Ratio): HQLA ≥ 30-day stressed outflows
+    HQLA = High-Quality Liquid Assets (cash, sovereigns, agency bonds)
+    Calibrated to withstand a 30-day stressed scenario
+  NSFR (Net Stable Funding Ratio): Available Stable Funding ≥ Required Stable Funding
+    Addresses structural liquidity mismatch (longer-term view than LCR)
+
+LIQUIDITY RISK IN ASSET MANAGEMENT:
+  Open-end fund liquidity mismatch: daily redemption rights + illiquid holdings
+  Swing pricing: NAV adjusted by redemption costs → discourages runs
+  Redemption gates: emergency halt on withdrawals (used in 2020 bond fund stress)
+  FSOC monitoring: third-party fund liquidity risk taxonomy (US, post-2010)
+```
+
+---
+
+## FRTB Implementation Status (as of early 2026)
+
+The Fundamental Review of the Trading Book has been subject to repeated delay:
+
+```
+FRTB HISTORY AND CURRENT STATUS:
+  Basel Committee first published FRTB: January 2016
+  Original implementation target: January 2019
+  Revised: January 2022 (after multiple delays)
+  Basel deadline (final): January 2025
+
+  ACTUAL IMPLEMENTATION (as of early 2026):
+  EU:   CRR3 regulation published June 2024; FRTB mandatory from January 2025
+        (IMA requires supervisory approval; many banks using SA initially)
+  UK:   PRA implementation broadly aligned with EU; SA from January 2025
+  US:   Basel III endgame proposal by Fed/OCC (2023) faces pushback
+        US implementation timeline remains uncertain; likely 2026-2027+
+        Fed Chair Powell acknowledged need for "broad and material" revision
+  Japan: FSA: implementing per Basel timeline (~2025 effective)
+  Canada/Australia: broadly on schedule with Basel Committee guidance
+
+  KEY CHANGES FROM BASEL 2.5 TO FRTB:
+  1. Replace VaR₉₉% with ES₉₇.₅% (Expected Shortfall with stressed calibration)
+  2. Internal Models Approach (IMA): requires P&L attribution test (PLAT)
+     and risk factor eligibility — stricter eligibility criteria than Basel 2.5
+  3. Standardized Approach (SA): sensitivity-based method; more granular than old SA
+     SA replaces old standardized and is floor for IMA banks (72.5% SA floor overall)
+  4. Boundary between banking book and trading book: stricter definition
+  5. Trading desk level: capital computed at desk level, not just firm level
+
+  PRACTICAL IMPACT:
+  IMA approval harder → many desks moved to SA (higher capital for complex products)
+  CVA capital revised (CVA framework also updated under FRTB)
+  Increased transparency requirements: more frequent reporting, more granular risk factors
+
+  Note: Because US has not yet finalized implementation, firms with US operations
+  face jurisdictional inconsistency. Check current BIS and local regulator guidance
+  for latest status — this area continues to evolve.
+```
+
+---
 
 ## Decision Cheat Sheet
 

@@ -274,10 +274,7 @@ IMPLICATIONS:
   Workplace design is cognitive system design.
   Artifacts are cognitive components, not just tools.
 
-<!-- @editor[bridge/P3]: Natural bridge to VSTS/Azure DevOps — the distributed cognition concept maps directly to the CI/CD pipeline as a cognitive system (build server + tests + dashboards + team = distributed cognition in practice) -->
-  This maps to software engineering: a development team + IDE +
-  documentation + tests is a distributed cognitive system.
-  Productivity is a property of the system, not just individuals.
+  This maps directly to software engineering: a development team + IDE + documentation + tests + CI/CD pipeline is a distributed cognitive system. Productivity and error rates are properties of the entire system — not reducible to individual developer capability. The pipeline (build server, automated tests, dashboards, deployment gates) is a cognitive artifact that extends the team's capacity to hold and verify system state. Removing any component degrades the cognitive system as a whole, even if no individual loses any knowledge. This is Hutchins' key finding: when the ship's instruments fail, the crew does not simply resort to doing computationally what they were doing instrumentally — the cognitive task genuinely changes character.
 ```
 
 ---
@@ -334,21 +331,14 @@ IMPLICATION FOR LLMs:
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "if evaluating AI claim X, the embodied cognition counter is Y" structure -->
-
-| Concept | Claim | Key figure |
-|---|---|---|
-| GOFAI | Cognition = symbol manipulation; substrate-independent | Newell/Simon |
-| Dreyfus critique | Skills are absorbed engagement, not rule-following; AI can't capture this | Dreyfus (via Heidegger) |
-| Ready/present-at-hand | Normal use is transparent; breakdown makes explicit | Heidegger |
-| Embodied cognition | Concepts grounded in sensorimotor experience | Lakoff/Johnson |
-| Conceptual metaphors | Abstract thought runs on bodily experience | Lakoff/Johnson |
-| Enactivism | Cognition is enacted through sensorimotor coupling | Varela/Thompson/Rosch |
-| Extended mind | Mind can extend into world when parity principle satisfied | Clark/Chalmers |
-| Otto/Inga | Notebook = external memory = part of cognitive system | Clark/Chalmers 1998 |
-| Coupling-constitution | Coupling with a tool ≠ tool is part of cognitive system | Adams/Aizawa (objection) |
-| Distributed cognition | Cognitive systems span people + artifacts | Hutchins |
-| Moravec paradox | AI finds hard what humans find easy (sensorimotor) | Moravec |
+| If evaluating AI claim... | The embodied cognition counter is... |
+|---|---|
+| "LLMs understand physical causality / spatial reasoning" | Moravec paradox + enactivism: sensorimotor grounding is 540 million years of evolution; abstract language processing is recent. LLMs have the shallow layer (recent evolutionary layer = narrow cortical module) but lack the foundation (sensorimotor coupling). Consistent with observed failures in physical reasoning tasks. |
+| "Adding tools/APIs to an LLM gives it grounded cognition" | Clark/Chalmers extended mind can support this — if the tool is reliably accessible and automatically endorsed, it may qualify as an extended cognitive component. But Dreyfus counter: tool use in the extended mind sense still requires the right kind of sensorimotor coupling. A robot with tools is different from an LLM with API calls. |
+| "LLMs will achieve human-level common sense with scale" | Dreyfus: expert-level skill is absorbed engagement, not rule-following at scale. GOFAI (which Dreyfus critiqued) also improved with scale without achieving common sense. Deep learning is architecturally different from GOFAI, but the missing embodied grounding concern still applies. |
+| "A team using AI tools is just a human team with better tools" | Hutchins distributed cognition: the team + AI tools is a new cognitive system with different properties from either component alone. Productivity, error patterns, and failure modes are properties of the whole system. Managing the cognitive system well requires understanding how the distributed components interact — not just evaluating individual tools. |
+| "Conceptual reasoning is substrate-independent" | Lakoff/Johnson: abstract concepts are built on sensorimotor schemas. The words are substrate-independent; the conceptual structure they encode may not be. LLMs learn the linguistic manifestations of conceptual metaphors without the underlying sensorimotor grounding — whether this matters for the conceptual operations they can perform is empirically open. |
+| "AI systems will be conscious when sufficiently complex" | Enactivism/Merleau-Ponty: consciousness may require autopoietic sensorimotor coupling with an environment, not just sufficient computational complexity. A sufficiently complex text processor might still lack the embodied engagement that constitutes experience. |
 
 ---
 

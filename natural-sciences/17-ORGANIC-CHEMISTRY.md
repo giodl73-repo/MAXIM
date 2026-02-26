@@ -469,8 +469,44 @@ PALLADIUM-CATALYZED CROSS-COUPLING
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to CS — retrosynthetic analysis is backward chaining (like Prolog or theorem provers). Corey's disconnection approach is graph search on a molecular DAG. This learner's TCS background would immediately recognize the connection to planning algorithms and means-ends analysis. -->
 ## Retrosynthetic Analysis
+
+**CS bridge — backward chaining / planning algorithm:**
+Retrosynthetic analysis is the chemical equivalent of backward-chaining in logic
+programming (Prolog) or means-ends analysis in AI planning. The molecule is a goal
+state; available starting materials are the initial state; reactions are operators;
+the synthesis plan is the solution path.
+
+```
+RETROSYNTHESIS AS GRAPH SEARCH:
+
+  Target molecule          =  goal node in molecular DAG
+  Disconnection            =  backward application of a reaction operator
+  Synthon                  =  sub-goal (intermediate)
+  Available SM (starting material) = open set of reachable nodes
+
+  SEARCH STRATEGY:
+  Corey's approach         =  means-ends analysis (reduce difference between
+                               current molecule and available starting materials)
+  FGI (functional group    =  state transformation to enable the next disconnect
+    interconversion)          (like preprocessing to enable a rule application)
+  Protection/deprotection  =  temporary state masking to avoid unwanted reactions
+                               (analogous to scoping/shadowing in programs)
+
+  COMPLEXITY:
+  Total synthesis (20+ steps)  =  deep search tree with exponential branching
+  Convergent synthesis         =  divide-and-conquer (two halves built separately
+                                   and coupled — reduces longest serial path)
+  Linear synthesis             =  sequential chain (O(n) steps, each adds error)
+
+COMPUTER-ASSISTED SYNTHESIS:
+  LHASA (Corey, 1960s–70s): first implementation — backward-chaining Prolog-like
+  CASP / Chematica / AiZynthFinder: modern ML-guided retrosynthesis
+    → Neural network trained on reaction database suggests disconnections
+    → Monte Carlo tree search explores synthesis trees
+    → Exactly the same architecture as AlphaGo / game tree search
+  Current state: competitive with human experts for medium-complexity targets
+```
 
 ```
 RETROSYNTHESIS (Corey's disconnection approach)

@@ -412,7 +412,18 @@ ALPHA-SPENDING FOR ONLINE A/B TESTS:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: group sequential / adaptive designs mirror staged deployment rings (Azure DevOps) and feature-flag rollouts — both monitor mid-stream and decide continue/stop/rollback -->
+## CS and Systems Bridges
+
+| Experimental design concept | CS / systems analogue |
+|---|---|
+| Blocking (remove nuisance variance) | Controlled benchmark design: blocking removes batch effects (day, operator, machine) the same way a benchmark pins OS scheduling noise — reducing unexplained variance to improve signal-to-noise for the treatment effect |
+| Group sequential / alpha-spending | Staged deployment with go/no-go gates: K interim looks with pre-specified boundaries; stop early if overwhelming evidence or clear futility — exactly deployment rings (canary → 10% → 50% → 100%) with automated rollback on SLO breach |
+| Adaptive sample size re-estimation | Dynamic resource provisioning: observe mid-stream parameter estimates (σ²) and adjust the plan; analogous to auto-scaling compute allocation based on measured load rather than initial provisioning estimate |
+| O'Brien-Fleming spending (conservative early) | Asymmetric staged release gates: preserve most power for the full-information analysis; early stopping requires overwhelming evidence, same as requiring extreme defect rates to pull a release from early adopters |
+| SUTVA (no interference) | Unit isolation in distributed testing: violated when units communicate (social graphs, two-sided markets) — identical to tests that fail due to shared state when run concurrently but pass in isolation |
+| 2ᵏ factorial design (all combinations) | Multi-variable ablation: test all combinations of k binary factors to separate main effects from interaction effects; standard structure for ablation studies in ML systems papers |
+| Split-plot (hard vs. easy-to-change factors) | Nested variance components in infra experiments: cluster config (hard to change) is a whole-plot factor; per-deployment app config (easy) is a subplot factor; ignoring this nesting produces wrong error terms and false positives for the hard-to-change factor |
+| ITT (intention-to-treat) analysis | Test the deployed artifact, not the idealized spec: preserves causal validity of randomization; compliance failures are part of the measured treatment effect, not noise to filter out |
 
 ## Common Confusion Points
 

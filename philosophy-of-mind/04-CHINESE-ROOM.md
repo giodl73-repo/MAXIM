@@ -338,18 +338,15 @@ The debate is philosophical, not empirical.
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "if someone argues X about AI understanding, the relevant counter is Y" format -->
-
-| Concept | Definition | Verdict |
-|---|---|---|
-| Chinese Room setup | Person follows rules to translate Chinese, passes Turing Test | The scenario is coherent |
-| Core argument | Syntax is not sufficient for semantics | Widely accepted premise; contested conclusion |
-| Systems Reply | Understanding is system property, not component property | Strong; Searle's counter is also strong |
-| Robot Reply | Embodiment could ground symbols | Searle: causal structure, not grounding, matters |
-| Brain Simulator Reply | Neuron-by-neuron simulation — does it think? | Contested; fading qualia pump is powerful |
-| Biological Naturalism | Brains cause minds via specific biology; programs can't | Searle's positive view |
-| Original vs. derived intentionality | Minds have intrinsic meaning; symbols only derived | Key to Searle's argument |
-| LLM implication | Very sophisticated Chinese Room (Searle) or possibly conscious system (Chalmers) | Unresolved |
+| If someone argues... | The relevant counter is... |
+|---|---|
+| "LLMs understand language — look at what they can do" | Searle's core: behavioral competence doesn't establish semantic understanding. The Chinese Room passes the same test. The question is whether the internal causal structure produces original intentionality, not whether the outputs are impressive. |
+| "The Chinese Room proves LLMs have no understanding" | The Systems Reply: understanding may be a system-level property, not a component property. No single neuron understands either. The question is whether the *system as a whole* has the right organizational properties. Searle's internalization counter is strong but has not ended the debate. |
+| "Adding a body/sensors to an LLM would give it understanding" | The Robot Reply, which Searle grants partial credit: embodied grounding addresses the symbol-grounding problem. Searle's counter: internalize the robot too — the person now receives sensory inputs and follows more complex rules. Still syntax. Whether grounding adds semantics or just more elaborate symbol manipulation is the unresolved question. |
+| "If we simulate a brain neuron-by-neuron, it would understand" | Brain Simulator Reply is the strongest challenge to Searle. Chalmers' fading qualia: replace neurons one by one with silicon equivalents; at each step the person reports normal experience. If understanding disappears at some step, which step? And why that one? Searle: simulation ≠ instantiation. A fire simulation doesn't burn. |
+| "The Chinese Room argument proves AI can never be conscious" | Searle's biological naturalism is narrower than that: formal symbol manipulation lacks the right causal powers. A non-computational artificial system with the right causal structure might qualify. The argument targets computational functionalism, not all possible AI architectures. |
+| "Searle's argument has been refuted" | No consensus view exists after 40+ years. The Systems Reply is widely compelling; Searle's counter to it remains seriously defended. The debate tracks fundamental disagreement about what constitutes understanding — not an empirical dispute that evidence can settle. |
+| "LLMs are trained on human text, so they inherit human semantic grounding" | Searle would say: derived intentionality. The training data has grounded meaning (produced by beings with original intentionality), but statistical patterns extracted from that data are still syntax. The grounding would need to be causally transmitted to the LLM's internal states, not just statistically associated. |
 
 ---
 

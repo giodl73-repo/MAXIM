@@ -381,7 +381,32 @@ MAJOR BURN COMPLICATIONS:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- stratum corneum = defense in depth (brick-and-mortar = layered security), melanocytes = distributed UV shield (same hardware, different config), wound healing = incident response phases, burn classification = severity tiers -->
+## Engineering Bridges
+
+**Stratum corneum as defense in depth**
+The "brick and mortar" structure of the stratum corneum is layered security: corneocytes (dead, keratin-packed, mechanically tough cells = bricks) are surrounded by crystalline lipid lamellae (ceramides + fatty acids + cholesterol = mortar). No single layer provides the barrier; the barrier emerges from the combination. The lipid composition is precisely controlled — wrong ratios (filaggrin mutations in eczema, ceramide deficiency) degrade barrier function far out of proportion to the molecular change, analogous to a misconfigured TLS cipher suite that renders the entire channel vulnerable. Drug delivery exploits this by formulating lipophilic molecules (fentanyl, nitroglycerin, estradiol) that partition into the lipid mortar and diffuse through passively.
+
+**Melanocytes as distributed UV shielding with configurable output**
+All humans have essentially the same melanocyte density (~1,000–2,000/mm² in facial skin). Skin color is a configuration parameter, not a hardware difference: it depends on melanin type (eumelanin vs pheomelanin), melanosome size, and the kinetics of melanosome transfer to keratinocytes and their retention/degradation. The same hardware runs different configurations. UV exposure upregulates the pathway (MSH → MC1R → MITF → tyrosinase) and increases melanin output — adaptive response to signal strength. The nuclear umbrella formed by melanosomes positioned above the keratinocyte nucleus is a per-cell UV shielding mechanism operating at the organelle scale.
+
+**Wound healing as incident response with defined phases**
+The four phases of wound healing map directly to incident response stages:
+- **Hemostasis** (minutes): contain the breach (platelet plug + fibrin clot = emergency perimeter); simultaneous release of growth factors from fibrin matrix signals that breach occurred
+- **Inflammation** (hours–days): forensics + cleanup (neutrophils debride dead tissue and pathogens; macrophages process the scene; cytokines coordinate the response)
+- **Proliferation** (days–weeks): rebuild (fibroblasts deposit collagen; keratinocytes resurface; angiogenesis restores vascularization)
+- **Remodeling** (months–years): optimize (type III collagen replaced by stronger type I; architecture refined to ~80% original tensile strength)
+
+Each phase must complete before the next is productive. Disrupted phases (diabetes: stuck in inflammation; steroids: suppressed inflammation → poor proliferation) are analogous to incident response failures that prevent recovery.
+
+**Burn classification as depth-mapped severity tiers**
+Burns are tiered by the depth of structural destruction, which determines both clinical severity and regenerative capacity:
+- 1st degree: epidermis only → intact dermis → self-healing, no dermal damage
+- 2nd degree superficial: to superficial dermis → epithelial appendages (follicles, sweat glands) intact → can reepithelialize from appendage remnants → heals without grafting
+- 2nd degree deep: to deep dermis → few appendage remnants → limited self-healing, often needs grafting
+- 3rd degree: through all skin → no epithelial cells remaining → cannot self-heal; must graft from donor site
+
+The severity tier determines treatment algorithm: whether to wait, graft, or manage complications. The Parkland formula (4 mL × kg × %TBSA) is the fluid resuscitation algorithm for burns >20% TBSA, calibrated to the capillary leak rate that scales with burned surface area.
+
 ## Decision Cheat Sheet
 
 | Question | Answer |
@@ -395,7 +420,22 @@ MAJOR BURN COMPLICATIONS:
 
 ---
 
-<!-- @editor[content/P2]: Common skin cancers absent -- BCC, SCC, melanoma comparison table (cell of origin, appearance, metastatic risk, UV association) would fill significant gap -->
+## Common Skin Cancers
+
+| Cancer | Cell of origin | Appearance | Metastatic risk | UV association | Key biology |
+|--------|---------------|------------|-----------------|----------------|-------------|
+| Basal cell carcinoma (BCC) | Basal keratinocytes (stratum basale) | Pearly, rolled border, telangiectasias; "rodent ulcer"; rarely pigmented | Very low (<0.1%) | High (cumulative) | Hedgehog signaling pathway (PTCH1 mutations); locally destructive but almost never metastasizes; most common skin cancer |
+| Squamous cell carcinoma (SCC) | Spinous layer keratinocytes (stratum spinosum) | Scaly, erythematous plaque or ulcerated nodule; may arise from actinic keratosis | Low but real (1–5% in cutaneous SCC; higher in mucosal/immunosuppressed) | High (cumulative) | p53 mutations common; UV → C→T transitions at dipyrimidine sites; can arise in chronic wounds (Marjolin's ulcer) |
+| Melanoma | Melanocytes | Asymmetric, irregular border, color variation, diameter >6 mm (ABCDs); may be amelanotic | High (spreads to lymph nodes, liver, brain early) | UV + genetic (CDKN2A, BRAF V600E in ~50%) | BRAF V600E drives MAP kinase pathway; targeted by vemurafenib/dabrafenib; immunotherapy (anti-PD-1) highly effective |
+| Merkel cell carcinoma | Merkel cells (mechanoreceptors) | Violaceous, firm, rapidly growing nodule; non-specific | Very high; early nodal spread | UV + Merkel cell polyomavirus | Neuroendocrine features; aggressive biology; avelumab (anti-PD-L1) approved |
+
+**Clinical mnemonic for melanoma (ABCDE)**:
+- **A**symmetry: one half doesn't match the other
+- **B**order irregularity: ragged, notched, or blurred
+- **C**olor variation: multiple shades (tan, brown, black, red, white, blue)
+- **D**iameter: >6 mm (pencil eraser) — not absolute but suspicious
+- **E**volving: any change in size, shape, color, or new symptoms (bleeding, itching)
+
 ## Common Confusion Points
 
 **Dermis vs epidermis vascularity**

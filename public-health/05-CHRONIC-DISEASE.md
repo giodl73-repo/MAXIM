@@ -231,7 +231,18 @@ PREVENTION: Smoking cessation is the only proven intervention that slows
   FEV1 decline. All other treatments are symptomatic.
 ```
 
-<!-- @editor[bridge/P2]: No old-world bridge — Rose theorem (population shift vs. high-risk targeting) maps directly to fleet-wide config changes vs. targeted hotfix in reliability engineering; Framingham risk scoring parallels predictive alerting models -->
+## Systems Thinking Bridges
+
+| Chronic disease / NCD concept | Systems / CS analogue |
+|---|---|
+| Rose theorem (population strategy vs. high-risk strategy) | Fleet-wide config change vs. targeted hotfix: lowering population mean (e.g., salt reduction in food supply) eliminates more disease than treating only the extreme tail — analogous to a platform-level latency improvement vs. only fixing the slowest 1% of requests; most failures come from the large middle of the distribution |
+| Framingham risk score (10-year CVD risk) | Predictive alerting model: a calibrated probability estimate from a small set of clinical features (age, cholesterol, blood pressure, smoking status); analogous to a machine learning anomaly score — the model is calibrated, validated on held-out cohorts, and produces a risk-stratified decision rule |
+| Primary vs. secondary vs. tertiary prevention | Defense in depth: primary = eliminate the vulnerability (stop exposure before it exists); secondary = detect and contain early (screening catches asymptomatic disease); tertiary = damage control for established disease (minimize complications) |
+| Screening program lead-time bias | Survivorship / length-biased sampling: selecting cases by screen appearance biases toward slow-growing cancers (they spend longer in the pre-symptomatic detectable window); survival improvement in screened cases reflects this sampling artifact, not mortality reduction |
+| Absolute risk reduction (ARR) vs. relative risk reduction (RRR) | Effect size on appropriate scale: RRR of 30% is meaningless without knowing the baseline risk; NNT = 1/ARR is the operationally meaningful metric — same as reporting latency improvement as percentage vs. absolute milliseconds; percentage hides whether the baseline was 10ms or 10 seconds |
+| COPD FEV1 trajectory (dose-response of smoking) | Cumulative degradation model: each pack-year of smoking accelerates FEV1 decline; the dose-response is approximately linear in pack-years with threshold effects — identical to a wear-out failure model where cumulative stress determines remaining lifetime |
+| Population-level tobacco/alcohol/salt policy | Platform-level constraint vs. per-user opt-in: policy changes upstream inputs (price, availability, formulation) shifting the entire risk distribution rather than relying on individual behavior change — the most cost-effective interventions operate on the distribution, not on individual high-risk cases |
+
 ## Decision Cheat Sheet
 
 | NCD prevention question | Approach |

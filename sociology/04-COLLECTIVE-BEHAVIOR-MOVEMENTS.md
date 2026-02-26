@@ -4,23 +4,44 @@
 
 Collective behavior is **group action outside of institutionalized, routine channels** — from spontaneous crowd behavior to organized social movements. Understanding the conditions under which people act collectively, how movements sustain themselves, and what makes them succeed or fail is central to understanding social change.
 
-<!-- @editor[diagram/P2]: Opening diagram shows unorganized-to-organized spectrum but doesn't map the theoretical landscape — resource mobilization, political opportunity, and framing are the three pillars of contemporary movement theory and should appear in the opening diagram showing how they answer different questions (when/whether/what) -->
 ```
-COLLECTIVE BEHAVIOR SPECTRUM
+COLLECTIVE BEHAVIOR — SPECTRUM AND THEORETICAL LANDSCAPE
 
-  UNORGANIZED ◄────────────────────────────────────────► ORGANIZED
-  Spontaneous                                            Strategic
-       │                                                     │
-  Crowds                                           Social movements
-  Panics                                           Labor unions
-  Rumors                                           Political parties
-  Fads/crazes                                      Revolutions
-  Moral panics                                     NGOs
+  UNORGANIZED ◄──────────────────────────────────────────► ORGANIZED
+  Spontaneous                                               Strategic
+       │                                                        │
+  Crowds / Panics                                    Social movements
+  Rumors / Fads                                      Labor unions
+  Moral panics                                       Revolutions / NGOs
 
-SCOPE OF ANALYSIS:
-  Micro: what happens when individuals join a crowd or movement
-  Meso: how organizations mobilize resources; movement infrastructure
-  Macro: political opportunities; institutional context; global diffusion
+THREE PILLARS OF MODERN MOVEMENT THEORY:
+  Each answers a different question about social movements
+
+  RESOURCE MOBILIZATION       POLITICAL OPPORTUNITY       FRAMING THEORY
+  (McCarthy & Zald, 1977)     (McAdam, 1982)              (Snow & Benford, 1988)
+  ─────────────────────       ──────────────────          ────────────────────
+  Q: WHETHER to mobilize?     Q: WHEN to mobilize?        Q: WHAT message?
+  Factor: Can we organize?    Factor: Is the political    Factor: Does the frame
+  Answer: Resources —         context open?               resonate?
+  money, networks,            Answer: Elite divisions;    Answer: Diagnostic +
+  infrastructure, time        access points;              prognostic +
+  → grievances are constant;  ally presence;              motivational framing
+  what varies is capacity     low repression risk         → shapes who joins
+  to act on them              → timing of insurgency      and whether they stay
+
+  ──────────────────────────────────────────────────────────────────────────
+  Together: movements emerge when resources + opportunity + resonant frame
+  converge. Failure on any one dimension can abort even a well-supported movement.
+
+DIFFUSION:
+  Rogers' diffusion model: how innovations/frames/practices spread
+  S-curve adoption; opinion leaders bridge innovator-majority gap
+  Critical mass threshold for interactive technologies (network tipping)
+
+SCOPE:
+  Micro: individual joining decisions; identity; efficacy belief
+  Meso: SMO (social movement organization) structure; resource flows
+  Macro: political opportunity; global diffusion; movement cycles
 ```
 
 ---
@@ -365,7 +386,18 @@ CRITICAL MASS:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — Rogers' diffusion model maps directly to technology adoption curves (Moore's "Crossing the Chasm" is a business derivative); framing theory parallels product positioning and marketing; resource mobilization parallels startup resource constraints. A "tech/product → movements" bridge would resonate strongly. -->
+## From Technology Adoption to Movement Theory
+
+The frameworks in this module are not sociological curiosities — several have direct analogs in technology strategy and product development.
+
+**Rogers' diffusion model is the foundation of technology adoption theory.** Moore's "Crossing the Chasm" (1991) is an applied derivative of Rogers (1962): the "chasm" between early adopters and early majority is Rogers' observation that innovators and early adopters are structurally different from the pragmatist majority. The S-curve of cumulative adoption is the sigmoid growth curve that venture investors model when sizing markets. Critical mass for interactive technologies (Rogers) is the network effects threshold that platform companies race to reach. When engineers debate "tipping points" in technology markets, they are reasoning with Rogers' framework without naming it.
+
+**Framing theory is the sociological model of what product positioning and marketing do.** A product's positioning statement is a diagnostic frame (this problem exists; it is caused by this gap) plus a prognostic frame (our product is the solution) plus a motivational frame (here's why you should act now). The "jobs to be done" framework in product development is diagnostic framing: identify the problem the customer is trying to solve before proposing a solution. Frame resonance — whether the message connects with the audience's existing values and experiences — is exactly what A/B testing on product messaging is trying to measure.
+
+**Resource mobilization maps directly to startup constraints.** A startup's fundamental problem is not ideas — it is resources. A movement's fundamental problem is not grievances — it is organizational capacity. McCarthy and Zald's insight (grievances are always present; what varies is capacity to act) parallels the startup observation that most problems worth solving are already known; what separates successful startups is execution capability, not insight uniqueness. The Social Movement Organization (SMO) competing for adherents and resources in an "industry" of SMOs is the organizational analog of startups competing in a market segment.
+
+**Political opportunity theory models platform-era regulatory dynamics.** When regulatory regimes shift (GDPR, DSA, AI Act), the "political opportunity structure" for tech challengers changes: entry barriers imposed on incumbents create openings for new entrants; elite divisions (US vs EU regulators, antitrust uncertainty) create space for challengers to maneuver. The framework that McAdam used to explain the civil rights movement is structurally applicable to analyzing when regulatory windows open for platform disruption.
+
 ## Decision Cheat Sheet
 
 | Phenomenon | Relevant theory |

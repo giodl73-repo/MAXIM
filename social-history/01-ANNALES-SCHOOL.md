@@ -278,7 +278,15 @@ prestigious school in world historical scholarship.
 
 ---
 
-<!-- @editor[structure/P2]: No comparison tables — guide is prose-only; a table comparing the four generations (key figures, methods, timescale focus, primary sources) would be high-value quick reference -->
+## Four Generations at a Glance
+
+| Generation | Period | Key Figures | Method | Timescale Focus | Primary Sources |
+|------------|--------|-------------|--------|-----------------|-----------------|
+| **1st** | 1929–1945 | Bloch, Febvre | Comparative; interdisciplinary; anti-narrative | Long-run structures and mentalities | Parish records, agricultural surveys, geography |
+| **2nd** | 1945–1968 | Braudel | Three temporal levels; structural analysis; world-history | Longue durée (centuries–millennia) | Mediterranean geography, price series, trade records |
+| **3rd** | 1968–1989 | Le Roy Ladurie, Duby, Le Goff, Furet | Serial / quantitative; mentalités | Conjuncture (decades–generations) | Notarial records, wills, price/harvest series, inquisition records |
+| **4th** | 1989– | Chartier, Revel, Ginzburg | Cultural turn; microhistory; narrative returns | Variable — micro (single case) to meso | Inquisition records, court records, reading practices, representations |
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -292,7 +300,23 @@ prestigious school in world historical scholarship.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Annales' rejection of event-driven narrative for structural analysis mirrors the move from anecdotal case studies to systems thinking in engineering; Febvre's "outillage mental" parallels Kuhn's paradigms (which the learner knows from MIT TCS/philosophy of science) -->
+## Engineering Bridge: Structural Analysis and Systems Thinking
+
+The Annales school's methodological intervention maps directly onto the transition from anecdotal to structural reasoning in any analytical discipline:
+
+**Annales' anti-narrative stance → postmortem culture.** Traditional history focused on events and decisions: "the king declared war." Annales asked: what structural pressures (economic cycles, demographic stress, fiscal limits) made war likely regardless of who decided? Engineering postmortems make the same move: not "the engineer pushed bad code" but "what structural properties of the deployment pipeline made this failure mode possible?" The event is surface foam; the structural cause is what matters for prevention.
+
+**Braudel's three temporal levels → system stability layers.** The three levels map directly onto infrastructure change rates:
+- *Longue durée* (barely moves) → hardware constraints, physical laws, fundamental protocol choices (TCP/IP, the von Neumann architecture)
+- *Conjuncture* (decade-scale cycles) → platform generations (cloud, mobile, AI wave), organizational structures, technology stacks
+- *Événements* (fast, ephemeral) → individual commits, incidents, feature releases, A/B tests
+
+A platform migration decision made at the conjuncture level looks like an event but is actually responding to longue-durée pressures (Moore's law plateauing, new physics of GPU compute). Braudel's framework prevents conflating timescales: an event-driven analysis would explain cloud adoption by individual company decisions; a structural analysis asks what economic and technical conditions made cloud adoption overdetermined regardless of who decided first.
+
+**Febvre's "outillage mental" → Kuhn's paradigms → your tech stack.** Febvre argued you cannot think outside the available mental toolkit of your era — you cannot be an atheist in the 16th century because the conceptual apparatus doesn't exist yet. This is structurally identical to Kuhn's paradigms and to the tech-stack constraint: you cannot build serverless-first architecture if your mental toolkit is mainframe batch processing. The outillage mental of a team trained on relational databases shapes what architectural patterns are even conceivable to them, independent of technical possibility.
+
+**Serial history → time-series analysis and telemetry.** The Annales third generation's serial history — systematic collection and statistical analysis of long data series (prices, births, deaths, harvests) — is the historical form of operational telemetry. The question "what are the long-run structural patterns in this data?" is the historian's version of anomaly detection and capacity planning. Le Roy Ladurie's Malthusian oscillation (population grows → resources strained → crisis → collapse → recovery) is a feedback loop with a well-specified causal structure — exactly the kind of model you'd build for a capacity planning system.
+
 ## Common Confusion Points
 
 **The Annales school is not homogeneous.**

@@ -7,12 +7,13 @@ electrostatics, mechanics, optics — to biological systems. It operates at scal
 ranging from individual atoms (protein folding, ion channels) to cells (membrane
 mechanics) to tissues (collective cell dynamics).
 
-<!-- @editor[diagram/P2]: Landscape diagram categorizes items but doesn't show how subfields feed into each other — consider adding arrows or layering to show that structural methods feed dynamical studies, which inform functional understanding -->
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                    BIOPHYSICS LANDSCAPE                           │
 │                                                                    │
-│  STRUCTURAL               DYNAMICAL                FUNCTIONAL    │
+│  STRUCTURAL  ──────────►  DYNAMICAL  ──────────►  FUNCTIONAL     │
+│  (what atoms  feeds        (how it     informs      (what it      │
+│   are where)              moves)                   does)          │
 │  ──────────               ─────────                ──────────    │
 │  X-ray crystallography    Molecular motors         Ion channels  │
 │  NMR spectroscopy         Cytoskeletal dynamics    Membrane pot. │
@@ -171,7 +172,53 @@ describes a particle subject to both a deterministic force and thermal noise:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge in this overview — a brief bridge from classical physics/engineering (e.g., circuit theory to ion channels, continuum mechanics to membrane elasticity, signal processing to noise analysis) would orient the learner across the whole catalog -->
+## Engineering Bridges Across the Catalog
+
+Biophysics is physics applied to biology — and for each subfield there is a direct classical engineering analog.
+
+```
+  BIOPHYSICS TOPIC          CLASSICAL ENGINEERING PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Ion channels + membrane   RC circuit, Kirchhoff's current law, cable
+  potential (Modules 04-05) theory (Kelvin, 1855) — the HH equations are
+                            a nonlinear circuit ODE. Membrane capacitance
+                            (1 μF/cm²) and conductances are literal
+                            circuit elements.
+
+  Molecular motors          Thermodynamic heat engines (Carnot efficiency,
+  (Module 06)               work-heat conversion) + Markov chain state
+                            machines. Stall force, velocity, power output
+                            are the motor's operating curve — identical
+                            in form to a P-V diagram.
+
+  Protein folding energy    Combinatorial optimization over rugged
+  landscapes (Module 02)    landscapes (NP-hard analog) — funnel-guided
+                            search is branch-and-bound pruning. The
+                            free energy function is an objective function.
+
+  Structural methods        Signal processing: crystallography is Fourier
+  (Module 03)               inversion with a missing-phase problem (phase
+                            retrieval). Cryo-EM reconstruction is
+                            Bayesian inference on noisy projections.
+                            NMR is spectroscopy in frequency space.
+
+  Single-molecule           Control systems: force clamp / position clamp
+  experiments (Module 07)   are PID feedback controllers. Trap stiffness
+                            calibration is metrology. SNR analysis is
+                            identical to signal detection theory.
+
+  Stochastic biology        Markov chains, queuing theory (master
+  (Module 08)               equations), Wiener process / Langevin
+                            dynamics — directly from probability and
+                            stochastic process theory. Shannon entropy
+                            maps to noise in gene expression.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+The physical energy unit k_BT ≈ 4.1 pN·nm at 310 K is the "clock cycle" of biophysics — the baseline energy against which every molecular event is measured.
+
+---
+
 ## Decision Cheat Sheet
 
 | Question | Biophysics framework | Module |

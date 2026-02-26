@@ -1,6 +1,6 @@
 # Minerals — Crystal Systems, Silicates, Identification
 
-<!-- @editor[bridge/P2]: No old-world bridge — a natural bridge from chemistry/materials science: minerals as "the crystal structure determines the API" (cleavage, hardness, optical properties are all consequences of lattice geometry, just as data structure choice determines algorithm performance) -->
+**Bridge — crystal structure as the implementation contract:** In materials science and data structures alike, the choice of internal structure determines the behavioral API. A mineral's crystal system is exactly this: the lattice geometry (unit cell axes and angles) determines every observable property — cleavage planes follow weak bond directions in the lattice, hardness reflects bond strength along the indentation axis, optical properties emerge from lattice anisotropy. Changing SiO₄ linkage topology (isolated tetrahedra vs chains vs sheets vs 3D network) is analogous to choosing an array vs linked list vs tree vs hash table: same atoms, radically different performance characteristics. Olivine (isolated tetrahedra, weak inter-unit bonds) weathers rapidly; quartz (fully cross-linked 3D network) is nearly inert. The structure-property relationship is first-principles, not empirical.
 
 ## The Big Picture
 

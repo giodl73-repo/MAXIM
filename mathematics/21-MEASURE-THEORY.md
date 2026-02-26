@@ -343,7 +343,7 @@ Proof sketch (p=1):
   Limit function f ∈ L¹; use DCT to show fₙ → f in L¹.
 ```
 
-L²(μ) is a **Hilbert space** with inner product ⟨f,g⟩ = ∫ fḡ dμ.
+L²(μ) is a **Hilbert space** with inner product ⟨f,g⟩ = ∫ fḡ dμ.
 
 ### Dense Subspaces
 
@@ -540,9 +540,65 @@ This is Radon-Nikodym in disguise:
 
 ## 9. Applications and ML Connections
 
-<!-- @editor[bridge/P2]: Ergodic theory is absent. Measure-preserving transformations, ergodicity, mixing, and the ergodic theorem (time average = space average for ergodic systems) are a natural section here — they connect to statistical mechanics, dynamical systems, and the theoretical foundations of MCMC (Markov chains converge because the chain is ergodic on the stationary distribution). At minimum a paragraph with the ergodic theorem statement and the MCMC connection. -->
+### Ergodic Theory and MCMC
 
-<!-- @editor[content/P2]: KL divergence is listed in the calibration as a key ML/measure-theory connection but is not covered. KL(P||Q) = ∫ log(dP/dQ) dP when P ≪ Q (Radon-Nikodym derivative in the integrand). This makes precise why KL divergence requires absolute continuity, why it's asymmetric, and how it relates to log-likelihood ratios. Should appear in this section or alongside the Radon-Nikodym section. -->
+**Ergodic theory** studies measure-preserving transformations — dynamical systems that preserve volume. The central result connects time averages to space averages.
+
+**Setup**: (Ω, ℱ, μ) is a probability space. T: Ω → Ω is **measure-preserving** if μ(T⁻¹(A)) = μ(A) for all A ∈ ℱ. Think of T as "advance the system by one time step."
+
+T is **ergodic** if the only T-invariant sets are trivial: T⁻¹(A) = A ⟹ μ(A) = 0 or 1. Ergodicity means the system cannot be decomposed into independent subsystems — it explores the whole space.
+
+**Birkhoff Ergodic Theorem** (time average = space average):
+```
+If T is measure-preserving on (Ω, ℱ, μ) and f ∈ L¹(μ):
+
+  (1/n) Σ_{k=0}^{n-1} f(Tᵏω) → E_μ[f | ℐ]   μ-a.s. and in L¹
+
+where ℐ = σ-algebra of T-invariant sets.
+
+If T is ergodic: ℐ is trivial → E_μ[f | ℐ] = ∫ f dμ.
+
+So for ergodic T:  (1/n) Σ_{k=0}^{n-1} f(Tᵏω) → ∫_Ω f dμ  a.s.
+
+Time average of f along a single trajectory = space average of f over Ω.
+```
+
+**MCMC connection**: A Markov chain with stationary distribution π defines a (random) measure-preserving transformation. The chain is ergodic on (Ω, π) iff it is irreducible and aperiodic. The Birkhoff theorem is precisely why MCMC works: time-averages along the chain converge to expectations under π. Convergence rate is governed by the spectral gap of the transition operator — the gap between 1 and the second-largest eigenvalue of the Markov transition kernel acting on L²(π).
+
+```
+MCMC algorithm → generates trajectory ω₀, ω₁, ω₂, ...
+Estimator: (1/n) Σ f(ωₖ) → ∫ f dπ  by ergodic theorem.
+Speed of convergence ← spectral gap of transition kernel P on L²(π).
+Mixing time ∝ 1 / spectral gap.
+```
+
+**Statistical mechanics**: The ergodic hypothesis (Boltzmann) is the physical claim that a gas system is ergodic — time averages of macroscopic observables equal ensemble averages over the microcanonical measure. This justifies thermodynamics from Hamiltonian mechanics. The hypothesis is false for most Hamiltonian systems (KAM theory), but true for sufficiently chaotic ones.
+
+### KL Divergence and Radon-Nikodym
+
+**KL divergence** (Kullback-Leibler) between probability measures P and Q:
+```
+KL(P || Q) = ∫ log(dP/dQ) dP    when P ≪ Q  (P absolutely continuous w.r.t. Q)
+           = +∞                  when P ⊄ Q
+
+The integrand is exactly the Radon-Nikodym derivative dP/dQ (log-likelihood ratio).
+```
+
+This makes precise several properties that are otherwise opaque:
+
+**Asymmetry**: KL(P||Q) ≠ KL(Q||P) because dP/dQ and dQ/dP are different functions. Swapping them changes the measure you integrate against (P vs Q), not just the integrand.
+
+**Why P ≪ Q is required**: If P(A) > 0 but Q(A) = 0 for some set A, then dP/dQ is undefined (or +∞) on A, and log(dP/dQ) = +∞ on a P-positive set → KL = +∞. KL divergence detects whether Q has full support relative to P.
+
+**Connection to log-likelihood**: For parametric family {P_θ}, the score function is ∇_θ log(dP_θ/dμ) where μ is a reference measure. Fisher information = variance of the score = second derivative of KL at zero. Maximum likelihood estimation minimizes KL(P_data || P_θ) over θ.
+
+**Variational formula** (Donsker-Varadhan):
+```
+KL(P || Q) = sup_{f bounded measurable} { E_P[f] - log E_Q[e^f] }
+
+This is the measure-theoretic foundation for variational autoencoders (ELBO),
+contrastive learning (InfoNCE), and density ratio estimation.
+```
 
 ### Measure Theory in Probability and Statistics
 
@@ -563,7 +619,23 @@ Kolmogorov extension theorem:
 
 ### Measure Theory in Machine Learning
 
-<!-- @editor[bridge/P2]: Training data distribution as a measure and the measure-theoretic formulation of distributional shift / domain adaptation is absent. The setup: source distribution P_S and target distribution P_T on X×Y; distributional shift = P_S ≠ P_T; importance weighting = dP_S/dP_T (Radon-Nikodym derivative). This is where Radon-Nikodym lands directly in modern ML practice (covariate shift correction, density ratio estimation). Worth a concrete block here. -->
+**Distributional shift and importance weighting**: Training data comes from source distribution P_S on X×Y; at deployment the distribution is P_T (target). Distributional shift means P_S ≠ P_T. The key quantity is the density ratio (Radon-Nikodym derivative):
+
+```
+Importance weight: w(x,y) = dP_T/dP_S (x,y)
+
+Covariate shift assumption: P_S(Y|X) = P_T(Y|X), but P_S(X) ≠ P_T(X).
+Then: w(x) = dP_T^X/dP_S^X (x)   [marginal density ratio]
+
+Importance-weighted ERM:
+  minimize  E_{(x,y)~P_S} [ w(x) · L(h(x), y) ]
+  = E_{(x,y)~P_T} [ L(h(x), y) ]   [corrects for shift]
+
+This is valid iff P_T ≪ P_S (target absolutely continuous w.r.t. source).
+If P_T has support outside P_S, no reweighting can correct — must collect new data.
+```
+
+Density ratio estimation (estimating w(x) = dP_T/dP_S from samples) is a direct application of Radon-Nikodym theory. Methods include kernel mean matching, logistic regression on pooled samples (which estimates the log-ratio), and the variational formula above.
 
 ```
 PAC learning (measure-theoretic):
@@ -585,9 +657,7 @@ Neural networks and function spaces:
   — interchanging limit and integral uses DCT.
 ```
 
-<!-- @editor[bridge/P3]: The connection between Itô calculus and the Lebesgue theory of Lᵖ spaces is stated but compressed. The L² isometry that defines the Itô integral (∫H dB has L²-norm = ∫E[H²]dt) is the key fact worth a single explicit equation here, since it's the measure-theoretic content doing the work. -->
-
-### Stochastic Processes
+### Stochastic Processes and the Itô Integral
 
 ```
 Filtration: 𝒻 = (ℱₜ)_{t≥0} increasing sub-σ-algebras of ℱ.
@@ -600,8 +670,30 @@ Optional stopping theorem: if τ is stopping time, E[X_τ] = E[X₀] under condi
 Brownian motion:
   B₀ = 0, B has independent stationary increments, Bₜ-Bₛ ~ N(0,t-s).
   Sample paths: continuous but nowhere differentiable a.s.
-  Itô integral ∫ Hₛ dBₛ: defined via L² isometry, not Riemann-Stieltjes.
-    (Bₜ has unbounded variation: Σ |Bₜ_{i+1} - Bₜᵢ|² → T, not 0.)
+  Quadratic variation: Σ |Bₜ_{i+1} - Bₜᵢ|² → T in probability (not 0).
+  This unbounded variation is why Riemann-Stieltjes integration fails for Brownian paths.
+```
+
+**The Itô integral via L² isometry**: The central measure-theoretic fact that makes stochastic calculus work:
+
+```
+For adapted process H = (Hₜ)_{t∈[0,T]} with E[∫₀ᵀ Hₜ² dt] < ∞:
+
+  ∫₀ᵀ Hₜ dBₜ  is defined as an L²(Ω,P) limit of Riemann-Itô sums.
+
+Itô isometry:  E[ (∫₀ᵀ Hₜ dBₜ)² ] = E[ ∫₀ᵀ Hₜ² dt ]
+
+This is an L² isometry: the map H ↦ ∫H dB is an isometry from
+  L²([0,T]×Ω, Lebesgue⊗P)  →  L²(Ω, P).
+
+Consequence: the Itô integral is defined by extending the isometry from
+  simple (step-function) processes — where the sum is finite — to all of L²
+  using completeness. Exactly the same construction as the Lebesgue integral
+  (extend from simple functions using MCT/DCT), now in L².
+
+Itô's formula:  df(Bₜ) = f'(Bₜ)dBₜ + (1/2)f''(Bₜ)dt
+  The extra (1/2)f'' dt term (vs. classical chain rule) comes from the quadratic
+  variation [B,B]_t = t — the L² norm of Brownian increments is non-negligible.
 ```
 
 ---
@@ -621,6 +713,10 @@ Prove completeness of function space        Riesz-Fischer (Cauchy → subsequenc
 Change variables in integral                Jacobian formula (|det DT|)
 Work with densities rigorously              Radon-Nikodym: density = dP/dλ
 Prove CLT rigorously                        Characteristic functions + Lévy continuity theorem
+KL divergence between P and Q               ∫ log(dP/dQ) dP  — requires P ≪ Q
+Importance weighting for domain shift       Density ratio dP_T/dP_S via Radon-Nikodym
+MCMC convergence justification             Birkhoff ergodic theorem (time avg → space avg)
+Itô integral — why L² not pathwise         Quadratic variation of Brownian motion; Itô isometry
 ```
 
 ---
@@ -642,3 +738,7 @@ Prove CLT rigorously                        Characteristic functions + Lévy con
 **Conditional expectation is an equivalence class**: E[X|𝒢] is defined uniquely only up to 𝒢-null sets (a.s. unique). There are infinitely many valid representatives; we usually work with any one of them.
 
 **Weak convergence does not imply convergence of densities**: Even if Xₙ →_d X, the densities fₙ need not converge pointwise to f_X. Weak convergence is about integration against test functions, not pointwise density convergence.
+
+**KL divergence is not a metric**: KL(P||Q) ≠ KL(Q||P) and the triangle inequality fails. The symmetric version KL(P||Q)+KL(Q||P) and the Jensen-Shannon divergence (average of two KLs) are used when symmetry is needed.
+
+**Ergodicity is a property of the transformation, not the space**: A probability space (Ω,ℱ,μ) can carry many different measure-preserving transformations, some ergodic and some not. Ergodicity is about the dynamics, not the static measure structure.

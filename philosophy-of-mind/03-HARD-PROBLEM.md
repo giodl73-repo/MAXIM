@@ -351,20 +351,15 @@ GLOBAL WORKSPACE THEORY (Dehaene/Baars):
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Cheat sheet is definitional — needs "if someone claims X, the relevant counter is Y" decision structure -->
-
-| Concept | Definition | Key proponent |
-|---|---|---|
-| Easy problems | Explaining functions: attention, integration, report | Standard cognitive science |
-| Hard problem | Why function is accompanied by experience | Chalmers 1995 |
-| Explanatory gap | Gap between neural explanation and phenomenal explanation | Levine 1983 |
-| P-zombie | Functionally identical being with no inner experience | Chalmers' thought experiment |
-| Property dualism | Phenomenal properties are irreducible non-physical | Chalmers |
-| Panpsychism | All matter has proto-phenomenal properties | Chalmers, Goff |
-| Combination problem | How micro-experiences combine into unified experience | Hard problem for panpsychism |
-| Type-B physicalism | Gap is epistemic, not metaphysical; phenomenal = physical | Levine, Papineau |
-| Phenomenal concept strategy | Two types of concepts (phenomenal/physical) for same thing | Block, Papineau |
-| Illusionism | Phenomenal consciousness is misrepresentation; dissolves hard problem | Frankish |
+| If someone claims... | The relevant counter is... |
+|---|---|
+| "Neuroscience will eventually explain consciousness fully" | The easy/hard distinction: neuroscience answers *functional* questions. The hard problem is not about what the brain does but why those functions are accompanied by experience — a question that more neural detail cannot answer in principle. |
+| "P-zombies are incoherent — you can't conceive of a being functionally identical to you without experience" | This is the type-B physicalist move. It requires arguing that phenomenal concepts necessarily pick out their physical realizers, so genuine conceivability of zombies is impossible. Chalmers' response: we demonstrably have two separable conceptual modes of access to the same states, so the zombie scenario is genuinely conceivable. |
+| "Conceivability doesn't entail possibility — we can conceive impossible things" | Concede the point: premise 2 of the zombie argument is contestable. But then the burden is to explain why zombie conceivability is a case of conceiving an impossible thing, rather than conceiving a possible one. |
+| "Illusionism dissolves the hard problem — phenomenal consciousness is a cognitive illusion" | Frankish's illusionism moves the hard problem to the meta-problem: why does a physical system generate illusory representations of phenomenal properties? The meta-problem seems at least as hard as the original. |
+| "Panpsychism solves the hard problem by making phenomenal properties fundamental" | The combination problem: how do micro-experiences in electrons and photons combine into the unified macro-experience of a conscious subject? This is panpsychism's own hard problem. |
+| "The explanatory gap is just epistemic — there's no real gap in nature" | Type-B physicalism is coherent, but Kripke's challenge applies: "pain = C-fiber firing" seems contingent in a way that "water = H2O" doesn't. Even a posteriori, we can conceive of C-fiber firing without pain; we can't coherently conceive of H2O that isn't water. The phenomenal concept strategy must explain this asymmetry. |
+| "The hard problem means AI can never be conscious" | The hard problem establishes an *epistemic* barrier: no behavioral test is decisive for consciousness. It is not an ontological barrier: it doesn't say what physical structures can or can't be conscious — it says we can't verify consciousness from outside. |
 
 ---
 

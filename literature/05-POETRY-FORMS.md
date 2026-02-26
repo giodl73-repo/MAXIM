@@ -172,8 +172,58 @@ they accrete meaning through each new context.
 
 ### Pindaric Ode (see also 02-EPIC-AND-LYRIC.md)
 
-<!-- @editor[content/P2]: Section is thin — Pindaric ode deserves at least an ASCII diagram showing the triadic structure with metrical notation, not just a prose summary that duplicates 02-EPIC-AND-LYRIC.md -->
 The Greek choral ode for athletic victory. Structural unit: strophe + antistrophe (same meter, chorus turns one way then returns) + epode (different meter, chorus stands). Repeated in triads.
+
+```
+PINDARIC ODE — TRIADIC STRUCTURE
+
+Each TRIAD:
+  ┌─────────────────────────────────────────────────────────────┐
+  │ STROPHE      (στροφή = "turn")                               │
+  │  Meter:  [x / u / u u / u u / u / ...]   [Pindar's own     │
+  │          complex lyric meters; no English equivalent]        │
+  │  Chorus physically turns left across the orchestra          │
+  │  Content: opens the myth or narrative                       │
+  ├─────────────────────────────────────────────────────────────┤
+  │ ANTISTROPHE  (ἀντιστροφή = "counter-turn")                  │
+  │  Meter:  IDENTICAL to strophe                               │
+  │  Chorus turns right (reversing the strophe's movement)      │
+  │  Content: continues/develops the myth                       │
+  ├─────────────────────────────────────────────────────────────┤
+  │ EPODE        (ἐπῳδός = "after-song")                        │
+  │  Meter:  DIFFERENT from strophe/antistrophe (shorter)       │
+  │  Chorus stands still                                        │
+  │  Content: concludes the mythic passage; applies to athlete  │
+  └─────────────────────────────────────────────────────────────┘
+  Repeated: 3–5 triads per ode.
+
+PINDAR'S ODES — FORMAL CONTEXT:
+  4 Panhellenic games → 4 victory ode collections:
+    Olympian (14 odes), Pythian (12), Isthmian (8), Nemean (11)
+  Structure within each ode:
+    1. Address to the victor / city / patron deity
+    2. Mythic narrative (often only tangentially related to victory)
+    3. Maxims (gnomai) — the ode's argument about excellence (arete)
+    4. Return to the victor; prayer or warning
+  The myth is not ornamental — it provides the paradigm
+  against which the athletic victory is measured and elevated.
+
+KEY FORMAL FEATURES:
+  - No enjambment across strophe/antistrophe boundary
+  - Each strophe is a self-contained metrical unit
+  - The metrical system is audible movement — the meter IS the dance
+  - "Pindaric obscurity": dense allusion, abrupt transitions,
+    suppressed logical connectives → the poem demands active assembly
+    by an educated audience. Information density is high; surface
+    fluency is not the goal.
+
+FORMAL ANALOG:
+  The triadic structure is a ternary formal pattern (ABA') where
+  A and A' are identical in meter but different in content,
+  and B provides resolution. Compare sonata form (exposition /
+  development / recapitulation) — not coincidental; classical
+  music theorists knew Pindar.
+```
 
 ### Horatian Ode
 
@@ -314,23 +364,69 @@ Enjambment      No pause at line end;         "I think that I shall never
 
 ---
 
-<!-- @editor[content/P2]: Section is thin — slam/hip-hop prosody deserves the same formal depth as other layers (specific scansion examples, transcription of flow patterns, notation systems) -->
 ## Layer 7: Slam Poetry and Performance Poetry
 
 ```
 SLAM POETRY
 -----------
-Performance-based competitive poetry (first slam: 1986, Chicago)
-Features:
-  - Performed orally, scored by audience judges
-  - Emphasis on voice, timing, emotion, presence
-  - Often politically engaged, identity-focused
-  - Not always designed to "work" on page
+Performance-based competitive poetry (first slam: 1986, Chicago,
+Marc Smith at the Green Mill). Scored by randomly-selected audience judges.
+Formal constraints: time limit (typically 3 minutes), no props, no costumes.
+The form is deliberately anti-elitist: scoring is the crowd's, not critics'.
 
-The hierarchy: page poetry > performance poetry was the
-traditional academic view. This has been challenged.
 Slam poetry descends from oral traditions, spoken word,
 Harlem Renaissance performance culture, and hip-hop.
+The "hierarchy" (page > performance) has collapsed in criticism;
+the critical apparatus has followed the form.
+
+HIP-HOP PROSODY — FORMAL ANALYSIS
+
+Rap is metered verse with a more complex formal system than most
+academic poetry. The core parameters:
+
+1. THE GRID: the underlying rhythmic grid of the beat
+   Beat: 4/4 time, typically at 80-100 BPM (trap: 130-160 BPM half-time)
+   Each bar = 4 beats. The rhyming unit is the bar.
+
+2. FLOW: the rapper's rhythmic relationship to the grid
+   On-beat flow: stressed syllables align with beat positions
+   Behind-the-beat: syllables consistently lag the grid slightly
+   Syncopated: rhythmic anticipation across beat positions
+
+   Scansion example (Notorious B.I.G., "Juicy"):
+     "It was all a DREAM / I used to READ Word Up mag-a-ZINE"
+      u u u u  /       u u u u /    u u /  u   u u /
+   Standard iambic scansion fails here — the stressed syllables
+   are beat positions, not alternating stress. The "foot" is the
+   quarter-note slot, not the stress-unstress pair.
+
+3. RHYME DENSITY: rhymes in rap extend far beyond end-rhyme
+   End-rhyme: terminal rhyme on the bar's final syllable (basic)
+   Internal rhyme: rhymes within the line
+   Multi-syllabic rhyme: rhyming stressed+unstressed syllable chains
+   Assonance chains: vowel-matching across multiple words
+
+   Eminem, "Lose Yourself" (multi-syllabic internal + end):
+     "His palms are sweaty, knees weak, arms are heavy"
+      A      B        C    D    E      F
+   Sweaty / heavy: 2-syllable rhyme (STRESSED + unstressed)
+   Knees weak / arms: internal assonance chain on /i:/ then /ɑː/
+
+4. KENDRICK LAMAR — FORMAL COMPLEXITY
+   DAMN. (2017): sustained formal variation across 14 tracks.
+   "DNA.": aggressive triplet flow against a half-time beat.
+   "HUMBLE.": deliberate rhythmic restraint, drop-back flow.
+   "Alright": gospel-adjacent 6/8 feel over 4/4 grid — polyrhythm.
+   The album's formal variety exceeds most contemporary print poetry
+   in technical prosodic range.
+
+   Transcription notation (adapted from Blumenfeld):
+     / = primary stress (beat position)
+     u = unstressed
+     ^ = secondary stress (off-beat emphasis)
+     | = bar line
+     ~ = extended/melismatic syllable
+```
 
 Hip-hop as formal prosody:
   Rap is metered verse. The meter is often complex:

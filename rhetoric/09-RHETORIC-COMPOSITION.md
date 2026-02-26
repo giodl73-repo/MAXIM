@@ -93,47 +93,58 @@ THE MACRO REVISION CHECKLIST:
       and be answered.)
 ```
 
-<!-- @editor[audience/P2]: Writing process section (Flower/Hayes, freewriting, writing block) explains concepts the learner does not need at this level — a VP who has written thousands of documents doesn't need the "two-pass strategy" or the "24-hour rule" explained as discoveries; reframe as theoretical framework for understanding why junior writers struggle, not as personal advice -->
+### The Cognitive Model of Writing — Why Junior Writers Struggle
 
-### Writing Apprehension and Unblocking
+The Flower/Hayes cognitive model (1981) is the standard research framework for understanding what actually happens when people write. Its diagnostic value is for understanding the failure modes you observe in junior writers — not as character flaws but as cognitive load problems.
 
 ```
-WRITING BLOCK — THE PROBLEM AND SOLUTIONS
--------------------------------------------
-Peter Elbow (Writing Without Teachers, 1973):
-  FREEWRITING: write continuously for 10 minutes without
-  stopping. Do not edit; do not re-read while writing.
-  The purpose: disconnect the internal critic from the
-  generator. Expert writers have a strong internal
-  critic that edits before the generation is complete.
-  This paralyzes the drafting stage.
+FLOWER/HAYES MODEL — THE COGNITIVE ARCHITECTURE
 
-  The internal critic is useful during revision.
-  It is destructive during drafting.
-  Freewriting silences the critic long enough to generate
-  material that can then be shaped.
+Three processes that compete for working memory:
+  PLANNING:      goal-setting, idea generation, organizing
+  TRANSLATING:   converting plans into linguistic form
+  REVIEWING:     evaluating and revising text
 
-THE TWO-PASS STRATEGY (professional extension):
-  Pass 1: DRAFT (generator mode)
-    Set a timer; write without editing.
-    Quantity over quality in this pass.
-    Placeholders for missing arguments: "[ARGUMENT HERE]".
-    Do not fix sentences. Do not reread.
+THE NOVICE WRITER'S PROBLEM:
+  Low-level translation (word choice, sentence formation,
+  grammar) is not yet automated. It occupies working memory
+  that should be available for planning and reviewing.
+  Result: the writer cannot plan and translate simultaneously.
+  They write the first thing that comes to mind; they cannot
+  hold an argument structure in working memory while also
+  finding words for it.
 
-  Pass 2: REVISION (critic mode)
-    Cold: don't revise immediately after drafting.
-    Read the document as if you are the audience.
-    Structural revision first; sentence revision last.
-    Delete aggressively (most first drafts are 30% longer
-    than they need to be).
+  Observable symptoms in junior writers:
+    - Linear drafting that never reaches the actual argument
+    - Inability to revise structure (only surface edits)
+    - Bloated prose (generation not filtered by planning)
+    - Writing that answers the writer's question while writing,
+      not the reader's question
 
-THE 24-HOUR RULE:
-  Writers who revise immediately after drafting are
-  too close to the material.
-  24 hours creates the psychological distance needed
-  to read the document as the audience will.
-  For high-stakes documents (board memos, strategy papers):
-  draft early enough to allow this.
+THE EXPERT WRITER'S COGNITIVE PROFILE:
+  Translation is automated (below conscious threshold).
+  Working memory is free for planning and reviewing simultaneously.
+  This is practice-induced automaticity, like a chess player
+  who doesn't consciously calculate legal moves.
+
+FREEWRITING (Peter Elbow, 1973) — THE MECHANISM:
+  The reviewing process fires during drafting and interrupts translation.
+  Freewriting (10 minutes continuous writing, no editing) temporarily
+  disables the reviewer to let the translator generate raw material.
+  This is not a technique for polished output; it is a diagnostic
+  and warm-up for writers whose reviewer is too active during generation.
+  When coaching a junior writer who is paralyzed by their own editing:
+  prescribe freewriting. When coaching an experienced writer:
+  the reviewing process is an asset, not a liability.
+
+TWO-PASS STRATEGY — WHY IT WORKS:
+  Reviewing requires distance from the translator's local choices
+  to evaluate the document's global structure.
+  Immediate review = reading what you intended to write.
+  Cold review = approximating the reader's experience.
+  The 24-hour gap works because working memory does not maintain
+  the planning context after sleep — the planner's assumptions
+  are no longer priming the reviewer's reading.
 ```
 
 ---
@@ -152,7 +163,9 @@ Pre-theoretical genre: classification of text types
   These are useful categories but they describe form,
   not function.
 
-<!-- @editor[bridge/P2]: No bridge from genre theory to the learner's existing genre expertise — the learner has written and reviewed hundreds of design docs, executive summaries, and strategy memos; a one-line bridge like "you already have expert genre knowledge from two decades of Microsoft executive communication — this section names the theory behind what you do intuitively" would calibrate the section -->
+**Genre theory names what expert practitioners already know implicitly**
+If you have written and reviewed design docs, strategy memos, incident postmortems, and executive briefings, you already have deep genre knowledge — you know what goes where, what signals competence, what produces friction. Genre theory provides the analytical vocabulary for what you do intuitively. Its value: (1) making the implicit explicit so it can be taught; (2) explaining why violations of genre conventions produce friction beyond "that's not how we do things."
+
 CAROLYN MILLER — "GENRE AS SOCIAL ACTION" (1984):
   Genres are typified rhetorical responses to
   recurring situations.

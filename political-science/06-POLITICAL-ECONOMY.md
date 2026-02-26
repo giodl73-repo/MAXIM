@@ -210,8 +210,15 @@ means holding economic and political logic simultaneously.
   - Seigniorage: world holds dollars → US gets zero-interest loan
   - Financial weaponization (SWIFT, asset freezes)
 
-<!-- @editor[bridge/P2]: Natural bridge to CAP theorem missing — Mundell-Fleming trilemma (choose 2 of 3: open capital, fixed rate, independent policy) is structurally identical to Brewer's CAP theorem (choose 2 of 3: consistency, availability, partition tolerance). The learner knows CAP deeply from distributed systems work — one sentence connecting them would make the trilemma instantly intuitive -->
   MUNDELL-FLEMING TRILEMMA:
+  [CAP theorem parallel: this is structurally identical to Brewer's CAP theorem.
+  CAP: choose 2 of {Consistency, Availability, Partition tolerance}.
+  Trilemma: choose 2 of {Open capital, Fixed rate, Independent policy}.
+  In both cases, the third property is mathematically unavailable given the other two.
+  The Eurozone chose consistency (fixed rates via euro) + availability (open capital)
+  and lost partition tolerance — no ability to adjust independently in a crisis.
+  Greece needed devaluation; it couldn't devalue; the system partitioned into debt crisis.]
+
   ┌──────────────────────────────────────────────────────────────────┐
   │ Choose any two:                                                  │
   │                                                                  │

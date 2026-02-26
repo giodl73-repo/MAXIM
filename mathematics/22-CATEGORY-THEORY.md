@@ -90,7 +90,35 @@ In Top: mono = injection (even non-homeomorphisms can be monic).
 
 ## 2. Functors
 
-<!-- @editor[bridge/P2]: The algebraic topology connection — homology and homotopy as functors — is entirely absent. H_n: Top → Ab (homology functor to abelian groups) and π₁: Top_* → Grp (fundamental group functor) are the canonical examples of functors doing mathematical work: they convert hard topological questions into tractable algebraic ones. This is a critical bridge between category theory and topology that belongs here (or in a dedicated section). The learner profile (MIT Math + TCS) means this bridge has obvious prior-art resonance. -->
+### Algebraic Topology: The Canonical Motivation
+
+Before the definition, the canonical example from algebraic topology shows why functors matter: they let you translate hard geometric questions into tractable algebraic ones.
+
+**Homology functor** H_n: **Top** → **Ab** (abelian groups):
+```
+H_n(X) = n-th homology group of topological space X.
+H_n(f): H_n(X) → H_n(Y) for continuous f: X → Y.
+
+Preserves composition: H_n(g∘f) = H_n(g) ∘ H_n(f).
+Preserves identity:    H_n(id_X) = id_{H_n(X)}.
+
+Why this is powerful:
+  "Is there a continuous map f: Sⁿ → Sⁿ with no fixed point?"
+  Answer: f gives H_n(f): ℤ → ℤ, which must be multiplication by deg(f).
+  Brouwer fixed-point theorem: deg(f) ≠ -1 → must have fixed point.
+  Hard topology question → easy linear algebra.
+```
+
+**Fundamental group functor** π₁: **Top_*** → **Grp** (pointed spaces to groups):
+```
+π₁(X, x₀) = group of loops at x₀ modulo homotopy.
+π₁(f): π₁(X,x₀) → π₁(Y,f(x₀)) for basepoint-preserving f.
+
+Van Kampen theorem: π₁ converts pushouts of spaces into amalgamated products of groups.
+  Hard question: "what is π₁ of a figure-8?" → pushout of two circles → Z * Z (free product).
+```
+
+The general pattern: a functor F: 𝒞 → 𝒟 is an "algebraic invariant machine" — it assigns algebraic objects to spaces/structures in a way that respects the morphisms between them. Anything you prove about F(X) using algebra is a theorem about X in topology.
 
 ### Definition
 
@@ -295,9 +323,29 @@ Colimits in Set: quotient of coproduct by compatibility equivalence relation.
 
 ---
 
-<!-- @editor[bridge/P2]: Adjunctions are described as "the fundamental concept of category theory" (Mac Lane) but the guide doesn't make the case for why. The pattern — free ⊣ forgetful, ∑ ⊣ Δ ⊣ ∏, ⊗ ⊣ hom, suspension ⊣ loop, image ⊣ inverse image — should be previewed as "adjunctions are everywhere" before diving into the definition. Add a short motivating preamble listing 4–5 adjunction instances across different domains to establish the pattern, then the definition. -->
-
 ## 5. Adjunctions
+
+### Adjunctions Are Everywhere: The Pattern First
+
+Mac Lane called adjunctions "the fundamental concept of category theory." Before the definition, recognize the pattern — the same structure appears across mathematics and computing:
+
+```
+Left adjoint F              Right adjoint G          Domain
+────────────────────────    ─────────────────────    ──────────────────────────
+Free group on set S         Forgetful (Grp→Set)      Algebra
+Free vector space on S      Forgetful (Vect→Set)     Linear algebra
+Tensor product (- ⊗ A)      Internal hom (A → -)     Monoidal categories
+Coproduct (+) ⊣ Diagonal    Diagonal ⊣ Product (×)   Any category with these
+Suspension ΣX               Loop space ΩX            Homotopy theory
+∃x. P(x) (existential)      Substitution P[a/x]      Logic / type theory
+Currying (A×B→C)            (A→B→C) — uncurrying     Any CCC
+∑_f (dependent sum)         f* (pullback)            Dependent types
+Image (direct image f_*)    Inverse image (f^{-1})   Set maps / topology
+```
+
+The universal pattern: F ⊣ G means "F(A) → B in 𝒟 is the same data as A → G(B) in 𝒞." Free constructions are always left adjoints to forgetful functors. Any time you can freely generate a structure from generators, there is an adjunction underneath.
+
+**Why this matters structurally**: Right adjoints preserve limits (products, equalizers, pullbacks). Left adjoints preserve colimits (coproducts, pushouts, coequalizers). Knowing something is an adjoint immediately tells you what it commutes with.
 
 ### Definition
 
@@ -467,8 +515,6 @@ instance Monad m => Monad (StateT s m) where
 
 ---
 
-<!-- @editor[bridge/P2]: The database/categorical data models connection is listed in the table in Section 9 (JOIN as pullback, UNION as coproduct) but never explained. Spivak's work on categorical databases (functors from a schema category to Set as a model) is a genuine, non-trivial application of CT to CS that deserves a short dedicated paragraph — especially strong given the learner's database background. The idea: a relational schema is a category, a database instance is a functor to Set, a query is a natural transformation or limit/colimit. -->
-
 ## 7. Topos Theory (Sketch)
 
 ### What is a Topos?
@@ -493,6 +539,53 @@ Elementary topos: a category 𝒞 with:
 - **sSet** (simplicial sets): abstract model for homotopy theory.
 
 **Internal logic**: Every topos has an internal intuitionistic higher-order logic. The law of excluded middle (P ∨ ¬P) holds only in Boolean toposes (like Set). Constructive mathematics is "internal logic of a topos."
+
+### Categorical Databases (Spivak)
+
+Category theory gives a clean algebraic model for relational databases. The key insight: a relational schema is a category, and a database instance is a functor.
+
+```
+Schema category 𝒮:
+  Objects   = tables (entity types)
+  Morphisms = foreign key relationships between tables
+
+  Example: Employee database
+    Objects:  {Employee, Department, Project}
+    Morphisms: worksIn: Employee → Department
+               manages: Employee → Department    (manager)
+               assignedTo: Employee → Project
+
+Database instance = functor I: 𝒮 → Set
+  I(Employee) = {Alice, Bob, Carol, ...}     [set of rows]
+  I(Department) = {Eng, Sales, ...}
+  I(worksIn): I(Employee) → I(Department)    [the FK mapping on actual data]
+
+A natural transformation η: I → J between two instances is exactly
+  a family of functions η_T: I(T) → J(T) for each table T that commutes
+  with all foreign key mappings — i.e., a "morphism of databases."
+
+Queries as categorical constructions:
+  SELECT (projection)  = limit
+  JOIN                 = pullback (fiber product over shared FK)
+  UNION                = coproduct
+  WHERE (equijoin)     = equalizer
+  EXISTS / subquery    = image factorization
+```
+
+This is not just analogy — Spivak's "functorial data migration" (FDM) is a rigorous framework where schema mappings F: 𝒮 → 𝒯 induce three data migration functors F!, F*, F† (left adjoint, pullback, right adjoint), each corresponding to a natural class of SQL-like query. The three functors are determined by the single adjunction triple Σ_F ⊣ Δ_F ⊣ Π_F.
+
+```
+F: 𝒮 → 𝒯  (schema mapping / functor between schema categories)
+
+Σ_F (left adjoint):   push data forward, collapsing using colimits  [left Kan extension]
+Δ_F (pullback):       restrict data along F                          [precomposition]
+Π_F (right adjoint):  push data forward, preserving using limits    [right Kan extension]
+
+SQL perspective:
+  Σ_F corresponds to: SELECT with aggregation, UNION
+  Δ_F corresponds to: simple SELECT without aggregation (foreign key traversal)
+  Π_F corresponds to: universal quantifier queries ("for all")
+```
 
 ---
 
@@ -540,7 +633,44 @@ A Haskell `Functor` is exactly an endofunctor on the category **Hask** (ignoring
 
 **Parametric polymorphism = natural transformation**: A polymorphic function `α :: forall a. F a -> G a` is a natural transformation F ⇒ G. Naturality is automatic by "free theorems" (Wadler's theorems for free — follow from parametricity).
 
-<!-- @editor[bridge/P3]: The profunctor / optics material (Haskell lens) in the table in Section 9 is listed but not explained. Profunctors P: 𝒞^{op} × 𝒟 → Set generalize both covariant and contravariant functors; the lens/prism/traversal hierarchy (Haskell optics) is a profunctor encoding. Worth at least a short paragraph given the Haskell/FP depth of this file. -->
+### Profunctors and Optics (Haskell Lens)
+
+A **profunctor** P: 𝒞^{op} × 𝒟 → Set generalizes both covariant and contravariant functors, being contravariant in the first argument and covariant in the second:
+
+```haskell
+class Profunctor p where
+  dimap :: (a' -> a) -> (b -> b') -> p a b -> p a' b'
+  -- contravariant in first, covariant in second
+```
+
+The function type `(->) a b` is the canonical profunctor: `dimap f g h = g . h . f`.
+
+**The optics hierarchy**: The lens/prism/traversal hierarchy (Haskell's `lens` library) is a profunctor encoding. Each optic is characterized by which class of profunctors it can be applied to:
+
+```
+Optic family  | Profunctor constraint | Meaning
+──────────────+──────────────────────+──────────────────────────────────────────
+Lens s t a b  | Cartesian p          | Focus on a product component (Strong)
+Prism s t a b | Cocartesian p        | Focus on a sum branch (Choice)
+Traversal     | Applicative-like      | Focus on multiple elements
+Iso           | Profunctor p          | Isomorphism between types
+Grate         | Closed p             | Distribute functor over focus
+```
+
+A `Lens s t a b` is a profunctor optic: `type Lens s t a b = forall p. Strong p => p a b -> p s t`.
+The van Laarhoven encoding (`Functor f => (a -> f b) -> s -> f t`) is equivalent — both are profunctor representations in different disguises.
+
+```
+Categorical structure:
+  Profunctors form a bicategory Prof:
+    Objects:    categories
+    1-cells:    profunctors P: 𝒞^{op} × 𝒟 → Set
+    2-cells:    natural transformations between profunctors
+    Composition: Kan extension (profunctor composition via coend)
+
+  Optics are elements of Tambara modules — profunctors with extra structure.
+  The optic composition law is profunctor composition in Prof.
+```
 
 ### Coalgebras and Corecursion
 
@@ -576,6 +706,9 @@ Bisimulation = equality for coalgebras.
 | Recursion schemes | Initial algebras | Catamorphism = fold, anamorphism = unfold |
 | Optics (Haskell lens) | Profunctor | Lens = profunctor in specific (Cartesian) profunctor |
 | Dependent types | Fibration | Type families as fibered categories |
+| Relational schemas | Functor category | Schema = category, instance = functor to Set |
+| Query migration | Adjoint triple | Σ_F ⊣ Δ_F ⊣ Π_F for schema morphism F |
+| Algebraic topology | Functors to Ab/Grp | H_n, π₁ convert topology into algebra |
 
 ### Monoid = One-Object Category (Recall)
 
@@ -616,6 +749,11 @@ Inductive type / fold?                      Initial F-algebra, catamorphism
 Coinductive type / unfold?                  Final F-coalgebra, anamorphism
 Parametrically polymorphic function?       Natural transformation (free theorem)
 Linear resource types?                      Symmetric monoidal closed category (not CCC)
+Topological invariant from space?          Functor Top → Ab (homology) or Top_* → Grp (π₁)
+Database schema + instances?               Schema = category, instance = functor to Set
+Query migration along schema map F?        Adjoint triple Σ_F ⊣ Δ_F ⊣ Π_F
+Optic (lens/prism) in Haskell?             Profunctor + Tambara module constraint
+Contravariant + covariant together?        Profunctor P: 𝒞^{op} × 𝒟 → Set
 ```
 
 ---
@@ -635,3 +773,7 @@ Linear resource types?                      Symmetric monoidal closed category (
 **Initial vs terminal algebras**: Initial F-algebra (μX.FX) gives inductive types (natural numbers, finite lists). Final F-coalgebra (νX.FX) gives coinductive types (streams, infinite trees). They're categorically dual; which you want depends on whether you're building from base cases or generating infinite data.
 
 **Yoneda lemma insight**: The lemma says you can "probe" objects by mapping other objects into them. Two objects A, B are isomorphic iff they respond identically to all probes — this is how universal properties characterize objects up to unique isomorphism.
+
+**Profunctors generalize both functor types**: A covariant functor F: 𝒞 → Set is the profunctor Hom(1,-) ∘ F. A contravariant functor is Hom(-, 1) ∘ F. Profunctors are the natural "two-sided" morphisms in the bicategory of categories.
+
+**Database JOIN is a pullback, not a product**: A natural join of tables A and B over shared column C is the pullback of A → C ← B. A Cartesian product (cross join) is the categorical product A × B. The former enforces FK consistency; the latter does not.

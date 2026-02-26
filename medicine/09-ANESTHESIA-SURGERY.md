@@ -344,26 +344,24 @@ SURGICAL SITE INFECTION PREVENTION:
 
 ---
 
-<!-- @editor[structure/P3]: Decision Cheat Sheet uses Q&A format rather than condition/drug/notes table -- inconsistent with 01-07 guides -->
-
 ## 7. Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Best induction agent for hemodynamic instability? | Etomidate (minimal BP effect) or ketamine (sympathomimetic) |
-| Propofol formulation warning? | Lipid emulsion supports bacterial growth; discard unused portion within 12 hrs |
-| Malignant hyperthermia treatment? | Dantrolene 2.5 mg/kg IV STAT; stop volatile/sux; cool patient |
-| Triggers for succinylcholine hyperkalemia? | Burns (>24h), crush, denervation (SCI/stroke), prolonged immobility, severe myopathy |
-| Sugammadex vs neostigmine? | Sugammadex: works at any block depth; no muscarinic effects; reverses rocuronium/vecuronium; neostigmine: needs moderate block; give with atropine |
-| Which volatile agent has lowest blood:gas λ? | Desflurane (0.42) → fastest offset; sevoflurane (0.65) safer in outpatient |
-| PDPH treatment? | Conservative: caffeine, hydration; definitive: epidural blood patch (EBP) |
-| LA allergy: amide vs ester? | True allergy almost always to PABA from ester hydrolysis; amides rarely cause real allergy |
-| LAST treatment? | Stop injection; seizure control; Intralipid 20% 1.5 mL/kg IV bolus (lipid sink) |
-| RSI indication? | Full stomach/aspiration risk; crash sequence: pre-oxygenate → induction → succinylcholine/rocuronium → immediate intubation without bag-mask ventilation |
-| ASA 3 example? | Severe but compensated disease: uncontrolled HTN, poorly controlled DM, NYHA III CHF |
-| Pre-op fasting for clear liquids? | 2 hours |
-| Why hold ACEi/ARBs morning of surgery? | Risk refractory intraoperative hypotension; restart when hemodynamically stable post-op |
-| Nitrous oxide and B12? | Oxidizes B12 → inactivates methionine synthase; avoid in B12 deficiency or prolonged exposure |
+| Condition / Situation | Drug / Approach | Key Notes |
+|----------------------|-----------------|-----------|
+| Induction: hemodynamic instability | Etomidate or ketamine | Etomidate: minimal BP change (watch adrenal suppression); ketamine: sympathomimetic (↑ BP/HR) |
+| Induction: standard/routine | Propofol | Lipid emulsion — discard unused portion within 12 hrs (bacterial growth risk) |
+| Malignant hyperthermia | Dantrolene 2.5 mg/kg IV STAT | Stop all volatile agents and succinylcholine; active cooling; treat hyperkalemia/acidosis |
+| Succinylcholine hyperkalemia risk | Avoid in: burns (>24h), denervation (SCI/stroke), crush, prolonged immobility, severe myopathy | Risk is extra-junctional nAChR upregulation — not baseline K⁺ level; ordinary hyperkalemia is not a contraindication |
+| NMB reversal (routine) | Sugammadex (rocuronium/vecuronium) or neostigmine + atropine (non-steroidal NMBAs) | Sugammadex works at any block depth; neostigmine needs moderate block; always verify reversal with quantitative TOF ≥0.9 |
+| Fastest anesthetic offset (outpatient) | Desflurane (λ = 0.42) or sevoflurane (λ = 0.65) | Sevoflurane preferred in outpatient (desflurane is airway irritant, requires vaporizer heating) |
+| Post-dural puncture headache | Conservative: caffeine, hydration; definitive: epidural blood patch | PDPH from CSF leak at dural puncture site; EBP seals the leak with autologous blood |
+| Local anesthetic systemic toxicity (LAST) | Stop injection; seizure control (BZD); Intralipid 20% 1.5 mL/kg IV bolus | "Lipid sink" — Intralipid sequesters free LA from plasma; call for ACLS if cardiac arrest |
+| Full stomach / aspiration risk | RSI: pre-oxygenate → induction agent → succinylcholine or high-dose rocuronium → intubate immediately | No bag-mask ventilation between induction and intubation; no waiting |
+| LA true allergy | Use amide (vs ester) if ester allergy | True allergy almost always to PABA (ester hydrolysis product); amides lack PABA moiety |
+| Hold medications pre-op | ACEi/ARBs: hold morning of surgery | Risk refractory intraoperative hypotension; restart post-op when hemodynamically stable |
+| Nitrous oxide contraindication | Avoid in B12 deficiency or prolonged/repeated exposure | Oxidizes B12 → inactivates methionine synthase → homocysteinemia + neurotoxicity |
+| Pre-op fasting — clear liquids | 2 hours | Standard ASA guideline; solids: 6–8 hours depending on fat content |
+| ASA 3 physical status examples | Uncontrolled HTN, poorly controlled DM, NYHA III CHF, BMI > 40, active hepatitis | Severe systemic disease, compensated but limiting; anesthetic risk ↑ but not prohibitive |
 
 ---
 

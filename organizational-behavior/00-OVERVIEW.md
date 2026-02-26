@@ -37,7 +37,15 @@ ADJACENT DISCIPLINES:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from general CS/software engineering management experience to OB as a formal discipline — the learner runs engineering orgs daily; connect that lived experience to the academic field -->
+## From Engineering Org Experience to OB as a Discipline
+
+If you run engineering organizations, you are already practicing applied OB — the academic field is the systematic formalization of what you observe empirically. The value of the formal study is not novelty but precision: it names the mechanisms, identifies which interventions have replicable effects vs. which are organizational mythology, and provides a framework for diagnosing failure modes rather than attributing them to individual character.
+
+**The org you manage is a complex adaptive system.** Individual behavior is shaped by incentive structures, social norms, information flows, and role constraints in ways that make individual-level explanations systematically misleading. When a team's velocity drops, the explanation is rarely "people stopped caring" — it is more likely a coordination overhead increase, an unclear priority signal, a loss of psychological safety after a high-profile failure, or a change in task interdependence structure. OB provides the vocabulary to reason about those system-level causes rather than defaulting to person-level attribution.
+
+**The replication crisis is not an abstraction — it is a budget allocation problem.** A significant fraction of management interventions you might consider (MBTI for team composition, Maslow-based motivation programs, Situational Leadership training) have weak or failed empirical support. Other interventions (goal-setting structured as OKRs, psychological safety investment, structured behavioral interviews for hiring) have strong meta-analytic evidence. OB's evidence hierarchy tells you where to put engineering management investment.
+
+**The OB-economics interface is where your formal training is most applicable.** Principal-agent theory, tournament theory, efficiency wages, and transaction cost economics are the formal economic models underlying the management accounting intuitions you work with daily. SDT and equity theory are the behavioral corrections to those models: people are not narrow self-interest maximizers, and the behavioral departures are systematic and predictable. The interaction between economic incentive structures and intrinsic motivation crowding-out is the central design question for engineering performance management.
 
 ## History of Management Thought
 
@@ -208,7 +216,26 @@ CULTURE CHANGE:
 
 ---
 
-<!-- @editor[structure/P2]: No comparison tables — guide is prose + ASCII diagrams only; a table comparing evidence strength across major OB theories (strong/contested/weak) would add reference value -->
+## Evidence Strength Summary
+
+| Theory / Construct | Evidence | Notes |
+|---|---|---|
+| Goal-setting (Locke & Latham) | Strong | d≈0.68; most replicated motivation finding |
+| Psychological safety (Edmondson) | Strong | Large-scale replication; Google Project Aristotle |
+| Cognitive ability (GMA) as job predictor | Strong | Best single predictor; often underused |
+| Structured behavioral interview | Strong | r≈.51; far outperforms unstructured |
+| Transformational leadership → performance | Moderate | r≈.44; inflated by common-method bias |
+| Equity theory (underpayment effects) | Moderate | Underpayment robust; overpayment weaker |
+| SDT / intrinsic motivation crowding-out | Moderate | Cross-cultural replication; some moderators disputed |
+| Big Five personality → leadership | Moderate | Useful combined; modest individual effects |
+| LMX differentiation effects | Moderate | Team-level effects well-documented |
+| Expectancy theory (VIE) | Moderate | Strong theoretical logic; field replication mixed |
+| Herzberg two-factor | Weak | Methodological artifact; useful heuristic only |
+| Maslow hierarchy | Weak | No empirical support for activation sequence |
+| Situational Leadership (D1-S4 matching) | Weak | Widely used; meta-analytic support absent |
+| Myers-Briggs (MBTI) | Rejected | Poor test-retest; low predictive validity |
+| Learning styles (VAK) | Rejected | No evidence that matching style improves learning |
+| Emotional intelligence as leadership predictor | Contested | Construct validity problems; overlap with Big Five |
 
 ## The OB-Economics Interface
 
@@ -269,7 +296,22 @@ Meta-analyses aggregate multiple studies. If the input studies all have the same
 
 ---
 
-<!-- @editor[structure/P2]: No Decision Cheat Sheet section — the module index doesn't serve as a "use X when Y" decision tool -->
+## Decision Cheat Sheet
+
+| You want to | Go to |
+|---|---|
+| Understand why engineers aren't performing | `01-MOTIVATION.md` — expectancy theory (E×I×V) diagnostic |
+| Design a goal system that actually works | `01-MOTIVATION.md` — goal-setting theory; OKR failure modes |
+| Understand why generous pay doesn't motivate | `01-MOTIVATION.md` — Herzberg hygiene factors; SDT crowding-out |
+| Select the best leader for a role | `02-LEADERSHIP.md` — psychometric predictors; structured interview design |
+| Understand why a charismatic leader is causing damage | `02-LEADERSHIP.md` — dark triad in executives |
+| Diagnose why a team isn't performing | `03-TEAMS-GROUPS.md` — Hackman conditions; psychological safety assessment |
+| Prevent groupthink on a high-stakes decision | `03-TEAMS-GROUPS.md` — Janis antecedents; premortem technique |
+| Choose an org structure for a new program | `04-ORG-DESIGN.md` — Mintzberg configurations; Conway's Law |
+| Analyze whether a product market is attractive | `05-STRATEGY.md` — Porter Five Forces |
+| Evaluate why a capability is hard to copy | `05-STRATEGY.md` — VRIN analysis |
+| Plan an organizational transformation | `06-CHANGE.md` — Kotter; Lewin; sensemaking |
+| Understand why the Agile transformation stalled | `06-CHANGE.md` — cargo cult Agile; middle management threat pattern |
 
 ## Module Index
 

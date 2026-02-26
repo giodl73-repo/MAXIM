@@ -23,7 +23,46 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-<!-- @editor[bridge/P2]: No bridge from classical game theory (Nash equilibrium, subgame perfection) to behavioral game theory — the learner has MIT TCS background and would orient faster with an explicit "standard game theory predicts X via backward induction; here's where human subjects diverge" framing before the experiments -->
+## Classical Game Theory vs Behavioral Game Theory
+
+Standard game theory predicts outcomes from backward induction + common knowledge of rationality. Behavioral game theory documents where human subjects systematically deviate — and models the utility function that accounts for those deviations.
+
+```
+GAME             STANDARD GT PREDICTION        EMPIRICAL REALITY            MECHANISM
+───────────────  ───────────────────────────   ─────────────────────────   ───────────────────────
+Ultimatum        Proposer: offer $1            Modal offer: 40-50%         Inequity aversion
+                 Responder: accept any         Rejection rate <20%: ~60%   Costly punishment
+                 positive offer               Both sacrifice money
+
+Dictator         Proposer: keep everything     Mean transfer: 20-30%       Altruism (unconditional)
+                 (no strategic reason to give) Some give 50%               Social norms
+
+Trust game       Sender: send $0               Mean sent: ~50%             Positive reciprocity
+                 (Receiver returns nothing)    Receiver returns ~30-40%    Trust + gift exchange
+
+Public goods     All contribute $0             Round 1: ~50% contribution  Conditional cooperation
+                 (dominant strategy to free    Declines with repetition    Negative reciprocity
+                 ride)                         Recovers with punishment    Social norms
+
+Centipede        P1 takes at node 1            Cooperate for many rounds   Altruism, reputation
+                 (backward induction)          then take                   Limited CKR
+
+WHY BACKWARD INDUCTION FAILS IN THESE EXPERIMENTS:
+  SPE requires: (1) each player maximizes own payoff at each node,
+                (2) common knowledge that everyone is doing (1).
+  Violations occur because:
+  a) Players have utility that includes others' payoffs (Fehr-Schmidt)
+  b) Players care about procedural fairness / intentions (Rabin reciprocity)
+  c) Players have limited depth of backward induction (typically 1-2 steps)
+
+BEHAVIORAL UTILITY GENERALIZATIONS:
+  Standard:    U_i(x) = x_i                  (own payoff only)
+  Fehr-Schmidt: U_i = x_i − αᵢmax(xⱼ−xᵢ,0) − βᵢmax(xᵢ−xⱼ,0)
+  Rabin:        U_i depends on perceived kindness of j's intentions
+  Charness-Rabin: weighted sum of own payoff + min payoff (Rawlsian) + total surplus
+  All are parameterized; empirically estimated from experiments.
+```
+
 ## Ultimatum Game
 
 ```

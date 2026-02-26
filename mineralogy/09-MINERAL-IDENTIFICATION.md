@@ -70,10 +70,9 @@ HAND SPECIMEN IDENTIFICATION WORKFLOW
 +------------------------------------------------------------------+
 ```
 
-<!-- @editor[content/P2]: Field database list is thin on the actual workflow — a sentence on how RRUFF integrates with handheld Raman devices (measure spectrum in the field, match against database) would show the practical pipeline -->
 **Field databases and apps**:
 - Mindat.org: comprehensive mineral database (locality + property data)
-- RRUFF database: Raman spectra + XRD patterns
+- RRUFF database: Raman spectra + XRD patterns for ~4,500 minerals. The practical field pipeline: handheld Raman spectrometers (e.g., Rigaku Progeny, Metrohm Mira) acquire a spectrum in 30 seconds on a rock surface; the device's onboard software or a Bluetooth-connected phone app matches the spectrum against the RRUFF reference library and returns the top candidates with match scores. This gives species-level identification in the field without sampling — the same workflow as portable XRF for elemental analysis, but structure-sensitive rather than composition-sensitive.
 - iRocks, Hudson: collector databases with photos
 - Minerals ID apps (iMinerals, Smart Geology): camera + AI identification
 
@@ -175,10 +174,9 @@ POWDER XRD WORKFLOW
 +------------------------------------------------------------------+
 ```
 
-<!-- @editor[bridge/P2]: The Fourier transform analogy also appears in 02-CRYSTAL-SYSTEMS — consolidate the best version in one file and cross-reference from the other to avoid duplication -->
-**The Fourier transform analogy**:
+**The Fourier transform connection**:
 
-XRD measures the reciprocal lattice of the crystal — equivalent to the Fourier transform of the electron density. Each peak in the XRD pattern corresponds to a set of crystal planes (hkl). The pattern IS the frequency-domain representation of the crystal structure. Solving a crystal structure = inverting the Fourier transform (with the phase problem as the complication).
+XRD measures the reciprocal lattice of the crystal — equivalent to the Fourier transform of the electron density. Each peak in the XRD pattern corresponds to a set of crystal planes (hkl). The pattern IS the frequency-domain representation of the crystal structure. Solving a crystal structure = inverting the Fourier transform (with the phase problem as the complication: you measure |F|² but not the phase of F, so you cannot directly invert to get the real-space electron density). See 02-CRYSTAL-SYSTEMS for the full Bragg's Law and phase problem discussion; this file focuses on the practical identification workflow.
 
 **Applications**:
 - Identify unknown minerals in soil, rock, dust

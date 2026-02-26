@@ -391,7 +391,43 @@ CURRENT APPLICATIONS:
 
 ---
 
-<!-- @editor[content/P2]: YInMn blue (2009, Mas Subramanian, Oregon State) absent — first new inorganic blue in ~200 years; significant gap for a guide covering modern synthetic pigments -->
+## YInMn Blue — First New Inorganic Blue in ~200 Years
+
+```
+YInMn BLUE (Yttrium Indium Manganese oxide):
+  Discovered: 2009, Mas Subramanian, Oregon State University
+  Accidental: graduate student was synthesizing new manganese oxides
+              for electronics applications; the vivid blue appeared unexpectedly
+
+  COMPOSITION: YIn₁₋ₓMnₓO₃ (hexagonal crystal structure)
+  COLOR: intense blue (~420–450 nm absorbed range, reflects strongly ~450–700)
+
+  WHY IT IS STRUCTURALLY INTERESTING:
+  Mn⁴⁺ in an unusual trigonal bipyramidal coordination (not the standard
+  octahedral that makes most Mn compounds brown/black)
+  The geometry is enforced by the hexagonal YInO₃ host lattice
+  → Same Mn ion, unusual coordination → completely different color
+  This is crystal field theory operating at the structural level:
+  the host lattice is the "ligand environment compiler"
+
+  COMMERCIAL SIGNIFICANCE:
+  Most stable vivid blue pigment currently available
+  Excellent UV + heat stability (outdoor/industrial coatings applications)
+  No cobalt (cobalt is toxic + supply-chain constrained)
+  No copper (phthalocyanine degrades at very high T)
+  Infrared reflective → "cool roof" applications (reflects solar heat)
+  Licensed: Shepherd Color Company ("Mas Blue") and others
+  First new inorganic blue since cobalt blue (1802) — 207-year gap
+
+  THE GAP EXPLAINS THE SIGNIFICANCE:
+  Organic blues (phthalocyanine, indanthrone): excellent lightfastness for
+  organic pigments but degrade above ~350°C
+  Inorganic blues capable of surviving high-T industrial processes were
+  limited to: cobalt blue (1802), cerulean (1805), ultramarine (1826)
+  YInMn fills the gap for high-T, non-cobalt, vivid blue applications
+```
+
+---
 
 ## Vantablack — The Darkest Black
 

@@ -27,7 +27,68 @@ Synthetic fertilizers and pesticides are the two chemical pillars of industrial 
 ```
 
 ---
-<!-- @editor[bridge/P2]: No old-world bridge — Haber-Bosch is a classic chemical engineering optimization (Le Chatelier + catalyst kinetics); IPM's economic threshold logic is decision theory under uncertainty; MOA rotation is exactly an adversarial strategy against evolving opponents. The learner's MIT background covers all three frameworks — anchor to them. -->
+## Engineering Bridge: Chemical Agriculture as Optimization and Adversarial Strategy
+
+```
+AGRICULTURAL CONCEPT            CS / ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+HABER-BOSCH PROCESS             Constrained engineering optimization
+  N₂ + 3H₂ ⇌ 2NH₃ (equilibrium)  → Maximize yield subject to constraints
+  Le Chatelier: high pressure     → Raise pressure: shift equilibrium right
+    favors product (4 mol → 2 mol)   (constraint relaxation on one axis)
+  Le Chatelier: low temp favors   → But low temp: rate → 0 (kinetic floor)
+    product (exothermic)           Same trade-off as: aggressive GC vs
+  Bosch's solution: compromise      throughput; cannot optimize both dims
+    400–500°C + Fe catalyst          simultaneously → Pareto frontier
+    15–25% single-pass yield         → Recycle unreacted gas (memoization)
+  CATALYST = rate accelerator      → The catalyst doesn't shift equilibrium
+    (Fe, K₂O, Al₂O₃ promoters)       (thermodynamics); it accelerates the
+    → Enables economic rate at         path to equilibrium (kinetics)
+    350–500°C vs uncatalyzed ~800°C   Same as: JIT compiler doesn't change
+                                       semantics; only execution speed
+  HYDROGEN BOTTLENECK             → External dependency (natural gas)
+    SMR: CH₄ + H₂O → CO + 3H₂      → Haber-Bosch sustainability =
+    → Tightly coupled to CH₄ price    function of H₂ source (green H₂)
+
+NITROGEN USE EFFICIENCY (NUE)   Throughput vs loss in a leaky pipeline
+  30–50% of applied N taken up    → 50–70% "packet loss" on N delivery
+  Rest: leaching, denitrification, → Different loss paths need different
+    volatilization, immobilization    mitigations (analogous to TCP vs UDP
+  Split applications              → Backpressure: deliver in smaller
+    (starter + sidedress)            batches matched to uptake rate
+  Nitrification inhibitors        → Rate-limiting the pipeline stage
+    (slow NH₄⁺ → NO₃⁻)             that causes the leak
+  Controlled-release fertilizer   → Buffered output queue; smooth delivery
+
+ECONOMIC THRESHOLD (ET)         Decision theory under uncertainty
+  ET = pest density requiring     → Decision boundary: spray if and only
+    action; spray costs justified    if E[loss from inaction] > spray cost
+  EIL = crop loss = pesticide     → Break-even analysis; ET set below EIL
+    cost (exact break-even)          to account for population growth lag
+  NOT spraying below threshold    → Avoid Type I error (unnecessary spray)
+    → does NOT mean ignoring pest    → Monitor (observe) rather than act
+  ALSO prevents resistance        → Below-threshold spraying = applying
+    (selection pressure without      selection pressure without full kill
+    full kill = worst of both)       → worst-case adversarial training
+
+MOA ROTATION (resistance mgmt)  Adversarial strategy against evolving opponent
+  Problem: any pest population    → Adversary population has diverse
+    contains rare resistant indivs    encodings of the same behavior
+  Pesticide selects resistant     → Selection = gradient descent toward
+    individuals; they reproduce      the one target the attacker knows
+  MOA rotation: switch biochemical → Rotate attack surface: make previous
+    target each application           "fitness advantage" irrelevant
+  Refuge strategy: 20% unsprayed → Leave a pool of susceptible indivs
+    field → dilute resistance alleles  to slow allele frequency shift
+  Tank mixes (2 MOA simultaneously) → Require double mutation to escape
+    → extremely rare (epistasis)      → analogous to 2-factor auth:
+                                       must compromise both independently
+  FUNGICIDE GROUPS:               → If QoI (Group 11) + DMI (Group 3):
+    G143A mutation → QoI resistant   A single SNP breaks one key;
+    → NEVER use QoI alone             can't break both simultaneously
+    Must tank-mix with multi-site     Multi-site = "unhashable" defense:
+    (Group M: mancozeb, chlorothalonil) no single mutation confers resistance
+```
 
 ## Haber-Bosch Process — The Most Consequential Reaction
 

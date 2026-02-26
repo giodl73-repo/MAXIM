@@ -23,7 +23,58 @@ Gastrulation is the most consequential single event in development — Lewis Wol
 
 ---
 
-<!-- @editor[bridge/P2]: No engineering/CS bridge in this guide. Gastrulation as a "deployment pipeline" — cells migrate through a single entry point (primitive streak) and get routed to destinations based on positional signals — maps to message routing in event-driven systems. The organizer secreting inhibitors (not activators) is a "default-allow with selective deny" pattern familiar from firewall rules or permission systems. -->
+## Engineering Bridge: Gastrulation as Routing Protocol
+
+Gastrulation is a cell routing and topology-construction algorithm. Cells migrate through a single chokepoint and are assigned layer identity based on timing and position.
+
+```
+  GASTRULATION                  CS / SYSTEMS PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Primitive streak as           Single ingress point / message queue:
+  migration chokepoint          All future mesoderm and endoderm cells
+                                must transit through the PS in order.
+                                Timing of entry → layer assignment:
+                                early PS cells → endoderm and axial mesoderm;
+                                late PS cells → lateral plate mesoderm.
+                                Exactly a time-division multiplexed queue.
+
+  EMT (epithelial → mesenchymal Active process migration:
+  transition)                   Cells dissolve junctions, acquire
+                                motility, migrate to destinations.
+                                Analogous to a packet leaving a structured
+                                network (epithelium with fixed addressing)
+                                and entering a routed WAN (mesenchyme
+                                with chemotactic guidance cues).
+
+  Organizer secreting BMP       Default-allow with selective deny:
+  antagonists (Chordin, Noggin) The default state of ectoderm is
+                                "become epidermis" (BMP-on = skin).
+                                The organizer inhibits BMP in the dorsal
+                                midline → neural fate emerges by DEFAULT
+                                (inhibition of the inhibitor of neural).
+                                Firewall model: deny list applied to a
+                                specific region; everywhere else: allow.
+
+  Nodal gradient (mesoderm)     Signal-strength-dependent cell-type
+                                assignment: high Nodal → endoderm;
+                                low Nodal → mesoderm; none → ectoderm.
+                                A three-level threshold comparator on
+                                a single morphogen.
+
+  Left-right asymmetry via      Physical random noise + amplification
+  nodal ciliary flow            → deterministic asymmetry:
+                                Monocilia rotate → net leftward fluid flow
+                                → Nodal on left → activates Lefty (feedback
+                                inhibitor) + Pitx2 (TF) on left only.
+                                Broken symmetry from a physical random
+                                fluctuation amplified into a stable, heritable
+                                asymmetric state. Same math as symmetry
+                                breaking in Turing systems.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## The Primitive Streak
 
 ```
@@ -205,7 +256,55 @@ FOREGUT, MIDGUT, HINDGUT PATTERNING
 
 ---
 
-<!-- @editor[content/P2]: Primordial germ cell (PGC) specification and migration is thin — mentioned in one line under "Posterior PS" but deserves its own subsection given its significance (germline segregation, epigenetic reprogramming, clinical relevance to gonadal tumors) -->
+## Primordial Germ Cell Specification and Migration
+
+```
+PRIMORDIAL GERM CELLS (PGCs)
+──────────────────────────────
+Significance: PGCs are the cells that will become eggs and sperm — the
+permanent germline. PGC specification and epigenetic reprogramming are
+among the most dramatic events in development.
+
+SPECIFICATION (Human: Week 2-3; Mouse: E6.25-7.25)
+  In mice: BMP4 from extraembryonic ectoderm → induces BLIMP1 + PRDM14
+  in posterior epiblast cells → PGC fate
+  Key TFs: BLIMP1 (PRDM1), PRDM14, TFAP2C — the PGC "master regulator" triad
+  In humans: BMP4/7/8b from trophoblast → SOX17 + BLIMP1 → PGC fate
+  (note: SOX17 is a key human PGC specifier but is NOT required in mouse PGCs)
+
+MIGRATION ROUTE (Mouse E7.5 to E10.5; Human Week 4-6)
+  PGCs originate in posterior primitive streak / extraembryonic mesoderm
+  → Migrate via hindgut endoderm
+  → Through mesentery
+  → Into genital ridge (gonadal anlage)
+  Chemoattractant: SCF (KIT ligand) gradient expressed along migration path
+  Receptor: KIT on PGCs
+  ~150 PGCs at specification → ~2,500 at gonadal colonization
+
+EPIGENETIC REPROGRAMMING (the most dramatic chromatin reset in the organism)
+  On arrival at gonads (Mouse E10.5-E13.5):
+  Phase 1: Global DNA demethylation
+    5mC → passive loss during division + active TET1/TET2-mediated
+    Genome goes from ~70% → <5% methylation globally
+    Imprints ERASED (both maternal and paternal imprints removed)
+  Phase 2: Re-imprinting (sex-specific)
+    Female (oocyte): maternal imprints re-established during oocyte growth
+    Male (sperm): paternal imprints established during spermatogenesis
+  Result: germ cells are reset to a totipotent-compatible epigenomic state
+
+CLINICAL RELEVANCE
+  Germ cell tumors (GCTs):
+    Seminomas / dysgerminomas: retained PGC-like state → pluripotent markers
+    Teratomas: poorly suppressed pluripotency → differentiate into multiple tissues
+    Embryonal carcinoma: fully pluripotent GCT (most aggressive)
+    Teratoma + yolk sac tumor: mixed germ cell tumor
+  PGC migration errors → streak gonads (Turner syndrome-like), gonadal dysgenesis
+  Epigenetic reprogramming errors → improper imprinting → Beckwith-Wiedemann,
+    Angelman, Prader-Willi syndromes
+```
+
+---
+
 ## Ectoderm: The Remaining Layer
 
 ```

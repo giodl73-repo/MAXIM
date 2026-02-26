@@ -1,6 +1,6 @@
 # Earthquakes and Volcanoes — Seismic Waves, Mw Scale, Eruption Types
 
-<!-- @editor[bridge/P2]: No old-world bridge — elastic rebound theory maps naturally to "technical debt release": strain accumulates silently, then releases catastrophically at a threshold — any engineer who has seen a cascading failure recognizes the pattern -->
+**Bridge — elastic rebound as accumulated technical debt with a brittle failure mode:** Elastic rebound theory (Reid, 1910) is the geological version of accumulated technical debt releasing catastrophically. Tectonic plates move continuously at 2–10 cm/yr; where they are locked at fault interfaces, elastic strain accumulates silently in the surrounding rock — measurable via GPS surface deformation but invisible to casual observation. This is identical to debt accumulation: the system appears stable while stress builds. When shear stress exceeds static friction (the "debt ceiling"), rupture propagates along the fault plane at ~3 km/s — a cascading failure that releases in seconds what took centuries to accumulate. The Cascadia Subduction Zone has been locked since 1700, accumulating strain for 325+ years toward an expected M8.7–9.2 event. Unlike software debt, there is no incremental paydown option — only the full release. The magnitude scales with the fault area ruptured and average slip, making earthquake size the integral of all the accumulated deficit.
 
 ## The Big Picture
 

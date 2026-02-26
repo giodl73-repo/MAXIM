@@ -279,8 +279,7 @@ Classical theory: meaning = necessary and sufficient conditions. "Bachelor" = ad
 - Is Pluto a planet? (definitional dispute, not a logic error)
 - Is a penguin a bird? (yes but atypical — doesn't fit the "bird schema")
 
-<!-- @editor[audience/P3]: Prototype theory section explains categorization from scratch — the learner has type theory and set-membership from MIT TCS; lead with the contrast to classical (necessary+sufficient) rather than building up from basics -->
-**Prototype theory** (Rosch 1975):
+**Prototype theory** (Rosch 1975) — the contrast with classical type theory is the point. Classical theory (Aristotle, intensional semantics) models a category as a predicate: necessary and sufficient conditions define a crisp boundary. A triangle is a triangle iff it has exactly three sides; there are no "typical" triangles. This works for mathematical and formal categories. Prototype theory observes that natural-kind and artifact categories do not behave this way:
 
 ```
 CATEGORY STRUCTURE:
@@ -298,6 +297,10 @@ TYPICALITY EFFECTS:
   "Is a penguin a bird?" → slower RT
   "A robin is a more typical bird than a penguin" — felicitous statement
 ```
+
+**Formal reformulation:** Instead of a predicate P(x) ∈ {T, F}, prototype theory uses a graded membership function: μ(x) ∈ [0, 1]. This is fuzzy set theory (Zadeh 1965) applied to natural-language categories. "Robin" has μ_BIRD(robin) ≈ 0.99; "penguin" has μ_BIRD(penguin) ≈ 0.6. The typicality gradient is the shape of the membership function, not a flaw in the category definition.
+
+**Why it matters for formal semantics:** Classical model-theoretic semantics requires crisp extensions — [[bird]] is a set. Prototype theory says natural kinds have fuzzy extensions. The working resolution: formal semantics uses classical categories for logical inference (compositionality requires it), and prototype structure is treated as a separate cognitive/lexical layer that interacts with but does not replace truth-conditional content.
 
 **Basic level categories:** The most cognitively privileged level (neither too abstract nor too specific):
 - Superordinate: furniture (too abstract, few shared features)

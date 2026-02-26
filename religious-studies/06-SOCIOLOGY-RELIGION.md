@@ -218,7 +218,106 @@ intensity but also routinizes over time.
 
 ---
 
-<!-- @editor[content/P2]: Marx is in the landscape diagram (religion = ideology, false consciousness, opiate of the masses, Gramsci hegemony) but has no dedicated section — add a Marx section parallel to Durkheim and Weber covering alienation, base/superstructure, and the Gramsci extension -->
+## Marx — Religion as Ideology
+
+Marx's analysis of religion is structurally different from Durkheim's and Weber's: they treat religion as a real social phenomenon to be explained on its own terms; Marx treats it primarily as a symptom and mechanism of class domination.
+
+```
++-----------------------------------------------------------+
+|              MARX'S ARGUMENT CHAIN                        |
+|                                                           |
+|  BASE / SUPERSTRUCTURE:                                   |
+|  Mode of production (economic base)                       |
+|    → generates class relations                            |
+|    → generates legal, political, cultural, ideological    |
+|      superstructure that LEGITIMATES the base             |
+|                                                           |
+|  Religion is superstructure:                              |
+|    → It reflects, naturalizes, and legitimates the        |
+|       class structure that produced it                    |
+|    → "The ideas of the ruling class are in every era      |
+|       the ruling ideas" — also applies to theology        |
+|    → Divine sanction for earthly hierarchy:               |
+|       "The rich man in his castle, the poor man at        |
+|        his gate, God made them high and lowly"           |
+|                                                           |
+|  ALIENATION:                                              |
+|  Workers are alienated from their labor, their product,  |
+|    their fellow workers, and their species-being          |
+|    (their capacity for free, creative activity)          |
+|  Religion is the "inverted world-consciousness" of        |
+|    an inverted world — it projects human powers onto     |
+|    a supernatural being (God) who then dominates humans  |
+|  Feuerbach (Marx's starting point): God is a human       |
+|    projection; theology is inverted anthropology         |
+|  Marx: right analysis, wrong solution. Feuerbach wants   |
+|    to replace religion with humanism; Marx says           |
+|    we need to change the material conditions that        |
+|    produce alienation, not just the ideas               |
+|                                                           |
+|  "OPIATE OF THE MASSES":                                  |
+|  Famous phrase, usually misread as pure contempt         |
+|  Full quote: "Religious distress is at the same time     |
+|    the expression of real distress and the protest        |
+|    against real distress. Religion is the sigh of the    |
+|    oppressed creature, the heart of a heartless world,   |
+|    just as it is the spirit of a spiritless situation.   |
+|    It is the opium of the people."                       |
+|    — Contribution to the Critique of Hegel's             |
+|       Philosophy of Right (1844)                         |
+|                                                           |
+|  Opium in 1844: a painkiller, not a vice.                |
+|  Religion provides genuine consolation for real          |
+|    suffering — the problem is that it also prevents      |
+|    addressing the material cause of that suffering       |
+|  FALSE CONSCIOUSNESS: workers misidentify their          |
+|    interests; religion offers heavenly reward instead    |
+|    of earthly justice; acceptance of suffering as        |
+|    God's will instead of resistance to exploitation      |
++-----------------------------------------------------------+
+
+GRAMSCI'S EXTENSION — HEGEMONY:
+Antonio Gramsci (1891–1937), "Prison Notebooks":
+  Marxist problem: why do the dominated accept their domination?
+  Pure force cannot explain consent — the ruled actively cooperate
+
+  HEGEMONY: cultural domination through which the ruling class's
+    worldview becomes "common sense" — the natural, obvious,
+    unremarkable way things are
+  Not imposed by force but achieved through civil society
+    (schools, churches, media, voluntary organizations)
+  The church is a hegemonic institution par excellence:
+    → Organizes consent through parish networks
+    → Defines moral categories that naturalize class differences
+    → Creates "organic intellectuals" of the ruling class
+       (clergy who explain the world to the masses)
+
+  COUNTER-HEGEMONY: subordinate groups can develop their own
+    organic intellectuals and alternative common sense
+  The political function of liberation theology (Latin America,
+    1960s–80s) is precisely counter-hegemonic: uses Catholic
+    institutional networks to organize against capitalist exploitation
+    → Gramsci's framework explains why the Vatican found this threatening
+
+CRITIQUES OF THE MARXIST ACCOUNT:
+  1. Empirical: religion has historically been used for both
+     domination (crusades, inquisition) AND liberation
+     (abolition, civil rights movement, liberation theology,
+     Solidarity movement in Poland, Gandhian independence).
+     A purely ideological account cannot explain both.
+  2. Weber's response: sometimes religion drives economic change
+     rather than reflecting it (Protestant Ethic); base/
+     superstructure causality runs both directions.
+  3. Durkheim: religion generates genuine social solidarity;
+     reducing it to ideology misses the functional reality.
+  4. The persistence problem: if religion is ideology of
+     capitalism, why does it persist in socialist states?
+     The Soviet case required active suppression, not just
+     building communism; this suggests religion meets needs
+     not reducible to class structure.
+```
+
+---
 
 ## Secularization — Rise, Fall, and Revision
 

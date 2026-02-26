@@ -215,7 +215,22 @@ CONDITIONALITY (the controversial part):
 
   IMF response: changed "structural adjustment" to "structural reform";
   softened some conditionality after 2000; learned from East Asian crisis
-<!-- @editor[content/P3]: IMF governance reform (2010 quota/voice reform giving more weight to China/emerging markets) not mentioned — relevant for understanding the institution's evolution -->
+
+2010 QUOTA AND VOICE REFORM:
+  After the 2008 crisis, emerging markets (particularly China, India,
+  Brazil) argued that IMF governance still reflected 1944 power
+  distribution, not the current global economy
+  2010 reform (took effect 2016 after US Congressional delay):
+  → China becomes 3rd largest shareholder (after US and Japan)
+  → China, Brazil, India, Russia among top 10 shareholders
+  → Two Executive Board seats shifted from European advanced economies
+    to under-represented developing countries
+  Significance: legitimacy question for a global institution
+  An organization where voting power doesn't reflect economic weight
+  loses legitimacy with the members it's asking to accept discipline
+  The reform was partial: the US still holds ~17% of votes (near the
+  15% threshold required to block major decisions — a de facto veto)
+  and the IMF Managing Director is traditionally European
 ```
 
 ---

@@ -24,9 +24,10 @@ Functional analysis is linear algebra in infinite dimensions. The jump from ℝ�
 │  Adjoints (Banach/Hilbert)            Functional calculus                    │
 │                                                                              │
 │  Applications                                                                │
-│  ──────────────────────────────────────────────────────────────────────       │
-│  PDEs (Sobolev spaces, weak solutions)   QM (Schrödinger operator, C*-alg)  │
+│  ──────────────────────────────────────────────────────────────────────────   │
+│  PDEs (Sobolev spaces, weak solutions)   QM (observables, C*-algebras)      │
 │  ML (RKHS, kernel methods, SVMs)         Signal processing (Fourier in L²)  │
+│  Numerical methods (Krylov, FEM)         Neural operators (attention as op.) │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -389,9 +390,97 @@ Example: Multiplication operator (Mf)(x) = x·f(x) on L²[0,1]. σ(M) = [0,1]. N
 
 ---
 
-<!-- @editor[bridge/P1]: The quantum mechanics connection is stated in the landscape diagram and the cheat sheet but never developed in the body. The self-adjoint operators → quantum observables → spectral theorem → measurement postulate connection is the single most important application of functional analysis in physics and deserves a dedicated section. Key content missing: (1) the quantum mechanics dictionary (observables = self-adjoint operators on L², states = unit vectors, expectation value = ⟨ψ,Aψ⟩); (2) Stone's theorem (U(t) = e^{itH} gives unitary time evolution from self-adjoint H — Schrödinger equation in operator form); (3) the distinction between bounded observables and unbounded ones (position, momentum) with the domain subtlety; (4) C*-algebras as the algebraic abstraction of QM observables. The landscape diagram promises "QM (Schrödinger operator, C*-alg)" but the body delivers only the Schrödinger operator definition — C*-algebras are never mentioned. -->
+## 7. Quantum Mechanics Dictionary
 
-## 7. Unbounded Operators
+Functional analysis is the mathematical foundation of quantum mechanics. The connection is exact, not metaphorical.
+
+### The QM–Functional Analysis Dictionary
+
+```
+QM concept                      Functional analysis object
+────────────────────────────    ──────────────────────────────────────────────
+Pure quantum state |ψ⟩         Unit vector ψ ∈ L²(ℝ³) (or H, any Hilbert space)
+Observable A (e.g., energy)    Self-adjoint operator A on H
+Expectation value ⟨A⟩_ψ       ⟨ψ, Aψ⟩ = ∫ ψ̄(x) (Aψ)(x) dx
+Eigenvalue equation Aψ = λψ    Spectral eigenvalue; λ is a possible measurement outcome
+Spectral theorem for A          Decomposes H into eigenspaces (discrete) + continuous spectrum
+Measurement outcome             λ ∈ σ(A) with probability ||E_A({λ})ψ||²
+Time evolution |ψ(t)⟩           U(t)|ψ(0)⟩ where U(t) = e^{-iHt/ℏ} is unitary
+Schrödinger equation            iℏ d/dt ψ = Hψ  [H = Hamiltonian operator]
+Commutator [A,B]                AB - BA on H; zero iff A, B simultaneously measurable
+Uncertainty principle           σ_A · σ_B ≥ ½|⟨[A,B]⟩|  [Robertson inequality]
+Position operator Q             (Qψ)(x) = xψ(x) [multiplication operator]
+Momentum operator P             (Pψ)(x) = -iℏ ∂ψ/∂x [differentiation operator]
+[Q, P] = iℏI                   Heisenberg canonical commutation relation
+```
+
+**Why self-adjoint, not just symmetric**: The spectral theorem requires genuine self-adjointness (Dom(A) = Dom(A*)), not just symmetry. Self-adjoint operators generate one-parameter unitary groups (Stone's theorem below). Only self-adjoint observables have real spectra and complete sets of "eigenstates" (via the PVM). A symmetric operator that fails to be self-adjoint does not have a spectral theorem and cannot correspond to a physical observable.
+
+### Stone's Theorem
+
+**Stone's theorem** is the mathematical engine connecting self-adjoint operators to unitary time evolution:
+
+```
+Stone's Theorem:
+  Let A be self-adjoint (possibly unbounded) on H.
+  Then U(t) = e^{itA} defines a strongly continuous one-parameter unitary group:
+    U(t): H → H is unitary for each t ∈ ℝ
+    U(0) = I
+    U(s+t) = U(s)U(t)  [group property]
+    U(t)ψ → ψ in H as t → 0  [strong continuity]
+    d/dt U(t)ψ|_{t=0} = iAψ  for ψ ∈ Dom(A)
+
+  Converse: Every strongly continuous one-parameter unitary group U(t) arises
+  this way from a unique self-adjoint generator A = (1/i) d/dt U(t)|_{t=0}.
+```
+
+**QM application**: The Schrödinger equation iℏ ∂_t ψ = Hψ has solution ψ(t) = e^{-iHt/ℏ}ψ(0). Stone's theorem guarantees this U(t) = e^{-iHt/ℏ} is unitary (norm-preserving = probability-preserving) if and only if H is self-adjoint. Self-adjointness of the Hamiltonian is not a physics assumption — it is a mathematical condition equivalent to having well-defined unitary time evolution.
+
+**Functional calculus connection**: The spectral theorem for A gives
+```
+U(t) = e^{itA} = ∫_ℝ e^{itλ} dE(λ)
+
+where E is the projection-valued measure of A. The integral over the spectrum
+replaces the matrix exponential of the finite-dimensional case. For the free
+particle (H = -ℏ²/(2m) Δ), σ(H) = [0,∞), and e^{-iHt/ℏ} acts as a Fourier
+multiplier: multiplication by e^{-iℏk²t/(2m)} in momentum space.
+```
+
+### C*-Algebras (Algebraic Abstraction of QM)
+
+The **C*-algebra** framework abstracts QM observables away from any particular Hilbert space representation:
+
+```
+C*-algebra: a Banach algebra A over ℂ with an involution * satisfying:
+  ||a*a|| = ||a||²   [C*-identity — the key axiom]
+
+Examples:
+  B(H): bounded operators on H. The paradigm C*-algebra.
+  C(X): continuous functions on compact X, with * = complex conjugate.
+    This is commutative. Every commutative C*-algebra ≅ C(X) for some compact X
+    (Gelfand representation theorem).
+  Calkin algebra B(H)/K(H): quotient of bounded by compact operators.
+    Relevant for Fredholm theory and index theory.
+
+States and observables in the algebraic framework:
+  Observable: self-adjoint element a = a* ∈ A.
+  State:       positive linear functional ω: A → ℂ with ω(1) = 1.
+  Expectation: ω(a) = expected value of observable a in state ω.
+
+GNS construction (Gelfand-Naimark-Segal):
+  Every state ω on a C*-algebra A gives a Hilbert space H_ω and representation
+  π_ω: A → B(H_ω) with a cyclic vector Ω ∈ H_ω:
+    ω(a) = ⟨Ω, π_ω(a) Ω⟩.
+  This reconstructs the Hilbert space from the algebra and the state.
+  Different states give inequivalent representations — relevant for QFT
+  (vacuum state vs. thermal state give unitarily inequivalent Hilbert spaces).
+```
+
+**Why C*-algebras matter for QM**: Classical observables form a commutative algebra (C(X)). Quantum observables form a non-commutative C*-algebra. The non-commutativity of [Q,P] = iℏI is exactly the content of Heisenberg's uncertainty principle — Q and P are non-commuting elements of the Weyl algebra (a specific C*-algebra).
+
+---
+
+## 8. Unbounded Operators
 
 ### Why Unbounded Operators Matter
 
@@ -427,11 +516,23 @@ T is essentially self-adjoint: T̄ (closure) is self-adjoint.
 - For "nice" V: H is essentially self-adjoint. Self-adjointness = physical observability.
 - Spectrum: discrete eigenvalues (bound states) + continuous spectrum (scattering states).
 
-<!-- @editor[bridge/P2]: Stone's theorem should be stated explicitly in the body, not only referenced in the cheat sheet. The statement: if A is self-adjoint (possibly unbounded), then U(t) = e^{itA} is a strongly continuous one-parameter unitary group, and conversely (Stone's theorem). This is the mathematical engine behind time evolution in quantum mechanics (A = H/ℏ) and the connection between self-adjoint operators and unitary groups. A two-paragraph treatment here would complete the QM bridge. -->
+### Stone's Theorem for Unbounded Operators
+
+(See Section 7 for the full statement.) For unbounded self-adjoint A, Stone's theorem still holds:
+```
+U(t) = e^{itA} = ∫_ℝ e^{itλ} dE_A(λ)
+
+where E_A is defined via the spectral theorem for unbounded self-adjoint operators.
+The domain condition: U(t)ψ is differentiable at t=0 iff ψ ∈ Dom(A).
+```
+
+**Kato-Rellich theorem**: If A is self-adjoint and B is A-bounded with relative bound < 1
+(meaning ||Bψ|| ≤ a||Aψ|| + b||ψ|| for some a < 1), then A + B is self-adjoint on Dom(A).
+This is the main tool for establishing self-adjointness of Schrödinger operators: H = -Δ + V where V is Kato-bounded relative to the Laplacian.
 
 ---
 
-## 8. Sobolev Spaces and PDEs
+## 9. Sobolev Spaces and PDEs
 
 ### Weak Derivatives
 
@@ -486,11 +587,60 @@ Poincaré inequality: ||u||_{L²} ≤ C||∇u||_{L²} for u ∈ H₀¹.
 
 **FEM (Finite Element Method)**: Discretize H₀¹(Ω) by piecewise polynomial finite-dimensional subspace V_h. Solve Galerkin approximation: find u_h ∈ V_h s.t. a(u_h, v_h) = F(v_h) for all v_h ∈ V_h. Leads to sparse linear system.
 
-<!-- @editor[bridge/P2]: Numerical analysis / computational bridge is absent. Functional analysis underpins the convergence theory for iterative solvers: Krylov methods (CG, GMRES) minimize residuals over Krylov subspaces — this is projection onto an approximating subspace in a Hilbert space; convergence rates follow from the spectral distribution of the operator. Also: operator splitting methods (Lie-Trotter, Strang splitting) decompose e^{t(A+B)} ≈ e^{tA}e^{tB} — the error depends on [A,B] via the BCH formula. A paragraph connecting the abstract spectral theory to why these algorithms work would complete the computational bridge. -->
+### Numerical Analysis: Krylov Methods and Operator Theory
+
+Functional analysis is the theoretical backbone for convergence analysis of iterative solvers. The connection is not incidental — these methods are projections in Hilbert space.
+
+**Krylov subspace methods**: Given linear system Ax = b (A self-adjoint positive definite on ℝⁿ, or abstractly on H):
+```
+Krylov subspace: K_k(A, r₀) = span{r₀, Ar₀, A²r₀, ..., A^{k-1}r₀}
+  where r₀ = b - Ax₀ is the initial residual.
+
+Conjugate Gradient (CG): find xₖ ∈ x₀ + K_k(A,r₀) minimizing ||x - x*||_A
+  where ||v||_A = √(v, Av)  [the energy norm, = ||A^{1/2}v||₂].
+
+This is orthogonal projection onto K_k(A,r₀) in the A-inner product.
+
+Convergence bound (spectral condition number κ = λ_max/λ_min):
+  ||xₖ - x*||_A ≤ 2 (√κ - 1)ᵏ / (√κ + 1)ᵏ · ||x₀ - x*||_A
+
+The key quantity is the spectral distribution of A (distribution of eigenvalues
+under the spectral measure E_A). If eigenvalues cluster, convergence is fast
+even if κ is large.
+```
+
+**Why spectral theory drives convergence**: CG minimizes a polynomial p(A)r₀ where p ranges over degree-k polynomials with p(0)=1. By the spectral theorem:
+```
+||p(A)r₀||² = ∫ |p(λ)|² d||E(λ)r₀||²
+
+Convergence = minimize a polynomial over the spectrum of A weighted by the
+spectral measure of the initial residual. Clustered eigenvalues → low-degree
+polynomial approximates zero on the cluster → fast convergence.
+
+This connects:
+  - Abstract spectral theory (projection-valued measure E)
+  - Chebyshev polynomial approximation (optimal polynomial for [a,b])
+  - Preconditioners (shift/cluster the spectrum)
+```
+
+**Operator splitting**: Time-integration of ∂_t u = (A + B)u (stiff PDEs):
+```
+Lie-Trotter splitting: e^{t(A+B)} ≈ (e^{tA/n} e^{tB/n})ⁿ  → exact as n→∞
+Strang splitting:      e^{t(A+B)} ≈ e^{tA/2} e^{tB} e^{tA/2}  [2nd order]
+
+Error via BCH formula: e^X e^Y = e^{X+Y+½[X,Y]+O(||...||³)}
+  First-order error = [A,B] (commutator of operators).
+  If [A,B] = 0 (operators commute): splitting is exact.
+  If [A,B] ≠ 0: error proportional to t²||[A,B]|| per step.
+
+For Schrödinger: e^{-iHt/ℏ} = e^{-iT t/ℏ} e^{-iVt/ℏ} + O(t²)
+  T = kinetic (diagonal in Fourier space), V = potential (diagonal in position space).
+  Split-step Fourier: alternating FFT and pointwise multiplication → spectral method.
+```
 
 ---
 
-## 9. Fredholm Theory
+## 10. Fredholm Theory
 
 ### Fredholm Operators
 
@@ -513,11 +663,42 @@ Simplest case: for a Fredholm operator T,
   This is a stable quantity: ind(T+K) = ind(T) for K compact.
 ```
 
-<!-- @editor[bridge/P2]: The attention mechanism in transformers can be framed as a kernel/operator perspective: the attention matrix is a discretized integral operator with kernel K(q,k) = softmax(qᵀk/√d). The RKHS framework makes this precise: each head computes a projection in a function space. This connection (RKHS → attention / neural operators → operator learning) is a high-value bridge between Section 9 (Fredholm) and Section 10 (RKHS) that is entirely absent. At minimum a note at the top of Section 10 pointing this direction. -->
-
 ---
 
-## 10. RKHS and Kernel Methods (ML Bridge)
+## 11. RKHS and Kernel Methods (ML Bridge)
+
+### From Operators to Attention: The Integral Operator Perspective
+
+Before the RKHS definition, a concrete bridge connecting the spectral theory above to modern neural networks:
+
+The **attention mechanism** in transformers is a discretized integral operator. For queries Q, keys K, values V (each n×d matrices, n = sequence length):
+```
+Attention(Q,K,V) = softmax(QKᵀ/√d) · V
+
+This is a discretization of the integral operator:
+  (Tf)(x) = ∫ K(x,y) f(y) dμ(y)
+
+where the kernel K(x,y) = softmax_y(qₓᵀk_y / √d) is the attention weight.
+
+Connection to functional analysis:
+  - T is an integral operator on a function space (L² or RKHS)
+  - The attention matrix softmax(QKᵀ/√d) is the matrix representation of T
+    with respect to the n basis points {x₁,...,xₙ}
+  - The operator is low-rank (each head computes rank at most d attention)
+  - PCA / SVD of the attention matrix = spectral decomposition of T
+
+Self-attention is positive semi-definite when K(x,y) = K(y,x) (symmetric kernel).
+In that case: attention = orthogonal projection in RKHS defined by K.
+```
+
+**Neural operators** (FNO, DeepONet): these learn operators F: function → function. The Fourier Neural Operator (FNO) parameterizes integral operators directly:
+```
+(K_θ u)(x) = ∫ κ_θ(x,y) u(y) dy  [integral kernel layer]
+
+In Fourier space: multiplication by learnable weight R_θ(ω).
+Convergence analysis uses exactly the spectral theory of Section 6:
+  approximate the target operator by its projection onto low-frequency modes.
+```
 
 ### Reproducing Kernel Hilbert Spaces (RKHS)
 
@@ -570,7 +751,8 @@ Operator type:                              What it gives you:
 Bounded self-adjoint                        Spectral theorem via PVM
 Compact self-adjoint                        ONB of eigenvectors, discrete spectrum
 Compact + Fredholm                          Well-posedness, index theory
-Unbounded self-adjoint                      QM observable, Stone's theorem for evolution
+Unbounded self-adjoint                      QM observable; use Stone's theorem for e^{itA}
+Symmetric but not self-adjoint              No spectral theorem; not a valid QM observable
 
 PDE question:                               Tool:
 "Does solution exist/unique?"               Lax-Milgram (coercive bilinear form on H¹)
@@ -578,11 +760,24 @@ PDE question:                               Tool:
 "How smooth is the solution?"              Sobolev embedding theorem
 "PDE on curved manifold?"                   Atiyah-Singer (topology of operator)
 
+QM question:                                Tool:
+Observable has real spectrum?               Self-adjoint (not just symmetric)
+Unitary time evolution?                     Stone's theorem: A self-adjoint → e^{itA} unitary
+Algebraic QM without Hilbert space?         C*-algebra + GNS construction
+Position/momentum uncertainty?             [Q,P] = iℏI → Robertson inequality
+
+Numerical question:                         Tool:
+Iterative solver convergence rate?         Spectral distribution of A; condition number
+Preconditioner design?                      Cluster eigenvalues to improve polynomial approx
+Time-splitting error?                       BCH formula; error = t²||[A,B]||
+
 ML question:                                Tool:
 Kernel regression                           RKHS + Representer theorem
 Infinite-dimensional features implicitly    Mercer kernel trick
 Function space smoothness priors            Sobolev space regularization
 Gaussian process covariance                 Mercer decomposition of kernel
+Attention as operator                       Integral operator with softmax kernel
+Neural operator convergence                 Spectral approximation theory
 ```
 
 ---
@@ -602,3 +797,7 @@ Gaussian process covariance                 Mercer decomposition of kernel
 **RKHS norm ≠ L² norm**: The RKHS norm ||f||_H measures smoothness (controls function oscillation), not just L² size. For Gaussian RBF kernel, high ||f||_H means highly oscillatory function. Regularization ||f||²_H penalizes complex functions, implementing Occam's razor.
 
 **Dual of L∞ is bigger than L¹**: (L∞)* ≅ the space of finitely additive signed measures (ba[0,1]), which strictly contains L¹. This is why L∞ is not reflexive. For 1 < p < ∞, the duality (Lᵖ)* = Lᵍ is clean; at the endpoints it breaks.
+
+**Stone's theorem requires self-adjoint, not just symmetric**: There exist symmetric operators that are not essentially self-adjoint and do not generate unitary groups. The self-adjointness condition (or essential self-adjointness) is the precise mathematical requirement for well-posed quantum dynamics.
+
+**C*-identity is the key axiom**: The condition ||a*a|| = ||a||² is what makes C*-algebras special among Banach *-algebras. It forces the norm to be determined by the algebraic structure and gives the Gelfand-Naimark theorem (every C*-algebra embeds isometrically into B(H)).

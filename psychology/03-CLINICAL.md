@@ -322,7 +322,29 @@ for most major disorders, with CBT having the broadest support.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world→new-world bridge section — natural parallel: DSM categorical diagnosis → RDoC/HiTOP dimensional shift is the same conceptual move as replacing discrete enum types with continuous feature vectors; the comorbidity problem is exactly the problem of overlapping categories in a high-dimensional space. Any engineer who has worked with classification systems would recognize this instantly. -->
+**Formal bridge — categorical vs dimensional classification:**
+
+The DSM → RDoC/HiTOP transition is the exact same move as replacing discrete enum
+types with continuous feature vectors in a classification system. DSM-5 uses categorical
+diagnosis: you meet or don't meet a threshold (5 of 9 MDD criteria). This creates the
+same problems as hard-thresholding a continuous signal: information loss, arbitrary
+boundaries, high comorbidity (categories overlap because they're projections of a
+continuous high-dimensional space onto a small set of discrete bins).
+
+The 50–70% comorbidity rate in clinical populations is not a coincidence — it's the
+expected consequence of carving a continuous multivariate space with poorly-placed
+category boundaries. Two disorders that share 3 of their 5 diagnostic features will
+co-occur in the same patients at high rates. This is exactly the problem you encounter
+when you use naive Bayes with overlapping feature distributions, or when you try to
+classify a data point that sits between two cluster centroids.
+
+RDoC addresses this by specifying the underlying continuous dimensions (neural circuits,
+behavioral constructs, dimensional measurement) rather than categories. HiTOP gives you
+a hierarchical taxonomy with spectra at multiple granularities — internalizing/externalizing
+as broad factors, then more specific subdimensions, then narrow syndromes — analogous to
+a hierarchical clustering tree rather than a flat categorization. The approach lets you
+represent a patient as a vector of dimensional scores rather than a set of category
+memberships, which has better predictive validity and maps better onto treatment targets.
 
 ## Decision Cheat Sheet
 

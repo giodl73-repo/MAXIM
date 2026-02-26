@@ -394,7 +394,69 @@ DROUGHT EARLY WARNING:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge section — extreme value theory (GEV) is the tail-distribution counterpart to CLT; L-moments are robust alternatives to ML estimation; copulas model non-Gaussian joint distributions; SPI is a z-score transform — all concepts the MIT-trained learner owns but may not recognize in hydrological clothing without an explicit bridge -->
+## Bridges from CS and Engineering
+
+```
+FLOODS/DROUGHTS CONCEPT       CS / ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Flood frequency analysis      Extreme value theory (EVT)
+  Annual maximum series (AMS) → block maxima: take max over fixed block (1 yr)
+  GEV distribution            → Fisher-Tippett-Gnedenko theorem (EVT analog of CLT)
+    ξ < 0: Weibull (bounded upper tail)
+    ξ = 0: Gumbel (exponential tail; most common for rainfall)
+    ξ > 0: Fréchet (heavy tail; dangerous floods)
+  Peaks-over-threshold (POT)  → threshold exceedances → Generalized Pareto (GPD)
+                                  (analogous to count processes: Poisson arrivals)
+
+Return period T               Mean recurrence interval — not a fixed cycle
+  P(exceedance/year) = 1/T    → T is 1/rate, not a guarantee of timing
+  P(≥1 occurrence in n years) → 1 - (1 - 1/T)^n ≈ 1 - e^{-n/T}
+  100-yr flood in 100 years   → 63.2% probability (not 100%); same as
+                                  P(≥1 Poisson event) in time = mean interval
+
+L-moments (Hosking)           Robust moment estimators (resistant to outliers)
+  L1 = mean, L2 = L-scale     → analogous to mean + MAD (median absolute deviation)
+  L-skewness τ3 = λ3/λ2       → same normalization as conventional skewness but
+                                  computed from linear combinations of order stats
+  Advantage over ML/MOM       → low breakdown point for heavy tails + small samples
+                                  (exactly the regime where hydrological data live)
+
+Copulas in compound events    Multivariate dependence beyond marginals
+  Joint distribution of       → specify marginal distributions separately from
+  flood + storm surge           dependence structure
+  Gaussian copula             → elliptical; underestimates tail dependence
+  Clayton/Gumbel copula       → asymmetric; better for tail co-exceedance
+  Vine copula (pair copula)   → decomposition for high-dimensional dependence
+  Hydrological application    → P(flood AND surge AND high tide)
+
+SPI (Standardized Precip Index) Z-score transformation to normal distribution
+  SPI = (P - μ) / σ           → but P is not normal → fit gamma → CDF → Φ^{-1}
+                                  (probability integral transform to normality)
+  SPI-1: monthly drought      → 1-month accumulation; short-memory
+  SPI-6: agricultural         → 6-month accumulation; medium-memory
+  SPI-12: hydrological        → 12-month accumulation; long-memory (groundwater)
+  Timescale = integration window → same as moving-average filter bandwidth
+
+PDSI (Palmer Drought Severity) State-space model with moisture memory
+  Monthly water balance:      → forced first-order autoregressive model
+  dMoisture/dt = P - ET - ...   (PDSI has long memory: ~18-month e-fold)
+  "Normal" = calibrated        → region-specific baseline; PDSI is relative
+  Self-calibrated PDSI (sc-PDSI) → removes region-dependence (centering + scaling)
+
+Flood routing (dynamic wave)  Hyperbolic PDE (wave equation with diffusion)
+  Saint-Venant equations       → continuity + momentum PDEs
+  CFL stability condition      → timestep ≤ Δx / (v + c) where c = wave celerity
+  Numerical methods            → finite difference (explicit vs. implicit);
+                                  implicit required for stiff systems
+                                  (same tradeoff as stiff ODE solvers)
+
+Non-stationarity in extremes  Concept drift / distribution shift
+  "Stationarity is dead" (Milly→ parameters of underlying distribution shift
+    et al., 2008)                over time due to land use, climate, urbanization
+  Time-varying GEV parameters → generalized additive model (GAM) for μ(t), σ(t)
+  Detection: Mann-Kendall test → non-parametric monotone trend test on time series
+                                  (ranks-based; H₀: no trend)
+```
 
 ## Decision Cheat Sheet
 

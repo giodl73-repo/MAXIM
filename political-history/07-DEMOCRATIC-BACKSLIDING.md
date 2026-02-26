@@ -173,15 +173,15 @@ V-DEM FRAMEWORK
 
   Democratic Recession: 2008-present
   ~42 countries have backslid since 2010
-<!-- @editor[content/P2]: V-Dem 2024 report says 71% of world population lives under autocracy — verify this figure is current; the India reclassification framing is V-Dem's (electoral autocracy since 2018) but Freedom House uses "partly free" — distinguish the two measurement systems since they use different thresholds -->
   World share of population living under autocracy: ~70%
-  (largely driven by India's reclassification under Modi
-   from "free" to "partly free")
+  (V-Dem figure; Freedom House figure lower — see note below)
 
   KEY FINDING: Autocratization is more common
   than previously thought, but pace is gradual —
   most cases take 5-10 years to full autocracy
 ```
+
+**V-Dem vs. Freedom House measurement distinction**: V-Dem (Varieties of Democracy, Gothenburg) and Freedom House use different operationalizations, which produce different regime classifications for borderline cases. V-Dem reclassified India as an "electoral autocracy" starting in 2018, driven by declines in its liberal component indicators (judicial independence, media freedom, minority rights) even while national elections remained competitive. Freedom House rates India "partly free" — a less severe classification — because its electoral component indicators remain stronger. The ~70% of world population living under autocracy figure is V-Dem's and is driven substantially by this India classification. Freedom House's figure for the same period is lower. Neither is wrong; they're measuring different things. V-Dem's liberal democracy index puts heavy weight on institutional constraints on the executive and civil liberties; Freedom House's political rights index weights electoral competitiveness more heavily. Which you use determines both the global aggregate and the classification of large-population borderline cases like India, Turkey, and Hungary.
 
 ---
 
@@ -242,7 +242,13 @@ EU threatened sanctions; Polish courts resisted. Critical difference from Hungar
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — the "guardrails" framework maps to defense-in-depth in security engineering: formal rules are the outer perimeter (firewall), informal norms are the inner layer (trust + culture). The autocratization playbook is a privilege escalation attack: gain legitimate access, then incrementally capture the referees. This is the exact pattern of insider threat modeling. -->
+## Bridges: Democratic Backsliding as Security Failure
+
+**Formal rules + informal norms → defense-in-depth**: Levitsky-Ziblatt's two-layer guardrail model maps directly to layered security architecture. Formal rules (constitution, election laws, judicial review) are the outer perimeter — explicit, documented, enforcement-backed. Informal norms (mutual toleration, institutional forbearance) are the inner layer — the trust and culture that operate when the outer layer is technically being respected but in bad faith. Defense-in-depth works because a determined attacker who breaches the outer perimeter still faces the inner layer; but the inner layer is weaker against an attacker who has legitimate credentials. When an elected leader attacks the informal norms — packing courts *legally*, using regulatory agencies against opponents *within the letter of the law* — they have breached the outer perimeter from the inside. The defenses were designed for external attack (coups), not insider threat.
+
+**The autocratization playbook → privilege escalation attack via legitimate access**: The step-by-step autocratization sequence is a textbook privilege escalation attack: (1) gain legitimate access (win election), (2) use legitimate access to capture the authentication/authorization layer (pack courts, appoint loyalists to election commissions — capture the referees), (3) use the captured authorization layer to exclude adversarial principals (prosecute opponents, defund civil society), (4) rewrite the authorization rules to entrench the access you've acquired (change electoral law, amend constitution). At no step is a rule visibly broken — each step is technically legal. This is precisely the pattern of insider threat modeling: the attacker is operating inside the trust boundary with valid credentials, so signature-based detection (coup-watching) fails. Detection requires anomaly detection on sequences of individually-legitimate actions that in combination escalate privilege beyond any intended limit.
+
+**Democratic resilience factors → insider threat countermeasures**: The institutional factors that make democracies resilient — federal structure (redundant authority nodes), independent judiciary (separate authentication root), independent media (out-of-band communication channel), robust civil society (parallel trust networks) — are exactly the architectural properties that limit insider threat damage. An attacker who has captured the executive cannot unilaterally capture a federal system because state governments are independently provisioned. An attacker who has captured the executive cannot unilaterally capture an independent judiciary because judicial appointments are staggered and terms are long. Poland in 2015-23 is the case where the inner layer (civil society, judiciary resistance) held long enough for an electoral reversal; Hungary 2010-present is the case where the inner layer was breached quickly enough that electoral reversal became structurally improbable.
 
 ## Why Some Democracies Survive
 

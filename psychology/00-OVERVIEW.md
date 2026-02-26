@@ -8,26 +8,28 @@ The replication crisis exposed how much of the field's apparent consensus was me
 artifact. What survived is still substantial — and important to know precisely because
 of what didn't.
 
-<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view showing biological→cognitive→social pole as a spectrum with clinical/applied as a cross-cutting layer -->
 ```
 +----------------------------------------------------------------------+
-|                    PSYCHOLOGY FIELD MAP                               |
+|                    PSYCHOLOGY FIELD MAP (LAYERED)                     |
 |                                                                      |
-|  BIOLOGICAL POLE                         SOCIAL POLE                 |
-|  ──────────────                          ───────────                 |
-|  Behavioral neuroscience                 Social psychology           |
-|  Neuropsychology                         Cross-cultural              |
-|  Psychopharmacology                      Organizational              |
-|  Evolutionary psych                      Political psychology        |
-|  Behavioral genetics                                                 |
+|  BIOLOGICAL ◄─────────────────────────────────────────► SOCIAL      |
 |                                                                      |
-|  INDIVIDUAL FOCUS          CLINICAL/APPLIED FOCUS                   |
-|  ────────────────          ────────────────────                     |
-|  Cognitive (see            Clinical/abnormal (treatment)            |
-|  cognitive-science/)       Counseling                               |
-|  Personality               Health psychology                        |
-|  Developmental             Forensic psychology                      |
-|  (see cognitive-science/)  Industrial-Organizational (I-O)          |
+|  Behav. neuroscience ─────────────────────────── Social psychology  |
+|  Neuropsychology ──────────────────────────────── Cross-cultural     |
+|  Psychopharmacology ───────────────────────────── Organizational     |
+|  Evolutionary psych ───────────────────────────── Political psych    |
+|  Behavioral genetics ──────────────────────────── Sociology (border) |
+|                            │                                         |
+|                    COGNITIVE LAYER (center)                          |
+|                    Perception · Memory · Attention                   |
+|                    Decision-making · Language                        |
+|                    (overlaps cognitive-science/)                     |
+|                            │                                         |
+|  ┌─────────────────────────┴────────────────────────────────────┐    |
+|  │          CLINICAL / APPLIED (cross-cutting layer)            │    |
+|  │  Clinical · Counseling · Health · I-O · Forensic             │    |
+|  │  These apply models from all three layers above              │    |
+|  └──────────────────────────────────────────────────────────────┘    |
 +----------------------------------------------------------------------+
 ```
 
@@ -217,11 +219,34 @@ The most important context for evaluating psychological findings:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world→new-world bridge section — natural parallel: experimental methods (hypothesis testing, controls, statistical inference) are the same toolbox any engineer uses in A/B testing and system validation; connecting to that shared foundation would ground the reader -->
+**Formal bridge:** Psychology's experimental methodology is identical to the
+software engineering empiricism you already use. Hypothesis testing is A/B testing.
+Statistical controls are the equivalent of holding variables constant in a system
+experiment. Effect sizes map to practical significance metrics — the difference
+between "this feature lifted conversion by 0.001%" (statistically significant in a
+large log) and "this feature lifted conversion by 15%." Pre-registration maps to
+committing to a success criterion before running the experiment, which any rigorous
+A/B test framework requires. The replication crisis is the field's version of
+discovering that most internal benchmarks don't hold up under production load: the
+measurement instrument (p-hacking in lab conditions with N=30 undergrads) was optimized
+for generating publishable results, not for producing generalizable knowledge. The
+reforms — pre-registration, open data, multi-site replication, effect sizes over p-values
+— are the same principles as rigorous experiment design in systems engineering.
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "use X when Y" structure (e.g., "when evaluating a psychology claim, check: pre-registered? replicated? effect size? WEIRD sample?") -->
+**Evaluating a psychology claim — checklist:**
+
+| Gate | Check | Fail condition |
+|------|-------|----------------|
+| Pre-registration | Was the hypothesis registered before data collection? | Post-hoc hypotheses may be HARKing |
+| Independent replication | Has it replicated in at least 2 independent labs? | Single-study findings are provisional |
+| Effect size | Is d or r large enough to matter for your application? | d < 0.2 or r < 0.1 rarely matters practically |
+| Sample | WEIRD? College undergrads? US only? | Generalization to other populations is unclear |
+| Lab vs field | Does it replicate outside controlled conditions? | Lab effects often shrink in field settings |
+
+**What to use when:**
+
 | Question | Evidence-Based Answer |
 |---|---|
 | Which psychological findings are reliable? | Big Five, conditioning, cognitive phenomena, clinical CBT effects |

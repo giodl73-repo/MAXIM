@@ -1,6 +1,6 @@
 # Geologic Time — Radiometric Dating, Stratigraphy, Mass Extinctions
 
-<!-- @editor[bridge/P2]: No old-world bridge — relative vs absolute dating maps directly to "logical clocks vs wall clocks" in distributed systems (Lamport clocks give ordering without timestamps; radiometric dating adds the timestamp) — this parallel would immediately land for any systems engineer -->
+**Bridge — relative vs absolute dating as logical clocks vs wall clocks:** Any distributed systems engineer knows the Lamport clock / vector clock distinction: logical clocks establish *happened-before* ordering (A occurred before B) without providing wall-clock timestamps. Steno's stratigraphic principles are exactly Lamport clocks for rock layers: superposition gives you a total ordering of events (this layer is younger than that one; this dike is younger than the rock it cuts), but no timestamps. William Smith's faunal succession extends this across disconnected outcrops — like a distributed system where each node's local log can be synchronized via shared causal events (fossil assemblages). Radiometric dating is the wall clock: it adds absolute timestamps to the logical sequence, calibrating the relative ordering to SI units of time. The analogy holds for precision too: U-Pb dating of zircon achieves <0.1% precision on billion-year-old events — equivalent to timestamping a distributed transaction to within a millisecond despite the event occurring a decade ago.
 
 ## The Big Picture
 

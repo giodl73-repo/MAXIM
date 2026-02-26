@@ -4,28 +4,34 @@
 
 Geochronology is the science of absolute age determination. The key insight: radioactive decay is an atomic clock that cannot be wound back or sped up by geological processes. Different systems answer different questions depending on their half-lives and the minerals that host them.
 
-<!-- @editor[diagram/P2]: Landscape "diagram" is a table of methods, not a structural diagram — doesn't show how the methods relate to each other (e.g., temperature-depth hierarchy from U-Pb at crystallization through Ar-Ar/FT at progressively lower closure temperatures). A layered depth/temperature diagram with methods placed at their Tc would serve as a genuine landscape -->
 ```
-+------------------------------------------------------------------+
-|                    GEOCHRONOLOGY TOOLKIT                          |
+GEOCHRONOLOGY: METHODS ORDERED BY CLOSURE TEMPERATURE
 +------------------------------------------------------------------+
 |                                                                  |
-|  METHOD        HALF-LIFE    MATERIAL     TIME RANGE   QUESTION  |
-|  ------        ---------    --------     ----------   --------  |
-|  U-Pb zircon   4.47/0.70 Ga Zircon       1 Myr-4.6 Ga Rock age  |
-|  U-Pb mono.    4.47 Ga      Monazite     ~10 Myr-4 Ga Metamorphism|
-|  Ar-Ar         1.25 Ga (K)  Feldspar,    1 kyr-4.5 Ga Cooling T |
-|                             hornblende                            |
-|  Rb-Sr         48.8 Ga      Whole rock   10 Myr-4.5 Ga Rock age |
-|  Sm-Nd         106 Ga       Garnet/whole 100 Myr-4 Ga Crustal age|
-|  Re-Os         42.3 Ga      Molybdenite  ~1 Myr-4 Ga  Ore deposit|
-|  Lu-Hf         37.1 Ga      Garnet,      1 Myr-4 Ga  Metamorphism|
-|                             zircon                                |
-|  Fission track ~variable    Apatite,     1 kyr-~1 Ga  Cooling   |
-|                             zircon                               |
-|  (U-Th)/He     ~variable    Apatite,     100 kyr-1 Ga Low-T cool.|
-|                             zircon                               |
-|  ¹⁴C           5730 yr      Organic C    0-50,000 yr  Age of org.|
+|  CRYSTALLIZATION / MAGMATIC TEMPERATURE (>700°C)                 |
+|  U-Pb zircon    Tc ~900°C    Records ignition / crystallization  |
+|  U-Pb monazite  Tc ~750°C    High-grade metamorphism             |
+|  Lu-Hf garnet   Tc ~600°C    Metamorphic garnet growth           |
+|  Sm-Nd garnet   Tc ~600°C    Metamorphic garnet growth           |
+|                                                                  |
+|  COOLING / EXHUMATION (300–600°C)                               |
+|  Rb-Sr muscovite Tc ~500°C   Cooling after metamorphism          |
+|  Ar-Ar hornblende Tc ~500°C  Closure on cooling path             |
+|  Re-Os molybdenite Tc ~300°C Ore deposit formation               |
+|  Ar-Ar K-feldspar  Tc ~150-350°C Multi-diffusion domain         |
+|                                                                  |
+|  LOW-TEMPERATURE THERMOCHRONOLOGY (<300°C)                      |
+|  Fission track (apatite)  Tc ~110°C   Uplift / erosion timing   |
+|  (U-Th)/He apatite        Tc ~70°C    Very shallow exhumation    |
+|  Fission track (zircon)   Tc ~240°C   Intermediate cooling       |
+|                                                                  |
+|  CALENDAR-RANGE (recent)                                         |
+|  ¹⁴C            t½ 5730 yr  Organic C   0–50,000 yr             |
+|                                                                  |
+|  Reading guide: a rock's thermal history is a path through       |
+|  temperature-time space. Each system has a closure temperature   |
+|  Tc at which it "locks in." Multiple systems in the same rock    |
+|  give the full T(t) path from crystallization to surface.       |
 +------------------------------------------------------------------+
 ```
 
@@ -63,8 +69,9 @@ U-Pb ADVANTAGES
     Plot on Concordia diagram
 ```
 
-<!-- @editor[bridge/P2]: The concordia diagram is a parametric curve (both axes are functions of the single variable t) — framing it as a parametric plot where closed systems track the curve and open systems scatter off it would connect to the learner's mathematical intuition from MIT -->
 ### The Concordia Diagram
+
+The concordia is a parametric curve: both axes are functions of the single free parameter t. Specifically, x(t) = e^(λ₂₃₅ t) - 1 and y(t) = e^(λ₂₃₈ t) - 1. As t increases from 0 to 4.6 Gyr, the point (x(t), y(t)) traces the concordia curve. A closed system (no Pb loss, no U gain/loss) sits exactly on this curve at the point corresponding to its age. An open system (Pb loss event at time t₁) is displaced off the curve — the data point lies on a chord (discordia line) connecting the crystallization age on the curve and the Pb-loss age. The geometry gives two ages from a single discordant analysis: upper intercept (crystallization) and lower intercept (resetting event).
 
 ```
 CONCORDIA DIAGRAM
@@ -73,10 +80,10 @@ CONCORDIA DIAGRAM
   X-axis: ²⁰⁷Pb/²³⁵U
   Y-axis: ²⁰⁶Pb/²³⁸U
 
-  Concordia CURVE: locus of points where both ratios give the same age
-    At t=0: both ratios = 0 (pure U, no Pb yet)
+  Concordia CURVE: locus of (x(t), y(t)) = (e^(λ₂₃₅t)-1, e^(λ₂₃₈t)-1)
+    At t=0: (0,0) — pure U, no Pb yet
     As time passes: both ratios increase (Pb accumulates)
-    The curve is the path of a perfectly closed system
+    The curve is the parametric path of a perfectly closed system
 
   A SINGLE CLOSED ZIRCON GRAIN: plots on the concordia curve
     → Age read directly from the curve

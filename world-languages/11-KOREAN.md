@@ -176,8 +176,58 @@ TOPIC vs SUBJECT (은/는 vs 이/가):
   [Topic는 + subject가 + verb is common pattern for preferences/abilities]
 ```
 
-<!-- @editor[bridge/P2]: No speech-level bridge despite obvious parallel — 7 speech levels encoded in verb endings are like API versioning or graduated permission tiers — the verb suffix IS the auth token. A tier table with "when to use" column would serve the learner. -->
-### Speech Levels — The 7-Level System
+### Speech Levels — The Permission Tier Model
+
+Korean speech levels are a graduated permission system encoded in verb endings. The verb termination IS the auth token — it declares the speaker's assertion of the social relationship between speaker and listener. Choosing the wrong tier is not a stylistic error; it is a social protocol violation that the listener immediately detects.
+
+```
+SPEECH LEVEL TIERS (API version analogy):
+
++----------+----------+------------+--------------------------------------+
+| Level    | Name     | Formality  | Use case (when to invoke this tier)  |
++----------+----------+------------+--------------------------------------+
+| 합쇼체   | Haesyo   | Formal     | NEWS broadcasts, military briefings, |
+|          |          | polite     | formal speeches, official documents. |
+|          |          | (최고등급) | Marks you as respecting the audience |
+|          |          |            | AS AN INSTITUTION, not just a person.|
++----------+----------+------------+--------------------------------------+
+| 해요체   | Haeyo    | Informal   | DEFAULT TIER. Use with:              |
+|          |          | polite     | Strangers, service workers, casual   |
+|          |          | (기본등급) | adults you don't know well.          |
+|          |          |            | Safe to use until a closer tier is   |
+|          |          |            | explicitly established.              |
++----------+----------+------------+--------------------------------------+
+| 하게체   | Haege    | Semi-      | Older speaker to younger adult.      |
+|          |          | formal     | Professor to grad student (some).    |
+|          |          |            | Increasingly rare in modern usage.   |
++----------+----------+------------+--------------------------------------+
+| 해라체   | Haera    | Plain /    | Written Korean: newspapers, grammar  |
+|          |          | literary   | books, instruction manuals.          |
+|          |          |            | NOT used in spoken address except    |
+|          |          |            | imperatives, or with children.       |
++----------+----------+------------+--------------------------------------+
+| 해체     | Hae      | Intimate   | Close friends (established),         |
+| (반말)   | (banmal) | (친근체)   | family, clearly younger speakers.    |
+|          |          |            | Using banmal to a stranger/senior =  |
+|          |          |            | "I'm treating you as my inferior."   |
++----------+----------+------------+--------------------------------------+
+| 하오체   | Hao      | Archaic    | Historical dramas, classical texts.  |
+| / 하소서 |          |            | Not used in modern speech.           |
++----------+----------+------------+--------------------------------------+
+
+VERB SUFFIX = AUTH TOKEN (먹다, meokda = to eat):
+  먹습니다 (meokseumnida)   — formal polite (합쇼체)
+  먹어요   (meogeoyo)       — informal polite DEFAULT (해요체)
+  먹어     (meogeo)         — intimate (해체/banmal)
+  먹었어요 (meogeoosseoyo)  — informal polite PAST
+  먹었어   (meogeoosseo)    — intimate PAST
+
+TIER TRANSITION PROTOCOL:
+  A senior person can invite a junior to use banmal: "반말 해도 돼"
+  This is an explicit downgrade offer — similar to a "du" offer in German.
+  The junior person does NOT unilaterally switch tiers.
+  Switching to banmal without invitation = access violation.
+```
 
 ```
 KOREAN SPEECH LEVELS (경어법 gyeongeobbeop)

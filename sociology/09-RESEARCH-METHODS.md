@@ -72,15 +72,23 @@ SAMPLING — CONNECTING SAMPLE TO POPULATION:
     Cell phone era: landline-only RDD → systematic undercoverage of young/mobile → 2016 polling errors
     Online panels: not probability sample → requires weighting; debate about validity
 
-<!-- @editor[audience/P3]: Tone is too instructional — learner has MIT statistics background and knows power analysis, margin of error, and CI math; focus on what's sociologically distinctive (design effects from clustering, mode-specific biases) rather than defining power from scratch -->
-SAMPLE SIZE AND POWER:
-  Power: probability of detecting a true effect of given size
-  For given power (0.80 standard): need n depends on effect size + variance
-  Survey margin of error: ±2σ = ±2/√n
-    n=1000: ±3.2 percentage points (95% CI)
-    n=400: ±5 percentage points
-    → Most national surveys: n=1000–2000; adequate for national estimates
-    → Subgroup analysis requires larger n (subgroup n drives precision, not total n)
+SAMPLE SIZE, DESIGN EFFECTS, AND WHAT'S SOCIOLOGICALLY DISTINCTIVE:
+  Survey power analysis is standard statistics; what's distinctive in sociology is
+  the design effect (DEFF) that clustered sampling inflates standard errors:
+    Simple random: SE = √(pq/n)
+    Clustered: SE_actual = DEFF × SE_SRS, where DEFF = 1 + (m-1)ρ
+    m = mean cluster size; ρ = intraclass correlation (within-cluster similarity)
+    Typical DEFF: 1.5–2.5 for national surveys → effective n is halved or less
+  → The General Social Survey (GSS) with n=2000 has effective n ~1000-1200 for
+    many variables due to its multistage cluster design
+  → Subgroup analysis: the relevant n is subgroup size, not total sample;
+    rare subgroups require oversampling to be analyzable
+  Mode-specific biases matter more than raw power:
+    Social desirability bias varies by mode (face-to-face highest; online lowest)
+    Non-response patterns differ by mode → different coverage errors
+    Political affiliation self-report: phone vs online gives different distributions
+  Post-stratification weighting corrects for known frame errors but does not
+  eliminate unobservable non-response bias
 ```
 
 ### Question Design
@@ -412,7 +420,20 @@ PRAGMATISM (Dewey; contemporary social science):
 
 ---
 
-<!-- @editor[bridge/P1]: Missing universal bridge — any developer or data scientist already knows sampling (A/B testing), statistical power, survey design (UX research), and the quantitative/qualitative distinction (metrics vs. user interviews). QCA maps to Boolean logic; content analysis maps to NLP pipelines. This file should open with "you already know most of this from software — here's the sociological framing" and doesn't. -->
+## From Software and Data Practice to Sociological Methods
+
+You already know most of this toolkit under different names. The sociological framing adds theoretical precision and points to failure modes you may not have named.
+
+**A/B testing is an experiment; surveys are instruments; user interviews are ethnography lite.** The quantitative/qualitative distinction in sociology maps directly onto metrics vs. user research in product development. Quantitative methods tell you that something is happening at scale (engagement dropped 12%); qualitative methods tell you why (users find the new UI confusing because it violates their mental model of how the product works). The sequentially explanatory mixed-methods design — run quantitative first, then qualitative to explain the anomalies — is exactly the workflow that good product teams use: instrument first, interview second.
+
+**Survey design problems in sociology are the same problems as instrumentation bias in engineering.** Acquiescence bias (people agree with statements regardless of content) is the survey equivalent of a leading log message. Social desirability bias (people report what they think is acceptable) is the survey equivalent of metric gaming: people optimize what is measured when they know they're being evaluated. Sensitive question techniques (randomized response, item-count technique) are privacy-preserving data collection protocols — the same threat model as differential privacy applied to survey methodology.
+
+**QCA is Boolean satisfiability applied to comparative case analysis.** Ragin's Qualitative Comparative Analysis encodes case characteristics as binary (crisp sets) or fuzzy membership values, then finds the minimal Boolean formula (in sum-of-products form) that logically implies the outcome across all cases. This is the same logical structure as a simplified conjunctive normal form: a condition is necessary if it appears in all cases with the outcome; a condition is sufficient if its presence (possibly in combination) implies the outcome. QCA handles causal complexity (equifinality: multiple paths to the same outcome) more naturally than regression, which assumes additive, uniform causal effects.
+
+**Content analysis is the manual precursor of NLP pipelines.** Quantitative content analysis (coding scheme → inter-rater reliability → frequency counts → comparative statistics) is exactly what a supervised text classifier does, with human coders replaced by a model. Cohen's κ (inter-rater reliability) is the metric you would use to evaluate labeler agreement before training a classifier. Topic modeling (LDA) is the unsupervised version of qualitative content analysis categories. Critical discourse analysis (reading for ideology, power relations, and silences) is what RLHF evaluation of LLM outputs is attempting to operationalize — what should the model not say, and who decides?
+
+**Comparative historical sociology uses Mill's methods, which are how engineers do root cause analysis.** Method of difference (two cases identical except for one variable and the outcome) is the controlled experiment without random assignment — the counterfactual reasoning you use when debugging: "it worked before; the only thing that changed was X; therefore X caused the failure." Method of agreement (all outcome cases share variable X despite differing on everything else) is the "common thread" analysis in post-mortems: what did all the failing systems have in common? QCA formalizes this into a systematic Boolean search across cases — which is what a root-cause analysis across multiple incidents is trying to do informally.
+
 ## Decision Cheat Sheet
 
 | Question type | Best method |

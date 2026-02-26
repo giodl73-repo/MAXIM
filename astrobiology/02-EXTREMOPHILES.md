@@ -385,7 +385,13 @@ POLYEXTREMOPHILES:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the parameter space envelope framing maps to constraint satisfaction / feasibility regions in optimization; "no single extremophile survives all extremes" parallels the no-free-lunch theorem — natural bridge to CS/math background -->
+## Computational and Mathematical Parallels
+
+**The habitable envelope as a feasibility region.** The extremophile parameter space — temperature, pH, pressure, salinity, water activity, radiation — defines a multi-dimensional feasibility region for life. Each axis has a known range; life is feasible within the convex (approximately) hull of those ranges. The key insight from extremophile research is that this feasibility region is far larger than intuition suggests, and its boundaries are empirically determined, not theoretically derived. This is the constraint satisfaction framing: life is possible wherever all constraints are simultaneously satisfiable, and discovering a new extremophile expands the feasible region in one or more dimensions.
+
+**"No single extremophile survives all extremes" as the no-free-lunch theorem.** Each extremophile adaptation trades off performance in one regime against performance in another. Thermophiles are heat-stable but fail at cold; psychrophiles are active at low temperature but denature at moderate heat; halophiles require high salt but die in fresh water. This is the no-free-lunch structure: optimizing for one extreme degrades performance at the opposite, and the maximum tolerance in any one dimension is achieved at the cost of range in other dimensions. A polyextremophile (surviving multiple simultaneous stresses) must pay the metabolic cost of multiple adaptation systems simultaneously — resource allocation under constraint.
+
+**Deinococcus DNA repair as fault-tolerant distributed storage.** Deinococcus radiodurans survives 5,000+ Gy of radiation — equivalent to 650 double-strand DNA breaks — by maintaining 4-8 copies of its genome (redundancy), packing the nucleoid in a toroid geometry that keeps broken ends co-localized for repair (locality-aware architecture), and using extended synthesis-dependent strand annealing to reassemble shattered chromosomes from fragments (erasure code reconstruction). The critical insight is that Mn(II) antioxidant complexes protect proteins rather than DNA — protein damage, not DNA damage, is what kills irradiated cells. This is analogous to a distributed system where the bottleneck for recovery is not data loss (which can be reconstructed from replicas) but the availability of the operational machinery (compute nodes) that performs reconstruction.
 
 ## Decision Cheat Sheet
 

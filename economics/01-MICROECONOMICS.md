@@ -402,4 +402,16 @@ COMMON POOL RESOURCES (TRAGEDY OF THE COMMONS):
 | Common pool | Tragedy of commons | Quotas, property rights, or Ostrom institutions |
 | Price discrimination | 1st/2nd/3rd degree | 1st = efficient, eliminates CS; 3rd = market segmentation |
 
-<!-- @editor[structure/P2]: Missing Common Confusion Points section — natural gotchas: Giffen vs inferior goods, normal profit vs zero profit, MRS vs MRTS, short-run vs long-run supply, consumer surplus vs utility -->
+---
+
+## Common Confusion Points
+
+**Giffen good vs inferior good**: All Giffen goods are inferior, but not all inferior goods are Giffen. An inferior good has negative income elasticity (η < 0): demand falls as income rises. A Giffen good additionally requires the income effect to swamp the substitution effect so strongly that demand *rises* when price rises (ε > 0). Requires: good is strongly inferior, large budget share, no close substitutes. Empirically rare; Irish potato famine is the canonical near-example.
+
+**Normal profit vs zero profit**: "Zero economic profit" in long-run competitive equilibrium means firms earn exactly their opportunity cost — they are covering all costs including the normal return on capital. This is not zero accounting profit. Normal profit = the return the firm's owners could earn in their next-best use of capital. Economic profit = accounting profit − opportunity cost. Long-run competitive equilibrium drives economic profit → 0, not accounting profit.
+
+**MRS vs MRTS**: MRS (marginal rate of substitution) = |∂u/∂x₁| / |∂u/∂x₂| — slope of indifference curve in consumption space; how much of good 2 a consumer gives up for one more unit of good 1. MRTS (marginal rate of technical substitution) = MP_L/MP_K — slope of isoquant in production space; how much capital a firm gives up for one more unit of labor holding output fixed. Same mathematical structure, different economic context.
+
+**Short-run vs long-run supply**: Short run: at least one input (typically capital) is fixed. Supply curve = MC curve above AVC (shutdown point). Long run: all inputs variable; entry/exit drives economic profit to zero. The long-run supply curve in a competitive industry with constant input costs is *horizontal* at minimum AC — not upward sloping. Upward sloping long-run supply requires rising input prices as industry expands (increasing-cost industry).
+
+**Consumer surplus vs utility**: Consumer surplus = area under demand curve above price = willingness to pay minus price actually paid. This is a monetary measure of welfare gain. Utility is an ordinal preference index — only differences in ordinal ranking matter, not the magnitude. CS approximates the compensating variation in welfare under quasi-linear preferences; otherwise there are income effects to worry about. CS and utility are related but not the same object.
