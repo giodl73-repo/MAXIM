@@ -288,6 +288,7 @@ COLD DESERT:
 
 ---
 
+<!-- @editor[content/P2]: Tundra and alpine biomes absent — tundra is referenced in the landscape diagram and confusion points but has no dedicated section; alpine biome (treeline ecology, krummholz, alpine meadow) not covered at all; both are major terrestrial biomes -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

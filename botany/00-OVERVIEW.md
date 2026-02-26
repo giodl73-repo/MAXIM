@@ -161,6 +161,7 @@ Periderm (secondary):        Living support             Sugar transport
 
 ---
 
+<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "use X when Y" structure; currently serves as a file navigator pointing to other guides, not a decision tool for this guide's own content -->
 ## Decision Cheat Sheet
 
 | Question | File |

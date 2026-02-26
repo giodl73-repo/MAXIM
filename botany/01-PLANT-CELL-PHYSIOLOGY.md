@@ -57,7 +57,7 @@ Water            ~80-90%         Primary wall is mostly water
 ─────────────────────────────────────────────────────────────────────────
 
 SECONDARY CELL WALL (added inward after cell stops growing)
-────────────────────────────────────────────────────────────
+────────────────────────────────────────────────────
 S1 layer: crossed cellulose microfibrils
 S2 layer: ~80% of wall thickness; cellulose at low angle to fiber axis
 S3 layer: thin, helical
@@ -239,6 +239,7 @@ Companion cells: metabolically active, support sieve tubes
 
 ## Hormones and Cell Growth
 
+<!-- @editor[content/P2]: Section is thin — only 5 major hormones listed; brassinosteroids, jasmonic acid, salicylic acid, and strigolactones are absent; hormone interactions (auxin:cytokinin ratio controlling root vs shoot) not covered -->
 Plants coordinate growth via chemical signals:
 
 | Hormone | Source | Key Functions |
