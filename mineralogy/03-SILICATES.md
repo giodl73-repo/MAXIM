@@ -187,6 +187,7 @@ Crystal form: 2 cleavage planes at ~60°/120° to each other
 → Hexagonal cross-section in thin section (diagnostic)
 → Pyroxene vs. amphibole ID: cleavage angle (90° vs. 60°)
 
+<!-- @editor[content/P2]: Asbestos section is important but could note the engineering/regulatory bridge — EPA/OSHA fiber count thresholds and the analytical method (PLM / TEM) that connects back to polarizing microscopy covered in 09-MINERAL-IDENTIFICATION -->
 ASBESTOS NOTE:
 Six silicate minerals form asbestiform (fibrous) habits:
 chrysotile (serpentine), amosite (cummingtonite), crocidolite (riebeckite),
@@ -288,6 +289,7 @@ FELDSPAR GROUP — most abundant mineral group (60% of Earth's crust)
     Polysynthetic twinning (definitive microscopic ID)
     ANORTHITE CONTENT controls: density, melting point, weathering rate
 
+<!-- @editor[bridge/P3]: Natural bridge to industrial catalysis (FCC cracking in petroleum refining uses zeolite catalysts) — the learner's Azure Data Factory / pipeline background makes "catalyst selects reaction pathway" a natural metaphor -->
 ZEOLITES — aluminosilicate frameworks with large open channels
   Channel size: 3–13 Å → molecular sieves
   Na, K, Ca in channels — exchangeable → water softeners

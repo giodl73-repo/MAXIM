@@ -150,6 +150,7 @@ MINERALS IN THE MODERN ECONOMY
 
 ---
 
+<!-- @editor[bridge/P2]: No explicit bridge from group theory / finite groups to the learner's MIT TCS background — the 230 space groups are a direct application of the classification of finite groups, worth calling out here in the overview -->
 ## How Mineralogy Connects to Adjacent Fields
 
 ```
@@ -177,6 +178,7 @@ CHEMISTRY       (trace elements,
     supply chains)
 ```
 
+<!-- @editor[bridge/P3]: Natural bridge to semiconductor crystal growth (Czochralski Si, sapphire substrates) missing here — connects directly to the learner's tech industry context -->
 **The mineralogy→materials bridge**: silicon carbide, alumina (Al₂O₃), spinel — all are minerals first, engineering ceramics second. The crystal structures studied in mineralogy are the same structures controlled in semiconductor manufacturing.
 
 ---

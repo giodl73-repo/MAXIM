@@ -238,6 +238,7 @@ Field test: "heft" — a rock that feels surprisingly heavy for its size
 
 ### Birefringence (Double Refraction)
 
+<!-- @editor[bridge/P2]: Birefringence is a direct consequence of anisotropic permittivity tensors — the learner's MIT physics background makes a one-liner on dielectric tensor / optical indicatrix a natural bridge from wave optics to crystallography -->
 Light entering an anisotropic crystal splits into two rays polarized perpendicular to each other, traveling at different velocities. The difference in refractive indices = **birefringence**.
 
 ```
@@ -295,6 +296,7 @@ Some minerals emit visible light when irradiated with UV:
 
 ### Piezoelectricity and Pyroelectricity
 
+<!-- @editor[bridge/P3]: Natural bridge to the learner's electronics context — quartz oscillators are the frequency reference in every UART, every clock domain on a PCB; this connects physical mineralogy to digital systems timing -->
 **Quartz** (SiO₂): piezoelectric — mechanical stress generates electric polarization. Exploited in:
 - Frequency standards (quartz oscillator in watches, electronics)
 - Pressure sensors

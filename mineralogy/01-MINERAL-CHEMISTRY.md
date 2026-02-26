@@ -87,6 +87,7 @@ Si⁴⁺ in O²⁻: r_c/r_a ≈ 0.26 → tetrahedral coordination
 → This is why SiO₄ tetrahedra are the universal silicate building block
 ```
 
+<!-- @editor[content/P2]: Rules 2-5 are compressed into a single sentence — Pauling's rules are foundational enough to deserve individual one-liners for each rule, especially rule 3 (edge/face sharing) and rule 5 (parsimony) -->
 **Rules 2–5**: govern how polyhedra share corners/edges/faces; face-sharing destabilizes structures (reduces coordination); the principle of parsimony (few distinct cation environments per structure). These rules predict stability without quantum chemistry.
 
 ---
@@ -126,6 +127,7 @@ KEY SOLID SOLUTION SERIES
 
 ## Polymorphism — Same Formula, Different Structure
 
+<!-- @editor[audience/P3]: The software analogy is helpful but slightly condescending for this learner — the MIT TCS background makes "same interface, different implementation" obvious; a materials-science bridge (same composition, different unit cell = different physical properties) would be more peer-level -->
 This is the mineralogical version of software abstraction: same interface, different implementation, dramatically different behavior.
 
 ```
@@ -191,6 +193,7 @@ Si⁴⁺ and Al³⁺ (0.26 vs 0.54 Å) → substitute in tetrahedral sites only,
 Ca²⁺ and Na⁺ (1.00 vs 1.02 Å) → substitutable with charge coupling → plagioclase
 ```
 
+<!-- @editor[bridge/P2]: No bridge from ionic radii / coordination to semiconductor doping concepts — the learner's materials background makes the analogy (dopant size vs. lattice site) natural and would deepen understanding -->
 **Incompatible elements**: elements too large (Rb⁺, Cs⁺, Ba²⁺) or too small/high charge to fit common mineral sites concentrate in late-stage melts and hydrothermal fluids → enriched in granites and ore deposits.
 
 ---

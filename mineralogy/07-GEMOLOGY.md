@@ -296,6 +296,7 @@ CVD DIAMOND (Chemical Vapor Deposition):
   CVD diamonds: optically identical to natural; spectroscopic detection
   HPHT treatment can remove brown color from CVD diamonds
 
+<!-- @editor[audience/P3]: "The learner knows CVD from semiconductor manufacturing" breaks the fourth wall — rephrase as a direct bridge statement rather than meta-commentary about the reader -->
   The learner knows CVD from semiconductor manufacturing:
   Same principle — chemical vapor phase deposits material on substrate.
   Diamond CVD is higher T than Si CVD; the plasma chemistry is simpler
@@ -378,6 +379,7 @@ DETECTION METHODS AT LABS (GIA, AGL, Gübelin, SSEF)
 | IGI | Diamonds + colored stones | Faster/cheaper; used for lab-grown |
 | HRD Antwerp | Diamonds | European market |
 
+<!-- @editor[content/P2]: The FTC disclosure ruling is a regulatory/legal angle worth expanding — what year did De Beers start marketing lab-grown? How has pricing changed? A 2-line market context would ground the regulatory point -->
 **Lab-grown diamond disclosure**: FTC (2018) ruled "lab-grown," "lab-created," or "man-made" must appear before "diamond" in marketing. Cannot use "synthetic" alone as misleading. The underlying material IS diamond — chemically, physically, optically identical.
 
 ---
