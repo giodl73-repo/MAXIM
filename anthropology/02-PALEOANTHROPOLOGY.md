@@ -328,6 +328,7 @@ laboratory analysis — and remains contested at multiple points.
   │ and potentially COVID-19 susceptibility (both risk and │
   │ protective alleles identified in different populations) │
   │                                                        │
+<!-- @editor[content/P2]: "Africans: no Neanderthal ancestry" is outdated — Chen et al. 2020 (Cell) found ~0.3% Neanderthal ancestry in African populations via Eurasian back-migration. Revise to note minimal ancestry acquired indirectly -->
   │ Africans: no Neanderthal ancestry (Neanderthals never  │
   │ lived in Africa)                                       │
   └────────────────────────────────────────────────────────┘
@@ -512,6 +513,8 @@ laboratory analysis — and remains contested at multiple points.
 ```
 
 ---
+
+<!-- @editor[bridge/P3]: No old-world-to-new-world bridge section. Natural parallels exist: phylogenetic reconstruction as graph/tree algorithms, ancient DNA as a data pipeline problem, Bayesian radiocarbon modeling as inference under uncertainty — would connect to learner's computational background -->
 
 ## Decision Cheat Sheet
 
