@@ -1,5 +1,7 @@
 # Earthquakes and Volcanoes — Seismic Waves, Mw Scale, Eruption Types
 
+<!-- @editor[bridge/P2]: No old-world bridge — elastic rebound theory maps naturally to "technical debt release": strain accumulates silently, then releases catastrophically at a threshold — any engineer who has seen a cascading failure recognizes the pattern -->
+
 ## The Big Picture
 
 Earthquakes and volcanoes are surface expressions of tectonic processes. Earthquakes release stored elastic strain; volcanoes release heat/volatile energy from depth. Both are most concentrated at plate boundaries, but both occur intraplate as well.

@@ -1,5 +1,7 @@
 # Minerals — Crystal Systems, Silicates, Identification
 
+<!-- @editor[bridge/P2]: No old-world bridge — a natural bridge from chemistry/materials science: minerals as "the crystal structure determines the API" (cleavage, hardness, optical properties are all consequences of lattice geometry, just as data structure choice determines algorithm performance) -->
+
 ## The Big Picture
 
 Minerals are the atoms-to-molecules level of geology. ~5,700 known minerals; ~30 are "rock-forming" (>95% of Earth's crust by volume). The critical insight: Earth's crust is dominated by silicate minerals because silicon and oxygen are the two most abundant elements in it.

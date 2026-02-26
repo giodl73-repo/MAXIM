@@ -1,5 +1,7 @@
 # Geology — Overview
 
+<!-- @editor[bridge/P2]: No old-world bridge — a systems-thinker coming from software architecture would benefit from an explicit "state machine" analogy: Earth as a finite set of reservoirs (core, mantle, crust, ocean, atmosphere) exchanging energy and matter via well-defined interfaces -->
+
 ## The Big Picture
 
 Earth is a heat engine wrapped in a thin rocky shell. Everything in geology — mountains, earthquakes, ore deposits, the fossil record — flows from the interplay between internal heat (radioactive decay + primordial accretion energy) and external solar energy driving weathering and erosion.
@@ -158,6 +160,8 @@ RIDGE                 SUBDUCTION ZONE            COLLISION
 | Transform | Side by side | San Andreas Fault | Earthquakes, no volcanism |
 
 ---
+
+<!-- @editor[structure/P2]: Missing Decision Cheat Sheet section — overview should include a "which guide do I open first?" decision table based on what the reader is trying to learn -->
 
 ## Directory Map
 

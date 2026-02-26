@@ -1,5 +1,7 @@
 # Geologic Time — Radiometric Dating, Stratigraphy, Mass Extinctions
 
+<!-- @editor[bridge/P2]: No old-world bridge — relative vs absolute dating maps directly to "logical clocks vs wall clocks" in distributed systems (Lamport clocks give ordering without timestamps; radiometric dating adds the timestamp) — this parallel would immediately land for any systems engineer -->
+
 ## The Big Picture
 
 Before the 20th century, geologists could only determine *relative* time (A is older than B). Radiometric dating (post-1905) provided *absolute* time. The combination — stratigraphy for sequence + radiometric dating for calibration — built the geologic time scale to its current precision of <0.1% uncertainty in many periods.

@@ -1,5 +1,7 @@
 # Surficial Geology — Glacial, Fluvial, Karst, Coastal, Pedogenesis
 
+<!-- @editor[bridge/P2]: No old-world bridge — surficial processes as "user-facing layer" vs plate tectonics as "backend infrastructure": the surface is where external agents (ice, water, wind) shape the interface, while the deep processes provide the substrate — any full-stack engineer recognizes front-end vs back-end shaping -->
+
 ## The Big Picture
 
 Surficial geology covers processes that shape Earth's surface by moving material without involving plate tectonics directly. The agents — ice, water, wind, gravity — operate at human-perceivable timescales and produce the landscapes we actually live in.
@@ -189,6 +191,8 @@ Flowstone: sheet deposit on cave floor/walls
 
 ---
 
+<!-- @editor[content/P2]: Eolian (wind) processes section missing — dune types (barchan, transverse, longitudinal, star), loess deposits, and wind erosion (yardangs, ventifacts) are significant surficial processes not covered -->
+
 ## Pedogenesis — Soil Formation
 
 Soil = weathered regolith + organic matter + organisms. The O-A-B-C horizon sequence:
@@ -229,6 +233,8 @@ R        Bedrock        Unweathered parent rock
 | Spodosol | Boreal forest | Bleached E horizon; spodic B | Acidic; conifer forests |
 
 ---
+
+<!-- @editor[content/P2]: Mass wasting section missing — landslides, debris flows, rockfalls, creep, and solifluction are mentioned in the landscape diagram but never given their own treatment -->
 
 ## Decision Cheat Sheet
 

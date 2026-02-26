@@ -1,5 +1,7 @@
 # Igneous Rocks — Magma, Differentiation, Bowen's Series
 
+<!-- @editor[bridge/P2]: No old-world bridge — crystallization from a melt is a natural parallel to phase transitions in materials science or solidification in metallurgy; any engineer with thermodynamics background would benefit from a "phase diagram" framing -->
+
 ## The Big Picture
 
 Igneous rocks record the cooling history of melts. The entire compositional range from basalt (mafic, ~50% SiO₂) to rhyolite (felsic, ~75% SiO₂) reflects magma differentiation — the process by which a single basaltic parent melt generates a spectrum of daughter magmas.
