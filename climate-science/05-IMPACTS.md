@@ -2,6 +2,8 @@
 
 ## Sea Level, Extreme Events, Agriculture, Ecosystems, Risk Framing
 
+<!-- @editor[diagram/P2]: Opening diagram is a simple three-level cascade (physical → biological → human). It lists impact categories but doesn't show how they relate or compound. Rework as a landscape showing cross-connections: e.g., sea level → infrastructure AND migration; drought → agriculture AND conflict; heat → health AND energy demand -->
+
 ## The Big Picture
 
 ```
@@ -435,6 +437,8 @@ CLIMATE IMPACTS: FROM PHYSICAL FORCING TO HUMAN CONSEQUENCES
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge in the guide. Natural bridge here: risk framing maps directly to decision theory and expected utility that the learner knows from MIT math — fat tails, option value, irreversibility premium are all concepts from stochastic optimization. Connect "you know expected-value vs risk-averse decision criteria from probability theory; climate risk is the canonical real-world case where tail risk dominates" -->
 
 ## Risk Framing
 

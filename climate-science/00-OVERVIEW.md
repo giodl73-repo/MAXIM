@@ -1,5 +1,7 @@
 # Climate Science — Overview: Earth's Energy Budget
 
+<!-- @editor[diagram/P2]: Opening diagram is a detailed energy budget — not a landscape of climate science as a whole. The Module Map table at line 191 is the actual landscape; promote it to the opening position and use the energy budget as a drill-down under its own section -->
+
 ## The Big Picture: Radiative Balance
 
 ```
@@ -35,6 +37,8 @@ NATURAL GREENHOUSE EFFECT:
 ```
 
 ---
+
+<!-- @editor[structure/P2]: No comparison tables in the body — entire guide is ASCII code blocks. Add at least one table (e.g., major GHGs compared: gas, concentration, forcing, lifetime, GWP) -->
 
 ## Greenhouse Gas Physics: Why Molecular Absorption Matters
 
@@ -102,6 +106,8 @@ MAJOR FORCING AGENTS (IPCC AR6, 2021):
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge anywhere in the guide. Natural bridge: the learner knows thermodynamics (Stefan-Boltzmann, blackbody radiation, Wien's law) from MIT physics — open with "you already know radiative equilibrium from thermo; climate science is that equation plus feedbacks" -->
 
 ## Climate Sensitivity: Translating Forcing to Temperature
 
@@ -201,6 +207,8 @@ TEMPERATURE MILESTONES:
 ---
 
 ## Decision Cheat Sheet
+
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a module navigation table, not a decision tool — reframe as "use X when Y" rows (e.g., "Evaluating whether CO₂ is saturated → 00 GHG physics; Estimating remaining emission budget → 04 Carbon budget math") -->
 
 | I want to understand... | Go to |
 |---|---|

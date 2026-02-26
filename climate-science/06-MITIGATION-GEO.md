@@ -98,6 +98,8 @@ Fundamental thermodynamic limit on single-junction solar cell efficiency.
   CPV (concentrating) uses lenses to intensify sunlight on expensive cells.
 ```
 
+<!-- @editor[bridge/P3]: Natural bridge opportunity: Wright's Law / learning curves parallel the learner's experience with technology cost curves in enterprise software and semiconductor scaling (Moore's Law). A one-line bridge ("this is Wright's Law — same phenomenon as Moore's Law but for manufacturing cost per unit of cumulative production") would connect immediately -->
+
 ### Cost Decline: The Learning Curve
 
 ```

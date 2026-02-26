@@ -2,6 +2,8 @@
 
 ## RCP/SSP Scenarios, Carbon Budget Math, Sector Contributions, Net Zero
 
+<!-- @editor[diagram/P2]: Opening diagram is a linear causal chain (emissions → concentration → forcing → impacts) — not a landscape of the emissions-pathways field. Consider a landscape diagram showing the full space: scenarios (RCP/SSP), carbon budgets, sector contributions, policy mechanisms, and net-zero math as interconnected nodes -->
+
 ## The Big Picture
 
 ```
@@ -226,6 +228,8 @@ EMISSIONS → TEMPERATURE: THE CAUSAL CHAIN
 ```
 
 ---
+
+<!-- @editor[bridge/P3]: Natural bridge opportunity: carbon pricing is a direct application of Pigouvian tax / externality internalization from microeconomics — the learner likely encountered this in an MIT economics elective or MBA-adjacent context. A one-line bridge ("this is the Pigouvian tax from Econ 101 applied at planetary scale") would land well -->
 
 ## Carbon Pricing Mechanisms
 

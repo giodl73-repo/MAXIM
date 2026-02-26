@@ -132,10 +132,10 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `geography/` | 8 | — | — | |
 | `geology/` | 12 | 2026-02 | — | 16 tags → pending |
 | `meteorology/` | 11 | 2026-02 | — | 7 tags → pending |
-| `climate-science/` | 7 | — | — | |
+| `climate-science/` | 7 | 2026-02 | — | 16 tags → pending |
 | `oceanography/` | 12 | — | — | |
 | `hydrology/` | 10 | 2026-02 | — | 11 tags → pending |
-| `paleontology/` | 11 | — | — | |
+| `paleontology/` | 11 | 2026-02 | — | 21 tags → pending |
 | `agriculture/` | 11 | — | — | |
 | `mineralogy/` | 10 | — | — | |
 | `planetary-science/` | 10 | — | — | |

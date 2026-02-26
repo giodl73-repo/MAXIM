@@ -40,6 +40,8 @@ MATH:
 
 ---
 
+<!-- @editor[structure/P2]: No comparison tables — all content is in ASCII code blocks. Add at least one rendered Markdown table (e.g., all five feedbacks side-by-side: name, sign, magnitude W/m^2/K, confidence level, key uncertainty) -->
+
 ## The Major Feedbacks
 
 ### Planck Response: The Fundamental Stabilizer
@@ -211,6 +213,8 @@ MATH:
 
 ---
 
+<!-- @editor[bridge/P3]: The bifurcation framework maps directly to dynamical systems theory the learner knows from MIT applied math — attractor basins, saddle-node bifurcations, hysteresis loops. Make the bridge explicit: "you know bifurcation diagrams from nonlinear dynamics; tipping elements are physical systems exhibiting exactly these transitions" -->
+
 ## Tipping Points: Theory
 
 ### The Bifurcation Framework
@@ -244,6 +248,8 @@ MATH:
 ```
 
 ---
+
+<!-- @editor[content/P2]: Missing a summary comparison table of all tipping elements with columns: element, threshold range, timescale, sea level contribution, reversibility. The individual sections are detailed but the reader has no single-glance comparison -->
 
 ## Major Tipping Elements (Lenton et al. 2022 Update)
 

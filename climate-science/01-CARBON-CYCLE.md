@@ -40,6 +40,8 @@ ANTHROPOGENIC PERTURBATION (~10 GtC/yr fossil + ~1.5 GtC/yr LUC):
 
 ---
 
+<!-- @editor[structure/P2]: No comparison tables — entire guide is ASCII code blocks. Add at least one rendered Markdown table (e.g., reservoir comparison: name, stock GtC, turnover time, trend) -->
+
 ## Reservoir Deep Dive
 
 ### Atmosphere
@@ -80,6 +82,8 @@ ANTHROPOGENIC PERTURBATION (~10 GtC/yr fossil + ~1.5 GtC/yr LUC):
   Total ocean DIC: ~38,000 GtC
   (44× more than atmosphere — ocean is the dominant carbon reservoir)
 ```
+
+<!-- @editor[bridge/P2]: No old-world bridge in the guide. Natural bridge here: the learner knows equilibrium chemistry and Henry's Law from MIT — connect "you know Le Chatelier's principle and carbonate equilibria; the Revelle factor is the climate-scale consequence of the buffer capacity you learned in gen chem" -->
 
 ### The Revelle Factor (Buffer Chemistry)
 
