@@ -161,7 +161,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `logic/` | 10 | 2026-02 | — | 5 tags → pending |
 | `intellectual-history/` | 10 | 2026-02 | — | 15 tags → pending |
 | `social-history/` | 10 | 2026-02 | — | 18 tags → pending |
-| `political-history/` | 10 | — | — | |
+| `political-history/` | 10 | 2026-02 | — | 15 tags → pending |
 | `philosophy-of-mind/` | 10 | 2026-02 | — | 16 tags → pending |
 | `ethics/` | 10 | 2026-02 | — | 0 tags -> pending |
 

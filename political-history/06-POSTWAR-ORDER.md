@@ -37,6 +37,7 @@ THE POSTWAR LIBERAL INTERNATIONAL ORDER — ARCHITECTURE
   Order outlasts any one                                 subordinated
   administration.                                      • "Liberal" was
                                                           often not
+<!-- @editor[diagram/P2]: Critics box text truncated — "'Liberal' was often not" is an incomplete sentence; finish the thought (e.g., "often not liberal for the periphery") -->
 ```
 
 ---
@@ -200,6 +201,8 @@ EUROPEAN INTEGRATION LOGIC
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge section — Ikenberry's "constitutional order through institutional self-binding" is protocol design: the hegemon constrains its own future behavior through published rules, gaining adoption in exchange for predictability. Kindleberger's public goods framework maps directly to platform economics (who provides the infrastructure that everyone free-rides on?). These are natural bridges for a systems architect. -->
 
 ## The American Century and Hegemonic Stability Theory
 

@@ -97,6 +97,7 @@ E.P. Thompson (*The Making of the English Working Class*, 1963): history of ordi
 Political implication: revolutions, elections, and reforms look different when you study who was in the streets vs. who signed the treaties.
 
 ### Quantitative Political History / Cliometrics Applied
+<!-- @editor[bridge/P3]: Natural bridge to empirical software engineering — "natural experiments" and "causal identification" parallel A/B testing and quasi-experimental design the learner knows from data-driven product work -->
 
 Acemoglu-Robinson (*Why Nations Fail*, 2012): institutions as causal variable. Natural experiments (settler mortality rates determining institutional form of colonialism, which persists for centuries) to establish causal identification. Connects to the economic history methods the learner knows from econometrics.
 
@@ -203,6 +204,8 @@ History            conditions change?      natural exp.      (centuries)
 The disciplines converge on overlapping questions. Skocpol is simultaneously sociological, historical, and political-scientific. Acemoglu writes economic history that is really about political institutions. The methodological debates within each field are as important as the substantive debates.
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge section — guide would benefit from a "Bridges from Adjacent Disciplines" section connecting political history's analytical tools (comparative case analysis, periodization, causal inference from natural experiments) to the learner's existing frameworks (systems thinking, state machines, experimental design) -->
 
 ## Why Political History Matters
 

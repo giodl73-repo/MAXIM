@@ -275,6 +275,8 @@ WHY EMPIRES END — STRUCTURAL FACTORS:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — the informal-vs-formal empire spectrum maps to platform economics (API control without ownership vs. vertical integration); dependency theory's core-periphery model is a directed acyclic graph of value extraction that any systems thinker would recognize -->
+
 ## Dependency Theory and Neo-Imperialism
 
 ### Frank and Cardoso: Dependency Theory

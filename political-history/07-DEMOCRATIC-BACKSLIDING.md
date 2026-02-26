@@ -173,6 +173,7 @@ V-DEM FRAMEWORK
 
   Democratic Recession: 2008-present
   ~42 countries have backslid since 2010
+<!-- @editor[content/P2]: V-Dem 2024 report says 71% of world population lives under autocracy — verify this figure is current; the India reclassification framing is V-Dem's (electoral autocracy since 2018) but Freedom House uses "partly free" — distinguish the two measurement systems since they use different thresholds -->
   World share of population living under autocracy: ~70%
   (largely driven by India's reclassification under Modi
    from "free" to "partly free")
@@ -240,6 +241,8 @@ EU threatened sanctions; Polish courts resisted. Critical difference from Hungar
 2023: Opposition coalition won parliamentary election; Tusk PM. Attempted to restore judicial independence — but courts packed by PiS complicated reversal. Demonstration that backsliding can be reversed, but reversal is hard.
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge section — the "guardrails" framework maps to defense-in-depth in security engineering: formal rules are the outer perimeter (firewall), informal norms are the inner layer (trust + culture). The autocratization playbook is a privilege escalation attack: gain legitimate access, then incrementally capture the referees. This is the exact pattern of insider threat modeling. -->
 
 ## Why Some Democracies Survive
 

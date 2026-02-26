@@ -333,6 +333,8 @@ The difference from production software: the "user stories" are historical quest
 
 ---
 
+<!-- @editor[bridge/P3]: The digital history section connects well to the learner's data engineering background, but the earlier sections (Rankean method, linguistic turn, counterfactual analysis) could benefit from bridges too — source criticism parallels data validation pipelines; the linguistic turn's "all accounts are constructed" maps to the encoding problem in data engineering (every dataset reflects collection methodology choices) -->
+
 ## The Politics of History
 
 History is produced in political context and serves political functions. This is not a scandal — it is unavoidable.
