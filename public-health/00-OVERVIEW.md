@@ -169,6 +169,7 @@ See 10-HEALTH-METRICS.md for full methodology.
 | 09-PANDEMIC-RESPONSE | PHEIC; NPI evidence; supply chain; COVID-19 lessons |
 | 10-HEALTH-METRICS | DALY/QALY computation; standardization; GBD |
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel exists between public health surveillance/population risk and distributed systems monitoring/fleet-wide reliability, which this learner knows deeply -->
 ## Decision Cheat Sheet
 
 | If you need to... | Use module... |

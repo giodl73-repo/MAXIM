@@ -252,6 +252,7 @@ COST-EFFECTIVENESS ANALYSIS:
     (e.g., effective drug for common disease). Both matter for coverage.
 ```
 
+<!-- @editor[bridge/P2]: No old-world bridge — health system archetypes (Bismarck/Beveridge/mixed) map naturally to system architecture patterns (multi-tenant vs. single-tenant, federated vs. centralized); UHC cube dimensions parallel service-level coverage metrics -->
 ## Decision Cheat Sheet
 
 | Health policy question | Key framework |
