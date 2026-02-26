@@ -106,6 +106,7 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │ across all occupations                                        │
   └────────────────────────────────────────────────────────────────┘
 
+<!-- @editor[bridge/P2]: No lock-in → agglomeration bridge despite obvious parallel — any engineer from platform ecosystems (Windows, Azure, AWS) recognizes path dependency and switching costs; connect SV lock-in to platform lock-in explicitly -->
   THE SILICON VALLEY PARADOX:
   Why does SV persist despite housing ~$2M median, wages far above
   alternatives, and remote work enabling dispersal?
@@ -133,6 +134,7 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
 ## Section 3: New Economic Geography (Krugman 1991)
 
 ```
+<!-- @editor[bridge/P2]: No equilibrium → bifurcation bridge despite obvious parallel — Krugman's tipping points between concentration and dispersion are bifurcation dynamics; learner with MIT TCS/math background will recognize phase transitions -->
   CORE INSIGHTS (Krugman won 2008 Nobel Prize in Economics):
 
   WHY DOES MANUFACTURING CONCENTRATE?
@@ -353,6 +355,7 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   Maritime Silk Road: SE Asia → Indian Ocean → E Africa → Mediterranean
 
   GEOPOLITICAL READING:
+<!-- @editor[content/P2]: BRI section is thin — what's missing is the geographic pattern of BRI investment (land vs maritime corridors), the debt sustainability data (how many countries are at risk), and comparison of actual BRI disbursements vs commitments -->
   Debt trap concerns: Hambantota Port (Sri Lanka) leased to China 99 years
   Commercial reading: Chinese banks making commercial loans, not aid
   Infrastructure gap: LICs need $15T in infrastructure by 2040 (ADB)
@@ -379,6 +382,7 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   Reefer (refrigerated) container share growing: 10% of container fleet
   Kenya flowers → Amsterdam → Europe (air cold chain via Nairobi hub)
 ```
+<!-- @editor[content/P2]: Digital economy geography absent — significant gap; data center siting (energy, cooling, latency), submarine cable routes, and the physical geography of the internet are increasingly important economic geography topics -->
 
 ---
 

@@ -9,6 +9,7 @@ drainage patterns. Overlay climate and you get soils and landforms.
 Understanding the physical template is prerequisite to understanding where
 humans have settled and why.
 
+<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework to show internal→external process interaction (tectonics creates relief, surface processes reduce it) as a cycle, with rock cycle and soils as outputs -->
 ```
 +----------------------------------------------------------------------+
 |                    PHYSICAL GEOGRAPHY SYSTEMS                         |
@@ -85,6 +86,7 @@ humans have settled and why.
 ## Section 2: Earthquakes
 
 ```
+<!-- @editor[bridge/P2]: No log scale → seismic measurement bridge despite obvious parallel — any engineer from signal processing or database indexing knows log scales; connect Mw log₁₀ to familiar exponential relationships -->
   SEISMIC WAVES:
   P waves (Primary/compressional): travel through solid + liquid; arrives first
   S waves (Secondary/shear): only solid; arrives second
@@ -186,6 +188,7 @@ humans have settled and why.
   │   Slate: low-grade metamorphism of shale                       │
   └────────────────────────────────────────────────────────────────┘
 
+<!-- @editor[content/P2]: Section is thin — human significance deserves more depth on economic geology (critical minerals, ore deposits, resource extraction geography) to connect with 06-GEOPOLITICS -->
   HUMAN SIGNIFICANCE:
   Granite: foundation and building stone (massive continental cratons)
   Limestone: aquifer (karst), building material, cement production

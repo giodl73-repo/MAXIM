@@ -111,6 +111,7 @@ propagates spatially.
   → Without it, NW Europe ~5-8°C colder (like same latitude in Canada)
   London at latitude of northern Alberta; Dublin = Labrador
 
+<!-- @editor[bridge/P2]: No feedback loop → tipping point bridge despite obvious parallel — any systems engineer recognizes positive feedback driving runaway behavior; connect AMOC weakening to control theory concepts (positive feedback, hysteresis, bistability) -->
   AMOC AS CLIMATE TIPPING POINT:
   ┌────────────────────────────────────────────────────────────────┐
   │ Mechanism for weakening:                                       │
@@ -184,6 +185,7 @@ propagates spatially.
   +0.5°C = El Niño; -0.5°C = La Niña (for 5+ consecutive months)
   Southern Oscillation Index (SOI): pressure difference Tahiti-Darwin
 ```
+<!-- @editor[content/P2]: ENSO prediction and forecasting absent — significant gap; the operational forecasting models (IRI, CPC), their skill horizons (~6-9 months), and why long-term prediction remains difficult belong here -->
 
 ---
 

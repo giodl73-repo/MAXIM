@@ -41,6 +41,8 @@ Psychiatric disorders share: circuit-level dysfunction without overt structural 
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- proteinopathies (misfolded protein seeding and spreading) map to cascading corruption in distributed systems; protein aggregation as propagating fault model -->
+
 ## 1. Alzheimer's Disease
 
 ### Amyloid Cascade Hypothesis
@@ -330,7 +332,7 @@ SAH (subarachnoid hemorrhage):
 
 ---
 
-## 7. Guillain-Barré Syndrome (GBS)
+## 7. Guillain-Barre Syndrome (GBS)
 
 **Mechanism:** Post-infectious (C. jejuni, CMV, EBV, HIV, influenza, COVID-19) immune attack on peripheral nerve.
 

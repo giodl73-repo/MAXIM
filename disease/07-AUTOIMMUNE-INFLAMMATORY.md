@@ -34,7 +34,7 @@ MECHANISMS OF TOLERANCE FAILURE:
 └──────────────────────────────────────────────────────────────────┘
 ```
 
-### HLA Associations (Key Board of Governors–level relationships)
+### HLA Associations (Key Board of Governors-level relationships)
 
 | HLA Allele | Associated Disease | Mechanism |
 |------------|-------------------|-----------|
@@ -45,9 +45,11 @@ MECHANISMS OF TOLERANCE FAILURE:
 | HLA-DQ2/DQ8 | Celiac disease (> 99% carry DQ2 or DQ8) | Gliadin peptide presentation (DQ2 prefers negatively charged) |
 | HLA-DRB1*04 | Pemphigus vulgaris | Desmoglein peptide presentation |
 
-HLA is necessary but not sufficient: identical twin concordance typically 25–50% → non-HLA genetic + environmental factors required.
+HLA is necessary but not sufficient: identical twin concordance typically 25-50% → non-HLA genetic + environmental factors required.
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge -- autoimmune disease as type system failure (self/non-self discrimination breaking down); molecular mimicry is literally a hash collision between pathogen and self-antigen -->
 
 ## Rheumatoid Arthritis (RA)
 
@@ -56,7 +58,7 @@ PATHOGENESIS:
   Trigger: smoking, infections → protein citrullination in lung/joint
   Citrullinated proteins (cyclic citrullinated peptides = CCPs): collagen, fibronectin, vimentin
   Anti-CCP antibodies (ACPA): highly specific for RA (95% specific) and appear YEARS before symptoms
-  Rheumatoid factor (RF): IgM anti-IgG Fc — 70–80% sensitivity, low specificity (10% of normal population)
+  Rheumatoid factor (RF): IgM anti-IgG Fc — 70-80% sensitivity, low specificity (10% of normal population)
 
   Joint pathology:
     CD4+ Th1/Th17 cells: IFN-γ + IL-17 → activate synovial fibroblasts + macrophages
@@ -100,7 +102,7 @@ PATHOGENESIS:
 
 AUTOANTIBODIES:
   Anti-dsDNA: highly specific for SLE (~70% sensitivity, >95% specificity); correlates with disease activity/nephritis
-  Anti-Sm (Smith): highly specific (25–30% sensitivity, ~99% specific — pathognomonic if present)
+  Anti-Sm (Smith): highly specific (25-30% sensitivity, ~99% specific — pathognomonic if present)
   ANA (antinuclear antibody): > 97% sensitive (screening test); not specific (positive in many conditions)
   Anti-Ro/SSA + anti-La/SSB: Sjögren's overlap; neonatal lupus (heart block from placental transfer)
   Anti-histone: drug-induced lupus (procainamide, hydralazine, TNF inhibitors)
@@ -152,7 +154,7 @@ CLINICAL TYPES:
   Clinically Isolated Syndrome (CIS): first demyelinating event; risk of conversion to RRMS if MRI lesions
 
 CSF:
-  Oligoclonal IgG bands: distinct bands in CSF not in serum (90–95% of MS patients)
+  Oligoclonal IgG bands: distinct bands in CSF not in serum (90-95% of MS patients)
   ↑ IgG index (intrathecal Ig synthesis)
   Mild lymphocytosis possible
 

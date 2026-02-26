@@ -18,6 +18,8 @@ COMMON THREAD: most manageable with hormone replacement or pharmacological modul
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- endocrine disease as feedback control system failure (negative feedback disruption, set-point drift, receptor desensitization) maps directly to control theory (PID loops, gain, damping) -->
+
 ## Diabetes Mellitus
 
 ### Type 1 Diabetes: Autoimmune Destruction

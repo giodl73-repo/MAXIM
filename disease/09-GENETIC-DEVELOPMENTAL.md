@@ -37,6 +37,8 @@ Diagnostic tools: karyotype → chromosomal microarray → gene panel → WES/WG
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- genetic disease taxonomy (chromosomal -> single gene -> epigenetic -> multifactorial -> somatic) maps to defect granularity (platform failure -> module failure -> configuration error -> multi-factor degradation -> runtime corruption) -->
+
 ## 1. Chromosomal Disorders — Numerical
 
 ### Meiotic Non-Disjunction Mechanics
@@ -171,15 +173,15 @@ CODOMINANT:
 |---------|------|-----------|-----------|
 | Huntington's | HTT | Toxic gain of function (polyQ) | Chorea, dementia, psychiatric; anticipation |
 | Marfan's | FBN1 (fibrillin-1) | Structural ECM; ↑ TGF-β signaling | Arachnodactyly, lens dislocation, aortic root dilation (dissection risk) |
-| NF1 | NF1 (neurofibromin, RAS GAP) | Tumor suppressor loss → ↑ RAS | Café-au-lait spots (>6), neurofibromas, Lisch nodules, optic glioma |
+| NF1 | NF1 (neurofibromin, RAS GAP) | Tumor suppressor loss → ↑ RAS | Cafe-au-lait spots (>6), neurofibromas, Lisch nodules, optic glioma |
 | NF2 | NF2 (merlin) | Tumor suppressor | Bilateral vestibular schwannomas (NF2 = "2" bilateral "2"nd cranial nerve) |
-| ADPKD | PKD1 (85%), PKD2 | Polycystin dysfunction → cyst expansion | Flank pain, hematuria, HTN, renal failure; berry aneurysms (8–10%); hepatic cysts |
+| ADPKD | PKD1 (85%), PKD2 | Polycystin dysfunction → cyst expansion | Flank pain, hematuria, HTN, renal failure; berry aneurysms (8-10%); hepatic cysts |
 | Familial hypercholesterolemia | LDLR (mostly) | ↓ LDL receptor → ↑ plasma LDL | Tendon xanthomas, premature CAD; homozygous → childhood MI |
 | Achondroplasia | FGFR3 | Activating mutation → ↓ chondrocyte proliferation | Rhizomelic dwarfism, large head, spinal stenosis; ~85% de novo |
 | BRCA1/BRCA2 | BRCA1/2 | Tumor suppressor (HR repair) | AD risk allele; heterozygote: ↑ breast/ovarian/prostate cancer (second hit needed) |
 
 **Variable expressivity vs incomplete penetrance:**
-- Variable expressivity: gene expressed but phenotype severity differs (NF1 café-au-lait vs glioma)
+- Variable expressivity: gene expressed but phenotype severity differs (NF1 cafe-au-lait vs glioma)
 - Incomplete penetrance: gene present but no phenotype at all; penetrance = fraction of carriers showing phenotype (BRCA1 ~70% lifetime breast cancer risk → 30% penetrance failure)
 
 ---
@@ -494,7 +496,7 @@ After 8 weeks: growth + function affected, not gross morphology
 "A for Angelman, mAternal" (lose maternal 15 → lose UBE3A → AS).
 Angelman: happy, seizures, no speech. PWS: hyperphagia, obese, short.
 
-**Down syndrome Robertsonian translocation:** Karyotype = 46 chromosomes (not 47) but 3 copies of chr 21 material. Check parent karyotype — if balanced 14;21 carrier, recurrence risk is ~10–15%, NOT maternal-age-dependent.
+**Down syndrome Robertsonian translocation:** Karyotype = 46 chromosomes (not 47) but 3 copies of chr 21 material. Check parent karyotype — if balanced 14;21 carrier, recurrence risk is ~10-15%, NOT maternal-age-dependent.
 
 **DMD exon skipping:** Out-of-frame deletion → Duchenne (severe). Therapeutic exon skip → restore reading frame → converts to Becker-like. Eteplirsen skips exon 51 → applicable to ~13% of DMD mutations.
 

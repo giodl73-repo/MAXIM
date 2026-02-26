@@ -20,6 +20,8 @@ INDEPENDENT PATHOLOGY:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- atherosclerosis as progressive pipeline failure maps to cascading failure models in layered systems -->
+
 ## Atherosclerosis: Pathogenesis
 
 ```

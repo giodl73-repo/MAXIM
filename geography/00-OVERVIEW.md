@@ -10,6 +10,7 @@ something occurs is often as explanatory as WHAT it is. Tobler's First Law:
 "Everything is related to everything else, but near things are more related
 than distant things."
 
+<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view showing physical→human feedbacks, scale interactions, and how analytical tools connect to both branches -->
 ```
 +----------------------------------------------------------------------+
 |                    GEOGRAPHY FIELD MAP                                |
@@ -67,6 +68,7 @@ than distant things."
   • Scale: county vs state vs region level analysis
   • Aggregation: which units are combined
   Gerrymandering exploits MAUP deliberately
+<!-- @editor[bridge/P3]: Natural bridge to apportionment/redistricting algorithms — learner has deep background in this area from Gerry project -->
 
   HUMAN-ENVIRONMENT INTERACTION:
   The reciprocal relationship between humans and environment:
@@ -174,6 +176,7 @@ than distant things."
 ## Section 4: Spatial Analysis Tools
 
 ```
+<!-- @editor[content/P2]: Section is thin — GIS deserves mention of spatial databases (PostGIS), cloud-native formats (COG, Zarr), and the developer toolchain (GDAL, Shapely, GeoPandas) for this audience -->
   GIS (Geographic Information Systems):
   Software: ArcGIS (ESRI), QGIS (open source), Google Earth Engine
   Layers: vector (points/lines/polygons) + raster (grid cells)

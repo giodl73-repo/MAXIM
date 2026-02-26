@@ -20,6 +20,8 @@ DISEASE
 └───────────────────────────────────────────────────────────────────┘
 ```
 
+<!-- @editor[bridge/P2]: No old-world bridge -- infectious/non-infectious taxonomy parallels exogenous-vs-endogenous distinction in classical pathology (Koch vs Virchow); bridge from germ theory vs cellular pathology framing would anchor this -->
+
 Most diseases are multifactorial: a genetic predisposition + environmental trigger + host response.
 The "infection vs non-infection" binary is also not sharp: H. pylori → peptic ulcer → gastric cancer; HPV → cervical cancer; chronic HBV/HCV → cirrhosis → HCC.
 
@@ -251,6 +253,10 @@ DALY (Disability-Adjusted Life Year):
 ```
 
 ---
+
+<!-- @editor[structure/P1]: Missing Decision Cheat Sheet -- need "use X when Y" table (e.g., cell swelling on biopsy -> reversible injury; caseous necrosis -> think TB; neutrophils dominant -> acute; mononuclear dominant -> chronic) -->
+
+<!-- @editor[structure/P2]: Global Burden section not anchored to landscape diagram -- consider bridge showing which diagram categories dominate globally -->
 
 ## Module Map
 
