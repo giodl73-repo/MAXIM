@@ -105,6 +105,8 @@ Each model type answers different questions. The choice depends on what you're t
                    modern models avoid it (physically inconsistent)
 ```
 
+<!-- @editor[bridge/P2]: No old-world bridge in the guide. Natural bridge here: the learner knows numerical methods, spectral methods, and stability conditions (CFL) from MIT computational theory — connect "you know Courant-Friedrichs-Lewy from numerical PDE; climate models live and die by it because 3D refinement costs scale as O(n^4)" -->
+
 ### Dynamical Core
 
 ```
@@ -139,6 +141,8 @@ Each model type answers different questions. The choice depends on what you're t
 ```
 
 ---
+
+<!-- @editor[bridge/P3]: Natural bridge opportunity: parameterization in climate science is analogous to API contracts in systems design — subgrid processes are "black-boxed" behind a contract interface, with implementation uncertainty hidden from the caller. The learner's software architecture background makes this immediate -->
 
 ## Parameterization: The Core Challenge
 
