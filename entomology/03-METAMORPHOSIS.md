@@ -285,6 +285,8 @@ WHY WAS IT SUCCESSFUL?
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge — the JH/20E two-hormone binary switch maps directly to a finite state machine with two control signals; imaginal discs are a biological version of lazy initialization. One bridge would help the learner internalize the developmental architecture -->
+
 ## Decision Cheat Sheet
 
 | Term | Meaning | Example |

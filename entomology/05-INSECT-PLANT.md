@@ -311,6 +311,8 @@ DIRECT vs INDIRECT PLANT DEFENSES:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge — the coevolutionary arms race is the biological version of an adversarial security model (attack surface, escalation, defense-in-depth); CYP450 detoxification parallels multi-layer middleware defense. One bridge would connect to the learner's frame -->
+
 ## Decision Cheat Sheet
 
 | Interaction | Net outcome | Key taxa | Evolutionary mechanism |

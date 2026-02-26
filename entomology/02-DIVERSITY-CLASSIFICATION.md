@@ -356,6 +356,8 @@ Wings present?
 
 ---
 
+<!-- @editor[bridge/P2]: No universal bridge — the Rapid Order Identification flowchart is literally a decision-tree classifier; mentioning the parallel to ML decision trees or compiler-style pattern matching would anchor the learner -->
+
 ## Decision Cheat Sheet
 
 | Order | Key feature | Metamorphosis | Notable |

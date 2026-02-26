@@ -322,6 +322,8 @@ Wing beat: 20-40 Hz               Wing beat: 100-1000 Hz
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from engineering/CS concepts — the tracheal system's diffusion-limited scaling is a direct parallel to heat-sink design and signal propagation limits; cuticle layering parallels composite material engineering. One bridge would connect to the learner's mental models -->
+
 ## Decision Cheat Sheet
 
 | Structure | Function | Unique feature |

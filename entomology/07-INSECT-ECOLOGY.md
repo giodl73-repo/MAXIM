@@ -338,6 +338,8 @@ POPULATION CONSEQUENCES:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge — exponential/logistic growth models parallel queueing theory and capacity planning; degree-day accumulation parallels thermal envelope modeling in hardware design; Nicholson-Bailey oscillations parallel control-system instability. One bridge connecting to engineering math would be natural here -->
+
 ## Decision Cheat Sheet
 
 | Concept | Key equation/model | Application |
