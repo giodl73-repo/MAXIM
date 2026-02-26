@@ -322,6 +322,8 @@ Printed paper must be deinked before use in white paper grades.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: fiber selection for paper is analogous to materials selection in any engineering discipline (steel alloy grades, semiconductor substrate choices). SW/HW blending to hit property targets maps directly to composite material design: optimize strength vs. surface quality by mixing components with complementary properties -->
+
 ## Decision Cheat Sheet
 
 | Need | Fiber choice |

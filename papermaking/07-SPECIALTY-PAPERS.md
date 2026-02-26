@@ -328,6 +328,8 @@ Used as the backing for pressure-sensitive adhesive (PSA) labels and tapes.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — banknote security layers (substrate / visible / machine-readable / forensic) map directly to defense-in-depth in cybersecurity (physical / network / application / monitoring). The multi-level authentication model is the same architectural pattern: each layer catches what the previous one misses. Any engineer familiar with layered security architecture will immediately see the parallel -->
+
 ## Decision Cheat Sheet
 
 | Specialty need | Paper type |

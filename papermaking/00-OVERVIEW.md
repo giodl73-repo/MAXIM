@@ -1,5 +1,7 @@
 # Papermaking — Landscape and Taxonomy
 
+<!-- @editor[diagram/P2]: Landscape diagram lists categories in flat boxes but doesn't show the process flow — raw material → pulping → forming → finishing should be connected with arrows to show the manufacturing pipeline. Rework as a layered system view with directional flow -->
+
 ## The Big Picture
 
 ```
@@ -185,6 +187,8 @@ SPECIALTY
 | 09-SUSTAINABILITY.md | Recycling, FSC/PEFC, carbon footprint, alternatives |
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge in the overview — natural parallels: continuous manufacturing pipeline (any process engineering), polymer chemistry (cellulose as a natural polymer), or feedback control systems (paper machine CD/MD profiling). A senior engineer from any stack would benefit from "paper mill as a chemical reactor + continuous process line" framing -->
 
 ## Decision Cheat Sheet
 

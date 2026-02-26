@@ -339,6 +339,8 @@ Applies starch or other binder to web surface between dryer sections.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the paper machine is a real-time continuous process control challenge: 100+ CD actuators, basis weight feedback loops, jet/wire ratio tuning. Anyone from industrial automation, SCADA, or even CI/CD pipeline design will recognize the pattern: measure → compare → adjust → repeat at machine speed. The "always remove water mechanically before thermally" imperative maps to any optimization principle where you exhaust cheap methods before expensive ones -->
+
 ## Decision Cheat Sheet
 
 | Need to control | Lever |

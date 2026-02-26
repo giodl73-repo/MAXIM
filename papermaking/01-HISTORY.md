@@ -323,6 +323,8 @@ variants of this fundamental layout, scaled to:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: the rag-to-wood transition mirrors any platform migration where the old substrate hits a scaling wall (rag shortage ≈ capacity bottleneck) and a new, lower-cost substrate takes over despite initial quality concerns. The Fourdrinier machine is the industrial standardization moment — hand-forming to continuous process, analogous to batch-to-stream processing in software -->
+
 ## Decision Cheat Sheet — Historical Questions
 
 | Question | Answer |

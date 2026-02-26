@@ -344,6 +344,8 @@ lignin must be removed without degrading cellulose.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the kraft recovery cycle is a textbook closed-loop process control system: reactants in, products out, waste stream recycled as fuel and feedstock. Any engineer who has seen a chemical plant or refinery flow diagram will recognize this pattern. The recovery boiler dual role (energy + chemical regeneration) is the architectural insight that makes the whole process economically viable — worth framing as "the architectural decision that defines kraft" -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

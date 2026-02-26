@@ -332,6 +332,8 @@ art prints.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the acid-to-alkaline sizing transition (1980s) is a perfect "old world → new world" story: a fundamental chemistry change that unlocked CaCO3 fillers and archival stability simultaneously, but required retooling the entire wet-end process. Any engineer who has lived through a platform migration (mainframe → client-server, monolith → microservices) will recognize the pattern: the new platform enables capabilities impossible on the old one, but demands wholesale process change -->
+
 ## Decision Cheat Sheet
 
 | Need | Chemistry |
