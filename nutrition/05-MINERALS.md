@@ -405,6 +405,7 @@ PHYSIOLOGICAL FACTORS:
 
 ---
 
+<!-- @editor[content/P2]: Copper, manganese, chromium, molybdenum, and fluoride are listed in the taxonomy but have no dedicated subsections — significant gap for copper especially (Wilson disease, ceruloplasmin, SOD) -->
 ## Decision Cheat Sheet
 
 | Concern | Mineral action |

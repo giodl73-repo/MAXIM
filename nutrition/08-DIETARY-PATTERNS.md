@@ -4,6 +4,7 @@
 
 Individual nutrients (vitamin C, omega-3, fiber) are studied in isolation, but people eat food, not nutrients — and foods combine into patterns that have synergistic, antagonistic, and emergent effects not predictable from components. The dietary patterns approach evaluates whole eating patterns against health outcomes, and is increasingly considered more robust evidence than single-nutrient intervention trials. The major lesson of 50 years of nutritional epidemiology: **the quality and source of foods matters more than individual macronutrient ratios**.
 
+<!-- @editor[diagram/P2]: Diagram is an evidence hierarchy (ranking), not a landscape showing how the guide's topics relate — rework to show Mediterranean / DASH / Blue Zones / vegan / TRE / UPF as nodes with shared principles at center and evidence strength as a dimension -->
 ```
 DIETARY PATTERNS — EVIDENCE HIERARCHY:
 
@@ -367,6 +368,7 @@ LIMITATIONS OF NOVA:
 
 ---
 
+<!-- @editor[content/P2]: Paleo and carnivore diets absent — both are popular enough to warrant brief treatment with evidence assessment, even if the evidence is weak or contested -->
 ## Decision Cheat Sheet
 
 | Diet question | Evidence-based answer |

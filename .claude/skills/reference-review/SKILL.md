@@ -5,10 +5,11 @@ Review reference guides with a developmental editor's eye. Injects inline `@edit
 ## Usage
 
 ```
-/reference-review sweep <dir>    — batch review all .md files in a directory
-/reference-review file <path>    — deep review of a single file
-/reference-review status [dir]   — grep dashboard: tag counts by file/type/priority
-/reference-review clean <dir>    — graduation check: confirm no @editor tags remain
+/reference-review sweep <dir>         — review all .md files in a directory, inject tags, commit
+/reference-review sweep-batch <section> — sweep all dirs in a REVIEW.md section via parallel agents
+/reference-review file <path>         — deep review of a single file
+/reference-review status [dir]        — grep dashboard: tag counts by file/type/priority
+/reference-review clean <dir>         — graduation check: confirm no @editor tags remain
 ```
 
 ---
@@ -129,9 +130,12 @@ Does the structure actually work?
 2. For each file:
    a. Read the full content
    b. Apply all 4 rubric levels
-   c. Inject `@editor` tags at the appropriate locations
+   c. Inject `@editor` tags at the appropriate locations (use Edit tool)
    d. Track a per-file issue count by type and priority
-3. Output a sweep summary table:
+3. Output a sweep summary table (see below)
+4. **Post-sweep housekeeping:**
+   a. Update `REVIEW.md` — set the directory's Swept column to `2026-02` and Notes to `{N} tags → pending`
+   b. Stage and commit: `git add <dir>/ REVIEW.md && git commit -m "Sweep <dir>/ — {N} @editor tags, {P1} P1s"`
 
 ```
 SWEEP SUMMARY: languages/
@@ -160,6 +164,57 @@ Files near-clean (0-1 issues): 5
 
 ---
 
+## Mode: `sweep-batch <section>`
+
+Sweep all unswept directories in a REVIEW.md section using parallel agents.
+
+1. Read `REVIEW.md` and find the `<section>` table (e.g., "Life Sciences", "Earth & Space")
+2. Identify all directories with Swept = `—` (not yet swept)
+3. For each directory, launch a background Task agent with `mode: dontAsk`:
+   - Agent prompt includes: path to this skill file, the directory to sweep, and instructions to do a full `sweep <dir>` including post-sweep housekeeping
+   - Launch up to **8 agents in parallel** — queue the rest
+4. As agents complete:
+   - Verify tags were injected (check for `@editor` in the modified files)
+   - If an agent couldn't write (permissions), relaunch with explicit tag list and `mode: dontAsk`
+5. After all directories in the section are swept:
+   - Update the REVIEW.md summary table at the bottom
+   - Push to remote: `git push origin master`
+   - Output a section-level summary:
+
+```
+BATCH SWEEP: Life Sciences
+──────────────────────────────────────────
+Directory               Tags  P1  Polished
+──────────────────────────────────────────
+biology/                 12    2    0
+ecology/                 23    2    0
+neuroscience/            13    2    1
+...
+──────────────────────────────────────────
+TOTAL                   120   10    8
+```
+
+**Agent launch template:**
+
+```
+You are a technical reference editor. Read the skill at
+C:\src\reference\.claude\skills\reference-review\SKILL.md
+for the full rubric, learner profile, and tag format.
+
+Perform a full `sweep` of C:\src\reference\{dir}\:
+1. List all .md files (skip STATUS.md)
+2. Read each file fully
+3. Apply all 4 rubric levels
+4. Inject @editor tags using the Edit tool
+5. Update REVIEW.md: set {dir} row Swept to 2026-02, Notes to "{N} tags → pending"
+6. Stage and commit: git add {dir}/ REVIEW.md && git commit
+7. Output sweep summary table
+```
+
+**Important:** Always use `mode: dontAsk` (or `mode: bypassPermissions`) when launching agents so they can write tags into files without permission prompts blocking the sweep.
+
+---
+
 ## Mode: `file <path>`
 
 Full developmental review of a single file. Apply all 4 rubric levels carefully. Read the entire file before tagging anything — understand the full scope before making judgments. Output a per-file summary after injecting tags.
@@ -183,7 +238,7 @@ Report:
 Check for any remaining `@editor` tags in `<dir>`.
 
 - If found: list them — graduation blocked
-- If none: graduation confirmed — report section as polished
+- If none: graduation confirmed — update `REVIEW.md` (set Clean column to `2026-02`, Notes to `{original tags} → 0`), commit, and report section as polished
 
 ---
 
