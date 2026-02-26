@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P3]: Natural bridge to sensor fusion / Bayesian estimation — the observing system is a heterogeneous sensor network with different error characteristics, fused via statistical methods (4D-Var, EnKF). One sentence connecting to the learner's signal processing intuition would orient -->
 An NWP model is only as good as its initial conditions. Observations fill the atmosphere with data. The observing system is a heterogeneous network: surface stations, upper-air soundings, weather radar, geostationary satellites, polar orbiters, aircraft, and ocean buoys — each measuring different variables at different resolution, frequency, and coverage.
 
 ```

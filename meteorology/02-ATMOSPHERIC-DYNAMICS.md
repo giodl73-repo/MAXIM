@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: Navier-Stokes is stated but not bridged — the learner has PDE background from MIT. One sentence connecting "this is the same Navier-Stokes you know from fluid dynamics, constrained to a thin spherical shell with Coriolis" would land immediately -->
 Atmospheric motion is governed by the Navier-Stokes equations applied to a rotating, stratified fluid. The dominant force balance at synoptic scale (~1000 km) is geostrophic: pressure gradient force balanced by Coriolis deflection. Departures from geostrophic balance drive vertical motion, which drives weather.
 
 ```

@@ -130,8 +130,8 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 |-----------|------:|-------|-------|-------|
 | `astronomy/` | 12 | 2026-02 | — | 0 tags — polished |
 | `geography/` | 8 | — | — | |
-| `geology/` | 12 | — | — | |
-| `meteorology/` | 11 | — | — | |
+| `geology/` | 12 | 2026-02 | — | 15 tags → pending |
+| `meteorology/` | 11 | 2026-02 | — | 7 tags → pending |
 | `climate-science/` | 7 | — | — | |
 | `oceanography/` | 12 | — | — | |
 | `hydrology/` | 10 | — | — | |

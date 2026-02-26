@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: EOF/PCA bridge missing — teleconnections are defined by Empirical Orthogonal Functions (= PCA on spatiotemporal fields). The learner with MIT math background would immediately grasp "NAO = leading eigenvector of North Atlantic SLP covariance matrix." One sentence connecting EOF to PCA would land -->
 Teleconnections are statistical relationships between climate anomalies in geographically remote regions. They reflect coherent large-scale patterns of atmospheric or ocean-atmosphere variability that modulate weather patterns globally — the primary source of seasonal-scale predictability beyond the 2-week weather forecast limit.
 
 ```
