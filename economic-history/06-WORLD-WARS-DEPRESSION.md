@@ -2,6 +2,8 @@
 
 ## The Big Picture
 
+<!-- @editor[diagram/P2]: Opening diagram is a timeline, not a landscape — consider a system diagram showing how war finance, reparations, gold standard, monetary contraction, and policy responses structurally interconnect -->
+
 The period 1914-1945 destroyed the first globalization, produced the worst economic catastrophe in recorded history, and rebuilt the foundation for a new global economic order. The gold standard propagated the Depression internationally. Misguided fiscal and monetary policy deepened it. And WWII ironically demonstrated Keynesian economics in the most definitive possible experiment.
 
 ```

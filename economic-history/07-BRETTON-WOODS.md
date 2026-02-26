@@ -215,6 +215,7 @@ CONDITIONALITY (the controversial part):
 
   IMF response: changed "structural adjustment" to "structural reform";
   softened some conditionality after 2000; learned from East Asian crisis
+<!-- @editor[content/P3]: IMF governance reform (2010 quota/voice reform giving more weight to China/emerging markets) not mentioned — relevant for understanding the institution's evolution -->
 ```
 
 ---

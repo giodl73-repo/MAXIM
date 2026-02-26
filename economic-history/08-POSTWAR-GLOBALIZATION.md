@@ -2,6 +2,8 @@
 
 ## The Big Picture
 
+<!-- @editor[diagram/P1]: No landscape diagram — guide opens with a data table and timeline but no ASCII diagram showing how the Golden Age, oil shocks, developmental states, and deindustrialization structurally relate -->
+
 The period 1945-1973 was the most rapid sustained economic growth in history — the "Golden Age of Capitalism." It was followed by the oil shocks of 1973 and 1979, which broke the Keynesian consensus and triggered the monetarist turn. The East Asian developmental states demonstrated that rapid industrialization was possible outside the Western path, using state-directed industrial policy in ways mainstream economists said shouldn't work — but did.
 
 ```
@@ -405,6 +407,7 @@ VOLCKER SHOCK (1979-1981):
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge for deindustrialization — any senior engineer who lived through offshoring of software development (India, Eastern Europe) recognizes the same economic logic; the parallel between manufacturing offshoring and services offshoring would land well for this learner -->
 ## Deindustrialization and Financialization
 
 ```
@@ -457,6 +460,7 @@ FINANCIALIZATION (1980s onward):
 
 ---
 
+<!-- @editor[structure/P2]: Sections don't anchor back to a central framework — the guide covers 6 major topics (Golden Age, Japan, Tigers, ISI/EOI, oil shocks, deindustrialization) without a unifying landscape diagram to show their structural relationships; the concluding section should tie back to how each factor contributed to the regime change -->
 ## Why Did the Golden Age End?
 
 ```

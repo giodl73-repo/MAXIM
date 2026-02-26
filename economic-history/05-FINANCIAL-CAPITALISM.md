@@ -2,6 +2,8 @@
 
 ## The Big Picture
 
+<!-- @editor[diagram/P2]: Opening diagram is a timeline, not a landscape — consider a layered diagram showing how investment banking, gold standard, trusts, and capital markets structurally relate to each other -->
+
 The period 1870-1913 was the first era of financial globalization. Capital moved across borders at rates not seen again until the 1990s. The gold standard coordinated the international monetary system. Investment banks organized the capital for railroads, steel, and electrification. Concentration produced oligopolies and trusts. And the institutional infrastructure that failed in 1929 was being built — and the seeds of its failure planted.
 
 ```
@@ -77,6 +79,7 @@ INFORMATION ADVANTAGE:
   before official government courier reached London (June 20)
   MYTH: They shorted British bonds; actually they bought heavily
         immediately, knowing the genuine outcome
+<!-- @editor[content/P3]: The Waterloo trading story is heavily mythologized — Niall Ferguson's "The House of Rothschild" gives the most careful treatment; the "bought heavily" claim is one version but evidence is fragmentary -->
   The information advantage was real; the specific story may be apocryphal
 
 SCALE:
@@ -386,6 +389,7 @@ RULE OF REASON (Standard Oil case, 1911):
   Introduced balancing test: market power + anticompetitive conduct
   This is still the basic framework of US antitrust
 ```
+<!-- @editor[bridge/P3]: Natural bridge to Microsoft antitrust (US v. Microsoft, 2001) — same Sherman Act, same rule of reason framework, same "control the distribution bottleneck" strategy (IE bundling parallels railroad rebates); this learner knows this history firsthand -->
 
 ---
 
