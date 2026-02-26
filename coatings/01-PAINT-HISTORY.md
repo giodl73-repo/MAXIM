@@ -1,5 +1,7 @@
 # Paint History
 
+<!-- @editor[diagram/P2]: Opening diagram is a timeline list, not a landscape showing relationships between eras/technologies — rework as layered view showing how each era's chemistry feeds into the next -->
+
 ## 40,000 Years of Surface Coating
 
 ```
@@ -278,6 +280,10 @@ COATINGS HISTORY TIMELINE
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world-to-new-world bridge — the shift from lead to latex parallels many "regulated replacement" stories (leaded gas, asbestos, CFCs) — a universal engineering pattern worth calling out -->
+
+<!-- @editor[structure/P2]: Decision Cheat Sheet is an era-summary table, not a decision tool — needs "use X when Y" structure (e.g., "restoring a pre-1978 home → assume lead, follow EPA RRP") -->
 
 ## Decision Cheat Sheet
 

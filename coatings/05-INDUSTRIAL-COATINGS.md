@@ -468,4 +468,6 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
 
 **Powder coating requires oven curing**: Field application of powder coat is not possible (requires grounding and curing oven). For structural steel that's been assembled or large in-place structures, liquid zinc-rich paint or thermal spray zinc is the alternative. Powder coat is a factory process.
 
+<!-- @editor[bridge/P3]: PVD/CVD vacuum deposition connects to semiconductor fabrication (the learner likely knows wafer-scale thin film processes from electronics context) — a brief bridge noting the shared physics would resonate -->
+
 **PVD coatings on faucets are far more durable than lacquered finishes**: "Oil-rubbed bronze" in a plumbing supply store is usually lacquered brass. PVD oil-rubbed bronze is the same color but wears for decades vs years. The price premium is real but warranted for high-use fixtures.

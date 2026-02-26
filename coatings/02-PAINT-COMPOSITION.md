@@ -368,6 +368,8 @@ WHAT HAPPENS ON DRYING:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world-to-new-world bridge — the TDS concept maps directly to any engineering datasheet or product spec the learner already reads (e.g., Azure SLA docs, MSDN API references) — call out the parallel -->
+
 ## Reading a Technical Data Sheet
 
 ```

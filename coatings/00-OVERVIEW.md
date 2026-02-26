@@ -190,6 +190,8 @@ Lap marks              Recoating over dried edge   Maintain wet edge; work
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to .NET/Azure context — coatings failure modes parallel deployment pipeline failures (prep=build validation, primer=staging, topcoat=production) — would resonate with this learner -->
+
 ## Module Map
 
 | Module | Topic | Key Concept |

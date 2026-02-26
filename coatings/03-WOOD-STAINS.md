@@ -2,6 +2,8 @@
 
 ## Penetrating vs Film-Forming, Dyes vs Pigments, Blotch Control
 
+<!-- @editor[diagram/P2]: Opening diagram is a decision tree, not a landscape showing the full stain taxonomy (penetrating vs film-forming, dye vs pigment, interior vs exterior) — rework as a landscape map with the decision tree below it -->
+
 ## The Big Picture
 
 ```

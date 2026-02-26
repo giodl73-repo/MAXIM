@@ -2,6 +2,8 @@
 
 ## CA Glue, Epoxy, Contact Cement, Hot Melt — Bond Mechanisms and Selection
 
+<!-- @editor[diagram/P2]: Opening diagram covers bond mechanisms and loading modes but doesn't map the full adhesive landscape — add a taxonomy diagram showing all 9 adhesive families positioned by cure type (reactive vs thermoplastic vs PSA) and bond strength -->
+
 ## The Big Picture
 
 ```
@@ -451,6 +453,8 @@ ADHESIVE BOND MECHANISMS:
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world-to-new-world bridge — adhesive joint design (shear vs peel loading) maps to structural engineering load path concepts any engineer knows — worth calling out the analogy -->
 
 ## Decision Cheat Sheet
 

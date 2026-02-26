@@ -396,4 +396,6 @@ CLEAR FINISH SELECTION MATRIX:
 
 **Polyurethane DOES yellow — it just yellows less than alkyd**: Water-based poly over light maple or bleached wood will look radically different from oil-based poly. The "water-white" finish of water-based is a feature when it matters (blond/white/gray wood), not just a selling point.
 
+<!-- @editor[bridge/P3]: The three hardening mechanisms (evaporative/oxidative/catalyzed) parallel curing models across polymer chemistry — a brief old-world bridge connecting these to broader materials science concepts would add depth -->
+
 **2K polyurethane requires isocyanate PPE**: The hardener is a respiratory sensitizer. Once sensitized, any trace exposure can trigger asthma responses. A dust mask is not adequate. Full respirator with organic vapor + P100 combination cartridges is required. Ventilation must be continuous.
