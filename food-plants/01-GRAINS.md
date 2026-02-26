@@ -4,6 +4,7 @@
 
 Five grass species (wheat, rice, maize, barley, sorghum/millet) provide the majority of all human calories. This is not coincidence — grasses evolved dense starchy seeds specifically as a nutrient store. The story of grains is the story of polyploidy, hybridization, and one Norwegian plant breeder saving a billion lives.
 
+<!-- @editor[diagram/P2]: Opening diagram is a linear timeline, not a landscape showing how wheat/rice/maize/barley/sorghum/millet relate to each other — rework as a family tree or relationship map of the major grains -->
 ```
 GRASS → GRAIN → CIVILIZATION
 ──────────────────────────────────────────────────────────────────────────────

@@ -4,6 +4,7 @@
 
 Plant domestication is the most consequential technological act in human history. More than fire, more than the wheel, more than writing — the ability to grow predictable, abundant food was the precondition for everything else.
 
+<!-- @editor[diagram/P2]: Opening diagram is a linear flow (foraging → agriculture → civilization) — consider adding a landscape diagram that maps crop families, Vavilov centers, and the 12 key crops in one unified view -->
 ```
 FORAGING → AGRICULTURE → CIVILIZATION
 ──────────────────────────────────────────────────────────────────────────────
@@ -169,6 +170,7 @@ Modern plant breeders and CGIAR institutes maintain **germplasm banks** (seed ba
 
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a "topic → file" lookup, not a "use X when Y" decision tool — reformat as "if you want to understand X, start with Y because Z" -->
 | Topic | File |
 |-------|------|
 | Why wheat has 42 chromosomes | 01-GRAINS (polyploidy) |

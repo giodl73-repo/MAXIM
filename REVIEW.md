@@ -258,7 +258,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `periodic-table/` | 12 | 2026-02 | — | 20 tags → pending |
 | `animal-phylogeny/` | 13 | 2026-02 | — | 15 tags → pending (3 polished) |
 | `spices/` | 11 | 2026-02 | — | 0 tags -- polished |
-| `food-plants/` | 10 | — | — | |
+| `food-plants/` | 10 | 2026-02 | — | 13 tags → pending |
 | `culinary-history/` | 10 | 2026-02 | — | 4 tags → pending |
 | `fermentation-spirits/` | 10 | — | — | |
 | `mycology/` | 10 | — | — | |

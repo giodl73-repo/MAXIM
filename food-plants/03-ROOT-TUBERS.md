@@ -236,6 +236,7 @@ This naming confusion is an American phenomenon, not global.
 
 ---
 
+<!-- @editor[content/P2]: Taro (Colocasia esculenta) absent — major staple for ~500M people across Oceania, SE Asia, and W Africa; independent domestication in SE Asia ~10,000 BP -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

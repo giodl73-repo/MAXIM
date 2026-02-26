@@ -4,6 +4,7 @@
 
 Sugar went from luxury to commodity to ubiquitous food additive in 400 years. In 1700, European per-capita sugar consumption was ~2 kg/year (expensive luxury). By 2000, it was ~40 kg/year. This transformation required: (1) Caribbean plantation slavery, (2) sugar beet to break the monopoly, and (3) high-fructose corn syrup to make sweetness cheap at industrial scale. Each step reshaped geopolitics.
 
+<!-- @editor[diagram/P2]: Opening is a linear timeline — consider adding a landscape diagram showing the three sugar systems (cane, beet, HFCS) as parallel tracks with their geographic domains, economic drivers, and processing chains -->
 ```
 SUGAR TIMELINE
 ──────────────────────────────────────────────────────────────────────────────

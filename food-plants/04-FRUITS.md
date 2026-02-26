@@ -4,6 +4,7 @@
 
 Botanically, a fruit is any seed-bearing structure derived from the ovary of a flowering plant. This includes tomatoes, cucumbers, squash, and peppers — culinary "vegetables" that are botanically fruits. The evolutionary purpose is seed dispersal: fruits attract animals that consume the flesh and disperse seeds.
 
+<!-- @editor[diagram/P2]: Opening diagram is a taxonomy of fruit types (botanical classification), not a landscape showing the major fruit crops and their relationships — consider a relationship map of apple/citrus/banana/strawberry by origin region and propagation strategy -->
 ```
 FRUIT TYPES — BOTANICAL CLASSIFICATION
 ──────────────────────────────────────────────────────────────────────────────

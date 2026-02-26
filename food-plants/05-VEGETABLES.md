@@ -240,6 +240,7 @@ Lagenaria siceraria (bottle gourd): ANOMALY
 
 ---
 
+<!-- @editor[content/P2]: Leafy greens (lettuce, spinach, chard) mentioned only in opening table — no section covering Asteraceae (lettuce) or Amaranthaceae (spinach/chard/beet); lettuce is the most consumed leafy vegetable globally -->
 ## Decision Cheat Sheet
 
 | Question | Answer |
