@@ -434,6 +434,7 @@ relationship to counterinsurgency.
 
 ## Section 6: Bridge — Anthropology at Microsoft
 
+<!-- @editor[bridge/P3]: Bridge section title and framing are Microsoft-specific — style contract requires universal CS bridges first, stack-specific as supplementary flavor. Rename to "Bridge — Anthropology in Engineering Organizations" and lead with universal concepts (user research, org culture, localization) before Microsoft examples -->
 This is not abstract to someone running engineering organizations:
 
 ```

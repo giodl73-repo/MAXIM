@@ -551,6 +551,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: Old-world-to-new-world bridges are scattered inline (gift exchange -> code review, communitas -> hackathons) but no consolidated bridge section. A dedicated "Bridge" section pulling these together would serve the layered drill-down structure better — any senior engineer scanning the ToC should see the applied connections at a glance -->
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Framework |

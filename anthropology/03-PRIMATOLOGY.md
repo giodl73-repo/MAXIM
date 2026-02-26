@@ -30,6 +30,7 @@
 |                                         Baboons,            Apes  |
 |                                         Colobus)           (Gibbon|
 |                                                            s)  + |  |
+<!-- @editor[diagram/P2]: Landscape diagram has broken ASCII alignment — "Gibbon|s)" wrap and "Great Apes" column misaligned. Reformat so tree renders cleanly in monospace -->
 |                                                      Great Apes    |
 |                                            (Orangutan,Gorilla,    |
 |                                             Chimp,Bonobo,Human)   |

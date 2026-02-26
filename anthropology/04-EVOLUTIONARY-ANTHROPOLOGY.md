@@ -500,6 +500,7 @@
 
 ### Implications for Product Design (Direct Bridge)
 
+<!-- @editor[bridge/P3]: Bridge title says "VP-LEVEL RELEVANCE AT MICROSOFT" — style contract requires universal framing first. The examples (shared accounts, high-context communication, trust models) are universal product design issues; lead with "any global product org" and use Microsoft as one illustration -->
 ```
   VP-LEVEL RELEVANCE AT MICROSOFT:
 

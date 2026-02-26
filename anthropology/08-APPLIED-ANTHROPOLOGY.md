@@ -340,6 +340,7 @@ the gap between what research shows and what organizations can implement.
   ethnography applied to product design contexts.
 ```
 
+<!-- @editor[bridge/P3]: Section title is "Microsoft Research and the Applied Anthropology Tradition" — the content actually covers PARC, IDEO, Intel, and EPIC conference broadly. Retitle to lead with the universal tradition (corporate ethnography in tech) and mention MSR as one example -->
 ### Microsoft Research and the Applied Anthropology Tradition
 
 ```

@@ -108,6 +108,7 @@ humans engage in. The nature-culture split dissolves here.
   LIGHT SKIN: low melanin maximizes vitamin D synthesis in
               low-UV environments (high-latitude populations)
 
+<!-- @editor[structure/P2]: Altitude adaptation paragraph (Tibetans, Andeans, Ethiopians) is about hypoxia, not UV/pigmentation — belongs in its own subsection under Adaptive Variation or as a separate entry after body proportions -->
   Selection is fast for this trait when populations migrate
   to very different UV regimes. Tibetans, Andeans, Ethiopians
   show different altitude adaptations — convergent solutions
