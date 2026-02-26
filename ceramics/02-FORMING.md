@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P2]: No old-world→new-world bridge — the learner knows manufacturing processes (injection molding, CNC, casting) from engineering context; a bridge from metal forming/casting→ceramic forming would ground the spectrum immediately -->
 # Forming — Hand Building, Wheel Throwing, Slip Casting, Industrial
 
 ## The Big Picture
@@ -335,6 +336,7 @@ TIMING:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to FDM/SLA 3D printing the learner likely knows from engineering context — compare layer adhesion, anisotropy, and post-processing to plastic FDM equivalents -->
 ## Contemporary Developments
 
 ```

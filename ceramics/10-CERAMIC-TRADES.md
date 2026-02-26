@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P2]: No old-world→new-world bridge — the division of labor in ceramic factories maps directly to software team specialization (frontend/backend/devops/QA); Wedgwood's factory as the original "microservices architecture" of production would land immediately for this learner -->
 # Ceramic Trades — Potter, Kiln Master, Tile Maker, Porcelain Painter
 
 ## The Big Picture
@@ -115,6 +116,7 @@ STUDIO THROWER vs PRODUCTION THROWER:
 
 ---
 
+<!-- @editor[bridge/P3]: The kiln master's proprietary knowledge being displaced by automated controllers is the exact same disruption pattern as DevOps replacing manual sysadmin knowledge with infrastructure-as-code — a bridge the learner has lived through -->
 ## The Kiln Master
 
 ```

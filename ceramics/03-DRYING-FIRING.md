@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P2]: No old-world→new-world bridge — the learner knows thermodynamics and process control from MIT/engineering; a bridge from PID control loops and thermal profiles in semiconductor fab→kiln firing schedules would resonate strongly -->
 # Drying & Firing — Greenware, Bisque, Cone System, Kiln Types
 
 ## The Big Picture
@@ -47,6 +48,7 @@ FIRING SEQUENCE: TEMPERATURE VS TRANSFORMATION
 
 ---
 
+<!-- @editor[bridge/P3]: The cone system as analog sensor is a natural bridge to instrumentation concepts the learner knows — cones measure heat-work (time×temperature integral) vs thermocouples measuring instantaneous temperature; analogous to cumulative dose vs dose rate in radiation physics -->
 ## The Cone System
 
 ```

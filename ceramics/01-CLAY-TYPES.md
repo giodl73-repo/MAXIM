@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P2]: No old-world→new-world bridge — the learner knows crystallography and materials science; a bridge from crystal lattice structures (MIT solid-state) to phyllosilicate sheet stacking would connect immediately -->
 # Clay Types — Earthenware, Stoneware, Porcelain, Kaolin
 
 ## The Big Picture

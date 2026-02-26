@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P2]: No old-world→new-world bridge — the porcelain secret parallels technology transfer and trade secret dynamics the learner knows from the software industry (proprietary formulas, industrial espionage, moat strategies); explicitly framing this as an IP/trade-secret narrative would resonate -->
 # Porcelain History — Chinese Origins to Meissen 1708
 
 ## The Big Picture

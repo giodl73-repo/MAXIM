@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P2]: No old-world→new-world bridge in overview — the learner knows materials science and phase diagrams from MIT; a bridge from metallurgy (reversible melting/casting) vs ceramics (irreversible sintering) would anchor the entire volume -->
 # Ceramics — Overview: Clay to Ceramic: Earth, Fire, and Form
 
 ## The Big Picture
@@ -93,6 +94,7 @@ Examples:     Greek pottery,     German Rhineland  Meissen, Jingdezhen,
 
 ---
 
+<!-- @editor[bridge/P2]: Phase transformations section is a natural bridge to materials science phase diagrams — the learner knows eutectic diagrams, TTT curves from MIT; connect sintering/vitrification to that framework -->
 ## The Key Chemistry
 
 ```

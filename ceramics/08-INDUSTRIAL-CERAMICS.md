@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P2]: This is the most natural bridge file in the volume — the learner already knows semiconductors, power electronics, materials science. Open with an explicit bridge: "If you know MOSFET fabrication or turbine metallurgy, technical ceramics are the enabling material layer underneath" -->
 # Industrial Ceramics — Technical Ceramics, Refractories, Bioceramics
 
 ## The Big Picture
@@ -154,6 +155,7 @@ THERMAL BARRIER COATINGS (TBC) ON GAS TURBINES:
 
 ---
 
+<!-- @editor[content/P2]: SiC section covers abrasives and power electronics but omits SiC's critical role in LED substrate history (blue LED on SiC before GaN) and EV charging infrastructure — significant for this learner's engineering context -->
 ## Silicon Carbide (SiC)
 
 ```

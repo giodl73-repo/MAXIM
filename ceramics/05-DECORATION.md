@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P2]: No old-world→new-world bridge — the temperature/permanence trade-off maps directly to process scheduling in manufacturing (higher commitment earlier = less flexibility later); this systems-thinking bridge would land for any engineer -->
 # Decoration — Underglaze, Overglaze, Reduction, Luster, Majolica
 
 ## The Big Picture
@@ -216,6 +217,7 @@ STUDIO USE: fine art limited-edition ceramic works use custom-printed decals
 
 ## Luster Decoration
 
+<!-- @editor[bridge/P3]: Thin-film interference physics in luster decoration is the same physics as anti-reflective coatings on camera lenses and semiconductor thin-film deposition — a natural bridge for the learner's optics/materials knowledge -->
 The most technically demanding surface decoration. Islamic potters invented it in 9th-century Iraq; the technique spread to Egypt, Spain, Italy.
 
 ```

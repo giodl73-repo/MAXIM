@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P2]: No old-world→new-world bridge — the tin-glaze transmission chain (Islamic→Spain→Italy→Netherlands→England) maps to technology diffusion models the learner knows; framing as "knowledge graph of craft migration" with explicit diffusion analogy would anchor the narrative -->
 # Earthenware Traditions — Greek/Roman, Majolica, Faience, Delftware
 
 ## The Big Picture
@@ -341,6 +342,7 @@ English Delftware:
 
 ---
 
+<!-- @editor[bridge/P3]: Wedgwood's division of labor, quality control, and marketing innovations are the 18th-century equivalent of Lean manufacturing and Toyota Production System — a bridge the learner would immediately grasp from engineering management context -->
 ## Wedgwood and the Industrial Transformation
 
 ```
