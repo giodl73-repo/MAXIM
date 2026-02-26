@@ -1,3 +1,4 @@
+<!-- @editor[diagram/P2]: Landscape diagram lists levels of analysis as stacked boxes but doesn't show how they interact -- add arrows showing cross-level causal flow (molecules enable synaptic transmission, circuits implement cognition) -->
 # Neuroscience — Brain Architecture Overview
 
 ## The Big Picture
@@ -332,6 +333,7 @@ Neural dynamics = many-body system:
 - Neural oscillations (theta, gamma) = distributed synchronization protocol
 - Winner-take-all competition = consensus among uncertain processors
 
+<!-- @editor[bridge/P2]: No formal-languages/automata bridge despite MIT TCS background -- finite-state machines map to CPGs, pushdown automata to PFC stack-like working memory -->
 ### AI/ML Bridge
 See 04-AI-BRIDGE.md for systematic comparison.
 Short version: transformers are loosely inspired by cortical hierarchy +
@@ -340,6 +342,7 @@ RAG ≈ hippocampal indexing; but neuroscience has mechanisms AI doesn't yet.
 
 ---
 
+<!-- @editor[content/P1]: Claim may be incorrect -- verify: "RuBisCO" listed as neuromodulator release measurement technique. RuBisCO is a plant enzyme (carbon fixation). Should be dLight, GRAB-DA, or CNiFER for optical neuromodulator sensing -->
 ## Decision Cheat Sheet — What Method for What Question?
 
 | Question                                  | Best Method(s)                      |

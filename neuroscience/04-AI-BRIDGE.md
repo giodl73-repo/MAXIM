@@ -2,6 +2,7 @@
 
 ## Overview
 
+<!-- @editor[diagram/P2]: Overview block compares brain vs AI as text lists -- replace with ASCII correspondence diagram mapping neuroscience mechanisms to AI analogs with connection lines -->
 ```
     NEUROSCIENCE ←──────────────────────────── AI / ML
 
@@ -544,6 +545,7 @@
 
 ---
 
+<!-- @editor[structure/P2]: Missing Decision Cheat Sheet -- Open Problems table is "what solving X unlocks" not "use X when Y". Add: "To understand [AI concept], study [neuroscience mechanism]" format -->
 ## Open Problems: Neuroscience × AI Table
 
 | Neuroscience mystery | What solving it would unlock for AI |
@@ -563,6 +565,7 @@
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to .NET/Azure expertise unused -- Azure Service Bus as neurotransmitter broadcast, VSTS gated check-in as BG NoGo pathway, Azure CDN caching as cortical memory consolidation. Supplementary flavor per style contract -->
 ## Common Confusion Points
 
 **"AI is inspired by the brain" is mostly myth**: Perceptrons (Rosenblatt 1957) were inspired

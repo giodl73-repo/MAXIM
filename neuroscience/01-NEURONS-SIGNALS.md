@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[diagram/P2]: Diagram is a linear pipeline -- effective for signaling cascade but doesn't show lateral relationships (how cable theory and synaptic transmission interact at dendrite, how AP energy cost constrains firing rate) -->
 ```
     NEURAL SIGNALING HIERARCHY
     ══════════════════════════════════════════════════════════
@@ -96,6 +97,7 @@ $$V_m = \frac{RT}{F}\ln\frac{P_K[K^+]_o + P_{Na}[Na^+]_o + P_{Cl}[Cl^-]_i}{P_K[K
 
 ---
 
+<!-- @editor[bridge/P2]: No dynamical-systems bridge for H-H model -- MIT math maps directly: H-H is 4D ODE with Hopf bifurcation at threshold, limit cycle = AP, saddle-node on invariant circle for Type I neurons -->
 ## Action Potential: Hodgkin-Huxley Model
 
 The foundational model of neural computation. Nobel Prize 1963: Hodgkin and Huxley.
@@ -406,6 +408,7 @@ Modern view: dendrites perform complex computations.
 
 ---
 
+<!-- @editor[structure/P2]: No dedicated old-world bridge section -- leaky-integrator electronics bridge is excellent but buried. Add standalone bridges: dynamical systems (bifurcations for HH), thermodynamics (Nernst = Gibbs free energy), information theory (channel capacity of spike train) -->
 ## Decision Cheat Sheet
 
 | Biophysical feature             | Functional role                          | Modeling equivalent        |
