@@ -1,3 +1,4 @@
+<!-- @editor[diagram/P2]: No landscape diagram showing the full scope of this guide (EU theory, Allais, Ellsberg, Savage, revealed preference, bounded rationality, PT preview) — the EU box covers one component but doesn't map the guide's layered drill-down structure -->
 # Rational Choice — Critique and Alternatives
 
 ## Expected Utility Theory — The Baseline

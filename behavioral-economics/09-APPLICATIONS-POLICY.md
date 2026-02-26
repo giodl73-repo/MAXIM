@@ -33,6 +33,7 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
+<!-- @editor[bridge/P2]: No bridge from classical welfare economics (revealed preference = true preference, Pareto criterion) to behavioral welfare economics (systematic preference distortions require paternalistic correction) — the learner knows standard economics and needs the conceptual pivot before the case studies -->
 ## Tax Compliance
 
 ```

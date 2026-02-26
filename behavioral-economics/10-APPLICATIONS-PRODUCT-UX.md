@@ -27,6 +27,7 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
+<!-- @editor[content/P2]: Guide is heavy on dark patterns but thin on beneficial behavioral design in products — the spectrum diagram promises equal treatment but the content skews ~80% toward manipulation/harm; add a section on genuinely beneficial applications (onboarding friction reduction, smart defaults for accessibility, commitment devices in health/finance apps) to balance the picture -->
 ## Variable Reward Schedules
 
 ```

@@ -184,6 +184,7 @@ ANALYST FORECAST BIAS (De Bondt & Thaler 1990):
 ## Behavioral Explanations for Additional Anomalies
 
 ```
+<!-- @editor[content/P2]: Volatility puzzle section is thin — Shiller's variance bounds test is a major result that deserves the same depth as the equity premium puzzle above (formal setup, behavioral mechanism, quantitative calibration) -->
 VOLATILITY PUZZLE:
   Stock price volatility far exceeds what dividends alone justify.
   Shiller (1981): if prices = PV(future dividends), prices should vary less than dividends.

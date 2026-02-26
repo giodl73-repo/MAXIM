@@ -25,6 +25,7 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
+<!-- @editor[bridge/P2]: Missing explicit old-world bridge — the opening diagram contrasts Homo economicus vs. Homo sapiens but doesn't frame the bridge in terms the learner owns: classical optimization theory (LP, convex optimization, rational agents from AI) maps to EU theory; behavioral economics is the empirical study of where these optimization assumptions break down in human systems. Any senior engineer coming from formal methods or optimization theory needs this framing -->
 ## The Research Lineage
 
 ```

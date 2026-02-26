@@ -209,6 +209,7 @@ EMPIRICAL META-ANALYSIS (Hummel & Maedche 2019):
   Smallest effects: information provision alone.
 ```
 
+<!-- @editor[bridge/P3]: Natural bridge to Azure/VSTS/.NET concept missing here — the Microsoft-specific section is useful but should follow a universal bridge (e.g., from classical optimization/search theory to choice architecture as "designing the search space") that any senior engineer would benefit from -->
 ## Microsoft and Large-Tech Behavioral Design Context
 
 ```
