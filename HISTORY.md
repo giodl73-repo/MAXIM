@@ -26,6 +26,28 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 
 ---
 
+## Visual Language — What Each Phase Adds
+
+Each phase contributes a visual technique to the deck's art language. Together, these 11 principles define how all 52 cards are drawn.
+
+| # | Role | Visual contribution |
+|---|------|---------------------|
+| 1 | The Architect | **Hierarchical layering** — tiers, boundaries, directional flow arrows |
+| 2 | The Scribe | **Anatomical dissection** — labeled parts, internal structure exposed |
+| 3 | The Taxonomist | **Branching classification** — trees, nested categories, ranked hierarchies |
+| 4 | The Fabricator | **Cross-sectional views** — layered materials, internal slice-throughs |
+| 5 | The Constructor | **Force diagrams** — compression/tension members, structural arrows |
+| 6 | The Broadcaster | **Sequential progression** — timelines, film-strip frames, left-to-right flow |
+| 7 | The Chronicler | **Cartographic elements** — coastlines, coordinate grids, route arrows |
+| 8 | The Sage | **Genealogical branching** — philosophical trees, tradition lines, origin nodes |
+| 9 | The Editor | **Typographic grids** — columns, gutters, alignment marks, negative space |
+| 10 | The Composer | **Notational overlay** — staff lines, symbols layered on structural drawings |
+| 11 | The Discoverer | **Constellation fields** — equations/symbols scattered like stars, one unfinished |
+
+*Future phases will add more techniques — stippling, contour hatching, exploded views, waveforms, circuit traces...*
+
+---
+
 # Phase 1: The Architect
 
 **Card**: K♣ — King of Wands
