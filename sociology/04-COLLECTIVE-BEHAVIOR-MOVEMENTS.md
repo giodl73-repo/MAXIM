@@ -4,6 +4,7 @@
 
 Collective behavior is **group action outside of institutionalized, routine channels** — from spontaneous crowd behavior to organized social movements. Understanding the conditions under which people act collectively, how movements sustain themselves, and what makes them succeed or fail is central to understanding social change.
 
+<!-- @editor[diagram/P2]: Opening diagram shows unorganized-to-organized spectrum but doesn't map the theoretical landscape — resource mobilization, political opportunity, and framing are the three pillars of contemporary movement theory and should appear in the opening diagram showing how they answer different questions (when/whether/what) -->
 ```
 COLLECTIVE BEHAVIOR SPECTRUM
 
@@ -364,6 +365,7 @@ CRITICAL MASS:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — Rogers' diffusion model maps directly to technology adoption curves (Moore's "Crossing the Chasm" is a business derivative); framing theory parallels product positioning and marketing; resource mobilization parallels startup resource constraints. A "tech/product → movements" bridge would resonate strongly. -->
 ## Decision Cheat Sheet
 
 | Phenomenon | Relevant theory |

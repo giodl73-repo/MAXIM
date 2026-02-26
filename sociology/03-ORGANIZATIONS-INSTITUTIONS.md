@@ -4,6 +4,7 @@
 
 Organizations are **goal-directed social systems** with formal structures, boundaries, and members. Institutions are **persistent, taken-for-granted rules, norms, and cognitive frameworks** that constrain and enable organizational behavior. Understanding their relationship is central to explaining why organizations behave as they do — which is often not primarily about efficiency.
 
+<!-- @editor[diagram/P2]: Opening diagram contrasts organization vs institution but doesn't map the full topic landscape — Weber's bureaucracy, Taylorism, Hawthorne, isomorphism, organizational ecology all appear as sections but aren't shown in the opening diagram as a connected system -->
 ```
 ORGANIZATION vs INSTITUTION
 
@@ -336,6 +337,7 @@ APPLICATIONS:
 
 ---
 
+<!-- @editor[bridge/P1]: Missing universal bridge — any developer or engineering leader coming from large organizations knows isomorphism firsthand (every company adopts the same Agile/OKR/DevOps practices not because they work but because they're legitimate); Weber's bureaucracy maps to org-chart hierarchies; decoupling maps to "we say we do Agile but we actually do waterfall." This is the most bridge-ready file in the module and has none. -->
 ## Decision Cheat Sheet
 
 | Phenomenon | Relevant framework |
