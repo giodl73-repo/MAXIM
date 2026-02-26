@@ -215,10 +215,12 @@ CAR-T CELLS
   Toxicity: CRS (cytokine release syndrome) → high fever, hypotension, organ failure
             Treated with tocilizumab (IL-6 receptor antagonist)
             Neurotoxicity (ICANS)
+<!-- @editor[content/P2]: Bispecific antibodies (blinatumomab, teclistamab, mosunetuzumab) absent — listed in landscape diagram as a category alongside CAR-T but not drilled into. Growing drug class that bridges the CAR-T section -->
 ```
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — drug resistance is Darwinian selection under pressure, directly analogous to adversarial evolution in security (exploit → patch → new exploit). Combination therapy rationale maps to defense-in-depth: attacking multiple independent pathways reduces the probability of simultaneous resistance (same logic as requiring multiple independent failures for system outage) -->
 ## Drug Resistance
 
 ```

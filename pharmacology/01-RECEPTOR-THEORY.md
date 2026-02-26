@@ -313,8 +313,10 @@ EXAMPLES OF COOPERATIVITY
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge: receptor binding/occupancy theory maps directly to CS lock contention and resource allocation — Kd is the dissociation constant analogous to a timeout/backoff constant, competitive antagonism is resource contention at a shared binding site -->
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P3]: Cheat sheet reads as a reference summary rather than a decision tool — consider reframing as "I need to..." / "Look at..." / "Because..." to give it a decision-guiding structure (see 04-CYP for a good example) -->
 | Concept | Key Equation/Relationship | Clinical Relevance |
 |---------|--------------------------|-------------------|
 | Affinity | Kd = [D][R]/[DR] | Determines concentration needed to occupy receptor |

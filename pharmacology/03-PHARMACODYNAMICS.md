@@ -247,6 +247,7 @@ WITHDRAWAL SYNDROMES (receptor upregulation phenomenon)
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — PK/PD modeling is control theory applied to biology. The link model (effect compartment) is a first-order lag system; hysteresis loops are exactly the phase plots an engineer sees in feedback systems. Dose-response sigmoid is a logistic function (activation function in ML, or a saturating transfer function in control systems) -->
 ## PK/PD Modeling
 
 ```

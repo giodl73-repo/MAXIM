@@ -259,6 +259,7 @@ THIOPURINE METHYLTRANSFERASE (TPMT)
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — CYP enzyme system maps to a shared-resource processing pipeline: substrates are jobs, enzymes are worker threads with finite capacity, inhibition is resource starvation (one job hogging the thread pool), induction is autoscaling (spinning up more workers). The DDI problem is exactly a resource contention/scheduling problem -->
 ## Clinical Decision Framework for DDIs
 
 ```

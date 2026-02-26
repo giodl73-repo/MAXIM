@@ -192,6 +192,7 @@ DIURETIC CLASSES AND MECHANISMS
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the RAAS cascade is a feedback control loop (renin = sensor, angiotensin II = actuator, aldosterone = effector, blood pressure = controlled variable). ACE-I/ARB are injecting a break into the loop — exactly like breaking a runaway feedback cycle in a distributed system. The Vaughan Williams classification below is essentially a taxonomy of which component in the cardiac state machine each drug class targets -->
 ## Antiarrhythmics: The Vaughan Williams Classification
 
 ```
@@ -270,6 +271,8 @@ BILE ACID SEQUESTRANTS
 
 ---
 
+<!-- @editor[content/P2]: SGLT2 inhibitors (empagliflozin, dapagliflozin) absent — now a cornerstone of HFrEF, HFpEF, and CKD treatment with mortality benefit. Deserves its own subsection alongside statins and diuretics -->
+<!-- @editor[structure/P2]: Landscape diagram lists "Coagulation: Anticoagulants, antiplatelets" but no corresponding drill-down section — DOACs (rivaroxaban, apixaban, dabigatran) and antiplatelets (aspirin, clopidogrel, ticagrelor) are absent. Layering broken for this node -->
 ## Decision Cheat Sheet
 
 | Clinical Scenario | Preferred Drug Class | Key Drug |

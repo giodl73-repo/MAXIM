@@ -93,6 +93,7 @@ VIRTUAL SCREENING / AI-BASED
   Molecular docking: computational simulation of binding.
   Generative AI: design novel compounds in silico.
   AlphaFold: predict 3D structure of target when crystallography unavailable.
+<!-- @editor[content/P3]: AI drug discovery reference says "2024" — update to reflect current state (2025-2026 milestones, Phase II results, additional companies) -->
   AI-designed drugs entering clinical trials (2024): Insilico Medicine, Recursion.
 
 LEAD OPTIMIZATION
@@ -249,6 +250,7 @@ POST-MARKETING SURVEILLANCE (PHARMACOVIGILANCE)
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the drug development pipeline is the closest pharmacology analog to a software release pipeline. Phase I = alpha (internal safety), Phase II = beta (limited efficacy signal), Phase III = GA candidate (large-scale validation), FDA review = compliance/certification, PV = production monitoring. Failure rates map to the "funnel" concept in product development. The IND filing is analogous to a design review gate -->
 ## Generics, Biosimilars, and Drug Pricing
 
 ```

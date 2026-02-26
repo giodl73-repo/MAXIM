@@ -213,6 +213,7 @@ EGFR (epidermal growth factor receptor)
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — pharmacogenomics is runtime configuration for human biology. CYP genotype = hardware capability profile; metabolizer phenotype = performance tier; the CPIC lookup table is a compatibility matrix (gene-drug pair → action). Pre-emptive PGx panels stored in EHR are exactly a capability manifest checked at deployment time (prescribing) — the same pattern as feature flags or hardware detection -->
 ## Pre-Emptive Pharmacogenomic Testing
 
 ```
