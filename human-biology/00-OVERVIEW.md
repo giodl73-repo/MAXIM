@@ -166,6 +166,7 @@ The ICF/ECF gradient is maintained by **Na⁺/K⁺-ATPase** in every cell membra
 
 ---
 
+<!-- @editor[bridge/P2]: No explicit old-world bridge section -- would benefit from dedicated "Engineering Analogies" table mapping body systems to engineering concepts (RAAS = PID controller, nervous = interrupt-driven, endocrine = message queue, immune = IDS/firewall) -->
 ## Systems Integration
 
 No system is isolated. Key coupling axes:

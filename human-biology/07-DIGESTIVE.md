@@ -343,6 +343,7 @@ DYSBIOSIS CONSEQUENCES:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- GI tract = pipeline architecture, liver = central processing hub (routing, transformation, storage, logging), enterohepatic circulation = resource recycling loop, ENS = embedded controller, zymogens = lazy initialization -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

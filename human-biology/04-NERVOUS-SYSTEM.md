@@ -287,6 +287,7 @@ Lumbar puncture: L3-L4 or L4-L5 space (below L1-2 where cord ends → no cord in
 
 ---
 
+<!-- @editor[diagram/P2]: Sensory pathways would benefit from ASCII diagram showing dorsal column vs spinothalamic side-by-side with decussation points marked -->
 ## Major Sensory Pathways
 
 ```
@@ -328,6 +329,7 @@ VISUAL PATHWAY:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- action potential = digital signal (all-or-nothing), synapse = API call (ionotropic = sync, metabotropic = async), BBB = firewall, cerebellum = error-correction coprocessor, basal ganglia = scheduler -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

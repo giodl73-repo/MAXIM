@@ -381,6 +381,7 @@ MAJOR BURN COMPLICATIONS:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- stratum corneum = defense in depth (brick-and-mortar = layered security), melanocytes = distributed UV shield (same hardware, different config), wound healing = incident response phases, burn classification = severity tiers -->
 ## Decision Cheat Sheet
 
 | Question | Answer |
@@ -394,6 +395,7 @@ MAJOR BURN COMPLICATIONS:
 
 ---
 
+<!-- @editor[content/P2]: Common skin cancers absent -- BCC, SCC, melanoma comparison table (cell of origin, appearance, metastatic risk, UV association) would fill significant gap -->
 ## Common Confusion Points
 
 **Dermis vs epidermis vascularity**

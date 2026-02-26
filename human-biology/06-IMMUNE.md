@@ -330,12 +330,14 @@ CHECKPOINT BLOCKADE (cancer immunotherapy):
 | Viral vector | COVID-19 (AZ/J&J), Ebola (rVSV) | Antigen expression in cells → CD8 + CD4 + B | Strong CTL | Pre-existing vector immunity; adenoviral issues |
 | Toxoid | Tetanus, diphtheria | Antibody (neutralizing) | Excellent track record | Booster required |
 
+<!-- @editor[audience/P3]: Vaccine mRNA/LNP delivery and MHC I+II presentation detail may exceed what's needed for reference -- mechanism covered in T cell section above -->
 **Adjuvants**: enhance immunogenicity by triggering innate immunity (TLR agonists, alum, MF59)
 - Without adjuvant, soluble proteins are often tolerogenic
 - Alum: NLRP3 inflammasome activation → IL-1β → DC activation
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- innate = firewall + IDS (pattern matching, no memory), adaptive = ML-trained classifier (learns, remembers), MHC I = process attestation, MHC II = threat intelligence sharing, complement = automated incident response, tolerance = whitelisting -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

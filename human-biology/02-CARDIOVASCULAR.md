@@ -313,6 +313,7 @@ Counter-regulatory: opposes RAAS. Elevated BNP = sensitive marker of heart failu
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- heart = pump with check valves, dual circuit = two-stage pipeline, Poiseuille r^4 = bandwidth scaling, baroreceptor reflex = auto-scaling with PID, Starling forces = hydrostatic pressure balancing -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

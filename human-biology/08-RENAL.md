@@ -333,6 +333,7 @@ ACEi/ARBs: AVOID in bilateral renal artery stenosis (lose efferent tone → GFR 
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- nephron = filter pipeline, countercurrent multiplier = heat exchanger principle, GFR autoregulation = pressure regulator with two feedback loops, clearance = throughput measurement, RAAS = cascading control system -->
 ## Decision Cheat Sheet
 
 | Question | Answer |
