@@ -291,6 +291,8 @@ RANGE/ENDURANCE:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: wing design trade-offs (aspect ratio vs wing loading) map directly to engineering design trade-offs (bandwidth vs latency; throughput vs memory). Lift equation variables are dimensional analysis — same framework as any physical engineering. Any engineer who has done trade-off analysis needs this bridge -->
+
 ## Decision Cheat Sheet
 
 | Wing type | Aspect ratio | Wing loading | Example | Flight style |

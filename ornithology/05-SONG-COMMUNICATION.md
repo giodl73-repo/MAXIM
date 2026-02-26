@@ -267,6 +267,9 @@ COMPARATIVE PATTERN:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: vocal learning via template-matching + sensorimotor feedback is the same architecture as supervised learning with loss function (template = target, subsong = noisy prediction, crystallization = convergence). AFP pathway = training loop; motor pathway = inference. Spectrograms are literally time-frequency transforms (same as FFT in signal processing). Any engineer from DSP or ML needs this bridge -->
+<!-- @editor[structure/P2]: No comparison tables in body — a table comparing the three vocal learner groups (oscines, parrots, hummingbirds) on brain regions, repertoire, learning style, and species count would strengthen the guide -->
+
 ## Decision Cheat Sheet
 
 | Topic | Key finding | Classic study |
@@ -275,6 +278,7 @@ COMPARATIVE PATTERN:
 | Two-voice phenomenon | Syrinx bilateral: two independent voices | Thrush polyphonic recordings |
 | "Dear enemy" effect | Less aggression toward familiar neighbor | Edinger; played across many species |
 | Repertoire size + mate choice | Larger repertoire -> female preference (some species) | Searcy, Sedge warbler studies |
+<!-- @editor[content/P2]: "Star compass learning" row belongs in 04-MIGRATION.md, not song/communication — replace with a song-relevant entry (e.g., dialect formation, mimicry function) -->
 | Star compass learning | Birds learn rotation axis, not Polaris | Emlen (1969) planetarium |
 | AFP pathway function | Required for learning; not production after crystallization | Lesion studies in zebra finch |
 

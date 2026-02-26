@@ -286,6 +286,9 @@ DIFFERENCES arise from:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: species concepts (BSC vs PSC) map to entity identity problems in software (when are two records "the same thing"?); checklist disagreements parallel versioned ontology conflicts. Taxonomic hierarchy is a directed acyclic graph with contested edges — same problem as dependency resolution -->
+<!-- @editor[diagram/P2]: Opening diagram is a classification hierarchy (lists ranks) but doesn't show how the major avian groups relate to each other — a phylogenetic overview tree (Palaeognathae, Galloanserae, Neoaves with major clades branching) would serve as a true landscape diagram for this guide -->
+
 ## Decision Cheat Sheet
 
 | Group | Defining character | Ecological role | Species count |

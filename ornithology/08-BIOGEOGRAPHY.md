@@ -5,6 +5,7 @@
 Avian biogeography is the study of how bird species are distributed across the planet — and why. It integrates evolution (speciation, extinction), ecology (dispersal, niche limits), and geology (continental drift, climate history). Birds are the premier biogeographic study group because they are well-documented, can disperse over water, and show clear patterns at multiple scales. Island birds provided the empirical basis for the Theory of Island Biogeography (MacArthur and Wilson 1967), one of ecology's most influential frameworks.
 
 ```
+<!-- @editor[diagram/P2]: Opening diagram is a pattern-process list but doesn't show geographic or conceptual relationships — a landscape diagram showing biogeographic regions with arrows for dispersal corridors, barrier lines (Wallace's Line, water gaps), and hotspot markers would serve better as the anchor for the layered drill-down -->
 BIOGEOGRAPHIC PATTERNS AND PROCESSES
 ========================================
 
@@ -311,6 +312,8 @@ WALLACE'S LINE (SE Asia):
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: MacArthur-Wilson equilibrium (immigration balances extinction at S*) is a queueing theory / steady-state model — arrival rate vs departure rate reaching dynamic equilibrium. Species-area relationship S=cA^z is a power law (same functional form as Zipf's law, Pareto distributions). Island syndrome (predictable evolutionary changes under isolation) parallels how isolated systems (air-gapped networks, forked codebases) evolve convergent characteristics. Any engineer from systems theory needs this bridge -->
 
 ## Decision Cheat Sheet
 
