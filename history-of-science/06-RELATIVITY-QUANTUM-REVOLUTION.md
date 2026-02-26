@@ -531,6 +531,8 @@ This is a philosophical dispute, not a scientific one
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — natural parallels for the learner: SR's invariant spacetime interval as the concept that what's conserved matters more than what's relative (like an API contract — implementations vary, interface is invariant); Heisenberg's matrix mechanics vs Schrodinger's wave mechanics as two isomorphic representations of the same system (like SQL vs LINQ — different syntax, same semantics, proven equivalent); the Copenhagen interpretation debate maps to software's "what does the abstraction represent" question -->
+
 ## Common Confusion Points
 
 **Special relativity does not say "everything is relative."** The invariant spacetime interval is the same in all frames. What is relative: simultaneity, time intervals, lengths. What is invariant: speed of light, spacetime intervals, proper time.

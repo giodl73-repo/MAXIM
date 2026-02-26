@@ -308,6 +308,8 @@ LEAGUE OF MAYAPAN (c. 1200–1441):
 
 ---
 
+<!-- @editor[content/P2]: Southwest civilizations (Ancestral Puebloans/Anasazi, Hohokam irrigation systems) mentioned in Big Picture but have no drill-down section — significant gap given their architectural and agricultural achievements -->
+
 ## North America — Cahokia, Haudenosaunee, Pacific Northwest
 
 ### Cahokia (c. 700–1400 CE)

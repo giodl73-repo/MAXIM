@@ -1,6 +1,7 @@
 # Islamic Caliphates — From Rashidun to Regional Sultanates
 
 ## The Big Picture: Islam's Political Fragmentation
+<!-- @editor[diagram/P2]: Opening diagram is a chronological timeline, not a spatial landscape — add a geographic diagram showing the caliphate at maximum extent (Iberia to Indus) and how it fragmented into regional sultanates -->
 
 ```
 TIMELINE OF ISLAMIC POLITICAL ENTITIES:

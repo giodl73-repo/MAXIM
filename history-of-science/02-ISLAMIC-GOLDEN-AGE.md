@@ -424,6 +424,8 @@ The **Toledo School of Translators** (12th century) systematically translated Ar
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — the learner would immediately connect: Hunayn's textual criticism method maps to modern version control + code review (collect variants, compare, identify best, annotate errors); al-Khwarizmi's systematic classification of equation types is proto-pattern-cataloguing; the Translation Movement is history's first large-scale knowledge-transfer project (like migrating a legacy codebase to a new platform while extending it) -->
+
 ## Common Confusion Points
 
 **"The Arabs just copied the Greeks" is false.** Islamic scholars corrected Greek errors, extended Greek methods, and in some areas (algebra, experimental optics) made contributions that have no Greek precedent.

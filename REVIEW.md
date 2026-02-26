@@ -149,8 +149,8 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `historical-geography/` | 18 | — | — | |
-| `history-of-science/` | 10 | — | — | |
+| `historical-geography/` | 18 | 2026-02 | — | 14 tags → pending |
+| `history-of-science/` | 10 | 2026-02 | — | 14 tags → pending |
 | `economic-history/` | 10 | 2026-02 | — | 12 tags → pending |
 | `military-history/` | 11 | 2026-02 | — | 4 tags → pending |
 | `anthropology/` | 9 | 2026-02 | — | 9 tags → pending |

@@ -624,6 +624,8 @@ of its deepest transformation since Newton.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — strong parallels: Maxwell's displacement current as adding a term for mathematical consistency that predicted a new phenomenon (analogous to adding a constraint in a type system that reveals previously invisible invariants); Kelvin's age-of-Earth error as correct computation on wrong assumptions (garbage in, garbage out — the model was right, the inputs were incomplete); Boltzmann vs Mach as the atoms-vs-observables debate maps directly to realism vs instrumentalism in software (do your abstractions correspond to real entities or just predict behavior?) -->
+
 ## Common Confusion Points
 
 **Carnot used the wrong theory (caloric) but got the right answer.** The mathematical structure of the Carnot efficiency is independent of whether heat is a fluid or kinetic energy. Carnot's law is correct.

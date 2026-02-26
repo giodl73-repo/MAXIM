@@ -1,5 +1,6 @@
 # Silesia & the Central European Borderlands
 
+<!-- @editor[audience/P3]: "CK2 Heartland" references a video game (Crusader Kings 2) — the learner profile is a VP of Engineering, not a gamer; rephrase as "the feudal mechanics heartland" or similar -->
 ## Why This Region Is the CK2 Heartland
 
 Central European micro-territories — Silesia, Pomerania, Brandenburg, Lusatia, Meissen, Thuringia, the Palatinates, the Alpine lands — are where feudal mechanics play out in maximum density. Every rule about inheritance, sub-infeudation, title transfer, dynastic extinction, and Habsburg accumulation has its best example here.

@@ -412,6 +412,8 @@ Not yet dominant -- most papers still traditional.
 
 ---
 
+<!-- @editor[content/P3]: Open science policy movement thin — FAIR data principles (Findable, Accessible, Interoperable, Reusable), Plan S open-access mandates, and the broader shift toward open science as institutional policy deserve a paragraph; these are the governance layer complementing the statistical reforms -->
+
 ## Layer 6: AI in Science
 
 ### AlphaFold2 — A Genuine Paradigm Shift
@@ -688,6 +690,8 @@ Do our epistemological frameworks still work?
 | What's wrong with peer review | Speed, bias, secrecy, effectiveness | Works better than nothing; poor at catching subtle errors; preprints challenging it |
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge section — the learner would immediately connect: p-hacking as overfitting to a test suite (passing tests by tuning to the specific dataset rather than learning the underlying pattern); preregistration as locking the test spec before writing code; Registered Reports as design review before implementation; the replication crisis maps to "works on my machine" — results that don't reproduce in independent environments; AlphaFold2's prediction-without-understanding parallels the neural-net-as-black-box debate in ML engineering -->
 
 ## Common Confusion Points
 

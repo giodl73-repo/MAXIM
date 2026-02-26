@@ -21,11 +21,11 @@
 |  Results owned by researcher         Results owned by funder     |
 |  Mertonian CUDOS                     Secrecy + CUDOS tension     |
 |                                                                   |
-|  EXAMPLES:
-|  Rutherford's lab (~20 people)        Manhattan Project (130,000)
-|  Cavendish Lab (1 building)           CERN (~22,000 staff + users)
-|  Marie Curie (she and Pierre)         Human Genome Project (intl)
-|  Einstein at patent office            LHC (10,000 physicists)
+|  EXAMPLES:                                                        |
+|  Rutherford's lab (~20 people)        Manhattan Project (130,000) |
+|  Cavendish Lab (1 building)           CERN (~22,000 staff + users)|
+|  Marie Curie (she and Pierre)         Human Genome Project (intl) |
+|  Einstein at patent office            LHC (10,000 physicists)     |
 |                                                                   |
 +------------------------------------------------------------------+
 ```
@@ -522,6 +522,8 @@ But: industry funds the clinical trials.
      Pricing reflects monopoly rents on government-funded science.
 ```
 
+<!-- @editor[content/P3]: Climate science as Big Science absent — IPCC, Earth observation satellite networks, and global climate modeling (CMIP) are arguably the largest contemporary Big Science enterprise by international coordination scope, and directly illustrate the science-policy interface -->
+
 ### Big Science and the Higgs Boson as Economic Problem
 
 ```
@@ -564,6 +566,8 @@ ALTERNATIVE: LHC data still being analyzed (huge dataset).
 | How Bayh-Dole changed academia | 1980 technology transfer | Universities can patent; science-industry coupling increased |
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge section — the learner is a VP of Engineering and would immediately map: Groves vs Oppenheimer (compartmentalization vs open collaboration) is exactly the security-vs-velocity tension in enterprise software; the Bush Report's linear model (basic research→applied→product) is the waterfall assumption that was later challenged by agile/iterative models; Bayh-Dole's university patent rights parallel open-source licensing tensions (who owns output built on shared infrastructure?); the Matthew Effect in science funding is the same network effect that concentrates talent in FAANG -->
 
 ## Common Confusion Points
 

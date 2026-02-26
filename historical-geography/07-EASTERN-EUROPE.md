@@ -106,6 +106,7 @@ Bohemia is the western-most Slavic kingdom — geographically situated as the HR
 
 ### The Přemyslid Dynasty (to 1306)
 
+<!-- @editor[content/P1]: Claim may be incorrect — verify: "Good King Wenceslas" is traditionally identified as Wenceslaus I, Duke of Bohemia (r. 921–935), not to be confused with Wenceslaus I, King of Bohemia (r. 1230–1253). The Christmas carol figure is the duke. The text conflates the title "Wenceslas I" which is ambiguous here — clarify as "Duke Wenceslaus" -->
 **Wenceslas I** (Good King Wenceslas, r. 921–935): Bohemian duke who accepted German overlordship and Christianity. Murdered by his pagan brother Boleslav I. Immediately venerated — patron saint of Bohemia.
 
 **Přemysl Otakar II** (r. 1253–1278): "The Iron and Golden King." At his peak held: Bohemia + Moravia + Austria + Styria + Carinthia + Carniola. The most powerful ruler in Central Europe — he should have been elected emperor in 1273. Instead: Rudolf of Habsburg was elected (the princes feared Otakar's power). Rudolf then declared Otakar's Austrian lands forfeit. Battle of Marchfeld/Dürnkrut 1278: Otakar II killed. Habsburg gets Austria permanently.

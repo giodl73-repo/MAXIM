@@ -38,6 +38,7 @@ AFRICA — MAJOR MEDIEVAL KINGDOMS c. 700–1600 CE:
               [Indian Ocean trade]
               to Arabia, India, China
 ```
+<!-- @editor[diagram/P2]: Diagram lists regions but doesn't show the two major trade flow axes (trans-Saharan gold/salt N-S and Indian Ocean monsoon E-W) as connecting arrows — rework to show how trade links the kingdoms -->
 
 ---
 
