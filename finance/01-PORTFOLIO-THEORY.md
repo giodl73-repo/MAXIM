@@ -7,6 +7,7 @@ maximize expected return for a given risk level?** The mathematics is convex opt
 applied to a stochastic problem — Markowitz (1952) founded the field, CAPM extended it to
 equilibrium, and factor models added explanatory power.
 
+<!-- @editor[diagram/P2]: Diagram is a chronological timeline — doesn't show how Markowitz, CAPM, factor models, and Black-Litterman relate as a layered system (optimization → equilibrium → factors → Bayesian update) -->
 ```
 HISTORICAL ARC:
   1952: Markowitz — mean-variance optimization, efficient frontier
@@ -343,6 +344,8 @@ factor_loadings = Beta[1:, :]   # 3 × n factor betas
 ```
 
 ---
+
+<!-- @editor[content/P2]: Missing transaction cost models (Almgren-Chriss execution) and multi-period dynamic optimization — significant for practical portfolio management -->
 
 ## Decision Cheat Sheet
 

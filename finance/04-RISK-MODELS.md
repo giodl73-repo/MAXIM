@@ -373,6 +373,10 @@ STRESS VaR (SVaR):
 
 ---
 
+<!-- @editor[content/P2]: Operational risk quantification absent — appears in landscape diagram and Basel RWA formula but has no drill-down (AMA, SMA, loss distribution approach) -->
+<!-- @editor[content/P2]: Liquidity risk models absent — appears in landscape but no section covers bid-ask models, market impact, Amihud illiquidity, or funding liquidity (Brunnermeier-Pedersen) -->
+<!-- @editor[content/P2]: "FRTB (2025 implementation)" — verify current rollout status; FRTB has been delayed multiple times and jurisdictions vary -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

@@ -160,6 +160,10 @@ Risk / quant    VaR, stress testing, CVA/DVA         Very high — stochastic
 
 ---
 
+<!-- @editor[content/P2]: ML in Finance box appears in landscape diagram but has no drill-down section — significant gap given current industry relevance -->
+<!-- @editor[content/P2]: No mention of data infrastructure (Bloomberg, CRSP, WRDS, Quandl) — practitioners need to know where to get data -->
+<!-- @editor[bridge/P2]: No bridge from classical optimization tools (scipy, cvxpy, MATLAB) to financial optimization — learner knows optimization theory from MIT but not the finance-specific toolchain -->
+
 ## Session Arc for This Directory
 
 ```
