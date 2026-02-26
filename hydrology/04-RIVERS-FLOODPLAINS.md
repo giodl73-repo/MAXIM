@@ -297,6 +297,8 @@ FLOODPLAIN INUNDATION:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge section — Manning equation is an empirical transport law analogous to Ohm's law for flow in a conduit; Muskingum routing is a discrete linear filter (IIR); Lane's balance is a constraint equilibrium; these analogies would land well for this learner -->
+
 ## Flood Routing
 
 ```

@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[diagram/P2]: Diagram is a flat taxonomy grid of infrastructure categories — doesn't show how they connect (e.g., storage feeds supply and irrigation; stormwater and flood protection interact; hydropower requires dam storage); rework as a flow diagram showing water path through infrastructure systems -->
 ```
 +===========================================================================+
 |                   WATER INFRASTRUCTURE TAXONOMY                            |
@@ -364,6 +365,8 @@ PUMPED STORAGE HYDROPOWER (PSH):
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: Pipe network analysis (Hardy-Cross) is mentioned as "same as circuit analysis" but deserves a brief bridge callout — the learner has deep .NET/Azure background and will immediately grasp Kirchhoff's laws → node-loop equations in a water distribution network; also: reservoir rule curves are essentially state-machine operating policies -->
 
 ## Decision Cheat Sheet
 

@@ -349,6 +349,8 @@ INTENSITY-DURATION-FREQUENCY (IDF) RELATIONSHIPS:
 
 ---
 
+<!-- @editor[bridge/P2]: No dedicated bridge section — the DSP/convolution connection (UH = impulse response) and Kriging/GP regression analogy are excellent but inline; gather these into a "Bridges from CS and Engineering" callout box for the learner who scans for them -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |
