@@ -75,6 +75,8 @@ Imperative (scripts)               Declarative (IaC)
 
 The dominant multi-cloud IaC tool. HCL (HashiCorp Configuration Language) — structured, readable, not a full programming language.
 
+<!-- @editor[bridge/P2]: Missing ARM template → Terraform HCL bridge at the point of introduction. The calibration note is explicit: "Bridge: ARM template → Terraform HCL." The learner knows ARM JSON deeply (they worked on Azure at Microsoft). The transition from ARM to HCL is not just syntactic — the mental model shift is: ARM is a JSON document sent to Azure Resource Manager describing a desired end-state; Terraform HCL is also declarative but adds a local state file and a plan/apply cycle that ARM's what-if only partially approximates. This bridge belongs here, before the workflow diagram, not only in the Old World Bridge table at the end. A named side-by-side comparing the same resource in ARM JSON vs Terraform HCL would land here. -->
+
 ### How Terraform Works
 
 ```
@@ -107,6 +109,8 @@ State
   Never edit tfstate by hand.
   Never commit tfstate with secrets to git.
 ```
+
+<!-- @editor[bridge/P2]: The state model is explained clearly but the bridge to ARM's equivalent is missing. ARM doesn't have a local state file — Azure Resource Manager IS the state store (you query the portal or az CLI for current state). Terraform's local state file is a significant departure: it's a local source of truth that can diverge from reality (drift). The bridge: "ARM's state is always in Azure's control plane; Terraform's state is a file you own and must protect. This is why remote state with locking is not optional for teams — it's the mechanism that gives Terraform its ARM-like 'Azure is the source of truth' property." -->
 
 ### HCL Syntax
 
@@ -383,6 +387,8 @@ az deployment group what-if \
 
 Write real code (TypeScript, Python, Go, C#) that provisions infrastructure. The type system, loops, conditionals, and abstraction you already know.
 
+<!-- @editor[bridge/P2]: Missing explicit Bicep → Pulumi bridge. The calibration note flags: "Bicep → Pulumi (both are more ergonomic)" and notes that Pulumi (TypeScript/C#) is a natural bridge from this learner's background. The Pulumi section dives into TypeScript code without naming the bridge. The learner writes C# professionally. The key bridge: "Pulumi is what you'd get if ARM had a proper C# SDK instead of JSON templates — you write real C# (or TypeScript), get IntelliSense, loops, conditionals, and type-safe resource references. No DSL to learn; infrastructure IS code." The code example uses TypeScript; adding a note that C# is equally first-class (via `@pulumi/azure-native` NuGet package) would land well for this reader. -->
+
 ```typescript
 // index.ts — Pulumi TypeScript
 
@@ -531,6 +537,8 @@ Both track what was created. Pulumi defaults to Pulumi Cloud backend; Terraform 
 | Manual VSTS environment setup | IaC in CI/CD pipeline (13-CICD) |
 | "I know what's in prod" | `terraform state list` / Pulumi stack output |
 | Azure Resource Manager | What Bicep compiles to; what Terraform's azurerm provider calls |
+
+<!-- @editor[bridge/P2]: The Old World Bridge table maps portal/process concepts to IaC tools but is missing the most direct ARM → Terraform HCL syntax comparison. This is the calibration note's primary bridge: "ARM template → Terraform HCL." The table has "ARM JSON templates → Bicep" but not "ARM JSON templates → Terraform HCL." For a reader who knows ARM JSON intimately, seeing the side-by-side (ARM `"type": "Microsoft.Web/serverfarms"` → Terraform `resource "azurerm_service_plan"`) explains the provider naming convention and the schema mapping. Even one row in the table explicitly mapping ARM resource type strings to Terraform resource type strings would close this gap. -->
 
 ---
 

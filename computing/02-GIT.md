@@ -29,6 +29,8 @@ Git is a **distributed version control system**. Every clone is a full copy of h
 
 **Key insight vs Source Depot / TFS**: There is no check-out lock. Multiple people can edit the same file simultaneously. Merging is the norm, not the exception. The repository lives entirely on your machine — you don't need the server to commit, branch, or view history.
 
+<!-- @editor[bridge/P2]: Source Depot "enlistment" model not bridged here. SD enlistments map a depot path to a local path in the client spec (MAPPINGS file); the local machine only holds files explicitly mapped. Git inverts this: the working tree IS the full repository clone, and .git/ is the object store. The mental model shift — from "I have a view into a server" to "I have the server" — is non-obvious and worth an explicit note at this intro point. -->
+
 ---
 
 ## The Three Trees
@@ -557,6 +559,8 @@ A pull request (PR) is NOT a Git concept — it's a **platform feature** (GitHub
   different UI. Branch policies enforce review requirements.
 ```
 
+<!-- @editor[bridge/P2]: Azure DevOps branch policies → GitHub branch protection rules bridge is absent. The learner built VSTS and knows ADO branch policies deeply (required reviewers, build validation, work item linking, merge strategy enforcement, comment resolution). GitHub's equivalent ("branch protection rules" + required status checks + required reviews + CODEOWNERS) maps directly but uses entirely different terminology and is configured in repo Settings → Branches, not in the pipeline. A side-by-side table here would be high-value: ADO "Build validation" → GitHub "Required status checks"; ADO "Minimum number of reviewers" → GitHub "Required number of approving reviews"; ADO "Require a merge strategy" → GitHub "Require linear history". GitHub Actions as the CI trigger (on: pull_request) replacing Azure Pipelines branch triggers is also not shown. -->
+
 ---
 
 ## Configuration and Setup
@@ -756,6 +760,11 @@ Multiple working trees from one repository. Useful when you need to work on two 
 | Visual Studio SCM | VS Code Source Control pane, GitHub Desktop, GitLens | Same concepts, modern UX |
 | VSTS/ADO Repos | GitHub / Azure DevOps Git Repos | ADO supports Git natively now |
 | Build pipeline trigger | PR CI check (GitHub Actions / Azure Pipelines) | Auto-triggers on push/PR |
+| ADO branch policy: build validation | GitHub: required status check | CI must pass before merge allowed |
+| ADO branch policy: min reviewers | GitHub: required approving reviews | Configured in branch protection rules |
+| ADO branch policy: merge strategy | GitHub: require linear history / squash | Same intent, repo Settings → Branches |
+
+<!-- @editor[content/P2]: git bisect appears in the Decision Cheat Sheet below ("Find when a bug was introduced → git bisect") but is never explained in the guide body. git bisect is a binary-search-over-commits tool — conceptually interesting to someone with algorithms background, and non-obvious. Add a brief section (or at minimum a paragraph) explaining: git bisect start, git bisect bad, git bisect good <sha>, and the binary search it performs to locate the first bad commit. -->
 
 ---
 

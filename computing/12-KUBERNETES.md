@@ -53,6 +53,10 @@ Kubernetes — Full Architecture
   kubelet = agent on each node that talks to control plane
 ```
 
+<!-- @editor[diagram/P1]: Missing K8s object relationship landscape diagram. The calibration note is explicit: "K8s objects (Pod/ReplicaSet/Deployment/Service/Ingress/ConfigMap/Secret) need a landscape diagram showing the relationship between objects." The cluster architecture diagram above shows physical topology (nodes, control plane) but not the logical object hierarchy. A second diagram showing Deployment → ReplicaSet → Pod with Service pointing at Pods, Ingress pointing at Service, ConfigMap/Secret injected into Pod — this is what the learner needs to orient to the object model before drilling into each. Place between the intro and the first ##. -->
+
+<!-- @editor[bridge/P1]: No Azure Service Fabric bridge. The calibration note flags this as a primary bridge: the learner knows Service Fabric (Microsoft's internal orchestrator). The concepts map directly: Service Fabric Application → K8s Deployment; Service Fabric Service → K8s Service; Service Fabric partition → K8s ReplicaSet; Service Fabric health model → readinessProbe/livenessProbe; SF upgrade domains → rolling update strategy. This is the single strongest anchor for this learner and it's completely absent. A named comparison table or bridge box belongs here at the intro, before the Core Concepts section. -->
+
 ---
 
 ## Core Concepts — Bottom Up
@@ -203,6 +207,8 @@ spec:
                 port:
                   number: 80
 ```
+
+<!-- @editor[bridge/P2]: No bridge from Application Gateway / ARR (IIS Application Request Routing) to Ingress. The learner configured ARR and URL rewriting in IIS extensively. Ingress is the same concept: a reverse proxy with URL-based routing rules sitting in front of backend services. AGIC (Application Gateway Ingress Controller) is literally "use Azure Application Gateway as your K8s Ingress" — this is the exact bridge and it gets only a mention in the AKS integrations list rather than a named explanation here where the learner would benefit most. -->
 
 ### ConfigMap & Secret
 
@@ -439,6 +445,8 @@ Key AKS integrations:
 - **Azure Monitor**: container insights, log analytics
 - **AGIC**: Application Gateway Ingress Controller (Azure LB as ingress)
 
+<!-- @editor[bridge/P1]: Missing Azure Container Apps comparison. The calibration note specifically calls out: "AKS, Azure Container Apps, and Service Fabric comparisons are bridges worth making." Azure Container Apps (ACA) is K8s with the operational complexity abstracted — no nodes to manage, no kubectl required, built on KEDA for scale-to-zero. For the learner's context (Azure App Service → containerization), ACA is often the right answer before AKS. The decision boundary (ACA vs AKS) belongs here in the Managed Kubernetes section as a named comparison. -->
+
 ---
 
 ## Helm — Package Manager for K8s
@@ -531,6 +539,8 @@ They're base64-encoded in etcd. Treat K8s Secrets as a transport mechanism, not 
 | VSTS Release Pipeline stages | kubectl apply in CI/CD pipeline (13-CICD) |
 | Blue/green deployment | Two Deployments + Service selector switch |
 
+<!-- @editor[bridge/P1]: The Old World Bridge table is missing Service Fabric entirely. The calibration note calls it out explicitly as a primary bridge. The learner built systems on Service Fabric — it is Microsoft's own container/microservice orchestrator. The mapping: SF cluster → K8s cluster; SF application → K8s namespace; SF service → K8s Deployment + Service; SF partition → ReplicaSet; SF health model (primary/secondary) → readinessProbe/livenessProbe; SF upgrade domains → rolling update maxUnavailable/maxSurge; SF named partitions → StatefulSet. This is the most relevant old-world anchor for this entire guide and it's absent from the bridge table. -->
+
 ---
 
 ## Decision Cheat Sheet
@@ -552,3 +562,5 @@ They're base64-encoded in etcd. Treat K8s Secrets as a transport mechanism, not 
 | Run K8s without managing control plane | AKS / EKS / GKE |
 | Run K8s serverlessly (no node management) | AKS with Virtual Nodes / Fargate |
 | Debug a crashing pod | `kubectl logs --previous` + `kubectl describe pod` |
+
+<!-- @editor[structure/P2]: Missing AKS vs Azure Container Apps vs Service Fabric decision row in the cheat sheet. The calibration note flags the decision between these three as primary value for this learner. The cheat sheet has "Run K8s without managing control plane → AKS" but no "I want App-Service-like simplicity with containers → Azure Container Apps" or "I'm already on Service Fabric, should I migrate → ?" row. These are the decisions this learner will actually face. -->

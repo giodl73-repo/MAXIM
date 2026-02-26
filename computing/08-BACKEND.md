@@ -31,6 +31,8 @@ A backend API is a contract between a server and its clients. The three dominant
 
 **Bridge from .NET**: You've consumed REST APIs from Azure services for years. This module is about *building* them in Node.js — and understanding what GraphQL and tRPC add. The patterns (routing, middleware, validation, auth) map directly from ASP.NET MVC.
 
+<!-- @editor[bridge/P2]: The calibration note calls out the WCF → REST → GraphQL evolution as a progression that should be narrated explicitly. Currently the file treats each paradigm in isolation. The learner knows WCF/SOAP deeply and has lived through the REST transition at Microsoft. A brief historical arc at the top would anchor everything: "WCF (2006): strongly-typed, XML/SOAP, contract-first via WSDL, generated client stubs — powerful but heavyweight. REST (2010s): HTTP verbs + resource URLs, no generated client, contract is informal until OpenAPI. GraphQL (2015): client-defined queries, SDL as contract, solves REST's over-fetching problem. tRPC (2021): TypeScript IS the contract, no schema language needed." This contextualizes why each exists and why someone would choose each one, which is exactly what this reader needs. -->
+
 ---
 
 ## HTTP — The Foundation
@@ -278,6 +280,8 @@ OpenAPI is the machine-readable contract for REST APIs. What WSDL was for SOAP �
           email: { type: string, format: email }
 ```
 
+<!-- @editor[bridge/P3]: The WSDL → OpenAPI bridge is correctly made in the comparison table, but one important nuance is missing: WCF's "Add Service Reference" in Visual Studio generated a strongly-typed C# proxy class automatically, with full IntelliSense. openapi-generator does the same thing for REST — generates a typed client in any language from the spec. The file mentions this in the ecosystem table ("openapi-generator: Generate typed clients in any language") but doesn't call out the workflow: spec file → run generator → typed client appears, same as "Add Service Reference." Worth one sentence explicitly connecting the two: "This is the REST equivalent of 'Add Service Reference' — point at an openapi.yaml, run the generator, get a typed client." The learner's muscle memory is "Add Service Reference" and that analog should be explicit, not left to inference. -->
+
 ---
 
 ## GraphQL
@@ -481,6 +485,8 @@ tRPC (TypeScript Remote Procedure Call) takes a different approach: no schema la
   - Internal APIs not consumed by external clients
   - When you want REST-like simplicity with type safety
 ```
+
+<!-- @editor[bridge/P2]: tRPC's type-safety story is the closest modern analog to WCF's strongly-typed service contracts — but the connection isn't made explicitly. WCF: you define a [ServiceContract] interface in C#, client stubs are generated, and the compiler enforces the contract at both ends. tRPC achieves the same guarantee without code generation: TypeScript structural typing flows across the client/server boundary at build time. The difference — and the reason tRPC is a step forward — is that WCF required a generation step (Add Service Reference → generated proxy) that broke on schema changes silently if not re-run. tRPC's type inference is live: rename a procedure and TypeScript immediately errors everywhere it's used, with no generation step. Worth a sentence: "This is WCF's strongly-typed service contract model — but without the code generation step. The contract is live TypeScript, not a generated stub." -->
 
 ---
 

@@ -174,6 +174,8 @@ Understanding why each tool exists requires the timeline:
   Then bundles leaf-to-root → OUTPUT BUNDLE(S)
 ```
 
+<!-- @editor[bridge/P2]: The MSBuild conceptual bridge is absent at the module graph level. The learner knows MSBuild's dependency graph between targets (Target A depends on Target B's outputs, MSBuild topologically sorts and executes). The bundler's module graph is the same concept applied to files: each file is a node, each import is a directed edge, the bundler does a topological sort and emits leaf-to-root. The incremental build analogy is also exact: MSBuild checks input/output timestamps to skip unchanged targets; Vite's dev server checks file modification times and module graph ancestry to invalidate only the changed subgraph. Adding "MSBuild targets/tasks/incremental build → bundler plugin hooks/module graph invalidation" as an explicit ASCII comparison here would be high-value for this reader. -->
+
 ### Tree Shaking
 
 ```
@@ -767,6 +769,11 @@ These two tools touch the same files but do different jobs. They need to be conf
 | `csc.exe` (C# compiler) | `tsc` / `esbuild` / `swc` | The actual code transformer |
 | Roslyn analyzers | ESLint / TypeScript strict mode | Static analysis during build |
 | NuGet restore → `packages/` | `npm install` → `node_modules/` | Dependency materialization step |
+| MSBuild Target (named unit of work with inputs/outputs) | Vite/Rollup plugin hook (buildStart, transform, generateBundle) | Plugin hooks are the extensibility model |
+| MSBuild incremental build (skip target if outputs newer than inputs) | Vite module graph invalidation (only re-transform changed files and their dependents) | Same concept: skip unchanged work |
+| MSBuild dependency between targets (DependsOnTargets) | Module graph edges (import statements drive rebuild order) | The import graph IS the dependency graph |
+
+<!-- @editor[bridge/P2]: The MSBuild targets/tasks conceptual bridge in the table above is present but thin. The learner built VSTS and knows MSBuild at architectural depth: targets have Inputs/Outputs attributes that enable incremental builds; the build engine evaluates the dependency graph of targets; a Task is an atomic unit of work (ITask interface). Vite's plugin system maps exactly: a plugin is an object with named hook functions (buildStart, resolveId, load, transform, generateBundle, writeBundle) that correspond to phases of the Rollup build lifecycle — the same DAG-driven, hook-based extensibility model. A small ASCII diagram showing the Vite/Rollup plugin hook lifecycle alongside the MSBuild target lifecycle phases would make this concrete for someone who already understands the model deeply in the .NET world. -->
 
 ---
 

@@ -21,6 +21,8 @@ The Classical Pipeline
 
 The frontend (lex → parse → sema) is language-specific. The middle (IR + optimization) is where the real work happens. The backend (codegen) is target-specific. LLVM's great insight: share the middle.
 
+<!-- @editor[diagram/P1]: No landscape diagram showing the compiler ecosystem — which compilers share backends (LLVM), which are standalone (tsc, esbuild), where JIT fits vs AOT, and where the Rust pipeline sits. The pipeline diagram above is for a single generic compiler; missing is the comparative map of real compilers against that pipeline. -->
+
 ---
 
 ## Intermediate Representations
@@ -55,6 +57,8 @@ TAC:
   z  = t1 * t1
 ```
 
+<!-- @editor[audience/P2]: The bullet-point definitions of CSE, DCE, constant folding, and strength reduction are Dragon Book chapter summaries. This reader took 6.035 and likely wrote these passes. The TAC example is fine as a reference anchor; the glossary-style definitions add nothing. Consider replacing with a note on which passes LLVM runs by default at -O2 vs -O3, or where these show up in the rustc MIR pipeline, rather than defining what they are. -->
+
 Three-address code makes dataflow explicit and enables classic optimizations:
 - **CSE**: same expression computed twice → compute once, reuse
 - **Dead code elimination**: result never used → remove the instruction
@@ -64,6 +68,8 @@ Three-address code makes dataflow explicit and enables classic optimizations:
 ### SSA — Static Single Assignment
 
 SSA is the IR form used by every serious modern compiler (LLVM, GCC, V8 Turbofan, the Rust MIR pipeline, the JVM JIT). It is the single most important concept in modern compiler backends.
+
+<!-- @editor[audience/P1]: "The invariant: every variable is assigned exactly once" is the SSA definition from any compilers textbook. This reader knows SSA; what's interesting is the specifics of LLVM's SSA form (typed, infinite virtual registers, explicit phi placement via mem2reg), how rustc's MIR differs from LLVM IR SSA (regions/borrows encoded in the IR, not just type annotations), and how Turbofan's sea-of-nodes avoids explicit phi nodes entirely. Replace the definitional block with implementation-specific distinctions. -->
 
 **The invariant**: every variable is assigned exactly once. If control flow merges, introduce a φ (phi) function.
 
@@ -101,6 +107,8 @@ Global value numbering (GVN):
 ```
 
 ### φ Functions and the Dominance Tree
+
+<!-- @editor[audience/P2]: The dominance definition and the 4-step SSA construction algorithm are standard compilers course content. This reader likely implemented SSA construction. What would add value here: LLVM's mem2reg pass (which is how LLVM actually builds SSA — allocate locals as alloca, then promote with mem2reg rather than doing direct SSA construction), and why LLVM chose that two-phase approach over direct construction. -->
 
 ```
 Dominance: block A dominates block B if every path from entry to B goes through A.
@@ -332,6 +340,8 @@ tsc Pipeline
             No optimization — output structure mirrors input structure
 ```
 
+<!-- @editor[bridge/P2]: The Binder phase is mentioned but its API surface is not described. Roslyn is called out in the calibration notes as high-value for this reader (they worked on .NET). The parallel is exact: Roslyn's Binder ↔ tsc's Binder; Roslyn's ISymbol ↔ tsc's Symbol; Roslyn's IOperation ↔ tsc's IOperation (added in TS 4.x for tooling APIs). A comparison table — Roslyn concept → tsc equivalent — would be high-value reference content given this reader's background. Currently absent. -->
+
 ### TypeScript's Incremental Compilation
 
 ```
@@ -497,6 +507,8 @@ WASI (WebAssembly System Interface):
   Standardizes system call interface (file I/O, networking, clocks)
   Fastly's Compute@Edge, Cloudflare Workers use WASM + WASI
 ```
+
+<!-- @editor[bridge/P2]: Cranelift is listed in the landscape map but has no section. The calibration notes explicitly call it out as high-value content. Key detail missing: Cranelift is rustc's alternative backend (--codegen=cranelift) that trades optimization quality for compilation speed — it's the reason incremental debug builds in Rust are getting faster. Also used in Wasmtime as the primary JIT and in Firefox's WASM tier. The design choice (simple IR, fast regalloc, no LLVM passes) is the interesting content. -->
 
 ---
 

@@ -157,6 +157,84 @@ Follow `computing/01-PACKAGE.md` format exactly:
 
 ---
 
+## Review System
+
+Guides are reviewed using inline `@editor` HTML comment tags. Tags live at the point of the issue, disappear when fixed, and are grep-able as a live progress dashboard. No separate review files.
+
+### Tag Syntax
+
+```markdown
+<!-- @editor[type/priority]: message -->
+```
+
+**Types:**
+
+| Tag | Catches |
+|-----|---------|
+| `stub` | File is scaffolding dressed as a guide — no real content |
+| `structure` | Missing style contract sections (no landscape diagram, no cheat sheet, etc.) |
+| `audience` | Pitch wrong for learner profile (too basic, over-explains known concepts, missing peer tone) |
+| `diagram` | Diagram absent, placeholder text, or not doing real conceptual work |
+| `bridge` | Missing old-world → new-world connection where one clearly belongs |
+| `content` | Thin, incomplete, or factually suspect |
+
+**Priority:**
+
+| Level | Meaning |
+|-------|---------|
+| `P1` | Blocks "polished" status — must fix before this guide is useful |
+| `P2` | Degrades usability significantly |
+| `P3` | Polish / enhancement |
+
+**Examples:**
+```markdown
+<!-- @editor[stub/P1]: Entire file is placeholder prose — no diagrams, no cheat sheet, no real content -->
+
+<!-- @editor[structure/P1]: Missing Decision Cheat Sheet -->
+
+<!-- @editor[audience/P2]: Explains event loop from scratch — learner has deep runtime model from MIT -->
+
+<!-- @editor[bridge/P2]: No .NET async/await → JS Promise bridge despite obvious parallel -->
+
+<!-- @editor[diagram/P1]: No landscape diagram — guide opens with wall of text -->
+```
+
+### Grep Dashboard
+
+```bash
+# All outstanding issues
+grep -rn "@editor" . --include="*.md"
+
+# P1 issues only (blocking)
+grep -rn "@editor\[.*P1" . --include="*.md"
+
+# By type
+grep -rn "@editor\[stub" . --include="*.md"
+
+# Dirtiest files first
+grep -rc "@editor" . --include="*.md" | grep -v ":0" | sort -t: -k2 -rn
+```
+
+### Workflow
+
+```
+/reference-review sweep <dir>    ← inject @editor tags into all .md files
+  ↓
+grep dashboard → triage → decide priority order
+  ↓
+/reference-review file <path>    ← deep review of a single file (optional second pass)
+  ↓
+[fix issues manually or via author pass — remove tags as you go]
+  ↓
+/reference-review clean <dir>    ← confirm no tags remain (graduation check)
+```
+
+### Pilot Section
+
+`languages/` — 17 files, complete, best audience-fit variance (deep C# expertise vs. learning Rust/Go).
+
+---
+
 ## Instructions for Claude
 
 - When asked to create a new guide, follow `computing/01-PACKAGE.md` style exactly

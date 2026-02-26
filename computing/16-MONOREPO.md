@@ -76,6 +76,8 @@ Tool Landscape
 
 ## npm / pnpm / yarn Workspaces
 
+<!-- @editor[bridge/P2]: No Source Depot / multi-repo → workspaces bridge here. This reader managed massive multi-repo enlsitments (Windows source, Office). Opening the workspaces section with the JavaScript mechanics before establishing "this is the equivalent of a Source Depot enlistment with project references" misses the entry point. The bridge table at the bottom covers it but the conceptual landing should happen here. -->
+
 Every modern package manager understands monorepos natively. Workspaces are the foundation — monorepo tools build on top.
 
 ```json
@@ -145,6 +147,8 @@ repo/
 
 ### turbo.json — The Pipeline
 
+<!-- @editor[bridge/P2]: The `"dependsOn": ["^build"]` concept maps directly to MSBuild project references / .csproj dependency ordering — MSBuild also walks the project dependency graph before building dependents. Worth a one-line call-out: this is the turbo.json equivalent of `<ProjectReference>` dependency ordering in MSBuild. Currently no bridge at this critical concept. -->
+
 ```json
 {
   "$schema": "https://turbo.build/schema.json",
@@ -205,6 +209,8 @@ turbo build --dry-run
 ```
 
 ### Caching
+
+<!-- @editor[bridge/P1]: Remote cache is the most important new concept in this file — it has no MSBuild or Source Depot analog. MSBuild incremental build is local-only and per-machine; VSTS/ADO build caching existed but was limited. Turbo remote cache (content-addressable, shared across all machines and CI runs) is genuinely new. The current text just describes mechanics. Add an explicit note: "No direct .NET/MSBuild analog — this is new. MSBuild's `/incremental` flag is local-only and doesn't survive a clean CI agent. Turbo remote cache is a shared content-addressed store: if any machine (local or CI) built a given input hash, every other machine gets the output instantly." This is the key value prop and the reader needs it flagged as new territory. -->
 
 ```
 How Turbo cache works
@@ -448,6 +454,8 @@ pnpm is preferred for monorepos: stricter hoisting (prevents phantom dependencie
 ---
 
 ## Old World Bridge
+
+<!-- @editor[content/P2]: Bridge table maps MSBuild incremental to "Turbo/Nx cache + affected commands" but doesn't call out the critical difference: MSBuild incremental is local-only and timestamp-based, while Turbo remote cache is content-addressed and shared across all machines. A reader coming from MSBuild will assume "incremental build" means what they already know — that assumption is wrong and leads to misunderstanding the remote cache value proposition. Add a note to that row. -->
 
 | Source Depot / VSTS / .NET Ecosystem | Monorepo Equivalent |
 |---|---|

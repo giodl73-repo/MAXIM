@@ -41,6 +41,8 @@ The Testing Trophy (modern take on the pyramid)
   (Kent C. Dodds framing — widely adopted in JS ecosystem)
 ```
 
+<!-- @editor[bridge/P2]: The trophy vs. pyramid distinction deserves a direct bridge for this reader. They built VSTS testing infrastructure around the classic pyramid (many unit tests, some integration, few E2E). The trophy's inversion — favoring integration over unit — was a reaction to the "mock trap" (heavy mocking producing tests that pass while integrations break). Worth one sentence: "If you built around the classic pyramid: the trophy doesn't discard it — it shifts weight from heavily-mocked unit tests toward integration tests that exercise real wiring, because JS/TS mocking was historically overused in ways that gave false confidence." -->
+
 ---
 
 ## Vitest — Unit & Integration Tests
@@ -505,6 +507,12 @@ npx playwright test --debug             # step through with inspector
 npx playwright show-report              # open HTML report
 npx playwright codegen http://localhost:3000  # record clicks → generate code
 ```
+
+---
+
+## Contract Testing — Pact
+
+<!-- @editor[content/P1]: Contract testing (Pact) appears in the landscape diagram but has no section in the file. The calibration notes specifically call this out: "no direct .NET contract testing equivalent (Pact is new)." This is the one testing concept in the landscape where there's no prior art to bridge from — it deserves a section with the consumer-driven contracts concept, a minimal Pact example, and a note that the .NET world had no equivalent (the closest was WCF WSDL contracts, which were provider-driven not consumer-driven). Without this section, the landscape diagram promises content that doesn't exist. -->
 
 ---
 

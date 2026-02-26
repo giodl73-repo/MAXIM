@@ -28,6 +28,8 @@ and introduced the next era's problem.
 
 ## Era 1 — Manual QA
 
+<!-- @editor[audience/P3]: This section explains pre-automated testing as if it's new context. The reader built VSTS — they were on the other side of this transition, building the infrastructure that replaced it. The content is brief enough that it's not a blocking problem, but "Software shipped on discs. Patch cycles were months. A bug that escaped was a returned product, a support call, a press story" is backstory they don't need. One sentence framing would suffice: "You lived through this. The salient point is what the constraint was, not the context." Consider compressing to 2-3 lines and moving faster to Era 2. -->
+
 ```
 The World Before Automated Testing
 ====================================
@@ -53,6 +55,8 @@ The critical insight that ended this era: **computers are better at repetition t
 ---
 
 ## Era 2 — Unit Tests & TDD
+
+<!-- @editor[audience/P2]: This section explains TDD as if the reader is encountering it for the first time. They built VSTS testing infrastructure — they've implemented, debugged, and shipped TDD tooling. The Red/Green/Refactor walkthrough and "The insight: tests aren't just verification. They're a design tool." is material they know at depth. The value for this reader is in the "What TDD got wrong" list and the mock trap — that's the trajectory content. Consider a single sentence acknowledging their depth ("You know TDD. What follows is the trajectory from dogmatic adoption to the mock trap backlash.") and cutting the introductory explanation. The mock trap section is well-targeted and should stay. -->
 
 ```
 The TDD Manifesto (Kent Beck, 2003)

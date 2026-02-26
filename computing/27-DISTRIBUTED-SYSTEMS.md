@@ -107,6 +107,8 @@ This is why 2PC is not partition-tolerant for liveness.
 
 ## 2. Consensus Protocols
 
+<!-- @editor[content/P2]: The consensus section covers Paxos, Multi-Paxos, Raft, and Viewstamped Replication well, but is missing modern consensus variants that matter for a distributed systems practitioner at Azure scale. Specifically absent: (1) EPaxos (Egalitarian Paxos) — leaderless, commits in 1 RTT for non-conflicting commands, deployed in some Google systems; (2) Flexible Paxos — any quorum intersection (not just majority), enables latency/fault-tolerance trade-offs that Multi-Paxos cannot express; (3) the Multi-Paxos vs Raft implementation trade-off from a practitioner's perspective (Raft is fully specified; Multi-Paxos gives implementation freedom that has caused bugs in production). These would be genuinely new information for this learner. -->
+
 ### Paxos (Lamport 1998, published after 9-year delay)
 
 **Single-decree Paxos**: Agree on one value.
@@ -416,6 +418,8 @@ This is how etcd, ZooKeeper, CockroachDB, and TiKV work.
 
 ## 6. CRDTs — Conflict-Free Replicated Data Types
 
+<!-- @editor[bridge/P2]: The CRDT section is theoretically strong (semilattice, commutativity/associativity/idempotency) but missing the bridge to production deployment reality. Specifically: (1) how Yjs and Automerge differ in their CRDT approach (Yjs uses a variant of LSEQ with relative positioning; Automerge uses Lamport timestamps + RGA — and why the performance characteristics differ dramatically); (2) the garbage collection problem in sequence CRDTs (tombstones accumulate forever unless you have a GC protocol, which requires knowing all clients have seen the deletion — the hard part); (3) why Figma chose OT over CRDTs for their multiplayer (simpler undo semantics). The table of CRDTs is excellent reference — the production deployment nuances are the missing piece. -->
+
 **The problem**: In an AP system (available during partition), concurrent updates to the same object create conflicts. Resolution strategies:
 - Last-Write-Wins (LWW): discard older update → loses data
 - Multi-value (DynamoDB): return all versions, let application merge → complex
@@ -512,6 +516,8 @@ Differences from ZooKeeper:
 ---
 
 ## 8. Distributed Databases
+
+<!-- @editor[bridge/P2]: The distributed databases section covers Spanner's TrueTime and CockroachDB's HLC well. Missing: an explicit comparison bridge between TrueTime's GPS/atomic clock approach (hardware-enforced bounded uncertainty ~7ms) and CockroachDB's HLC approach (software-only, ~1ms uncertainty but requires clock skew detection and "uncertainty bumps" that can cause cascading transaction retries). This trade-off is exactly the kind of architectural decision this learner makes when evaluating database choices for Azure-scale systems. A 3-row comparison table (TrueTime vs HLC vs traditional NTP: uncertainty, hardware needed, clock skew behavior) would crystallize the choice. -->
 
 ### Google Spanner
 
@@ -626,6 +632,8 @@ O(n) messages in ring. O(n²) in fully connected (bully).
 **Heartbeat-based**: Timeout = suspect. Phi-accrual (Cassandra, Akka): adaptive suspicion based on historical heartbeat intervals.
 
 ---
+
+<!-- @editor[content/P2]: Missing a section on modern read-path optimization patterns that any Azure-scale system builder knows are critical: (1) Read-your-writes consistency implementation in practice (session tokens, sticky routing, bounded-staleness reads with timestamp fencing); (2) Multi-region active-active write conflict resolution beyond "use CRDTs" — the Dynamo Global Tables vs Spanner External Consistency vs Cassandra LWT trade-off matrix; (3) The "split-brain during partition" detection patterns used in production (Raft split-brain via term staleness vs primary-backup via STONITH vs lease-based). These are practitioner-level gaps not covered by the current pattern catalog. -->
 
 ## 10. Modern Distributed Patterns
 
