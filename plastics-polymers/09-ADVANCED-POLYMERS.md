@@ -114,7 +114,7 @@ shield the carbon backbone.
    • Tg = –97°C (extremely flexible chain)
 ```
 
-<!-- @editor[content/P2]: No mention of PFAS regulatory context — PTFE and fluoropolymer processing byproducts are under intense regulatory scrutiny (EU PFAS restriction proposal, US EPA PFAS action); significant for anyone evaluating fluoropolymer specification -->
+**PFAS regulatory context (critical for specification decisions):** PTFE and fluoropolymers are under intense regulatory scrutiny as part of the broader PFAS (per- and polyfluoroalkyl substances) regulatory action. The PTFE monomer itself (tetrafluoroethylene, TFE) is not a PFAS concern, but fluoropolymer *processing aids* are. PFOA (perfluorooctanoic acid) was historically used as a processing aid in PTFE dispersion polymerization — it is now banned (Stockholm Convention, EU POP Regulation, US EPA PFOA Stewardship). AMPA (ammonium perfluorooctanoate) similarly phased out. Replacement processing aids (GenX chemicals, PFBS) are themselves under scrutiny. The EU PFAS Restriction Proposal (2023, ECHA) would restrict essentially all PFAS — including fluoropolymers — with derogations for "essential uses." The derogation list is contested; semiconductor, medical, and automotive uses are likely to receive longer transition periods than consumer applications. **Practical implication for specification:** if specifying a fluoropolymer for a new design, check current supplier documentation for processing aid status, confirm compliance with REACH/RoHS, and flag for periodic regulatory review. Designs where a non-fluoropolymer alternative is technically feasible should consider that alternative to avoid future forced substitution.
 
 ### The Processing Problem
 
@@ -293,8 +293,6 @@ precision mechanical parts (watches, firearms components, zippers, pens).
 
 ---
 
-<!-- @editor[content/P2]: Section is thin — vitrimers and SMPs each deserve the same quantitative treatment (property tables, application examples, commercial status) given to PEEK/PTFE/PPS above -->
-
 ## Emerging: Self-Healing and Stimuli-Responsive Polymers
 
 ```
@@ -304,21 +302,88 @@ precision mechanical parts (watches, firearms components, zippers, pens).
               hydrogen bonds, ionomers, vitrimers)
    Extrinsic: microencapsulated healing agent released on crack
 
-   Vitrimers (Leibler, 2011):
-   ─────────────────────────
-   Thermoset-like network but with dynamic covalent bonds
-   (transesterification, disulfide exchange, etc.)
-   Can flow and be reshaped above topology freezing T (Tv)
-   Recyclable thermosets — addresses the end-of-life problem
-   Commercial: Epoxy vitrimer (IFP Energies, Mallinda, etc.)
+   VITRIMERS (Leibler, Leibler et al. Science 2011):
+   ──────────────────────────────────────────────────
+   WHAT THEY ARE:
+   Thermoset network with dynamic covalent bonds that exchange
+   under temperature stimulus. Network topology can rearrange
+   without loss of network connectivity (bonds exchange, not break).
+
+   CHEMISTRY:
+   Epoxy vitrimer: transesterification exchange (carboxyl + hydroxyl)
+   Disulfide vitrimer: S-S bond metathesis (UV or thermal)
+   Diels-Alder vitrimer: retro-DA / DA equilibrium at 100–130°C
+   Silicone vitrimer: silanol condensation exchange
+   Exchange rate controlled by catalyst loading and temperature
+
+   KEY PROPERTY TABLE:
+   ┌────────────────────────────────────────────────────────────┐
+   │ Parameter          Vitrimer            Classic Thermoset   │
+   │ ──────────────     ────────            ─────────────────── │
+   │ Tg                 30–200°C (tunable)  Varies              │
+   │ Topology freeze T  Tv: 80–200°C        N/A                 │
+   │ Creep at T < Tv    None (like thermoset)                   │
+   │ Flow at T > Tv     Yes (like thermoplastic)                │
+   │ Recyclability      Yes (press remold)  No                  │
+   │ Weldability        Yes (contact + heat) No                 │
+   │ Chemical resistance Similar to thermoset                   │
+   └────────────────────────────────────────────────────────────┘
+
+   APPLICATIONS (current commercial / near-commercial):
+   Recyclable carbon fiber composite matrix: Mallinda, Connora
+   Self-healing automotive clearcoat: PPG, BASF programs
+   Repairable adhesive layers: Huntsman, Henkel R&D
+   Reprogrammable thermoset actuators: soft robotics research
+
+   COMMERCIAL STATUS (2024):
+   Early commercial: epoxy vitrimers for composites recycling
+   Lab/pilot scale: silicone and polyester vitrimers for films
+   Research: DA vitrimers for reversible electronics encapsulation
+   Cost premium vs standard thermosets: ~2–5× (catalyst cost,
+   specialty monomers); price expected to decrease with scale
 
    SHAPE MEMORY POLYMERS (SMP):
    ─────────────────────────────
-   Two-phase structure: fixed phase (high-Tm or cross-linked)
-                        + switching phase (Tg or Tm tuned to trigger T)
-   Medical: self-expanding stents, sutures
-   Aerospace: deployable structures
-   PU, PCL-based systems most commercial
+   MECHANISM:
+   Two-phase architecture:
+   Fixed phase (permanent shape): covalently crosslinked or high-Tm
+                                   crystalline domains; sets permanent shape
+   Switching phase (temporary shape): Tg or Tm tuned to trigger temperature
+                                       programs temporary shape; releases on heating
+
+   THERMOMECHANICAL CYCLE:
+   1. Deform above Tsw (switching temperature)
+   2. Cool below Tsw while maintaining deformation → temporary shape locked
+   3. Heat above Tsw → switching phase softens → elastic strain recovery
+                      → returns to permanent shape ("shape memory effect")
+
+   KEY PROPERTY TABLE:
+   ┌────────────────────────────────────────────────────────────┐
+   │ Parameter        Typical range      Notes                  │
+   │ ──────────────   ─────────────      ─────                  │
+   │ Tsw (trigger T)  30–120°C          Must match application  │
+   │ Shape recovery   85–99%             Best in PU systems      │
+   │ Recovery stress  0.5–5 MPa          Drives actuation work   │
+   │ Cycle life       100–1,000 cycles   Fatigue in switching    │
+   │ Strain capacity  25–400%            High in PU; lower in    │
+   │                                     rigid glassy systems    │
+   └────────────────────────────────────────────────────────────┘
+
+   COMMERCIAL MATERIAL SYSTEMS:
+   Polyurethane SMP (CTU, Diaplex from Mitsubishi): Tsw 35–55°C;
+     textile, medical, foam applications; most commercial
+   PCL-based SMP (polycaprolactone): Tm ~55°C; medical sutures,
+     bone screws (biodegradable + shape memory combined)
+   Epoxy SMP: Tsw 50–120°C; structural aerospace applications
+   Liquid crystal elastomers (LCE): light/heat triggered; soft
+     robotics, optical devices; not commercially widespread yet
+
+   APPLICATIONS (commercial + development):
+   Self-tightening sutures (PGA/PCL): Tsw ~37°C → body temperature activates
+   Deployable aerospace structures: stowed for launch, deploy on orbit
+   Self-fitting medical devices: bone anchors, stents (Tsw 37–42°C)
+   Smart textiles (Diaplex): moisture-regulating pore size change
+   Shrink-fit cable joints: replace heat-shrink with SMP for controlled force
 ```
 
 ---

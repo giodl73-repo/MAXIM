@@ -304,7 +304,51 @@ Mass deacidification outcome:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: paper degradation maps directly to data preservation concerns (bit rot, media decay, format obsolescence). The Arrhenius-based lifespan modeling is identical to accelerated lifetime testing in electronics reliability engineering (Ea, temperature acceleration factor). The "slow fires" crisis — 30 million brittle books — is the physical-media analogue of data loss from obsolete formats and decaying storage -->
+## Data Preservation and Reliability Engineering Bridge
+
+Paper degradation is the physical-media analogue of digital data preservation — the same problems, the same engineering approaches:
+
+```
+PAPER DEGRADATION ↔ DIGITAL PRESERVATION PARALLELS
+====================================================
+
+PROBLEM                PAPER                      DIGITAL
+=======                =====                      =======
+Media decay            Acid hydrolysis of          Bit rot (magnetic flip,
+                       cellulose → brittle         capacitor charge loss,
+                       failure                     optical pit degradation)
+
+Format obsolescence    Pre-1450 manuscript         WordPerfect .wpd,
+                       script unreadable by        TIFF/LZW, early PDF —
+                       trained readers only        software gone, format opaque
+
+Migration strategy     Mass deacidification        Format migration
+                       (Bookkeeper spray:          (TIFF → preservation
+                       MgO nanoparticles           master JPEG2000 → access
+                       neutralize + buffer)        copies in current format)
+
+Accelerated aging      ISO 5630: 80°C/65% RH      JEDEC JESD22: 85°C/85% RH
+test standard          → predict 25°C lifespan     → predict 25°C storage life
+
+Lifespan model         Arrhenius equation:         Same Arrhenius model:
+                       τ = A × exp(Ea/kT)          Ea ~0.7–1.0 eV for
+                       Ea ~0.9–1.1 eV for          DRAM charge retention;
+                       acid paper degradation       flash cell tunnel oxide
+
+SLOW FIRES CRISIS:
+  1987: commission reports ~30 million volumes in US research libraries
+  are brittle (acid paper, 1850–1980 era) — fall apart when flexed.
+  Physical-media data loss at scale: the same problem as a datacenter
+  learning 30 million files are on decaying media with no migration plan.
+  Response: mass deacidification programs (Library of Congress, British
+  Library), microfilming, and — later — digitization.
+
+ARCHIVAL ENGINEERING PRINCIPLE:
+  Every 10°C temperature drop → 2× paper lifespan (Henderson rule).
+  Every 10% RH decrease → ~1.4× lifespan.
+  Cold dry dark = maximum lifespan. Same principle governs tape library
+  storage: cool, low humidity, away from magnetic fields.
+```
 
 ## Decision Cheat Sheet
 

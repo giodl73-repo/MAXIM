@@ -1,9 +1,10 @@
-<!-- @editor[bridge/P2]: No old-world→new-world bridge — the learner knows crystallography and materials science; a bridge from crystal lattice structures (MIT solid-state) to phyllosilicate sheet stacking would connect immediately -->
 # Clay Types — Earthenware, Stoneware, Porcelain, Kaolin
 
 ## The Big Picture
 
 Clay is not a single mineral — it's a family of hydrated phyllosilicate minerals that share one critical property: plasticity when wet. Understanding what clay is at the atomic level explains all its working properties and why certain clays make good porcelain while others make good bricks.
+
+**Crystallography bridge:** Phyllosilicates are layered silicates — the same class as mica and talc. The crystal structure is a stack of alternating silica tetrahedral sheets (T) and alumina octahedral sheets (O). Kaolinite is a 1:1 (TO) stacking; smectite and illite are 2:1 (TOT). If you know face-centered cubic vs body-centered cubic from solid-state physics, this is the analog in 2D sheet geometry: the stacking ratio determines the interlayer spacing, cation exchange capacity, and swelling behavior. Water intercalates between 2:1 layers in smectite (hence bentonite swells dramatically); kaolinite's 1:1 layers have hydrogen bonds that hold them close and block water intercalation — which is why kaolin has low plasticity compared to smectite.
 
 ```
 CLAY MINERAL TAXONOMY

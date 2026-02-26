@@ -338,7 +338,20 @@ POPULATION CONSEQUENCES:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge — exponential/logistic growth models parallel queueing theory and capacity planning; degree-day accumulation parallels thermal envelope modeling in hardware design; Nicholson-Bailey oscillations parallel control-system instability. One bridge connecting to engineering math would be natural here -->
+### Engineering Bridges
+
+Insect population dynamics uses the same differential equation toolkit as queueing theory and capacity planning. The exponential growth model dN/dt = rN is the unbounded queue with constant arrival rate and no service limit — same equation, same instability. The logistic model dN/dt = rN(1 - N/K) is the bounded queue: K is the service capacity (carrying capacity), and the term (1 - N/K) is the utilization factor that slows growth as the system approaches saturation. At N = K/2, growth rate is maximized — this is the inflection point in an S-curve, the same point where a logistic growth process adds the most consumers per unit time.
+
+The Nicholson-Bailey host-parasitoid model is a discrete-time two-species system that produces oscillations and instability — the biological equivalent of an underdamped control loop. The model is:
+
+```
+  H(t+1) = λ H(t) exp(-a P(t))         // host next generation
+  P(t+1) = c H(t) [1 - exp(-a P(t))]   // parasitoid next generation
+```
+
+Where H = host density, P = parasitoid density, λ = host growth rate, a = area of discovery, c = parasitoid yield per host. This system has a single equilibrium that is inherently unstable — small perturbations lead to diverging oscillations (both populations crash to extinction). Real host-parasitoid systems persist because of spatial structure (refugia), heterogeneous attack rates, and density-dependent factors that add stabilizing feedback. This is the control systems insight: an open-loop unstable system requires feedback with sufficient gain and appropriate phase margin to stabilize. IPM biological control adds that stabilizing feedback by managing spatial structure and ensuring parasitoid persistence.
+
+Degree-day accumulation is thermal integration — the biological equivalent of a hardware thermal envelope monitor. A CPU accumulates thermal energy; if sustained above T_junction, the chip fails. An insect pest accumulates thermal energy above its developmental threshold (T_base); when accumulated DD reaches a calibrated threshold, a life-stage transition occurs. The integral ∫(T - T_base)dt over time is the governing quantity in both cases; the threshold at which a state change occurs is the key parameter. Climate-based forecasting of pest emergence is thus analogous to predicting when a CPU will throttle based on thermal history — same math, different physical domain.
 
 ## Decision Cheat Sheet
 

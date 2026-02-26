@@ -311,7 +311,13 @@ DIRECT vs INDIRECT PLANT DEFENSES:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge — the coevolutionary arms race is the biological version of an adversarial security model (attack surface, escalation, defense-in-depth); CYP450 detoxification parallels multi-layer middleware defense. One bridge would connect to the learner's frame -->
+### Engineering Bridges
+
+The insect-plant chemical arms race is an adversarial security model running on evolutionary timescales. The attack surface is the plant's nutritional content; the defenses are chemical (alkaloids, terpenes, glucosinolates, phenolics), physical (trichomes, cuticle thickness, fiber content), and indirect (herbivore-induced plant volatiles that recruit parasitoids). Each plant defense generates selection pressure for insect counter-adaptation; each counter-adaptation generates selection pressure for escalated plant defense. This is the same dynamics as an exploit-patch-evasion cycle: attacker evolves capability (metabolic detoxification), defender evolves countermeasure (new chemical compound), attacker evades (upregulate a different CYP450 enzyme), defender escalates.
+
+CYP450 enzymes (cytochrome P450 monooxygenases) are the primary detoxification toolkit. Insect CYP450s evolved specifically to oxidize plant toxins — metabolize alkaloids, hydroxylate coumarins, de-esterify esters. Specialized herbivores often have highly upregulated CYP450 gene families specifically tuned to their host plant's chemistry. This is multi-layer middleware defense and counter-defense: the plant installs a toxin at layer N; the insect intercepts at layer N+1 with an enzyme that neutralizes it; the plant installs a synergist (protease inhibitor) that blocks the enzyme; the insect evolves a different enzyme with a different active site. Defense in depth and attack targeting specific defense layers is identical in both contexts.
+
+The monarch butterfly (Danaus plexippus) / milkweed (Asclepias) system is the canonical example: milkweed produces cardenolides (cardiac glycosides) that inhibit Na⁺/K⁺-ATPase, a universally essential enzyme. Monarch caterpillars have evolved a point mutation in the ATPase α-subunit that makes it insensitive to cardenolide inhibition — they neutralized the attack by hardening the target. They then sequester the cardenolides in their own bodies, repurposing the plant's weapon as their own defense against bird predation.
 
 ## Decision Cheat Sheet
 

@@ -291,7 +291,11 @@ RANGE/ENDURANCE:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: wing design trade-offs (aspect ratio vs wing loading) map directly to engineering design trade-offs (bandwidth vs latency; throughput vs memory). Lift equation variables are dimensional analysis — same framework as any physical engineering. Any engineer who has done trade-off analysis needs this bridge -->
+### Engineering Bridges
+
+Wing design is constrained multi-objective optimization over a Pareto frontier — exactly like bandwidth vs. latency or throughput vs. memory. The lift equation L = ½ρv²SCL exposes the trade space directly: CL (lift coefficient) can be increased by camber and angle of attack, but CL increase causes CD (drag) increase via the lift-induced drag term CDi = CL²/(πeAR). High aspect ratio (AR = span²/area) reduces induced drag but increases structural load and makes the wing fragile. Low aspect ratio is structurally stiff but aerodynamically inefficient at low speed. Every wing design is a commitment to a specific operating envelope — you cannot optimize for all regimes simultaneously.
+
+The Reynolds number Re = ρvL/μ is the key dimensionless parameter governing whether inertial or viscous forces dominate. At bird scale (Re = 10⁴–10⁶), aerodynamics is firmly in the turbulent boundary layer regime — laminar-to-turbulent transition matters, leading-edge vortices form at high angles of attack, and slot feathers act as flow control devices. Insects operate at Re < 10³ (viscous-dominated), which is why insect flight physics differs fundamentally from bird flight physics despite superficial similarity. The dimensional analysis framework is identical to any physical engineering domain: identify the governing dimensionless groups, establish the operating regime, then select appropriate models for that regime.
 
 ## Decision Cheat Sheet
 

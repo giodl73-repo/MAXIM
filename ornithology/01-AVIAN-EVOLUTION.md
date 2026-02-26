@@ -289,8 +289,27 @@ ANTHROPOCENE:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: fossil-calibrated phylogenetics uses Bayesian inference / maximum likelihood (same statistical framework as ML model training); molecular clock = time-series regression. Any engineer from a quantitative background needs this bridge -->
-<!-- @editor[structure/P2]: No comparison tables in body — feather stage evolution (Stage 1-5) and Cretaceous bird groups would benefit from structured tables rather than ASCII blocks -->
+### Engineering Bridges
+
+Fossil-calibrated molecular phylogenetics is Bayesian inference applied to sequence data. The inputs are aligned DNA or protein sequences across taxa; the likelihood function is a substitution model (JC69, HKY85, GTR — each adding parameters for transition/transversion bias, base frequency variation, rate heterogeneity); the priors are fossil age constraints on node ages. BEAST, MrBayes, and RAxML run MCMC or maximum-likelihood optimization over tree topology space — the same algorithmic territory as ML model training, just with a discrete combinatorial search space (tree topologies) rather than continuous weight space. The posterior distribution over trees is analogous to a posterior distribution over model parameters: you get uncertainty, not a single answer.
+
+The molecular clock is time-series regression with a non-stationary rate model. The naive clock assumes substitution rate is constant across lineages (strict clock); relaxed clock models allow rate variation across branches (log-normal or uncorrelated relaxed). Calibrating the clock against fossil dates is equivalent to anchoring a regression with known timestamps — you're fitting a rate that maps substitution counts to geological time. When multiple calibration points disagree, you have the same multicollinearity problem as any overdetermined regression: residuals reveal which calibration points are outliers.
+
+| Feather Evolutionary Stage | Structure | Function inferred |
+|---------------------------|-----------|------------------|
+| Stage I | Single filament (monofilament) | Insulation; display |
+| Stage II | Multiple filaments from single base | Insulation; display |
+| Stage IIIa | Multiple filaments from single rachis (pennaceous, no barbules) | Insulation; display |
+| Stage IIIb | Multiple filaments from single rachis + barbs from filaments | Insulation; display |
+| Stage IVa | Pennaceous; barbules without hooks | Aerodynamic surface (weak) |
+| Stage IVb | Pennaceous; barbules with hooks (closed vane) | Full flight feather function |
+
+| Cretaceous Bird Group | Phylogenetic position | Extinction at K-Pg? | Example genera |
+|----------------------|----------------------|---------------------|----------------|
+| Enantiornithines | Stem birds (outside Ornithurae) | Yes — total extinction | Sinornis, Iberomesornis |
+| Hesperornithiformes | Ornithurae, not Neornithes | Yes | Hesperornis (foot-propelled diver) |
+| Ichthyornithiformes | Ornithurae, not Neornithes | Yes | Ichthyornis (toothed, strong flier) |
+| Neornithes | Crown birds | No — survived and radiated | All modern birds |
 
 ## Decision Cheat Sheet
 

@@ -409,7 +409,10 @@ PLANT TISSUE TESTING:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to systems engineering: soil as a three-phase system with CEC as a buffer/cache and pH as a configuration parameter — maps well to how this learner thinks about engineered systems -->
+**Soil as an engineered system**: the three-phase model (solid mineral + organic, liquid soil solution, gas pore space) maps directly to a resource-bounded system with typed storage. The solid phase is the persistent store — high latency, high capacity, slow to change. The liquid phase is the active working set — nutrients in solution are immediately available to roots but have limited capacity (CEC is the buffer size). The gas phase is the O₂ supply for root and microbial respiration — oxygen depletion in waterlogged soils is equivalent to thread starvation in a saturated thread pool.
+
+CEC (cation exchange capacity) is the soil's charge-based buffer cache for cations. High CEC (clay-rich or high-SOM soils) holds more nutrient cations against leaching — high cache capacity. Low CEC (sandy soils) lets nutrients leach rapidly — small cache, frequent misses. pH is a global configuration parameter: it controls which nutrients are in soluble (available) vs. insoluble (locked) form. At pH 7.5+, iron and manganese precipitate as hydroxides — the equivalent of a feature flag that disables a subsystem. At pH 4.5–, aluminum solubilizes to toxic levels — the equivalent of a misconfiguration that causes a previously disabled subsystem to re-enable destructively.
+
 ## Common Confusion Points
 
 **Adding sand to clay soil makes it worse, not better**: adding a small amount of sand to clay creates a weak concrete-like mix. To improve clay drainage with sand, you need to add ~50% of the soil volume in coarse sand — an impractical quantity. The correct approach for clay: add organic matter continuously; use raised beds.

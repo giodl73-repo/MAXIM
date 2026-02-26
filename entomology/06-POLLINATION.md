@@ -311,7 +311,11 @@ URBAN POLLINATION:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge — the pollination reward economy maps to marketplace/incentive design; pollination syndromes parallel API contracts (advertised interface, expected consumer); network effects of pollinator decline parallel cascading failure in distributed systems. One bridge would ground the learner -->
+### Engineering Bridges
+
+Pollination is a marketplace with explicit incentive design. The flower is the service provider; the pollinator is the consumer; pollen transfer is the service the plant needs but cannot directly force. The flower's reward (nectar, pollen, oil, heat, shelter — depending on syndrome) is the incentive payment designed to attract and retain the consumer. Evolutionary pressure optimizes the flower's advertising (floral color, scent, UV pattern) and reward quality/quantity to attract the right consumer reliably, and the flower structure to ensure pollen attachment and transfer occurs during the transaction. Pollination syndromes are the API contracts: bee syndrome flowers advertise on the bee-visible spectrum (UV + blue + yellow; not red), offer nectar + pollen reward, and have morphology that fits a bee's body. Hummingbird syndrome flowers: red (bird-visible), tubular (bill-fit), nectar-rich, little scent (birds have poor olfaction). The syndrome is a published interface specification; the pollinator is the expected consumer. Deceptive orchids (offer no reward, mimic nectar/sex/brood sites) are the equivalent of a service that advertises capabilities it doesn't actually deliver.
+
+Pollinator decline is a cascading failure through a dependency graph. ~87% of flowering plant species depend on animal pollination; many animal species depend on those plant species for food; many human crops depend on managed and wild pollinators. The dependency graph has high fan-out at the pollinator nodes: losing a generalist pollinator like a bumble bee species or a managed honey bee population disconnects many plant-pollinator edges simultaneously. This is similar to removing a widely-depended-upon infrastructure service: the immediate failure is local, but the transitive failures propagate through the dependency graph in ways that are difficult to predict from looking only at the failed node.
 
 ## Decision Cheat Sheet
 

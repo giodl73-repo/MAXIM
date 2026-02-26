@@ -222,7 +222,9 @@ MINIMALISM'S ARGUMENT
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge in this guide -- Sol LeWitt's instruction-based art (the instruction IS the art; execution can be done by anyone) is a direct analogue to declarative programming: the specification is the program, and runtime can vary. The learner from engineering would instantly see LeWitt's wall drawings as the equivalent of a build spec or a Dockerfile -- the artifact is the description, not any particular instantiation. Worth making explicit in the LeWitt section. -->
+**Declarative programming bridge — LeWitt's wall drawings as executable specifications:** LeWitt's instruction-based work is a direct instantiation of the declarative programming model: the specification is the artifact; execution is separate from authorship; and any conforming runtime produces a valid instantiation. "Wall Drawing #46: Vertical lines, not straight, crossing and touching, using four colors, uniformly dispersed with maximum density" is a program. The wall is the output. The person executing it is the runtime. LeWitt is explicit: "the idea becomes a machine that makes the art." He is describing a compiler and a build target.
+
+The implications LeWitt drew are the same ones that follow in declarative systems: (1) the same work can be instantiated multiple times — each wall drawing is a first-class instance, not a copy; (2) the work can be "unmade" (painted over) and "remade" (re-executed from the instruction) without loss, because the instruction is the locus of value; (3) the artist's physical skill is irrelevant to the work's authenticity — any competent executor suffices. This is exactly the property declarative specs have over imperative implementations: the spec is portable, the implementation is interchangeable. A Dockerfile or a Terraform config is a LeWitt wall drawing: the description is the thing, the container or infrastructure is just the current execution. LeWitt's estate licenses institutions to re-execute his wall drawings; the license is a runtime agreement, and the drawing is an authenticated build artifact.
 
 ## Conceptual Art (1966–1975)
 

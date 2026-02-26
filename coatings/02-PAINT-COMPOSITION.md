@@ -368,9 +368,9 @@ WHAT HAPPENS ON DRYING:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world-to-new-world bridge — the TDS concept maps directly to any engineering datasheet or product spec the learner already reads (e.g., Azure SLA docs, MSDN API references) — call out the parallel -->
-
 ## Reading a Technical Data Sheet
+
+A paint TDS is a product specification document — equivalent to an API reference or a component datasheet. The discipline for reading it is the same: find the performance parameters, note the test conditions under which they were measured, and verify the limits that apply to your use case.
 
 ```
   KEY FIELDS:
@@ -387,6 +387,12 @@ WHAT HAPPENS ON DRYING:
   VOC:              g/L (grams per liter of coating)
   ASTM tests cited: D2486 (scrub resistance), D3359 (adhesion cross-cut),
                     D4587 (QUV accelerated weathering)
+
+  TDS READING PRINCIPLE: performance figures are measured under specific
+  conditions (temperature, humidity, substrate, DFT) — the same as API
+  latency figures being measured at specific load and network conditions.
+  "Dry to recoat: 4 hours" assumes 70°F/50% RH; at 50°F/90% RH it
+  may be 24 hours. Always check application conditions vs spec conditions.
 ```
 
 ---

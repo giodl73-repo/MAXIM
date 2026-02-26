@@ -297,7 +297,15 @@ CARRION ECOSYSTEM:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: Optimal Foraging Theory is constrained optimization (maximize E/T subject to search time, handling time, risk) — identical mathematical framework to operations research, scheduling, and resource allocation problems. Central Place Foraging is the traveling salesman with diminishing returns. MacArthur's resource partitioning maps to load balancing across workers with heterogeneous capability. Any engineer from optimization or distributed systems needs this bridge -->
+### Engineering Bridges
+
+Optimal Foraging Theory is constrained optimization with a clear objective function: maximize net energy gain per unit time (E/T). The prey model formalizes the diet selection problem: given N prey types ranked by profitability (energy/handling time), the optimal forager takes the highest-ranked types until the next-ranked type's inclusion drops the overall rate. This is a marginal-value calculation — add an item to the diet if its profitability exceeds the current average rate. The math is identical to a greedy scheduling algorithm: sort tasks by value/cost, include in descending order until marginal value drops below threshold.
+
+The Marginal Value Theorem (MVT) governs patch departure timing: leave a patch when the instantaneous return rate drops to the average rate across all patches in the environment, accounting for travel time. This is a diminishing-returns optimization with a benchmark comparison — the same structure as deciding when to stop optimizing a feature and ship, or when to stop caching and compute: the marginal gain from staying must exceed the opportunity cost of not being elsewhere.
+
+Central Place Foraging (CPF) — when birds must return to a fixed point (nest, colony) — adds the constraint that round-trip travel cost scales with distance. This converts the patch-selection problem into a variant of the traveling salesman: minimize total cost subject to return-to-origin constraint. The optimal solution loads up at closer patches even if they are lower quality, matching the load to travel cost. This is exactly the throughput calculation for a batch processing system with fixed round-trip latency: fewer, larger batches for distant destinations.
+
+MacArthur's resource partitioning across competing species — the ecological equivalents of competitors dividing niche space to avoid total overlap — maps to load balancing across heterogeneous workers. Each species evolves to exploit a subset of the resource gradient more efficiently than competitors, converging on a stable partition where no species can improve by switching. This is Nash equilibrium in a continuous strategy space, the same outcome as an auction-based resource allocation system at equilibrium.
 
 ## Decision Cheat Sheet
 

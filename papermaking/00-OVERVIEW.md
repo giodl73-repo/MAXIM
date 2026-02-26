@@ -1,29 +1,34 @@
 # Papermaking — Landscape and Taxonomy
 
-<!-- @editor[diagram/P2]: Landscape diagram lists categories in flat boxes but doesn't show the process flow — raw material → pulping → forming → finishing should be connected with arrows to show the manufacturing pipeline. Rework as a layered system view with directional flow -->
-
 ## The Big Picture
 
 ```
-+------------------------------------------------------------------+
-|                 THE PAPER UNIVERSE                               |
-|                                                                  |
-|   RAW MATERIAL   PULPING         FORMING      FINISHING          |
-|   ───────────    ───────         ───────      ─────────         |
-|   Wood chips     Chemical        Paper        Sizing             |
-|   Cotton rags    (Kraft, sulfite) machine      Coating            |
-|   Agricultural   Mechanical      (Fourdrinier, Calendering       |
-|   residue        (TMP, CTMP)     twin-wire)   Supercalendering   |
-|   Recycled fiber Semi-chemical   Press + dry  Cutting / reeling  |
-|                                                                  |
-|   CHEMISTRY           PRODUCT FAMILIES                          |
-|   ────────            ────────────────                          |
-|   Sizing agents       Printing/writing paper                    |
-|   Coatings            Packaging board                           |
-|   Brighteners         Tissue / hygiene                          |
-|   Retention aids      Specialty / technical                     |
-|   Drainage aids       Security paper                            |
-+------------------------------------------------------------------+
+THE PAPER MANUFACTURING PIPELINE
+==================================
+
+RAW MATERIAL          PULPING              WET END            DRY END / FINISHING
+============          =======              =======            ===================
+Wood chips            Chemical             Paper machine      Sizing (surface)
+ Softwood (SW)  ───►  Kraft (dominant) ──► Headbox           Coating (coated grades)
+ Hardwood (HW)        Sulfite (specialty)  Fourdrinier wire  Calendering / gloss
+Cotton/rag      ───►  Mechanical (TMP,     Twin-wire (modern) Supercalendering
+Agricultural          CTMP, GW)      ───►  Press section      Cutting / reeling
+  residue       ───►  Semi-chemical  ───►  Dryer section ──►  [PRODUCT FAMILIES]
+Recycled fiber  ───►  De-inking (OCC)                         Printing/writing
+                                                              Packaging board
+                      ┌──────────────────────────────┐        Tissue/hygiene
+                      │  CHEMISTRY LAYER (wet end)   │        Specialty/technical
+                      │  Sizing (AKD/ASA/rosin)      │        Security paper
+                      │  Filler (CaCO3, clay, TiO2)  │
+                      │  Retention/drainage aids      │
+                      │  Wet strength (PAE)           │
+                      │  OBA brighteners              │
+                      └──────────────────────────────┘
+                              │
+                              ▼
+                      Fiber bonds (H-bond network)
+                      form as water is removed —
+                      mechanical → thermal → calendered
 ```
 
 Paper = a web of cellulose fibers, hydrogen-bonded together, formed from a
@@ -188,7 +193,36 @@ SPECIALTY
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge in the overview — natural parallels: continuous manufacturing pipeline (any process engineering), polymer chemistry (cellulose as a natural polymer), or feedback control systems (paper machine CD/MD profiling). A senior engineer from any stack would benefit from "paper mill as a chemical reactor + continuous process line" framing -->
+## Process Engineering Bridge
+
+A paper mill is a continuous chemical reactor coupled to a real-time control system. The framing unlocks the whole volume:
+
+```
+PAPER MILL AS ENGINEERING SYSTEM
+==================================
+
+CHEMICAL REACTOR LAYER:
+  Kraft digester = batch pressure vessel; NaOH + Na2S at 170°C; 2-hour cook
+  Recovery boiler = dual-purpose reactor: burns organics for energy +
+                    reduces Na2SO4 → Na2S for chemical recycling
+  Bleaching = multi-stage reactor sequence (D0-E-D1 or O-D0-E-D1)
+  Wet end = continuous stirred reactor with retention/drainage chemistry
+
+CONTINUOUS PROCESS CONTROL LAYER:
+  Paper machine runs at 1,000–2,000 m/min (production speed)
+  Basis weight: 100+ CD (cross-direction) actuators in headbox
+  Moisture: feedback loop; infrared sensors → steam boxes → IR dryers
+  Formation: jet/wire speed ratio → MD/CD tensile balance
+  Principle: "remove water mechanically before thermally" (mechanical =
+             cheap; thermal = expensive) → press section is critical
+             efficiency lever
+
+POLYMER CHEMISTRY LAYER:
+  Cellulose = (C6H10O5)n, a linear beta-1,4-glucose polymer, DP 300–3,500
+  Same polymer physics as synthetic fibers: chain length → tensile strength;
+  crystallinity → stiffness vs flexibility; hydrogen bonding → inter-fiber
+  network strength (the H-bond network IS the paper's structural basis)
+```
 
 ## Decision Cheat Sheet
 

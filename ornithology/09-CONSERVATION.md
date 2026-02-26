@@ -281,7 +281,13 @@ REMOTE SENSING:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: conservation triage (allocate limited resources across species with different recovery probabilities) is the same decision framework as incident response prioritization (P0/P1/P2 with limited SRE bandwidth). Population viability analysis uses Monte Carlo simulation (same as financial risk modeling). Synergistic threat multiplication parallels cascading failure in distributed systems. Any engineer from reliability engineering or risk management needs this bridge -->
+### Engineering Bridges
+
+Conservation triage is the same decision framework as incident response prioritization with finite SRE bandwidth. You have a fixed resource budget; species have different recovery costs, different probability of success given intervention, and different value (ecological, intrinsic, political). The triage decision is: allocate resources to maximize expected value (or expected probability-weighted species retained), not to the most endangered (lowest probability of success) or the most charismatic (highest political value). This is exactly the P0/P1/P2 triage model: the most critical incident is not always the one that gets resources first — capacity, probability of fix, and blast radius all factor in.
+
+Population Viability Analysis (PVA) is Monte Carlo simulation over a stochastic demographic model. The model includes age-structured survival and fecundity parameters, stochastic variation (environmental variation, demographic stochasticity for small populations), and optionally catastrophe events. Run thousands of simulations forward N years; estimate the probability that population > 0 at year N. The output is a probability distribution over outcomes — the same output structure as financial Value-at-Risk models, project schedule Monte Carlo, or infrastructure failure probability analyses. The key parameter is Minimum Viable Population (MVP) — the population size below which extinction probability within 100 years exceeds some threshold (often 5% or 1%). This threshold is a service-level objective: define the acceptable failure probability, back out the minimum system size that meets it.
+
+Synergistic threat multiplication is the conservation equivalent of cascading failure in distributed systems. Habitat loss degrades immune function (nutritional stress) and increases parasite exposure (crowding at remaining habitat patches); simultaneously, introduced diseases find immunologically naive hosts; simultaneously, climate shifts alter migration timing and food availability. None of these threats alone causes extinction; their combination is multiplicative, not additive. The same dynamic appears in distributed systems: network partition alone, memory pressure alone, and slow disk alone are survivable; their simultaneous occurrence produces cascading failure that none of the individual tolerances could predict.
 
 ## Decision Cheat Sheet
 

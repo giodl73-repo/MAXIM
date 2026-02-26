@@ -1,9 +1,10 @@
-<!-- @editor[bridge/P2]: No old-world→new-world bridge — the tin-glaze transmission chain (Islamic→Spain→Italy→Netherlands→England) maps to technology diffusion models the learner knows; framing as "knowledge graph of craft migration" with explicit diffusion analogy would anchor the narrative -->
 # Earthenware Traditions — Greek/Roman, Majolica, Faience, Delftware
 
 ## The Big Picture
 
 Earthenware — the lowest-fire, most porous ceramic family — is also the oldest. Every culture on earth developed earthenware independently before they developed stoneware or porcelain. The extraordinary range of decorative traditions built on this humble porous clay body spans 20,000 years.
+
+**Technology diffusion model:** The tin-glaze transmission chain — Islamic potters (9th c., Iraq) → Hispano-Moresque Spain (11th–15th c.) → Italian maiolica (15th c.) → Dutch Delftware (17th c.) → English Delftware and French faience — is a textbook graph-propagation model. Each transfer node adopted the core innovation (tin oxide opacified white glaze enabling painting on a white background) while adapting the stylistic vocabulary to local taste and market. The transmission required physical migration of practitioners (Moorish potters to Valencia, Italian majolica potters to Antwerp, then Antwerp refugees to Delft after Spanish Fury 1576) — exactly as technology diffusion requires human carriers of tacit knowledge, not just documented specification. The "majolica" naming drift (Italian → English use for brightly colored Victorian earthenware entirely different from Italian tin-glaze) is the same taxonomy corruption that happens when a software term migrates across ecosystems and loses its original meaning.
 
 ```
 EARTHENWARE TRADITIONS TIMELINE
@@ -342,7 +343,6 @@ English Delftware:
 
 ---
 
-<!-- @editor[bridge/P3]: Wedgwood's division of labor, quality control, and marketing innovations are the 18th-century equivalent of Lean manufacturing and Toyota Production System — a bridge the learner would immediately grasp from engineering management context -->
 ## Wedgwood and the Industrial Transformation
 
 ```
@@ -381,6 +381,17 @@ BUSINESS INNOVATIONS:
  Distribution: canals; Trent & Mersey canal (Wedgwood invested; trunk route)
  The factory as marketing object: visitors welcome; tours organized
  Partner Thomas Bentley: handled London marketing and taste direction
+
+LEAN MANUFACTURING PARALLEL:
+ Wedgwood's Etruria factory (1769) is the 18th-century prototype of the
+ Toyota Production System: strict division of labor (each worker one task),
+ standardized work (jiggering templates to dimensional tolerances), quality
+ gates (inspect and destroy defects — the "poka-yoke" instinct), and
+ continuous improvement (personal QC tours of the factory). The "smash the
+ rejects" policy is exactly the zero-defect culture that Deming would
+ articulate 180 years later. Wedgwood's insight — that consistency and
+ scale defeat bespoke luxury in any commodity market — is still the
+ operating model of industrial consumer goods.
 
 ETHOS: "all useful things" → democratize good design
         Before Wedgwood: fine tableware = aristocratic luxury only

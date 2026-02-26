@@ -286,7 +286,42 @@ The germanium doesn't just reduce tarnish — it forms a transparent GeO₂ surf
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to metallurgy or materials science — phase diagrams for Au-Cu-Ag ternary alloys would connect to the learner's engineering background and explain why specific alloy compositions produce specific colors -->
+## Alloy Color and Phase Diagram Bridge
+
+Gold alloy color is determined by the ternary phase space of Au-Ag-Cu, which can be read directly from the ternary composition diagram:
+
+```
+Au-Ag-Cu TERNARY COLOR MAP (approximate)
+==========================================
+
+         Au (100%)
+          /\
+         /  \
+        / Y  \
+       / Y  G \       Y = Yellow gold (high Au)
+      /  Y  G  \      G = Green gold (Au-Ag rich)
+     / W  Y  G  \     W = White region (high Cu+Ag, no Au)
+    /W  W  Y  R  \    R = Rose/red gold (Cu-rich, low Ag)
+   /________________\
+  Ag (100%)     Cu (100%)
+
+SPECIFIC ALLOY COMPOSITIONS:
+  14k yellow:  58.5% Au, 29% Ag, 12.5% Cu → warm yellow
+  14k rose:    58.5% Au, 4% Ag, 37.5% Cu → pink-red
+  14k white:   58.5% Au + Pd/Ni/Zn → white (Pd preferred)
+  18k yellow:  75% Au, 15% Ag, 10% Cu → deep yellow
+  18k green:   75% Au, 25% Ag, 0% Cu → greenish (Fairmined spec)
+
+PHASE STRUCTURE NOTE:
+  Au-Cu system has an ordered intermetallic (AuCu3) at ~25 at% Au —
+  the same phase ordering as seen in Ni-based superalloys (γ' precipitates).
+  Gold alloys don't typically use this phase deliberately in jewelry
+  (it makes alloys brittle), but it's why Cu-rich golds can work-harden
+  differently than expected from a simple solid-solution model.
+  Ag-Cu has a eutectic at 72% Ag / 28% Cu at 779°C — the basis for
+  sterling (92.5% Ag) lying on the Ag-rich side of this eutectic.
+```
+
 ## Decision Cheat Sheet
 
 | Goal | Metal Choice |

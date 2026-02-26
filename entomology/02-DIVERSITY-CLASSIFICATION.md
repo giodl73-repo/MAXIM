@@ -356,7 +356,13 @@ Wings present?
 
 ---
 
-<!-- @editor[bridge/P2]: No universal bridge — the Rapid Order Identification flowchart is literally a decision-tree classifier; mentioning the parallel to ML decision trees or compiler-style pattern matching would anchor the learner -->
+### Engineering Bridges
+
+The Rapid Order Identification flowchart in this guide is a hand-crafted decision-tree classifier over a morphological feature space. Each branch tests a binary morphological feature (presence/absence of elytra, wing count, rostrum presence, etc.); each leaf is an order assignment. The tree is hand-optimized for depth and expected path length: features that uniquely identify large orders (like halteres → Diptera immediately) appear near the root; fine-grained features appear deeper. This is exactly the information-gain principle in CART and ID3 decision tree algorithms — place the highest-entropy-reducing feature at each split.
+
+The performance analogy is also exact: a well-designed dichotomous key reaches correct identification in 5–8 questions for most specimens; a poorly designed one requires 20+. This maps to decision tree depth and the cost of feature evaluation: in biological keys, the cost is time to examine a specimen feature; in ML, the cost is compute per feature evaluation.
+
+Compiler-style pattern matching (structural pattern matching in ML, switch expressions in C# 8+) is the same operation: given an input structure, match against a prioritized set of patterns with guards, execute the first matching branch. Insect identification is pattern-matching over a morphological feature vector; the identification key is the pattern specification.
 
 ## Decision Cheat Sheet
 

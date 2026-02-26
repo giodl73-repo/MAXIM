@@ -424,7 +424,8 @@ TOPIARY:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to resource allocation: pruning is fundamentally about redirecting a fixed resource budget (stored carbohydrates) to fewer endpoints — same logic as capacity planning where reducing consumer count increases per-consumer resource share -->
+**Resource budget framing**: a mature tree in late winter holds a fixed carbon reserve (stored carbohydrates in roots, trunk, and scaffold branches). Every dormant bud is a potential consumer of that reserve. Pruning removes consumers — each removed bud means more reserve per remaining bud, driving more vigorous growth from the survivors. This is identical to capacity planning: reduce the number of active consumers and per-consumer throughput increases, proportionally. The whole-tree response to heavy pruning (invigoration) follows directly from this model. Conversely, a tree carrying excessive crop load (too many fruit) is an oversubscribed resource pool — each fruit is undersized because the fixed carbohydrate supply is divided too many ways. Thinning fruit is load shedding.
+
 ## Common Confusion Points
 
 **"Flush cuts" are taught in old references and wrong**: many older pruning guides (pre-1980s) recommend cutting flush with the trunk. Shigo's research definitively showed this destroys the collar and prevents compartmentalization. Cut outside the collar.

@@ -5,7 +5,56 @@
 Avian biogeography is the study of how bird species are distributed across the planet — and why. It integrates evolution (speciation, extinction), ecology (dispersal, niche limits), and geology (continental drift, climate history). Birds are the premier biogeographic study group because they are well-documented, can disperse over water, and show clear patterns at multiple scales. Island birds provided the empirical basis for the Theory of Island Biogeography (MacArthur and Wilson 1967), one of ecology's most influential frameworks.
 
 ```
-<!-- @editor[diagram/P2]: Opening diagram is a pattern-process list but doesn't show geographic or conceptual relationships — a landscape diagram showing biogeographic regions with arrows for dispersal corridors, barrier lines (Wallace's Line, water gaps), and hotspot markers would serve better as the anchor for the layered drill-down -->
+WORLD BIOGEOGRAPHIC REGIONS AND BARRIERS
+==========================================
+
+         NEARCTIC              PALEARCTIC
+         (N. America)          (Eurasia + N. Africa)
+              |                      |
+      Bering Land Bridge  <--  [BARRIER: Bering Strait]
+      (glacial maxima)          (open = dispersal block)
+              |
+      [BARRIER: Gulf of       ORIENTAL
+       Mexico / Caribbean]    (S + SE Asia)
+              |                   |
+         NEOTROPICAL          [BARRIER: Wallace's Line]
+         (S. America)          Deep water; biogeographic
+              |                boundary despite proximity
+     [BARRIER: Atlantic            |
+      Ocean; Gondwana          AUSTRALASIAN
+      split ~80 Mya]           (Australia, NZ, Pacific)
+
+         AFROTROPICAL
+         (Sub-Saharan Africa)
+              |
+     [BARRIER: Sahara Desert + Mediterranean]
+              |
+         CONNECTION to Palearctic: seasonal migrants
+         (Sahara crossing = major bottleneck for Afro-Eurasian migrants)
+
+HOTSPOTS (high endemism):
+  Hawaiian Islands     -- extreme isolation; Hawaiian honeycreepers (~50+ spp from 1 colonist)
+  Galapagos Islands    -- Darwin's finches; 13+ spp from 1 ancestor
+  Madagascar           -- ancient Gondwana isolation; vangas, asities
+  New Guinea           -- Birds-of-paradise; most complex male display systems
+  Atlantic Forest (Brazil) -- highest bird density per unit area on Earth
+
+DISPERSAL CORRIDORS (historical):
+  Bering Land Bridge (glacials) -> Holarctic species shared Nearctic + Palearctic
+  Panama Land Bridge (3 Mya)    -> Great American Interchange; N-S bird exchange
+  Wallace's Line (current)      -> hard barrier for non-flying fauna; birds less restricted
+
+PATTERNS vs PROCESSES:
+  Endemism (unique spp)     <--  Isolation + divergence over time
+  Latitudinal diversity     <--  Productivity + stability gradients (tropics richer)
+  gradient
+  Island species-area       <--  Equilibrium: immigration rate vs. extinction rate
+  Disjunct distributions    <--  Vicariance (population split by barrier)
+                                 OR long-distance dispersal (colonization over barrier)
+  Ecological equivalents    <--  Convergent adaptive radiation (independent evolution
+  across continents              into same ecological niches)
+```
+
 BIOGEOGRAPHIC PATTERNS AND PROCESSES
 ========================================
 
@@ -313,7 +362,13 @@ WALLACE'S LINE (SE Asia):
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: MacArthur-Wilson equilibrium (immigration balances extinction at S*) is a queueing theory / steady-state model — arrival rate vs departure rate reaching dynamic equilibrium. Species-area relationship S=cA^z is a power law (same functional form as Zipf's law, Pareto distributions). Island syndrome (predictable evolutionary changes under isolation) parallels how isolated systems (air-gapped networks, forked codebases) evolve convergent characteristics. Any engineer from systems theory needs this bridge -->
+### Engineering Bridges
+
+The MacArthur-Wilson island biogeography equilibrium is a steady-state queueing model. Two rates govern system state: immigration rate I(S) (decreases as island fills, because arriving species are more likely to already be present) and extinction rate E(S) (increases with species count, because more species means more at risk). Equilibrium species richness S* is where I(S) = E(S) — exactly the arrival-rate equals departure-rate condition in an M/M/1 queue at steady state. At equilibrium, turnover is continuous: species are going locally extinct and being replaced by immigrants at equal rates. The equilibrium is a dynamic steady state, not a static endpoint — species composition changes even when species count doesn't. This is precisely how a load-balanced server pool works: individual instances fail and are replaced while pool capacity holds steady.
+
+The species-area relationship S = cA^z (z ≈ 0.25 for true islands, z ≈ 0.15 for habitat patches) is a power law. Power laws appear wherever multiplicative processes compound over large dynamic ranges: Zipf's law in word frequency, Pareto distributions in wealth, request size distributions in web traffic. The z exponent encodes how rapidly isolation cuts species count — a 10× reduction in area corresponds to a 10^0.25 ≈ 1.78× reduction in species count. This calibrated relationship lets conservation biologists predict species loss from habitat fragmentation the same way capacity engineers predict throughput degradation from service instance reduction.
+
+Island syndrome — the predictable evolutionary changes that occur in isolated populations (flightlessness, dwarfism or gigantism, tameness, reduced immune function) — is convergent adaptation to a constraint envelope. Isolated populations repeatedly evolve the same phenotypes because they face the same selection pressures: no aerial predators (flight cost without flight benefit → flightlessness), no large predators (large prey → gigantism; small herbivores → dwarfism), naïve to novel threats (tameness before human contact). This convergence parallels how isolated technical systems independently evolve similar workarounds for the same constraints: air-gapped networks, forked open-source codebases, and isolated regional deployments all independently develop the same improvised solutions to the same problems.
 
 ## Decision Cheat Sheet
 

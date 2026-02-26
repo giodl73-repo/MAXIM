@@ -1,9 +1,10 @@
-<!-- @editor[bridge/P2]: No old-world→new-world bridge — the division of labor in ceramic factories maps directly to software team specialization (frontend/backend/devops/QA); Wedgwood's factory as the original "microservices architecture" of production would land immediately for this learner -->
 # Ceramic Trades — Potter, Kiln Master, Tile Maker, Porcelain Painter
 
 ## The Big Picture
 
 Ceramics is one of humanity's oldest continuous industries. The trades within it span from the industrial production worker doing one narrow task 500 times a day to the studio artist who controls the entire process from clay to sale. Understanding the trade structure illuminates why certain ceramic traditions look the way they do.
+
+**Software team parallel:** The division of labor in a ceramic factory maps directly onto software team specialization. The thrower (forms the shape) = frontend engineer (produces the visible artifact). The handler (attaches handles, spouts, feet) = integration engineer (connects components). The decorator = UX/design (surface treatment, user-facing aesthetics). The glaze chemist = platform engineer (underlying chemistry that enables surface). The kiln master = DevOps/SRE (controls the irreversible production environment — if the kiln fires wrong, you can't roll back). QC inspector = QA engineer. The studio potter who does all stages is the full-stack developer. Wedgwood's factory is the original microservices architecture: each stage is a discrete service with defined inputs/outputs, and the pipeline is orchestrated by factory management rather than direct coupling between stages. The key insight is the same in both domains: specialization increases throughput but creates coupling dependencies — a bottleneck at the kiln (or deploy pipeline) blocks the entire value stream.
 
 ```
 CERAMIC TRADE HIERARCHY
@@ -116,7 +117,6 @@ STUDIO THROWER vs PRODUCTION THROWER:
 
 ---
 
-<!-- @editor[bridge/P3]: The kiln master's proprietary knowledge being displaced by automated controllers is the exact same disruption pattern as DevOps replacing manual sysadmin knowledge with infrastructure-as-code — a bridge the learner has lived through -->
 ## The Kiln Master
 
 ```
@@ -155,6 +155,21 @@ ELECTRIC KILN FIRING (modern studio):
   - Glaze chemistry (compatible thermal expansion)
   - Loading and kiln furniture (no touching pieces)
   - Cooling rate through 573°C quartz inversion
+
+DISPLACEMENT PATTERN — Infrastructure-as-Code parallel:
+ The kiln master's tacit knowledge (flame color, damper feel, kiln personality)
+ was entirely proprietary — undocumented, non-transferable, indispensable.
+ The introduction of programmable kiln controllers in the 1980s–1990s codified
+ that knowledge into ramp/soak programs. The kiln master's tacit expertise
+ became an explicit recipe: temperature segments, rate limits, hold times.
+ This is exactly the pattern of DevOps and infrastructure-as-code: the
+ sysadmin's tacit knowledge of server configuration (which port, which tunable,
+ which sequence) was replaced by Ansible playbooks and Terraform configs.
+ In both cases: (1) quality improved and became reproducible, (2) the
+ specialist role's leverage shifted from execution to design, (3) the
+ barrier to entry for ordinary practitioners dropped dramatically, and
+ (4) the remaining expert advantage moved to glaze chemistry / system
+ architecture — the harder-to-automate layer above the operational detail.
   - Vent timing (off-gassing in bisque and early glaze fire)
  Kiln firing remains a skill even with automation
 

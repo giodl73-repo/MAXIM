@@ -356,7 +356,6 @@ IMPACT: Deco cemented diamond as THE engagement stone.
 
 ---
 
-<!-- @editor[content/P2]: Post-WWII section is a summary table only — each era (especially Retro, Mid-Century, Studio Jewelry) deserves at least a paragraph with technique/material specifics to match the depth of earlier eras -->
 ## Post-WWII to Contemporary
 
 | Era | Characteristic | Key Figures |
@@ -368,9 +367,36 @@ IMPACT: Deco cemented diamond as THE engagement stone.
 | 1990s–00s | Mass market diamonds; brand dominance | De Beers, chain retailers |
 | 2010s+ | Ethical sourcing; lab-grown; 3D printing; bespoke CAD | Independent designers, Brilliant Earth |
 
----
+**Retro / 1940s–50s:** WWII platinum restrictions (Pt classified as strategic war material by US government, 1942) forced jewelers back to gold — 14k and 18k yellow gold instead of the white platinum that defined Art Deco. The resulting aesthetic: larger, more voluminous forms using less-dense metal, often with dimensional scrollwork, ribbons, and bow motifs (the "Retro" period). Schlumberger at Tiffany and Verdura synthesized Retro forms with high craft. Platinum returned to jewelry use post-1945 but the dominant aesthetic had shifted toward gold.
 
-<!-- @editor[bridge/P3]: A brief "materials science lens" bridge here would connect to the learner — e.g., how each era's technical breakthroughs (oxy-acetylene torch enabling platinum in Art Deco, electroplating enabling Sheffield plate, CAD/3D printing in contemporary) drove the stylistic shifts -->
+**Mid-Century / Studio (1960s–70s):** American studio jewelry was a deliberate rejection of the commercial jewelry trade — the same movement as studio ceramics and studio glass. Practitioners (Art Smith, Sam Kramer, Ed Wiener) treated jewelry as sculptural art, using silver and non-precious materials (brass, aluminum, found objects) to remove the constraint of precious metal cost. The GI Bill funded art school programs; the university system became the alternative institutional base to the guild-apprentice track. Key technical enabler: oxyacetylene torch (portable, compact, high-temperature) made one-person studio work feasible for platinum-class work at lower scale.
+
+**Contemporary (2010s+):** Three parallel technical disruptions are reshaping jewelry:
+1. CAD/CAM casting — Rhinoceros + ZBrush models → wax printing → lost-wax cast; democratized complex forms; separated design skill from bench skill
+2. Lab-grown diamonds — CVD reactor-grown diamonds at 1/10th–1/5th mined price; properties identical to natural; forcing a fundamental repositioning of diamond as a product category
+3. Direct metal printing — DMLS (direct metal laser sintering) in gold and platinum allows forms impossible in traditional casting; used by high-end designers (Nervous System, Brinker + Eliza)
+
+**Materials science lens — how technology drove style:** Each major stylistic era correlates with a material or process breakthrough:
+
+```
+ERA          TECHNICAL ENABLER              STYLISTIC CONSEQUENCE
+===          =================              =====================
+Georgian     Closed-back foil settings       Paste/rock crystal viable for light
+             (gold foil behind gem)          reflection; gems "lit from behind"
+Victorian    Electroplating (1840)           Gold-filled and rolled gold at scale;
+                                            jewelry mass market opens
+Belle Époque Oxy-hydrogen torch (1870s)     Millegrain, fine platinum wire work;
+             + oxy-acetylene (1900s)        Edwardian filigree becomes feasible
+Art Deco     Oxy-acetylene mature            Platinum fully workable; diamond-
+             + platinum availability         platinum "invisible" white aesthetic
+WWII–50s     Pt restricted → gold           Retro: bigger forms compensate for
+                                            lower density/brightness of gold
+1960s–70s    Portable oxyacetylene          Studio jewelry; individual maker
+                                            works platinum-class without factory
+1990s–00s    CNC mill + lost-wax CAD        Mass-market precise channel settings;
+                                            pavé at lower labor cost
+2010s+       CVD diamond + DMLS printing    Lab-grown economics + impossible forms
+```
 
 ## Common Confusion Points
 

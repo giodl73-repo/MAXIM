@@ -322,7 +322,11 @@ Wing beat: 20-40 Hz               Wing beat: 100-1000 Hz
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from engineering/CS concepts — the tracheal system's diffusion-limited scaling is a direct parallel to heat-sink design and signal propagation limits; cuticle layering parallels composite material engineering. One bridge would connect to the learner's mental models -->
+### Engineering Bridges
+
+The insect tracheal system imposes a hard size limit through diffusion physics. O₂ delivery relies primarily on diffusion along tracheal tubes (not convection — insects lack the powered circulatory O₂ transport that vertebrates use). Fick's law gives the diffusive flux: J = D × ΔC / L, where L is diffusion path length. Flux degrades as the square of path length — doubling body radius means O₂ reaches the center at one-quarter the rate. This is the same scaling law that limits heat dissipation in CPU dies: thermal resistance scales with die thickness, and you cannot conduct heat out of the center of a thick die fast enough without active cooling. Carboniferous giant insects (Meganeura with ~70cm wingspan) existed when atmospheric O₂ was ~35% vs. today's 21% — the higher partial pressure increased ΔC, effectively pushing the diffusion limit up. This is directly analogous to increasing coolant flow rate to enable larger die sizes.
+
+Insect cuticle is a layered composite material with the same engineering logic as a fiber-reinforced composite. The outer epicuticle is thin (~1μm), hydrophobic (wax layer), and provides the barrier function. The exocuticle below it is sclerotized (cross-linked) for rigidity and hardness — equivalent to a hard surface treatment. The endocuticle is thicker, less cross-linked, and provides toughness and flexibility. The layering trades strength vs. toughness at each layer, with the external face optimized for abrasion/barrier resistance and the inner face for impact absorption — the standard composite material design principle of gradient stiffness.
 
 ## Decision Cheat Sheet
 

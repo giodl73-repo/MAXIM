@@ -246,11 +246,22 @@ COLORED STONE CONSIDERATIONS
    Extinction: too deep pavilion → stone appears dark, lifeless
    Balance: pavilion depth calibrated to stone's RI and desired tone
 
-<!-- @editor[content/P3]: This angle-by-RI list would be stronger as a table with species examples per RI band — easier to look up at the bench -->
-3. STANDARD ANGLES BY RI
-   Low RI (1.55–1.65): steeper pavilion needed (43–45°)
-   Medium RI (1.70–1.80): 41–43°
-   High RI (1.90+): shallower (38–40°) — tourmaline, zircon
+3. STANDARD PAVILION ANGLES BY RI
+
+| RI Range     | Pavilion Angle | Common Species in Range                    |
+|--------------|---------------|--------------------------------------------|
+| 1.45–1.55    | 45–47°        | Fluorite (1.43), opal (1.45), glass        |
+| 1.55–1.65    | 43–45°        | Quartz (1.55), topaz (1.62), amethyst      |
+| 1.65–1.75    | 41–43°        | Peridot (1.65), tourmaline (1.62–1.64)     |
+| 1.75–1.85    | 40–42°        | Spessartite garnet (1.80), synthetic ruby  |
+| 1.85–1.95    | 39–41°        | Demantoid (1.89), hessonite garnet (1.74)  |
+| 1.95–2.10    | 38–40°        | Zircon (1.93), sphene (1.90–2.05)          |
+| 2.40–2.50    | 40–41°        | Diamond (2.42) — empirically optimized      |
+
+Note: diamond's "steeper" angle relative to its RI is because the
+standard brilliant cut (40.75° pavilion) was optimized empirically
+by Tolkowsky (1919) for the combination of maximum brilliance and
+fire, not derived purely from the critical angle (arcsin(1/2.42) = 24.4°).
 
 4. WEIGHT vs BEAUTY
    Commercial cutting: maximize carat weight (native cutting in

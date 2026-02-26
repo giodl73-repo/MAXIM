@@ -435,7 +435,41 @@ Idar-Oberstein (Germany):
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to software industry parallels — the bench jeweler/designer/gemologist split maps cleanly to developer/architect/QA; guild → certification → modern credentialing parallels would resonate with this learner's management experience -->
+## Professional Specialization Bridge
+
+The bench jeweler / designer / gemologist split maps cleanly onto software team role structure:
+
+```
+JEWELRY TRADE ROLES ↔ SOFTWARE ROLES
+=======================================
+
+Bench jeweler      = Developer (makes the thing; tool skills; execution)
+Designer/CAD       = Architect/UX (conceives the form; may not fabricate)
+Gemologist (GIA)   = QA/Auditor (evaluates, grades, certifies — doesn't build)
+Appraiser          = Analyst (assigns value — separate credential from grader)
+Setter             = Specialist/Platform engineer (one high-skill subprocess)
+Sales/buyer        = Product manager (market interface; doesn't build)
+
+These roles rarely fully overlap — as in software, the best implementor
+is rarely the best designer, and the best auditor is rarely the best builder.
+Mid-size firms have all roles; a one-person studio is the full-stack analog.
+
+CREDENTIALING PATHWAY (guild → cert → modern):
+  Guild era:        7-year apprenticeship; master certification via craft guild
+                    (Goldsmiths' Company, London, est. 1327 — still exists)
+  Industrial era:   Trade school + employer training
+  Modern:           GIA diploma programs (Graduate Gemologist, Graduate
+                    Diamonds, Graduate Colored Stones); FGA (Gemmological
+                    Association of GB); continuing ed via AGS, AGTA
+
+PARALLEL TO SOFTWARE CREDENTIALING:
+  The guild → cert transition mirrors: CS degree → coding bootcamp → portfolio
+  In both fields, the credential signals baseline competency; the work
+  portfolio signals actual capability. The GIA GG is like a relevant
+  degree: necessary-but-not-sufficient for senior roles; the bench or
+  buying track record is what matters for hiring decisions.
+```
+
 ## Common Confusion Points
 
 **Bench jeweler ≠ designer ≠ gemologist**:

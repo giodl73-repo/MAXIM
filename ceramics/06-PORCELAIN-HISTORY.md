@@ -1,9 +1,10 @@
-<!-- @editor[bridge/P2]: No old-world→new-world bridge — the porcelain secret parallels technology transfer and trade secret dynamics the learner knows from the software industry (proprietary formulas, industrial espionage, moat strategies); explicitly framing this as an IP/trade-secret narrative would resonate -->
 # Porcelain History — Chinese Origins to Meissen 1708
 
 ## The Big Picture
 
 Porcelain is the most coveted manufactured object in human history for roughly 1,200 years. European monarchs traded soldiers for Chinese vases. Alchemists spent careers trying to decode the formula. The word "porcelain" itself (from Portuguese "porcellana" — cowrie shell) reveals that Europeans had no better analogy for its translucent, smooth surface than a seashell.
+
+**IP and trade secret lens:** The entire porcelain history from ~1300 CE through 1710 is a technology transfer and trade secret story. China held a manufacturing monopoly enforced not by patents but by geographic isolation, worker confinement, and strict export controls on knowledge (workers at Jingdezhen were prohibited from emigrating). Europe's attempts to reverse-engineer porcelain followed the same playbook as modern IP espionage: analyze the artifact, recruit defectors (Père d'Entrecolles, a Jesuit priest, sent detailed letters describing Jingdezhen's kilns in 1712), fund parallel R&D programs under secrecy (Böttger was essentially a prisoner-researcher at Dresden), and race to be second with an independent equivalent. Meissen's response to the leak of its own formula — Vienna 1718 via a defector, then every European court within decades — is identical to the dynamics of any technology that can be reverse-engineered: the first-mover advantage is real but temporary, and the moat disappears once knowledge propagates. The lesson that Wedgwood drew — build brand and quality as the durable moat, not formula secrecy — is the modern SaaS lesson, two centuries early.
 
 ```
 PORCELAIN HISTORY TIMELINE

@@ -240,8 +240,6 @@ Treatment: "oiling" = filling surface fractures with cedar oil,
 | Amethyst | Quartz | Fe³⁺ + irradiation | Purple; heat treatment → citrine |
 | Tourmaline | Borosilicate | Fe, Mn, Cr | Widest color range of any gem species |
 | Garnet | Multiple species | Fe, Cr, Mn | Demantoid (green, high dispersion); tsavorite (Cr grossular) |
-<!-- @editor[content/P2]: Duplicate row — tanzanite already listed as first entry in this table; remove this duplicate -->
-| Tanzanite | Zoisite | V³⁺ | Only from Tanzania; pleochroism trichroic |
 
 ---
 
@@ -290,7 +288,10 @@ Heat treatment is so standard for corundum (~95% treated) that unheated stones c
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to crystallography or solid-state physics (MIT background) — lattice symmetry groups map directly to the 7 crystal systems; a one-line pointer would connect to learner's existing mental model -->
+## Crystal System Bridge
+
+The 7 crystal systems in gemology are the same 7 crystal systems in solid-state physics — the same 32 crystallographic point groups. If you know face-centered cubic (isometric/cubic system) from materials science, that's the system containing diamond, garnet, and spinel. Corundum (ruby/sapphire) is trigonal (a subgroup of hexagonal). The optical properties follow directly from symmetry: isometric crystals are optically isotropic (no birefringence, one RI); all other crystal systems are anisotropic (two or three principal RIs, birefringence). A polariscope reading "singly refractive" is telling you the gem is cubic (or amorphous); "doubly refractive" means any lower-symmetry system. Calcite's extreme birefringence (0.172) that produces double images is the same physics as zircon's weaker birefringence (0.059) that causes facet-edge doubling — scale differs, mechanism is identical.
+
 ## Decision Cheat Sheet
 
 | Scenario | Recommendation |

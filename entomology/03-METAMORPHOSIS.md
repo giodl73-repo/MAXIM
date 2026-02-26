@@ -285,7 +285,27 @@ WHY WAS IT SUCCESSFUL?
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge — the JH/20E two-hormone binary switch maps directly to a finite state machine with two control signals; imaginal discs are a biological version of lazy initialization. One bridge would help the learner internalize the developmental architecture -->
+### Engineering Bridges
+
+Holometabolous development is a finite state machine driven by two hormonal control signals. The states are: embryo → larval instars (n stages) → pupa → adult. The transitions are controlled by two hormones:
+
+- **Juvenile Hormone (JH)**: "remain in current state" signal — high JH suppresses state transitions and maintains larval identity
+- **20-Hydroxyecdysone (20E)**: "execute state transition" signal — triggers molting and drives state advancement
+
+The developmental FSM logic: when 20E rises, a molt is triggered; whether the molt produces another larval instar or advances to pupal/adult state depends on JH level. High JH + 20E pulse → larval-to-larval molt (stay in larval state). Low JH + 20E pulse → larval-to-pupal transition (advance state). Absent JH + 20E pulse → pupal-to-adult transition (final state). Two signals, three state transitions, four life stages: a minimal FSM.
+
+```
+STATE MACHINE:
+
+  JH high   JH high   JH low    JH absent
+  20E pulse 20E pulse 20E pulse 20E pulse
+     |         |         |         |
+  [L1] -> [L2...Ln] -> [PUPA] -> [ADULT]
+  larval    larval     non-      final
+  identity  identity   feeding   state
+```
+
+Imaginal discs are lazy initialization of adult structures. A caterpillar contains ~15,000 undifferentiated imaginal disc cells that will become eyes, wings, legs, antennae, and genitalia — all the adult structures needed but not yet instantiated. These cells are held in an undifferentiated, uncommitted state throughout larval life (high JH maintains suppression). At pupation, JH drops, 20E rises, and imaginal discs activate: they proliferate, differentiate, and evert to form the adult body plan. Computing equivalent: defer expensive initialization until the object is actually needed, then instantiate fully. The larva doesn't "waste" resources building wings it can't use; it carries the blueprint (imaginal disc cells) and defers instantiation until the adult phase when wings are functional.
 
 ## Decision Cheat Sheet
 

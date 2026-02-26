@@ -318,6 +318,38 @@ CANADIAN WHISKY confusion:
 
 ---
 
+## Tennessee Whiskey and the Lincoln County Process
+
+```
+LINCOLN COUNTY PROCESS (Jack Daniel's, George Dickel)
+
+  New-make corn whiskey
+      |
+      | CHARCOAL FILTRATION through 10 feet of sugar maple charcoal
+      | (made by burning hard maple, then dousing with flame)
+      |
+      v
+  Filtered spirit -> new charred oak barrel -> aging
+
+This step REMOVES the spirit from the bourbon legal category
+(bourbon cannot have its character altered by filtering before barreling)
+-> Tennessee whiskey is not bourbon by law (though distilled similarly)
+-> Jack Daniel's is not bourbon (despite looking, tasting, and being made like bourbon)
+
+LEGAL STATUS:
+  Tennessee whiskey is a separate legal category (US law, Tennessee state law)
+  Must be produced in Tennessee, from 51%+ corn, filtered through maple charcoal,
+  and aged in new charred oak
+  Jack Daniel's and George Dickel are the two major producers
+
+FLAVOR EFFECT:
+  The charcoal filtration removes some fusel oils and congeners
+  Adds a subtly sweet, slightly smoky character distinct from standard bourbon
+  The difference is subtle but measurable in side-by-side tasting
+```
+
+---
+
 ## Japanese Whisky
 
 ```

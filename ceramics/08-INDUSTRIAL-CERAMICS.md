@@ -1,9 +1,10 @@
-<!-- @editor[bridge/P2]: This is the most natural bridge file in the volume — the learner already knows semiconductors, power electronics, materials science. Open with an explicit bridge: "If you know MOSFET fabrication or turbine metallurgy, technical ceramics are the enabling material layer underneath" -->
 # Industrial Ceramics — Technical Ceramics, Refractories, Bioceramics
 
 ## The Big Picture
 
 The ceramics industry by revenue is dominated not by tableware or tiles but by technical ceramics — engineered materials for electronics, aerospace, medicine, and energy. Every semiconductor device, every gas turbine, every implanted hip joint, and every automotive exhaust system depends on ceramic engineering.
+
+**Engineering entry point:** Technical ceramics are the enabling material layer underneath the systems you already know. If you know MOSFET fabrication: the gate dielectric (SiO₂, HfO₂), the shallow trench isolation (SiO₂), and the interlayer dielectrics are all ceramics. The packaging substrate (AlN or Al₂O₃) is a ceramic. If you know gas turbine engineering: the thermal barrier coating on turbine blades (yttria-stabilized zirconia, 100–500 µm) is the ceramic layer that allows combustion temperatures 100–200°C above the nickel superalloy's melting point. If you know EV power electronics: SiC MOSFETs and GaN-on-SiC are semiconductor-on-ceramic systems — the SiC substrate is the enabling thermal and electrical material. The pattern is consistent: wherever operating conditions exceed the limits of metals and polymers (temperature, hardness, dielectric strength, biocompatibility), ceramics are the solution layer.
 
 ```
 INDUSTRIAL CERAMICS LANDSCAPE
@@ -155,7 +156,6 @@ THERMAL BARRIER COATINGS (TBC) ON GAS TURBINES:
 
 ---
 
-<!-- @editor[content/P2]: SiC section covers abrasives and power electronics but omits SiC's critical role in LED substrate history (blue LED on SiC before GaN) and EV charging infrastructure — significant for this learner's engineering context -->
 ## Silicon Carbide (SiC)
 
 ```
@@ -193,6 +193,28 @@ Semiconductor power electronics (SiC MOSFET):
  Applications: EV inverters, solar inverters, industrial motor drives
  Tesla Model 3 inverter: uses SiC MOSFETs (SiCR SiC modules from ST Micro)
  → 30% reduction in inverter energy loss vs silicon equivalent
+
+LED substrate history:
+ SiC was the first viable substrate for blue LEDs before GaN-on-sapphire
+ dominated. Cree's early blue and blue-green LEDs (1989–1993) used 6H-SiC
+ substrates — the wide bandgap (3.26 eV) and hexagonal lattice were a
+ reasonable match for GaN epitaxy. The SiC substrate path was commercially
+ superseded by sapphire (Al₂O₃) + GaN buffer layers after Nakamura's
+ breakthroughs at Nichia (1993–1994), which offered lower substrate cost and
+ better GaN lattice match. However, SiC-on-SiC (GaN-on-SiC) is now standard
+ for RF power transistors (5G base stations) because SiC's thermal
+ conductivity (120–200 W/mK vs sapphire's 25 W/mK) handles the power density.
+ The evolutionary path: SiC substrate (Cree blue LEDs) → sapphire substrate
+ (Nichia, dominant LEDs) → SiC substrate returns for GaN RF power (Wolfspeed,
+ MACOM). Ceramics substrate choice determines thermal management in all cases.
+
+EV charging infrastructure:
+ SiC MOSFETs are now the standard in Level 3 DC fast chargers (150–350 kW).
+ The operating voltage (800V bus in latest EVs — Porsche Taycan, Hyundai
+ Ioniq 5) requires switching transistors rated 1,200V, which is achievable
+ with SiC at reasonable on-resistance. Silicon IGBTs at 800V bus are
+ significantly less efficient. The ceramics (SiC) content of a modern EV
+ fast charger is structurally similar to its power electronics.
 ```
 
 ---

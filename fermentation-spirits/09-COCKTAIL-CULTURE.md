@@ -508,24 +508,19 @@ codification, and showmanship that elevated bartending from servitude to profess
 
 ## Decision Cheat Sheet
 
-| I want to understand... | Reference |
-|---|---|
-| The canonical cocktail building block | The Sour formula: 2 spirit + 0.75 acid + 0.75 sweet |
-| Spirit-forward stirred cocktails | Manhattan/Martini/Negroni template |
-| Historical context for any classic | This file timeline + David Wondrich "Imbibe" |
-| Technical reference for modern technique | Dave Arnold "Liquid Intelligence" |
-| Bar setup for home/professional | Jim Meehan "The PDT Cocktail Book" |
-| Tiki deep dive | Jeff Berry "Beachbum Berry's Remixed" or "Potions of the Caribbean" |
-| Comprehensive style taxonomy | This file's cocktail template section |
-| Low-ABV cocktails | Aperol/Campari + wine-based modifiers; Seedlip for N/A |
-
-<!-- @editor[structure/P3]: Recipe table below shifts format from "I want to understand..." to "Classic cocktail" — consider unifying into a single decision-oriented table -->
-| Classic cocktail | Formula | Key spirit |
-|---|---|---|
-| Daiquiri | 2 rum + 0.75 lime + 0.75 sugar | White rum (Havana 3yr) |
-| Margarita | 2 tequila + 0.75 lime + 0.75 triple sec | Blanco tequila |
-| Old Fashioned | 2 bourbon + 0.25 sugar + 2 dashes Angostura | Rye or bourbon |
-| Negroni | 1 gin + 1 Campari + 1 sweet vermouth | London Dry gin |
-| Penicillin | 2 blended Scotch + 0.75 lemon + 0.75 honey-ginger + 0.25 Islay float | Blended Scotch |
-| Paper Plane | Equal parts bourbon + Aperol + Amaro Nonino + lemon | Bourbon |
-| Last Word | Equal parts gin + green Chartreuse + maraschino + lime | London Dry gin |
+| Goal / Question | Approach | Formula / Reference |
+|----------------|----------|---------------------|
+| Build any sour-family cocktail | Apply the Sour template | 2 spirit + 0.75 acid + 0.75 sweet; adjust to taste |
+| Build a spirit-forward stirred cocktail | Manhattan/Martini/Negroni template | 2 base spirit + modifier(s) + bitters; stir, strain |
+| Make a Daiquiri | Rum sour | 2 white rum + 0.75 lime + 0.75 sugar syrup (Havana Club 3yr) |
+| Make a Margarita | Tequila sour | 2 blanco tequila + 0.75 lime + 0.75 triple sec; salt rim optional |
+| Make an Old Fashioned | Whiskey + sugar + bitters | 2 rye or bourbon + 0.25 sugar + 2 dashes Angostura; stir |
+| Make a Negroni | Equal-parts bitter stirred | 1 London Dry gin + 1 Campari + 1 sweet vermouth; stir |
+| Make a Penicillin | Modern sour with smoke float | 2 blended Scotch + 0.75 lemon + 0.75 honey-ginger + 0.25 Islay float |
+| Make a Paper Plane | Equal-parts modern | Equal parts bourbon + Aperol + Amaro Nonino + lemon |
+| Make a Last Word | Equal-parts classic | Equal parts gin + green Chartreuse + maraschino + lime |
+| Find historical context for a classic | Reference | David Wondrich "Imbibe" |
+| Master modern technique (carbonation, clarification, etc.) | Reference | Dave Arnold "Liquid Intelligence" |
+| Set up a professional or home bar | Reference | Jim Meehan "The PDT Cocktail Book" |
+| Go deep on Tiki | Reference | Jeff Berry "Beachbum Berry's Remixed" |
+| Make low-ABV cocktails | Aperitif + wine base | Aperol/Campari + sparkling wine; Seedlip for non-alcoholic |

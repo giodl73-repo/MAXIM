@@ -267,8 +267,17 @@ COMPARATIVE PATTERN:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: vocal learning via template-matching + sensorimotor feedback is the same architecture as supervised learning with loss function (template = target, subsong = noisy prediction, crystallization = convergence). AFP pathway = training loop; motor pathway = inference. Spectrograms are literally time-frequency transforms (same as FFT in signal processing). Any engineer from DSP or ML needs this bridge -->
-<!-- @editor[structure/P2]: No comparison tables in body — a table comparing the three vocal learner groups (oscines, parrots, hummingbirds) on brain regions, repertoire, learning style, and species count would strengthen the guide -->
+### Engineering Bridges
+
+Vocal learning in oscines is supervised learning with a sensorimotor feedback loop. The template phase is training data ingestion: the bird memorizes the tutor song during a sensitive period, building an internal target representation. The subsong phase is noisy inference: the bird produces unstructured vocalizations and compares auditory feedback against the stored template — the loss function is the difference between heard output and stored target. Song crystallization is convergence: the loss approaches zero, the motor program stabilizes, and the pathway that produced the song (AFP — anterior forebrain pathway) disengages from real-time control. After crystallization, the AFP is no longer needed for production (lesioning it doesn't affect crystallized song), but is still required for learning new songs. This dissociation of training and inference pathways is not a metaphor — it is literally the mechanism.
+
+Spectrograms of birdsong are short-time Fourier transforms (STFT) — exactly the same signal processing operation used to visualize audio, vibration, radar returns, and EEG. Frequency-modulated (FM) sweeps, harmonic stacks, and broadband noise bursts in bird vocalizations are described with the same vocabulary as FM radio signals or spread-spectrum transmission. The syrinx is a biological FM synthesizer capable of independent control of two sound-generating membranes, producing polyphonic output that a single human larynx cannot replicate.
+
+| Vocal learner group | Independent evolution | Brain region | Repertoire size | Learning continues as adult? |
+|--------------------|----------------------|--------------|-----------------|------------------------------|
+| Oscines (songbirds) | Yes (convergent) | HVC, RA, Area X, LMAN | 1–200+ song types | Some (open-ended); others closed |
+| Parrots (Psittaciformes) | Yes (convergent) | NLC, NLCa, MMSt | Vast; cross-species mimicry | Yes — open-ended |
+| Hummingbirds (Trochilidae) | Yes (convergent) | VLVA, VAH, VAS | 1–15 song types | Largely closed after critical period |
 
 ## Decision Cheat Sheet
 
@@ -278,8 +287,7 @@ COMPARATIVE PATTERN:
 | Two-voice phenomenon | Syrinx bilateral: two independent voices | Thrush polyphonic recordings |
 | "Dear enemy" effect | Less aggression toward familiar neighbor | Edinger; played across many species |
 | Repertoire size + mate choice | Larger repertoire -> female preference (some species) | Searcy, Sedge warbler studies |
-<!-- @editor[content/P2]: "Star compass learning" row belongs in 04-MIGRATION.md, not song/communication — replace with a song-relevant entry (e.g., dialect formation, mimicry function) -->
-| Star compass learning | Birds learn rotation axis, not Polaris | Emlen (1969) planetarium |
+| Dialect formation | Song variants diverge geographically as errors accumulate in copying chains; boundary zones show rapid dialect shift | Marler & Tamura (1962) white-crowned sparrow dialects; Mundinger (1982) |
 | AFP pathway function | Required for learning; not production after crystallization | Lesion studies in zebra finch |
 
 ---

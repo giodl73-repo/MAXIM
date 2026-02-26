@@ -286,8 +286,40 @@ DIFFERENCES arise from:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: species concepts (BSC vs PSC) map to entity identity problems in software (when are two records "the same thing"?); checklist disagreements parallel versioned ontology conflicts. Taxonomic hierarchy is a directed acyclic graph with contested edges — same problem as dependency resolution -->
-<!-- @editor[diagram/P2]: Opening diagram is a classification hierarchy (lists ranks) but doesn't show how the major avian groups relate to each other — a phylogenetic overview tree (Palaeognathae, Galloanserae, Neoaves with major clades branching) would serve as a true landscape diagram for this guide -->
+### Engineering Bridges
+
+The species concept debate is the entity identity problem. When are two populations "the same thing"? The Biological Species Concept (BSC) defines species by reproductive isolation — two populations are distinct species if they don't successfully interbreed where they meet. This is a behavioral/genetic test: identity is defined by interface compatibility. The Phylogenetic Species Concept (PSC) defines species by diagnosability — a species is the smallest monophyletic group with a unique derived character. This is a structural test: identity is defined by internal composition. You get more species under PSC (~20% more in most groups) because PSC splits populations that the BSC would lump as one species.
+
+Checklist disagreements (IOC ~11,000 spp vs. Clements ~10,700 spp vs. HBW ~10,600 spp) are versioned ontology conflicts over the same underlying data — different teams applying different species concepts to the same specimens and genetic data. The "split" or "lump" decision for each contested taxon is effectively a schema migration that propagates downstream: banding databases, range maps, and conservation lists all need updating. This is why birding apps track which checklist version they use, and why switching between list authorities can add or subtract dozens of species from a life list without a single new bird being observed.
+
+```
+AVIAN PHYLOGENY — MAJOR GROUPS
+
+                    AVES (birds)
+                         |
+          +--------------+--------------+
+          |                             |
+    PALAEOGNATHAE                 NEOGNATHAE
+    (ratites + tinamous)               |
+    Ostriches, rheas,         +--------+--------+
+    emus, kiwis, cassowaries  |                 |
+    Tinamous (flying)   GALLOANSERAE        NEOAVES
+                        |                  (~95% of spp)
+                   +----+----+                  |
+                   |         |         (rapid radiation
+              Galliformes Anseriformes   66-56 Mya)
+              (pheasants,  (ducks,       Includes:
+               turkeys,    geese,        Passeriformes
+               grouse)     swans)        Accipitriformes
+                                         Strigiformes
+                                         Charadriiformes
+                                         Columbiformes
+                                         Psittaciformes
+                                         Apodiformes
+                                         (+ ~30 more orders)
+```
+
+The Neoaves radiation at 66–56 Mya shows incomplete lineage sorting and rapid cladogenesis — the phylogenetic equivalent of a dependency graph where 30 packages were all published in the same month and their dependency relationships are still being resolved. Polytomies (unresolved branching points) in published bird phylogenies reflect genuine ambiguity from this rapid radiation, not missing data.
 
 ## Decision Cheat Sheet
 

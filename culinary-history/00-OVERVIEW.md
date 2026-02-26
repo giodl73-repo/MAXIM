@@ -66,7 +66,47 @@ DEEP TIME ───────────────────────�
 
 ---
 
-<!-- @editor[bridge/P2]: No universal CS bridge in overview — the "compounding technology" framing maps naturally to composability and platform layering (each layer enables the next); connecting to systems thinking would anchor the learner immediately -->
+### Platform Layering Model
+
+Culinary history follows the same compounding platform logic as technology stack evolution. Each foundational innovation enables the next layer of complexity:
+
+```
+CULINARY PLATFORM STACK
+========================
+
+  Layer 5: Cuisine as cultural identity
+  (French haute, Japanese kaiseki, Indian regional traditions)
+           |
+           | requires: codified technique + stable ingredient supply
+           v
+  Layer 4: Codified technique and recipe transmission
+  (Apicius ~400 CE; Taillevent 1375; Escoffier 1903)
+           |
+           | requires: preservation of knowledge + standardized ingredients
+           v
+  Layer 3: Preservation and storage
+  (salt curing ~10K BP; fermentation ~13K BP;
+   canning 1809; mechanical refrigeration 1876; freezing 1924)
+           |
+           | requires: controlled heat + cookware
+           v
+  Layer 2: Cooking with controlled heat
+  (fire ~1 Mya; pottery ~20K BP; metal vessels ~5K BP;
+   ovens, stoves, ranges)
+           |
+           | requires: fire + edible raw materials
+           v
+  Layer 1: Agricultural base / domestication
+  (crops + livestock, ~12K–8K BP, multiple origins)
+           |
+           | requires: sedentism or reliable wild harvest
+           v
+  Layer 0: Fire and raw material acquisition
+  (hunting, gathering, fishing; fire control ~1 Mya)
+```
+
+Each layer is a platform that enables the next: you cannot have haute cuisine without reliable preservation; you cannot have preservation techniques without controlled heat; you cannot have controlled heat application without cookware. This is the same dependency graph as a software platform stack, and the same dynamic: the enabling layer is usually invented before the dependent layer is recognized as possible. The Columbian Exchange (1492+) was a platform API expansion — new ingredient primitives made available to both hemispheres simultaneously, enabling new culinary layers that could not have existed with the previous ingredient set.
+
 ## Five Axes of Analysis
 
 For any food tradition or technology, examine:

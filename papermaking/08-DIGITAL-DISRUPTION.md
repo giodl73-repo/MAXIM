@@ -279,7 +279,45 @@ Paper industry has undertaken significant sustainability messaging:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — this is the one file where the learner's own career experience IS the bridge. The digital disruption story (office paper -6%/yr, newsprint -8%/yr, packaging +3%/yr) maps directly to platform transition economics the learner has lived through: legacy revenue declining while new-platform revenue grows, with mill conversions paralleling team reorgs and product pivots. Worth making this explicit rather than leaving the connection implicit -->
+## Platform Transition Economics Bridge
+
+The paper industry's digital disruption follows the same pattern as every platform transition in software:
+
+```
+PAPER DIGITAL DISRUPTION — PLATFORM TRANSITION ECONOMICS
+==========================================================
+
+DECLINING SEGMENTS (old platform):
+  Office paper:  –4 to –8%/yr (North America, Europe, 2010–present)
+  Newsprint:     –8 to –12%/yr (secular, terminal decline)
+  Directories/forms: –10%+/yr
+  Driver: digital workflows, email, PDF, cloud doc storage
+  Analog: on-premises servers → cloud (–$/yr for server hardware revenue)
+
+GROWING SEGMENTS (new platform):
+  E-commerce packaging: +5–8%/yr (boxes, cushioning, mailers)
+  Tissue/hygiene: +2–3%/yr (population growth, developing markets)
+  Specialty/technical: +3–5%/yr (filter, release, barrier papers)
+  Driver: online retail requires 3–5× more corrugated per item sold
+          vs traditional retail
+  Analog: client software → SaaS (new revenue model, higher per-unit margin)
+
+MILL CONVERSION ECONOMICS:
+  Paper and writing machine → packaging board: requires rebuilding wet end,
+  press section, converting equipment; $100M–$500M investment; 2–3 year project
+  When to convert: when legacy product margin < cost of capital AND
+                   target product margin > conversion payback hurdle
+  Analog: product pivot — team + codebase converted to new market;
+          the technical debt (specialized equipment/skills) is the
+          same barrier as organizational inertia in a pivot
+
+MARKET STRUCTURE SHIFT:
+  Old: many mills, commodity competition, price war
+  New: consolidation (IP, Sappi, Stora Enso, UPM); scale economies;
+       survivors have modern equipment and cost position
+  Analog: platform shift → consolidation → fewer, larger players
+  (same happened in on-premises ERP → cloud SaaS consolidation)
+```
 
 ## Decision Cheat Sheet
 

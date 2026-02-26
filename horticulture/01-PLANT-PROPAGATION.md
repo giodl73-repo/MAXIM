@@ -328,7 +328,8 @@ UNIFORMITY:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to software release engineering: clonal propagation = exact binary replication vs. seed = recompiling from source with nondeterminism. Could strengthen the "why clonal matters" section for an engineering reader -->
+The engineering analogy is direct: clonal propagation is binary replication — copy the bits, get an identical artifact. Sexual reproduction via seed is recompiling from source with nondeterminism — the source (genome) is similar but recombination, mutation, and environmental influence during development produce a phenotype that cannot be bit-for-bit predicted. When the commercial requirement is uniform output (supermarket color standards, wine vintage consistency, pharmaceutical raw material standardization), clonal propagation is the only solution. Seed propagation is appropriate when genetic diversity is the goal, cost is the constraint, or you need large numbers with acceptable variance.
+
 ## Decision Cheat Sheet
 
 | Propagation Method | When to Use | Key Requirement | Approximate Time to Transplant |
