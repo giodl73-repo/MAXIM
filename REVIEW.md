@@ -128,7 +128,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `astronomy/` | 12 | — | — | |
+| `astronomy/` | 12 | 2026-02 | — | 0 tags — polished |
 | `geography/` | 8 | — | — | |
 | `geology/` | 12 | — | — | |
 | `meteorology/` | 11 | — | — | |
