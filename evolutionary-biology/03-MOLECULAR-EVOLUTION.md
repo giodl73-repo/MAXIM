@@ -155,6 +155,7 @@ models like PAML M7/M8 is required to detect this.
 
 ## Molecular Clock
 
+<!-- @editor[content/P2]: Codon usage bias thin — mentioned in the landscape diagram but not covered in the body; codon usage bias is a well-studied force shaped by translational selection and drift that deserves its own subsection -->
 ### The Concept
 
 If substitution rate r (substitutions per site per unit time) is constant across
@@ -254,6 +255,7 @@ chloroplasts themselves are ancient HGT events (endosymbiosis).
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — the substitution models (JC69 through GTR) are Markov chains on a 4-state alphabet; this learner has automata/formal languages from MIT TCS and would immediately grasp these as continuous-time Markov processes if the bridge were explicit -->
 ## Detecting Selection in Genomic Data
 
 ### Population-level tests (within-species polymorphism)

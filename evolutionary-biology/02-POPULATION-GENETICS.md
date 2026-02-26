@@ -289,6 +289,7 @@ it depends on the population and environment. Height h² ≈ 0.8 in developed co
 (most phenotypic variation is genetic); h² ≈ 0.4 in malnourished populations
 (environment explains more variation).
 
+<!-- @editor[bridge/P3]: Natural bridge to database/data-structure concepts missing — allele frequency tables are essentially indexed lookups; FST is a between-vs-within variance decomposition identical to ANOVA which this learner knows from statistics -->
 **Bridge to ML**: The breeder's equation is essentially stochastic gradient descent
 on a quadratic fitness surface. The response R is the parameter update, h² is the
 learning rate × signal-to-noise ratio, S is the gradient. Genomic prediction

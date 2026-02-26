@@ -31,6 +31,7 @@ diversity of life.
 
 ## Biological Species Concept
 
+<!-- @editor[audience/P3]: Tone slightly instructional — the BSC definition and its failures are textbook-level material; this learner would benefit more from a terse comparison table of species concepts with their failure modes than the narrative introduction -->
 Mayr (1942): "Species are groups of actually or potentially interbreeding natural
 populations which are reproductively isolated from other such groups."
 
@@ -249,6 +250,7 @@ What genes actually cause reproductive isolation?
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the speciation continuum (partial reproductive isolation 0-1, decomposed into barrier components) maps directly to probabilistic independence/coupling in formal systems; the D-M incompatibility snowball k(k-1)/2 is a combinatorial argument this learner would appreciate framed as such -->
 ## Speciation Rate — Macroevolutionary Perspective
 
 Why do some clades speciate faster than others?
@@ -285,6 +287,7 @@ divergence (many species more similar than human populations).
 
 ---
 
+<!-- @editor[content/P2]: Chromosomal speciation absent — significant gap; chromosome rearrangements (inversions, fusions, Robertsonian translocations) as isolating mechanisms deserve a section, especially given polyploidy coverage -->
 ## Common Confusion Points
 
 **Allopatric speciation doesn't require selection for isolation.** Drift and

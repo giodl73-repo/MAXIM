@@ -10,6 +10,7 @@ one axis of the full framework:
 |                  EVOLUTIONARY BIOLOGY LANDSCAPE                   |
 +------------------------------------------------------------------+
 |                                                                    |
+<!-- @editor[diagram/P2]: Diagram lists mechanism-pattern pairs but doesn't show how they interact or feed into each other — rework as layered system view showing forces acting on a population with arrows showing interactions (e.g., drift opposes selection at small N, mutation feeds variation to selection) -->
 |  MECHANISM              PATTERN                  TIMESCALE        |
 |  ─────────              ───────                  ─────────        |
 |  Natural selection  →   Adaptation               Generations      |
@@ -173,6 +174,7 @@ loss surfaces — Dauphin et al. 2014).
 
 ---
 
+<!-- @editor[bridge/P2]: No explicit "old world -> new world" bridge section — this learner would benefit from a bridge mapping evolutionary biology concepts to optimization, signal processing, or control theory concepts they already own from CS/math background -->
 ## Connections to Other Reference Directories
 
 | Evolutionary concept | Where else it appears |

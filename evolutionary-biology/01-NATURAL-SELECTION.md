@@ -269,6 +269,7 @@ central to the Extended Evolutionary Synthesis.
 
 ---
 
+<!-- @editor[bridge/P3]: No formal old-world bridge section — the selection equation is gradient ascent on fitness, the breeder's equation is SGD, and 4Nes is a signal-to-noise ratio; this learner's math/CS background would benefit from one explicit bridge box mapping these parallels -->
 ## Decision Cheat Sheet
 
 | Scenario | Framework | Key quantity |
