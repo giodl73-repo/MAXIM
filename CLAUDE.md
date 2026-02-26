@@ -151,7 +151,7 @@ Follow `computing/01-PACKAGE.md` format exactly:
 2. **Layer downward** — each section drills into one piece
 3. **Use ASCII boxes** for system diagrams, flow charts, decision trees
 4. **Use tables** for comparisons and cheat sheets
-5. **"Old world → new world" bridges** where the learner has prior art
+5. **"Old world → new world" bridges** where the learner has prior art — bridges should work for any senior engineer, not just this learner's specific stack (see Bridge Philosophy below)
 6. **End with Decision Cheat Sheet** — the "what do I use when" table
 7. **Common Confusion Points** section for gotchas
 
@@ -243,6 +243,24 @@ grep dashboard → triage → decide priority order
 - Update `TRACKER.md` when a file is completed (not this file)
 - The learner is a peer, not a student — write accordingly
 - Bridge to Azure/VSTS/.NET concepts where natural — don't force it
+
+### Bridge Philosophy
+
+The learner profile sets the **floor** (what not to explain) and the **tone** (peer-level). It does not mean every bridge must route through Azure or Microsoft tooling.
+
+**Bridge hierarchy — in order of preference:**
+
+1. **Universal CS concept bridges first** — "relational → document model", "typed → dynamic", "sync → async execution" — any senior engineer maps these regardless of stack
+2. **Widely-known tool bridges second** — "SQL → NoSQL", "REST → GraphQL", "bash → zsh" — cross-industry, not stack-specific
+3. **Learner's specific prior art last** — SQL Server, ADF, VSTS, .NET — additive context for this reader, not load-bearing for any other
+
+**Test:** A Google engineer, a Rails developer, and a Python data scientist should each get full value from a guide. The Microsoft/Azure bridges should feel like helpful familiarity for this reader, not the only entry point into the content.
+
+**What this means in practice:**
+- Tag `bridge/P1` for missing universal CS bridges — these block any reader
+- Tag `bridge/P2` for missing widely-known tool bridges
+- Tag `bridge/P3` for missing stack-specific bridges (Azure/VSTS/.NET) — nice to have, not blocking
+- Do NOT write bridges that require Azure-specific knowledge to follow
 - **32,000 token limit**: keep each guide file under ~32,000 tokens. Split into Part 1 / Part 2 if a topic runs long.
 - **Section landing pages**: `sections/` holds one landing page per MkDocs section. When adding a new directory, add it to the relevant `sections/*.md` Directories table and wire it into `.mkdocs/mkdocs.yml`. See `EXPANSION.md` for the full process.
 - **AGENT PERMISSION BUG — CRITICAL**: Background agents (`run_in_background: true`) cannot get Write/Bash permissions approved — the approval dialog never shows, so writes are silently blocked and the agent fails. **Always spawn file-writing agents in the foreground** (omit `run_in_background`) OR use `mode: "bypassPermissions"`. For large multi-session content generation, write files directly in the main conversation rather than delegating to background agents.
