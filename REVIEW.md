@@ -186,7 +186,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `criminology/` | 10 | — | — | |
 | `media-studies/` | 10 | — | — | |
 | `education/` | 10 | — | — | |
-| `international-relations/` | 10 | — | — | |
+| `international-relations/` | 10 | 2026-02 | — | 0 tags -- polished |
 
 ---
 
