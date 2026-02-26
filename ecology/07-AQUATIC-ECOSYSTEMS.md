@@ -47,6 +47,7 @@ WATER DENSITY MAXIMUM AT 4°C:
   → Lakes freeze from the top down → fish survive under ice
   → If ice were denser (like most materials), lakes would freeze solid
 
+<!-- @editor[bridge/P2]: Density stratification is directly analogous to atmospheric lapse rate and fluid dynamics concepts -->
 FALL OVERTURN:
   Surface cools → density increases → sinks
   → Whole lake mixes (fall turnover)
@@ -97,6 +98,7 @@ Salmonids                 Mixed fish               Carp, catfish
 
 ---
 
+<!-- @editor[content/P2]: Open ocean ecology absent -- pelagic zones, upwelling, thermohaline circulation, ocean productivity patterns are major subtopics not covered -->
 ## Stream Ecology — River Continuum Concept
 
 Rivers change in character from headwaters to mouth:
@@ -166,6 +168,7 @@ KEY ESTUARY PROCESSES:
 
 ---
 
+<!-- @editor[content/P2]: Deep sea ecosystems absent -- hydrothermal vents, chemosynthetic communities, abyssal ecology listed in landscape diagram but not covered -->
 ## Coral Reef Ecology
 
 Coral reefs occupy <0.1% of ocean area but harbor ~25–30% of all marine species — the "rainforests of the sea":

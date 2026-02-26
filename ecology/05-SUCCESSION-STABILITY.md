@@ -133,6 +133,7 @@ Modern synthesis:
 
 ## Resilience and Stability
 
+<!-- @editor[bridge/P2]: Engineering resilience is literally borrowed from control theory; Holling resilience maps to basin-of-attraction analysis in nonlinear dynamics -->
 C.S. Holling (1973) distinguished two stability concepts:
 
 ```
@@ -169,6 +170,7 @@ __/        \__        __/     |__
 
 ## Regime Shifts and Hysteresis
 
+<!-- @editor[bridge/P3]: Magnetic hysteresis, capacitor charge/discharge curves are exact analogs of ecological hysteresis; MIT physics background makes this immediate -->
 A regime shift = transition between alternative stable states; typically triggered when a slow variable (nutrient loading, temperature, grazing pressure) crosses a threshold:
 
 ```

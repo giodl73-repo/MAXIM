@@ -122,6 +122,7 @@ P (predators)
 
 **Classic example: Canadian lynx and snowshoe hare** (Hudson Bay Company fur records, 1845–1935). Hare population peaks precede lynx peaks by 1–2 years. Period: ~10 years. However, the cycle is not purely predator-prey — food availability, disease, and plant defenses all contribute.
 
+<!-- @editor[bridge/P3]: Lotka-Volterra is a textbook negative-feedback oscillator; learner's systems theory background would benefit from "this is a phase-plane portrait of a conservative system" note -->
 **Limitations of L-V:** Neutral stability (cycles don't damp or grow — structurally unstable). Real systems have dampening or limit cycles due to nonlinear terms. Extensions: Rosenzweig-MacArthur model, Holling functional responses.
 
 **Holling functional responses:**
@@ -198,6 +199,7 @@ EIGENVECTOR = stable age distribution
               (relative proportion in each age class at equilibrium)
 ```
 
+<!-- @editor[bridge/P2]: No bridge from Leslie matrix to linear algebra eigenvalue analysis -- power iteration on a non-negative matrix (Perron-Frobenius); connect explicitly for MIT math learner -->
 **Sensitivity analysis** — which age class contributes most to population growth? Depends on species life history. For long-lived species (elephant seals), adult survival matters most. For short-lived species, juvenile survival or fecundity. Conservation implication: target the life stage that most limits population growth.
 
 ---
@@ -227,6 +229,7 @@ CLASSIC LEVINS METAPOPULATION:
 
 **Mainland-island model:** One large, never-extinct "mainland" source + many small islands. Islands go extinct but are recolonized from mainland. Different from Levins (no mainland → patch model).
 
+<!-- @editor[bridge/P2]: Source-sink dynamics map to primary/replica failover patterns and service mesh traffic routing in distributed systems -->
 **Conservation implication of metapopulation theory:**
 - Habitat connectivity is critical — without dispersal corridors, patches become isolated → higher local extinction probability
 - Even a species abundant in some patches may be threatened if those patches are isolated

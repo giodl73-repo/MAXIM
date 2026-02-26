@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[content/P2]: Windthrow and ice storm ecology thin -- listed as disturbance types in diagram but receive no coverage; hurricane/cyclone disturbance is significant gap -->
 Disturbance — any event that disrupts ecosystem structure and releases resources — was once viewed as purely destructive. The modern view: disturbance is a fundamental driver of biodiversity and community composition. Many ecosystems are maintained *by* disturbance (fire-adapted grasslands, flood-maintained riparian forests). The key variables are disturbance frequency, intensity, extent, and predictability.
 
 ```
@@ -63,6 +64,8 @@ HIGH DISTURBANCE:
 **Evidence for IDH:** Tropical forests (tree-fall gaps increase diversity). Intertidal zones (moderate wave action). Grasslands (intermediate grazing). Prairie dogs (burrow disturbance increases small mammal diversity).
 
 **Critique of IDH:** Meta-analyses show the unimodal pattern is not universal. Diversity may peak at low disturbance in some systems. Taxonomic group, spatial scale, and disturbance type all matter. But IDH is still useful as a conceptual framework.
+
+<!-- @editor[bridge/P2]: Intermediate disturbance creating maximum diversity is structurally identical to exploration/exploitation tradeoffs in optimization and reinforcement learning -->
 
 ---
 
