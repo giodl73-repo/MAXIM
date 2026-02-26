@@ -154,7 +154,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `economic-history/` | 10 | 2026-02 | — | 12 tags → pending |
 | `military-history/` | 11 | 2026-02 | — | 4 tags → pending |
 | `anthropology/` | 9 | 2026-02 | — | 9 tags → pending |
-| `philosophy/` | 7 | — | — | |
+| `philosophy/` | 7 | 2026-02 | — | 20 tags → pending |
 | `mythology/` | 12 | 2026-02 | — | 5 tags → pending |
 | `religious-studies/` | 8 | — | — | |
 | `archaeology/` | 10 | 2026-02 | — | 12 tags → pending |
