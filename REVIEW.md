@@ -200,7 +200,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `typography/` | 12 | 2026-02 | — | 1 tags → pending |
 | `printing-publishing/` | 10 | — | — | |
 | `cinema-film/` | 11 | 2026-02 | — | 5 tags → pending |
-| `radio-television/` | 10 | — | — | |
+| `radio-television/` | 10 | 2026-02 | — | 1 tags -> pending |
 | `literature/` | 10 | 2026-02 | — | 15 tags → pending (1 polished) |
 | `rhetoric/` | 10 | 2026-02 | — | 18 tags → pending |
 | `philosophy-of-language/` | 10 | — | — | |
