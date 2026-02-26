@@ -4,6 +4,7 @@
 
 The most significant shift in contemporary furniture is the collapse of the gap between design and production. CNC tools mean that an individual with a design file can produce a custom chair; digital files can be shared globally; and the economics of manufacturing are no longer exclusively dominated by large factory runs.
 
+<!-- @editor[diagram/P2]: Diagram lists a timeline but doesn't show how the major contemporary topics (CNC, parametric, 3D printing, robotics, sustainability, business models) relate to each other — rework as layered system view showing technology → business model → outcome relationships -->
 ```
 DESIGN-TO-PRODUCTION DISTANCE (historical):
 

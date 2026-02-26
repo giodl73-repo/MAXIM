@@ -61,6 +61,7 @@ THE CHAIR (CH24, "Wishbone Chair," 1949):
     Still in production by Carl Hansen & Son.
     ~$600–900 per chair authorized.
 
+<!-- @editor[content/P1]: Claim may be incorrect — verify: "The Round Chair" / "The Chair" is typically cataloged as JH501 (Johannes Hansen) or PP501 (PP Mobler), not CH18. CH18 is a different, less prominent Wegner piece. Correct the model number -->
 THE ROUND CHAIR / THE CHAIR (CH18, 1949):
   Won "The Most Beautiful Chair" at MOMA show.
   Selected by politicians as "the chair" in press conferences.

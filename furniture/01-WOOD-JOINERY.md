@@ -79,8 +79,10 @@ CELLULAR STRUCTURE:
          RADIAL:    ~3–5% seasonal movement
          TANGENTIAL: ~6–10% seasonal movement
          (tangential moves about 2x more than radial)
+<!-- @editor[content/P1]: Claim may be incorrect — verify: 3-5% and 6-10% are total shrinkage coefficients (green to oven-dry), not seasonal movement in conditioned interiors. Seasonal indoor movement for 300mm board is typically 2-6mm tangential, not 18-30mm. The EMC calculation below (5.4mm for 300mm oak) is more accurate — reconcile these two sections -->
 ```
 
+<!-- @editor[content/P1]: Claim may be incorrect — verify: 9-15mm and 18-30mm seasonal movement for a 300mm board are extreme; these figures match green-to-oven-dry total shrinkage, not seasonal indoor variation. Typical seasonal movement for 300mm flatsawn board indoors is ~3-6mm. See EMC section below which calculates 5.4mm correctly -->
 **The practical rule**: a 300mm board quartersawn (radial face showing) moves ~9–15mm seasonally. The same board flatsawn (tangential face showing) moves ~18–30mm. This is not a small effect. Victorian drawers that stick in summer are telling you about moisture and grain direction.
 
 ### Flatsawn vs. Quartersawn

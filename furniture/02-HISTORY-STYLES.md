@@ -402,6 +402,7 @@ KEY FIGURES:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to engineering/CS thinking missing here — the overview file has "same cognitive load as software architecture" and "each era is a new instruction set" analogies, but this file's bridge section is purely historical with no callback to the learner's technical frame of reference -->
 ## The Bridge to Modernism
 
 By 1920, the scene is set for the Bauhaus intervention. The argument that furniture should be designed for industrial production — not just decorated with machine-made ornament — required:
