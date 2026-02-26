@@ -1,0 +1,267 @@
+# MAXIM — Reference Library History
+
+The MAXIM reference library was built across four days in February 2026. What started as three computing modules became 217 directories, 2,481 files, and 826,537 lines — a personal reference library covering the full scope of human knowledge, organized as a 52-card deck.
+
+Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first eleven.
+
+---
+
+## Phases Claimed
+
+| # | Date | Role | Card | Phase |
+|---|------|------|------|-------|
+| 1 | Feb 22 | The Architect | K♣ | Foundation — the library from nothing |
+| 2 | Feb 22 | The Scribe | 10♣ | Module writing — knowledge made permanent |
+| 3 | Feb 22 | The Taxonomist | 2♣ | Classification — naming every field |
+| 4 | Feb 23 | The Fabricator | 8♣ | Agent production — machines at scale |
+| 5 | Feb 23 | The Constructor | 7♣ | Infrastructure — MkDocs site build |
+| 6 | Feb 24 | The Broadcaster | 10♦ | Expansion — content at industrial scale |
+| 7 | Feb 24–25 | The Chronicler | 6♣ | Architecture — sections, book spec, origins |
+| 8 | Feb 25 | The Sage | 6♦ | Read This First — before the tool |
+| 9 | Feb 25 | The Editor | Q♠ | Typography + review — design cuts to what matters |
+| 10 | Feb 25 | The Composer | Q♣ | Card identity — tarot layer, epithets |
+| 11 | Feb 25 | The Discoverer | A♣ | Archetypes — 52 roles, 52 image concepts |
+
+*41 roles remain unclaimed.*
+
+---
+
+# Phase 1: The Architect
+
+**Card**: K♣ — King of Wands
+**Date**: February 22, 2026 (afternoon)
+**Commits**: `d6664df` → `1d6d40e` (9 commits)
+**Image flair**: *3-tier system diagram: browser → API → database, with layer boundaries and data flow arrows*
+
+The library emerged from a single conversation. The first commit carried three complete computing modules — GIT, JS/TS, PACKAGE — and a CLAUDE.md that already knew this would grow. Within ninety minutes: BUILD, FRONTEND, RENDERING, STATE, BACKEND, DATABASE, then the pivotal restructure into `computing/` and `data-science/` field directories.
+
+This phase decided everything that followed. The pattern — one file per topic, ASCII diagrams, layered mental models, practical cheat sheets — was established in the first hour and never changed.
+
+**Founding commits**:
+- `d6664df` Initial commit — reference library (3 modules complete)
+- `1d6d40e` Restructure into field directories (computing/, data-science/)
+
+**Scale**: 9 commits, ~6,000 lines, 2 directories, 19 files
+
+---
+
+# Phase 2: The Scribe
+
+**Card**: 10♣ — Ten of Wands
+**Date**: February 22, 2026 (afternoon–evening)
+**Commits**: `21ce49e` → `4ab1729` (15 commits)
+**Image flair**: *A letterform anatomy diagram: serif, stem, counter, ascender, baseline — one large glyph dissected*
+
+The longest single writing session. Module after module, each one a complete reference card: AUTH, DOCKER, KUBERNETES, CI/CD, IAC, OBSERVABILITY, MONOREPO, CLOUD-NATIVE, TESTING (twice — current practice and historical evolution), AZURE, AUTOMATA, COMPILERS, PL-THEORY. Then the AI engineering track: LLM-CONCEPTS, EVALS, ORCHESTRATION, AGENTS, SAFETY.
+
+Every file followed the same discipline: open with a diagram, build the mental model, compare alternatives, end with a cheat sheet. The burden of recorded thought — one glyph at a time.
+
+**Key commits**:
+- `cf7bc3f` Add computing/10-AUTH.md — auth and security module
+- `149eeca` Add 21-AUTOMATA.md — automata theory mapped to modern systems
+- `007f7ad` Add ai-engineering/01-LLM-CONCEPTS.md — LLM fundamentals module
+
+**Scale**: 15 commits, ~12,000 lines, 23 computing + 5 AI engineering modules
+
+---
+
+# Phase 3: The Taxonomist
+
+**Card**: 2♣ — Two of Wands
+**Date**: February 22, 2026 (evening)
+**Commits**: `17b0d45` → `1764224` (25 commits)
+**Image flair**: *Linnaean hierarchy tree — Domain → Kingdom → Phylum → Class → Order → Family → Genus → Species*
+
+The great classification. Languages (19 files — C through SQL), data science (6 modules through Azure ML), query languages (13 files), scripting (10 files), mathematics (6 new modules), astronomy (11 modules), quantum computing, control theory, finance, periodic table (12 files), world languages (15 files), historical geography (18 files), cognitive science (10 files).
+
+More importantly: TRACKER.md was born — the ledger that would track every file, every session, every completion status. The library became self-aware of its own scope.
+
+**Key commits**:
+- `17b0d45` Add Session 3 — languages/ series: 19-file cross-language reference
+- `b52288d` Add TRACKER.md + check-in all session work across 16 sessions
+- `1764224` Session 14 complete: cognitive-science/ (10 files)
+
+**Scale**: 25 commits, ~40,000 lines, 12 new directories, ~150 files
+
+---
+
+# Phase 4: The Fabricator
+
+**Card**: 8♣ — Eight of Wands
+**Date**: February 23, 2026
+**Commits**: `932bde7` → `53a3b72` (10 commits)
+**Image flair**: *MOSFET cross-section — gate oxide, source, drain, channel — labeled layer by layer*
+
+The machine that moves itself. The library had outgrown single-session authoring. Five agent groups (A through E) were assigned to parallelize the work. Batch 1 landed 189 files. Batch 2 scaffolded 131 stubs. Batch 3 scaffolded 181 more across 16 directories.
+
+Material culture entered the library: textiles, jewelry, ceramics, glassmaking. Psychology, geography, law, cryptography. Spices, pigments, colors, coatings, plumbing, HVAC. The scope exploded from "computing reference" to "everything humans know."
+
+**Key commits**:
+- `93dc8ff` Add agent group assignments A-E to TRACKER.md
+- `cdae204` Sessions 36-55 complete: batch 1 (189 files) + scaffold batch 2 (131 stubs)
+- `53a3b72` Scaffold batch 3 (181 stubs across 16 directories)
+
+**Scale**: 10 commits, ~500 files scaffolded/written, 30+ new directories
+
+---
+
+# Phase 5: The Constructor
+
+**Card**: 7♣ — Seven of Wands
+**Date**: February 23, 2026 (evening)
+**Commits**: `ea63788` → `955430c` (4 commits)
+**Image flair**: *A bridge cross-section — compression members (thick), tension members (thin), forces as arrows*
+
+The shortest phase, but it changed what the library *was*. MkDocs Material configuration. Section landing pages. A serve script for Windows. Requirements pinned. The library went from a pile of Markdown files to a navigable site with a serif typeface and a table of contents.
+
+Four commits. The lever, arch, and wing of the reading experience.
+
+**Key commits**:
+- `ea63788` Add MkDocs Material site configuration
+- `955430c` Use python -m mkdocs to avoid PATH dependency
+
+**Scale**: 4 commits, 4 files, infinite change in usability
+
+---
+
+# Phase 6: The Broadcaster
+
+**Card**: 10♦ — Ten of Pentacles
+**Date**: February 24, 2026
+**Commits**: `d82f511` → `084de5f` (4 commits)
+**Image flair**: *A film strip — 4 sequential frames — with a broadcast tower radiating concentric signal waves*
+
+Content at industrial scale. Batch 4: 12 new directories, 96 files, ~51,000 lines. Batch 5: 12 more directories, 129 files. Batch 6: 12 more, 120 files, ~60,000 lines. Section landing pages rewritten. CLAUDE.md enriched.
+
+Thirty-six new directories in one day. Print, screen, broadcast — stories at scale.
+
+**Key commits**:
+- `d82f511` Add Batch 4: 12 new reference directories, 96 files, ~51,000 lines
+- `8c89ba5` Add Batch 5: 12 new reference directories, 129 files
+- `084de5f` Add Batch 6: 12 new reference directories, 120 files, ~60,000 lines
+
+**Scale**: 4 commits, 36 directories, 345 files, ~160,000 lines
+
+---
+
+# Phase 7: The Chronicler
+
+**Card**: 6♣ — Six of Wands
+**Date**: February 24–25, 2026
+**Commits**: `fdf44c7` → `95da9a1` (5 commits)
+**Image flair**: *An old map fragment — coastline, latitude lines, trade route arrows, "here be dragons" in margin*
+
+The architectural session. Section landing pages enriched for every major domain. The MAXIM book specification emerged — the idea that these 52 sections could be bound as a physical book, each section a volume, each volume a playing card. The People section was born (Batch 11). Mechanics was split from Technology. The Origins Arc took shape.
+
+Batch 12 and Batch 13 scaffolded 25 new directories with 300 files — the final territories on the map.
+
+**Key commits**:
+- `81c173e` Add Batch 11 (People), MAXIM book spec, Mechanics/Technology split, Origins Arc
+- `1e426df` Add Batch 13 candidates and deck rank mapping to book.md
+- `95da9a1` Add Batch 12 and Batch 13: 25 new directories, 300 files scaffolded
+
+**Scale**: 5 commits, 25 directories, 300 files scaffolded
+
+---
+
+# Phase 8: The Sage
+
+**Card**: 6♦ — Six of Pentacles
+**Date**: February 25, 2026 (morning)
+**Commits**: `a3351ff` → `80a4d36` (3 commits)
+**Image flair**: *A genealogy tree of philosophical traditions: Socrates branching to Plato / Aristotle / Cynics*
+
+Before the tool: the story, the question, the ritual. Card 0 — The Fool — Read This First. A civilization recovery companion volume: what you need if you wake up and no one remembers. Water, fire, shelter, food, healing, tools, numbers, community, machines, copying.
+
+Then two appendices: an English grammar guide (Chapter 11) and Warnings — things that kill that don't look like they will (Chapter 12). The red-bound volume with no number. The one you reach for first.
+
+**Key commits**:
+- `a3351ff` Add READ THIS FIRST — civilization recovery companion volume
+- `4fbf76b` Add chapter 11: English guide as appendix to Read This First
+- `80a4d36` Add chapter 12: Warnings — things that kill that don't look like they will
+
+**Scale**: 3 commits, 1 volume, the foundation of everything
+
+---
+
+# Phase 9: The Editor
+
+**Card**: Q♠ — Queen of Swords
+**Date**: February 25, 2026 (afternoon)
+**Commits**: `d9bb58c` → `23187cd` (2 commits)
+**Image flair**: *Typographic layout grid — columns, gutters, text blocks mid-arrangement, one block being cut*
+
+Design cuts to what matters. The body font changed from Inter to EB Garamond — a serif that says "this is a book, not a website." The @editor review system landed: a quality control layer that could flag, rate, and improve any module in the library.
+
+Batches 8 through 11 received their full content — not scaffolds, not stubs, but complete reference modules. The library crossed from "mostly written" to "reviewable."
+
+**Key commits**:
+- `d9bb58c` Switch body font from Inter to EB Garamond
+- `23187cd` Add Batches 8–11 content + @editor review system
+
+**Scale**: 2 commits, hundreds of files enriched, quality infrastructure born
+
+---
+
+# Phase 10: The Composer
+
+**Card**: Q♣ — Queen of Wands
+**Date**: February 25, 2026 (evening)
+**Commits**: `fed2124` → `a22c55f` (4 commits)
+**Image flair**: *Musical staff fragment — clef, time signature, notes — overlaid on a building elevation*
+
+The library received its identity. Batches 12–13 completed: 217 directories, ~2,170 files — the full scope. Then the 52 playing cards were created, each carrying a tarot identity, an epithet, and 7 key concepts. Sixteen weak epithets were upgraded to four and five stars. Six incomplete directories were expanded to full 10-module scope.
+
+Column, chord, canvas — the built and composed world. The content was complete. Now it had a face.
+
+**Key commits**:
+- `fed2124` Add Batches 12–13: complete reference library (217 dirs, ~2,170 files)
+- `19337ac` Add tarot identity layer and upgrade card epithets across all 52 volumes
+- `494f853` Expand 6 incomplete directories to full 10-module scope
+
+**Scale**: 4 commits, library complete, identity established
+
+---
+
+# Phase 11: The Discoverer
+
+**Card**: A♣ — Ace of Wands
+**Date**: February 25, 2026 (night)
+**Commits**: `aac0f5b`
+**Image flair**: *A field of great equations — E=mc², ∇·E=ρ/ε₀, e^iπ+1=0, F=ma — arranged like stars, and one equation still being written: the ink not yet dry, the chalk still in hand*
+
+The naming session. 52 archetype roles were matched to the 52 cards — The Architect, The Timekeeper, The Selector, The Revolutionary. Then 52 image concepts: what each card's visual should show. Not the person — the thing they produce. A proof tree. A kiln cross-section. A broken chain.
+
+The roles were lost to a crashed session and recovered by mining conversation logs at byte offsets in a 51MB JSONL file. The image concepts were found intact in an assistant message at line 4417. Everything was saved.
+
+The Discoverer's flair: *one equation still being written*. Because discovery is not the formula — it's the moment before.
+
+**Key commits**:
+- `aac0f5b` Add card archetype roles, image concepts, and move originals to backs/
+
+**Scale**: 1 commit, 52 roles, 52 concepts, 54 files moved to backs/
+
+---
+
+## What Comes Next
+
+The library has content. The cards have identity. The roles have names. The image concepts have been described.
+
+Now the cards need faces — 52 new ASCII art visuals, each illustrating the archetype's concept. The current card files (ASCII boxes with 7 key concepts) live in `cards/backs/`. The new designs will live in `cards/` as the primary face of each volume.
+
+41 roles remain unclaimed. Years of reviews, expansions, corrections, and reimaginations ahead. Each session that does meaningful work claims a card.
+
+---
+
+## Cumulative Scale
+
+| Metric | Count |
+|--------|-------|
+| Directories | 217 |
+| Files | 2,481 |
+| Lines written | 826,537 |
+| Commits | 80 |
+| Days | 4 |
+| Cards designed | 52 + The Fool |
+| Roles claimed | 11 of 52 |
+| Roles remaining | 41 |
