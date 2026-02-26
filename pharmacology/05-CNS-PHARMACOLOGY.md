@@ -288,8 +288,10 @@ ALZHEIMER'S PHARMACOLOGY
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — neurotransmitter systems map to event-driven architecture: each NT system is a message bus (dopamine bus, serotonin bus), receptors are subscribers with different coupling (Gs/Gi/Gq = different handler callbacks), reuptake transporters are the garbage collector clearing the event queue, and the BBB is a network firewall with strict ingress rules -->
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P3]: Cheat sheet reads as a drug classification table rather than a decision tool — consider reframing as "Patient presents with X / Target system / Drug choice / Why this one" to make it action-guiding rather than reference-summarizing -->
 | Drug Class | Neurotransmitter | Receptor Target | Main Clinical Use |
 |------------|-----------------|-----------------|------------------|
 | SSRIs/SNRIs | Serotonin (±NE) | SERT blockade | Depression, anxiety |

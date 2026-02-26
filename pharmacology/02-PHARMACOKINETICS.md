@@ -255,6 +255,7 @@ STEADY STATE CONCENTRATION (Css)
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — compartment models are directly analogous to queuing theory and system modeling (one-compartment = single-server queue, two-compartment = tiered cache with fast/slow pools, Vd = total buffer capacity, clearance = drain rate). The engineering reader would immediately recognize the differential equation structure -->
 ## One-Compartment vs Two-Compartment Models
 
 ```

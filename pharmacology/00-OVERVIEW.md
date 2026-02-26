@@ -185,6 +185,7 @@ THERAPEUTIC INDEX (TI)
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel between drug development pipeline and software release pipeline (target ID ~ requirements, preclinical ~ testing, Phase I-III ~ canary/staged rollout, PV ~ production monitoring) would ground this for an engineering reader -->
 ## Decision Cheat Sheet
 
 | Question | Pharmacology Concept | Key Parameter |
