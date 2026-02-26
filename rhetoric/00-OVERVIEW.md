@@ -254,6 +254,8 @@ TOULMIN IN PRACTICE:
 
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a directory of files rather than a "use X when Y" decision tool — reframe rows as rhetorical situations: "I need to argue for a platform change" → 05, not "Toulmin model" → 05 -->
+
 | I want to understand... | Start with... |
 |------------------------|---------------|
 | Aristotle's complete rhetorical system | 01-CLASSICAL-RHETORIC.md |
@@ -272,6 +274,8 @@ TOULMIN IN PRACTICE:
 
 **Rhetoric is not "empty speech"**
 The popular meaning of "rhetoric" is inflated or empty language ("empty rhetoric," "mere rhetoric"). This is a centuries-old anti-rhetorical tradition (Plato condemned it). In the technical/academic sense, rhetoric is the systematic study of persuasion — which is anything but empty. You cannot communicate without rhetoric; you can only use it better or worse.
+
+<!-- @editor[bridge/P3]: Natural bridge to .NET/VSTS experience missing — Cicero's stasis theory maps directly to triage meetings and design review disagreements; a one-line callout here would anchor the overview for this learner -->
 
 **"Rhetorical question" means something specific**
 A rhetorical question is a question posed for effect, not for an answer ("Is the sky blue?"). It is a figure of speech (anthypophora or erotema) used to make a point. It is NOT a vague synonym for "interesting question" as it is often used in casual speech.

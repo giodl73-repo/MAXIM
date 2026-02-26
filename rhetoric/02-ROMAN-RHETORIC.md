@@ -214,6 +214,8 @@ BOOK XII — THE MATURE ORATOR:
   like a modern liberal arts + professional program.
 ```
 
+<!-- @editor[bridge/P2]: No old-world bridge for Quintilian's educational program — the learner's MIT experience (liberal arts + technical depth) IS the Quintilian model; a brief callout like "Quintilian's curriculum — philosophy, history, law, math — maps remarkably onto the MIT dual-major model" would be a natural anchor -->
+
 ### Quintilian's Style Advice
 
 ```
@@ -338,6 +340,8 @@ Quintilian's "good man skilled in speaking" is not a moral lecture. It is a clai
 
 **Stasis theory is practically useful right now**
 The four types of stasis (conjectural, definitional, qualitative, translative) map directly onto modern professional disagreements. Most engineering debates have an implicit stasis problem: people argue at different levels without noticing. Asking "What is the actual stasis here?" often resolves arguments faster than more argumentation.
+
+<!-- @editor[content/P2]: Rhetorica ad Herennium absent — the single most-read rhetoric textbook in the medieval period, long attributed to Cicero, and the source of the memory palace description; significant gap for the Roman rhetoric guide -->
 
 **Roman rhetoric was not just academic**
 Cicero was executed because his speeches worked. Political rhetoric in Rome was not a decorative art — it was a survival skill with life-or-death consequences. The power that Gorgias's Encomium of Helen attributed to logos was, in Rome, real and demonstrable.

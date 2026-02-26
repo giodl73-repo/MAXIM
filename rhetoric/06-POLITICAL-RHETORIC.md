@@ -350,6 +350,8 @@ CORPORATE EQUIVALENTS:
 
 ---
 
+<!-- @editor[content/P2]: Frank Luntz absent — Lakoff's counterpart on the conservative side; his "Words That Work" (2007) and the "death tax" / "estate tax" reframing is the most concrete illustration of competitive frame-setting and would balance the Lakoff-heavy presentation -->
+
 ## Layer 4: Chomsky/Herman — Manufacturing Consent
 
 ```
@@ -462,6 +464,8 @@ The rhetorical effect of coded language operates regardless of intent. A speaker
 
 **Propaganda techniques are neutral as analytical categories**
 Bandwagon, testimonial, fear appeal — these describe what works, not just what is deceptive. A legitimate public health campaign uses fear appeals. A respected expert giving a testimonial for their genuine area of expertise is legitimate. The manipulative versions are when the technique is used to exploit rather than to inform.
+
+<!-- @editor[audience/P3]: The corporate equivalents for dog whistles ("culture fit," "meritocracy") read as editorial commentary rather than analytical reference — the learner is at VP level inside a major tech company and will encounter these terms daily; frame as "terms with contested pragmatic force" rather than implying the reader needs consciousness-raising -->
 
 **Kairos is a skill, not luck**
 The ability to recognize and seize the rhetorical moment is a trainable skill, not mere improvisation. Lincoln had been refining the Gettysburg Address's ideas for years; the 272-word version was a distillation. MLK had preached the "dream" imagery before; what he recognized at the March on Washington was the moment when the audience was ready for it. Preparation enables kairos; it does not precede it.

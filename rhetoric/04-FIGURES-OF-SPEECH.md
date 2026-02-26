@@ -226,6 +226,8 @@ FRAMING IMPLICATIONS:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from figures of speech to code/technical writing — the learner writes design docs and executive memos; a brief subsection or callout on figures that work in technical prose (antithesis for tradeoff framing, litotes for hedged claims, hypophora for FAQ-style sections) would connect this to professional practice -->
+
 ## Common Confusions Among Figures
 
 ```

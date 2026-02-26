@@ -127,6 +127,8 @@ HISTORICAL IRONY:
 
 ---
 
+<!-- @editor[bridge/P2]: No explicit bridge from Aristotle's faculty/heuristic framing to modern equivalents — the learner knows compiler/interpreter theory from MIT; a one-line aside like "Aristotle's rhetoric is a heuristic, not an algorithm — closer to a language specification than a code generator" would land immediately -->
+
 ## Layer 2: Aristotle's Rhetoric — The Systematic Account
 
 Aristotle's **Rhetoric** (c. 355–322 BCE, though the date is contested) is the foundational systematic treatment:
@@ -300,6 +302,8 @@ INFLUENCE:
 ```
 
 ---
+
+<!-- @editor[content/P2]: No mention of Aristotle's Rhetoric Book I logical fallacies (apparent enthymemes) — significant gap given that 05-ARGUMENTATION.md covers informal fallacies and this is where Aristotle's own taxonomy originates -->
 
 ## Layer 4: The Aristotelian Emotions Catalog
 

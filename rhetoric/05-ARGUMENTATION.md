@@ -312,6 +312,7 @@ BASIC ARGUMENT MAP NOTATION
                     |
                 [REBUTTAL]
 
+<!-- @editor[content/P2]: Argument mapping tools section is thin — Rationale is discontinued; Argdown deserves a brief syntax example since the learner is comfortable with markdown; consider mentioning Mermaid or D2 as modern alternatives -->
 TOOLS:
   Rationale (software): interactive argument maps
   Argdown: markdown-based argument representation

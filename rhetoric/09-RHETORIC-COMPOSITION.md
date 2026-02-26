@@ -93,6 +93,8 @@ THE MACRO REVISION CHECKLIST:
       and be answered.)
 ```
 
+<!-- @editor[audience/P2]: Writing process section (Flower/Hayes, freewriting, writing block) explains concepts the learner does not need at this level — a VP who has written thousands of documents doesn't need the "two-pass strategy" or the "24-hour rule" explained as discoveries; reframe as theoretical framework for understanding why junior writers struggle, not as personal advice -->
+
 ### Writing Apprehension and Unblocking
 
 ```
@@ -150,6 +152,7 @@ Pre-theoretical genre: classification of text types
   These are useful categories but they describe form,
   not function.
 
+<!-- @editor[bridge/P2]: No bridge from genre theory to the learner's existing genre expertise — the learner has written and reviewed hundreds of design docs, executive summaries, and strategy memos; a one-line bridge like "you already have expert genre knowledge from two decades of Microsoft executive communication — this section names the theory behind what you do intuitively" would calibrate the section -->
 CAROLYN MILLER — "GENRE AS SOCIAL ACTION" (1984):
   Genres are typified rhetorical responses to
   recurring situations.
