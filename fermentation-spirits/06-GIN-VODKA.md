@@ -117,6 +117,7 @@ FINAL FILTRATION:
   Some add glycerol (legal under EU rules) for mouthfeel softening
 ```
 
+<!-- @editor[structure/P2]: Lincoln County Process section belongs in 04-WHISKEY.md, not gin/vodka — misplaced content that breaks the layered drill-down from the landscape diagram -->
 ### Lincoln County Process (Tennessee Whiskey)
 
 ```

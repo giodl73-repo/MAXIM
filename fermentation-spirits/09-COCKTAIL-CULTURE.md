@@ -519,6 +519,7 @@ codification, and showmanship that elevated bartending from servitude to profess
 | Comprehensive style taxonomy | This file's cocktail template section |
 | Low-ABV cocktails | Aperol/Campari + wine-based modifiers; Seedlip for N/A |
 
+<!-- @editor[structure/P3]: Recipe table below shifts format from "I want to understand..." to "Classic cocktail" — consider unifying into a single decision-oriented table -->
 | Classic cocktail | Formula | Key spirit |
 |---|---|---|
 | Daiquiri | 2 rum + 0.75 lime + 0.75 sugar | White rum (Havana 3yr) |

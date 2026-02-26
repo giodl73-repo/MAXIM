@@ -260,9 +260,9 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `spices/` | 11 | 2026-02 | — | 0 tags -- polished |
 | `food-plants/` | 10 | 2026-02 | — | 13 tags → pending |
 | `culinary-history/` | 10 | 2026-02 | — | 4 tags → pending |
-| `fermentation-spirits/` | 10 | — | — | |
+| `fermentation-spirits/` | 10 | 2026-02 | — | 3 tags → pending |
 | `mycology/` | 10 | — | — | |
-| `marine-biology/` | 10 | — | — | |
+| `marine-biology/` | 10 | 2026-02 | — | 0 tags -- polished |
 | `entomology/` | 10 | — | — | |
 | `ornithology/` | 10 | — | — | |
 | `zoology/` | 10 | 2026-02 | — | 0 tags -- polished |
