@@ -200,6 +200,7 @@ Cultural:   covenant salt (Bible), sacred status in many traditions
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to engineering economics — Wrangham's "energy budget" argument is a constrained optimization problem (fixed metabolic budget, reallocation from gut to brain); connecting to resource allocation / compute-vs-storage tradeoffs would resonate with this learner -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

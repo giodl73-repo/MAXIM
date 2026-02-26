@@ -43,7 +43,7 @@ The French government under Napoleon offered a prize of 12,000 francs for a prac
 ```
 APPERT'S METHOD
 ──────────────────────────────────────────────────────────────────────────────
-1. Pack food into glass jar (wide-mouth champaigne bottles initially)
+1. Pack food into glass jar (wide-mouth champagne bottles initially)
 2. Cork the jar loosely
 3. Submerge in boiling water for varying times (by food type)
 4. Seal cork tightly while hot

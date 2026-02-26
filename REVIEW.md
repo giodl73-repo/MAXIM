@@ -243,7 +243,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `ceramics/` | 11 | — | — | |
 | `glassmaking/` | 11 | — | — | |
 | `jewelry/` | 11 | — | — | |
-| `metalworking/` | 10 | — | — | |
+| `metalworking/` | 10 | 2026-02 | — | 4 tags → pending |
 | `plastics-polymers/` | 10 | — | — | |
 | `papermaking/` | 10 | — | — | |
 | `composite-materials/` | 10 | — | — | |
