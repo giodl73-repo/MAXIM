@@ -430,6 +430,15 @@ returned_job = ml_client.jobs.create_or_update(classification_job)
 
 ## Pipelines
 
+**ADF vs AzureML pipelines — the key distinction**: ADF pipelines orchestrate
+**data movement** (Copy Activity, Data Flow transform, linked services as sources/sinks).
+AzureML pipelines orchestrate **compute jobs** (train, evaluate, register — each step
+runs arbitrary code in a managed environment). Both use DAG structure with output
+chaining and step-level caching, but their primitives differ: ADF's unit is an Activity
+(move/transform data); AzureML's unit is a Component (run code, produce artifacts).
+If you're ETL-ing data into training-ready form, use ADF → hand off to AzureML Pipeline
+at the point where Python compute begins.
+
 AzureML Pipelines = DAG of **components**. Each component is a reusable unit:
 `code + command + inputs/outputs + environment`. Same as Kubeflow, but Azure-native.
 

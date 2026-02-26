@@ -261,6 +261,51 @@ MDL principle:
 
 ---
 
+## Practitioner Bridge — Known Concepts, Information Theory Names
+
+Most practitioners already use information theory quantities without the vocabulary.
+The re-labeling unlocks the underlying theory:
+
+```
+What you already know                         Information theory name
+──────────────────────────────────────────    ──────────────────────────────────────────
+Decision tree "information gain":             Mutual information I(feature; class label)
+  "split on feature X that reduces label        = H(Y) - H(Y | X)
+  uncertainty the most"                         = expected reduction in label entropy
+  ID3/C4.5 use exactly I(X;Y) as the           when feature X is revealed
+  splitting criterion.
+
+Decision tree "Gini impurity":                ≈ (1 - H²(p)) / 2  — approximates entropy
+  1 - Σ pᵢ²                                   Both measure class mixture.
+  Faster to compute than entropy; used by      Entropy is the information-theoretic ideal;
+  sklearn by default.                          Gini is a fast approximation.
+
+Language model "perplexity":                  2^{cross-entropy loss}
+  "perplexity of 50 means the model is          = 2^{H(P_data, P_model)}
+  as uncertain as a uniform 50-way choice"    Lower perplexity = lower cross-entropy
+  Reported on test sets; lower is better.     = model distribution closer to data dist.
+                                              P = 2^H ↔ typical set size ≈ 2^{nH}
+
+SQL column: "high cardinality"                High entropy H(X)
+  A city column with 10k unique values has     H(Uniform[10000]) = log₂(10000) ≈ 13 bits
+  "high cardinality" — many distinct values    H(Bernoulli[0.01]) ≈ 0.08 bits (rare class)
+  → more bits to encode → harder to           → cardinality is the informal entropy proxy
+  represent in a model without embedding        used in data engineering
+
+KL divergence used in monitoring:             D_KL(P_train ‖ P_prod) or PSI
+  Population Stability Index (PSI) in           PSI ≈ D_KL(P_train ‖ P_prod)
+  credit risk models measures distribution      + D_KL(P_prod ‖ P_train)
+  shift — same underlying concept as KL       → PSI > 0.2 ≈ significant KL → retrain
+
+Feature selection: mutual information         sklearn: mutual_info_classif()
+  sklearn's mutual_info_classif computes        = I(X_j; Y) for each feature j
+  I(feature; label) for each feature.         Higher MI = feature shares more info
+  Nonlinear relationships captured (unlike       with the target.
+  correlation or ANOVA F-test).
+```
+
+---
+
 ## 8. Information Theory in ML — The Big Map
 
 ```

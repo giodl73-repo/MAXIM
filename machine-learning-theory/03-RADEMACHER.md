@@ -78,6 +78,49 @@ CONSEQUENCES
 
 ---
 
+## Bridge: Metric Entropy and Covering Numbers → Rademacher Complexity
+
+Rademacher complexity is a repackaging of the theory of suprema of empirical processes, which lives in classical functional analysis via metric entropy.
+
+```
+COVERING NUMBERS AND ε-NETS
+  N(ε, H, ‖·‖_∞) = minimum number of ε-balls (in sup-norm)
+                    needed to cover H restricted to any m points.
+  log N(ε, H, ‖·‖_∞) = metric entropy at scale ε.
+
+DUDLEY'S ENTROPY INTEGRAL (Dudley 1967)
+  R_m(H) ≤ O( (1/√m) · ∫₀^∞ √(log N(ε, H, ‖·‖_∞)) dε )
+
+  Intuition: Integrate over scales ε. At each scale, log N(ε) bits
+  of randomness must be overcome by the sample. The integral
+  accumulates these costs across all scales.
+
+CONNECTION TO GAUSSIAN PROCESSES
+  The same Dudley integral bounds E[sup_{h∈H} G_h] where G_h is a
+  Gaussian process indexed by H. Rademacher and Gaussian complexity
+  are related by:
+    R_m(H) ≤ √(π/2) · G_m(H)   (comparison inequality)
+  where G_m(H) = E_g[sup_{h∈H} (1/m) Σᵢ gᵢ h(xᵢ)], gᵢ ~ N(0,1).
+
+EXAMPLES OF DUDLEY INTEGRAL COMPUTATIONS
+  Linear classifiers ‖w‖₂ ≤ B, ‖x‖₂ ≤ C:
+    N(ε, H, ‖·‖_∞) ≤ (2BC/ε)^n  (covering in ℝⁿ)
+    Dudley integral → R_m(H) ≤ O(BC/√m) — matches direct computation.
+
+  VC class with VCdim d:
+    log N(ε, H) ≤ d log(1/ε) + O(d)  (Haussler 1995)
+    Dudley → R_m(H) ≤ O(√(d/m))  — recovers VC bound up to logs.
+
+CHAINING (generic chaining, Talagrand)
+  Dudley's integral is not always tight. The generic chaining
+  (Talagrand 1996) gives a matching upper and lower bound via
+  γ₂ functional — the optimal majorizing measure. For well-structured
+  classes (e.g., empirical risk over Lipschitz losses), chaining is
+  the sharpest tool available.
+```
+
+The covering number perspective makes explicit *why* simpler hypothesis classes generalize: they are "small" in metric entropy, which bounds how well they can fit pure noise (Rademacher complexity). The whole generalization theory is, at its core, the theory of empirical process suprema.
+
 ## Proof Sketch: Symmetrization
 
 The key idea converts a distributional question into a combinatorial one:
@@ -198,6 +241,8 @@ Rademacher: Real-valued hypothesis classes
 
 ---
 
+**Gaussian complexity and when to use it.** The Rademacher-Gaussian comparison R_m(H) ≤ √(π/2) · G_m(H) (from the comparison theorem for subgaussian processes) means Gaussian complexity provides valid, sometimes tighter upper bounds. For convex symmetric classes, Gaussian integration by parts gives closed-form G_m(H) where Rademacher computation requires a direct argument. For the RKHS ball {f : ‖f‖_H ≤ B}, Gaussian complexity G_m = B√(tr(K)/m) (same as the direct Rademacher bound), confirming the comparison is tight in this case. For neural network Rademacher bounds (Bartlett et al.), Gaussian complexity is the intermediate quantity that makes the spectral norm bound tractable.
+
 ## Uniform Convergence
 
 Rademacher complexity is the central tool for proving uniform convergence:
@@ -262,6 +307,8 @@ For an L-layer network with activation function ρ (Lipschitz-1):
   Practical implication:
   Controlling spectral norm of each layer controls generalization.
   Spectral normalization (Miyato et al.) in GANs comes from this.
+
+**Theory → practice: spectral normalization.** The Bartlett et al. bound depends on ∏ⱼ ‖Wⱼ‖₂ (product of spectral norms) and Σⱼ (‖Wⱼ‖_F / ‖Wⱼ‖₂)^(2/3). Spectral normalization (Miyato et al. 2018, standard in GAN training) divides each weight matrix by its largest singular value σ_max(Wⱼ), enforcing ‖Wⱼ‖₂ = 1 by construction. This collapses the Rademacher bound to depend only on the Frobenius norms ‖Wⱼ‖_F — which are typically O(√(input_dim)) and manageable. The technique is theory-motivated regularization that directly controls the generalization bound, not a heuristic.
 
 VACUITY ISSUE
   Even these tighter bounds remain vacuous for modern large models

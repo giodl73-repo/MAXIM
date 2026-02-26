@@ -439,6 +439,66 @@ CONSTANT-TIME IMPLEMENTATION PATTERNS:
   Compiler danger: compiler may optimize out "useless" constant-time constructs → use barriers
 ```
 
+```
+CONSTANT-TIME COMPARISON — UNIVERSAL LIBRARY REFERENCE:
+
+  The pattern: never use memcmp() or == for comparing MACs, tags, or secret-derived values.
+  Variable-time comparison short-circuits on first mismatch → timing oracle → auth bypass.
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────┐
+  │  Library / Language  │ Function                         │ Notes                        │
+  ├────────────────────────────────────────────────────────────────────────────────────────┤
+  │  libsodium           │ crypto_verify_16(a, b)           │ 16-byte constant-time compare │
+  │                      │ crypto_verify_32(a, b)           │ 32-byte; returns 0 if equal  │
+  │                      │ sodium_memcmp(a, b, n)           │ arbitrary length              │
+  │  OpenSSL / BoringSSL │ CRYPTO_memcmp(a, b, n)           │ returns 0 if equal; any len   │
+  │  Go                  │ subtle.ConstantTimeCompare(a, b) │ crypto/subtle; returns 1 if = │
+  │  Rust (ring)         │ ring::constant_time::verify_slices_are_equal(a, b) │ returns Ok   │
+  │  Java (JCA)          │ MessageDigest.isEqual(a, b)      │ Java 6+; constant-time        │
+  │  Python (hmac)       │ hmac.compare_digest(a, b)        │ Python 3.3+; use this, not == │
+  │  .NET                │ CryptographicOperations.FixedTimeEquals(a, b) │ .NET 5+ (System.Security.Cryptography) │
+  └────────────────────────────────────────────────────────────────────────────────────────┘
+
+  Compiler hazard: constant-time code can be optimized away — use memory barriers or
+    platform intrinsics. libsodium/BoringSSL implementations handle this.
+    In C: volatile + barrier; in Rust/Go: compiler-aware intrinsics.
+  Rule: always compare MAC/tag output with constant-time compare; never short-circuit.
+```
+
+```
+AEAD NONCE GENERATION AT SCALE — BIRTHDAY BOUND MATH:
+
+  Random nonce collision probability (birthday paradox):
+    n = messages encrypted under one key; nonce space = 2^96 (AES-GCM standard)
+    Pr[collision] ≈ n² / (2 × 2^96)
+    At n = 2^32 messages:  Pr ≈ 2^64 / 2^97 = 2^{-33}  (~1 in 8 billion) — acceptable
+    At n = 2^48 messages:  Pr ≈ 2^96 / 2^97 = 0.5       — 50% collision rate; catastrophic
+    NIST SP 800-38D limit: 2^32 random nonces per key (Pr of any collision < 2^{-32})
+
+  Counter-based nonces (deterministic; no birthday bound):
+    Nonce = 96-bit counter starting at 0; increment per message
+    Safe: zero collision probability by construction; 2^96 messages before wrap
+    Problem in distributed systems: multiple nodes must coordinate counters
+    Failure mode: node restart resets counter → nonce reuse if state lost
+
+  Counter + random hybrid (distributed services pattern):
+    Nonce = [32-bit node ID || 64-bit counter per node]
+    Node ID assigned at deploy time (or random at startup); counter in persistent state
+    Result: each node has its own safe counter space; no cross-node coordination needed
+    Used by: most cloud KMS implementations internally
+
+  Random + epoch hybrid:
+    Nonce = [32-bit unix_timestamp || 64-bit random]
+    Guarantees temporal separation; reduces per-epoch collision probability to 2^{-32}
+    Risk: timestamp clock skew; multiple messages per second in same epoch
+
+  Recommendation by use case:
+    Single service, low volume (< 2^28 msgs/key): random nonces; safe
+    Single service, high volume: counter in persistent state (accept coordination cost)
+    Distributed: node-ID + counter hybrid; OR rekey frequently (per 2^32 messages)
+    Nonce-misuse risk: use AES-SIV (synthetic IV; deterministic; only leaks message equality on reuse)
+```
+
 ---
 
 ## 10. Decision Cheat Sheet

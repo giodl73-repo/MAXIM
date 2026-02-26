@@ -2,6 +2,59 @@
 
 > .NET-native shell where the pipeline moves objects, not text. The fundamental difference from every Unix shell — and from Batch.
 
+```
+┌─────────────────────────────────────────────────────────────────────────────────────────┐
+│  POWERSHELL ECOSYSTEM MAP                                                                 │
+│                                                                                           │
+│  ┌──────────────────────────────────┐   ┌──────────────────────────────────────────────┐ │
+│  │  Windows PowerShell 5.1          │   │  PowerShell 7.x (pwsh)                       │ │
+│  │  powershell.exe                  │   │  Install: winget / GitHub releases / MSI      │ │
+│  │  Runtime: .NET Framework 4.x     │   │  Runtime: .NET 8+                             │ │
+│  │  Ships with Windows — always     │   │  Windows / Linux / macOS                      │ │
+│  │  present, never updated          │   │  Actively developed; new features land here   │ │
+│  └──────────────┬───────────────────┘   └──────────────────┬───────────────────────────┘ │
+│                 │                                           │                              │
+│       Legacy / Windows-only APIs               Cross-platform + modern syntax             │
+│                 │                                           │                              │
+│  ┌──────────────▼───────────────────────────────────────────▼───────────────────────────┐ │
+│  │  HOSTING ENVIRONMENTS                                                                  │ │
+│  │                                                                                        │ │
+│  │  Interactive                  Scripted / Automated                                     │ │
+│  │  ─────────────────────        ───────────────────────────────────────────────────────  │ │
+│  │  Windows Terminal             Azure Pipelines  — AzurePowerShell@5 task (pre-authed)   │ │
+│  │  VS Code integrated           GitHub Actions   — shell: pwsh step                      │ │
+│  │  Windows Terminal             Azure Functions  — PowerShell runtime (isolated process)  │ │
+│  │  PowerShell ISE (5.1 only)    Azure Automation — runbooks (hosted PS 7 or 5.1)         │ │
+│  │  SSH remote sessions          Docker containers — mcr.microsoft.com/powershell image   │ │
+│  └────────────────────────────────────────────────────────────────────────────────────────┘ │
+│                                                                                           │
+│  ┌─────────────────────────────────────────────────────────────────────────────────────┐  │
+│  │  MODULE ECOSYSTEM LAYERS                                                              │  │
+│  │                                                                                       │  │
+│  │  4. Private feed / internal modules    ← NuGet / Azure Artifacts feed                │  │
+│  │  3. Az.* (Azure SDK modules)           ← PSGallery; sub-modules by service area      │  │
+│  │  2. Community modules                  ← PSGallery (Pester, dbatools, PSReadLine…)   │  │
+│  │  1. Built-in modules                   ← Ship with Windows (ActiveDirectory, CIM…)   │  │
+│  │                                                                                       │  │
+│  │  PSModulePath controls search order    ← $env:PSModulePath (colon-separated dirs)    │  │
+│  │  Autoloading: PS 3+ discovers modules automatically when a command is typed          │  │
+│  └─────────────────────────────────────────────────────────────────────────────────────┘  │
+│                                                                                           │
+│  ┌─────────────────────────────────────────────────────────────────────────────────────┐  │
+│  │  EXECUTION POLICY (Windows only — not a security boundary, a convenience guardrail) │  │
+│  │                                                                                       │  │
+│  │  Restricted      — no scripts (default on client Windows)                            │  │
+│  │  RemoteSigned     — local scripts OK; downloaded scripts need signature              │  │
+│  │  Unrestricted    — all scripts, warns on downloaded                                  │  │
+│  │  Bypass           — no checking at all (use in CI/CD: -ExecutionPolicy Bypass)       │  │
+│  │                                                                                       │  │
+│  │  Scope precedence (highest wins):                                                     │  │
+│  │  MachinePolicy > UserPolicy > Process > CurrentUser > LocalMachine                   │  │
+│  │  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass   ← CI-safe              │  │
+│  └─────────────────────────────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────────────────────────┘
+```
+
 ---
 
 ## Language Snapshot
@@ -70,6 +123,105 @@ Key differences:
 
 In CI/CD: explicitly invoke pwsh or powershell.exe depending on what's installed.
 In new scripts: target PS 7. $PSVersionTable.PSVersion.Major tells you which.
+```
+
+
+### .NET Runtime Backing — Why It Matters
+
+```
+PS 5.1  →  .NET Framework 4.x
+  - Windows-only CLR
+  - Assembly resolution from GAC + Framework dirs
+  - Some COM interop available directly
+  - Modules that P/Invoke Windows APIs or use Framework-only types work fine here
+  - Will never get new language features
+
+PS 7.x  →  .NET 8+ (formerly .NET Core)
+  - Cross-platform CLR
+  - Assembly resolution from NuGet paths / runtimeconfig.json
+  - Some Framework-only modules break (WMI, some AD cmdlets, old SSMS modules)
+  - Faster startup, better performance, ongoing investment
+
+Module compatibility consequence:
+  A module that ships a .NET Framework DLL (targets net4x) may fail to load in PS 7
+  because the .NET 8 runtime refuses to load Framework assemblies in all cases.
+  Check module compatibility: Import-Module Foo -Verbose  → watch for type load errors
+```
+
+### Windows Compatibility Layer (PS 7)
+
+```powershell
+# For PS 5.1-only modules that don't work natively in PS 7,
+# the WindowsCompatibility shim creates an implicit PS 5.1 runspace
+# in the background and proxies calls to it.
+
+Install-Module WindowsCompatibility
+Import-WinModule ActiveDirectory               # load via compat layer
+Import-Module ActiveDirectory -UseWindowsPowerShell  # same thing, built-in PS 7.1+
+
+# What it does under the hood:
+#   Spins up a background PS 5.1 session
+#   Creates proxy functions in the PS 7 session that forward calls
+#   Return values are deserialized (same as remoting — methods lost)
+
+# Caveats:
+#   - Requires Windows (uses powershell.exe under the hood)
+#   - Proxy objects are PSCustomObject, not the real types
+#   - Not all modules compat-shim cleanly (anything with custom UI or complex types)
+```
+
+### ForEach-Object -Parallel — Runspace Isolation
+
+```powershell
+# Each -Parallel block runs in a SEPARATE runspace (not a thread in shared state).
+# Variables from the outer scope are NOT visible inside.
+
+$threshold = 100
+Get-Process | ForEach-Object -Parallel {
+    # $threshold is NOT available here — different runspace
+    if ($_.CPU -gt $threshold) { $_.Name }   # WRONG: $threshold = $null
+}
+
+# Fix: $using: scope modifier copies the value into the runspace
+$threshold = 100
+Get-Process | ForEach-Object -Parallel {
+    if ($_.CPU -gt $using:threshold) { $_.Name }   # correct
+} -ThrottleLimit 10
+
+# Implications:
+#   - No shared mutable state — you cannot update $results from inside -Parallel
+#   - Collect return values from the pipeline instead
+#   - $using: is read-only copy — modifications inside don't propagate out
+#   - For true shared state (counters), use [System.Collections.Concurrent.ConcurrentBag[object]]
+#     passed via $using:
+
+$bag = [System.Collections.Concurrent.ConcurrentBag[object]]::new()
+1..20 | ForEach-Object -Parallel {
+    ($using:bag).Add("result from $_")
+} -ThrottleLimit 5
+$bag.Count   # 20
+```
+
+### Pipeline Chain Operators — &&, || in PS 7
+
+```powershell
+# && and || in PS 7 operate on $LASTEXITCODE, NOT on $?
+# This is the non-obvious part: they are for EXTERNAL executables.
+
+git fetch && git merge && git push    # stops if any external tool returns non-zero
+git pull || throw "pull failed"       # throws if git pull fails
+
+# $LASTEXITCODE is what drives these operators.
+# PowerShell cmdlet success/failure ($?) does NOT feed into && / ||.
+
+# Test this:
+function Fail-Cmdlet { throw "oops" }
+Fail-Cmdlet && Write-Host "won't stop here?"   # && still runs because $LASTEXITCODE is 0
+
+# Practical rule:
+#   &&/|| for chaining native binaries (git, npm, dotnet, docker, etc.)
+#   try/catch for chaining PS cmdlets
+#   Mix both when your script calls external tools AND PS cmdlets
 ```
 
 ---
@@ -458,6 +610,100 @@ finally {
 }
 ```
 
+
+### Terminating vs Non-Terminating Errors
+
+```
+Two categories that control where execution goes:
+
+Terminating error:
+  - Throws immediately, can be caught by try/catch
+  - Sources: throw statement; Write-Error -ErrorAction Stop;
+             cmdlets called with -ErrorAction Stop;
+             $ErrorActionPreference = "Stop" in scope
+
+Non-terminating error:
+  - Writes to $Error, emits to error stream, execution CONTINUES
+  - Sources: most cmdlet errors by default (Get-Item on missing path, etc.)
+  - try/catch DOES NOT catch these — they flow past the catch block
+  - Fix: force terminating via -ErrorAction Stop or $ErrorActionPreference = "Stop"
+
+$ErrorActionPreference scope rules:
+  Set at script top  → affects all cmdlets in that script and functions it calls
+  Set inside function → affects only that function's scope (restored on exit)
+  -ErrorAction Stop  → overrides preference for that one call only
+
+# Practical: set Stop at the top of production scripts, override per-call where you
+# expect recoverable errors (e.g., Test-Path before Get-Item).
+$ErrorActionPreference = "Stop"
+$content = Get-Content "maybe-missing.txt" -ErrorAction SilentlyContinue  # this one OK
+```
+
+### $Error — The Circular Buffer
+
+```powershell
+# $Error is an ArrayList of the last N ErrorRecords (default 256, configured by $MaximumErrorCount)
+$Error[0]         # most recent error
+$Error[-1]        # oldest error in the buffer
+$Error.Count      # how many errors accumulated
+
+$Error.Clear()    # reset the buffer — useful before a risky section to isolate errors
+$MaximumErrorCount = 50    # reduce buffer size if memory is a concern
+
+# $Error accumulates ALL errors including ones you caught — it is NOT cleared by try/catch.
+# In long-running scripts, stale entries from earlier operations can confuse diagnosis.
+# Pattern: $Error.Clear() before a critical section, inspect $Error after.
+```
+
+### -ErrorVariable — Capture Non-Terminating Errors
+
+```powershell
+# Collect non-terminating errors into a named variable WITHOUT catching/aborting
+Get-ChildItem "C:\MissingDir" -ErrorAction SilentlyContinue -ErrorVariable dirErrors
+if ($dirErrors) {
+    Write-Warning "Directory errors: $($dirErrors.Count)"
+    $dirErrors | ForEach-Object { Write-Warning $_.Exception.Message }
+}
+
+# Note: variable name WITHOUT the $ prefix in -ErrorVariable
+# Note: errors are still written to $Error as well
+# Use case: bulk operations where you want to continue and collect all failures
+```
+
+### ErrorRecord Inspection
+
+```powershell
+# In a catch block, $_ is the ErrorRecord. Its structure:
+catch {
+    $_.Exception.Message             # human-readable message string
+    $_.Exception.GetType().FullName  # actual .NET exception type
+    $_.Exception.InnerException      # wrapped exception if present
+
+    $_.CategoryInfo.Category         # ErrorCategory enum (ObjectNotFound, etc.)
+    $_.CategoryInfo.Reason           # short reason string
+    $_.CategoryInfo.TargetName       # what object caused the error
+
+    $_.InvocationInfo.ScriptName          # file path where error occurred
+    $_.InvocationInfo.ScriptLineNumber    # line number
+    $_.InvocationInfo.Line               # actual source line text
+    $_.InvocationInfo.PositionMessage    # formatted "At line:X char:Y" string
+
+    $_.FullyQualifiedErrorId    # unique ID for this error (useful for filtering)
+    $_.TargetObject             # the object being operated on when error occurred
+
+    # Structured diagnostic output:
+    [PSCustomObject]@{
+        Type    = $_.Exception.GetType().Name
+        Message = $_.Exception.Message
+        Line    = $_.InvocationInfo.ScriptLineNumber
+        File    = $_.InvocationInfo.ScriptName
+    }
+}
+
+# For non-terminating errors captured via -ErrorVariable, same properties apply:
+$dirErrors[0].InvocationInfo.ScriptLineNumber
+```
+
 ### Script Arguments
 
 ```powershell
@@ -527,6 +773,313 @@ if ($IsMacOS)   { ... }
 Install-Module Az -Scope CurrentUser
 Import-Module Az
 Get-Module -ListAvailable
+```
+
+
+---
+
+## Modules and Dot-Sourcing
+
+Every scripting language has a module/library system. This is PowerShell's.
+
+### Dot-Sourcing vs Import-Module
+
+```powershell
+# Dot-sourcing: execute a script in the CURRENT scope
+# Functions, variables, and aliases defined in the script become available HERE
+. .\helpers.ps1          # functions from helpers.ps1 are now in scope
+. "$PSScriptRoot\lib\utils.ps1"   # use $PSScriptRoot for relative-to-script paths
+
+# Import-Module: load a packaged module (directory or .psm1 file)
+Import-Module .\MyModule          # loads .\MyModule\MyModule.psd1 or .psm1
+Import-Module MyModule            # searches $env:PSModulePath
+
+# Difference in practice:
+#   Dot-source: quick sharing within a script family; no encapsulation; everything leaks
+#   Import-Module: proper encapsulation; only FunctionsToExport are visible; versioned
+
+# -Force to reload (useful during development):
+Import-Module MyModule -Force
+
+# Inspect what a module exposes:
+Get-Command -Module MyModule
+Get-Module MyModule | Select-Object -ExpandProperty ExportedFunctions
+```
+
+### Module Manifest (.psd1)
+
+```powershell
+# Generate a skeleton:
+New-ModuleManifest -Path ".\MyModule\MyModule.psd1" `
+    -RootModule "MyModule.psm1" `
+    -ModuleVersion "1.2.0" `
+    -Author "You" `
+    -Description "What it does"
+
+# Key fields in the .psd1 hashtable:
+@{
+    RootModule        = 'MyModule.psm1'    # entry point (.psm1 or .dll)
+    ModuleVersion     = '1.2.0'
+    GUID              = 'xxxxxxxx-...'     # generated once, never change
+
+    # Explicit export lists — if missing, PS exports everything (bad practice)
+    FunctionsToExport = @('Get-Thing', 'Invoke-Thing')   # everything else is private
+    CmdletsToExport   = @()
+    AliasesToExport   = @()
+
+    RequiredModules   = @(
+        @{ ModuleName = 'Az.Accounts'; ModuleVersion = '2.0.0' }
+    )
+
+    RequiredAssemblies = @('bin\MyHelper.dll')   # .NET assemblies to pre-load
+
+    PrivateData = @{
+        PSData = @{
+            Tags       = @('Azure', 'Automation')
+            ProjectUri = 'https://github.com/...'
+        }
+    }
+}
+```
+
+### PSModulePath — Where PS Looks
+
+```powershell
+# Ordered search path — first match wins
+$env:PSModulePath -split ';'
+# Typical output:
+#   C:\Users\you\Documents\PowerShell\Modules    ← user-scope installs
+#   C:\Program Files\PowerShell\Modules          ← system-scope installs
+#   C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules   ← built-in
+
+# Add a private feed directory (e.g., in CI/CD pipeline):
+$env:PSModulePath = "C:\pipeline\modules;$env:PSModulePath"
+
+# In Azure Pipelines: add to ##vso[task.setvariable] or set in pipeline YAML env:
+# env:
+#   PSModulePath: $(Build.SourcesDirectory)/modules;$(PSModulePath)
+```
+
+### #Requires — Enforce Prerequisites
+
+```powershell
+#Requires -Version 7.2                          # minimum PS version
+#Requires -Modules @{ ModuleName='Az'; ModuleVersion='9.0' }   # module + version
+#Requires -Modules Pester, PSScriptAnalyzer     # simple list
+#Requires -RunAsAdministrator                   # elevate or fail
+
+# Must be at the TOP of the script (before any executable code).
+# PS checks before executing a single line — clean fail with clear message.
+```
+
+### Module Autoloading vs Explicit Import
+
+```powershell
+# PS 3+: if you type a command that belongs to a module in PSModulePath,
+# PS will auto-import that module before running the command.
+Get-AzVM    # triggers auto-import of Az.Compute if installed
+
+# Auto-import is fine for interactive sessions.
+# For scripts: use explicit Import-Module at the top.
+# Why: auto-import is session-state dependent; explicit import is deterministic.
+# In CI/CD always be explicit.
+
+# Private functions in a .psm1 are simply not listed in FunctionsToExport.
+# They are callable within the module but invisible outside.
+function Invoke-Internal { ... }      # private — not exported
+function Get-PublicThing { Invoke-Internal }   # public — exported in .psd1
+```
+
+---
+
+## PSCustomObject and Structured Output
+
+Returning structured data from functions is a universal pattern. In Python you'd return a dataclass; in Go a struct; in PS the idiom is `[PSCustomObject]`.
+
+### [PSCustomObject] — Structured Return Values
+
+```powershell
+# Inline construction — cleaner than New-Object for ad-hoc objects
+$result = [PSCustomObject]@{
+    Name     = "Alice"
+    Score    = 42
+    Active   = $true
+    Tags     = @("admin", "dev")
+}
+
+$result.Name      # "Alice"
+$result | Get-Member   # inspect properties
+
+# Functions that return multiple [PSCustomObject] instances compose naturally in the pipeline:
+function Get-Metrics {
+    [CmdletBinding()]
+    param([string[]]$Hosts)
+    foreach ($h in $Hosts) {
+        [PSCustomObject]@{
+            Host    = $h
+            CPU     = (Get-Random -Max 100)
+            Memory  = (Get-Random -Max 32)
+            Sampled = (Get-Date)
+        }
+    }
+}
+Get-Metrics -Hosts "web01","web02" | Where-Object CPU -gt 80 | Export-Csv -NoTypeInformation
+```
+
+### Add-Member — Dynamic Extension
+
+```powershell
+# Extend an existing object at runtime
+$obj = [PSCustomObject]@{ Name = "Alice" }
+$obj | Add-Member -NotePropertyName Score -NotePropertyValue 100
+$obj | Add-Member -MemberType ScriptMethod -Name "Greet" -Value { "Hello, $($this.Name)" }
+$obj.Greet()    # "Hello, Alice"
+
+# Extend objects from cmdlet output (e.g., add a computed property to Get-Process output):
+$procs = Get-Process | ForEach-Object {
+    $_ | Add-Member -NotePropertyName CPUPercent -NotePropertyValue ($_.CPU / 60) -PassThru
+}
+```
+
+### Calculated Properties with Select-Object
+
+```powershell
+# Inline projection without constructing new objects:
+Get-Process | Select-Object Name, CPU, @{
+    Name       = "CPUSeconds"
+    Expression = { [Math]::Round($_.CPU, 1) }
+}, @{
+    Name       = "WorkingSetMB"
+    Expression = { [Math]::Round($_.WorkingSet64 / 1MB, 1) }
+}
+
+# Useful pattern for reshaping API responses before Export-Csv or ConvertTo-Json:
+$response.items | Select-Object id, @{
+    Name = "CreatedDate"
+    Expression = { [datetime]$_.created_at }
+}
+```
+
+### PowerShell Classes (PS 5+)
+
+```powershell
+# Classes exist but have different tradeoffs vs [PSCustomObject]
+class ServerMetric {
+    [string]$Host
+    [double]$CPU
+    [datetime]$Sampled
+
+    ServerMetric([string]$h, [double]$c) {
+        $this.Host    = $h
+        $this.CPU     = $c
+        $this.Sampled = Get-Date
+    }
+
+    [bool] IsHot() { return $this.CPU -gt 80 }
+}
+
+$m = [ServerMetric]::new("web01", 92.5)
+$m.IsHot()    # $true
+
+# Class inheritance:
+class CriticalMetric : ServerMetric {
+    [string]$AlertLevel = "P1"
+    CriticalMetric([string]$h, [double]$c) : base($h, $c) {}
+}
+
+# CRITICAL limitation — serialization cliff:
+# Classes defined in a .ps1 or .psm1 do NOT serialize cleanly across remoting or jobs.
+# Class definition must exist in the receiving runspace too.
+# Remoted class instances come back as bare PSCustomObject (methods gone).
+# For data that crosses runspace/remoting boundaries: use [PSCustomObject] not classes.
+# Classes are appropriate for: complex in-process logic, DSL builders, test helpers.
+```
+
+---
+
+## Remoting
+
+Remote execution is a universal ops pattern (SSH, WinRM, gRPC — run commands on a remote machine). PowerShell has first-class support with two transports.
+
+### Transport Options
+
+```
+WinRM  (Windows Remote Management)
+  - Windows-only, uses HTTP/HTTPS (ports 5985/5986)
+  - Kerberos auth on domain; NTLM for workgroup
+  - Required: WinRM service enabled on target (winrm quickconfig)
+  - PS 5.1 and 7 both support it
+  - Default in enterprise Windows environments
+
+SSH transport (PS 7+)
+  - Cross-platform: Linux → Windows, Windows → Linux, any → any
+  - Requires: OpenSSH server on target with PS subsystem configured
+  - Auth via SSH key or password
+  - /etc/ssh/sshd_config entry: Subsystem powershell /usr/bin/pwsh -sshs -NoLogo
+```
+
+### Session Management
+
+```powershell
+# Interactive remoting (like SSH session)
+Enter-PSSession -ComputerName "web01"                      # WinRM
+Enter-PSSession -HostName "web01" -UserName "admin"        # SSH (PS 7)
+Exit-PSSession
+
+# One-shot command execution
+Invoke-Command -ComputerName "web01" -ScriptBlock { Get-Process | Where-Object CPU -gt 50 }
+
+# Multiple targets simultaneously
+Invoke-Command -ComputerName "web01","web02","web03" -ScriptBlock {
+    [PSCustomObject]@{ Host = $env:COMPUTERNAME; Uptime = (Get-Uptime) }
+}
+
+# Persistent session — avoids connection overhead for multiple operations
+$session = New-PSSession -ComputerName "web01"
+Invoke-Command -Session $session -ScriptBlock { $data = Get-Process }
+Invoke-Command -Session $session -ScriptBlock { $data | Where-Object CPU -gt 50 }  # $data persists
+Remove-PSSession $session
+
+# Passing local variables into remote scriptblocks:
+$threshold = 80
+Invoke-Command -ComputerName "web01" -ScriptBlock {
+    param($t)
+    Get-Process | Where-Object CPU -gt $t
+} -ArgumentList $threshold
+
+# Or $using: in PS 7:
+Invoke-Command -ComputerName "web01" -ScriptBlock {
+    Get-Process | Where-Object CPU -gt $using:threshold
+}
+
+# Credentials (for non-domain or cross-domain scenarios):
+$cred = Get-Credential                                    # prompts interactively
+$cred = [PSCredential]::new("admin", (ConvertTo-SecureString "pass" -AsPlainText -Force))
+Invoke-Command -ComputerName "web01" -Credential $cred -ScriptBlock { hostname }
+
+# Fire-and-forget remote jobs:
+$job = Invoke-Command -ComputerName "web01" -ScriptBlock { Start-Sleep 30; "done" } -AsJob
+Receive-Job $job -Wait
+```
+
+### The Serialization Cliff
+
+```
+Remote commands serialize objects for transport and deserialize on the receiving end.
+After deserialization:
+  ✓  Data (properties, values) survives
+  ✗  Methods are gone — object is a PSCustomObject shell
+  ✗  .NET type identity is gone — $obj.GetType().Name is "Deserialized.System.Diagnostics.Process"
+
+Remoted Get-Process returns:  System.Management.Automation.PSObject (Deserialized)
+Local Get-Process returns:    System.Diagnostics.Process
+
+Consequence: pipeline-filter and property access work fine.
+             calling methods ($proc.Kill()) fails on remoted results.
+
+Fix for method calls: move the operation to the remote scriptblock before returning.
+  Wrong:  $procs = Invoke-Command ... { Get-Process }; $procs | ForEach-Object { $_.Kill() }
+  Right:  Invoke-Command ... { Get-Process | Where-Object Name -eq "notepad" | Stop-Process }
 ```
 
 ---
@@ -627,6 +1180,155 @@ Breaking the convention works but causes lint warnings and breaks discoverabilit
 | `ConvertFrom-Json` | `jq` | PS built-in; Bash needs jq tool |
 | `Invoke-RestMethod` | `curl \| jq` | PS deserializes automatically |
 | `&&` / `\|\|` (PS 7+) | `&&` / `\|\|` | Same semantics; PS 7+ only |
+
+
+---
+
+## Cloud CLI Integration — Azure PowerShell
+
+Every major cloud has a shell module (AWS has `AWS.Tools.*`, GCP has `GoogleCloud`). Azure's is the `Az` module. The patterns here are universal to cloud shell SDKs; the specifics are Azure.
+
+### Module Structure
+
+```
+Az is a meta-module (umbrella). It installs ~70 sub-modules by service area.
+You rarely need all of them. Install sub-modules directly for faster CI installs.
+
+Az.Accounts      ← authentication, context, subscription mgmt (always needed)
+Az.Compute       ← VMs, scale sets, disks, snapshots
+Az.Storage       ← blob, queue, table, file share
+Az.KeyVault      ← secrets, keys, certificates
+Az.Network       ← VNets, NSGs, load balancers, DNS
+Az.Resources     ← resource groups, ARM deployments, tags, policies
+Az.Sql           ← Azure SQL, elastic pools
+Az.ContainerInstance / Az.Aks   ← containers, AKS
+Az.Monitor       ← metrics, alerts, diagnostics
+Az.Automation    ← runbooks, DSC, automation accounts
+
+# Full install (slow but comprehensive):
+Install-Module Az -Scope CurrentUser -Repository PSGallery -Force
+
+# Targeted install (prefer in CI/CD):
+Install-Module Az.Accounts, Az.Compute, Az.Storage -Scope CurrentUser -Force
+```
+
+### Authentication Patterns
+
+```powershell
+# Interactive (dev workstation):
+Connect-AzAccount                         # browser auth flow
+Connect-AzAccount -TenantId "xxx"         # specific tenant
+
+# Service principal (CI/CD with client secret — avoid in Azure Pipelines, use service connection instead):
+$cred = [PSCredential]::new(
+    $env:SP_CLIENT_ID,
+    (ConvertTo-SecureString $env:SP_CLIENT_SECRET -AsPlainText -Force)
+)
+Connect-AzAccount -ServicePrincipal -Credential $cred -TenantId $env:TENANT_ID
+
+# Service principal with certificate:
+Connect-AzAccount -ServicePrincipal -ApplicationId $appId `
+    -CertificateThumbprint $thumbprint -TenantId $tenantId
+
+# Managed identity (Azure VMs, Functions, ACI — no credential needed):
+Connect-AzAccount -Identity                          # system-assigned MI
+Connect-AzAccount -Identity -AccountId $clientId    # user-assigned MI
+
+# In Azure Pipelines with AzurePowerShell@5 task:
+# DO NOT call Connect-AzAccount — the task injects the service connection token automatically.
+# The context is already set before your script runs.
+```
+
+### Context and Subscription Management
+
+```powershell
+# List available contexts (subscriptions you've authenticated to):
+Get-AzContext -ListAvailable
+
+# Current context:
+Get-AzContext
+
+# Switch to a different subscription:
+Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Set-AzContext -SubscriptionName "Production"
+
+# Useful in multi-sub scripts — save/restore pattern:
+$savedCtx = Get-AzContext
+Set-AzContext -SubscriptionId $targetSubId
+# ... do work ...
+Set-AzContext -Context $savedCtx   # restore
+
+# Save context between sessions:
+Save-AzContext -Path "$HOME\.azure\context.json"
+Import-AzContext -Path "$HOME\.azure\context.json"
+```
+
+### Common Patterns
+
+```powershell
+# List VMs in a resource group:
+Get-AzVM -ResourceGroupName "prod-rg" | Select-Object Name, Location, @{
+    Name = "Size"; Expression = { $_.HardwareProfile.VmSize }
+}
+
+# Stop all VMs matching a pattern:
+Get-AzVM -ResourceGroupName "dev-rg" |
+    Where-Object Name -like "dev-*" |
+    ForEach-Object { Stop-AzVM -ResourceGroupName $_.ResourceGroupName -Name $_.Name -Force }
+
+# ARM deployment:
+New-AzResourceGroupDeployment `
+    -ResourceGroupName "prod-rg" `
+    -TemplateFile ".\infra\main.bicep" `
+    -TemplateParameterObject @{ env = "prod"; size = "Standard_D2s_v3" }
+
+# Key Vault secret retrieval:
+$secret = Get-AzKeyVaultSecret -VaultName "my-vault" -Name "db-password" -AsPlainText
+```
+
+### Azure Pipelines Integration
+
+```yaml
+# YAML pipeline — AzurePowerShell@5 task handles auth automatically
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'my-service-connection'   # service connection name
+    ScriptType: 'InlineScript'
+    Inline: |
+      # Context is pre-authenticated — do NOT call Connect-AzAccount
+      $vms = Get-AzVM -ResourceGroupName "prod-rg"
+      Write-Host "Found $($vms.Count) VMs"
+    azurePowerShellVersion: 'LatestVersion'
+    pwsh: true   # use pwsh (PS 7) instead of powershell.exe (PS 5.1)
+
+# Alternative: pwsh step with manual Connect-AzAccount (service principal)
+- task: PowerShell@2
+  env:
+    SP_ID: $(ServicePrincipalId)      # pipeline variables
+    SP_SECRET: $(ServicePrincipalSecret)
+    TENANT_ID: $(TenantId)
+  inputs:
+    pwsh: true
+    script: |
+      $cred = [PSCredential]::new($env:SP_ID,
+          (ConvertTo-SecureString $env:SP_SECRET -AsPlainText -Force))
+      Connect-AzAccount -ServicePrincipal -Credential $cred -TenantId $env:TENANT_ID
+      ...
+```
+
+### AzureRM → Az Migration Note
+
+```
+AzureRM module is end-of-life (Feb 2024). Cmdlet names changed — not a 1:1 rename.
+Common mappings:
+  Login-AzureRmAccount    →  Connect-AzAccount
+  Get-AzureRmVM           →  Get-AzVM
+  New-AzureRmResourceGroup→  New-AzResourceGroup
+  Set-AzureRmContext      →  Set-AzContext
+
+Pattern: AzureRm* prefix → Az* prefix, but verify — some commands restructured entirely.
+Run: Get-Command -Module Az.* | Where-Object Name -like "*VM*"  to discover current names.
+```
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-x86-64 (also called AMD64 or Intel 64) is the dominant ISA for servers, desktops, and laptops as of 2024. Everything in Azure runs on it. Your .NET CLR, the JIT compiler, the OS kernel — all targeting x86-64. Understanding its register file, instruction encoding, and calling conventions is essential for understanding performance, interop, and what the JIT actually emits.
+x86-64 (also called AMD64 or Intel 64) is the dominant ISA for servers, desktops, and laptops as of 2024. It is the target for every major compiler (GCC, Clang, MSVC), every major language runtime (JVM, V8, CPython, CLR), and every major server operating system. Linux, macOS, and Windows all run natively on x86-64 on the same binary-compatible ISA. Understanding its register file, instruction encoding, and calling conventions is essential for understanding performance, interop, and what any JIT or AOT compiler actually emits — whether you are writing C++, Java, Go, Python, or .NET.
 
 ```
 +-----------------------------------------------------------------------+
@@ -271,9 +271,33 @@ x86-64 instructions are 1 to 15 bytes. The encoding is a legacy format evolved f
   VMOVAPS zmm0 {k1}, [mem]   Masked load (only elements where k1 bit set)
   = 16 × float32 in one instruction
 
-  C# BRIDGE: System.Runtime.Intrinsics.X86 namespace exposes SSE/AVX
-  directly. Avx.Add, Sse.Multiply, etc. The JIT can auto-vectorize
-  LINQ-like loops in some cases.
+  ACCESSING SIMD FROM SOFTWARE:
+
+  AUTO-VECTORIZATION (universal — any language + compiler):
+  The compiler detects loops over arrays and emits SIMD instructions
+  automatically. No source changes required.
+    GCC/Clang: -O2 or higher enables auto-vectorization
+    MSVC: /O2 enables; /arch:AVX2 unlocks 256-bit
+    JVM (JIT): HotSpot auto-vectorizes counted loops (JDK 9+)
+    .NET CLR JIT: auto-vectorizes Span<T> loops in common patterns
+    CPython: NumPy/SciPy rely on C/Fortran SIMD under the hood
+
+  EXPLICIT INTRINSICS (portable C/C++):
+    GCC/Clang: __m256 / __m256d / __m256i types
+               _mm256_add_ps(), _mm256_mul_ps(), etc.
+    AVX-512:   __m512 and _mm512_* intrinsics
+    std::experimental::simd (C++23): portable SIMD abstraction
+               std::experimental::fixed_size_simd<float, 8>
+
+  JAVA VECTOR API (JDK 16+, incubating):
+    FloatVector v = FloatVector.fromArray(SPECIES_256, a, i);
+    v.add(FloatVector.fromArray(SPECIES_256, b, i)).intoArray(c, i);
+    JIT compiles to AVX2 or AVX-512 depending on hardware.
+
+  .NET: System.Runtime.Intrinsics.X86 exposes SSE/AVX directly.
+    Avx.Add(), Sse.Multiply(), etc.
+    Vector256<float> also available via System.Numerics.
+    The JIT can auto-vectorize LINQ-like loops in common patterns.
 ```
 
 ---

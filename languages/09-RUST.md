@@ -17,6 +17,74 @@
 
 ---
 
+## Ownership & Borrow Checker — Conceptual Landscape
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    THE 3 OWNERSHIP RULES                            │
+│                                                                     │
+│  1. Every value has exactly ONE owner (a binding, not a type)       │
+│  2. When the owner goes out of scope, the value is DROPPED (freed)  │
+│  3. Ownership TRANSFERS on assignment/pass — the old binding dies   │
+└─────────────────────────────────────────────────────────────────────┘
+
+MOVE vs COPY
+┌──────────────────────────────────┬──────────────────────────────────┐
+│  Heap types → MOVE semantics     │  Stack types → COPY semantics    │
+│                                  │                                  │
+│  let s1 = String::from("hi");    │  let x: i32 = 5;                 │
+│  let s2 = s1;   // s1 is DEAD   │  let y = x;   // x still alive  │
+│  // use s1 → compile error       │  // use x → OK                   │
+│                                  │                                  │
+│  s1.clone() → explicit deep copy │  Copy types: i32, f64, bool,     │
+│  (heap allocation, O(n))         │  char, &T, tuples of Copy types  │
+└──────────────────────────────────┴──────────────────────────────────┘
+
+BORROW RULES (enforced at compile time by the borrow checker)
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                     │
+│   &T  shared borrow (immutable)     &mut T  exclusive borrow        │
+│  ┌──────────────────────┐          ┌──────────────────────┐        │
+│  │  &s  &s  &s  ... &s  │          │       &mut s          │        │
+│  │  many readers OK     │          │  ONE writer, no       │        │
+│  │  (read-only)         │          │  readers allowed      │        │
+│  └──────────────────────┘          └──────────────────────┘        │
+│                                                                     │
+│  Rule: ANY number of &T  OR  exactly ONE &mut T  — never both       │
+│  Rule: Borrows must not outlive the owner's scope (no dangling refs) │
+└─────────────────────────────────────────────────────────────────────┘
+
+LIFETIMES — a borrow cannot outlive its owner
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                     │
+│  fn main() {                                                        │
+│      let owner = String::from("hello");   ← owner created          │
+│      {                                                              │
+│          let r = &owner;   ← borrow begins                         │
+│          println!("{r}");  ← use borrow                            │
+│      }                     ← borrow ends                           │
+│      drop(owner);          ← owner dropped AFTER last borrow use   │
+│  }                                                                  │
+│                                                                     │
+│  Lifetime annotations <'a> appear when compiler can't infer         │
+│  which input ref determines how long the output ref lives:          │
+│  fn longest<'a>(s1: &'a str, s2: &'a str) -> &'a str              │
+│  = "output lives no longer than the shorter input"                  │
+└─────────────────────────────────────────────────────────────────────┘
+
+SMART POINTER HIERARCHY
+┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌──────────┐
+│     T       │    │   Box<T>    │    │    Rc<T>    │    │  Arc<T>  │
+│  owned val  │    │  heap alloc │    │ shared, 1   │    │ shared,  │
+│  on stack   │    │  single     │    │ thread only │    │ multi-   │
+│  or inline  │    │  owner      │    │ ref-counted │    │ thread   │
+└─────────────┘    └─────────────┘    └─────────────┘    └──────────┘
+   C# struct           C# new T()       C# shared obj    C# shared obj
+   value copy          on heap          single-thread     thread-safe
+```
+
+---
+
 ## Syntax Reference Card
 
 ### Variables & Types
@@ -417,6 +485,79 @@ fn run() -> Result<()> {
 
 ---
 
+## C# Bridge: Exception Propagation vs `Result<T,E>` + `?`
+
+You throw and catch exceptions. Rust propagates typed errors through return values. The `?` operator is the ergonomic bridge — it's syntactic sugar for the same propagation pattern you already know.
+
+**C# exception propagation chain:**
+```csharp
+// Errors propagate up the call stack implicitly via exception unwinding
+string ReadConfig(string path)     // throws IOException
+{
+    var raw = File.ReadAllText(path);      // throws if missing
+    return raw.Trim();
+}
+
+string LoadSettings(string env)    // throws IOException
+{
+    var path = GetConfigPath(env);         // throws if bad env
+    return ReadConfig(path);               // re-throws — no explicit propagation
+}
+
+// Caller must decide: catch here or let it propagate further
+try {
+    var settings = LoadSettings("prod");
+} catch (IOException ex) {
+    Log(ex);
+}
+```
+
+**Rust `?` operator — same pattern, explicit and type-checked:**
+```rust
+// Error type is IN the signature — callers know what can fail
+fn read_config(path: &str) -> Result<String, io::Error> {
+    let raw = fs::read_to_string(path)?;   // ? = return Err(e) if Err
+    Ok(raw.trim().to_string())
+}
+
+fn load_settings(env: &str) -> Result<String, io::Error> {
+    let path = get_config_path(env)?;      // ? propagates — explicit in code
+    read_config(&path)                     // last expr, no ? needed
+}
+
+// Caller handles or propagates
+match load_settings("prod") {
+    Ok(s)  => use_settings(s),
+    Err(e) => log_error(e),
+}
+```
+
+**What `?` desugars to:**
+```rust
+// This:
+let content = fs::read_to_string(path)?;
+
+// Is exactly this:
+let content = match fs::read_to_string(path) {
+    Ok(v)  => v,
+    Err(e) => return Err(e.into()),  // early return, type-converts error
+};
+```
+
+**Why Rust's approach wins on large codebases:**
+
+| Aspect | C# exceptions | Rust `Result` + `?` |
+|--------|---------------|---------------------|
+| Error visibility | Hidden — not in signature | Explicit — in return type |
+| Propagation cost | Stack unwinding (runtime) | Zero — just a return |
+| Unhandled errors | Uncaught exception = crash at runtime | Compiler error — must handle |
+| Error composition | `catch (A\|B)` or multi-catch | Enum variants, `map_err`, `anyhow` |
+| At call site | `try { }` or ignore (dangerous) | `?` to propagate, `match` to handle |
+
+The key mental shift: in C#, exception propagation is invisible. In Rust, `?` makes every propagation point visible in the source. The type signature tells you whether a function can fail and with what error type — no surprise exceptions from deep call chains.
+
+---
+
 ## What Makes It Distinct
 
 1. **Ownership = memory safety without GC** — the borrow checker proves at compile time that no use-after-free, double-free, or data race can occur. No runtime cost. This is why Rust is used in kernels, browsers, and safety-critical systems.
@@ -454,3 +595,26 @@ fn run() -> Result<()> {
 | Generic `List<T>` works at runtime | Generics monomorphize — larger binary | Trade-off: performance vs size |
 | `async Task<T>` runs on ThreadPool | `async fn` returns a Future — must be driven by a runtime | Choose tokio/async-std |
 | `try/catch` exceptions | `Result<T,E>` + `?` operator | Different mental model but explicit |
+
+---
+
+## Decision Cheat Sheet
+
+| Decision | Use X | When Y |
+|----------|-------|--------|
+| **`&T` vs `&mut T` vs `T`** | `&T` | Read-only access; function doesn't need to modify or own |
+| | `&mut T` | Need to mutate in place; caller retains ownership |
+| | `T` (owned) | Function needs to store, return, or consume the value |
+| **`Box<T>` vs `Rc<T>` vs `Arc<T>`** | `Box<T>` | Single owner on heap; recursive types; trait objects |
+| | `Rc<T>` | Shared ownership within a single thread (graph, tree with back-refs) |
+| | `Arc<T>` | Shared ownership across threads; pair with `Mutex<T>` for mutation |
+| **`impl Trait` vs `dyn Trait`** | `impl Trait` | Static dispatch — monomorphized at compile time; zero overhead; preferred |
+| | `dyn Trait` | Dynamic dispatch — heterogeneous collections; plugin patterns; runtime polymorphism |
+| **`String` vs `&str`** | `&str` | Function parameter that just reads a string; string literals |
+| | `String` | Owned, growable string; return value; storing in structs |
+| **`unwrap()` vs `?` vs `match` on Result** | `unwrap()` | Tests, examples, or genuinely impossible error (document why) |
+| | `?` | Error propagation — caller should handle; most production code |
+| | `match` | Need to handle both `Ok` and `Err` differently at this call site |
+| **`Vec<T>` vs `[T; N]` vs `&[T]`** | `Vec<T>` | Dynamic size; building collections; owning a list |
+| | `[T; N]` | Fixed size known at compile time; stack allocation preferred |
+| | `&[T]` | Function parameter accepting any contiguous sequence (array or Vec) |

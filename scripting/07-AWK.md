@@ -2,6 +2,40 @@
 
 > Record-oriented stream processor. Not a shell — a declarative query language for text tables. The Unix equivalent of a mini SQL for stdin.
 
+## The Text-Processing Tool Landscape
+
+```
+Unix text-processing tool space — by capability level:
+
+  grep          cut/tr         AWK            sed           Perl/Python
+  ────────       ──────────     ──────────     ──────────    ──────────
+  Find lines     Simple         Field          Stream        Full
+  by pattern     field          processing     transfor-     language
+                 extraction     + arithmetic   mation
+                                + arrays
+
+  awk '/ERROR/'  cut -f2        awk '          sed 's/       python
+                 file.tsv       {sum+=$3}      foo/bar/g'    script.py
+                                END{print      file
+                                sum}' file
+
+  ← simpler, faster for narrow task ──────────────── more powerful →
+
+  AWK's niche: "structured record processing"
+    - Input has rows and columns (delimited text, logs, CSVs, TSVs)
+    - You need: filter rows + extract/transform fields + aggregate
+    - Too much logic for cut/grep; not enough to justify Python
+
+  When AWK loses to adjacent tools:
+    grep:   just finding lines (AWK works but overkill)
+    cut:    just extracting columns from clean TSV/CSV (AWK works but verbose)
+    sed:    complex in-place stream substitution on unstructured text
+    jq:     actual JSON with nesting, arrays, escaping
+    Python: stateful multi-pass, data structures, libraries, HTTP
+```
+
+---
+
 ## Language Snapshot
 
 | Attribute | Value |
@@ -45,6 +79,129 @@ AWK is a compiled program, not an interpreter:
   -> exit
   Much faster than equivalent Perl/Python for simple column ops.
 ```
+
+---
+
+## SQL → AWK: The Strongest Mental Model
+
+If you know SQL, you already know AWK's conceptual structure. The mapping is direct and complete. This is the most universally useful on-ramp regardless of stack.
+
+```
+SQL concept          AWK equivalent           Notes
+───────────────────────────────────────────────────────────────────
+SELECT col1, col2    { print $1, $2 }         $1..$NF = columns
+FROM file            awk '...' file            file = the table
+WHERE condition      condition { action }      pattern = row filter
+GROUP BY key         count[$1]++               associative arrays
+  + SUM(col)         total[$1] += $2           accumulate in array
+  + output           END { for k in arr... }   flush in END block
+ORDER BY col         ... | "sort -k2 -rn"      pipe to sort
+LIMIT n              NR > n { exit }
+OFFSET n             NR <= n { next }
+ROW_NUMBER()         NR                        total rows processed
+  (per partition)    FNR                       rows in current file
+Column delimiter     FS (field separator)      default: whitespace
+Column count         NF                        changes per row
+```
+
+**Side-by-side example — frequency count:**
+
+```sql
+-- SQL
+SELECT department, COUNT(*) AS headcount
+FROM employees
+GROUP BY department
+ORDER BY headcount DESC;
+```
+
+```awk
+# AWK equivalent
+awk '
+  NR > 1 {                          # skip header row (like WHERE NR > 1)
+    count[$3]++                     # $3 = department column; GROUP BY dept
+  }
+  END {
+    for (dept in count)
+      print count[dept], dept       # SELECT count, dept
+  }
+' employees.csv | sort -rn          # ORDER BY count DESC
+```
+
+**Another example — filtered sum:**
+
+```sql
+-- SQL
+SELECT region, SUM(revenue)
+FROM sales
+WHERE product = 'Widget'
+GROUP BY region;
+```
+
+```awk
+# AWK equivalent (assuming: $1=region, $2=product, $3=revenue)
+awk -F, '
+  $2 == "Widget" {                  # WHERE product = "Widget"
+    total[$1] += $3                 # GROUP BY region, SUM(revenue)
+  }
+  END {
+    for (r in total) print r, total[r]
+  }
+' sales.csv
+```
+
+**JOIN two files (equivalent to SQL JOIN):**
+
+```sql
+-- SQL
+SELECT a.*, b.manager
+FROM employees a
+JOIN departments b ON a.dept_id = b.id;
+```
+
+```awk
+# AWK equivalent: NR==FNR trick loads first file into memory
+awk '
+  NR == FNR { mgr[$1] = $2; next }  # load departments (file1): id → manager
+  $3 in mgr { print $0, mgr[$3] }   # join employees (file2) on dept_id=$3
+' departments.txt employees.txt
+```
+
+The `NR==FNR` pattern is AWK's canonical JOIN idiom. `NR` counts all records across all files; `FNR` resets per file. When `NR == FNR`, you're still in the first file.
+
+---
+
+## Power Query M → AWK Bridge
+
+If you work with Power Query M, the structural mapping is similarly clean. This is additive context; the SQL bridge above is the load-bearing mental model.
+
+```
+Power Query M                AWK equivalent
+──────────────────────────────────────────────────────────────────
+Table.TransformRows(          pattern { action }
+  tbl, each ...)              AWK's implicit loop over records
+
+each _                        $0 (the whole current record)
+
+[ColumnName]                  $1 / $2 / $NF (positional field)
+  (column access)             or named via: split($0, f, FS)
+
+Table.SelectRows(             pattern before { action }
+  tbl, each [Col] > 100)      $2 > 100 { print }
+
+Table.Group(                  count[$1]++; total[$2] += $3
+  tbl, "key", ...)            + END { for k in arr ... }
+
+Table.AddColumn(              { $0 = $0 OFS ($2 * $3); print }
+  tbl, "new", each ...)       (rebuild $0 with new field)
+
+Splitter.SplitText            FS (field separator)
+  ByDelimiter(",")            -F, or BEGIN { FS="," }
+
+Table.Skip(tbl, n)            NR <= n { next }
+Table.FirstN(tbl, n)          NR > n { exit }
+```
+
+The conceptual shift from M to AWK: M is a typed, immutable transformation pipeline over strongly-typed tables. AWK is stringly-typed, mutable, and operates on unstructured text that happens to be delimited. In M, schema is explicit. In AWK, columns are positional — `$1`, `$2`, `$NF`.
 
 ---
 
@@ -150,6 +307,91 @@ sprintf("%-10s %5.2f", name, val)  # format without printing
 tolower("HELLO")         # -> "hello"
 toupper("hello")         # -> "HELLO"
 ```
+
+---
+
+## printf Formatting
+
+`printf` in AWK uses the same format string mini-language as C's `printf`, which also appears in bash, Perl, Python (`%`-formatting), and Go's `fmt.Sprintf`. Once you know it here, it transfers everywhere.
+
+```awk
+# Basic syntax
+printf "format string\n", arg1, arg2, ...
+
+# Common format specifiers
+printf "%s\n", "hello"             # string
+printf "%d\n", 42                  # integer (decimal)
+printf "%f\n", 3.14159             # float (6 decimal places by default)
+printf "%e\n", 12345.678           # scientific notation: 1.234568e+04
+printf "%g\n", 0.000123            # shorter of %f or %e
+printf "%%\n"                      # literal percent sign
+```
+
+**Width and alignment:**
+
+```awk
+# Width: minimum field width
+printf "%10s\n", "hi"              # "        hi"  (right-aligned, padded left)
+printf "%-10s\n", "hi"             # "hi        "  (left-aligned, padded right)
+printf "%10d\n", 42                # "        42"
+printf "%-10d\n", 42               # "42        "
+
+# Precision: decimal places for floats, max chars for strings
+printf "%.2f\n", 3.14159           # "3.14"
+printf "%.2e\n", 12345.678         # "1.23e+04"
+printf "%.5s\n", "hello world"     # "hello"  (truncate string to 5 chars)
+
+# Zero-padding
+printf "%05d\n", 42                # "00042"
+printf "%08.2f\n", 3.14            # "00003.14"
+```
+
+**Building aligned tabular output (AWK's primary reporting use case):**
+
+```awk
+# Print a formatted report
+BEGIN {
+    printf "%-15s %10s %8s\n", "Name", "Department", "Salary"
+    printf "%-15s %10s %8s\n", "----", "----------", "------"
+}
+NR > 1 {
+    printf "%-15s %10s %8.2f\n", $1, $2, $3
+}
+END {
+    printf "%-15s %10s %8.2f\n", "TOTAL", "", total
+}
+```
+
+**Format specifier reference table:**
+
+| Specifier | Type | Example | Output |
+|---|---|---|---|
+| `%s` | String | `printf "%s", "hi"` | `hi` |
+| `%d` | Integer | `printf "%d", 42` | `42` |
+| `%f` | Float | `printf "%.2f", 3.1` | `3.10` |
+| `%e` | Scientific | `printf "%e", 1234` | `1.234000e+03` |
+| `%g` | Auto float | `printf "%g", 0.0001` | `0.0001` |
+| `%o` | Octal | `printf "%o", 8` | `10` |
+| `%x` | Hex lower | `printf "%x", 255` | `ff` |
+| `%X` | Hex upper | `printf "%X", 255` | `FF` |
+| `%c` | Character | `printf "%c", 65` | `A` |
+
+**`printf` vs `print`:**
+
+| | `print` | `printf` |
+|---|---|---|
+| Newline | Added automatically (ORS) | Not added — you write `\n` |
+| Separator | OFS between args | None — you write it |
+| Formatting | None | Full format string |
+| Use for | Quick output | Aligned columns, precise formatting |
+
+```awk
+print $1, $2          # "Alice Bob\n"  — OFS between, ORS at end
+printf "%s %s\n", $1, $2  # identical output, but explicit
+printf "%s\t%s\n", $1, $2  # tab-separated (can't do with print alone)
+```
+
+---
 
 ### Arrays (Associative Only)
 
@@ -416,6 +658,77 @@ AWK's mental model is not "write a program", it's "define a transformation":
 
 ---
 
+## AWK Implementation Comparison
+
+AWK has multiple independent implementations with different feature sets. This is the portability question any developer writing AWK scripts must answer: which features can you rely on?
+
+```
+Implementation portability matrix:
+
+  Feature              gawk    mawk    nawk    busybox  POSIX?
+  ─────────────────────────────────────────────────────────────
+  Core AWK              YES     YES     YES     YES      YES
+  printf / sprintf      YES     YES     YES     YES      YES
+  Associative arrays    YES     YES     YES     YES      YES
+  getline               YES     YES     YES     YES      YES
+  Regex intervals       YES     YES*    NO      NO       NO
+    (/x{2,4}/)         (4.0+)  (limited)
+  switch/case           YES     NO      NO      NO       NO
+  BEGINFILE/ENDFILE     YES     NO      NO      NO       NO
+  nextfile              YES     NO      NO      NO       NO
+  True multidim arrays  YES     NO      NO      NO       NO
+    (a[1][2])          (4.0+)
+  @include              YES     NO      NO      NO       NO
+  PROCINFO array        YES     NO      NO      NO       NO
+  delete array          YES     YES     YES     SOME     YES
+  length(array)         YES     YES     YES     NO       NO
+  gensub() function     YES     NO      NO      NO       NO
+
+  * mawk supports basic regex intervals inconsistently
+```
+
+**Implementation guide:**
+
+| Implementation | When you encounter it | Notes |
+|---|---|---|
+| `gawk` | Linux (installed explicitly or as default on many distros) | GNU AWK; most features; actively maintained; best for scripting |
+| `mawk` | Ubuntu/Debian default `/usr/bin/awk` | Fast; minimal; correct POSIX; no gawk extensions |
+| `nawk` | macOS `/usr/bin/awk`; Solaris; AIX | "New AWK" (Kernighan's version); POSIX-only |
+| `busybox awk` | Alpine containers; embedded systems | Minimal; intentionally small; POSIX subset |
+| `goawk` | Occasionally in Go toolchains | POSIX-compatible; some gawk extensions |
+
+**Decision guide:**
+
+```
+Q: Will this script run in a container or CI where I don't control the AWK version?
+   → Write POSIX AWK only. No BEGINFILE, no nextfile, no gensub, no @include.
+   → Test with: awk --posix '...' or mawk '...'
+
+Q: This is my personal machine / I control the environment?
+   → Use gawk explicitly: #!/usr/bin/gawk -f
+   → Install: brew install gawk (macOS); apt install gawk (Debian)
+   → Unlock: BEGINFILE, nextfile, true multidim arrays, switch/case
+
+Q: I'm on macOS and just want to run a one-liner?
+   → /usr/bin/awk is nawk — POSIX-only.
+   → For gawk features: gawk '...' (if installed via Homebrew)
+   → For portability: stick to POSIX patterns
+
+Q: Writing AWK for Alpine-based Docker images?
+   → busybox awk. Treat it as strict POSIX minus some edge cases.
+   → Add gawk to your Dockerfile if you need extensions.
+```
+
+**Detecting which AWK you have:**
+
+```bash
+awk --version 2>/dev/null | head -1        # gawk prints version; others may not
+awk 'BEGIN{print PROCINFO["version"]}'     # gawk-only; fails silently on others
+gawk --version 2>/dev/null                 # explicit gawk check
+```
+
+---
+
 ## Ecosystem
 
 | Implementation | Notes |
@@ -448,6 +761,30 @@ awk 'BEGIN{print PROCINFO["version"]}'  # gawk version check
 | macOS old awk | `/usr/bin/awk` on macOS is Brian Kernighan's nawk (not gawk) | `brew install gawk` for gawk features |
 | Regex in `-F` | `-F '\|'` is regex OR — matches any of the chars | Escape: `-F '\|'` or `FS="[|]"` |
 | Pipe stays open | `print \| "sort"` accumulates all output, then flushes on close | `close("sort")` to flush mid-program |
+
+---
+
+## Common Confusion Points
+
+These are conceptual collisions, not syntax errors. They hit anyone coming to AWK from a conventional programming language.
+
+**"`pattern { action }` is a loop I have to write"**
+No. AWK IS the loop. `{ print $1 }` without a pattern runs on every record automatically. You never write `while read line; do ... done` in AWK. The implicit loop over all input records is AWK's execution model, not something you express in code. AWK compiles your program once and runs it as a filter over the stream.
+
+**"`print a, b` uses a literal comma between a and b"**
+No. `print a, b` uses OFS (output field separator, default `" "`). If you change `OFS=","` in BEGIN, all your `print a, b` calls will suddenly produce `a,b`. This trips up anyone who reads a `print` statement and assumes it's just formatting. To always get a literal space or comma, use `printf "%s %s\n", a, b` instead.
+
+**"AWK arrays work like Python lists or ordered hashtables"**
+AWK arrays are purely associative (hash maps). They have no insertion order, no integer-indexed sequence unless you put integer keys in them yourself. `for (k in arr)` iterates in undefined order — you cannot predict it, and it can change between AWK implementations. For ordered output, always pipe to `sort`.
+
+**"AWK runs my script sequentially, top to bottom, once"**
+AWK runs your program for every input record. The structure is: `BEGIN` (once), then `pattern { action }` for every line, then `END` (once). If your program has three pattern-action rules, all three are evaluated against every record. AWK is not a sequential script; it's a rule-based stream processor.
+
+**"I can use `$field_name` to reference a column by name"**
+No. AWK fields are positional: `$1`, `$2`, `$NF`. There's no named column access like `$department` or `$["revenue"]`. To simulate named columns, either hard-code the position (`$3` = revenue column) or parse the header row in BEGIN to build a name-to-index map: `col[$i] = i` in an `NR==1` block, then reference `$col["revenue"]` in subsequent records.
+
+**"`NR==FNR` just means I'm in the first file — I can use it anywhere"**
+Only when processing exactly two files. The idiom `NR==FNR{...;next}` works because FNR resets to 1 for each new file, while NR keeps incrementing. If you're processing a single file, `NR` and `FNR` are always equal. If you're processing three files, the pattern breaks for the third file. Know when you're using this pattern and why.
 
 ---
 

@@ -17,6 +17,69 @@
 
 ---
 
+## CLR Ecosystem Map
+
+```
+  SOURCE & TOOLCHAIN
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  .cs source files                                                   │
+  │         │                                                           │
+  │         ▼                                                           │
+  │  ┌─────────────────────────────────────────────────────┐           │
+  │  │  Roslyn Compiler (Microsoft.CodeAnalysis)           │           │
+  │  │  ├── Syntax tree (parse)                            │           │
+  │  │  ├── Semantic model (bind, type-check)              │           │
+  │  │  ├── Analyzers + Source Generators (Roslyn API)     │           │
+  │  │  └── Emit                                           │           │
+  │  └─────────────────────────────────────────────────────┘           │
+  │         │                                                           │
+  │         ▼                                                           │
+  │  IL / CIL  (.dll / .exe — platform-neutral bytecode)               │
+  │  + Metadata (reflection info, assembly manifest)                    │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  RUNTIME (CLR)
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  Class Loader  →  JIT Compiler (RyuJIT)  →  Native code (x64/ARM)  │
+  │                       │                                             │
+  │  ┌────────────────────┼────────────────────────────────────────┐   │
+  │  │  Runtime Services  │                                        │   │
+  │  │  ├── GC       Gen0 (short-lived) → Gen1 → Gen2 + LOH        │   │
+  │  │  ├── Thread Pool   (I/O completion ports + worker threads)  │   │
+  │  │  ├── Exception handling  (SEH-based, managed wrappers)      │   │
+  │  │  ├── Reflection + Metadata API                              │   │
+  │  │  └── P/Invoke + COM interop layer                           │   │
+  │  └────────────────────────────────────────────────────────────┘   │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  TYPE HIERARCHY (System namespace)
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  System.Object  (every managed type roots here)                     │
+  │       │                                                             │
+  │       ├── System.ValueType  (stack-allocated by default)            │
+  │       │         ├── struct          (user-defined value types)      │
+  │       │         ├── enum            (int-backed by default)         │
+  │       │         ├── Nullable<T>     (T? — boxing on heap if needed) │
+  │       │         └── record struct   (C# 10 — value type + =with=)   │
+  │       │                                                             │
+  │       └── Reference types  (heap-allocated, GC-tracked)            │
+  │                 ├── class           (single inheritance)            │
+  │                 ├── record class    (C# 9 — structural equality)    │
+  │                 ├── interface       (multiple; default members C#8) │
+  │                 ├── delegate        (type-safe function pointer)    │
+  │                 └── array           (T[] — covariant, SZArray IL)   │
+  │                                                                     │
+  │  Managed pointers (not in hierarchy — compiler-only types)         │
+  │       ├── ref T            (byref — alias to variable)              │
+  │       ├── in T             (readonly ref — no copy, no write)       │
+  │       ├── out T            (write-before-read byref)                │
+  │       ├── Span<T>          (ref struct — stack-only slice)          │
+  │       └── ref struct       (must live on stack, no boxing)          │
+  └─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## Syntax Reference Card
 
 ### Variables & Types
@@ -335,3 +398,172 @@ using var connection = new SqlConnection(connectionString);
 | 11.0 | 2022 | Raw strings, generic math, `required` |
 | 12.0 | 2023 | Collection expressions, primary constructors |
 | 13.0 | 2024 | `params` collections, `lock` object, `field` keyword |
+
+---
+
+## Decision Cheat Sheet
+
+### Type declaration: which form?
+
+| Use | When | Avoid when |
+|-----|------|------------|
+| `record class` | Immutable data bags; structural equality needed; DTOs, value objects | Mutable state; identity matters (two instances with same data are distinct) |
+| `record struct` | Same as record class but value semantics + stack allocation matters; small immutable structs | Large structs (copy cost); need inheritance |
+| `class` | Mutable state; identity matters; OOP inheritance hierarchies | Pure data containers with no behavior |
+| `struct` | High-frequency small values; avoid GC pressure; `Span<T>`, `Vector<T>` patterns | Size > ~16 bytes; need inheritance; virtual dispatch |
+| `readonly struct` | Struct that is never mutated after construction; enables `in` param optimization | Any mutation needed |
+| `ref struct` | Must not escape the stack; wraps managed pointers (`Span<T>`) | Stored in fields, captured in lambdas, boxed |
+
+### Async return type: Task vs ValueTask?
+
+| Use | When |
+|-----|------|
+| `Task<T>` | General case; method sometimes async; consumed by multiple awaiters |
+| `ValueTask<T>` | Hot path that frequently completes synchronously (avoids heap alloc); cache-hit patterns |
+| `Task` (no result) | Fire-and-forget infrastructure; never `async void` except event handlers |
+| `async void` | **Only** event handlers (`Button.Click += async (s,e) => ...`); exceptions are unobservable everywhere else |
+| `IAsyncEnumerable<T>` | Streaming results; infinite sequences; `await foreach` consumers; server-sent events |
+
+### Memory / buffer: which abstraction?
+
+| Use | When | Constraint |
+|-----|------|------------|
+| `T[]` | General heap arrays; interop; long-lived | Heap allocation; GC pressure at high frequency |
+| `Span<T>` | Stack-allocated slices; parsing; zero-copy subranges | Cannot escape stack; no async; no fields in classes |
+| `Memory<T>` | Same as Span but heap-capable; can cross async boundaries | Slight overhead vs Span |
+| `ArraySegment<T>` | Legacy interop with older APIs expecting segments | Less expressive than Span/Memory |
+| `IMemoryOwner<T>` | Pooled memory (ArrayPool); explicit lifetime | Manual Dispose required |
+
+### Collection interface: how narrow?
+
+| Use | When |
+|-----|------|
+| `IEnumerable<T>` | Lazily-evaluated sequences; LINQ source; widest compatibility; caller only iterates |
+| `IReadOnlyCollection<T>` | Count needed; caller does not mutate; slightly narrower than List |
+| `IReadOnlyList<T>` | Index access needed; immutable view of ordered data |
+| `ICollection<T>` | Caller may Add/Remove; Count guaranteed |
+| `IList<T>` | Full random-access + mutation; prefer concrete type in private APIs |
+| Concrete (`List<T>`, `T[]`) | Private/internal APIs; performance-critical code where interface dispatch matters |
+
+### LINQ provider: IEnumerable vs IQueryable?
+
+| Use | When |
+|-----|------|
+| `IEnumerable<T>` | In-memory data; F# seq equivalent; evaluated in the process |
+| `IQueryable<T>` | Database queries via EF Core; expression tree translated to SQL; never call `.ToList()` until you mean it |
+
+### Span<T> vs Memory<T> vs array — async boundary decision
+
+```
+Need zero-copy slice?
+    └── Yes → Span<T>
+            └── Crosses async boundary / stored in field?
+                    ├── No  → Span<T> (stack only)
+                    └── Yes → Memory<T>
+
+Long-lived heap buffer with explicit lifetime?
+    └── Yes → ArrayPool<T>.Shared.Rent() + IMemoryOwner<T>
+```
+
+---
+
+## Common Confusion Points
+
+**`record struct` equality is struct equality, not reference equality**
+```csharp
+record struct Point(int X, int Y);
+Point a = new(1, 2);
+Point b = new(1, 2);
+a == b   // true — value equality (field-by-field)
+// But: record struct is a VALUE TYPE — copied on assignment
+// Mutation after copy does not affect the original
+```
+Contrast: `record class` is a reference type with structural `==`. Two variables can hold the same object. `record struct` cannot — you always have a copy.
+
+**`async void` swallows exceptions**
+```csharp
+// BAD — exception escapes to SynchronizationContext and crashes the process
+async void DoWork() { await Task.Delay(1); throw new Exception("lost"); }
+
+// GOOD — exception is captured in the Task; caller can observe it
+async Task DoWork() { await Task.Delay(1); throw new Exception("observable"); }
+
+// async void is ONLY acceptable for event handlers where the framework
+// provides the SynchronizationContext exception handler:
+button.Click += async (s, e) => { await DoWorkAsync(); };
+```
+
+**`throw` vs `throw e` — stack trace destruction**
+```csharp
+catch (Exception e)
+{
+    throw;        // CORRECT — preserves original stack trace
+    throw e;      // WRONG  — resets stack trace to this line; loses origin
+    // If you must re-wrap:
+    throw new ApplicationException("context", e);   // inner exception preserves trace
+    // Or .NET 6+:
+    ExceptionDispatchInfo.Capture(e).Throw();        // rethrows with original trace
+}
+```
+
+**`in` parameter is NOT the iterator keyword**
+```csharp
+// `in` = readonly ref — caller's variable is passed by reference, not copied,
+// but the callee cannot write to it. Optimization for large readonly structs.
+void Process(in Matrix4x4 m) { /* m is a ref, no copy, but readonly */ }
+
+// NOT the same as `in` in foreach:
+foreach (var item in collection) { }   // different keyword, different meaning
+```
+
+**`IDisposable` + async: ConfigureAwait and disposal order**
+```csharp
+// `await using` for IAsyncDisposable (streams, EF DbContext, etc.)
+await using var ctx = new AppDbContext(options);
+
+// ConfigureAwait(false) — suppress SynchronizationContext capture
+// Use in library code (not UI or ASP.NET controller code):
+var data = await repository.GetAsync().ConfigureAwait(false);
+
+// Disposal happens AFTER the await completes — using var is safe:
+using var stream = File.OpenRead("f");
+var content = await ReadAllAsync(stream);   // stream still open during await
+// stream.Dispose() called here, after await
+```
+
+**Value tuple field names exist only at compile time**
+```csharp
+(int X, int Y) point = (1, 2);
+point.X   // works at compile time via compiler magic
+// At IL level: System.ValueTuple<int,int> with fields Item1, Item2
+// Names are encoded in [TupleElementNames] attribute on the return type
+// Reflection sees Item1/Item2; cross-assembly names depend on attribute presence
+```
+
+**Pattern matching exhaustiveness: when does the compiler warn?**
+```csharp
+// Compiler checks exhaustiveness for switch EXPRESSIONS (C# 8+)
+// Switch STATEMENTS do not warn — another reason to prefer switch expressions
+
+Shape s = ...;
+var area = s switch                 // compiler WILL warn if a DU case is missing
+{
+    Circle c => ...,
+    // Rectangle missing → CS8509 warning
+};
+
+// For class hierarchies (not sealed): compiler cannot know all subtypes
+// — you must include _ => ... fallthrough
+```
+
+**`init` vs `readonly` — the subtle difference**
+```csharp
+class Config
+{
+    public string Name { get; init; }   // settable in object initializer + ctor
+    public readonly string Id;          // settable ONLY in ctor (not initializer)
+}
+
+// init allows: new Config { Name = "x" }
+// readonly does NOT allow object initializer syntax — ctor only
+```

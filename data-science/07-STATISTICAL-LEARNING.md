@@ -296,6 +296,53 @@ Theoretical justification for:
 
 ---
 
+## Classical Statistics → ML Theory Bridge
+
+These mappings ground statistical learning theory in concepts any quantitative
+practitioner already knows:
+
+```
+Classical statistics / econometrics        Statistical learning theory
+──────────────────────────────────────     ────────────────────────────────────────────
+MLE: maximize Σ log p(xᵢ; θ)              ERM: minimize Σ ℓ(h(xᵢ), yᵢ)
+  (same algorithm, different vocabulary)    ERM = MLE when ℓ = -log p and H
+  MLE implicitly minimizes KL to            is defined by a parametric model
+  empirical distribution
+
+Power analysis: choose n such that         PAC sample complexity: m(ε, δ)
+  P(reject H₀ | H₁ true) ≥ 1-β at          = how many samples needed to guarantee
+  significance level α                       R(h) ≤ R(h*) + ε with probability ≥ 1-δ
+  Same structure: two error rates (α, β)     Same structure: two slack params (ε, δ)
+  and a required sample size n               and a required sample size m
+
+AIC / BIC model selection:                 SRM (Structural Risk Minimization):
+  choose model minimizing -2 log L̂ + k·c   choose H_k minimizing R̂(h) + complexity(k)
+  (penalize parameter count to prevent      (penalize hypothesis class size to prevent
+  overfitting)                              overfitting — same idea, different penalty)
+  BIC penalizes more severely (log n vs 2)  VC / Rademacher bounds provide the penalty
+
+Confidence interval for θ̂:               Generalization bound for h:
+  θ ∈ [θ̂ ± z_{α/2} · SE(θ̂)]              R(h) ≤ R̂(h) + √(log(2|H|/δ) / 2n)
+  "θ is in this interval w.p. ≥ 1-α"       "R(h) ≤ this bound w.p. ≥ 1-δ"
+  Same frequentist coverage guarantee       Same probabilistic guarantee structure
+
+Hypothesis testing:                        VC / Rademacher bounds:
+  p-value = P(data | H₀)                   Bound P(|R - R̂| > ε) ≤ 2|H|exp(-nε²)
+  Reject when data is unlikely under H₀    Reject "model generalizes" when
+                                            sample size makes the bound vacuous (> 1)
+
+Degrees of freedom:                        Effective complexity / VC dimension:
+  k parameters consume k df from n         VCdim(H) = d "consumes" d from n
+  Residual df = n - k                      Effective sample: n - d analogy
+```
+
+The primary difference in vocabulary: statistics treats the distribution as the
+object and parameters as unknowns; learning theory treats the hypothesis class H
+as the object and data as the resource. Both frameworks ask "how much can we trust
+a quantity estimated from finite data?"
+
+---
+
 ## 11. Where This Surfaces in Practice
 
 ```

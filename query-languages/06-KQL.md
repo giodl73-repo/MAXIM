@@ -1,6 +1,6 @@
 # KQL — Kusto Query Language
 
-KQL is Microsoft's pipe-based query language for log analytics and telemetry at scale. It powers Azure Monitor, Log Analytics, Application Insights, Azure Data Explorer (ADX), and Microsoft Sentinel. If you've used App Insights, you've used KQL. The mental model shift from SQL: rows flow left-to-right through operators via the pipe character, like Unix. No SELECT...FROM...WHERE — instead: `table | where | project | summarize`.
+KQL is Microsoft's pipe-based query language for log analytics and telemetry at scale. It powers Azure Monitor, Log Analytics, Application Insights, Azure Data Explorer (ADX), and Microsoft Sentinel. This guide focuses on what matters for practitioners who already write KQL daily: ADX-specific features (materialized views, update policies, partitioning, cross-cluster federation), the behavioral differences between LA and ADX that affect query design, the optimizer's rewrite rules and when pipe order matters vs when it doesn't, and the advanced operators that distinguish expert KQL from intermediate KQL.
 
 ---
 
@@ -25,11 +25,23 @@ KQL is Microsoft's pipe-based query language for log analytics and telemetry at 
 └───────────────────┴───────────────────┴────────────────┴───────────────────┘
 
 All use the same KQL syntax. Differences:
-  Log Analytics : workspace-scoped, retention policies, data collection rules
-  App Insights  : auto-instrumented telemetry tables, smart detection
-  Sentinel      : security analytics, hunting queries, detection rules, playbooks
-  ADX           : dedicated analytics cluster, external tables, ingestion
-                  pipelines, streaming ingestion, massive scale
+Per-context behavioral differences — same KQL syntax, different capabilities:
+
+  Feature                      | Log Analytics | App Insights | Sentinel | ADX
+  -----------------------------|---------------|--------------|----------|-----
+  Query timeout                | 10 min        | 10 min       | 30 min   | configurable (default 10 min, up to 1h)
+  Cross-scope functions        | workspace()   | app()        | workspace() + app() | cluster() + database()
+  cluster() function           | No            | No           | No       | Yes (ADX-only)
+  External tables              | No            | No           | No       | Yes
+  Streaming ingestion          | No            | No           | No       | Yes (<10s latency)
+  Materialized views           | No            | No           | No       | Yes
+  Update policies              | No            | No           | No       | Yes
+  Partitioning policies        | No            | No           | No       | Yes
+  Stored functions             | Yes (portal)  | Yes (portal) | Yes      | Yes (.create function)
+  externaldata() operator      | No            | No           | Yes      | Yes
+  datatable() operator         | Yes           | Yes          | Yes (heavy use in detections) | Yes
+  Row-level security           | No            | No           | No       | Yes
+  Ingestion time (latency)     | ~1-5 min      | ~1-5 min     | ~5 min   | batch ~5 min, streaming <10s
 
 ┌──────────────────────────────────────────────────────────────┐
 │  Query Entry Points                                          │
@@ -46,40 +58,81 @@ All use the same KQL syntax. Differences:
 
 ---
 
-## 2. MENTAL MODEL SHIFT — SQL vs KQL
+## 2. QUERY OPTIMIZER — When Pipe Order Matters (and When It Doesn't)
+
+The pipe model looks sequential, but the ADX query optimizer rewrites pipe chains. Knowing what the optimizer will and won't reorder tells you where to spend effort structuring queries.
+
+**What the optimizer rewrites automatically:**
 
 ```
-SQL (set-based, declarative — clause order ≠ execution order):
+// Predicate pushdown past summarize — optimizer pushes this filter before aggregation
+T | summarize count() by Region | where Region == "eastus"
+// Rewritten as: T | where Region == "eastus" | summarize count() by Region
 
-  SELECT   columns           ← what to return
-  FROM     table             ← source
-  JOIN     other ON ...      ← combine
-  WHERE    condition         ← filter rows (pre-aggregate)
-  GROUP BY columns           ← aggregate
-  HAVING   condition         ← filter groups (post-aggregate)
-  ORDER BY columns           ← sort
-  TOP n                      ← limit
+// Filter hoisting past join — a filter on the left table is pushed before the join
+T | join kind=inner (U) on key | where T.timestamp > ago(1h)
+// Optimizer pushes T.timestamp > ago(1h) to before the join
 
-KQL (pipe-based, left-to-right data flow — written order = execution order):
-
-  table                      ← source
-  | where condition          ← filter rows  (= SQL WHERE)
-  | join kind=inner (...)    ← combine      (= SQL JOIN)
-  | extend newcol = expr     ← add computed column
-  | summarize agg by col     ← aggregate    (= SQL GROUP BY)
-  | where agg_condition      ← filter after aggregation  (= SQL HAVING)
-  | order by col             ← sort
-  | take n                   ← limit        (= SQL TOP / LIMIT)
-  | project col1, col2       ← SELECT columns (can also rename)
-
-The pipe passes a "result table" through each operator.
-Each operator receives a table and outputs a table.
-Order matters — unlike SQL clause execution order.
-
-Key difference: in SQL you can write clauses in any order and the engine
-figures out execution. In KQL, the written order IS the execution order.
-Put expensive filters (where) as early as possible.
+// Materialized view serving — if a matching materialized view exists,
+// a query against the source table is automatically routed to the MV delta + precomputed result
+T | summarize count() by bin(timestamp, 1h)
+// If a materialized view covers this pattern, the optimizer serves from the MV
 ```
+
+**Where pipe order DOES matter (optimizer cannot reorder):**
+
+```kusto
+// Time filter must be first on timestamp — uses the datetime index
+// The optimizer will NOT hoist a time filter past operators that transform timestamp
+T
+| extend ts2 = timestamp + 1h       // transforms timestamp
+| where ts2 > ago(1d)               // CANNOT be pushed past extend — late filter
+// Correct pattern: filter on original timestamp first
+T
+| where timestamp > ago(1d)         // early time filter uses partition index
+| extend ts2 = timestamp + 1h
+
+// summarize discards non-aggregated columns — a where after summarize
+// filters on aggregated results, not raw rows. Expensive if the aggregation is large.
+// Pattern: push all possible filters before summarize.
+
+// parse_json() is expensive — do not call it before a where filter
+T
+| extend parsed = parse_json(RawData)       // parses ALL rows
+| where parsed.level == "error"             // then filters
+// Better:
+T
+| where RawData contains "error"            // cheap string check first
+| extend parsed = parse_json(RawData)       // parse only candidates
+| where parsed.level == "error"             // precise filter on parsed result
+
+// mv-expand multiplies rows — always filter before mv-expand, not after
+T | mv-expand items | where items.type == "critical"   // expensive: expands then filters
+T | where RawItems has "critical" | mv-expand items | where items.type == "critical"  // better
+```
+
+**Forcing optimizer behavior with hints:**
+
+```kusto
+// hint.strategy=broadcast — force right table to be broadcast to all nodes
+// Use when right side is small and join is hitting distribution overhead
+T | join hint.strategy=broadcast kind=inner (U | where active == true) on key
+
+// hint.shufflekey — force hash-based distributed join on specific key
+// Use for large-to-large joins where the default strategy causes data skew
+T | join hint.shufflekey=TenantId kind=inner (U) on TenantId
+
+// hint.materialized=true — explicit materialization of an expression
+let expensive = materialize(T | where condition | summarize ...);
+// materialize() evaluates once and caches; without it, a let referencing T twice
+// scans T twice
+
+// summarize hint.shufflekey — distribute summarize across nodes on a key
+// Critical for high-cardinality group-by on large tables
+T | summarize hint.shufflekey=TenantId count() by TenantId, bin(timestamp, 1h)
+```
+
+Full SQL → KQL operator mapping in section 16.
 
 ---
 
@@ -546,9 +599,455 @@ Requests
 | extend corr = series_pearson_correlation(Series1, Series2)
 ```
 
+### Advanced Operators — partition, bag_unpack, evaluate
+
+```kusto
+// ── partition: run a sub-query independently per partition value ──────────────
+// Critical for per-tenant or per-host analysis: avoids cross-partition aggregation
+// Each partition runs as an independent query; results are unioned
+
+T
+| partition by TenantId
+(
+    top 5 by Duration desc
+)
+// Returns top 5 slowest operations per tenant, independently ranked
+// Without partition: | top 5 by Duration desc gives the global top 5
+
+// Partition with summarize — each partition summarized independently
+Requests
+| where timestamp > ago(1d)
+| partition hint.strategy=native by AppName
+(
+    summarize P99 = percentile(Duration, 99), Total = count()
+    | extend App = AppName
+)
+
+// hint.strategy options:
+//   native    — ADX-native partitioned sub-query (preferred for ADX; not in LA)
+//   legacy    — older shuffle-based strategy
+//   shuffle   — explicit shuffle join semantics
+
+
+// ── bag_unpack: promote dynamic bag keys to first-class columns ───────────────
+// customDimensions in App Insights is dynamic — key set varies per event type
+// bag_unpack pivots it out, one column per key
+
+customEvents
+| where timestamp > ago(1h)
+| evaluate bag_unpack(customDimensions)
+// Each key in customDimensions becomes a column in the result
+// Sparse keys get null in rows that don't have them
+
+// Combine with project-away to drop the original dynamic column after unpacking
+customEvents
+| evaluate bag_unpack(customDimensions, outputColumnPrefix="dim_")
+| project-away customDimensions
+
+
+// ── evaluate: plugin framework — ADX-specific analytical plugins ──────────────
+// evaluate calls plugins that go beyond what pure KQL can express
+
+// basket: find frequent itemsets (association rule mining)
+T
+| evaluate basket()
+// Returns rows showing which column value combinations appear frequently together
+// Useful for finding correlated failure patterns
+
+// autocluster: find common patterns in a dataset — like automatic WHERE clause suggestions
+Exceptions
+| where timestamp > ago(1d)
+| evaluate autocluster()
+// Returns: which attribute combinations explain clusters of exceptions
+
+// diffpatterns: find what's different between two subsets
+Requests
+| where timestamp > ago(1d)
+| evaluate diffpatterns(
+    where ResultCode >= 500,    // "interesting" set: failed requests
+    where ResultCode < 500      // "baseline" set: successful requests
+  )
+// Returns: which column value combinations appear disproportionately in failures
+
+// narrow: unpivot wide table to (row, col, value) triples — exploratory analysis
+T | evaluate narrow()
+
+// python / r plugins (ADX only, requires enabled sandbox)
+T
+| evaluate python(typeof(result: double),
+    'result = df["Value"].rolling(7).mean()',
+    pack('Value', Value)
+  )
+```
+
+### Persisted Functions — ADX Stored Functions and Log Analytics Saved Functions
+
+`let` bindings are query-scoped and disappear when the query ends. For reusable, shareable logic, both ADX and Log Analytics support persisted functions.
+
+```kusto
+// ── ADX stored functions ──────────────────────────────────────────────────────
+// Stored at cluster/database level — callable like a table or UDF
+
+// Create
+.create function
+    with (docstring = "P99 latency per operation over a lookback window",
+          folder = "SLO")
+    OperationP99(lookback: timespan = 1d) {
+    Requests
+    | where timestamp > ago(lookback)
+    | summarize P99 = percentile(Duration, 99) by Name
+    | order by P99 desc
+}
+
+// Alter (update body while keeping name)
+.alter function OperationP99(lookback: timespan = 1d) {
+    Requests
+    | where timestamp > ago(lookback)
+    | summarize P99 = percentile(Duration, 99), P50 = percentile(Duration, 50) by Name
+    | order by P99 desc
+}
+
+// Call — exactly like a table reference
+OperationP99()
+OperationP99(7d)
+
+// Show all functions in current database
+.show functions
+
+// Drop
+.drop function OperationP99
+
+
+// ── Log Analytics / Sentinel saved functions ──────────────────────────────────
+// Saved via: portal → Log Analytics workspace → Logs → Save as function
+// Callable in queries as a table reference (no parameter support in portal-saved functions)
+
+// In a query:
+workspace("my-workspace").MyFunctionName
+// or within the same workspace:
+MyFunctionName
+
+// Programmatic creation via REST API (Log Analytics supports parameterized functions via API):
+// PUT /workspaces/{workspaceId}/savedSearches/{id}
+// body: { "category": "Functions", "displayName": "...", "query": "...", "functionAlias": "MyFunc" }
+```
+
+Key distinction: ADX stored functions support typed parameters with defaults and are first-class database objects with full DDL. LA saved functions are closer to named queries — lightweight, portal-managed, and not directly parameterizable from the portal UI (only via API).
+
 ---
 
-## 12. RENDER — Visualization
+## 12. ADX MATERIALIZED VIEWS
+
+Materialized views precompute aggregations over a source table and keep the result current as new data is ingested. Queries against the source that match the view pattern are automatically routed to the view.
+
+```kusto
+// ── Create ────────────────────────────────────────────────────────────────────
+.create materialized-view with (backfill=true) RequestsByHour on table Requests
+{
+    Requests
+    | summarize RequestCount = count(), AvgDuration = avg(Duration)
+      by bin(timestamp, 1h), Name
+}
+// backfill=true: processes existing data in the source table (runs as background job)
+// Without backfill: view starts from the time of creation (delta only)
+
+// ── Syntax constraints ────────────────────────────────────────────────────────
+// - Source table must NOT be partitioned (ADX limitation)
+// - The view query must start directly from the source table — no joins or union
+// - Supported aggregations: count, sum, avg, min, max, dcount, make_set, make_list, arg_max, arg_min
+// - The view query must have a summarize as the final operator
+
+// ── Query behavior ────────────────────────────────────────────────────────────
+// Queries against the source table that match the MV pattern are served from the MV:
+Requests
+| summarize count() by bin(timestamp, 1h), Name
+// ADX optimizer: detects match with RequestsByHour MV, serves from precomputed result + delta
+
+// Explicit MV query using materialized_view() function:
+materialized_view("RequestsByHour")
+| where timestamp > ago(7d)
+| order by RequestCount desc
+
+// Lookback pattern: combines precomputed MV data with recent delta not yet materialized
+let MVCutoff = materialized_view("RequestsByHour") | summarize max(timestamp);
+union
+    materialized_view("RequestsByHour"),
+    (
+        Requests
+        | where timestamp > toscalar(MVCutoff)   // only the delta since last materialization
+        | summarize RequestCount = count(), AvgDuration = avg(Duration)
+          by bin(timestamp, 1h), Name
+    )
+| summarize RequestCount = sum(RequestCount), AvgDuration = avg(AvgDuration)
+  by timestamp, Name
+
+// ── Management ────────────────────────────────────────────────────────────────
+.show materialized-views                          // list all MVs in database
+.show materialized-view RequestsByHour details    // freshness, lag, row count, materialized rows
+.alter materialized-view RequestsByHour autoUpdateSchema=true
+.disable materialized-view RequestsByHour
+.enable  materialized-view RequestsByHour
+.drop    materialized-view RequestsByHour
+```
+
+**Monitoring freshness:**
+```kusto
+.show materialized-view RequestsByHour details
+// Returns: MaterializedTo (last fully materialized timestamp), IsHealthy, RowCount
+// MaterializedTo lagging behind now() by more than a few minutes means the background
+// materialization process is falling behind ingest rate — scale the cluster or simplify the view
+```
+
+---
+
+## 13. ADX PARTITIONING POLICIES
+
+Partitioning policies control how ADX physically organizes extents (data shards) on disk. Applied asynchronously by background processes, not at ingest time.
+
+```kusto
+// ── Hash partitioning: for high-cardinality string columns ────────────────────
+// Dramatically improves filter performance on the partition key:
+// TenantId, DeviceId, UserId, AccountId — columns you always filter by
+// ADX collocates rows with the same hash value into the same extents
+// Queries with equality or IN filters on the partition key skip most extents entirely
+
+.alter table Telemetry policy partitioning
+```
+```json
+{
+  "PartitionKeys": [
+    {
+      "ColumnName": "TenantId",
+      "Kind": "Hash",
+      "Properties": {
+        "Function": "XxHash64",
+        "MaxPartitionCount": 256,
+        "Seed": 1
+      }
+    }
+  ]
+}
+```
+```kusto
+// MaxPartitionCount: number of hash buckets — higher = better distribution for large tenants
+// Rule of thumb: 128–512 for large tables, start at 128
+
+// ── Uniform range partitioning: for datetime sharding ────────────────────────
+// Ensures rows in a time range land in the same extents
+// Used with timestamp columns when you always query by time range
+.alter table Telemetry policy partitioning
+```
+```json
+{
+  "PartitionKeys": [
+    {
+      "ColumnName": "timestamp",
+      "Kind": "UniformRange",
+      "Properties": {
+        "Reference": "1970-01-01T00:00:00",
+        "RangeSize": "1.00:00:00",
+        "OverrideCreationTime": false
+      }
+    }
+  ]
+}
+```
+```kusto
+// RangeSize: partition granularity — "1.00:00:00" = 1 day per partition
+// Combine hash + uniform range for TenantId + time:
+// partition key = (TenantId hash) — time index already handled by extent datetime range
+
+// ── Operational implications ──────────────────────────────────────────────────
+// Partitioning is NOT applied at ingest time — background process reshuffles extents
+// Time to see effect: hours to days depending on data volume and cluster load
+// Monitor progress:
+.show table Telemetry extents
+| summarize count() by ShardId = tostring(ExtentId)
+// Or via the ADX Diagnostics blade in Azure Portal
+
+// Combined hash + range (two partition keys):
+// Supported: one hash key + one uniform range key per table
+// Most common: TenantId (hash) + timestamp (range)
+
+// Show current partitioning policy:
+.show table Telemetry policy partitioning
+
+// Delete policy:
+.delete table Telemetry policy partitioning
+```
+
+---
+
+## 14. CROSS-CLUSTER AND CROSS-DATABASE QUERIES
+
+Cross-cluster KQL is the ADX equivalent of SQL Server linked servers and `OPENQUERY` — but the syntax is explicit and first-class rather than a configuration layer.
+
+```kusto
+// ── Cross-database (same cluster) ────────────────────────────────────────────
+// Access a table in a different database on the same cluster
+database("OtherDatabase").TableName
+database("OtherDatabase").TableName | where timestamp > ago(1h)
+
+// Function call in another database
+database("SharedUtils").MyFunction(arg)
+
+// ── Cross-cluster ─────────────────────────────────────────────────────────────
+// cluster() is ADX-only — not available in Log Analytics
+cluster("clustername").database("DatabaseName").TableName
+cluster("clustername.region.kusto.windows.net").database("DatabaseName").TableName
+
+// Full example: query a prod cluster from a dev cluster
+cluster("mycluster-prod.eastus.kusto.windows.net").database("Telemetry").Requests
+| where timestamp > ago(1h)
+| summarize count() by Name
+
+// ── Federation — union across clusters ───────────────────────────────────────
+union
+    cluster("mycluster-prod.eastus.kusto.windows.net").database("Telemetry").Requests,
+    cluster("mycluster-eu.westeurope.kusto.windows.net").database("Telemetry").Requests
+| where timestamp > ago(1h)
+| summarize count() by bin(timestamp, 5m), Name
+| render timechart
+
+// Wildcard union across databases on the same cluster:
+union database("*").Requests
+| where timestamp > ago(1h)
+
+// ── Cross-workspace in Log Analytics (not ADX cluster()) ─────────────────────
+union
+    workspace("workspace-prod").Requests,
+    workspace("workspace-staging").Requests
+
+// app() for App Insights within the same LA workspace scope:
+union
+    app("myapp-prod").requests,
+    app("myapp-staging").requests
+
+// ── Performance implications ──────────────────────────────────────────────────
+// Cross-cluster joins are expensive: data must travel across cluster boundaries
+// Rule: push ALL filters before the cross-cluster reference — reduce rows in transit
+
+// BAD: join first, then filter
+cluster("prod").database("Telemetry").Requests
+| join kind=inner (
+    cluster("other").database("Dim").Users
+  ) on UserId
+| where timestamp > ago(1h)     // filter arrives after cross-cluster join — too late
+
+// GOOD: filter at source before join
+cluster("prod").database("Telemetry").Requests
+| where timestamp > ago(1h)     // push filter to source side
+| join kind=inner (
+    cluster("other").database("Dim").Users
+    | where IsActive == true    // filter right side too
+  ) on UserId
+
+// For large cross-cluster joins: use hint.strategy=broadcast if right side is small
+cluster("prod").database("Telemetry").Requests
+| where timestamp > ago(1h)
+| join hint.strategy=broadcast kind=inner (
+    cluster("other").database("Dim").Users | where IsActive == true
+  ) on UserId
+// hint.strategy=broadcast: right side is replicated to all prod cluster nodes
+// avoids sending prod data across the wire — only the small dimension travels
+```
+
+**vs SQL Server linked servers:** SQL Server linked servers hide the remote address in server configuration; the KQL syntax makes the cluster address explicit in the query. Cross-cluster KQL respects AAD RBAC — the identity running the query must have read access on the remote cluster. No equivalent of SQL Server's linked server service account delegation.
+
+---
+
+## 15. ADX UPDATE POLICIES
+
+Update policies implement ingest-time transformation: when data lands in a source (raw) table, a query runs automatically and writes results to a target (processed) table. Both the ingest and the update run in the same transaction — either both commit or both fail.
+
+```kusto
+// ── Pattern: raw table → processed table via update policy ───────────────────
+
+// Step 1: Create the raw (landing) table
+.create table RawEvents (RawData: string, IngestTime: datetime)
+
+// Step 2: Create the target (processed) table
+.create table ParsedEvents
+(
+    Timestamp:   datetime,
+    EventType:   string,
+    TenantId:    string,
+    UserId:      string,
+    Properties:  dynamic
+)
+
+// Step 3: Define the transformation function
+.create function ParseRawEvents() {
+    RawEvents
+    | extend parsed = parse_json(RawData)
+    | project
+        Timestamp  = todatetime(parsed.timestamp),
+        EventType  = tostring(parsed.eventType),
+        TenantId   = tostring(parsed.tenantId),
+        UserId     = tostring(parsed.userId),
+        Properties = parsed.properties
+}
+
+// Step 4: Attach the update policy to the target table
+.alter table ParsedEvents policy update
+```
+```json
+[
+  {
+    "IsEnabled": true,
+    "Source": "RawEvents",
+    "Query": "ParseRawEvents()",
+    "IsTransactional": true,
+    "PropagateIngestionProperties": false
+  }
+]
+```
+```kusto
+// IsTransactional: true — both raw ingest and parsed write commit together
+// PropagateIngestionProperties: forward ingest tags/extent tags to target table
+
+// ── Fan-out pattern: one raw event → multiple target tables ──────────────────
+// Attach multiple update policies to different targets, each reading from RawEvents
+// Common: one policy per event type, routing to type-specific tables
+
+.alter table MetricEvents policy update
+```
+```json
+[{ "IsEnabled": true, "Source": "RawEvents", "Query": "FilterMetrics()", "IsTransactional": true }]
+```
+```kusto
+.alter table AuditEvents policy update
+```
+```json
+[{ "IsEnabled": true, "Source": "RawEvents", "Query": "FilterAudit()", "IsTransactional": true }]
+```
+```kusto
+
+// ── Show / manage ─────────────────────────────────────────────────────────────
+.show table ParsedEvents policy update
+.alter table ParsedEvents policy update @'[]'   // remove all policies (disable)
+
+// ── Performance gotcha ────────────────────────────────────────────────────────
+// The update policy query runs SYNCHRONOUSLY in the ingestion path
+// If your transformation function is expensive (regex parse, complex extend, lookup join),
+// it will slow down every ingest batch — throughput drops proportionally
+// Rules:
+//   - Keep update policy queries simple: parse_json + project is fine
+//   - Avoid joins in update policies — they block ingestion
+//   - If you need a lookup, pre-materialize the dimension as a static table
+//   - Monitor: .show commands | where CommandType == "TableUpdatePolicies"
+//     and watch ingestion latency in the ADX diagnostics blade
+
+// ── Transaction semantics ─────────────────────────────────────────────────────
+// IsTransactional=true: if the update policy query fails, the source ingest also rolls back
+// This ensures raw and processed tables stay in sync — no orphaned raw records
+// IsTransactional=false: source ingest succeeds even if transformation fails
+//   — useful if you want raw data to always land and fix processing failures separately
+```
+
+---
+
+## 16. RENDER — Visualization
 
 ```kusto
 // render: display as chart in Azure Portal, ADX UI, Grafana
@@ -581,7 +1080,7 @@ Requests
 
 ---
 
-## 13. COMMON APP INSIGHTS PATTERNS
+## 17. COMMON APP INSIGHTS PATTERNS
 
 ```kusto
 // ── Request failure rate over time ─────────────────────────────────────────
@@ -656,7 +1155,7 @@ customEvents
 
 ---
 
-## 14. COMMON AZURE MONITOR LOG ANALYTICS PATTERNS
+## 18. COMMON AZURE MONITOR LOG ANALYTICS PATTERNS
 
 ```kusto
 // ── VM CPU spike detection ─────────────────────────────────────────────────
@@ -709,7 +1208,7 @@ union
 
 ---
 
-## 15. SENTINEL HUNTING PATTERNS
+## 19. SENTINEL HUNTING PATTERNS
 
 ```kusto
 // ── Impossible travel detection ────────────────────────────────────────────
@@ -750,7 +1249,7 @@ SigninLogs
 
 ---
 
-## 16. SQL → KQL TRANSLATION TABLE
+## 20. SQL → KQL TRANSLATION TABLE
 
 | SQL                                      | KQL                                          |
 |------------------------------------------|----------------------------------------------|
@@ -801,7 +1300,7 @@ SigninLogs
 
 ---
 
-## 17. DECISION CHEAT SHEET
+## 21. DECISION CHEAT SHEET
 
 | Scenario                                          | Use KQL?  | Notes                                                 |
 |---------------------------------------------------|-----------|-------------------------------------------------------|
@@ -819,7 +1318,7 @@ SigninLogs
 
 ---
 
-## 18. COMMON CONFUSION POINTS
+## 22. COMMON CONFUSION POINTS
 
 **KQL vs SQL execution order**
 SQL clauses are declarative — the optimizer picks execution order. KQL is sequential — the written pipe order is the execution order. Always put `where` on `timestamp` first; it uses the time index and dramatically reduces scanned data. Putting a `where` after a `summarize` is expensive because you are filtering aggregated results, not raw rows.
@@ -851,8 +1350,56 @@ To group timestamps into buckets, use `bin(timestamp, 1h)`. Do not try to comput
 **render is UI-only**
 `| render timechart` only works in the Azure Portal log query editor, ADX Web UI, or Grafana. In SDK calls, it is silently ignored. Do not rely on `render` in programmatic queries.
 
-**Log Analytics vs ADX — same syntax, different features**
-Log Analytics (Azure Monitor) uses the same KQL parser but lacks some ADX features: no external tables, no streaming ingestion, no update policies, no row-level security. ADX has all of those plus cross-cluster queries. If you need analytics-at-scale with custom ingestion pipelines, ADX is the right tier.
+**Log Analytics vs ADX — architectural and operational differences**
+
+Same KQL syntax, fundamentally different operational models. The decision of where to land data is an architecture decision, not a query syntax decision.
+
+```
+┌─────────────────────────────────────┬─────────────────────────────────────────┐
+│  Log Analytics (Azure Monitor)      │  Azure Data Explorer (ADX)              │
+├─────────────────────────────────────┼─────────────────────────────────────────┤
+│  Managed, serverless                │  Dedicated cluster — you size it        │
+│  No cluster management              │  SKU, node count, auto-scale            │
+│                                     │                                         │
+│  INGESTION                          │  INGESTION                              │
+│  DCR-based (Data Collection Rules)  │  Multiple paths:                        │
+│  Batch ~1–5 min latency             │    Batch ingestion: ~5 min latency      │
+│  No streaming ingestion             │    Streaming: <10 sec latency           │
+│                                     │    Event Hub, IoT Hub, ADF, SDK         │
+│  RETENTION                          │  RETENTION                              │
+│  Interactive: 30 days (default)     │  Hot cache: configurable (days)         │
+│  Total: up to 2 years               │  Cold cache: Azure Blob (low cost)      │
+│  Commitment tiers (pay-per-GB or    │  Table-level retention policies         │
+│  capacity reservation)              │  Per-table hot/cold boundary            │
+│                                     │                                         │
+│  QUERY SCOPE                        │  QUERY SCOPE                            │
+│  workspace() for cross-workspace    │  cluster() + database() federation      │
+│  app() for App Insights             │  Cross-cluster joins                    │
+│  No cluster() function              │  External tables (ADLS, blob, SQL)      │
+│                                     │                                         │
+│  ADVANCED FEATURES                  │  ADVANCED FEATURES                      │
+│  No materialized views              │  Materialized views                     │
+│  No update policies                 │  Update policies (ingest-time ETL)      │
+│  No partitioning policies           │  Partitioning policies (hash/range)     │
+│  No row-level security              │  Row-level security                     │
+│  No streaming ingestion             │  Streaming ingestion                    │
+│  No external tables                 │  External tables (query parquet/csv     │
+│                                     │    in ADLS without ingestion)           │
+│  ACCESS CONTROL                     │  ACCESS CONTROL                         │
+│  Workspace-level RBAC               │  Database and table-level RBAC          │
+│  Table-level read permissions (LA)  │  Column-level security                  │
+│                                     │  Row-level security policies            │
+│  COST MODEL                         │  COST MODEL                             │
+│  Pay-per-GB ingested + retention    │  Cluster compute (hourly) + storage     │
+│  Commitment tiers: 100–5000 GB/day  │  Cost dominates at low volume;          │
+│  Break-even vs ADX: ~100 GB/day     │  more cost-effective at high volume     │
+└─────────────────────────────────────┴─────────────────────────────────────────┘
+```
+
+**Where to land data — decision rule:**
+- Azure Monitor / Log Analytics: platform telemetry, VM logs, AKS logs, security events, App Insights. Managed, zero cluster overhead, DCR pipeline, fits Azure Monitor ecosystem.
+- ADX: custom telemetry at scale, IoT/clickstream, multi-tenant analytics requiring tenant isolation (partitioning + RLS), workloads needing streaming ingestion (<10s latency), ingest-time transformation (update policies), or cost optimization at high volume (>100 GB/day cluster amortizes quickly).
+- Both: ADX clusters can be linked as a data source in Azure Monitor, so you can write KQL in LA workspace that federates to ADX via `cluster()` — but `cluster()` is resolved at ADX endpoints, not native LA.
 
 **dcount is approximate**
 `dcount(col)` uses HyperLogLog and is accurate to within ~2%. For exact distinct counts use `count(distinct col)` syntax (supported in some contexts) or `summarize make_set(col) | extend count = array_length(make_set_col)` — though this is expensive on large cardinality.

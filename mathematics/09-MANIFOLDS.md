@@ -426,6 +426,318 @@ An **n-dimensional manifold** M is a topological space that looks locally like �
   The Chern classes from 08-TOPOLOGY.md live in H^even_dR(M).
 ```
 
+## 10. Manifold Hypothesis and ML
+
+```
+  THE MANIFOLD HYPOTHESIS:
+  High-dimensional data (images ∈ ℝ^(64×64×3) ≈ ℝ^12288, text ∈ ℝ^768, etc.)
+  concentrates near a low-dimensional manifold M ⊂ ℝᵈ.
+
+  Evidence:
+  ├── Intrinsic dimensionality of ImageNet: ~40 (not 12288)
+  ├── Smooth interpolation in latent space of VAEs/GANs — geodesics work
+  └── Random perturbations off the manifold degrade representations sharply
+
+  GEODESIC VS EUCLIDEAN DISTANCE:
+  Euclidean distance in ℝᵈ: ‖x - y‖₂  (straight line through ambient space)
+  Geodesic distance on M:    inf_γ ∫ ‖γ'(t)‖ dt  (shortest path along manifold)
+
+  These diverge when M is highly curved or has bottlenecks.
+  Example: two points on a ring — Euclidean distance cuts through interior,
+  geodesic distance goes around the ring.
+
+  Isomap (Tenenbaum 2000): build k-nearest-neighbor graph, approximate
+  geodesic distances with graph shortest paths, then apply MDS in geodesic
+  distance. Recovers manifold structure invisible to PCA.
+
+  RIEMANNIAN OPTIMIZATION ON MATRIX MANIFOLDS:
+  Many ML constraints define manifolds; optimization must stay on them.
+
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  STIEFEL MANIFOLD St(n,k):                                         │
+  │  St(n,k) = {X ∈ M_{n×k} | XᵀX = Iₖ}  (matrices with orth. cols) │
+  │  Appears in: orthogonal weight matrices (orthogonal RNNs),          │
+  │  constrained PCA, CCA (canonical correlation analysis).             │
+  │                                                                     │
+  │  GRASSMANN MANIFOLD Gr(n,k):                                        │
+  │  Gr(n,k) = St(n,k) / O(k)  (k-dimensional subspaces of ℝⁿ)       │
+  │  Appears in: subspace tracking, dimensionality reduction,           │
+  │  multi-view learning (find common subspace between views).          │
+  │                                                                     │
+  │  SPD MANIFOLD Sym⁺(n):                                             │
+  │  {A ∈ M_{n×n} | A = Aᵀ, A ≻ 0}  (symmetric positive definite)   │
+  │  Appears in: covariance matrices, diffusion tensors (DTI in MRI),   │
+  │  metric learning, Gaussian processes.                               │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  RIEMANNIAN GRADIENT DESCENT:
+  Euclidean gradient step:     x_{t+1} = x_t - α ∇f(x_t)
+  Riemannian gradient step:    x_{t+1} = Retract(x_t, -α grad_M f(x_t))
+
+  grad_M f(x) = Proj_{T_x M}(∇f(x))  (project Euclidean gradient onto tangent space)
+  Retract: map tangent vector back to manifold (e.g., QR retraction on Stiefel)
+
+  For Stiefel: use matrix exponential (exact) or QR retraction (approximate).
+  For SPD: exponential map has a closed form: Exp_A(V) = A^{1/2} exp(A^{-1/2}VA^{-1/2}) A^{1/2}
+
+  Libraries: Geoopt (PyTorch), McTorch, Manopt (MATLAB/Python).
+
+  DIFFUSION MAPS — Laplace-Beltrami from data (see §4.5 of 07-DIFFEQ):
+  The graph Laplacian eigenvectors converge to eigenfunctions of ∆_M as
+  sample size n → ∞ and bandwidth ε → 0 (jointly). This is the
+  mathematical justification for spectral clustering and diffusion maps.
+
+  FISHER INFORMATION METRIC (natural gradient):
+  For a statistical model p(x; θ) parameterized by θ ∈ ℝᵈ:
+  Fisher information: I(θ)_{ij} = E[∂_i log p · ∂_j log p]
+  This is a Riemannian metric on the manifold of probability distributions.
+  Natural gradient descent: θ_{t+1} = θ_t - α I(θ)⁻¹ ∇L(θ)
+  Preconditions by Fisher inverse → K-FAC and second-order optimization methods.
+  The manifold of distributions is the statistical manifold (information geometry).
+```
+
+### 1.3 Lorentzian Manifolds and Spacetime
+
+```
+  PSEUDO-RIEMANNIAN MANIFOLD: metric gᵢⱼ is non-degenerate but NOT positive definite.
+  (Some nonzero vectors v have g(v,v) = 0 or g(v,v) < 0.)
+
+  LORENTZIAN MANIFOLD: signature (1,3) or (−,+,+,+).
+  At each point p, the tangent space Tₚ M has inner product:
+  g(v,v) = -v₀² + v₁² + v₂² + v₃²   (with c=1 units)
+
+  MINKOWSKI SPACE (flat Lorentzian):
+  M = ℝ⁴ with metric ds² = -c²dt² + dx² + dy² + dz²
+
+  CAUSAL STRUCTURE — the key new feature vs Riemannian geometry:
+  For a vector v ∈ Tₚ M:
+  ┌────────────────────────────────────────────────────────────────────┐
+  │  g(v,v) < 0:  TIMELIKE  — within the light cone, causal influence │
+  │  g(v,v) = 0:  NULL / LIGHTLIKE — on the light cone              │
+  │  g(v,v) > 0:  SPACELIKE — outside light cone, spacelike separated │
+  │                                                                    │
+  │         future                                                     │
+  │           │                                                        │
+  │    null   │   null                                                 │
+  │     ╲     │     ╱      light cone at p                            │
+  │  ────────────────── spacelike directions                           │
+  │     ╱     │     ╲                                                  │
+  │           │                                                        │
+  │         past                                                       │
+  └────────────────────────────────────────────────────────────────────┘
+
+  CURVES in spacetime:
+  Timelike curve: γ with g(γ',γ') < 0 everywhere — worldline of massive particle
+  Null curve: g(γ',γ') = 0 — worldline of a photon (light ray)
+  Proper time: τ = ∫ √(-g(γ',γ')) dt  (measured by clock on worldline)
+
+  GEODESICS in Lorentzian geometry:
+  Timelike geodesics MAXIMIZE proper time (twin paradox — the straight worldline
+  in spacetime = maximum aging; curved path = less proper time).
+  This is opposite to Riemannian: geodesics minimize length, but in Lorentzian
+  signature, the causal structure flips the variational problem.
+  Null geodesics: paths of light rays. Zero arc length.
+
+  SCHWARZSCHILD METRIC (exterior of spherical mass M):
+  ds² = -(1 - r_s/r)c²dt² + (1 - r_s/r)⁻¹dr² + r²(dθ² + sin²θ dφ²)
+  r_s = 2GM/c² = Schwarzschild radius
+  At r = r_s: metric coefficient g_tt → 0, g_rr → ∞ (coordinate singularity only)
+  Null geodesics at r = r_s: cannot escape → event horizon.
+
+  ISOMETRIES AND KILLING VECTORS:
+  A Killing vector field K satisfies: ∇_(μ K_ν) = 0 (Killing equation)
+  Each Killing vector → conserved quantity along geodesics (Noether's theorem).
+  Schwarzschild: ∂_t and ∂_φ are Killing → energy and angular momentum conserved.
+
+  → 10-DIFFERENTIAL-GEOMETRY.md develops the Riemann tensor Rᵢⱼₖˡ and
+    Einstein's equations Gμν = (8πG/c⁴) Tμν for the full GR story.
+```
+
+## 11. Lie Groups and Lie Algebras
+
+```
+  A LIE GROUP G is both a smooth manifold and a group,
+  where multiplication G×G → G and inversion G → G are smooth maps.
+
+  KEY EXAMPLES:
+  ┌────────────────────────────────────────────────────────────────────┐
+  │  GL(n,ℝ): n×n invertible real matrices (open subset of M_{n×n})  │
+  │  SL(n,ℝ): det = 1 (n²-1 dimensional)                             │
+  │  O(n): AᵀA = I, det = ±1  (orthogonal group, dim = n(n-1)/2)     │
+  │  SO(n): det = +1 (special orthogonal = rotations)                 │
+  │  U(n): A†A = I  (unitary group, dim = n² real)                    │
+  │  SU(n): det = 1 (special unitary, dim = n²-1)                     │
+  │  SU(2) ≅ S³: 3-sphere, double-covers SO(3)                        │
+  │  SU(3): gauge group of QCD (strong force, dim=8)                  │
+  │  U(1) ≅ S¹: gauge group of EM                                     │
+  └────────────────────────────────────────────────────────────────────┘
+
+  THE LIE ALGEBRA g = TeG (tangent space at the identity):
+  Captures the infinitesimal structure of G.
+  g is a vector space with a bilinear antisymmetric bracket:
+  [·,·]: g × g → g   satisfying the Jacobi identity [[X,Y],Z]+[[Y,Z],X]+[[Z,X],Y]=0
+
+  For matrix Lie groups: g = {tangent vectors at I} = {d/dt γ(t)|_{t=0}}
+  Lie bracket = matrix commutator: [X,Y] = XY - YX
+
+  EXAMPLES:
+  gl(n,ℝ) = M_{n×n}(ℝ) with [X,Y] = XY - YX    (all n×n matrices)
+  so(n) = {skew-symmetric matrices: X + Xᵀ = 0}  dim = n(n-1)/2
+  su(n) = {skew-Hermitian + traceless: X + X† = 0, tr X = 0}
+  su(2): basis {iσ₁/2, iσ₂/2, iσ₃/2} where σᵢ are Pauli matrices
+         [Jᵢ, Jⱼ] = εᵢⱼₖ Jₖ  ← angular momentum algebra from QM!
+
+  THE EXPONENTIAL MAP exp: g → G:
+  exp(X) = eˣ = I + X + X²/2! + X³/3! + ...  (matrix exponential)
+  ├── exp maps g (Lie algebra) → G (Lie group)
+  ├── For connected G: exp(g) generates G (may not surject for non-compact G)
+  ├── One-parameter subgroup: t ↦ exp(tX) is a group homomorphism ℝ → G
+  └── Geodesic from identity through G (bi-invariant metric)
+
+  CONNECTION TO PHYSICS:
+  Rotation by angle θ about axis n̂:
+  R = exp(θ n̂ · J)  where Jᵢ are the so(3) generators (3×3 skew-sym matrices)
+  Quantum: U = exp(-iθ n̂ · σ/2) ∈ SU(2)  (spinor rotation)
+
+  Baker-Campbell-Hausdorff (BCH):
+  exp(X)exp(Y) = exp(X + Y + ½[X,Y] + 1/12[X,[X,Y]] - 1/12[Y,[X,Y]] + ...)
+  The group commutator to first order = the Lie bracket:
+  exp(X)exp(Y)exp(-X)exp(-Y) = exp([X,Y] + O(X²,Y²,...))
+
+  LIE GROUP ACTIONS AND EQUIVARIANCE (geometric deep learning):
+  A Lie group G acts on a manifold M via φ: G × M → M (smooth action).
+  Examples:
+  ├── SO(3) acts on ℝ³ (3D rotations on Euclidean space)
+  ├── SE(3) = SO(3) ⋉ ℝ³ acts on ℝ³ (rotations + translations)
+  └── Diffeos Diff(M) act on all geometric objects on M (general covariance)
+
+  EQUIVARIANT NETWORK: f(φ_g(x)) = ρ_g(f(x)) for all g ∈ G
+  (output transforms predictably under group action on input)
+  This is the mathematical heart of:
+  ├── CNNs: translation equivariance (G = translation group)
+  ├── E(3)-equivariant networks (SchNet, SE(3)-Transformers): molecule geometry
+  ├── Spherical CNNs: SO(3) equivariance for omnidirectional vision
+  └── Gauge equivariant networks: equivariance under local gauge transformations
+
+  REPRESENTATION THEORY:
+  A representation ρ: G → GL(V) is a group homomorphism to linear maps.
+  Irreducible representations (irreps) of SU(2) = spin-j representations for j=0,½,1,3/2,...
+  These are exactly the angular momentum quantum numbers of QM.
+  Character theory: χ(g) = tr(ρ(g)) — key tool for decomposing representations.
+```
+
+### 12. Discrete Differential Geometry and Computation
+
+```
+  DISCRETE EXTERIOR CALCULUS (DEC):
+  Translates the smooth theory of §4–7 into computable matrix operations.
+
+  MESH REPRESENTATION:
+  A triangulated surface is a simplicial complex K = (V, E, F):
+  V = vertices (0-simplices), E = edges (1-simplices), F = triangles (2-simplices)
+
+  HALF-EDGE DATA STRUCTURE:
+  Each undirected edge e splits into two directed half-edges (he, he.twin).
+  Provides O(1) access to: neighboring vertex, face, next/prev half-edge.
+  Used in: libigl, CGAL, OpenMesh.
+
+  BOUNDARY OPERATORS AS SPARSE MATRICES:
+  ∂₁: C₁ → C₀  (edge → its two vertices, with orientation)
+  ∂₂: C₂ → C₁  (triangle → its three edges, with orientation)
+  ∂₃: 0 for surfaces (no 3-cells)
+
+  In matrix form (|V|×|E| and |E|×|F| sparse matrices):
+  ∂₁[v,e] = +1 if e ends at v, -1 if e starts at v, 0 otherwise
+  ∂₂[e,f] = ±1 if e is a boundary edge of f (sign = orientation)
+
+  ∂₁ · ∂₂ = 0  (boundary of boundary is zero — verified in matrix arithmetic!)
+
+  DISCRETE HODGE STAR:
+  Continuous: ★: Ωᵏ → Ωⁿ⁻ᵏ (requires metric)
+  Discrete: diagonal matrix Hₖ encoding primal/dual volume ratios
+  H₀[v,v] = 1/6 × Σ(areas of triangles around v)  (Voronoi area)
+  H₁[e,e] = (cotan(αₑ) + cotan(βₑ))/2            (cotangent weights!)
+  H₂[f,f] = 1/area(f)
+
+  DISCRETE LAPLACE-BELTRAMI (cotangent Laplacian):
+  L = ∂₁ᵀ H₁ ∂₁ = H₀⁻¹ ∂₁ᵀ H₁ ∂₁ (acting on vertex functions)
+  L[i,i] = Σⱼ (cot αᵢⱼ + cot βᵢⱼ)/2
+  L[i,j] = -(cot αᵢⱼ + cot βᵢⱼ)/2  (for adjacent vertices i,j)
+
+  This is the standard mesh Laplacian used in geometry processing.
+  It converges to ∆_M as meshes are refined (Wardetzky et al.).
+
+  APPLICATIONS:
+  ├── Mesh smoothing: ∂x/∂t = λ L x  (heat equation on mesh)
+  ├── Spectral mesh analysis: eigenvectors of L = "shape DNA"
+  ├── Harmonic maps: minimize ∫|∇f|² ↔ solve Lf = 0 on interior
+  ├── Geodesic distance: heat method (solve heat eq, extract gradient)
+  └── FEM on curved domains: stiffness matrix is discrete Laplace-Beltrami
+
+  PYTHON ECOSYSTEM:
+  libigl (Python bindings): igl.cotmatrix(V,F) = cotangent Laplacian L
+  PyMesh: mesh processing and Boolean operations
+  trimesh: lightweight mesh loading + vertex/face adjacency
+  potpourri3d: geodesics, heat method on meshes
+
+  import igl
+  V, F = igl.read_triangle_mesh("bunny.obj")  # vertices (n×3), faces (m×3)
+  L = igl.cotmatrix(V, F)          # sparse cotangent Laplacian (n×n)
+  M = igl.massmatrix(V, F, igl.MASSMATRIX_TYPE_VORONOI)  # vertex areas
+  eigvals, eigvecs = scipy.sparse.linalg.eigsh(-L, M, k=50)  # Laplace-Beltrami spectrum
+```
+
+
+### 9.3 Computing de Rham Cohomology
+
+```
+  KEY TOOLS FOR COMPUTING H^k_dR(M):
+
+  MAYER-VIETORIS SEQUENCE (for M = U ∪ V, U,V open):
+  ... → H^k_dR(M) → H^k_dR(U) ⊕ H^k_dR(V) → H^k_dR(U∩V) → H^(k+1)_dR(M) → ...
+  This long exact sequence relates the cohomology of M to simpler pieces.
+
+  EXAMPLE: S² = U ∪ V (upper and lower hemispheres, each contractible)
+  U ≅ ℝ², V ≅ ℝ², U∩V ≅ S¹ × (-ε,ε) ≃ S¹
+  H^k(ℝ²) = ℝ if k=0, else 0.  H^0(S¹)=ℝ, H^1(S¹)=ℝ, H^k(S¹)=0 for k≥2.
+  Mayer-Vietoris gives: H^0(S²)=ℝ, H^1(S²)=0, H^2(S²)=ℝ ✓
+
+  KÜNNETH FORMULA (for products M × N):
+  H^k_dR(M × N) = ⊕_{i+j=k} H^i_dR(M) ⊗ H^j_dR(N)
+
+  EXAMPLE: Torus T² = S¹ × S¹
+  H^0(T²) = H^0⊗H^0 = ℝ
+  H^1(T²) = (H^1⊗H^0) ⊕ (H^0⊗H^1) = ℝ ⊕ ℝ = ℝ²
+  H^2(T²) = H^1⊗H^1 = ℝ ✓  (matches the Betti table in §9.2)
+
+  POINCARÉ DUALITY (for compact oriented n-manifold M):
+  H^k_dR(M) ≅ H^(n-k)_dR(M)
+  This isomorphism is implemented by wedging with the volume form and integrating.
+  Consequence: bₖ = bₙ₋ₖ (Betti numbers are symmetric around n/2).
+  For a 4-manifold: b₀=b₄, b₁=b₃ (but b₂ is unconstrained).
+
+  GAUGE THEORY INTERPRETATION:
+  Poincaré lemma: dω=0 locally ⟹ ω=dα locally (on contractible sets).
+  H^1_dR(M) measures GLOBAL obstructions to exact 1-forms.
+
+  In gauge theory: A is a connection 1-form (the gauge potential).
+  F = dA is the field strength (closed 2-form: dF = d²A = 0).
+  Is F exact globally? If H^2_dR(M) ≠ 0, possibly not.
+  Non-exact F ↔ topologically non-trivial gauge field (magnetic flux through holes).
+
+  EXAMPLE: EM on ℝ³ \ {point} (monopole geometry):
+  H^2_dR(ℝ³\{0}) = ℝ  (non-trivial 2nd cohomology)
+  The field strength F of a Dirac monopole represents a non-trivial cohomology class.
+  The Dirac quantization condition (§7.3 of 08-TOPOLOGY.md) is the
+  requirement that this class be an INTEGER (integrality of characteristic class).
+
+  CHARACTERISTIC CLASSES:
+  Chern classes cₖ ∈ H^(2k)_dR(M): obstructions to having globally defined
+  sections of complex vector bundles. Computed from curvature:
+  c₁ = [tr F / 2πi] ∈ H²(M)  (first Chern class — the monopole number)
+  ∫_M c₁ = (integer) = Chern number (the topological invariant of §7.1 in 08-TOPOLOGY.md)
+```
+
 ---
 
 ## Decision Cheat Sheet

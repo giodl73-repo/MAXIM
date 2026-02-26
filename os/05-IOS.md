@@ -518,14 +518,86 @@ if let url = URL(string: UIApplication.openSettingsURLString) {
 │  │ Storyboards / .xib files    │        │ No IB; all in code         │   │
 │  └──────────────────────────────┘        └────────────────────────────┘   │
 │                                                                             │
+│  Universal bridge (any MVC framework):                                      │
+│    UIViewController  ↔  any MVC controller (ASP.NET Controller,            │
+│                          Android Activity, Rails controller action)         │
+│    viewDidLoad()     ↔  constructor / initialize (resource setup)          │
+│    viewWillAppear()  ↔  before_action / onResume (pre-render setup)        │
+│    viewDidDisappear()↔  cleanup / onPause (teardown)                       │
+│    UITableView       ↔  any virtual scroll list (RecyclerView, WPF         │
+│                          ListView, ag-Grid)                                 │
+│    @EnvironmentObject↔  DI container / ServiceLocator (universal)          │
+│    App Sandbox       ↔  containerized process with restricted namespaces   │
+│                          (Docker --read-only, k8s securityContext)         │
+│                                                                             │
 │  Windows bridge:                                                            │
 │    UIViewController  ↔  WPF Page / UserControl + code-behind               │
 │    Auto Layout       ↔  WPF Grid with star-sizing + margin                 │
 │    UITableView       ↔  WPF ListView + ItemsControl                        │
 │    UINavigationCtrl  ↔  WPF NavigationWindow / Frame                       │
 │    @StateObject      ↔  WPF ViewModel with INotifyPropertyChanged          │
-│    @EnvironmentObject↔  DI container / ServiceLocator                      │
 └─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### UIViewController Lifecycle — Universal MVC Controller Bridge
+
+```
+CONTROLLER LIFECYCLE PATTERN — CROSS-FRAMEWORK
+════════════════════════════════════════════════════════════════════════
+
+  Phase            UIViewController     Android Activity     ASP.NET MVC          Rails/Express
+  ──────────────   ─────────────────    ─────────────────    ──────────────────   ─────────────────
+  Instantiation    init() / initCoder   onCreate()           Controller ctor       initialize
+  Resource setup   viewDidLoad()        onCreate() cont.     before_action         before_action
+  About to show    viewWillAppear()     onResume()           (no equiv — stateless)(no equiv)
+  Shown            viewDidAppear()      (onWindowFocusChanged)(no equiv)           (no equiv)
+  About to hide    viewWillDisappear()  onPause()            (no equiv)            after_action
+  Hidden           viewDidDisappear()   onStop()             (no equiv)            (no equiv)
+  Destroyed        deinit              onDestroy()           Dispose()             (GC)
+
+  The universal pattern:
+  1. Constructor / init: inject dependencies, set up stable state
+  2. Will-appear / resume: refresh data, register observers/listeners
+  3. Did-disappear / pause: save state, unregister observers (prevent leaks)
+  4. Destroy / deinit: release resources, close connections
+
+  Why iOS differs from stateless web controllers:
+  iOS UIViewController is long-lived and may appear/disappear many times.
+  ASP.NET MVC Controller is request-scoped and stateless by default.
+  Android Activity is closer to UIViewController (long-lived, state machine).
+  The "will/did appear" hooks have no web equivalent because web is stateless.
+```
+
+### APNs Universal Push Notification Bridge
+
+```
+PUSH NOTIFICATION BROKER COMPARISON
+════════════════════════════════════════════════════════════════════
+
+  Concept        APNs (Apple)           FCM (Google/Firebase)     WNS (Windows)
+  ──────────     ──────────────────     ──────────────────────     ──────────────────────
+  Device token   256-byte token         Registration token         Channel URI (URL)
+                 per-device per-app     (string)                   per-device per-app
+  Auth           APNs auth key (.p8)    Server key / OAuth 2.0    Client secret + cert
+                 or certificate         service account
+  Protocol       HTTP/2                 HTTP v1 (REST)             HTTP REST
+  Payload        JSON ≤ 4KB             JSON                       XML or JSON ≤ 5KB
+  Delivery       At-most-once           At-most-once               At-most-once
+  guarantee      (best effort)          (best effort)              (best effort)
+  Priority       high / normal          high / normal              high / normal
+  TTL / expiry   expiration header      time_to_live (sec)         X-WNS-TTL header
+  Badge/sound    Yes (apns-push-type)   Yes (notification obj)     Yes (tile/toast/badge)
+  Silent push    content-available: 1   data-only message          (none standard)
+  Collapse key   apns-collapse-id       collapse_key               X-WNS-Tag
+
+  All three share the same architecture:
+    App server → broker API → broker cloud → device push channel → OS → app
+
+  Cross-platform push library:
+    FCM can proxy to APNs — send to FCM, Google delivers to both Android + iOS
+    One FCM project token can reach iOS devices (Firebase configures APNs keys)
+    WNS is Windows-only; no cross-delivery
+    Server: node-apn (Node.js), Firebase Admin SDK, or direct HTTP/2 to each broker
 ```
 
 ### UIKit Navigation Stack

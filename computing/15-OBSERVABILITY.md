@@ -41,6 +41,19 @@ The Three Pillars
   Azure Monitor Logs     Azure Monitor Metrics      Azure Monitor + App Insights
 ```
 
+> **App Insights → three pillars mapping**
+>
+> Application Insights covers all three pillars in a single vertically integrated product. The OSS stack disaggregates those same concerns:
+>
+> | App Insights concept | OSS equivalent |
+> |---|---|
+> | Log Analytics workspace (traces/events table) | Loki |
+> | Azure Monitor Metrics / custom metrics | Prometheus |
+> | Application Map + distributed traces (requests + dependencies tables) | Jaeger / Tempo |
+> | Workbooks (unified dashboards) | Grafana |
+>
+> If you've used App Insights, you already understand the three-pillar model — you just knew it under different names. Every new tool in this guide has a direct App Insights analog. Use that as your primary anchor.
+
 ```
 Full Observability Stack
 =========================
@@ -90,6 +103,24 @@ Regex required                     Filter: level=error AND service=order-svc
 No context                         Correlate with trace ID
 ```
 
+> **Serilog → Pino bridge**
+>
+> In .NET you have `Serilog` / `NLog` / `Microsoft.Extensions.Logging` for structured logging. You write `Log.Information("Order {OrderId} placed by {UserId}", orderId, userId)` and a sink forwards enriched JSON to App Insights, Seq, or a file.
+>
+> Node.js equivalent is **Pino** (fastest; JSON-first) or Winston (more configurable). Same concept: log as structured JSON, configure a transport/sink to route output.
+>
+> ```
+> Serilog                          Pino (Node.js)
+> ───────                          ──────────────
+> Log.Information("{K}", v)        logger.info({ k: v }, "msg")
+> LogContext.PushProperty(...)     logger.child({ k: v })
+> .WriteTo.ApplicationInsights()   transport: pino-applicationinsights
+> .WriteTo.Seq()                   transport: pino-seq
+> .Enrich.WithTraceIdentifier()    automatic via OTel pino transport
+> ```
+>
+> JSON written to stdout is what Promtail scrapes and ships to Loki — same as Serilog's App Insights sink forwarding to Log Analytics.
+
 ### Logging in Node.js — Pino
 
 ```javascript
@@ -138,6 +169,22 @@ LogQL query examples:
   {env="production"} | json | level="error"     -- parse JSON, filter field
   rate({service="api"}[5m])                     -- log rate metric
 ```
+
+> **KQL → LogQL contrast**
+>
+> If you query Log Analytics daily with KQL, be aware: **LogQL is not KQL**. KQL is a columnar query language — SQL-like, with `join`, `summarize`, computed columns, time-series math. LogQL is a log filter language optimized for label-based stream filtering.
+>
+> ```
+> KQL                                     LogQL equivalent
+> ───                                     ────────────────
+> where ResultCode >= 500                 {app="myapp"} | json | status >= 500
+> where timestamp > ago(5m)              [5m] range selector on stream
+> summarize count() by bin(timestamp,5m) rate({app="myapp"}[5m])  (LogQL metric query)
+> join (other table) on ...              No JOIN — use Grafana correlation instead
+> summarize percentile(duration, 99) by  histogram_quantile() in PromQL, not LogQL
+> ```
+>
+> LogQL has no JOINs, no computed columns, no time-series math (that's PromQL's domain). For SQL-like log analysis, Log Analytics + KQL remains more expressive. LogQL is optimized for high-volume label-based filtering and rate metrics — it scales cheaply because Loki doesn't index content.
 
 ---
 
@@ -202,6 +249,16 @@ app.get("/metrics", async (req, res) => {
   res.send(await register.metrics());
 });
 ```
+
+> **Push vs pull model**
+>
+> App Insights uses **push**: the SDK calls `trackMetric()` and data flows to Azure. Your app sends; Azure receives.
+>
+> Prometheus uses **pull**: Prometheus server scrapes your service's `/metrics` endpoint on a configurable schedule (default 15s). Your app exposes; Prometheus comes to collect.
+>
+> Consequence: Prometheus requires your service to expose a metrics HTTP endpoint. App Insights does not — it just needs outbound HTTPS to Azure. For **short-lived functions or batch jobs** that exit before Prometheus can scrape them, use the **Prometheus Pushgateway** (a buffer that accepts push and holds metrics for scraping) or stick with App Insights / Azure Monitor custom metrics (which are push-friendly by design).
+>
+> Azure Monitor Container Insights running on AKS scrapes a Prometheus-compatible `/metrics` endpoint under the hood — so the two models are converging, but the conceptual default is inverted.
 
 ### PromQL — Prometheus Query Language
 
@@ -309,6 +366,40 @@ async function processOrder(orderId: string) {
 }
 ```
 
+> **App Insights SDK → OTel SDK bridge**
+>
+> The App Insights SDK pattern you know:
+> ```javascript
+> appInsights.setup(connectionString)
+>   .setAutoCollectRequests(true)
+>   .setAutoCollectDependencies(true)   // HTTP, DB, Redis
+>   .setAutoCollectExceptions(true)
+>   .start();
+> client.trackDependency({ ... });
+> ```
+>
+> The OTel equivalent:
+> ```javascript
+> new NodeSDK({
+>   instrumentations: [getNodeAutoInstrumentations()],  // HTTP, DB, Redis, etc.
+>   traceExporter: new OTLPTraceExporter({ url: "..." }),
+> }).start();
+> tracer.startActiveSpan("name", span => { span.setAttribute(...); });
+> ```
+>
+> Concept mapping:
+>
+> | App Insights SDK | OTel SDK |
+> |---|---|
+> | `setAutoCollectRequests(true)` | `getNodeAutoInstrumentations()` HTTP server instrumentation |
+> | `setAutoCollectDependencies(true)` | `getNodeAutoInstrumentations()` HTTP client / DB instrumentation |
+> | `client.trackDependency(...)` | manual span with `span.setAttribute("db.statement", ...)` |
+> | `client.trackRequest(...)` | auto-instrumented HTTP server span |
+> | App Insights correlation headers | W3C `traceparent` header (OTel standard) |
+> | Connection string → App Insights backend | `OTLPTraceExporter` URL → any OTLP-compatible backend |
+>
+> Key value: OTel is vendor-neutral. Swap the exporter URL; your instrumentation code doesn't change. See the Azure Monitor Exporter note below for keeping App Insights as the backend while adopting the OTel SDK.
+
 ### Context Propagation
 
 Trace IDs cross service boundaries via HTTP headers (`traceparent`). Every downstream HTTP call automatically carries the parent span ID so traces stitch together across services.
@@ -377,6 +468,12 @@ Grafana Data Sources
   → Jump to logs at that timestamp
   → Jump to trace that caused the spike
 ```
+
+> **Azure Monitor → Grafana bridge**
+>
+> Grafana is to the OSS stack what **Azure Monitor Workbooks** is to the Azure stack — a unified dashboard layer over heterogeneous data sources. You've used Workbooks to combine Log Analytics queries, metric charts, and App Insights data in one view; Grafana does the same with Loki, Prometheus, and Tempo.
+>
+> The two worlds are not mutually exclusive: Azure has a first-party **Grafana data source plugin** for Azure Monitor, and **Azure Managed Grafana** is a fully managed Grafana service (GA). If your team runs on Azure but adopts OSS tooling, you can point Grafana at Azure Monitor as a data source and keep all dashboards in one place.
 
 ### Dashboard as Code
 
@@ -458,6 +555,25 @@ requests
 | order by percentile_duration_99 desc
 ```
 
+> **OTel SDK → App Insights backend**
+>
+> You can instrument with the vendor-neutral OTel SDK and still land data in App Insights / Log Analytics. The OTel Collector has an `azuremonitor` exporter, and the Azure Monitor OpenTelemetry Distro packages this for .NET, Node.js, Python, and Java:
+>
+> ```javascript
+> // Node.js — OTel SDK + Azure Monitor exporter
+> import { NodeSDK } from "@opentelemetry/sdk-node";
+> import { AzureMonitorTraceExporter } from "@azure/monitor-opentelemetry-exporter";
+>
+> new NodeSDK({
+>   traceExporter: new AzureMonitorTraceExporter({
+>     connectionString: process.env.APPLICATIONINSIGHTS_CONNECTION_STRING,
+>   }),
+>   instrumentations: [getNodeAutoInstrumentations()],
+> }).start();
+> ```
+>
+> Same App Insights backend, standard OTel SDK. The Application Map, distributed traces, and KQL queries all work as before — you just swapped the proprietary SDK for a vendor-neutral one. Best of both: portable instrumentation code, Azure-native storage and alerting.
+
 ---
 
 ## SLIs, SLOs, SLAs
@@ -504,8 +620,20 @@ Application Insights is a feature of Azure Monitor (not a separate product). The
 
 ## Old World Bridge
 
-| SCOM / Manual Monitoring | Modern Observability |
+| App Insights / Azure Monitor | Modern Observability |
 |---|---|
+| App Insights requests table | Distributed trace root spans (Tempo / Jaeger) |
+| App Insights dependencies table | Child spans — external HTTP/DB/Redis calls |
+| App Insights exceptions table | Span error events (`span.recordException()`) |
+| App Insights customMetrics table | Prometheus Counter / Gauge / Histogram |
+| App Insights traces table (KQL) | Loki logs (LogQL label filter) |
+| Application Map (distributed view) | Jaeger / Tempo trace waterfall |
+| App Insights SDK auto-collect | OTel `getNodeAutoInstrumentations()` |
+| `client.trackDependency()` | Manual OTel span with `span.setAttribute()` |
+| App Insights connection string → Azure | OTel exporter URL → any OTLP backend |
+| Log Analytics Workbooks | Grafana dashboards |
+| KQL (Log Analytics) | LogQL (Loki) — not a direct equivalent; KQL is more expressive |
+| Azure Monitor Metrics (push) | Prometheus (pull — scrapes `/metrics` endpoint) |
 | SCOM agent on every server | OTel SDK in every service |
 | SCOM Management Pack per app | Auto-instrumentation for HTTP/DB/etc. |
 | Custom perf counters (Windows) | Prometheus metrics / OTel metrics |
@@ -514,8 +642,6 @@ Application Insights is a feature of Azure Monitor (not a separate product). The
 | SCOM dashboards | Grafana dashboards |
 | SCOM alert → pager | Grafana alert → PagerDuty / Slack |
 | Azure Data Factory pipeline monitoring | OTel spans on each pipeline step |
-| App Insights (already knew this) | Still App Insights — now with OTel SDK |
-| KQL (Log Analytics) | Same — KQL is the query language |
 | Availability tests (App Insights) | Synthetic monitors / uptime checks |
 
 ---
@@ -536,3 +662,5 @@ Application Insights is a feature of Azure Monitor (not a separate product). The
 | Track user journeys and business events | App Insights custom events / OTel custom spans |
 | Define "what does healthy mean" | SLOs on key SLIs with error budgets |
 | Avoid Datadog/Honeycomb vendor lock-in | OpenTelemetry SDK → OTel Collector → any backend |
+| Keep App Insights backend, adopt OTel SDK | Azure Monitor OpenTelemetry Distro / `azuremonitor` exporter |
+| Short-lived function/job push metrics to Prometheus | Prometheus Pushgateway |

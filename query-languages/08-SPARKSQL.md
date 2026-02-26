@@ -2,6 +2,52 @@
 
 Apache Spark replaced MapReduce as the standard distributed compute engine for big data. Spark SQL is the SQL interface on top — same RDD/DataFrame computation model, different surface. You can write SQL or the DataFrame API and get identical execution plans. Delta Lake adds ACID transactions, time travel, and schema enforcement on top of Parquet files — making Spark suitable for data warehouse workloads, not just batch ETL.
 
+### ADF Data Flows ARE Spark
+
+If you've built ADF Data Flows, you've been writing Spark SQL without knowing it. Data Flows are a visual canvas that compiles to a Spark execution plan. The Azure Integration Runtime that runs them is a Spark cluster managed by Microsoft. Every transformation you've dragged onto the canvas generates Spark code:
+
+```
+ADF Data Flow Canvas → Spark Execution Plan
+────────────────────────────────────────────────────────────────────────
+ADF Transformation    │ Spark DataFrame API     │ Spark SQL equivalent
+──────────────────────┼─────────────────────────┼────────────────────────────
+Select (column pick)  │ .select("col1","col2")  │ SELECT col1, col2 FROM ...
+Filter                │ .filter(col > 5)         │ WHERE col > 5
+Aggregate             │ .groupBy().agg()         │ GROUP BY + aggregates
+Join                  │ .join(other, key, type)  │ JOIN ... ON ...
+Sort                  │ .orderBy(col.desc())     │ ORDER BY col DESC
+Derived Column        │ .withColumn("c", expr)  │ SELECT *, expr AS c
+Conditional Split     │ .filter() per branch     │ multiple WHERE clauses
+Flatten               │ .select(explode(...))    │ LATERAL VIEW EXPLODE
+Lookup                │ .join(..., "left")        │ LEFT JOIN
+Exists                │ .join(..., "left_semi")   │ WHERE EXISTS (subquery)
+Window                │ .withColumn(win_fn)      │ OVER (PARTITION BY ...)
+Pivot                 │ .groupBy().pivot().agg() │ PIVOT
+Unpivot               │ stack() expression       │ UNPIVOT / UNION ALL
+Rank                  │ .withColumn(rank_fn)     │ ROW_NUMBER() OVER (...)
+```
+
+The "Partition" setting in a Data Flow Aggregate → "Optimize" tab is literally `spark.conf.set("spark.sql.shuffle.partitions", N)`. The debug cluster button spins up an actual Spark cluster (typically a 4-8 node Databricks or HDInsight cluster). The "publish and run" action submits a Spark job to the Integration Runtime cluster.
+
+This guide teaches you the underlying system you've been operating through a visual abstraction.
+
+### Azure Synapse Analytics — Where Spark Lives in Azure
+
+Synapse Analytics is the Azure-managed environment that hosts Spark alongside other compute options:
+
+```
+Azure Synapse Analytics workspace
+├── Spark pools              ← the same Apache Spark runtime described in this guide
+│   └── Attach notebooks, Synapse pipelines, or trigger via REST
+├── Dedicated SQL pool       ← MPP data warehouse (T-SQL, column store, separate from Spark)
+├── Serverless SQL pool      ← query Delta/Parquet in ADLS with T-SQL via OPENROWSET
+└── Data Explorer pool       ← time-series and log analytics (KQL)
+```
+
+Spark pools in Synapse run the same Spark runtime. Spark SQL queries, DataFrames, MLlib, Structured Streaming — all covered in this guide — run identically in a Synapse Spark pool and a Databricks cluster. The difference is the management surface: Synapse is more Azure-native (AAD, ADLS Gen2 managed identity, Synapse Studio UI); Databricks adds Unity Catalog, Delta Live Tables, MLflow, and a richer notebook experience.
+
+If you've run a Synapse notebook against an ADLS-backed Delta table, you've already run Spark SQL. This guide is the "what's actually happening under the hood" explainer.
+
 ---
 
 ## 1. ARCHITECTURE
@@ -41,6 +87,72 @@ MapReduce bridge:
   Both:      distributed partitioning, shuffle concept, fault tolerance via lineage
   Speedup:   10–100x for iterative jobs (ML, graph traversal); ~3–5x for single-pass ETL
 ```
+
+### Catalyst Optimizer: Tree to DAG Pipeline
+
+SQL Server's query optimizer works on a query tree — a hierarchical plan where each node has one parent. Catalyst works on a DAG (Directed Acyclic Graph) of transformations. The distinction matters when multiple branches of a query share a common sub-expression: Catalyst can represent that sub-expression once and pipe its output to multiple consumers without recomputing it.
+
+```
+Catalyst pipeline (4 phases):
+
+  SQL string / DataFrame API
+         │
+         ▼
+  1. Parse → Unresolved Logical Plan (AST: no column types, no table validation)
+         │
+         ▼
+  2. Analyze → Resolved Logical Plan (column types resolved, tables validated against catalog)
+         │
+         ▼
+  3. Optimize → Optimized Logical Plan
+         │   Rule-based:  predicate pushdown, column pruning, constant folding,
+         │               subquery elimination, NULL propagation
+         │   Cost-based:  join reordering based on table statistics (if available)
+         ▼
+  4. Physical Planning → one or more Physical Plans (SparkPlan)
+         │   Strategies: BroadcastHashJoin vs SortMergeJoin vs ShuffleHashJoin
+         │   Selected via cost model
+         ▼
+  5. Code Generation (Tungsten / WholeStageCodegen)
+         │   Generates JVM bytecode per stage — not interpreted row-by-row
+         │   LLVM-style loop fusion: multiple operators collapse into one tight loop
+         ▼
+  Execution (RDD partitions → tasks → executors)
+```
+
+SQL Server bridge: SQL Server's optimizer does predicate pushdown and hash join selection too. The difference is Spark's plan is a DAG (shared sub-expressions) while SQL Server's is a tree. Spark's code generation (Tungsten) is Spark's equivalent of SQL Server's batch mode execution on columnstore — vectorized, tight loops, not row-by-row operator evaluation.
+
+Inspect the pipeline:
+
+```python
+df.explain()               # physical plan only
+df.explain("extended")     # all 4 phases: parsed → analyzed → optimized → physical
+df.explain("cost")         # physical plan with row count and size estimates
+df.explain("formatted")    # tree format with node IDs, best readability (Spark 3.x)
+```
+
+### Lazy Evaluation: Nothing Runs Until an Action
+
+T-SQL executes the moment you submit a query. ADF activities execute when triggered. Spark does neither: it builds a DAG of transformations and does not execute anything until you call an **action**.
+
+```python
+# None of these lines execute anything — they build a DAG:
+df = spark.read.parquet("/data/orders/")          # no read
+df = df.filter(F.col("status") == "active")       # no filter
+df = df.groupBy("dept").agg(F.avg("salary"))      # no aggregation
+df = df.orderBy("dept")                           # no sort
+
+# THIS executes the entire DAG (read + filter + group + sort):
+df.show()     # action: triggers execution, displays 20 rows
+
+# Other actions that trigger execution:
+df.count()          # returns a count (full scan)
+df.collect()        # returns all rows to driver as Python list — dangerous on large data
+df.write.parquet()  # writes output to storage
+df.first()          # returns first row
+```
+
+The consequence: `df.explain()` can be called before any data moves — it inspects the logical/physical plan without triggering execution. A common mistake is calling `df.count()` in a loop to validate each step — every call is a full job. Prefer `.show(5)` for spot-checks; defer execution to a single `.write()` call.
 
 ---
 
@@ -92,6 +204,8 @@ result = (
 result.show()
 # Both produce the same SparkPlan — Catalyst optimizes either form equally.
 ```
+
+The `.filter(.groupBy(.agg(.orderBy())))` chain above is exactly what ADF Data Flow generates when you build a Filter → Aggregate → Sort canvas sequence. The canvas is a GUI for writing this code. The code is what actually runs on the cluster.
 
 Use SQL for: ad-hoc queries, dbt models, reporting transformations.
 Use DataFrame API for: conditional branching, loops, reusable functions, mixing Python logic with SQL.
@@ -373,6 +487,35 @@ Each log entry records: which files were added, which removed, schema, metadata.
 ACID: readers see consistent snapshots; concurrent writers serialize via optimistic locking.
 ```
 
+### Delta ACID on Object Storage — How It Actually Works
+
+SQL Server achieves ACID via a lock manager: shared locks for readers, exclusive locks for writers, row/page/table granularity, escalation, deadlock detection. Object storage (ADLS Gen2, S3) has no lock manager. Delta achieves ACID using **optimistic concurrency on the transaction log**:
+
+```
+Writer protocol:
+  1. Read current log version N   (e.g., 00000000000000000005.json)
+  2. Write new Parquet data files  (not yet visible — not in the log)
+  3. Attempt to write log entry N+1
+       If N+1 already exists (another writer committed first):
+         → Conflict! Retry with conflict resolution, or fail with ConcurrentModificationException
+       If N+1 does not exist:
+         → Commit succeeds. Readers now see version N+1.
+
+Reader protocol:
+  1. Read the latest committed log version
+  2. Build the file list as of that version
+  3. Read those files — consistent snapshot guaranteed
+  4. New files written by concurrent writers are invisible (not yet in the log)
+
+Time travel falls out naturally:
+  Version 5 = exactly the files listed by log entries 0–5
+  No new storage: all old log entries stay until VACUUM removes unreferenced files
+```
+
+SQL Server bridge: this is optimistic concurrency (READ COMMITTED SNAPSHOT ISOLATION) not pessimistic locking. Readers never block writers; writers conflict only with other concurrent writers on the same table (not row-level, table-level). The tradeoff: no deadlocks, but high write concurrency on a single Delta table degrades — multiple concurrent writers retry. For streaming ingest, Delta is designed for this; OPTIMIZE handles the small-file cleanup afterward.
+
+The `_delta_log/` is the physical equivalent of SQL Server's transaction log file (`.ldf`). VACUUM is log truncation. `DESCRIBE HISTORY` is querying `fn_dblog()`. Time travel is SQL Server's database snapshots, but automatic for every commit.
+
 ```sql
 -- CREATE TABLE (Delta format)
 CREATE TABLE orders (
@@ -561,7 +704,7 @@ spark.conf.set("spark.sql.adaptive.skewJoin.enabled", "true")  # detect + mitiga
 
 ---
 
-## 14. GOTCHAS FROM T-SQL AND MAPREDUCED
+## 14. GOTCHAS FROM T-SQL AND MAPREDUCE
 
 | Habit / expectation                          | Spark reality                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------|

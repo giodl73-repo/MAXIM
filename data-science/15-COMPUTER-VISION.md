@@ -22,6 +22,50 @@ COMPUTER VISION ARCHITECTURE TIMELINE
 
 ---
 
+## Signal Processing Bridge — Manual Filters → Learned Filters
+
+Classical image processing and DSP practitioners already know convolutional filters —
+they just hand-designed them. CNNs learn the same filters from data:
+
+```
+Classical image processing filter          CNN equivalent
+──────────────────────────────────────     ────────────────────────────────────────────
+Gaussian blur (low-pass filter):           Smooth activation map in early layers
+  K = [[1,2,1],[2,4,2],[1,2,1]]/16          First layer filters often resemble Gabor
+  → attenuates high frequencies               filters (oriented Gaussians) = learned
+  → removes noise                             blur + edge in one kernel
+
+Sobel operator (edge detection):           Learned 3×3 edge detector in layer 1
+  K_x = [[-1,0,1],[-2,0,2],[-1,0,1]]       AlexNet, VGG layer 1 filters ≈ Sobel-like
+  → ∂I/∂x ← gradient in x direction         on Gabor basis
+  K_y = Kᵀ                                  Network discovers these automatically
+
+Laplacian of Gaussian (LoG):               Deep layer features: corners, textures
+  ∇²(G*I) ← second derivative              LoG is a "corner detector" — layer 2/3
+  Used in: blob detection, SIFT              CNNs learn these
+
+Sharpening filter:                         High-pass component in residual learning
+  K = [[0,-1,0],[-1,5,-1],[0,-1,0]]        ResNet's F(x) = H(x) - x is the residual
+  = I + Laplacian                           "high-frequency" part on top of identity
+
+Downsampling (stride-2):                   CNN stride=2 in convolution or pooling
+  Decimate signal by factor 2               Stride-2 conv = filter + downsample
+  Aliasing if not low-pass filtered first   BN/ReLU before stride reduces aliasing
+  (Nyquist: must sample at 2× bandwidth)
+
+Receptive field in DSP:                    Receptive field in CNNs
+  An FIR filter of order k processes        Layer 1: 3×3 = 3 pixels
+  k+1 samples around each output            Layer 2: 5×5 = 5 pixels (stacked 3×3)
+  → finite impulse response ↔ convolution  Layer L: (2L+1)×(2L+1) field
+```
+
+**The key insight**: classical CV required a human expert to design the filter kernel
+(Sobel, LoG, Gabor). A CNN is an end-to-end learning system that discovers the
+optimal set of filters jointly with the downstream task. Every `Conv2d` layer is a
+bank of learned finite-impulse-response (FIR) filters applied in parallel.
+
+---
+
 ## 1. Convolution — Mathematical Foundation
 
 **2D convolution** (in practice, cross-correlation):

@@ -155,6 +155,8 @@ AKS PRIMALITY TEST (2002, Agrawal-Kayal-Saxena):
 LUCAS PRIMALITY TEST: uses factorization of n−1; deterministic but requires factor.
 ```
 
+<!-- @editor[bridge/P2]: Missing the connection between primality testing and the broader context of randomized algorithms — Miller-Rabin is a classic example of a coRP algorithm (always correct on composites, probably correct on primes). The question of whether PRIMES ∈ P was open until AKS. Connection to derandomization: is every BPP problem in P? AKS is evidence yes. -->
+
 ### 2.3 Integer Factorization
 
 ```
@@ -418,6 +420,8 @@ SQUARE ROOTS mod pq (RSA modulus):
   This is why RSA hardness = factoring hardness.
 ```
 
+<!-- @editor[bridge/P2]: Quadratic residues connect directly to the Rabin cryptosystem (squaring mod n, hardness = factoring) and to zero-knowledge proofs — the classic Goldwasser-Micali scheme encrypts bits using QR/QNR. Also useful: Blum integers (p ≡ q ≡ 3 mod 4) ensure −1 is QNR, giving the Blum-Blum-Shub PRNG. These are natural crypto payoffs for this section. -->
+
 ---
 
 ## 6. Diophantine Equations
@@ -611,6 +615,8 @@ DIRICHLET'S UNIT THEOREM:
   "Pell's equation = unit group of real quadratic field"
 ```
 
+<!-- @editor[content/P2]: Missing cyclotomic fields ℚ(ζₙ) — the algebraic number theory most directly tied to cryptography. Galois group Gal(ℚ(ζₙ)/ℚ) ≅ (ℤ/nℤ)×. Ring of integers ℤ[ζₙ]. Class number h(ℚ(ζₚ)) = 1 for p ≤ 19 (regular primes). This is the arithmetic behind RLWE-based cryptography (polynomial ring ℤ[x]/(xⁿ+1) ≅ ℤ[ζ_{2n}] for n a power of 2). Connection between algebraic NT and PQC is the core payoff here. -->
+
 ---
 
 ## 9. Cryptography — The Payoff
@@ -645,6 +651,8 @@ KEY SIZES (2024):
   RSA-4096: ~140 bits
   Recommended transition to elliptic curves (256 bits → 128-bit security, much smaller).
 ```
+
+<!-- @editor[bridge/P2]: Missing common RSA attacks — small exponent attack (e=3, m small → m³ < n, just take cube root), Wiener's attack (small d via continued fractions), fault attacks (glitching CRT computation leaks p or q), timing side-channels. These are the reason why OAEP and constant-time implementations matter, and they're natural payoffs for the number theory developed above. -->
 
 ### 9.2 Discrete Logarithm Problem
 
@@ -701,6 +709,8 @@ EC KEY SIZES:
 ECDSA: signing (k-random nonce critical! PS3 reuse → key recovery)
 ECDH: key exchange on elliptic curves (x25519 in TLS 1.3)
 ```
+
+<!-- @editor[content/P2]: Missing pairing-based cryptography — bilinear pairings e: E(𝔽_q) × E(𝔽_q) → 𝔽_{q^k}. Enable: identity-based encryption (IBE), BLS signatures (short, aggregatable — used in Ethereum 2.0), and the MOV attack (reduces ECDLP to DLP in 𝔽_{q^k}). Supersingular isogeny cryptography (SIKE) was also a PQC candidate (broken 2022). The diversity of EC-based constructions goes well beyond ECDH/ECDSA. -->
 
 ### 9.4 Post-Quantum Cryptography (Lattices)
 

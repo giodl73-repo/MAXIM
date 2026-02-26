@@ -593,6 +593,53 @@ Powerbox (NSOpenPanel / NSSavePanel): user explicitly grants access to files
 
 ## 6. APFS and macOS Filesystem
 
+### Filesystem Feature Cross-OS Bridge
+
+```
+FILESYSTEM METADATA FEATURES — CROSS-PLATFORM COMPARISON
+═══════════════════════════════════════════════════════════════════════════════
+
+  Feature              NTFS (Windows)           ext4/xfs (Linux)         APFS (macOS)
+  ─────────────        ───────────────────       ─────────────────        ──────────────────
+  Extended attrs       Alternate Data Streams    xattrs                   xattrs + resource forks
+                       file.txt:ADS_NAME         getxattr/setxattr        getxattr/setxattr
+                       (same inode, hidden        attr -s name -V val      xattr -l, xattr -w
+                        stream)                   max: varies by FS        (quarantine is a key xattr)
+
+  Sparse files         Yes — NTFS native          Yes — file has holes     Yes — APFS native
+                       File appears large but      seek past end, write     Treated as holes in
+                       physical blocks only        → hole = no blocks       block allocation
+                       allocated where written    allocated for zeros      fallocate(FALLOC_FL_PUNCH_HOLE)
+                       DeviceIoControl             (ext4: FALLOC punch)    ftruncate to sparse
+
+  Case sensitivity     Insensitive, preserving    Case-sensitive           Case-insensitive by default
+                       FOO.TXT == foo.txt          FOO.TXT ≠ foo.txt       Per-Container setting
+                       Registry: always            (ext4; configurable      Case-sensitive APFS:
+                       insensitive                 per-dir in ext4 5.2+)   required for some dev tools
+
+  Resource forks       No equivalent              No equivalent            Yes — legacy HFS+ feature
+                       (ADS is closest)           (xattrs hold some        macOS keeps resource forks
+                                                   metadata)                for some file types
+                                                                           file/rsrc (path syntax)
+                                                                           Can confuse Linux tools via SMB
+
+  Clone semantics      ReFS has clones             No standard clone        cp on APFS = instant COW clone
+  (instant copy)       (NTFS: no)                 btrfs has reflinks       zero extra space until write
+                       NTFS: full copy on cp        (cp --reflink=auto)     cross-tool: tar/rsync don't
+                                                                            preserve clone relationships
+
+  Cross-platform gotchas:
+    1. Case sensitivity: code working on macOS (CI runs on macOS) may break on Linux CI
+       import './Utils' succeeds on case-insensitive APFS, fails on ext4
+    2. Resource forks: tar from macOS creates ._filename dot-underscore files on Linux
+       Use GNU tar (gtar on macOS) or tar --disable-copyfile
+    3. xattr quarantine: files downloaded on macOS get com.apple.quarantine xattr
+       Tools that copy files via rsync/scp lose this xattr (expected)
+       xattr -dr com.apple.quarantine /path/to/app  → clears for distribution
+    4. ADS on Windows: NTFS streams survive copy within NTFS but are stripped by
+       most network file copies; cross-platform file transfer tools ignore ADS
+```
+
 ### APFS Architecture
 
 ```
@@ -867,6 +914,113 @@ brew install hashicorp/tap/terraform
 ```
 
 ---
+
+## 7b. GCD, Swift Concurrency, and Async Model Bridges
+
+### GCD → Swift Concurrency — The Layering
+
+```
+CONCURRENCY LAYER ARCHITECTURE (macOS / iOS)
+═════════════════════════════════════════════════════════════════════
+
+  Swift async/await + Actors (Swift 5.5+, macOS 12+)
+  ┌──────────────────────────────────────────────────────────────┐
+  │  Task { ... }                  async-let x = fetch()        │
+  │  await someActor.method()      for await item in stream      │
+  │  @MainActor func updateUI()    Actor: isolated state         │
+  └──────────────────────┬───────────────────────────────────────┘
+                         │  Swift runtime schedules on:
+                         ▼
+  GCD (Grand Central Dispatch) — the cooperative thread pool
+  ┌──────────────────────────────────────────────────────────────┐
+  │  DispatchQueue.main (serial, main thread)                    │
+  │  DispatchQueue.global(qos: .userInitiated) (concurrent)      │
+  │  DispatchQueue.global(qos: .background) (concurrent)         │
+  │  DispatchQueue(label: "com.app.serial", .serial)             │
+  └──────────────────────┬───────────────────────────────────────┘
+                         │  GCD manages:
+                         ▼
+  Kernel thread pool (pthreads, POSIX)
+```
+
+```
+ASYNC MODEL BRIDGE: .NET → Swift
+════════════════════════════════════════════════════════════════════
+
+  .NET concept                     Swift equivalent
+  ──────────────────────────────   ─────────────────────────────────────────
+  Task<T>                          Task<T>  (Swift.Task — same name, different type)
+  ValueTask<T>                     (no direct equiv; Swift Task is always heap)
+  Task.Run { }                     Task.detached { ... }  (unstructured)
+  async/await                      async/await  (same syntax, different runtime)
+  ConfigureAwait(false)            (no equivalent; Swift actors handle context)
+  CancellationToken                Task.cancel() + withTaskCancellationHandler
+  IAsyncEnumerable<T>              AsyncSequence protocol
+  Parallel.ForEach                 withTaskGroup(of:) { group in group.addTask {} }
+  ThreadPool.QueueUserWorkItem      Task.detached { } or GCD DispatchQueue.async
+  SynchronizationContext           @MainActor annotation + actor isolation
+  INotifyPropertyChanged           @Observable macro (Swift 5.9+) or @Published
+  Task.WhenAll                     await withTaskGroup + collect results
+
+  Key conceptual differences:
+  ├─ Swift actors prevent data races at compile time — @MainActor is a type annotation
+  │  .NET: SynchronizationContext is a runtime mechanism; actors are a library pattern
+  ├─ Swift structured concurrency: Task tree — cancellation propagates to children
+  │  .NET TPL: CancellationTokenSource/Token is explicitly threaded through calls
+  ├─ Swift async context: continuation automatically resumes on same executor
+  │  .NET: ConfigureAwait(false) is needed to escape SynchronizationContext
+  └─ Swift Task.detached: explicitly unstructured — must manage lifetime manually
+     .NET Task.Run: similar — detached from current context
+```
+
+### POSIX Signals — macOS Caveats and kqueue Bridge
+
+```
+SIGNAL HANDLING: LINUX vs MACOS vs WINDOWS
+════════════════════════════════════════════════════════════════════
+
+  Concept           Linux                     macOS                     Windows
+  ──────────        ──────────────────         ─────────────────────     ──────────────────
+  Signal delivery   Any thread can receive     Main thread constraint:    No signals
+  to threads        (by default to any         signals in AppKit apps     SetConsoleCtrlHandler
+                    eligible thread)           should be handled in       for Ctrl+C (console)
+                                               the main thread; some       WM_CLOSE for GUI windows
+                                               signals cause issues if
+                                               delivered to NSRunLoop
+
+  Blocking signals   sigprocmask(2)            same POSIX API            N/A
+                     per-thread sigprocmask
+                     (pthread_sigmask)
+
+  Signal as fd       signalfd(2) — get a fd    NOT available on macOS     N/A
+  (event-driven)     you can read/poll for     (Linux-only syscall)
+                     signal delivery           Use kqueue instead
+
+  kqueue signals     Not applicable            kqueue EVFILT_SIGNAL:      N/A
+  (macOS/BSD)                                  kevent with filter=
+                                               EVFILT_SIGNAL, ident=
+                                               SIGTERM → readable when
+                                               SIGTERM delivered
+                                               Works with main run loop
+                                               Does NOT consume the signal
+                                               (process still gets it)
+
+  Daemon SIGHUP      Standard: reload config   Standard: same             No convention;
+  pattern            trap it in signal handler  but use kqueue EVFILT_     use Service
+                     or signalfd               SIGNAL in server code       OnCustomCommand
+
+  SIGPIPE            Write to closed pipe      Same; extra caveat:        No equivalent
+                     → SIGPIPE (default: exit)  Darwin may deliver to       (write returns error)
+                     Fix: signal(SIGPIPE,        random thread in multi-
+                       SIG_IGN) or              threaded app
+                       SO_NOSIGPIPE on socket
+
+  Cross-platform server pattern (handles both Linux signalfd and macOS kqueue):
+    Use libuv (Node.js), libevent, or Tokio — these abstract the OS difference
+    libuv: uv_signal_t works on both (uses kqueue on macOS, signalfd on Linux)
+    Tokio: tokio::signal::ctrl_c() + tokio::signal::unix::signal()
+    If writing C: detect at compile time with #ifdef __APPLE__ / #ifdef __linux__
+```
 
 ## 8. SwiftUI vs AppKit
 

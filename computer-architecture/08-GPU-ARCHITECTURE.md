@@ -297,37 +297,81 @@ Modern GPU accelerators include specialized hardware for matrix multiplication �
 
 ---
 
-## GPU in the Cloud (Azure Context)
+## GPU Cluster Scaling
 
 ```
-  AZURE GPU VM FAMILIES:
+  INTRA-NODE SCALING (multiple GPUs, one server):
 
-  NC v3 (Tesla V100):   32 GB HBM2, NVLink for multi-GPU
-  NCasT4_v3 (T4):       16 GB GDDR6, inference-focused
-  ND A100 v4:           80 GB HBM2e, 400 Gbps InfiniBand
-  ND H100 v5:           80 GB HBM3, H100 SXM5
-  NV A10 (NVIDIA A10):  Graphics + light compute
+  PCIe (baseline — all GPU servers):
+    GPU ↔ CPU: PCIe 4.0 ×16 = 64 GB/s, PCIe 5.0 ×16 = 128 GB/s
+    GPU ↔ GPU via PCIe switch: same bandwidth, shared
+    Bottleneck: any operation that must move data through the CPU
+                or PCIe bus (e.g., all-reduce in distributed training)
 
-  KEY CONSIDERATIONS:
-  GPU Memory (VRAM): limits model size. LLM inference:
-    GPT-3 (175B FP16): needs ~350 GB → 5× A100 minimum.
-    LLaMA-3-8B (FP16): fits in single 80 GB H100.
-  Multi-GPU scaling: NVLink (same node) vs InfiniBand (cluster).
-  PCIe vs NVLink bandwidth:
-    PCIe 5.0 ×16: 128 GB/s bidirectional
-    NVLink 4.0 (H100): 900 GB/s per GPU pair
+  NVLink (NVIDIA high-end):
+    Direct GPU-to-GPU interconnect, bypasses PCIe for GPU↔GPU traffic
+    NVLink 4.0 (H100 SXM5): 900 GB/s per GPU pair (bidirectional)
+    vs PCIe 5.0: 7× higher bandwidth for GPU-to-GPU
+    NVSwitch: a dedicated chip allowing any-to-any full-bandwidth
+              GPU communication within a node (DGX H100: 8 GPUs, NVSwitch)
+    Apple Silicon alternative: Unified Memory — CPU+GPU share same
+              physical DRAM, PCIe bottleneck eliminated entirely
 
-  INFERENCE vs TRAINING:
-  Training: needs full precision (BF16/FP32), large batch, backward pass.
-  Inference: can use INT8/INT4 quantization, smaller batches.
-  INT4 quantized 7B model: fits in 4 GB. Single consumer GPU.
-  Azure: NC T4 family for cost-effective inference.
+  INTER-NODE SCALING (multiple servers, a cluster):
 
-  GRACE HOPPER (H200):
+  InfiniBand (dominant in HPC/AI clusters):
+    HDR InfiniBand: 200 Gbps per port
+    NDR InfiniBand: 400 Gbps per port (H100 cluster configs)
+    RDMA: GPU-to-GPU across nodes without CPU involvement
+    Fat-tree topology: non-blocking, every GPU pair gets full bandwidth
+
+  RoCE (RDMA over Converged Ethernet):
+    RDMA semantics over standard Ethernet infrastructure
+    400GbE / 800GbE (emerging): approaches InfiniBand bandwidth
+    Lower infrastructure cost; slightly higher latency
+    Cloud providers often use RoCE internally (AWS EFA, GCP GNIC)
+
+  VRAM CAPACITY PLANNING (universal — cloud or on-prem):
+
+  Rule of thumb: FP16 model weights ≈ 2 bytes × parameter count
+    7B parameter model  (FP16): ~14 GB — fits in single A100/H100
+    13B parameter model (FP16): ~26 GB — fits in single A100/H100
+    70B parameter model (FP16): ~140 GB — needs 2× H100 (80 GB each)
+    GPT-3 175B         (FP16): ~350 GB — needs 5× A100 80GB minimum
+
+  Quantization changes the math:
+    INT8 quantization: ~1 byte/parameter → 70B fits in single 80 GB GPU
+    INT4 quantization: ~0.5 bytes/param → 70B fits in 40 GB GPU
+    BF16 training: must keep FP32 optimizer state → 4-6× weight size
+
+  Tensor parallelism: split a single layer across N GPUs (needs NVLink)
+  Pipeline parallelism: split model by layers across nodes (tolerates
+    lower bandwidth; inter-node okay)
+
+  THE PCIe BOTTLENECK:
+  On a conventional server, data must travel:
+    DRAM → CPU → PCIe → GPU VRAM (upload)
+    GPU VRAM → PCIe → CPU → DRAM (download)
+  PCIe 5.0 ×16 = 128 GB/s. GPU HBM3 = 3.35 TB/s.
+  CPU-GPU transfer is 26× slower than GPU-internal bandwidth.
+  Minimize host↔GPU transfers in GPU-bound workloads.
+  CUDA pinned memory (page-locked) enables DMA and is faster
+  than pageable transfers.
+
+  CLOUD GPU INSTANCES (illustrative — all major clouds have similar):
+
+  AWS:   p4d.24xlarge — 8× A100 80 GB, 400 Gbps EFA (RoCE)
+         p5.48xlarge  — 8× H100 80 GB, 3200 Gbps EFA
+  GCP:   a3-highgpu-8g — 8× H100 80 GB, 200 Gbps GNIC
+  Azure: ND H100 v5   — 8× H100 80 GB, 400 Gbps InfiniBand
+         ND A100 v4   — 8× A100 80 GB, 400 Gbps InfiniBand
+         NCasT4_v3    — 4× T4 16 GB, inference-focused (cost-efficient)
+
+  GRACE HOPPER (H200) — eliminates PCIe bottleneck at package level:
   ARM Neoverse CPU + H100 GPU on same package.
   HBM3e: 141 GB at 4.8 TB/s.
   CPU-GPU communication via NVLink-C2C (900 GB/s).
-  Eliminates the PCIe bottleneck between CPU and GPU.
+  Available on: AWS p6e, GCP A4, Azure ND H200 v5 (roadmap).
 ```
 
 ---

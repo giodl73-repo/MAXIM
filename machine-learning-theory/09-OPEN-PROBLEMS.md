@@ -281,6 +281,29 @@ WHAT WE DON'T KNOW
   • No training procedure that provably prevents mesa-misalignment
   • Whether this is a real risk for current or future models
 
+**TCS connection: undecidability and formal verification.** Verifying that a learned model's internal objective matches the intended objective is undecidable in general. More precisely: given a Turing-complete hypothesis class (e.g., general neural networks with sufficient depth), determining whether a trained model M pursues objective f_train on all inputs (not just the training distribution) reduces to the halting problem — you cannot enumerate all possible inputs and verify behavior without running the model on them. Formal analogues:
+
+```
+MESA-MISALIGNMENT DETECTION
+  "Does M(x) optimize f_train for all x ∈ X?" is undecidable for general M, X.
+  — Rice's theorem: any non-trivial semantic property of programs is undecidable.
+  — A learned model is a program; its "intended behavior" is a semantic property.
+
+CHRISTIANO'S DEBATE FRAMEWORK
+  Formally: two agents argue about M's behavior on challenging inputs.
+  A judge (with limited computation) decides who argued correctly.
+  Aligned model = optimal strategy in this debate game.
+  Connects to interactive proof systems (IP = PSPACE): the judge's
+  computational limits determine what alignment guarantees are achievable.
+
+FORMAL VERIFICATION APPROACH
+  Property-based verification: restrict to verifiable hypothesis classes
+  (e.g., monotone functions, Lipschitz networks, linear models).
+  Trade model expressiveness for decidable alignment properties.
+  This is the PAC-learning equivalent of verifiable computation
+  (Goldwasser-Micali-Rackoff interactive proofs applied to models).
+```
+
 THIS CONNECTS ML THEORY TO AI SAFETY
   The entire alignment problem is, at its core, a generalization problem:
   Does the model's internal goal generalize from training to deployment?
@@ -290,6 +313,99 @@ THIS CONNECTS ML THEORY TO AI SAFETY
 
 ## Open Problem 8: Theory of Transformers
 
+### What a Transformer Computes: The Formal Model
+
+```
+ATTENTION OPERATOR (single head)
+──────────────────────────────────
+Input: sequence X ∈ ℝ^{n×d}  (n tokens, d-dimensional embeddings)
+
+Projections:
+  Q = X W_Q ∈ ℝ^{n×d_k}    (queries)
+  K = X W_K ∈ ℝ^{n×d_k}    (keys)
+  V = X W_V ∈ ℝ^{n×d_v}    (values)
+
+Attention output:
+  Attn(Q, K, V) = softmax(QKᵀ / √d_k) · V   ∈ ℝ^{n×d_v}
+
+The (i,j)-th attention weight:
+  αᵢⱼ = softmax(QᵢKⱼᵀ / √d_k) = exp(QᵢKⱼᵀ/√d_k) / Σₗ exp(QᵢKₗᵀ/√d_k)
+
+Output at position i:
+  Attn(Q,K,V)ᵢ = Σⱼ αᵢⱼ Vⱼ   [weighted sum of values]
+```
+
+**Attention as soft dictionary lookup.** The operation is: for each query Qᵢ, compute similarity to all keys Kⱼ (dot product = similarity in key space), normalize via softmax to get a probability distribution over positions, then take the expected value of V under that distribution. It is a differentiable, soft version of the retrieval operation: retrieve the value associated with the most similar key.
+
+```
+HARD DICTIONARY LOOKUP              SOFT ATTENTION
+──────────────────────────          ───────────────────────────────────
+Given query q, find key k*          Given query Qᵢ, compute weights αᵢⱼ
+  k* = argmax sim(q, kⱼ)              αᵢⱼ = softmax(QᵢKⱼᵀ/√d_k)
+Return value v_{k*}                 Return Σⱼ αᵢⱼ Vⱼ  [weighted average]
+
+Not differentiable (argmax)         Fully differentiable (softmax)
+Retrieves one record                Interpolates across all records
+```
+
+**Attention as kernel regression.** With kernel k(Qᵢ, Kⱼ) = exp(QᵢKⱼᵀ/√d_k) (exponential kernel), the attention output is exactly Nadaraya-Watson kernel regression:
+
+```
+  Attn(Q,K,V)ᵢ = Σⱼ k(Qᵢ, Kⱼ) Vⱼ / Σⱼ k(Qᵢ, Kⱼ)
+
+  = kernel regression estimator at query point Qᵢ
+    with training points (Kⱼ, Vⱼ).
+```
+
+Transformers are performing implicit kernel regression at every layer, where the kernel is learned (Q, K projection matrices are learned).
+
+**Multi-head attention and why multiple heads are necessary.**
+
+```
+MULTI-HEAD ATTENTION
+  Run h attention heads in parallel with independent projections:
+    head_l = Attn(X W_Q^l, X W_K^l, X W_V^l)   for l = 1,...,h
+
+  Concatenate and project:
+    MHA(X) = [head_1 | head_2 | ... | head_h] W_O
+
+WHY ≥2 HEADS ARE NECESSARY (Sanford et al. 2023)
+  A single attention head computes a rank-1 update to the residual stream.
+  Some functions require simultaneously attending to multiple positions.
+  Example: "greater-than" comparisons require two simultaneous lookups.
+
+  Formally: the composition [head_1 ; head_2] can implement functions
+  requiring two independent key-value lookups that a single head cannot,
+  because a single head applies one similarity function uniformly.
+  Multiple heads = multiple independent "circuits" operating in parallel.
+```
+
+**Modern Hopfield networks and associative memory (Ramsauer et al. 2020).** The connection to statistical mechanics is direct:
+
+```
+HOPFIELD ENERGY FUNCTION
+  Classical Hopfield network: E(σ) = -(1/2) σᵀW σ   (quadratic energy)
+  Storage capacity: O(n) patterns for n neurons.
+
+MODERN HOPFIELD NETWORK (Ramsauer et al. 2020)
+  Energy: E(ξ, σ) = -lse(β, ξᵀσ) + (1/2)σᵀσ + β⁻¹ log n + (1/2)M²
+
+  where lse(β, z) = β⁻¹ log Σᵢ exp(β zᵢ) is the log-sum-exp function.
+
+  Update rule (synchronous): σ_new = softmax(β ξᵀσ) · ξᵀ
+     ↕
+  This is exactly one step of attention!
+
+STORAGE CAPACITY
+  Classical Hopfield: O(n) patterns
+  Modern Hopfield:   O(exp(n)) patterns — exponential in embedding dim
+
+  The softmax nonlinearity enables exponential storage.
+  This is why transformer attention can retrieve from large context windows.
+```
+
+The modern Hopfield interpretation reveals attention as a one-step energy minimization — each token updates its representation to be the energy-minimum given the current keys and values. Training learns the energy landscape (W_Q, W_K, W_V) such that the fixed-point attractors correspond to useful semantic associations.
+
 ```
 THE PROBLEM
 ────────────
@@ -297,9 +413,10 @@ Transformers dominate modern ML. Theory lags practice significantly.
 
 WHAT WE KNOW
   • Transformers are universal approximators (Yun et al. 2020)
-  • Attention can implement associative memory (Hopfield interpretation)
+  • Attention can implement associative memory (Modern Hopfield networks)
   • In-context learning can implement linear regression (Akyürek 2022)
   • Transformers exhibit "induction heads" for pattern copying
+  • ≥2 attention heads are necessary for certain compositional computations
 
 WHAT WE DON'T KNOW
   • Sample complexity of transformer training
@@ -319,6 +436,8 @@ PARTIAL PROGRESS
   • Barak et al. (2022): Statistical mechanics of transformers
   • Mahankali et al. (2023): One-layer transformer for ICL regression
 ```
+
+**Gaps in the current series** (planned modules): diffusion model theory (score matching, forward/reverse SDEs, denoising score matching) and RLHF/alignment theory (KL-constrained reward maximization, PPO, reward modeling) — see Module Map in 00-OVERVIEW.md.
 
 ---
 

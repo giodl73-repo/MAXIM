@@ -1,6 +1,7 @@
 # Security & Cryptography — A Layered Reference
 
-<!-- @editor[audience/P2]: No audience calibration at the top. This learner knows AES, RSA, PKI, Kerberos, and TLS 1.2 deeply from building secure Microsoft systems. The high-value sections are: modern cipher suite trade-offs (AES-GCM vs ChaCha20-Poly1305 decision), OWASP Top 10 in a cloud-native context (beyond the SQL injection they know cold), zero-trust architecture (BeyondCorp model vs old perimeter model), and supply chain security (SLSA/SBOM/Sigstore — all new territory). The file should signal which sections are "already know this, use as reference" vs "new territory." Currently reads uniformly, mixing noise with high-signal content. -->
+> **Audience note**: This guide assumes AES, RSA, PKI, Kerberos, and TLS 1.2 fundamentals at the level of someone who built secure Microsoft systems. Sections on AES modes, RSA key generation math, DH derivation, and hash function formal definitions are reference — skim or skip if you know them.
+> **High-value sections**: [AES-GCM vs ChaCha20 decision](#aesgcm-vs-chacha20-poly1305-decision) · [Post-Quantum Cryptography](#15-post-quantum-cryptography) · [RSA padding attacks](#asymmetric-cryptography-rsa) · [Modern injection vectors](#a03-injection) · [Zero Trust architecture](#6-zero-trust-architecture) · [Supply chain security](#7-supply-chain-security)
 
 ## The Big Picture
 
@@ -62,8 +63,6 @@ Cryptographic primitives:
 
 ### Symmetric Encryption: AES
 
-<!-- @editor[bridge/P2]: Missing an explicit AES-GCM vs ChaCha20-Poly1305 decision bridge. The file mentions both are TLS 1.3 cipher suites and that ChaCha20 is for devices without AES-NI, but doesn't give the practitioner-level decision table: when do you pick one over the other in your own code (not just in TLS)? The learner knows AES from building Azure Data Factory encryption pipelines — what they need is the "when to reach for ChaCha20 specifically" guidance and the hardware acceleration detection pattern. -->
-
 AES (Advanced Encryption Standard) is a block cipher. Rijndael won the NIST competition in 2001. Key insight from the math: AES operates over GF(2^8) — polynomial arithmetic modulo an irreducible polynomial. The ByteSub step is the affine transformation in GF(2^8). You already know this algebra.
 
 Block size: always 128 bits. Key sizes: 128, 192, or 256 bits. Use 256.
@@ -107,41 +106,77 @@ Modes of operation:
 
 **ChaCha20-Poly1305**: stream cipher + MAC. TLS 1.3 cipher suite alongside AES-GCM. Better on devices without AES hardware acceleration (mobile, IoT). Designed by Bernstein. No timing side-channel risk because it avoids table lookups.
 
+### AES-GCM vs ChaCha20-Poly1305 Decision
+
+Both are AEAD, both are in TLS 1.3. The TLS negotiation picks one automatically based on server preference. But when you're choosing in your own code (encrypting data at rest, inter-service payloads, custom protocols), the decision is yours.
+
+```
+Decision tree:
+
+  Does the target hardware have AES-NI?
+  │
+  ├─ YES (modern x86/x64, Apple Silicon M1+, AWS Graviton 3+)
+  │     → AES-256-GCM
+  │     Hardware acceleration: ~1 byte/cycle overhead vs software
+  │     AES-GCM is the faster choice on AES-NI hardware
+  │
+  └─ NO (older ARM, MIPS, IoT microcontrollers, some mobile SoCs)
+        → ChaCha20-Poly1305
+        Software AES is 3-5× slower than ChaCha20 without hardware assist
+        ChaCha20 is designed for fast software implementation
+
+Runtime detection pattern (what TLS 1.3 negotiation does):
+  if (cpuid indicates AES-NI) → prefer AES-256-GCM
+  else                        → prefer ChaCha20-Poly1305
+```
+
+**Nonce reuse consequences** (matters for your code, not TLS — TLS manages nonces internally):
+- AES-GCM nonce reuse with same key: **catastrophic**. GHASH authentication key is directly recoverable from two ciphertexts with the same (key, nonce). After recovering the auth key, an attacker can forge authentication tags for arbitrary messages. Both confidentiality and integrity collapse.
+- ChaCha20-Poly1305 nonce reuse: also bad (stream cipher XOR cancellation reveals plaintext), but the Poly1305 one-time MAC key is derived per-message in a way that does not directly expose a forgery path. Still bad — never reuse nonces — but less catastrophically broken.
+
+**Nonce management strategy**:
+- Counter-based nonces: atomic 96-bit counter, reliable but state must survive restarts
+- Random nonces: 96-bit random is safe for ~2^32 messages per key before birthday collision risk becomes non-negligible (2^(-33) probability). For high-volume encryption, use a counter or key-per-message hybrid.
+- Per-session random key: generate a fresh AES-256-GCM key per session, use counter nonces within the session. Sidesteps the nonce management problem.
+
 ### Asymmetric Cryptography: RSA
 
-<!-- @editor[audience/P2]: The RSA key generation derivation (choose primes p,q; n=pq; φ(n)=(p-1)(q-1); ed≡1 mod φ(n)) explains number theory that an MIT Math + TCS double major has taught in undergrad. This is reference noise for this learner — they know it cold. The file acknowledges "Euler's totient — you know this from number theory" which is correct; the rest of the derivation can be collapsed to one line. The valuable content here is the padding attack history (Bleichenbacher, OAEP) and the "prefer ECDSA over RSA" guidance — that's practitioner-level and correct. -->
-
-RSA security rests on integer factorization hardness. Key pair generation:
-- Choose primes p, q (1024+ bits each for 2048-bit key)
-- n = pq (modulus)
-- φ(n) = (p-1)(q-1) (Euler's totient — you know this from number theory)
-- Public exponent e (typically 65537 = 2^16 + 1)
-- Private exponent d: ed ≡ 1 (mod φ(n))
-- Encrypt: c = m^e mod n; Decrypt: m = c^d mod n
+RSA security rests on integer factorization hardness. Key pair generation in one line: choose primes p,q; n=pq; φ(n)=(p-1)(q-1); pick e=65537; d=e⁻¹ mod φ(n); encrypt: c=mᵉ mod n; decrypt: m=cᵈ mod n.
 
 Current guidance:
-- 2048-bit: deprecated for new systems (still in use; breaks before ~2030 is speculative)
-- 4096-bit: preferred for new RSA deployments
-- For anything new, prefer ECDSA over RSA (shorter keys, same security level)
+- 2048-bit: approaching end of life — NIST recommends migration away by 2030
+- 4096-bit: preferred for new RSA deployments if RSA is required
+- For anything new, prefer ECDSA/Ed25519 over RSA (shorter keys, same security level, no padding attack surface)
 
-**Padding matters catastrophically:**
+**Padding matters catastrophically — the history:**
 
 ```
-RSA padding schemes:
+RSA padding attack history:
 
-  PKCS#1 v1.5 (encryption)    ← DANGEROUS for encryption
-  00 02 [non-zero random padding] 00 [message]
-  Bleichenbacher 1998 attack: adaptive chosen ciphertext → decrypt without key
-  Still appears in TLS 1.2 RSA key exchange (PKCS#1 v1.5) — why TLS 1.3 drops it
+  Textbook RSA (no padding)       ← completely broken
+  c = m^e mod n
+  Homomorphic: c1*c2 = (m1*m2)^e mod n
+  Attacker can multiply ciphertexts to manipulate plaintexts without key
+
+  PKCS#1 v1.5 (encryption)       ← DANGEROUS for encryption
+  Format: 00 02 [non-zero random padding] 00 [message]
+  Bleichenbacher 1998: adaptive chosen ciphertext attack
+    → send modified ciphertexts, observe if server returns "padding error"
+    → oracle leaks 1 bit per query; ~1M queries decrypts any RSA message
+  Still appears in TLS 1.2 RSA key exchange — primary reason TLS 1.3 drops RSA key exchange
+
+  PKCS#1 v1.5 (signatures)       ← still used; Bleichenbacher does not apply to signatures
+  Declining; use RSA-PSS for new signature code
 
   OAEP (Optimal Asymmetric Encryption Padding)  ← USE for RSA encryption
-  MGF1 mask generation, hash of label
-  Secure against Bleichenbacher-style attacks
+  MGF1 mask + hash of label; provably secure under OAEP-ROM assumption
+  Bleichenbacher-resistant (no format oracle)
 
-  PKCS#1 v1.5 (signatures)   ← still used but declining
-  RSA-PSS                     ← preferred for new RSA signatures
-  PSS uses randomized padding; harder to forge
+  RSA-PSS (Probabilistic Signature Scheme)      ← USE for RSA signatures
+  Randomized padding; tighter security proof than PKCS#1 v1.5 signatures
 ```
+
+**Migration path from RSA**: ECDSA P-256 (256-bit key ≈ RSA 3072-bit security) or Ed25519 (deterministic signing, immune to nonce misuse). ECDSA P-256 is already the default in TLS certificates from Let's Encrypt and major CAs.
 
 ### Asymmetric Cryptography: Elliptic Curves
 
@@ -173,40 +208,19 @@ Common curves:
 
 ### Diffie-Hellman Key Exchange
 
-<!-- @editor[audience/P3]: The g^a mod p DH derivation (Alice picks a, Bob picks b, shared = g^(ab) mod p) is first-principles number theory that this learner has known since MIT. The note "No efficient algorithm known for large prime p" is unnecessary for them. Keep the ECDHE / perfect forward secrecy explanation — that's the operationally important part and well-written. Consider trimming the DH derivation to 2 lines and expanding ECDHE's role in TLS 1.3 specifically (why 1.3 mandates it, the specific groups used). -->
+Classical DH in two lines: Alice picks secret a, sends g^a mod p; Bob picks secret b, sends g^b mod p; shared secret = g^(ab) mod p. Eavesdropper must solve the DLP to recover it.
 
-The foundational insight: two parties can agree on a shared secret over a public channel without ever transmitting the secret.
+**ECDHE** (Ephemeral Elliptic Curve DH): uses EC point multiplication instead of modular exponentiation. "Ephemeral" = new key pair generated per handshake.
 
-```
-DH key exchange:
+**Perfect Forward Secrecy (PFS)**: with ECDHE, each session uses a fresh ephemeral key pair. Even if the server's long-term private key is compromised later, recorded past sessions cannot be decrypted — session keys were derived from ephemeral keys that no longer exist. TLS 1.3 mandates ECDHE (or DHE) — there is no static RSA key exchange in TLS 1.3. TLS 1.2 with RSA key exchange has no PFS: compromise the private key → decrypt all recorded past sessions.
 
-  Public params: prime p, generator g (subgroup of Z_p*)
+The "harvest now, decrypt later" threat (see Post-Quantum section) makes PFS more important, not less: PFS ensures that even if quantum decryption arrives, past sessions are protected if ephemeral keys are gone.
 
-  Alice                             Bob
-  ─────                             ───
-  a = random                        b = random
-  A = g^a mod p  ──── A ──────►     B = g^b mod p
-                 ◄─── B ────────
-  shared = B^a mod p                shared = A^b mod p
-  = g^(ab) mod p                    = g^(ab) mod p    ✓
-
-  Eavesdropper sees: g, p, A, B
-  To get shared secret: must solve DLP (find a from A = g^a mod p)
-  No efficient algorithm known for large prime p
-```
-
-**ECDHE** (Ephemeral Elliptic Curve DH): uses EC point multiplication instead of modular exponentiation. "Ephemeral" = new key pair generated per handshake. This gives **perfect forward secrecy (PFS)**: even if the server's long-term private key is compromised later, recorded past sessions cannot be decrypted because each session used a fresh ephemeral key. TLS 1.3 mandates ECDHE (or DHE) — there is no static RSA key exchange in TLS 1.3.
+**Groups used in TLS 1.3**: X25519 (preferred), P-256, P-384, X448, FFDHE2048–8192 (finite field DHE). X25519 is fastest and avoids NIST curve backdoor concerns.
 
 ### Hash Functions
 
-<!-- @editor[audience/P3]: Preimage resistance / second preimage resistance / collision resistance definitions are MIT 6.875 (cryptography) material — this learner knows the formal definitions and the birthday bound argument cold. The table of hash functions (MD5 broken, SHA-1 SHAttered, BLAKE3 fastest) is useful as a quick-reference cheat sheet. The length extension vulnerability explanation is genuinely useful (practical implication not always remembered). Consider collapsing the three formal definitions to a single line and keeping the table + length extension content. -->
-
-Information-theoretic framing: a hash function h: {0,1}* → {0,1}^n should behave like a random oracle. Three security properties:
-- **Preimage resistance**: given h(x), infeasible to find x (one-way function)
-- **Second preimage resistance**: given x, infeasible to find x' ≠ x with h(x) = h(x')
-- **Collision resistance**: infeasible to find any pair x ≠ x' with h(x) = h(x')
-
-Collision resistance implies second preimage resistance (contrapositive). Birthday bound: expect collision after ~2^(n/2) evaluations — for SHA-256 that is 2^128, computationally infeasible.
+Hash security in one line per property: preimage resistance = one-way (can't reverse); second preimage resistance = can't find a different input with same hash; collision resistance = can't find any two inputs with same hash (birthday bound ≈ 2^(n/2) work).
 
 | Function | Output | Security | Status | Use case |
 |----------|--------|----------|--------|----------|
@@ -215,12 +229,28 @@ Collision resistance implies second preimage resistance (contrapositive). Birthd
 | SHA-256 | 256-bit | 2^128 | Safe | General, TLS, certificates |
 | SHA-384 | 384-bit | 2^192 | Safe | TLS 1.3 cipher suites |
 | SHA-512 | 512-bit | 2^256 | Safe | When 512-bit output needed |
-| SHA-3 (Keccak) | variable | 2^(n/2) | Safe | Sponge construction; post-quantum resistant design |
-| BLAKE3 | variable | 2^(n/2) | Safe | Fastest; preferred for checksums, file verification |
+| SHA-3 (Keccak) | variable | 2^(n/2) | Safe | Sponge construction; immune to length extension |
+| BLAKE3 | variable | 2^(n/2) | Safe | **Fastest**; preferred for checksums, file verification |
 
-SHA-2 family has a **length extension vulnerability**: H(key || message) is forgeable. If you know H(secret || data), you can compute H(secret || data || padding || extra) without knowing `secret`. This is because Merkle-Damgård construction exposes intermediate state. Solution: always use HMAC (see below), never concatenate key + message and hash.
+**Length extension attack (SHA-256 is vulnerable; SHA-3/BLAKE3 are not)**:
 
-SHA-3 (Keccak) uses a sponge construction — immune to length extension. BLAKE3 uses a tree structure — also immune, and much faster than SHA-2 in software.
+SHA-2 uses Merkle-Damgård construction. The hash state after processing a message is the intermediate chaining value — and it's the output. If you know H(secret || data), you know the internal state after processing that input. You can continue hashing additional data from that state and compute H(secret || data || padding || extra) — without knowing `secret`. This forges a valid HMAC-equivalent if you're using naive key-prefix construction.
+
+```
+Length extension attack:
+  You observe: H(secret || "amount=100")
+  You can compute: H(secret || "amount=100" || padding || "&amount=1")
+  Without knowing secret — you only need H(secret || "amount=100")
+
+Why it works on SHA-256: Merkle-Damgård exposes intermediate chaining state as output
+Why it doesn't work on SHA-3: Sponge construction has internal capacity bits never output
+Why it doesn't work on BLAKE3: Tree-based construction with domain separation
+Fix: always use HMAC(key, message) — the double-hash construction defeats the attack
+```
+
+**Why bcrypt/Argon2 for passwords, not SHA**: SHA hashes in nanoseconds — a GPU can compute billions per second. Password hashing requires algorithmic work that cannot be parallelized cheaply. bcrypt is memory-hard (4KB Blowfish key schedule); Argon2id is both memory-hard and CPU-hard. Argon2id is the correct choice for new systems (PHC 2015 winner). bcrypt has a 72-byte input truncation bug — `bcrypt("a"*100) == bcrypt("a"*72)`.
+
+**BLAKE3**: designed 2020, tree-structured (Bao), parallelizes across CPU cores, SIMD-optimized. 2–5× faster than SHA-256 in software on modern hardware. Use for file checksums, content addressing, Merkle trees where SHA is a bottleneck. Not yet in TLS or certificate standards but available in most crypto libraries.
 
 ### MAC and HMAC
 
@@ -299,8 +329,6 @@ UUID v4 contains 122 bits of randomness (6 bits are version/variant markers). Bi
 **AES-GCM nonce**: 96-bit (12-byte) random nonce. Each (key, nonce) pair must be used at most once. At 2^32 random nonces per key, the birthday collision probability is ~2^(-33). In practice: derive nonces from a counter or use random + counter hybrid. If nonce collides in GCM, both confidentiality and the authentication tag are compromised.
 
 ---
-
-<!-- @editor[content/P1]: Post-quantum cryptography is completely absent from this file. NIST finalized FIPS 203 (ML-KEM/Kyber), FIPS 204 (ML-DSA/Dilithium), and FIPS 205 (SLH-DSA/SPHINCS+) in August 2024. For a VP of Engineering at Microsoft who manages systems with 10+ year lifespans, the "harvest now, decrypt later" threat (adversaries collecting TLS traffic today to decrypt when quantum computers arrive) is operationally relevant now. Missing: a section on PQC migration timeline, which algorithms replace RSA/ECDSA/ECDH, and TLS 1.3's hybrid key exchange (X25519+Kyber768 — already deployed by Cloudflare and available in BoringSSL/OpenSSL 3.4). This is a P1 gap for a 2024+ reference. -->
 
 ## 2. PKI — Public Key Infrastructure
 
@@ -620,22 +648,7 @@ Failure modes:
 
 ### A03: Injection
 
-<!-- @editor[audience/P2]: The SQL injection example (SELECT * FROM users WHERE name = '" + userName) with the ' OR '1'='1 input is textbook material this learner has known for 20+ years and likely reviewed in code reviews at Microsoft. The parameterized query remedy is equally obvious. What's NOT obvious and worth covering: NoSQL injection (MongoDB $gt operator bypass shown below is good), SSTI (shown, good), and GraphQL injection patterns (missing — a modern blind spot). Consider trimming the SQL injection walkthrough to 2 lines and expanding the less-obvious injection vectors. -->
-
-**SQL injection** — the classic:
-```sql
--- Vulnerable:
-query = "SELECT * FROM users WHERE name = '" + userName + "'";
--- Input: ' OR '1'='1
--- Executes: SELECT * FROM users WHERE name = '' OR '1'='1'
--- Returns: all users
-
--- Also: input = "'; DROP TABLE users; --"
-
--- Correct: parameterized query
-SELECT * FROM users WHERE name = @name
--- Parameter binding handled by driver; SQL and data are separate
-```
+**SQL injection** — compress to 2 lines: string-concatenated SQL + user input = arbitrary query execution. Parameterized queries (prepared statements) are the complete fix — SQL and data stay separate at the driver level.
 
 **Command injection**:
 ```javascript
@@ -655,19 +668,46 @@ db.users.find({ username: req.body.username, password: req.body.password })
 // Input: { "username": "admin", "password": { "$gt": "" } }
 // The $gt operator matches any non-empty string — auth bypass
 
-// Correct: validate that inputs are strings; use schema validation
+// Also: $where operator executes JavaScript server-side:
+// { "$where": "this.username == 'admin' || 1==1" }
+
+// Correct: validate that inputs are strings; use schema validation (Zod, Joi)
+// Never pass raw request body directly to MongoDB query
 ```
 
 **SSTI (Server-Side Template Injection)**:
 ```
 // Vulnerable — Jinja2:
 template.render("Hello " + user_input)
-// Input: {{ 7*7 }} → "Hello 49"
+// Input: {{ 7*7 }} → "Hello 49"  ← confirms template execution
 // Input: {{ config.items() }} → leaks app config
-// Input: {{ ''.__class__.__mro__[2].__subclasses__() }} → code execution
+// Input: {{ ''.__class__.__mro__[2].__subclasses__() }} → code execution path
+
+// Rule: if {{ 7*7 }} returns "49", you have SSTI. RCE is often available from there.
+// Detection: probe with {{7*7}}, ${7*7}, #{7*7}, <%=7*7%> per template engine
 ```
 
-Prevention: parameterized queries for databases (always), whitelist input validation, avoid dynamic template rendering from user input.
+**GraphQL injection** (modern blind spot):
+```graphql
+# Introspection abuse — enabled by default in most GraphQL servers
+{ __schema { types { name fields { name } } } }
+# Returns complete schema: every type, field, argument — full attack surface map
+# Fix: disable introspection in production (graphql-disable-introspection middleware)
+
+# Batching attacks — GraphQL allows arrays of queries in one HTTP request
+[{"query": "{ login(user:'a',pass:'a') }"},
+ {"query": "{ login(user:'a',pass:'b') }"},
+ ... × 1000]
+# One HTTP request → 1000 login attempts — rate limiting bypassed
+# Fix: limit query batch size; apply rate limits per query, not per HTTP request
+
+# Field suggestion attacks — GraphQL returns "Did you mean X?" on typos
+{ usr { id } }  →  "Cannot query field 'usr'. Did you mean 'user'?"
+# Enumerates schema without introspection
+# Fix: disable suggestion messages in production
+```
+
+Prevention: parameterized queries for databases (always), whitelist input validation, avoid dynamic template rendering from user input, disable GraphQL introspection and suggestions in production, rate-limit at query level not HTTP level.
 
 ### A04: Insecure Design
 
@@ -916,6 +956,15 @@ Key components:
 - **Azure AD PIM (Privileged Identity Management)**: no standing privileged access. Request elevation ("I need Owner on subscription X for 4 hours for incident response"). Approver workflow. Full audit log.
 - **Private Endpoints**: Azure resources (Key Vault, Storage, SQL) accessible only via private IP in your VNet. No public internet exposure. NSG can further restrict source IP.
 - **Microsoft Defender for Cloud**: continuous posture assessment across Azure resources. Threat detection. Recommendations scored by severity.
+
+**Microsegmentation at the NSG level**: NSGs applied per NIC or subnet act as micro-perimeters, not just VNet-boundary firewalls. Combined with Azure Application Security Groups (ASGs), you define rules like "web-tier can reach db-tier on port 5432" that follow the resource role, not its IP address. This is the network-layer expression of zero trust — every workload boundary is enforced, not just the VNet edge.
+
+**Azure Firewall Premium** in the hub VNet adds:
+- IDPS (Intrusion Detection and Prevention): signature-based lateral movement detection
+- TLS inspection: decrypt egress TLS to inspect content (needs custom CA pushed to workloads)
+- FQDN-based egress policy: block outbound connections to unknown/unauthorized domains
+
+**Just-in-Time VM access**: Azure Defender for Cloud locks management ports (22/3389) by default. JIT creates time-limited, source-IP-scoped NSG rules on demand. Engineer requests access → approver (or policy) grants → 2-hour window → auto-closes. Eliminates permanently exposed SSH/RDP surfaces that brute-force bots find within minutes.
 
 **BeyondCorp** (Google's implementation, the original zero-trust reference): access is granted based on device trust level (managed, known, unmanaged) and user identity — not network location. Employees work from the public internet, same as contractors. The corporate network provides no special privilege.
 
@@ -1399,6 +1448,7 @@ Coming from Windows enterprise security (ADFS, Kerberos, Windows Integrated Auth
 | Threat model a new system | STRIDE on DFDs | Microsoft Threat Modeling Tool; apply STRIDE to trust boundaries |
 | Audit dependencies for CVEs | Dependabot + `npm audit` / `dotnet list package --vulnerable` | Automate PRs; fail CI on high/critical |
 | Security test a web app | Semgrep (SAST) + OWASP ZAP (DAST) | SAST on PR; DAST on test environment |
+| Post-quantum migration | Hybrid X25519+ML-KEM-768 in TLS | Deploy via OpenSSL 3.x oqs-provider or BouncyCastle |
 
 ---
 
@@ -1429,3 +1479,127 @@ Coming from Windows enterprise security (ADFS, Kerberos, Windows Integrated Auth
 **ECDSA nonce determinism**: stock ECDSA requires a random, unique nonce k per signature. If your RNG fails, produces a repeated k, or is biased, your private key is recoverable. This is not a theoretical risk — the PS3 hack used a constant k (d = (s·k - h) / r mod n is trivially solvable with two equations sharing k). Ed25519 derives k deterministically from the private key and message via HMAC — no external randomness required for signing. This makes Ed25519 immune to nonce misuse attacks.
 
 **Container root ≠ host root (usually, but not always)**: by default, user namespaces are not always enabled in Docker. In Docker without user namespaces, root in a container is the same UID 0 as root on the host. A container escape by a root process → root on host. With `userns-remap` or rootless Docker, container root maps to an unprivileged host UID. Kubernetes with securityContext `runAsUser: 1001` ensures the process never has UID 0 regardless of user namespace settings.
+
+---
+
+## 15. Post-Quantum Cryptography
+
+### The Threat: Harvest Now, Decrypt Later
+
+Adversaries today are recording TLS-encrypted traffic with the intention of decrypting it when quantum computers become capable. The threat is not theoretical from a planning perspective — the data being encrypted today has a lifetime. Government secrets, health records, financial data, intellectual property: if it needs to stay confidential for 10+ years, it needs post-quantum protection now.
+
+```
+Timeline:
+
+  Today                    ~2030               ~2030-2035
+  ─────                    ─────               ──────────
+  Adversary captures        NIST deadline:      Cryptographically
+  TLS sessions             migrate away from    relevant quantum
+  (harvest phase)          RSA-2048/ECDH-256    computer possible?
+                                                [uncertain but planned for]
+  ← encrypted with ECDH →  ← PQC migration →   ← quantum decryption
+  [safe from classical]    [required]           [breaks classical DH]
+```
+
+Classical public-key algorithms broken by Shor's algorithm on a sufficiently large quantum computer:
+- RSA (all key sizes) — integer factorization
+- ECDH / ECDSA (all curves) — elliptic curve discrete log
+- Classic DH — discrete log mod p
+
+Symmetric encryption (AES-256) and hash functions (SHA-256+) are **not** broken by quantum — Grover's algorithm provides only a quadratic speedup, effectively halving key strength (AES-256 → AES-128-equivalent security, still safe).
+
+### NIST Post-Quantum Finalization (August 2024)
+
+NIST finalized three post-quantum standards:
+
+| Standard | Algorithm | Basis | Use |
+|----------|-----------|-------|-----|
+| FIPS 203 | ML-KEM (Kyber) | Module Learning With Errors (MLWE) | Key encapsulation (replaces ECDH) |
+| FIPS 204 | ML-DSA (Dilithium) | Module Learning With Errors | Digital signatures (replaces ECDSA/RSA) |
+| FIPS 205 | SLH-DSA (SPHINCS+) | Hash-based | Digital signatures (hash-only, conservative) |
+
+**ML-KEM / Kyber** (FIPS 203): the primary PQC key encapsulation mechanism. Based on the hardness of Module-LWE (Learning With Errors over module lattices). Security is well-understood; LWE has decades of analysis. Key sizes larger than ECDH but manageable:
+
+| Algorithm | Public key | Private key | Ciphertext | Security level |
+|-----------|-----------|-------------|------------|----------------|
+| X25519 (classical) | 32 bytes | 32 bytes | 32 bytes | 128-bit classical |
+| ML-KEM-512 | 800 bytes | 1632 bytes | 768 bytes | 128-bit PQC |
+| ML-KEM-768 | 1184 bytes | 2400 bytes | 1088 bytes | 192-bit PQC |
+| ML-KEM-1024 | 1568 bytes | 3168 bytes | 1568 bytes | 256-bit PQC |
+
+**ML-DSA / Dilithium** (FIPS 204): primary PQC signature scheme. Also lattice-based. Used to replace ECDSA in certificates and code signing. SLH-DSA (SPHINCS+) is the conservative fallback — purely hash-based, slower, larger signatures, but only relies on hash function security.
+
+### TLS 1.3 Hybrid Key Exchange
+
+The immediate deployment strategy is **hybrid mode**: combine classical ECDH with ML-KEM in the same key exchange. Both must be broken to compromise the session. This provides classical security today plus quantum resistance going forward.
+
+```
+Hybrid X25519 + ML-KEM-768 key exchange:
+
+Client                                          Server
+  │                                               │
+  │── ClientHello ───────────────────────────────►│
+  │   key_share: X25519 public key (32 bytes)     │
+  │              + ML-KEM-768 public key (1184 B) │
+  │   (combined in key_share extension)           │
+  │                                               │
+  │◄─ ServerHello ────────────────────────────────│
+  │   key_share: X25519 public key (32 bytes)     │
+  │              + ML-KEM-768 ciphertext (1088 B) │
+  │                                               │
+  Both sides compute:
+  ┌─────────────────────────────────────────────┐
+  │  X25519 shared secret (32 bytes)             │
+  │       XOR / HKDF combine                    │
+  │  ML-KEM-768 shared secret (32 bytes)         │
+  │       =                                     │
+  │  Combined session key material              │
+  └─────────────────────────────────────────────┘
+  Session key = HKDF(X25519_secret || Kyber_secret)
+  Breaking the session requires breaking BOTH algorithms
+```
+
+**Deployed today by**:
+- Google Chrome: X25519Kyber768Draft00 (experimental, deployed since 2023)
+- Cloudflare: X25519+Kyber768 on all TLS connections (opt-in 2024, default rollout underway)
+- AWS: available via AWS KMS PQC preview
+- BoringSSL (Chrome, Android): hybrid mode production
+- OpenSSL 3.x + OQS Provider: open-source implementation
+
+### Migration Timeline
+
+| Year | Milestone |
+|------|-----------|
+| 2024 | NIST FIPS 203/204/205 published; hybrid TLS deployments at major CDNs |
+| 2026 | NIST expects most new systems to support PQC; federal systems guidance |
+| 2030 | NIST deadline: RSA-2048 and ECDH-256 no longer approved for new use |
+| 2035 | NIST deadline: decommission classical-only systems |
+
+The 2030 deadline is for **new system design** — existing infrastructure has longer runways but must have migration plans documented.
+
+### Practical Action
+
+**Library support for hybrid mode**:
+- **BouncyCastle** (.NET, Java): full ML-KEM, ML-DSA support; hybrid TLS via JSSE provider
+- **OpenSSL 3.x + liboqs/oqs-provider**: open-source PQC integration; install `oqs-provider` plugin
+- **Azure Key Vault PQC preview**: ML-KEM key generation and wrapping (2024 preview)
+- **Windows CNG**: PQC algorithm support planned for Windows Server 2025 / .NET 9+
+
+```csharp
+// BouncyCastle .NET — ML-KEM key generation
+using Org.BouncyCastle.Pqc.Crypto.Mlkem;
+
+var keyGenParams = new MLKemKeyGenerationParameters(new SecureRandom(), MLKemParameters.ml_kem_768);
+var keyPairGenerator = new MLKemKeyPairGenerator();
+keyPairGenerator.Init(keyGenParams);
+var keyPair = keyPairGenerator.GenerateKeyPair();
+```
+
+**What to do now**:
+1. **Inventory**: identify systems with long-lived secrets (signing keys, root CAs, HSM keys)
+2. **Enable hybrid TLS**: configure web servers/load balancers to offer X25519+ML-KEM in ClientHello (Azure Front Door, Cloudflare, nginx with oqs-provider)
+3. **Crypto agility**: ensure your code treats algorithm selection as configuration, not hardcoding
+4. **Monitor**: NIST will publish updates; CNSA 2.0 (NSA Commercial National Security Algorithm suite) has specific timelines for classified systems
+5. **Certificates**: plan to migrate CA hierarchies to ML-DSA or hybrid ECDSA+ML-DSA before 2030
+
+**Algorithm to avoid even before quantum**: RSA-2048 for new key generation (migrate to RSA-4096 or ECDSA P-256 now as a bridge), SHA-1 in certificate chains, TLS 1.2 with RSA key exchange (no PFS + classical weakness).

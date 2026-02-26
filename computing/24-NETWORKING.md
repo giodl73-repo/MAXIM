@@ -1,6 +1,7 @@
 # Networking — The Modern Stack
 
-<!-- @editor[audience/P1]: No "what this guide covers vs what you already know" framing. This learner knows TCP/IP, DNS, HTTP/1.1, TLS 1.2 deeply from building VSTS and Azure. The high-value content is: QUIC/HTTP3 internals, WebSocket vs SSE vs WebRTC trade-offs, gRPC/Protobuf wire format, TLS 1.3 specifics (vs 1.2 they know), HTTP/2 HPACK, connection migration. The file should front-load a one-line audience calibration so the learner knows where to start vs skim. Currently Sections 1–3 read as a tutorial for someone who doesn't know networking. -->
+> **Audience note**: This guide assumes TCP/IP, DNS, and HTTP/1.1 fundamentals at the level of someone who built them. Sections 1–3 (IP/TCP/DNS) are reference — skim or skip. The high-value sections are 4+ (HTTP/2–3, QUIC, gRPC, modern TLS, WebSockets).
+> Jump to: [HTTP version evolution](#4-http11--http2--http3) · [TLS 1.3](#5-tls-13-deep-dive) · [QUIC/HTTP3](#http3--quic) · [gRPC](#7-grpc) · [WebSockets](#6-websockets) · [Network Security / Zero Trust](#11-network-security)
 
 ## The Big Picture
 
@@ -65,32 +66,6 @@ HTTP/2 over TLS 1.3 brings this to 2 RTTs. QUIC/HTTP/3 can reach 1 RTT (0-RTT on
 
 ## 1. IP & Subnetting
 
-<!-- @editor[audience/P2]: IPv4 addressing and CIDR binary breakdown (the 11000000 10101000 explainer) is elementary for someone who designed VSTS network topology and Azure VNets. The bit-level explanation of dotted-decimal adds no value. The subnetting reference table and Azure-specific notes (/28 = 11 usable, Azure reserves 5) are genuinely useful — keep those, trim the intro. -->
-
-### IPv4 Addressing
-
-32-bit addresses. Written in dotted decimal: `192.168.1.45`
-Each octet = 8 bits, range 0–255.
-
-```
-192       . 168      . 1        . 45
-11000000    10101000   00000001   00101101
-```
-
-### CIDR Notation
-
-`192.168.1.0/24` — the `/24` is the prefix length (network bits).
-
-```
-IP:      192.168.1.0   = 11000000.10101000.00000001.00000000
-Mask:    /24           = 11111111.11111111.11111111.00000000
-                                                    ^^^^^^^^
-                                                    8 host bits = 256 addresses
-                                                    254 usable (.0 = network, .255 = broadcast)
-```
-
-First address = network address. Last = broadcast. Usable = `2^host_bits - 2`.
-
 ### Subnetting Reference Table
 
 | CIDR | Subnet Mask     | Hosts (usable) | Use Case                              |
@@ -138,22 +113,20 @@ PRIVATE NETWORK                         PUBLIC INTERNET
 **PAT / NAPT (Port Address Translation)**: Many private IPs share one public IP via unique port mappings. What home routers do.
 
 Connection tracking maintains the state table. Stateless firewalls cannot do NAT — stateful required.
-NAT64: translates between IPv6 clients and IPv4 servers. Transition mechanism.
 
-### IPv6
+### IPv6 Transition Mechanisms
 
-128-bit addresses. Written as 8 groups of 4 hex digits:
-`2001:0db8:85a3:0000:0000:8a2e:0370:7334`
+IPv6 addresses are 128-bit. Dual-stack and NAT64 are the two main transition paths.
 
-Rules for abbreviation:
-- Leading zeros in a group can be omitted: `0db8` → `db8`
-- One contiguous run of all-zero groups can be replaced with `::`: `...0000:0000:...` → `::`
+**Dual-stack**: host has both IPv4 and IPv6 addresses. Happy Eyeballs (RFC 8305) races both, uses whichever connects first (prefers IPv6). This is the right default posture for new Azure VNet deployments — enable both address families on subnets and NICs.
 
-```
-Full:      2001:0db8:0000:0000:0000:0000:0000:0001
-Short:     2001:db8::1
-Loopback:  ::1                (IPv4 equivalent: 127.0.0.1)
-```
+**NAT64 / DNS64**: IPv6-only clients communicating with IPv4-only servers. DNS64 synthesizes AAAA records from A records using a well-known prefix (64:ff9b::/96). NAT64 at the network edge translates IPv6 packets to IPv4. Common in mobile networks (iOS requires NAT64 compatibility for App Store approval).
+
+**CGNAT (Carrier-Grade NAT)**: ISPs sharing one public IPv4 across thousands of subscribers. Implications:
+- IoT devices behind CGNAT cannot be directly addressed (no inbound connectivity)
+- `src_ip` logging is useless for attribution — thousands of customers share one IP
+- Ephemeral port starvation hits harder (shared pool)
+- Solution: use IPv6 everywhere possible; for IoT, use outbound-initiated connections (MQTT, long-poll) since CGNAT state is maintained for outbound sessions
 
 | Address Type       | Prefix          | Notes                                     |
 |--------------------|-----------------|-------------------------------------------|
@@ -163,118 +136,55 @@ Loopback:  ::1                (IPv4 equivalent: 127.0.0.1)
 | Multicast          | ff00::/8        | No broadcast in IPv6 — multicast instead  |
 | Loopback           | ::1/128         |                                           |
 
-Dual-stack: host has both IPv4 and IPv6 addresses. Happy Eyeballs (RFC 8305) races both, uses whichever connects first (prefers IPv6).
-
 ---
 
 ## 2. TCP Deep Dive
 
-<!-- @editor[audience/P2]: The 3-way handshake and 4-way teardown diagrams with annotations ("Client: 'I want to connect, my seq starts at x'") explain what this learner has known since building VSTS. The sequence number fundamentals are noise. What's valuable in this section: TIME_WAIT at scale, Nagle + TCP_NODELAY, CUBIC vs BBR, socket options table — keep all of that. Consider trimming the handshake diagrams to brief reference rows and leading with the production-relevant content (TIME_WAIT port exhaustion, congestion algorithms). -->
-
-### 3-Way Handshake
+### 3-Way Handshake + 4-Way Teardown
 
 ```
-Client                          Server
-  │                               │
-  │──── SYN (seq=x) ─────────────►│   Client: "I want to connect, my seq starts at x"
-  │                               │
-  │◄─── SYN-ACK (seq=y,ack=x+1) ─│   Server: "OK, my seq starts at y, got your x"
-  │                               │
-  │──── ACK (ack=y+1) ───────────►│   Client: "Got your y"
-  │                               │
-  │         [ESTABLISHED]         │
+CONNECT:                       CLOSE:
+Client      Server             Client      Server
+  │── SYN ─────►│               │── FIN ─────►│  "done sending"
+  │◄── SYN-ACK ─│               │◄── ACK ─────│  (half-close)
+  │── ACK ─────►│               │◄── FIN ─────│  "I'm done too"
+  [ESTABLISHED]                 │── ACK ─────►│
+                                [TIME_WAIT on client: 2×MSL]
 ```
 
-Initial sequence numbers are random (ISN — Initial Sequence Number). Random to prevent TCP sequence prediction attacks.
+### TIME_WAIT Exhaustion
 
-### 4-Way Teardown
+After 4-way teardown the connection initiator (usually client) holds TIME_WAIT for `2 × MSL` (~4 minutes). Purpose: ensure final ACK reaches server; prevent stale segments confusing a new same-4-tuple connection.
 
-```
-Client                          Server
-  │                               │
-  │──── FIN (seq=u) ─────────────►│   "I'm done sending"
-  │◄─── ACK (ack=u+1) ────────────│   "Got it, but I may still have data to send"
-  │                               │   (half-close — server can still send)
-  │◄─── FIN (seq=v) ──────────────│   "Now I'm done sending"
-  │──── ACK (ack=v+1) ───────────►│
-  │                               │
-  │    [TIME_WAIT on client]       │
-```
-
-`RST` (reset) is the abrupt version — no graceful close. Used for errors or rejecting connections.
-
-### Sequence Numbers, ACKs, and Sliding Window
-
-```
-Sender window: 4 segments
-Seq: 1  2  3  4  5  6  7  8
-     [sent][sent][sent][sent][not yet sent ...]
-      ^^^^^^^^^^^^^^^^^^^^ window
-           |
-     ACK=3 received → slide window forward
-Seq: 1  2  3  4  5  6  7  8
-              [sent][sent][new][new]
-```
-
-Sequence numbers count bytes (not segments). ACK = "next byte I expect."
-`Window size` (rwnd) is flow control — receiver tells sender how much buffer space it has.
-Congestion window (cwnd) is congestion control — sender's own limit, separate from rwnd.
-Effective send rate = min(rwnd, cwnd).
-
-### Congestion Control
-
-```
-cwnd
-  |
-  |                    *
-  |                 *     * (congestion detected)
-  |              *
-  |           *
-  |        *
-  |     *
-  |  *
-  | * ← slow start (exponential growth)
-  +------------------------------------------► time
-  ssthresh
-```
-
-| Phase                 | Behavior                                                    |
-|-----------------------|-------------------------------------------------------------|
-| Slow start            | cwnd doubles each RTT (exponential) until ssthresh         |
-| Congestion avoidance  | cwnd += 1 MSS per RTT (linear) above ssthresh              |
-| Fast retransmit       | 3 duplicate ACKs → retransmit without waiting for timeout  |
-| Fast recovery         | ssthresh = cwnd/2, cwnd = ssthresh (don't drop to 1)       |
-| Timeout               | ssthresh = cwnd/2, cwnd = 1 MSS (restart slow start)       |
-
-Modern algorithms: CUBIC (Linux default), BBR (Google — bandwidth-delay product estimation, doesn't wait for loss).
-
-### Nagle's Algorithm
-
-Buffers small writes until either an ACK arrives or the buffer reaches MSS (Maximum Segment Size, typically 1460 bytes on Ethernet).
-**Goal**: Reduce the "tiny segment" problem on chatty TCP connections.
-**Problem**: Adds latency on interactive protocols (SSH, game servers, financial feeds).
-**Fix**: `TCP_NODELAY` socket option disables Nagle. Always set this for latency-sensitive services.
-
-```c
-// In Node.js / net.Socket:
-socket.setNoDelay(true);   // sets TCP_NODELAY
-
-// In .NET:
-tcpClient.NoDelay = true;
-```
-
-### TIME_WAIT
-
-After the 4-way teardown, the initiator of the close (usually the client) enters TIME_WAIT for `2 × MSL` (Maximum Segment Lifetime, typically 2 minutes = 4 minutes total).
-
-**Why**: Ensures the final ACK reaches the server. Prevents old duplicate segments from confusing a new connection with the same 4-tuple (src IP, src port, dst IP, dst port).
-
-**Problem at scale**: A server making many outbound connections (reverse proxy, microservice calling downstream) can exhaust ephemeral ports (typically 32768–60999, ~28K ports). With 2-minute TIME_WAIT per connection, max rate ≈ 28000/120 ≈ 233 connections/sec to the same destination.
+**At scale — the problem**: a reverse proxy or microservice making many outbound connections to the same upstream can exhaust ephemeral ports (typically 32768–60999, ~28K ports). At 4-minute TIME_WAIT, max outbound connection rate = 28000 / 240 ≈ 116 new connections/sec to the same destination.
 
 **Mitigations**:
-- `SO_REUSEADDR` / `SO_REUSEPORT`: Allow reuse of ports in TIME_WAIT
-- `net.ipv4.tcp_tw_reuse = 1` (Linux): Reuse TIME_WAIT sockets for new outbound connections
-- Connection pooling: Keep connections alive and reuse them (the real fix)
+- `net.ipv4.tcp_tw_reuse = 1` (Linux): reuse TIME_WAIT sockets for new outbound connections (safe for outbound)
+- `SO_REUSEPORT`: multiple sockets bind the same port — enables kernel-level load distribution per-CPU (also helps inbound acceptance throughput)
+- Connection pooling: the real fix. Keep connections alive, amortize handshake cost. HTTP/2 multiplexing, database connection pools, gRPC channels all do this.
+
+### BBR vs CUBIC Congestion Control
+
+CUBIC (Linux default since 2006) is loss-based: grows cwnd aggressively, backs off on packet loss. Works well on low-BDP links. Problem: on high-BDP links (satellite, trans-ocean fiber) with shallow buffers, CUBIC doesn't fill the pipe efficiently; it backs off before the bottleneck is actually saturated.
+
+**BBR (Bottleneck Bandwidth and RTT)** — Google, 2016: instead of reacting to loss, BBR estimates bandwidth and RTT directly via probing. It targets the bandwidth-delay product directly.
+
+```
+CUBIC behavior on high-BDP link:
+  cwnd grows → buffer fills → packet dropped → cwnd halved → repeat
+  [shallow buffer + high RTT = terrible utilization]
+
+BBR behavior:
+  Probes bandwidth (short bursts), measures RTT baseline
+  Keeps inflight ≈ BDP (bandwidth × RTT) — avoids filling buffers
+  [better throughput + lower latency on high-BDP links]
+```
+
+When it matters for your systems:
+- Cross-region Azure calls (eastus → westeurope) — high RTT, BBR wins
+- Kubernetes egress over public internet — BBR outperforms CUBIC ~10–30% on trans-ocean paths
+- Within a datacenter/region — difference is negligible (low RTT, both work)
+- Enable: `sysctl -w net.ipv4.tcp_congestion_control=bbr` (requires Linux 4.9+)
 
 ### Useful Socket Options
 
@@ -287,8 +197,26 @@ After the 4-way teardown, the initiator of the close (usually the client) enters
 | `TCP_KEEPCNT`       | Number of probes before declaring connection dead                      |
 | `SO_REUSEADDR`      | Allow binding to an address in TIME_WAIT                               |
 | `SO_REUSEPORT`      | Multiple sockets can bind to the same port (Linux load distribution)   |
-| `TCP_FASTOPEN`      | Send data in the SYN packet on reconnect (saves 1 RTT)                 |
+| `TCP_FASTOPEN`      | Send data in the SYN packet on reconnect (saves 1 RTT on reconnection) |
 | `SO_LINGER`         | Control behavior on close() — whether to wait for data to flush        |
+
+**TCP_FASTOPEN**: client caches a Fast Open Cookie from the first connection. On subsequent connections, sends data in the SYN itself — server processes it immediately, saves 1 full RTT. Useful for short-lived connections (CDN origin pulls, DNS over TCP). Kernel support required both ends; Linux 3.7+, enabled with `tcp_fastopen = 3`.
+
+**Receive buffer tuning**: default rmem/wmem (87KB) undersizes high-BDP paths. For 100ms RTT at 1Gbps, BDP = 12.5 MB. Set:
+```
+net.ipv4.tcp_rmem = 4096 87380 16777216
+net.ipv4.tcp_wmem = 4096 65536 16777216
+net.core.rmem_max = 16777216
+```
+
+### Nagle's Algorithm
+
+Buffers small writes until an ACK arrives or the buffer reaches MSS (1460 bytes on Ethernet). Reduces tiny-segment flooding on chatty connections. Adds latency on interactive protocols.
+
+```c
+socket.setNoDelay(true);   // Node.js — sets TCP_NODELAY
+tcpClient.NoDelay = true;  // .NET
+```
 
 ### TCP vs UDP
 
@@ -303,46 +231,13 @@ After the 4-way teardown, the initiator of the close (usually the client) enters
 | Overhead          | 20-byte header + state                 | 8-byte header, no state                |
 | Use cases         | HTTP, databases, SSH, email            | DNS, gaming, video streams, QUIC       |
 
-Connection pooling is essential for TCP: TLS + TCP handshake costs 2–3 RTTs. Keep connections alive and reuse them. HTTP/1.1 `Connection: keep-alive`, HTTP/2 multiplexing, HTTP/3 QUIC connections all address this differently.
-
 ---
 
 ## 3. DNS
 
-<!-- @editor[audience/P2]: The DNS resolution chain diagram (stub → recursive → root → TLD → authoritative) explains what this learner built into VSTS and Azure. The detail about "recursive resolver does the work" is pedagogical padding. What's useful: DoH/DoT comparison, DNSSEC chain of trust, split-horizon Azure Private DNS, CNAME-at-apex problem, negative caching gotchas. Consider condensing the resolution chain to 2-3 lines and expanding the modern/operational content. -->
+DNS resolution chain (3 lines): stub resolver checks OS cache → forwards to recursive resolver (e.g., 8.8.8.8) → recursive resolver iterates root → TLD → authoritative NS, caches result per TTL, returns to caller.
 
-### Resolution Chain
-
-```
-Your Application
-       │ getaddrinfo("api.example.com")
-       ▼
-  Stub Resolver (OS)
-  checks: /etc/hosts (or Windows hosts file)
-          OS DNS cache
-          if miss:
-       │ query → port 53
-       ▼
-  Recursive Resolver (e.g., 8.8.8.8 or your ISP's)
-  also called: full-service resolver, caching resolver
-  checks: its cache
-          if miss: starts iterative resolution
-       │
-       ├──► Root Nameserver (13 logical roots, hundreds of IPs via Anycast)
-       │    Returns: NS records for .com zone
-       │
-       ├──► .com TLD Nameserver (Verisign)
-       │    Returns: NS records for example.com
-       │
-       └──► example.com Authoritative Nameserver
-            Returns: A record → 93.184.216.34
-       │
-       ▼
-  Recursive Resolver caches result (per TTL)
-  Returns to Stub Resolver → Returns to application
-```
-
-The recursive resolver does the work. Your app asks the stub resolver, which asks the recursive resolver once. DNS is UDP by default (port 53); falls back to TCP for responses >512 bytes (EDNS0 allows larger UDP, up to ~4096 bytes).
+`dig +trace example.com` shows the full iterative chain. `dig @8.8.8.8 example.com` bypasses OS resolver.
 
 ### Record Types
 
@@ -360,9 +255,15 @@ The recursive resolver does the work. Your app asks the stub resolver, which ask
 | CAA   | Authorized certificate authorities for domain   | `example.com. CAA 0 issue "letsencrypt.org"`      |
 | TLSA  | DANE — cert pinning in DNS (requires DNSSEC)    |                                                   |
 
-**TTL and negative TTL**: TTL is in seconds on the record. `NXDOMAIN` responses have a negative TTL from the SOA's `minimum` field. Resolvers cache non-existence too — raising TTL after fixing a DNS bug still means clients wait.
+### Negative Caching (NXDOMAIN TTL)
 
-**CNAME at zone apex**: A CNAME cannot coexist with other records. You cannot put a CNAME on `example.com` itself (the apex/naked domain) because it would conflict with the SOA and NS records. Workaround: ALIAS / ANAME records (CloudFlare, Route 53 ALIAS) — these are non-standard extensions that flatten the CNAME at serve time.
+`NXDOMAIN` responses are cached with a TTL taken from the SOA record's `minimum` field (commonly 300–3600 seconds). Implications:
+- You deleted the wrong record and re-added it — clients still get NXDOMAIN until the negative TTL expires
+- Accidental NXDOMAIN during a migration is sticky for minutes to hours
+- Lower the SOA minimum before any DNS surgery; raise it back after
+- Pre-lowering TTL 24–48 hours before a change is standard practice
+
+**CNAME at zone apex**: A CNAME cannot coexist with SOA/NS records. Use ALIAS/ANAME extensions (CloudFlare, Route 53 ALIAS) for apex domains — they flatten the CNAME at serve time.
 
 ### Split-Horizon DNS
 
@@ -373,7 +274,9 @@ External query:  api.example.com → 40.112.45.67    (public IP)
 Internal query:  api.example.com → 10.0.1.42       (private IP in VNet)
 ```
 
-Azure Private DNS Zones implement this. A private zone linked to a VNet makes internal services resolvable by private IP. External resolvers never see the private zone.
+Azure Private DNS Zones implement this. A private zone linked to a VNet makes internal services resolvable by private IP. External resolvers never see the private zone. Critical pattern: internal-only services should have their public DNS disabled once Private Endpoints are in place.
+
+For hybrid scenarios: Azure DNS Private Resolver forwards on-premises DNS queries to Azure Private DNS, and vice versa, without requiring DNS forwarder VMs. Replaces the old "DNS forwarder VM in every hub VNet" pattern.
 
 ### DNS over HTTPS (DoH) / DNS over TLS (DoT)
 
@@ -385,7 +288,7 @@ Standard DNS is plaintext UDP/TCP. ISP and network operators can see and modify 
 | DoT      | 853  | TCP + TLS         | RFC 7858, easy to block (single port)    |
 | DoH      | 443  | HTTP/2 + TLS      | RFC 8484, looks like HTTPS, hard to block|
 
-Browsers (Firefox, Chrome) use DoH by default to their own resolvers, bypassing OS resolver configuration. Important for enterprise environments where DNS filtering/split-horizon is relied upon.
+**Enterprise split-horizon risk with DoH**: browsers (Firefox, Chrome) use DoH by default to their own resolvers (Cloudflare 1.1.1.1, Google 8.8.8.8), bypassing OS resolver configuration entirely. This breaks enterprise split-horizon DNS, DNS-based filtering, and DNS-based traffic steering. Enterprise mitigation: configure canary domains (Firefox checks `use-application-dns.net`; if NXDOMAIN, DoH disabled) or push Managed Browser Policy that forces OS resolver.
 
 ### DNSSEC
 
@@ -405,16 +308,30 @@ Each zone has a ZSK (Zone Signing Key) for signing records and a KSK (Key Signin
 
 **DNSSEC does NOT encrypt DNS** — it only authenticates. DoH/DoT provides privacy; DNSSEC provides integrity.
 
+**DNSSEC deployment reality**: most public zones are signed; enterprise zones usually are not. Key rollover is operationally complex (KSK rollover requires coordination with parent zone). The 2018 ICANN KSK rollover was delayed a year due to widespread misconfigured resolvers. For internal Azure DNS: Azure-managed DNS zones do not support DNSSEC as of 2024 — external providers (Cloudflare, Route 53) support it.
+
 ### Common DNS Gotchas
 
-- `TTL` on a CNAME: both the CNAME TTL and the target A record TTL matter. The final IP is cached for the A record's TTL.
-- DNS cache poisoning (Kaminsky attack): forged DNS responses injecting false records. Mitigated by source port randomization, DNSSEC. Old resolvers on port 53 only were trivially poisonable.
+- `TTL` on a CNAME: both the CNAME TTL and the target A record TTL matter. Final IP cached for A record's TTL.
+- DNS cache poisoning (Kaminsky attack): forged DNS responses injecting false records. Mitigated by source port randomization, DNSSEC.
 - Negative caching of `NXDOMAIN` means "I deleted the wrong record — just add it back" is not instant.
 - `dig +trace example.com` shows the full iterative resolution chain. Invaluable for debugging.
 
 ---
 
-<!-- @editor[bridge/P2]: Missing an explicit "HTTP version evolution" bridge that maps from the learner's existing HTTP/1.1 mental model to the specific problems HTTP/2 and HTTP/3 each solve. The guide has the content scattered (HOL blocking mention, QUIC section) but no single "here's the lineage and what changed at each step" table before diving into each version's details. The TLS 1.2→1.3 comparison table in Section 5 is the gold standard for this — a similar table at the start of Section 4 would front-load the "why upgrade" context. -->
+## HTTP Version Evolution
+
+Before diving into per-version details, the lineage in one table:
+
+| Version | Problem it solves | Key mechanism | Still use? |
+|---------|-------------------|---------------|------------|
+| HTTP/1.1 | Persistent connections vs HTTP/1.0 | Keep-Alive, pipelining (broken in practice) | Yes — universal fallback |
+| HTTP/2 | Application-layer head-of-line blocking | Multiplexed streams, binary framing, HPACK compression — all over a single TLS connection | Yes — current default |
+| HTTP/3 / QUIC | TCP-layer HOL blocking + 0-RTT reconnection | UDP-based QUIC with per-stream loss recovery, TLS 1.3 built in | Growing — ~30% of web traffic (2024) |
+
+The distinction matters: HTTP/2 fixes HOL blocking **at the HTTP layer** (multiple requests on one connection without waiting). But HTTP/2 still runs over TCP — one lost TCP segment stalls **all** HTTP/2 streams. HTTP/3 fixes HOL blocking **at the transport layer** by running over QUIC/UDP where each stream is independently loss-recovered.
+
+---
 
 ## 4. HTTP/1.1 → HTTP/2 → HTTP/3
 
@@ -616,7 +533,7 @@ Total: 1 RTT. Compare TLS 1.2: 2 RTTs (or 1 RTT with False Start, but non-standa
 Only 5 cipher suites:
 - `TLS_AES_128_GCM_SHA256`
 - `TLS_AES_256_GCM_SHA384`
-- `TLS_CHACHA20_POLY1305_SHA256` <!-- @editor[content/P3]: Typo in original: "TLS_CHAES20_POLY1305_SHA256" — should be TLS_CHACHA20_POLY1305_SHA256 -->
+- `TLS_CHACHA20_POLY1305_SHA256`
 - `TLS_AES_128_CCM_SHA256`
 - `TLS_AES_128_CCM_8_SHA256`
 
@@ -1121,8 +1038,6 @@ Caddy manages ACME certificate lifecycle automatically. Handles HTTP-01 and TLS-
 
 ## 11. Network Security
 
-<!-- @editor[bridge/P2]: The Zero Trust subsection in this networking file (Section 11) is a thin 6-line sketch. The detailed Zero Trust treatment is in 25-SECURITY.md. This section should either cross-reference that file explicitly or expand the network-layer zero-trust content (microsegmentation, NSG micro-perim, Private Endpoints) more concretely. Currently it's a placeholder that duplicates less of what's in Security without adding networking-specific depth. -->
-
 ### Firewalls: Stateful vs Stateless
 
 **Stateless**: Filter individual packets based on rules (source IP, destination IP, port, protocol). No memory of connection state. Cannot distinguish a legitimate ACK from a spoofed one.
@@ -1143,22 +1058,62 @@ Priority  Name              Port    Protocol  Source         Destination  Action
 Lower priority number = higher priority. Rules evaluated in priority order. First match wins.
 NSG can be applied to subnet (affects all resources in subnet) or NIC (affects individual VM).
 
-### Zero Trust
+### Zero Trust — Network Layer
 
 ```
-Traditional perimeter model:
-  [OUTSIDE]──firewall──[INSIDE: trusted]
-  Once inside, lateral movement is possible
+Traditional perimeter model (1990s–2010s):
+  ┌──────────────────────────────────┐
+  │  VNet / Corporate Network         │
+  │  All traffic inside = trusted     │
+  │  One firewall at the edge         │
+  └──────────────────────────────────┘
+  Breach the perimeter → lateral movement free
 
-Zero trust model:
-  [ANY NETWORK LOCATION]
-  Every request authenticated + authorized
-  Every connection encrypted (mTLS or token)
-  Least-privilege access per resource
-  Continuous verification (not just at login)
+Zero trust network model:
+  Every workload is its own security boundary
+  Traffic between workloads is authenticated + encrypted
+  No implicit trust based on network location
 ```
 
-Azure implementation: Azure AD / Entra ID for identity, Conditional Access policies, PIM (Privileged Identity Management) for just-in-time access, Azure Policy for compliance, Private Endpoints to remove public exposure.
+**Microsegmentation with NSGs as micro-perimeters**: Rather than one VNet-wide NSG, each subnet (or NIC) has its own NSG with explicit allow rules. VM A in subnet A cannot reach VM B in subnet B unless there is an explicit rule permitting it. Azure Application Security Groups (ASGs) let you group VMs by role (e.g., "web-tier", "db-tier") and write NSG rules against ASG names rather than IP ranges — rules survive VM IP changes.
+
+```
+ASG: web-tier   → NSG rule: web-tier → db-tier on port 5432 ALLOW
+ASG: db-tier    → NSG rule: db-tier  → * DENY (no outbound except response)
+Rule: * → db-tier on port 5432 DENY (only web-tier can reach DB)
+```
+
+**Azure Private Endpoints (Private Link)**: Azure PaaS services (Key Vault, Storage, SQL, Service Bus) get a private NIC inside your VNet with a private IP. Traffic from VMs to these services never leaves the Azure backbone — it never touches the public internet. The public endpoint can be disabled entirely.
+
+```
+Without Private Endpoint:
+  VM (10.0.1.10) → public IP → storage.blob.core.windows.net
+  [traverses internet or at minimum Microsoft's public network edge]
+
+With Private Endpoint:
+  VM (10.0.1.10) → 10.0.1.50 (private NIC in VNet) → Azure Storage
+  [stays on Azure backbone; public access disabled]
+```
+
+Private DNS zone (`privatelink.blob.core.windows.net`) overrides public DNS to return the private IP. Link the private zone to the VNet — resolution is automatic.
+
+**Azure Firewall Premium**: beyond basic NSG rules, Azure Firewall Premium adds:
+- IDPS (Intrusion Detection and Prevention System): signature-based detection of known attack patterns
+- TLS inspection: decrypt TLS traffic to inspect content (requires deploying a custom CA cert to workloads)
+- FQDN filtering: allow/deny by fully qualified domain name (not just IP)
+- Web categories: block social media, gambling, etc. by category
+
+Use Azure Firewall in the hub VNet of a hub-and-spoke topology. NSGs for micro-perimeters within spokes; Firewall for egress policy and inspection.
+
+**Just-in-Time (JIT) VM access (PIM for network)**: Azure Defender for Cloud's JIT access locks down management ports (SSH/22, RDP/3389) by default — NSG rules deny all inbound. When access is needed, engineer requests JIT activation for specific port + source IP + time window. Defender for Cloud creates a temporary NSG rule, records the approval, auto-expires after the window.
+
+```
+Without JIT:                          With JIT:
+NSG: SSH from Internet ALLOW          NSG: SSH from Internet DENY (always)
+[exposed 24/7; bots scan within min]  [request JIT → 2hr window → auto-close]
+```
+
+**Conditional Access for workloads**: Entra ID Conditional Access policies can now gate access to Azure resources based on device compliance, sign-in risk, and IP location — not just user sign-in. This applies the same identity-aware zero-trust controls to workload access that BeyondCorp applies to user access.
 
 ### VPN Types
 
@@ -1170,20 +1125,6 @@ Azure implementation: Azure AD / Entra ID for identity, Conditional Access polic
 | Azure ExpressRoute    | MPLS/BGP           | Private, dedicated circuit, not over internet    |
 
 WireGuard advantages over OpenVPN: stateless cryptography (ChaCha20-Poly1305 + Curve25519), ~1/50th the codebase, faster handshake, reconnects instantly on IP change.
-
-### Private Endpoints (Azure Private Link)
-
-```
-Without Private Endpoint:
-  VM in VNet ──► Public IP ──► Azure Storage (traverses internet)
-
-With Private Endpoint:
-  VM in VNet ──► 10.0.1.50 (private NIC in VNet) ──► Azure Storage
-                 No public internet traversal
-                 Storage can disable public access entirely
-```
-
-Private DNS zone (`privatelink.blob.core.windows.net`) overrides public DNS to return the private IP. Essential for compliance (data never leaves Azure backbone) and security (no exposure to internet).
 
 ### Rate Limiting Algorithms
 
@@ -1288,6 +1229,9 @@ Time 2s:  10 tokens, 5 requests → 5 served, 5 tokens left
 | Debugging why a request is slow                       | `curl -w "@curl-format.txt"` timing breakdown; Wireshark|
 | Rate limiting at edge                                 | CDN/Front Door rate limiting rules; token bucket     |
 | Service-to-service auth without passwords             | Workload identity (Managed Identity in Azure)        |
+| NSG microsegmentation by role                         | Azure Application Security Groups (ASGs)             |
+| Lock management ports, open on demand                 | JIT VM access (Azure Defender for Cloud)             |
+| Outbound internet egress policy + IDPS                | Azure Firewall Premium in hub VNet                   |
 
 ---
 
@@ -1331,3 +1275,6 @@ Browser fetch/XHR cannot access HTTP/2 trailers, and cannot send cleartext HTTP/
 
 **Consistent hashing with few backends has uneven distribution**
 With 3 backends on a ring and no virtual nodes, spacing will be uneven by chance. One backend might cover 50% of the ring, another 30%, another 20%. Virtual nodes (assign each backend K positions on the ring) distribute load evenly. Kubernetes Services use IPVS consistent hashing with configurable virtual nodes.
+
+**BBR is not a silver bullet**
+BBR outperforms CUBIC on high-BDP links (high bandwidth, high latency — trans-ocean, satellite). On low-BDP links (LAN, within-datacenter) the difference is negligible. BBR can be unfair to CUBIC flows in mixed environments — CUBIC backs off when it sees loss; BBR does not, so BBR can "steal" bandwidth from CUBIC flows at shared bottlenecks. Google runs BBR on their WAN where they control both ends; in public internet mixed environments, exercise judgment.

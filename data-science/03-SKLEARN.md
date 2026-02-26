@@ -44,6 +44,46 @@
 
 ---
 
+## Cross-Framework Bridge
+
+The Estimator API's `fit/transform/predict` contract is universal across ML frameworks — any practitioner from R or Spark will recognize the pattern:
+
+```
+Framework         Preprocessing object          Pipeline composition
+──────────────    ──────────────────────────    ──────────────────────────────────
+sklearn           StandardScaler, OneHotEncoder  Pipeline([("pre", prep),("clf",clf)])
+R tidymodels      recipe() + step_*()            workflow() = recipe + model spec
+R caret           preProcess()                   train(x, y, preProcess=c("scale"))
+Spark MLlib       StandardScaler, StringIndexer  Pipeline(stages=[pre, clf])
+H2O               H2OFrame ops                  pipeline via H2OAutoML
+```
+
+**R tidymodels ↔ sklearn** is the closest parallel. A tidymodels `recipe` plus a
+`workflow` is architecturally identical to `ColumnTransformer` plus `Pipeline`:
+
+```
+tidymodels                                sklearn
+──────────────────────────────────────    ──────────────────────────────────────────
+recipe(outcome ~ ., data = train)         (no formula — specify explicitly)
+  step_normalize(all_numeric())           StandardScaler() on numeric columns
+  step_dummy(all_nominal(), one_hot=TRUE) OneHotEncoder() on categorical columns
+  step_impute_median(all_numeric())       SimpleImputer(strategy="median")
+
+workflow() %>%                            Pipeline(steps=[
+  add_recipe(rec) %>%                         ("preprocessor", ColumnTransformer([...])),
+  add_model(rand_forest())                    ("classifier", RandomForestClassifier()),
+                                          ])
+
+fit(wf, data = train)                     pipeline.fit(X_train, y_train)
+predict(wf, new_data = test)              pipeline.predict(X_test)
+```
+
+The critical invariant is the same in both: preprocessing parameters (means, category
+levels) are learned only on training data and applied to test data. Both frameworks
+enforce this when used through the pipeline abstraction.
+
+---
+
 ## The Estimator API
 
 Every object in scikit-learn — models, preprocessors, transformers, selectors —
@@ -506,6 +546,97 @@ pipeline = ImbPipeline([
     ("classifier", RandomForestClassifier()),
 ])
 ```
+
+---
+
+## Model Interpretability — SHAP
+
+SHAP (SHapley Additive exPlanations) computes each feature's contribution to
+a single prediction. It is grounded in Shapley values from cooperative game theory:
+the unique fair allocation of a coalition's total payoff to its members.
+
+**Intuition**: for a model prediction f(x), the SHAP value φ_j for feature j is
+the average marginal contribution of feature j across all possible orderings of
+features. It satisfies three axioms — efficiency (values sum to f(x) − E[f(x)]),
+symmetry, and dummy — that uniquely determine the allocation.
+
+```python
+import shap
+import numpy as np
+
+# TreeExplainer — exact SHAP for any tree-based model (RF, XGBoost, LightGBM)
+# O(T · L²) where T = trees, L = leaves per tree
+explainer = shap.TreeExplainer(model)  # model = GradientBoosting, RandomForest, XGB
+
+shap_values = explainer.shap_values(X_test)
+# shap_values: shape (n_samples, n_features) for regression/binary
+# For multiclass: list of arrays, one per class
+
+# For a single prediction: sum of SHAP values = deviation from base rate
+print(f"Base value (E[f(x)]): {explainer.expected_value:.4f}")
+print(f"Prediction:           {model.predict_proba(X_test[:1])[0,1]:.4f}")
+print(f"Sum of SHAP + base:   {shap_values[0].sum() + explainer.expected_value:.4f}")
+
+# LinearExplainer — for linear models (LogisticRegression, Ridge, etc.)
+explainer_linear = shap.LinearExplainer(linear_model, X_train)
+shap_values_linear = explainer_linear.shap_values(X_test)
+
+# KernelExplainer — model-agnostic (works on any model; slow)
+explainer_kernel = shap.KernelExplainer(
+    model.predict_proba, shap.sample(X_train, 100)  # background dataset
+)
+shap_values_kernel = explainer_kernel.shap_values(X_test[:10])
+```
+
+### Key Plots
+
+```python
+# Waterfall plot — single prediction breakdown (ideal for stakeholder communication)
+shap.waterfall_plot(shap.Explanation(
+    values=shap_values[0],
+    base_values=explainer.expected_value,
+    data=X_test.iloc[0],
+    feature_names=feature_names,
+))
+# Shows: base rate → contribution of each feature → final prediction
+
+# Beeswarm plot — global feature importance + direction of effect
+shap.summary_plot(shap_values, X_test, feature_names=feature_names)
+# Each dot = one sample. Color = feature value (red=high, blue=low).
+# X position = SHAP value (contribution direction and magnitude).
+# Features sorted by mean(|SHAP|) — global importance.
+
+# Bar plot — mean absolute SHAP (simpler global importance)
+shap.summary_plot(shap_values, X_test, plot_type="bar", feature_names=feature_names)
+
+# Dependence plot — how feature j affects the model across its range
+shap.dependence_plot("income", shap_values, X_test)
+# X = feature value, Y = SHAP value, color = automatically chosen interaction feature
+
+# Force plot — interactive single-prediction visualization
+shap.force_plot(explainer.expected_value, shap_values[0], X_test.iloc[0])
+```
+
+### SHAP vs. Permutation Importance vs. MDI
+
+```
+┌─────────────────────┬──────────────────────────────────────────────────────┐
+│  Method             │  What it measures + caveats                         │
+├─────────────────────┼──────────────────────────────────────────────────────┤
+│  SHAP               │  Per-sample, per-feature contribution. Handles       │
+│                     │  correlated features. Exact for trees.              │
+│  Permutation        │  Drop in score when feature is shuffled.            │
+│  Importance         │  Biased toward correlated features (shuffling one   │
+│                     │  of two correlated features still leaks the other). │
+│  MDI (tree splits)  │  model.feature_importances_ — fast, biased toward  │
+│                     │  high-cardinality features. Never use alone.        │
+└─────────────────────┴──────────────────────────────────────────────────────┘
+```
+
+**SHAP for stakeholder communication**: the waterfall plot answers "why did this
+customer get a high churn score?" — each feature's bar is its contribution in
+natural units (probability points). This is the explainability format that
+satisfies regulatory requirements (model cards, GDPR right-to-explanation).
 
 ---
 

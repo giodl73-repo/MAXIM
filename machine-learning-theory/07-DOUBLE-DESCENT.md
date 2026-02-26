@@ -62,6 +62,65 @@ WHY IS THE PEAK AT P ≈ m?
 
 ---
 
+## Bridge: Statistical Mechanics → Double Descent as Phase Transition
+
+The interpolation threshold P = m is a phase transition in the thermodynamic sense. Statistical physics provides the natural framework for analyzing it.
+
+```
+PHASE TRANSITION AT P = m
+  Below threshold (P < m):
+    Unique solution θ to y = Xθ does not exist.
+    Minimum residual solution has nonzero training error.
+    System is "paramagnetic" — no ordered state.
+
+  At threshold (P = m):
+    Unique solution barely exists; XᵀX is ill-conditioned.
+    Singular point: small perturbation → large solution change.
+    System is at the critical point.
+
+  Above threshold (P > m):
+    Infinitely many solutions. Minimum-norm interpolant is selected.
+    System enters "ordered phase" — minimum-norm acts as order parameter.
+
+REPLICA METHOD (Parisi 1979, Mézard-Parisi-Virasoro 1987)
+  The replica method computes the free energy of a disordered system
+  by analytically continuing the integer replica count n → 0:
+
+    F = -lim_{n→0} (∂/∂n) log E[Z^n]
+
+  Applied to linear regression with Gaussian X (Hastie et al. 2019):
+  The replica calculation gives exact formulas for test risk at all
+  values of γ = P/m, recovering:
+
+    Excess risk (underparameterized, γ < 1):  ~ σ²γ/(1-γ)  → ∞ as γ → 1
+    Excess risk (overparameterized, γ > 1):   ~ σ²γ/(γ-1)  → ∞ as γ → 1
+
+  The divergence at γ = 1 from both sides is the double descent peak.
+  Replica method gives this exact formula; RMT (Marchenko-Pastur) confirms it.
+
+SPIN GLASS ANALOGY
+  The loss landscape of an overparameterized network resembles a spin glass:
+  many near-equivalent minima (metastable states) separated by barriers.
+
+  SK model energy: E(σ) = -(1/√N) Σᵢ<ⱼ Jᵢⱼ σᵢ σⱼ
+  Neural net loss:  L(θ) = (1/m) Σᵢ ℓ(f(xᵢ;θ), yᵢ)
+
+  Parisi's replica symmetry breaking: the correct free energy of the SK model
+  requires a hierarchical structure of "broken symmetry" among replicas.
+  Analogously, the generalization landscape of deep networks may require
+  hierarchical understanding of which minima SGD finds.
+
+FREE ENERGY LANDSCAPE AND GROKKING
+  Grokking (Power et al. 2022) corresponds to a first-order phase transition:
+    • High-energy state: memorization solution (high norm)
+    • Low-energy state: generalization solution (low norm)
+    • Weight decay = temperature that drives the system toward low-energy state
+  The sudden generalization is the system tunneling through the barrier
+  between metastable (memorization) and stable (generalization) states.
+```
+
+The Hastie et al. (2019) double descent analysis for random features is essentially the replica calculation for linear regression — physics gave ML theory the tools to write down exact formulas for the interpolation threshold behavior.
+
 ## Benign Overfitting
 
 The central theoretical question: *when does interpolation not hurt generalization?*
@@ -231,6 +290,8 @@ THEORY CONNECTION
   Benign overfitting: model needs enough parameters to fit task
   without fitting noise. Scaling laws suggest smooth tradeoff.
   No sharp double descent peak — overparameterized regime throughout.
+
+**Partial theory of power law exponents.** If the true function has Sobolev smoothness β in d effective dimensions (on the data manifold), the optimal statistical rate is m^{-2β/(2β+d)} for kernel/nonparametric regression. This matches the empirical scaling L(D) ~ D^{-α_D} if α_D = 2β/(2β+d). For α_D ≈ 0.1, this gives 2β/(2β+d) = 0.1 → d/β ≈ 18 — high effective dimension relative to smoothness, consistent with language being a high-dimensional, moderately smooth task. Similarly, parameter scaling L(N) ~ N^{-α_N} connects to approximation theory: the number of parameters needed to approximate a β-smooth function to error ε in d dimensions is N ~ ε^{-d/β}, inverting to ε ~ N^{-β/d}. The empirical exponent is theoretically meaningful, not arbitrary.
 ```
 
 ---
@@ -254,6 +315,21 @@ MOMENTUM AND ADAPTIVE METHODS
   Empirically, SGD + momentum often generalizes better than Adam
   on image classification — possibly because SGD's implicit
   regularization is better aligned with the true task.
+
+**Mirror descent and implicit regularization.** The generalization difference between SGD and adaptive optimizers follows from mirror descent theory. Each optimizer is a mirror descent with a different Bregman divergence B_ψ(θ, θ'):
+
+```
+  SGD:    ψ(θ) = ½‖θ‖₂²   →  B_ψ = ½‖θ - θ'‖₂²  (Euclidean)
+                              Implicit regularization: L₂ norm of θ
+
+  AdaGrad: ψ(θ) = ½‖θ‖²_{H_t}  (adaptive preconditioner H_t = Σ g_t g_tᵀ)
+                              Implicit regularization: L₂ norm in geometry of gradients
+
+  Adam:   ψ(θ) = Σᵢ|θᵢ| (L₁ in RMSProp limit)
+                              Implicit regularization toward L₁ sparsity? (debated)
+```
+
+Gunasekar et al. (2018) showed that gradient descent on linear models implicitly finds the minimum L₂-norm solution; Soudry et al. (2018) showed that SGD on linearly separable classification converges to the max-margin solution (implicit L₂ regularization). The mirror descent framework (Gunasekar et al. 2018 for matrix factorization) identifies the implicit regularization for any algorithm as determined by the Bregman divergence of the update. Why adaptive methods sometimes generalize worse: they may find solutions with high L₂ norm but low norm in the gradient geometry — which is not necessarily the solution that minimizes generalization error.
 
 LABEL NOISE AND FLAT MINIMA
   Large-batch SGD → sharp minima → worse generalization.

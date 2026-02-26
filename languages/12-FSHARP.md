@@ -28,6 +28,94 @@ You know C# deeply and you know type theory from MIT TCS. F# is where those worl
 
 ---
 
+## F# Conceptual Maps
+
+### 1. Pipeline Model: |> vs C# LINQ Method Chains
+
+```
+  F# PIPELINE — data flows left to right, any function composes
+
+  rawData
+    |> List.filter (fun x -> x.Active)        // predicate
+    |> List.map    (fun x -> x.Value * 2)      // transform
+    |> List.sortBy (fun x -> x)               // order
+    |> List.sum                               // aggregate
+    = 220
+
+  Each step: takes the accumulated value, returns new value.
+  |> is just: let (|>) x f = f x
+
+  ┌──────────┐   |>   ┌──────────┐   |>   ┌──────────┐   |>   ┌──────────┐
+  │  rawData │ ──────▶│  filter  │ ──────▶│   map    │ ──────▶│   sum    │
+  └──────────┘        └──────────┘        └──────────┘        └──────────┘
+
+  C# LINQ EQUIVALENT — method chains on IEnumerable<T>
+
+  rawData
+    .Where(x => x.Active)
+    .Select(x => x.Value * 2)
+    .OrderBy(x => x)
+    .Sum()
+
+  Differences that matter:
+  ┌────────────────────────────────┬──────────────────────────────────────┐
+  │  F# |> pipeline                │  C# LINQ method chain                │
+  ├────────────────────────────────┼──────────────────────────────────────┤
+  │  Works on any function         │  Works only on IEnumerable/IQueryable│
+  │  Composes with >>              │  No generic composition operator      │
+  │  Partial application natural   │  Lambda required at each step         │
+  │  IQueryable not applicable     │  IQueryable → SQL translation via EF  │
+  │  Value: readability + compose  │  Value: EF Core SQL translation       │
+  └────────────────────────────────┴──────────────────────────────────────┘
+
+  Function composition (no data yet — builds the pipeline function):
+  let pipeline = List.filter pred >> List.map xform >> List.sum
+  //             ────────────────  >>  ────────────  >>  ────────
+  //             f >> g = fun x -> g (f x)   (left-to-right)
+```
+
+### 2. Computation Expression Desugaring
+
+```
+  SURFACE SYNTAX                    DESUGARED FORM
+  ──────────────────────────────    ──────────────────────────────────────
+
+  async {                           async.Delay(fun () ->
+      let! x = fetchUser id             fetchUser id |> async.Bind(fun x ->
+      let! y = fetchOrders x            fetchOrders x |> async.Bind(fun y ->
+      return x.Name, y.Length           async.Return(x.Name, y.Length))))
+  }
+
+  result {                          parseInput raw
+      let! parsed = parseInput raw      |> Result.bind(fun parsed ->
+      let! valid  = validate parsed     validate parsed
+      return transform valid            |> Result.bind(fun valid ->
+  }                                     Ok(transform valid)))
+
+  option {                          Some 5
+      let! x = Some 5                   |> Option.bind(fun x ->
+      let! y = Some 3                   Some 3
+      return x + y                      |> Option.bind(fun y ->
+  }  // = Some 8                        Some(x + y)))
+
+  KEY: every CE keyword maps to a builder method
+  ┌────────────┬──────────────────────────────────────────────────────┐
+  │  CE syntax │  Builder method called                               │
+  ├────────────┼──────────────────────────────────────────────────────┤
+  │  let! x=m  │  builder.Bind(m, fun x -> ...)                      │
+  │  return v  │  builder.Return(v)                                   │
+  │  return! m │  builder.ReturnFrom(m)                               │
+  │  do! m     │  builder.Bind(m, fun () -> ...)                      │
+  │  yield v   │  builder.Yield(v)              (seq/IAsyncEnumerable)│
+  │  for x in  │  builder.For(seq, fun x -> ...) (seq CE)             │
+  └────────────┴──────────────────────────────────────────────────────┘
+
+  The builder object (AsyncBuilder, ResultBuilder, etc.) is just a class
+  with those methods. You can write your own for any effect type.
+```
+
+---
+
 ## Syntax Reference Card
 
 ### Variables & Bindings
@@ -419,8 +507,15 @@ let result = result {
 
 ## When to Choose F#
 
-- Data transformation pipelines (ETL, reports)
-- Domain modeling with complex variants (replacing inheritance + null)
-- Type-safe DSLs (Fable for full-stack F#)
-- When you want Haskell-style types but with .NET interop
-- Anywhere in the .NET ecosystem where functional style is preferred
+| Scenario | F# wins | C# wins | Why |
+|----------|---------|---------|-----|
+| Data transformation pipelines (ETL, reports, analytics) | Yes | | `\|>` chains are readable; immutable collections compose cleanly; no side-effect leakage |
+| Domain modeling with complex variants | Yes | | Discriminated unions replace inheritance + null + flag fields; exhaustive pattern match catches unhandled cases at compile time |
+| Type-safe DSLs | Yes | | Computation expressions let you embed domain semantics in syntax; Fable compiles F# to JS for full-stack type safety |
+| Heavy OOP / COM interop | | Yes | C# class/interface model maps directly to COM vtables and OOP APIs; F# OOP is possible but verbose |
+| Async I/O workflows | Competitive | Competitive | F# `async { }` is older and compositional; C# `async Task` has wider library support and `IAsyncEnumerable<T>` |
+| Script / exploration (`.fsx`) | Yes | | `dotnet fsi` REPL; no project file; top-level expressions; faster iteration than C# scripting |
+| Railway-Oriented Programming (explicit error flow) | Yes | | `Result` + `result { }` CE makes error paths first-class without exceptions; C# can do it but is more verbose |
+| Immutable-first data with structural equality | Yes | | All records/DUs get `=` by default; C# `record` gives you this but you must opt in explicitly per type |
+| Large team, mixed FP/OOP background | | Yes | C# is more universally known; F# code style varies significantly between developers without discipline |
+| Existing C# codebase, partial adoption | Selective | | F# projects can live in the same solution; use F# for the domain model layer, C# for the API/UI layer |

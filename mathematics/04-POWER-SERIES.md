@@ -16,12 +16,17 @@ THE LANDSCAPE
   │  CONVERGENCE             OPERATIONS               APPLICATIONS           │
   │  Radius of conv.         Diff / integrate         Small-angle, binomial  │
   │  Root / ratio tests      Compose / multiply       ODE solutions, physics │
+  │                                                                          │
+  │  COMPLEX ANALYTIC        FORMAL SERIES            Z-TRANSFORM / DSP      │
+  │  Functions on ℂ          No convergence req.      Discrete sequences     │
+  │  Identity theorem        Ring ℝ[[x]]              Transfer functions      │
   └──────────────────────────────────────────────────────────────────────────┘
 
   THE CORE INSIGHT:
-  A smooth function IS its Taylor series (in the convergence region).
-  This is not an approximation — it is an identity.
-  Polynomials are the atoms. Every smooth function decomposes into them.
+  A function is analytic iff it equals its Taylor series in some disk in ℂ.
+  The radius of convergence is the distance to the nearest singularity in ℂ —
+  even if you're only working on the real line.
+  Polynomials are the atoms. Every analytic function decomposes into them.
 ═══════════════════════════════════════════════════════════════════════════════
 ```
 
@@ -151,7 +156,7 @@ A power series Σ aₙ(x−a)ⁿ converges for |x−a| < R and diverges for |x�
   R = 1 / limsup |aₙ|^(1/n)   as n → ∞   (Cauchy-Hadamard formula)
 ```
 
-### 3.3 Why the Radius Is What It Is — Complex Perspective
+### 3.3 Why the Radius Is What It Is — The Analytic Function Viewpoint
 
 ```
   The radius of convergence = distance to the nearest singularity
@@ -163,6 +168,40 @@ A power series Σ aₙ(x−a)ⁿ converges for |x−a| < R and diverges for |x�
 
   This is why 1/(1+x²) has R = 1 even though it's perfectly smooth on ℝ.
   The complex poles at ±i determine the real convergence radius.
+```
+
+**Complex-analytic consequences.** The Taylor series viewpoint is actually
+the theory of analytic functions in disguise:
+
+```
+  CAUCHY'S INTEGRAL FORMULA for coefficients:
+  If f is analytic inside and on a circle |z−a| = r, then:
+
+  aₙ = f⁽ⁿ⁾(a)/n! = (1/2πi) ∮_{|z-a|=r} f(z)/(z−a)ⁿ⁺¹ dz
+
+  The Taylor coefficients ARE contour integrals. This is why:
+  (1) Cauchy estimates give |aₙ| ≤ M/rⁿ where M = max|f| on the circle
+  (2) If all derivatives at a point vanish, f ≡ 0 on the connected component
+
+  IDENTITY THEOREM:
+  If f and g are analytic on a connected domain D, and f(zₙ) = g(zₙ)
+  on a sequence zₙ → z₀ ∈ D, then f ≡ g on all of D.
+
+  Consequence: an analytic function is completely determined by its values
+  on any set with an accumulation point. In particular:
+  - f is determined by its Taylor series at one point (within the disk)
+  - Two analytic functions agreeing on any open interval of ℝ are identical
+    as functions on their whole domain of analyticity
+
+  ANALYTIC CONTINUATION:
+  Given a power series converging in disk |z−a| < R, expand around a new
+  center b inside the disk to get a new series converging in |z−b| < R'.
+  By iterating, extend f to a larger domain — possibly the whole of ℂ
+  minus branch cuts and poles.
+
+  Example: ln(1+x) as a real series has R = 1. As a complex function,
+  log z has a branch cut along the negative real axis — you can continue
+  around singularities by choosing the sheet, getting the Riemann surface.
 ```
 
 ---
@@ -340,6 +379,24 @@ A generating function encodes a sequence {a₀, a₁, a₂, ...} as the coeffici
   Algebraic operations on G correspond to operations on the sequence.
 ```
 
+**Formal vs convergent series.** Many generating-function manipulations are
+purely algebraic and do not require G(x) to converge at any nonzero x. The
+ring of **formal power series** ℝ[[x]] treats Σ aₙ xⁿ as an algebraic object:
+addition and multiplication (Cauchy product) are well-defined with no topology.
+Convergence is irrelevant — you're manipulating sequences, not evaluating
+functions. When a combinatorial identity is proven via generating functions,
+the proof is valid whether or not the series converges. This is the same
+ring structure that appears in p-adic analysis and algebraic geometry (formal
+neighborhood of a point in a scheme).
+
+```
+  ℝ[[x]] is a ring:  (Σ aₙ xⁿ) + (Σ bₙ xⁿ) = Σ (aₙ+bₙ) xⁿ
+                     (Σ aₙ xⁿ)(Σ bₙ xⁿ) = Σ cₙ xⁿ,  cₙ = Σ aₖ bₙ₋ₖ
+
+  Composition G(H(x)) is defined when H(0) = 0 (no constant term).
+  1/(1−x) = 1+x+x²+... in ℝ[[x]] regardless of convergence.
+```
+
 ### 7.1 The Geometric Series — Simplest Generating Function
 
 ```
@@ -371,9 +428,44 @@ A generating function encodes a sequence {a₀, a₁, a₂, ...} as the coeffici
   eˣ is the EGF for aₙ = 1 (all ones)
   e^(2x) is the EGF for aₙ = 2ⁿ
 
+  EGF composition theorem (species formula):
+  If B(x) is the EGF for "labeled B-structures" and A(x) = e^(B(x))
+  (equivalently, exp of the connected EGF), then A(x) counts labeled
+  assemblies of B-structures:
+    A(x) = Σ (sets of B-structures on n-element labeled set) xⁿ/n!
+
+  Example: connected graphs → all graphs via exp of the connected EGF.
+  Permutations = sets of cycles → EGF(permutations) = 1/(1−x) = e^(EGF of cycles)
+  = e^(−ln(1−x)) ✓
+
   In physics: the partition function Z = Σ e^(-Eₙ/kT) is a generating function
-  for the moments of energy: ⟨Eⁿ⟩ = (-1)ⁿ ∂ⁿ ln Z / ∂β ⁿ
-  where β = 1/kT
+  for the moments of energy: ⟨Eⁿ⟩ = (-1)ⁿ ∂ⁿ ln Z / ∂βⁿ
+  where β = 1/kT. The linked cluster theorem says ln Z is the generating
+  function for connected Feynman diagrams — the exponential/logarithm
+  relationship between all structures and connected structures is the
+  combinatorial species formula above.
+```
+
+**Bridge to the z-transform.** The z-transform of a discrete sequence f[n]:
+
+```
+  F(z) = Σ f[n] z^(-n)    (one-sided, n ≥ 0)
+          n=0
+
+  This is literally the generating function Σ f[n] (1/z)ⁿ evaluated at 1/z.
+  Same algebraic operations:
+  - Convolution f*g ↔ multiplication F(z)G(z)
+  - Time shift f[n-k] ↔ z^(-k) F(z)
+  - Recurrence relations → algebraic equations in z (identical to GF method)
+  - Partial fractions of F(z) → closed-form inverse z-transform
+
+  The z-transform is the generating function of DSP. The Laplace transform
+  is the generating function for continuous-time signals (replace z by e^s).
+  All three — power series GFs, z-transform, Laplace transform — are the
+  same algebraic machinery in different notational clothes.
+
+  In SciPy: scipy.signal.zpk2tf, scipy.signal.freqz — rational transfer
+  functions are ratios of z-transform polynomials.
 ```
 
 ---
@@ -399,6 +491,25 @@ When an ODE has no closed-form solution, assume a power series:
   nearest singularity of the coefficient functions.
 ```
 
+**Fuchs' theorem and the Frobenius method** handle singular points:
+
+```
+  Regular singular point x₀: coefficient functions p(x), q(x) in
+  y'' + p(x)y' + q(x)y = 0 have at worst poles of order 1, 2 there.
+
+  Frobenius method: try y = xʳ Σ aₙ xⁿ = Σ aₙ x^(n+r)
+  The indicial equation (from the lowest-power term) determines r.
+  Two solutions with exponents r₁, r₂ differing by a non-integer → two
+  independent Frobenius series. If r₁ − r₂ ∈ ℤ, one solution may involve
+  a log term: y₂ = y₁ ln x + xʳ² Σ bₙ xⁿ.
+
+  All the named special functions arise from regular singular points:
+  - Bessel equation: singular at x=0, Bessel functions Jₙ(x) are Frobenius series
+  - Legendre equation: singular at x=±1, Pₙ(x) are polynomial solutions
+  - Hypergeometric equation: singular at 0, 1, ∞ — most special functions
+    are hypergeometric ₂F₁(a,b;c;x) for appropriate parameters
+```
+
 ### 8.2 The Classic Physics Special Functions
 
 All arise from power series solutions to named ODEs:
@@ -415,6 +526,9 @@ All arise from power series solutions to named ODEs:
   All of these are power series that terminate (become polynomials)
   for certain parameter values n — that's the quantization condition!
   Hermite polynomials terminate for integer n → discrete energy levels.
+
+  SciPy has all of these: scipy.special.hermite(n), scipy.special.legendre(n),
+  scipy.special.jv(n, x), scipy.special.chebyt(n).
 ```
 
 ---
@@ -436,27 +550,80 @@ These appear as building blocks across physics:
 
 ---
 
+## Connections to Adjacent Mathematics
+
+**Complex analysis.** A function f: ℂ → ℂ is analytic (holomorphic) iff it
+locally equals its Taylor series — equivalently, iff it has a complex derivative
+at every point of its domain. The deep results are all about power series:
+Cauchy's integral formula computes coefficients as contour integrals, the
+identity theorem says an analytic function is determined by its values on any
+accumulation set, Laurent series extend power series to functions with isolated
+singularities (poles and essential singularities), and the residue theorem
+(for computing contour integrals) reads off coefficients of z⁻¹ in the Laurent
+expansion. The entire module on complex-analysis/ is essentially the theory
+of when and how power series work in ℂ.
+
+**Formal power series and combinatorics.** The ring ℝ[[x]] treats series as
+algebraic objects. Transfer matrices for counting lattice paths, the symbolic
+method for combinatorial structures (Flajolet-Sedgewick "Analytic Combinatorics"),
+and the theory of D-finite sequences (satisfying linear recurrences with
+polynomial coefficients — same as ODE solutions) are all in this framework.
+An MIT TCS person will recognize this from generating functions for algorithm
+analysis (e.g., Catalan numbers, trees, permutations).
+
+**Numerical analysis.** Truncation error for Taylor approximation is O(hⁿ⁺¹)
+in the step size h — the foundation of finite-difference analysis. But Taylor
+series centered at real points are not the best polynomial approximations: the
+Chebyshev expansion gives O(ρ⁻ⁿ) convergence (geometric in n) for analytic
+functions, far better than Taylor (see 03-TRIG.md §11). Padé approximants
+[m/n](x) = polynomial/polynomial match more Taylor coefficients than a
+pure polynomial of the same degree and extend the approximation past the
+radius of convergence in some directions. scipy.interpolate.Pade computes them.
+
+**Algebraic number theory and p-adic analysis.** Over the p-adic numbers ℚₚ,
+the non-Archimedean absolute value |a+b|ₚ ≤ max(|a|ₚ, |b|ₚ) (the ultrametric
+inequality) completely changes convergence geometry. A power series Σ aₙ xⁿ
+converges p-adically iff aₙ → 0 (the coefficients simply go to zero
+p-adically) — no radius of convergence in the usual sense, because the series
+either converges everywhere on the p-adic disk or has a crisp boundary
+determined by the Newton polygon of the coefficients. Every p-adic disk is
+simultaneously open and closed (clopen). The generating-function and formal-series
+machinery still applies; convergence just works differently.
+
+**ODE and PDE theory.** The Frobenius method above connects to the
+Fuchs-Frobenius theorem characterizing when ODEs have series solutions at
+singular points. For PDEs: separation of variables produces ODEs for special
+functions; the Green's function for a PDE can often be expanded as a series
+in eigenfunctions (spectral theory); the heat kernel has a short-time
+asymptotic expansion (Minakshisundaram-Pleijel) analogous to Stirling.
+
+---
+
 ## Decision Cheat Sheet
 
-| Need to... | Tool |
-|-----------|------|
-| Approximate sin/cos/tan for small angle | Truncate Taylor to first non-trivial term |
-| Approximate (1+x)ᵅ for small x | Binomial: 1 + αx |
-| Find pattern in a sequence | Generating function |
-| Solve ODE without closed-form | Power series substitution |
-| Integrate 1/(1+x²), 1/√(1−x²) | Use the known arctan/arcsin series |
-| Evaluate n! for large n | Stirling's approximation |
-| Approximate an integral dominated by a peak | Laplace / saddle-point method |
-| Check if series converges | Ratio test (factorial/exponential), root test |
-| Derive ln, arctan series | Integrate geometric series |
-| Find the physics behind quantization | Series solution terminates at integer n |
+| Need to... | Tool | Use when |
+|-----------|------|----------|
+| Approximate sin/cos/tan for small angle | Truncate Taylor to first non-trivial term | θ << 1 rad |
+| Approximate (1+x)ᵅ for small x | Binomial: 1 + αx | \|x\| << 1 |
+| Find pattern in a sequence | Generating function | Recurrence known |
+| Manipulate sequences algebraically | Formal power series in ℝ[[x]] | No convergence needed |
+| Solve ODE without closed-form at regular point | Power series substitution | Ordinary point |
+| Solve ODE at singular point | Frobenius method, indicial equation | Regular singular point |
+| Integrate 1/(1+x²), 1/√(1−x²) | Use the known arctan/arcsin series | Near 0 |
+| Evaluate n! for large n | Stirling's approximation | n >> 1 |
+| Approximate an integral dominated by a peak | Laplace / saddle-point method | Large parameter n |
+| Check if series converges | Ratio test (factorial/exponential), root test | — |
+| Derive ln, arctan series | Integrate geometric series | — |
+| Find the physics behind quantization | Series solution terminates at integer n | — |
+| Understand radius via singularities | Locate poles/branch points of f in ℂ | Complex analysis |
+| Convert recurrence to closed form | z-transform or generating function GF | Linear recurrence |
 
 ---
 
 ## Common Confusion Points
 
 **"Does Taylor series = the function, or is it an approximation?"**
-Both, depending on context. Within the radius of convergence, for analytic functions, the infinite Taylor series *equals* the function exactly — it's an identity, not an approximation. Truncating at finite terms gives an approximation. Most "nice" functions (eˣ, sin, cos, polynomials, rational functions away from poles) are analytic. Pathological counterexample: f(x) = e^(-1/x²) has all-zero Taylor coefficients at x=0 but isn't identically zero.
+Both, depending on context. Within the radius of convergence, for analytic functions, the infinite Taylor series *equals* the function exactly — it's an identity, not an approximation. Truncating at finite terms gives an approximation. Most "nice" functions (eˣ, sin, cos, polynomials, rational functions away from poles) are analytic. Pathological counterexample: f(x) = e^(-1/x²) has all-zero Taylor coefficients at x=0 but isn't identically zero — this function is smooth but not analytic.
 
 **"Why does ln(1+x) only converge for |x| ≤ 1?"**
 The singularity is at x = -1 (ln(0) = -∞). The series can't reach past a singularity. As a complex function, the singularity is at distance 1 from the origin, giving R = 1. At x = 1: the series converges (alternating series test → ln 2). At x = -1: diverges to -∞.
@@ -468,7 +635,7 @@ The series gives an increasingly accurate approximation as you add more terms �
 A linear recurrence like Fₙ = Fₙ₋₁ + Fₙ₋₂ becomes a functional equation on G(x): G(x) = xG(x) + x²G(x) + (initial conditions). Solve algebraically for G(x), then extract coefficients. You've turned an iterative recurrence into algebra. Same principle behind z-transforms (discrete Laplace) in DSP.
 
 **"What's the connection between power series and Fourier series?"**
-Both decompose functions into basis elements (xⁿ vs sin/cos). Power series are local (converge near a point). Fourier series are global (converge over a period). The orthogonality of sin/cos (module 03) is analogous to the fact that xⁿ terms are "independent" in Taylor. Fourier series are actually Taylor series — evaluated on the unit circle in the complex plane via e^(inθ).
+Both decompose functions into basis elements (xⁿ vs e^(inθ)). Power series are local (converge near a point). Fourier series are global (converge over a period). Fourier series are Taylor series — evaluated on the unit circle |z|=1 in the complex plane via z = e^(iθ), the Fourier coefficients are Laurent coefficients on the circle. The distinction is that analytic functions in the disk correspond to one-sided series (n≥0), while L² functions on the circle have two-sided Fourier series (n∈ℤ).
 
 ---
 

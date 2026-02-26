@@ -190,7 +190,7 @@ Computer architecture describes the interface between hardware and software. Und
 | Why is my loop slow? | Cache miss, branch misprediction, or memory bandwidth | 05, 06 |
 | What makes Apple Silicon fast for single-thread? | Wide OOO, massive caches, high memory bandwidth, package integration | 03, 07 |
 | Why doesn't adding pipeline stages always help? | Deeper pipeline → longer misprediction penalty; more stages to fill | 04 |
-| Why does SIMD 8-16x array processing? | One instruction processes 8–16 elements simultaneously | 07 |
+| Why does SIMD speed up array processing 8–16x? | One instruction processes 8–16 elements simultaneously | 07 |
 | Why do GPUs need thousands of threads? | To hide DRAM latency — while one warp stalls, others run | 08 |
 | What is the ISA/microarch split? | ISA = visible contract; microarch = implementation | 01 |
 | Why did ARM win mobile? | Load-store RISC simplicity = power efficiency; no complex decode | 03 |

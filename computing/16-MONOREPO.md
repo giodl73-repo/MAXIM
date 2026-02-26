@@ -76,7 +76,13 @@ Tool Landscape
 
 ## npm / pnpm / yarn Workspaces
 
-<!-- @editor[bridge/P2]: No Source Depot / multi-repo → workspaces bridge here. This reader managed massive multi-repo enlsitments (Windows source, Office). Opening the workspaces section with the JavaScript mechanics before establishing "this is the equivalent of a Source Depot enlistment with project references" misses the entry point. The bridge table at the bottom covers it but the conceptual landing should happen here. -->
+> **Source Depot / multi-repo → workspaces bridge**
+>
+> Microsoft's large repos (Windows source, Office) are the canonical large monorepo. Source Depot client-specs mapped a subset of the tree to your local machine — you enlisted in what you needed, not the whole tree. Git workspaces are the modern JS equivalent: one root `package.json` declares the workspace, multiple `packages/` directories each function as a separate npm package, and the package manager links them together locally.
+>
+> The `workspace:*` protocol in pnpm (`"@myapp/utils": "workspace:*"`) replaces local file paths with symlinks at install time — similar to how SD enlistment made `\\depot\project\shared` available locally. Change `packages/utils`, and every app that depends on it sees the change immediately without a publish step.
+>
+> The solution file (`.sln`) that groups multiple `.csproj` projects = the workspace root `package.json` with `"workspaces": ["apps/*", "packages/*"]`. Project references in `.csproj` = `dependencies` in `package.json` pointing to sibling packages by name.
 
 Every modern package manager understands monorepos natively. Workspaces are the foundation — monorepo tools build on top.
 
@@ -147,7 +153,11 @@ repo/
 
 ### turbo.json — The Pipeline
 
-<!-- @editor[bridge/P2]: The `"dependsOn": ["^build"]` concept maps directly to MSBuild project references / .csproj dependency ordering — MSBuild also walks the project dependency graph before building dependents. Worth a one-line call-out: this is the turbo.json equivalent of `<ProjectReference>` dependency ordering in MSBuild. Currently no bridge at this critical concept. -->
+> **MSBuild project references → Turbo task dependencies**
+>
+> `"dependsOn": ["^build"]` in Turbo is the direct equivalent of `<ProjectReference>` in MSBuild. When MSBuild sees a `<ProjectReference>` it builds the referenced `.csproj` before the current one — same topological ordering, same intent.
+>
+> The `^` prefix means "topological dependency order": run `build` in all packages this package depends on first, then run `build` here. Without `^`, tasks run in parallel regardless of dependency order — you'd get `api` trying to import from `ui` before `ui` is built. With `^build`, Turbo walks the dependency graph exactly as MSBuild does with project references.
 
 ```json
 {
@@ -210,7 +220,16 @@ turbo build --dry-run
 
 ### Caching
 
-<!-- @editor[bridge/P1]: Remote cache is the most important new concept in this file — it has no MSBuild or Source Depot analog. MSBuild incremental build is local-only and per-machine; VSTS/ADO build caching existed but was limited. Turbo remote cache (content-addressable, shared across all machines and CI runs) is genuinely new. The current text just describes mechanics. Add an explicit note: "No direct .NET/MSBuild analog — this is new. MSBuild's `/incremental` flag is local-only and doesn't survive a clean CI agent. Turbo remote cache is a shared content-addressed store: if any machine (local or CI) built a given input hash, every other machine gets the output instantly." This is the key value prop and the reader needs it flagged as new territory. -->
+> **Remote cache is genuinely new — no MSBuild analog**
+>
+> MSBuild's incremental build (`/incremental` flag) is local-only, timestamp-based, and per-machine. It does not survive a clean CI agent. VSTS/ADO had some build caching but it was coarse-grained and not content-addressed.
+>
+> Turborepo remote cache is architecturally different:
+> - **Content-addressed**: the cache key is a hash of all inputs (source files, `package.json`, lockfile, env vars, pipeline config) — not timestamps. Same inputs always produce the same hash, regardless of machine or time.
+> - **Shared across all machines and CI runs**: if your local machine built `packages/ui` at input hash `abc123`, the CI agent gets the cached output instantly — no rebuild. If a teammate built it an hour ago, you get their cached output.
+> - **Provider-agnostic**: Vercel Remote Cache (default), Cloudflare, or self-hosted.
+>
+> The practical effect: on a PR that only touches `apps/api`, the CI pipeline runs in seconds because every other package is a cache hit. This is not an evolution of MSBuild incremental build — it's a new capability.
 
 ```
 How Turbo cache works
@@ -455,8 +474,6 @@ pnpm is preferred for monorepos: stricter hoisting (prevents phantom dependencie
 
 ## Old World Bridge
 
-<!-- @editor[content/P2]: Bridge table maps MSBuild incremental to "Turbo/Nx cache + affected commands" but doesn't call out the critical difference: MSBuild incremental is local-only and timestamp-based, while Turbo remote cache is content-addressed and shared across all machines. A reader coming from MSBuild will assume "incremental build" means what they already know — that assumption is wrong and leads to misunderstanding the remote cache value proposition. Add a note to that row. -->
-
 | Source Depot / VSTS / .NET Ecosystem | Monorepo Equivalent |
 |---|---|
 | One large Source Depot enlistment | Monorepo (same idea — one checkout, many projects) |
@@ -465,8 +482,8 @@ pnpm is preferred for monorepos: stricter hoisting (prevents phantom dependencie
 | NuGet package for internal shared code | Workspace package (no publish needed) |
 | VSTS build with multiple build definitions | Turbo/Nx pipeline running affected tasks |
 | Global Assembly Cache (GAC) | Hoisted `node_modules` at workspace root |
-| MSBuild dependency ordering | `"dependsOn": ["^build"]` in turbo.json |
-| Build incremental (only changed projects) | Turbo/Nx cache + affected commands |
+| MSBuild dependency ordering (`<ProjectReference>`) | `"dependsOn": ["^build"]` in turbo.json — the `^` = topological order, same as MSBuild's project reference walk |
+| MSBuild incremental build (local, timestamp-based, per-machine) | Turbo/Nx **remote** cache — content-addressed, shared across all machines and CI runs. Not an evolution of MSBuild incremental; it's architecturally different. A clean CI agent that has never seen a package still gets a cache hit if any other machine built the same input hash. |
 | Shared .editorconfig, .ruleset across projects | `packages/config` with shared ESLint/TSConfig |
 
 ---

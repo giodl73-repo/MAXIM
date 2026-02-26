@@ -74,6 +74,8 @@ General: VCdim(halfspaces in ℝⁿ) = n+1
 
 ---
 
+**Bridge: Extremal combinatorics → VC theory.** Sauer's lemma is a theorem in extremal set theory. A set system (H restricted to m points) with no shattered set of size d+1 has at most Σᵢ₌₀ᵈ C(m,i) members — this is the Sauer-Shelah lemma, independently proved by Sauer, Shelah, and Vapnik-Chervonenkis. In extremal combinatorics terms: it bounds the maximum size of a set system over an m-element ground set with VC dimension ≤ d. This sits alongside Zarankiewicz's problem (maximum edges in K_{s,t}-free bipartite graphs), Dilworth's theorem (chain decomposition of posets), and Turán-type extremal results as a fundamental counting theorem. The jump from 2^m to poly(m) at the VC dimension threshold is the combinatorial analogue of the Turán density jump: below the forbidden pattern, the system is exponentially rich; above, it collapses to polynomial size. VC theory is, at its foundation, the application of extremal set theory to function class complexity.
+
 ## Sauer's Lemma: The Growth Function
 
 The growth function counts the maximum number of distinct labelings H can impose on any m points:
@@ -183,8 +185,10 @@ INTERSECTION
   VCdim(H₁ ∩ H₂) ≤ VCdim(H₁) + VCdim(H₂) + 1
 
 UNION
-  VCdim(H₁ ∪ H₂) ≤ VCdim(H₁) + VCdim(H₂) + 2·log(|X|)?
-  — only clean when X is finite
+  VCdim(H₁ ∪ H₂) ≤ 2(d₁ + d₂) log(2e(d₁ + d₂))
+  where d₁ = VCdim(H₁), d₂ = VCdim(H₂).
+  Derived via Sauer's lemma: Π_{H₁∪H₂}(m) ≤ Π_{H₁}(m) + Π_{H₂}(m)
+  ≤ 2(em/d₁)^{d₁} when m > d₁+d₂; invert to get the VC bound.
 
 FUNCTION COMPOSITION
   If g: Y → Z and H maps X → Y, then:
@@ -242,6 +246,14 @@ Ndim(H) = max size of N-shattered set
 
 MULTICLASS FUNDAMENTAL THEOREM
   H is multiclass PAC-learnable iff Ndim(H) < ∞.
+
+MULTICLASS SAMPLE COMPLEXITY (agnostic)
+  m = Θ( (Ndim(H) · log(k) + log(1/δ)) / ε² )
+
+  where k = number of classes.
+  — Ndim(H) plays the role of d = VCdim
+  — Extra log(k) factor captures the increased label complexity
+  — Binary case: k=2, log(k)=1, Ndim = VCdim → recovers VC bound
 ```
 
 ---

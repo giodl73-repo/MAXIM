@@ -262,6 +262,26 @@ SECURITY PROPERTY REQUIREMENTS BY USE CASE:
 
 ## 6. Security Parameter and Concrete Security
 
+## 6a. Decision Cheat Sheet
+
+| Question | Answer |
+|----------|--------|
+| Encrypt + authenticate data at rest? | AEAD (AES-256-GCM or ChaCha20-Poly1305); target IND-CCA2 + INT-CTXT |
+| Need only integrity, not confidentiality? | HMAC-SHA256 or Poly1305; target EUF-CMA |
+| Protocol providing authenticated channel? | TLS 1.3; target forward secrecy + IND-CCA2 per session |
+| Sign data for non-repudiation? | Ed25519 (EUF-CMA); sUF-CMA if malleability matters |
+| ROM proofs acceptable? | Yes for deployed protocols with no standard-model alternative; ROM proofs are strong evidence — attacks typically require breaking the hash directly |
+| Standard model required? | When protocol must be proven secure without hash-function assumptions (e.g., some regulatory contexts); accept less efficient schemes |
+| Hardness assumption for new KEM? | Module-LWE (ML-KEM) for PQC-ready systems; ECDH (X25519) for classical-only; hybrid for transition |
+| Hardness assumption for new signatures? | Ed25519 (ECDLP) for classical; ML-DSA (Module-LWE + SIS) for PQC; hybrid both |
+| Key length for 128-bit security? | AES-128, SHA-256, P-256/X25519, RSA-3072 (classical); ML-KEM-768, ML-DSA-65 (PQC) |
+| Key length for 256-bit classical / 128-bit quantum? | AES-256, SHA-512, P-521, RSA-15360; ML-KEM-768 already ~192-bit quantum |
+| Algorithm agility requirement? | Always: version field + algorithm ID in any persistent format or protocol wire format |
+| Which security definition does CBC achieve? | IND-CPA only (not IND-CCA2); padding oracle attacks break it under active adversaries |
+| Which security definition does AEAD achieve? | IND-CCA2 + INT-CTXT simultaneously; the gold standard for symmetric encryption |
+
+---
+
 ```
 SECURITY PARAMETER λ:
   All algorithms take λ as input (in unary: 1^λ) → key lengths, group sizes scale with λ
@@ -296,7 +316,68 @@ ALGORITHM AGILITY:
   Lesson: SSL → TLS 1.0 → TLS 1.3 required algorithm agility; non-agile systems forced rewrites
 ```
 
+```
+ENVELOPE ENCRYPTION PATTERN (canonical algorithm-agile design):
+
+  Ciphertext envelope wire format:
+  ┌──────────┬────────────┬─────────────┬──────┬─────────────┬─────┐
+  │ version  │  alg_id    │ wrapped_key │  iv  │  ciphertext │ tag │
+  │ (1 byte) │ (OID/str)  │  (DEK enc.) │(12B) │  (var)      │(16B)│
+  └──────────┴────────────┴─────────────┴──────┴─────────────┴─────┘
+
+  DEK  = Data Encryption Key (random per message; AES-256 key)
+  KEK  = Key Encryption Key (stored in KMS/HSM; never in envelope)
+  alg_id encodes: DEK algorithm (AES-256-GCM) + KEK wrap algorithm (AES-KW or RSA-OAEP)
+
+  Algorithm rotation: increment version; use new alg_id for new DEK encryptions
+  Old versions: decrypt using old DEK algorithm (still tagged in envelope); re-encrypt optional
+  This pattern is universal: AWS KMS, HashiCorp Vault, Google Tink all follow it
+  Key insight: algorithm is committed to in the ciphertext itself → migration path always available
+```
+
 ---
+
+## Theory → Applied Engineering Bridge
+
+```
+SECURITY DEFINITION → WHAT BREAKS WHEN IT'S MISSING:
+
+  IND-CPA missing → CBC without random IV: BEAST attack (TLS 1.0 predictable IVs)
+    Deterministic encryption → adversary queries same plaintext → recognizes ciphertext
+    Fix: randomize encryption (random IV for CBC; random nonce for GCM)
+
+  IND-CCA2 missing → RSA PKCS#1 v1.5: Bleichenbacher 1998 (10^6 queries → full decryption)
+    CBC padding oracle: POODLE, Lucky13 (padding validity as oracle)
+    Fix: AEAD modes (GCM, ChaCha20-Poly1305); RSA-OAEP; ECDH instead of RSA encryption
+
+  INT-CTXT missing → Malleable ciphertext: flip bits in ciphertext → controlled plaintext changes
+    CTR without MAC: attacker flips bit 0 of KS → flips bit 0 of plaintext
+    Fix: encrypt-then-MAC or AEAD (which combines both)
+
+  EUF-CMA missing → Signature forgery: RSA PKCS#1 v1.5 signature malleability (Bitcoin script bugs)
+    Fix: RSA-PSS (sUF-CMA in ROM); Ed25519 (deterministic, no nonce reuse failure)
+
+REDUCTION PROOF → CONCRETE PARAMETER CHOICE:
+
+  "AES-128 is IND-CPA secure under PRF assumption" + best known PRF attacks on AES = O(2^128)
+    → 128-bit security; adequate for current threat; use AES-256 for post-quantum margin
+
+  "ECDSA is EUF-CMA under ECDLP" + best known ECDLP attacks on P-256 = O(2^128)
+    → 128-bit security; but nonce reuse collapses to zero (no reduction needed)
+    → In practice: use Ed25519 (deterministic nonce; same hardness assumption; safer implementation)
+
+  "RSA-OAEP is IND-CCA2 under RSA-OWP assumption" + GNFS cost for RSA-2048 = ~2^112
+    → 112-bit security (below 128-bit); NIST recommends RSA-3072 for 128-bit
+    → X25519 (32-byte key) achieves same 128-bit security at 1/100th the key size
+
+SECURITY GAME → ATTACK SCENARIO (practical mapping):
+
+  IND-CPA game       ↔  passive eavesdropper; can encrypt chosen messages
+  IND-CCA2 game      ↔  active attacker with decryption oracle (e.g., padding oracle, timing side-channel)
+  EUF-CMA game       ↔  attacker who can obtain signatures on chosen messages (API access)
+  sUF-CMA game       ↔  attacker who observes signatures + tries to produce any new (msg, sig) pair
+  INT-CTXT           ↔  attacker who injects modified ciphertext and checks if decryption succeeds
+```
 
 ## 7. Standard Bodies
 
@@ -320,6 +401,22 @@ IETF RFCs (implementation standards):
   RFC 5869: HKDF
   RFC 8439: ChaCha20-Poly1305
   RFC 9180: HPKE (Hybrid Public Key Encryption) — combines KEM + AEAD
+
+IETF CFRG (Crypto Forum Research Group — the other standards body):
+  The CFRG is the IETF working group that standardizes cryptographic primitives for IETF protocols.
+  Works independently from NIST; often faster; more willing to adopt Bernstein/Lange designs.
+  CFRG outputs (not NIST FIPS):
+    RFC 7748: X25519, X448 (ECDH — CFRG standard; NIST added Curve25519 much later in SP 800-186)
+    RFC 8032: Ed25519, Ed448 (EdDSA — CFRG standard; NIST added in FIPS 186-5)
+    RFC 8439: ChaCha20-Poly1305 (stream cipher AEAD — CFRG; no NIST FIPS equivalent)
+    RFC 9180: HPKE — Hybrid Public Key Encryption (CFRG; used in TLS ECH, MLS)
+    RFC 9497: OPAQUE — password-authenticated key exchange (CFRG draft → RFC)
+
+  NIST vs CFRG tension:
+    NIST: formal FIPS process; federal procurement requirement; P-256/P-384 focus
+    CFRG: academic cryptographer input; faster adoption of clean designs (Curve25519, ChaCha20)
+    Result: TLS 1.3 uses CFRG primitives (X25519, ChaCha20-Poly1305) that are NOT FIPS-approved
+    FIPS-compliant TLS 1.3: must use P-256 (not X25519) and AES-GCM (not ChaCha20); tradeoffs
 
 ETSI / ENISA: European standards; align with NIST; ETSI TS 103 744 on PQC migration
 

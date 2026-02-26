@@ -104,6 +104,8 @@ CATASTROPHIC CANCELLATION:
   Quadratic formula: b² >> 4ac, -b + √(b²-4ac) ≈ 0 → use -2c/(b + √(b²-4ac)).
 ```
 
+<!-- @editor[bridge/P2]: Missing connection between catastrophic cancellation and practical numerical libraries — numpy's np.expm1(x) and np.log1p(x) exist precisely to avoid cancellation for x≈0. Also: fused multiply-add (FMA) instruction computes a*b+c with a single rounding error instead of two, relevant for performance-critical inner product computations in ML. -->
+
 ### 1.3 Condition Number
 
 ```
@@ -181,6 +183,8 @@ QUASI-NEWTON (Broyden): update approximate Jacobian cheaply.
   Avoids re-computing/factoring full Jacobian.
 ```
 
+<!-- @editor[bridge/P2]: Newton-Raphson in ℝⁿ is the foundation of optimization — L-BFGS and trust-region methods are quasi-Newton methods for unconstrained optimization (scipy.optimize.minimize). The connection between Newton's method for systems and Newton's method for optimization (minimizing f = solving ∇f = 0) should be explicit. Also: inexact Newton (solve J·Δx = −F only approximately) is the basis for practical implementations at scale. -->
+
 ### 2.3 Other Root-Finding Methods
 
 ```
@@ -246,6 +250,8 @@ SPECIAL STRUCTURE EXPLOITATION:
   Toeplitz: O(n log² n) — signal processing, convolutions
   Sparse general: fill-in problem → reorder (AMD, Nested Dissection) before factoring
 ```
+
+<!-- @editor[bridge/P2]: Missing the connection to scipy.linalg and numpy.linalg — scipy.linalg.lu, scipy.linalg.cho_factor/cho_solve, and the LAPACK routines they wrap (dgesv, dpotrf, dgetrf). In practice: numpy.linalg.solve uses LAPACK dgesv (LU+pivoting). When to use scipy vs numpy for linear systems. Also worth noting: for n > ~5000, direct methods become impractical for dense matrices and GPU GEMM (cuBLAS) is the go-to. -->
 
 ### 3.2 Conditioning and Stability
 
@@ -465,6 +471,8 @@ HIGHER DERIVATIVES: forward-over-reverse for Hessians. Typically expensive.
   Full Hessian: O(n) reverse passes.
 ```
 
+<!-- @editor[bridge/P2]: Missing the connection between AD and optimization algorithms — JAX's jit+grad+vmap is the standard pattern. Also: checkpointing (gradient checkpointing / rematerialization) trades compute for memory in reverse-mode AD by not storing all intermediate activations. This is essential for training large models and directly connects numerical methods to ML engineering practice. -->
+
 ---
 
 ## 6. Numerical Integration (Quadrature)
@@ -589,6 +597,8 @@ ADAPTIVE STEP SIZE CONTROL:
   Double step if error < tol_lo, halve if error > tol_hi.
   Classic: PIController, DOPRI5.
 ```
+
+<!-- @editor[bridge/P2]: Missing Butcher tableaux — the systematic framework for constructing and analyzing Runge-Kutta methods. The order conditions (tree-based Butcher theory) explain why RK4 is order 4 and why constructing higher-order explicit methods gets expensive. Also: symplectic integrators (Störmer-Verlet) for Hamiltonian systems — conserve energy exactly over long integration, critical for molecular dynamics and n-body simulation. -->
 
 ### 7.2 Convergence and Consistency
 
@@ -835,6 +845,8 @@ FLOATING-POINT IN TRAINING:
   FP8 (Hopper/Ada): E4M3 for forward, E5M2 for backward gradients.
   Mixed precision: AMP in PyTorch. See 04-PYTORCH module.
 ```
+
+<!-- @editor[bridge/P2]: Missing the connection between numerical stability and modern deep learning training problems — gradient vanishing/exploding as a conditioning problem (deep networks = product of Jacobians, spectral radii compound multiplicatively). Batch normalization and layer normalization are numerical stabilizers — they condition the optimization landscape. Gradient clipping is an emergency numerical stabilizer. These are the numerical methods perspective on standard ML practices. -->
 
 ---
 

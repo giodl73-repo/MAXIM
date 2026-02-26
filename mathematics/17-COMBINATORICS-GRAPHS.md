@@ -222,6 +222,63 @@ ALL COUNT THE SAME Cₙ THINGS (Catalan family):
   • Monotone paths in n×n grid not crossing diagonal
 ```
 
+### 2.5 Analytic Combinatorics — Extracting Asymptotics from Singularities
+
+The **Flajolet-Sedgewick framework** (from their 2009 book *Analytic Combinatorics*)
+gives a systematic way to extract asymptotic coefficients from generating functions
+via complex analysis — turning the OGF into an asymptotic formula for aₙ.
+
+**Core principle**: the dominant singularity of A(x) closest to the origin controls
+the exponential growth rate of aₙ.
+
+```
+SINGULARITY TYPE → ASYMPTOTICS:
+
+A(x) has a simple pole at x = ρ:
+  aₙ ~ C · ρ⁻ⁿ            (exponential growth only)
+
+A(x) has algebraic singularity (x=ρ)^α at x = ρ:
+  aₙ ~ C · ρ⁻ⁿ · n^{−α−1} (exponential × polynomial correction)
+
+A(x) = P(x)/√(1 − x/ρ):
+  aₙ ~ C · ρ⁻ⁿ · n^{−1/2} (typical for Catalan-type)
+
+A(x) = P(x)(1 − x/ρ)^{3/2}:
+  aₙ ~ C · ρ⁻ⁿ · n^{−5/2} (typical for plane trees, maps)
+```
+
+**Transfer theorems** (singularity analysis): for A(x) with algebraic singularity
+at ρ of the form A(x) ~ Σ cₖ (1 − x/ρ)^{αₖ} near x = ρ, the coefficients satisfy:
+```
+[xⁿ] A(x) ~ Σ cₖ · ρ⁻ⁿ · n^{−αₖ−1} / Γ(−αₖ)
+```
+This requires the singularity to be isolated in its Δ-domain (a domain wider than
+the disk of convergence, like a "dented disk").
+
+**Examples — automatic asymptotics**:
+```
+Catalan Cₙ: OGF = (1 − √(1−4x))/(2x), singularity at x = 1/4.
+  Near x = 1/4: C(x) ~ 1 − √(1−4x)/2 + ... (algebraic, exponent 1/2)
+  → Cₙ ~ 4ⁿ / (n^{3/2} √π)
+
+Ballot numbers, Non-crossing partitions, Planar maps:
+  All have the n^{-3/2} correction → square-root singularity structure
+
+Labeled trees (nⁿ⁻²): EGF T(x) = xeᵀ⁽ˣ⁾ (Lambert W equation)
+  Singularity at x = 1/e: T(x) near 1/e involves √(1 − ex)
+  → nⁿ⁻² ~ √(2π) · n^{n−1/2} eˉⁿ  (Stirling refinement of Cayley)
+```
+
+**Saddle-point method**: for EGFs with entire (no finite singularity) generating
+functions, the dominant contribution to aₙ = n! [xⁿ] Â(x) comes from the saddle
+point of the integrand in the Cauchy integral formula. Used for analyzing
+permutations, derangements, set partitions (Bell numbers).
+
+**Algorithmic significance**: these asymptotics give the average-case complexity of
+algorithms on random combinatorial structures — random binary search trees have
+average depth Θ(log n) with exactly the right constant (2 ln n), derivable from the
+EGF singularity structure.
+
 ---
 
 ## 3. Graph Theory Fundamentals
@@ -738,6 +795,52 @@ RANDOM LOWER BOUND FOR R(k,k):
   → R(k,k) > n. This is the probabilistic lower bound.
 ```
 
+### 13.3 Szemerédi Regularity Lemma
+
+The regularity lemma (Szemerédi 1975) is the central structural result of extremal
+graph theory and additive combinatorics. It says every dense graph looks, at coarse
+resolution, like a union of pseudo-random bipartite graphs.
+
+**Definition — ε-regular pair**: a bipartite graph (A, B, E) is **ε-regular** if
+for all A' ⊆ A with |A'| ≥ ε|A| and B' ⊆ B with |B'| ≥ ε|B|:
+```
+|d(A',B') − d(A,B)| ≤ ε       where d(A,B) = |E(A,B)| / (|A|·|B|)
+```
+The density between large subsets is close to the global density — the bipartite
+graph looks random at the scale ε.
+
+**Szemerédi Regularity Lemma**: For every ε > 0, there exists M(ε) such that every
+graph G = (V, E) with n ≥ M(ε) vertices has an **ε-regular partition**
+V = V₀ ∪ V₁ ∪ ⋯ ∪ Vₖ where:
+```
+|V₀| ≤ εn                         (exceptional set, small)
+|V₁| = |V₂| = ⋯ = |Vₖ|            (equal-size parts)
+1/ε ≤ k ≤ M(ε)                     (number of parts is bounded)
+all but ε·C(k,2) pairs (Vᵢ,Vⱼ) are ε-regular
+```
+The number of parts M(ε) is a tower function of 1/ε (unavoidably so — Gowers showed
+the tower is necessary). The partition is computable in polynomial time.
+
+**Applications**:
+
+*Triangle removal lemma* (Ruzsa-Szemerédi 1976): If G has o(n³) triangles then
+G can be made triangle-free by removing o(n²) edges. Consequence: if every edge of
+a graph is in exactly one triangle, the graph has o(n²) edges.
+
+*Green-Tao theorem (2004)*: the primes contain arithmetic progressions of arbitrary
+length. Proof outline: primes are "pseudorandom" in a sense that Szemerédi-type
+arguments apply (via the transference principle of Green-Tao). The primes are not
+dense (they have density zero), but they are dense among the "pseudoprimes," which
+makes the combinatorial machinery applicable.
+
+*Counting lemma*: complementing the regularity lemma — any ε-regular partition of
+a graph that looks like a pattern H contains approximately the "right" number of
+copies of H that you would expect from a random graph with the same edge densities.
+
+*Efficient approximate counting*: for any fixed graph H, counting the number of
+copies of H in G to within ε·n^{|V(H)|} is achievable in polynomial time via
+the regularity partition.
+
 ---
 
 ## 14. Algebraic Graph Theory
@@ -770,7 +873,49 @@ INTERLACING THEOREM (Cauchy):
   Eigenvalues of induced subgraph interlace eigenvalues of full graph.
 ```
 
-### 14.2 Graph Polynomials
+### 14.2 Random Graphs and Sharp Thresholds
+
+Random graph models exhibit **sharp threshold phenomena**: properties appear
+suddenly at a critical edge probability p* rather than gradually.
+
+**Erdős-Rényi G(n,p)**: n vertices, each edge present independently with probability p.
+```
+PHASE TRANSITIONS IN G(n,p):
+  p = c/n,  c < 1:   all components have size O(log n)  (sub-critical)
+  p = 1/n:           giant component emerges — size Θ(n^{2/3})   [threshold]
+  p = c/n,  c > 1:   unique giant component of size Θ(n),
+                      all other components O(log n)  (super-critical)
+  p = log(n)/n:      connectivity threshold — graph becomes connected a.s.  [threshold]
+  p = k·log(n)/n:    minimum degree ≥ k appears a.s.
+```
+
+**Proof technique for giant component** (c > 1): branching process argument.
+Start from vertex v; explore neighbors as a Galton-Watson branching process with
+offspring distribution Binomial(n-1, p) ≈ Poisson(c). For c > 1, extinction
+probability q < 1 (supercritical branching process). The survival probability is
+the giant component fraction.
+
+**Stochastic block model (SBM)**: generalization of G(n,p) for community structure.
+```
+n vertices, k communities of size n/k each.
+Edge probability p within communities, q between (p > q).
+INFORMATION-THEORETIC threshold for exact recovery of communities:
+  √(n·p) − √(n·q) ≥ √(2 log k)   (Abbe-Sandon 2015)
+
+SPECTRAL ALGORITHM: eigenvectors of adjacency matrix A (or normalized Laplacian).
+  For two communities: Fiedler vector (second eigenvector of L) clusters correctly
+  when SNR = (p−q)²·(n/k) / (p + q) > 1  (spectral threshold).
+  Below this threshold: no polynomial-time algorithm can recover communities
+  (under planted clique hardness).
+```
+
+The SBM is the canonical model for **community detection** in network science —
+used to benchmark graph clustering algorithms (spectral clustering, Louvain,
+label propagation). The spectral algorithm works because the planted community
+structure perturbs the leading eigenvalues away from the Wigner semicircle
+distribution of the bulk (random matrix theory provides the analysis).
+
+### 14.3 Graph Polynomials
 
 ```
 CHROMATIC POLYNOMIAL P(G, k):
@@ -894,6 +1039,52 @@ GRAPH ISOMORPHISM: neither known P nor NP-complete
   Quasi-poly: Babai 2016 n^(polylog n) algorithm
 ```
 
+### Inapproximability and Parameterized Complexity
+
+The PCP theorem (probabilistically checkable proofs, Arora-Safra 1992) transforms
+NP-hardness into inapproximability. The key result: 3-SAT has a "gap" — it is
+NP-hard to distinguish satisfiable instances from those where every assignment
+violates at least ε of the clauses, for some constant ε > 0.
+
+**Sharp inapproximability bounds** (PCP corollaries):
+```
+MAX INDEPENDENT SET:  NP-hard to approximate within n^{1-ε} for any ε > 0
+  (Håstad 1999 — tight, since trivial O(n) upper bound)
+
+MAX CLIQUE:           NP-hard to approximate within n^{1-ε}
+  (same graph as complement: clique in G = independent set in Ḡ)
+
+CHROMATIC NUMBER:     NP-hard to approximate within n^{1-ε}
+  (Feige-Kilian 1998; coloring with O(log n) colors is hard unless P=NP)
+
+MAX 3-SAT:            NP-hard to approximate better than 7/8 ratio
+  (Håstad 1997 — 7/8 is the random assignment bound; tight)
+
+VERTEX COVER:         NP-hard to approximate below 2 − ε
+  (Khot-Regev 2008, under Unique Games Conjecture)
+  Polynomial integrality gap of 2 in the LP relaxation.
+```
+
+**Unique Games Conjecture (UGC)**: Khot 2002. If true, many 2-approximation
+algorithms for vertex cover and similar problems are tight — the SDP/LP integrality
+gaps are the true approximation thresholds.
+
+**Parameterized complexity** — beyond NP-hardness, refine by parameter k:
+```
+FPT (Fixed-Parameter Tractable): solvable in f(k) · poly(n)
+  k-VERTEX COVER: O(1.2738^k + k·n) — crown decomposition + bounded search tree
+  k-FEEDBACK VERTEX SET: FPT
+  k-DOMINATING SET: FPT on planar graphs (bidimensionality), W[2]-hard in general
+
+W[1]-hard: unlikely to be FPT (parameterized hardness)
+  k-CLIQUE: O(n^k) is essentially optimal (no FPT under ETH)
+  k-INDEPENDENT SET: W[1]-hard
+
+ETH (Exponential Time Hypothesis): 3-SAT cannot be solved in 2^{o(n)}.
+  Implies: k-clique requires n^{Ω(k)} time.
+  Strong ETH (SETH): stronger, implies many conditional lower bounds.
+```
+
 ---
 
 ## 18. Connections to Computer Science and ML
@@ -999,6 +1190,8 @@ HASH FUNCTIONS AND UNIVERSAL HASHING:
 | Clique number | — | NP-hard | Exact |
 | Independent set | — | NP-hard | 2-approx via matching |
 | Dynamic connectivity | Link-cut trees | O(log n) amortized | Advanced |
+| Asymptotics of [xⁿ]A(x) | Singularity analysis | — | Dominant singularity of A(x) |
+| Community detection | Spectral (Fiedler vector) | O(n log n) | SBM with SNR above threshold |
 
 ---
 
@@ -1038,3 +1231,7 @@ max-flow min-cut. They're all the same theorem in different disguises.
 **GNNs and 1-WL**: Standard message-passing GNNs can't distinguish all non-isomorphic
 graphs — they're limited to the expressive power of 1-WL color refinement. This is why
 graph transformers and higher-order GNNs exist.
+
+**Szemerédi vs. regularity**: The regularity lemma gives a structural decomposition;
+the counting lemma gives the quantitative statement about subgraph densities. Both are
+needed together to apply the framework. The tower bound on M(ε) is unavoidable (Gowers).

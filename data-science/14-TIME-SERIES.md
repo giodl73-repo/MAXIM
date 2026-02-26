@@ -114,6 +114,48 @@ Differencing removes unit roots: if x_t ~ I(1) (integrated of order 1), then Δx
 
 ---
 
+## SQL Window Functions ↔ Time Series Operations
+
+SQL window functions and time series operations are the same underlying computations
+in different notations:
+
+```
+SQL (window function syntax)                  Time series / ARIMA notation
+──────────────────────────────────────────    ──────────────────────────────────────────
+LAG(x, 1) OVER (ORDER BY t)                  x_{t-1}  ← 1-period lag, B¹ x_t
+LAG(x, k) OVER (ORDER BY t)                  x_{t-k}  ← k-period lag, Bᵏ x_t
+
+x - LAG(x,1) OVER (ORDER BY t)               Δx_t = x_t - x_{t-1}  ← first difference
+                                               (1-B) x_t  ← removes unit root
+
+AVG(x) OVER (ORDER BY t ROWS BETWEEN         q-period centered moving average
+  (q-1)/2 PRECEDING AND (q-1)/2 FOLLOWING)   ← MA(q) smoothing of the level
+
+SUM(x) OVER (ORDER BY t ROWS UNBOUNDED       ← integration (inverse of differencing)
+  PRECEDING)                                   If Δx_t = ε_t, then x_t = Σ_{s≤t} ε_s
+                                               ARIMA d=1 reverses this
+
+x - AVG(x) OVER (PARTITION BY month)         ← seasonal adjustment
+                                               Remove additive seasonal component s(t)
+                                               SARIMA's seasonal differencing (1-B^12)x_t
+
+CORR(x, LAG(x,k))                           ← sample ACF at lag k: ρ̂(k)
+OVER (ORDER BY t)
+
+AVG(x * LAG(x,k))                           ← sample ACVF at lag k: γ̂(k)
+OVER (ORDER BY t)
+
+SUM(x * LAG(x,k)) / SUM(x * x)              ← OLS coefficient in AR(k) regression
+```
+
+**Practical translation**: a data engineer who writes rolling window features
+in SQL (`AVG() OVER ROWS BETWEEN k PRECEDING AND CURRENT ROW`) is computing
+the same MA(k) smoothing that ARIMA's MA component models as a likelihood-based
+process. The difference: SQL computes the smoothed value; ARIMA models the residual
+structure of the *original* series after removing that structure.
+
+---
+
 ## 3. ARIMA
 
 **AR(p)** (AutoRegressive):
@@ -409,6 +451,64 @@ At each time step, we maintain: `p(xₜ | y₁:ₜ) = N(xₜ; μₜ, Σₜ)` —
   Output: parameters of likelihood (Gaussian or negative binomial)
   Train across many related time series (global model)
   At inference: ancestral sampling for prediction intervals
+```
+
+---
+
+## Python Tooling Stack
+
+```
+Theory concept               Python library / class                  Notes
+──────────────────────────   ─────────────────────────────────────   ────────────────────
+ARIMA, SARIMA                statsmodels.tsa.arima.model.ARIMA       Standard; auto_arima
+SARIMAX (with exog.)         statsmodels.tsa.statespace.SARIMAX      Exogenous regressors
+VAR                          statsmodels.tsa.vector_ar.var_model.VAR
+VECM                         statsmodels.tsa.vector_ar.vecm.VECM
+Kalman filter / SSM          statsmodels.tsa.statespace.MLEModel      Base class + EM
+                             PyKalman (simple), FilterPy              Numpy-based
+                             Dynamax (JAX-based)                     GPU, autodiff
+GARCH, EGARCH, DCC           arch.arch_model (arch library)          Bollerslev models
+                             arch.univariate / arch.multivariate
+ADF, KPSS tests              statsmodels.tsa.stattools.adfuller       Unit root tests
+                             statsmodels.tsa.stattools.kpss
+Ljung-Box Q-test             statsmodels.stats.diagnostic.acorr_ljungbox
+ACF / PACF plots             statsmodels.graphics.tsaplots.plot_acf
+                             statsmodels.graphics.tsaplots.plot_pacf
+
+Prophet                      prophet.Prophet (Facebook/Meta)         Decomposition model
+                             neuralprophet (Neural Prophet)          PyTorch backend
+
+sktime                       sktime.forecasting.*                    sklearn-compatible
+                             ARIMA, ETS, Theta, naive, ensemble      fit/predict API
+                             sktime.transformations.series.*         preprocessing
+                             sktime.classification / regression      time series as feature
+
+darts                        darts.models.*                          TorchForecastingModel
+                             TCN, NBEATS, TFT, DeepAR, N-HiTS       deep learning focus
+                             darts.datasets                          benchmark datasets
+
+tslearn                      tslearn.clustering.*                    Dynamic Time Warping
+                             tslearn.metrics.dtw                     time series similarity
+                             TimeSeriesKMeans, TimeSeriesKNN
+
+GluonTS                      gluonts.model.*                         Amazon probabilistic
+                             DeepAR, Transformer, Wavenet            forecasting framework
+
+Statsmodels vs pandas:
+  pandas resample("W").mean()       ← quick aggregation (not a model)
+  statsmodels SARIMAX               ← full likelihood estimation, tests, confidence intervals
+  Use pandas for feature engineering; statsmodels/arch for model estimation.
+```
+
+**Quick selection**:
+```
+Need classical ARIMA/SARIMA/VAR with inference?  → statsmodels.tsa
+Need GARCH family with full diagnostics?          → arch library
+Need sklearn-compatible API for pipelines?        → sktime
+Need deep learning forecasting (probabalistic)?   → darts (TFT, DeepAR, N-HiTS)
+Need interpretable decomposition (business)?      → prophet
+Need DTW / time series classification?            → tslearn
+Need cross-sectional + temporal (panel)?          → statsmodels.tsa.statespace (mixed effects SSM)
 ```
 
 ---

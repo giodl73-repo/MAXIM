@@ -21,6 +21,62 @@ GRAPH ML LANDSCAPE
 
 ---
 
+## SQL Relational → Graph Bridge
+
+A graph is two tables. Every SQL data engineer already works with graphs:
+
+```
+Graph concept                 SQL / relational equivalent
+──────────────────────────    ──────────────────────────────────────────────────────────
+Adjacency matrix A[i,j]       Edges table: CREATE TABLE edges (src_id, dst_id, weight)
+  A sparse matrix with           A row per edge — same information, different form.
+  one entry per edge             Sparse matrix (COO format) IS an edge table.
+
+Node features X[v, :]         Nodes table: CREATE TABLE nodes (node_id, feat1, feat2, ...)
+  Node feature matrix            Joined to the edge table: edges JOIN nodes ON src_id = node_id
+
+Neighborhood N(v)             Self-join on edge table:
+  {u : (u,v) ∈ E}               SELECT dst_id FROM edges WHERE src_id = v
+                                 Recursive CTE for multi-hop: WITH RECURSIVE bfs ...
+
+GNN message passing:          GROUP BY src_id + aggregate:
+  h_v ← AGG({h_u | u∈N(v)})    SELECT src_id,
+                                       AVG(n.feat1) AS avg_neighbor_feat1,
+                                       MAX(n.feat2) AS max_neighbor_feat2
+                                 FROM edges e JOIN nodes n ON e.dst_id = n.node_id
+                                 GROUP BY e.src_id
+                                 → this IS a single GNN message passing step
+
+K-hop neighborhood            K-level recursive CTE or K lateral joins
+  2-hop: N²(v) = {w : ∃u, (u,v)∈E, (w,u)∈E}  = JOIN edges on edges twice
+
+Graph database (Neo4j):       Cypher query language
+  MATCH (u:User)-[:BOUGHT]->(p:Product)     ← pattern matching on edge types
+  RETURN u.name, p.title
+  ≡ SELECT u.name, p.title FROM users u
+    JOIN purchases e ON u.id = e.user_id
+    JOIN products p ON e.product_id = p.id
+
+PageRank / label propagation  Iterative SQL (recursive CTEs, or iterative batch jobs)
+  Iterative aggregation over  Each PageRank iteration is a GROUP BY aggregation
+  the graph until convergence  run until convergence = iterative batch processing
+```
+
+**Graph databases vs relational**:
+```
+Relational (SQL)                         Graph database (Neo4j, TigerGraph, ArangoDB)
+──────────────────────────────────────   ──────────────────────────────────────────────
+Schema: tables with fixed columns        Schema-optional: nodes + labeled edges
+Query: JOINs for relationships           Query: pattern matching (Cypher / Gremlin / GQL)
+Performance: JOINs degrade O(n²) past    Performance: index-free adjacency → O(1) hop
+  3-4 hops (indexes don't help for        regardless of graph size
+  multi-hop traversal)
+Strength: aggregates, analytics          Strength: connected traversals, path queries
+Standard: SQL                            Standard: emerging (ISO GQL 2024)
+```
+
+---
+
 ## 1. Graph Fundamentals
 
 **Graph**: G = (V, E) with node set V, edge set E ⊆ V×V.
@@ -287,7 +343,142 @@ Spatial / message passing view — unifies GCN, GAT, GraphSAGE, etc.
 
 ---
 
-## 10. Applications
+## 10. Graph Construction from Tabular Data
+
+GNNs assume you have a graph. The critical practical question: **how do you build a
+meaningful graph from a relational/tabular dataset?** The choice of graph construction
+determines whether GNNs help at all.
+
+### Strategy 1 — Explicit Relational Edges
+
+When domain relationships exist in the schema, use them directly:
+
+```python
+# SQL edge table → NetworkX or PyG
+import pandas as pd
+import torch
+from torch_geometric.data import Data
+
+edges_df = pd.read_sql("""
+    SELECT user_id AS src, product_id AS dst, purchase_count AS weight
+    FROM purchases
+""", con=engine)
+
+nodes_df = pd.read_sql("""
+    SELECT user_id AS node_id, age, income, tenure
+    FROM users
+    UNION ALL
+    SELECT product_id, category_encoded, price, avg_rating
+    FROM products
+""", con=engine)
+
+edge_index = torch.tensor(
+    [edges_df["src"].values, edges_df["dst"].values], dtype=torch.long
+)
+x = torch.tensor(nodes_df[["age","income","tenure","..."]].values, dtype=torch.float)
+
+graph = Data(x=x, edge_index=edge_index, edge_attr=torch.tensor(edges_df["weight"].values))
+```
+
+**When to use**: order fulfillment, social networks, citation graphs, supply chains.
+Any dataset with explicit foreign keys that represent meaningful relationships.
+
+### Strategy 2 — k-NN Graph (Feature Similarity)
+
+Connect each node to its k nearest neighbors by feature similarity. Use when there
+are no explicit relationships but feature space proximity is semantically meaningful:
+
+```python
+from sklearn.neighbors import kneighbors_graph
+import scipy.sparse as sp
+
+# X ∈ ℝ^{n × d}: tabular features (one row per entity)
+A = kneighbors_graph(X, n_neighbors=10, mode='distance', metric='euclidean')
+# A is sparse adjacency matrix; convert to PyG edge_index
+rows, cols = A.nonzero()
+edge_index = torch.tensor([rows, cols], dtype=torch.long)
+edge_weight = torch.tensor(A[rows, cols].A1, dtype=torch.float)
+
+# Typical choices:
+# n_neighbors = 5–20 (depends on density of meaningful relationships)
+# metric = 'euclidean' (continuous features), 'cosine' (text/embeddings), 'jaccard' (binary)
+```
+
+**When to use**: customer segmentation (similar customers), anomaly detection (similar
+transactions), particle physics (similar measurement vectors).
+
+### Strategy 3 — Threshold Graph (ε-Radius)
+
+Connect entities if their distance is below a threshold ε. Produces graphs where all
+edges have approximately equal "strength":
+
+```python
+from sklearn.metrics import pairwise_distances
+
+D = pairwise_distances(X, metric='euclidean')  # n×n distance matrix
+ε = np.percentile(D[D > 0], 20)  # 20th percentile of non-zero distances
+
+rows, cols = np.where((D < ε) & (D > 0))  # mask out self-loops
+edge_index = torch.tensor([rows, cols], dtype=torch.long)
+```
+
+**Trade-off**: high ε → dense graph (slow, oversmoothing risk); low ε → sparse graph
+(isolated nodes, poor message passing). Tune ε so average degree ≈ 10–50.
+
+### Strategy 4 — Co-occurrence / Entity Projection
+
+Project a bipartite graph (users × items) onto one entity type by co-occurrence:
+
+```python
+# Bipartite: users ← purchases → products
+# Project onto users: two users are connected if they bought the same product
+
+# SQL approach:
+# SELECT DISTINCT a.user_id AS src, b.user_id AS dst, COUNT(*) AS shared_products
+# FROM purchases a JOIN purchases b ON a.product_id = b.product_id
+# WHERE a.user_id < b.user_id  -- undirected, no self-loops
+# GROUP BY a.user_id, b.user_id
+# HAVING COUNT(*) >= 3  -- at least 3 shared products
+
+# PyG has built-in bipartite support via heterogeneous graphs (HeteroData)
+```
+
+**When to use**: recommendation, fraud detection (shared devices/IPs between accounts),
+genomics (genes co-expressed in same tissue).
+
+### Strategy 5 — Domain-Specific Graphs
+
+```
+Domain          Graph construction
+─────────────   ────────────────────────────────────────────────────────
+Molecular       Atoms = nodes, bonds = edges; 3D coordinates as features
+Time series     Sliding window → lag graph; or DTW distance → k-NN graph
+Text            Sentence co-occurrence; or semantic similarity (embeddings k-NN)
+Images          Superpixels → k-NN on spatial features (SLIC + k-NN)
+Code            AST nodes + edges; call graphs; dependency graphs
+Tabular (fraud) Transactions → bipartite (accounts × transactions)
+                Accounts share IP → edge; accounts share card → edge
+```
+
+### Validation: Does the Graph Help?
+
+A graph construction is useful if GNN > tabular baseline. Quick test:
+
+```python
+# Baseline: train on X alone (MLP, XGBoost)
+# GNN: train GNN on (X, A)
+# If GNN ≤ baseline: graph structure is uninformative → don't use GNN
+# If GNN > baseline: node labels are autocorrelated in the graph → GNN helps
+
+# Moran's I: test for spatial autocorrelation of labels on graph
+# High Moran's I → labels cluster in graph → GNN will help
+from libpysal.weights import lat2W
+# or compute manually: I = (n/W) * (y-ȳ)ᵀ A (y-ȳ) / ‖y-ȳ‖²
+```
+
+---
+
+## 11. Applications
 
 ### Molecular Property Prediction
 ```
@@ -334,7 +525,7 @@ Spatial / message passing view — unifies GCN, GAT, GraphSAGE, etc.
 
 ---
 
-## 11. Decision Cheat Sheet
+## 12. Decision Cheat Sheet
 
 | Scenario | Method | Why |
 |----------|--------|-----|
@@ -349,7 +540,7 @@ Spatial / message passing view — unifies GCN, GAT, GraphSAGE, etc.
 
 ---
 
-## 12. Common Confusion Points
+## 13. Common Confusion Points
 
 1. **"GCN is a graph generalization of CNN"** — In the spectral sense, yes: both convolve signals via learned filters. But the analogy is imperfect. CNNs have spatial locality and translation equivariance; GCN has permutation equivariance (nodes can be in any order) but not translation equivariance.
 

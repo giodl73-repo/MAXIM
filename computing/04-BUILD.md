@@ -174,7 +174,39 @@ Understanding why each tool exists requires the timeline:
   Then bundles leaf-to-root → OUTPUT BUNDLE(S)
 ```
 
-<!-- @editor[bridge/P2]: The MSBuild conceptual bridge is absent at the module graph level. The learner knows MSBuild's dependency graph between targets (Target A depends on Target B's outputs, MSBuild topologically sorts and executes). The bundler's module graph is the same concept applied to files: each file is a node, each import is a directed edge, the bundler does a topological sort and emits leaf-to-root. The incremental build analogy is also exact: MSBuild checks input/output timestamps to skip unchanged targets; Vite's dev server checks file modification times and module graph ancestry to invalidate only the changed subgraph. Adding "MSBuild targets/tasks/incremental build → bundler plugin hooks/module graph invalidation" as an explicit ASCII comparison here would be high-value for this reader. -->
+**MSBuild parallel**: the module graph is the same data structure as MSBuild's target dependency graph, applied at the file level instead of the target level.
+
+```
+  MSBUILD TARGET GRAPH                  BUNDLER MODULE GRAPH
+  ====================                  ====================
+
+  Targets = nodes.                      Files = nodes.
+  DependsOnTargets = edges.             import statements = edges.
+  MSBuild topologically sorts targets   Bundler topologically sorts files
+  and executes leaf-to-root.            and emits leaf-to-root.
+
+  +--------+                            +--------+
+  |        |  DependsOnTargets          |        | import './router'
+  | Build  | ----> Compile              | app.ts | -----> router.ts
+  +--------+       |                    +--------+        |
+                   v                                      v
+               +--------+                            +--------+
+               | Compile| DependsOnTargets           |router.ts| import 'express'
+               +--------+ ----> Restore              +--------+ -----> express/
+                                                               (node_modules)
+
+  Incremental build:                    Vite HMR invalidation:
+  MSBuild checks Inputs/Outputs         Vite tracks the module graph;
+  timestamps. Skip target if            when a file changes, it walks
+  outputs are newer than all inputs.    UP the import graph and marks
+                                        only affected modules stale.
+                                        Unchanged subtrees stay cached.
+
+  Both: skip unchanged work by          Both: O(changed nodes + their
+  tracking dependency timestamps.       dependents), not O(all nodes).
+```
+
+This is why Vite's dev server is fast even in large projects: a change to a leaf module (a utility function) only invalidates the modules that import it, not the entire graph. A change to your app entry point (`main.ts`) invalidates everything — same as touching a top-level MSBuild target.
 
 ### Tree Shaking
 
@@ -773,7 +805,77 @@ These two tools touch the same files but do different jobs. They need to be conf
 | MSBuild incremental build (skip target if outputs newer than inputs) | Vite module graph invalidation (only re-transform changed files and their dependents) | Same concept: skip unchanged work |
 | MSBuild dependency between targets (DependsOnTargets) | Module graph edges (import statements drive rebuild order) | The import graph IS the dependency graph |
 
-<!-- @editor[bridge/P2]: The MSBuild targets/tasks conceptual bridge in the table above is present but thin. The learner built VSTS and knows MSBuild at architectural depth: targets have Inputs/Outputs attributes that enable incremental builds; the build engine evaluates the dependency graph of targets; a Task is an atomic unit of work (ITask interface). Vite's plugin system maps exactly: a plugin is an object with named hook functions (buildStart, resolveId, load, transform, generateBundle, writeBundle) that correspond to phases of the Rollup build lifecycle — the same DAG-driven, hook-based extensibility model. A small ASCII diagram showing the Vite/Rollup plugin hook lifecycle alongside the MSBuild target lifecycle phases would make this concrete for someone who already understands the model deeply in the .NET world. -->
+### MSBuild Target Lifecycle → Rollup/Vite Plugin Hooks
+
+The plugin hook model in Rollup/Vite is the same architectural pattern as MSBuild's `ITask` interface and target lifecycle. Both use a DAG-driven, hook-based extensibility model. MSBuild targets execute in a defined sequence; Rollup plugin hooks fire at named phases of the build pipeline.
+
+```
+  MSBUILD LIFECYCLE                   ROLLUP/VITE PLUGIN HOOKS
+  =================                   ========================
+
+  BeforeBuild target                  options(opts)
+    (project-level setup)               Modify Rollup options before build starts.
+
+  ResolveReferences target            resolveId(source, importer)
+    (locate assemblies/files)           Resolve a bare specifier to a file path.
+                                        Return null to defer to next plugin.
+
+  Compile target                      load(id)
+    (read source files)                 Read the file contents given its resolved id.
+                                        Return null to use default file system read.
+
+  CoreCompile / Csc task              transform(code, id)
+    (transform source → IL)             Transform file contents (TS→JS, JSX→JS, etc.)
+                                        Equivalent to MSBuild Task (ITask.Execute()).
+
+  AfterCompile target                 moduleParsed(info)
+    (post-compile hooks)                Called after a module's AST is parsed.
+
+  Build target                        buildEnd()
+    (full build complete)               Called when all modules are processed.
+
+  GeneratePackage target              generateBundle(options, bundle)
+    (emit output artifacts)             Final bundle object available; add/modify chunks.
+
+  AfterBuild target                   writeBundle(options, bundle)
+    (post-output steps)                 Output written to disk. Post-build steps here.
+
+  ─────────────────────               ─────────────────────────────────────────────
+  MSBuild Task = ITask                Plugin hook function = the Task's Execute()
+  (Execute() does the work)           (each hook function does one unit of work)
+
+  Multiple ITask implementations      Multiple plugins: each plugin's hook fires
+  per target, executed in order.      in order (plugin array order in config).
+```
+
+**Practical mapping for a custom Vite plugin** (equivalent to writing a custom MSBuild task):
+
+```typescript
+  // Vite plugin (equivalent of a custom MSBuild Task)
+  export function myPlugin(): Plugin {
+    return {
+      name: 'my-plugin',
+
+      // Like BeforeBuild target — runs once at startup
+      buildStart() {
+        console.log('Build starting')
+      },
+
+      // Like Csc task — transform individual files
+      transform(code, id) {
+        if (!id.endsWith('.ts')) return null
+        return { code: transpile(code), map: null }
+      },
+
+      // Like AfterBuild target — runs once when all output is written
+      writeBundle() {
+        console.log('Build complete')
+      }
+    }
+  }
+```
+
+The same DAG contract applies: Rollup won't call `generateBundle` until all `transform` hooks have run; it won't call `writeBundle` until `generateBundle` is done. Hook ordering is guaranteed, just as MSBuild's target dependency graph guarantees `ResolveReferences` completes before `Compile`.
 
 ---
 

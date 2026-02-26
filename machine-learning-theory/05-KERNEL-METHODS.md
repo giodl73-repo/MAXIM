@@ -63,6 +63,57 @@ The feature map has infinitely many components indexed by multi-indices α.
 
 ---
 
+## Bochner's Theorem and the Spectral Characterization of Kernels
+
+For translation-invariant kernels k(x, x') = k(x − x'), there is a complete harmonic analysis characterization:
+
+```
+BOCHNER'S THEOREM (1933)
+  A continuous function k: ℝⁿ → ℝ is the covariance function of a
+  stationary process (i.e., a positive definite kernel) if and only if
+  it is the Fourier transform of a non-negative finite measure p(ω):
+
+    k(x - x') = ∫ e^{iωᵀ(x-x')} p(ω) dω = E_{ω~p}[e^{iωᵀ(x-x')}]
+
+  p(ω) is the spectral density (or spectral measure) of the kernel.
+  k is PD ⟺ p is a non-negative measure.
+
+SPECTRAL DENSITIES OF STANDARD KERNELS
+  RBF kernel:       k(r) = exp(-r²/2σ²)
+                    p(ω) = N(0, σ⁻²I)   [Gaussian spectral density]
+
+  Laplace kernel:   k(r) = exp(-|r|/σ)
+                    p(ω) ∝ (1 + σ²ω²)⁻¹  [Cauchy spectral density]
+
+  Matérn-ν kernel:  k(r) = (2^{1-ν}/Γ(ν))(√2ν r/ℓ)ν K_ν(√2ν r/ℓ)
+                    p(ω) ∝ (2ν/ℓ² + ‖ω‖²)^{-(ν + d/2)}  [Student-t spectral]
+                    ν = ½: Laplace; ν → ∞: RBF.
+
+  Periodic kernel:  p(ω) = discrete measure on integer frequencies.
+```
+
+**Implication: Random Fourier Features (Rahimi & Recht 2007).** Bochner's theorem gives an unbiased Monte Carlo estimator for any translation-invariant kernel:
+
+```
+RANDOM FOURIER FEATURES
+  Sample ω₁,...,ω_D ~ p(ω),  bⱼ ~ Uniform[0, 2π]
+
+  Define explicit feature map:
+    z(x) = √(2/D) · [cos(ω₁ᵀx + b₁), ..., cos(ωᴰᵀx + bᴅ)] ∈ ℝᴰ
+
+  Then: E[z(x)ᵀz(x')] = k(x - x')
+
+  → z(x)ᵀz(x') ≈ k(x, x') with variance O(1/D)
+
+PRACTICAL CONSEQUENCE
+  Instead of O(m²) kernel matrix, compute O(mD) feature matrix.
+  D ~ 10³ random features approximates RBF kernel to <1% error.
+  Training O(mD²) instead of O(m³) — crucial for large m.
+  Prediction O(D) instead of O(m) per test point.
+```
+
+The Random Fourier Features construction is Bochner's theorem made algorithmic. The spectral density tells you how to sample: for RBF, draw from a Gaussian; for Laplace, draw from a Cauchy. For non-translation-invariant kernels (e.g., polynomial, string kernels), Bochner doesn't apply directly — but analogous random feature constructions exist via Mercer expansions or structured matrices.
+
 ## Mercer's Theorem
 
 The fundamental theorem connecting kernels to feature maps:
@@ -150,6 +201,8 @@ PROOF SKETCH:
 IMPLICATION
   Infinite-dimensional optimization → finite-dimensional optimization.
   Solve for m coefficients α ∈ ℝᵐ, not infinite-dim function.
+
+**Lagrangian duality perspective.** The representer theorem is the primal manifestation of strong duality for the infinite-dimensional convex program. The primal is convex (quadratic loss + convex norm penalty) and Slater's condition holds (the feasible set is the entire RKHS), so strong duality gives zero duality gap. The dual problem is finite-dimensional: the dual variables are m Lagrange multipliers αᵢ (one per training point), and the dual solution directly gives the representer theorem coefficients. The primal ∞-dimensional problem → finite dual is the same mechanism that turns the n-dimensional linear ridge regression into the m-dimensional kernel ridge regression via the identity (XᵀX + λI)⁻¹Xᵀ = Xᵀ(XXᵀ + λI)⁻¹.
 ```
 
 ---

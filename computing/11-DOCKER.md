@@ -22,9 +22,93 @@ Old World                          New World
   "Works on my machine"              "Ship the environment, not just the code"
 ```
 
-<!-- @editor[diagram/P1]: No landscape diagram showing the image layer model (Union FS / overlay filesystem concept). The calibration note specifically calls out: "image layer model, Union FS, Dockerfile instruction caching — need landscape diagram." The two diagrams present are a problem/solution framing and an architecture diagram, neither shows the layered image model as a landscape. That diagram belongs here, between the intro and the first ##, before the Containers vs VMs section. -->
+---
 
-<!-- @editor[bridge/P2]: The "immutable artifacts, port-forward not file-system access" philosophy is the key conceptual shift from IIS deployment (xcopy, web.config, file-system layout). That bridge is implied but never stated explicitly. The learner's mental model is: deploy = copy files to a directory IIS watches. The container model is: build an artifact, run it, the filesystem inside is ephemeral. This needs a named bridge at this intro section: "IIS deployment / xcopy → containerization philosophy." -->
+### IIS Deployment → Container Philosophy Bridge
+
+The key conceptual shift coming from IIS/xcopy:
+
+```
+IIS / xcopy mental model           Container mental model
+==========================         ======================
+
+  Build artifacts                    Build an IMAGE (immutable artifact)
+       ↓                                      ↓
+  xcopy to wwwroot/                  Push image to registry
+       ↓                                      ↓
+  IIS reads live files               Run image as a CONTAINER
+       ↓                                      ↓
+  Recycle App Pool                   Replace container with new image
+  to pick up changes                 (never patch a running container)
+
+  Filesystem = mutable,              Filesystem INSIDE = ephemeral.
+  shared, persistent                 Written data is gone when container
+                                     stops unless you mount a volume.
+
+  Deploy = mutate a running          Deploy = swap one immutable artifact
+  environment                        for another
+```
+
+The container model inverts xcopy deployment: the image IS the deployment artifact. You build it once, push it to a registry, and run identical copies anywhere. You never copy files into a running container — you rebuild the image and replace the container.
+
+---
+
+### Image Layer Model — Overlay Filesystem
+
+```
+How Docker Image Layers Work (Union FS / OverlayFS)
+====================================================
+
+  Content-addressable by SHA256 — each layer is a directory diff
+  Layers are shared across images on the same host
+
+  ┌─────────────────────────────────────────────────────────┐
+  │  Writable Container Layer                               │ ← ephemeral
+  │  (created per running container — gone on stop)         │   (unless volume)
+  ├─────────────────────────────────────────────────────────┤
+  │  Layer 4: COPY . .                                      │ ← your app code
+  │  SHA256: a3f2c1...   changes every code edit            │
+  ├─────────────────────────────────────────────────────────┤
+  │  Layer 3: RUN npm install                               │ ← deps
+  │  SHA256: 9d8b47...   cached until package*.json changes │
+  ├─────────────────────────────────────────────────────────┤
+  │  Layer 2: RUN apt-get install ...                       │ ← OS libs
+  │  SHA256: 4e1a88...   rarely changes                     │
+  ├─────────────────────────────────────────────────────────┤
+  │  Layer 1: FROM node:20-alpine                           │ ← base image
+  │  SHA256: 7c3f09...   pulled once, shared by many images │
+  └─────────────────────────────────────────────────────────┘
+
+  At runtime, OverlayFS merges all layers into one coherent filesystem view.
+  The NTFS/filesystem analogy: like a read-only base volume with a
+  diff disk on top — except stacked N layers deep.
+
+  Layer cache invalidation:
+    Any change to a layer invalidates that layer AND ALL LAYERS ABOVE IT.
+    This is why layer order matters.
+```
+
+**Why COPY package.json first matters — cache invalidation diagram:**
+
+```
+BAD: COPY first, then install        GOOD: Split the COPY
+================================     ====================
+
+COPY . .                 ← changes   COPY package*.json ./   ← changes only
+RUN npm install          ← always      on dep changes
+                           reruns    RUN npm install         ← cached until
+                                       package*.json changes
+                                     COPY . .                ← just the diff
+
+Every code edit:                     Code edit:
+  invalidates COPY layer               hits COPY . . only
+  → reruns npm install                 npm install served from cache
+  → 60–90s rebuild                     → 5–10s rebuild
+```
+
+The SHA256 cache key is computed from the instruction + the content of files referenced. Change `src/index.js` → `COPY . .` hash changes → cache miss only on that layer. Change `package.json` → all layers from `COPY package*.json ./` downward miss cache.
+
+---
 
 ```
 Docker Architecture — Three Pieces
@@ -81,7 +165,7 @@ Virtual Machines                   Containers
 
 Key insight: containers are **processes with guardrails**, not lightweight VMs. A container is a Linux process isolated via kernel namespaces (PID, network, filesystem) and limited by cgroups (CPU, memory). On Windows/Mac, Docker runs a lightweight Linux VM to host the daemon — the containers still run Linux.
 
-<!-- @editor[bridge/P3]: The Hyper-V reference is good but the learner ran Azure VMs / Service Fabric on Hyper-V at scale. A one-line note that "Windows Containers exist but the ecosystem is Linux-first — even on AKS, Windows node pools are a second-class citizen" would prevent a common misconception for someone coming from a Windows-first background. -->
+**Windows note:** Windows Containers exist but the ecosystem is Linux-first. Even on AKS, Windows node pools are a second-class citizen — fewer base images, slower release cadence, higher node cost. Coming from Azure Service Fabric on Hyper-V, this is the adjustment: plan for Linux containers unless you have a hard Windows dependency.
 
 ---
 
@@ -113,7 +197,7 @@ Built by: docker build             Created by: docker run
   └──────────────────────────┘   (unless you mount a volume)
 ```
 
-<!-- @editor[bridge/P2]: The layer model here is good but missing the Union FS / overlay filesystem explanation that gives this model its "why." The learner knows how NTFS and GAC work (shared DLLs, file-system overlays at the OS level). The bridge: layers are implemented as an overlay filesystem — each layer is a directory diff, and the Union FS merges them into a single coherent view at runtime. This is the "how" behind why layers are cached and shared across images. One ASCII diagram showing the overlay mount would complete this section. -->
+**The OverlayFS "why":** Each layer is stored as a directory diff on the host filesystem. Docker's OverlayFS driver mounts them in a stack — lower layers are `lowerdir`, the writable container layer is `upperdir`, and the merged view is `merged`. This is why layers are shared across images: if two images both use `node:20-alpine` as their base, the host stores one copy of those layers and mounts them into both containers. Equivalent to the GAC for shared DLLs — but content-addressed by SHA256 instead of strong name.
 
 **The caching rule**: Docker rebuilds a layer and all layers below it when that layer's inputs change. Put things that change rarely (OS deps, package install) near the bottom, things that change often (app code) near the top.
 
@@ -146,7 +230,27 @@ EXPOSE 3000
 CMD ["node", "src/index.js"]
 ```
 
-<!-- @editor[bridge/P2]: `EXPOSE` says "documentation only — doesn't publish" but this is the crux of the port-forward model shift. The IIS mental model is: bind to port 80/443, IIS routing handles it at the host OS level. The container mental model is: app binds inside its isolated network namespace, you explicitly map host:container ports with `-p`. The learner will hit this when they wonder "why doesn't my container respond on port 3000?" A one-paragraph bridge here: "Unlike IIS bindings which operate at the host OS level, a container's network is isolated. EXPOSE declares intent; -p 3000:3000 (or ports: in Compose) does the actual mapping at the host." -->
+**IIS binding → container port model bridge:**
+
+```
+IIS binding model                  Container port model
+=================                  ====================
+
+IIS binds to port 80/443           App binds inside its isolated
+directly on the host NIC.          network namespace (not the host).
+All apps share the host's
+network stack, differentiated      EXPOSE 3000 = documentation only.
+by port or host header.            It does NOT publish the port.
+
+                                   -p 8080:3000 does the mapping:
+                                   host port 8080 → container port 3000
+
+  browser → host:80                browser → host:8080
+  IIS routes by host header          Docker maps to container port 3000
+                                       app responds
+```
+
+Every container gets a virtual NIC on a bridge network. The app is not reachable from outside until you explicitly map a host port with `-p host:container` (or `ports:` in Compose). This is why "my app is running but port 3000 doesn't respond" — you ran the container without `-p`.
 
 ### Why COPY package.json first?
 
@@ -328,9 +432,39 @@ docker pull myregistry.azurecr.io/myapp:latest
 
 ## Docker Compose
 
-Docker Compose defines multi-container applications as code. One file describes your whole local stack — app, database, cache — and `docker compose up` boots all of it.
+### Compose vs Kubernetes — Scope Boundary
 
-<!-- @editor[structure/P1]: Missing explicit Docker Compose vs Kubernetes scope boundary. The calibration note flags: "Docker Compose vs K8s distinction must be clear." Compose is a local-dev / single-host tool; K8s is a production orchestrator. This belongs as a named box at the start of this section — not a footnote. The learner will naturally conflate them (both define multi-container apps as YAML). A clear "Compose scope: one machine, one developer" vs "K8s scope: cluster, production, auto-healing" diagram is needed here. -->
+```
+Docker Compose                     Kubernetes
+==============                     ==========
+
+┌──────────────────────────┐       ┌──────────────────────────────────────┐
+│  SINGLE HOST             │       │  CLUSTER (many hosts)                │
+│                          │       │                                      │
+│  What Compose handles:   │       │  What K8s handles:                   │
+│  - Multi-container apps  │       │  - Scheduling across nodes           │
+│  - Bridge networking     │       │  - Cross-host networking             │
+│  - Named volumes         │       │  - Health checks + auto-restart      │
+│  - Environment variables │       │  - Rolling deploys                   │
+│  - Service dependencies  │       │  - Horizontal autoscaling            │
+│  - Port publishing       │       │  - Persistent volume provisioning    │
+│                          │       │  - Secrets management                │
+│  Who uses it:            │       │  - Resource quotas per container     │
+│  Developer, locally      │       │                                      │
+│  CI for integration tests│       │  Who uses it:                        │
+│                          │       │  Production, staging                 │
+│  restart: unless-stopped │       │  Multi-replica, multi-service        │
+│  = manual restart policy │       │                                      │
+│  No rolling updates      │       │  readinessProbe + rolling update     │
+│  No health-based routing │       │  = zero-downtime deploys             │
+└──────────────────────────┘       └──────────────────────────────────────┘
+
+  Compose is not a stepping stone to K8s — it's a different tool for
+  a different scope. Use Compose to run your full local stack.
+  Use K8s (or ACA) for production.
+```
+
+Docker Compose defines multi-container applications as code. One file describes your whole local stack — app, database, cache — and `docker compose up` boots all of it.
 
 ### Full Example: App + Postgres + Redis
 
@@ -515,7 +649,25 @@ External request                   Internal traffic
 ports: ["3000:3000"] exposes        No ports: needed for internal-only
 ```
 
-<!-- @editor[bridge/P2]: No bridge to IIS binding / host header routing model. The learner configured IIS with site bindings, ARR for reverse proxy, and host headers extensively. The Docker networking model (every container gets a virtual NIC on a bridge network, service names resolve via embedded DNS) is a different mental model entirely. Worth a named comparison: "IIS: all apps share the host's network stack, differentiated by port/host header. Docker: each container has an isolated network namespace; inter-container traffic goes through a virtual bridge." -->
+**IIS binding / host-header routing → Docker networking bridge:**
+
+```
+IIS model                          Docker model
+=========                          ============
+
+All apps share the host's          Each container has an isolated
+network stack. Differentiated      network namespace (virtual NIC).
+by port or host header.
+                                   Inter-container traffic goes through
+ARR (App Request Routing)          a virtual bridge network. Docker's
+terminates at the host NIC         embedded DNS resolves service names
+and routes by URL/host.            to container IPs automatically.
+
+  internet → host NIC               internet → host NIC
+  → IIS (port 80/443)               → host port (via -p mapping)
+  → ARR routes by host header       → container's virtual NIC
+  → App Pool A or B                 → app process inside container
+```
 
 Common mistake: using `localhost` inside a container to reach another container. `localhost` inside the api container means *the api container itself*, not the host machine or postgres. Use the service name.
 
@@ -527,7 +679,7 @@ Common mistake: using `localhost` inside a container to reach another container.
 You edited `src/index.js` on the host. The running container has a baked-in copy from `docker build`. You need to rebuild: `docker compose build api && docker compose up -d api`. Or use a bind mount in dev so the container reads live files.
 
 **Container exits immediately after `docker run`.**
-The process in `CMD` finished. Containers run as long as their main process runs. If your `CMD` is a one-shot script, the container exits when it completes. For a server, the process must stay in the foreground — `node server.js`, not `npm start` wrapping a script that backgrounded itself.
+The process in `CMD` finished. Containers run as long as their main process runs — this is the **PID 1 lifecycle**: the container lives and dies with its first process. This replaces the Windows Service lifecycle (service host manages process lifetime separately from the process itself). If your `CMD` is a one-shot script, the container exits when it completes. For a server, the process must stay in the foreground — `node server.js`, not a wrapper that backgrounds itself.
 
 **`docker compose` vs `docker-compose`.**
 See above. Use `docker compose` (space, not hyphen). The hyphenated version is legacy.
@@ -550,7 +702,8 @@ The first `docker build` step is "sending build context to daemon." Everything n
 **"Port already in use" error.**
 Another process (or previous container) is bound to that host port. `docker ps` to find it. `docker stop <name>` to stop it. Or change the host port mapping.
 
-<!-- @editor[content/P2]: Missing confusion point: "Docker Compose is not a replacement for Kubernetes." This is the most common conceptual conflation for someone learning both. Compose has no health-based restart (only `restart: unless-stopped`), no rolling updates, no cross-host networking, no resource scheduling. It belongs in Common Confusion Points given the calibration note explicitly flags the Compose vs K8s distinction. -->
+**Docker Compose is not a replacement for Kubernetes.**
+Compose has `restart: unless-stopped` but no health-based routing, no rolling updates, no cross-host networking, no resource scheduling. It does not auto-heal based on readiness probes. For production multi-replica deployments, you need K8s (or Azure Container Apps). Compose is the right tool for local development and CI integration tests — not production orchestration.
 
 ---
 
@@ -563,14 +716,14 @@ Another process (or previous container) is bound to that host port. `docker ps` 
 | MSI installer | Dockerfile / base image |
 | IIS + App Pool | App server embedded in container (Kestrel, Express) |
 | web.config / app.config | Environment variables / mounted config files |
+| xcopy deploy / App Pool recycle | `docker build` + `docker run` (image is immutable; replace the container, not the files inside it) |
 | Azure App Service Plan | Azure Container Apps / AKS Node Pool |
 | Azure Container Registry | ACR (same name, now for containers not packages) |
 | NuGet feed | Container registry |
-| Shared assemblies (GAC) | Base image layers (shared, cached) |
+| Shared assemblies (GAC) | Base image layers (shared, cached by SHA256) |
 | Deployment slot | Blue/green containers behind a load balancer |
 | VSTS Build pipeline | CI pipeline → `docker build` → `docker push` |
-
-<!-- @editor[bridge/P2]: The Old World Bridge table is missing the xcopy / robocopy deployment → immutable image build bridge. The learner's deep mental model for deployment is: build artifacts, xcopy to target directory, recycle App Pool. The container model inverts this: the image IS the deployment artifact (immutable), you don't copy files to a running container. This is the single most important conceptual shift and it isn't in the table. Add: "xcopy deploy / App Pool recycle → docker build + docker run (image is immutable; you replace the container, not the files inside it)." -->
+| Windows Service (svchost manages lifetime) | Container PID 1 (container exits when main process exits) |
 
 ---
 

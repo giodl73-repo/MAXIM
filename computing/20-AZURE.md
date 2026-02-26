@@ -57,11 +57,114 @@ How Services Nest in Practice
 
 ---
 
+## The Delta: What Changed Since ~2014
+
+You know the foundational services from the inside. What follows is a structured briefing on what's new, what was renamed, and what patterns flipped — the delta from ~2014 to 2026.
+
+### New Services (didn't exist when you were hands-on)
+
+```
+Service                  GA      What It Is
+══════════════════════════════════════════════════════════════════════
+
+Azure Container Apps     2022    Serverless K8s abstraction. Scale to zero,
+                                 built-in Dapr and KEDA. The sweet spot
+                                 between App Service and AKS. Microsoft's
+                                 preferred target for new microservices.
+
+Azure OpenAI Service     2023    GPT-4o, o1, o3, DALL-E, Whisper — same
+                                 models as OpenAI API, through Azure's
+                                 infrastructure with private endpoints,
+                                 Entra auth, and data residency.
+
+Azure AI Foundry         2024    Unified platform for building AI apps:
+(was AI Studio)                  model catalog, prompt flow, evaluations,
+                                 fine-tuning, deployment. Superset of
+                                 Azure ML for GenAI workloads.
+
+Azure Arc                2020    Hybrid/multi-cloud control plane. Project
+                                 Azure management (RBAC, Policy, Monitor)
+                                 onto on-prem VMs, K8s clusters, and
+                                 non-Azure clouds. Single pane of glass.
+
+Flexible Server          2020    Managed Postgres and MySQL that replaced
+(Postgres/MySQL)                 Single Server (now deprecated). Zone-
+                                 redundant HA, built-in PgBouncer, VNet
+                                 integration, pgvector extension support.
+
+Azure AI Search          2023    Formerly Cognitive Search. Vector + hybrid
+(formerly Cognitive)             search with integrated vectorization.
+                                 The standard RAG retrieval layer on Azure.
+
+Azure Chaos Studio       2021    First-party chaos engineering. Inject
+                                 faults into VMs, AKS, SQL, networking.
+                                 Game day tooling built into the portal.
+```
+
+### Rebrands and Renames
+
+```
+Old Name                        New Name                    When
+══════════════════════════════════════════════════════════════════
+
+Azure Active Directory (AAD)    Microsoft Entra ID          2023
+VSTS                            Azure DevOps                2018
+Azure Cognitive Search          Azure AI Search             2023
+Azure ML Studio (classic)       Azure Machine Learning      2019
+Azure Container Registry        Matured significantly —     ongoing
+                                geo-replication, Tasks,
+                                vulnerability scanning added
+Azure Monitor                   Absorbed: Log Analytics,    2019–2022
+                                App Insights, Metrics,
+                                Alerts, Workbooks
+```
+
+### Pattern Changes (the stuff that matters most)
+
+```
+Old Pattern (pre-2019)                 New Default (2024)
+══════════════════════                 ══════════════════
+
+Auth: Service Principal +              Managed Identity
+      client secret in KeyVault        No credentials to manage.
+      Rotate every 90 days.            System-assigned (tied to resource
+      Leak risk on every rotation.     lifecycle) or User-assigned
+                                       (shared, persists independently).
+
+IaC: ARM JSON templates                Bicep
+     Verbose, painful to read.         Same ARM model underneath.
+     Error messages reference          First-class VS Code support.
+     internal resource IDs.            Modules, loops, conditions.
+                                       Compiles to ARM.
+
+App Environment:                       App Service Environment v3
+ASEv1 / ASEv2                          (ASEv3). Zone redundancy,
+                                       better scaling, lower base cost.
+
+Compute default:                       Container Apps for new
+VMs or App Service                     microservices; AKS for complex
+                                       K8s workloads.
+
+Network access to PaaS:                Private Endpoint
+Service Endpoint (traffic on           Service gets a private IP inside
+MS backbone but service                your VNet. Truly private.
+retains public IP)                     Use Private Endpoint by default
+                                       for SQL, Blob, Key Vault, etc.
+
+Cost commitment:                       Azure Savings Plans (2022)
+Reserved Instances only                Flexible across compute types,
+(VM-specific commitment)               not tied to a specific VM SKU.
+                                       Reserved Instances still valid
+                                       for predictable VM workloads.
+```
+
+---
+
 ## Compute
 
 ### Virtual Machines
 
-The baseline. Full OS control, your responsibility to patch and manage.
+The VM series naming table is useful reference — generations have evolved. Current-gen is v5/v6 depending on series. For new workloads, evaluate Container Apps or AKS first; VMs are now primarily for legacy lift-and-shift, specialized hardware requirements, or workloads that need full OS control.
 
 ```
 VM Series (the naming makes sense once you know it)
@@ -98,7 +201,7 @@ VM vs App Service vs AKS
 
 ### App Service
 
-PaaS for web apps and APIs. No VM management. Deploy code or containers.
+The deployment slots model and the tier hierarchy are still current. Premium v3 (P0v3–P3v3) is the recommended production tier — Ev3-based hardware, better VNet integration, zone redundancy support. Isolated v2 (I1v2–I3v2) replaced ASEv2.
 
 ```
 App Service Hierarchy
@@ -245,7 +348,7 @@ Hosting Plans
 
 ### Blob Storage
 
-Object storage. Unstructured data at any scale: images, videos, backups, logs, static assets.
+The tier structure, lifecycle policies, and ADLS Gen2 are the post-2014 additions worth knowing.
 
 ```
 Blob Storage Tiers
@@ -253,7 +356,7 @@ Blob Storage Tiers
 
   Hot     Frequently accessed. Higher storage cost, low access cost.
   Cool    Infrequently accessed (30+ days). Lower storage cost.
-  Cold    Rarely accessed (90+ days). Very low storage cost.
+  Cold    Rarely accessed (90+ days). Very low storage cost.    ← added ~2023
   Archive Rarely accessed (180+ days). Lowest cost. Hours to rehydrate.
 
   Lifecycle policies: auto-tier blobs as they age
@@ -267,6 +370,10 @@ Storage Account → Container → Blob
     Append blob  — log files (append-only, efficient)
     Page blob    — VHD files (VM disks)
 ```
+
+**Data Lake Storage Gen2.** Enable hierarchical namespace on a standard Blob Storage account and it becomes ADLS Gen2 — real directory semantics, atomic rename, POSIX-style ACLs. This is the current storage layer for ADF pipelines and Synapse Analytics; the Gen1 → Gen2 migration is complete for most teams. The convergence means you're not choosing between object storage and a data lake anymore — one account serves both patterns depending on whether HNS is enabled. ADF connectors treat ADLS Gen2 as a first-class source/sink with partition discovery and format inference.
+
+**Immutability policies.** WORM (Write Once Read Many) support via time-based retention or legal hold. Required for SEC 17a-4 compliance scenarios.
 
 ```bash
 # Upload
@@ -323,7 +430,7 @@ Disk Types
 
 ### Azure SQL Database
 
-Managed SQL Server. The cloud version of the on-prem SQL Server you already know.
+The post-2014 additions are the interesting parts: Hyperscale, Serverless tier, and Ledger.
 
 ```
 Azure SQL Family
@@ -337,11 +444,35 @@ Azure SQL Family
     DTU    — bundled CPU/memory/IO unit. Simpler. Less control.
     vCore  — choose CPU + memory separately. Easier to size.
              Can use Azure Hybrid Benefit (existing SQL Server license).
+```
+
+```
+Post-2014 Additions
+====================
+
+  Hyperscale tier:
+    Log-based architecture with distributed storage layer.
+    Scales to 100 TB. Compute and storage scale independently.
+    Near-instant backup (log snapshot, not full copy).
+    Near-instant restore — reads from the distributed log, not a backup file.
+    Read replicas spin up in minutes. Named replica feature for workload isolation.
 
   Serverless tier:
     Auto-pauses after inactivity (dev/test use case)
     Scales compute automatically 0.5–40 vCores
-    Pay only when active
+    Pay only when active — per-second billing during active periods
+    Resume latency: ~15s on first connection after auto-pause
+
+  Elastic Pools:
+    Share compute across multiple databases.
+    Right-size when databases have non-overlapping peak times.
+    Per-pool pricing, not per-database.
+
+  Ledger tables (2021):
+    Tamper-evident audit trail built into the table.
+    Cryptographically verifiable history — SHA-256 hash chain.
+    No separate audit log to trust. The table itself is the evidence.
+    Append-only ledger tables vs updatable ledger tables.
 ```
 
 ### Azure Database for PostgreSQL
@@ -514,7 +645,7 @@ Event Grid
 
 ### Virtual Network (VNet)
 
-Your private network in Azure. Everything sensitive lives inside one.
+The core VNet model (subnets, NSGs, peering, VPN Gateway, ExpressRoute) is unchanged from the architecture you know. The material delta: Private Endpoint, Virtual WAN, and Azure Firewall Premium.
 
 ```
 VNet Concepts
@@ -537,42 +668,13 @@ VNet Concepts
                     → traffic never leaves Microsoft network
 ```
 
-### Load Balancing Services (there are four — this confuses everyone)
+**Private Endpoint vs Service Endpoint.**
+Service Endpoint was the first attempt: traffic to the PaaS service is routed on the Microsoft backbone (not the public internet) but the service retains its public IP. You're restricting traffic source, not eliminating the public surface. Private Endpoint (2019) is qualitatively different: the PaaS service gets a private NIC with a private IP inside your VNet. The public endpoint can be disabled entirely. Traffic is fully private; DNS resolves to the private IP via Private DNS Zone. For SQL, Key Vault, Blob, and similar services, Private Endpoint is now the default recommendation in regulated or security-sensitive environments.
 
-```
-Service             Layer    Scope     Use Case
-═══════════════════════════════════════════════════════════════════
-Traffic Manager     DNS      Global    Route to nearest region
-                                       (latency-based, failover)
+**Azure Virtual WAN.** Hub-and-spoke networking at scale — managed by Microsoft. Replaces the DIY pattern of peering dozens of VNets through a transit hub. Virtual WAN automates peering, routing, and gateway connectivity. Worth evaluating when you're managing more than ~10 VNets or need automated any-to-any connectivity across regions.
 
-Front Door          L7 HTTP  Global    Global CDN + WAF + routing
-                                       Static + dynamic content
-                                       DDoS protection
-
-Application         L7 HTTP  Regional  WAF, SSL termination,
-Gateway                                URL-based routing,
-                                       cookie-based affinity
-
-Load Balancer       L4 TCP   Regional  VM/VMSS load balancing
-                                       Internal or public
-                                       No HTTP awareness
-
-Decision:
-  Public web app with global users → Front Door
-  Regional web app / API → Application Gateway
-  VMs behind a load balancer → Load Balancer
-  Multi-region routing (not HTTP) → Traffic Manager
-```
-
-### Azure DNS
-
-Host your DNS zones in Azure. Integrates with Private DNS Zones for name resolution inside VNets.
-
-```
-Public DNS Zone:   myapp.com → A records, CNAME, MX
-Private DNS Zone:  myapp.internal → resolves only inside VNets
-                   api.myapp.internal → 10.0.2.5 (App Service private endpoint)
-```
+**Azure Firewall Premium vs NSG.**
+NSGs are stateful L4 packet filters on subnets/NICs — the right tool for controlling intra-VNet traffic. Azure Firewall is a managed, stateful L7 firewall at the VNet boundary — FQDN filtering, TLS inspection, threat intelligence. The decision: NSGs handle east-west (service to service within VNet); Azure Firewall handles north-south (internet egress, cross-VNet, forced tunneling) and scenarios requiring application-layer inspection.
 
 ---
 
@@ -599,22 +701,57 @@ Access pattern (the right way):
 
 ### Managed Identity
 
-The answer to "how does my Azure service authenticate to other Azure services without storing credentials."
+**This replaced service principals + client secrets as the default Azure-to-Azure auth pattern.**
+
+The old pattern (pre-2019 standard):
+```
+1. Create Service Principal in AAD
+2. Generate client secret (or certificate)
+3. Store secret in Key Vault (or worse, app config)
+4. App retrieves secret at runtime → exchanges for access token
+5. Set a calendar reminder: rotate secret every 90 days
+6. Miss the rotation → service outage or security incident
+```
+
+The new pattern (Managed Identity):
+```
+1. Enable Managed Identity on the resource (checkbox in portal / one CLI flag)
+2. Assign an RBAC role: az role assignment create \
+     --assignee <managed-identity-client-id> \
+     --role "Storage Blob Data Reader" \
+     --scope /subscriptions/.../storageAccounts/mystorage
+3. App calls Azure service — Azure handles token exchange transparently
+4. No secret. No rotation. No leak surface.
+```
 
 ```
-Problem:                           Solution:
-════════                           ════════
-App needs to read from Blob.       App has a Managed Identity.
-Put storage key in app config?     Blob grants that identity access.
-Put it in Key Vault?               App calls Blob — Azure handles auth.
-Store a service principal secret?  No secret anywhere.
+System-assigned vs User-assigned
+==================================
 
-  System-assigned: tied to resource lifecycle (deleted with resource)
-  User-assigned:   standalone identity, assign to multiple resources
+  System-assigned                    User-assigned
+  ══════════════                     ════════════
+  Tied to resource lifecycle         Standalone resource
+  Deleted when resource is deleted   Persists independently
+  One identity per resource          Assign to multiple resources
+  Good for: single-purpose           Good for: shared identity across
+  resources                          fleet of identical services
 
-  Supported by: VMs, App Service, AKS pods (Workload Identity),
-                Functions, Container Apps, Logic Apps
+  Both: no credentials to manage
+  Both: identity visible in Entra ID as a service principal
+  Both: RBAC roles assigned like any other principal
 ```
+
+```
+Supported by:
+  VMs, VM Scale Sets
+  App Service, Functions
+  AKS pods (via Workload Identity extension — OIDC federation)
+  Container Apps
+  Logic Apps
+  Azure Data Factory
+```
+
+The one remaining use case for service principals: external systems (CI/CD runners, on-prem services) that need to call Azure but can't use Managed Identity because they're not Azure resources. In that case: use a service principal with a federated credential (OIDC) rather than a client secret — GitHub Actions, Azure DevOps, and most CI systems support this, eliminating the secret rotation problem even for external callers.
 
 ### Entra ID (formerly Azure Active Directory)
 
@@ -679,7 +816,17 @@ Monitor Stack
 
 ### Azure DevOps
 
-The VSTS successor. Boards, Repos, Pipelines, Test Plans, Artifacts — all in one platform.
+You built VSTS. Here's the delta since the 2018 rebrand.
+
+**What changed:**
+
+- **Services are now independently usable.** Boards, Repos, Pipelines, Artifacts, and Test Plans can each be enabled or disabled per organization. A team can use ADO Boards for work tracking while hosting code on GitHub. Artifacts can be used as a NuGet/npm feed without using Pipelines.
+
+- **YAML pipelines replaced classic GUI pipelines.** The drag-and-drop pipeline editor still exists but YAML is the recommended approach for everything new. Pipelines-as-code: versioned with the repo, reviewable in PRs, reusable via templates. Classic pipelines are in maintenance mode — no new features.
+
+- **GitHub coexistence.** Microsoft acquired GitHub in 2018. The current positioning: GitHub for open-source and developer-centric workflows (Actions, Codespaces, Copilot); ADO for enterprise teams that need Boards-centric planning, Test Plans, or Artifacts. Many teams run hybrid: GitHub for code + GitHub Actions for CI, ADO Boards for sprint planning. The Boards ↔ GitHub integration (link commits/PRs to work items) makes this practical.
+
+- **Azure DevOps Server** (on-prem) is still actively maintained for regulated industries that can't use the cloud service. Feature parity lags the cloud service by roughly one release cycle.
 
 ```
 ADO Services
@@ -688,14 +835,27 @@ ADO Services
   Boards      Agile planning (epics, stories, tasks, sprints)
               Azure Boards ↔ GitHub Issues integration
   Repos       Git hosting (or use GitHub + connect)
-  Pipelines   CI/CD (YAML or classic GUI — use YAML)
+  Pipelines   CI/CD (YAML — use this; classic GUI is legacy)
   Test Plans  Manual test case management + exploratory testing
   Artifacts   NuGet, npm, Maven, Python feed hosting
+              Upstream sources: proxy public feeds through your feed
+```
 
-  GitHub vs ADO:
-    Code + CI/CD → GitHub Actions is simpler
-    Enterprise compliance, Boards-centric teams → ADO
-    Both → GitHub for code, ADO Boards for work tracking
+```
+GitHub vs ADO — when to use which
+====================================
+
+  GitHub Actions                     Azure Pipelines (YAML)
+  ══════════════                     ══════════════════════
+  Simpler syntax                     More mature enterprise features
+  Marketplace: 20k+ actions          Templates + task library
+  Free for public repos              Better compliance audit trails
+  Copilot integration                Test Plans integration
+  Better for: OSS, greenfield,       Better for: regulated industries,
+  developer-centric teams            large enterprises, ADO Boards users
+
+  Both → GitHub for code + ADO Boards for work tracking is a common
+  and well-supported hybrid pattern.
 ```
 
 ---
@@ -778,6 +938,13 @@ Key concepts that affect every bill
 
   Reserved Instances    Commit 1 or 3 years → up to 72% off vs pay-as-you-go
                         Worth it for steady-state production workloads.
+                        VM-SKU specific commitment.
+
+  Azure Savings Plans   Commit to $/hour spend (not a specific SKU).
+  (2022)                Applies across compute types (VMs, ACI, Functions).
+                        More flexible than Reserved Instances.
+                        Lower discount ceiling (~65%) vs RIs (~72%) for VMs.
+                        Right tool when your compute mix varies.
 
   Spot VMs              Unused capacity at 60–90% discount.
                         Can be evicted with 30s notice.
@@ -817,10 +984,13 @@ Microsoft rebranded Azure Active Directory to Microsoft Entra ID in 2023. Same p
 "Session" is not eventual. It guarantees you read your own writes within your session — which is what most apps actually need. Default to Session; only drop to Eventual if you have a specific throughput/latency reason.
 
 **Managed Identity vs Service Principal vs App Registration.**
-App Registration = register the application identity in Entra. Service Principal = the instance of that registration in your tenant. Managed Identity = a special service principal auto-managed by Azure, no credentials to handle. For Azure-to-Azure auth: always Managed Identity. For external apps calling Azure: App Registration + Service Principal.
+App Registration = register the application identity in Entra. Service Principal = the instance of that registration in your tenant. Managed Identity = a special service principal auto-managed by Azure, no credentials to handle. For Azure-to-Azure auth: always Managed Identity. For external apps calling Azure: App Registration + Service Principal, preferably with federated credentials (OIDC) rather than client secrets.
 
 **Private Endpoint vs Service Endpoint.**
 Service Endpoint: traffic stays on Microsoft backbone but the service still has a public IP. Private Endpoint: the service gets a private IP inside your VNet — truly private, no public IP path. Use Private Endpoint for sensitive services.
+
+**ARM vs Bicep.**
+Bicep is not a replacement for ARM — it compiles to ARM. Same resource model, same deployment engine, same portal visibility. Bicep is syntactic sugar that makes ARM authoring tractable. If you have existing ARM templates, they work as-is; migrate to Bicep incrementally using `az bicep decompile`.
 
 ---
 
@@ -851,5 +1021,7 @@ Service Endpoint: traffic stays on Microsoft backbone but the service still has 
 | Regional HTTP routing + WAF | Application Gateway |
 | GPT-4o / o1 in Azure with private networking | Azure OpenAI Service |
 | Semantic / hybrid search for RAG | Azure AI Search |
-| Cost savings on steady workloads | Reserved Instances |
+| Cost savings on steady workloads | Reserved Instances or Savings Plans |
 | Cost savings on existing SQL licenses | Azure Hybrid Benefit |
+| Hybrid / multi-cloud unified management | Azure Arc |
+| IaC for Azure resources | Bicep (compiles to ARM) |

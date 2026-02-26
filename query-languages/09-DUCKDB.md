@@ -35,9 +35,20 @@ DuckDB is SQLite for analytics — an in-process OLAP database. Single binary, n
 │  └─────────────────────────────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────────────────────────────┘
 
-Bridge: think of it as SSAS running inside your Python process — but reads open file
-formats instead of proprietary cubes, and writes Parquet instead of .bim files.
+Bridge: think of SQLite → DuckDB as same deployment model (in-process, single file,
+no server), opposite workload orientation (OLTP row-store vs OLAP column-store).
 ```
+
+### Bridges to Known Territory
+
+**SQLite vs DuckDB — deployment model is identical, workload orientation is opposite.**
+SQLite: in-process, single `.db` file, row-oriented, OLTP. DuckDB: in-process, single `.duckdb` file (or in-memory), column-oriented, OLAP. You don't install a server process for either. DuckDB is the right answer whenever SQLite is the right deployment model but the workload is analytical.
+
+**SQL Server vs DuckDB — server process vs embedded library.**
+SQL Server is a Windows/Linux service with a network port. You connect to it over TDS from a separate process. DuckDB is a library you link directly into your application — same process, no network, no service account, no server management. The DuckDB engine lives inside your Python/C#/Node process the same way the CLR JIT lives inside a .NET process.
+
+**ADF + ADLS Gen2 → DuckDB — inspect pipeline outputs without spinning up a cluster.**
+ADF Data Flows and Copy Activities routinely sink Parquet files to ADLS Gen2 container paths. Once those files land, you can point DuckDB directly at them for ad-hoc validation, schema inspection, and exploratory queries — no Spark cluster, no Synapse, no import step. This is the fastest feedback loop for pipeline debugging: `SELECT * FROM read_parquet('az://container/output/*.parquet') LIMIT 100`. See Section 4 for ADLS Gen2 setup.
 
 ---
 
@@ -81,6 +92,12 @@ Vectorized execution:
                                        → single CPU instruction for 2048 values
 
 Result: GROUP BY / aggregation on millions of rows → 10–100× faster than SQLite
+
+vs pandas: pandas iterates over NumPy arrays at Python interpreter speed (one
+          operation dispatched per Python bytecode); DuckDB executes compiled
+          C++ SIMD loops that process 2048 values per CPU instruction. The
+          10–100× advantage over pandas on aggregation workloads comes from
+          eliminating the Python dispatch overhead, not from columnar layout alone.
 ```
 
 ---
@@ -138,6 +155,42 @@ SELECT * FROM 'azure://container/path/data.parquet';
 -- Raw HTTP(S) — e.g. GitHub raw files, public datasets
 SELECT * FROM 'https://raw.githubusercontent.com/user/repo/main/data.csv';
 ```
+
+### ADF + ADLS Gen2 Integration — Querying Pipeline Output Directly
+
+ADF Copy Activities and Data Flows typically sink Parquet to ADLS Gen2 container paths like `abfss://container@account.dfs.core.windows.net/output/year=2024/month=01/`. DuckDB's `azure` extension reads those files directly via the Blob REST API — no Spark, no Synapse Analytics SQL pool, no import.
+
+```sql
+-- One-time setup per session
+INSTALL azure;
+LOAD azure;
+
+-- Option 1: connection string (dev/local use)
+SET azure_storage_connection_string = 'DefaultEndpointsProtocol=https;AccountName=myadls;AccountKey=...';
+
+-- Option 2: service principal (CI / production scripts)
+SET azure_tenant_id             = '<tenant-guid>';
+SET azure_client_id             = '<app-registration-client-id>';
+SET azure_client_secret         = '<secret>';
+
+-- Query ADF pipeline output — glob picks up all Parquet files in the sink path
+SELECT * FROM read_parquet('azure://container/output/year=2024/month=01/*.parquet') LIMIT 100;
+
+-- Hive-style partition pruning: DuckDB reads partition columns from directory names
+-- If ADF wrote year=2024/month=01/day=15/*.parquet, DuckDB surfaces year/month/day as columns
+SELECT year, month, COUNT(*), SUM(amount)
+FROM read_parquet('azure://container/output/**/*.parquet', hive_partitioning = true)
+WHERE year = 2024 AND month = 1
+GROUP BY year, month;
+
+-- Schema validation: confirm ADF output has expected columns and types
+DESCRIBE SELECT * FROM read_parquet('azure://container/output/latest/*.parquet');
+
+-- Row count check after pipeline run (milliseconds — no cluster required)
+SELECT COUNT(*) FROM 'azure://container/output/latest/*.parquet';
+```
+
+**DuckDB vs ADF Copy Activity for reading Parquet:** ADF Copy Activity is the right tool for pipeline orchestration and data movement at scale. DuckDB is the right tool for the engineer validating that the pipeline produced the right output — interactive SQL directly on the sink files, no provisioning, results in seconds.
 
 ---
 
@@ -360,9 +413,199 @@ INSTALL parquet; LOAD parquet;   -- Parquet support (usually auto-loaded)
 SELECT * FROM duckdb_extensions();
 ```
 
+### DuckDB-WASM — In-Browser Deployment
+
+DuckDB compiles to WebAssembly. The same columnar execution engine that runs in Python or C# runs inside a browser tab — no server, no backend query service, no network round-trip for query execution. This is architecturally distinct from every other SQL engine: a full OLAP engine executing client-side in the browser's WASM sandbox.
+
+```javascript
+// DuckDB-WASM via npm
+// npm install @duckdb/duckdb-wasm
+
+import * as duckdb from '@duckdb/duckdb-wasm';
+
+const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
+const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
+
+const worker_url = URL.createObjectURL(
+    new Blob([`importScripts("${bundle.mainWorker!}");`], { type: 'text/javascript' })
+);
+const worker = new Worker(worker_url);
+const logger = new duckdb.ConsoleLogger();
+const db     = await duckdb.createDuckDB(bundle, logger, new duckdb.AsyncDuckDB(logger, worker));
+await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+
+const conn = await db.connect();
+
+// Query a local File object dropped by the user — no upload, no server
+await db.registerFileHandle('uploaded.parquet', fileObject, duckdb.DuckDBDataProtocol.BROWSER_FILEREADER, true);
+const result = await conn.query(`SELECT * FROM 'uploaded.parquet' LIMIT 10`);
+```
+
+**Use cases:** Observable notebooks (DuckDB-WASM is built-in), embedded analytics dashboards that process user-uploaded files entirely client-side, data exploration tools that need zero backend infrastructure. The constraint: WASM runs single-threaded in most browsers (no SIMD parallelism across threads), so performance is lower than native DuckDB on equivalent hardware — but it is still orders of magnitude faster than JavaScript-based alternatives for analytical queries.
+
 ---
 
-## 12. DuckDB vs SQLite vs Spark
+## 12. Azure / BI Bridges
+
+### Power BI DirectQuery → DuckDB
+
+Power BI has two data access modes: Import (data loaded into VertiPaq in-memory) and DirectQuery (query sent live to the source on every visual interaction). DuckDB fits into the BI tool conversation at two levels:
+
+**DuckDB as a local query engine under a BI tool.** DuckDB exposes an ADBC (Arrow Database Connectivity) driver and an ODBC/JDBC driver. A BI tool that supports ODBC can connect to DuckDB — but since DuckDB is in-process and single-file, "connecting" means the BI tool opens the `.duckdb` file directly within its own process. Power BI Desktop does not natively support a DuckDB connector today, but the Python/R script visual and Power Query custom connectors can invoke DuckDB queries and return results as Arrow or pandas DataFrames.
+
+**MotherDuck — DuckDB with cloud storage.** MotherDuck is a managed cloud service (SaaS) that extends DuckDB with a shared catalog and remote storage. You attach a MotherDuck database to a local DuckDB session: `ATTACH 'md:my_database'`. Queries can reference both local files and MotherDuck-hosted tables in the same SQL statement. This is the closest DuckDB analog to a DirectQuery source — a lightweight cloud-hosted query engine you can point a BI tool at, without a full data warehouse.
+
+**The practical pattern — DuckDB + local Parquet as Power BI Desktop alternative.**
+For ad-hoc analysis where you have Parquet files (from ADF, Synapse, or any export) and no Azure connection:
+
+```python
+import duckdb, pandas as pd
+
+# Load directly into pandas for Power BI-style pivot analysis
+result = duckdb.sql("""
+    SELECT
+        YEAR(order_date)  AS year,
+        MONTH(order_date) AS month,
+        region,
+        SUM(revenue)      AS total_revenue,
+        COUNT(*)          AS order_count
+    FROM read_parquet('data/orders/*.parquet', hive_partitioning = true)
+    WHERE YEAR(order_date) = 2024
+    GROUP BY 1, 2, 3
+    ORDER BY 1, 2, 3
+""").df()
+
+# result is a pandas DataFrame — pipe to matplotlib, seaborn, or plotly
+# for ad-hoc analysis that would otherwise require Power BI + a connected dataset
+```
+
+The pattern replaces the Power BI Import workflow (load → model → visualize) with a script that runs in seconds on local files, with no licensing, no gateway, and no scheduled refresh cycle.
+
+---
+
+### SSAS VertiPaq (Columnar/In-Memory) → DuckDB Columnar Execution
+
+Both SSAS Tabular (VertiPaq) and DuckDB are columnar engines. The architecture is similar in some dimensions and diverges sharply in others.
+
+```
+VertiPaq (SSAS Tabular / Power BI Import):
+  Source DB / ADLS / ...
+       │
+       ▼  full data refresh
+  VertiPaq in-memory store
+  ┌──────────────────────────────────────────────────────┐
+  │  Column segments, compressed, dictionary-encoded     │
+  │  Run-length encoding on sorted segments              │
+  │  All data in RAM — queries read from memory, not disk│
+  └──────────────────────────────────────────────────────┘
+       │
+       ▼  DAX / MDX query
+  Formula Engine → Storage Engine → result
+
+DuckDB:
+  Parquet / CSV / ADLS / S3 files (on disk or remote)
+       │
+       ▼  query-time column read, no persistent cache
+  ┌──────────────────────────────────────────────────────┐
+  │  Vectorized columnar execution (SIMD, 2048-row batch)│
+  │  Lightweight compression on columnar data in Parquet │
+  │  Data NOT fully loaded into RAM — streaming reads    │
+  └──────────────────────────────────────────────────────┘
+       │
+       ▼  SQL query
+  Optimizer → Physical Plan → result
+```
+
+**What they share:** dictionary encoding, run-length encoding on sorted data, vectorized operations that process multiple values per CPU instruction. Both use compression aggressively to reduce memory bandwidth.
+
+**Key difference — persistent cache vs direct file reads.**
+VertiPaq is an in-memory cache layer that sits between the source and the query engine. The data is materialized into VertiPaq on import/refresh; subsequent queries read entirely from memory (no disk I/O during query execution). DuckDB reads from files at query time — there is no persistent in-memory cache. VertiPaq is faster on repeated queries against the same dataset because the data is already decompressed in RAM. DuckDB is faster for queries against data that changes frequently, because the files are always current — no refresh cycle.
+
+**Power BI Import mode mental model:**
+- Import = VertiPaq in memory = fast queries, data staleness = time since last refresh
+- DuckDB = query files directly = always current, speed = file I/O bound (fast on local NVMe or Parquet on ADLS with azure extension)
+
+For a 50 GB dataset: VertiPaq (Power BI Import) requires a machine with 50+ GB RAM. DuckDB streams the relevant columns and can process a 50 GB Parquet file on a 16 GB machine because it never materializes the full dataset.
+
+---
+
+### Parquet + ADLS Gen2 — Full Integration Reference
+
+DuckDB is a first-class citizen in an Azure data engineering stack. The `azure` extension wraps the Azure Blob Storage REST API and exposes it as a DuckDB virtual filesystem.
+
+```sql
+-- First-time setup
+INSTALL azure;
+LOAD azure;
+
+-- Auth option 1: connection string (development)
+SET azure_storage_connection_string =
+    'DefaultEndpointsProtocol=https;AccountName=myadls;AccountKey=<key>;EndpointSuffix=core.windows.net';
+
+-- Auth option 2: service principal (CI / automated scripts)
+SET azure_tenant_id     = '<tenant-guid>';
+SET azure_client_id     = '<app-registration-client-id>';
+SET azure_client_secret = '<secret>';
+
+-- Auth option 3: managed identity (when running on Azure VM / ACI / AKS)
+-- No explicit credentials — uses the VM's assigned identity
+SET azure_use_managed_identity = true;
+
+-- ── Basic reads ──────────────────────────────────────────────────────────────
+
+-- Single file
+SELECT * FROM read_parquet('azure://mycontainer/exports/orders_2024.parquet');
+
+-- Glob: all Parquet files in directory
+SELECT * FROM read_parquet('azure://mycontainer/exports/*.parquet');
+
+-- ── Hive-style partitioned directories (ADF standard sink layout) ────────────
+
+-- ADF typically writes: container/pipeline-output/year=2024/month=01/day=15/*.parquet
+-- hive_partitioning = true surfaces year/month/day as virtual columns
+SELECT year, month, SUM(revenue)
+FROM read_parquet(
+    'azure://mycontainer/pipeline-output/**/*.parquet',
+    hive_partitioning = true
+)
+WHERE year = 2024
+GROUP BY year, month
+ORDER BY year, month;
+
+-- DuckDB pushes the year/month predicates into the file scan — it reads only the
+-- matching partition directories, skipping the rest entirely (partition pruning).
+-- Same behavior as Spark partition pruning or Synapse serverless predicate pushdown.
+
+-- ── Practical ADF workflow integration ──────────────────────────────────────
+
+-- 1. Confirm ADF pipeline wrote expected row count
+SELECT COUNT(*) AS row_count
+FROM 'azure://mycontainer/pipeline-output/year=2024/month=01/**/*.parquet';
+
+-- 2. Schema check — did ADF output the right column types?
+DESCRIBE SELECT * FROM 'azure://mycontainer/pipeline-output/latest/*.parquet';
+
+-- 3. Data quality spot check
+SELECT customer_id, COUNT(*) AS cnt
+FROM 'azure://mycontainer/pipeline-output/latest/*.parquet'
+GROUP BY customer_id
+HAVING COUNT(*) > 1   -- check for duplicates
+ORDER BY cnt DESC
+LIMIT 20;
+
+-- 4. Cross-partition delta — rows in Jan but not Feb (disappeared records)
+SELECT a.customer_id
+FROM read_parquet('azure://mycontainer/output/year=2024/month=01/*.parquet') a
+LEFT JOIN read_parquet('azure://mycontainer/output/year=2024/month=02/*.parquet') b
+    ON a.customer_id = b.customer_id
+WHERE b.customer_id IS NULL;
+```
+
+**Comparison to ADF Copy Activity reading Parquet:** ADF Copy Activity is orchestrated, monitored, lineage-tracked, and integrated into Data Factory pipelines — the right tool for moving data between systems at scale. DuckDB with the azure extension is the right tool for the data engineer running ad-hoc SQL directly on those same files — validation, debugging, and exploration without provisioning compute.
+
+---
+
+## 13. DuckDB vs SQLite vs Spark
 
 | Attribute | DuckDB | SQLite | Spark |
 |-----------|--------|--------|-------|
@@ -380,7 +623,7 @@ SELECT * FROM duckdb_extensions();
 
 ---
 
-## 13. Decision Cheat Sheet
+## 14. Decision Cheat Sheet
 
 | Use DuckDB when | Use something else when |
 |-----------------|------------------------|
@@ -390,11 +633,12 @@ SELECT * FROM duckdb_extensions();
 | Data exploration in Jupyter notebooks | Multi-tenant app with row-level security → PostgreSQL |
 | Querying S3/ADLS Parquet without a running cluster | OLTP with many small writes → SQLite or PostgreSQL |
 | Lightweight analytics feature inside a Python app | Production web app backend → PostgreSQL |
+| Inspecting / validating ADF pipeline Parquet output on ADLS Gen2 | Orchestrated multi-stage pipeline movement → stay in ADF |
 | Benchmarking / profiling a new dataset | |
 
 ---
 
-## 14. Common Confusion Points
+## 15. Common Confusion Points
 
 **In-process means no remote connections.** You cannot connect from SSMS, a remote app, or a separate process. DuckDB is a library, not a server. If you need a network-accessible database, use PostgreSQL.
 

@@ -74,8 +74,6 @@ Every OS provides these. The vocabulary differs; the concept doesn't.
 ### 1. Process
 
 ```
-                     Process = running program instance
-
 Windows                     Linux                       macOS
 ─────────────               ─────────────               ─────────────
 PROCESS (kernel obj)        task_struct                 proc (BSD)
@@ -98,23 +96,50 @@ Task Manager                ps, top, htop               Activity Monitor
 Get-Process (PowerShell)    /proc/<pid>/status          ps, top
 ```
 
+### Handle / fd / Port — The Kernel Resource Reference Model
+
+Every OS gives userspace an opaque, revokable reference to kernel-managed resources. The mechanism is universal; the semantics differ significantly.
+
+```
+Concept          Windows HANDLE              POSIX fd (int)         Mach port right
+────────────     ──────────────              ──────────────         ──────────────
+What it is       Index into per-process      Small integer          Capability token with
+                 handle table; kernel obj    (0,1,2,...), index     send/receive rights;
+                 pointer stored in table     into process fd table  first-class kernel obj
+
+Table lives      Per-process handle table    Per-process fd table   Per-task port namespace
+                 (stored in EPROCESS)        (files_struct)         (ipc_space)
+
+Refcounting      Kernel Object refcount;     File description        Port reference count;
+                 CloseHandle() dec count     refcount shared via     mach_port_deallocate()
+                 → GC when zero             dup()/fork()
+
+Inheritance      opt-in: SECURITY_ATTRS      all fds unless          explicit port rights
+                 bInheritHandle = TRUE       FD_CLOEXEC is set       transferred via
+                                             (set by default in Go)  mach_msg()
+
+Passing across   DuplicateHandle()           SCM_RIGHTS cmsg via     mach_port_insert_right()
+process boundary creates new handle in       Unix domain socket;     or task_get_special_port()
+                 target process; source      fd is transplanted      Mach message body
+                 handle stays valid          into receiver's table
+
+Typed?           Yes — Object type stored    No — fd is an int;      Partially — send vs
+                 in Object Header;           kernel knows type via   receive vs send-once
+                 OpenProcess ≠ OpenFile      struct file * in table  rights are distinct
+
+Revocation       CloseHandle() — immediate   close() — immediate     mach_port_destroy() or
+                                             but dup'd copies live   mach_port_deallocate()
+
+Security         Token check on Open         DAC check at open();    Capability model —
+                 (access check at open       fd itself is unforgeable  having the port IS
+                 time + object ACL)          but untyped             the permission
+```
+
+**The non-obvious cross-OS gotcha:** On Linux, `dup2()` and `fork()` both copy fd integers but share the underlying `struct file` (offset, flags). On Windows, `DuplicateHandle()` creates a new kernel handle pointing to the same object — semantically equivalent but syntactically different. On macOS/iOS, Mach port rights are typed capabilities: holding a send right IS permission to send to that port. There is no separate access check.
+
 ### 2. Virtual Memory
 
 ```
-┌─────────────────────────────────────────────────────────────────────┐
-│                   Every process sees its own address space          │
-│                                                                     │
-│  0x0000...   [null guard]                                           │
-│  0x0001...   [process code, data, heap, stack]                      │
-│  0x7FFF...   [user space top — 128 TB on x86-64]                    │
-│              ──── KERNEL/USER BOUNDARY ────                         │
-│  0xFFFF...   [kernel space — same physical memory mapped here]      │
-│                                                                     │
-│  MMU + page tables = hardware does virtual→physical translation     │
-│  TLB = cache of recent translations                                 │
-│  Page fault = address valid but page not in RAM → OS fetches it     │
-└─────────────────────────────────────────────────────────────────────┘
-
 Windows terms          Linux terms            macOS terms
 ──────────────         ──────────────         ──────────────
 Virtual Alloc          mmap / brk             vm_allocate
@@ -195,7 +220,85 @@ Task Parallel Library      epoll (event I/O)           DispatchQueue.global()
 async/await → TPL          libevent / libuv            async/await → Swift concurrency
 ```
 
+### Async I/O Model — OS Notification Mechanisms
+
+Every high-performance server framework (Node.js, Tokio, .NET, Netty, libuv) sits on top of one OS async I/O primitive. The same conceptual split: **readiness-based** (tell me when fd is ready; I'll do the I/O) vs **completion-based** (I'll start the I/O; tell me when it's done).
+
+```
+                  ASYNC I/O LANDSCAPE
+                  ═══════════════════
+
+  READINESS-BASED                         COMPLETION-BASED
+  "fd is ready to read/write"             "I/O operation has completed"
+  ─────────────────────────────           ──────────────────────────────
+  epoll (Linux 2.5.44+)                   IOCP (Windows NT 3.5+)
+  kqueue (BSD / macOS 10.3+)              io_uring (Linux 5.1+)
+  poll / select (POSIX, ancient)
+
+  Mechanism: register interest            Mechanism: post work item;
+  in fd; wait for event;                  OS completes I/O in kernel;
+  then call read/write yourself           OS queues completion to port
+
+  Model:                                  Model:
+    register(fd, READ)                      begin_read(buf, overlapped)
+    events = wait()                         completions = dequeue()
+    for ev in events:                       for c in completions:
+      data = read(ev.fd)                      process(c.result)
+
+  Edge-triggered (ET) vs                  Zero-copy: kernel fills buffer
+  Level-triggered (LT):                   directly; userspace never calls
+  ET: event once when state changes        read() explicitly
+  LT: event on every poll while ready
+
+  Scalability: O(1) vs select's O(N)      Windows async sockets, file I/O,
+  epoll scales to 100k+ fds               pipes all use IOCP natively
+```
+
+```
+Feature          select/poll         epoll (Linux)       kqueue (BSD/macOS)   IOCP (Windows)      io_uring (Linux 5.1+)
+─────────────    ──────────────      ──────────────      ──────────────────   ──────────────      ──────────────────────
+Model            Readiness           Readiness           Readiness            Completion          Completion (+ readiness)
+Syscall count    1 per wait          O(1) wait           O(1) wait            dequeue only        near zero (SQ/CQ rings)
+Max fds          1024 (FD_SETSIZE)   millions            millions             unlimited           unlimited
+Edge trigger     No                  Yes (EPOLLET)       Yes (EV_CLEAR)       N/A                 N/A
+File I/O         No (only sockets)   No                  Yes (vnode filter)   Yes (native AIO)    Yes (full file I/O)
+Kernel version   Ancient             2.5.44 (2002)       FreeBSD 4.1 (2000)   NT 3.5 (1994)       5.1 (2019)
+Used by          Legacy only         libuv, epoll mode   macOS / BSD apps     .NET, Windows WS    io_uring in Rust/Go
+.NET mapping     —                   SocketAsyncEngine   SocketAsyncEngine    IOCP ThreadPool     via P/Invoke
+```
+
+**The completion-vs-readiness conceptual gap:** With epoll, you get notified "fd is readable" — you still call `read()`. With IOCP, you initiate `ReadFile(overlapped)` and get notified "your read finished, here's the data." io_uring bridges both: submit I/O operations to a submission queue ring, harvest completions from a completion queue ring — all via shared memory with the kernel, eliminating most syscall overhead.
+
 ---
+
+### IPC Performance & Semantics — Not Flat Equivalents
+
+```
+Mechanism        Latency        Copy semantics           Cross-process resource passing
+───────────      ──────────     ─────────────────────    ──────────────────────────────
+AF_UNIX socket   ~1 µs          kernel copies data       SCM_RIGHTS: pass open fd to
+(Linux/macOS)                   send → kernel buf         another process via ancillary
+                                 → recv                   data; receiver gets new fd
+                                                          pointing to same file description
+
+Named pipe       ~2-5 µs        kernel buffers data       Windows: no fd passing; use
+(Windows)        (kernel buf)   WriteFile → buf           DuplicateHandle() to duplicate
+\\.\pipe\name                   → ReadFile                a HANDLE into another process
+                                                          (requires PROCESS_DUP_HANDLE)
+
+Mach message     ~3-10 µs       small msgs: copied        mach_port_insert_right():
+(macOS/iOS)      (IPC trap)     large msgs: OOL (out-     transplant port right into
+                                of-line) via COW page     target task; XPC is built on
+                                mapping — zero copy        this; entire IPC security
+                                for large payloads         model is capability-based
+
+Shared memory    <1 µs          zero copy: processes      Must pass fd/handle OOB;
+mmap / MapView   (no kernel     map same physical         no built-in synchronization —
+                 copy path)     pages; you manage         need semaphore/mutex/eventfd
+                                sync yourself             separately
+```
+
+**Container and multi-process dev implication:** When you split a monolith into processes, or write a language server / debug adapter, the IPC choice determines both your security model and your performance ceiling. Linux `SCM_RIGHTS` fd passing is how container runtimes hand off network namespaces. Windows `DuplicateHandle` is how the CLR debugger attaches. Mach `mach_port_insert_right` is how every XPC service call works under the hood.
 
 ## Privilege Rings (x86)
 
@@ -316,7 +419,7 @@ Config store   Registry             /etc/*.conf       /etc/*.conf    plist files
 
 ---
 
-## Decision Cheat Sheet
+## Decision Cheat Sheet — Platform Targets
 
 | You want to... | Use |
 |----------------|-----|
@@ -332,6 +435,20 @@ Config store   Registry             /etc/*.conf       /etc/*.conf    plist files
 | Debug a Linux kernel crash | crash + vmcore + DWARF symbols |
 | Understand why an app is slow on macOS | Instruments (Time Profiler / Allocations) |
 | Understand why an app is slow on Android | Android Studio Profiler + systrace |
+| Debug a Linux kernel crash | crash + vmcore + DWARF symbols |
+
+## Decision Cheat Sheet — OS Primitives
+
+| You need... | Linux | Windows | macOS |
+|-------------|-------|---------|-------|
+| Async I/O at scale | epoll / io_uring | IOCP (I/O Completion Ports) | kqueue |
+| Watch filesystem for changes | inotify / fanotify | ReadDirectoryChangesW | kqueue EVFILT_VNODE |
+| Pass fd/handle to another process | SCM_RIGHTS via AF_UNIX | DuplicateHandle() | mach_port_insert_right() |
+| Signal a different process | kill(pid, sig) | (no direct equiv) / WM_CLOSE for windows | kill(pid, sig) |
+| Shared memory between processes | shm_open + mmap | CreateFileMapping + MapViewOfFile | shm_open + mmap |
+| Enforce per-process resource limits | cgroups v2 | Job Object limits | Resource limits + App Sandbox |
+| Run code in reduced privilege | seccomp-bpf + capabilities | AppContainer / Integrity Level Low | Sandbox + entitlements |
+| Periodic scheduled work | systemd timer or cron | Task Scheduler | launchd StartCalendarInterval |
 
 ---
 

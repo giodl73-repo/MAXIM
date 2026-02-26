@@ -188,6 +188,37 @@ LET'S ENCRYPT (ACME):
   Free certificates; 90-day validity; automated renewal (certbot, ACME clients)
   Replaced: expensive manual DV/OV certs; nearly all web TLS now DV via Let's Encrypt/ZeroSSL
 
+```
+OCSP SOFT-FAIL — THE REVOCATION GOTCHA:
+
+  Problem: if OCSP check fails (network timeout, OCSP server unreachable), most browsers
+    accept the certificate anyway ("soft-fail") to avoid breaking connectivity.
+
+  Attack: an attacker who compromises a certificate and can block OCSP traffic
+    can prevent revocation from being enforced → compromised cert remains "valid" indefinitely.
+    This is not theoretical: the DigiNotar breach (2011) exploited this window.
+
+  OCSP soft-fail is the DEFAULT in:
+    Chrome: soft-fail (CRLSets + Certificate Transparency as fallback)
+    Firefox: soft-fail (but has CRLite bloom filter as offline cache)
+    Safari: soft-fail
+    Edge: soft-fail
+
+  OCSP Must-Staple (X.509 extension OID 1.3.6.1.5.5.7.1.24):
+    Extension in certificate: "MUST include a valid OCSP staple in TLS handshake"
+    Effect: browser HARD-FAILS if server doesn't staple a valid OCSP response
+    Eliminates soft-fail window: no staple = cert rejected outright
+
+    Issue: if your web server crashes or OCSP response expires, site goes offline.
+    Low adoption: ~1% of public certs as of 2024; operational risk has slowed deployment.
+    Best practice: use Must-Staple + robust OCSP response caching (Nginx: ssl_stapling + ssl_stapling_verify)
+
+  Operational implication:
+    Certificate revocation is best-effort for most users, not guaranteed.
+    For high-security contexts (internal PKI, code signing): enforce hard-fail behavior.
+    For public-facing TLS: Certificate Transparency + monitoring is the more reliable signal.
+```
+
 CAA DNS RECORDS:
   CAA (Certification Authority Authorization; RFC 8659): DNS records limiting which CAs can issue
   "issue: letsencrypt.org" → only Let's Encrypt can issue for this domain
@@ -403,6 +434,111 @@ KEY LIFECYCLE:
   Revocation: CRL/OCSP for TLS; revoke FIDO2 credential on device loss
   Destruction: NIST SP 800-88 media sanitization; HSM zeroization; shredding
 
+```
+KEY MANAGEMENT AT SCALE — PRODUCTION PATTERNS:
+
+  ENVELOPE ENCRYPTION (universal KMS pattern):
+    DEK (Data Encryption Key): random AES-256 key; encrypts actual data; lives with the data
+    KEK (Key Encryption Key): stored in KMS/HSM; encrypts DEK; never touches application memory
+    Ciphertext envelope: {alg_id || encrypted_DEK || iv || ciphertext || tag}
+
+    Encrypt flow:
+      1. KMS.GenerateDEK() → plaintext_DEK + encrypted_DEK (KMS returns both)
+      2. AES-GCM(plaintext_DEK, plaintext) → ciphertext
+      3. Store: {encrypted_DEK || ciphertext}  (plaintext_DEK discarded immediately)
+    Decrypt flow:
+      1. KMS.Decrypt(encrypted_DEK) → plaintext_DEK
+      2. AES-GCM-Decrypt(plaintext_DEK, ciphertext) → plaintext
+
+    Key insight: KEK never leaves the KMS; DEK plaintext exists only transiently in memory.
+    Universally implemented: AWS KMS GenerateDataKey, GCP Cloud KMS, HashiCorp Vault transit engine.
+
+  KEY HIERARCHY (layered design):
+    Root Key (RK):   in HSM/KMS root; 1-2 per region; changes rarely (10+ years)
+    Region Key (RgK): per-region AES-256; encrypted under RK; stored in regional KMS
+    Service Key (SK): per-service; encrypted under RgK; rotated annually or on-demand
+    Data Key (DK):   per-record or per-session; encrypted under SK; rotated with each encryption
+
+    Benefit: compromise of DK → one record exposed; compromise of SK → one service exposed
+    Re-encryption: re-wrapping SK under new RgK doesn't require re-encrypting any data (envelope pattern)
+
+  KEY ROTATION WITHOUT RE-ENCRYPTION:
+    Problem: rotating a KEK naively requires re-encrypting all DEKs and all data — expensive
+    Solution (key versioning):
+      KEK_v2 = new key version; KEK_v1 = previous version
+      New encryptions: use KEK_v2 to wrap new DEKs
+      Old ciphertext envelopes: encrypted_DEK tagged with key version
+      Decryption: route to correct KEK version based on version tag
+      Background re-encryption: slowly re-encrypt old envelopes to new key version (optional)
+      Retirement: retire KEK_v1 only after all data using it has been re-encrypted or expired
+
+    This is how AWS KMS, GCP CMEK, and Azure Key Vault rotation all work.
+    Result: key rotation is O(1) for the hot path; background re-encryption is optional/lazy.
+
+  KMIP (Key Management Interoperability Protocol — OASIS standard):
+    Universal protocol for communicating with KMS/HSM from applications
+    Operations: Create, Register, Get, Locate, Destroy, Activate, Revoke
+    Object types: Symmetric Key, Private Key, Public Key, Certificate
+    Transport: TLS-protected HTTPS or direct TCP
+    Implementations: Thales CipherTrust, IBM Security Key Lifecycle Manager, Venafi, HashiCorp Vault
+    Value: vendor-neutral; swap KMS vendors without changing application code
+    Use when: building enterprise key management infrastructure that must span multiple HSM vendors
+```
+
+```
+TLS THEORY → PRACTICAL CONFIGURATION BRIDGE:
+
+  CIPHER SUITE SELECTION (universally applicable):
+    TLS 1.3 only has 5 cipher suites; all good; no tuning needed:
+      TLS_AES_128_GCM_SHA256        (128-bit; AES-NI fast)
+      TLS_AES_256_GCM_SHA384        (256-bit; PQ margin)
+      TLS_CHACHA20_POLY1305_SHA256  (software fast; no AES-NI needed)
+    TLS 1.2 suites to DISABLE (if you must support TLS 1.2):
+      *_RC4_*         → broken stream cipher
+      *_3DES_*        → SWEET32 birthday attack; 64-bit block
+      *_CBC_*         → padding oracle risk (Lucky13, BEAST)
+      *_NULL_*        → no encryption
+      *_EXPORT_*      → intentionally weak (FREAK, DROWN attacks)
+    TLS 1.2 suites to KEEP: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 and similar ECDHE+AEAD
+
+  NGINX EXAMPLE CONFIG (TLS 1.3 + TLS 1.2 fallback with forward secrecy):
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:...;
+    ssl_prefer_server_ciphers off;     # Let client pick; TLS 1.3 doesn't use this
+    ssl_session_tickets off;           # Disable session tickets for forward secrecy purity
+
+  VERIFYING FORWARD SECRECY IS ACTIVE:
+    openssl s_client -connect example.com:443 -tls1_3
+    Look for in output:
+      Protocol : TLSv1.3
+      Cipher   : TLS_AES_256_GCM_SHA384
+      Server Temp Key: X25519, 253 bits   ← ephemeral key exchange = forward secret
+    Bad signs:
+      Server Temp Key absent → static RSA key exchange (no FS)
+      Cipher: ECDHE-RSA-AES128-CBC-SHA → TLS 1.2 CBC suite (padding oracle risk)
+
+  KEY DIAGNOSTIC COMMANDS:
+    # Check TLS version + cipher + cert chain
+    openssl s_client -connect host:443 -showcerts < /dev/null
+
+    # Test specific TLS version support
+    openssl s_client -connect host:443 -tls1_2   # should succeed
+    openssl s_client -connect host:443 -ssl3       # should fail (SSLv3 disabled)
+
+    # Test OCSP stapling
+    openssl s_client -connect host:443 -status < /dev/null | grep "OCSP Response"
+
+    # Check cert expiry
+    openssl s_client -connect host:443 < /dev/null | openssl x509 -noout -dates
+
+    # List supported cipher suites (server-side)
+    nmap --script ssl-enum-ciphers -p 443 host
+
+  VERIFYING OCSP STAPLING:
+    Look for "OCSP Response Status: successful" in s_client -status output
+    Absent → server not stapling; clients must query CA directly (privacy + latency issue)
+```
+
 KEY WRAPPING (RFC 3394):
   AES Key Wrap: encrypt a key under another key (KEK — key encryption key)
   Output: wrapped key (8 bytes longer than wrapped key)
@@ -490,3 +626,87 @@ KEY COMPROMISE IMPERSONATION (KCI):
 **FIDO2 attestation vs assertion:** During registration, the authenticator produces an attestation (proof of device type/model + new public key). During authentication, it produces an assertion (signature on challenge with user's private key). Servers typically require attestation only during registration to verify the authenticator is a real FIDO2 device.
 
 **TLS 1.3 transcript hash is cumulative:** The CertificateVerify signature covers a hash of the entire transcript up to that point (ClientHello + ServerHello + EncryptedExtensions + Certificate). This prevents replay attacks and ensures the signature commits to the specific ephemeral key exchange that was performed — binding authentication to the specific session's key material.
+
+```
+MLS — MESSAGING LAYER SECURITY (RFC 9420):
+
+  Problem Signal doesn't solve: Signal Double Ratchet is pairwise. A group of n members
+    requires O(n) pairwise sessions; adding/removing a member requires O(n) operations.
+    Signal groups (and WhatsApp groups) send pairwise-encrypted copies to each member.
+    For large groups (>100 members), this is expensive; for security, O(n) updates on membership change.
+
+  MLS solution: TreeKEM — ratchet tree shared across all group members
+    Binary tree: each leaf = a group member; internal nodes hold key material
+    Group key derived from root of tree; changing any leaf propagates up to new root
+    Add/remove member: O(log n) operations (update one path in tree), not O(n)
+    Group size: tested to 50,000 members; O(log n) join/leave; one epoch key per group state
+
+  MLS vs Signal Double Ratchet:
+    ┌────────────────────────────────────────────────────────────────────────────┐
+    │  Property              │ Signal Double Ratchet    │ MLS (RFC 9420)         │
+    ├────────────────────────────────────────────────────────────────────────────┤
+    │  Group model           │ Pairwise sessions        │ Single ratchet tree    │
+    │  Add/remove cost       │ O(n)                     │ O(log n)               │
+    │  Forward secrecy       │ Per-message              │ Per-epoch (commit)     │
+    │  Break-in recovery     │ Yes (DH ratchet)         │ Yes (PCS via commits)  │
+    │  Group size            │ ~100 practical           │ Tested 50,000+         │
+    │  Key agreement         │ X3DH (async)             │ HPKE-based (async)     │
+    │  IETF standard         │ No (open spec)           │ RFC 9420 (2023)        │
+    │  Production use        │ Signal, WhatsApp         │ Cisco Webex (2024)     │
+    └────────────────────────────────────────────────────────────────────────────┘
+
+  MLS Epoch: group state version; each add/remove/update creates new epoch; new root key
+    Post-Compromise Security (PCS): after a commit, even if previous epoch key leaked,
+    new epoch key is secure (forward-looking security like Double Ratchet's DH ratchet)
+
+  HPKE in MLS: Welcome messages use HPKE (RFC 9180) to deliver new member's leaf secret.
+    See §6a in 02-ASYMMETRIC for HPKE modes.
+
+  When to use MLS over Signal-style:
+    Large groups (>50): MLS's O(log n) operations dominate
+    Enterprise messaging needing standard compliance: MLS is IETF RFC; auditable
+    Applications requiring server-side fanout optimization: MLS delivery service separation
+    Small groups, consumer: Signal pairwise still fine; simpler deployment
+```
+
+```
+NOISE IN PRODUCTION — WHO USES WHAT AND WHY:
+
+  ┌─────────────────────────────────────────────────────────────────────────────────┐
+  │  System               │ Noise Pattern      │ Reason                             │
+  ├─────────────────────────────────────────────────────────────────────────────────┤
+  │  WireGuard (VPN)      │ IKpsk2             │ Both sides have pre-registered keys │
+  │                       │                   │ + optional PSK for extra binding    │
+  │  WhatsApp             │ XX                 │ Mutual auth; clients and servers    │
+  │                       │                   │ exchange static keys mid-handshake  │
+  │  Ethereum devp2p      │ XK                 │ Initiator knows responder's static  │
+  │                       │                   │ key (from ENR/DHT); sender anon     │
+  │  libp2p (IPFS)        │ XX                 │ Peer identity unknown at connect;   │
+  │                       │                   │ mutual auth required                │
+  │  Lightning Network    │ XK                 │ Connecting to known node (pubkey    │
+  │  (Bitcoin)            │                   │ from routing table)                 │
+  └─────────────────────────────────────────────────────────────────────────────────┘
+
+  PATTERN SELECTION CRITERIA:
+
+    Do both parties have each other's static keys beforehand?
+      Both known → KK (fewest messages; highest efficiency; WireGuard uses IK which is similar)
+      Only responder's key known → NK or XK (client-server model; TLS-like; server identified)
+      Neither known → XX (mutual anonymous initial exchange; most general)
+      Neither → NN (fully anonymous; no authentication)
+
+    Is initiator identity hiding required?
+      Hide initiator's static key from network observer → X or IX patterns
+      XX delays initiator's static key until message 3 (encrypted under responder's ephemeral)
+      XK: initiator static key sent encrypted under responder's known static key (not ephem)
+
+    Is server authentication the only requirement?
+      → NK (client doesn't authenticate) — analogous to standard TLS without client cert
+      → NX (server sends key during handshake; client trusts on first use)
+
+    Are pre-shared keys needed for extra defense-in-depth?
+      → Append "psk0", "psk1", "psk2" modifier to any pattern (e.g., IKpsk2 = WireGuard)
+      PSK mixed into handshake at numbered position; both parties must know PSK
+
+  Implementation: noise-go, noise-c, noise-rust (cacophony), snow (Rust) — all implement full spec
+```

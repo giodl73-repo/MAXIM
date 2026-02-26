@@ -34,6 +34,83 @@ nested DataTables, arrays, or arbitrary objects — and the schema is not enforc
 at the database level. The application is the schema contract.
 ```
 
+### T-SQL JSON vs MongoDB Document Model
+
+SQL Server has a JSON layer (FOR JSON, OPENJSON, JSON_VALUE, JSON_QUERY) that sits on top of relational storage. The architecture is fundamentally different from MongoDB, but the surface-level operations map directly — which gives you a concrete anchor.
+
+**Storage layer difference:**
+- SQL Server: JSON is stored in `NVARCHAR(MAX)` columns. It's text on disk. The JSON structure is parsed at query time on every access. The relational engine has no awareness of JSON internals at storage level.
+- MongoDB: BSON (Binary JSON) is the native physical encoding. The storage engine is document-native. Field access does not require string parsing — the engine navigates the binary structure directly.
+
+**Operation mapping:**
+
+| T-SQL JSON | MongoDB equivalent | Notes |
+|---|---|---|
+| `JSON_VALUE(doc, '$.address.city')` | `{ "address.city": "Seattle" }` in filter, or `"$address.city"` in expression | Dot notation is native in MongoDB — no function call needed |
+| `JSON_QUERY(doc, '$.line_items')` | `"$line_items"` | Accessing a nested array or subdoc |
+| `OPENJSON(doc) WITH (city VARCHAR(100) '$.address.city')` | `{ $project: { city: "$address.city" } }` | Projecting specific fields from a document |
+| `FOR JSON PATH` | `{ $project: { ... } }` or `{ $replaceRoot }` | Constructing a JSON output shape |
+| `ISJSON(doc)` | No equivalent — every document is valid BSON by definition | |
+| `JSON_MODIFY(doc, '$.status', 'active')` | `{ $set: { status: "active" } }` in `updateOne` | |
+
+**The structural difference in practice:** In SQL Server, you choose whether to use JSON — it's an escape hatch from the relational model. In MongoDB, you are always in the document model — there is no "relational substrate" to fall back on. The discipline that SQL Server enforces at the schema level (column names, data types, NOT NULL constraints) is enforced by the application in MongoDB.
+
+### SQL Server Normalized Schema → Two MongoDB Design Strategies
+
+```
+SQL Server (normalized — 3NF):
+
+  orders                           customers
+  ┌────────┬─────────────┬──────┐  ┌────────────┬───────────┬────────────┐
+  │ id     │ customer_id │ ...  │  │ id         │ name      │ email      │
+  ├────────┼─────────────┼──────┤  ├────────────┼───────────┼────────────┤
+  │ 1001   │ 42          │ ...  │  │ 42         │ Alice     │ a@b.com    │
+  └────────┴─────────────┴──────┘  └────────────┴───────────┴────────────┘
+           │                                 ▲
+           └─── FK ──────────────────────────┘   (join at query time)
+
+  order_items
+  ┌──────────┬──────────┬────────┬───────┐
+  │ order_id │ product  │ qty    │ price │
+  ├──────────┼──────────┼────────┼───────┤
+  │ 1001     │ Widget   │ 2      │ 9.99  │
+  │ 1001     │ Gadget   │ 1      │ 14.99 │
+  └──────────┴──────────┴────────┴───────┘
+
+MongoDB Strategy A — embed everything (denormalized, read-optimized):
+
+  orders collection:
+  {
+    _id: 1001,
+    customer: { name: "Alice", email: "a@b.com" },   // customer embedded
+    line_items: [                                      // items embedded array
+      { product: "Widget", qty: 2, price: 9.99  },
+      { product: "Gadget", qty: 1, price: 14.99 }
+    ]
+  }
+
+  Pro: one document read = complete order. No joins.
+  Con: customer data duplicated across all orders. Updates require touching
+       every order document when customer email changes.
+
+MongoDB Strategy B — reference customers, embed line items:
+
+  customers collection:              orders collection:
+  { _id: 42, name: "Alice",   →      { _id: 1001,
+    email: "a@b.com" }                 customer_id: 42,           // reference
+                                       line_items: [              // still embedded
+                                         { product: "Widget", qty: 2, price: 9.99 },
+                                         { product: "Gadget", qty: 1, price: 14.99 }
+                                       ]
+                                     }
+
+  Pro: customer data in one place — update once. Line items always read with
+       the order (never queried independently) so embedding is correct there.
+  Con: order queries that need customer name require $lookup.
+```
+
+**Decision rule:** embed when the child data is always read with the parent and is bounded in size. Reference when the child is large, frequently updated, or queried independently. Line items → embed. Customer profile → reference. Order history on a customer document → reference (unbounded growth).
+
 ---
 
 ## 2. Dialect Snapshot
@@ -159,6 +236,31 @@ db.orders.estimatedDocumentCount();                       // fast approximate to
 
 The pipeline is an ordered array of stages. Each stage transforms the stream of documents. Conceptually identical to SQL SELECT but expressed as a sequence of operations rather than a single declarative statement.
 
+**Pipeline stage → T-SQL correspondence:**
+
+```
+┌─────────────────┬────────────────────────────────────────────────┐
+│ Pipeline Stage  │ T-SQL Equivalent                               │
+├─────────────────┼────────────────────────────────────────────────┤
+│ $match          │ WHERE  (before $group)  /  HAVING (after $group)│
+│ $group          │ GROUP BY + aggregate functions                  │
+│ $project        │ SELECT (column list, computed columns, aliases) │
+│ $sort           │ ORDER BY                                        │
+│ $limit          │ TOP N  /  FETCH NEXT N ROWS ONLY               │
+│ $skip           │ OFFSET N ROWS                                   │
+│ $lookup         │ LEFT JOIN  (nested-loop, no optimizer reorder)  │
+│ $unwind         │ CROSS APPLY UNNEST / OPENJSON on array column   │
+│ $addFields      │ SELECT *, computed_col AS alias                 │
+│ $count          │ SELECT COUNT(*) AS n                            │
+│ $facet          │ Multiple CTEs / subqueries in one pass          │
+│ $out / $merge   │ SELECT INTO / MERGE (terminal, writes result)   │
+└─────────────────┴────────────────────────────────────────────────┘
+
+Pipeline executes LEFT TO RIGHT. Order is explicit. The optimizer cannot
+reorder stages (unlike SQL where the optimizer reorders freely). PUT $match
+FIRST — it's the single most important performance rule in MongoDB.
+```
+
 ```javascript
 db.orders.aggregate([
 
@@ -226,7 +328,21 @@ db.orders.aggregate([
 // Result: each order gets a 'customer' field = [{...customer doc...}]
 // Follow with $unwind to flatten to a single object:
 { $unwind: { path: "$customer", preserveNullAndEmpty: true } }
+```
 
+**$lookup is not a SQL JOIN — performance model is fundamentally different.**
+
+A SQL JOIN is a logical operation the optimizer evaluates at compile time. The optimizer can reorder joins, push predicates inside the join, choose hash join vs nested-loop vs merge join based on statistics, and use indexes on both sides simultaneously. `$lookup` is a pipeline stage executed at a fixed position in the sequence. It cannot be reordered by the optimizer, does not benefit from predicate pushdown from stages that appear after it, and executes as a nested-loop lookup: for each document in the pipeline at that point, MongoDB issues a query against the `from` collection. The `from` field must be indexed for this to perform acceptably.
+
+Rules for `$lookup`:
+- Always put `$match` before `$lookup` to reduce the number of documents that trigger lookups.
+- The `foreignField` (or the field matched in the pipeline form) must be indexed.
+- High cardinality `$lookup` at the primary query pattern level is a schema design signal — if your queries routinely join across collections, your schema needs redesign (embed the data instead).
+- `$lookup` is appropriate for occasional enrichment (add customer name to an order summary) not for the core data retrieval pattern.
+
+**If your query workload is primarily JOIN-heavy, MongoDB is the wrong tool. Use PostgreSQL.**
+
+```javascript
 // $lookup pipeline form — correlated join with filtering inside the join
 { $lookup: {
     from: "products",
@@ -246,13 +362,43 @@ db.orders.aggregate([
     topCustomers: [{ $sort:  { total: -1 }}, { $limit: 5 }]
 }}
 
-// $bucket — group into ranges (histogram)
+// $bucket — group into ranges (histogram, manual boundaries)
 { $bucket: {
     groupBy:    "$total",
     boundaries: [0, 50, 100, 500, 1000],
     default:    "1000+",
     output:     { count: { $sum: 1 }, avg_total: { $avg: "$total" }}
 }}
+
+// $bucketAuto — auto-distribute into N equal-population buckets
+// Equivalent to NTILE(N) histogram — MongoDB chooses boundaries automatically
+{ $bucketAuto: {
+    groupBy:    "$total",
+    buckets:    5,                             // create 5 buckets
+    output:     { count: { $sum: 1 }, avg_total: { $avg: "$total" }},
+    granularity: "POWERSOF2"                   // optional: snap boundaries to powers of 2
+}}
+// $bucket requires you know the value range; $bucketAuto discovers it from data.
+
+// $unwind + $group — "spreadsheet flatten" pattern
+// Use case: orders have embedded line_items array; compute total quantity per product
+// T-SQL equivalent: CROSS APPLY OPENJSON(line_items) + GROUP BY product
+db.orders.aggregate([
+    { $match:  { order_date: { $gte: new Date("2024-01-01") } }},
+    { $unwind: "$line_items" },                // flatten: one doc per line item
+    { $group:  {
+        _id:        "$line_items.product_id",  // GROUP BY product
+        total_qty:  { $sum: "$line_items.qty" },
+        total_rev:  { $sum: { $multiply: ["$line_items.qty", "$line_items.price"] }},
+        order_count: { $addToSet: "$_id" }     // distinct orders per product
+    }},
+    { $addFields: { order_count: { $size: "$order_count" } }},  // set → count
+    { $sort:   { total_rev: -1 }},
+    { $limit:  20 }
+])
+// The $unwind "inflates" the document stream — 1 order with 5 line items → 5 documents.
+// $group then re-aggregates the inflated stream. This is the canonical pattern for
+// aggregating across embedded arrays.
 
 // $replaceRoot — promote nested document to top level
 // SELECT customer.* FROM orders (flatten the embedded customer subdoc)
@@ -413,7 +559,50 @@ db.catalog.createIndex({ "$**": 1 });               // every field in every docu
 
 // Hashed — for hash-based sharding (not for range queries)
 db.orders.createIndex({ customer_id: "hashed" });
+
+// Multikey — automatically created when indexing an array field
+// MongoDB indexes each element of the array individually
+db.orders.createIndex({ tags: 1 });                  // tags is an array field
+// The index contains one entry per array element per document.
+// A document with tags: ["mongodb", "database", "performance"] contributes 3 index entries.
+// You cannot create a compound index where more than one field is a multikey (array) field.
 ```
+
+### Compound Index Design — ESR Rule
+
+The ESR rule governs compound index field ordering (same concept as SQL Server composite index selectivity ordering, but with a more specific rule for range fields):
+
+```
+ESR: Equality → Sort → Range
+
+Fields used in Equality conditions first.
+Fields used for Sort order next.
+Fields used in Range conditions last.
+
+Example query:
+  db.orders.find({ status: "active", total: { $gte: 100 } }).sort({ order_date: -1 })
+
+  status → Equality (exact match)    → first
+  order_date → Sort                  → second
+  total → Range ($gte)               → third
+
+Correct index: { status: 1, order_date: -1, total: 1 }
+Incorrect:     { status: 1, total: 1, order_date: -1 }
+               ^^^ Range before Sort — sort can't use index efficiently
+
+SQL Server rule: put most selective column first.
+MongoDB ESR rule: put equality columns first regardless of selectivity, then sort, then range.
+The rules differ because MongoDB's query planner uses the sort stage differently.
+```
+
+### Index Intersection vs Compound Index
+
+MongoDB can combine two single-field indexes (index intersection) to answer a query that filters on both fields. However, index intersection is less reliable than a purpose-built compound index:
+- Index intersection requires loading and intersecting two index result sets in memory.
+- The optimizer may not choose intersection even when it would help — it depends on query shape and collection statistics.
+- A compound index is always preferable when the query pattern is known and stable.
+
+Rule of thumb: **create compound indexes for hot query paths. Let intersection handle ad-hoc queries.**
 
 ---
 
@@ -436,6 +625,22 @@ Key fields to read in the output:
 | `winningPlan.indexName` | Which index was chosen | Verify it's the expected index |
 
 A `totalDocsExamined` >> `totalDocsReturned` ratio means index selectivity is poor — add a more selective compound index.
+
+**Bridge to SQL Server execution plans:**
+
+| SQL Server | MongoDB `explain("executionStats")` |
+|---|---|
+| Execution plan → graphical/XML plan | `winningPlan` tree (nested JSON stages) |
+| Clustered Index Scan / Table Scan | `COLLSCAN` — full collection scan, no index |
+| Index Seek | `IXSCAN` — good, using index efficiently |
+| Index Scan | `IXSCAN` with low key selectivity — high `totalKeysExamined` vs `totalDocsReturned` |
+| Key Lookup (RID lookup) | `FETCH` stage after `IXSCAN` — fetching full document after index lookup |
+| Estimated rows / actual rows | `totalDocsReturned` vs `totalDocsExamined` |
+| Logical reads | No direct equivalent — `totalKeysExamined` is the closest proxy |
+| Missing index hint | No built-in hint — read the ratio and build the index manually |
+| SET STATISTICS IO ON | No equivalent — use `explain("executionStats")` |
+
+Use `explain("allPlansExecution")` to see rejected plans (analogous to viewing alternative execution plans in SSMS).
 
 ---
 
@@ -463,6 +668,22 @@ A `totalDocsExamined` >> `totalDocsReturned` ratio means index selectivity is po
 | `INSERT OR REPLACE` (upsert) | `replaceOne({filter}, doc, { upsert: true })` |
 | `UPDATE ... SET field = field + 1` | `updateOne({filter}, { $inc: { field: 1 } })` |
 | `DELETE WHERE expires < NOW()` | `deleteMany({ expires_at: { $lt: new Date() } })` |
+
+### T-SQL JSON Functions → MongoDB Native Operations
+
+SQL Server's JSON functions operate on NVARCHAR columns containing JSON text. MongoDB's document model is BSON-native — the same operations that T-SQL performs via function calls are first-class syntax in MQL.
+
+| T-SQL JSON | MongoDB equivalent |
+|---|---|
+| `JSON_VALUE(doc, '$.address.city')` | `"address.city"` in filter / `"$address.city"` in aggregation expression |
+| `JSON_QUERY(doc, '$.line_items')` | `"$line_items"` (array/subdoc field reference) |
+| `OPENJSON(doc) WITH (city NVARCHAR(100) '$.address.city')` | `{ $project: { city: "$address.city" } }` |
+| `FOR JSON PATH` (construct JSON output) | `{ $project: { nested: { field1: "$f1", field2: "$f2" } } }` |
+| `JSON_MODIFY(doc, '$.status', 'active')` | `{ $set: { status: "active" } }` in `updateOne` |
+| `OPENJSON(doc, '$.tags') WITH ([value] NVARCHAR(50) '$')` | `{ $unwind: "$tags" }` (flatten array to rows) |
+| Cross join + `OPENJSON` to explode array rows | `{ $unwind: "$line_items" }` |
+
+**The key architectural difference:** T-SQL JSON functions are string parsing operations that produce relational output. Every `JSON_VALUE` call parses the NVARCHAR text to locate the path. MongoDB dot notation is a direct path into the BSON binary structure — there is no string parsing at access time. The performance model is different at the I/O layer even when the query surface looks similar.
 
 ---
 
@@ -559,6 +780,15 @@ In MongoDB you denormalize first and JOIN (embed) at insert time.
 The write cost is higher; the read cost is lower.
 ```
 
+**Schema-on-write vs schema-on-read** — the core mental model shift:
+
+- **SQL Server = schema-on-write.** The storage engine enforces column names, data types, NOT NULL constraints, and referential integrity at write time. Invalid data is rejected at the database boundary. The schema is the contract, and the database is the enforcer.
+- **MongoDB default = schema-on-read.** BSON accepts any document in any collection. The storage engine imposes no constraints. The application code is the schema contract — it decides which fields mean what. There is no database-level rejection of invalid structure.
+
+In practice, this is not "schema-less" — it is "schema enforced at a different layer." Production MongoDB applications use application-level schema validation (Mongoose ODM, MongoDB's built-in JSON Schema validation, or Zod on the application side). The operational difference: schema migrations in SQL Server require `ALTER TABLE` DDL against the storage layer; schema migrations in MongoDB require application-code changes and potentially a backfill script that updates existing documents — the database itself doesn't care.
+
+Data engineering vocabulary alignment: schema-on-read is the same concept used in Hadoop/data lake architectures where Parquet files have no enforced schema at storage time — the schema is inferred or declared at query time (Spark, Hive, Synapse serverless). MongoDB brings that pattern to a transactional document store.
+
 ---
 
 ## 13. Transactions (MongoDB 4.0+)
@@ -590,7 +820,57 @@ try {
 
 ---
 
-## 14. Decision Cheat Sheet
+## 14. Azure Cosmos DB for MongoDB — Bridge for Azure Engineers
+
+Azure Cosmos DB for MongoDB is a wire-protocol-compatible MongoDB API layer hosted on Cosmos DB's native multi-model storage engine. A standard MongoDB driver connects to a Cosmos DB for MongoDB endpoint and runs standard MQL without modification — for most operations, it is transparent.
+
+**What this means in practice:**
+- `mongosh`, MongoDB Node.js driver, Mongoose, Motor (Python async) — all connect to Cosmos DB for MongoDB endpoints unchanged.
+- Standard CRUD, aggregation pipeline, and index creation operations work as expected.
+- The compatibility target is MongoDB 4.x / 5.x wire protocol. Not all 7.x features are supported — check the compatibility matrix before assuming new aggregation stages or index types work.
+
+### Cosmos DB for MongoDB vs Native MongoDB — Key Differences
+
+| Dimension | Native MongoDB (Atlas) | Azure Cosmos DB for MongoDB |
+|---|---|---|
+| **Billing unit** | vCore / memory / storage | Request Units (RUs) — measured per operation |
+| **Capacity model** | Server-based (provisioned vCores or serverless) | RU-based (provisioned or autoscale) |
+| **Partitioning** | Manual sharding (shard key choice is critical) | Automatic — partition key maps to physical partition, managed by Cosmos DB |
+| **Consistency** | readConcern / writeConcern (eventual, majority, linearizable) | 5 consistency levels: Strong, Bounded Staleness, Session, Consistent Prefix, Eventual |
+| **Change tracking** | Change Streams (resumable, oplog-based) | Change Feed (resumable, Cosmos DB native — similar semantics, different guarantees) |
+| **Indexing** | Explicit index creation | All fields indexed by default (wildcard index) — turn off fields you don't need to reduce RU cost |
+| **Transaction scope** | Multi-document within replica set / shard | Single partition — cross-partition transactions have limitations |
+| **Global distribution** | Atlas Global Clusters (manual config) | Built-in multi-region with configurable consistency per read region |
+| **SLA** | Atlas SLA (99.995% for multi-region) | Cosmos DB SLA: <10 ms p99 read, <15 ms p99 write at 99th percentile (provisioned) |
+
+### RU Model — The Critical Operational Difference
+
+Cosmos DB charges Request Units per operation. A point read (fetch by `_id`) costs 1 RU. A query that scans documents costs proportionally more based on data read and compute. This has direct schema design implications:
+
+- **Embed data to minimize RUs per request.** A query that touches one document uses fewer RUs than one that requires `$lookup` across collections.
+- **All-fields-indexed-by-default increases write RUs.** Every new field written to a document is indexed. For high-write workloads with many distinct fields, selectively excluding fields from indexing (using an indexing policy exclusion) reduces write cost.
+- **RU provisioning is per-container.** Monitor RU consumption via Azure Monitor; throughput exceptions (429) mean the container is RU-starved.
+
+### When to Use Cosmos DB for MongoDB vs Native MongoDB
+
+| Scenario | Recommendation |
+|---|---|
+| Existing MongoDB application, want Azure hosting | Cosmos DB for MongoDB — minimal driver changes, Azure-native SLAs |
+| New application, no existing MongoDB code | Cosmos DB Core SQL API (native) or MongoDB Atlas — avoid the compatibility layer |
+| Need guaranteed single-digit ms latency SLAs | Cosmos DB — the SLA is contractual; MongoDB Atlas's latency depends on cluster tier |
+| Need MongoDB 6.x+ features (latest operators, new index types) | MongoDB Atlas — Cosmos DB lags on compatibility |
+| Multi-region active-active with configurable consistency | Cosmos DB — built-in, no extra config |
+| Need Atlas Search (Lucene) or Atlas Vector Search | MongoDB Atlas — Cosmos DB has Azure Cognitive Search as a separate service |
+
+### Change Feed vs Change Streams
+
+MongoDB Change Streams: subscribe to a collection's oplog. Resumable via a resume token. Standard MongoDB driver API.
+
+Cosmos DB Change Feed: Cosmos DB's native event log. Exposed to the MongoDB API via Change Streams (compatible surface), but the underlying guarantees differ: Change Feed is append-only and ordered per logical partition, not globally ordered. Multi-region scenarios introduce per-region feeds. If your application depends on global ordering of change events, test this against your consistency level before assuming equivalence.
+
+---
+
+## 15. Decision Cheat Sheet
 
 | Use MongoDB when | Use a relational DB instead when |
 |-----------------|----------------------------------|
@@ -604,7 +884,7 @@ try {
 
 ---
 
-## 15. Common Confusion Points
+## 16. Common Confusion Points
 
 **"Schema-less" is a misnomer.** Documents in a collection should have a consistent structure for query efficiency. MongoDB doesn't enforce schema at the DB level — the application code becomes the schema contract. In practice, use a schema validation library (Mongoose, Zod + MongoDB driver) to enforce it at the application layer.
 

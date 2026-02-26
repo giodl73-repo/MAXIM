@@ -79,6 +79,44 @@ Optimal step size α = 1/L.   Rate: (1 − 1/κ) per step.
 For κ = 1000: need ~6900 steps to reduce error 1000×.
 ```
 
+### Convergence Lower Bounds and Nesterov Optimality
+
+These rates are tight — there are matching lower bounds:
+
+```
+  Nesterov lower bound (first-order oracle complexity):
+  For ANY first-order method (using only gradient evaluations), on the class
+  of L-smooth convex functions, after k steps:
+
+    f(x_k) - f* ≥ Ω(L‖x_0 - x*‖² / k²)
+
+  Gradient descent achieves O(L‖x_0-x*‖²/k) — suboptimal by a factor of k.
+  Nesterov accelerated gradient achieves O(L‖x_0-x*‖²/k²) — matches the lower bound.
+  Accelerated gradient descent (NAG) is an optimal first-order method for convex f.
+
+  For μ-strongly convex and L-smooth:
+    Lower bound: any first-order method needs Ω(√κ log 1/ε) iterations.
+    Gradient descent: O(κ log 1/ε) — suboptimal by √κ.
+    Nesterov accelerated: O(√κ log 1/ε) — optimal.
+
+  This makes acceleration not just a heuristic but a computational necessity
+  for high-condition-number problems (κ = 10⁶ is common in ML).
+
+  ┌───────────────────────────────────────────────────────────────────────┐
+  │  Method            │  Convex rate    │  Strongly convex rate         │
+  ├───────────────────────────────────────────────────────────────────────┤
+  │  Gradient descent  │  O(1/k)         │  O((1-1/κ)^k)                 │
+  │  Nesterov (opt.)   │  O(1/k²) ← opt │  O((1-1/√κ)^k) ← opt         │
+  │  Lower bound       │  Ω(1/k²)        │  Ω((1-1/√κ)^k)               │
+  └───────────────────────────────────────────────────────────────────────┘
+
+  Nesterov acceleration (momentum formulation):
+    y_{k+1} = x_k − (1/L) ∇f(x_k)           (gradient step)
+    x_{k+1} = y_{k+1} + (k-1)/(k+2) (y_{k+1} - y_k)   (momentum step)
+  The momentum coefficient (k-1)/(k+2) → 1 is not heuristic — it's derived
+  to make the "estimate sequence" method work.
+```
+
 **L-smoothness**: ‖∇f(x) − ∇f(y)‖ ≤ L‖x − y‖. Gradient doesn't change faster
 than L per unit distance. Ensures steps of size 1/L always decrease f.
 
@@ -127,6 +165,47 @@ Superlinear convergence in practice.
 **L-BFGS**: store only last m pairs (s_k, y_k), m ≈ 10–20. Apply two-loop
 recursion to compute B_k ∇f in O(mn). **Standard for large-scale smooth
 optimization** (scipy `minimize(method='L-BFGS-B')`, PyTorch `LBFGS`).
+
+### Information Geometry and Natural Gradient
+
+The standard gradient ∇_θ L treats the parameter space as Euclidean (‖Δθ‖₂).
+But when θ parameterizes a probability distribution, the natural geometry is
+given by the Fisher information metric:
+
+```
+  Fisher information matrix:
+    F(θ)ᵢⱼ = E_{x~p(·;θ)}[∂_i log p(x;θ) · ∂_j log p(x;θ)]
+            = -E[∂_i ∂_j log p(x;θ)]
+
+  F(θ) defines a Riemannian metric on the manifold of distributions.
+  The geodesic distance is the Fisher-Rao distance, closely related to KL divergence:
+    D_KL(p(·;θ) || p(·;θ+dθ)) ≈ ½ dθᵀ F(θ) dθ  (to second order)
+
+  Natural gradient descent: steepest descent in KL-divergence (Fisher) metric.
+    θ ← θ − α F(θ)^{-1} ∇L(θ)
+
+  Key property: parameterization invariance.
+  Standard gradient depends on the parameterization (chain rule changes ∇L).
+  Natural gradient is invariant: if θ = g(φ), the update in φ-space gives
+  the same distribution update as in θ-space. This is the "right" notion
+  of steepest descent for statistical models.
+
+  Examples:
+    For diagonal Gaussian N(μ, σ²): F is diagonal with 1/σ² and 2/σ².
+    Natural gradient scales each direction by its Fisher curvature.
+    For softmax: natural gradient is exactly Newton's method on logistic loss.
+
+  Practical approximations (F(θ)^{-1} is n×n — too large for neural nets):
+    K-FAC (Kronecker-Factored Approximate Curvature):
+      Assumes layers independent, approximates F as Kronecker product.
+      F_layer ≈ A ⊗ G  where A = input covariance, G = gradient covariance.
+      Invert cheaply: (A⊗G)^{-1} = A^{-1} ⊗ G^{-1}.
+    EKFAC, KFRA: refinements with better approximation quality.
+
+  Connection to Adam: Adam's v_k tracks E[(∇f)²] per coordinate ≈ diagonal F.
+  Adam is an approximation to natural gradient with a diagonal Fisher estimate.
+  This is why Adam is effective: it approximates second-order information cheaply.
+```
 
 ---
 
@@ -332,6 +411,49 @@ Solve via Cholesky (if AᵀA is PD) or QR (more stable numerically).
 
 ## Gradient Methods for Machine Learning
 
+### Online Learning and Regret Minimization
+
+SGD viewed as an online learning algorithm connects optimization to statistical
+learning theory:
+
+```
+  Online learning setup: at step t,
+    1. Predict θ_t
+    2. Observe loss function fₜ(·)
+    3. Suffer loss fₜ(θ_t)
+    4. Update θ_{t+1}
+
+  Regret: R_T = Σ_{t=1}^T fₜ(θ_t) − min_θ Σ_{t=1}^T fₜ(θ)
+  Measures how much worse we do vs. the best fixed θ in hindsight.
+
+  SGD achieves: R_T ≤ ‖θ_1 - θ*‖² / (2α) + α Σ ‖gₜ‖²
+  With step α = D/(G√T):  R_T = O(DG√T)   where D = diameter, G = grad bound.
+  Average regret R_T/T → 0 (sublinear regret = no-regret algorithm).
+
+  Online-to-batch conversion:
+    Run online algorithm, output average θ̄_T = (1/T)Σ θ_t.
+    Excess risk: E[f(θ̄_T)] - f* ≤ R_T/T = O(1/√T).
+    This recovers the O(1/√T) convergence rate for SGD from an online perspective.
+
+  Follow-the-Regularized-Leader (FTRL):
+    θ_{t+1} = argmin_θ { Σ_{s≤t} fₛ(θ) + (1/η)R(θ) }
+    Generalizes SGD; with R(θ) = ‖θ‖²/2, reduces to online gradient descent.
+
+  AdaGrad as FTRL:
+    FTRL with per-coordinate adaptive regularizer.
+    Achieves O(√(Σ‖gₜ‖²)) regret — automatically adapts to sparse gradients.
+    For sparse features (NLP), most gₜ,ᵢ = 0; AdaGrad gives O(√(sparse updates))
+    per coordinate, far better than O(√T).
+
+  PAC learning connection:
+    n iid samples, hypothesis class H with VC dimension d.
+    Uniform convergence (via concentration): O(d/ε²·log 1/δ) samples suffice.
+    SGD on convex surrogate loss achieves this bound efficiently.
+    For non-convex (deep learning): no clean PAC bound — generalization is not
+    explained by VC dimension (models are heavily overparameterized).
+    Modern explanation: implicit regularization of SGD, flat minima, NTK regime.
+```
+
 ### Stochastic Gradient Descent (SGD)
 
 Training loss f(θ) = (1/N) Σᵢ fᵢ(θ). Full gradient costs O(N) — use mini-batches:
@@ -465,6 +587,39 @@ Standard for federated learning and large-scale regularized regression.
 
 ## Non-Convex Landscape (ML)
 
+### Convergence to Stationary Points
+
+For non-convex f, gradient descent cannot guarantee global optimality. The
+standard convergence result is:
+
+```
+  For L-smooth f (not necessarily convex), gradient descent with α = 1/L:
+
+  After T steps:  min_{k ≤ T} ‖∇f(x_k)‖² ≤ 2L(f(x_0) − f*) / T
+
+  I.e., the minimum gradient norm over T steps is O(1/T).
+  We converge to a stationary point (∇f = 0), but it could be a saddle or local min.
+  Complexity to find ε-stationary point: T = O(L(f(x_0)-f*)/ε²).
+
+  For SGD with bounded variance E[‖gₜ - ∇f(xₜ)‖²] ≤ σ²:
+    min_{k ≤ T} E[‖∇f(x_k)‖²] ≤ O(L(f₀-f*)/T + σ/√T)
+  Noise term σ/√T dominates; step size must decay to zero.
+
+  Perturbed gradient descent (Jin et al. 2017):
+    Add Gaussian noise ξ_k ~ N(0, δI) to the gradient occasionally.
+    If f satisfies the strict saddle property (every saddle has at least one
+    strictly negative Hessian eigenvalue), perturbed GD escapes saddles
+    in polynomial time and converges to an approximate local minimum.
+    Rate: O(1/ε^4) iterations to find ε-second-order stationary point
+    (‖∇f‖ ≤ ε and λ_min(∇²f) ≥ -√ε).
+
+  Strict saddle property:
+    Holds (conjectured) for neural networks under mild conditions.
+    Empirical evidence: loss landscapes of overparameterized networks
+    have essentially no poor local minima — saddle points dominate.
+    This is why SGD works in practice despite non-convexity.
+```
+
 **Saddle points dominate** in high dimensions — far more common than bad local
 minima. SGD noise escapes saddle points naturally; second-order methods use
 negative curvature directions explicitly.
@@ -506,6 +661,7 @@ converge despite apparent non-convexity.
 |-----------|-----------|
 | Convex, smooth, small n | L-BFGS (scipy, torch LBFGS) |
 | Convex, smooth, large n | Gradient descent with backtracking |
+| Convex, high κ, need speed | Nesterov accelerated gradient (optimal for convex) |
 | LP | Simplex or interior point (scipy.linprog, Gurobi) |
 | QP convex | OSQP, CVXOPT, Gurobi |
 | Non-smooth regularization | Proximal gradient (ISTA/FISTA, ADMM) |
@@ -514,6 +670,8 @@ converge despite apparent non-convexity.
 | CNN (best final loss) | SGD + momentum + tuned schedule |
 | Integer program | Gurobi, CPLEX (branch and bound) |
 | Black-box, no gradients | Bayesian optimization, CMA-ES |
+| Parameter space = distributions | Natural gradient / K-FAC |
+| Need to escape saddles (non-convex) | Perturbed GD or SGD (noise escapes naturally) |
 
 ---
 
@@ -544,3 +702,9 @@ Simplex excels on sparse problems and can warm-start from a previous solution.
 SFO) exist but are complex. For mini-batch neural network training, Adam/AdamW
 dominates. L-BFGS is excellent for small-scale ML (sklearn's logistic regression
 uses `solver='lbfgs'` by default).
+
+**Nesterov vs. momentum**: standard momentum (heavy ball) does not achieve the
+optimal O(1/k²) rate in general — it achieves O(1/k²) only for quadratics.
+Nesterov's acceleration achieves O(1/k²) for all L-smooth convex functions and
+is provably optimal. The momentum coefficient must grow as (k−1)/(k+2), not stay
+fixed at β.

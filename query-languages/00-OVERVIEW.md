@@ -1,5 +1,11 @@
 # Query Languages — Taxonomy & Landscape
 
+T-SQL is your home dialect. This file maps that world to the full query language ecosystem.
+SQL Server's flavor of SQL occupies one cell in a large space — the landscape below shows where
+it sits relative to every other query paradigm you'll encounter running Azure infrastructure,
+building data pipelines in ADF, or evaluating technology choices. T-SQL divergences are called
+out explicitly throughout; KQL (which you use daily in ADX) appears as its own paradigm.
+
 ---
 
 ## 1. The Full Landscape
@@ -58,7 +64,27 @@
 
 ---
 
-## 2. Relational Algebra Bridge
+## 2. Reading Order for SQL Server Developers
+
+Start here if you want depth on a specific area. T-SQL fluency is assumed throughout.
+
+| Goal | Start with | Then |
+|------|-----------|------|
+| Modern SQL you're missing (CTEs, window functions, JSON) | `01-SQL-CORE.md` | `02-POSTGRESQL.md` for dialect gaps |
+| PostgreSQL in production (coming from SQL Server) | `02-POSTGRESQL.md` | `01-SQL-CORE.md` for ANSI foundations |
+| KQL / Azure Data Explorer depth | `03-KQL.md` | — (you likely know most of it already) |
+| Spark SQL / Databricks | `04-SPARK-SQL.md` | `01-SQL-CORE.md` for ANSI gaps |
+| BigQuery / Snowflake / cloud DW SQL | `05-CLOUD-DW.md` | `04-SPARK-SQL.md` for Databricks overlap |
+| MongoDB / document query paradigm | `06-DOCUMENT.md` | — |
+| Graph queries (Cypher, SQL/PGQ) | `07-GRAPH.md` | — |
+| Search / Elasticsearch DSL | `08-SEARCH.md` | — |
+| Time-series (InfluxDB, Prometheus) | `09-TIMESERIES.md` | — |
+
+The SQL files (01–05) build on each other. The non-SQL files (06–09) are independent.
+
+---
+
+## 3. Relational Algebra Bridge
 
 You know the math — this is the mapping to SQL syntax:
 
@@ -105,7 +131,7 @@ Consequence: WHERE col = NULL  → always UNKNOWN, never selects any rows
 
 ---
 
-## 3. SQL Standards History
+## 4. SQL Standards History
 
 | Standard | Year | Key Additions | T-SQL circa 2000 had it? |
 |----------|------|---------------|--------------------------|
@@ -133,7 +159,7 @@ Everything from SQL:1999 onward is what this series is filling in.
 
 ---
 
-## 4. Data Model Taxonomy
+## 5. Data Model Taxonomy
 
 | Model | Structure | Query Paradigm | Strengths | Example Systems |
 |-------|-----------|----------------|-----------|-----------------|
@@ -164,7 +190,7 @@ Column-store (BigQuery, Snowflake, DuckDB):
 
 ---
 
-## 5. ACID vs BASE vs SAGA
+## 6. ACID vs BASE vs SAGA
 
 ### ACID (relational default)
 
@@ -211,23 +237,30 @@ Eventually consistent — all replicas converge to the same value given enough t
 ### CAP Theorem
 
 ```
-                        Consistency
-                           /\
-                          /  \
-                         /    \
-                        /  CP  \
-                       /        \
-                      /──────────\
-                     /  CA   | AP \
-                    /________|_____\
-              Availability   Partition Tolerance
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           CAP THEOREM                                        │
+│   During a network partition, a distributed system can guarantee at most 2:  │
+├──────────────────┬──────────────────────┬───────────────────────────────────┤
+│  CP              │  AP                  │  CA                               │
+│  ─────────────── │  ────────────────    │  ────────────────                 │
+│  Consistent +    │  Available +         │  Consistent +                     │
+│  Partition-tol.  │  Partition-tol.      │  Available                        │
+│                  │                      │                                    │
+│  Sacrifices:     │  Sacrifices:         │  Sacrifices:                      │
+│  Availability    │  Consistency         │  Partition tolerance               │
+│                  │                      │  (only possible on single node)   │
+│  Systems:        │  Systems:            │  Systems:                         │
+│  HBase           │  Cassandra           │  Single-node SQL Server            │
+│  ZooKeeper       │  CouchDB             │  Single-node PostgreSQL            │
+│  etcd            │  DynamoDB (default)  │  SQLite                           │
+│  Spanner (~CP)   │  Riak                │                                   │
+└──────────────────┴──────────────────────┴───────────────────────────────────┘
 
-You can have at most 2 of 3 during a network partition:
-  CP: consistent + partition-tolerant (sacrifice availability) — HBase, Zookeeper, etcd
-  AP: available + partition-tolerant (sacrifice consistency)   — Cassandra, CouchDB, DynamoDB (default)
-  CA: consistent + available (sacrifice partition tolerance)   — single-node SQL (no partitions to tolerate)
-
-Modern framing: PACELC — also considers latency vs consistency when no partition
+Modern framing: PACELC — also considers latency vs consistency when no partition exists.
+  P → AP or CP (as above)
+  E (else, no partition) → choose latency (L) or consistency (C)
+  Spanner: PC/EC (always consistent, pays latency cost)
+  DynamoDB: PA/EL (available under partition, low latency otherwise)
 ```
 
 ### SAGA Pattern (distributed transactions)
@@ -247,7 +280,7 @@ Choreography SAGA:         Orchestration SAGA:
 
 ---
 
-## 6. SQL vs NoSQL vs NewSQL — Decision Tree
+## 7. SQL vs NoSQL vs NewSQL — Decision Tree
 
 ```
 Start
@@ -291,9 +324,28 @@ Is data structure well-defined (schema stable, normalized)?
                   └─ KQL (Azure Monitor / ADX) / Loki LogQL / OpenSearch
 ```
 
+### Decision Cheat Sheet
+
+| I need to... | Use | Query language |
+|-------------|-----|---------------|
+| OLTP with complex joins, ACID | PostgreSQL / SQL Server | SQL (ANSI / T-SQL / PG dialect) |
+| Reporting at petabyte scale, cloud-native | BigQuery / Snowflake / Synapse | SQL dialect (BQ/Snowflake/T-SQL) |
+| Local OLAP / analytics without a cloud DW | DuckDB | SQL (very ANSI-close) |
+| Spark/Delta Lake workloads | Databricks | Spark SQL |
+| Schemaless nested JSON documents | MongoDB | MQL + aggregation pipeline |
+| Extreme low-latency cache / session state | Redis | Redis commands |
+| Eventually-consistent wide-column / write-heavy | Cassandra | CQL |
+| Relationship traversal (fraud, social, knowledge) | Neo4j / Neptune | Cypher / Gremlin |
+| Full-text relevance search, facets, fuzzy | Elasticsearch / OpenSearch | Query DSL (JSON) |
+| IoT / metrics / downsampling / retention | InfluxDB / TimescaleDB | Flux / InfluxQL / SQL |
+| Logs, traces, Azure Monitor alerts | ADX / Azure Monitor | KQL |
+| API-layer query over typed schema | GraphQL | GraphQL |
+| REST + filtering over HTTP | OData | OData query params |
+| Distributed SQL (global, multi-region) | CockroachDB / Spanner / YugabyteDB | PostgreSQL-compatible SQL |
+
 ---
 
-## 7. Common Confusion Points
+## 8. Common Confusion Points
 
 **"NoSQL means no SQL"**
 Wrong. MongoDB has a full aggregation pipeline query language. DynamoDB has PartiQL (SQL subset).

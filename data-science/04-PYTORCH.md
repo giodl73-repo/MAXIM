@@ -778,7 +778,107 @@ trainer.test(lit_model, test_loader)
 
 ---
 
-## Old World → New World
+## Conceptual Bridges — Universal CS First
+
+### Computation graph ↔ Compiler IR
+
+PyTorch's define-by-run model is the same fundamental choice as interpreter vs. compiler:
+
+```
+Compiler analogy:
+  AOT compilation  (define-then-run) ← TensorFlow 1.x, XLA, JAX jit
+    Build the full AST/IR at "compile time", optimize statically, execute.
+    Pros: whole-graph optimizations, portable artifact.
+    Cons: no Python control flow in the graph; debugging is graph inspection.
+
+  JIT interpretation (define-by-run)  ← PyTorch eager mode
+    Execute operations as they are written; the graph emerges from the execution trace.
+    Pros: Python control flow works natively (if/for inside forward()); natural debugger.
+    Cons: no ahead-of-time optimization (mitigated by torch.compile).
+
+torch.compile(): PyTorch 2.x bridges the gap — eager semantics, compiled execution.
+  Analogous to a tracing JIT (like .NET RyuJIT or V8's TurboFan):
+    - First execution: trace the graph (slow)
+    - Subsequent executions: run compiled kernel (fast)
+```
+
+### Autograd DAG ↔ Reverse-mode AD
+
+Every automatic differentiation system (AD) mechanizes the chain rule in the backward pass. PyTorch autograd is textbook reverse-mode AD:
+
+```
+Forward pass (any framework, any language):
+  Build a DAG of operations. Each node stores:
+    - The operation f_k
+    - The intermediate values needed for the backward gradient
+
+Backward pass:
+  Traverse the DAG in reverse topological order.
+  At each node, apply: ∂L/∂x = (∂L/∂y) · (∂y/∂x)   ← chain rule
+  This is the VJP (Vector-Jacobian Product) — the core of reverse AD.
+
+  dL/dx accumulates by summing contributions from all forward uses of x.
+  This is why: optimizer.zero_grad() must clear .grad before each backward.
+
+PyTorch:         loss.backward()  → traverses the DAG, fills .grad
+JAX:             jax.grad(loss)(params)
+TensorFlow 2:    tape.gradient(loss, params)  (via GradientTape)
+Theano (orig.):  T.grad(loss, params)
+All four are the same algorithm — reverse-mode AD on a computation graph.
+```
+
+### nn.Module ↔ Parameterized function object
+
+An `nn.Module` is a function object (closure / callable class) with a
+registry for learnable parameters:
+
+```
+General CS concept:             PyTorch
+─────────────────────────────   ──────────────────────────────────────────
+Callable class / functor        nn.Module subclass
+__call__ → runs computation     forward(x) → defines computation
+Mutable state (fields)          nn.Parameter (registered, tracked by autograd)
+Composed callables              nn.Sequential or nested nn.Module attributes
+Serializable state              model.state_dict()  — dict of parameter tensors
+
+Haskell/FP parallel:
+  nn.Module ≈ a function with environment (parameters = closed-over values)
+  nn.Sequential ≈ function composition  f ∘ g ∘ h
+  .parameters() ≈ extracting free variables from a closure
+```
+
+Any language where you can write a class with `__call__` implements the same
+pattern. Python dataclasses with `__call__`, Java's `Function<T,R>` implementations,
+C++ functors, Rust's `impl Fn` — all are the same abstraction.
+
+### Dynamic graph ↔ Python control flow
+
+Because the graph is built at runtime, Python `if` / `for` / `while` work
+naturally inside `forward()`:
+
+```python
+class AdaptiveDepthNet(nn.Module):
+    def __init__(self, layers, threshold=0.5):
+        super().__init__()
+        self.layers = nn.ModuleList(layers)   # registered list of modules
+        self.threshold = threshold
+
+    def forward(self, x):
+        for layer in self.layers:
+            x = layer(x)
+            if x.abs().mean() < self.threshold:   # Python if — works in eager
+                break                              # early exit — dynamic graph
+        return x
+```
+
+In TensorFlow 1.x this required `tf.cond` / `tf.while_loop` — graph-native
+control flow operators. PyTorch's define-by-run removes that constraint entirely.
+
+---
+
+## Old World Flavor — .NET / C# Parallels
+
+For .NET engineers, the familiar vocabulary:
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -788,7 +888,7 @@ trainer.test(lit_model, test_loader)
 │  Layer / transform    │  LINQ operator / EF query │  nn.Module               │
 │  Model params         │  class fields             │  nn.Parameter (tracked)  │
 │  Training step        │  for loop + delegate      │  forward() + backward()  │
-│  GPU execution        │  CUDA via ML.NET / TorchSharp│ .to(device)           │
+│  GPU execution        │  CUDA via ML.NET/TorchSharp│ .to(device)             │
 │  Serialization        │  BinaryFormatter / JSON   │  state_dict + torch.save │
 │  Parallel batches     │  PLINQ / Parallel.For     │  DataLoader num_workers  │
 └──────────────────────┴───────────────────────────┴──────────────────────────┘

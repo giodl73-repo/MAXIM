@@ -107,8 +107,6 @@ This is why 2PC is not partition-tolerant for liveness.
 
 ## 2. Consensus Protocols
 
-<!-- @editor[content/P2]: The consensus section covers Paxos, Multi-Paxos, Raft, and Viewstamped Replication well, but is missing modern consensus variants that matter for a distributed systems practitioner at Azure scale. Specifically absent: (1) EPaxos (Egalitarian Paxos) — leaderless, commits in 1 RTT for non-conflicting commands, deployed in some Google systems; (2) Flexible Paxos — any quorum intersection (not just majority), enables latency/fault-tolerance trade-offs that Multi-Paxos cannot express; (3) the Multi-Paxos vs Raft implementation trade-off from a practitioner's perspective (Raft is fully specified; Multi-Paxos gives implementation freedom that has caused bugs in production). These would be genuinely new information for this learner. -->
-
 ### Paxos (Lamport 1998, published after 9-year delay)
 
 **Single-decree Paxos**: Agree on one value.
@@ -211,6 +209,51 @@ ZooKeeper's consensus protocol. Two modes:
 - **Broadcast mode**: leader sends proposals; replicas acknowledge; commit when quorum acks
 
 Key difference from Paxos: Zab ensures primary order — transactions from old leader are completed before new leader proposes new transactions. ZooKeeper linearizable reads require `sync()` first (otherwise stale from follower).
+
+### Modern Consensus — Beyond Raft
+
+**Multi-Paxos vs Raft trade-off**:
+- Raft's strong leader simplifies implementation and reduces the bug surface — the full protocol fits in a single paper. The cost: the leader is a bottleneck; all writes go through one node.
+- Multi-Paxos allows any node to propose (no single leader required), which reduces latency in WAN deployments where clients are geographically distributed.
+- **Single-datacenter**: Raft wins (implementation simplicity, mature tooling in etcd/CockroachDB/Consul).
+- **Geo-distributed**: EPaxos or variants win (leader bottleneck is too expensive at cross-region RTT).
+
+**EPaxos** (Egalitarian Paxos — Moraru et al. 2013): Leaderless consensus. Each replica can commit commands directly without routing through a leader.
+
+```
+Non-conflicting commands (operating on different keys):
+  Commit in 1 RTT fast path (2 message delays).
+  Compare: Raft requires 2 RTTs via leader.
+
+Conflicting commands (same key, must be ordered):
+  Fast path: 2 RTT if <F replicas are slow (F = floor((n-1)/2) failures tolerated).
+  Slow path: 3 RTT (similar to Paxos Phase 1 + Phase 2 + explicit ordering round).
+
+Dependency tracking: each command records which earlier commands it depends on.
+  Replicas execute in dependency order, not arrival order.
+
+Used in: CockroachDB (EPaxos-inspired follower reads), some Google internal systems.
+```
+
+EPaxos's guarantee: in a 5-node cluster spanning 3 datacenters, non-conflicting writes to different keys commit in 1 cross-datacenter RTT — each replica acts as local leader for its clients.
+
+**Flexible Paxos** (Howard et al. 2016): Generalization that separates Phase 1 (leader election) quorum from Phase 2 (commit) quorum. The only constraint is Q1 ∩ Q2 ≠ ∅ (the two quorums must share at least one node).
+
+```
+Classic Paxos: Q1 = Q2 = majority → both phases require n/2 + 1 nodes.
+
+Flexible Paxos example (5-node cluster, 1 leader datacenter + 4 followers):
+  Phase 1 (election): Q1 = 4 nodes  → tolerates 1 failure during election
+  Phase 2 (commit):   Q2 = 2 nodes  → only leader + 1 follower needed per write
+
+  This works because any 4-node set intersects any 2-node set.
+  Result: fast commits (leader + 1 follower, 1 RTT) at cost of slower elections.
+
+WAN use case: place leader in one datacenter, use small Q2 for fast local commits,
+  large Q1 to ensure a new leader sees all committed values during failover.
+```
+
+Flexible Paxos makes explicit what Multi-Paxos always implied but never formalized: quorum sizes are a knob, not fixed at majority.
 
 ### Byzantine Fault Tolerance
 
@@ -354,6 +397,21 @@ External consistency (linearizability for transactions):
   This ensures t1's commit time is in the past by the time another transaction reads it.
 ```
 
+### Clock Approach Comparison
+
+The practical choice when building a globally distributed database:
+
+| Approach | Mechanism | Uncertainty | Consistency achieved | Used by |
+|----------|-----------|-------------|---------------------|---------|
+| TrueTime | GPS receivers + atomic clocks in each datacenter; hardware-bounded ε | ε ≈ 7ms avg (wait this out before commit) | External consistency (linearizability across datacenters) | Google Spanner |
+| Hybrid Logical Clocks (HLC) | Wall clock + logical counter; no hardware; software-only monotonicity | ~1ms typical (clock skew detection + uncertainty bumps on skew) | Causal consistency; serializable via SSI | CockroachDB, YugabyteDB |
+| NTP + causal metadata | NTP drift ±100ms+; rely on vector clocks or causal tokens for ordering | High — cannot trust timestamps for ordering | Causal consistency (with tokens); eventual without | Most distributed DBs (Cassandra, DynamoDB default) |
+
+**The practical consequence**:
+- **Spanner's external consistency** (linearizability across datacenters) requires GPS/atomic clock hardware. No hardware = no guarantee. The "commit wait" is what makes cross-datacenter linearizability possible — Spanner literally sleeps through the uncertainty window.
+- **HLC achieves causal consistency without hardware**. CockroachDB's "uncertainty bumps" (re-read transactions when clock skew is detected) can cause cascading retries under heavy skew — the software complexity Spanner avoids by hardware.
+- **NTP-based systems** cannot use timestamps for ordering decisions; they must layer vector clocks or session tokens on top.
+
 ---
 
 ## 5. Replication Protocols
@@ -418,8 +476,6 @@ This is how etcd, ZooKeeper, CockroachDB, and TiKV work.
 
 ## 6. CRDTs — Conflict-Free Replicated Data Types
 
-<!-- @editor[bridge/P2]: The CRDT section is theoretically strong (semilattice, commutativity/associativity/idempotency) but missing the bridge to production deployment reality. Specifically: (1) how Yjs and Automerge differ in their CRDT approach (Yjs uses a variant of LSEQ with relative positioning; Automerge uses Lamport timestamps + RGA — and why the performance characteristics differ dramatically); (2) the garbage collection problem in sequence CRDTs (tombstones accumulate forever unless you have a GC protocol, which requires knowing all clients have seen the deletion — the hard part); (3) why Figma chose OT over CRDTs for their multiplayer (simpler undo semantics). The table of CRDTs is excellent reference — the production deployment nuances are the missing piece. -->
-
 **The problem**: In an AP system (available during partition), concurrent updates to the same object create conflicts. Resolution strategies:
 - Last-Write-Wins (LWW): discard older update → loses data
 - Multi-value (DynamoDB): return all versions, let application merge → complex
@@ -463,6 +519,32 @@ Convergence: all replicas that received same set of states converge to same stat
 - RGA (Replicated Growable Array): each element has unique ID; insert-after semantics
 - LSEQ: adaptive allocation of unique identifiers in sequence space
 - Used in: Automerge library, Yjs (used in many collaborative editors), xi-editor (originally)
+
+### Production CRDT Reality
+
+The theory is clean; production deployment surfaces three problems the papers don't emphasize.
+
+**Yjs vs Automerge**:
+- **Yjs** uses a linked-list CRDT (based on YATA — Yet Another Transformation Approach) where each character has a unique ID referencing its left and right neighbors at insertion time. Concurrent insertions at the same position are resolved by ID comparison. Result: fast for text editing, especially large documents; used in real-time editors (Hocuspocus, y-websocket, TipTap).
+- **Automerge** uses an operation-based CRDT with Lamport timestamp ordering (similar to RGA). More general — supports JSON-like nested structures, not just sequences. Slower for pure text operations (~10x vs Yjs on large docs), but handles arbitrary JSON document merge.
+- **Rule of thumb**: rich text or code editing → Yjs; JSON document sync → Automerge.
+
+**Tombstone GC problem**: Sequence CRDTs (RGA, Yjs, Automerge) mark deleted elements as tombstones rather than removing them. A client that inserted character X and then deleted it still keeps X's tombstone so late-arriving operations can correctly resolve position relative to it.
+
+```
+Consequence: the in-memory/on-disk size of the CRDT grows monotonically.
+  A document with 10,000 characters that underwent 100,000 edits
+  accumulates ~100,000 tombstones, not 10,000 live chars.
+
+GC requires knowing all clients have seen the deletion (no client holds
+  a reference to the tombstoned element). This requires coordination:
+  - Yjs: periodic snapshotting with a "checkpoint" that collapses history.
+    The snapshot + awareness protocol requires a brief consensus moment.
+  - Automerge: explicit compaction via "save/load" (offline GC).
+  Both solutions weaken the "pure AP, no coordination needed" story.
+```
+
+**Why Figma chose OT over CRDTs**: Undo semantics. In a CRDT, "undo" means generating a new operation that reverses the effect of an earlier one. But if other users have made edits that depend on the undone operation, the undo cascades in complex ways — there is no standard CRDT undo primitive. In OT (particularly the Jupiter/Google Docs model), undo transforms through the operation history in a well-defined way. Figma's multiplayer (2019 blog post) chose OT specifically because their users expected undo to "feel right" — undoing your last stroke shouldn't revert other users' concurrent changes. This is the production trade-off the CRDT papers don't surface.
 
 ---
 
@@ -516,8 +598,6 @@ Differences from ZooKeeper:
 ---
 
 ## 8. Distributed Databases
-
-<!-- @editor[bridge/P2]: The distributed databases section covers Spanner's TrueTime and CockroachDB's HLC well. Missing: an explicit comparison bridge between TrueTime's GPS/atomic clock approach (hardware-enforced bounded uncertainty ~7ms) and CockroachDB's HLC approach (software-only, ~1ms uncertainty but requires clock skew detection and "uncertainty bumps" that can cause cascading transaction retries). This trade-off is exactly the kind of architectural decision this learner makes when evaluating database choices for Azure-scale systems. A 3-row comparison table (TrueTime vs HLC vs traditional NTP: uncertainty, hardware needed, clock skew behavior) would crystallize the choice. -->
 
 ### Google Spanner
 
@@ -633,9 +713,80 @@ O(n) messages in ring. O(n²) in fully connected (bully).
 
 ---
 
-<!-- @editor[content/P2]: Missing a section on modern read-path optimization patterns that any Azure-scale system builder knows are critical: (1) Read-your-writes consistency implementation in practice (session tokens, sticky routing, bounded-staleness reads with timestamp fencing); (2) Multi-region active-active write conflict resolution beyond "use CRDTs" — the Dynamo Global Tables vs Spanner External Consistency vs Cassandra LWT trade-off matrix; (3) The "split-brain during partition" detection patterns used in production (Raft split-brain via term staleness vs primary-backup via STONITH vs lease-based). These are practitioner-level gaps not covered by the current pattern catalog. -->
+## 10. Read-Path Optimization and Production Patterns
 
-## 10. Modern Distributed Patterns
+### Read Consistency Implementation
+
+**Read-your-writes** (a client must see its own writes): Three implementation approaches:
+
+```
+1. Sticky sessions (routing-level):
+   Route all reads from a client to the replica they wrote to.
+   Simple. Breaks if that replica fails or client reconnects elsewhere.
+   Used in: MySQL replication with ProxySQL, read replicas.
+
+2. Session tokens (timestamp-based):
+   On write, server returns a "write token" (HLC timestamp or log sequence number).
+   Client includes token in subsequent reads.
+   Read replica waits until it has applied through that token before responding.
+   Used in: CockroachDB follower reads, Azure Cosmos DB session consistency.
+
+3. Bounded staleness:
+   Accept reads from any replica within X ms/bytes of the leader.
+   No token needed; replicas self-report their lag.
+   Used in: Spanner "bounded staleness" reads, Azure SQL readable secondaries.
+```
+
+### Multi-Region Write Conflict Resolution
+
+Active-active multi-region (multiple regions accept writes to the same data):
+
+| Strategy | Mechanism | Risk | When to use |
+|----------|-----------|------|-------------|
+| Last-Write-Wins (LWW) | Compare timestamps; highest wins | Clock skew can silently discard writes | Immutable records, events, logs |
+| Compare-and-Swap (CAS) / optimistic locking | Version counter; reject stale writes | Higher retry rate under contention | Low-contention mutable records |
+| CRDTs | Commutative merge; no conflict possible | Limited to CRDT-compatible types | Counters, sets, presence indicators |
+| Application-level merge | Return all conflicting versions; client merges | Requires client-side merge logic | Shopping carts, rich documents |
+
+**LWW + clock skew risk**: In a 5-region deployment with NTP, clocks can differ by 100ms+. A write from region A at T=100 and a write from region B at T=101 (but B's clock is 50ms behind) means A's write (which happened later in real time) loses. This is not hypothetical — it's the reason Spanner exists.
+
+### Split-Brain Detection Patterns
+
+```
+Primary-backup split-brain: both nodes think they're primary.
+Result: divergent writes, data loss on failover.
+
+Detection and prevention approaches:
+
+1. Fencing tokens (Martin Kleppmann's approach):
+   Each time a lock/lease is granted, increment a monotone fencing token.
+   Include token with every write operation to storage.
+   Storage server rejects writes with stale token (lower than latest seen).
+   → Old primary's writes are rejected even if it doesn't know it's demoted.
+   Used in: distributed lock services, Kubernetes lease-based leader election.
+
+2. STONITH (Shoot The Other Node In The Head):
+   When a node is suspected dead, physically fence it (cut power, reset via IPMI/iDRAC)
+   before promoting the new primary.
+   Guarantees old primary is dead before new one writes.
+   Used in: Pacemaker/Corosync clusters, classical HA database setups.
+
+3. Raft/Paxos term staleness:
+   Old leader cannot commit writes after it loses quorum.
+   A new leader in a higher term rejects communication from old leader.
+   The protocol itself enforces the invariant — no external fence needed.
+   → Why Raft-based systems (etcd, CockroachDB) don't need STONITH.
+
+4. Lease-based fencing:
+   Primary holds a timed lease (e.g., 10s). Must renew before expiry.
+   If network partitions and primary cannot renew → stops serving at lease expiry.
+   New primary waits for old lease to expire before accepting writes.
+   Used in: Chubby (Google), Azure Storage's blob leases.
+```
+
+---
+
+## 11. Modern Distributed Patterns
 
 ### Saga Pattern (distributed long-running transactions)
 
@@ -692,7 +843,7 @@ Eventual consistency, massive write scale    Cassandra, DynamoDB (eventually con
 Event streaming, ordered log                 Kafka
 Distributed config/coordination              etcd, ZooKeeper, Consul
 Multi-region active-active                   DynamoDB Global Tables, Cassandra multi-DC
-Collaborative real-time editing              CRDTs (Yjs, Automerge)
+Collaborative real-time editing              CRDTs (Yjs for text, Automerge for JSON)
 High-availability distributed counter        PN-Counter CRDT
 Conflict-free sets                           OR-Set CRDT
 
@@ -701,6 +852,11 @@ Consistency model needed?
   Reads can tolerate brief lag, same order    Sequential consistency
   Related writes must be seen together        Causal consistency
   Performance over correctness, SLA OK       Eventual consistency
+
+Clock approach needed?
+  Linearizability across datacenters          TrueTime (requires GPS/atomic clocks)
+  Causal consistency, no hardware             HLC (CockroachDB approach)
+  Casual ordering only                        Vector clocks + NTP
 ```
 
 ---
@@ -722,3 +878,5 @@ Consistency model needed?
 **Vector clocks detect concurrency, not causality ordering alone**: If VC(a) and VC(b) are incomparable, it means a and b are concurrent — neither caused the other. This is a conflict that needs resolution, not just a reordering.
 
 **Leader election ≠ consensus**: Any process can declare itself leader. Consensus-based leader election (Paxos/Raft) ensures only one leader wins per term. Without consensus, split-brain is possible (two nodes think they're leader).
+
+**HLC uncertainty bumps can cascade**: CockroachDB's response to detecting clock skew is to "bump" a transaction's timestamp forward and potentially retry. Under heavy skew (network instability, VM migration), these cascades can cause significant latency spikes — the software penalty for not having GPS clocks.

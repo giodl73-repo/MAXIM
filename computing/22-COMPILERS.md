@@ -21,7 +21,55 @@ The Classical Pipeline
 
 The frontend (lex → parse → sema) is language-specific. The middle (IR + optimization) is where the real work happens. The backend (codegen) is target-specific. LLVM's great insight: share the middle.
 
-<!-- @editor[diagram/P1]: No landscape diagram showing the compiler ecosystem — which compilers share backends (LLVM), which are standalone (tsc, esbuild), where JIT fits vs AOT, and where the Rust pipeline sits. The pipeline diagram above is for a single generic compiler; missing is the comparative map of real compilers against that pipeline. -->
+```
+THE COMPILER ECOSYSTEM — WHO SHARES WHAT
+==========================================
+
+  LLVM-based (shared backend)
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  clang   → Clang AST → LLVM IR ──────────────────────┐         │
+  │  rustc   → HIR → THIR → MIR → LLVM IR ───────────────┤         │
+  │  swiftc  → Swift AST → SIL → LLVM IR ─────────────────┤        │
+  │  kotlin/native → Kotlin IR → LLVM IR ──────────────────┤       │
+  │  zig     → Zig IR → LLVM IR ────────────────────────────┼──→  LLVM
+  │  clangd  (language server uses clang frontend)          │    backend
+  └─────────────────────────────────────────────────────────┘       │
+                                                               x86 / ARM /
+                                                               WASM / RISC-V
+
+  Standalone JIT (own backend, no LLVM)
+  ┌────────────────────────────────────────────────────────────────┐
+  │  V8 (JS):    Ignition (bytecode) → Maglev → Turbofan           │
+  │  SpiderMonkey: Warp JIT (replaces IonMonkey)                   │
+  │  JavaScriptCore: LLInt → Baseline → DFG → FTL (LLVM-based!)   │
+  └────────────────────────────────────────────────────────────────┘
+
+  Transpilers (no native backend — source → source)
+  ┌────────────────────────────────────────────────────────────────┐
+  │  tsc   (TypeScript → JS)  own AST + type checker, no backend   │
+  │  esbuild (TS/JS → JS bundle)  Go-native, no LLVM, no typecheck │
+  │  SWC   (TS/JS → JS)  Rust-based, strips types only            │
+  └────────────────────────────────────────────────────────────────┘
+
+  Multi-IR pipelines (notable for IR depth)
+  ┌────────────────────────────────────────────────────────────────┐
+  │  rustc:  .rs → HIR → THIR → MIR → LLVM IR                     │
+  │          Each IR serves a distinct purpose:                    │
+  │          HIR: desugaring + name resolution                     │
+  │          THIR: type-checked, pattern exhaustiveness            │
+  │          MIR: borrow checker + const eval (CFG-based)         │
+  │          LLVM IR: machine-independent optimization             │
+  │                                                                │
+  │  clang:  C++ → Clang AST → LLVM IR  (2-stage, simpler)        │
+  └────────────────────────────────────────────────────────────────┘
+
+  Incremental compilation (semantic caching)
+  ┌────────────────────────────────────────────────────────────────┐
+  │  Roslyn: SyntaxTree (immutable) + SemanticModel (lazy)         │
+  │          Incremental: syntax + semantic caches per compilation │
+  │          Full compiler-as-a-service API                        │
+  └────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
@@ -57,21 +105,64 @@ TAC:
   z  = t1 * t1
 ```
 
-<!-- @editor[audience/P2]: The bullet-point definitions of CSE, DCE, constant folding, and strength reduction are Dragon Book chapter summaries. This reader took 6.035 and likely wrote these passes. The TAC example is fine as a reference anchor; the glossary-style definitions add nothing. Consider replacing with a note on which passes LLVM runs by default at -O2 vs -O3, or where these show up in the rustc MIR pipeline, rather than defining what they are. -->
+The classic scalar optimizations on TAC — CSE (deduplicate redundant computations), DCE (remove unused results), constant folding (evaluate `2+3` at compile time), strength reduction (replace `x*4` with `x<<2`) — are described in every Dragon Book chapter. What matters in practice is where they run and at what cost:
 
-Three-address code makes dataflow explicit and enables classic optimizations:
-- **CSE**: same expression computed twice → compute once, reuse
-- **Dead code elimination**: result never used → remove the instruction
-- **Constant folding**: `t1 = 2 + 3` → `t1 = 5` at compile time
-- **Strength reduction**: `t1 = x * 4` → `t1 = x << 2`
+```
+LLVM optimization levels (approximate):
+
+  -O1:  Basic DCE, constant folding, mem2reg (SSA promotion),
+        simple inlining, basic jump threading
+        Goal: fast compile, correctness, minimal overhead
+
+  -O2:  Full scalar optimizations + loop optimizations (LICM, unrolling),
+        inlining (size-limited), auto-vectorization, alias analysis
+        Default for release builds; most of the wins are here
+
+  -O3:  Aggressive inlining (higher size threshold), loop vectorization
+        at higher unroll factors, interprocedural analysis
+        Bigger binary, marginally better throughput; rarely worth it over -O2
+
+  -Os / -Oz:  Optimize for size (embedded, WASM); disables unrolling/vectorization
+
+  PGO (-fprofile-generate / -fprofile-use):
+    Profile-guided optimization — lets the compiler make decisions
+    based on real execution data rather than static estimates
+    Most impactful for code with hard-to-predict branching
+
+rustc MIR optimizations (before LLVM):
+  MIR sits between the borrow checker and LLVM lowering.
+  MIR-level passes run before LLVM sees the code:
+    - Inlining of small functions (MIR inliner)
+    - Const propagation (leveraging the const evaluator)
+    - Copy propagation, basic DCE
+    - Promotion of temporaries to static constants
+  Key point: borrow-checker-aware optimizations happen here —
+  the MIR knows about borrows and moves, so passes can exploit
+  the ownership invariants that LLVM IR doesn't see.
+```
 
 ### SSA — Static Single Assignment
 
 SSA is the IR form used by every serious modern compiler (LLVM, GCC, V8 Turbofan, the Rust MIR pipeline, the JVM JIT). It is the single most important concept in modern compiler backends.
 
-<!-- @editor[audience/P1]: "The invariant: every variable is assigned exactly once" is the SSA definition from any compilers textbook. This reader knows SSA; what's interesting is the specifics of LLVM's SSA form (typed, infinite virtual registers, explicit phi placement via mem2reg), how rustc's MIR differs from LLVM IR SSA (regions/borrows encoded in the IR, not just type annotations), and how Turbofan's sea-of-nodes avoids explicit phi nodes entirely. Replace the definitional block with implementation-specific distinctions. -->
+Every variable is assigned exactly once; φ (phi) functions at merge points select among reaching definitions. The important details are in how specific compilers build and use SSA:
 
-**The invariant**: every variable is assigned exactly once. If control flow merges, introduce a φ (phi) function.
+**LLVM's approach — `alloca` + `mem2reg`:**
+
+LLVM frontends do not need to construct SSA directly. The standard pattern:
+1. Emit local variables as `alloca` (stack allocation) instructions
+2. Use `store`/`load` to read and write them (non-SSA)
+3. Run the `mem2reg` pass, which promotes stack allocations to SSA virtual registers
+
+This two-phase approach simplifies the frontend considerably — it can emit straightforward imperative code, and `mem2reg` handles the SSA construction including φ-node placement. The LLVM IR after `mem2reg` is proper SSA; before, it's a mix of SSA for intermediate expressions and stack-based for locals.
+
+**rustc's MIR — SSA from the start:**
+
+MIR is designed as SSA from its initial construction. More importantly, borrows and moves are first-class annotations in MIR, not just type-level metadata. This means borrow-checker-aware optimizations (copy propagation through borrows, elision of redundant clones) can happen in the MIR optimizer before LLVM ever sees the code.
+
+**V8 Turbofan — sea of nodes instead of CFG SSA:**
+
+Turbofan avoids explicit φ nodes entirely. Its "sea of nodes" IR treats control flow as just another edge type — value nodes float freely, ordered only by data dependencies. Scheduling (placing nodes into a linear order for code emission) is a separate late pass. This enables more aggressive global value numbering but makes the IR harder to debug.
 
 ```
 Non-SSA:                           SSA:
@@ -108,7 +199,9 @@ Global value numbering (GVN):
 
 ### φ Functions and the Dominance Tree
 
-<!-- @editor[audience/P2]: The dominance definition and the 4-step SSA construction algorithm are standard compilers course content. This reader likely implemented SSA construction. What would add value here: LLVM's mem2reg pass (which is how LLVM actually builds SSA — allocate locals as alloca, then promote with mem2reg rather than doing direct SSA construction), and why LLVM chose that two-phase approach over direct construction. -->
+Standard SSA construction: compute dominance tree, compute dominance frontiers, insert φ at frontiers, rename variables. This is a standard homework problem; the interesting part is why LLVM chose not to do it directly.
+
+LLVM's `mem2reg` is the practical alternative. Instead of building SSA upfront, frontends emit `alloca`/`store`/`load` for locals, and `mem2reg` promotes them to SSA registers in a single pass. The reason: it decouples the frontend from SSA construction entirely. A new language targeting LLVM can emit correct (if slightly inefficient) code without implementing dominance-frontier-based SSA construction — `mem2reg` handles it. The pass is fast enough that this is not a performance concern.
 
 ```
 Dominance: block A dominates block B if every path from entry to B goes through A.
@@ -340,7 +433,19 @@ tsc Pipeline
             No optimization — output structure mirrors input structure
 ```
 
-<!-- @editor[bridge/P2]: The Binder phase is mentioned but its API surface is not described. Roslyn is called out in the calibration notes as high-value for this reader (they worked on .NET). The parallel is exact: Roslyn's Binder ↔ tsc's Binder; Roslyn's ISymbol ↔ tsc's Symbol; Roslyn's IOperation ↔ tsc's IOperation (added in TS 4.x for tooling APIs). A comparison table — Roslyn concept → tsc equivalent — would be high-value reference content given this reader's background. Currently absent. -->
+**Roslyn ↔ tsc pipeline comparison** (for the .NET background):
+
+| Roslyn | tsc | Role |
+|--------|-----|------|
+| Parser → `SyntaxTree` | Parser → AST | Syntax; immutable in Roslyn, mutable in tsc |
+| Binder | Binder | Name resolution, scope analysis, control flow |
+| `ISymbol` | `Symbol` | Named entities (types, variables, methods) |
+| `IOperation` | IOperation API | Semantic operations (added tsc 4.x for tooling) |
+| `Compilation` | `Program` | The whole compilation unit |
+| Emit (IL / PDB) | Emit (JS / `.d.ts`) | Code generation |
+| `SemanticModel` per file | `TypeChecker` (global) | On-demand semantic queries |
+
+Key difference: Roslyn's `SemanticModel` is per-`SyntaxTree` and lazily computed — you ask for semantics of a node and it computes them. tsc's `TypeChecker` is a global object over the whole `Program`. Roslyn's design enables finer-grained incremental invalidation; tsc's is simpler but re-typechecks broader regions on edits.
 
 ### TypeScript's Incremental Compilation
 
@@ -508,7 +613,35 @@ WASI (WebAssembly System Interface):
   Fastly's Compute@Edge, Cloudflare Workers use WASM + WASI
 ```
 
-<!-- @editor[bridge/P2]: Cranelift is listed in the landscape map but has no section. The calibration notes explicitly call it out as high-value content. Key detail missing: Cranelift is rustc's alternative backend (--codegen=cranelift) that trades optimization quality for compilation speed — it's the reason incremental debug builds in Rust are getting faster. Also used in Wasmtime as the primary JIT and in Firefox's WASM tier. The design choice (simple IR, fast regalloc, no LLVM passes) is the interesting content. -->
+### Cranelift — The Fast-Compile Alternative Backend
+
+Cranelift is a code generation backend designed around fast compilation rather than optimal output. Two production uses: rustc's alternative backend and Wasmtime's primary JIT.
+
+**rustc + Cranelift** (`RUSTFLAGS="-Zcodegen-backend=cranelift"`):
+- Design goals: fast compilation for debug cycles, simple IR, fast register allocation
+- Deliberately skips LLVM's optimization passes — no vectorization, no aggressive inlining, no loop unrolling
+- Trade-off: -O2-quality output is 20–30% slower than LLVM, but debug-build compilation is 2–3× faster
+- The use case: you don't need optimized output for a debug build; you need it to compile fast so the edit-compile-test cycle stays short
+
+**Wasmtime + Cranelift**:
+- Wasmtime (Bytecode Alliance's WASM runtime) uses Cranelift as its tier-1 JIT
+- Firefox uses Cranelift as its WASM baseline compiler (tier 1 before the optimizing tier)
+- Fast validation + fast code generation is the right trade-off for a runtime that needs to start executing WASM modules quickly
+
+```
+Cranelift IR design:
+  Register-based (not stack machine)
+  Explicit SSA from construction (no alloca/mem2reg)
+  Simple instruction set — close to a hardware ISA
+  Fast register allocation: linear scan (not graph coloring)
+  No LLVM-style pass manager — single-pass lowering
+
+  vs LLVM:
+    LLVM: ~100 passes, complex IR, slow to compile, excellent output
+    Cranelift: ~5 passes, simple IR, fast to compile, acceptable output
+    For debug builds: Cranelift wins (fast cycle)
+    For release builds: LLVM wins (optimized output)
+```
 
 ---
 
@@ -602,3 +735,5 @@ MLIR              any       any             Meta-IR framework (Google, multi-lev
 | How JIT beats AOT on peak throughput | Profile-guided speculative optimization unavailable to AOT |
 | Why φ nodes exist | Control flow merges require explicit value selection in SSA |
 | How CompCert differs from GCC | Formally verified (Coq proof) — no miscompilations |
+| When to use Cranelift vs LLVM backend | Cranelift: fast debug cycles; LLVM: optimized release builds |
+| How Roslyn differs from tsc architecturally | Roslyn: per-file SemanticModel, lazy; tsc: global TypeChecker |

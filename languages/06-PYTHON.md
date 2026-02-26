@@ -17,6 +17,65 @@
 
 ---
 
+## Python Execution Model & Ecosystem Landscape
+
+```
+SOURCE                 COMPILATION              RUNTIME
+─────────────────────────────────────────────────────────────────────────
+
+ your_module.py   ──►  CPython compiler  ──►  .pyc bytecode cache
+  (UTF-8 text)          (built into             (__pycache__/)
+                         CPython)
+                                          ──►  CPython VM (interpreter)
+                                               ┌─────────────────────┐
+                                               │  Bytecode evaluator  │
+                                               │  ┌───────────────┐   │
+                                               │  │  GIL          │   │
+                                               │  │ (one thread   │   │
+                                               │  │  runs Python  │   │
+                                               │  │  bytecode at  │   │
+                                               │  │  a time)      │   │
+                                               │  └───────────────┘   │
+                                               │  Reference-counted   │
+                                               │  heap + cycle GC     │
+                                               └─────────────────────┘
+
+ALTERNATIVE RUNTIMES:
+  CPython  — default, C implementation, the GIL lives here
+  PyPy     — JIT compiler, 5-10x faster for CPU-bound loops, same .py source
+  Jython   — runs on JVM, true threads (no GIL), Java interop
+  GraalPy  — GraalVM polyglot, experimental
+
+─────────────────────────────────────────────────────────────────────────
+C# COMPARISON: IL → CLR JIT → native code (true OS threads, no GIL)
+Python:        .py → bytecode → interpreter (GIL limits thread parallelism)
+
+GIL IMPACT ON CONCURRENCY:
+  I/O-bound work   → threading or asyncio works fine (GIL released on I/O)
+  CPU-bound work   → use multiprocessing (separate processes, each with own GIL)
+                     or PyPy, or C extensions that release the GIL (NumPy does)
+  Python 3.13+     → experimental "free-threaded" build (--disable-gil) available
+
+─────────────────────────────────────────────────────────────────────────
+PACKAGING ECOSYSTEM:
+
+ pyproject.toml          ← project metadata + dependencies (PEP 517/518)
+ (or setup.py legacy)
+       │
+       ▼
+   pip / uv / poetry     ← installers / resolvers
+       │
+       ▼
+  PyPI (pypi.org)        ← package registry (like NuGet)
+       │
+       ▼
+  .venv/  (virtualenv)   ← isolated environment per project
+  site-packages/         ← installed packages live here
+
+  Wheel (.whl)  — pre-built binary distribution (fast install)
+  sdist (.tar.gz) — source distribution (requires build step)
+```
+
 ## Syntax Reference Card
 
 ### Variables & Types
@@ -356,3 +415,88 @@ class AppError(Exception):
 | `using` / `IDisposable` | `with` / `__enter__`/`__exit__` | Different protocol |
 | Mutable default arguments safe | **Mutable default args are shared!** | `def f(x=[])` — `x` is ONE list shared across calls |
 | `async Task<T>` | `async def` returns coroutine | Must `await` or use `asyncio.run()` |
+
+---
+
+## When to Choose Python
+
+| Scenario | Python | C# | Reason |
+|----------|--------|----|--------|
+| Data science / ML / AI | **Yes** — numpy, pandas, PyTorch, scikit-learn | No real ecosystem | Python is the lingua franca of ML research and production. No competition. |
+| Scripting / automation / glue | **Yes** — batteries-included stdlib, dynamic typing speeds iteration | Possible but verbose | `pathlib`, `subprocess`, `requests`, `json` out of the box. Dynamic typing is an asset for one-off scripts. |
+| ML-integrated web backend | **Yes** — FastAPI + PyTorch in one process | Awkward — need ML service boundary | When your API serves model inference, avoiding a cross-process boundary simplifies architecture. |
+| CRUD web API | Solid (FastAPI/Django) | Equally solid (.NET) | Coin-flip. C# wins on type safety and performance; Python wins on iteration speed and ML integration. |
+| CPU-bound parallelism | **No** — GIL forces multiprocessing (process overhead) | **Yes** — true OS threads, no GIL | C# `Task`/`Parallel` is simpler and more efficient for CPU-bound parallel work. Python `multiprocessing` works but has serialization overhead. |
+| I/O-bound concurrency | Yes — `asyncio` is first-class | Yes — `async`/`await` is first-class | Both are excellent. GIL is released during I/O, so Python threading also works for I/O-bound. |
+| Large team codebase (long-lived) | Caution — dynamic typing at scale requires mypy/pyright discipline | **Yes** — static typing catches errors at compile time | Python with type hints + strict mypy is manageable but requires team discipline. C# is more forgiving of large teams. |
+| DevOps / infrastructure scripts | **Yes** — Ansible, Fabric, cloud SDKs all Python-first | Possible but rare | AWS/GCP/Azure SDKs are Python-first. The ecosystem gravity is Python for ops automation. |
+| CLI tools / utilities | Yes (argparse, click, typer) | Yes (.NET) | Python wins on distribution simplicity (`pipx install`); C# wins if already a .NET shop. |
+
+**The short version**: Python owns data science/ML with no competition. It's a strong default for scripting, automation, and rapid-iteration backends. Reach for C# when you need static type guarantees at scale, CPU-bound performance, or are already in a .NET shop.
+
+---
+
+## Decision Cheat Sheet
+
+### Sequence type: `list` vs `tuple` vs generator expression
+
+| Type | Use when | Key property |
+|------|----------|-------------|
+| `list` | You need to mutate, append, or reorder | Mutable, O(1) append, O(n) insert |
+| `tuple` | Fixed structure — record, return value, dict key | Immutable, hashable (if elements are), slightly faster |
+| Generator `(x for x in ...)` | Sequence is large or infinite; you only iterate once | Lazy — values computed on demand, O(1) memory |
+| `range` | Integer sequences | Lazy, O(1) memory, supports `len()` and indexing |
+
+### Mapping type: `dict` vs `defaultdict` vs `Counter` vs `dataclass`
+
+| Type | Use when |
+|------|----------|
+| `dict` | General key-value store; keys are known or arbitrary |
+| `collections.defaultdict(list)` | Building a dict of lists/sets without `setdefault` noise |
+| `collections.Counter` | Frequency counting; supports `.most_common()`, arithmetic |
+| `dataclass` | Typed record with named fields; want `__repr__`, `__eq__` for free |
+| `NamedTuple` | Immutable typed record; want tuple unpacking + named access |
+
+### Concurrency model: `asyncio` vs `threading` vs `multiprocessing`
+
+| Model | Use when | C# analogy |
+|-------|----------|------------|
+| `asyncio` (single-threaded event loop) | I/O-bound; many concurrent connections; you control all the code | `async`/`await` with `Task` — same mental model |
+| `threading` | I/O-bound; need to integrate blocking libraries (GIL released on I/O) | `Thread` / `ThreadPool` |
+| `multiprocessing` | CPU-bound; need true parallelism; accept serialization overhead | `Parallel.For` / `Task.Run` on separate cores |
+| `concurrent.futures.ProcessPoolExecutor` | CPU-bound with a cleaner API than raw `multiprocessing` | `Task.Run` with a pool |
+
+**GIL rule of thumb**: If work is CPU-bound and Python code (not C extension), `threading` gives you concurrency (context switching) but not parallelism. Use `multiprocessing`.
+
+### Attribute access: `@property` vs plain attribute vs `__slots__`
+
+| Approach | Use when |
+|----------|----------|
+| Plain attribute `self.x = v` | Simple data storage; no validation needed |
+| `@property` | Computed value, validation on set, lazy initialization, backward-compatible API change |
+| `__slots__ = ['x', 'y']` | High-volume objects (millions of instances); want to ban arbitrary attribute addition; memory optimization |
+
+### String formatting: f-string vs `.format()` vs `%`
+
+| Style | Use when |
+|-------|----------|
+| `f"Hello {name}"` | Default — modern Python 3.6+, readable, fast |
+| `"{name}".format(name=n)` | Template strings stored as variables; Python 2 compat |
+| `"Hello %s" % name` | Legacy — reading old code only; do not write new |
+| `string.Template` | User-supplied templates (safer — no arbitrary expressions) |
+
+### Type checking: `mypy` vs `pyright`
+
+| Tool | Use when |
+|------|----------|
+| `pyright` (Pylance) | VS Code / integrated in editors; faster, stricter by default; Microsoft-backed |
+| `mypy` | CI pipelines; longest track record; more ecosystem plugins |
+| Both | Large codebases — run `pyright` in editor + `mypy` in CI |
+
+### Dependency management: `pip` vs `uv` vs `poetry`
+
+| Tool | Use when |
+|------|----------|
+| `pip` + `venv` | Simplest; works everywhere; no extras |
+| `uv` | New projects — Rust-based, 10-100x faster than pip, supports lockfiles |
+| `poetry` | Projects requiring publishing to PyPI; integrated build + publish workflow |

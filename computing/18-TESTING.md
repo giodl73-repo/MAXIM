@@ -41,7 +41,7 @@ The Testing Trophy (modern take on the pyramid)
   (Kent C. Dodds framing — widely adopted in JS ecosystem)
 ```
 
-<!-- @editor[bridge/P2]: The trophy vs. pyramid distinction deserves a direct bridge for this reader. They built VSTS testing infrastructure around the classic pyramid (many unit tests, some integration, few E2E). The trophy's inversion — favoring integration over unit — was a reaction to the "mock trap" (heavy mocking producing tests that pass while integrations break). Worth one sentence: "If you built around the classic pyramid: the trophy doesn't discard it — it shifts weight from heavily-mocked unit tests toward integration tests that exercise real wiring, because JS/TS mocking was historically overused in ways that gave false confidence." -->
+**Trophy vs. Pyramid — the inversion bridge.** The classic Testing Pyramid (many unit tests at the base, few E2E at the top) was the reigning doctrine through the VSTS/MSTest era — and it was sound for .NET, where module boundaries are explicit, interfaces are stable, and Moq or NSubstitute let you mock at seams that actually map to real contracts. The Trophy's inversion — weighting integration tests heavier than unit tests — is a reaction to a specific JS/TS ecosystem pathology: modules export plain functions and objects, there are no interface contracts, and `vi.mock()` lets you mock *anything* at zero friction. That frictionlessness led to test suites full of mocks that tested the mocks, not the behavior. Integration tests that wire real modules together are harder to over-mock. The Trophy doesn't discard unit tests — it corrects an overuse pattern specific to JS. For a codebase with clean boundaries and disciplined mocking, the pyramid and the trophy converge.
 
 ---
 
@@ -512,7 +512,132 @@ npx playwright codegen http://localhost:3000  # record clicks → generate code
 
 ## Contract Testing — Pact
 
-<!-- @editor[content/P1]: Contract testing (Pact) appears in the landscape diagram but has no section in the file. The calibration notes specifically call this out: "no direct .NET contract testing equivalent (Pact is new)." This is the one testing concept in the landscape where there's no prior art to bridge from — it deserves a section with the consumer-driven contracts concept, a minimal Pact example, and a note that the .NET world had no equivalent (the closest was WCF WSDL contracts, which were provider-driven not consumer-driven). Without this section, the landscape diagram promises content that doesn't exist. -->
+### The Problem Contract Testing Solves
+
+In a microservices architecture, the mock divergence problem from Era 2 testing (19-TESTING-EVOLUTION) has a specific, nasty form: Service A's tests mock Service B. Service B's API changes. Service A's mocks don't. Both test suites pass. Production breaks.
+
+The standard fix — integration tests against a real deployed Service B — reintroduces environment coupling: you need a running instance of B to test A. Contract testing breaks that dependency.
+
+### Consumer-Driven Contracts
+
+The consumer (the caller) defines what it actually uses from the provider's API — not the full spec, just the subset it depends on. That definition is the *contract*. The provider verifies it can satisfy the contract, independently, without the consumer running.
+
+```
+Consumer-Driven Contract Flow
+==============================
+
+  Consumer test                      Provider verification
+  ══════════════                     ═════════════════════
+
+  1. Write consumer test             3. Pull contract from Pact Broker
+     using Pact mock server             (or local file)
+     (no real provider needed)
+                                     4. Replay each interaction
+  2. Test generates a                   against the REAL provider
+     .pact JSON file:                   (actual running service)
+     {
+       "consumer": "frontend",       5. Verify response matches
+       "provider": "order-api",         contract expectations
+       "interactions": [
+         {
+           "request":  { POST /orders, body },
+           "response": { status: 201, body }
+         }
+       ]
+     }
+         |
+         v
+     Pact Broker
+     (shared registry)
+         |
+         v
+     Provider CI pulls and verifies
+
+  Provider CI fails if it breaks any consumer's contract.
+  Consumer CI fails if provider can't satisfy it.
+  No shared environment. No mocks that drift.
+```
+
+### Pact in Practice (TypeScript)
+
+```typescript
+// consumer test — generates the pact file
+import { PactV3, MatchersV3 } from "@pact-foundation/pact";
+import { like, integer } from "@pact-foundation/pact/src/v3/matchers";
+import { OrderApiClient } from "./orderApiClient";
+
+const provider = new PactV3({
+  consumer: "checkout-frontend",
+  provider: "order-api",
+  dir: "./pacts",
+});
+
+describe("OrderApiClient", () => {
+  it("creates an order", async () => {
+    await provider
+      .given("product prod_123 exists")
+      .uponReceiving("a request to create an order")
+      .withRequest({
+        method: "POST",
+        path: "/orders",
+        headers: { "Content-Type": "application/json" },
+        body: { productId: "prod_123", quantity: 2 },
+      })
+      .willRespondWith({
+        status: 201,
+        body: {
+          id: like("ord_abc"),          // string, exact value flexible
+          status: "pending",
+          quantity: integer(2),
+        },
+      })
+      .executeTest(async (mockServer) => {
+        const client = new OrderApiClient(mockServer.url);
+        const order = await client.createOrder({ productId: "prod_123", quantity: 2 });
+        expect(order.status).toBe("pending");
+      });
+  });
+});
+// Running this test writes: ./pacts/checkout-frontend-order-api.json
+```
+
+```typescript
+// provider verification — no consumer code needed
+import { Verifier } from "@pact-foundation/pact";
+
+describe("Order API provider verification", () => {
+  it("satisfies all consumer contracts", () => {
+    return new Verifier({
+      provider: "order-api",
+      providerBaseUrl: "http://localhost:3001",   // real running service
+      pactBrokerUrl: "https://your-pact-broker",
+      publishVerificationResult: true,
+      providerVersion: process.env.GIT_SHA,
+    }).verifyProvider();
+  });
+});
+```
+
+### .NET Prior Art (or Lack of It)
+
+WCF contracts were provider-driven — the provider published a WSDL, consumers generated stubs from it. Consumer-driven contracts invert that: the consumer asserts what it needs, and the provider must satisfy those assertions. There's no direct .NET equivalent from the pre-cloud era. Pact does have a .NET SDK (`PactNet`) with the same model, so the pattern translates directly if you need it on the server side.
+
+### Pact Broker
+
+The Pact Broker is the shared registry that makes the flow work across teams:
+
+```
+Consumer CI  →  publish pact file  →  Pact Broker
+                                           |
+Provider CI  ←  pull pact files    ←──────┘
+     |
+     └── verify → publish results → Pact Broker
+                                           |
+Consumer CI  ←  can-i-deploy check ←──────┘
+  (blocks deploy if provider hasn't verified current contract)
+```
+
+`pact-broker can-i-deploy` is the gate: "Has the version of the provider I'm about to call verified it can satisfy my current contract?" Self-hosted or managed via PactFlow.
 
 ---
 
@@ -608,6 +733,7 @@ Playwright has built-in auto-waiting — locators automatically wait for element
 | Coded UI Tests | Playwright (same concept, much better DX) |
 | Code coverage (dotCover / OpenCover) | Vitest coverage (v8 / istanbul) |
 | Test Explorer in Visual Studio | Vitest UI (`vitest --ui`) |
+| WCF WSDL contracts (provider-driven) | Pact (consumer-driven — inverted model) |
 
 ---
 
@@ -628,3 +754,4 @@ Playwright has built-in auto-waiting — locators automatically wait for element
 | Code coverage | Vitest `--coverage` with v8 provider |
 | Generate test code from clicking | `playwright codegen` |
 | Run only tests matching a pattern | `vitest run utils` or `playwright test checkout` |
+| API contract between services | Pact (consumer-driven contract testing) |

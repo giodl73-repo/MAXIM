@@ -27,7 +27,66 @@ One question drives all rendering strategy decisions: **where and when is HTML g
   The skill is knowing which page/route needs which strategy.
 ```
 
-<!-- @editor[diagram/P1]: The calibration note calls a rendering pipeline diagram "critical" — showing for each mode: where HTML originates, when JS executes, what the browser receives, and when the page becomes interactive. The spectrum above shows WHEN but not the HOW of each pipeline. Add a side-by-side pipeline diagram: for SSG/SSR/CSR/RSC, show the sequence (build/request/browser steps) with timing arrows. This is the mental model gap the learner most needs filled. -->
+### Rendering Pipeline — Where HTML Originates, When JS Runs, When Interactive
+
+This is the core mental model. For each mode, trace the pipeline from request to interaction:
+
+```
+MODE       WHERE HTML           BROWSER RECEIVES        JS EXECUTES        TTI
+------     ----------------     -------------------     -----------        ---
+SPA/CSR    Client (browser)     Empty shell + bundle    On load (heavy)    Slow
+                                                         After API fetch
+           Timeline:
+           0ms    Request
+           50ms   Empty HTML arrives (FCP = nothing yet)
+           300ms  JS bundle downloads
+           400ms  React initializes, starts API fetch
+           700ms  API responds, React renders
+           750ms  User sees content AND can interact   ← FCP = TTI here
+
+SSR        Server (per          Full HTML with data     After HTML         Medium
+           request)             + JS bundle for         arrives (hydration)
+                                hydration
+           Timeline:
+           0ms    Request
+           150ms  Server fetches DB + renders HTML
+           150ms  Full HTML arrives → FCP (fast, user sees content)
+           450ms  JS bundle downloads + hydrates
+           450ms  TTI ← 300ms gap where page is visible but not interactive
+
+SSG        Build step (once)    Pre-built HTML          After HTML         Fast
+           served from CDN      from CDN + JS           (hydration,        (near SSR)
+                                bundle                  but fast CDN)
+           Timeline:
+           0ms    Request hits CDN edge
+           20ms   Pre-built HTML arrives → FCP (extremely fast)
+           320ms  JS bundle downloads + hydrates → TTI
+
+ISR        Build step + bg      Stale-or-fresh HTML     After HTML         Fast
+           regeneration         from CDN + JS bundle    (hydration)        (near SSG)
+           (stale-while-
+           revalidate)
+
+RSC        Server (component-   Full HTML (server       Only "use client"  Fast
+           level split)         components) + small     components         (minimal JS)
+                                JS bundle (client       hydrate; server
+                                components only)        components never
+                                                        send JS at all
+
++--------------------------------------------------------------------+
+| KEY TRADEOFFS                                                      |
+|                                                                    |
+| Mode  | TTFB      | FCP   | TTI   | Fresh data | SEO | Hosting    |
+|-------|-----------|-------|-------|------------|-----|------------|
+| CSR   | Fast(CDN) | Slow  | Slow  | Always     | ⚠️  | CDN only   |
+| SSR   | Med-slow  | Fast  | Med   | Always     | ✅  | Server req |
+| SSG   | Fast(CDN) | Fast  | Med   | Build-time | ✅  | CDN only   |
+| ISR   | Fast(CDN) | Fast  | Med   | ~Window    | ✅  | Server+CDN |
+| RSC   | Med       | Fast  | Fast  | Always     | ✅  | Server req |
++--------------------------------------------------------------------+
+```
+
+The FCP–TTI gap is the "uncanny valley" — visible but not clickable. SSR has this gap; CSR and RSC minimize it for different reasons (CSR has no gap because content arrives when JS is ready; RSC reduces the hydration surface).
 
 ---
 
@@ -87,7 +146,7 @@ Before the patterns: the metrics that drive these decisions.
 
 ## Traditional Server Rendering (The Baseline)
 
-This is what you know from ASP.NET MVC / Razor Pages.
+This is what you know from ASP.NET MVC / Razor Pages. Modern SSR is the same model — just React components instead of Razor templates.
 
 ```
   REQUEST → SERVER PROCESSING → FULL HTML RESPONSE
@@ -113,6 +172,8 @@ This is what you know from ASP.NET MVC / Razor Pages.
 ```
 
 This is Razor Pages, MVC views, PHP, Django templates. Still valid. Still used. The "modern" patterns are largely about solving the limitations of full-page reloads while keeping SSR benefits.
+
+**ASP.NET MVC IS server-side rendering.** Every Next.js SSR page does exactly what your MVC controllers do: receive a request, fetch data, render markup, return HTML. The difference is component-based rendering (React tree) instead of template rendering (Razor), and that the first load can then transition to a SPA for subsequent navigation. SPA/CSR is the opposite end: the server sends an empty shell and the browser does all the rendering. ISR is output caching — `export const revalidate = 60` in Next.js is architecturally identical to `[OutputCache(Duration=60)]` in ASP.NET.
 
 ---
 
@@ -232,7 +293,7 @@ Hydration is the process of taking static HTML (from SSR or SSG) and making it i
   Astro's islands architecture does this.
 ```
 
-<!-- @editor[bridge/P2]: Hydration has a direct ASP.NET analog worth making explicit: UpdatePanel (WebForms) tried to solve partial-page interactivity server-side; ScriptManager managed JS on the page. The modern hydration model is the inversion of that — ship the HTML first, attach behavior after. Also: ASP.NET Blazor Server uses a SignalR-backed model that is conceptually similar to SSR+hydration but keeps UI state on the server. That contrast (Blazor Server vs Next.js SSR hydration) would sharpen the mental model for this reader. -->
+**Blazor comparison**: ASP.NET Blazor Server uses a SignalR-backed model that maintains UI state on the server and pushes DOM diffs to the client — structurally inverted from Next.js SSR hydration, which moves state to the client after the first render. Blazor WASM is closer to CSR: .NET runtime in the browser. The key inversion: Blazor keeps state server-side and pushes updates; Next.js SSR initializes state server-side and then hands ownership to the client after hydration.
 
 ---
 
@@ -313,7 +374,7 @@ Next.js invention. SSG pages that automatically regenerate in the background whe
   Stale window reduced from minutes to seconds.
 ```
 
-<!-- @editor[bridge/P2]: ISR is the closest modern analog to ASP.NET's OutputCache with sliding expiration and VaryByParam. The `[OutputCache(Duration=60, VaryByParam="id")]` pattern is exactly what ISR + on-demand revalidation replicates. Worth a one-line explicit call-out here since the learner has that mental model already. The bridge table at the end lists this mapping, but it's more useful inline where the concept is introduced. -->
+**ASP.NET OutputCache bridge**: ISR is the direct equivalent of `[OutputCache(Duration=60, VaryByParam="id")]` in ASP.NET MVC. Both serve a cached rendered response and refresh it in the background (or on expiry). On-demand revalidation maps to cache invalidation via `OutputCache.RemoveOutputCacheItem()`. The mental model is identical — the mechanism is just at the CDN/framework layer instead of the web server layer.
 
 ---
 
@@ -410,9 +471,9 @@ The newest model. Not "SSR" in the traditional sense — a fundamentally differe
   }
 ```
 
-**RSC trade-offs**: More powerful architecture, significantly more complex mental model. The "use client" boundary requires careful thought. Still maturing in 2026.
+**RSC has no .NET equivalent.** The closest mental model is a View Component (server-rendered, data-fetching, composable into a page), but that analogy breaks down at the key innovation: a Server Component is never a JS hydration target. Its output is HTML that arrives in the stream — no corresponding JavaScript module is ever sent to the browser. All prior frameworks you know (Razor, Blazor WASM, WebForms, even Blazor Server) have a unified rendering model per page: either the whole page is server-rendered or the whole page is client-rendered. RSC breaks that assumption at the component level — some nodes in the component tree are server-only, others are client-only, and they compose freely. The "use client" boundary is the architectural novelty: it marks the point where server rendering hands off to client hydration within a single page render.
 
-<!-- @editor[bridge/P2]: RSC has no good .NET equivalent, but the closest mental model is ASP.NET View Components (server-rendered, data-fetching, composable into a page) versus partial views (server-rendered templates) versus Ajax-loaded partials (client-fetched). The distinction RSC introduces — some components are never JS, only HTML — is genuinely novel. Worth a brief note: "This has no .NET equivalent. The closest mental model is a View Component that can be composed freely but whose output is never a JS hydration target." The learner's prior art makes RSC harder to grasp because all prior frameworks (Razor, Blazor WASM, WebForms) have a unified rendering model per page. RSC breaks that assumption. -->
+**RSC trade-offs**: More powerful architecture, significantly more complex mental model. The "use client" boundary requires careful thought. Still maturing in 2026.
 
 ---
 
@@ -548,7 +609,7 @@ Next.js implements every pattern, per route.
   +----------+--------+--------+---------+---------+--------+
 ```
 
-<!-- @editor[content/P2]: This comparison table omits RSC and Islands, which are covered in depth above. Either add columns for them or add a note explaining why they're excluded (they operate at the component level, not the page level, so they don't fit cleanly into this matrix). The learner will notice the gap. At minimum, a one-line callout: "RSC and Islands don't appear here because they operate at the component level — they compose with the page-level strategies above rather than replacing them." -->
+**RSC and Islands don't appear in this table** because they operate at the component level, not the page level. They compose with the page-level strategies above rather than replacing them: a Next.js page can be SSR or ISR at the page level while using RSC internally to split server vs. client components. Islands (Astro) applies the same idea — the page is SSG, individual interactive components are selectively hydrated. Think of RSC and Islands as a second axis of control, orthogonal to the page-level SSR/SSG/ISR decision.
 
 ---
 
@@ -662,18 +723,17 @@ Next.js implements every pattern, per route.
 | Razor Pages / MVC Views | SSR (Next.js) | Same model: server renders HTML per request |
 | ASPX / WebForms | SSR + heavy client JS | WebForms had server-side state; closest modern = SSR + RSC |
 | Response caching / OutputCache | ISR / CDN caching | Cache rendered output, invalidate on change |
+| `[OutputCache(Duration=60)]` | `export const revalidate = 60` | ISR stale-while-revalidate; direct equivalent |
+| `[OutputCache(VaryByParam="id")]` | ISR per route segment | Per-URL caching with revalidation |
 | CDN / Azure CDN | SSG served from CDN | Same concept, now HTML instead of just assets |
-| Blazor Server | SSR + SignalR | Server renders, client updates via WebSocket |
+| Blazor Server | SSR + SignalR | Server renders, client updates via WebSocket; state stays server-side |
 | Blazor WASM | SPA/CSR | Full .NET runtime in browser, like React SPA |
-| `@Html.RenderPartial()` | React components / RSC | Composable server-rendered units |
-| `[OutputCache(Duration=60)]` | `export const revalidate = 60` | ISR equivalent |
-| View components | React Server Components | Server-rendered, data-fetching components |
+| `@Html.RenderPartial()` | React components | Composable server-rendered units |
+| View Components | React Server Components (closest analog) | Server-rendered, data-fetching components — but RSC has no JS sent at all, which View Components do not claim |
 | Ajax UpdatePanel | React state + fetch | Partial page update without full reload |
 | JavaScript bundling (System.Web.Optimization) | Vite / Next.js bundling | Same problem, modern solution |
 | Azure Static Web Apps | Vercel / Netlify (SSG hosting) | Deploy SSG output to global CDN |
 | Azure App Service (Node.js) | Vercel / Railway / Fly.io | Host SSR Next.js server |
-
-<!-- @editor[structure/P2]: The bridge table is placed at the end, after Common Confusion Points. In 01-PACKAGE.md (the gold standard), the bridge is integrated inline near relevant concepts OR placed before the Decision Cheat Sheet. Here it follows Common Confusion Points, breaking the established section order. Move bridge before Common Confusion Points to match the pattern used by 07-STATE.md, 08-BACKEND.md, 09-DATABASE.md, and 10-AUTH.md (all place bridge → then Decision Cheat Sheet last). -->
 
 ---
 

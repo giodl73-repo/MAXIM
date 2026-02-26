@@ -5,19 +5,52 @@
 The theory lives in the textbooks. This guide maps it to the production languages you interact with and the design decisions embedded in their type systems. Lambda calculus, the Curry-Howard correspondence, Hindley-Milner, subtyping, linear types — all of it is assumed known. The question is: where does it appear, what does it explain, and what does it predict?
 
 ```
-Theory → Production Language Mapping
-======================================
+TYPE SYSTEM EXPRESSIVENESS LATTICE
+====================================
 
-  STLC + type inference (HM)         Haskell, OCaml, F#, Elm
-  System F (rank-2 polymorphism)     Haskell forall, Scala type params
-  Structural subtyping               TypeScript, OCaml structural types
-  Nominal subtyping                  Java, C#, Swift (class hierarchy)
-  Linear / affine types              Rust (ownership + move semantics)
-  Dependent types                    Idris, Agda, Coq, Lean 4
-  Row polymorphism                   OCaml polymorphic variants, Elm
-  Gradual typing                     TypeScript, Python type hints, Typed Racket
-  Effect systems                     Koka, Effekt (research), async/await (partial)
-  Algebraic effects                  OCaml 5 effects, Koka
+  More expressive →→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→
+  Less decidable →→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→→
+
+  STLC ──→ HM ──→ System F ──→ Fω ──→ CoC ──→ MLTT
+    │         │        │          │       │       │
+    │         │        │          │       │       └─ Lean 4, Agda
+    │         │        │          │       └───────── Coq, Agda
+    │         │        │          └───────────────── Haskell + TypeFamilies
+    │         │        └──────────────────────────── Haskell + RankNTypes
+    │         │                                       GHC Core (System F + coercions)
+    │         └────────────────────────────────────── OCaml, Haskell, F#, Elm
+    └──────────────────────────────────────────────── toy languages
+
+  Level       You gain                  You lose              Production language
+  ──────────  ────────────────────────  ────────────────────  ──────────────────
+  STLC        Base types + A → B        Polymorphism          (toy)
+  HM          Let-polymorphism          —                     OCaml, F#, Haskell core
+              Complete inference
+  System F    Rank-n polymorphism       Type inference        Haskell (RankNTypes)
+              Explicit ∀               decidability          GHC Core IR
+  Fω          Type operators            —                     Haskell (TypeFamilies)
+              Type-level functions                            Scala 3 type lambdas
+  CoC         Dependent products        Decidable             Coq, Agda
+              Proofs are programs       typechecking in
+                                        general
+  MLTT        Proof-relevant types      Normalization         Lean 4, Agda
+              Univalence (HoTT)         decidability in
+                                        full generality
+
+  GHC extension → type system level:
+    {-# LANGUAGE RankNTypes #-}      → System F (rank-2+ polymorphism)
+    {-# LANGUAGE TypeFamilies #-}    → Fω (type-level functions)
+    {-# LANGUAGE DataKinds #-}       → limited dependent types (kind-level data)
+    {-# LANGUAGE GADTs #-}           → bounded System Fω
+    {-# LANGUAGE TypeInType #-}      → kinds are types (approaching CoC)
+
+  Why GHC Core is System F with coercions, not Fω:
+    GHC Core uses explicit coercions (type-equality witnesses) rather than
+    type-level functions to handle GADTs and newtypes. A GADT pattern match
+    produces a coercion proof that two types are equal; the coercion is
+    erased at runtime but must be justified in Core. This keeps GHC Core
+    in the decidable fragment while still handling GADTs expressively.
+    Coercions also enable zero-cost newtype wrapping/unwrapping.
 ```
 
 ---
@@ -53,68 +86,50 @@ Call-by-push-value (CBPV — Levy 1999):
   Emerging in effect system research (Koka, Effekt)
 ```
 
-### Closures Are Lambda Terms
+### Closures — Implementation Details
 
-A JavaScript closure is a lambda term with its environment (the free variables captured by reference in JS, by value in Rust moves):
+A closure is a lambda term paired with its captured environment. The interesting part is how different languages implement that pairing:
 
-```javascript
-// λx. λy. x + y  — curried addition
-const add = x => y => x + y;
-const add5 = add(5);   // partial application = β-reduction stopped early
-add5(3);               // 8
+**Heap-allocated closure record (V8, most JITs):** A closure is a pair of (function pointer, environment record). The environment record is heap-allocated and holds the captured variables as fields. Capturing N variables = N fields in the record. The GC keeps the record alive as long as the closure is reachable.
 
-// The closure `add5` captures x=5 in its environment.
-// In LLVM/V8: implemented as a heap-allocated pair (function pointer, env record)
-```
+**Rust's capture strategy** — determined by usage, not declaration:
+- `|x| x + n` where `n` is in scope: the compiler determines whether to capture `n` by shared reference (`&n`) or exclusive reference (`&mut n`) based on how `n` is used inside the closure
+- `move |x| x + n`: force-captures `n` by value (moves it into the closure) — the closure owns its environment, which makes it `'static` (can be sent across threads)
+- Non-capturing closures (`|x| x + 1`): no environment record — compiled to a plain function pointer, zero allocation
 
 ```rust
-// Rust closures: environment captured by move (affine) or borrow
-let x = 5;
-let add5 = move |y| x + y;   // moves x into closure — x is consumed (affine)
-let add5_ref = |y| x + y;    // borrows x — x must outlive the closure
+let n = 5;
+
+// Capturing by reference — closure borrows n
+let add_n = |x| x + n;       // type: impl Fn(i32) -> i32
+                              // layout: (fn_ptr, &n)
+
+// Capturing by move — closure owns n
+let add_n = move |x| x + n;  // type: impl Fn(i32) -> i32
+                              // layout: (fn_ptr, n: i32) — n moved in
+
+// Non-capturing — zero-cost, function pointer
+let inc = |x: i32| x + 1;   // coerces to fn(i32) -> i32, no allocation
 ```
 
-The difference between Rust's `move` and borrow closures is exactly the difference between linear (consume once) and unrestricted (use many times) lambda terms.
+The zero-cost claim: a non-capturing Rust closure is identical to a named function at the machine code level. This is why closures as callbacks in Rust don't impose overhead when the captured environment is empty.
 
 ---
 
 ## The Type Theory Hierarchy
 
-```
-Type System Expressiveness (ascending power, ascending complexity)
-===================================================================
+STLC, HM, System F, Fω, CoC, MLTT — you proved these theorems. One line each:
 
-  Simply Typed Lambda Calculus (STLC)
-    Types: base types + A → B
-    Normalization: all well-typed terms terminate
-    Weakness: no polymorphism — must write separate `map` for each type
+- **STLC**: base types + function arrows, no polymorphism, all terms normalize
+- **HM**: adds let-polymorphism with complete inference (Algorithm W); the sweet spot for production languages
+- **System F**: explicit ∀, rank-n polymorphism, inference undecidable in general — HM is the rank-1 fragment
+- **Fω**: adds type operators (type-level functions), basis for Haskell's kind system
+- **CoC**: terms and types unified, dependent products, the λ-cube corner — Coq's core
+- **MLTT**: proof-relevant identity types, univalence in HoTT — Lean 4, Agda
 
-  Hindley-Milner (ML type system)
-    Adds: let-polymorphism (∀α. α → α)
-    Complete type inference (Damas-Milner Algorithm W)
-    Used in: Haskell, OCaml, F#, Elm, early Rust
+GHC extension to type system level mapping is in the landscape diagram above. The key design choice repeated below:
 
-  System F (Girard-Reynolds)
-    Explicit universal quantification: Λα. λx:α. x  (polymorphic identity)
-    More expressive than HM — rank-2 and higher-rank polymorphism
-    Type inference undecidable in general (HM is rank-1 fragment)
-    Used in: Haskell's forall, GHC Core (the internal IR)
-
-  System Fω
-    Adds: type operators (type-level functions)
-    λα:*. α × α  — a type operator taking a type, returning a pair type
-    Foundation for Haskell's kind system and type classes
-
-  Calculus of Constructions (CoC)
-    Unifies types and terms: terms can appear in types
-    The λ-cube corner with both dependent products and polymorphism
-    Used in: Coq, Agda (the core type theory)
-
-  Dependent Type Theory (Martin-Löf ITT)
-    Types can depend on values: Vec n α — vector of length n
-    Proofs are programs (Curry-Howard at full scale)
-    Used in: Agda, Idris, Lean 4, Coq
-```
+**Why GHC chose System F + coercions over Fω for GHC Core:** Type-level functions (Fω) require type-level beta reduction during type checking, which complicates the metatheory and the implementation. Coercions keep the core calculus simpler — each type equality is an explicit proof term (a coercion) that witnesses the equality at a specific point in the derivation. The cost: GADTs and newtypes generate coercions that must be tracked through the IR. The benefit: GHC Core's metatheory is well-studied and its type checking is decidable.
 
 ### Curry-Howard in Production
 
@@ -157,35 +172,18 @@ HM is the sweet spot: complete inference + principal types + decidable. Understa
 
 ### Algorithm W
 
+You implemented Algorithm W. The derivation for `f x = x + 1` — assign type variables, generate constraints, unify, generalize — is a standard homework problem. The short version:
+
 ```
-Unification-based inference:
-  Generate constraints from the AST
-  Unify constraints (Robinson unification)
-  Extract a substitution
+Unification-based inference summary:
+  1. Assign fresh type variables to unknowns
+  2. Generate equality constraints from the AST structure
+  3. Unify (Robinson unification — most general unifier)
+  4. Generalize free variables at let-bindings (let-polymorphism)
 
-  f x = x + 1
-
-  Step 1: Assign fresh type variables
-    f : α
-    x : β
-    (+) : Int → Int → Int
-    1 : Int
-
-  Step 2: Generate constraints from application
-    f x → α = β → γ  (f is a function taking x)
-    x + 1 → β = Int, Int = Int, γ = Int
-
-  Step 3: Unify
-    β = Int, γ = Int, α = Int → Int
-
-  Step 4: Generalize (let-polymorphism)
-    If f is defined in a let-binding, free type variables get universally quantified
-    f : ∀β. β → β  (only if β not constrained by context)
-
-Principal type theorem:
-  If a term is typeable, Algorithm W finds its most general type.
-  "Most general" = every other valid type is an instance of it.
-  This is why OCaml/Haskell can infer types you didn't write.
+Principal type theorem: if a term is typeable, W finds its most general type.
+"Most general" = every other valid type is a substitution instance of it.
+This is why OCaml/Haskell infer types you didn't write.
 ```
 
 ### Where TypeScript Diverges from HM
@@ -211,6 +209,45 @@ TypeScript has HM-style inference but deliberately breaks several HM invariants 
    HM assumes no subtyping. TypeScript has structural subtyping.
    These interact in non-trivial ways (variance, conditional types).
    The combination makes TypeScript's type inference incomplete in general.
+```
+
+### GHC's Type Inference — OutsideIn(X)
+
+GHC does not use Algorithm W. It uses OutsideIn(X) (Vytiniotis, Peyton Jones, Schrijvers, Sulzmann — ICFP 2011), designed to handle qualified types (type class constraints), GADTs, and multi-parameter type classes — all of which stump pure HM.
+
+The key insight: OutsideIn propagates "wanted" constraints outward rather than doing bottom-up unification.
+
+```
+Algorithm W (HM):
+  Bottom-up: generate constraints at each node, unify immediately
+  Can't handle: type class constraints (which impose global requirements)
+                GADTs (which require local type refinements to propagate)
+
+OutsideIn(X):
+  Separates "given" constraints (what we know at this point)
+  from "wanted" constraints (what we need to prove)
+
+  Given: local type assumptions (what enclosing bindings have established)
+  Wanted: constraints generated by the expression being checked
+
+  Propagation: wanted constraints float upward to the enclosing binding
+  Resolution: solved at the outermost scope where enough information exists
+
+  This is why `show . read` requires a type annotation:
+    show :: Show a => a -> String
+    read :: Read a => String -> a
+    show . read :: Read a, Show a => String -> String
+    The constraint `a` has nothing to resolve it — annotation required.
+
+  But `show (read "42" :: Int)` works:
+    The annotation `:: Int` resolves `a = Int`, satisfying both constraints.
+    OutsideIn picks this up and solves the wanted constraints.
+
+  Why Haskell type errors are sometimes far from the source:
+    OutsideIn floats wanted constraints outward.
+    The failure is reported at the enclosing binding where resolution fails,
+    not necessarily at the use site that generated the constraint.
+    This is architecturally correct but pedagogically confusing.
 ```
 
 ---
@@ -494,6 +531,28 @@ TypeScript interfaces / structural:
   Limitation: can't write "this type has an Eq instance" as a constraint.
 ```
 
+**Scala 3's `given`/`using` as dictionary-passing translation:**
+
+Scala 3's `given` introduces a dictionary instance; `using` requires one at the call site. This is a direct surface-level encoding of the dictionary-passing translation that Haskell does implicitly.
+
+```scala
+// Scala 3 given/using — explicit dictionary passing
+trait Eq[A]:
+  def eqv(a: A, b: A): Boolean
+
+given Eq[Int] with
+  def eqv(a: Int, b: Int): Boolean = a == b
+
+def assertEq[A](a: A, b: A)(using eq: Eq[A]): Unit =
+  assert(eq.eqv(a, b))
+
+assertEq(1, 1)  // compiler inserts the Eq[Int] dictionary at call site
+```
+
+The key distinction from C# interface dispatch (which this learner knows from .NET): C# requires declaring conformance at definition site (`class Foo : IEquatable<Foo>`). Scala's `given` and Haskell's `instance` both allow **retroactive conformance** — you can add an `Eq` instance for `Int` in a library that has nothing to do with `Int`'s definition. This is the same capability Rust's traits provide, and it solves the expression problem for the operations axis.
+
+C# in .NET has no retroactive conformance for interfaces. The closest approximation is extension methods, but those don't participate in generic constraints — you can't write `where T : IEquatable<T>` and satisfy it retroactively.
+
 ### The Expression Problem
 
 A classic PL design tension, first stated by Wadler (1998):
@@ -534,25 +593,36 @@ Three frameworks for specifying what programs mean. All three appear in practice
 
 ### Operational Semantics
 
-Defines meaning by reduction rules — how expressions step.
+Defines meaning by reduction rules. Small-step (`e → e'`, one step) and big-step (`e ⇓ v`, evaluate to value) are the two standard presentations; Progress + Preservation (Wright & Felleisen) is the canonical type safety proof structure. You've proved these for multiple calculi. The value here is where these techniques break down and what replaced them:
+
+**RustBelt (Jung, Jourdan, Krebbers, Dreyer — POPL 2018):**
+
+Standard syntactic type safety (Progress + Preservation) does not scale to a language with `unsafe` code and ownership. The theorem "well-typed programs don't get stuck" doesn't account for:
+- Code that is safe at the boundary (`unsafe` function with a correct pre-condition) but whose interior violates the type system temporarily
+- Ownership invariants that hold globally but are transiently violated inside `unsafe` blocks
+- The interaction between `Arc<T>` (atomic reference counting) and aliasing
+
+RustBelt proves Rust's type system sound using a **logical relation** argument in Iris — a higher-order concurrent separation logic. The key move: instead of proving a syntactic property of the type system, RustBelt defines a semantic model where each Rust type `T` is interpreted as a predicate on memory states. Safety means: if a value is typed `T`, the memory satisfies `T`'s predicate. `unsafe` code is proved correct by showing it establishes the required predicates before returning.
+
+The separation logic (Iris) handles ownership and aliasing: the `*` operator in Iris is separating conjunction — `P * Q` means P and Q describe disjoint portions of the heap. This makes ownership invariants expressible as logical assertions.
 
 ```
-Small-step (structural operational semantics):
-  e → e'  (one step of computation)
-  Used in: language standards (ECMAScript defines behavior step-by-step),
-           proofs about type safety (progress + preservation)
+Why syntactic safety fails for Rust:
+  Progress: "well-typed e is either a value or steps"
+  — false in the presence of unsafe blocks that can produce UB
 
-Big-step (natural semantics):
-  e ⇓ v  (expression evaluates to value, skipping intermediate steps)
-  Used in: interpreters (directly implementable as code)
+  Preservation: "if ⊢ e : T and e → e', then ⊢ e' : T"
+  — the borrow checker is not a standard type system rule;
+    it's a separate analysis on MIR
 
-Type safety proof structure (Wright & Felleisen):
-  Progress:     if ⊢ e : T and e is not a value, then ∃e'. e → e'
-                (well-typed programs don't get stuck)
-  Preservation: if ⊢ e : T and e → e', then ⊢ e' : T
-                (types are preserved by reduction)
-  Together: well-typed programs either produce a value or diverge — no "stuck"
+RustBelt's fix:
+  Define a semantic interpretation [[T]] for each type T
+  Prove: if v : T in the surface type system, then v ∈ [[T]] holds
+  Prove: operations on v that respect [[T]] cannot cause UB
+  The separation logic handles the heap ownership part
 ```
+
+Standard proof techniques from 6.820 get you most of the way. For a production language with `unsafe`, you need the step up to logical relations + separation logic.
 
 ### Denotational Semantics
 
@@ -692,6 +762,7 @@ Concept                     Where it lives in the tools you use
 ═══════════════             ════════════════════════════════════════════
 HM type inference           TypeScript inference, OCaml/F# type inference
 Algorithm W                 ghc (Haskell), ocaml type checker
+OutsideIn(X)                GHC's actual inference algorithm (constraints + GADTs)
 Structural subtyping        TypeScript, OCaml module types
 Variance (co/contra)        TypeScript in/out annotations, Scala +/-
 Conditional types           TypeScript conditional types
@@ -699,6 +770,7 @@ Dependent types (limited)   TypeScript template literals, const generics in Rust
 Affine types                Rust ownership + move semantics
 Region types                Rust lifetimes + borrow checker (NLL)
 Type classes / Traits       Rust traits, Haskell type classes
+Dictionary passing          Haskell instances, Scala 3 given/using
 Algebraic effects           OCaml 5 effects, async/await (partial)
 Hoare logic                 Dafny, RustBelt proofs, separation logic
 Operational semantics       ECMAScript spec, language standard definitions
@@ -707,6 +779,8 @@ Curry-Howard                TypeScript `never`, Coq/Lean proofs
 Parametricity / free thm.   TypeScript generic constraints, Haskell theorems
 Row polymorphism            Elm types, OCaml polymorphic variants
 Gradual typing              TypeScript (any = dynamic boundary), mypy
+RustBelt / Iris             Why Rust's safety proof needs separation logic
+System F + coercions        GHC Core IR design
 ```
 
 ---
@@ -725,3 +799,8 @@ Gradual typing              TypeScript (any = dynamic boundary), mypy
 | Why adding a new case to a union type breaks many places | Exhaustiveness checking — intentional, the point of ADTs |
 | Where `async/await` sits in type theory | Partial effect system — marks IO-effectful computation |
 | Why Rust lifetimes are hard to learn | They're region type annotations — not in most programmers' prior experience |
+| Why GHC type errors appear far from the source | OutsideIn(X) floats wanted constraints outward; error at resolution site |
+| Why `show . read` needs a type annotation in Haskell | OutsideIn(X): the constraint `a` has no resolving information without annotation |
+| Why Scala 3 `given` differs from C# interface dispatch | Scala: retroactive conformance (add instance for type you don't own); C#: declaration-site only |
+| Why Rust's type safety proof needed Iris | Syntactic progress+preservation fails for unsafe; RustBelt uses logical relations + separation logic |
+| Why GHC Core is System F, not Fω | Coercions keep the core calculus decidable while supporting GADTs and newtypes |

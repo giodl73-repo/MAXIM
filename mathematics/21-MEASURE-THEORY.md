@@ -540,6 +540,10 @@ This is Radon-Nikodym in disguise:
 
 ## 9. Applications and ML Connections
 
+<!-- @editor[bridge/P2]: Ergodic theory is absent. Measure-preserving transformations, ergodicity, mixing, and the ergodic theorem (time average = space average for ergodic systems) are a natural section here — they connect to statistical mechanics, dynamical systems, and the theoretical foundations of MCMC (Markov chains converge because the chain is ergodic on the stationary distribution). At minimum a paragraph with the ergodic theorem statement and the MCMC connection. -->
+
+<!-- @editor[content/P2]: KL divergence is listed in the calibration as a key ML/measure-theory connection but is not covered. KL(P||Q) = ∫ log(dP/dQ) dP when P ≪ Q (Radon-Nikodym derivative in the integrand). This makes precise why KL divergence requires absolute continuity, why it's asymmetric, and how it relates to log-likelihood ratios. Should appear in this section or alongside the Radon-Nikodym section. -->
+
 ### Measure Theory in Probability and Statistics
 
 ```
@@ -558,6 +562,8 @@ Kolmogorov extension theorem:
 ```
 
 ### Measure Theory in Machine Learning
+
+<!-- @editor[bridge/P2]: Training data distribution as a measure and the measure-theoretic formulation of distributional shift / domain adaptation is absent. The setup: source distribution P_S and target distribution P_T on X×Y; distributional shift = P_S ≠ P_T; importance weighting = dP_S/dP_T (Radon-Nikodym derivative). This is where Radon-Nikodym lands directly in modern ML practice (covariate shift correction, density ratio estimation). Worth a concrete block here. -->
 
 ```
 PAC learning (measure-theoretic):
@@ -578,6 +584,8 @@ Neural networks and function spaces:
   Why convergence theorems matter: loss function ∫ L(f(x), y) dP(x,y)
   — interchanging limit and integral uses DCT.
 ```
+
+<!-- @editor[bridge/P3]: The connection between Itô calculus and the Lebesgue theory of Lᵖ spaces is stated but compressed. The L² isometry that defines the Itô integral (∫H dB has L²-norm = ∫E[H²]dt) is the key fact worth a single explicit equation here, since it's the measure-theoretic content doing the work. -->
 
 ### Stochastic Processes
 

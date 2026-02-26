@@ -1,5 +1,38 @@
 # Operating Systems — Universal Cheat Sheet & Vocabulary Load-In
 
+```
+KERNEL ARCHITECTURE AT A GLANCE
+════════════════════════════════════════════════════════════════════
+
+  MONOLITHIC                HYBRID                     MACH MICROKERNEL (inside hybrid)
+  ──────────────            ──────────────             ──────────────────────────────────
+  Linux                     Windows NT                 XNU (macOS / iOS)
+                            XNU (macOS / iOS)
+  Everything in             Core in ring 0,            Mach handles: IPC (ports),
+  ring 0: VFS,              servers structured         VM, tasks, threads
+  sched, net,               as "managers" but          BSD layer: POSIX, filesystems,
+  drivers,                  all in ring 0              network stack
+  filesystems               (NT: Executive)            IOKit: drivers (C++, ring 0)
+
+  ┌──────────────┐          ┌──────────────────┐       ┌──────────────────────────────┐
+  │  YOUR APP    │          │   YOUR APP       │       │       YOUR APP               │
+  ├──────────────┤          ├──────────────────┤       ├──────────────────────────────┤
+  │  glibc       │          │  Win32 / WinRT   │       │ Foundation / libSystem        │
+  ├──────────────┤          ├──────────────────┤       ├──────────────────────────────┤
+  │  LINUX       │          │  NT Executive    │       │ BSD layer (POSIX syscalls)    │
+  │  KERNEL      │          │  (Object Mgr,    │       │ Mach layer (IPC/VM/tasks)     │
+  │  (all in     │          │  I/O Mgr, Sec,   │       │ IOKit (C++ drivers)           │
+  │   ring 0)    │          │  Proc Mgr, Mem)  │       │                              │
+  ├──────────────┤          ├──────────────────┤       ├──────────────────────────────┤
+  │  HARDWARE    │          │  HAL + HARDWARE  │       │  HARDWARE                    │
+  └──────────────┘          └──────────────────┘       └──────────────────────────────┘
+
+  Syscall:                  Syscall:                   Syscall:
+  SYSCALL instr             INT 2Eh / SYSFAST          Mach trap (mach_msg) +
+  (x86-64)                  → ntdll → ntoskrnl         BSD syscall (sysenter/SVC)
+  SVC #0 (ARM64)
+```
+
 ## Master Comparison Matrix
 
 | Topic | Windows | Linux (Ubuntu/Debian) | Linux (RHEL/Fedora) | macOS | iOS | Android |
@@ -636,6 +669,18 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ---
 
 ## Common Confusion Points
+
+### Cross-OS Gotchas — The Five That Bite Everyone
+
+**Line endings: CRLF (Windows) vs LF (Linux/macOS).** Every Windows text tool writes `\r\n`. Every Unix tool expects `\n`. The production bug: Windows developer checks in a shell script; git has `autocrlf=true`; the script gets CRLF line endings; runs in Docker (Linux); `#!/bin/bash\r` line fails at the shebang. Fix: `.gitattributes` with `*.sh text eol=lf`. Check: `git config --global core.autocrlf`.
+
+**Case sensitivity: NTFS vs ext4 vs APFS.** NTFS is case-insensitive but case-preserving (`FOO.txt` and `foo.txt` are the same file). ext4 is case-sensitive by default (`FOO.txt` and `foo.txt` are different). APFS on macOS is case-insensitive by default (can be formatted as case-sensitive — Container-level setting). The bug: works on Windows and Mac, breaks in Docker/Linux CI because `import './Utils'` doesn't find `./utils.ts`.
+
+**Configuration store: Registry (Windows) vs text files (Linux) vs plist (macOS).** These are not just format differences — they're architectural philosophy differences. The Registry is a transactional hierarchical database with ACLs, live monitoring (`RegNotifyChangeKeyValue`), and hive files. Linux `/etc` is just files: no transactions, no monitoring API (use inotify), no ACLs beyond filesystem. macOS `~/Library/Preferences/*.plist` is binary or XML; CFPreferences adds a caching layer that means you need `defaults synchronize` in some contexts. Never treat them as 1:1 equivalents.
+
+**Process creation: `CreateProcess` vs `fork+exec` vs `posix_spawn`.** Windows has no `fork()`. `CreateProcess()` creates a fresh process from scratch — all handles must be explicitly inherited or passed. Linux `fork()` copies the entire process (copy-on-write pages, fd table, address space) then `exec()` replaces the image. macOS prefers `posix_spawn()` on Apple Silicon — avoids the full COW fork overhead and works correctly in sandboxed contexts where `fork()` is restricted (iOS bans it entirely). If you're writing a process launcher, these differences determine your security posture, your fd leak surface, and your performance.
+
+**PowerShell object pipeline vs bash text pipeline.** PowerShell passes typed .NET objects between cmdlets. `Get-Process | Where-Object { $_.CPU -gt 10 }` filters by an integer property. Bash pipes text: `ps aux | awk '$3 > 10'` parses text columns. The mental shift: in bash, *everything* is text and you are always parsing. awk, sed, grep, cut are text transformation tools. In PowerShell, you access properties by name and type mismatch is a runtime error. Cross-OS scripts that need to run in both: write in Python; don't try to unify bash and pwsh.
 
 **`%APPDATA%` vs `%LOCALAPPDATA%`** — APPDATA roams with the user in domain environments (synced); LOCALAPPDATA is local-only. Use LOCALAPPDATA for large caches, APPDATA for config that should follow the user.
 

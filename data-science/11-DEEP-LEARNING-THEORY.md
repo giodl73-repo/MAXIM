@@ -189,6 +189,18 @@ BN makes loss more Lipschitz smooth. Larger gradient steps remain valid. Better-
 
 For infinitely-wide neural networks, gradient descent training behaves like kernel regression.
 
+**Kernel methods bridge**: If you know kernel SVMs or Gaussian Processes, the NTK
+maps directly. The NTK Θ(x, x') is the kernel induced by the neural network's
+parameterization. In the lazy training regime, the network function lives in the
+RKHS defined by Θ — exactly the setting of kernel regression. Training gradient
+descent on a squared loss with this kernel converges (because Θ is PSD in the
+infinite-width limit), and the converged solution is the minimum-norm interpolant
+in that RKHS. The entire well-developed theory of kernel learning — generalization
+bounds, representer theorem, condition number of K — applies directly. The key
+difference from a fixed GP/SVM kernel: in finite networks, Θ itself changes during
+training (the "feature learning" regime), which is precisely what makes neural nets
+more powerful than fixed kernels on structured data.
+
 **Setup**: consider a network f(x; θ) with parameters θ ∈ ℝ^p.
 
 **NTK definition**:
@@ -335,7 +347,146 @@ At certain scale thresholds, qualitatively new capabilities appear discontinuous
 
 ---
 
-## 9. Decision Cheat Sheet
+## 9. Diffusion Models — Score-Based Generative Models
+
+Diffusion models are now the dominant framework for high-quality generation (images,
+audio, protein structure, video). The core idea: learn to reverse a gradual noising
+process by learning the score function of the data distribution.
+
+### Forward Process (DDPM — Denoising Diffusion Probabilistic Models)
+
+```
+Given data x₀ ~ q(x₀), define a fixed Markov chain that gradually adds Gaussian noise:
+
+  q(xₜ | x_{t-1}) = N(xₜ; √(1-βₜ) x_{t-1}, βₜ I)
+
+  where β₁,...,βᵀ is a noise schedule (small, increasing)
+
+Closed-form marginal at any timestep t (αₜ = Π_{s=1}^t (1-βₛ)):
+
+  q(xₜ | x₀) = N(xₜ; √ᾱₜ x₀, (1-ᾱₜ) I)
+  ⟹  xₜ = √ᾱₜ x₀ + √(1-ᾱₜ) ε,   ε ~ N(0, I)
+
+At T large (T=1000 in DDPM), xᵀ ≈ N(0, I) — pure noise, independent of x₀.
+```
+
+### Reverse Process — Learning to Denoise
+
+```
+The true reverse p(x_{t-1} | xₜ) is intractable (requires knowing q(x₀)).
+Learn a neural network approximation:
+
+  p_θ(x_{t-1} | xₜ) = N(x_{t-1}; μ_θ(xₜ, t), Σ_θ(xₜ, t))
+
+Ho et al. (DDPM): parameterize as noise prediction:
+  ε_θ(xₜ, t) ≈ ε  (predict the noise added at step t)
+
+  μ_θ(xₜ, t) = (1/√αₜ)(xₜ - βₜ/√(1-ᾱₜ) · ε_θ(xₜ, t))
+```
+
+### Training Objective
+
+```
+Simple noise prediction loss (Ho et al. simplified ELBO):
+
+  L = E_{t, x₀, ε}[ ‖ε - ε_θ(√ᾱₜ x₀ + √(1-ᾱₜ)ε, t)‖² ]
+
+  ← predict the added noise from the noisy sample at timestep t
+
+Equivalent to minimizing a reweighted ELBO over the Markov chain.
+In practice: uniform sampling of t ∈ {1,...,T}, single ε sample per x₀.
+```
+
+### Score Function Connection (Song & Ermon)
+
+```
+Score function of a distribution: s(x) = ∇_x log q(x)
+
+For q(xₜ | x₀) = N(xₜ; √ᾱₜ x₀, (1-ᾱₜ)I):
+
+  ∇_{xₜ} log q(xₜ | x₀) = -(xₜ - √ᾱₜ x₀) / (1-ᾱₜ) = -ε / √(1-ᾱₜ)
+
+  ⟹  ε_θ(xₜ, t) ≈ -√(1-ᾱₜ) · s_θ(xₜ, t)
+
+Learning ε_θ ≡ learning the score function s_θ of the noised distribution.
+Score matching ↔ noise prediction: two views of the same objective.
+```
+
+### SDE Framework (Song et al. 2021)
+
+```
+Continuous-time generalization. Forward process:
+
+  dx = f(x, t)dt + g(t)dW   ← SDE (stochastic differential equation)
+                                f = drift, g = diffusion, W = Wiener process
+
+Reverse SDE (Anderson 1982):
+
+  dx = [f(x,t) - g(t)² ∇_x log p_t(x)] dt + g(t)dW̄
+
+The reverse process has the same SDE form — requires the score s(x,t) = ∇_x log p_t(x).
+
+Deterministic ODE version (probability flow ODE):
+  dx = [f(x,t) - ½ g(t)² ∇_x log p_t(x)] dt
+  Same marginals; faster sampling; enables exact likelihood computation.
+```
+
+### Sampling — DDIM and Beyond
+
+```
+DDPM sampling: T=1000 steps — slow (1 second per image on A100)
+
+DDIM (Song et al. 2020): non-Markovian process, same training objective:
+  Invert xₜ → x_{t-Δ} in larger steps → T=50 steps with same quality
+
+DPM-Solver, PLMS: higher-order ODE solvers → T=10-20 steps
+
+Consistency models: single-step distillation → T=1 step
+
+Latent Diffusion (LDM / Stable Diffusion):
+  Encode x₀ → z₀ via VAE encoder
+  Run diffusion in latent space z (much smaller than pixel space)
+  Decode z₀ → x̂₀ via VAE decoder
+  → 4-8× cheaper than pixel diffusion; quality competitive
+```
+
+### Conditioning — Guidance
+
+```
+Classifier guidance (Dhariwal & Nichol 2021):
+  Shift score toward high log p(y|x) (use separate classifier):
+  s̃_θ(xₜ, t, y) = s_θ(xₜ, t) + γ ∇_{xₜ} log p_φ(y | xₜ)
+  Guidance scale γ trades diversity for fidelity.
+
+Classifier-free guidance (Ho & Salimans 2022):
+  Train conditional and unconditional models jointly (null condition with prob p):
+  s̃ = s_θ(xₜ, t, ∅) + γ (s_θ(xₜ, t, y) - s_θ(xₜ, t, ∅))
+  No separate classifier needed.
+  Used by: Stable Diffusion, DALL-E 3, Imagen — universal in practice.
+```
+
+### Connections to Other Generative Frameworks
+
+```
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  Framework      │  Explicit density  │  Sampling     │  Training objective  │
+├─────────────────┼────────────────────┼───────────────┼──────────────────────┤
+│  VAE            │  Lower bound (ELBO)│  1 step       │  ELBO                │
+│  Normalizing    │  Exact (change of  │  1 step       │  Exact NLL           │
+│  Flows          │    variables)      │               │                      │
+│  GAN            │  None (implicit)   │  1 step       │  Adversarial (unstable)│
+│  Diffusion      │  Lower bound (ELBO)│  T steps      │  Noise prediction L₂ │
+│  (DDPM)         │  exact via ODE     │  (10-1000)    │  (simple, stable)    │
+└─────────────────┴────────────────────┴───────────────┴──────────────────────┘
+
+Diffusion advantage: simple training objective (just MSE), stable, no mode collapse,
+no adversarial game. Quality: best among all generative frameworks for images.
+Cost: slow sampling (mitigated by DDIM/consistency models).
+```
+
+---
+
+## 10. Decision Cheat Sheet
 
 | Concept | Key result | Practical implication |
 |---------|-----------|----------------------|
@@ -350,7 +501,7 @@ At certain scale thresholds, qualitatively new capabilities appear discontinuous
 
 ---
 
-## 10. Common Confusion Points
+## 11. Common Confusion Points
 
 1. **"UAT means 1 hidden layer is enough"** — Theoretically yes, practically no. The required width can be exponential in the input dimension. Depth provides an exponential savings.
 

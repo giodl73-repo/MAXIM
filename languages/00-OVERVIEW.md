@@ -2,6 +2,27 @@
 
 ---
 
+## Reading Order for C# Developers
+
+The guides in this section are written with C# as the anchor. Every language is explained relative to what you already know — the .NET runtime model, nominal type system, GC, async/await, LINQ, and OOP patterns. Use this table to sequence your reading based on what you want to get out of it.
+
+| If you want to... | Read next | Why |
+|---|---|---|
+| Understand the JVM ecosystem | Java → Kotlin | Java is the C# parallel (same era, same intent, different tradeoffs); Kotlin modernizes it the way C# modernized itself |
+| Write systems code / escape the GC | C → Rust | C is the foundation everything else builds on; Rust is the safe modern version with ownership instead of GC |
+| Learn functional programming on familiar ground | F# → Haskell | F# is .NET FP with HM inference — close enough to C# to start; Haskell is the deep end, pure and uncompromising |
+| Build web frontends | JavaScript → TypeScript | JS is unavoidable ecosystem knowledge; TS adds structural types that feel C#-adjacent |
+| Understand Go's concurrency model | Go | Radical simplicity as a design philosophy; goroutines + channels are a distinct concurrency model from async/await |
+| Apple platform development | Swift | Closest to C# in day-to-day feel; ARC vs GC is the key difference to internalize |
+| Explore the ML/data ecosystem | Python | Not because of the language — because of the ecosystem; scripting complement to everything else |
+| Understand JVM-side functional programming | Scala | After Kotlin or Haskell; more complex type system, but powerful; typeclasses via implicits/givens |
+| Scripting, Rails DSL patterns, metaprogramming | Ruby | After Python; different philosophy (Smalltalk lineage, open classes, everything is an object) |
+| Data querying / relational thinking | SQL | Foundational; LINQ is .NET's answer to SQL — reading SQL makes LINQ's design obvious |
+
+The guides are designed to be read in any order but reward sequential reading within a tier: the mainstream tier (C, C++, Java, C#, Python, JS, TS) builds shared vocabulary, and the specialist tier (Rust, Go, Swift, Kotlin, Haskell, F#, Scala, Ruby, SQL) assumes you have that vocabulary.
+
+---
+
 ## Language Genealogy
 
 ```
@@ -52,6 +73,8 @@ INDEPENDENT ORIGINS:
 
 ## Paradigm Spectrum
 
+> **C# sits here**: Multi-paradigm — primarily OOP (classes, interfaces, inheritance) with functional features layered in starting with C# 3 (LINQ, lambdas, expression trees) and accelerating through C# 9+ (records, pattern matching, immutability idioms). On the imperative/declarative axis, C# spans from imperative loops to declarative LINQ queries. Not purely anything.
+
 ```
 IMPERATIVE ◄──────────────────────────────────────────────────────────► DECLARATIVE
    │                                                                           │
@@ -68,9 +91,13 @@ PROCEDURAL → OBJECT-ORIENTED → FUNCTIONAL → DECLARATIVE/LOGIC
                JavaScript        Rust (hybrid)
 ```
 
+C# occupies the same band as Java and C++ on the OOP axis, but has moved further toward functional than either — more so than Java (records, pattern matching, discriminated union emulation via sealed classes), less so than F# (which is functional-first with OOP as the secondary mode).
+
 ---
 
 ## Type System — 6 Axes
+
+> **C# anchor summary**: Static · Strong · Nominal (with some structural via interfaces, and duck typing available via `dynamic`) · Partial inference (`var`, LINQ type inference) · Nominal subtyping + interface dispatch · GC (generational, .NET runtime). The axes below show where every other language sits relative to this baseline.
 
 ### Axis 1: When Are Types Checked?
 
@@ -84,6 +111,8 @@ Swift, Scala
 Implication: static = errors at compile time; dynamic = errors at runtime
 ```
 
+**C# = Static.** `var` is still static — the type is inferred at compile time and fixed. `dynamic` is the escape hatch that opts into runtime dispatch, similar to TypeScript's `any`.
+
 ### Axis 2: Typing Strength (implicit coercions?)
 
 ```
@@ -96,6 +125,8 @@ Swift, Scala, Go, Ruby             JavaScript ("1" + 1 = "11"; "1" - 1 = 0)
 "Strong" means: if you want to add an int to a float, you must say so.
 JavaScript is both dynamically typed AND weakly typed — worst of both worlds.
 ```
+
+**C# = Strong.** You cannot add an `int` to a `double` without an explicit cast or promotion. The compiler enforces this. C++ is weaker than C# — implicit conversions are extensive and often surprising.
 
 ### Axis 3: Nominal vs Structural vs Duck
 
@@ -112,6 +143,8 @@ Structural: if they both have .name: string they're compatible (TS does this).
 Duck: if it quacks it's a duck — discovered at runtime only.
 ```
 
+**C# = Nominal.** Two interfaces with identical shape are not interchangeable unless there's an explicit relationship. The contrast with TypeScript is sharp: in TS, structural compatibility is all that matters. Go interfaces are structural — a type satisfies an interface by having the right methods, no `implements` keyword needed.
+
 ### Axis 4: Type Inference
 
 ```
@@ -126,6 +159,8 @@ HM = Hindley-Milner: bidirectional, whole-program inference
 C#/Java var: unidirectional, right-hand-side only
 ```
 
+**C# = Partial (local, unidirectional).** `var x = someExpression` infers `x`'s type from the right-hand side. F# and Haskell have full HM inference — the type of a function argument can be inferred from how it's used later in the body, with no annotation needed anywhere. C# cannot do this.
+
 ### Axis 5: Subtyping / Polymorphism Model
 
 ```
@@ -137,6 +172,8 @@ C# class/interface,        Go interfaces,           Haskell typeclasses, languag
 Kotlin, Scala, Swift       OCaml object types       F# interfaces,       (some better
                                                      Scala givens/implicits than others)
 ```
+
+**C# = Nominal subtyping + generics.** The class/interface hierarchy is the primary polymorphism mechanism. C# generics are reified at runtime (unlike Java type erasure), which is closer to C++ templates in one sense but without monomorphization.
 
 ### Axis 6: Memory Model
 
@@ -151,6 +188,8 @@ C (malloc/free)    Rust (owned values,      Python (primary + cyclic Go (tricolo
                                              C++ shared_ptr (manual  Kotlin/Scala/F# (JVM GC)
                                              use of RC)              Ruby/JavaScript (V8/etc)
 ```
+
+**C# = GC (generational tracing).** The .NET GC is a generational, concurrent, stop-the-world-minimized collector — gen 0/1/2 with background GC threads from .NET 4.5+, and server GC tuned for throughput. Rust eliminates the GC entirely via ownership; Swift uses ARC (deterministic, no pauses, but requires careful cycle management).
 
 ---
 
@@ -231,7 +270,7 @@ fn print_all(items: &[&dyn Display]) { ... }
 | C        | ✅ | ❌ weak | ✅ | ❌ none | manual | early |
 | C++      | ✅ | ❌ weak | ✅ | partial (auto) | RAII/manual | early + vtable |
 | Java     | ✅ | ✅ | ✅ | partial (var) | GC | late (virtual default) |
-| C#       | ✅ | ✅ | ✅ | partial (var) | GC | early (non-virtual default) |
+| **C#**   | **✅** | **✅** | **✅** | **partial (var)** | **GC** | **early (non-virtual default)** |
 | Python   | ❌ | ✅ | duck | ❌ none | RC+GC | late (always) |
 | JS       | ❌ | ❌ weak | duck | ❌ none | GC | late (always) |
 | TS       | gradual | ❌ | structural | partial | GC | late (always) |
@@ -244,6 +283,8 @@ fn print_all(items: &[&dyn Display]) { ... }
 | Scala    | ✅ | ✅ | ✅ | partial | GC | late (virtual default) |
 | Ruby     | ❌ | ✅ | duck | ❌ none | GC | late (always) |
 | SQL      | varies | ✅ | N/A | N/A | server | N/A |
+
+C# row is bolded as the reference baseline. Read every other row as a delta from that row.
 
 ---
 

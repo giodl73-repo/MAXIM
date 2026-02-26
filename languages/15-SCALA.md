@@ -17,6 +17,68 @@
 
 ---
 
+## Type Hierarchy and Implicits/Givens
+
+Two things about Scala that bite everyone without a diagram: the unified type hierarchy (Nothing is the bottom type — not an exception, not a special case) and the implicit/given resolution order (the compiler is doing a structured search at each call site).
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         SCALA TYPE HIERARCHY                            │
+│                                                                         │
+│                              Any                                        │
+│                             /    \                                      │
+│                        AnyVal   AnyRef  (≈ java.lang.Object)           │
+│                       /  | | \     |  \  \  \                          │
+│                    Int Double  \  String List  custom classes           │
+│                   Boolean Char  \                                       │
+│                   Long Float  Unit  (≈ void — the one-value type)      │
+│                                 |                                       │
+│                               Null  (subtype of all AnyRef only)       │
+│                                 |    null literal has this type         │
+│                                 |                                       │
+│                             Nothing  (BOTTOM — subtype of everything)  │
+│                                                                         │
+│  Nothing enables:                                                       │
+│    throw new Exception("msg")  :: Nothing  — fits anywhere             │
+│    ???                         :: Nothing  — unimplemented stub         │
+│    def loop: Nothing = loop    — diverging computation                  │
+│                                                                         │
+│  Why this matters: List[Nothing] <: List[Int] (if List is covariant)   │
+│  Nil (the empty list) has type List[Nothing] — it fits any List[T]     │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    IMPLICIT / GIVEN RESOLUTION ORDER                    │
+│                                                                         │
+│  Call site: def sort[T](list: List[T])(using ord: Ordering[T])         │
+│  You write: sort(points)   — compiler must find Ordering[Point]        │
+│                                                                         │
+│  Search order (first match wins):                                       │
+│                                                                         │
+│  1. Local scope                                                         │
+│     given myOrd: Ordering[Point] = ...  // in current block/method     │
+│         ↓ not found                                                     │
+│  2. Imported scope                                                      │
+│     import MyOrderings.given            // explicit import              │
+│         ↓ not found                                                     │
+│  3. Companion object of the type argument (Point)                      │
+│     object Point { given Ordering[Point] = ... }  // idiomatic home    │
+│         ↓ not found                                                     │
+│  4. Companion object of the typeclass (Ordering)                       │
+│     object Ordering { given Ordering[Int] = ... } // stdlib instances  │
+│         ↓ not found → COMPILE ERROR                                     │
+│                                                                         │
+│  Scala 2 syntax:  implicit val myOrd: Ordering[Point] = ...            │
+│  Scala 3 syntax:  given Ordering[Point] with { def compare(...) }      │
+│                                                                         │
+│  Derived instances: compiler can synthesize Ordering[List[T]]          │
+│  from Ordering[T] via implicit/given functions — this is how           │
+│  scalaz/cats/magnolia generate instances for case classes.             │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## Syntax Reference Card
 
 ### Variables & Types
@@ -161,6 +223,67 @@ val opt: Option[Int] = for {
     b <- Some(3)
 } yield a + b   // Some(8)
 ```
+
+### Bridge: C# LINQ / F# Computation Expressions → Scala `for`
+
+You already own this mental model. The three syntaxes are isomorphic — they all desugar to `flatMap` / `map` / `filter` chains.
+
+```
+C# LINQ query syntax:
+  from x in list
+  where x > 0
+  select x * 2
+  ≡  list.Where(x => x > 0).Select(x => x * 2)
+
+F# computation expression (option builder):
+  option {
+      let! x = Some 5
+      let! y = Some 3
+      return x + y
+  }
+  ≡  Some 5 |> Option.bind (fun x ->
+     Some 3 |> Option.map  (fun y -> x + y))
+
+Scala for comprehension:
+  for {
+      x <- Some(5)
+      y <- Some(3)
+      if x > 0
+  } yield x + y
+  ≡  Some(5).flatMap(x =>
+     Some(3).withFilter(_ => x > 0).map(y =>
+     x + y))
+```
+
+The desugar rules (Scala):
+
+| `for` syntax | Desugars to |
+|---|---|
+| `x <- expr` | `expr.flatMap(x => ...)` (last generator uses `map`) |
+| `if guard` | `expr.withFilter(x => guard)` |
+| `y = expr` | val binding — no method call, just a `let` |
+| `yield result` | the final `map`'s body |
+
+**The key insight**: Scala's `for` is not a loop construct — it is the syntactic surface of any monad. Swap `Option` for `Either`, `List`, `Future`, or a custom type and the same syntax works as long as that type has `flatMap` and `map`. This is exactly the Haskell `do`-notation generalization, and it is exactly what F# computation expressions do with a custom builder.
+
+```scala
+// All three of these use the same for-comprehension syntax:
+
+// Option — short-circuit on None
+for { user <- findUser(id); addr <- user.address } yield addr.city
+
+// Either — short-circuit on Left, carry typed error
+for { x <- parseAge(s); y <- validate(x) } yield y * 2
+
+// List — cartesian product (non-determinism)
+for { x <- List(1,2); y <- List("a","b") } yield (x, y)
+// → List((1,"a"), (1,"b"), (2,"a"), (2,"b"))
+
+// Future — async sequencing (runs sequentially, not in parallel!)
+for { user <- fetchUser(id); order <- fetchOrder(user) } yield order
+```
+
+---
 
 ### Control Flow
 ```scala
@@ -419,3 +542,23 @@ try {
 | `delegate` / `Func<T,R>` | `Int => Int` (function type literal) | Cleaner syntax |
 | `List<T>` is mutable | `List(...)` is immutable | Import mutable explicitly |
 | `T._` accessed via `.field` | `case class` fields via `.field` | Same, but fields are methods |
+
+---
+
+## Decision Cheat Sheet
+
+| Decision | Use X | When Y |
+|----------|-------|--------|
+| `List` vs `Vector` | `List` | Prepend-heavy workloads; pattern matching with `head :: tail`; short lists |
+| `List` vs `Vector` | `Vector` | Random access; large collections; append or update operations (O(log n) vs O(n)) |
+| `Option` vs `Try` vs `Either` | `Option` | Value might be absent and the reason is irrelevant — `Map.get`, optional config |
+| `Option` vs `Try` vs `Either` | `Try` | Wrapping a Java API that throws exceptions; you want Success/Failure as values |
+| `Option` vs `Try` vs `Either` | `Either[E, A]` | Typed, domain-specific errors that callers must handle — validation, parsing, business rules |
+| Scala 2 `implicit` vs Scala 3 `given`/`using` | `implicit` | You're on Scala 2 or maintaining a Scala 2 codebase; no choice |
+| Scala 2 `implicit` vs Scala 3 `given`/`using` | `given`/`using` | Scala 3 — cleaner, explicit, better tooling support; use for all new code |
+| `sealed trait` + case classes vs Scala 3 `enum` | `sealed trait` | Scala 2 compatibility required; variants carry complex logic or multiple type parameters |
+| `sealed trait` + case classes vs Scala 3 `enum` | Scala 3 `enum` | Scala 3 only; cleaner syntax; variants are simple data; compiler enforces exhaustiveness equally |
+| `Future` vs ZIO `Task` | `Future` | Simple async in a small service; existing Akka/Play codebase; no need for resource management |
+| `Future` vs ZIO `Task` | ZIO `Task` | Complex effectful programs; dependency injection via ZEnvironment; structured concurrency; retry/timeout as first-class concerns |
+| `for` comprehension vs `flatMap` chains | `for` comprehension | Three or more monadic steps; intermediate values need names; readability matters |
+| `for` comprehension vs `flatMap` chains | `flatMap`/`map` chains | One or two steps; composing in a pipeline; point-free style preferred |

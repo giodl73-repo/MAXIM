@@ -1,5 +1,52 @@
 # Scripting: sed
 
+```
+TEXT-PROCESSING TOOL LANDSCAPE
+═══════════════════════════════════════════════════════════════════════════
+
+  FIND            TRANSFORM STREAM      STRUCTURED FIELDS     FULL LANGUAGE
+  ─────           ────────────────      ─────────────────     ─────────────
+  grep            sed                   awk                   perl / python
+  ─────           ────────────────      ─────────────────     ─────────────
+  pattern match   s/find/replace/       $1 $2 $3 fields       data structs
+  line filter     line delete/insert    arithmetic            modules/CPAN
+  no transform    address ranges        associative arrays    non-greedy
+  no state        hold space (1 buf)    multiple patterns     full OOP/FP
+                  BRE/ERE regex         BEGIN/END blocks
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │  sed INPUT MODEL                                                     │
+  │                                                                      │
+  │  file / stdin                                                        │
+  │       │                                                              │
+  │       ▼                                                              │
+  │  ┌──────────┐   address   ┌─────────┐  command  ┌────────────────┐  │
+  │  │  line N  │ ──filter──► │ match?  │ ─────────► │ s/// d p a i  │  │
+  │  └──────────┘             └─────────┘            └────────┬───────┘  │
+  │                                                           │          │
+  │                    ┌──────────────────────────────────────┘          │
+  │                    ▼                                                  │
+  │             pattern space  ◄──► hold space (h/H/g/G/x)              │
+  │                    │                                                  │
+  │                    ▼                                                  │
+  │             stdout / -i (in-place)                                   │
+  │                                                                      │
+  │  sed command surface:                                                │
+  │    s///     substitute          d        delete line                 │
+  │    p        print               q        quit                        │
+  │    a\       append after        i\       insert before               │
+  │    c\       replace line        y///     transliterate               │
+  │    n/N      next line           P/D      multiline ops               │
+  │    h/H/g/G  hold space          b/t/T    branch / conditional        │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  Decision rule:
+    one-liner s/find/replace/    → sed
+    delete/insert lines           → sed
+    field columns, arithmetic     → awk
+    non-greedy, complex logic     → perl
+```
+
 > Stream editor. A state machine over an input stream — pattern space, hold space, and a command language that predates C. The right tool for in-place file edits and single-line stream transforms.
 
 ---
@@ -364,6 +411,136 @@ POSIX character classes (portable across both):
   [[:space:]]   [[:blank:]]   [[:upper:]]   [[:lower:]]
   [[:punct:]]   [[:print:]]
 ```
+
+---
+
+## Regex Dialect Bridge: PCRE → sed BRE/ERE
+
+Most developers learn regex from a PCRE-flavored engine — Python `re`, JavaScript, Java `Pattern`, PHP preg. sed defaults to BRE (Basic Regular Expressions), which has different escaping rules and missing features. This is the #1 friction point when first using sed.
+
+```
+FEATURE              PCRE / ERE              sed BRE (default)       sed ERE (-E)
+───────────────────  ──────────────────────  ──────────────────────  ──────────────────────
+Digit shorthand      \d                      [0-9] or [[:digit:]]    [0-9] or [[:digit:]]
+Word char shorthand  \w                      [[:alnum:]_] (portable) [[:alnum:]_]
+Whitespace           \s                      [[:space:]]             [[:space:]]
+Capture group        (group)                 \(group\)               (group)
+Non-capture group    (?:...)                 — not available —       — not available —
+Alternation          foo|bar                 foo\|bar (GNU only)     foo|bar
+One-or-more          x+                      x\+ (GNU) or xx*        x+
+Zero-or-one          x?                      x\?                     x?
+Interval             x{2,4}                  x\{2,4\}                x{2,4}
+Named capture        (?P<name>...)           — not in sed —          — not in sed —
+Named backreference  \g{name} / $+{name}     — not in sed —          — not in sed —
+Positional backref   \1 \2                   \1 \2                   \1 \2
+Non-greedy           .*? .+?                 — not in sed —          — not in sed —
+Lookahead            (?=...) (?!...)         — not in sed —          — not in sed —
+Lookbehind           (?<=...) (?<!...)       — not in sed —          — not in sed —
+```
+
+Key rules:
+- **Always use `sed -E`** — ERE is the direct equivalent of the regex dialect you already know. BRE's inverted escaping (`\(` is metacharacter, `(` is literal) is a historical artifact.
+- **No named captures** — use positional `\1`, `\2`. If you need named captures, use Perl.
+- **No non-greedy** — `.*?` does not exist in sed. Workaround: use a negated character class. `.*?foo` becomes `[^f]*foo` (or `[^f]*foo` if `f` starts the delimiter). Real non-greedy requires Perl.
+- **No lookahead/lookbehind** — these require Perl or `grep -P`.
+- **POSIX classes are portable**; `\d`, `\w`, `\s` work in GNU sed but fail on BSD/macOS.
+
+```bash
+# Before you sed: switch to ERE
+sed -E 's/([0-9]+) (foo|bar)/[\1] \2/g'    # works
+sed    's/\([0-9]\+\) \(foo\|bar\)/[\1] \2/g'  # BRE equivalent — don't write this
+
+# Non-greedy workaround: match "everything up to the first quote"
+sed -E 's/"[^"]*"/REDACTED/g'   # negated char class instead of ".*?"
+
+# Named capture → just use perl
+perl -pe 's/(?<year>\d{4})-(?<month>\d{2})/$+{month}-$+{year}/'
+```
+
+---
+
+## Bridge: In-Place Substitution Across Tools
+
+Replacing text in a file is a universal task. The same operation looks different in every tool — here's the side-by-side for "replace all occurrences of `foo` with `bar` in a file."
+
+```
+TOOL                  SYNTAX                                    NOTES
+────────────────────  ────────────────────────────────────────  ─────────────────────────────────────
+PowerShell -replace   (Get-Content f) -replace 'foo','bar'      Returns string; pipe to Set-Content
+                      | Set-Content f                           Uses .NET regex (PCRE-derived); named
+                                                                groups via $+{name} or ${name}
+bash parameter        var="${var//foo/bar}"                      Glob syntax, NOT regex; replaces in
+expansion             (file: no direct equivalent)              variable only — no file support
+sed (GNU/Linux)       sed -i 's/foo/bar/g' file                 BRE default; -E for ERE; -i needs ''
+sed (BSD/macOS)       sed -i '' 's/foo/bar/g' file              on macOS (empty string is required)
+Perl                  perl -i.bak -pe 's/foo/bar/g' file        Portable; full PCRE; .bak = backup
+                                                                file; safest cross-platform choice
+awk                   awk '{gsub(/foo/,"bar"); print}' f         No in-place; redirect to temp file
+Python                python3 -c "import re,sys;                One-liner; subprocess overhead vs
+                        [...]" (verbose)                        sed/perl for simple cases
+```
+
+Flag placement comparison:
+
+```
+sed:    s/pattern/replacement/FLAGS    flags go AFTER closing delimiter: g i p
+perl:   s/pattern/replacement/FLAGS   same position: g i m s x e r
+.NET:   Regex.Replace(str, pat, repl, RegexOptions.Flags)  — options at call site, not inline
+        or inline: (?i) prefix in pattern string
+```
+
+Backreference syntax in replacement:
+
+```
+sed:    \1 \2         positional only
+perl:   $1 $2         same meaning; also ${1} to avoid ambiguity
+.NET:   $1 $2         same; or ${name} for named groups
+bash:   \1 \2         (in [[ =~ ]] capture; bash itself has no s/// replacement)
+```
+
+---
+
+## sed vs awk: Mental Model and Decision Guide
+
+Both process text line by line. The confusion is real. Here is the mental model:
+
+```
+sed: STREAM EDITOR                      awk: RECORD PROCESSOR
+─────────────────────────────────────   ─────────────────────────────────────
+Unit of work: entire line               Unit of work: fields within a line
+State: none (except 1 hold buffer)      State: variables, arrays, arithmetic
+Primary op: address + command           Primary op: pattern { action }
+Regex: BRE/ERE                          Regex: ERE (always)
+Data: opaque text                       Data: structured columns ($1 $2 $NF)
+Output: modified version of input       Output: anything you compute
+Loops: only via branch + label          Loops: for, while, do-while
+Functions: none                         Functions: user-defined, built-in math
+
+Use sed when:                           Use awk when:
+  s/find/replace/ in a file              you need $1, $2 field access
+  delete lines matching a pattern        you need arithmetic or counting
+  insert/append lines at a marker        you need BEGIN{} / END{} blocks
+  extract line ranges                    you need associative arrays
+  quick in-place file edits              you're aggregating across lines
+  transforming a stream in a pipeline    you need printf formatting
+```
+
+Decision table:
+
+| Task | Tool |
+|------|------|
+| Replace `foo` with `bar` in a file | `sed -i 's/foo/bar/g'` |
+| Delete lines matching a pattern | `sed '/pattern/d'` |
+| Print lines 10–20 | `sed -n '10,20p'` |
+| Insert a line after a match | `sed '/pattern/a\new line'` |
+| Print the 3rd column of a CSV | `awk -F, '{print $3}'` |
+| Sum a column of numbers | `awk '{sum += $1} END{print sum}'` |
+| Count occurrences of a pattern | `awk '/pattern/{count++} END{print count}'` |
+| Print lines where field 2 > 100 | `awk '$2 > 100'` |
+| Process CSV with quoted fields | Perl or Python (neither sed nor awk handles this cleanly) |
+| Non-greedy match / lookahead | Perl |
+
+The practical summary: if you find yourself wanting variables or arithmetic in sed, switch to awk. If you find yourself wanting non-greedy or lookahead in awk, switch to Perl.
 
 ---
 

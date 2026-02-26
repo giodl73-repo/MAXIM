@@ -59,6 +59,52 @@ NLP ARCHITECTURE EVOLUTION
 
 ---
 
+## Information Retrieval Bridge — TF-IDF → Distributional Semantics
+
+Any practitioner who has built search knows TF-IDF and cosine similarity. Distributional
+semantics is the same mathematical idea applied to word co-occurrence rather than
+document-term co-occurrence:
+
+```
+Information retrieval (search)              Distributional semantics (NLP)
+──────────────────────────────────────      ──────────────────────────────────────────
+Term-document matrix M ∈ ℝ^{|V|×|D|}       Word-context matrix M ∈ ℝ^{|V|×|V|}
+  Mᵢⱼ = frequency of term i in doc j         Mᵢⱼ = count(word i near word j in corpus)
+
+TF-IDF(i, j) = tf(i,j) · idf(i)            PPMI(w, c) = max(log P(w,c)/P(w)P(c), 0)
+  tf = local term frequency                   Both re-weight raw counts to reduce
+  idf = -log(df_i / N) (rare terms↑)          domination by high-frequency terms
+  → both suppress common words               → idf and PMI serve the same role:
+  → both boost rare, distinctive terms         penalize high-frequency co-occurrence
+
+BM25 (Okapi BM25): better than TF-IDF       PPMI with context distribution smoothing
+  Saturates tf beyond a threshold k₁          Analogous saturation of raw counts
+  Normalizes for doc length (param b)          Context window size plays similar role
+  → more robust to long documents            → both are parameterized re-weightings
+
+Cosine similarity of TF-IDF vectors:        Cosine similarity of word vectors:
+  sim(doc_i, doc_j) = u·v / (‖u‖‖v‖)         sim(word_i, word_j) = u·v / (‖u‖‖v‖)
+  Documents with similar vocabulary           Words appearing in similar contexts
+  are considered similar                      are considered semantically similar
+
+SVD on TF-IDF matrix (LSA):                 SVD on PPMI matrix:
+  Latent Semantic Analysis (Deerwester 1990)   Word2Vec = specific PPMI factorization
+  Reduces |D|-dimensional doc vectors          Reduces |V|-dimensional word vectors
+  to k-dimensional topic vectors              to d-dimensional semantic vectors
+  → same mathematical operation              → Word2Vec = fast LSA (Levy & Goldberg 2014)
+
+Query expansion via semantic similarity:     Synonym detection via word vectors:
+  Use LSA similarity to expand queries        cos(vec(car), vec(automobile)) ≈ 0.9
+  with related terms → better recall         → structurally identical task
+```
+
+**The unified view**: TF-IDF, PPMI, BM25, and Word2Vec are all weighted co-occurrence
+statistics processed with dimensionality reduction. The IR community discovered
+the mathematical framework; NLP adapted it to word-word co-occurrence and then
+replaced the matrix factorization with neural prediction (Word2Vec) for efficiency.
+
+---
+
 ## 2. Distributional Semantics
 
 **Distributional hypothesis** (Harris 1954, Firth 1957): "You shall know a word by the company it keeps." Words that appear in similar contexts have similar meanings.
@@ -272,7 +318,148 @@ Final word vectors: sum of word embedding and context embedding wᵢ + w̃ᵢ.
 
 ---
 
-## 8. Transformer
+## 8. Tokenization
+
+Every modern NLP pipeline starts with tokenization. The vocabulary size and algorithm
+directly shape model quality and computational cost.
+
+### The Vocabulary Tradeoff
+
+```
+Small vocabulary (word-level):
+  V = 50k distinct words
+  Out-of-vocabulary (OOV) problem: "unrecognized" → [UNK] → no gradient
+  Morphological blindness: "running" and "run" are unrelated tokens
+  Rare words: poorly trained (few examples), or UNK'd
+
+Large vocabulary (character-level):
+  V = ~256 bytes (or ~1000 Unicode chars)
+  No OOV problem: any byte sequence is valid
+  Long sequences: "university" = 10 chars = 10 tokens → 10× more compute
+  Hard to learn: model must compose meaning across many positions
+
+Subword (Goldilocks zone):
+  V = 30k–50k subword units
+  Frequent words: treated as single tokens ("the", "university")
+  Rare words: split into known pieces ("univer" + "sity")
+  UNK rate: near-zero with byte fallback
+  Used by: GPT-2/3/4 (BPE), BERT (WordPiece), LLaMA (SentencePiece BPE)
+```
+
+### BPE — Byte Pair Encoding
+
+BPE (Sennrich et al. 2016, re-purposed from data compression):
+
+```
+Algorithm:
+  1. Initialize vocabulary: all individual bytes (256 entries)
+     Represent corpus as sequence of bytes, e.g.: "low" → ['l','o','w']
+
+  2. Repeat V_target - 256 times:
+     a. Count all adjacent byte-pair frequencies in corpus
+     b. Find most frequent pair (e.g., 'e','s')
+     c. Merge: replace every occurrence of ('e','s') with 'es' in corpus
+     d. Add 'es' to vocabulary
+     e. Update pair counts
+
+  3. Result: V_target subword tokens covering the corpus
+
+Example iterations:
+  Start: l o w , l o w e r , n e w e s t , w i d e s t
+  Merge 'e','s' → l o w , l o w e r , n e w es t , w i d es t
+  Merge 'es','t' → l o w , l o w e r , n e w est , w i d est
+  ...
+
+At inference: greedily apply merges in learned order to input text.
+```
+
+**GPT-2 BPE**: starts from bytes (not characters) → handles any Unicode, no UNK.
+`tiktoken` (OpenAI's library) implements this efficiently in Rust.
+
+### WordPiece
+
+WordPiece (Schuster & Nakamura 2012, used in BERT/ALBERT):
+
+```
+Same as BPE but different merge criterion:
+  BPE: merge most frequent pair
+  WordPiece: merge pair that maximizes likelihood of corpus under unigram LM
+             score(A, B) = P(AB) / (P(A) · P(B))
+
+Resulting vocabulary:
+  Whole words: "university"
+  Continuations: "##ity" (## prefix = continuation of a word)
+
+Tokenization:
+  "universities" → ["university", "##s"]  (if "universitys" unknown)
+              OR → ["uni", "##vers", "##ities"]
+
+BERT vocabulary: 30522 tokens (English), 119547 (multilingual)
+```
+
+### SentencePiece
+
+SentencePiece (Kudo & Richardson 2018, used in T5, LLaMA, Llama 2):
+
+```
+Key difference: language-independent (no whitespace assumption)
+  Treats input as a sequence of Unicode characters
+  Handles Japanese/Chinese (no spaces between words) natively
+
+Two algorithms available:
+  BPE: same as above, language-agnostic
+  Unigram LM: probabilistic model, allows multiple segmentations,
+              uses EM to find optimal vocabulary
+
+Byte fallback: any character not in vocabulary → UTF-8 bytes → no UNK
+```
+
+### Vocabulary Size Effects
+
+```
+Model             Tokenizer        Vocab size    Notes
+──────────────    ──────────────   ──────────    ──────────────────────────────────
+GPT-2             BPE (tiktoken)   50,257        OpenAI baseline
+GPT-3/4           BPE (tiktoken)   100,277       cl100k_base; larger vocab
+BERT              WordPiece        30,522        [unused] entries for new tokens
+RoBERTa           BPE              50,265        GPT-2 style
+T5                SentencePiece    32,100        Unigram LM
+LLaMA 1/2         SentencePiece    32,000        BPE on SP
+LLaMA 3           BPE (tiktoken)   128,256       Large vocab for multilingual
+
+Larger vocab → fewer tokens per text → faster inference
+             → more embedding parameters (vocab_size × d_model)
+             → rare tokens poorly trained (need large corpus to fill vocab)
+```
+
+### Tokenization Gotchas
+
+```
+1. Token boundary ≠ word boundary:
+   "don't" → ["don", "'", "t"] in GPT-2 BPE
+   "unhappy" → ["un", "happy"] in WordPiece
+   Arithmetic: "42" might be one token, "100" might be two — explains LLM math failures
+
+2. Prefix/continuation distinction:
+   "big" (start of word) ≠ "Ġbig" (GPT-2 BPE, Ġ = leading space)
+   Same characters, different tokens — context of space matters
+
+3. Case sensitivity:
+   Most modern tokenizers are case-sensitive
+   "The" and "the" are different tokens in GPT-2
+
+4. Morphologically rich languages:
+   Finnish "juoksennellaan" (they run around) → many tokens vs one word
+   BPE degrades gracefully; character models handle this better in theory
+
+5. Tokenization leaks into prompting:
+   "Write a word that rhymes with orange" — LLM sees "o","ran","ge" not a single unit
+   Spelling/rhyming tasks hard because the token != the character sequence
+```
+
+---
+
+## 9. Transformer (Architecture)
 
 **Scaled dot-product attention** (Vaswani et al. 2017):
 ```
@@ -325,7 +512,7 @@ Final word vectors: sum of word embedding and context embedding wᵢ + w̃ᵢ.
 
 ---
 
-## 9. BERT and Bidirectional Pretraining
+## 10. BERT and Bidirectional Pretraining
 
 **BERT** (Devlin et al. 2018) — bidirectional encoder:
 ```
@@ -375,7 +562,7 @@ Final word vectors: sum of word embedding and context embedding wᵢ + w̃ᵢ.
 
 ---
 
-## 10. Scaling Laws and LLMs
+## 11. Scaling Laws and LLMs
 
 **Kaplan scaling laws** (OpenAI, 2020):
 ```
@@ -408,7 +595,7 @@ Final word vectors: sum of word embedding and context embedding wᵢ + w̃ᵢ.
 
 ---
 
-## 11. Decision Cheat Sheet
+## 12. Decision Cheat Sheet
 
 | Task | Approach | Notes |
 |------|----------|-------|
@@ -424,7 +611,7 @@ Final word vectors: sum of word embedding and context embedding wᵢ + w̃ᵢ.
 
 ---
 
-## 12. Common Confusion Points
+## 13. Common Confusion Points
 
 1. **"Attention in Transformers = attention in Bahdanau Seq2Seq"** — Related but different. Bahdanau: additive attention, RNN context. Transformer: scaled dot-product, fully parallel, no RNN, multi-head. Transformer attention is self-attention — each position attends to all others in the same sequence.
 

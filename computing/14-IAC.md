@@ -75,7 +75,38 @@ Imperative (scripts)               Declarative (IaC)
 
 The dominant multi-cloud IaC tool. HCL (HashiCorp Configuration Language) — structured, readable, not a full programming language.
 
-<!-- @editor[bridge/P2]: Missing ARM template → Terraform HCL bridge at the point of introduction. The calibration note is explicit: "Bridge: ARM template → Terraform HCL." The learner knows ARM JSON deeply (they worked on Azure at Microsoft). The transition from ARM to HCL is not just syntactic — the mental model shift is: ARM is a JSON document sent to Azure Resource Manager describing a desired end-state; Terraform HCL is also declarative but adds a local state file and a plan/apply cycle that ARM's what-if only partially approximates. This bridge belongs here, before the workflow diagram, not only in the Old World Bridge table at the end. A named side-by-side comparing the same resource in ARM JSON vs Terraform HCL would land here. -->
+> **ARM → Terraform bridge**
+>
+> You know ARM JSON: a JSON document sent to Azure Resource Manager describing desired end-state. Azure RP reconciles reality to match it. ARM state lives in Azure's control plane — you query the portal or `az resource show` to know what actually exists.
+>
+> Terraform HCL also declares desired state, and the provider reconciles. Key difference: **Terraform state lives in a file you own (`.tfstate`)**. You are responsible for it. It can drift.
+>
+> Same storage account in ARM vs HCL:
+>
+> ```json
+> // ARM JSON
+> {
+>   "type": "Microsoft.Storage/storageAccounts",
+>   "apiVersion": "2023-01-01",
+>   "name": "[parameters('storageAccountName')]",
+>   "location": "[parameters('location')]",
+>   "sku": { "name": "Standard_LRS" },
+>   "kind": "StorageV2"
+> }
+> ```
+>
+> ```hcl
+> # Terraform HCL
+> resource "azurerm_storage_account" "sa" {
+>   name                     = var.storage_account_name
+>   resource_group_name      = azurerm_resource_group.rg.name
+>   location                 = var.location
+>   account_tier             = "Standard"
+>   account_replication_type = "LRS"
+> }
+> ```
+>
+> ARM resource type strings map to Terraform provider resource names. The pattern is consistent but requires a lookup: `Microsoft.Storage/storageAccounts` → `azurerm_storage_account`, `Microsoft.Web/serverfarms` → `azurerm_service_plan`, `Microsoft.Sql/servers` → `azurerm_mssql_server`. Full mapping at [registry.terraform.io/providers/hashicorp/azurerm](https://registry.terraform.io/providers/hashicorp/azurerm).
 
 ### How Terraform Works
 
@@ -110,7 +141,13 @@ State
   Never commit tfstate with secrets to git.
 ```
 
-<!-- @editor[bridge/P2]: The state model is explained clearly but the bridge to ARM's equivalent is missing. ARM doesn't have a local state file — Azure Resource Manager IS the state store (you query the portal or az CLI for current state). Terraform's local state file is a significant departure: it's a local source of truth that can diverge from reality (drift). The bridge: "ARM's state is always in Azure's control plane; Terraform's state is a file you own and must protect. This is why remote state with locking is not optional for teams — it's the mechanism that gives Terraform its ARM-like 'Azure is the source of truth' property." -->
+> **ARM state model vs Terraform state model**
+>
+> ARM template deployment = idempotent apply against **Azure control plane as ground truth**. Azure always knows the real state; you can delete the template and `az resource list` still works.
+>
+> Terraform plan/apply = diff against **`.tfstate` file as ground truth**. The `.tfstate` file is Terraform's cached view of what it created. If someone changes infrastructure outside of Terraform (portal clickops, `az` CLI), the `.tfstate` file becomes stale — that's **state drift**. `terraform refresh` syncs the state file from reality; then `terraform plan` shows the true delta.
+>
+> This is the most important conceptual difference from ARM. With ARM, Azure is always the authoritative source. With Terraform, `.tfstate` is the authoritative source, and it can lie. Remote state with locking (Azure Blob + lease) restores ARM-like behavior: one writer at a time, shared across the team.
 
 ### HCL Syntax
 
@@ -387,7 +424,35 @@ az deployment group what-if \
 
 Write real code (TypeScript, Python, Go, C#) that provisions infrastructure. The type system, loops, conditionals, and abstraction you already know.
 
-<!-- @editor[bridge/P2]: Missing explicit Bicep → Pulumi bridge. The calibration note flags: "Bicep → Pulumi (both are more ergonomic)" and notes that Pulumi (TypeScript/C#) is a natural bridge from this learner's background. The Pulumi section dives into TypeScript code without naming the bridge. The learner writes C# professionally. The key bridge: "Pulumi is what you'd get if ARM had a proper C# SDK instead of JSON templates — you write real C# (or TypeScript), get IntelliSense, loops, conditionals, and type-safe resource references. No DSL to learn; infrastructure IS code." The code example uses TypeScript; adding a note that C# is equally first-class (via `@pulumi/azure-native` NuGet package) would land well for this reader. -->
+> **Bicep → Pulumi bridge**
+>
+> Bicep is ARM JSON with better syntax — still declarative, still a DSL, still no loops beyond `for` expressions, still no real type system. It compiles down to ARM JSON.
+>
+> Pulumi is imperative IaC in real languages. You write TypeScript, Python, Go, or **C#** — with full IntelliSense, real loops, conditionals, generics, and typed resource references. For a C# developer, Pulumi feels like using the Azure SDK except the output is a running infrastructure deployment rather than an HTTP response.
+>
+> Pulumi C# example — create a storage account:
+>
+> ```csharp
+> using Pulumi;
+> using Pulumi.AzureNative.Resources;
+> using Pulumi.AzureNative.Storage;
+>
+> return await Deployment.RunAsync(() =>
+> {
+>     var rg = new ResourceGroup("rg");
+>
+>     var sa = new StorageAccount("sa", new StorageAccountArgs
+>     {
+>         ResourceGroupName = rg.Name,
+>         Sku = new SkuArgs { Name = SkuName.Standard_LRS },
+>         Kind = Kind.StorageV2,
+>     });
+>
+>     return new Dictionary<string, object?> { ["storageAccountName"] = sa.Name };
+> });
+> ```
+>
+> The NuGet package is `Pulumi.AzureNative` — it wraps the full Azure RM API surface with generated C# types. Every ARM resource type has a corresponding strongly-typed C# class.
 
 ```typescript
 // index.ts — Pulumi TypeScript
@@ -531,14 +596,14 @@ Both track what was created. Pulumi defaults to Pulumi Cloud backend; Terraform 
 | Click "Create resource group" | `resource "azurerm_resource_group"` / `resource rg` |
 | Azure Portal ARM Export | Starting point for Bicep (decompile ARM JSON → Bicep) |
 | ARM JSON templates | Bicep (ARM is the compiled output) |
+| ARM JSON templates | Terraform HCL — `"type": "Microsoft.Storage/storageAccounts"` → `resource "azurerm_storage_account"`. ARM resource type strings map consistently to `azurerm_*` names; lookup at registry.terraform.io/providers/hashicorp/azurerm |
 | PowerShell provisioning scripts | Terraform / Bicep / Pulumi |
 | Deployment environments (dev/staging/prod) | Workspaces / stacks / parameter files |
 | Azure Blueprints (deprecated) | Bicep modules + Policy-as-code |
 | Manual VSTS environment setup | IaC in CI/CD pipeline (13-CICD) |
 | "I know what's in prod" | `terraform state list` / Pulumi stack output |
 | Azure Resource Manager | What Bicep compiles to; what Terraform's azurerm provider calls |
-
-<!-- @editor[bridge/P2]: The Old World Bridge table maps portal/process concepts to IaC tools but is missing the most direct ARM → Terraform HCL syntax comparison. This is the calibration note's primary bridge: "ARM template → Terraform HCL." The table has "ARM JSON templates → Bicep" but not "ARM JSON templates → Terraform HCL." For a reader who knows ARM JSON intimately, seeing the side-by-side (ARM `"type": "Microsoft.Web/serverfarms"` → Terraform `resource "azurerm_service_plan"`) explains the provider naming convention and the schema mapping. Even one row in the table explicitly mapping ARM resource type strings to Terraform resource type strings would close this gap. -->
+| ARM as authoritative state store | Terraform remote state in Azure Blob — restores the "Azure is source of truth" property that local `.tfstate` breaks |
 
 ---
 
@@ -549,6 +614,7 @@ Both track what was created. Pulumi defaults to Pulumi Cloud backend; Terraform 
 | Provision Azure resources, Azure-only shop | Bicep |
 | Provision across Azure + AWS + GCP | Terraform |
 | Write infrastructure in TypeScript/Python I already know | Pulumi |
+| Write infrastructure in C# with typed Azure SDK objects | Pulumi C# (`Pulumi.AzureNative`) |
 | Manage servers/config (not just provisioning) | Ansible (not IaC per se) |
 | Preview changes before applying | `terraform plan` / `az deployment what-if` / `pulumi preview` |
 | Store state safely for a team | Remote backend (Azure Blob + lock) |
@@ -558,3 +624,4 @@ Both track what was created. Pulumi defaults to Pulumi Cloud backend; Terraform 
 | Convert existing ARM JSON to Bicep | `az bicep decompile` |
 | Protect a critical resource from accidental destroy | `lifecycle { prevent_destroy = true }` |
 | Manage multiple environments (dev/staging/prod) | Workspaces (TF) / stacks (Pulumi) / parameter files (Bicep) |
+| Look up ARM resource type → Terraform resource name | registry.terraform.io/providers/hashicorp/azurerm |

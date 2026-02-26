@@ -1,5 +1,307 @@
 # Cross-Platform Development Reference
 
+```
+OS-LEVEL DIVERGENCE LANDSCAPE
+═══════════════════════════════════════════════════════════════════════════════
+
+  PROCESS MODEL               FILESYSTEM                    IPC / ASYNC
+  ─────────────────────────   ─────────────────────────     ─────────────────────────
+  Windows                     Windows                       Windows
+  CreateProcess()             C:\foo\bar (backslash)        Named pipe \\.\pipe\name
+  No fork() — fresh           Drive letters (C:, D:)        IOCP (completion-based)
+  process from scratch        NTFS: case-insensitive        Winsock TCP/UDP
+  Explicit handle inherit     MAX_PATH=260 (legacy)
+  Job Objects for groups      CRLF line endings
+
+  Linux                       Linux                         Linux
+  fork() + exec()             /foo/bar (forward slash)      Unix domain socket /tmp/x.sock
+  COW clone then replace      No drive letters              epoll / io_uring (readiness)
+  All fds inherited           ext4: case-sensitive          POSIX sockets TCP/UDP
+  unless O_CLOEXEC            LF line endings               Netlink (kernel ↔ userspace)
+  clone() for threads         No max path (POSIX: 4096)     D-Bus (desktop services)
+
+  macOS                       macOS                         macOS
+  posix_spawn() preferred     /foo/bar                      Unix domain socket (same as Linux)
+  fork() works but restricted APFS: case-insensitive        kqueue (readiness, plus file watch)
+  in sandboxed/App Store apps by default                    Mach ports (XPC services)
+  Same fd inherit as Linux    LF line endings               XPC (high-level Mach IPC)
+                              HFS+: NFD Unicode normalize
+
+  UNICODE / ENCODING          SIGNALS                       CONFIG STORE
+  ─────────────────────────   ─────────────────────────     ─────────────────────────
+  Windows: UTF-16 internal    Windows: no POSIX signals     Windows: Registry (binary DB)
+  NFKC normalization          SetConsoleCtrlHandler         Linux: /etc text files
+  char = UTF-16 in Win32 API  (Ctrl+C only)                macOS: .plist files
+  Filenames: Unicode (UTF-16) WM_CLOSE for GUI windows      Both: env vars for 12-factor
+
+  Linux: no normalization     Linux: full POSIX signals
+  Bytes on disk               SIGTERM/SIGKILL/SIGHUP etc.
+  Filename: byte strings      signalfd for event-loop
+  (usually UTF-8 by convention but not enforced)
+
+  macOS: NFC (HFS+ uses NFD)  macOS: POSIX signals + kqueue
+  Same filename, different    EVFILT_SIGNAL preferred
+  byte representation than    in multi-threaded apps
+  Linux (NFD) for some chars
+```
+
+## OS-Level Portability — Where Code Breaks Across Platforms
+
+### Filesystem Path Differences
+
+```
+PATH DIFFERENCES — PRODUCTION BUGS HIDING HERE
+═══════════════════════════════════════════════════════════════════════════
+
+  Attribute          Windows                Linux / most POSIX    macOS
+  ──────────         ─────────────────────  ──────────────────    ──────────────────────
+  Separator          \  (backslash)          /  (forward slash)    /  (forward slash)
+  Alt separator      /  (also accepted       (none)                (none)
+                      by most Windows APIs)
+  Drive letters      C:\, D:\, \\server\sh  No                    No
+  Root               C:\  or \\server\share  /                     /
+  Case sensitivity   Insensitive+preserving  Sensitive (ext4)      Insensitive by default
+                     (NTFS default)          Sensitive (xfs, btrfs) Can be formatted sensitive
+  Max path length    260 chars (legacy)      ~4096 bytes           ~1024 bytes
+                     32767 with \\?\ prefix  per component: 255    per component: 255
+  Null char in path  Not allowed             Not allowed           Not allowed
+  Other reserved     CON, PRN, AUX, NUL,    No reserved names     No reserved names
+  names              COM1-9, LPT1-9
+                     Cannot be filenames
+  Trailing spaces    Stripped silently       Valid (unusual)        Valid (unusual)
+  Symlinks           Require Admin or        Standard               Standard; /etc → /private/etc
+                     Developer Mode; are
+                     not followed by all
+                     tools (Explorer hides)
+
+  Path separator in code — the right way:
+    Python:    pathlib.Path('a') / 'b' / 'c'  (OS-native, correct everywhere)
+    .NET:      Path.Combine("a", "b", "c")     (correct; avoids \ vs / issue)
+    Node.js:   path.join('a', 'b', 'c')        (correct)
+    Wrong:     "a" + "/" + "b"                  (fails on Windows if dir has C:\)
+    Also wrong: "a\\b"                          (fails on Linux/macOS)
+
+  Max path gotcha on Windows:
+    Legacy Win32 APIs enforce MAX_PATH=260.
+    Opt-in to long paths: HKLM\SYSTEM\CurrentControlSet\Control\FileSystem\
+      LongPathsEnabled=1  (Windows 10 1607+)
+    OR use \\?\ prefix: \\?\C:\very\long\path
+    .NET: automatically uses \\?\ prefix for long paths in .NET 6+
+    Docker on Windows: /var/lib/docker paths can exceed 260 — enable long paths
+```
+
+### Line Endings — CRLF vs LF
+
+```
+LINE ENDING SEMANTICS
+═══════════════════════════════════════════════════════════════════════════
+
+  Windows:  \r\n  (CRLF, 0x0D 0x0A)  — text mode default since MS-DOS
+  Linux:    \n    (LF, 0x0A)          — POSIX standard
+  macOS:    \n    (LF, 0x0A)          — changed from \r in OS X 10.0
+  Old Mac:  \r    (CR, 0x0D)          — pre-OS X; still used by some Excel exports
+
+  The production bug:
+    Developer on Windows checks in shell script
+    git config core.autocrlf = true (Windows default in Git for Windows)
+    Git converts LF → CRLF on checkout
+    Script.sh checked out on Windows → contains CRLF
+    CI runs in Docker (Linux) → #!/bin/bash\r — shebang has trailing \r
+    bash: cannot execute: No such file  (or similar cryptic error)
+
+  Fix: .gitattributes (committed to repo, overrides local config)
+    # .gitattributes
+    * text=auto                   # auto-detect text files, normalize to LF in repo
+    *.sh text eol=lf              # always LF for shell scripts
+    *.bat text eol=crlf           # always CRLF for batch files
+    *.ps1 text eol=crlf           # PowerShell on Windows wants CRLF
+    *.sln text eol=crlf           # Visual Studio solution files
+    *.png binary                  # no conversion for binary files
+
+  git config audit:
+    git config core.autocrlf      # true (Win) / input (Mac/Linux) / false (no convert)
+    git config core.eol           # lf / crlf / native
+
+  Check for CRLFs in existing files:
+    file script.sh                # "with CRLF line terminators" if CRLF
+    cat -A script.sh | head       # ^M at end of lines = CR (\r)
+
+  Fix CRLFs in place:
+    sed -i 's/\r//' script.sh      # Linux/macOS
+    dos2unix script.sh             # if dos2unix installed
+```
+
+### Case Sensitivity Bugs
+
+```
+CASE SENSITIVITY TRAP
+═══════════════════════════════════════════════════════════════════════════
+
+  Windows (NTFS):  case-insensitive, case-preserving
+    FOO.TXT and foo.txt are the SAME file — last write wins
+  Linux (ext4):    case-sensitive
+    FOO.TXT and foo.txt are DIFFERENT files — can coexist
+  macOS (APFS):    case-insensitive by default
+    Same as Windows by default; developer machines can run case-sensitive APFS
+
+  The bug pattern:
+    Developer on Windows or macOS: import './Utils'
+    utils.ts exists on disk as utils.ts (lowercase)
+    Works: Windows/macOS filesystem resolves 'Utils' → 'utils.ts'
+    Fails: Linux CI (Docker, GitHub Actions Ubuntu) — 'Utils' ≠ 'utils.ts'
+
+  Detectors:
+    TypeScript: "forceConsistentCasingInFileNames": true  in tsconfig.json
+    ESLint: import/no-unresolved (with case-sensitive resolver)
+    CI: run on Linux even if devs use Windows/Mac
+
+  Docker on Windows:
+    Docker Desktop mounts C:\ via VirtioFS / Hyper-V 9P
+    The container filesystem IS case-sensitive (Linux ext4)
+    Code that works when run natively on Windows may fail in your Docker container
+
+  Git case sensitivity:
+    git mv Readme.md README.md   # might silently do nothing on case-insensitive FS
+    Use: git mv Readme.md tmp && git mv tmp README.md  (two-step)
+    Or:  git config core.ignorecase false  (use carefully)
+```
+
+### Unicode Normalization — The Silent Gotcha
+
+```
+UNICODE NORMALIZATION ACROSS OSes
+═══════════════════════════════════════════════════════════════════════════
+
+  Forms:
+    NFC  (Canonical Decomposition + Canonical Composition)    — used by Windows, Linux common
+    NFD  (Canonical Decomposition)                            — used by macOS HFS+ filesystem
+    NFKC (Compatibility Decomposition + Composition)          — Windows Registry, some Win32 APIs
+    NFD  and NFC differ for composed characters like é:
+      NFC: U+00E9 (single code point: é)
+      NFD: U+0065 U+0301 (e + combining acute accent — two code points)
+
+  macOS HFS+ (legacy, not APFS): stores filenames in NFD
+  macOS APFS: preserves whatever form you write (no normalization)
+  Linux: no normalization — bytes in, bytes out
+  Windows: NTFS stores as UTF-16, no normalization enforced
+
+  The bug:
+    File created on macOS HFS+ with filename "café" → stored as NFD on disk
+    Copied to Linux (rsync, scp) → arrives as NFD byte sequence
+    Linux program: filename == "café" (NFC comparison) → NOT EQUAL
+    Strings look identical on screen, compare unequal in code
+
+  Fix in code:
+    Python:  unicodedata.normalize('NFC', filename)
+    JS/TS:   filename.normalize('NFC')
+    .NET:    string.Normalize(NormalizationForm.FormC)
+
+  Practical rule: normalize to NFC at IO boundaries
+  (when reading filenames, user input, or data from other systems)
+```
+
+### Process Creation Model — Cross-OS Bridge
+
+```
+PROCESS CREATION MODELS
+═══════════════════════════════════════════════════════════════════════════
+
+  Windows: CreateProcess()          Linux: fork() + exec()        macOS: posix_spawn() preferred
+  ─────────────────────────         ─────────────────────────     ───────────────────────────────
+  Fresh process from scratch         Clone current process          Combination: avoids full fork
+  No fork() at all                   (COW copy of address space)    overhead; preferred on Apple
+  All handles must be explicit:       → exec() replaces image        Silicon and in sandboxed apps
+    bInheritHandle = TRUE on          All fds inherited unless       (fork is restricted in some
+    SECURITY_ATTRIBUTES, or           O_CLOEXEC set at open time     App Store / sandbox contexts)
+    UpdateProcThreadAttribute()       (or SOCK_CLOEXEC, etc.)       iOS: fork() not available at all
+    for handle list
+
+  Security context:                  Security context:              Security context:
+    Token explicitly specified         uid/gid inherited from parent  uid/gid inherited; can setuid
+    or inherits calling process token  setuid executable changes uid  posix_spawn actions can
+    CreateProcessAsUser() for           post-exec                      chdir, dup2, close fds
+    impersonation
+
+  fd/handle inheritance:             fd inheritance:                fd inheritance:
+    Explicit opt-in per handle         All fds unless O_CLOEXEC       posix_spawn_file_actions:
+    DuplicateHandle() to share          (Python subprocess,            explicit file action list
+    across non-related processes        subprocess32, Go exec.Cmd      (not inherited by default
+                                        all set O_CLOEXEC by default)   without explicit action)
+
+  Env vars:                          Env vars:                      Env vars:
+    lpEnvironment param or inherit     environ[] inherited           Same as Linux fork/exec
+    CreateProcess always starts fresh   (unless execve() with new env)(posix_spawn with new env)
+
+  Process group / session:           Process group / session:       Same as Linux
+    Job Objects (Windows-specific)     setsid() / setpgid()          setpgid() / setsid()
+    → CPU/memory limits per group      process groups for signal      (no Job Objects)
+    → on child, kill all               delivery to group
+
+  Security implication of no fork on Windows:
+    Every new process starts clean — no accidental fd/secret inheritance
+    Explicit handle list forces developer to think about what is shared
+    Linux/macOS: a fd opened before fork() is silently inherited by child
+    unless O_CLOEXEC was set — common security bug in servers that use fork()
+
+  Cross-platform process launcher libraries:
+    Python:     subprocess.Popen() — handles all three platforms
+    Node.js:    child_process.spawn() — handles all three
+    Rust:       std::process::Command — handles all three
+    .NET:       Process.Start(ProcessStartInfo) — handles all three
+    Go:         os/exec.Command — handles all three
+    All abstract fork+exec (Unix) or CreateProcess (Windows) behind one API.
+```
+
+### Cross-Platform IPC — Named Pipes vs Unix Domain Sockets
+
+```
+LOCAL IPC MECHANISMS — CROSS-PLATFORM COMPARISON
+═══════════════════════════════════════════════════════════════════════════
+
+  Windows Named Pipe               Unix Domain Socket (Linux + macOS)
+  ────────────────────────────     ────────────────────────────────────────
+  Address: \\.\pipe\myserver       Address: /tmp/myserver.sock  (filesystem path)
+  or \\hostname\pipe\myserver      (no remote addressing for AF_UNIX)
+
+  API:                             API:
+    Server: CreateNamedPipe()        Server: socket(AF_UNIX, SOCK_STREAM, 0)
+    Client: CreateFile(\\.\pipe\...) bind(/tmp/sock) → listen() → accept()
+    Both: ReadFile() / WriteFile()   Client: connect(/tmp/sock)
+    Async: overlapped I/O + IOCP     Both: read() / write() / send() / recv()
+                                     Async: epoll / kqueue / io_uring
+
+  .NET:                            .NET (5+):
+    NamedPipeServerStream            UnixDomainSocketEndPoint
+    NamedPipeClientStream            Same Socket API as TCP
+
+  Permissions:                     Permissions:
+    ACL on pipe object               Filesystem permissions on socket path
+    OpenNamedPipe with access flags  chmod / chown on /tmp/sock
+                                     (directory execute bit needed too)
+
+  Visual Studio / VS Code use case:
+    Language Server Protocol (LSP) must support both:
+    Windows:  \\.\pipe\vscode-<extension>
+    Linux:    /tmp/vscode-<extension>.sock
+    macOS:    /tmp/vscode-<extension>.sock (same as Linux)
+
+  Cross-platform server that supports both:
+  ```
+  if platform == 'win32':
+      server = NamedPipeServer('\\\\.\\pipe\\myapp')
+  else:
+      server = UnixSocketServer('/tmp/myapp.sock')
+  ```
+  Or use TCP loopback (127.0.0.1:PORT) — works everywhere, no platform-specific code,
+  slight overhead but avoids the named-pipe/Unix-socket split entirely.
+  gRPC defaults to TCP; language servers often offer TCP as fallback.
+
+  Passing file descriptors cross-platform:
+    Linux/macOS: SCM_RIGHTS over AF_UNIX socket (sendmsg with ancillary data)
+    Windows:     DuplicateHandle() — requires target process handle
+    No universal API — platform detection required
+```
+
 ## The Landscape — Big Picture
 
 ```

@@ -90,6 +90,8 @@ In Top: mono = injection (even non-homeomorphisms can be monic).
 
 ## 2. Functors
 
+<!-- @editor[bridge/P2]: The algebraic topology connection — homology and homotopy as functors — is entirely absent. H_n: Top → Ab (homology functor to abelian groups) and π₁: Top_* → Grp (fundamental group functor) are the canonical examples of functors doing mathematical work: they convert hard topological questions into tractable algebraic ones. This is a critical bridge between category theory and topology that belongs here (or in a dedicated section). The learner profile (MIT Math + TCS) means this bridge has obvious prior-art resonance. -->
+
 ### Definition
 
 A **functor** F: 𝒞 → 𝒟 between categories assigns:
@@ -293,6 +295,8 @@ Colimits in Set: quotient of coproduct by compatibility equivalence relation.
 
 ---
 
+<!-- @editor[bridge/P2]: Adjunctions are described as "the fundamental concept of category theory" (Mac Lane) but the guide doesn't make the case for why. The pattern — free ⊣ forgetful, ∑ ⊣ Δ ⊣ ∏, ⊗ ⊣ hom, suspension ⊣ loop, image ⊣ inverse image — should be previewed as "adjunctions are everywhere" before diving into the definition. Add a short motivating preamble listing 4–5 adjunction instances across different domains to establish the pattern, then the definition. -->
+
 ## 5. Adjunctions
 
 ### Definition
@@ -463,6 +467,8 @@ instance Monad m => Monad (StateT s m) where
 
 ---
 
+<!-- @editor[bridge/P2]: The database/categorical data models connection is listed in the table in Section 9 (JOIN as pullback, UNION as coproduct) but never explained. Spivak's work on categorical databases (functors from a schema category to Set as a model) is a genuine, non-trivial application of CT to CS that deserves a short dedicated paragraph — especially strong given the learner's database background. The idea: a relational schema is a category, a database instance is a functor to Set, a query is a natural transformation or limit/colimit. -->
+
 ## 7. Topos Theory (Sketch)
 
 ### What is a Topos?
@@ -533,6 +539,8 @@ A Haskell `Functor` is exactly an endofunctor on the category **Hask** (ignoring
 - Preserves composition: `fmap (g.f) = fmap g . fmap f`
 
 **Parametric polymorphism = natural transformation**: A polymorphic function `α :: forall a. F a -> G a` is a natural transformation F ⇒ G. Naturality is automatic by "free theorems" (Wadler's theorems for free — follow from parametricity).
+
+<!-- @editor[bridge/P3]: The profunctor / optics material (Haskell lens) in the table in Section 9 is listed but not explained. Profunctors P: 𝒞^{op} × 𝒟 → Set generalize both covariant and contravariant functors; the lens/prism/traversal hierarchy (Haskell optics) is a profunctor encoding. Worth at least a short paragraph given the Haskell/FP depth of this file. -->
 
 ### Coalgebras and Corecursion
 

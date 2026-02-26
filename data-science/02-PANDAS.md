@@ -279,6 +279,71 @@ or LINQ chains. Each step produces a new DataFrame; nothing mutates in place.
 
 ---
 
+## SQL ↔ Pandas Bridge
+
+The GroupBy + pivot operations have direct SQL equivalents. Understanding the
+correspondence eliminates the conceptual overhead of learning the pandas API:
+
+```
+SQL                                          Pandas equivalent
+───────────────────────────────────────────  ──────────────────────────────────────────
+SELECT region, SUM(revenue)                  df.groupby("region")["revenue"].sum()
+FROM sales GROUP BY region
+
+SELECT region, SUM(rev), AVG(units)          df.groupby("region").agg(
+FROM sales GROUP BY region                       total_rev=("revenue","sum"),
+                                                 avg_units=("units","mean"))
+
+SELECT *, AVG(revenue) OVER                  df["region_avg"] = df.groupby("region")
+  (PARTITION BY region)                          ["revenue"].transform("mean")
+FROM sales
+
+SELECT *, ROW_NUMBER() OVER                  df["rn"] = df.groupby("region")
+  (PARTITION BY region ORDER BY revenue)         ["revenue"].rank(method="first",
+FROM sales                                       ascending=False)
+
+SELECT *, SUM(revenue) OVER                  df["cumsum"] = df.groupby("region")
+  (PARTITION BY region                           ["revenue"].cumsum()
+   ORDER BY date ROWS UNBOUNDED
+   PRECEDING)
+
+SELECT p.name, o.total FROM products p       pd.merge(products, orders,
+LEFT JOIN orders o ON p.id = o.product_id        left_on="id", right_on="product_id",
+                                                 how="left")
+
+SELECT region, product,                      df.pivot_table(index="region",
+  AVG(revenue) AS avg_rev                        columns="product",
+FROM sales                                       values="revenue",
+GROUP BY region, product                         aggfunc="mean")
+(displayed as a cross-tab)
+```
+
+**Excel pivot table ↔ `pivot_table()`**: An Excel pivot table where you drag
+`region` to Rows, `product` to Columns, and `revenue` to Values (Sum) is exactly
+`df.pivot_table(index="region", columns="product", values="revenue", aggfunc="sum")`.
+The `aggfunc` parameter corresponds to the Value Field Settings aggregation type.
+Slicers in Excel correspond to pre-filtering the DataFrame before pivoting.
+
+**SSAS measures ↔ named aggregations**: In SSAS, a calculated measure like
+`[Total Revenue] = SUM([Sales].[Revenue])` applied over a dimension slice corresponds
+to a named aggregation in pandas:
+
+```python
+# SSAS: SUM(Revenue) partitioned by Region dimension
+# Pandas equivalent:
+df.groupby("region").agg(
+    total_rev=("revenue", "sum"),            # simple SUM measure
+    distinct_customers=("customer_id", "nunique"),  # DISTINCT COUNT measure
+    p90_revenue=("revenue", lambda x: x.quantile(0.9)),  # custom expression
+)
+```
+
+The named aggregation syntax (`alias=(column, function)`) maps cleanly to
+SSAS measure definitions — one named measure per line, with explicit aggregation
+function and source column.
+
+---
+
 ## GroupBy
 
 GroupBy is pandas' implementation of the split-apply-combine pattern:

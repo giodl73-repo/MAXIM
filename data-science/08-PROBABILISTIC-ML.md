@@ -2,6 +2,68 @@
 ## Uncertainty as a First-Class Citizen
 
 ```
+PROBABILISTIC ML LANDSCAPE
+                                                 tractable?
+                              ┌──────────────────────────────────────────────┐
+                              │  EXACT                     APPROXIMATE        │
+                              ├──────────────────────────────────────────────┤
+         parametric  ─────►  │  Conjugate Bayes  │  MAP (point)             │
+         (fixed H)            │  (closed-form     │  Variational Inference   │
+                              │   posterior)      │  (ELBO optimization)     │
+                              │                   │  VAE (amortized VI)      │
+                              │                   │  Normalizing Flows       │
+                              ├───────────────────┼──────────────────────────┤
+        non-parametric ────►  │  GP (exact for    │  MCMC / HMC / NUTS       │
+        (H grows w/ data)     │   small n)        │  (sampling approx.)      │
+                              │                   │  Sparse GP (inducing pts)│
+                              └───────────────────┴──────────────────────────┘
+                                    ↑ O(n³)           ↑ O(cost per sample)
+
+  Generation quality axis:  Diffusion models (DDPM/DDIM) — score-based, SOTA quality
+  Explicit density:         VAE (lower bound) · Flow (exact) · Diffusion (tractable score)
+  Implicit density:         GAN (no density, just samples)
+```
+
+---
+
+## Frequentist ↔ Bayesian Bridge
+
+The same quantities appear in both frameworks under different names and with different
+semantics. Neither is more "correct" — they answer different questions:
+
+```
+Frequentist                                 Bayesian
+──────────────────────────────────────────  ────────────────────────────────────────────
+θ is fixed and unknown                      θ is random with prior distribution p(θ)
+
+MLE: θ̂ = argmax p(D | θ)                   MAP: θ̂ = argmax p(θ|D) = argmax[log p(D|θ)+log p(θ)]
+→ maximizes data likelihood                 → MLE with a regularization term (log prior)
+→ MLE = MAP with flat (uniform) prior
+
+95% confidence interval [a, b]:             95% credible interval [a, b]:
+"If we repeated the experiment many times,  "Given the data, there is 95% probability
+95% of such intervals would contain θ."     that θ ∈ [a, b]."
+θ is fixed; the interval is random.         θ is random; the interval is fixed.
+→ Same formula (CLT), different semantics.
+
+p-value: P(data as extreme | H₀)           Posterior probability: P(H₀ | data)
+→ probability of the data given the null    → probability of the null given the data
+→ small p ≠ P(H₀ true) is small            → what most people think p-values mean
+
+Hypothesis test (reject H₀ if p < α):      Posterior predictive check:
+→ binary decision rule                      → compare observed data to samples from
+→ no probability statement about H₀          p(x̃ | x_obs) = ∫ p(x̃|θ)p(θ|D)dθ
+                                            → continuous discrepancy assessment
+
+Sampling distribution of θ̂:               Posterior distribution of θ:
+→ distribution over hypothetical repeats   → actual distribution of uncertainty
+→ requires asymptotic approximation        → exact (if prior + likelihood are right)
+   (CLT, bootstrap)
+```
+
+---
+
+```
 THE PROBABILISTIC FRAMING
 
   Frequentist:   θ is fixed, unknown. Data is random. Estimate θ̂ from data.

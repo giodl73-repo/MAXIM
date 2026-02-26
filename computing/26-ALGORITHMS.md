@@ -9,7 +9,7 @@ You have MIT 6.006 and 6.046 under your belt. This is not a tutorial — it is a
 │  ALGORITHMIC COMPLEXITY LANDSCAPE                                            │
 │                                                                              │
 │  Provably Efficient                    Practically Efficient                 │
-│  ───────────────────────────           ─────────────────────────────         │
+│  ───────────────────────────────           ─────────────────────────────────────         │
 │  Sorting:      O(n log n) optimal      TimSort, Introsort (real constants)  │
 │  Shortest path: O(E log V)             Dijkstra with binary heap            │
 │  MST:          O(E log V) or E α(n)    Kruskal + union-find                │
@@ -173,8 +173,6 @@ Production uses: Kruskal's MST, dynamic connectivity, image segmentation, cycle 
 
 ## 3. Sorting
 
-<!-- @editor[bridge/P2]: The sorting section covers Introsort and TimSort correctly but misses the bridge to pdqsort (pattern-defeating quicksort) which is what Rust's std::sort and C++ Boost.Sort use. The learner will encounter pdqsort in any systems work. Missing: a paragraph bridging Introsort → pdqsort (the BlockQuicksort pivot selection + fallback strategy, and why it degrades to heapsort on adversarial inputs better than classic Introsort). The "Where These Algorithms Live in Production" table at the end is exactly right — this section could use the same level of implementation grounding. -->
-
 ### Comparison Sort Lower Bound
 
 Ω(n log n) comparisons required in the worst case. Proof via decision tree: must distinguish n! permutations; binary tree with n! leaves has depth ≥ log₂(n!) = Θ(n log n) by Stirling.
@@ -188,11 +186,20 @@ Production uses: Kruskal's MST, dynamic connectivity, image segmentation, cycle 
 | Quicksort | O(n log n) | O(n log n) | O(n²) | O(log n) | ❌ | General in-memory |
 | Heapsort | O(n log n) | O(n log n) | O(n log n) | O(1) | ❌ | Worst-case O(n log n) needed |
 | Introsort | O(n log n) | O(n log n) | O(n log n) | O(log n) | ❌ | std::sort (GCC/MSVC/Clang) |
+| pdqsort | O(n) | O(n log n) | O(n log n) | O(log n) | ❌ | Rust std::sort, C++ Boost.Sort |
 | TimSort | O(n) | O(n log n) | O(n log n) | O(n) | ✅ | Real-world data |
 | Radix sort | O(d·n) | O(d·n) | O(d·n) | O(n+k) | ✅ | Integer keys, fixed width |
 | Counting sort | O(n+k) | O(n+k) | O(n+k) | O(k) | ✅ | Small integer range k |
 
 **Introsort**: Quicksort → switch to heapsort when recursion depth > 2·log₂n → insertion sort for n < 16. GCC's `std::sort`. No worst case, small constants.
+
+**pdqsort (pattern-defeating quicksort)**: The standard sort in Rust's `std::sort` and C++ Boost.Sort. Introsort is the baseline; pdqsort adds pattern detection on top:
+- **Nearly-sorted or reverse-sorted input**: detected via cheap prescan; switches to insertion sort
+- **Many duplicates or all-equal**: detected via equal-element tracking; avoids O(n²) on pathological pivot sequences
+- **Random data**: behaves like Introsort (quicksort with median-of-3 pivot, heapsort fallback)
+- **Adversarial pivot sequences**: heapsort fallback (same as Introsort) prevents worst case
+
+The insight: real-world data is almost never uniformly random. Nearly-sorted arrays (common after an earlier sort plus a few inserts) and arrays with many duplicates (enum columns, boolean fields) are the norm in production. pdqsort's O(n) best case on these patterns is why Rust's sort benchmarks better than textbook quicksort at the same O(n log n) average — the constants collapse for common inputs.
 
 **TimSort**: Detect natural runs (ascending or descending). Merge runs via "galloping" mode that adapts to the data's existing order. Python `list.sort()`, Java `Arrays.sort()` for objects, Android SDK.
 
@@ -218,8 +225,6 @@ Every database ORDER BY, hash join build phase, and GROUP BY uses external sort 
 ---
 
 ## 4. Graph Algorithms
-
-<!-- @editor[audience/P2]: BFS and DFS with annotated edge classifications (tree edge, back edge, forward edge, cross edge) and the DFS correctness proof scaffolding are 6.006 lecture material this learner has known since undergrad. The Dijkstra algorithm walkthrough ("prerequisites: non-negative edge weights; extract min; relax all edges") is similarly foundational. What adds value: the SPFA warning (susceptible to adversarial inputs — avoid in production), the A* heuristic consistency note, and the Johnson's algorithm vs Floyd-Warshall complexity comparison for sparse graphs. Consider tagging the BFS/DFS fundamentals as "reference" and front-loading the production-relevant nuances. -->
 
 ### Representations
 
@@ -248,6 +253,19 @@ DFS:
   In undirected graph: only tree and back edges exist.
 ```
 
+### Shortest Path Algorithm Reference
+
+| Algorithm | Complexity | Negative edges | Use when |
+|-----------|------------|----------------|----------|
+| BFS | O(V+E) | No (unweighted) | Unweighted shortest path |
+| Dijkstra (binary heap) | O((V+E) log V) | No | Standard SSSP, non-negative weights |
+| Dijkstra (Fibonacci heap) | O(E + V log V) | No | Dense graphs, theory |
+| Bellman-Ford | O(VE) | Yes | Negative edges, cycle detection |
+| SPFA | O(V+E) avg / O(VE) worst | Yes | Avoid — adversarial inputs kill it |
+| A* | O(E log V) | No | Point-to-point with good heuristic |
+| Floyd-Warshall | O(V³) | Yes (no neg cycles) | All-pairs, dense graph |
+| Johnson's | O(V² log V + VE) | Yes (reweighted) | All-pairs, sparse graph |
+
 ### Strongly Connected Components
 
 **Kosaraju's** (two passes, conceptually clean):
@@ -264,7 +282,7 @@ Time: O(n+m)
 
 **Kosaraju vs Tarjan**: Same asymptotic complexity. Tarjan is one pass (better constants). Kosaraju requires reversing the graph. Both O(n+m).
 
-### Shortest Paths
+### Shortest Paths — Detail
 
 **Dijkstra**:
 ```
@@ -288,14 +306,25 @@ Time: O(nm).
 Used in: OSPF (routing), currency arbitrage detection.
 ```
 
-**SPFA** (Shortest Path Faster Algorithm): Bellman-Ford with a queue (relax only neighbors of updated vertices). Average O(m), worst case O(nm). Susceptible to adversarial inputs — avoid in production.
+**SPFA** (Shortest Path Faster Algorithm): Bellman-Ford with a queue (relax only neighbors of updated vertices). Average O(m), worst case O(VE). On adversarial inputs (grids, graphs designed to force many re-relaxations), SPFA degrades to the full O(VE) bound. In competitive programming this is a known attack; in production use Dijkstra + Johnson's reweighting instead.
 
 **A\*** (heuristic search):
 ```
-Extend Dijkstra with admissible heuristic h(v) ≤ true_dist(v, target).
+Extend Dijkstra with heuristic h(v).
 Expand nodes by f(v) = g(v) + h(v), where g(v) = dist from source.
-Optimal and complete when h is consistent: h(u) ≤ w(u,v) + h(v).
-Used in: game pathfinding (grid h = Manhattan/Euclidean), navigation, robot planning.
+
+Admissible: h(v) ≤ true_dist(v, target).  Guarantees optimal path found.
+Consistent (monotone): h(u) ≤ w(u,v) + h(v) for all edges (u,v).
+  → h decreases by at most edge weight along any path.
+
+Consistency is strictly stronger than admissibility.
+  - Admissible but not consistent: A* may expand the same node multiple times
+    (must allow re-expansion when a shorter path arrives).
+  - Consistent: each node expanded at most once (standard closed-set optimization works).
+
+For grid pathfinding, Manhattan distance is consistent.
+For Euclidean graphs, straight-line distance is consistent.
+Used in: game pathfinding, navigation, robot planning.
 ```
 
 **Floyd-Warshall** (all-pairs):
@@ -310,7 +339,9 @@ Detects negative cycles: dp[i][i] < 0 after completion.
 - Reweight using Bellman-Ford potentials h[v] (one Bellman-Ford from virtual source s')
 - New weight: w'(u,v) = w(u,v) + h[u] - h[v] ≥ 0
 - Run Dijkstra from each vertex on reweighted graph
-- Time: O(nm + n² log n). Better than Floyd-Warshall when m = o(n²/log n).
+- Time: O(nm + n² log n) = O(V² log V + VE). Better than Floyd-Warshall's O(V³) when m = o(n²/log n) — i.e., sparse graphs.
+
+**Bidirectional Dijkstra**: Run Dijkstra simultaneously from source and target. Terminate when the search frontiers meet. In practice halves the search space for point-to-point queries — the key optimization in road network routing (Google Maps, OSRM).
 
 ### Minimum Spanning Trees
 
@@ -519,8 +550,6 @@ Design without knowing B (block size) or M (memory size), yet achieve optimal I/
 
 ## 8. Randomized Algorithms
 
-<!-- @editor[content/P2]: The streaming algorithms section (HyperLogLog, Count-Min Sketch, Bloom filter) is exactly right for this audience — real systems connections, error guarantees, production deployments. But it's missing the practitioner trap: the difference between a Bloom filter (probabilistic set membership, false positives only) and a Cuckoo filter (same use case, but supports deletions, higher throughput, similar space). Redis 4.0+ ships a Bloom filter module; the Cuckoo filter is the modern upgrade path. This is the kind of "competitive programming vs production" distinction explicitly called out in the audience profile. A one-row addition to the streaming table would be sufficient. -->
-
 ### Las Vegas vs Monte Carlo
 
 | Type | Correctness | Time | Examples |
@@ -545,13 +574,19 @@ Process in one pass, O(polylog n) space:
 | Frequency estimation | Count-Min Sketch | O((1/ε) log(1/δ)) | ε·‖a‖₁ additive |
 | Heavy hitters (> εn) | Misra-Gries | O(1/ε) | Exact |
 | ε-quantiles | Greenwald-Khanna | O((1/ε) log(εn)) | ε-additive rank |
-| Set membership | Bloom filter | O(n log(1/ε)) bits | ε false positive rate |
+| Set membership (lookup only) | Bloom filter | O(n log(1/ε)) bits | ε false positive rate |
+| Set membership + delete | Cuckoo filter | O(n log(1/ε)) bits | ε false positive rate |
+| Set membership, static | XOR filter | O(n log(1/ε)) bits | ε false positive rate, best space |
 
 **HyperLogLog**: Hash elements to binary strings. Track leading zeros. 2^(max leading zeros) estimates distinct count. Use 2^b buckets to reduce variance. Redis `PFCOUNT`, BigQuery COUNT DISTINCT, Presto.
 
 **Count-Min Sketch**: d×w matrix, d hash functions. Increment a[i][h_i(x)] for each row i. Query min(a[i][h_i(x)]). Error ≤ ε‖a‖₁ with prob ≥ 1-δ using d=log(1/δ), w=⌈e/ε⌉.
 
-**Bloom filter** (Pagh-Rodler variant now available as xor-filter): Set membership with false positives, no false negatives. Used in: Cassandra SSTable index, Chrome malicious URL filter, Bitcoin SPV.
+**Bloom filter**: Set membership with false positives, no false negatives. No deletion support. Used in: Cassandra SSTable index, Chrome malicious URL filter, Bitcoin SPV.
+
+**Cuckoo filter** (Fan et al. 2014): Stores fingerprints in a cuckoo hash table. Supports deletion (Bloom filter cannot). Better cache performance than Bloom (fingerprints stored contiguously in arrays, not spread across k hash positions). Similar false-positive rates and space. Redis 4.0+ ships a Cuckoo filter module. The trade-off in one line: **Bloom = lookup only; Cuckoo = lookup + delete**.
+
+**XOR filter** (Graf-Lemire 2019): Most space-efficient static filter — 1.23 bits per element at 1% false-positive rate, vs Bloom's ~9.6 bits. No deletion, no dynamic insertion. Build once from a fixed set; query in O(1). Useful when the set is known ahead of time (e.g., static blocklists, precomputed lookup tables).
 
 ---
 
@@ -616,7 +651,25 @@ SAT (Cook 1971)
 
 ---
 
-<!-- @editor[content/P2]: Missing a "competitive programming traps vs production use" section. The audience profile explicitly calls this out. Examples that belong here: (1) Fibonacci heap — O(m + n log V) Dijkstra in theory, but nobody uses it in production due to constant factors; (2) Suffix automaton — asymptotically optimal but practically beaten by suffix array + LCP for most text search; (3) Van Emde Boas tree — O(log log U) in theory, cache-horrible in practice; (4) Segment tree with lazy propagation — competitive staple, but in production a B-tree or skip list beats it for ordered data because of cache locality. The "Common Confusion Points" section has some of this but it's not consolidated as a "theory vs production" contrast. -->
+## 10. Theory Wins vs Cache Reality
+
+Algorithms that look compelling on paper but underperform in practice — the gap between asymptotic analysis and hardware reality.
+
+| Algorithm | Theory | Practice | Why |
+|-----------|--------|----------|-----|
+| Fibonacci heap | O(log n) decrease-key, O(E + V log V) Dijkstra | Slow | Cache-hostile pointer chasing; each node is a separately allocated object; working set thrashes L1/L2 |
+| van Emde Boas tree | O(log log U) per op | Slow | Huge constant factors; recursive structure blows the cache; practical only for very large U (≥10⁸) |
+| Suffix automaton | O(n) construction, O(n) space | Complex to implement | Suffix array + LCP array handles almost all the same problems, is simpler, and has better cache behavior |
+| Treap / skip list | O(log n) balanced BST | Use `std::map` (red-black tree) | Mature RB-tree implementations are heavily tuned; treaps/skip lists have more pointer indirection |
+| SPFA | O(V+E) average | Avoid in production | O(VE) worst case is easily triggered; Dijkstra + Johnson's reweighting is strictly better |
+| Lazy segment tree | O(log n) range update + query | Good, but watch constants | Standard segment tree often faster in practice for simple range sums due to simpler inner loop |
+| 4-Russian method | O(n²/log n) for boolean matrix multiply | Not used | Huge constant; BLAS-optimized O(n³) with SIMD beats it for all practical n |
+
+**The pattern**: pointer-chasing data structures (linked structures, trees with separately allocated nodes) lose to contiguous arrays on modern hardware even when their asymptotic complexity is better. The L1/L2 cache miss cost (~12–40 cycles) dominates when the working set doesn't fit in cache.
+
+**Production rule of thumb**: Trust asymptotic analysis for algorithm selection; distrust it for constant-factor comparisons. Profile before replacing a simple O(n log n) with a complex O(n) when n < 10⁶.
+
+---
 
 ## Where These Algorithms Live in Production
 
@@ -625,6 +678,7 @@ SAT (Cook 1971)
 | B+ trees | Every RDBMS index (PostgreSQL, MySQL, SQL Server, SQLite) |
 | Hash tables (open addressing) | Python dict, Java HashMap, V8 object properties, Redis internals |
 | Dijkstra | Google Maps, OSPF routing daemon, GPS navigation |
+| Bidirectional Dijkstra | Road network routing (OSRM, Valhalla, HERE) |
 | Union-Find | Kruskal's in network topology tools, Git merge-base, image segmentation |
 | Aho-Corasick | clamav, Snort IDS, multiple-string grep |
 | Suffix arrays | Full-text search (Elasticsearch uses inverted index with suffix-array ideas) |
@@ -632,7 +686,9 @@ SAT (Cook 1971)
 | HyperLogLog | Redis PFCOUNT, BigQuery/Presto COUNT DISTINCT, Spark cardinality |
 | Count-Min Sketch | Network flow analysis (Cisco), database cardinality estimation |
 | Bloom filters | Cassandra SSTable, Bitcoin SPV, Chrome safe browsing |
+| Cuckoo filters | Redis modules, network packet filtering (deletion required) |
 | TimSort | Python list.sort(), Java Arrays.sort() (objects), Android SDK |
+| pdqsort | Rust std::sort, C++ Boost.Sort, Go (partially inspired) |
 | Segment tree | PostgreSQL range types, game engines, competitive programming |
 | KMP/Boyer-Moore | grep, vim `/`, database LIKE with trailing wildcard |
 | Floyd-Warshall | Small routing tables, all-pairs in small graphs |
@@ -648,8 +704,10 @@ Dynamic sorted set, predecessor queries      Red-black tree (std::map) or skip l
 Static range min/max queries                 Sparse table: O(1) query
 Dynamic range queries                        Segment tree or Fenwick tree
 Shortest path, non-negative weights          Dijkstra O((V+E)logV)
+Shortest path, point-to-point               Bidirectional Dijkstra (half the search)
 Shortest path, negative edges                Bellman-Ford O(VE)
-All-pairs shortest paths                     Floyd-Warshall O(V³) or Johnson's (sparse)
+All-pairs shortest paths, dense             Floyd-Warshall O(V³)
+All-pairs shortest paths, sparse            Johnson's O(V² log V + VE)
 MST                                          Kruskal + DSU for sparse, Prim + heap for dense
 Maximum flow                                 Dinic O(V²E); push-relabel for dense
 Bipartite max matching                       Hopcroft-Karp O(E√V)
@@ -659,7 +717,9 @@ Multiple pattern search                      Aho-Corasick
 Substring queries                            Suffix array + LCP or suffix tree
 Distinct count, streaming                    HyperLogLog
 Frequency count, streaming                   Count-Min Sketch
-Set membership, tolerate false positives     Bloom filter
+Set membership, lookup only                  Bloom filter
+Set membership + deletion                    Cuckoo filter
+Set membership, static, best space          XOR filter
 Connected components, dynamic                Union-Find (DSU) O(α(n)) ≈ O(1)
 NP-hard with small parameter k               FPT algorithm (Vertex Cover: O(2^k · n))
 NP-hard, approximation needed                Check approximability: PTAS/FPTAS/constant ratio
@@ -669,7 +729,7 @@ NP-hard, approximation needed                Check approximability: PTAS/FPTAS/c
 
 ## Common Confusion Points
 
-**"Hash table is O(1)"** — average case with good hash + controlled load factor. Worst case O(n) when all keys collide. Python 3.3+ uses SipHash for dict/set (randomized per-process), defeating adversarial inputs.
+**Hash table is O(1)** — average case with good hash + controlled load factor. Worst case O(n) when all keys collide. Python 3.3+ uses SipHash for dict/set (randomized per-process), defeating adversarial inputs.
 
 **Dijkstra with negative edges** — does not work. A finalized node can later be reached via negative edge with shorter distance. Use Bellman-Ford or Johnson's reweighting.
 
@@ -684,3 +744,5 @@ NP-hard, approximation needed                Check approximability: PTAS/FPTAS/c
 **Cache effects dominate at small n**: Insertion sort beats merge sort for n < 16 despite O(n²) vs O(n log n). A pointer-based BST loses to a sorted array for n < 100 due to cache misses. Profile before trusting asymptotic analysis for production code.
 
 **Fibonacci heap in theory vs practice**: O(m + n log n) Dijkstra is theoretically optimal but Fibonacci heap's large constant factor and poor cache behavior means binary heap wins for n < 10⁶. Use binary heap in practice; Fibonacci heap is a theory tool.
+
+**A* admissibility vs consistency**: Admissible heuristic (h ≤ true cost) guarantees finding the optimal path but may re-expand nodes. Consistent/monotone heuristic (triangle inequality on h) guarantees each node expanded at most once. For standard A* with a closed set, you need consistency — admissibility alone is not sufficient.

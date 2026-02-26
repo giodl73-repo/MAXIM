@@ -17,6 +17,68 @@
 
 ---
 
+## Ruby Method Lookup & Object Model Landscape
+
+```
+METHOD LOOKUP: obj.some_method
+─────────────────────────────────────────────────────────────────────────
+
+  obj  ──►  obj's singleton class (eigenclass)
+             │   (methods defined directly on obj: def obj.foo; end)
+             │
+             ▼
+            obj's class  (e.g., Dog)
+             │
+             ├─ prepended modules (reverse insertion order — searched FIRST)
+             │    module M1 prepended → M1 searched before Dog's own methods
+             │    use for decoration / before-hooks
+             │
+             ├─ Dog's own methods  ◄─── open class additions land here
+             │
+             └─ included modules (reverse insertion order — searched AFTER class)
+                  module M2 included last → M2 searched first among includes
+                  │
+                  ▼
+                 Dog's superclass  (e.g., Animal)
+                  │
+                  ├─ Animal's prepended modules
+                  ├─ Animal's own methods
+                  └─ Animal's included modules
+                       │
+                       ▼
+                      ... (up the chain) ...
+                       │
+                       ▼
+                      Object  ──►  Kernel (included)  ──►  BasicObject
+                                    (puts, require, etc.)    (== ! object_id)
+
+─────────────────────────────────────────────────────────────────────────
+include vs extend vs prepend:
+
+  include M   → M's methods become INSTANCE methods, inserted AFTER class
+  extend  M   → M's methods become CLASS methods on the receiver
+  prepend M   → M's methods inserted BEFORE class's own methods (wrapping)
+
+─────────────────────────────────────────────────────────────────────────
+OPEN CLASS CONSEQUENCE:
+
+  class String          # reopens built-in String — not a new class
+    def palindrome?
+      self == self.reverse
+    end
+  end
+
+  "racecar".palindrome?   # => true  (ALL String instances affected globally)
+
+  This is monkey-patching. Refinements (using/refine) scope it to a file.
+
+─────────────────────────────────────────────────────────────────────────
+C# COMPARISON:
+  C#: classes are sealed by default; extension methods are non-invasive
+  Ruby: every class is open; all instances are affected immediately
+  Risk: two gems adding conflicting methods to String = silent collision
+```
+
 ## Syntax Reference Card
 
 ### Variables & Assignment
@@ -488,3 +550,80 @@ raise AppError, "something failed"   # equivalent
 | `array[0]` index | `array[0]` — same, but also `array.first` | Ruby is consistent here |
 | Integer overflow throws in checked | Ruby integers are arbitrary precision | No overflow, but boxing overhead |
 | Methods are not open by default | ALL classes are open — even String, Integer | Powerful but fragile |
+
+---
+
+## When to Choose Ruby
+
+| Scenario | Ruby | Python / Other | Reason |
+|----------|------|----------------|--------|
+| Rails web application (CRUD-heavy) | **Yes** — convention-over-configuration, ActiveRecord, mature ecosystem | Python (Django) works but Rails conventions are tighter | Rails remains one of the most productive frameworks for database-backed web apps. Strong tooling for migrations, routing, scaffolding. |
+| DSL creation | **Yes** — open classes + blocks + `method_missing` = best-in-class DSL ergonomics | Python possible but more syntax noise | RSpec, Rake, Capistrano, and Rails routing are all Ruby DSLs. The language bends toward readable mini-languages. |
+| Build automation / Rake | **Yes** — Rake is Makefile for Ruby, widely adopted | Python (invoke/fabric) or shell scripts | Rake is idiomatic for Ruby projects; Rakefile tasks compose well. |
+| Scripting / glue code | Yes — expressive, fast to write | Python equally strong here | Coin-flip. Python has broader stdlib coverage; Ruby has cleaner block syntax. Choose based on ecosystem gravity of the project. |
+| Data science / ML | No | **Python** — no competition | Ruby has no numpy/pandas/pytorch equivalent. Do not fight this gravity. |
+| Large team, long-lived codebase | Caution — open classes + dynamic typing = fragile at scale | **Python + mypy** or **C#** | Without Sorbet and strict discipline, large Ruby codebases accumulate surprising behavior from monkey-patching and missing type checks. |
+| Performance-critical code | No — MRI is slow; JRuby possible | **Go / C# / Rust** for CPU-bound | Ruby is slow. It's optimized for developer happiness, not throughput. |
+| Strong static analysis | Limited — Sorbet is good but ecosystem adoption is partial | **C# / TypeScript / Go** | The open-class model inherently resists static analysis. Sorbet helps but can't cover everything. |
+| Microservices / API backend | Yes (Sinatra, Hanami, Rails API mode) | Python (FastAPI) equally valid | Both work well. Choose based on team familiarity and whether you need ML integration. |
+
+**The short version**: Ruby wins for Rails web apps, DSL construction, and rapid prototyping where expressiveness matters more than performance or static guarantees. Python beats Ruby for data science and has equal footing for scripting. For large teams building long-lived systems, the open-class model is a liability unless Sorbet discipline is enforced.
+
+---
+
+## Decision Cheat Sheet
+
+### Closures: `block` vs `lambda` vs `proc`
+
+| Type | Return behavior | Arity checking | Use when |
+|------|----------------|----------------|----------|
+| Block (`{ }` or `do..end`) | `return` exits enclosing method | Loose (extra args ignored) | Passing behavior to an iterator; `yield` |
+| `proc { }` | `return` exits enclosing method | Loose | Stored callable; don't care about strict arity |
+| `lambda { }` / `->(){}` | `return` exits only the lambda | Strict (wrong arity raises ArgumentError) | Stored callable that should behave like a method; use as default for new code |
+
+**Key rule**: lambdas behave like methods (strict arity, local return). Procs behave like blocks (loose arity, non-local return). When in doubt, use lambda.
+
+### Mixins: `include` vs `extend` vs `prepend`
+
+| Method | Where it inserts | Effect | Use when |
+|--------|-----------------|--------|----------|
+| `include M` | After class in lookup chain | M's methods become instance methods | Sharing behavior across instances (the normal mixin) |
+| `extend M` | On the singleton class | M's methods become class-level methods on receiver | Adding class methods; can also call `extend` on an object instance |
+| `prepend M` | Before class in lookup chain | M's methods wrap the class's own methods | Decoration / AOP — intercept calls before they reach the class |
+
+### Equality: `==` vs `eql?` vs `equal?`
+
+| Method | Tests | Override for | Hash/Set key use |
+|--------|-------|-------------|-----------------|
+| `==` | Value equality (semantic) | Domain equality (Date == Date, Array == Array) | Not used for hashing |
+| `eql?` | Type + value equality | When `hash` is also overridden; used by Hash for key comparison | Yes — Hash keys use `eql?` + `hash` |
+| `equal?` | Object identity (same pointer) | Never override — it's `ReferenceEquals` | No |
+
+**Rule**: Override `==` for domain equality. Override `eql?` + `hash` together when objects should be usable as Hash keys with value semantics.
+
+### Hash key type: string vs symbol
+
+| Key type | Performance | Use when |
+|----------|-------------|----------|
+| Symbol (`:name`) | Faster — symbols are interned (one object per name) | Internal code, options hashes, keyword args |
+| String (`"name"`) | Slower — each literal is a new object (unless frozen) | User-supplied data, JSON parsing output, external APIs |
+
+**Gotcha**: `h[:name]` and `h["name"]` are different keys. `params[:name]` (Rails) uses `HashWithIndifferentAccess` to paper over this.
+
+### String freezing
+
+| Pattern | Effect | Use when |
+|---------|--------|----------|
+| `"str".freeze` | Makes one string immutable; returns same frozen object on repeat calls | Individual string constants |
+| `# frozen_string_literal: true` (file pragma) | All string literals in the file are frozen | New files — add to every file; significant memory reduction in large apps |
+| `.dup` on a frozen string | Returns unfrozen copy | When you need to mutate a frozen string |
+
+### Attribute access: `attr_accessor` vs `attr_reader` vs manual
+
+| Pattern | Generates | Use when |
+|---------|-----------|----------|
+| `attr_reader :x` | `def x; @x; end` | Read-only external access; immutable-style objects |
+| `attr_writer :x` | `def x=(v); @x=v; end` | Write-only (rare) |
+| `attr_accessor :x` | Both reader and writer | Simple mutable field with no validation |
+| Manual `def x=(v)` | Custom setter | Need validation, coercion, or side effects on assignment |
+| `protected attr_writer` | Writer visible to subclasses | Controlled mutation within class hierarchy |

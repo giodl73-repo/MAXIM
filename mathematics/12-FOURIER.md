@@ -77,13 +77,38 @@ FOURIER LANDSCAPE
 
 ### Convergence
 
-```
-  Pointwise: converges to f(t) if f is smooth (C¹ piecewise)
-  At jump discontinuity: converges to [f(t⁺) + f(t⁻)]/2
-  Gibbs phenomenon: 9% overshoot near jump, persists as N → ∞
+The Dirichlet kernel is the fundamental object:
 
-  L² convergence: ||f - Σₙ₌₋ₙᴺ cₙ e^(inθ)||₂ → 0
-    (energy is preserved: Parseval's theorem)
+```
+  Dₙ(θ) = Σ_{k=-n}^n e^(ikθ) = sin((n+½)θ) / sin(θ/2)
+
+  Partial sum:  Sₙf(θ) = (f * Dₙ)(θ)  (convolution with Dirichlet kernel)
+
+  All convergence questions reduce to the behavior of Dₙ.
+  ‖Dₙ‖₁ ~ (4/π²) log n → ∞  (grows without bound — source of subtleties).
+
+  L² convergence (clean result — follows from Hilbert space completeness):
+    ‖f - Sₙf‖₂ → 0  for all f ∈ L²([−π,π])
+    This is Parseval's theorem / completeness of {eⁱⁿᶿ} in L².
+    No regularity needed — any square-integrable f converges in L².
+
+  Pointwise convergence (subtle):
+    Dirichlet's theorem: if f satisfies the Dini condition at θ₀
+    (∫₀^ε |f(θ₀+t) - f(θ₀)|/t dt < ∞), then Sₙf(θ₀) → f(θ₀).
+    C¹ piecewise is more than enough.
+
+    At jump discontinuity: Sₙf(θ₀) → [f(θ₀⁺) + f(θ₀⁻)]/2
+
+    Riemann-Lebesgue lemma: cₙ → 0 for any f ∈ L¹.
+    Fourier coefficients of integrable functions always decay to zero.
+
+  Warning (du Bois-Reymond): a continuous function can have Fourier series
+  that diverges pointwise at some points. L² convergence is clean;
+  pointwise convergence requires extra conditions. This is the crucial
+  distinction between the L² result and the pointwise result.
+
+  Gibbs phenomenon: 9% overshoot near jump, persists as N → ∞
+    (Sₙf overshoots by (2/π)∫₀^π sinc(t) dt - 1 ≈ 0.0895... regardless of N)
 ```
 
 ### Parseval's Theorem
@@ -109,6 +134,44 @@ FOURIER LANDSCAPE
 ---
 
 ## 2. Continuous Fourier Transform (CTFT)
+
+### Distributions and the Schwartz Space
+
+Before the transform table, the correct home for "FT of 1 = 2πδ(ω)" requires
+the distributional framework:
+
+```
+  Schwartz space S(ℝ): rapidly decreasing C∞ functions.
+    φ ∈ S(ℝ) iff |x^α ∂^β φ(x)| is bounded for all α, β ≥ 0.
+    Examples: e^{-x²}, e^{-x²} P(x) for any polynomial P.
+    Non-examples: e^{-|x|} (not C∞), 1/(1+x²) (doesn't decay fast enough for
+    all derivatives).
+
+  The Fourier transform ℱ: S(ℝ) → S(ℝ) is a topological isomorphism.
+  This is why Gaussians transform to Gaussians — they're the prototype S element.
+
+  Tempered distributions S'(ℝ): continuous linear functionals on S(ℝ).
+    Every L^p function defines a tempered distribution: T_f(φ) = ∫ f φ.
+    The Dirac delta δ(φ) = φ(0) is a tempered distribution (not an L^p function).
+    Polynomials, sin(ωt), e^{iω₀t} are tempered distributions.
+
+  Fourier transform on S'(ℝ): define ℱT by duality.
+    (ℱT)(φ) = T(ℱφ)   — this is the consistent extension.
+    ℱ: S'(ℝ) → S'(ℝ) is still an isomorphism.
+
+  Now "FT of 1 = 2πδ(ω)" has precise meaning:
+    ∫ 1 · e^{-iωt} dt = 2πδ(ω)  in S'
+    LHS is not a classical integral — it's evaluated by duality against test functions.
+
+  Paley-Wiener theorem (bridge to complex analysis):
+    f ∈ L²(ℝ) with support ⊆ [-A, A]
+    ⟺  its Fourier transform F(ω) extends to an entire function
+        of exponential type A: |F(z)| ≤ C e^{A|Im z|}
+    Compact support in time ↔ entire function in frequency.
+    This is why band-limited signals (compact Fourier support) can't have
+    compact time support — you'd need an entire function with compact support,
+    but entire functions with compact support are identically zero.
+```
 
 ### Definition
 
@@ -435,7 +498,47 @@ FOURIER LANDSCAPE
 
 ---
 
-## 9. Connections to Physics and Engineering
+## 9. Fourier Analysis on Groups — Pontryagin Duality
+
+Fourier analysis on ℝ is a special case of harmonic analysis on locally compact
+abelian (LCA) groups.
+
+```
+  Pontryagin duality: Every LCA group G has a Pontryagin dual Ĝ (the group of
+  continuous homomorphisms G → 𝕋 = {|z|=1}), and Ĝ̂ ≅ G (dual of dual = original).
+
+  The Fourier transform ℱ: L¹(G) → C₀(Ĝ) is defined by
+    f̂(χ) = ∫_G f(g) χ̄(g) dg
+
+  The four standard transforms are all instantiations of this:
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │  Group G        │  Dual Ĝ        │  Transform       │ Spectrum      │
+  ├──────────────────────────────────────────────────────────────────────┤
+  │  ℝ              │  ℝ             │  CTFT            │  Continuous   │
+  │  𝕋 = ℝ/ℤ (circle)│  ℤ           │  Fourier series  │  Discrete     │
+  │  ℤ              │  𝕋             │  DTFT            │  Periodic     │
+  │  ℤ/Nℤ           │  ℤ/Nℤ         │  DFT             │  Finite       │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  The duality G ↔ Ĝ explains all the "periodic ↔ discrete" relationships:
+    - Sampling (discretize ℝ → ℤ) ↔ Periodization in frequency (ℝ → 𝕋)
+    - Truncation (ℝ → finite window) ↔ Convolution with sinc in frequency
+    - DFT has G = ℤ/Nℤ = Ĝ: the group is self-dual (both domain and frequency
+      are mod-N integers) — explains circular convolution.
+
+  Non-abelian generalization (representation theory):
+    For non-abelian groups G, characters χ are replaced by irreducible
+    unitary representations ρ: G → U(Vρ). The Fourier transform becomes
+    f̂(ρ) = ∫_G f(g) ρ(g) dg  (operator-valued).
+    Peter-Weyl theorem: L²(G) = ⊕_ρ (dim ρ) · Vρ  (for compact G).
+    Applications: molecular symmetry (quantum chemistry), spin representations
+    in QM, the FFT on finite groups (fast algorithms for group operations).
+```
+
+---
+
+## 10. Connections to Physics and Engineering
 
 ```
   Heat equation (07-DIFFEQ):
@@ -464,7 +567,7 @@ FOURIER LANDSCAPE
 
 ---
 
-## 10. Decision Cheat Sheet
+## 11. Decision Cheat Sheet
 
 | Situation | Tool | Notes |
 |---|---|---|
@@ -479,10 +582,12 @@ FOURIER LANDSCAPE
 | Convolution large arrays | Multiply via FFT → IFFT | O(N log N) vs O(N²) |
 | Differentiation in PDE | Multiply by iω in FT domain | Diagonalizes ∂/∂x |
 | Accuracy of amplitude measurement | Flat-top window | Wide lobe but accurate amplitude |
+| FT of non-L² function (1, sin, comb) | Distributional FT in S'(ℝ) | Use Schwartz framework |
+| Understand why sampling ↔ periodization | Pontryagin duality ℤ ↔ 𝕋 | G discrete ↔ Ĝ compact |
 
 ---
 
-## 11. Common Confusion Points
+## 12. Common Confusion Points
 
 **1. DFT assumes periodicity**
 The DFT treats x[n] as one period of an infinite periodic sequence. Time-aliasing occurs if the signal isn't periodic in the window — circular wraparound effects. This is distinct from spectral aliasing. Zero-padding helps avoid time-aliasing artifacts.
@@ -502,3 +607,6 @@ You cannot design a window that is simultaneously short in time AND narrow in fr
 **6. Wavelet vs STFT: what's actually different**
 STFT: fixed window width → fixed Δt and Δω everywhere.
 WT: narrow window at high frequencies (short wavelets), wide window at low frequencies (long wavelets). Same Δω/ω ratio everywhere. This gives better time localization of transients at high frequencies, where you need it.
+
+**7. L² convergence vs. pointwise convergence of Fourier series**
+L² convergence holds for all f ∈ L² — no regularity needed. Pointwise convergence requires conditions (Dini, C¹ piecewise). Du Bois-Reymond showed continuous functions can have Fourier series diverging pointwise. The Dirichlet kernel ‖Dₙ‖₁ → ∞ is why — convolution with a growing kernel doesn't guarantee pointwise convergence.

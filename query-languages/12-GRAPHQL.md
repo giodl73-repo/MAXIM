@@ -1,6 +1,8 @@
 # GraphQL — Schema, Query Language, and API Patterns
 
-GraphQL is not a database query language — it's an API query language. The client specifies exactly what data it needs in a hierarchical query; the server resolves it from any backing sources (databases, REST APIs, other services). It solves the over-fetching and under-fetching problems of REST. The query language has a schema (types + fields), queries (reads), mutations (writes), and subscriptions (real-time). It's the transport-layer equivalent of a typed SELECT (query), INSERT/UPDATE (mutation), and a live cursor (subscription) — but the schema lives at the API boundary, not the database.
+GraphQL is a typed API query language and runtime. This guide covers it at the level that matters for production use: SDL design decisions, the resolver execution model, the N+1 problem, federation for enterprise microservices, and operational gotchas — introspection security, schema evolution without versioning, and WebSocket infrastructure for subscriptions.
+
+**WCF bridge (read this before the SDL syntax):** WCF `[ServiceContract]` + `[OperationContract]` is contract-first IDL — the annotated interface IS the contract, `Add Service Reference` generates the client proxy, and the WSDL describes the full type system. GraphQL SDL is the same pattern at the HTTP API boundary: the SDL IS the contract, `graphql-codegen` generates typed client operations, and the schema is the WSDL equivalent. The structural difference: WCF is server-driven shape (client gets what the server defines); GraphQL is client-driven projection (client selects exactly which fields from the schema). `[DataContract]` types → SDL object types. `[DataMember]` fields → SDL fields. Input/output type separation (`[MessageParameter]` direction) → SDL's explicit `input` vs `type` distinction.
 
 ---
 
@@ -57,6 +59,7 @@ GraphQL is not a database query language — it's an API query language. The cli
 | Transport | Usually HTTP POST (single endpoint); WebSocket for subscriptions |
 | Schema language | SDL (Schema Definition Language) — the IDL for your API |
 | T-SQL bridge | SDL is to GraphQL what a database schema is to SQL — defines the type contract. REST is "stored procedures with URLs"; GraphQL is "dynamic SELECT from a typed schema with the client writing the projection." |
+| WCF bridge | SDL is GraphQL's WSDL. `[ServiceContract]` + `[OperationContract]` = SDL `type Query`/`type Mutation`. `[DataContract]` types = SDL object types. `Add Service Reference` generated proxy = `graphql-codegen` output. Key difference: WCF is server-driven shape; GraphQL is client-driven projection. |
 
 ---
 
@@ -147,6 +150,70 @@ type Subscription {
   newOrderCreated: Order!
 }
 ```
+
+### WSDL → GraphQL SDL type system mapping
+
+| WSDL concept | GraphQL SDL equivalent |
+|---|---|
+| `xs:string`, `xs:int`, `xs:boolean` | `String`, `Int`, `Boolean` scalars |
+| `xs:anyURI`, opaque identity | `ID` scalar |
+| `complexType` (concrete) | `type` (object type) |
+| `complexType` (abstract, extended) | `interface` |
+| `choice` (one-of) | `union` |
+| `simpleType restriction` (enumeration) | `enum` |
+| `message` part (operation input payload) | `input` type |
+| `portType` / `[ServiceContract]` | `type Query` / `type Mutation` |
+| `operation` / `[OperationContract]` | field on `Query` or `Mutation` |
+| WSDL itself | SDL (`.graphql` schema file) |
+| WSDL import | SDL `extend type` / Federation subgraph composition |
+
+Both are IDLs that separate shape from transport encoding. The mechanical difference: WSDL is XML-namespace-based and tool-generated; SDL is hand-authored (or code-generated) and stays in source control as the canonical contract.
+
+### Schema evolution without versioning
+
+GraphQL has no URL versioning. There is no `/v2/graphql`. The schema IS the version, and it must remain backward-compatible indefinitely. This is the most significant operational difference from REST for a team that has shipped versioned APIs.
+
+**The additive-only rule:**
+
+| Change | Breaking? |
+|---|---|
+| Add field to type | No |
+| Add type | No |
+| Add argument with default value | No |
+| Add enum value | Potentially — exhaustive `switch` consumers break |
+| Remove field | Yes |
+| Rename field | Yes (equivalent to remove + add) |
+| Change field type | Yes |
+| Add required argument (no default) | Yes |
+| Tighten nullable → non-null | Yes |
+| Relax non-null → nullable | No |
+
+**`@deprecated` directive — the retirement mechanism:**
+
+```graphql
+type User {
+  # Old field — still resolves, flagged for removal
+  fullName: String @deprecated(reason: "Use firstName + lastName instead")
+
+  # New fields — additive, no client breakage
+  firstName: String!
+  lastName:  String!
+}
+```
+
+`@deprecated` appears in introspection responses. GraphQL IDEs (GraphiQL, Apollo Sandbox) render deprecated fields with strikethrough. `graphql-codegen` emits TypeScript deprecation warnings at build time — same developer experience as `[Obsolete]` in C#.
+
+**Field sunset process:**
+
+```
+1. Add new field(s) alongside old field
+2. Mark old field @deprecated(reason: "...")
+3. Monitor field usage: Apollo Studio / Cosmo Router / custom resolver logging
+4. Remove old field only after usage drops to zero
+   (or after announced sunset date for external clients)
+```
+
+REST comparison: REST versioning ships a new URL (`/v2/users`), runs both versions in parallel, then decommissions `/v1` after a sunset date — you're versioning the entire contract at once. GraphQL deprecation is surgical: retire individual fields while the rest of the schema stays stable. No URL change, no parallel server versions.
 
 ---
 
@@ -310,6 +377,49 @@ subscription OrderUpdates($orderId: ID!) {
 # HTTP for query + mutation → stateless, horizontally scalable
 # WebSocket for subscription → stateful, requires sticky sessions or a pub/sub broker
 # (Redis Pub/Sub or a message bus) behind multiple server instances
+```
+
+
+```
+Subscription transport options:
+────────────────────────────────────────────────────────────────────────────
+
+  WebSocket (graphql-ws protocol)
+  ────────────────────────────────
+  - Full duplex — client can send heartbeats, cancel individual subscriptions
+  - Requires HTTP → WS upgrade handshake (ws:// or wss://)
+  - Stateful connection: sticky sessions required, or a shared pub/sub backend
+    (Redis Pub/Sub is standard) when running multiple server instances
+  - APIM supports WebSocket passthrough for GraphQL subscriptions
+  - Use when: native apps, SPAs with persistent connections, bidirectional channel needed
+
+  Server-Sent Events / graphql-sse (unidirectional HTTP streaming)
+  ─────────────────────────────────────────────────────────────────
+  - Server pushes events over a long-lived HTTP response (Content-Type: text/event-stream)
+  - No upgrade handshake — works through standard HTTP proxies, CDNs, load balancers
+  - No sticky session requirement (stateless from the load balancer's perspective)
+  - Unidirectional: server → client only (client sends new requests for new subscriptions)
+  - graphql-sse spec: https://github.com/enisdenjo/graphql-sse
+  - Use when: server-push only, existing HTTP infrastructure, simpler ops
+
+  Polling (client-driven, no persistent connection)
+  ──────────────────────────────────────────────────
+  - Client polls Query on a timer: setInterval(() => refetch(), 5000)
+  - No infrastructure changes — just HTTP
+  - Highest latency (bounded by poll interval), highest per-client request load
+  - Use when: low-frequency updates, simplest deployment, latency tolerance > 1–5s
+
+  Decision matrix:
+  ┌─────────────────────────┬──────────────┬──────────────┬──────────────┐
+  │                         │  WebSocket   │     SSE      │   Polling    │
+  ├─────────────────────────┼──────────────┼──────────────┼──────────────┤
+  │ Infra complexity        │ High         │ Low          │ None         │
+  │ Sticky sessions / broker│ Required     │ Not required │ N/A          │
+  │ Latency                 │ Near-real-time│ Near-real-time│ Poll interval│
+  │ Proxy/CDN compatible    │ Sometimes    │ Yes          │ Yes          │
+  │ Bidirectional           │ Yes          │ No           │ No           │
+  │ APIM support            │ Yes          │ Not yet      │ Yes          │
+  └─────────────────────────┴──────────────┴──────────────┴──────────────┘
 ```
 
 ---
@@ -582,6 +692,132 @@ query {
 # @shareable          — field can be resolved by multiple subgraphs
 ```
 
+
+```
+Schema stitching vs Federation — evolution of the pattern:
+───────────────────────────────────────────────────────────
+
+  Schema stitching (predecessor — @graphql-tools/merge, mergeSchemas)
+  ──────────────────────────────────────────────────────────────────
+  - Gateway pulls each remote schema via introspection
+  - Developer manually writes merge configuration: "when OrderType.customer is
+    queried, delegate to UserService.user(id: $customerId)"
+  - Fragile: delegation rules live outside the subgraphs, in the gateway config
+  - Subgraphs are unaware they're being stitched
+  - Still works; used in older apollo-gateway setups
+
+  Apollo Federation v2 (current standard)
+  ─────────────────────────────────────────
+  - Each subgraph is @federation-aware: it publishes its own SDL with federation
+    directives (@key, @external, @requires, etc.)
+  - The gateway/router composes the supergraph schema automatically from subgraph SDLs
+  - Subgraphs opt in to cross-subgraph references declaratively
+  - No manual delegation config — the @key directive carries the contract
+  - Apollo Router (Rust, production) or Apollo Gateway (Node.js)
+
+__resolveReference — the federation entity resolver:
+──────────────────────────────────────────────────────
+  This is the implementation piece that makes cross-subgraph entity resolution work.
+
+  Scenario: an Order has a customer field (User type). The Orders subgraph knows
+  only customer.id. When the router needs to fill in customer.name and customer.email,
+  it calls the Users subgraph: "here is { __typename: 'User', id: '42' } — resolve it."
+
+  The Users subgraph implements __resolveReference to handle this:
+
+    # Users subgraph SDL
+    type User @key(fields: "id") {
+      id:    ID!
+      name:  String!
+      email: String!
+    }
+
+    # Users subgraph resolver
+    const resolvers = {
+      User: {
+        __resolveReference: (reference, { db }) => {
+          // reference = { __typename: 'User', id: '42' }
+          // hydrate from DB using the key field(s)
+          return db.users.findById(reference.id);
+        }
+      }
+    };
+
+  Without __resolveReference, the Users subgraph cannot satisfy entity requests
+  from the router — cross-subgraph field resolution silently returns null.
+  It's the subgraph's contract fulfillment handler for @key-identified entities.
+
+  .NET (Hot Chocolate Federation):
+    [ReferenceResolver]
+    public static User ResolveReference(string id, UserRepository repo)
+        => repo.GetById(id);
+  // Same concept — the [ReferenceResolver] attribute = __resolveReference
+
+Federation query planning — execution model:
+─────────────────────────────────────────────
+  SQL Server bridge: the Apollo Router is a distributed query planner —
+  similar to how SQL Server's query optimizer plans a distributed query
+  across linked servers, decomposing it into per-server operations and
+  merging results. Same concept, typed API boundary instead of SQL.
+
+  Client query:
+    query {
+      order(id: "1") {   ← Orders subgraph owns this
+        total
+        customer {       ← User entity: Orders subgraph has id only
+          name           ← Users subgraph must resolve these
+          email
+        }
+      }
+    }
+
+  Router query plan:
+
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │  Step 1: Fetch from Orders subgraph                                     │
+  │    POST /orders-subgraph/graphql                                        │
+  │    { order(id: "1") { total, customer { id } } }                        │
+  │    Response: { order: { total: 99.99, customer: { id: "42" } } }        │
+  │                                                                         │
+  │  Step 2: Resolve entity reference in Users subgraph                     │
+  │    POST /users-subgraph/graphql                                         │
+  │    { _entities(representations: [{ __typename: "User", id: "42" }]) {  │
+  │        ... on User { name email }                                       │
+  │      }                                                                  │
+  │    }                                                                    │
+  │    Response: { _entities: [{ name: "Alice", email: "a@example.com" }] } │
+  │                                                                         │
+  │  Step 3: Router merges and returns to client                            │
+  │    { order: { total: 99.99, customer: { name: "Alice",                  │
+  │                                         email: "a@example.com" } } }   │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+  The _entities query with representations array is the Federation wire protocol.
+  The router injects this automatically — subgraphs only implement __resolveReference.
+
+  Parallel fan-out: when multiple independent subgraphs can be queried concurrently,
+  the router issues those calls in parallel before merging. A query touching
+  3 independent subgraph fields = 3 parallel HTTP calls, not sequential.
+
+Federation v2 directive reference:
+────────────────────────────────────
+  @key(fields: "id")          Entity identifier — marks which field(s) uniquely
+                               identify this type across subgraphs
+  @external                   Field is owned by another subgraph (used in extends)
+  @requires(fields: "weight") This field needs external fields from another subgraph
+                               before it can resolve (used for computed fields)
+  @provides(fields: "name")   This subgraph can provide these fields locally,
+                               saving the router a round-trip to the owning subgraph
+  @shareable                  Multiple subgraphs may resolve this field (not unique owner)
+  @override(from: "SubgraphA")  Migrate field ownership from one subgraph to another
+                               during incremental refactoring — v2 only
+
+APIM bridge: Federation ≈ APIM aggregation layer — APIM can aggregate multiple
+backend REST APIs with policy-based transformation; Federation does the same
+but with declarative type-safe stitching, no manual transformation policies,
+and automatic query planning across typed schemas.
+```
+
 ---
 
 ## 12. Persisted Queries and Caching
@@ -786,6 +1022,14 @@ throw new GraphQLError('User not found', {
 | Microservices each have GraphQL endpoints | Schema complexity is manageable in one codebase |
 | Need to compose a unified graph from services | Operational overhead of Federation isn't justified |
 
+
+| Use WebSocket Subscriptions When | Use SSE (graphql-sse) When | Use Polling When |
+|----------------------------------|---------------------------|------------------|
+| Bidirectional channel needed | Server-push only | Low-frequency updates (> 5s tolerance) |
+| Native apps / persistent SPA connections | HTTP proxies / CDNs / load balancers in path | Simplest deployment, no persistent connection |
+| Near-real-time latency required | Sticky sessions not viable | Existing query infrastructure, no new infra |
+| Apollo Router / Apollo Gateway with WebSocket support | Simpler ops preferred over raw WebSocket | Short-term or prototype setup |
+
 ---
 
 ## 17. Common Confusion Points
@@ -819,3 +1063,37 @@ Microsoft's OData (used in Azure REST Management APIs, Dynamics 365, Power BI XM
 
 **Nullability design matters early.**
 SDL defaults: `String` is nullable, `String!` is non-null. Many schemas make everything non-null by default and opt into nullable explicitly — this matches how TypeScript teams think (strictNullChecks). Changing nullability after the schema is public is a breaking change.
+
+**There is no GraphQL versioning.**
+REST has `/v1/users` → `/v2/users` → `?api-version=2024-01-01` (the Azure pattern). GraphQL has none of this. The schema IS the version. Once a field is in the schema and clients depend on it, you cannot remove or rename it without a breaking change — full stop. There is no URL namespace to hide behind. The discipline is additive-only evolution: add new fields freely, mark old fields `@deprecated`, monitor usage analytics (Apollo Studio, Cosmo Router, or custom resolver logging), and remove only after confirmed zero usage. The full breakdown is in section 3 under "Schema evolution without versioning."
+
+**REST versioning → GraphQL deprecation model (side-by-side):**
+
+```
+REST approach:
+  1. Ship /v1/users (returns { name, email })
+  2. Need to change shape → ship /v2/users (returns { firstName, lastName, email })
+  3. Run both versions in parallel, announce sunset date for /v1
+  4. Clients migrate; decommission /v1 on sunset date
+  Cost: parallel server versions, duplicate routes, coordinate sunset with all consumers
+
+GraphQL approach:
+  1. Schema has: name: String @deprecated(reason: "Use firstName + lastName")
+                 firstName: String!
+                 lastName:  String!
+  2. No URL change. Both fields live in the same schema simultaneously.
+  3. graphql-codegen emits TypeScript warnings for @deprecated field usage
+  4. Apollo Studio / resolver logging tracks which clients still call `name`
+  5. Remove `name` field only when field usage analytics show zero calls
+
+Key insight: GraphQL's introspection gives field-level usage visibility that REST
+doesn't provide without custom request logging. You can see exactly which clients
+still call `name` before you remove it. REST versioning is all-or-nothing at the
+URL level; GraphQL deprecation is surgical at the field level.
+
+Azure API-Version parallel: Azure REST APIs use api-version query parameter to
+maintain multiple contract versions simultaneously. GraphQL's equivalent mechanism
+is @deprecated + additive evolution — but the enforcement is usage-tracking-based,
+not URL-routing-based. Fewer moving parts, but requires discipline on the schema
+authoring side.
+```

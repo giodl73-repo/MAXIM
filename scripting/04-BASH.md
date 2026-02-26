@@ -4,6 +4,52 @@
 
 ---
 
+## Shell Landscape
+
+```
+Shell Family Tree and Deployment Context
+─────────────────────────────────────────────────────────────────────
+
+  POSIX sh (1988)  ←── the standard; least common denominator
+    │
+    ├─── dash      lightweight, fast; /bin/sh on Ubuntu, Alpine, Debian
+    │              Docker RUN, CI scripts with #!/bin/sh, init systems
+    │
+    ├─── bash      POSIX superset; dominant scripting shell worldwide
+    │              GitHub Actions (ubuntu-latest default), GitLab CI,
+    │              most Linux distros (/bin/bash), macOS (pre-2019 default)
+    │              Bash 3.2 on macOS (GPL), 5.x on Linux
+    │
+    ├─── zsh       Bash superset + interactive UX; macOS default (2019+)
+    │              Better completion, glob qualifiers, float arithmetic
+    │              1-indexed arrays — portability trap if mixing with Bash
+    │
+    ├─── ksh (93)  Korn shell; some commercial Unix, older enterprises
+    │
+    └─── fish      Friendly Interactive Shell; NOT POSIX-compatible
+                   Syntax is different enough to not be a subset/superset
+
+POSIX compliance spectrum:
+  strict POSIX ──────────────────────────────────── extensions
+  sh/dash         ksh         bash         zsh         fish
+
+Deployment contexts:
+  Container base image (Alpine/Debian slim) → /bin/sh (dash)
+  CI runners (ubuntu-latest, GitLab CI)     → /bin/bash
+  macOS interactive shell                   → /bin/zsh
+  macOS scripting                           → bash or zsh (both available)
+  Server automation / cron                  → bash (explicit shebang)
+  Windows (WSL2 / Git Bash / MSYS2)        → bash
+
+Key shebang consequences:
+  #!/bin/sh        → dash on Ubuntu/Alpine — Bash-only features will fail
+  #!/bin/bash      → bash at /bin/bash — hard path; may not exist
+  #!/usr/bin/env bash → bash found via PATH — portable and recommended
+  #!/usr/bin/env zsh  → zsh; never use for shared scripts
+```
+
+---
+
 ## Language Snapshot
 
 | Attribute | Value |
@@ -183,6 +229,32 @@ printf "%.2f\n" 3.14159    # → 3.14
 # With set -e this aborts the script!
 (( x = 0 )) || true        # safe workaround
 x=0                        # simpler: just use assignment
+
+# Base conversion literals
+echo $(( 16#FF ))          # → 255  (hex literal: base#value)
+echo $(( 8#77 ))           # → 63   (octal)
+echo $(( 2#1010 ))         # → 10   (binary)
+printf '%x\n' 255          # → ff   (decimal to hex output)
+printf '%o\n' 255          # → 377  (decimal to octal output)
+printf '%08b\n' 10         # → 00001010  (decimal to binary — with printf trick via dc or Python for real use)
+
+# Bitwise operators
+echo $(( 0xFF & 0x0F ))    # → 15  (AND)
+echo $(( 0xF0 | 0x0F ))    # → 255 (OR)
+echo $(( 0xFF ^ 0x0F ))    # → 240 (XOR)
+echo $(( ~0 ))              # → -1  (bitwise NOT — two's complement)
+echo $(( 1 << 4 ))          # → 16  (left shift)
+echo $(( 256 >> 4 ))        # → 16  (right shift)
+
+# (( )) vs $(( )) — exit-code vs substitution semantic
+(( x > 5 ))                # exit code: 0 if true, 1 if false — used in conditions
+result=$(( x + 1 ))        # substitution: captures the numeric result as a string
+# They look similar but serve different roles:
+if (( x > 5 )); then       # (( )) as condition — reads exit code
+    echo "big"
+fi
+y=$(( x * 2 ))             # $(( )) as expression — captures value
+# Never use $(( )) as a standalone condition — the exit code is discarded
 ```
 
 ### 5. Conditionals
@@ -385,6 +457,27 @@ get_value() {
 get_value my_var
 echo "$my_var"          # → the computed value
 
+# NAMEREF TRAP 1: name collision — the #1 expert gotcha
+# If the caller passes a variable named _ret, the local -n _ret=$1 creates
+# a circular reference. Bash prints: "circular name reference" and aborts.
+bad_get() {
+    local -n _ret=$1    # if caller does: bad_get _ret  → circular!
+    _ret="value"
+}
+bad_get _ret            # FAILS: _ret references itself
+
+# Fix: use an unlikely prefix (double underscore, function prefix, etc.)
+good_get() {
+    local -n __good_get_out=$1   # namespace the nameref var
+    __good_get_out="value"
+}
+good_get result         # safe even if caller has a var named _ret
+
+# NAMEREF TRAP 2: declare -n vs local -n
+# local -n  → nameref scoped to the function (correct for output params)
+# declare -n → without -g, scoped to function; with -g, creates global nameref
+# In practice: always use local -n for output parameters; declare -n for globals
+
 # Convention 3: set a global (avoid — hard to reason about)
 _result=""
 compute() { _result="computed value"; }
@@ -402,7 +495,111 @@ trap cleanup EXIT        # runs on ANY exit (normal, error, or signal)
 trap cleanup INT TERM    # also handles Ctrl-C and kill
 ```
 
-### 9. I/O and Redirection
+### 8a. Trap Pseudo-Signals
+
+Bash extends `trap` beyond POSIX signals with pseudo-signals that fire on shell events:
+
+```bash
+# EXIT — runs on any script exit (normal, error, signal)
+trap 'echo "done"; rm -f /tmp/scratch' EXIT
+
+# ERR — runs after any command that returns non-zero exit code
+# Fires BEFORE set -e would abort — gives you a chance to log context
+err_handler() {
+    local exit_code=$?
+    echo "ERROR: command failed with exit $exit_code at line $LINENO" >&2
+    echo "  Command: $BASH_COMMAND" >&2
+}
+trap err_handler ERR
+
+# ERR vs set -e: they complement each other
+# set -e: aborts the script on failure
+# trap ERR: runs your handler first, then set -e aborts
+# Combined: you get logging + clean abort — the standard CI script pattern
+
+# ERR trap exemptions — same as set -e:
+# ERR does NOT fire for commands in:
+#   if <cmd>; then     — the cmd is a condition, not a failure
+#   <cmd> || true      — the || handles the non-zero exit
+#   <cmd> && next      — part of a compound list
+
+# DEBUG — runs BEFORE every single command (not after)
+# Useful for tracing; noisy but powerful
+trap 'echo "→ $BASH_COMMAND"' DEBUG
+
+# Selective trace without full set -x:
+debug_on()  { trap 'echo "  DEBUG: $BASH_COMMAND"' DEBUG; }
+debug_off() { trap - DEBUG; }
+
+# RETURN — fires when a function or sourced file returns
+# Rarely used directly; useful for per-function cleanup
+trace_func() {
+    trap 'echo "leaving ${FUNCNAME[0]}"' RETURN
+    # ... function body
+}
+
+# Pseudo-signal summary:
+# EXIT    — any script exit; most common cleanup hook
+# ERR     — any non-zero exit; pairs with set -e for error logging
+# DEBUG   — before each command; tracing and auditing
+# RETURN  — on function/source return; per-function cleanup
+# SIGINT  — Ctrl-C (real signal, not pseudo)
+# SIGTERM — kill <pid> (real signal, not pseudo)
+
+# Reset a trap to default behavior:
+trap - ERR     # restore ERR to default (no handler)
+trap '' HUP    # ignore SIGHUP (explicit empty handler)
+```
+
+### 9. Coprocesses
+
+Bash's `coproc` is the one IPC construct without a clean parallel in most other shells: a bidirectional pipe to a background process, no named pipes or temp files needed.
+
+```bash
+# Syntax: coproc [NAME] command
+# Creates two file descriptors: NAME[0] (read from coproc stdout)
+#                                NAME[1] (write to coproc stdin)
+
+# Basic coprocess
+coproc bc -l                   # start bc as a coprocess; default name COPROC
+echo "2 * 3.14159" >&"${COPROC[1]}"   # write to its stdin
+read result <&"${COPROC[0]}"   # read its stdout
+echo "$result"                 # → 6.28318
+
+# Named coprocess (required if you need multiple active coprocs)
+coproc CALC { python3 -c "
+import sys
+for line in sys.stdin:
+    print(eval(line.strip()))
+    sys.stdout.flush()          # CRITICAL: coprocs deadlock on buffered output
+"; }
+
+echo "2**32" >&"${CALC[1]}"
+read answer <&"${CALC[0]}"
+echo "$answer"                 # → 4294967296
+
+# Close the coprocess when done
+exec {CALC[0]}<&-               # close read fd
+exec {CALC[1]}>&-               # close write fd (signals EOF to child)
+wait $CALC_PID                  # reap the background process
+
+# When to use coproc vs alternatives:
+# coproc     → long-running process you query repeatedly (amortizes startup cost)
+#              bc, sqlite3 in batch mode, custom protocol server
+# named pipes → if you need multiple writers or readers (more than 2 endpoints)
+# $(command) → one-shot command; simpler; coproc is overkill
+# parallel   → fan-out; no bidirectional protocol needed
+
+# The buffering problem — nearly universal gotcha:
+# If the child process buffers its stdout (most programs do when not a tty),
+# your read blocks forever. Solutions:
+#   1. Have the child explicitly flush (sys.stdout.flush(), fflush(stdout))
+#   2. Use stdbuf -oL command  (line-buffered)
+#   3. Use unbuffer command    (from expect package — pty-based trick)
+#   4. Use expect / pexpect    (for interactive programs designed for ttys)
+```
+
+### 10. I/O and Redirection
 
 ```bash
 # Output
@@ -468,7 +665,7 @@ tee >(gzip > archive.gz) >(wc -l)     # write to two sinks simultaneously
                   # trailing ; and space before } are required syntax
 ```
 
-### 10. Exit Codes and Error Handling
+### 11. Exit Codes and Error Handling
 
 ```bash
 # Last exit code
@@ -526,7 +723,7 @@ trap '' HUP                                     # ignore SIGHUP
 echo $?    # → 5
 ```
 
-### 11. Script Arguments
+### 12. Script Arguments
 
 ```bash
 $0         # script name (full path or as invoked)
@@ -572,7 +769,7 @@ done
 shift $(( OPTIND - 1 ))   # remove parsed options; positionals remain in "$@"
 ```
 
-### 12. String Operations
+### 13. String Operations
 
 ```bash
 # Substring extraction: ${var:offset:length}
@@ -738,9 +935,138 @@ Bash's conceptual model: COMMANDS, not expressions.
 | `Where-Object { $_.prop -eq val }` | `grep`, `awk`, `jq` | No objects — text streams |
 | `$_.PropertyName` | Column in `awk`, key in `jq` | Bash works with text, not objects |
 
----
+### Bridge: Bash in CI/CD Pipelines
 
-## Decision Cheat Sheet
+In containerized CI, the default execution environment is Bash. Understanding the execution model prevents the most common cross-step bugs.
+
+**Execution model**: every `run:` step is a fresh process — no persistent shell state between steps. Variables set in step 1 are gone in step 2 unless you use the CI system's inter-step mechanism.
+
+```bash
+# Canonical CI script header — use this in every Bash run step
+set -euo pipefail
+# set -e:           abort on any non-zero exit (catches silent failures)
+# set -u:           abort on unbound variable (catches typos)
+# set -o pipefail:  pipe exit = rightmost non-zero (grep exits 1 on no match)
+
+# GitHub Actions: passing values between steps
+# $GITHUB_ENV — file-based env var passing (replaces PowerShell $env:)
+echo "MY_VAR=hello" >> "$GITHUB_ENV"         # available to all subsequent steps
+echo "MULTI_LINE<<EOF" >> "$GITHUB_ENV"      # multiline value
+echo "line1"          >> "$GITHUB_ENV"
+echo "EOF"            >> "$GITHUB_ENV"
+
+# $GITHUB_OUTPUT — step output values (replaces ::set-output, deprecated 2022)
+echo "result=42" >> "$GITHUB_OUTPUT"
+# consumed in later step as: ${{ steps.<step-id>.outputs.result }}
+
+# $GITHUB_STEP_SUMMARY — write Markdown to the Actions job summary page
+echo "## Results" >> "$GITHUB_STEP_SUMMARY"
+echo "| Key | Value |"   >> "$GITHUB_STEP_SUMMARY"
+echo "|-----|-------|"   >> "$GITHUB_STEP_SUMMARY"
+echo "| count | 42 |"   >> "$GITHUB_STEP_SUMMARY"
+
+# Exit code → step result
+exit 0    # step succeeds (green)
+exit 1    # step fails (red); workflow stops unless continue-on-error: true
+# With set -e: any non-zero command exit propagates as step failure automatically
+
+# Shell selection in GitHub Actions
+# ubuntu-latest default: bash (with set -e equivalent enabled by default)
+# Explicit shell:
+#   shell: bash          → bash -eo pipefail {0}   (pipefail on by default)
+#   shell: sh            → sh -e {0}
+#   shell: pwsh          → pwsh -command ". '{0}'"
+#   shell: python        → python {0}
+# To get pipefail without -e:
+#   shell: bash --noprofile --norc -o pipefail {0}
+
+# GitLab CI: same pattern — each `script:` line is bash
+# before_script runs in same shell context as script (unlike GHA steps)
+# Variables passed via: export MY_VAR="value"  in before_script
+# Or CI/CD variables in project settings → automatically injected as env vars
+
+# CircleCI: run: steps are bash; use $BASH_ENV for env persistence
+echo "export MY_VAR=hello" >> "$BASH_ENV"    # CircleCI equivalent of GITHUB_ENV
+source "$BASH_ENV"                           # pick up in same step if needed
+```
+
+## Common Confusion Points
+
+These aren't syntax gotchas — they're conceptual model mismatches. The Gotchas table lists symptoms; this explains the mental model behind them.
+
+**1. Variable set inside `$(...)` or a pipeline doesn't persist**
+
+```bash
+# This is the subshell isolation problem.
+# $(command) forks a new process — any assignment inside it is in that child process.
+result=$(x=42; echo "done")   # x=42 happened in a subshell — gone immediately
+echo $x                        # → empty; x was never set in the parent
+
+# Pipeline subshell trap — more surprising:
+echo "hello" | read line       # read runs in a subshell (right side of |)
+echo "$line"                   # → empty; the assignment was in the subshell
+
+# Fix: process substitution keeps read in the parent process
+read line < <(echo "hello")
+echo "$line"                   # → hello
+
+# Or: last stage of a pipeline runs in parent with lastpipe (bash 4.2+)
+shopt -s lastpipe
+echo "hello" | read line
+echo "$line"                   # → hello (lastpipe makes last cmd run in parent)
+```
+
+**2. `set -e` non-obvious exemptions**
+
+```bash
+# set -e aborts on non-zero exit — but NOT everywhere. The rules:
+# Exempted contexts:
+#   if <cmd>: the cmd is a condition — failure is expected, not an error
+#   <cmd> || ...: the || means "I'm handling non-zero" — -e backs off
+#   <cmd> && ...: part of a compound list — -e doesn't fire on left side
+#   ! <cmd>: negation — inversion means non-zero is the success case
+
+set -e
+failing_cmd              # → ABORTS (set -e fires)
+if failing_cmd; then     # → does NOT abort (it's a condition)
+    echo "succeeded"
+fi
+failing_cmd || true      # → does NOT abort (|| handles non-zero)
+result=$(failing_cmd)    # → ABORTS (subshell non-zero propagates)
+
+# This creates subtle bugs: a function full of failing commands
+# may not abort if called from within an if condition:
+check() { missing_tool; return 0; }  # missing_tool fails, return 0 masks it
+if check; then echo "ok"; fi          # set -e does not fire inside check here
+# Mitigation: ERR trap fires even in exempted contexts in some bash versions
+# — behavior is complex; test explicitly in CI
+```
+
+**3. Word splitting on unquoted `$var`**
+
+```bash
+# Bash performs word splitting after variable expansion (before command exec).
+# The shell splits on characters in $IFS (default: space, tab, newline).
+# This is not "normal" — most languages don't expand variables and then
+# re-tokenize the result.
+
+file="report 2024.txt"
+rm $file          # WRONG: rm sees two args: "report" and "2024.txt"
+rm "$file"        # CORRECT: rm sees one arg: "report 2024.txt"
+
+# Glob expansion also happens after variable expansion:
+pattern="*.txt"
+ls $pattern       # shell glob-expands *.txt — lists txt files
+ls "$pattern"     # passes literal string "*.txt" to ls
+
+# The mental model: think of variable expansion as text substitution
+# happening at the shell level, not the command level. The result is
+# re-parsed unless you quote it.
+
+# The safe default: always quote, unless you explicitly want word splitting.
+# Unquoted expansions inside [[ ]] and (( )) are safe — those contexts
+# suppress word splitting and glob expansion.
+```
 
 | Use Bash when... | Use sh when... | Use PowerShell when... |
 |-----------------|---------------|----------------------|
