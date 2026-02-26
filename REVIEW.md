@@ -238,7 +238,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
 | `pigments/` | 11 | 2026-02 | — | 7 tags → pending (5 polished) |
-| `coatings/` | 10 | — | — | |
+| `coatings/` | 10 | 2026-02 | — | 10 tags → pending (4 polished) |
 | `textiles/` | 14 | 2026-02 | — | 4 tags -> pending |
 | `ceramics/` | 11 | 2026-02 | — | 20 tags → pending |
 | `glassmaking/` | 11 | 2026-02 | — | 4 tags → pending (8 polished) |
