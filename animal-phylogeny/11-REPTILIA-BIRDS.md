@@ -374,8 +374,9 @@ EVIDENCE NOW FAVORS: mostly ground-up + trees-down in different lineages
   (Multiple origins of flight within Maniraptora? Debated)
 ```
 
-<!-- @editor[bridge/P3]: Bird one-way airflow lung vs mammal tidal lung is a natural bridge to pipeline vs batch processing — continuous throughput with counter-current exchange parallels streaming architectures vs store-and-forward -->
 ### Avian Innovations
+
+The bird lung is a streaming pipeline; the mammal lung is a batch processor. Mammal tidal breathing: fill buffer (inhale), process (gas exchange), flush buffer (exhale), repeat — the "stale air" problem means at best ~25% O₂ extraction. Bird flow-through system: air enters posterior air sacs on inhale, flows through parabronchi (gas exchange surface) on exhale, exits anterior air sacs, exits on second inhale — continuous unidirectional flow. Counter-current exchange: blood flows opposite to air direction through the gas exchange capillaries, maintaining maximum partial pressure gradient across the entire exchange surface — analogous to counter-current heat exchangers in engineering. Result: 95%+ O₂ extraction. The engineering advantage is exactly the same as streaming vs. batch processing: continuous throughput, lower latency, higher utilization of the exchange surface.
 
 ```
 ONE-WAY AIRFLOW LUNG:

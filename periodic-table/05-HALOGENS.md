@@ -278,7 +278,47 @@ I₂ in organic chemistry:
 
 ---
 
-<!-- @editor[content/P2]: Interhalogen compounds absent -- ICl, BrF3, ClF3 are industrially important (UF6 production uses ClF3) and structurally interesting (VSEPR showcase); significant gap for a reference guide -->
+## Interhalogen Compounds
+
+Interhalogens form when two different halogens combine. The larger, heavier halogen is the central atom; fluorine is always terminal (most electronegative, no available d-orbitals for expansion).
+
+```
+INTERHALOGEN TYPES AND VSEPR GEOMETRIES:
+
+  Type XY    XY₃    XY₅    XY₇
+  ─────────────────────────────────────────────────────────────────────
+  ICl    BrF₃   BrF₅   IF₇
+  IBr    ClF₃   IF₅
+  BrCl   IF₃
+  ClF
+
+GEOMETRY EXAMPLES (VSEPR with lone pairs):
+  ClF₃ (17 + 27 = 10 valence e⁻ on Cl):
+    5 electron pairs around Cl: 3 bonding, 2 lone → T-shaped (not trigonal planar)
+    F–Cl–F angle: ~87.5° (lone pairs compress)
+
+  BrF₅ (5 bonding + 1 lone pair → square pyramidal)
+  IF₇  (7 bonding → pentagonal bipyramidal — no lone pairs)
+
+INDUSTRIAL IMPORTANCE:
+  ClF₃ (chlorine trifluoride):
+    One of the most violently reactive compounds known
+    Ignites sand, concrete, glass, asbestos on contact (more aggressive than F₂)
+    Industrial uses: cleaning semiconductor CVD chambers, UF₆ production
+      UO₂ + 3 ClF₃ → UF₆ + 3 ClO   (uranium hexafluoride for enrichment)
+    Also a hypergolic rocket propellant (WWII German Fliegerfaust research)
+    Stored in Ni/Monel containers (passivating NiF₂ layer)
+
+  BrF₃ (bromine trifluoride):
+    Strong fluorinating agent and ionizing solvent
+    Self-ionizing: 2 BrF₃ ⇌ [BrF₂]⁺ + [BrF₄]⁻
+    Used to synthesize noble gas fluorides (XeF₂) and uranium fluorides
+
+  ICl (iodine monochloride):
+    Wijs solution (ICl + AcOH): standard reagent for iodine value of oils
+    (degree of unsaturation in fats/oils — adds across C=C double bonds)
+    Also electrophilic iodinating agent in synthesis (ICl is electrophilic I⁺ source)
+```
 
 ## Astatine (At, Z=85) and Tennessine (Ts, Z=117)
 

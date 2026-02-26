@@ -293,8 +293,9 @@ BLOOD:
   CLOSED circulatory system (unique among invertebrates)
 ```
 
-<!-- @editor[bridge/P2]: Octopus distributed nervous system (300M neurons in arms, semi-autonomous control) is a natural bridge to distributed computing / actor model — 8 independent processors with loose coordination through a central bus -->
 ### Cephalopod Intelligence
+
+The octopus nervous system is a distributed computing architecture: 8 independent arm processors (~37.5M neurons each) with semi-autonomous local control, loosely coordinated by a central bus (the central brain, ~50M neurons). Each arm can execute motor programs (reaching, grasping, manipulation) without central direction — the arm ganglia run local feedback loops. This maps directly to the actor model: each arm is an actor with local state and behavior, receiving high-level goals from the central coordinator but executing without central polling. The central brain does not supervise each motor step — it sends goals and the arm figures out kinematics locally. This is the architecture you'd design for a system where the communication latency to the controller is too high for tight coupling: distribute the control plane.
 
 ```
 NERVOUS SYSTEM COMPARISON

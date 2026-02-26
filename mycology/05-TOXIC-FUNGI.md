@@ -194,9 +194,14 @@ CLINICAL EFFECTS:
   Confusion, delirium, ataxia, visual distortions
   "Entheogenic" effects: religious/mystical use in Siberian shamanism
     (Siberian reindeer herders; "urine drinking" tradition to recycle muscimol)
-  Anticholinergic effects also present (salivation, lacrimation, urination — SLUDE)
-<!-- @editor[content/P2]: SLUDE symptoms (salivation, lacrimation, urination, defecation, emesis) are cholinergic, not anticholinergic — the sentence above says "anticholinergic" but then lists cholinergic symptoms. Clarify: muscimol is GABAergic; the cholinergic/muscarinic confusion is the historical naming accident -->
-    → Actually from muscarinic receptors? Debate ongoing
+  Cholinergic (muscarinic) effects sometimes also present (salivation, lacrimation, urination — SLUDE)
+    → These are cholinergic symptoms, NOT anticholinergic. The naming confusion: Amanita muscaria
+      was historically thought to act via muscarine (hence "muscarinic"), and muscarine IS a
+      cholinergic agonist present in trace amounts. But muscimol is GABAergic (GABA-A agonist),
+      not muscarinic. The SLUDE symptoms when they occur are from the trace muscarine, not muscimol.
+      The primary psychoactive action of A. muscaria is muscimol → GABA-A → sedation/dissociation.
+      Atropine (anticholinergic antidote) is therefore contraindicated unless muscarine poisoning
+      is separately confirmed — treating muscimol with atropine worsens anticholinergic effects.
   Deaths: rare; require very large doses
   Treatment: supportive; benzodiazepines for seizures if severe
     → ATROPINE IS CONTRAINDICATED (does not treat muscimol toxicity;

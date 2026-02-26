@@ -5,19 +5,33 @@
 ```
 +------------------------------------------------------------------+
 |                    FUNGAL CELL BIOLOGY                           |
+|               (cross-section, outside to inside)                |
 |                                                                  |
-<!-- @editor[diagram/P2]: Diagram shows cell components in parallel columns but doesn't show the layered architecture (wall → membrane → cytoplasm → nucleus) as a system — rework as concentric-layer or cross-section view -->
-|  CELL WALL          MEMBRANE         CYTOPLASM                  |
-|  Chitin + glucan    Ergosterol       Organelles (ER, Golgi,     |
-|  (NOT cellulose)    (NOT cholesterol) mitochondria, vacuoles)   |
-|       |                  |                                       |
-|       v                  v                                       |
-|  GROWTH AT TIPS     ANTIFUNGAL       NUCLEI (can be multiple    |
-|  (apical extension) TARGET           per cell if aseptate)      |
+|  ┌── CELL WALL (outermost) ──────────────────────────────────┐ |
+|  │  β-1,3-glucan scaffold + chitin microfibrils              │ |
+|  │  NOT cellulose (cellulose = plant; chitin = fungus/insect) │ |
+|  │  Antifungal targets: echinocandins block glucan synthase   │ |
+|  │                                                             │ |
+|  │  ┌── PLASMA MEMBRANE ──────────────────────────────────┐  │ |
+|  │  │  Ergosterol (NOT cholesterol)                        │  │ |
+|  │  │  Antifungal target: azoles block ergosterol synth    │  │ |
+|  │  │  Amphotericin B: binds ergosterol → pore             │  │ |
+|  │  │                                                       │  │ |
+|  │  │  ┌── CYTOPLASM ────────────────────────────────┐    │  │ |
+|  │  │  │  ER, Golgi, vacuoles, mitochondria          │    │  │ |
+|  │  │  │  Ribosomes (80S — same as animals/plants)   │    │  │ |
+|  │  │  │                                              │    │  │ |
+|  │  │  │  NUCLEI: can be multiple per cell           │    │  │ |
+|  │  │  │    Coenocytic hyphae: multinucleate, no      │    │  │ |
+|  │  │  │    cross-walls (aseptate)                    │    │  │ |
+|  │  │  │    Septate hyphae: cross-walls with pores    │    │  │ |
+|  │  │  └────────────────────────────────────────────┘    │  │ |
+|  │  └─────────────────────────────────────────────────────┘  │ |
+|  └────────────────────────────────────────────────────────────┘ |
 |                                                                  |
-|  NUTRITION: osmotrophic                                         |
-|  Secrete enzymes externally → absorb small molecules           |
-|  No phagocytosis; no photosynthesis                            |
+|  APICAL GROWTH: wall extends only at hyphal tip                 |
+|  NUTRITION: osmotrophic — secretes enzymes externally,          |
+|             absorbs small molecules; no phagocytosis            |
 +------------------------------------------------------------------+
 ```
 
@@ -235,9 +249,8 @@ PARASEXUAL CYCLE (Ascomycetes especially):
 ---
 
 ## Dimorphism
-<!-- @editor[bridge/P3]: Natural bridge to state machines / mode switching — dimorphic fungi are biological finite state machines with environmental transition triggers. Worth a one-liner for this learner. -->
 
-Some fungi switch between forms depending on conditions:
+Dimorphic fungi are biological finite state machines: two stable states (mold / yeast), environmental signals as transition triggers (temperature, CO₂ tension, nitrogen source), and state-dependent behavior (spore production vs. tissue invasion). The transition is not spontaneous drift but a deterministic response to input — classic FSM behavior. Some fungi fix between forms depending on conditions:
 
 ```
 DIMORPHIC FUNGI:

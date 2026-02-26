@@ -22,7 +22,8 @@
 +------------------------------------------------------------------+
 ```
 
-<!-- @editor[bridge/P2]: No old-world → new-world bridge for the phylogenomics revolution — the shift from morphology-based to sequence-based classification parallels the shift from manual taxonomy to automated clustering in any data-rich domain. A one-liner connecting to the learner's experience with classification systems would land well. -->
+The phylogenomics revolution in fungal classification is a direct analog of the shift from hand-curated taxonomies to machine-learned classification: morphology-based taxonomy was expert-driven, low-throughput, biased by visible features (analogous to manually labeled rules); sequence-based phylogenomics is high-throughput, data-driven, and frequently overturns confident expert classifications when hidden structure becomes visible. ITS (Internal Transcribed Spacer) rRNA sequencing is the fungal equivalent of a species barcode — a fast automated clustering step. Multi-locus and whole-genome approaches are the deep learning tier: higher accuracy, more compute, reveals finer structure. The key lesson from both domains: when data volume increases by orders of magnitude, the old taxonomy almost always needs refactoring.
+
 **The current classification** is based on phylogenomics — multilocus and whole-genome sequencing has overturned the traditional morphology-based classification substantially. The tree is still being revised.
 
 ---

@@ -240,7 +240,52 @@ Lagenaria siceraria (bottle gourd): ANOMALY
 
 ---
 
-<!-- @editor[content/P2]: Leafy greens (lettuce, spinach, chard) mentioned only in opening table — no section covering Asteraceae (lettuce) or Amaranthaceae (spinach/chard/beet); lettuce is the most consumed leafy vegetable globally -->
+## Leafy Greens — Lettuce, Spinach, and Amaranthaceae
+
+```
+LETTUCE (Lactuca sativa) — ASTERACEAE:
+  Most consumed leafy vegetable globally by volume (~27 million tonnes/yr)
+  Origin: Egypt/Mediterranean; ancestor Lactuca serriola (prickly lettuce)
+  Domestication: elongated, non-bitter forms selected; 4,500+ years of cultivation
+  Wild Lactuca: contains lactucin and lactucopicrin (bitter sesquiterpene lactones)
+    → selectd for reduced bitterness; still present in outer/older leaves
+    → Lactuca genus name: from lac (milk) — milky latex in cut stems
+
+  TYPES:
+    Crisphead (iceberg): tight ball; crisp water-rich leaves; lowest nutrient density
+    Romaine/cos: upright; good nutrient retention; Ceasar salad base
+    Butterhead (Boston, Bibb): soft loose head; mild flavor
+    Loose-leaf: continuous harvest; red-leaf, green-leaf; nutritionally richest
+    Batavia/oakleaf: European styles; serrated margins
+
+  BOLTING: when temperature + photoperiod triggers flowering, lettuce turns bitter fast
+    → gibberellin signaling → rapid stem elongation + bitter compound upregulation
+    → commercial growers use day-length-insensitive (slow-bolt) varieties
+
+SPINACH (Spinacia oleracea) — AMARANTHACEAE:
+  Origin: Persia (Iran); arrived in Europe ~700 CE via Arab traders
+  ~26 million tonnes/yr globally; China produces ~90% of world's spinach
+
+  KEY NUTRIENTS: folate, vitamin K1, iron, magnesium, lutein, zeaxanthin
+  OXALATE CAVEAT: spinach contains oxalic acid (~1g/100g)
+    → Binds mineral ions (Fe²⁺, Ca²⁺, Mg²⁺) → forms insoluble oxalates in gut
+    → Despite high iron content, bioavailability is low (~1-2% vs. meat iron 20-30%)
+    → Popeye's spinach-iron connection is nutritionally misleading for this reason
+    → Cooking reduces oxalate but doesn't eliminate it; pairing with vitamin C helps
+
+FAMILY AMARANTHACEAE (includes spinach, chard, beet, quinoa, amaranth):
+  Formerly Chenopodiaceae; merged by molecular phylogenetics
+  Distinctive: C3/C4 mixed family; many desert and salt-tolerant species
+  Betalains (not anthocyanins): red/yellow pigments in beet, chard; missing from rest
+    of plant kingdom — only Caryophyllales have betalains (cannot co-occur with anthocyanins)
+
+SWISS CHARD (Beta vulgaris ssp. cicla):
+  Same species as red beet and sugar beet (different organ selected: leaf vs. root vs. root+sugar)
+  Colorful stems: betalain pigments (yellow: betaxanthins; red: betacyanins)
+  Tolerates heat better than spinach → summer alternative
+  Oxalate content similar to spinach; same mineral-binding caveat applies
+```
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

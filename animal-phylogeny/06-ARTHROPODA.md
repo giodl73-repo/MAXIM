@@ -68,7 +68,8 @@ SCLEROTIZATION: irreversible hardening
   Cannot be softened → must MOLT to grow
 ```
 
-<!-- @editor[content/P2]: No mention of trilobites — dominant Paleozoic arthropods (~20,000 species), important for understanding arthropod fossil diversity and the Permian extinction -->
+**Trilobites — the Paleozoic arthropods:** Trilobita is an extinct arthropod class, dominant from the Cambrian (521 Ma) through the Permian (252 Ma), when they were wiped out in the Permian-Triassic extinction. ~20,000 described species; the most diverse animal group in the Cambrian seas. Three-lobed body (hence tri-lobite): axial lobe flanked by two pleural lobes, segmented exoskeleton similar to modern arthropods. Most had compound eyes — some of the earliest sophisticated eyes in the fossil record (Cambrian trilobites, ~510 Ma). Rolled into a ball as defense (like woodlice today — convergent behavior, not phylogenetic relation). Index fossils for biostratigraphy: trilobite species are time-stamped geological markers; their presence in rock dates the stratum. The Permian extinction took all remaining trilobites along with ~96% of marine species.
+
 ### Molting (Ecdysis)
 
 ```
@@ -387,8 +388,9 @@ WHY HOLOMETABOLA WINS:
 | Odonata | Dragonflies/damselflies | Two pairs membranous wings, aerial predators | ~6,000 | First flying animals; compound eyes cover head |
 | Blattodea | Cockroaches + termites | Termites are social roaches | ~7,000 | 300M year old lineage |
 
-<!-- @editor[bridge/P2]: Eusocial colony as a superorganism maps to distributed systems with no single point of failure — queen is not a "server" but a specialized reproductive node; worker task allocation is stigmergic (like message queues without central dispatch) -->
 ### Eusociality
+
+The eusocial colony is a distributed system with no single point of failure and stigmergic coordination. The queen is not a "server" — she is a specialized reproductive node with no decision-making authority over worker behavior. Worker task allocation (foraging, nursing, defense, nest construction) is stigmergic: each worker responds to local environmental signals (pheromone concentration, brood density, food stores) without any central coordinator. The colony is a reactive message-passing system: pheromone trails are the message queue, individual ants are stateless workers reading the queue and writing back to it. When a food source is depleted, the trail pheromone evaporates and workers stop following it — automatic load balancing through signal decay. No master node required; the colony continues functioning if any individual or even the queen dies (workers will raise a new queen from existing brood).
 
 ```
 EUSOCIALITY — the highest level of social organization

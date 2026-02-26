@@ -304,7 +304,53 @@ IRIDIUM:
 
 ---
 
-<!-- @editor[content/P2]: Cadmium (Cd, Z=48) and Osmium (Os, Z=76) get only one-line mentions in the overview table but no dedicated coverage -- Cd toxicity (itai-itai disease), CdTe solar cells, and quantum dots deserve a subsection; Os is the densest element and OsO4 staining is foundational in electron microscopy -->
+## Cadmium (Cd, Z=48) and Osmium (Os, Z=76)
+
+```
+CADMIUM (Cd, Z=48):
+  [Kr] 4d¹⁰ 5s²  — Zn-like chemistry; always +2; no d-d color (d¹⁰)
+  Produced as byproduct of Zn smelting (Cd and Zn always co-occur in sulfide ores)
+
+  TOXICOLOGY — ITAI-ITAI DISEASE ("ouch-ouch"):
+    1950s Toyama Prefecture, Japan: Jinzu River contaminated by Mitsui Mining Cd waste
+    Cd²⁺ replaces Ca²⁺ in bone (similar ionic radius) → ostemalacia + renal tubule damage
+    Simultaneous skeletal pain + renal failure; victims cried out in pain → named "itai-itai"
+    ~200 confirmed deaths; landmark environmental law case in Japan
+    Cd accumulates in kidney cortex (half-life ~30 yr) → chronic low-level exposure is insidious
+    Main current sources: contaminated rice/wheat (cadmium fertilizer impurities), tobacco smoke
+
+  APPLICATIONS (declining due to toxicity):
+    NiCd batteries: being phased out; Cd is the cathode in Ni(OH)₂/KOH/Cd cells
+    CdTe solar cells: First Solar's thin-film PV technology (~22% efficiency)
+      CdTe layer: ~3 μm thick; direct bandgap 1.45 eV (nearly ideal for solar spectrum)
+      LIFECYCLE NOTE: less total Cd per kWh than coal combustion (coal releases Cd as trace)
+    CdSe quantum dots: size-tunable emission (QD displays, bioimaging)
+      2 nm QD → blue emission; 7 nm → red (quantum confinement shifts bandgap)
+      Cd-free alternatives (InP, perovskite) being developed due to RoHS regulation
+
+OSMIUM (Os, Z=76):
+  [Xe] 4f¹⁴ 5d⁶ 6s²
+  DENSEST ELEMENT: 22.59 g/cm³ (just ahead of Ir at 22.56)
+  Highest measured bulk modulus of any element (462 GPa)
+
+  OsO₄ (osmium tetroxide) — electron microscopy staple:
+    Os is oxidized to volatile OsO₄ (mp = 40°C, bp = 130°C)
+    OsO₄ reacts with C=C double bonds and lipid membranes → deposits Os metal
+    Electron-dense Os staining → high contrast in TEM (transmission electron microscopy)
+    Standard protocol for biological specimen preparation (fixation → OsO₄ staining → resin → sectioning)
+    HAZARD: OsO₄ vapor is extremely toxic (eye damage at ppb levels) + osmylates cornea → blindness
+    → must be used in fume hood; contained secondary fixation
+
+  ALLOYS:
+    Os-Ir alloys: very hard, corrosion-resistant → fountain pen nibs, compass bearings, record stylii
+    Fountain pen tip alloy (Osmiridium) defined the nib tip; modern tips use Ru-Ir instead
+    (Os more expensive and harder to fabricate)
+
+  CATALYSIS:
+    Os-based catalysts for Sharpless asymmetric dihydroxylation of alkenes
+    AD-mix reagents use K₂OsO₄ (catalytic) + K₃Fe(CN)₆ (reoxidant)
+    → pharmaceutical synthesis; Nobel 2001 (Sharpless)
+```
 
 ## Silver (Ag, Z=47) and Gold (Au, Z=79)
 
@@ -414,7 +460,7 @@ STILL USED:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge connecting lanthanide contraction (mentioned in 10-LANTHANIDES) to why Hf/Zr are inseparable -- the guide states the fact but doesn't cross-reference the mechanism; a 2-sentence forward-reference to 10-LANTHANIDES.md would close the loop -->
+**Why Hf and Zr are nearly inseparable — the lanthanide contraction:** Normally, atomic radius increases down a group as each period adds a new electron shell. Hf (Period 6) should be substantially larger than Zr (Period 5). But between Zr and Hf, the 14 lanthanide elements fill the 4f subshell — and f electrons are poor at shielding nuclear charge. The 14 additional protons added across the lanthanides pull the electron cloud inward without proportional shielding, so the expected radius increase is nearly canceled. Result: Zr radius = 160 pm; Hf radius = 159 pm — essentially identical. Identical radius → identical chemistry → they occur together in every ore and cannot be separated by classical crystallization or precipitation. Separation requires solvent extraction (tributyl phosphate in HNO₃) or ion exchange — the same techniques used for separating adjacent lanthanides from each other. See 10-LANTHANIDES.md for the full lanthanide contraction mechanism.
 
 ## Hafnium (Hf, Z=72) and Tantalum (Ta, Z=73)
 
@@ -444,39 +490,98 @@ TANTALUM:
 
 ---
 
-<!-- @editor[structure/P2]: Y, Zr, Nb, Ru lumped into a single section -- these are individually important enough to deserve separate subsections (Zr alone has nuclear cladding, zirconia ceramics, dental crowns, thermal barrier coatings; Nb has superconductors and HSLA steel); the lump obscures their individual significance -->
-
-## Yttrium (Y, Z=39), Zirconium (Zr, Z=40), Niobium (Nb, Z=41), Ruthenium (Ru, Z=44)
+## Yttrium (Y, Z=39)
 
 ```
-YTTRIUM (Y):
-  Always +3, similar to lanthanides (often classified with rare earths)
-  YAG (yttrium aluminum garnet, Y₃Al₅O₁₂):
-    Nd:YAG laser: Nd³⁺ in YAG host → 1064 nm, 532 nm (doubled) → industrial cutting/welding/marking
-    Er:YAG laser: 2940 nm → dental drilling, skin resurfacing
-  Y₂O₃: stabilizes ZrO₂ (yttria-stabilized zirconia, YSZ) → solid oxide fuel cells, TBC coatings
+[Kr] 4d¹ 5s²  — always +3; classified as rare earth alongside lanthanides (similar radius, chemistry)
 
-ZIRCONIUM (Zr):
-  Low neutron cross-section (0.18 barns vs Hf 100 barns) → transparent to neutrons
-  Zircaloy fuel cladding: PWR/BWR fuel rods wrapped in Zr alloy tubes
-  ZrO₂ (zirconia): tough ceramic, dental crowns, kitchen knives, high-T coatings
-  YSZ thermal barrier coatings (TBC): on turbine blades (see 09-TRANSITION-4D5D context)
-  Baddeleyite (ZrO₂): naturally occurring, used directly in refractory applications
+YAG (yttrium aluminum garnet, Y₃Al₅O₁₂):
+  Nd:YAG laser: Nd³⁺ doped in YAG host crystal → 1064 nm fundamental, 532 nm (frequency doubled)
+    Industrial cutting, welding, marking; ophthalmic surgery (capsulotomy); LIDAR
+  Er:YAG laser: 2940 nm → absorbed strongly by water/hydroxyapatite → dental drilling, skin resurfacing
+  Ho:YAG laser: 2100 nm → urological surgery, orthopedics
 
-NIOBIUM (Nb):
-  Nb-Ti superconductors: most widely deployed commercial superconductor
-    Tc(NbTi) = 9.2 K, Hc2 = 15 T → MRI magnets, particle accelerators (LHC)
-  Nb-Sn (Nb₃Sn): Tc = 18 K, Hc2 = 30 T → next-generation MRI, ITER fusion
-  HSLA steel: 0.05% Nb dramatically increases yield strength → lightweighting in vehicles/structures
+Y₂O₃ (yttria):
+  Stabilizes ZrO₂ (see Zr section below)
+  High-purity Y₂O₃ → phosphors, optical glass
+  YBa₂Cu₃O₇ (YBCO): high-temperature superconductor (Tc = 93 K, above liquid N₂ boiling point)
+    → Second-generation HTS wire for MRI, wind turbine generators, superconducting motors
+```
 
-RUTHENIUM (Ru):
-  Ru(bpy)₃²⁺ (tris-bipyridyl): iconic inorganic photosensitizer
-    Absorbs visible light (MLCT band, 452 nm) → excited state → reductant or oxidant
-    → Artificial photosynthesis research; electrochemiluminescence (ECL) assays
-  Grubbs catalyst (Ru-carbene): olefin metathesis → Nobel 2005 (Grubbs, Schrock, Chauvin)
-    Reshuffles double bonds: R₁-CH=CH-R₁ + R₂-CH=CH-R₂ ⇌ 2 R₁-CH=CH-R₂
-    Impact: pharmaceutical synthesis, polymer science, ring-closing metathesis
-  RuO₂: anode in chlor-alkali cells (DSA — dimensionally stable anode)
+## Zirconium (Zr, Z=40)
+
+```
+[Kr] 4d² 5s²  — nearly always +4; low neutron capture cross-section (0.18 barns)
+
+NUCLEAR:
+  Zircaloy-2, Zircaloy-4: Zr alloys used as PWR/BWR fuel rod cladding
+    Transparent to neutrons → doesn't waste neutron economy
+    Corrosion-resistant in high-temperature water (ZrO₂ passivation)
+    Must be Hf-free (Hf σ_n = 100 barns) → most expensive purification step
+    Fukushima note: at 1200°C Zr reacts with steam → ZrO₂ + H₂ (explosion source)
+
+ZrO₂ (zirconia ceramics):
+  Monoclinic (low T) → tetragonal (1170°C) → cubic (2370°C): phase transitions cause cracking
+  YSZ (yttria-stabilized zirconia): Y³⁺ substitutes Zr⁴⁺ → stabilizes cubic/tetragonal phase
+    Thermal barrier coatings (TBC): 100–300 μm YSZ on Ni superalloy turbine blades
+      Thermal conductivity 2.2 W/m·K (vs Ni alloy 12 W/m·K) → blades survive 1500°C gas
+    Solid oxide fuel cell (SOFC) electrolyte: O²⁻ conductor at 700–1000°C
+  3Y-TZP (tetragonal zirconia): transformation-toughened; fracture toughness rivals steel
+    Dental crowns, kitchen knives, bearing balls, smartphone back panels (Xiaomi)
+```
+
+## Niobium (Nb, Z=41)
+
+```
+[Kr] 4d⁴ 5s¹  (Aufbau exception — half-filled d shell more stable)
+Soft metal, corrosion resistant, superconducting below 9.25 K
+
+SUPERCONDUCTORS:
+  NbTi (niobium-titanium): Tc = 9.2 K, Hc2 (4.2 K) = 15 T
+    Most widely deployed commercial superconductor by mass
+    All large-bore MRI magnets (1.5 T, 3 T) use NbTi wire
+    LHC dipole magnets: NbTi at 1.9 K → 8.33 T field
+  Nb₃Sn (niobium-tin): Tc = 18 K, Hc2 = 30 T
+    Higher field capability → next-generation MRI (7 T+), ITER toroidal field coils
+    More brittle → must wind coils before reacting; complex manufacturing
+
+STEEL:
+  HSLA (high-strength low-alloy): 0.03–0.05% Nb by mass
+    Grain refining + precipitation hardening → ~50% higher yield strength vs plain carbon
+    → Structural steel (bridges, pipelines, offshore platforms, auto body panels)
+    → ~70% of Nb production goes into steel; Brazil (Araxá CBMM mine) supplies ~80% globally
+
+CAPACITORS AND ELECTRONICS:
+  NbO (niobium monoxide): competitor to Ta capacitors
+    Similar performance at lower cost; emerging in some mobile device applications
+```
+
+## Ruthenium (Ru, Z=44)
+
+```
+[Kr] 4d⁷ 5s¹  — Pt group metal; hardest and most volatile of the group
+
+CATALYSIS:
+  Grubbs catalyst (Ru-carbene complex): olefin metathesis → Nobel 2005 (Grubbs, Schrock, Chauvin)
+    C=C bond scrambling: R₁CH=CHR₁ + R₂CH=CHR₂ ⇌ 2 R₁CH=CHR₂
+    Ring-closing metathesis: key tool in natural product synthesis and drug manufacturing
+    1st gen (PCy₃)₂Cl₂Ru=CHPh; 2nd gen (Hoveyda-Grubbs): more stable, recyclable
+  Ammonia synthesis (emerging): Ru-based catalysts operate at lower T/P than Fe (Haber-Bosch)
+    → "Green Haber-Bosch" using renewable electricity at lower temperatures
+
+ELECTRONICS:
+  Ru hard disk overcoat: thin Ru layer between magnetic recording layer and CoCrPt grains
+    → Antiferromagnetic coupling layer in perpendicular recording media
+  Ru electrodes in DRAM capacitors (replacing Ti/TaN in advanced nodes)
+
+RuO₂:
+  Dimensionally stable anode (DSA) in chlor-alkali electrolyzers → >70 million tonnes Cl₂/yr
+
+PHOTOSENSITIZER:
+  Ru(bpy)₃²⁺: metal-to-ligand charge transfer (MLCT) absorption at 452 nm
+    Excited state → reductant or oxidant depending on quencher
+    → Artificial photosynthesis research, ECL (electrochemiluminescence) immunoassays (Roche)
+    → Photoredox catalysis (organic synthesis, MacMillan group)
 ```
 
 ---

@@ -23,7 +23,37 @@
 |  LICHENS: fungus + photosynthetic partner                       |
 |  Pioneer colonizers; extreme environment specialists           |
 +------------------------------------------------------------------+
-<!-- @editor[diagram/P2]: Diagram lists five ecological roles but doesn't show the carbon/nutrient flow connecting them — a flow diagram (atmosphere → plant → mycorrhizal fungus → saprotroph → CO2 → atmosphere) would make the ecosystem cycling visible -->
+
+CARBON AND NUTRIENT FLOW THROUGH THE FUNGAL WEB:
+
+  ATMOSPHERE
+  CO₂ + H₂O
+      │ (photosynthesis)
+      ▼
+  PLANT (fixed carbon as glucose → cellulose, lignin)
+      │                    │
+      │ (living)           │ (dead tissue — litter, wood)
+      │                    │
+      ▼                    ▼
+  MYCORRHIZAL          SAPROTROPHIC
+  FUNGI                FUNGI
+  (ecto/endo)          (white/brown rot,
+      │                 litter decomposers)
+      │ (provides       │
+      │  P, N, water)   │ (mineralizes)
+      │                 │
+      ▼                 ▼
+  PLANT ROOT       INORGANIC NUTRIENTS
+  (receives P, N)  (NH₄⁺, PO₄³⁻, K⁺)
+                        │
+                        ▼
+                   SOIL SOLUTION → taken up by plants
+                        │
+                        └──────────────→ ATMOSPHERE (CO₂)
+                                        via fungal respiration
+
+PARASITIC FUNGI: divert fixed carbon from host without killing it (biotrophs)
+  or kill host and then feed (necrotrophs) — same carbon pool, different timing
 ```
 
 ---

@@ -190,7 +190,8 @@ Thermochemical cycles:  e.g., sulfur-iodine cycle (high-temp nuclear heat → H�
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to electrochemical engineering -- fuel cell membrane transport parallels ion channel selectivity in biology; learner's .NET/Azure background includes IoT sensor data from industrial fuel cells -->
+The PEMFC membrane is an engineered ion channel: Nafion is a sulfonated fluoropolymer that conducts H⁺ (protons) while blocking electrons and gases. The same selectivity problem appears in biological ion channels (K⁺ channel: conducts K⁺ at near-diffusion-limited rates while rejecting Na⁺ by 1,000:1 despite the smaller ionic radius of Na⁺). Both are solved by charge/geometry filters — the engineering and biology are structurally identical problems. In industrial fuel cell stacks (Azure datacenter backup power, hydrogen forklift fleets), the membrane stack is the analogous unit to a CPU die: replicated identical unit cells, performance scales with cell count, and the failure mode is localized rather than systemic.
+
 ## Hydrogen Economy & Fuel Cells
 
 ```

@@ -187,7 +187,8 @@ WHALE SHARK (Rhincodon typus):
   Ovoviviparous; may carry 300+ embryos
 ```
 
-<!-- @editor[bridge/P3]: Ampullae of Lorenzini electroreception is a natural bridge to signal processing — detecting sub-microvolt signals in a noisy medium is analogous to SNR optimization problems the learner knows from information theory -->
+**Electroreception as signal processing:** The ampullae of Lorenzini detect electric fields at sub-microvolt sensitivity (threshold ~5 nV/cm). The engineering challenge: extract a signal of this magnitude from a noisy seawater medium with electromagnetic interference from waves, other organisms, and galvanic currents. The ampullae solve this using matched filtering and spatial averaging — hundreds of electroreceptors tiling the snout provide a spatial array that can reject common-mode noise (present at all receptors equally) and enhance the localized near-field signal from a buried prey item. This is the same principle as a phased array antenna or a differential amplifier: common-mode rejection. The frequency response is tuned to DC and <1 Hz — the band where prey muscle EMG and ion diffusion signals fall. Sharks can detect the 0.1–0.5 μV/cm bioelectric field of a flatfish buried under 30 cm of sand.
+
 ### Electric Rays and Sawfish
 
 ```
@@ -397,7 +398,8 @@ TETRAPOD SISTER:
   BUT lungfish are NOT the direct ancestor (they have their own specializations)
 ```
 
-<!-- @editor[content/P2]: Lobe-finned fish section is thin on the living lungfish species — only 6 species paragraphed briefly; ecological context of obligate air-breathing in modern Protopterus and aestivation physiology could be expanded -->
+**Living lungfish — obligate air-breathers and aestivation:** The six living lungfish species (4 African Protopterus, 1 South American Lepidosiren, 1 Australian Neoceratodus) represent three independent surviving lineages of a once-diverse group. The African and South American species are obligate air-breathers: the lungs have replaced the swim bladder functionally, and gills are reduced. Protopterus annectens in Africa regularly aestivates — burrowing into mud as water bodies dry, secreting a mucus cocoon, reducing metabolic rate by ~95%, and surviving for months (recorded up to 4 years in lab conditions) on protein catabolism. The physiology: ammonia excretion (toxic in water) shifts to urea excretion; heart rate drops to ~1 beat/min; body temperature equilibrates with ambient. This is a biological implementation of suspend-to-disk: full state preserved, minimal energy expenditure, resume on environmental signal (rising water). The Australian lungfish is less extreme — can breathe air supplementally but does not aestivate and has more functional gills.
+
 ### Tiktaalik — The Key Transitional Fossil
 
 ```

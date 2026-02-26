@@ -74,7 +74,7 @@ COLOR TABLE (aquo complexes):
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from crystal field theory to spectroscopy instrumentation -- the color table is excellent but the learner would benefit from connecting d-d transitions to UV-Vis spectrophotometry and how analytical labs actually measure these colors quantitatively -->
+**From d-d transitions to UV-Vis spectrophotometry:** The colors in the table above are directly measurable by UV-Vis absorption spectrophotometry — the analytical instrument that reads out the wavelength and extinction coefficient (ε, L/mol·cm) of each transition. Beer-Lambert law: A = εcl, where A = absorbance, c = concentration, l = path length. A solution of Cu²⁺ (blue, absorbs ~600–700 nm orange-red) with known ε can have its concentration read directly from the absorbance at the peak wavelength. This is how clinical labs measure hemoglobin (Soret band at 415 nm), how wastewater treatment monitors Cr⁶⁺ contamination (Cr₂O₇²⁻ absorbs at 350 nm), and how plate reader assays in pharmaceutical labs quantify enzyme activity. Ligand field splitting (Δ_oct) is the variable that shifts the absorption peak — which is why the same Cu²⁺ ion looks different colors in different solvent/ligand environments (blue in water, deep blue in ammonia as Cu(NH₃)₄²⁺, colorless in anhydrous organic solvents).
 
 ## Iron (Fe, Z=26) — The Metal That Built Civilization
 
@@ -404,7 +404,7 @@ ZnO (zinc oxide):
 
 ---
 
-<!-- @editor[content/P2]: Zinc section is excellent but the guide collapses Sc+Ti and omits V separately before covering it later -- the Vanadium section at the end feels disconnected from the drill-down flow; consider reordering so the guide walks left-to-right across the period consistently -->
+**Note on coverage order:** This guide covers Fe, Co, Ni, Cu, Zn in depth first (industrial/biological significance), then circles back to the early transition metals. Scandium and Titanium (Z=21-22) follow here; Vanadium (Z=23) and Chromium/Manganese (Z=24-25) are covered in their own sections below to give each its due weight.
 
 ## Scandium (Sc, Z=21) and Titanium (Ti, Z=22)
 

@@ -15,7 +15,22 @@
 |  Cell-walled, like plants → no chlorophyll, no photosynthesis  |
 |  More closely related to animals than to plants (!!)            |
 |                                                                  |
-<!-- @editor[diagram/P2]: Diagram lists facts but doesn't show how the major branches (saprotrophs, mycorrhizal, pathogens, industrial) relate to each other — rework as layered system view showing ecological/economic roles branching from the kingdom -->
+|               KINGDOM FUNGI — ROLE LANDSCAPE                   |
+|                          │                                      |
+|         ┌────────────────┼────────────────┐                    |
+|         ▼                ▼                ▼                    |
+|   SAPROTROPHS      MUTUALISTS        PARASITES                 |
+|   (decomposers)    │                 │                         |
+|   White/brown rot  ├─ Mycorrhizal    ├─ Plant pathogens        |
+|   Litter decay     │  (ecto, endo)   │  (rusts, smuts, blights)|
+|   Nutrient release ├─ Endophytes     └─ Animal pathogens       |
+|   Carbon cycling   └─ Lichens           (Candida, Aspergillus) |
+|         │                │                                     |
+|         └──────────── INDUSTRIAL ─────────────────            |
+|                   Fermentation (beer, bread, cheese)           |
+|                   Pharmaceuticals (penicillin, statins)        |
+|                   Enzymes, bioremediation, materials           |
+|                                                                  |
 |  WHERE FUNGI ARE:                                               |
 |  Everywhere — soil, air, water, inside plants, inside animals  |
 |  1 teaspoon of forest soil: 100 million to 1 billion fungal cells|
@@ -26,9 +41,10 @@
 ---
 
 ## Breaking the Plant/Animal Binary
-<!-- @editor[bridge/P2]: No universal CS bridge here — the reclassification parallels taxonomy refactoring (e.g., moving a class to a different module when inheritance was wrong). Any senior engineer who has done a major taxonomy overhaul would connect to this. -->
 
-The reclassification of fungi as a separate kingdom is one of the genuinely counterintuitive reorganizations in biology:
+The reclassification of fungi as a separate kingdom parallels a taxonomy refactoring in software: fungi were placed in Plantae because they share the observable interface (sessile, cell-walled, no locomotive behavior). Molecular sequence data showed the inheritance hierarchy was wrong — fungi implement a different base class than plants, one shared with animals. The Plantae module had to be broken: fungi extracted into their own Kingdom, the "plant" inheritance relationship removed, and the "opisthokont" ancestor re-labeled as the correct base type. Any engineer who has done a major namespace/module reorganization after discovering that the original taxonomy was wrong by observable-behavior rather than structural relationship will recognize the pattern.
+
+The reclassification is one of the genuinely counterintuitive reorganizations in biology:
 
 ```
 THE EVOLUTIONARY SURPRISE

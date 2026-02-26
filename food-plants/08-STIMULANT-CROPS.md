@@ -323,7 +323,8 @@ CONCHING (Rodolphe Lindt, 1879):
     → invented the "fondant" style
 ```
 
-<!-- @editor[content/P2]: Modern cacao labor absent — child labor in West African cacao farming (~2M children, Tulane/NORC studies) is a major ongoing issue; given the slavery coverage in 07-SUGAR-CROPS, the parallel labor exploitation here is a notable gap -->
+**Child labor in West African cacao — the modern supply chain problem:** The parallel to the sugar/slavery history in 07-SUGAR-CROPS.md is direct and ongoing. Côte d'Ivoire and Ghana together produce ~65% of global cacao. Tulane University/NORC longitudinal studies (2019-2021) found ~1.56 million child laborers in cacao farming in those two countries — children performing hazardous work (machete use, chemical pesticide exposure, heavy loads). The 2001 Harkin-Engel Protocol committed the chocolate industry to eliminating "worst forms" of child labor by 2005, then revised to 2010, then 2020 — all missed. The structural cause: cacao farmer household income averages $0.78–$1.29/day in Côte d'Ivoire (below the extreme poverty line), family farming requires all household labor, and the commodity price structure does not create surplus for hiring adult workers. Certification schemes (Fair Trade, Rainforest Alliance) cover ~14-20% of cacao supply. The certification premium rarely reaches farming households fully. This is structurally identical to the sugar economics that drove plantation slavery: a low-margin commodity where cost pressure flows entirely to the labor base.
+
 ### Chocolate Science
 
 ```

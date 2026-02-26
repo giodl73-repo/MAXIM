@@ -4,8 +4,39 @@
 
 Sugar went from luxury to commodity to ubiquitous food additive in 400 years. In 1700, European per-capita sugar consumption was ~2 kg/year (expensive luxury). By 2000, it was ~40 kg/year. This transformation required: (1) Caribbean plantation slavery, (2) sugar beet to break the monopoly, and (3) high-fructose corn syrup to make sweetness cheap at industrial scale. Each step reshaped geopolitics.
 
-<!-- @editor[diagram/P2]: Opening is a linear timeline — consider adding a landscape diagram showing the three sugar systems (cane, beet, HFCS) as parallel tracks with their geographic domains, economic drivers, and processing chains -->
 ```
+THREE SUGAR SYSTEMS — PARALLEL ARCHITECTURE
+
+                SUGARCANE              SUGAR BEET             HFCS (corn)
+                (Saccharum spp.)       (Beta vulgaris)        (Zea mays starch)
+─────────────────────────────────────────────────────────────────────────────────
+GEOGRAPHY     Tropics/subtropics       Temperate (Europe,     USA, global corn belt
+              (Brazil, India, China,   Russia, USA Midwest)
+              SE Asia, Caribbean)
+
+RAW MATERIAL  Stem (sucrose ~12-17%    Root (sucrose ~15-20%  Starch (amylose +
+              of stalk weight)         of root weight)        amylopectin) from kernel
+
+PROCESSING    Crush → juice → clarify Slice → hot water      Wet mill → α-amylase
+              → evaporate → centrifuge diffusion → evaporate  (liquefaction) →
+              → raw sugar → refine     → crystallize          glucoamylase (saccharification)
+                                                              → glucose syrup →
+                                                              glucose isomerase → HFCS
+
+PRODUCT       Sucrose (C₁₂H₂₂O₁₁)     Sucrose (same)         HFCS-55: 55% fructose,
+              disaccharide             disaccharide           45% glucose (sweeter than sucrose)
+
+ECONOMIC      ~1.9 billion tonnes      ~290 million tonnes    ~14 million tonnes/yr
+SCALE         cane crushed/yr          beet/yr
+
+GEOPOLITICS   Brazil #1 producer;      EU protected market;   US farm policy (corn
+              Trade liberalization     Russian production;    subsidies) drove HFCS
+              vs. Caribbean states     EU reform 2017         adoption in soft drinks
+              dispute ongoing                                 (cheaper than domestic sugar)
+
+SWEETNESS     Sucrose = 1.0 (reference)  Sucrose = 1.0       HFCS-55 ≈ 1.0-1.05
+(relative)    (both sucrose sources are identical once refined)
+
 SUGAR TIMELINE
 ──────────────────────────────────────────────────────────────────────────────
 ~8,000 BP   Sugarcane domesticated in New Guinea (chewed raw)

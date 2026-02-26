@@ -282,7 +282,8 @@ SPLIT TIMING (~100 Ma, Cretaceous):
   Laurasian lineages (Laurasiatheria + Euarchontoglires) on north
 ```
 
-<!-- @editor[bridge/P3]: Endogenous retroviruses repurposed for placentation is a natural bridge to code reuse / library adoption — foreign code integrated, tested by selection, now essential infrastructure; learner with software engineering background would connect immediately -->
+**Endogenous retroviruses as repurposed infrastructure:** ~8% of the human genome is derived from ancient retrovirus integrations (endogenous retroviruses, ERVs). Most are inactive debris — the equivalent of dead code that accumulates in a codebase over decades. But some ERV sequences have been co-opted by the host genome for essential functions. The clearest example: syncytins (syncytin-1 and syncytin-2 in humans) are retroviral envelope proteins repurposed to drive trophoblast cell fusion — the process that forms the syncytiotrophoblast layer of the placenta. Remove syncytins: placenta fails to form properly. Foreign code, integrated by a retroviral infection ~25 million years ago, tested by ~25 million years of selection, is now load-bearing infrastructure. This is exactly what happens when a team forks a third-party library into their own codebase and starts depending on the internals — the distinction between "theirs" and "ours" erodes over time.
+
 ### Placenta: The Key Placental Innovation
 
 ```
@@ -497,7 +498,52 @@ Gorilla divergence: ~7–8 Ma
 Orangutan divergence: ~12–14 Ma
 ```
 
-<!-- @editor[content/P2]: Primate section is compressed — 500 species in ~20 lines; the prosimian-to-anthropoid transition and New World vs Old World monkey divergence deserve more space given this is the learner's own lineage -->
+**The primate lineage in more depth:** Primates split from other Laurasiatherian mammals ~85 Ma. The key divergences:
+
+```
+PRIMATE PHYLOGENY — KEY NODES
+
+~85 Ma   Primate divergence from other mammals (small, arboreal insectivores)
+          │
+~63 Ma   ├─── STREPSIRRHINI (wet-nosed primates)
+          │      Lemurs (Madagascar — isolated, diversified independently)
+          │      Lorises, galagos (Africa/Asia)
+          │      Features: rhinarium (moist nose), tapetum lucidum (eye shine),
+          │               unfused mandible, grooming claw
+          │
+~60 Ma   └─── HAPLORRHINI (dry-nosed primates)
+                │
+~55 Ma          ├─── Tarsiers (Philippines/SE Asia)
+                │      Huge eyes (fixed in skull → must rotate head to look)
+                │      Fully carnivorous primate
+                │      Sister to anthropoids, not strepsirrhines
+                │
+~43 Ma          └─── ANTHROPOIDEA
+                        │
+                 ┌──────┴────────┐
+                 │               │
+~40 Ma    PLATYRRHINI        CATARRHINI
+          (New World          (Old World
+           monkeys)            monkeys + apes)
+          Broad flat nose      Narrow downward nose
+          3 premolars          2 premolars
+          Many: prehensile     No prehensile tails
+          tail                 (apes have no tails at all)
+          Americas only        Africa, Asia, Europe
+          (reached S.America
+           ~40 Ma via
+           Atlantic raft)
+                               │
+                     ┌─────────┴─────────┐
+                     │                   │
+              CERCOPITHECIDAE        HOMINOIDEA (apes)
+              (Old World monkeys)     Gibbons, orangutans,
+              Baboons, macaques,      gorillas, chimps,
+              colobines, vervets      bonobos, humans
+```
+
+Apes vs. monkeys: apes (Hominoidea) have no tail, broader shoulders, more complex behavior. Humans are apes. "Monkey" is a paraphyletic grade — it includes Old World monkeys and New World monkeys but excludes apes, even though apes descended from Old World monkey ancestors. Saying "humans descended from monkeys" is imprecise; "humans are apes descended from an ape-monkey common ancestor" is more accurate.
+
 ### Human Evolution Timeline
 
 ```

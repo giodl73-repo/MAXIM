@@ -231,7 +231,7 @@ GLASS:
   Add rare earth oxides → optical glass with specific n/dispersion
 ```
 
-<!-- @editor[bridge/P2]: Missing bridge from silicon semiconductor physics to the practical computing stack -- this learner built .NET/VSTS on silicon substrates but the guide doesn't connect band gap / doping / MOSFET to "why your Azure datacenter server exists"; a 3-sentence bridge would serve well -->
+Silicon's band gap of 1.12 eV sits at the sweet spot for room-temperature transistor operation: large enough that thermal fluctuations don't spontaneously flip bits (a 0.1 eV gap would be unusable at 300 K), small enough that gate voltage on a MOSFET can easily modulate the channel from insulating to conducting. The CMOS inverter — the NOT gate that every digital circuit reduces to — is two complementary MOSFETs (n-type + p-type) wired so that exactly one conducts at a time: near-zero static power draw, which is why ~17 billion transistors on a CPU die don't simply melt. Every .NET runtime, every Azure VM allocation, every SQL Server page fault ultimately executes as electron flow controlled by doped silicon junctions manufactured at atomic precision.
 
 ### Semiconductor Manufacturing
 
@@ -322,7 +322,48 @@ TELLURIUM (Te, Z=52):
     → optical discs (DVD-RW, Blu-ray RW) and PCM non-volatile memory (Intel Optane)
 ```
 
-<!-- @editor[content/P2]: Thallium (Tl, Z=81) and Gallium (Ga, Z=31) absent from the guide -- Ga is critical for GaAs/GaN semiconductors (LEDs, RF, power electronics) and Tl has unique toxicology; both are Group 13 p-block elements that belong here -->
+### Gallium (Ga, Z=31) and Thallium (Tl, Z=81) — Group 13 Remainder
+
+```
+GALLIUM (Ga, Z=31):
+  [Ar] 3d¹⁰ 4s² 4p¹  — mp = 29.8°C (melts in your hand); bp = 2204°C
+  Predicted by Mendeleev (eka-aluminium, 1871), discovered 1875 → confirmed his predictions
+
+  GaN (gallium nitride): direct bandgap 3.4 eV → wide bandgap semiconductor
+    LEDs: GaN/InGaN → blue/UV LEDs (Nakamura, Nobel 2014)
+           Blue + YAG phosphor → white LED (every light bulb after ~2010)
+    Power electronics: GaN transistors switch at higher voltage/frequency than Si
+           → fast-charging USB-C adapters (Gallium Nitride chargers, 2019+)
+           → SiC and GaN replacing Si in EV inverters, data center PSUs
+    RF: GaN HEMTs dominate microwave power amplifiers (5G base stations, radar)
+
+  GaAs (gallium arsenide): direct bandgap 1.42 eV
+    High electron mobility (6× Si) → fast RF switching
+    Multi-junction solar cells: GaInP/GaAs/Ge stack → 40%+ efficiency (space PV)
+    Lasers and LEDs at 800–900 nm (fiberoptic, CD/DVD)
+
+  Gallium supply: byproduct of aluminum smelting (bauxite processing)
+    ~400 tonnes/yr global production; China ~80%
+    Critical material designation (EU, US DoD) — GaN chips are supply chain concern
+
+THALLIUM (Tl, Z=81):
+  [Xe] 4f¹⁴ 5d¹⁰ 6s² 6p¹  — +1 and +3 states; Tl⁺ chemically mimics K⁺ (same size)
+
+  TOXICOLOGY:
+    Tl⁺ (thallous ion) competes with K⁺ in biology → disrupts Na/K ATPase, substitutes
+    in K⁺ channels, blocks mitochondrial K⁺ transport
+    Symptoms: delayed 2–5 days → hair loss (alopecia — classic sign), peripheral neuropathy,
+    Mees' lines on nails, CNS damage
+    Historically used as rat/insect poison (tasteless, odorless) and in criminal poisonings
+    Antidote: Prussian blue (Fe₄[Fe(CN)₆]₃) — binds Tl⁺ in gut via ion exchange, prevents
+    re-absorption → approved for Cs-137 and Tl poisoning
+
+  APPLICATIONS:
+    Tl-201: γ emitter for cardiac stress test imaging (myocardial perfusion)
+            accumulates in viable heart muscle (K⁺ analog); largely replaced by Tc-99m
+    TlBr: scintillator for γ-ray detectors; room-temperature operation
+    Tl₂SO₄: was used as rodenticide; now banned in most countries (human poisoning risk)
+```
 
 ### Polonium (Po, Z=84)
 
