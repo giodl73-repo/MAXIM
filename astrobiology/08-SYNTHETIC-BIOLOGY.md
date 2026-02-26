@@ -88,7 +88,13 @@ Life on other worlds might use alternative polymers.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — XNA as alternative implementations of the same abstract interface (information storage + catalysis) maps directly to the abstraction/interface pattern in software engineering; the genetic code as one valid encoding among many parallels character encoding (ASCII vs. UTF-8 vs. EBCDIC); JCVI-syn3.0's 473 essential genes parallel "minimum viable product" — natural bridge to abstraction, encoding theory, and system design -->
+## Software Engineering Parallels
+
+**XNA as alternative implementations of a common interface.** The functional specification of a genetic polymer is: (1) store heritable information in a linear sequence, (2) support template-directed copying, (3) support selective binding or catalysis (aptamer/ribozyme function). DNA and RNA are one implementation of this interface — ribose or deoxyribose sugar backbone, phosphodiester linkage, four-base alphabet. XNA research demonstrates that TNA, HNA, FANA, and others satisfy the same interface with different backbones. The abstract interface is "Darwinian evolvable information polymer"; the implementation is the specific chemistry. This maps directly to the abstraction/interface distinction in software: the interface specifies behavior (evolvability, information storage), the implementation provides it through a specific mechanism. Life elsewhere may implement the same interface with different chemistry.
+
+**The genetic code as one encoding scheme among many.** The standard genetic code maps 64 codons to 20 amino acids plus stop signals — a specific lookup table. Chin lab's recoded E. coli genome demonstrates that the table can be modified: reassign UAG from "stop" to "new amino acid #21," and the organism is viable with an expanded code. This parallels character encoding: ASCII, UTF-8, and EBCDIC all encode the same abstract character set using different bit patterns. The standard genetic code is not uniquely optimal; it evolved early in life's history and was then frozen by the universality constraint (any change would be lethal once the code was shared across all proteins). The encoding is contingent, not inevitable — exactly as UTF-8's specific byte patterns are contingent on historical decisions, not physical necessity.
+
+**JCVI-syn3.0's 473 genes as a minimum viable specification.** The minimal genome project produced a cell with 473 essential genes — the minimum functional specification for a free-living self-replicating organism. 35 of those genes (7%) have no known function but are essential. This is analogous to a minimum viable product analysis: strip out all non-essential components until the system barely works, then examine what's left. The 35 unknown-function essential genes are the software equivalent of undocumented dependencies in a legacy system — removing them breaks the build, but no one knows why. This is the most honest statement of how much biochemistry we have yet to characterize.
 
 ## Expanded Genetic Code
 
@@ -329,12 +335,15 @@ ENGINEERING EARTH ORGANISMS FOR SPACE:
   CURRENT WORK:
   Rothschild lab (NASA Ames): engineering cyanobacteria for Mars
   Synechococcus (cyanobacteria) + CRISPR modifications:
-  - Enhanced desiccation tolerance (ectoine production)
-  - UV radiation resistance
-  - Perchlorate tolerance
+  - Enhanced desiccation tolerance (ectoine production genes from Halomonas)
+  - UV radiation resistance (RecA overexpression + photolyase insertion)
+  - Perchlorate tolerance (perchlorate reductase operon transfer from Dechloromonas aromatica)
 
+  Published results include measurable desiccation survival improvements in
+  ectoine-producing strains (orders-of-magnitude increase in colony survival
+  after desiccation cycles) and UV survival gains in RecA-overexpressing strains
+  relative to wild-type Synechococcus. Perchlorate tolerance work is earlier-stage.
   These are proof-of-concept experiments, not space-ready organisms.
-<!-- @editor[content/P3]: CRISPR section is light on published results — Rothschild lab work is described at overview level; adding one or two specific gene targets or measured survival improvements would strengthen it -->
 
 UNDERSTANDING EXTREMOPHILE MECHANISMS:
   CRISPR allows precise insertion of extremophile genes into

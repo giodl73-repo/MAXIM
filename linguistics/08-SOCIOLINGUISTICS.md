@@ -109,8 +109,41 @@ FINDINGS:
 This shows: variation is not free, it's socially and stylistically constrained.
 ```
 
-<!-- @editor[bridge/P2]: No A/B-testing or multivariate-regression → variationist-method bridge — any data-oriented engineer would see VARBRUL as logistic regression with social covariates; making this explicit would anchor the methodology for this learner -->
-### The Variable Rule
+### The Variable Rule — Logistic Regression Bridge
+
+Variationist sociolinguistics is applied multivariate logistic regression on linguistic behavior. VARBRUL (Cedergren & Sankoff 1974), its successor Rbrul (Johnson 2009), and GoldVarb are all implementations of the same model: each factor group (social variable, phonological context, style) contributes a log-odds weight to the probability of a variant being chosen.
+
+```
+STATISTICAL FOUNDATION:
+  Each speaker's choice between variants (e.g., r-full vs r-deleted)
+  is modeled as a Bernoulli trial with probability p.
+
+  log(p / 1-p) = β₀ + β₁·(style) + β₂·(class) + β₃·(following_segment) + ...
+
+  This is logistic regression with:
+    - Dependent variable: binary variant choice (0=deleted, 1=retained)
+    - Predictors: social and linguistic factor groups
+    - Coefficients: factor weights = contribution of each predictor
+
+VARBRUL output:
+  Factor weights range 0–1, centered at 0.5 (neutral).
+  Weight > 0.5: factor FAVORS the application of the rule.
+  Weight < 0.5: factor DISFAVORS.
+
+  Example (r-retention in NYC):
+    Class: Saks=0.71, Macy's=0.55, S.Klein=0.29  ← ordinal social gradient
+    Style: emphatic=0.68, casual=0.32              ← style-shifting quantified
+    Following context: pre-vowel=0.62, pre-consonant=0.38
+
+  Each coefficient is independently interpretable (like a linear model)
+  because VARBRUL assumes independence of factor groups.
+  The interactions between social variables are the research finding —
+  like feature interaction terms in a regression model.
+```
+
+**The experimental design is A/B testing in the wild:** Labov's department store study is a natural experiment. The "treatment" is store tier (social class index). The outcome is r-presence rate. The forced repetition ("Excuse me?") is the controlled condition that isolates style-shifting. This is a quasi-experimental design with observational data — not randomized, but with enough natural control to identify the causal factor.
+
+**Modern extension:** With large corpora (COCA, Twitter, ICE), variationist methods now use mixed-effects logistic regression with random slopes per speaker and community. The speaker is treated as a random effect — same as a random-intercept model in hierarchical Bayesian regression. The factor weights in VARBRUL correspond to fixed effects; speaker variation is the random component.
 
 Labov codified: **variable rules** — phonological rules that apply probabilistically, with probability conditioned by multiple factors:
 

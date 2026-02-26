@@ -4,29 +4,45 @@
 
 Organizations are **goal-directed social systems** with formal structures, boundaries, and members. Institutions are **persistent, taken-for-granted rules, norms, and cognitive frameworks** that constrain and enable organizational behavior. Understanding their relationship is central to explaining why organizations behave as they do — which is often not primarily about efficiency.
 
-<!-- @editor[diagram/P2]: Opening diagram contrasts organization vs institution but doesn't map the full topic landscape — Weber's bureaucracy, Taylorism, Hawthorne, isomorphism, organizational ecology all appear as sections but aren't shown in the opening diagram as a connected system -->
 ```
-ORGANIZATION vs INSTITUTION
+ORGANIZATIONS AND INSTITUTIONS — FULL LANDSCAPE
 
-ORGANIZATION: specific, bounded entity
-  Microsoft Corporation, MIT, the US Army, the Catholic Church
-  Has members, rules, resource allocation, hierarchy
-  Can be created, changed, dissolved
-
-INSTITUTION: pattern of rules + norms + cognitive scripts
-  Private property, marriage, academic credentials, the corporation as legal person,
-  money, scientific peer review
-  Transcends any particular organization
-  "Institution" in common usage often conflated with "organization"
-  → "Hospital as institution" (the organization) vs
-     "medicine as institution" (the rules and norms governing healthcare)
-
-RELATIONSHIP:
-  Organizations operate within institutional environments
-  Institutional pressures shape how organizations look, what they do, and
-  what they say they do (legitimacy vs efficiency)
-  → New institutional theory: organizations adopt practices because they are
-     legitimate in their field, not because they are efficient
+ORGANIZATION: bounded entity        INSTITUTION: pattern of rules/norms
+  Microsoft, MIT, US Army             Private property, academic credentials,
+  Has members, resources, hierarchy   money, peer review, the corporation
+  Can be created and dissolved        Transcends any particular organization
+          │                                         │
+          └────────────────────┬────────────────────┘
+                               │
+              Organizations operate within institutional environments
+              Institutions shape what organizations adopt; orgs reproduce institutions
+                               │
+          ┌────────────────────┼────────────────────┐
+          │                    │                    │
+   HOW ORGANIZATIONS      WHY ORGS ADOPT        SELECTION
+   STRUCTURE WORK         WHAT THEY DO          PRESSURES
+          │                    │                    │
+   Weber: bureaucracy    DiMaggio/Powell:      Hannan/Freeman:
+   as rational-legal     isomorphism —         organizational
+   coordination          legitimacy, not        ecology — density
+   mechanism             efficiency, drives     dependence; niche;
+          │              conformity             liability of newness
+   Taylorism:                 │                    │
+   scientific                 ├── Coercive          └── Structural inertia:
+   management;                │   (regulation)          orgs resist change;
+   work design                ├── Mimetic               selection acts on
+          │                   │   (copy winners)        organizational forms
+   Hawthorne:                 └── Normative
+   informal org;                  (professions)
+   social factors               │
+          │              DECOUPLING:
+          │              Formal adoption ≠ actual use
+          │              (say Agile; do waterfall)
+          │
+   COORDINATION MECHANISMS (how orgs manage interdependence):
+     Direct supervision → Standardization of: work processes / outputs / skills
+     → Mutual adjustment (informal communication)
+     Each maps to a different organizational form (see Mintzberg)
 ```
 
 ---
@@ -337,7 +353,18 @@ APPLICATIONS:
 
 ---
 
-<!-- @editor[bridge/P1]: Missing universal bridge — any developer or engineering leader coming from large organizations knows isomorphism firsthand (every company adopts the same Agile/OKR/DevOps practices not because they work but because they're legitimate); Weber's bureaucracy maps to org-chart hierarchies; decoupling maps to "we say we do Agile but we actually do waterfall." This is the most bridge-ready file in the module and has none. -->
+## From Engineering Organizations to Institutional Theory
+
+Every major concept in this module has a direct engineering-organization analog. These are not metaphors — the sociological theories describe the actual dynamics you observe in large tech companies.
+
+**Institutional isomorphism explains why every large tech company adopts the same practices.** OKRs, sprint planning, on-call rotations, incident post-mortems, performance review calibration sessions, engineering level rubrics — these spread not primarily because they are the most effective approaches (evidence is mixed) but because they are what legitimate engineering organizations do. Hiring from Google, McKinsey, or ex-Amazon leaders is mimetic isomorphism: under uncertainty, copy the form used by organizations perceived as successful. The consultant who installs the same framework in every client is normative isomorphism operating at scale.
+
+**Decoupling describes most "Agile transformations."** Organizations adopt Agile's formal structure (sprint ceremonies, backlog, Jira boards, stand-ups) while actual planning, decision-making, and accountability remain waterfall. This is not organizational failure — it is a functionally rational response to incompatible institutional pressures: the external pressure to be "Agile" plus the internal structure that requires annual budgets, fixed-scope commitments, and hierarchical approval chains. Tight coupling would expose the contradiction; decoupling lets both systems coexist.
+
+**Weber's bureaucracy is the org chart you inherited.** The formal separation of office from person, the written job descriptions, the salaried career ladder, the file-based administration (HR systems, ticketing systems, compliance databases) — this is Weber's ideal-type, realized. The "iron cage" critique maps precisely onto the feeling that rule-following has become the goal, that approval processes exist to protect the process, that trained incapacity (Merton) keeps people optimizing a metric that no longer tracks the goal.
+
+**Organizational ecology explains tech industry dynamics.** The liability of newness is why most startups die in their first two years. Density dependence explains the VC-funded "land grab" logic: when a new niche opens (cloud, mobile, LLM infrastructure), found early when competition is low and legitimacy is being established, then survive the consolidation phase. Structural inertia explains why large tech incumbents adapt slowly even when leadership wants change: sunk costs, vested interests, and the stakeholder preference for reliability over adaptation all resist transformation.
+
 ## Decision Cheat Sheet
 
 | Phenomenon | Relevant framework |

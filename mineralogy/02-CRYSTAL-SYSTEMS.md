@@ -85,8 +85,7 @@ This is the exact same group theory from abstract algebra — the classification
 - **Inversion center**: i — point reflection through origin
 - **Roto-inversion**: S̄n — rotation + inversion combined
 
-<!-- @editor[bridge/P2]: The crystallographic restriction theorem is a direct application of the learner's MIT abstract algebra background — worth a one-liner connecting it to cyclic group orders that divide the lattice automorphism group -->
-**Why not 5-fold symmetry?** A periodic lattice can tile with 2-, 3-, 4-, or 6-fold rotation — but not 5-fold. This is the crystallographic restriction theorem. (Quasicrystals, discovered by Dan Shechtman in 1984, have non-periodic long-range order with 5-fold symmetry — they're a separate category.)
+**Why not 5-fold symmetry?** The crystallographic restriction theorem is a direct consequence of the group theory constraint: the only rotation orders compatible with a periodic lattice are those where n divides the lattice automorphism group order — specifically n ∈ {1, 2, 3, 4, 6}. The proof: a rotation by 2π/n applied to a lattice vector must map to another lattice vector; the trace of the rotation matrix must be an integer (it's 1 + 2cos(2π/n)), which restricts n to exactly those values. Five-fold symmetry gives trace = 1 + 2cos(72°) ≈ 1.618 — not an integer, so forbidden. (Quasicrystals, discovered by Dan Shechtman in 1984, have non-periodic long-range order with 5-fold symmetry — they're a separate category that relaxes the periodicity assumption.)
 
 ```
 THE 32 POINT GROUPS — organized by crystal system
@@ -286,8 +285,7 @@ The notation {hkl} means all symmetrically equivalent planes (the whole family).
 |-------|------------------------------|
 | **Semiconductor mfg** | Silicon wafers are cut along specific crystal planes (001, 110, 111) to control etch behavior; crystal defects (dislocations, twins) degrade device performance |
 | **Materials design** | Crystal structure → predicted elastic moduli, cleavage directions, optical behavior |
-<!-- @editor[content/P2]: Ritonavir polymorph incident is a great example but thin — one sentence on what happened (Abbott had to reformulate when Form II appeared spontaneously) would make it land -->
-| **Pharmaceutical** | Drug polymorphs have different solubility, stability, bioavailability (Ritonavir disaster — same formula, wrong polymorph changed solubility) |
+| **Pharmaceutical** | Drug polymorphs have different solubility, stability, bioavailability. The Ritonavir case (1998): Abbott's HIV drug worked in Form I; two years after market launch, Form II spontaneously nucleated in production batches — same formula, different crystal structure, ~4× lower solubility, insufficient bioavailability. Abbott had to withdraw the capsule formulation and spend two years reformulating. The entire supply chain collapsed for a period. Form II was thermodynamically more stable under manufacturing conditions but had never appeared before at scale. |
 | **Metals** | BCC steel vs. FCC austenite → different slip systems → different deformation behavior |
 | **Powder diffraction** | Quality control in manufacturing: cement phases, battery cathode materials, pigments |
 

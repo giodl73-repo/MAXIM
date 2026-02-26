@@ -1,4 +1,3 @@
-<!-- @editor[bridge/P3]: No CS/engineering analogy bridge — tolerance failure parallels a classifier with high false-positive rate; molecular mimicry parallels hash collision (two distinct inputs matching the same signature); epitope spreading parallels cascading failure in a microservice mesh -->
 # Autoimmunity
 
 ## The Big Picture
@@ -343,6 +342,90 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
 | Biologic therapy needed | After methotrexate failure in RA | Anti-TNF first-line biologic |
 
 ---
+
+## Autoimmunity as Classifier Failure and Cascading Fault Propagation
+
+```
+TOLERANCE FAILURE ↔ CLASSIFIER WITH HIGH FALSE-POSITIVE RATE
+──────────────────────────────────────────────────────────────────────────────
+THE IMMUNE CLASSIFIER:
+  Training: Central tolerance (thymic selection) trains the T cell classifier
+            to not fire on self-peptides
+  Test set: Self-peptides (negative class) + pathogen peptides (positive class)
+  Ideal: 100% sensitivity, 0% self-reactivity
+
+TOLERANCE FAILURE = FALSE POSITIVES AGAINST SELF:
+  Type 1 Diabetes: CD8 T cells misclassify insulin peptides as pathogen
+  RA: Immune system classifies citrullinated self-proteins as foreign
+  SLE: Classifies self-DNA/chromatin as foreign (driven by defective dead-cell clearance)
+  MS: T cells misclassify myelin basic protein as pathogen
+
+TRAINING FAILURE MODES:
+  Central tolerance (thymic deletion):
+    AIRE mutation → many tissue-restricted self-antigens NOT presented in thymus
+    → No negative selection → self-reactive T cells graduate → leave thymus
+    = Training data missing the negative class for those antigens
+    APECED: polyendocrinopathy from AIRE loss = production incident
+
+  Peripheral tolerance (post-thymic suppression):
+    Anergy: self-antigen without co-stimulation → functional silence
+    Treg suppression: active suppression by regulatory cells
+    Both = inference-time guardrails on a classifier trained with incomplete data
+
+  Guardrail failure → false positives → autoimmune disease
+
+MOLECULAR MIMICRY ↔ HASH COLLISION IN THE CLASSIFIER:
+  A pathogen antigen shares structural features with a self-antigen
+  The classifier fires correctly on the pathogen peptide
+  But the same classifier weight pattern → misfires on the similar self-peptide
+
+  Classic hash collision: two distinct inputs → same hash value
+  Molecular mimicry: pathogen peptide + self-peptide → same classifier activation
+
+  Examples:
+  Strep M protein + cardiac myosin → same TCR activation → rheumatic fever
+  EBV EBNA1 + GlialCAM → same B cell activation → anti-GlialCAM antibodies → MS
+  Campylobacter LOS + GM1 ganglioside → same antibody → GBS
+
+  The attack surface: any pathogen epitope that resembles a self-epitope
+
+EPITOPE SPREADING ↔ CASCADING FAILURE IN A SERVICE MESH
+──────────────────────────────────────────────────────────────────────────────
+INITIAL FAILURE:
+  T cell autoreactive to epitope A in a target tissue
+  → Attacks tissue → tissue damage → necrosis → cell contents released
+
+SECONDARY FAILURE:
+  Released intracellular proteins expose new epitopes (B, C, D...)
+  These epitopes were previously "sequestered" (hidden from immune surveillance)
+  APCs engulf debris → present B, C, D to T cells
+  New autoreactive T cells generated against B, C, D
+  → Additional tissue damage → more antigen release → more spreading
+
+CASCADING FAILURE ANALOGY:
+  Service A fails → sends error to upstream Service B → B's error handling
+  releases malformed state → downstream Service C's parser crashes → ...
+
+  In autoimmunity: each round of tissue damage adds new antigens to the
+  attack surface, expanding the number of immune effectors deployed
+  Self-amplifying: early treatment breaks the cascade (methotrexate in RA)
+  Late disease: cascade has propagated to many self-epitopes → harder to stop
+
+  "Window of opportunity" in RA = time window before cascade propagates beyond
+  the initial antigenic target — analogous to circuit-breaker intervention
+  before cascading failure reaches irreversible state
+
+HLA ASSOCIATION ↔ DISPATCH TABLE VULNERABILITY:
+  HLA allele = specific dispatch table (which peptides get presented to T cells)
+  High-risk HLA allele = dispatch table with an entry for a self-peptide
+    that resembles a pathogen peptide
+  HLA-DQ2/DQ8 in celiac disease: presents gluten-derived peptides that
+    activate T cells → but requires the trigger (gluten) to become pathological
+  HLA-B27 in ankylosing spondylitis: B27 presents arthritogenic peptides
+    that activate autoreactive CD8 T cells
+  = Vulnerability in the routing table that only manifests under specific inputs
+──────────────────────────────────────────────────────────────────────────────
+```
 
 ## Common Confusion Points
 

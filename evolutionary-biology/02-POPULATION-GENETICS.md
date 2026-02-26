@@ -289,7 +289,41 @@ it depends on the population and environment. Height h² ≈ 0.8 in developed co
 (most phenotypic variation is genetic); h² ≈ 0.4 in malnourished populations
 (environment explains more variation).
 
-<!-- @editor[bridge/P3]: Natural bridge to database/data-structure concepts missing — allele frequency tables are essentially indexed lookups; FST is a between-vs-within variance decomposition identical to ANOVA which this learner knows from statistics -->
+**Population genetics as variance decomposition (ANOVA bridge):**
+
+FST is a between-vs-within variance decomposition — structurally identical to
+the F-statistic in analysis of variance:
+
+```
+FST = (H_T − H_S) / H_T
+
+  H_T = expected heterozygosity in total population = 2·p̄·(1−p̄)
+  H_S = average expected heterozygosity within subpopulations
+
+  ANOVA framing:
+    Total variance = between-group variance + within-group variance
+    F = MS_between / MS_within
+
+  FST interpretation:
+    FST = 0:   all variation is within populations (no differentiation)
+    FST = 1:   all variation is between populations (fixed differences)
+    FST = 0.05–0.15: low but detectable structure (human global FST ≈ 0.15)
+    FST = 0.15–0.25: moderate (most vertebrate species)
+
+  Weir & Cockerham (1984) estimator: robust to sample size imbalance
+  — same correction as Tukey's method in unbalanced ANOVA
+
+**Allele frequency tables as indexed lookups:**
+  Population × locus matrix = database join table
+  Row key: population ID; column key: locus ID; value: allele frequency p
+  Population structure analysis (STRUCTURE, ADMIXTURE) = soft clustering
+    → probabilistic assignment of rows to latent cluster columns
+    → equivalent to non-negative matrix factorization of the frequency matrix
+  PCA on allele frequencies: each individual = vector in SNP-space
+    → first PC often captures geography (isolation-by-distance)
+    → same dimensionality reduction as PCA on any high-dimensional data
+```
+
 **Bridge to ML**: The breeder's equation is essentially stochastic gradient descent
 on a quadratic fitness surface. The response R is the parameter update, h² is the
 learning rate × signal-to-noise ratio, S is the gradient. Genomic prediction

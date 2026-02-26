@@ -4,33 +4,36 @@
 
 Geochemistry applies chemistry to understand the Earth and solar system: where elements live, how they move, and how isotopes record the timing and conditions of geological processes.
 
-<!-- @editor[diagram/P2]: Diagram lists items in three columns + subdisciplines but doesn't show how they relate — no arrows between element distribution feeding into isotope systems, no feedback loops between process geochemistry and reservoirs. Rework as layered system view showing inputs/outputs/feedbacks between the three pillars -->
 ```
-+------------------------------------------------------------------+
-|                    GEOCHEMISTRY LANDSCAPE                         |
-+------------------------------------------------------------------+
-|                                                                  |
-|  ELEMENT             ISOTOPE               PROCESS               |
-|  DISTRIBUTION        SYSTEMS               GEOCHEMISTRY          |
-|  -----------         -------               --------              |
-|  Goldschmidt class.  Radiogenic (geochronol) Weathering          |
-|  Reservoirs          Stable (proxies)        Hydrothermal        |
-|  Geochemical cycles  Cosmogenic              Ocean chemistry     |
-|  Partition coeff.    Radiative equilibrium   Diagenesis          |
-|                                                                  |
+GEOCHEMISTRY: THREE PILLARS WITH FEEDBACKS
 +------------------------------------------------------------------+
 |                                                                  |
-|  SUBDISCIPLINES                                                  |
-|  --------------                                                  |
-|  Aqueous geochem:   Solution chemistry; speciation; pH/Eh       |
-|  Isotope geochem:   Geochronology + paleoclimate proxies        |
-|  Organic geochem:   Carbon compounds in sediments               |
-|  Cosmochemistry:    Extraterrestrial matter; solar system origin |
-|  Biogeochemistry:   Life ↔ chemistry coupling                   |
-|  Marine geochem:    Ocean element cycling                        |
-|  Low-T geochem:     Weathering, diagenesis, soils               |
-|  High-T geochem:    Magmatic, hydrothermal, metamorphic         |
+|  ELEMENT DISTRIBUTION          feeds into ——→  ISOTOPE SYSTEMS  |
+|  (Goldschmidt classification;                  (parent/daughter  |
+|   reservoirs; partition coeff.;                ratios encode age  |
+|   incompatible element cycling)  ←———————     + source tracing) |
+|       |                              |                           |
+|       |  (element abundances in     (isotopes record            |
+|       |   each reservoir set the     conditions of process)     |
+|       v   initial conditions for v)                             |
+|  PROCESS GEOCHEMISTRY ←—————————————————————————               |
+|  (weathering, hydrothermal, ocean chemistry, diagenesis)        |
+|   ↑ processes redistribute elements between reservoirs ↑        |
+|   ↑ subduction returns crust to mantle; volcanism returns        |
+|     mantle material to surface — system is cyclic, not          |
+|     a one-way pipeline                                          |
+|                                                                  |
 +------------------------------------------------------------------+
+
+SUBDISCIPLINES
+  Aqueous geochem:   Solution chemistry; speciation; pH/Eh
+  Isotope geochem:   Geochronology + paleoclimate proxies
+  Organic geochem:   Carbon compounds in sediments
+  Cosmochemistry:    Extraterrestrial matter; solar system origin
+  Biogeochemistry:   Life ↔ chemistry coupling
+  Marine geochem:    Ocean element cycling
+  Low-T geochem:     Weathering, diagenesis, soils
+  High-T geochem:    Magmatic, hydrothermal, metamorphic
 ```
 
 ---
@@ -104,8 +107,9 @@ EARTH'S MAJOR GEOCHEMICAL RESERVOIRS
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from general chemistry equilibrium (partition/distribution coefficients in extraction chemistry) to the geochemical usage — the learner knows basic chemistry from MIT; connecting D here to the familiar liquid-liquid extraction concept would anchor the idea instantly -->
 ## Partition Coefficients
+
+The geochemical partition coefficient D is formally identical to the distribution coefficient K_D in liquid-liquid extraction chemistry (separatory funnel, solvent extraction columns): D = C_phase1 / C_phase2 at equilibrium. In solvent extraction you choose the organic phase to have high D for the target element; in petrology the "phases" are mineral and melt, and D is set by the crystal field and ionic radius constraints of the mineral lattice. An incompatible element with D << 1 is the geochemical equivalent of a solute that strongly prefers the aqueous phase over the organic phase — it refuses to enter the solid and concentrates in whatever liquid is present.
 
 ```
 PARTITION COEFFICIENT (D)

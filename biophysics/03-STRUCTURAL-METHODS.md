@@ -20,11 +20,10 @@
 │  2013-present: Cryo-EM resolution revolution (Kühlbrandt, Frank, Henderson│
 │                Nobel 2017) displaced X-ray for large complexes            │
 │                                                                            │
-<!-- @editor[content/P2]: PDB statistics may be outdated — as of 2024-2025, PDB had ~220,000+ total entries; X-ray ~170,000, NMR ~14,000, cryo-EM ~30,000+; verify current numbers -->
-│  2024 PDB statistics:                                                      │
-│  X-ray:   ~86,000 entries (~60% of total)                                 │
-│  NMR:     ~13,000 entries (~9%)                                            │
-│  Cryo-EM: ~30,000 entries (~21%, growing fastest)                         │
+│  2025 PDB statistics (~230,000+ total entries):                            │
+│  X-ray:   ~175,000 entries (~76% of total)                                │
+│  NMR:     ~14,000 entries (~6%)                                            │
+│  Cryo-EM: ~37,000 entries (~16%, growing fastest — tripled since 2020)    │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -86,12 +85,13 @@ each reflection.
 ```
 
 ### The Phase Problem
-<!-- @editor[audience/P3]: The learner knows Fourier analysis from MIT — the explanation that you need amplitude and phase for inverse FT can be tightened; the physical insight (detector loses phase) is the important part, not the Fourier transform definition -->
 
 This is the fundamental difficulty in crystallography. The detector measures
-intensities I(hkl) = |F(hkl)|², which gives only the amplitude of each structure
-factor F. To compute the electron density by Fourier transform, you need both
-amplitude AND phase:
+intensities I(hkl) = |F(hkl)|², losing the phase φ(hkl) of each structure factor.
+The physical reason: photons are absorbed in the detector and their arrival-time
+(phase) information is destroyed — only the time-averaged intensity survives.
+To invert back to electron density you need F(hkl) = |F|·exp(iφ), so half the
+information needed for the inverse transform is missing:
 
 ```
   ρ(x,y,z) = (1/V) Σ_hkl  F(hkl) × exp[-2πi(hx + ky + lz)]
@@ -413,7 +413,61 @@ The ribosome (2.5 MDa), SARS-CoV-2 spike (3 MDa trimers), and nuclear pore compl
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — natural parallels: Fourier transforms / signal processing to crystallographic phase problem and NMR, Bayesian inference to cryo-EM particle classification, inverse problems in imaging to structural biology reconstruction -->
+## Signal Processing and Inference Bridges
+
+Structural biology methods are inverse problems: you observe projections or spectra and reconstruct the 3D object. Each method maps onto a classical signal processing or inference framework.
+
+```
+  STRUCTURAL BIOLOGY          SIGNAL PROCESSING / INFERENCE PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Crystallographic            Phase retrieval: a classical inverse problem
+  phase problem               in coherent imaging. The Fourier magnitude is
+                              measured; the phase is unknown. Molecular
+                              replacement is "use a known signal as a phase
+                              prior" — Bayesian inference with a strong prior.
+                              SAD/MAD is measuring a secondary signal
+                              (anomalous scattering) to constrain the phase.
+
+  NMR chemical shifts         Spectroscopy: each nucleus is a resonator at
+  and coupling constants       a unique frequency. The HSQC is a 2D spectrum;
+                              the 3D experiments (HNCA, HNCACB) are 3D
+                              spectral slices. Assignment = decoding a spectrum
+                              with overlapping peaks. The 1/r⁶ NOE dependence
+                              is the distance-to-intensity transfer function.
+
+  NMR dynamics (R₁, R₂,       Relaxation spectroscopy: R₂ = linewidth,
+  S² order parameters)        R₁ = longitudinal recovery. CPMG measures
+                              ms-μs exchange rates — this is exactly a
+                              spectral analysis of conformational switching
+                              rates. S² is a local order parameter (analogous
+                              to variance of a stochastic process).
+
+  Cryo-EM particle            Bayesian inference + expectation-maximization:
+  alignment and averaging     each particle image is a noisy projection at an
+                              unknown orientation (5 Euler angles). RELION and
+                              cryoSPARC iteratively estimate orientations and
+                              3D density — EM algorithm for latent variable
+                              models. The "gold-standard FSC" is a resolution
+                              criterion analogous to the -3 dB bandwidth.
+
+  CTF correction              Transfer function equalization: CTF(q) is the
+                              system transfer function of the electron microscope.
+                              Correcting for it is deconvolution — same operation
+                              as inverse filter in signal processing. Thon rings
+                              are the zeros of the CTF, exactly the notches
+                              of a band-stop filter.
+
+  Cryo-ET subtomogram         Tomographic reconstruction: back-projection or
+  averaging                   iterative reconstruction (SIRT, WBP) — the same
+                              algorithms used in medical CT. Missing wedge =
+                              missing Fourier data from limited tilt range =
+                              anisotropic PSF.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+All three methods are fundamentally about recovering 3D structure from incomplete, noisy data — each with a different noise model and a different strategy for encoding structural information.
+
+---
 
 ## Decision Cheat Sheet
 

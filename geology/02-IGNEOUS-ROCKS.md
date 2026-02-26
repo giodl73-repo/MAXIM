@@ -1,6 +1,6 @@
 # Igneous Rocks — Magma, Differentiation, Bowen's Series
 
-<!-- @editor[bridge/P2]: No old-world bridge — crystallization from a melt is a natural parallel to phase transitions in materials science or solidification in metallurgy; any engineer with thermodynamics background would benefit from a "phase diagram" framing -->
+**Bridge — phase diagrams and multi-component solidification:** Any thermodynamics course covers binary phase diagrams: a melt of two components solidifies along a liquidus curve, with one phase crystallizing first, enriching the remaining liquid in the other component. Bowen's reaction series is the multi-component version of this applied to silicate melts: as a basaltic magma cools, olivine crystallizes first (highest liquidus temperature), removing Mg and Fe from the melt and enriching the residual liquid in Si, Al, K, and Na. Each crystallization step shifts the melt composition along a differentiation path toward more felsic compositions. Fractional crystallization (physically removing early-formed crystals) is the analog of distillation — repeated fractional removal drives the system toward an end-member composition far from the starting point. Porphyritic textures record two-phase cooling: slow (deep, phenocrysts form) followed by fast (surface, fine groundmass quenches). The same logic as a thermally arrested phase transition with two distinct cooling regimes.
 
 ## The Big Picture
 

@@ -2,7 +2,67 @@
 
 ## The Big Picture
 
-<!-- @editor[diagram/P2]: Opening diagram is a timeline, not a landscape — consider a system diagram showing how war finance, reparations, gold standard, monetary contraction, and policy responses structurally interconnect -->
+```
+INTERWAR ECONOMIC SYSTEM — CAUSAL STRUCTURE
+=============================================
+
+HOW THE MECHANISMS CONNECT:
+
+WWI WAR FINANCE
+  ├─ UK/France: external borrowing (from US) + war bonds + inflation
+  ├─ Germany: money printing + domestic bonds (no gold outflows)
+  └─ US: enters late; net creditor; holds European debt
+
+       ↓ Versailles 1919
+
+REPARATIONS BURDEN (Germany)
+  └─→ WEIMAR HYPERINFLATION (1921–23)
+       Germany prints marks to buy foreign currency for reparations
+       → Wiped out German middle-class savings
+       → Destabilized Weimar Republic politically
+
+       ↓ Dawes Plan 1924: US capital flows to Germany
+
+RECYCLED CAPITAL FLOW:
+  US banks → German government bonds → Germany pays reparations
+  → France/UK repay US war debts
+  = A circular flow that depended entirely on US lending continuing
+
+       ↓ US stock market boom → credit tightens (1928–29)
+
+GOLD STANDARD TRANSMISSION MECHANISM:
+  ┌──────────────────────────────────────────────────────────┐
+  │  Country loses gold → must contract money supply         │
+  │  → higher interest rates → reduced investment → recession│
+  │  → imports fall → gold outflows stop                     │
+  │  → BUT: all countries doing this simultaneously          │
+  │  → deflationary spiral amplified globally                │
+  └──────────────────────────────────────────────────────────┘
+
+  1929 crash → credit contraction → gold outflows from US
+  → Fed raises rates to protect gold peg
+  → AMPLIFIES the recession rather than countering it
+
+POLICY RESPONSES (key variable in who recovered and when):
+  ┌─────────────────────┬───────────────────────────────────┐
+  │ LEFT GOLD EARLY     │ STAYED ON GOLD LONGER             │
+  │ UK: 1931            │ France, Belgium, Switzerland:     │
+  │ US: 1933 (domestic) │ "Gold bloc" until 1936            │
+  │ Sweden: 1931        │                                   │
+  │ Recovery: earlier   │ Depression deeper, longer         │
+  └─────────────────────┴───────────────────────────────────┘
+
+  Eichengreen's key finding: gold standard adherence is the
+  best single predictor of depression severity
+  The "cross of gold" was literally killing economies
+
+WWII AS KEYNESIAN EXPERIMENT:
+  US government spending: $9B (1940) → $93B (1944)
+  = 10x in 4 years
+  US unemployment: 14.6% (1940) → effectively 0% (1944)
+  The debate about fiscal multipliers was empirically settled
+  by the largest fiscal expansion in US history
+```
 
 The period 1914-1945 destroyed the first globalization, produced the worst economic catastrophe in recorded history, and rebuilt the foundation for a new global economic order. The gold standard propagated the Depression internationally. Misguided fiscal and monetary policy deepened it. And WWII ironically demonstrated Keynesian economics in the most definitive possible experiment.
 

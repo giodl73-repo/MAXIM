@@ -9,26 +9,33 @@ Every climate zone is the product of four interacting controls: latitude,
 altitude, continentality, and ocean currents. Biomes map onto climate zones
 with remarkable fidelity — you can reconstruct one from the other.
 
-<!-- @editor[diagram/P3]: Landscape diagram is functional but could show the modifier interactions (altitude, currents, orography) as arrows feeding into the latitude bands rather than a flat footnote -->
 ```
 +----------------------------------------------------------------------+
 |                    CLIMATE CONTROL HIERARCHY                          |
 |                                                                      |
 |  LATITUDE              → primary driver (solar angle → insolation)  |
 |  │                                                                   |
-|  ├── Tropical (0°-23.5°N/S)                                         |
-|  │     ITCZ migration → wet-dry seasonality                         |
+|  ├── Tropical (0°-23.5°N/S)  ←──── ITCZ (follows solar zenith)    |
+|  │     ITCZ migration → wet-dry seasonality ←──── Ocean SST         |
 |  │                                                                   |
 |  ├── Subtropical (23.5°-35°): HIGH PRESSURE BELTS                   |
-|  │     Descending air → deserts (Sahara, Arabian, Sonoran)          |
+|  │     Descending air → deserts      ←──── Cold upwelling currents  |
+|  │     (Sahara, Arabian, Sonoran)          amplify dryness on W coasts
 |  │                                                                   |
 |  ├── Temperate (35°-60°): MIDLATITUDE WESTERLIES                    |
-|  │     Storm tracks; ocean moderation; 4 seasons                    |
+|  │     Storm tracks; ocean moderation ←── Warm currents (Gulf Stream)
+|  │     4 seasons on continental interiors ←── Continentality effect  |
+|  │                       ↑                                           |
+|  │                 OROGRAPHY: mountains intercept westerly flow     |
+|  │                 Windward: wet; Leeward: rain shadow / dry         |
+|  │                 (Pacific NW wet / Great Basin dry)               |
+|  │                                                                   |
+|  ├── ALTITUDE (cross-cuts all latitude zones):                       |
+|  │     −6.5°C per 1000m → compressed climate zones vertically       |
+|  │     Mountains create local climate envelope regardless of latitude|
 |  │                                                                   |
 |  └── Polar (60°-90°): COLD POLAR HIGH PRESSURE                     |
 |        Ice caps, tundra, permafrost                                  |
-|                                                                      |
-|  MODIFIERS: altitude + continentality + ocean currents + orography  |
 +----------------------------------------------------------------------+
 ```
 
@@ -170,7 +177,27 @@ with remarkable fidelity — you can reconstruct one from the other.
 ## Section 3: Biome Distribution
 
 ```
-<!-- @editor[bridge/P2]: No classification system → Koppen bridge despite obvious parallel — any engineer building rule-based classifiers from empirical thresholds recognizes this pattern; connect Koppen to decision-tree classification logic -->
+  BRIDGE — KOPPEN AS A DECISION TREE CLASSIFIER:
+  Koppen (1900, revised 1936) is a threshold-based rule system empirically
+  derived from vegetation distributions — exactly how an engineer would
+  build a rule-based classifier from training data. The classification logic:
+
+  IF all_months_temp ≥ 18°C → A (Tropical)
+    IF driest_month ≥ 60mm → Af (Rainforest)
+    ELSE IF driest_month ≥ (100 - annual_precip/25) → Am (Monsoon)
+    ELSE → Aw (Savanna)
+  ELIF evapotranspiration > precipitation → B (Dry)
+    Threshold: P < 20×(T + 7) for winter rain regime, etc.
+    (multiple sub-rules for BWh/BWk/BSh/BSk)
+  ELIF coldest_month > 18°C → (invalid — already A)
+  ...and so on as a decision tree over temperature + precipitation thresholds.
+
+  The biome-climate correlation achieves ~90% accuracy with just mean annual
+  temperature × mean annual precipitation as features — a two-feature linear
+  classifier in climate space. Koppen zones are the decision boundaries.
+  Modern GCMs output raster grids that are literally classified pixel-by-pixel
+  using these rules to produce future Köppen maps.
+
   BIOME-CLIMATE RELATIONSHIP:
   Climate envelope determines which biome occurs — ~90% predictable from
   mean annual temperature × mean annual precipitation alone
@@ -261,7 +288,60 @@ with remarkable fidelity — you can reconstruct one from the other.
   East African equatorial mountains (Kilimanjaro): tropical base →
     montane forest → heath/moorland → alpine desert → snow cap
 ```
-<!-- @editor[content/P2]: Climate change impacts on zone shifts absent — significant gap; Koppen zone migration, biome redistribution under warming scenarios, and treeline advance all belong here -->
+---
+
+## Section 5: Climate Zone Shifts Under Warming
+
+```
+  PROJECTED KOPPEN ZONE MIGRATIONS (RCP 8.5, 2°C+ warming):
+  ┌────────────────────────────────────────────────────────────────┐
+  │ TROPICAL ZONES (A) EXPANDING POLEWARD:                         │
+  │ → Tropical wet-dry zone (Aw) migrating ~50–200 km poleward    │
+  │ → Subtropics (B zones) following: Sahara expanding S + N edges│
+  │ → Sahel wetter in some models (ITCZ shift); drier in others   │
+  │   (high model disagreement due to vegetation feedbacks)        │
+  │                                                                │
+  │ MEDITERRANEAN ZONES (Cs) POLEWARD + WIDER:                     │
+  │ → Cs zones expanding 100–200 km poleward in both hemispheres  │
+  │ → California: longer fire seasons; summer drought intensifying │
+  │ → Mediterranean Basin: more extreme summer dryness             │
+  │ → SW Australia: significant drying trend already observed      │
+  │                                                                │
+  │ BOREAL (Dfc) CONTRACTING FROM SOUTH:                           │
+  │ → Temperate (C zones) advancing into current D zone territory  │
+  │ → Boreal forest gaining from north (Arctic boundary retreats)  │
+  │ → Net effect: latitudinal compression of boreal belt           │
+  │                                                                │
+  │ POLAR (E) ZONES SHRINKING:                                     │
+  │ → ET tundra converting to Dfc boreal in some projections       │
+  │ → Permafrost thaw boundary advancing northward                 │
+  │ → EF (ice cap) zone: Greenland margins transitioning           │
+  └────────────────────────────────────────────────────────────────┘
+
+  TREELINE DYNAMICS:
+  Alpine treeline: advancing upslope 1–4 m/decade in Alps, Rockies,
+    Scandinavia; measured via repeat photography and remote sensing
+  Polar treeline: boreal advancing into tundra; shrubification of
+    Arctic observed via NDVI (AVHRR 30-year record shows greening)
+  Rate mismatch: trees migrate at 5–20 km/decade; climate zones
+    shifting at 20–40 km/decade → climate debt accumulates
+    (vegetation lags climate envelope, especially after disturbance)
+
+  BIOME REDISTRIBUTION PROJECTIONS:
+  Amazon dieback hypothesis: ~4°C warming + deforestation → tipping
+    point where Amazon forest transitions to savanna/cerrado
+    (positive feedback: less transpiration → less rainfall → drying)
+  Coral reefs: effectively no viable reef habitat at >2°C above
+    pre-industrial if current thermal tolerance not exceeded
+  Permafrost: ~17% of global carbon stock at risk of mobilization
+    as CO₂/CH₄ under sustained Arctic warming
+
+  OBSERVED CHANGE (already documented):
+  Koppen zone boundary shifts: ~5.5% of global land area shifted
+    zones 1950–2010 (Chen & Chen 2013)
+  Arid/semi-arid (B zones): expanded by ~5% in same period
+  Every decade since 1980: warmest decade in instrumental record
+```
 
 ---
 

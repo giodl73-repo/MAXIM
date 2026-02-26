@@ -319,4 +319,16 @@ IMPLICATIONS:
 | Top Trading Cycles | Reassignment | DSIC | Pareto optimal | All three: unique property |
 | Shapley value | Fair value allocation | — | Efficient | Used in ML (SHAP), cost-sharing |
 
-<!-- @editor[structure/P2]: Missing Common Confusion Points section — natural gotchas: DSIC vs BIC (when does the distinction matter), VCG budget imbalance, why GSP is not truthful but works in practice, revenue equivalence assumptions, Shapley value computational complexity -->
+---
+
+## Common Confusion Points
+
+**DSIC vs BIC — when does the distinction matter**: DSIC (dominant strategy incentive compatible) means truth-telling is optimal regardless of what others report — a robust, assumption-light guarantee. BIC (Bayesian IC) means truth-telling is optimal *in expectation* over others' types, assuming the common prior is correct. DSIC is strictly stronger and more robust; BIC may yield more revenue. In practice: DSIC is preferred for high-stakes or adversarial environments (spectrum auctions, public goods). BIC is used when prior beliefs are well-calibrated (Myerson optimal auction relies on BIC).
+
+**VCG budget imbalance**: VCG payments to agents (the externality they impose) need not sum to zero. In a public project, VCG may collect more payments than the cost, or may need to *pay* agents — money falls off the table or requires subsidy. The Groves-Clarke mechanism can be budget-balanced in special cases but not in general. This is the Green-Laffont impossibility: no DSIC, efficient, and budget-balanced mechanism exists for general quasilinear settings.
+
+**Why GSP is not truthful but works in practice**: Generalized Second Price (search ads) is not a dominant-strategy truthful mechanism — bidders optimally shade bids. Yet it performs well empirically. The key result (Edelman, Ostrovsky, Schwarz 2007; Varian 2007): GSP has a "locally envy-free" equilibrium that is payoff-equivalent to VCG. In the symmetric Nash equilibrium of GSP, revenues equal VCG revenues. GSP is simpler to explain to advertisers and easier to compute than VCG.
+
+**Revenue equivalence assumptions**: The revenue equivalence theorem (all standard symmetric IPV auctions yield same expected revenue) requires: (1) symmetric bidders, (2) independent private values, (3) risk neutrality, (4) no budget constraints. Violate any of these and revenue equivalence fails. With risk-averse bidders: first-price auctions raise more revenue (bidders over-bid to reduce risk of losing). With correlated values: English auctions raise more revenue (bidding reveals information, competition intensifies).
+
+**Shapley value computational complexity**: Exact Shapley value computation requires evaluating v(S∪{i}) − v(S) for all 2^N subsets — exponential in N. For general cooperative games this is intractable at N ≈ 30+. TreeSHAP for gradient boosted trees computes exact Shapley values in O(TLD²) where T = trees, L = leaves, D = depth — polynomial because tree structure limits interaction structure. KernelSHAP is model-agnostic and approximates using a weighted linear regression on coalition samples.

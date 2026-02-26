@@ -41,7 +41,55 @@ LEVELS OF ANALYSIS (Tinbergen's 4 Questions):
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — genetic algorithms, A/B testing = selection, version control branching = speciation, Hardy-Weinberg = null model -->
+## Engineering Bridges
+
+```
+EVOLUTION ←→ CS AND SYSTEMS THEORY
+
+Natural selection = A/B testing without a product manager
+  Variation: random mutations generate feature variants
+  Heritability: successful variants propagate to offspring (reproduction)
+  Selection: differential survival/reproduction = user retention metric
+  No goal function, no gradient, no foresight — only differential survival
+  Key difference from ML: the "loss function" (fitness) changes as the environment changes
+
+Genetic drift = stochastic noise in small populations
+  Small N → allele frequency wanders by sampling variance p(1-p)/2N per generation
+  Like gradient descent with very high learning rate + tiny batch size
+  All alleles eventually fix or go extinct (absorbing boundaries at 0 and 1)
+  In small populations, drift dominates selection when s << 1/2N_e
+
+Hardy-Weinberg = the null model (the "control group")
+  Assumptions: random mating, no selection, no drift, no mutation, no migration
+  → p² + 2pq + q² = 1 in one generation from any starting allele frequencies
+  Use: if a population deviates from HWE → something is happening (selection, inbreeding,
+    genotyping error, population substructure)
+  → Like testing a distributed system against a null hypothesis of "no interesting behavior"
+
+Phylogenetic trees = version control history of life
+  Branch = lineage (like a git branch)
+  Node = common ancestor (like a merge point or a branch origin)
+  Branch length = evolutionary divergence (like commit count or time since fork)
+  Clade (monophyletic group) = all descendants of a common ancestor
+    → like all code downstream of a given commit
+  Horizontal gene transfer = cherry-pick across branches (common in prokaryotes)
+    → makes the "tree of life" a DAG, not a tree, for bacteria
+
+dN/dS (Ka/Ks) = selection signal in sequence data
+  dS = synonymous substitution rate (neutral proxy; like comment changes)
+  dN = nonsynonymous rate (amino acid changes; like logic changes)
+  ω = dN/dS:
+    ω < 1: purifying selection (functional constraint; most protein-coding genes)
+    ω = 1: neutral (no constraint)
+    ω > 1: positive selection (adaptive change; immune genes, rapidly evolving loci)
+  → Detects which parts of a genome are under selection — without knowing what they do
+
+Evo-devo insight: morphological change ≈ regulatory rewiring, not new proteins
+  Hox genes: same gene family (Hox) in fly and vertebrate; conserved ~600 Myr
+  Change body plan by altering *when/where* Hox genes are expressed
+  → Like changing system behavior by modifying config/feature-flags, not rewriting code
+  → Cis-regulatory evolution (enhancer changes) = configuration layer innovation
+```
 
 ## Natural Selection
 

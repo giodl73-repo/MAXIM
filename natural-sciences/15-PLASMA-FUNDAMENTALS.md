@@ -256,8 +256,49 @@ Applications:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge for plasma waves — dispersion relations are the same mathematical structure as signal processing and wave optics. EM waves in plasma (cutoff at omega_p) parallel to waveguide cutoff frequencies. The learner's engineering background makes waveguide-to-plasma the natural bridge. -->
 ## Plasma Waves
+
+### Dispersion Relations — Signal Processing Bridge
+
+A plasma dispersion relation ω(k) is the same mathematical object as a transfer
+function H(ω) or a waveguide mode equation. The key concepts transfer directly:
+
+```
+WAVEGUIDE CUTOFF ↔ PLASMA CUTOFF:
+
+  Rectangular waveguide TE₁₀:
+    k² = (ω/c)² − (π/a)²
+    Cutoff: ω_c = πc/a → below cutoff, k is imaginary → evanescent, no propagation
+
+  EM wave in plasma (O-mode):
+    k² = (ω/c)² − (ωₚ/c)²
+    Cutoff: ω = ωₚ → below plasma frequency, k imaginary → reflected, not transmitted
+    Ionosphere reflects AM radio (ω < ωₚ,iono ≈ 10 MHz) → long-distance AM propagation
+    FM/TV (ω > ωₚ) passes through → satellite communication, line-of-sight only
+
+  EXACT SAME MATH — only the physical origin of the cutoff frequency differs.
+  Waveguide: geometric constraint (boundary conditions on cavity)
+  Plasma:    collective electron oscillation (inertia of electron fluid)
+
+DISPERSION DIAGRAM (ω vs k plot) = FILTER RESPONSE:
+
+  Passband (k real, wave propagates)  ↔  passband of a filter
+  Stopband (k imaginary, evanescent)  ↔  stopband / attenuation band
+  Resonance (k → ∞ at finite ω)      ↔  resonant frequency (Q factor → ∞)
+  Cutoff (ω_min for propagation)      ↔  high-pass cutoff frequency
+
+  Group velocity: v_g = dω/dk = slope of ω(k) curve
+    → same as in dispersive optical fiber or waveguide
+    → plasma is dispersive: v_g(ω) ≠ c, and v_g × v_φ = c² for EM waves in plasma
+
+LANDAU DAMPING = WAVE-PARTICLE RESONANCE (collisionless damping):
+  Electrons with velocity v ≈ ω/k see the wave as nearly static → absorb energy
+  → collisionless damping without any dissipation mechanism
+  Analog: resonant absorption in a forced oscillator at natural frequency
+  (but here: the "oscillator" population is a continuum of particles at all velocities)
+  Mathematically: pole in the complex k-plane → Bromwich contour integral
+  → same contour deformation as used in control theory / Laplace analysis of stability
+```
 
 ### Wave Taxonomy
 

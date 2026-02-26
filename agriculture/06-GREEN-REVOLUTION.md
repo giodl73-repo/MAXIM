@@ -25,7 +25,71 @@ The Green Revolution (roughly 1960–1990) was the deliberate application of gen
 ```
 
 ---
-<!-- @editor[bridge/P2]: No old-world bridge — the Green Revolution is a system-of-systems deployment story: genetics + chemistry + infrastructure + institutions, where removing any one pillar collapses the system. This maps to platform engineering (runtime + SDK + distribution + ecosystem). The harvest index concept is directly analogous to throughput efficiency — same total resources, more directed to useful output. Connect for the systems thinker. -->
+## Engineering Bridge: The Green Revolution as Platform Engineering
+
+```
+GREEN REVOLUTION CONCEPT        PLATFORM / SYSTEMS ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+THE FOUR PILLARS                System-of-systems with hard dependencies
+  1. Semi-dwarf varieties       → Runtime (execution environment)
+  2. Synthetic N fertilizer     → SDK / standard library
+  3. Irrigation infrastructure  → Network / transport layer
+  4. Credit + markets + ext.    → Distribution + ecosystem
+     services + pesticides
+
+  FAILURE MODE: remove any one  → Dependency resolution failure
+    pillar → revolution fails     (missing runtime = no execution;
+  Semi-dwarfs + no N:             missing N = same as pre-revolution
+    yield marginally better         yield; missing irrigation = dwarf
+  Semi-dwarfs + N + no water:     varieties fail in drought)
+    yield gain absent            → Analogous to: great language runtime
+  All four present:               with no package ecosystem = no adoption
+    3–5× yield multiplier          (Node without npm; .NET without NuGet)
+
+HARVEST INDEX (HI)              Throughput efficiency / useful work ratio
+  HI = grain mass / total       → Fraction of total compute/energy going
+       above-ground biomass        to useful output vs overhead
+  Traditional HI: ~25-30%       → 25–30% throughput utilization
+  Semi-dwarf HI: ~50-60%        → 50–60% throughput utilization
+                                 → Same total biomass; more goes to grain
+                                 → Same total energy; more goes to payload
+  ADD N fertilizer to tall        (same as: old protocol with large
+    variety: plant grows taller    header overhead; new protocol cuts
+    → more stem, same grain        header → payload ratio improves)
+  ADD N fertilizer to dwarf:    → Taller stems = wasted header bytes;
+    grain fills → HI maintained   dwarf gene removes wasted overhead
+    yield rises 3–5×
+  HI theoretical maximum: ~60%  → Protocol efficiency ceiling
+    (cannot allocate >60% to grain  (some overhead is irreducible:
+    without root/leaf failure)      stems, leaves = unavoidable cost)
+
+SHUTTLE BREEDING                Parallel testing across environments
+  Borlaug: grow 2 crops/yr in   → Run test suite in 2 CI environments
+    different altitudes/lat.       simultaneously (different configs)
+  Selection: broad adaptation   → Select for: runs on any platform
+    photoperiod insensitivity     → Feature flag: not tied to day-length
+  Result: 6 generations in 3 yr  → 2× iteration speed vs sequential
+    vs 3 generations in 3 yr
+
+CGIAR NETWORK                   Open-source research commons
+  15 international centers      → Foundation projects (IRRI = jQuery for
+  CIMMYT: wheat germplasm bank    rice genetics; CIMMYT = same for wheat)
+  Svalbard vault (gene bank)    → Backup repository (GitHub + cold storage)
+  Free distribution of seed     → Public domain release; no patent lock
+  Collaborative improvement       → Fork → improve → merge back
+
+YIELD PLATEAU (post-1990)       Diminishing returns to optimization
+  HI ceiling ~60%; genetics     → Asymptotic approach to theoretical max
+    approaching potential yield  → Each 1% improvement requires 10×
+  More N no longer increases       more effort (compiler optimization
+    yield (diminishing returns)    past -O2 → marginal gains per hour)
+  Climate stress at anthesis    → External load spike beyond design spec
+    (heat during pollination)      → system degraded even at full capacity
+  → "Yield gap" = distance from → Distance from theoretical throughput:
+    experiment to farm yield       profiling gap, not ceiling
+    (better management, not         (close yield gap before inventing
+     new technology, closes most)   new architecture)
+```
 
 ## The Pre-Revolution Malthusian Crisis
 

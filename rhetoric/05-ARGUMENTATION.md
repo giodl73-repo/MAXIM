@@ -312,11 +312,35 @@ BASIC ARGUMENT MAP NOTATION
                     |
                 [REBUTTAL]
 
-<!-- @editor[content/P2]: Argument mapping tools section is thin — Rationale is discontinued; Argdown deserves a brief syntax example since the learner is comfortable with markdown; consider mentioning Mermaid or D2 as modern alternatives -->
 TOOLS:
-  Rationale (software): interactive argument maps
-  Argdown: markdown-based argument representation
-  Pen + whiteboard: fastest for group use
+  Argdown (argdown.org): markdown-like syntax for argument maps.
+    Claims are plain text; relations are marked with + (support)
+    and - (attack). Renders to SVG maps.
+
+    Example Argdown syntax:
+    ```argdown
+    [Use microservices]: We should decompose this system
+    into microservices.
+      + <Scalability>: Each service can scale independently.
+        + [Traffic varies by component]: Data ingest peaks
+          at 10x, search peaks at 3x.
+      + <Team autonomy>: Teams can deploy independently.
+      - <Operational cost>: Microservices require service
+        mesh, distributed tracing, and orchestration.
+        + [Team is not currently operating distributed systems].
+    ```
+
+  Mermaid (flowchart mode): for argument maps embedded in docs.
+    Less semantically precise than Argdown; good for GitHub
+    markdown rendering. Use for argument FLOW, not logical STRUCTURE.
+
+  D2 (d2lang.com): more flexible diagram syntax; good for
+    argument trees with complex node types.
+
+  Pen + whiteboard: still fastest for group use.
+    The bottleneck is thinking, not notation.
+
+  Note: Rationale (formerly by Austhink) has been discontinued.
 
 WHY MAP ARGUMENTS:
   1. Find where the argument is weak (missing support).

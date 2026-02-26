@@ -22,7 +22,61 @@ The first developmental events — fertilization, cleavage, and blastulation —
 
 ---
 
-<!-- @editor[bridge/P2]: No CS/engineering bridge anywhere in this guide. The maternal-to-zygotic transition is a natural "bootstrap loader" analogy — maternal mRNA is firmware, EGA is the OS kernel taking over. The polyspermy block maps to mutex / lock acquisition. Even one bridge paragraph would connect this material to the learner's mental model. -->
+## Engineering Bridges
+
+The earliest events of development are bootstrapping, mutex acquisition, and a controlled handoff from pre-loaded firmware to a freshly compiled kernel.
+
+```
+  FERTILIZATION / CLEAVAGE      CS / ENGINEERING PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Maternal mRNA (stored,        Firmware / ROM: pre-loaded instructions
+  not translated until          present before any process runs. The
+  fertilization)                oocyte is pre-loaded with maternal factors
+                                (Bicoid, Nanos in fly; Oct4, Sox2, Klf4 in
+                                mammals) — the bootstrap payload.
+
+  Embryonic genome activation   OS kernel taking control:
+  (EGA, 4-8 cell in human)     At EGA, maternal transcripts are degraded
+                                and the zygotic genome starts transcription.
+                                This is exactly the handoff from firmware
+                                (maternal) to the kernel (zygotic genome).
+                                Before EGA: all cells run the same maternal
+                                program. After EGA: differential gene
+                                expression begins — the OS is now running.
+
+  Fast block to polyspermy      Mutex / lock acquisition:
+  (membrane depolarization,     Sperm entry → membrane potential goes from
+  seconds)                      -70 mV → +20 mV. This electrical signal
+                                prevents additional sperm from fusing —
+                                exactly a distributed mutex: the first thread
+                                to acquire the lock changes state in a way
+                                that blocks all other acquisitions.
+
+  Slow block (zona hardening,   Permanent lock + resource isolation:
+  permanent)                    Cortical granule exocytosis → biochemical
+                                modification of the zona → no more sperm
+                                can bind. The fast block is a temporary
+                                lock; the slow block is an irrevocable
+                                commit — the lock is destroyed.
+
+  Cleavage without growth       Cell division without resource allocation:
+  (cells get smaller, fixed Vd) One fixed-size "process" divided into
+                                progressively smaller sub-processes with
+                                the same total memory. Increases cell
+                                number while maintaining total mass — like
+                                fork() without malloc().
+
+  ICM vs trophectoderm fate     First-pass architecture decision:
+  (Hippo + CDX2 / OCT4)        Position in the blastocyst (inner vs outer)
+                                determines lineage. Inner cells: OCT4 on
+                                (embryo). Outer cells: CDX2 on (placenta).
+                                Position encodes fate — spatial lookup table
+                                → module assignment.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## Gamete Structure and Function
 
 ```
@@ -59,9 +113,9 @@ ACROSOME REACTION
   Sperm-zona binding: now to ZP2 (secondary receptor, post-acrosome reaction)
 
 SPERM-EGG MEMBRANE FUSION
-<!-- @editor[content/P1]: Claim may be incorrect — verify: JUNO was identified by Bianchi et al. 2014, not Imai et al. 2014. IZUMO1 was identified by Inoue et al. 2005. Also "both named after Shinto gods" is imprecise — JUNO is named after the Roman goddess of fertility, not a Shinto god. -->
-  Sperm IZUMO1 protein + egg JUNO protein: fusion mediators (required)
-  Both proteins named after Shinto gods (Imai et al. 2014)
+  Sperm IZUMO1 protein (Inoue et al. 2005) + egg JUNO protein (Bianchi et al. 2014):
+  required for sperm-egg membrane fusion. IZUMO1 is named after a Japanese Shinto
+  shrine; JUNO is named after the Roman goddess of fertility and marriage.
 
 FAST BLOCK TO POLYSPERMY (immediate, seconds)
   Sperm entry → depolarization of egg plasma membrane

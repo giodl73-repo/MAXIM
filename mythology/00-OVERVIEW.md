@@ -4,34 +4,51 @@
 
 Mythology is the systematic study of **sacred narratives** — stories that a culture uses to explain the origin of the world, the nature of divinity, the structure of society, and what it means to be human. Every major civilization independently developed remarkably similar narrative patterns, which is the central puzzle that comparative mythology tries to solve.
 
-<!-- @editor[diagram/P2]: Landscape diagram lists five frameworks vertically but doesn't show how they relate — which compete, which complement, which apply to IE vs. non-IE traditions. Rework as a relationship map or layered view showing overlaps and scope boundaries -->
 ```
-┌──────────────────────────────────────────────────────────────────┐
-│                  ANALYTICAL FRAMEWORKS                            │
-│                                                                  │
-│  CAMPBELL (1949) — Monomyth / Hero's Journey                    │
-│  One story pattern under all heroic myths across cultures        │
-│  Focus: psychological transformation of the individual          │
-│                                                                  │
-│  JUNG (1875–1961) — Archetypes and Collective Unconscious        │
-│  Universal symbols arising from shared human psyche              │
-│  Focus: shadow, anima/animus, self, trickster, Great Mother     │
-│                                                                  │
-│  LÉVI-STRAUSS (1955) — Structural Analysis                       │
-│  Myths resolve binary oppositions (nature/culture, life/death)  │
-│  Focus: the underlying logical structure, not the narrative      │
-│                                                                  │
-│  FRAZER (1890) — Comparative Religion / Golden Bough             │
-│  Dying-and-rising god pattern across cultures                   │
-│  Vegetation cults, sacred kings, ritual murder                  │
-│  Focus: fertility and seasonal myth as substrate                 │
-│                                                                  │
-│  DUMÉZIL (1958) — Indo-European Trifunctionalism                 │
-│  Proto-Indo-European society had three functions:               │
-│  (1) Sacred/sovereignty (2) Warrior (3) Productive/fertility    │
-│  All IE pantheons reflect this: Jupiter/Mars/Quirinus (Rome),   │
-│  Mitra/Indra/Nasatyas (Vedic), Odin/Thor/Freyr (Norse)         │
-└──────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────┐
+│                  ANALYTICAL FRAMEWORKS — RELATIONSHIP MAP                 │
+│                                                                          │
+│  SCOPE: applies to ALL traditions                                        │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  CAMPBELL (1949) — Monomyth / Hero's Journey                    │    │
+│  │  Pattern: universal hero arc (departure → initiation → return)  │    │
+│  │  Mechanism: psychological — individuation, transformation       │    │
+│  │  Critique: over-fits; forces non-heroic myths into hero frame   │    │
+│  │                                                                 │    │
+│  │  JUNG (1875–1961) — Archetypes / Collective Unconscious         │    │
+│  │  Pattern: recurring symbols (shadow, anima, self, trickster)   │    │
+│  │  Mechanism: psychological — shared deep cognitive structures    │    │
+│  │  Relation: Campbell operationalizes Jung's archetypes           │    │
+│  │           (Campbell = Journey; Jung = symbol inventory)         │    │
+│  │                                                                 │    │
+│  │  LÉVI-STRAUSS (1955) — Structural Analysis                      │    │
+│  │  Pattern: binary oppositions (nature/culture, life/death)       │    │
+│  │  Mechanism: cognitive — myths as logical operators on paradox   │    │
+│  │  Competes with Campbell/Jung: not psychology but logic;         │    │
+│  │  the narrative content is irrelevant, only structure matters   │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                          │
+│  SCOPE: explains specific cross-cultural pattern                         │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  FRAZER (1890) — Comparative Religion / Golden Bough             │    │
+│  │  Pattern: dying-and-rising god; sacred king; vegetation cycle   │    │
+│  │  Mechanism: ecological — seasonal agricultural ritual as base   │    │
+│  │  Status: influential but contested; over-reduces differences    │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                          │
+│  SCOPE: Indo-European traditions ONLY (not applicable to non-IE)         │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │  DUMÉZIL (1958) — Indo-European Trifunctionalism                 │    │
+│  │  Pattern: sovereignty / warrior / productive — in every IE      │    │
+│  │  pantheon (Vedic, Roman, Norse, Celtic, Iranian, Baltic)        │    │
+│  │  Mechanism: historical — inherited from Proto-Indo-European     │    │
+│  │  Complements Lévi-Strauss: structural, not psychological;       │    │
+│  │  historically reconstructable, not universal-cognitive          │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
+│                                                                          │
+│  COMPETITION AXIS: Psychology (Campbell/Jung) ←→ Anthropology (Dumézil) │
+│                    Universal cognition (LS) ←→ Historical transmission   │
+└──────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

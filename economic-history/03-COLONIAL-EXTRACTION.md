@@ -454,7 +454,30 @@ WHAT IS NOT CONTESTED:
 
 ---
 
-<!-- @editor[structure/P3]: No comparison table between EIC and VOC — they are both chartered monopolies with different structures, governance, and outcomes; a side-by-side table would sharpen the contrast -->
+## EIC vs VOC — Chartered Monopoly Comparison
+
+Both were chartered monopolies with quasi-governmental powers, but they differed structurally in capital structure, governance, operational focus, and failure mode.
+
+| Dimension | EIC (English/British) | VOC (Dutch) |
+|-----------|----------------------|-------------|
+| **Charter date** | 1600 | 1602 |
+| **Capital structure** | Initially voyage-by-voyage; permanent capital from 1657 | Permanent capital from founding; shares tradeable immediately |
+| **Share market** | London Stock Exchange (later) | Amsterdam Exchange — *created by* the VOC's need for a secondary market |
+| **Governing body** | Court of Directors (~24); shareholders had votes | Heeren XVII (17 directors); shareholders had minimal rights |
+| **Geographic focus** | India (primary); China/Southeast Asia (secondary) | Southeast Asia (spice islands primary); India/China secondary |
+| **Core commodity** | Textiles (cotton, silk), tea, indigo, opium | Spices (nutmeg, cloves, pepper), then also textiles/coffee |
+| **Territorial control** | Evolved from trading posts to territorial governance (Bengal 1757 onward) | Batavia (Jakarta) as hub; island-level control; not continental |
+| **Peak employees** | ~67,000 (1800, incl. sepoy forces) | ~50,000 (peak 1670s) |
+| **Military capacity** | Private army; sepoy recruitment; became de facto Indian government | Own navy and army; monopoly enforcement by force |
+| **Dividend model** | Irregular; averaged ~20% in peak years | Irregular; sometimes paid in spice not cash; averaged ~18% |
+| **Failure mode** | Corruption + expense of territorial governance; nationalized 1858 after Mutiny | Corruption + declining spice margins + cost of military; nationalized 1799 |
+| **Legacy institution** | British India (Raj) → independent India 1947 | Dutch East Indies → independent Indonesia 1949 |
+| **Financial innovation** | First large bond issuance for colonial expansion | First permanent joint-stock company; first secondary share market; first short-selling scandal |
+
+**Structural divergence:** The EIC became progressively more territorial — it governed Bengal, collected taxes, maintained law courts. The VOC remained more extractive/commercial — it controlled chokepoints (specific islands, ports) without attempting continental administration. The EIC's failure mode was the cost of governance; the VOC's was the cost of maintaining a monopoly on commodities (nutmeg, cloves) that competitors kept finding ways to grow elsewhere.
+
+---
+
 ## Dutch East India Company (VOC)
 
 ### The VOC as First Multinational Corporation

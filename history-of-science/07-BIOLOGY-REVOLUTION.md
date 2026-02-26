@@ -563,7 +563,26 @@ PROGRAM OF MOLECULAR BIOLOGY:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — rich parallels: Mendel's discrete factors as the original digital vs analog insight (discrete inheritance vs blending, like digital vs analog signal processing); the Central Dogma's information flow (DNA→RNA→Protein, no reverse) maps to compile-time vs runtime separation (source→bytecode→execution, with no decompilation guarantee); Sturtevant's genetic mapping from recombination frequencies is inference of physical structure from behavioral observation (like profiling to infer architecture) -->
+## Bridges — Biology Revolution as Information Systems
+
+**Mendel's discrete inheritance → digital vs analog signal processing**
+The blending inheritance hypothesis (dominant before Mendel) says traits mix continuously: a red × white cross yields pink, always. Mendel's discrete factors say: traits are carried by particles that don't blend; they segregate cleanly. A red × white cross yields red (dominant) in F1 and 3:1 red:white in F2 — the white hasn't disappeared, it's just masked. This is the digital vs analog insight: discrete encoding preserves information through transmission; continuous (blending) encoding degrades it. Digital signal processing maintains fidelity over multiple generations; analog signals accumulate noise. Mendel's discrete factors are a noise-immune encoding for heritable information. The insight explains why inheritance is stable across generations — blending would have averaged everything toward uniformity long ago.
+
+**Central Dogma → compile-time / runtime separation with no decompilation guarantee**
+Crick's Central Dogma (1958): information flows DNA → RNA → Protein, but not in reverse. DNA is transcribed to mRNA; mRNA is translated to protein; protein structure does not feed back to alter the DNA sequence. The directional information flow is:
+```
+Source (DNA) → Bytecode (mRNA) → Executable (Protein)
+```
+The "no reverse translation" part is the decompilation guarantee: knowing the protein sequence does not give you back the DNA sequence (multiple codons encode the same amino acid; the genetic code is degenerate). Reverse transcriptase (retroviruses, HIV) is the exception — RNA → DNA — but this is limited to specific viral contexts, not a general mechanism. The no-reverse property is what makes DNA a stable information store: the runtime behavior (protein function) doesn't corrupt the source.
+
+**Sturtevant's genetic mapping → infer physical structure from behavioral observation**
+Alfred Sturtevant (undergraduate in Morgan's lab, 1913) realized: if two genes are on the same chromosome, the probability they'll be separated by recombination during meiosis increases with the physical distance between them. You can't directly observe chromosome structure (1913: no electron microscopy), but you can measure recombination frequencies (how often traits are inherited together vs separately). The recombination frequency *is* the distance measure. Sturtevant produced the first genetic map of a chromosome from behavioral data alone. This is inference of physical architecture from runtime behavioral observation — exactly what a profiler does when it infers call graph structure from execution traces, or what a performance analyst does when they infer cache layout from access timing. You measure behavior (recombination, cache miss rate) and reconstruct structure.
+
+**Modern Synthesis → unifying framework that absorbs prior debates**
+The Modern Synthesis (1930s–1950s) united: Darwin's selection mechanism + Mendel's genetics + population genetics (Fisher, Wright, Haldane) + paleontology (Simpson) + systematics (Mayr). Before the synthesis, these were separate research programs that didn't communicate and sometimes appeared contradictory. After: natural selection operates on Mendelian variation; population genetics makes the mechanism quantitative; fossil record shows tempo and mode; systematics provides the classification framework. The synthesis didn't refute any of the component programs — it showed they were compatible and mutually reinforcing. This is the framework-integration pattern: sometimes the value-add is not a new theory but a demonstration that existing theories are consistent, and a common vocabulary that enables cross-domain work.
+
+**Avery's DNA finding delayed 8 years → correct result blocked by prior paradigm**
+Oswald Avery (1944) demonstrated that DNA (not protein) is the genetic material — a direct experiment with transforming bacteria. The result was resisted for 8 years, until Hershey-Chase (1952) confirmed it with radioactive labeling. Why the delay? The dominant assumption was that proteins (with 20 amino acids, far more chemical diversity than DNA's 4 bases) must carry genetic information. DNA seemed too simple. The "simplicity argument" against DNA was reasonable given prior assumptions — but those assumptions were wrong. Engineering parallel: a simple, elegant solution gets dismissed because the problem "must be" complex enough to require the sophisticated approach that experts have been developing. The Avery lesson: count bits of information in the solution, not complexity of the mechanism.
 
 ## Common Confusion Points
 

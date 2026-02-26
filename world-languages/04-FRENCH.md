@@ -233,8 +233,40 @@ TU vs VOUS
 
 ---
 
-<!-- @editor[bridge/P2]: No formal/informal register bridge despite obvious parallel — learner understands compiler IR vs surface syntax; the spoken/written French split is analogous to "two frontends, one grammar IR" -->
 ## Spoken vs Written French — The Split
+
+**The two-frontend model:** French has a single underlying grammar, but two surface dialects: written French and spoken French. The analogy is a compiler with two frontends that share a common IR — the grammar rules are the same, but the surface representations diverge substantially. Written French is the "pretty-printed" output; spoken French is the optimized/compressed output where redundant information (morphological marking that is phonologically invisible) has been elided.
+
+```
+WRITTEN FRENCH (grammar IR)          SPOKEN FRENCH (optimized output)
+--------------------------           --------------------------------
+Full morphological paradigm          Syncretism: parle/parles/parlent
+  in spelling:                         all surface as [paʁl] —
+  je parle / tu parles /               morphological distinctions
+  il parle / ils parlent               visible in writing only
+
+Ne...pas retained:                   Ne deleted: "je sais pas" —
+  "Je ne sais pas"                     the negation is carried by
+                                       "pas" alone in speech
+
+Passé simple (literary):             Passé composé only:
+  il parla / elle vint                 il a parlé / elle est venue —
+  Never in casual speech               passé simple = "literary mode"
+
+Que/dont/où (strict relativizer):    Simplified relative: "le truc
+  "La femme dont je t'ai parlé"        que je t'ai parlé" — dont
+                                       replaced by que in speech
+
+Nous (1st person plural):            On everywhere: "on va" instead
+  "Nous allons au cinéma"              of "nous allons" — on has
+                                       completely replaced nous in
+                                       spoken French
+
+Subject pronoun required             Same — French is not pro-drop
+  in writing                           in either register
+```
+
+**Practical implication:** If you learn French from textbooks (written register) and then listen to native speakers, you are in the position of reading compiled source code and then trying to understand the bytecode. The phonological rules (liaison, elision, reduction) that the grammar applies to produce spoken French are systematic, but they are not obvious from the written form. Learn spoken forms explicitly alongside written forms — they are not the same dialect.
 
 ```
 WRITTEN FRENCH          ←————→        SPOKEN FRENCH

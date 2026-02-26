@@ -108,13 +108,8 @@ humans engage in. The nature-culture split dissolves here.
   LIGHT SKIN: low melanin maximizes vitamin D synthesis in
               low-UV environments (high-latitude populations)
 
-<!-- @editor[structure/P2]: Altitude adaptation paragraph (Tibetans, Andeans, Ethiopians) is about hypoxia, not UV/pigmentation — belongs in its own subsection under Adaptive Variation or as a separate entry after body proportions -->
   Selection is fast for this trait when populations migrate
-  to very different UV regimes. Tibetans, Andeans, Ethiopians
-  show different altitude adaptations — convergent solutions
-  to the same hypoxic problem via different genetic pathways.
-  (EPAS1 in Tibetans — Denisovan introgression. EGLN1 in Andeans.
-   Hemoglobin variants in Ethiopians.)
+  to very different UV regimes.
 ```
 
 ### Body Proportions — Bergmann's and Allen's Rules
@@ -142,6 +137,52 @@ humans engage in. The nature-culture split dissolves here.
   These patterns are both genetic (long-term selection) AND
   developmental (body responds to temperature during growth).
   Teasing these apart requires careful study design.
+```
+
+### Altitude Adaptation — Convergent Solutions to Hypoxia
+
+```
+  HYPOXIC STRESS:
+  At high altitude, partial pressure of O2 falls.
+  At 4,000 m (Tibetan Plateau, Andean altiplano):
+    ~40% less available O2 than sea level.
+  Physiological problem: sustain aerobic metabolism
+    under chronic O2 deficit.
+
+  THREE INDEPENDENT EVOLUTIONARY SOLUTIONS:
+  ┌───────────────┬──────────────────────────────────────────┐
+  │ Population    │ Adaptation mechanism                     │
+  ├───────────────┼──────────────────────────────────────────┤
+  │ Tibetans      │ EPAS1 variant (HIF-2α pathway): lower    │
+  │               │ hemoglobin concentration than expected;  │
+  │               │ more efficient O2 delivery per RBC.      │
+  │               │ This allele was acquired from Denisovans │
+  │               │ via introgression (adaptive introgression│
+  │               │ — the most direct documented benefit of  │
+  │               │ archaic-modern hybridization).           │
+  ├───────────────┼──────────────────────────────────────────┤
+  │ Andeans       │ EGLN1 variant: elevated hemoglobin       │
+  │               │ concentration (polycythemia); different  │
+  │               │ genetic solution to the same problem.    │
+  ├───────────────┼──────────────────────────────────────────┤
+  │ Ethiopians    │ Multiple variants across different gene  │
+  │ (Amhara,      │ regions; neither the Tibetan nor Andean  │
+  │  Oromo)       │ mechanism; third independent solution.   │
+  └───────────────┴──────────────────────────────────────────┘
+
+  CONVERGENT EVOLUTION:
+  Same environmental pressure → different genetic solutions
+  in independent populations. This is the human genetics
+  parallel to convergent morphological evolution (wings
+  in birds/bats/insects: same aerodynamic function,
+  different developmental origins).
+
+  Why Tibetan solution is different from Andean:
+  The Andean populations arrived at the plateau more
+  recently (~11 ka vs Tibetan high-altitude occupation
+  potentially dating to Denisovan times). Different
+  founding populations, different standing variation
+  available for selection to act on.
 ```
 
 ### Disease Susceptibility — Sickle Cell as the Model Case

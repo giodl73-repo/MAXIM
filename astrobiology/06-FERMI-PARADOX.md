@@ -109,7 +109,13 @@ IF MARS IS STERILE:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the Drake equation is a product of conditional probabilities (Bayesian chain); the Great Filter is a decision-theoretic argument about existential risk; "cosmic haystack" search coverage maps directly to algorithmic search space coverage — natural bridge to probability, decision theory, and computational complexity -->
+## Probability Theory and Decision Theory Parallels
+
+**The Drake equation as a Bayesian product decomposition.** N = R* × fp × ne × fl × fi × fc × L is a product of conditional probabilities. The uncertainty in N spans 10⁻¹⁷ to 10⁷ — not because the equation is poorly specified, but because it correctly encodes our ignorance. We have empirical data for the first two factors (R*, fp from Kepler); the remaining five are deeply uncertain. The practical use of the equation is not to compute N but to identify which factors dominate the uncertainty and therefore which experiments would most reduce it. Finding life on Mars would constrain fl; sustained SETI listening constrains fc × L. This is the same reasoning as sensitivity analysis on a Bayesian network: which priors are load-bearing?
+
+**The Great Filter as a decision tree under existential risk.** The Great Filter argument (Hanson 1998) is a decision-theoretic analysis under uncertainty: if the galaxy is old enough that any civilization arising 10⁸ years before us could have colonized it, and we observe no colonization, then something is filtering civilizations. The decision-theoretic structure: if the filter is behind us (abiogenesis is hard, or we are rare), that is good news for our future. If the filter is ahead of us (civilizations inevitably self-destruct), that is extremely bad news. Finding simple life on Mars updates the probability that the filter is ahead: it rules out "abiogenesis is hard" as the filter, moving the expected filter location forward. Nick Bostrom's observation — "I hope we don't find fossils on Mars" — is correct decision theory, not pessimism.
+
+**The cosmic haystack as a search space coverage problem.** Breakthrough Listen has searched ~10,000 stars at limited frequency ranges and sensitivity levels. The Milky Way has 400 billion stars. The full SETI search space is a product of: sky fraction × frequency range × time resolution × polarization × signal morphology × sensitivity. Current coverage is ~10⁻¹⁵ of the full parameter space by some estimates. This is the algorithmic search space framing: the null result from 60 years of SETI is not "nobody is there," it is "our search algorithm has explored a negligible fraction of the feasible region." The distinction between "searched everywhere" and "searched 10⁻¹⁵ of everywhere" matters enormously for what conclusions can be drawn.
 
 ## Proposed Resolutions
 

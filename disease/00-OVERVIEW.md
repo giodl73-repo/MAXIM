@@ -20,7 +20,7 @@ DISEASE
 └───────────────────────────────────────────────────────────────────┘
 ```
 
-<!-- @editor[bridge/P2]: No old-world bridge -- infectious/non-infectious taxonomy parallels exogenous-vs-endogenous distinction in classical pathology (Koch vs Virchow); bridge from germ theory vs cellular pathology framing would anchor this -->
+**Systems Bridge:** The infectious/non-infectious split is the same exogenous-versus-endogenous distinction that organizes any fault taxonomy. In software: exogenous faults (bad inputs, network failures, malicious actors) versus endogenous faults (bugs, resource exhaustion, design errors). The same epidemiological triangle (agent + host + environment) describes any system vulnerability: a security exploit requires a vulnerability in the target, an attacker with a capable exploit, and an environment that allows delivery. Germ theory (Koch, 1880s) and cellular pathology (Virchow, 1850s) were competing frameworks: "disease as invader" vs "disease as cellular dysfunction." Both are correct, non-exclusive — exactly as software failures can be both externally triggered and internally amplified.
 
 Most diseases are multifactorial: a genetic predisposition + environmental trigger + host response.
 The "infection vs non-infection" binary is also not sharp: H. pylori → peptic ulcer → gastric cancer; HPV → cervical cancer; chronic HBV/HCV → cirrhosis → HCC.
@@ -254,9 +254,26 @@ DALY (Disability-Adjusted Life Year):
 
 ---
 
-<!-- @editor[structure/P1]: Missing Decision Cheat Sheet -- need "use X when Y" table (e.g., cell swelling on biopsy -> reversible injury; caseous necrosis -> think TB; neutrophils dominant -> acute; mononuclear dominant -> chronic) -->
+## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Global Burden section not anchored to landscape diagram -- consider bridge showing which diagram categories dominate globally -->
+| Finding / Presentation | Interpretation | Category in Landscape |
+|------------------------|----------------|----------------------|
+| Cell swelling (hydropic change) on biopsy | Reversible injury — ATP failure, Na/K-ATPase stops; remove stimulus, cell recovers | Non-infectious endogenous |
+| Ghost cells with preserved architecture | Coagulative necrosis — ischemia (most organs); irreversible | Non-infectious |
+| Liquefactive center (pus or brain) | Liquefactive necrosis — abscess or CNS infarct; hydrolases dominate | Infectious or vascular |
+| Caseous ("cheesy") necrosis + granuloma | Think TB (Mycobacterium) until proven otherwise; also fungal (histoplasma, coccidioides), sarcoid, leprosy | Infectious |
+| Saponification (chalky fat deposits, pancreas) | Fat necrosis — pancreatic lipase release | Non-infectious |
+| Neutrophils dominant in infiltrate | Acute inflammation (hours–days) | Infectious most common |
+| Mononuclear cells (macrophages, lymphocytes) dominant | Chronic inflammation (weeks–months) | Infectious or autoimmune |
+| Epithelioid macrophages + giant cells | Granulomatous inflammation — enclosed agent immune system can't kill | Infectious (TB, fungal) or autoimmune (sarcoid, Crohn) |
+| Fibrinoid necrosis in vessel wall | Immune complex deposition — SLE, polyarteritis nodosa; not infection | Autoimmune/inflammatory |
+| Loss of control over cell proliferation (unencapsulated mass, invasion) | Neoplasia — not infection, not hypertrophy; irreversible | Neoplastic |
+| Tissue replaced by fibrous scar | Extensive damage → fibroblast activation → collagen; check original category | Any (endpoint) |
+| High troponin + cell death in heart | Cardiomyocyte necrosis (MI) — look upstream for thrombotic/embolic cause | Cardiovascular non-infectious |
+
+**Global burden anchor:** From the landscape diagram above — the Non-Infectious column dominates HIC mortality: #1 ischemic heart disease (cardiovascular), #2 stroke (cerebrovascular), #3 COPD (respiratory/non-infectious), #6 lung cancer (neoplastic), #7 dementia (neurological). The Infectious column dominates LMIC: lower respiratory infections (#4 globally), diarrhoeal diseases (#8), neonatal disorders overlap. Public health intervention on the Infectious column shrinks mortality toward the Non-Infectious pattern — which is the trajectory all countries follow with development.
+
+---
 
 ## Module Map
 

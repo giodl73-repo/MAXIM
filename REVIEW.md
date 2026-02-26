@@ -103,19 +103,19 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `natural-sciences/` | 18 | 2026-02 | — | 17 tags → pending (3 polished) |
-| `biology/` | 7 | 2026-02 | — | 12 tags → pending |
-| `botany/` | 10 | 2026-02 | — | 4 tags → pending (6 polished) |
-| `ecology/` | 11 | 2026-02 | — | 23 tags → pending |
-| `human-biology/` | 11 | 2026-02 | — | 17 tags → pending |
-| `neuroscience/` | 5 | 2026-02 | — | 13 tags → pending (1 polished) |
+| `natural-sciences/` | 18 | 2026-02 | — | 17 tags → pending |
+| `biology/` | 7 | 2026-02 | 2026-02 | 12 tags → 0 |
+| `botany/` | 10 | 2026-02 | 2026-02 | 4 tags → 0 |
+| `ecology/` | 11 | 2026-02 | 2026-02 | 23 tags → 0 |
+| `human-biology/` | 11 | 2026-02 | 2026-02 | 17 tags → 0 |
+| `neuroscience/` | 5 | 2026-02 | 2026-02 | 13 tags → 0 |
 | `cognitive-science/` | 10 | — | — | |
-| `disease/` | 11 | 2026-02 | — | 13 tags → pending |
-| `medicine/` | 11 | 2026-02 | — | 14 tags → pending |
-| `nutrition/` | 10 | 2026-02 | — | 7 tags → pending (4 polished) |
-| `genomics/` | 10 | 2026-02 | — | 6 tags → pending (4 polished) |
-| `immunology/` | 10 | 2026-02 | — | 7 tags → pending (4 polished) |
-| `microbiology/` | 10 | 2026-02 | — | swept, injection pending |
+| `disease/` | 11 | 2026-02 | 2026-02 | 13 tags → 0 |
+| `medicine/` | 11 | 2026-02 | 2026-02 | 14 tags → 0 |
+| `nutrition/` | 10 | 2026-02 | 2026-02 | 7 tags → 0 |
+| `genomics/` | 10 | 2026-02 | 2026-02 | 6 tags → 0 |
+| `immunology/` | 10 | 2026-02 | 2026-02 | 7 tags → 0 |
+| `microbiology/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
 | `evolutionary-biology/` | 10 | 2026-02 | — | 20 tags → pending |
 | `virology/` | 10 | — | — | blocked (content policy) |
 | `biophysics/` | 10 | 2026-02 | — | 16 tags → pending |
@@ -128,20 +128,20 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `astronomy/` | 12 | 2026-02 | — | 0 tags — polished |
-| `geography/` | 8 | 2026-02 | — | 23 tags → pending |
-| `geology/` | 12 | 2026-02 | — | 16 tags → pending |
-| `meteorology/` | 11 | 2026-02 | — | 7 tags → pending |
-| `climate-science/` | 7 | 2026-02 | — | 16 tags → pending |
-| `oceanography/` | 12 | 2026-02 | — | 22 tags → pending |
-| `hydrology/` | 10 | 2026-02 | — | 11 tags → pending |
-| `paleontology/` | 11 | 2026-02 | — | 22 tags → pending |
-| `agriculture/` | 11 | 2026-02 | — | 11 tags → pending |
-| `mineralogy/` | 10 | 2026-02 | — | 21 tags → pending |
-| `planetary-science/` | 10 | 2026-02 | — | 7 tags → pending |
-| `geochemistry/` | 10 | 2026-02 | — | 14 tags → pending |
-| `space-exploration/` | 10 | 2026-02 | — | 21 tags → pending |
-| `astrobiology/` | 10 | 2026-02 | — | 11 tags → pending |
+| `astronomy/` | 12 | 2026-02 | 2026-02 | 0 tags → 0 |
+| `geography/` | 8 | 2026-02 | 2026-02 | 23 tags → 0 |
+| `geology/` | 12 | 2026-02 | 2026-02 | 16 tags → 0 |
+| `meteorology/` | 11 | 2026-02 | 2026-02 | 7 tags → 0 |
+| `climate-science/` | 7 | 2026-02 | 2026-02 | 16 tags → 0 |
+| `oceanography/` | 12 | 2026-02 | 2026-02 | 22 tags → 0 |
+| `hydrology/` | 10 | 2026-02 | 2026-02 | 11 tags → 0 |
+| `paleontology/` | 11 | 2026-02 | 2026-02 | 22 tags → 0 |
+| `agriculture/` | 11 | 2026-02 | 2026-02 | 11 tags → 0 |
+| `mineralogy/` | 10 | 2026-02 | 2026-02 | 21 tags → 0 |
+| `planetary-science/` | 10 | 2026-02 | 2026-02 | 7 tags → 0 |
+| `geochemistry/` | 10 | 2026-02 | 2026-02 | 14 tags → 0 |
+| `space-exploration/` | 10 | 2026-02 | 2026-02 | 21 tags → 0 |
+| `astrobiology/` | 10 | 2026-02 | 2026-02 | 11 tags → 0 |
 
 ---
 
@@ -149,21 +149,21 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `historical-geography/` | 18 | 2026-02 | — | 14 tags → pending |
-| `history-of-science/` | 10 | 2026-02 | — | 14 tags → pending |
-| `economic-history/` | 10 | 2026-02 | — | 12 tags → pending |
-| `military-history/` | 11 | 2026-02 | — | 4 tags → pending |
-| `anthropology/` | 9 | 2026-02 | — | 9 tags → pending |
-| `philosophy/` | 7 | 2026-02 | — | 20 tags → pending |
-| `mythology/` | 12 | 2026-02 | — | 5 tags → pending |
-| `religious-studies/` | 8 | 2026-02 | — | 3 tags → pending |
-| `archaeology/` | 10 | 2026-02 | — | 12 tags → pending |
-| `logic/` | 10 | 2026-02 | — | 5 tags → pending |
-| `intellectual-history/` | 10 | 2026-02 | — | 15 tags → pending |
-| `social-history/` | 10 | 2026-02 | — | 18 tags → pending |
-| `political-history/` | 10 | 2026-02 | — | 15 tags → pending |
-| `philosophy-of-mind/` | 10 | 2026-02 | — | 16 tags → pending |
-| `ethics/` | 10 | 2026-02 | — | 0 tags -> pending |
+| `historical-geography/` | 18 | 2026-02 | 2026-02 | 14 tags → 0 |
+| `history-of-science/` | 10 | 2026-02 | 2026-02 | 14 tags → 0 |
+| `economic-history/` | 10 | 2026-02 | 2026-02 | 12 tags → 0 |
+| `military-history/` | 11 | 2026-02 | 2026-02 | 4 tags → 0 |
+| `anthropology/` | 9 | 2026-02 | 2026-02 | 9 tags → 0 |
+| `philosophy/` | 7 | 2026-02 | 2026-02 | 20 tags → 0 |
+| `mythology/` | 12 | 2026-02 | 2026-02 | 5 tags → 0 |
+| `religious-studies/` | 8 | 2026-02 | 2026-02 | 3 tags → 0 |
+| `archaeology/` | 10 | 2026-02 | 2026-02 | 12 tags → 0 |
+| `logic/` | 10 | 2026-02 | 2026-02 | 5 tags → 0 |
+| `intellectual-history/` | 10 | 2026-02 | 2026-02 | 15 tags → 0 |
+| `social-history/` | 10 | 2026-02 | 2026-02 | 18 tags → 0 |
+| `political-history/` | 10 | 2026-02 | 2026-02 | 15 tags → 0 |
+| `philosophy-of-mind/` | 10 | 2026-02 | 2026-02 | 16 tags → 0 |
+| `ethics/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
 
 ---
 
@@ -186,7 +186,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `criminology/` | 10 | 2026-02 | — | 20 tags → pending |
 | `media-studies/` | 10 | 2026-02 | — | 18 tags → pending |
 | `education/` | 10 | 2026-02 | — | 5 tags → pending |
-| `international-relations/` | 10 | 2026-02 | — | 0 tags -- polished |
+| `international-relations/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
 
 ---
 
@@ -194,18 +194,18 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `linguistics/` | 10 | 2026-02 | — | 10 tags → pending (1 polished) |
+| `linguistics/` | 10 | 2026-02 | — | 10 tags → pending |
 | `world-languages/` | 15 | 2026-02 | — | 17 tags → pending |
 | `codes/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
-| `typography/` | 12 | 2026-02 | — | 1 tags → pending |
-| `printing-publishing/` | 10 | 2026-02 | — | 3 tags → pending (7 polished) |
+| `typography/` | 12 | 2026-02 | — | 1 tag → pending |
+| `printing-publishing/` | 10 | 2026-02 | — | 3 tags → pending |
 | `cinema-film/` | 11 | 2026-02 | — | 5 tags → pending |
-| `radio-television/` | 10 | 2026-02 | — | 1 tags -> pending |
-| `literature/` | 10 | 2026-02 | — | 15 tags → pending (1 polished) |
+| `radio-television/` | 10 | 2026-02 | — | 1 tag → pending |
+| `literature/` | 10 | 2026-02 | — | 15 tags → pending |
 | `rhetoric/` | 10 | 2026-02 | — | 18 tags → pending |
-| `philosophy-of-language/` | 10 | 2026-02 | — | 4 tags → pending (6 polished) |
+| `philosophy-of-language/` | 10 | 2026-02 | — | 4 tags → pending |
 | `semiotics/` | 10 | 2026-02 | — | 17 tags → pending |
-| `translation/` | 10 | 2026-02 | — | 1 tags → pending (9 polished) |
+| `translation/` | 10 | 2026-02 | — | 1 tag → pending |
 
 ---
 
@@ -213,7 +213,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `art-history/` | 12 | 2026-02 | — | 12 tags → pending (1 polished) |
+| `art-history/` | 12 | 2026-02 | — | 12 tags → pending |
 | `architecture-history/` | 10 | — | — | |
 | `architecture/` | 8 | — | — | |
 | `music-theory/` | 10 | — | — | |
@@ -237,16 +237,16 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `pigments/` | 11 | 2026-02 | — | 7 tags → pending (5 polished) |
-| `coatings/` | 10 | 2026-02 | — | 10 tags → pending (4 polished) |
-| `textiles/` | 14 | 2026-02 | — | 4 tags -> pending |
+| `pigments/` | 11 | 2026-02 | — | 7 tags → pending |
+| `coatings/` | 10 | 2026-02 | — | 10 tags → pending |
+| `textiles/` | 14 | 2026-02 | — | 4 tags → pending |
 | `ceramics/` | 11 | 2026-02 | — | 20 tags → pending |
-| `glassmaking/` | 11 | 2026-02 | — | 4 tags → pending (8 polished) |
+| `glassmaking/` | 11 | 2026-02 | — | 4 tags → pending |
 | `jewelry/` | 11 | 2026-02 | — | 7 tags → pending |
 | `metalworking/` | 10 | 2026-02 | — | 4 tags → pending |
-| `plastics-polymers/` | 10 | 2026-02 | — | 6 tags → pending (6 polished) |
+| `plastics-polymers/` | 10 | 2026-02 | — | 6 tags → pending |
 | `papermaking/` | 10 | 2026-02 | — | 11 tags → pending |
-| `composite-materials/` | 10 | 2026-02 | — | 0 tags -- polished |
+| `composite-materials/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
 | `furniture/` | 10 | 2026-02 | — | 5 tags → pending |
 
 ---
@@ -256,16 +256,16 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
 | `periodic-table/` | 12 | 2026-02 | — | 20 tags → pending |
-| `animal-phylogeny/` | 13 | 2026-02 | — | 15 tags → pending (3 polished) |
-| `spices/` | 11 | 2026-02 | — | 0 tags -- polished |
+| `animal-phylogeny/` | 13 | 2026-02 | — | 15 tags → pending |
+| `spices/` | 11 | 2026-02 | 2026-02 | 0 tags → 0 |
 | `food-plants/` | 10 | 2026-02 | — | 13 tags → pending |
 | `culinary-history/` | 10 | 2026-02 | — | 4 tags → pending |
 | `fermentation-spirits/` | 10 | 2026-02 | — | 3 tags → pending |
 | `mycology/` | 10 | 2026-02 | — | 17 tags → pending |
-| `marine-biology/` | 10 | 2026-02 | — | 0 tags -- polished |
+| `marine-biology/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
 | `entomology/` | 10 | 2026-02 | — | 10 tags → pending |
 | `ornithology/` | 10 | 2026-02 | — | 16 tags → pending |
-| `zoology/` | 10 | 2026-02 | — | 0 tags -- polished |
+| `zoology/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
 | `horticulture/` | 10 | 2026-02 | — | 12 tags → pending |
 
 ---
@@ -274,16 +274,16 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Section | Dirs | Clean | Swept | Pending |
 |---------|-----:|------:|------:|--------:|
-| Computing & Software | 10 | 10 | 9 | 0 |
+| Computing & Software | 10 | 10 | 0 | 0 |
 | Mathematics & Physics | 20 | 1 | 0 | 19 |
 | Mechanics | 14 | 0 | 0 | 14 |
 | Technology | 9 | 0 | 0 | 9 |
-| Life Sciences | 18 | 0 | 16 | 2 |
-| Earth & Space | 14 | 0 | 0 | 14 |
-| History & Ideas | 15 | 0 | 0 | 15 |
-| Social Sciences | 16 | 0 | 0 | 16 |
-| Language & Communication | 12 | 0 | 0 | 12 |
-| Arts & Culture | 17 | 0 | 0 | 17 |
-| Material Culture | 11 | 0 | 0 | 11 |
-| Natural World | 12 | 0 | 0 | 12 |
-| **Total** | **168** | **10** | **9** | **149** |
+| Life Sciences | 18 | 11 | 5 | 2 |
+| Earth & Space | 14 | 14 | 0 | 0 |
+| History & Ideas | 15 | 15 | 0 | 0 |
+| Social Sciences | 16 | 1 | 15 | 0 |
+| Language & Communication | 12 | 1 | 11 | 0 |
+| Arts & Culture | 17 | 0 | 1 | 16 |
+| Material Culture | 11 | 1 | 10 | 0 |
+| Natural World | 12 | 3 | 9 | 0 |
+| **Total** | **168** | **57** | **51** | **60** |

@@ -30,7 +30,7 @@ NEITHER (atypical — no cell wall or unique structure):
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- Gram staining (1884) is the original "typed vs untyped" classification; bridge to type systems or classification taxonomies would serve this learner -->
+**Systems Bridge:** Gram staining (Hans Christian Gram, 1884) is one of the oldest classification systems in biology — and it works because cell wall architecture is a reliable proxy for a whole cluster of properties: antibiotic susceptibility spectrum, endotoxin presence (Gram-negative LPS), natural permeability barriers, and evolutionary lineage. This is the same principle as any well-designed type system: the type (Gram+/−) encodes permitted operations (which antibiotics bind which targets), data representation (thick PG vs thin PG + outer membrane), and interface contracts (what virulence factors are available). Misclassification has consequences: treating a Gram-negative infection with vancomycin (Gram-positive–only coverage) is a type error that the system cannot catch at runtime — it requires knowing the type up front. The "atypical" organisms (Mycobacteria, Mycoplasma, Chlamydia) are untyped — they don't participate in the classification at all, which forces different drug selection logic entirely.
 
 ## Bacterial Structure and Virulence Factors
 

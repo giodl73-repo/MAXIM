@@ -2,32 +2,43 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P2]: No universal CS bridge — international institutions are coordination infrastructure for sovereign actors, directly analogous to distributed system middleware (message brokers, consensus protocols, service meshes). The UN Security Council's P5 veto is a consensus protocol with 5 blocking nodes; WTO dispute settlement is a formalized conflict resolution API. The learner built VSTS and Azure infrastructure — this framing would be immediately productive -->
 International institutions are the infrastructure of international order. They reduce
 the costs of cooperation, provide information, create expectations, and give states
 mechanisms to coordinate on shared problems. They also reflect the power of their
 creators and struggle when that power shifts.
 
-<!-- @editor[diagram/P2]: Landscape diagram covers only the UN system, but the guide covers UN, WTO, IMF, World Bank, NATO, and EU. Rework as a broader institutional landscape showing all six organizations and their relationships (security vs. economic vs. trade vs. supranational), with the UN system as one node — then drill down in sections -->
+**Formal bridge:** International institutions are distributed coordination middleware
+for sovereign actors who cannot be compelled. The UN Security Council is a consensus
+protocol with 5 blocking nodes (P5) — any one can veto, so binding decisions require
+unanimous consent among the major powers plus a quorum of 9/15. WTO dispute settlement
+is a formalized API for conflict resolution: states file complaints, panels adjudicate,
+the appellate body (when functional) reviews, and losers face authorized retaliation
+if they don't comply. The Appellate Body crisis is literally a quorum failure — US
+blocked appointments until the AB dropped below 3 members and could no longer process
+cases. NATO's consensus decision-making is a distributed write requiring all-node
+agreement, which is why Turkey and Hungary can block decisions unilaterally.
+
 ```
 +----------------------------------------------------------------------+
-|                    UN SYSTEM ARCHITECTURE                             |
+|                INTERNATIONAL INSTITUTIONS LANDSCAPE                   |
 |                                                                      |
-|  PRINCIPAL ORGANS:                                                   |
-|  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐              |
-|  │  Security    │  │  General     │  │  Secretariat │              |
-|  │  Council     │  │  Assembly    │  │              │              |
-|  │  15 members  │  │  193 members │  │  Sec-General │              |
-|  │  P5 veto     │  │  1 state 1   │  │  Admin. body │              |
-|  │  binding     │  │  vote        │  │  UN organs   │              |
-|  │  resolutions │  │  non-binding │  │              │              |
-|  └──────────────┘  └──────────────┘  └──────────────┘              |
-|       ├── ICJ (International Court of Justice)                       |
-|       ├── ECOSOC (Economic and Social Council)                       |
-|       └── Trusteeship Council (effectively dormant)                  |
-|                                                                      |
-|  SPECIALIZED AGENCIES (autonomous but linked to UN):                 |
-|  WHO, UNESCO, FAO, ILO, IAEA, IMO, WIPO, WFP, UNHCR, UNICEF        |
+|  SECURITY DOMAIN       ECONOMIC DOMAIN        TRADE DOMAIN          |
+|  ────────────          ───────────────        ────────────          |
+|  ┌───────────┐         ┌──────────┐           ┌──────────┐          |
+|  │    UN     │         │   IMF    │           │   WTO    │          |
+|  │  Security │         │ monetary │           │  goods + │          |
+|  │  Council  │         │stability │           │ services │          |
+|  │ P5 veto   │         │ lending  │           │  TRIPS   │          |
+|  └───────────┘         └──────────┘           └──────────┘          |
+|  ┌───────────┐         ┌──────────┐                                 |
+|  │   NATO    │         │  World   │   SUPRANATIONAL (unique)        |
+|  │ collective│         │  Bank    │   ────────────────────          |
+|  │  defense  │         │develop-  │   ┌────────────────────┐        |
+|  │ Art. 5    │         │ment fin. │   │        EU          │        |
+|  └───────────┘         └──────────┘   │ direct effect law  │        |
+|                                       │ supremacy + ECJ    │        |
+|  UN SPECIALIZED AGENCIES (linked):    │ single market+euro │        |
+|  WHO, UNESCO, FAO, ILO, IAEA, UNICEF  └────────────────────┘        |
 +----------------------------------------------------------------------+
 ```
 

@@ -160,7 +160,8 @@ The market model: organized crime is entrepreneurship in illegal markets. Use st
 
 ## Network Analysis Approach
 
-<!-- @editor[bridge/P2]: Missing graph-theory bridge — this learner has MIT TCS background. Degree centrality, betweenness centrality, clustering coefficient are all graph-theoretic concepts. A one-line bridge ("these are the same centrality metrics from graph theory / social network analysis in CS") would anchor the entire section -->
+**Graph-theory bridge:** Criminal network analysis is applied graph theory — the same centrality metrics from network science and social network analysis in CS. Degree centrality (number of direct connections) identifies high-volume nodes. Betweenness centrality (fraction of all shortest paths passing through a node) identifies brokers and information gatekeepers — removing a high-betweenness node fragments the network more effectively than removing a high-degree node that is peripheral. Clustering coefficient measures local density: high clustering means tight clique with limited external reach; low clustering with high betweenness identifies bridge nodes that span otherwise disconnected components. Scale-free networks (power-law degree distribution, as seen in many criminal networks) are robust to random node removal but fragile to targeted hub removal — the classic preferential attachment graph property. Law enforcement "kingpin strategies" are targeted attacks on high-betweenness hubs; the empirical finding that these often increase violence (by destabilizing the market hierarchy) mirrors the network-theory prediction that hub removal in a scale-free network creates fragmentation and competitive instability among the remaining nodes.
+
 Modern criminology uses social network analysis to map criminal organizations without assuming hierarchy.
 
 ```
@@ -314,7 +315,6 @@ The most serious human rights violation in organized crime analysis.
 
 ## Cybercrime as Organized Crime
 
-<!-- @editor[content/P2]: Cybercrime section is thin relative to its current importance — ransomware-as-a-service, cryptocurrency laundering (mixers/tumblers), and state-sponsored cybercrime (North Korea, Lazarus Group) each deserve more treatment. This section reads as a brief compared to the depth given to traditional OC forms -->
 The newest major criminal market, with distinct organizational features.
 
 ```
@@ -340,6 +340,57 @@ The newest major criminal market, with distinct organizational features.
   - Community enforcement    Attribution: Russia/CIS-based,
   Mirror classical market    operating with state tolerance
   institutions
+
+  CRYPTOCURRENCY LAUNDERING
+  ==========================
+
+  Three primary methods:
+  1. MIXERS / TUMBLERS: Pool transactions from multiple
+     wallets, redistribute in fractional amounts.
+     Breaks the on-chain traceability.
+     Tornado Cash: largest Ethereum mixer; OFAC sanctioned 2022.
+
+  2. CHAIN-HOPPING: Convert BTC -> privacy coin (Monero) ->
+     BTC through cross-chain bridges. Monero's ring signatures
+     provide cryptographic anonymity. Lazarus Group (DPRK)
+     used this extensively after Ronin bridge hack ($625M).
+
+  3. CRYPTO-TO-CASH: Over-the-counter brokers, P2P exchanges
+     with weak KYC, illicit casinos, VASP (virtual asset service
+     providers) in low-regulation jurisdictions (BITZLATO, 2023).
+
+  CHAINALYSIS estimate: ~$24B laundered via crypto in 2023.
+  On-chain analytics has made large-scale laundering harder
+  but not impossible; privacy coins remain a significant gap.
+
+  STATE-SPONSORED CYBERCRIME
+  ===========================
+
+  STATE ACTOR       GROUPS              NOTED OPERATIONS
+  -----------       ------              ----------------
+  DPRK              Lazarus Group,      Ronin bridge ($625M, 2022)
+  (North Korea)     Kimsuky, APT38      Sony Pictures (2014)
+                                        WannaCry (2017)
+                                        Crypto exchanges (ongoing)
+
+  Revenue function: Lazarus operations estimated to have
+  generated $3B+ in crypto for DPRK's weapons program
+  (UN Panel of Experts). State-sponsored cybercrime here is
+  literally sanctions evasion and weapons proliferation financing.
+
+  RUSSIA             APT28 (Fancy Bear)  DNC hack (2016)
+                     APT29 (Cozy Bear)   SolarWinds (2020)
+                     Sandworm            NotPetya ($10B+ damages)
+                     Turla               Ukraine power grid (2015-16)
+
+  Russia: distinguishes between espionage/disruption (FSB/GRU)
+  and financially motivated cybercrime (tolerated if
+  not targeting CIS nations). The tolerance creates ambiguity
+  that complicates attribution and enforcement.
+
+  CHINA              APT10, APT41        Microsoft Exchange (2021)
+                                         OPM hack (22M records, 2015)
+                                         IP theft across sectors
 ```
 
 ---

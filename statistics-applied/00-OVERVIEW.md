@@ -257,7 +257,18 @@ COMPLEMENTS:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge anywhere in overview — natural parallel: "pre-registration = compile-time type checking for hypotheses" (catches errors before runtime/analysis), estimand/estimator/estimate chain parallels specification/implementation/output in typed systems -->
+## CS and Formal Methods Bridges
+
+| Applied statistics concept | Formal / CS analogue |
+|---|---|
+| Pre-registration (write analysis plan before data) | Compile-time constraint checking: hypotheses and analysis plans specified before the program runs catch errors (HARKing, p-hacking) that runtime checking cannot; analogous to type checking vs. runtime exceptions |
+| Estimand → estimator → estimate | Specification → implementation → output: the estimand is the formal specification (what you want to measure); the estimator is the algorithm; the estimate is the computed output. Changing implementation must not change the specified quantity |
+| Identification assumption | Precondition / invariant: a logical condition that must hold for causal inference to be valid; untestable from the same data — analogous to a function precondition that cannot be verified from inside the function body |
+| DAG (Directed Acyclic Graph, causal structure) | Dataflow / dependency graph: causal DAGs formalize the data-generating process; d-separation is the criterion for conditional independence, analogous to information isolation between pipeline stages |
+| Randomization (breaks confounding) | Independent random source breaks coupling: T ⊥⊥ (Y(0), Y(1)) isolates treatment from all confounders — analogous to breaking component coupling by introducing a statistically independent control variable |
+| Potential outcomes Y(1), Y(0) | Counterfactual semantics: two "runs" of the same world under different inputs, never simultaneously observable — mirrors counterfactual reasoning in formal program verification and causal model checking |
+| Pearl's ladder (association → intervention → counterfactual) | Three levels of query expressiveness: observational (SELECT), interventional (do-calculus = mutilated model), counterfactual (structural equations + noise). Each requires strictly more model information than the previous |
+| P-value misinterpretation | Logical inversion: p = P(data | H₀), not P(H₀ | data) — the same base-rate neglect error as confusing a classifier's precision with its recall; Bayes' theorem is needed to get from one to the other |
 
 ## Common Confusion Points
 

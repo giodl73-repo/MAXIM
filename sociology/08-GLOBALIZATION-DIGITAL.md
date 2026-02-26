@@ -268,8 +268,8 @@ THE LOGIC OF SURVEILLANCE CAPITALISM:
 UBIQUITOUS SURVEILLANCE:
   "Surveillance capitalism requires more data" → expand surveillance
     → Move beyond online behavior into real-world:
-<!-- @editor[content/P2]: Pokémon Go was developed by Niantic (a Google spinoff/Alphabet subsidiary at launch, later independent) — "Google venture" is imprecise; also the claim it "mapped every home in US for indoor location" overstates — Niantic used AR to gather spatial mapping data, not specifically indoor home mapping -->
-      Pokémon Go (Google venture): mapped every home in US for indoor location
+      Pokémon Go (Niantic — spun out from Google's internal lab, later independent):
+        gathered large-scale outdoor spatial mapping data via AR gameplay
       Google Street View: harvested WiFi data while photographing
       Smart home devices (Echo, Nest, Ring): in-home surveillance
       Fitness trackers: physiological data → health/insurance predictions
@@ -349,14 +349,27 @@ ALGORITHMIC GOVERNANCE:
     GDPR (EU, 2018): data protection rights; consent; portability; right to erasure
     DSA/DMA (EU, 2022–23): platform transparency; interoperability (DMA);
       systemic risk assessment; ban on targeted advertising to children (DSA)
-<!-- @editor[content/P2]: "2024 ruling: illegal monopoly in search" — the August 2024 ruling found Google violated antitrust law by maintaining monopoly in general search; remedies phase ongoing into 2025. Verify characterization is current and note the remedy is still pending. -->
-    Antitrust: US DOJ vs Google (2024 ruling: illegal monopoly in search)
+    Antitrust: US DOJ vs Google (August 2024 ruling: found Google violated antitrust law
+      by maintaining monopoly in general search through exclusive default agreements;
+      remedy phase ongoing as of 2025 — structural remedies including potential Chrome
+      or Android divestiture under consideration; outcome not yet determined)
     China: data sovereignty; DiDi banned; Alibaba fined $2.8B (2021)
 ```
 
 ---
 
-<!-- @editor[bridge/P1]: Missing universal bridge — any developer or tech leader already understands network effects, platform lock-in, data moats, and algorithmic governance from the inside. Castells' "space of flows" IS the internet architecture they know; Zuboff's surveillance capitalism IS the ad-tech stack they've worked with. This file should have the strongest CS/tech bridge in the module and has none. -->
+## From Internet Architecture to Sociological Theory
+
+This module is a sociological description of the systems you have built and operated. The frameworks name and formalize patterns that engineers encounter as technical or business problems but which have structural social-scientific explanations.
+
+**Castells' "space of flows" is the sociological description of internet architecture.** The infrastructure you work with — BGP routing, CDN edge nodes, cloud availability zones, API gateways — is the physical instantiation of Castells' claim: power concentrates in the nodes that control what flows through networks, not in any particular place. The "space of places" (geographically rooted experience of workers, communities, regulatory jurisdictions) is continuously subordinated to the "space of flows" (capital markets, data centers, platform routing decisions). When Azure decides to close a region, or AWS shifts pricing, or a platform changes its ranking algorithm, places experience consequences from flows they did not control and cannot easily influence. This is not metaphor — Castells was describing, in 1996, the social architecture that hyperscale cloud and platform companies later constructed.
+
+**Zuboff's surveillance capitalism is a theoretical account of the ad-tech stack.** The behavioral surplus argument — that data collected to improve a service generates more than is needed for that purpose, and the excess is the raw material of a new commodity (behavioral prediction) — is a description of what Google discovered in 2001 when it found that behavioral targeting made ads far more valuable than contextual targeting. The "behavioral futures market" is programmatic advertising: RTB auctions where the commodity being sold is a prediction of a specific user's probability of taking a specified action. The "prediction imperative" (more behavioral data → better models → more valuable predictions → expand data collection) is the structural logic that drove the expansion of Google into Android, Maps, Nest, and Fitbit, and Facebook into WhatsApp and Instagram. Engineers who built these systems participated in constructing Zuboff's theoretical object; reading her account gives the structural logic that individual engineering decisions served.
+
+**Platform network effects, data moats, and switching costs are the engineering-strategy face of world-systems dynamics.** Wallerstein's core/periphery structure in the digital economy is platforms (core) versus the businesses and individuals that depend on them (periphery). The "unequal exchange" operates through platform fees, API pricing, data asymmetries, and algorithmic ranking. Sellers on Amazon, developers on the App Store, advertisers on Google — they gain access to the platform's scale while the platform extracts information rents and shapes their business terms. The structural inimitability of these positions is exactly the VRIN analysis of the resource-based view: the data accumulated over time (path dependency), the ambiguity about which features matter (causal ambiguity), and the social complexity of the developer/user ecosystem are the sources of sustained competitive advantage.
+
+**Algorithmic governance is the sociological problem of code as law.** When a platform's recommendation algorithm determines which speech is amplified, which businesses are visible, and which workers receive rides, the platform is performing governance functions that were previously distributed across democratic institutions, markets, and civil society. The Section 230 framework (platforms not liable for content) was designed for a world in which platforms were neutral conduits; the surveillance capitalism model in which platforms actively curate, rank, and nudge means the neutral-conduit premise is false. Regulatory frameworks (GDPR, DSA) are attempts to re-impose accountability norms on private governance systems — which is the political-opportunity-structure opening that privacy-by-design and federated architectures are positioned to exploit.
+
 ## Decision Cheat Sheet
 
 | Phenomenon | Relevant concept |

@@ -244,16 +244,16 @@ CURRENT PRACTICE:
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" decision tool (e.g., "Use archaeology when: material record diverges from written record") -->
-
-| Question | Answer |
-|----------|--------|
-| What makes archaeology distinct from history? | Studies material culture regardless of literacy; includes 99%+ of human existence before writing |
-| Why does context matter? | Decontextualized artifact = lost information; provenance is irreplaceable |
-| What is primary vs. secondary context? | Primary = in situ, not moved; secondary = redeposited, disturbed |
-| What is the Harris Matrix? | DAG of stratigraphic relationships — the relative chronology graph |
-| How long has archaeology been a science? | Systematic stratigraphy: Pitt Rivers, Wheeler (late 19th–early 20th c.); scientific rigor: 1960s processualism |
-| What replaced culture history? | Processualism (New Archaeology) — hypothesis testing, systems theory |
+| Use archaeology when... | Because... |
+|-------------------------|-----------|
+| Material record diverges from written record | Documents record what their authors chose; archaeology records what people actually did — the gap is often the most informative finding |
+| The society was non-literate or marginally documented | Archaeology is the only primary source for 90%+ of human existence |
+| You want to reconstruct "history from below" | The enslaved, the peasant, the colonized rarely appear in texts; material culture is their record |
+| Dating written records requires physical corroboration | Stratigraphy + radiocarbon can confirm, contradict, or date textual claims independently |
+| You need diet, health, or demography of a population | Skeletal and botanical evidence recovers what no written source records |
+| Trade networks need mapping beyond what merchants wrote | Artifact distributions and isotope provenancing trace movement of goods and people |
+| Culture history interpretation relies too heavily on one paradigm | Processualist testing or post-processualist critique offers alternative explanatory frames |
+| Evidence is ambiguous between migration vs. diffusion | Archaeological distributions + aDNA + isotopic mobility can distinguish people moving from ideas spreading |
 
 ---
 

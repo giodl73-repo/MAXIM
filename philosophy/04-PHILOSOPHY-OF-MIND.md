@@ -62,7 +62,30 @@ TYPE IDENTITY THEORY (Place, Smart):
   PROBLEM: multiple realizability — pain in humans, octopuses, silicon beings all count
     as pain even though they realize it in different physical substrates → type identity too narrow
 
-<!-- @editor[content/P2]: Eliminative materialism listed in landscape diagram and Decision Cheat Sheet but gets no substantive section — only named in the diagram; needs at least a paragraph (Churchlands, folk psychology is false, etc.) -->
+ELIMINATIVE MATERIALISM (Paul and Patricia Churchland):
+  Folk psychology — the everyday framework of beliefs, desires, intentions,
+    qualia — is a radically false theory, like phlogiston or caloric.
+  Not: mental states are identical to brain states (reductionism).
+  Instead: mental states do not exist at all as described by folk psychology.
+    When neuroscience matures, we will not reduce "beliefs" to neural states;
+    we will eliminate the concept entirely, replacing it with a better theory
+    at the neural level.
+  Analogy: we did not reduce "caloric" to molecular motion; we eliminated
+    caloric and replaced it with a different vocabulary (kinetic energy).
+  EVIDENCE: Folk psychology doesn't explain sleep, mental illness, creative
+    insight, or anything it claims to explain in mechanistic terms.
+    Its track record of successful prediction is poor.
+  MAIN OBJECTION: The theory seems self-refuting — to assert "beliefs don't
+    exist" requires asserting a belief. Paul Churchland: this is just the
+    old framework resisting elimination; the new vocabulary will dissolve
+    the puzzle.
+  PRACTICAL RELEVANCE: Eliminative materialism predicts that "explainable
+    AI" in folk-psychological terms (the model "believes X" or "understands Y")
+    is the wrong framing entirely. The right framing is the computational-
+    neuroscientific one: activation patterns, attention weights, circuit-level
+    mechanisms. Folk-psychological XAI is projecting a false ontology onto
+    the system.
+
 FUNCTIONALISM:
   Mental states are defined by their functional role: causal role in mediating between
     inputs, outputs, and other mental states
@@ -329,7 +352,65 @@ CURRENT SCIENTIFIC CONSENSUS (rough):
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world → new-world bridge section — natural parallel: interface-based programming (program to the interface, not the implementation) → functionalism (mental states defined by functional role, not substrate) — any OOP developer gets this immediately -->
+## Bridge — Philosophy of Mind and Software Architecture
+
+```
+MIND-BODY POSITION               SOFTWARE ARCHITECTURE PARALLEL
+─────────────────────────────────────────────────────────────────
+Functionalism:                   Interface-based programming:
+Mental states are defined by     "Program to the interface, not the
+their functional role —          implementation." A type is defined
+causal relations between         by the operations it supports
+inputs, other states, outputs.   (functional role), not the data
+Physical substrate irrelevant.   layout. Any object that plays the
+Multiple realizability: pain     right causal role IS that type.
+can be instantiated in           Multiple realizability = duck typing
+neurons, silicon, or anything    or structural typing: if it quacks,
+that plays the same causal role. it's a duck.
+
+Type identity theory:            Concrete class binding:
+Pain = C-fibers firing           The type IS the implementation.
+(type-level).                    Tight coupling; non-substitutable.
+Problem: multiple realizability. Problem: can't swap in an alternative
+                                 implementation without breaking callers.
+
+Property dualism:                Emergent system properties:
+One substrate; mental properties The software substrate is physical;
+irreducible to physical.         but system-level properties
+Supervenience: same physical     (availability, consistency, latency)
+→ same mental; but why?          supervene on physical configurations
+                                 without being reducible to any single
+                                 component's properties.
+
+Eliminative materialism:         Mechanistic over anthropomorphic
+Folk psychology is false;        explanation: "the model believes X"
+eliminate it and replace with    is folk-psychological projection.
+neural-level vocabulary.         Better: "the residual stream at layer
+                                 N has a feature direction that
+                                 activates for concept X." The
+                                 mechanistic vocabulary is more
+                                 precise and less misleading.
+
+Extended mind (Clark & Chalmers):Distributed cognition / tool use:
+Cognitive processes extend       Memory in notebooks = memory in
+into the environment when        the brain (functionally). Cognitive
+they meet the right criteria.    offloading: the tool is part of the
+                                 cognitive system.
+                                 → Copilot/LLM as extended cognition:
+                                 the human-AI system as the unit of
+                                 analysis, not the human alone.
+
+Hard Problem:                    The interpretability gap:
+Even a complete physical/        Even complete mechanistic description
+computational account leaves     of a model (weights, activations,
+phenomenal experience            circuits) may not tell you "what
+unexplained.                     the model is doing" in the
+                                 meaningful sense. The interpretability
+                                 problem has the same structure as
+                                 the hard problem: mechanism is
+                                 insufficient for understanding.
+```
+
 ## Decision Cheat Sheet
 
 | Position | Core Claim | Key Problem |

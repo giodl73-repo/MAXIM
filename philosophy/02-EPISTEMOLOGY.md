@@ -10,6 +10,9 @@
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                         EPISTEMOLOGY                                     │
 │                    Theory of knowledge and justified belief              │
+│                                                                          │
+│   Individual ←──────────────────────────────────────────→ Social        │
+│                                                                          │
 ├────────────────────────────────┬─────────────────────────────────────────┤
 │  INDIVIDUAL EPISTEMOLOGY       │  SOCIAL EPISTEMOLOGY                    │
 │  ──────────────────────        │  ────────────────────                   │
@@ -19,6 +22,9 @@
 │  Internalism vs externalism    │  Epistemic injustice                   │
 │  Rationalism vs empiricism     │  Peer disagreement                     │
 │  Foundationalism vs coherentism│                                         │
+│         │                      │          │                              │
+│         │ (formalization)      │          │ (formalization)              │
+│         ↓                      │          ↓                              │
 ├────────────────────────────────┼─────────────────────────────────────────┤
 │  FORMAL EPISTEMOLOGY           │  NATURALIZED EPISTEMOLOGY               │
 │  ─────────────────────         │  ──────────────────────                 │
@@ -26,10 +32,21 @@
 │  Epistemic logic               │  Cognitive science of knowledge         │
 │  Formal learning theory        │  Evolutionary debunking                 │
 │  Formal theories of belief rev │  Reliabilism                           │
+│                                │                                         │
+│   Formal ←──────────────────── ┼ ───────────────────────→ Naturalized   │
 └────────────────────────────────┴─────────────────────────────────────────┘
-```
 
-<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how the four quadrants relate — arrows or flow between individual/social and formal/naturalized would show the field's internal dynamics -->
+Quadrant dynamics:
+  Individual → Social:  move from first-person "what do I know?" to
+    third-person "how do communities form and transmit knowledge?"
+  Individual → Formal:  formalize justification conditions; use
+    probability/modal logic to model credences and belief revision.
+  Social → Naturalized: scientific consensus, peer trust, and
+    institutional knowledge become empirical objects of study.
+  Formal → Naturalized: Bayesian epistemology meets cognitive science
+    (are humans actually Bayesian?); reliabilism as bridge concept
+    (justification = produced by a reliable process).
+```
 
 ---
 
@@ -309,39 +326,133 @@ RELEVANCE TO AI/ML:
   Noam Chomsky: language acquisition requires innate universal grammar (rationalist about language)
   LLMs: learn language from data alone; neither pure rationalist nor pure empiricist
 ```
-<!-- @editor[bridge/P2]: No old-world → new-world bridge — natural parallel: empiricism vs rationalism maps directly onto schema-first (typed, relational) vs schema-less (NoSQL, document) design philosophies any database architect would recognize -->
+## Bridge — Epistemology and System Architecture
+
+```
+EPISTEMOLOGICAL POSITION         SYSTEM DESIGN PARALLEL
+─────────────────────────────────────────────────────────────────
+Rationalism: knowledge comes      Schema-first design: impose structure
+from reason; structure is prior   before data arrives. Relational DB,
+to experience.                    typed APIs, formal ontologies.
+                                  You know the shape of knowledge in
+                                  advance; data must conform to it.
+
+Empiricism: knowledge comes       Schema-last / schema-flexible:
+from experience; structure        NoSQL, document stores, data lakes.
+emerges from data.                Let the data arrive; infer schema
+                                  from what you observe. Structure
+                                  is posterior, not prior.
+
+Foundationalism: knowledge        Type systems / formal specs:
+rests on a small set of basic,    axioms + inference rules. Some
+self-evident beliefs from which   statements are foundational (axioms);
+everything else is derived.       all others are derived. Coq/Lean
+                                  proof assistants instantiate this.
+
+Coherentism: beliefs are          Consistency constraints:
+justified by their coherence      no single belief is privileged; the
+with the whole system.            system is valid if internally
+                                  consistent. Property-based testing:
+                                  no single test is "basic"; all
+                                  properties must be mutually coherent.
+
+Reliabilism (Goldman):            Automated testing / CI:
+a belief is justified if          "My belief-forming process (unit test
+produced by a reliable            suite) reliably produces true
+belief-forming process.           beliefs." The justification is the
+                                  reliability of the process, not the
+                                  content of any individual test.
+
+Bayesian epistemology:            ML systems:
+prior beliefs + evidence →        prior (architecture + regularization)
+posterior. Update by Bayes.       + data → posterior weights. The
+                                  epistemological position is the
+                                  same; the implementation differs.
+```
 
 ---
 
-<!-- @editor[content/P2]: Section is thin — social epistemology in landscape diagram promises testimony/trust, expert disagreement, scientific consensus, epistemic injustice but coverage is compressed into a single code block with no bridge to AI bias/fairness -->
-## 6. Epistemic Relativism and Social Epistemology
+## 6. Social Epistemology
 
 ```
-STRONG RELATIVISM (what most philosophers reject):
-  Truth is relative to individuals or cultures; no objective facts
-  "True for me" / "true for your culture"
-  Self-refuting: "All truth is relative" — is this claim relatively or absolutely true?
-  Most thoughtful positions are not strong relativists
+TESTIMONY AND TRUST:
+  We know most of what we know through testimony (reading, instruction,
+  communication with others). The epistemology of testimony asks when
+  and why testimony transmits knowledge.
+  Reductionism (Hume): testimony justified only when we have independent
+    inductive evidence of the speaker's reliability. No default trust.
+  Anti-reductionism (Coady): testimony has a default epistemic status;
+    trust is prima facie warranted and defeasible by specific evidence
+    against the speaker. (More plausible: we couldn't function if
+    we required independent verification of every testimony source.)
+  Virtue-theoretic: what cognitive virtues does a good epistemic agent
+    need to navigate testimony reliably? Open-mindedness, calibration,
+    intellectual humility.
+
+EXPERT DISAGREEMENT AND SCIENTIFIC CONSENSUS:
+  Peer disagreement problem: if equally reliable agents on the same evidence
+    disagree, what is the rational response?
+    Equal weight view: suspend judgment; average credences.
+    Steadfast view: stick with your own assessment (you have privileged
+      access to your own reasoning that your peer does not).
+    Conciliatory view: partial revision toward peer's position.
+  Experts vs. non-experts: non-experts should generally defer to expert
+    consensus — but not uncritically. Need to identify experts, assess
+    whether consensus actually exists, and evaluate conflicts of interest.
+  Scientific consensus ≠ unanimous agreement: consensus is the dominant
+    position after appropriate evidence-evaluation by qualified community.
+    Manufactured doubt (tobacco, climate): deliberately create impression
+    of expert disagreement where little exists.
+
+EPISTEMIC INJUSTICE (Miranda Fricker, 2007):
+  Two kinds of epistemic injustice — wrongs done to a person specifically
+  in their capacity as a knower.
+
+  Testimonial injustice: credibility deflated due to identity prejudice.
+    A woman reports a crime; police discount her account based on gender.
+    A patient's pain dismissed by a doctor based on demographic assumptions.
+    Not just a moral wrong — an epistemic wrong: reliable testimony excluded
+    from the pool of evidence used to form beliefs.
+
+  Hermeneutical injustice: gap in collective interpretive resources puts
+    someone at an unfair epistemic disadvantage.
+    Before "sexual harassment" was named (Catharine MacKinnon, 1979), victims
+    had experiences but no concept to make sense of them, report them, or
+    get them taken seriously.
+    The concept gap is structural: those who most need the resource are
+    least likely to have had a hand in creating the shared vocabulary.
+
+RELEVANCE TO AI/ML SYSTEMS:
+  Testimonial injustice → training data bias:
+    If historical human decisions reflect testimonial injustice
+    (medical diagnoses, credit decisions, judicial outcomes), a model
+    trained on that data reproduces the injustice at scale.
+    COMPAS recidivism predictor: trained on data reflecting biased
+    prior outcomes; perpetuated them algorithmically.
+
+  Hermeneutical injustice → representational harm:
+    AI systems trained on corpora that lack vocabulary for certain
+    groups' experiences will be unable to model those experiences.
+    "I was harassed at work" processed by a model trained on corpora
+    where this is rare or absent → poor response quality for
+    affected communities.
+
+  Epistemic peer disagreement → model ensemble and calibration:
+    When models trained on the same data with different inductive
+    biases disagree — what weight to give each? Same structure as the
+    peer disagreement problem. Calibration research asks whether
+    the "steady-fast" (overconfident model) or "equal-weight"
+    (ensemble average) approach performs better empirically.
 
 STANDPOINT EPISTEMOLOGY:
-  Social position affects what one can and cannot know
-  Marginalized groups may have epistemic access to facts about oppression others lack
-  Not relativism: some standpoints provide better epistemic access to some truths
-  Feminist epistemology, critical race theory epistemology
-
-PEER DISAGREEMENT:
-  If your epistemic peer (equally reliable, same evidence) disagrees — what should you do?
-  Equal weight view: suspend judgment; average credences
-  Steadfast view: stick with your own assessment; you have information about your own reasoning
-    that peer does not have access to
-  Practical implications: scientific consensus vs dissent; how to handle expert disagreement
-
-EPISTEMIC INJUSTICE (Miranda Fricker):
-  Testimonial injustice: deflated credibility attributed to a speaker due to identity prejudice
-    (discounting testimony of someone because of race, gender, etc.)
-  Hermeneutical injustice: gap in collective interpretive resources puts someone at
-    an unfair disadvantage in making sense of their social experience
-    (no concept for "sexual harassment" before it was named)
+  Social position affects what one can and cannot know.
+  Marginalized groups may have epistemic access to facts about oppression
+    that others structurally lack. Not relativism: some standpoints provide
+    better epistemic access to some truths (not all truths).
+  Research implications: including affected communities in research design
+    is not just ethics — it is epistemically necessary to capture relevant
+    evidence. Community-based participatory research.
+```
 ```
 
 ---

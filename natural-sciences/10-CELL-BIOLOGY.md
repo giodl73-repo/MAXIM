@@ -174,7 +174,46 @@ Second messengers:
   Ca²⁺: calmodulin (CaM) → CaM-kinases, calcineurin, myosin light chain kinase
 ```
 
-<!-- @editor[bridge/P3]: Natural bridge to CS/software — signal transduction cascades are event-driven architectures with amplification, feedback, and timeout (GTPase timer). GPCR → second messenger → kinase cascade mirrors pub/sub with message amplification. The learner's software architecture background makes this connection natural. -->
+### Signal Transduction — Event-Driven Architecture Bridge
+
+Signal transduction cascades are event-driven messaging systems with amplification,
+fanout, feedback, and built-in timeouts. The architectural parallels are exact:
+
+```
+CELL SIGNALING ≈ EVENT-DRIVEN ARCHITECTURE
+
+  Hormone / ligand         =  event published to message bus
+  Receptor (GPCR, RTK)     =  subscriber / event handler
+  Second messenger (cAMP)  =  message payload propagated intracellularly
+  Kinase cascade           =  handler chain with amplification at each stage
+  Phosphatase              =  message acknowledgment / signal termination
+  Transcription factor     =  downstream consumer that changes system state
+
+AMPLIFICATION (pub/sub with fan-out):
+  1 EGF molecule → 1 RTK → 1 RAS → 1 RAF → ~100 MEK molecules activated
+  → ~10,000 ERK molecules phosphorylated
+  → gene expression changes in nucleus
+  Fan-out ratio: ~10⁴–10⁶ at endpoint per single ligand binding event
+
+BUILT-IN TIMEOUT (GTPase timer):
+  RAS-GTP = active state  (message "in flight")
+  Intrinsic GTPase activity: hydrolysis RAS-GTP → RAS-GDP at ~0.01/min
+  GAPs (GTPase-activating proteins): accelerate hydrolysis 10⁵-fold
+  → message TTL enforced by molecular timer
+  Oncogenic RAS (G12V mutation): GTPase-dead → message never expires
+  → constitutive signaling → cancer
+
+FEEDBACK:
+  Negative: ERK phosphorylates SOS → reduces RAS activation (attenuation)
+  Positive: PI3K → PIP3 → Akt → mTOR → growth (sustained response)
+  Crosstalk: cAMP/PKA pathway ↔ MAPK pathway (context-dependent interaction)
+
+GPCR DESENSITIZATION (rate limiting / circuit breaker):
+  Sustained activation → GRK phosphorylates GPCR → β-arrestin binds
+  → receptor internalized (endocytosis) → signal attenuated
+  Analogous to: rate limiter / circuit breaker in distributed systems
+```
+
 ### RTK / RAS / MAPK Cascade
 
 ```

@@ -4,7 +4,36 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No CS bridge -- viral life cycle = pipeline architecture; vaccine platforms map to deployment strategies (live = full build, inactivated = snapshot, mRNA = JIT compilation, vector = container-based delivery) -->
+**Systems Bridge:** The viral replication cycle is a pipeline with discrete stages, each a potential drug target: attachment → entry → uncoating → replication → assembly → release. Antivirals block specific pipeline stages — entry inhibitors block the handshake; polymerase inhibitors (NRTIs, NNRTIs, NS5B inhibitors) block the core replication transform; protease inhibitors block the post-translation processing step; integrase inhibitors block the write to the host genome; neuraminidase inhibitors block the release/egress step. This staging also explains why drug resistance is stage-specific: a mutation in the RT active site confers NRTI resistance without affecting entry or integration.
+
+Vaccine platforms map directly to deployment strategies for code that needs to run in a new environment:
+
+```
+Platform          Analogy                         Mechanism
+──────────────────────────────────────────────────────────────────────────
+Live-attenuated   Full build, reduced privileges  Whole pathogen, weakened
+(MMR, varicella,  — runs the full program but     (live replication → broad
+oral polio)       throttled; can revert           cellular + humoral immunity)
+
+Inactivated       Snapshot / read-only image      Killed pathogen (no
+(flu shot, IPV,   — cannot replicate or evolve;   replication); less durable
+Hep A)            very stable                     immunity; often need boosters
+
+Subunit/protein   API surface only — just the     Antigen protein alone (no
+(Hep B, HPV,      interface that triggers the     genome, no replication);
+pertussis acell.) response, no internal state     highly specific, safe
+
+mRNA (COVID-19    JIT-compiled instruction set:   mRNA delivered → host cells
+Pfizer/Moderna)   ship the code, let the host     manufacture the antigen
+                  run it; transient, no           transiently → immune response
+                  persistence after execution
+
+Viral vector      Container-based delivery:       Adenovirus vector carries
+(COVID-19 J&J,    pack your payload in a          antigen gene; vector is
+Ebola)            standard container that the     the delivery mechanism, not
+                  host already knows how to       the antigen itself
+                  execute
+```
 
 ## Big Picture: Antiviral Target Map
 

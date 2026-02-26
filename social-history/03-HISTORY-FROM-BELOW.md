@@ -261,7 +261,16 @@ colonized. The British Marxist historians (Thompson, Hobsbawm, Hill) created the
 
 ---
 
-<!-- @editor[structure/P2]: No comparison tables — a table comparing Thompson, Hobsbawm, Hill, and Scott (method, period, key concept, exemplar work) would be high-value quick reference for the core figures -->
+## Core Figures at a Glance
+
+| Historian | Period Studied | Method | Key Concept | Exemplar Work |
+|-----------|---------------|--------|-------------|---------------|
+| **E.P. Thompson** | England 1780–1832 | Cultural-experiential; oral tradition; court/church records | Class as process, not structure; moral economy | *The Making of the English Working Class* (1963) |
+| **Eric Hobsbawm** | Global 1789–1991; pre-modern bandits | Comparative; Marxist political economy | Social banditry; the "short 20th century" | *Primitive Rebels* (1959); *Age of Extremes* (1994) |
+| **Christopher Hill** | England 1640–1660 | Cultural history of radical religion; pamphlet literature | Revolution from below; radical groups suppressed | *The World Turned Upside Down* (1972) |
+| **James Scott** | Southeast Asia 1970s–80s | Ethnographic fieldwork; comparative | Hidden vs. public transcript; everyday resistance | *Weapons of the Weak* (1985); *Domination and the Arts of Resistance* (1990) |
+| **Natalie Zemon Davis** | France 16th–17th C | Microhistory; legal records; cultural depth | Gender and popular culture; identity in early modernity | *The Return of Martin Guerre* (1983) |
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -275,7 +284,20 @@ colonized. The British Marxist historians (Thompson, Hobsbawm, Hill) created the
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Scott's hidden vs. public transcript maps to any organizational context where subordinates comply publicly but resist privately (the learner, as a VP of Engineering, will recognize this dynamic in corporate hierarchies immediately) -->
+## Engineering Bridge: Hidden Transcripts in Organizations
+
+Scott's hidden/public transcript framework describes a universal organizational dynamic that any leader at scale has encountered — often without a name for it:
+
+**Public transcript in engineering organizations.** In all-hands meetings, sprint reviews, and architecture reviews, teams present the public transcript: alignment with OKRs, confidence in the roadmap, on-track estimates. This is not lying — it is the performance of compliance that subordinates adopt in any hierarchical context. The transcript is real; it is also incomplete.
+
+**Hidden transcript: what engineers actually say.** In Slack channels without leadership, in 1:1s with trusted peers, in offsite conversations: the real assessment of the architecture's structural problems, the estimate that the roadmap is three months behind, the view that the reorg created more coordination overhead than it solved. The hidden transcript circulates in safe spaces; it rarely reaches the decision-makers who most need it.
+
+**Thompson's moral economy in tech.** When engineering teams push back against management mandates — resisting a forced migration, slowing down on a deadline they believe is unrealistic, adding technical debt items to every sprint — they are often enforcing a "moral economy": implicit norms about what constitutes fair engineering practice. The pushback looks like resistance; it often is the enforcement of professional standards that management's purely economic framing has violated.
+
+**When hidden transcripts erupt.** Scott: rebellion is the public assertion of the hidden transcript — when the risk-reward calculation shifts enough that speaking truth becomes possible. In organizations: the anonymous survey, the Glassdoor review, the senior engineer who finally says in a public forum what everyone has been saying in private. The eruption is legible if you understand the transcript was always there.
+
+**The engineering leadership implication.** The gap between public and hidden transcript is a measurement problem: your organization's stated health is the public transcript; its actual health is the hidden transcript. Creating conditions where the hidden transcript surfaces (psychological safety, skip-levels, anonymous feedback, blameless postmortems) is the organizational equivalent of Scott's fieldwork — getting access to the actual data rather than the performance of compliance.
+
 ## Common Confusion Points
 
 **"History from below" does not exclude class analysis.**

@@ -334,9 +334,134 @@ OAS PRICING:
 
 ---
 
-<!-- @editor[content/P2]: Inflation-linked bonds (TIPS) appear in landscape diagram ("Inflation-linked") but have no drill-down — real yield vs nominal yield, breakeven inflation rate missing -->
-<!-- @editor[content/P2]: Repo markets absent — repurchase agreements are fundamental to fixed-income funding, short selling, and the plumbing of bond markets -->
-<!-- @editor[bridge/P2]: No old-world bridge — e.g., DCF from corporate finance maps directly to bond pricing; bootstrap is iterative dependency resolution (familiar pattern from build systems or topological sort) -->
+---
+
+## Inflation-Linked Bonds (TIPS)
+
+```
+TIPS (Treasury Inflation-Protected Securities):
+  Principal adjusted by CPI; coupon paid on adjusted principal.
+  At maturity: max(adjusted principal, original principal) — floor at par.
+
+CASH FLOWS:
+  Adjusted principal: P_t = P_0 × CPI_t / CPI_0   (grows with inflation)
+  Coupon: c × P_t   (real coupon rate c, paid on inflation-adjusted principal)
+  Maturity: receive P_T = P_0 × CPI_T / CPI_0   (≥ P_0)
+
+REAL YIELD vs NOMINAL YIELD:
+  Nominal bond yield = real yield + expected inflation + inflation risk premium
+  y_nominal ≈ y_real + π^e   (Fisher equation; approximate)
+  TIPS yields are real yields: investor is compensated for actual, not expected, inflation
+
+  TIPS real yield:  currently ~2.0-2.5% (2024); negative real yields 2020-2021
+  Nominal 10yr:     ~4.0-4.5% (2024)
+  Breakeven inflation = y_nominal − y_real ≈ π^e (market-implied expected inflation)
+
+BREAKEVEN INFLATION RATE:
+  Breakeven = yield spread between nominal Treasury and TIPS of same maturity
+  ~2.0-2.5% in US (2024) — market prices in ~Fed target inflation
+  Breakeven > realized inflation: inflation risk premium embedded
+  Used by: Fed (to gauge credibility of 2% target), macro traders
+
+  TIPS vs nominal bond:
+  TIPS wins if: realized inflation > breakeven
+  Nominal wins if: realized inflation < breakeven
+  Investor preference: TIPS if uncertain about inflation (buys insurance)
+
+LIQUIDITY PREMIUM:
+  TIPS less liquid than nominal Treasuries → TIPS yield slightly overstates real yield
+  On-the-run TIPS vs off-the-run: spread typically 5-15bps
+  In crises (2008, March 2020): TIPS liquidity premium spiked dramatically
+```
+
+---
+
+## Repo Markets
+
+```
+REPURCHASE AGREEMENT (REPO):
+  Seller (borrower): sells bond for cash today; agrees to buy back at higher price tomorrow
+  Buyer (lender):    provides cash; receives bond as collateral; earns repo rate
+  Economically: secured loan at repo rate; bond = collateral
+
+  Repo rate ≈ risk-free rate − collateral convenience yield
+  General collateral (GC) repo ≈ Fed funds rate (any Treasury qualifies as collateral)
+  Special repo: specific bond in high demand → repo rate < GC rate
+    (borrower of cash pays less because they're lending highly sought collateral)
+
+MECHANICS:
+  Day 0:  Dealer sells $100M Treasuries to money market fund (MMF) for $100M cash
+          Repo rate = 5.30% overnight
+  Day 1:  Dealer repurchases Treasuries for $100M × (1 + 0.0530/365) ≈ $100.0145M
+  MMF earns: 5.30% secured by Treasury collateral (near-risk-free)
+  Dealer:  funded its Treasury position overnight at repo rate
+
+USE CASES:
+  Funding: dealers hold large bond inventories; fund them via overnight repo
+  Leverage: hedge funds borrow cash via repo to buy more bonds (leveraged bond positions)
+  Short selling: borrow specific bond via reverse repo → sell it short
+  Securities lending: asset managers lend bonds for fee income; repo market = plumbing
+  Monetary policy: Fed conducts open market operations via repo and reverse repo
+
+REPO MARKET ARCHITECTURE:
+  Bilateral repo: direct negotiation between two counterparties
+  Tri-party repo: custodian bank (BNY, JPMorgan) acts as intermediary
+                  Handles collateral management, margining, settlement
+                  Used by MMFs, pension funds — less operational risk
+  GCF repo: anonymous clearing through DTCC/FICC
+  DVP repo: delivery vs. payment settlement; highest quality
+
+REPO RISK AND CRISES:
+  Repo = money market → run risk when collateral quality falls suddenly
+  Lehman 2008: Lehman was heavily repo-funded; counterparty risk → run
+  "Repo run" = lenders refuse to roll overnight funding → forced asset sales
+  2008: MMFs were major repo lenders; Reserve Primary Fund "broke the buck"
+       → repo market seized; Fed intervened with TSLF, PDCF facilities
+  Haircut: collateral valued at discount (e.g., 2% for Treasuries, 5% for corporate bonds)
+  Haircut increases in crises → amplifies fire sales (Brunnermeier-Pedersen mechanism)
+  2019 repo spike: September repo rate spiked to 10%+ (reserve scarcity + tax payments)
+
+REPO AND YIELD CURVE:
+  Repo rate anchors the short end of the yield curve
+  Cheapest-to-deliver (CTD) in Treasury futures determined partly by repo specialness
+  Negative repo basis: OTR Treasury "special" → yield below fair value (supply/demand effect)
+```
+
+---
+
+## Engineering Bridge
+
+```
+BOND PRICING = DCF = NET PRESENT VALUE (familiar from corporate finance):
+  Bond price P = Σ CF_t / (1+r)^t   (same formula as NPV of project cash flows)
+  The difference: bonds have known, contractual cash flows; projects have estimated ones.
+  YTM = IRR of bond cash flows at current price. IRR in project finance = YTM in bonds.
+
+YIELD CURVE BOOTSTRAP = ITERATIVE DEPENDENCY RESOLUTION:
+  Bootstrap extracts spot rates from coupon bond prices by forward substitution:
+  r(0.5) known → r(1.0) known → solve for r(1.5) using previous two → ...
+  Exact analogy to topological sort + incremental computation:
+    Each maturity depends only on shorter maturities (already solved).
+    No circularity. Solve in maturity order.
+    Residual = "leftover" after discounting known-maturity cash flows = new spot discount.
+  In a build system: bootstrapped yields = compiled artifacts; coupon bonds = source files
+    with dependencies on shorter-maturity zero-coupon bonds.
+
+DURATION = FIRST DERIVATIVE OF A FUNCTION (sensitivity analysis):
+  ΔP ≈ −D_mod × P × Δy   (linear approximation)
+  This is exactly the delta of a derivative in options theory, or the gradient in ML.
+  Convexity = second derivative (Γ for options, curvature in optimization).
+  Duration matching = zeroing the first-order sensitivity; convexity matching = zeroing second.
+
+TERM STRUCTURE MODELS = STOCHASTIC DIFFERENTIAL EQUATIONS:
+  Vasicek dr = κ(θ−r)dt + σdW   is an Ornstein-Uhlenbeck process
+  Same SDE as mean-reverting systems in control theory and physics.
+  CIR adds √r diffusion to keep r ≥ 0; same as Cox process / intensity models.
+  Affine models (Vasicek, CIR) → bond price = exp(−A(T−t) − B(T−t)r(t))
+  = Laplace transform of integrated r(t) under risk-neutral measure.
+```
+
+---
 
 ## Decision Cheat Sheet
 

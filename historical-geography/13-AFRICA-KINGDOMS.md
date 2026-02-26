@@ -3,42 +3,52 @@
 ## The Big Picture
 
 ```
-AFRICA — MAJOR MEDIEVAL KINGDOMS c. 700–1600 CE:
+AFRICA — TRADE AXES AND KINGDOMS c. 700–1600 CE
+=================================================
 
-                   MEDITERRANEAN SEA
-              +─────────────────────+
-              | NORTH AFRICA        |
-              | (Maghreb: Berber    |
-              |  dynasties,        |
-              |  Almoravids,       |
-              |  Almohads,         |
-              |  Hafsids)          |
-              +──────┬──────────────+
-                     │ TRANS-SAHARAN TRADE
-                     │ ROUTES (gold, salt,
-                     │ slaves, ivory)
-              ╔══════╧═══════════════╗
-              ║ WEST AFRICAN SAHEL  ║
-              ║ SAVANNA KINGDOMS:   ║
-              ║  Ghana (~700–1240)  ║
-              ║  Mali (1235–1400s)  ║
-              ║  Songhai (1375–1591)║
-              ║  Kanem-Bornu       ║
-              ║  Hausa city-states  ║
-              ╚══════════╤══════════╝
-                         │
-              ╔══════════╧════════════╗
-              ║ CENTRAL/EAST AFRICA  ║
-              ║  Ethiopia (Solomonid)║
-              ║  Swahili Coast       ║
-              ║  Great Zimbabwe      ║
-              ║  Kingdom of Kongo    ║
-              ╚══════════════════════╝
-                         │
-              [Indian Ocean trade]
-              to Arabia, India, China
+  MEDITERRANEAN / EUROPE / MIDDLE EAST
+            ↑ silver, textiles, horses
+            │
+            │  TRANS-SAHARAN AXIS (N–S)
+            │  Gold: Bambuk/Buré fields → Sijilmasa → N.Africa
+            │  Salt: Taghaza mines → south (vital nutrient)
+            │  Slaves, ivory, kola nuts: south → north
+            ↓ salt, copper, horses, Islamic manuscripts
+  +---------┴──────────────────────────────────────────+
+  |         NORTH AFRICA / MAGHREB                     |
+  |  (Berber intermediaries; Almoravids; Almohads)     |
+  +---------┬──────────────────────────────────────────+
+            │ caravans (3–4 weeks across Sahara)
+  ╔═════════╧════════════════════════════════╗
+  ║     WEST AFRICAN SAHEL/SAVANNA           ║
+  ║  Ghana (~700–1240)  [gold entrepôt]      ║
+  ║  Mali  (1235–1400s) [Mansa Musa; Timbuktu]║
+  ║  Songhai(1375–1591) [largest W.Afr. empire]║
+  ║  Kanem-Bornu · Hausa city-states          ║
+  ╚═════════╤════════════════════════════════╝
+            │ river systems (Niger, Senegal)
+            │
+  ╔═════════╧════════════════════════════════╗
+  ║    CENTRAL / EAST AFRICA                 ║
+  ║  Ethiopia (Solomonid) ←── Red Sea trade  ║
+  ║  Great Zimbabwe  [gold production hub]   ║
+  ║  Kingdom of Kongo [Atlantic/forest zone] ║
+  ║  Swahili Coast ───────────────────────┐  ║
+  ╚══════════════════════════════════════╪══╝
+                                         │
+                    INDIAN OCEAN AXIS (E–W, monsoon-driven)
+                    Gold, ivory, enslaved → Arabia, India, China
+                    Porcelain, textiles, spices ← east
+                         ↓
+                    ARABIAN SEA / INDIA / CHINA
+
+TWO STRUCTURAL AXES:
+  N–S Trans-Saharan: Gold ↔ Salt exchange (complementary scarcities)
+    Enables: Ghana/Mali/Songhai wealth; Islam as commercial culture
+  E–W Indian Ocean:  Monsoon calendar (June SW, December NE)
+    Enables: Swahili city-states (Kilwa, Malindi, Mombasa) as
+    middlemen between African interior gold and Asian markets
 ```
-<!-- @editor[diagram/P2]: Diagram lists regions but doesn't show the two major trade flow axes (trans-Saharan gold/salt N-S and Indian Ocean monsoon E-W) as connecting arrows — rework to show how trade links the kingdoms -->
 
 ---
 

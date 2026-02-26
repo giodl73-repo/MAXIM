@@ -25,7 +25,48 @@ Soil is the living foundation of agriculture — not just dirt but a complex sys
 ```
 
 ---
-<!-- @editor[bridge/P2]: No old-world bridge — CEC and nutrient cycling are buffered reservoir systems (capacitor analogy for the MIT/EE reader); soil pH controlling availability parallels a state variable governing system behavior. Connect to systems thinking the learner already owns. -->
+## Engineering Bridges
+
+```
+SOIL CONCEPT                  SYSTEMS / ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+CEC (Cation Exchange Capacity) Buffered charge reservoir (capacitor)
+  Clay and humus have negative  → surface charge acts like a capacitor plate;
+  surface charge → hold cations   holds ions against leaching by electrostatic
+  CEC = total buffering capacity → capacitance (C = Q/V)
+  High CEC (heavy clay, SOM-rich)→ large capacitor; nutrients resist leaching
+  Low CEC (sandy)               → small capacitor; nutrients flush immediately
+  Nutrient leaching             → capacitor discharge; rate governed by flux
+  Fertilizer addition           → charging the capacitor
+
+Soil pH as state variable       System state governing subsystem behavior
+  pH controls: nutrient availability, microbial activity, mineral solubility
+  Optimal pH 6.0–7.0 (most crops) → operating point of the system
+  pH < 5.5: Al³⁺ and Mn²⁺ become soluble → toxic to roots (fail state)
+  pH > 7.5: P, Fe, Zn, Mn become insoluble → deficiency (different fail state)
+  Liming (CaCO₃): adjusts pH toward target → same as setpoint correction in PID
+  pH as state variable: once set, governs which processes are possible
+
+Soil nutrient cycling           Coupled ODE system with multiple compartments
+  N cycle: NH₄⁺ ↔ NO₃⁻ ↔ N₂    → nitrification rate, denitrification rate,
+    plant uptake, leaching         mineralization rate → k_ij in compartment model
+  P cycle: mineral P → solution P → plant uptake → organic P → mineral
+    → phosphorus is tightly cycled (no gas phase); behavior like closed loop
+
+Soil water retention curve      Nonlinear transfer function
+  θ(ψ): volumetric water content → pressure head (matric potential)
+  High ψ (moist): small ψ change → large θ change (high storage capacity)
+  Low ψ (dry): large ψ change → small θ change (less responsive)
+  "Field capacity" and "wilting  → threshold operating points separating
+    point"                          favorable, stressed, and failed regimes
+
+Soil organic matter (SOM)       Integrator with drift
+  dSOM/dt = C_input - k·SOM     → first-order model; steady state = C_in/k
+  Tillage increases k (oxidation)→ parameter shift; new (lower) equilibrium
+  Cover crops / no-till          → increase C_in; shift equilibrium upward
+  Multi-century timescale        → very slow integrator; actions today visible
+                                    in soil state decades later (long delay)
+```
 
 ## Soil Texture — Physical Framework
 

@@ -333,7 +333,25 @@ ACEi/ARBs: AVOID in bilateral renal artery stenosis (lose efferent tone → GFR 
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- nephron = filter pipeline, countercurrent multiplier = heat exchanger principle, GFR autoregulation = pressure regulator with two feedback loops, clearance = throughput measurement, RAAS = cascading control system -->
+## Engineering Bridges
+
+**Nephron as filter pipeline with active reclamation**
+The nephron is a 50-mm tube that filters aggressively (180 L/day of plasma ultrafiltrate) then reclaims 99.2% of it through staged active transport. The architecture is: bulk unselective filtration at the glomerulus → isosmotic bulk reclamation in the PCT (65%) → gradient-based concentration in the loop → fine-tuned hormonal adjustment in the DCT/CD. This is cheap to filter and expensive to reclaim: the glomerular filtration barrier is simple pressure + size/charge selection; reclamation requires Na⁺/K⁺-ATPase energy at every nephron segment. Total renal ATP expenditure ≈ 10% of resting metabolic rate.
+
+**Countercurrent multiplier as gradient amplifier**
+The loop of Henle exploits the hairpin geometry to amplify a small single-effect (NaCl pumped out of thick ascending limb, impermeable to water) into a large osmotic gradient (300 → 1,200 mOsm/kg from cortex to papilla). The key insight: each turn of the hairpin adds only a small increment (the "single effect"), but because the two limbs run counter to each other, the increments multiply along the length. The vasa recta run the same countercurrent geometry to exchange solutes and preserve the gradient rather than washing it out (as a straight capillary bed would). This principle is identical to heat exchanger design: countercurrent flow maximizes the gradient between the two streams along the entire length.
+
+**GFR autoregulation as dual-feedback pressure regulator**
+GFR is maintained between MAP 60–180 mmHg by two independent feedback loops:
+1. **Myogenic response**: afferent arteriole stretch → smooth muscle contraction (fast, mechanical). Analogous to a pressure-relief valve that closes under excess inlet pressure.
+2. **Tubuloglomerular feedback (TGF)**: macula densa cells in the DCT sense NaCl delivery → signal back to afferent arteriole. If GFR is too high, too much NaCl arrives at macula densa → vasoconstriction → ↓ GFR. Two independent loops with different time constants and mechanisms: fast myogenic (milliseconds) + slower TGF (seconds). This is redundant control with orthogonal sensing — more robust than any single feedback path.
+
+**Clearance as throughput measurement**
+Clearance = (U_x × V̇) / P_x is the volume of plasma fully cleared of substance X per unit time. This is throughput measurement with a fixed-rate source: if production rate is constant (creatinine ~constant from muscle) and steady state holds, then clearance equals production rate divided by plasma concentration. Creatinine clearance ≈ GFR because creatinine is freely filtered and minimally secreted. The creatinine-GFR relationship is hyperbolic: when GFR halves, creatinine doubles (and keeps rising until production = excretion again). This non-linearity means early CKD is invisible in creatinine; large GFR losses appear as small creatinine changes at the high end.
+
+**RAAS as cascading amplifier with negative feedback**
+Renin (protease) cleaves angiotensinogen → Ang I → ACE (in lung) → Ang II. Each step is enzymatic amplification: a small number of renin molecules generates much more Ang I, and ACE converts efficiently. Ang II acts on multiple effectors in parallel: vasoconstriction (fast, direct), aldosterone release (medium, renal Na⁺ retention), ADH release (medium, water retention), proximal tubule Na⁺ reabsorption (direct). Negative feedback closes via BP → less renin. ACE inhibitors and ARBs interrupt the cascade at different points: ACEi blocks conversion (also prevents bradykinin degradation → cough); ARBs block the effector receptor. Both reduce downstream output regardless of upstream activity.
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

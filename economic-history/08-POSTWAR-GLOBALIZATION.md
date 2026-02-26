@@ -2,7 +2,56 @@
 
 ## The Big Picture
 
-<!-- @editor[diagram/P1]: No landscape diagram — guide opens with a data table and timeline but no ASCII diagram showing how the Golden Age, oil shocks, developmental states, and deindustrialization structurally relate -->
+```
+POSTWAR ECONOMIC REGIMES — STRUCTURAL LANDSCAPE
+================================================
+
+PHASE 1: GOLDEN AGE (1945–1973)
+  ┌────────────────────────────────────────────────────────────┐
+  │ FAVORABLE CONDITIONS (all present simultaneously):         │
+  │  Cheap oil ($2–3/barrel) · Reconstruction demand ·        │
+  │  US hegemony + dollar standard · Labor-capital bargain ·  │
+  │  Keynesian demand management · Technology catch-up room   │
+  └────────────────────────────────────────────────────────────┘
+                              │
+                              │ All these conditions erode
+                              ▼
+PHASE 2: SHOCK AND ADJUSTMENT (1973–1982)
+  ┌────────────────────────────────────────────────────────────┐
+  │ 1973 OPEC oil embargo → stagflation (inflation + stagnation│
+  │ → Keynesian demand management fails: can't fight both      │
+  │ 1979 second oil shock + Iranian Revolution                  │
+  │ → Volcker shock: interest rates to 20% to break inflation  │
+  │ → Deepest US recession since 1930s (1981–82)               │
+  └────────────────────────────────────────────────────────────┘
+                              │
+                              │ New policy consensus emerges
+                              ▼
+PHASE 3: MONETARIST TURN + DEVELOPMENTAL STATES (1980s)
+  ┌───────────────────────────┐  ┌────────────────────────────┐
+  │ WEST:                     │  │ EAST ASIA:                 │
+  │ Reagan-Thatcher monetarism│  │ Japan → Korea → Taiwan     │
+  │ Deregulation · Privatiz.  │  │ → Singapore → Malaysia    │
+  │ Union weakness · Shareholder│ │ → China                   │
+  │ value · Deindustrialization│  │ State-directed industrial  │
+  │ Financial sector grows    │  │ policy; export-led;        │
+  └───────────────────────────┘  │ developmental state model  │
+                                 └────────────────────────────┘
+                              │
+                              │ Integration accelerates
+                              ▼
+PHASE 4: HYPERGLOBALIZATION (1990–2008)
+  China WTO entry (2001) · NAFTA · EU single market
+  Global supply chains · China shock for manufacturing workers
+  Finance dominates Western corporate profit
+
+HOW THE PIECES CONNECT:
+  Golden Age exhaustion → oil shocks → stagflation → monetarist shift
+  Monetarist shift → deindustrialization in West
+  Deindustrialization in West → offshoring → East Asian industrialization
+  East Asian growth → integration into global supply chains
+  → Hyperglobalization → 2008 crisis → deglobalization pressure
+```
 
 The period 1945-1973 was the most rapid sustained economic growth in history — the "Golden Age of Capitalism." It was followed by the oil shocks of 1973 and 1979, which broke the Keynesian consensus and triggered the monetarist turn. The East Asian developmental states demonstrated that rapid industrialization was possible outside the Western path, using state-directed industrial policy in ways mainstream economists said shouldn't work — but did.
 
@@ -407,7 +456,54 @@ VOLCKER SHOCK (1979-1981):
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge for deindustrialization — any senior engineer who lived through offshoring of software development (India, Eastern Europe) recognizes the same economic logic; the parallel between manufacturing offshoring and services offshoring would land well for this learner -->
+## Bridge — Manufacturing Offshoring and Services Offshoring
+
+The same economic forces that deindustrialized Western manufacturing (1970s–2000s) later drove offshoring of software development and services (1990s–2010s). The underlying logic is identical.
+
+```
+COMPARATIVE DYNAMICS: MANUFACTURING vs SERVICES OFFSHORING
+============================================================
+
+MANUFACTURING OFFSHORING (1960s–2000s):
+  Enabling conditions:
+    Wage differential: US manufacturing wages ~10–20x developing world
+    Transport cost: containerization (1960s) → shipping cost collapse
+    Communication: manageable for physical goods logistics
+    Quality: sufficient for most consumer goods
+  Trajectory: textiles → electronics assembly → auto components
+              → eventually most manufacturing categories
+  US manufacturing employment: 28% (1960) → 9% (2016)
+  Analogous to: factory moved from Ohio to Guangdong
+
+SERVICES/SOFTWARE OFFSHORING (1990s–2010s):
+  Enabling conditions:
+    Wage differential: US software engineer ~10–15x India (early 2000s)
+    Transport cost: essentially zero (internet = free data transfer)
+    Communication: improved dramatically (email, VoIP, later Slack/Zoom)
+    Quality: initially lower; improved rapidly; now comparable for many tasks
+  Trajectory: call centers → data entry → software testing → development
+              → architecture → management → fully distributed teams
+  Analogous to: the same comparative advantage logic, applied to information work
+
+WHAT CHANGED AND WHAT DIDN'T:
+  Same: wage differential as driver; quality catching up over time;
+        domestic job loss concentrated in specific skill categories;
+        overall productivity/cost gains for firms
+  Different: services offshoring hit white-collar workers, not just
+             blue-collar; the political valence shifted accordingly
+  Different: services offshoring is partially reversible (nearshoring trend
+             post-COVID); manufacturing relocation is capital-intensive
+             and stickier once supply chains are established
+
+BAUMOL'S COST DISEASE IMPLICATION:
+  Manufacturing productivity grows (automation); services productivity
+  grows less (some tasks can't automate easily).
+  Software is unusual: productivity gains are large, but so is demand;
+  employment grew even as productivity grew.
+  The offshoring of software development is partially offset by the
+  expansion of software itself into every sector.
+```
+
 ## Deindustrialization and Financialization
 
 ```
@@ -460,7 +556,6 @@ FINANCIALIZATION (1980s onward):
 
 ---
 
-<!-- @editor[structure/P2]: Sections don't anchor back to a central framework — the guide covers 6 major topics (Golden Age, Japan, Tigers, ISI/EOI, oil shocks, deindustrialization) without a unifying landscape diagram to show their structural relationships; the concluding section should tie back to how each factor contributed to the regime change -->
 ## Why Did the Golden Age End?
 
 ```
@@ -503,6 +598,63 @@ GOLDEN AGE EXHAUSTION (1973 and after)
    ICT investment was not yet showing up in aggregate productivity
    (Shows up post-1995, somewhat; but never as large as 1945-1973
    growth rates)
+```
+
+---
+
+## Synthesis — How Each Factor Contributed to the Regime Change
+
+The postwar Golden Age was not a stable equilibrium — it was a specific configuration of conditions that all held simultaneously. When they eroded, they did so through mutually reinforcing mechanisms.
+
+```
+GOLDEN AGE CONDITIONS AND HOW EACH ERODED
+===========================================
+
+CONDITION                    → HOW IT ERODED
+─────────────────────────────────────────────────────────────
+Cheap oil                    → OPEC embargo 1973; Iranian Rev. 1979
+                               All postwar capital stock priced at $2/bbl
+                               → Obsolescence, restructuring cost
+
+Reconstruction demand         → Catch-up exhausted by ~1970
+(Europe/Japan lagging US)      Europe/Japan at US frontier by 1970
+                               No more cheap productivity gains
+
+US hegemony + dollar standard → Triffin dilemma: US must run deficits to
+                               supply reserve currency → dollar glut
+                               → Nixon closes gold window 1971
+                               → Bretton Woods ends; floating rates
+
+Labor-capital bargain         → Labor power peaked 1970s; wage-push
+(wage moderation in           inflation + supply shock = stagflation
+exchange for full employment) → Employers break bargain: offshore,
+                               automate, bust unions
+
+Keynesian demand management   → Works for demand shocks only
+                               Supply-side oil shock not addressable
+                               by demand stimulus
+                               → Stagflation reveals limits
+
+Technology catch-up room      → Frontier reached; must now innovate
+                               Original innovation slower than
+                               adoption of known techniques
+
+EAST ASIAN DEVELOPMENTAL STATES: The Alternative Path
+Japan, Korea, Taiwan, Singapore showed that rapid industrialization
+was achievable outside the Western pattern by using:
+  - State credit allocation to prioritize strategic industries
+  - Export discipline (subsidies conditional on export performance)
+  - Controlled capital account (preventing premature financialization)
+  - Technology transfer requirements on foreign investment
+These conditions worked in specific political contexts (authoritarian
+capable states with disciplined bureaucracies) and the window closed
+as WTO rules constrained industrial policy post-1994.
+
+THE REGIME CHANGE IN ONE SENTENCE:
+The Golden Age required cheap energy + reconstruction demand + stable
+money + labor moderation — each of these eroded independently but
+their erosion was mutually reinforcing, producing a structural
+transition that no demand-management tool could prevent.
 ```
 
 ---

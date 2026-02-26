@@ -136,9 +136,13 @@ SUBSIDIES AND COUNTERVAILING MEASURES (SCM Agreement):
 
 DISPUTE SETTLEMENT UNDERSTANDING (DSU):
   Binding; two-stage: panels + Appellate Body
-  Appellate Body: 7 members; 2024: only 1 member (US blocking appointments since 2017)
-  <!-- @editor[content/P2]: WTO Appellate Body status stamped 2024 — verify whether appointments have been made or MPIA has become more established by 2026 -->
-    → Dispute settlement in crisis; Multi-Party Interim Appeal Arrangement (MPIA) used by others
+  Appellate Body (status as of Feb 2026):
+    US has blocked all new appointments since 2017; AB remains below 3-member quorum
+    New US administration (2025) shows no intent to restore AB; crisis persists
+    MPIA (Multi-Party Interim Appeal Arrangement): ~50 WTO members using as workaround;
+      but US, China, and India are not MPIA participants → major disputes still stranded
+    Panels continue to function; appeals go "into the void" when appealed to non-functional AB
+    → Practical effect: any party willing to appeal can block final binding judgment indefinitely
   Remedies: prospective only (no back-payment); suspension of concessions if non-compliance
 
 FTAs (Free Trade Agreements):

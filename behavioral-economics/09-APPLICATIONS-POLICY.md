@@ -33,7 +33,77 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-<!-- @editor[bridge/P2]: No bridge from classical welfare economics (revealed preference = true preference, Pareto criterion) to behavioral welfare economics (systematic preference distortions require paternalistic correction) — the learner knows standard economics and needs the conceptual pivot before the case studies -->
+## Classical to Behavioral Welfare Economics
+
+Standard welfare economics rests on two foundations that behavioral economics directly challenges:
+
+```
+CLASSICAL WELFARE ECONOMICS (THE BASELINE):
+
+  Revealed Preference Principle (Samuelson 1938):
+    Observed choices reveal true preferences.
+    If agent chooses A over B, then A ≽ B.
+    → Welfare = choice outcomes. Paternalism is unjustified (agent knows best).
+
+  Pareto Criterion:
+    Policy X is an improvement iff it makes at least one person better off
+    and no one worse off.
+    "Better off" = revealed-preferred outcome achieved.
+    → No interpersonal utility comparisons needed. Efficiency without paternalism.
+
+  IMPLICATION: In classical welfare economics, a government has no role in
+  correcting individual choices (only in correcting market failures: externalities,
+  public goods, information asymmetry). The agent's revealed choice IS their welfare.
+
+BEHAVIORAL WELFARE ECONOMICS — THE PIVOT:
+
+  Problem: if preferences are systematically distorted, revealed choice ≠ welfare.
+    Present bias: I choose to smoke today, but if asked to commit to quit next month,
+    I would. My immediate choice and my planned choice are inconsistent.
+    My "true" preference is ambiguous — which one should welfare follow?
+
+    Endowment effect: I'd sell my coffee mug for $1 if I didn't have it, but
+    demand $4 to give it up. My WTP ≠ WTA by 4×. Which reflects my true value?
+
+    Default effects: I'm in a retirement plan at 3% because it was the default.
+    I've never considered whether I want 3% or 10%. Default ≠ considered choice.
+
+  BEHAVIORAL WELFARE APPROACHES:
+
+  1. DUAL PREFERENCE APPROACH (Thaler 1980, O'Donoghue & Rabin 1999):
+     Distinguish "wanters" (System 1 immediate preferences) from
+     "planners" (System 2 considered preferences).
+     Welfare = planner's preferences. Policy should help planner overcome wanter.
+     → Justifies commitment devices, nudges that support considered choice.
+
+  2. WELFARE AS DECISION UTILITY vs EXPERIENCED UTILITY (Kahneman):
+     Decision utility: utility revealed by choice (what we pick)
+     Experienced utility: moment-by-moment hedonic quality (how it actually feels)
+     These diverge (focusing illusion, adaptation, affective forecasting errors)
+     → Welfare might be better measured by experienced utility than decision utility.
+
+  3. PREFERENCE PURIFICATION / REVEALED PREFERENCE REPAIR:
+     Estimate what agent would choose if bias were removed.
+     If defaults drive choice → purify by assuming agent preferred what
+     they'd choose with active deliberation.
+     Technically difficult; requires assumptions about counterfactual preferences.
+
+  4. LIBERTARIAN PATERNALISM (Thaler-Sunstein):
+     Preserve choice (respect revealed preference for those who override defaults)
+     but set defaults to maximize welfare of those who don't override.
+     Sidesteps the question of "what is true preference" by preserving autonomy.
+     If you really want something different: opt out. Welfare improved for the many;
+     autonomy preserved for the minority with different preferences.
+
+  POLICY CRITERION SHIFT:
+  Classical: Pareto improvement (no one worse off by own preferences)
+  Behavioral: "asymmetric paternalism" (Camerer et al. 2003) —
+    Policies that benefit people with bounded rationality while imposing
+    minimal cost on fully rational agents.
+    Example: auto-enrollment default costs nothing to rational agents (they opt out
+    to their preferred level); helps present-biased agents who would never enroll.
+```
+
 ## Tax Compliance
 
 ```

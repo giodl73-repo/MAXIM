@@ -25,7 +25,73 @@ The nervous system is the most complex structure built by developmental biology.
 
 ---
 
-<!-- @editor[bridge/P2]: No CS/engineering bridge. Neural development has the richest parallels: inside-out cortical layering is a "stack push" model; axon guidance is "routing with attract/repel metrics" (analogous to BGP path selection); synaptic pruning is "garbage collection of underused connections" or "competitive resource allocation." Retinotopic mapping is a spatial hash function. A bridge paragraph would connect powerfully here. -->
+## Engineering Bridge: Neural Development as Distributed Computing Infrastructure
+
+Neural development builds a massively parallel distributed computing network. Every major phase maps onto a systems or networking concept.
+
+```
+  NEURAL DEVELOPMENT            CS / NETWORKING PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Inside-out cortical layering  Stack push model:
+  (deep layers born first, each  Progenitors in the VZ push neurons
+  later cohort migrates past     outward. Later-born neurons migrate
+  earlier)                       past earlier ones using radial glia as
+                                guide rails. The cortical layers are a
+                                LIFO stack: layer VI at the bottom (first
+                                pushed), layer II/III at top (last pushed).
+                                Stack grows from bottom to surface.
+
+  Axon guidance (Netrin,        Routing with attract/repel metrics:
+  Slit, Semaphorin, Ephrin)     Growth cone integrates attractive (Netrin,
+                                BDNF) and repulsive (Slit/Robo, Semaphorin)
+                                cues from the environment. Like BGP path
+                                selection: prefer paths with lower repulsion,
+                                higher attraction; each guidance molecule
+                                is a route preference metric. The final
+                                axon trajectory is the least-cost path
+                                through a gradient vector field.
+
+  Retinotopic mapping           Spatial hash function:
+  (nasal-temporal → posterior-  Retinal position → tectal/cortical position.
+  anterior in tectum)           EphA/EphrinA gradient: graded complementary
+                                gradients across both structures → topographic
+                                match. High EphA in temporal retina → repelled
+                                by high EphrinA in posterior tectum → maps
+                                to anterior tectum. Continuous bijective
+                                mapping preserving spatial topology.
+
+  Synaptic pruning              Garbage collection of underused connections:
+  (complement, BDNF,            Unused synapses are tagged by complement
+  activity-dependent)           proteins (C1q, C3) → phagocytosed by
+                                microglia (mark → sweep). Active synapses
+                                protected by BDNF signaling. Final
+                                connectivity = activity-selected subgraph
+                                of the initial overconnected network.
+                                Reference counting: connections not used
+                                → count drops to zero → GC.
+
+  Cortical oscillations and     Distributed synchronization protocol:
+  critical periods              During critical periods, the cortex is in
+                                a state of high plasticity — Hebbian
+                                learning ("fire together, wire together").
+                                After critical period: plasticity locked.
+                                Analogous to distributed consensus that
+                                is easy during setup (plasticity) but
+                                requires expensive override to change
+                                once committed (adult plasticity).
+
+  Neural tube closure           Mechanical topology change:
+  (flat plate → sealed tube)    The neural plate folds (convergent
+                                extension narrows it) and the edges
+                                meet and fuse. The Rho/ROCK/myosin
+                                contractility machine is pulling the
+                                edges together — cytoskeletal actomyosin
+                                as a mechanical zipper.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## Neural Induction and Neural Plate Formation
 
 ```
@@ -317,7 +383,60 @@ NEUROCRISTOPATHIES
 
 ---
 
-<!-- @editor[content/P2]: Myelination absent — a major phase of neural development (oligodendrocyte wrapping, saltatory conduction, developmental timeline extending into 3rd decade) with clinical relevance (MS, leukodystrophies) -->
+## Myelination
+
+```
+MYELINATION: OPTIMIZING CONDUCTION VELOCITY
+──────────────────────────────────────────────
+Myelination dramatically increases conduction velocity and reduces ATP cost —
+the canonical engineering optimization of the nervous system.
+
+MECHANISM
+  Oligodendrocytes (CNS) and Schwann cells (PNS) wrap axons in lipid-rich myelin.
+  Each oligodendrocyte: myelinates up to 50 axon segments simultaneously.
+  Each Schwann cell: myelinates one segment.
+
+  Key molecular interactions:
+    Axonal NEUREGULIN-1 → ErbB3/ErbB4 on Schwann cell → triggers myelination
+    MBP (myelin basic protein), PLP, MAG, MOG: major structural myelin proteins
+    Nodes of Ranvier: unmyelinated gaps (~1 μm) every 1-2 mm
+    Na+ channels (Nav1.6) concentrated at nodes → saltatory conduction
+
+PHYSICS OF SALTATORY CONDUCTION
+  Myelinated: action potential "jumps" from node to node.
+  Unmyelinated: AP propagates as continuous wave (entire membrane).
+
+  Conduction velocity:
+    Unmyelinated: v ∝ sqrt(d) — 0.5-2 m/s
+    Myelinated: v ∝ d — 5-100 m/s
+    Myelin increases resistance (r_m↑) and decreases capacitance (c_m↓)
+    → Increases space constant λ = sqrt(r_m/r_a) → AP spreads farther per node
+
+DEVELOPMENTAL TIMELINE
+  CNS myelination begins: ~Week 14 in utero (brainstem first)
+  Corpus callosum: not fully myelinated until age ~20-25
+  Prefrontal cortex: last to myelinate (explains adolescent executive function)
+  "The brain is not fully myelinated until the mid-20s."
+
+CLINICAL RELEVANCE
+  Multiple sclerosis (MS): autoimmune demyelination of CNS axons.
+    T-cells attack myelin antigens (MBP, MOG, PLP) → demyelinating plaques.
+    Slowed conduction → sensory loss, weakness, optic neuritis, Uhthoff's sign.
+    Remyelination can partially restore function; axonal loss → permanent deficit.
+
+  Leukodystrophies: genetic defects in myelin synthesis.
+    Krabbe disease: GALC deficiency → psychosine accumulation → oligodendrocyte death
+    Metachromatic leukodystrophy: ARSA deficiency → sulfatide accumulation
+    Pelizaeus-Merzbacher: PLP1 mutation (X-linked) → nystagmus, ataxia in infancy
+    PMD treatment: antisense oligonucleotides targeting PLP1 duplication (trials)
+
+  Guillain-Barré syndrome: peripheral nerve demyelination (post-infectious autoimmune)
+    Ascending paralysis; CSF: albumin-cytologic dissociation.
+    IVIG + plasmapheresis treatment.
+```
+
+---
+
 ## Decision Cheat Sheet
 
 | Event | Timing | Key Signal | Defect If Fails |

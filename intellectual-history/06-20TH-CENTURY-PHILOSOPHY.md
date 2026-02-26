@@ -74,7 +74,19 @@ methods.
   Then collapsed under internal and external pressure.
 ```
 
-<!-- @editor[bridge/P1]: Missing bridge from Vienna Circle's verification principle to type systems and formal verification — the learner has MIT TCS background and would immediately see the parallel between "meaningful iff verifiable" and static type checking / decidability. Any developer coming from typed languages needs this anchor -->
+## Engineering Bridge: Verification, Type Systems, and Decidability
+
+The Vienna Circle's verification principle — "a statement is meaningful iff it is empirically verifiable or analytically true" — is the philosophical precursor to several foundational ideas in programming languages and formal methods. The MIT TCS background makes this immediate:
+
+**Verification principle → static type checking.** A well-typed expression is one whose meaning can be verified at compile time without running it. The type checker is a mechanical verifier of a restricted class of semantic claims. Carnap's dream: turn all philosophy into the "logic of science." Type theory's achievement: turn a restricted class of semantic claims into decidable verification. The Curry-Howard correspondence makes this precise — propositions are types, proofs are programs, verification is type-checking.
+
+**Meaningfulness → decidability.** "Meaningful iff verifiable" has an exact TCS counterpart: a property is decidable iff there is an algorithm that verifies it for all inputs. Undecidable properties (Rice's theorem: any non-trivial property of program behavior is undecidable) are, in a precise sense, "not fully verifiable" — you can check finite approximations but not the general claim. The Vienna Circle's problem (self-refutation of the verification principle) has a TCS mirror: the halting problem shows that the verifier cannot verify itself.
+
+**Protocol sentences → formal specifications.** The logical positivists wanted "protocol sentences" — theory-neutral observation reports that serve as the foundation of knowledge. The engineering analogue is formal specifications (TLA+, Alloy, Z) and property-based tests: machine-checkable descriptions of what a system must do, serving as the ground truth against which implementations are verified.
+
+**The collapse of logical positivism → type theory's response.** The problems that destroyed logical positivism (Quine's holism, theory-ladenness of observation, Duhem-Quine underdetermination) motivated the development of dependent type theory and proof assistants. Coq, Lean, Agda: if you cannot have theory-neutral observation, you can at least have machine-checked proof. The philosophical defeat generated the constructive mathematics response.
+
+**Quine's holism → unit vs. integration testing.** "Statements don't face experience one at a time but as a corporate body" — no individual test isolates a single claim. Unit tests test individual components in isolation (requiring mocks, stubs: the epistemically problematic move of assuming the environment is neutral). Integration tests test the corporate body but lose the ability to isolate failures. This is Quine's holism as testing methodology.
 
 ### Problems with Logical Positivism
 
@@ -308,11 +320,41 @@ methods.
   PROBLEM: Multiple realizability (Putnam). Robots might have pain.
   Pain cannot be identical to C-fiber firing if something else can also realize pain.
 
-<!-- @editor[bridge/P2]: Functionalism (mental states defined by input-output relations, substrate-independent) is the philosophical foundation for interface-based programming and dependency injection — this learner built systems on these principles. Bridge missing -->
   FUNCTIONALISM (Putnam 1960s):
   Mental states are defined by functional roles (input-output relations),
   not physical substrate. Implementable in neurons, silicon, etc.
   The dominant view in cognitive science and AI.
+
+```
+  ENGINEERING BRIDGE: Functionalism IS interface-based programming.
+
+  Putnam's claim: mental state M is whatever plays the causal role of M
+  (receives inputs of type X, produces outputs of type Y, transitions
+  to state Z). Substrate (neurons, silicon) is irrelevant.
+
+  Interface contract: IPaymentProcessor.charge(amount, currency) → Receipt
+  is whatever plays the causal role defined by the interface. The
+  implementation (Stripe, PayPal, in-memory mock) is irrelevant to
+  any consumer that depends on the interface.
+
+  Multiple realizability -> Dependency injection:
+  "Pain can be realized in neurons OR silicon" is exactly "ILogger
+  can be realized by ConsoleLogger OR FileLogger OR CloudLogger."
+  The container injects the concrete realization at runtime; the
+  dependent code never knows the substrate.
+
+  The "hard problem" for software:
+  Chalmers's hard problem (why is there SOMETHING IT IS LIKE to be
+  in state M?) has no engineering analogue — because software systems
+  are defined entirely by their functional behavior. This is why
+  functionalism is complete as a theory of software in a way it may
+  not be as a theory of mind.
+
+  Substrate independence -> Portability:
+  The same program runs on x86, ARM, RISC-V — multiple realizability
+  is the formal basis of the ISA abstraction layer. The program is
+  defined by its functional behavior, not by the transistors.
+```
 
   HARD PROBLEM (Chalmers, 1995):
   Even if we explain all the functional and behavioral aspects of mind

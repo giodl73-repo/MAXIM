@@ -26,7 +26,7 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — pressure adaptations (TMAO piezolytes, membrane fluidity engineering) parallel materials science under extreme conditions (high-pressure metallurgy, polymer glass transition); chemosynthesis is the biological equivalent of fuel cells (chemical energy → useful work without combustion/photons) -->
+Pressure adaptations in deep-sea organisms are engineering solutions to extreme conditions that directly parallel other fields. TMAO (trimethylamine oxide) is a molecular chaperone/piezolyte that counteracts hydrostatic pressure on enzyme conformation — analogous to using a high-pressure lubricant additive to maintain viscosity in extreme-pressure machinery. Membrane fluidity management (increasing unsaturated fatty acid fraction to maintain bilayer fluidity under pressure) is the same polymer glass-transition problem solved in cryogenic materials: the membrane is a polymer bilayer whose phase behavior shifts with temperature and pressure. Chemosynthesis at hydrothermal vents is the biological equivalent of a fuel cell: chemical free energy (H₂S oxidation, H₂ oxidation, CH₄ oxidation) is converted to biochemical work without combustion or photons. The electron donors and acceptors change, but the architecture — electron transport chain coupling redox to proton gradient to ATP synthesis — is conserved from photosynthetic cells.
 
 ## Hadal Zone — Below 6000 m
 
@@ -372,4 +372,43 @@ VISION:
 
 **Deep-sea fish aren't all pressure-adapted throughout body**: Many deep-sea fish organs contain gas-filled swim bladders — these species live only in the mesopelagic and cannot ascend to the surface without bladder injury. True hadal fish have no gas-filled spaces at all.
 
-<!-- @editor[content/P3]: Deep-sea mining absent — polymetallic nodules (Mn, Ni, Co, Cu), seafloor massive sulfides at vents, and cobalt-rich crusts on seamounts are driving active regulatory debate (ISA/UNCLOS); brief mention would connect geology + biology + policy -->
+## Deep-Sea Mining
+
+Polymetallic nodules, seafloor massive sulfides (SMS), and cobalt-rich ferromanganese crusts represent concentrated deposits of metals critical for battery technology and clean energy infrastructure (Ni, Co, Cu, Mn, REEs).
+
+```
+DEPOSIT TYPES:
+
+  POLYMETALLIC NODULES:
+    Formation: concentric layers of Mn, Fe oxides precipitating around
+    nucleus over millions of years (~1 cm per 10 Myr growth rate)
+    Location: abyssal plains, 4000–6000 m depth, lying on sediment surface
+    Key deposits: Clarion-Clipperton Zone (Pacific), Indian Ocean, Peru Basin
+    Metal content: Mn (~28%), Fe (~6%), Ni (~1.3%), Cu (~1.1%), Co (~0.2%)
+    CCZ estimated resource: ~21 billion tonnes nodules → 6× land cobalt reserve
+
+  SEAFLOOR MASSIVE SULFIDES (SMS):
+    Active and relict hydrothermal vent deposits
+    High-grade Cu, Zn, Au, Ag (richer than land mines per tonne)
+    BUT: smallest spatial footprint; targets active vent ecosystems
+    Locations: mid-ocean ridges, arc volcanoes
+
+  COBALT-RICH CRUSTS:
+    On seamount flanks, ~400–7000 m depth
+    High Co, REE, Pt; lower Ni/Cu vs. nodules
+
+GOVERNANCE:
+  ISA (International Seabed Authority): under UNCLOS, regulates
+  mining in international waters ("the Area")
+  2021: "two-year rule" triggered → ISA must develop regulations
+  by ~2023 (still incomplete as of 2025 — political impasse)
+  EEZ mining: national jurisdiction (PNG Solwara 1 attempted, failed 2019)
+
+  ENVIRONMENTAL DEBATE:
+  Sediment plumes from nodule collection: resettles kilometers from site,
+  smothers filter-feeding fauna; recovery timescales decades-centuries
+  SMS mining destroys active vent ecosystems (often unique species)
+  Nodule fields host highly diverse microbial communities
+  Counter-argument: land mining has larger surface footprint and
+  documented local ecosystem destruction; comparison needed
+```

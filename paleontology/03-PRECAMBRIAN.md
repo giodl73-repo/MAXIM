@@ -137,6 +137,33 @@ BANDED IRON FORMATIONS (BIF):
 ## The Great Oxidation Event (2.4 Ga)
 
 ```
+GOE AS BISTABLE PHASE TRANSITION:
+
+  The atmosphere had two stable states:
+    State A (anoxic):  O₂ << 0.001% PAL; MIF-S active; iron soluble; reducing
+    State B (oxic):    O₂ > 0.001% PAL; ozone layer; iron insoluble; oxidizing
+
+  Transition mechanism: classic bistable flip (hysteresis)
+    Cyanobacteria producing O₂ for ~100 Myr before the GOE (~2.7 Ga origin)
+    O₂ immediately consumed by "sinks": dissolved iron (Fe²⁺ → Fe³⁺ → BIF),
+      volcanic reductants (H₂, CH₄, SO₂), sulfide oxidation
+    BUFFER: as long as sinks exceed O₂ production → trapped in State A
+    THRESHOLD: sinks eventually depleted (BIF precipitation removes iron)
+    TIPPING POINT: O₂ production rate > remaining sink capacity
+    → Rapid transition to State B (geologically sudden: <10 Myr)
+
+  Hysteresis: system CANNOT easily revert to State A after crossing threshold
+    Once iron oxidized, it's stored as BIF — sink capacity gone
+    Ozone layer forms → protects cyanobacteria → more O₂ → positive feedback
+    This is the same irreversibility as: buffer overflow that corrupts state,
+    or a commit that changes schema — returning to prior state requires explicit
+    reconstruction, not just reverting the trigger
+
+  Equivalent system concepts:
+    Flip-flop circuit:   two stable output states; trigger causes state change
+    Supercritical bifurcation: stable equilibrium disappears at parameter threshold
+    Autocatalytic system: O₂ production reinforces conditions that favor more O₂
+
 GREAT OXIDATION EVENT (GOE):
   Sudden (geologically) rise of atmospheric oxygen above 0.001% PAL
   ~2.45–2.32 Ga: precise date
@@ -252,6 +279,58 @@ INTERPRETATION DEBATES:
   Vendobionta (Seilacher): entirely extinct, no modern descendants, "failed experiment"
   Stem eumetazoans: stem-group animals before the bilaterian explosion
   Current view: mixed — some (Kimberella, Dickinsonia) likely animals; others enigmatic
+```
+
+---
+
+## The "Boring Billion" (1800–800 Ma) — Less Boring Than Believed
+
+```
+WHAT WAS ACTUALLY HAPPENING (1800–800 Ma):
+
+OCEAN CHEMISTRY:
+  After GOE: surface ocean oxygenated; deep ocean remained ANOXIC for another ~1 Ga
+  "Canfield Ocean" hypothesis (1998): sulfur-rich (euxinic) deep ocean
+    Sulfate reduction by bacteria: SO₄²⁻ → H₂S (toxic, anoxic)
+    Evidence: sulfur isotope record; iron speciation data in shales
+    Consequence: molybdenum and other trace metals scavenged → nutrient limitation
+  ~800 Ma: deep ocean oxygenation begins (matches eukaryote diversification)
+
+EUKARYOTE DIVERSIFICATION (not as quiet as previously thought):
+  ~1.5 Ga: diverse acritarch morphologies appear → eukaryotic algal cysts
+    Tappania, Shuiyousphaeridium: complex spiny acritarchs → suggesting eukaryotes
+    Molecular clock estimates: most major eukaryote supergroups diverged ~1.5–1.2 Ga
+  ~1.2 Ga: Bangiomorpha (red alga with preserved sexual reproduction structures)
+    Oldest unambiguous evidence for sex; sex → recombination → faster adaptation
+  ~1.0–0.9 Ga: Torridonian shale (Scotland) — remarkable eukaryote preservation
+    Bicellum brasieri: possible animal-grade cell aggregation
+    Caveasphaera: possible early animal (debated)
+
+TRACE FOSSIL RECORD:
+  Simple trace fossils (~1.5 Ga): sinuous grooves, possible microbial mat tracks
+  Interpretation contested: may be non-biological; some now attributed to algae
+  No definitive metazoan traces until ~580 Ma (Ediacaran)
+
+SULFUR ISOTOPE EVIDENCE FOR HIDDEN BIOGEOCHEMICAL CYCLING:
+  Δ³³S and δ³⁴S record: complex cycling suggests active microbial sulfur metabolism
+  "Boring" refers to morphological stasis, not metabolic stasis
+  Sulfate-reducing bacteria + methanogens + photosynthesizers active throughout
+
+WHY DID COMPLEX LIFE NOT EVOLVE FASTER?
+  Hypothesis 1 (Knoll): low O₂ → insufficient energy for large, mobile animals
+    Aerobic metabolism: 18× more ATP per glucose than anaerobic
+    → Complex multicellularity requires high-energy aerobic metabolism
+  Hypothesis 2 (Anbar): trace metal limitation (Mo, Zn, Cu)
+    Euxinic deep ocean scavenges Mo → limits Mo-dependent N-fixation enzymes
+    → Nitrogen limitation → stunted primary productivity → low O₂ → catch-22
+  Hypothesis 3: no evidence for it being a "failure" — eukaryotes diversifying steadily;
+    just body plan explosion required triggering events (Snowball Earth?)
+    Context: bacteria also didn't diversify macroscopically; this is a kingdom-wide plateau
+
+STATUS: "Boring Billion" now understood as a stable intermediate state
+  Not a dead period — a long plateau between GOE and the Ediacaran explosion
+  Analogous to: system at local optimum before disruption forces exploration
+  (metastable equilibrium: stable until Snowball Earth perturbations ~720 Ma)
 ```
 
 ---

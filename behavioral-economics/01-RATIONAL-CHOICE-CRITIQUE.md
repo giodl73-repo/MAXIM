@@ -1,5 +1,47 @@
-<!-- @editor[diagram/P2]: No landscape diagram showing the full scope of this guide (EU theory, Allais, Ellsberg, Savage, revealed preference, bounded rationality, PT preview) — the EU box covers one component but doesn't map the guide's layered drill-down structure -->
 # Rational Choice — Critique and Alternatives
+
+## The Big Picture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│              RATIONAL CHOICE THEORY — LANDSCAPE AND CRITIQUE                 │
+│                                                                               │
+│  LAYER 1: THE FORMAL BASELINE                                                │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Expected Utility Theory (vNM 1944):                                         │
+│  EU(L) = Σᵢ pᵢ × U(xᵢ)    [axioms: completeness, transitivity,              │
+│                              continuity, independence]                        │
+│  Representation theorem: axioms ⟺ exists U s.t. agent maximizes EU          │
+│  This is the formal spec. Behavioral critique = finding where                │
+│  actual human choices violate the axioms.                                    │
+│                                                                               │
+│  LAYER 2: SYSTEMATIC VIOLATIONS (empirical falsification of the axioms)     │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Allais Paradox (1953):       Violates INDEPENDENCE axiom                    │
+│    Certainty effect — 100% probability is categorically different from 99%  │
+│  Ellsberg Paradox (1961):     Violates SUBJECTIVE PROBABILITY axiom          │
+│    Ambiguity aversion — known vs unknown probabilities treated differently   │
+│  Preference reversals (1979): Violates TRANSITIVITY + COMPLETENESS          │
+│    Price vs choice reversal — preferences are context-dependent              │
+│  WTA ≫ WTP:                   Violates WEALTH EQUIVALENCE assumption        │
+│    Endowment effect — owning something changes its subjective value          │
+│                                                                               │
+│  LAYER 3: THEORETICAL ALTERNATIVES                                           │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Savage (1954):   Subjective EU — handle uncertainty via subjective probs    │
+│    Ellsberg violates this too (sure-thing principle)                         │
+│  Simon (1955):    Bounded rationality — optimization infeasible; satisficing │
+│  Maximin EU:      Handle ambiguity by maximizing worst-case EU               │
+│  Robust opt.:     Uncertainty set instead of single distribution             │
+│                                                                               │
+│  LAYER 4: PROSPECT THEORY PREVIEW (full treatment in 02-PROSPECT-THEORY)   │
+│  ─────────────────────────────────────────────────────────────────────────  │
+│  Loss aversion: U(−x) ≈ −2 × U(x)   (losses feel ~2× as bad as gains)     │
+│  Probability weighting: π(p) ≠ p     (overweight small; underweight large)  │
+│  Reference dependence: utility = f(Δ from reference, not absolute wealth)  │
+│  Diminishing sensitivity: concave in gains, convex in losses                │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
 
 ## Expected Utility Theory — The Baseline
 

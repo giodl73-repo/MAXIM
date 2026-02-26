@@ -111,8 +111,6 @@ SELESKOVITCH'S INTERPRETIVE THEORY — THREE STAGES
 
 ## Gile's Effort Model
 
-<!-- @editor[bridge/P2]: Gile's effort model is a bounded-resource scheduling problem — L+M+P+C <= capacity maps directly to CPU scheduling, bounded buffers, throughput-vs-latency tradeoffs any engineer knows. Making this bridge explicit would land the model faster for the learner. -->
-
 Daniel Gile (*Basic Concepts and Models for Interpreter and Translator Training*, 1995) provides a cognitive load model for simultaneous interpretation:
 
 ```
@@ -154,6 +152,49 @@ GILE'S EFFORT MODEL FOR SIMULTANEOUS INTERPRETATION
   but the interpreter has no control over speech rate.
   This is why conference organizers and interpreters
   sometimes negotiate speaker rate limits.
+
+BOUNDED-RESOURCE SCHEDULING — THE FORMAL MODEL:
+  Gile's model is a bounded-resource scheduling problem.
+  The constraint: L + M + P + C ≤ Available Capacity.
+  This is formally identical to:
+    CPU scheduling: total CPU demand ≤ available CPU time
+    Bandwidth allocation: Σ(flow demands) ≤ link capacity
+    Thread pool management: work queue depth ≤ pool size × time
+
+  The interpreter is a single-threaded system with limited
+  working memory (buffer). The demands on the buffer
+  (incoming speech, held memory, outgoing production)
+  compete for a shared resource.
+
+  THROUGHPUT VS LATENCY TRADEOFF:
+    The interpreter can trade latency for accuracy:
+    Increase lag (hold more input before producing output) →
+      better comprehension of full sentences (lower error rate)
+      but higher latency and higher M (memory load).
+    Decrease lag (stay close to the speaker) →
+      lower latency but higher error rate on long dependencies.
+    This is the classic throughput/latency tradeoff in
+    streaming systems: larger buffers → better batch decisions
+    but higher end-to-end latency.
+
+  COPING STRATEGIES AS SCHEDULING POLICIES:
+    Simplification → reduce work per unit (lower per-item cost)
+    Omission → drop items from the queue (priority scheduling)
+    Approximation → reduce precision requirement (lossy compression)
+    Delay → increase buffer size (larger working set)
+    These are exactly the strategies a scheduler uses when
+    demand approaches capacity: drop, simplify, or delay.
+
+  TRIGGERS FOR OVERLOAD ↔ SYSTEM LOAD SPIKES:
+    Dense information (numbers, proper names) →
+      spikes in M effort (each item requires held memory)
+      equivalent to a sudden burst of cache-miss-heavy requests
+    Long sentences requiring held memory →
+      working set overflow; items must be evicted before complete
+      equivalent to buffer overflow under sustained high throughput
+    Background noise →
+      increases L effort; equivalent to noise on a channel
+      requiring more processing per bit for error correction
 ```
 
 ---

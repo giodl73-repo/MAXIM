@@ -122,7 +122,11 @@ P (predators)
 
 **Classic example: Canadian lynx and snowshoe hare** (Hudson Bay Company fur records, 1845–1935). Hare population peaks precede lynx peaks by 1–2 years. Period: ~10 years. However, the cycle is not purely predator-prey — food availability, disease, and plant defenses all contribute.
 
-<!-- @editor[bridge/P3]: Lotka-Volterra is a textbook negative-feedback oscillator; learner's systems theory background would benefit from "this is a phase-plane portrait of a conservative system" note -->
+**Phase-plane analysis:** The Lotka-Volterra system is a conservative nonlinear oscillator — the same mathematical structure as the simple pendulum (conservative Hamiltonian system). The "energy" conserved is V(N,P) = βN - d·ln(N) + αP - r·ln(P) (constant on each orbit). This means:
+- Orbits are closed curves (neutrally stable) — no damping, no growth in amplitude
+- The equilibrium (N*, P*) is a center, not a stable spiral — perturbations produce a different closed orbit, not a return to the same one
+- Structurally unstable: adding any realistic nonlinearity (prey saturation, predator interference) converts neutrally stable cycles into either stable limit cycles (Rosenzweig-MacArthur) or damped spirals
+
 **Limitations of L-V:** Neutral stability (cycles don't damp or grow — structurally unstable). Real systems have dampening or limit cycles due to nonlinear terms. Extensions: Rosenzweig-MacArthur model, Holling functional responses.
 
 **Holling functional responses:**
@@ -199,7 +203,8 @@ EIGENVECTOR = stable age distribution
               (relative proportion in each age class at equilibrium)
 ```
 
-<!-- @editor[bridge/P2]: No bridge from Leslie matrix to linear algebra eigenvalue analysis -- power iteration on a non-negative matrix (Perron-Frobenius); connect explicitly for MIT math learner -->
+**Linear algebra connection:** The Leslie matrix M is a non-negative matrix (entries ≥ 0). By the Perron-Frobenius theorem, a primitive non-negative matrix has a unique dominant real eigenvalue λ₁ > 0, and the corresponding eigenvector has all positive entries. This is exactly the stable age distribution — power iteration on M converges to the dominant eigenvector regardless of initial age distribution n(0). The rate of convergence to the stable age distribution is governed by |λ₂/λ₁| (ratio of second to first eigenvalue magnitude). Sensitivity of λ₁ to matrix entries = elasticity analysis — which entry has proportionally the largest effect on population growth rate.
+
 **Sensitivity analysis** — which age class contributes most to population growth? Depends on species life history. For long-lived species (elephant seals), adult survival matters most. For short-lived species, juvenile survival or fecundity. Conservation implication: target the life stage that most limits population growth.
 
 ---
@@ -229,7 +234,8 @@ CLASSIC LEVINS METAPOPULATION:
 
 **Mainland-island model:** One large, never-extinct "mainland" source + many small islands. Islands go extinct but are recolonized from mainland. Different from Levins (no mainland → patch model).
 
-<!-- @editor[bridge/P2]: Source-sink dynamics map to primary/replica failover patterns and service mesh traffic routing in distributed systems -->
+**Distributed systems parallel:** Source-sink dynamics map directly onto primary/replica patterns. Source patches (birth > death, net emigration) are primaries: they generate more than they consume and export the surplus. Sink patches (death > birth, sustained by immigration) are replicas: they would fail without the continuous replication stream from the primary. A metapopulation fails if sources are removed — even if many sinks remain occupied (they're all running on borrowed time). In service mesh terms: source patches are the healthy nodes that route traffic (emigrants) to downstream nodes; isolate them with habitat fragmentation and the entire mesh fails.
+
 **Conservation implication of metapopulation theory:**
 - Habitat connectivity is critical — without dispersal corridors, patches become isolated → higher local extinction probability
 - Even a species abundant in some patches may be threatened if those patches are isolated

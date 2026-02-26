@@ -1,7 +1,55 @@
 # The Mongol Empire — Unification, Conquest, Divergence
 
 ## The Big Picture
-<!-- @editor[diagram/P2]: Opening diagram is a chronological timeline with four khanates shown as a 2x2 table — add a spatial landscape diagram showing the steppe heartland, the four khanate territories, and the conquest vectors radiating outward from Mongolia -->
+
+```
+MONGOL EMPIRE — STEPPE HEARTLAND AND CONQUEST VECTORS
+=======================================================
+
+GEOGRAPHIC ORIGIN:
+  Mongolian steppe — the world's largest contiguous grassland
+  Horses: the enabling technology (speed, logistics, shock)
+  No fixed capital; mobile command center (ordo)
+
+CONQUEST VECTORS RADIATING FROM MONGOLIA (1206–1260):
+
+           EUROPE ←─────────────────────────────────────┐
+           (Poland, Hungary 1241)                        │
+                                                         │
+  PERSIA/BAGHDAD ←──────────────────────────────────────┤
+  (Khwarazm 1219–21; Baghdad 1258)                       │
+                                                         │
+  KOREA ←──────────────────────────────────────────────  │
+  (invasions 1231–59)                                    │
+                                                    MONGOLIA
+                                                  [Karakorum]
+  CHINA/MANCHURIA ←──────────────────────────────────── │
+  (Jin 1215; Song 1279)                                  │
+                                                         │
+  SOUTHEAST ASIA ←──────────────────────────────────────┘
+  (Vietnam, Burma — repelled; Java — failed)
+
+FOUR KHANATES (territorial division after ~1260):
+
+  GOLDEN HORDE          │   CHAGATAI KHANATE
+  (Pontic steppe,       │   (Central Asia:
+  Russia, Ukraine)      │   Oxus to Tian Shan)
+  Sarai capital         │   Endless civil wars
+  → Islamized ~1313     │   → Islamized gradually
+  ──────────────────────┼────────────────────────
+  ILKHANATE             │   YUAN DYNASTY
+  (Persia, Iraq,        │   (China, Mongolia)
+  Anatolia)             │   Kublai Khan
+  → Islamized 1295      │   → Sinicized
+  (Ghazan Khan)         │   Expelled 1368 (Ming)
+
+STRUCTURAL PATTERN:
+  Each khanate adapted to local political culture:
+  Yuan → Chinese bureaucracy + examination system
+  Ilkhanate → Persian court culture + Islamic administration
+  Golden Horde → steppe nomadic structures persist longest
+  Chagatai → most nomadic; resisted sedentarization
+```
 
 ```
 MONGOL EMPIRE FORMATION AND DIVISION:

@@ -391,15 +391,65 @@ Biological curvature generation:
   → Allows K⁺ in but not out at depolarized potentials
   → Sets resting potential in cardiomyocytes
 
-<!-- @editor[content/P1]: Claim may be incorrect — verify: hERG is KCNH2 (Kv11.1), not KVLQT which is KCNQ1 (Kv7.1); these are distinct cardiac K+ channels -->
-  hERG (cardiac KVLQT):
+  hERG (KCNH2 / Kv11.1):
   → Drug binding causes long-QT syndrome (arrhythmia)
   → ~200 drugs affect hERG: must screen all new drugs
 ```
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — the RC circuit model, Kirchhoff's current law, and cable theory are all directly from electrical engineering; making this explicit would anchor the learner who knows circuit theory cold -->
+## Electrical Engineering Bridges
+
+Membrane biophysics is literally electrical engineering applied to a lipid dielectric. Every major concept maps one-to-one onto circuit theory.
+
+```
+  MEMBRANE BIOPHYSICS            ELECTRICAL ENGINEERING PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Lipid bilayer                  Capacitor: C_m ≈ 1 μF/cm² (dielectric =
+                                 ~3 nm hydrocarbon core, ε ≈ 2). This is
+                                 the correct formula: C = ε₀ε·A/d.
+                                 Bilayer is a parallel-plate capacitor.
+
+  Ion channel                    Conductance: g = 1/R (siemens). A single
+                                 channel at 1-100 pS is a voltage-controlled
+                                 resistor that switches between open (g > 0)
+                                 and closed (g = 0) states.
+
+  Nernst potential (E_ion)       Battery EMF: the concentration gradient
+                                 across the membrane is a chemical potential
+                                 difference — equivalent to an EMF source in
+                                 series with the channel conductance.
+                                 E_K ≈ -98 mV is the K⁺ battery voltage.
+
+  Kirchhoff's current law        Hodgkin-Huxley master equation:
+  at the membrane node           C_m·dV/dt = -Σ gᵢ(V - Eᵢ) + I_ext
+                                 Sum of currents at a node = 0 (with the
+                                 capacitive current as the displacement term).
+
+  Cable equation (Kelvin, 1855)  Lossy transmission line (R-C ladder network):
+  λ²∂²V/∂x² - τ_m ∂V/∂t = V    λ = sqrt(r_m/r_a) is the characteristic
+                                 length of the cable; τ = r_m·c_m is the
+                                 time constant. Myelination increases r_m
+                                 (insulation) and decreases c_m → λ jumps
+                                 to >> internode spacing → saltatory prop.
+
+  Space clamp (whole-cell        Operational amplifier feedback control:
+  voltage clamp)                 the patch clamp amplifier holds V_m at
+                                 the command potential by injecting the
+                                 exact compensating current — a virtual
+                                 ground configuration.
+
+  Helfrich bending energy        Beam theory (thin plate mechanics):
+  F = ∫ κ/2·(c₁+c₂)²dA         κ is the bending stiffness, analogous to
+                                 EI in structural mechanics. The 8πκ result
+                                 (vesicle energy independent of radius) is
+                                 a classic result in thin-shell theory.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+The Hodgkin-Huxley model (Module 05) is simply this equivalent circuit with nonlinear, voltage-dependent conductances. A neuron IS a nonlinear RC circuit driven by chemical batteries.
+
+---
 
 ## Decision Cheat Sheet
 

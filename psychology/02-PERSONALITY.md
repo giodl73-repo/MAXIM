@@ -281,7 +281,31 @@ replicated across cultures, and predictively valid. MBTI is not this.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world→new-world bridge — natural parallel: factor analysis (the method behind Big Five) is dimensionality reduction, the same concept as PCA; the learner with MIT math background would instantly see that OCEAN is the first 5 principal components of the personality covariance matrix. This bridge would cement understanding immediately. -->
+**Formal bridge — factor analysis as dimensionality reduction:**
+
+The Big Five emerged from factor analysis of a high-dimensional personality descriptor
+space (17,000+ adjectives reduced to ~170 clusters, then to 5 factors). This is
+structurally identical to PCA on a covariance matrix. The five factors are the
+directions of maximum variance in the personality trait space — the first five principal
+components. Factor loadings are the cosines of the angle between the trait vector and
+the factor axis. Rotation (varimax, oblimin) selects among the infinitely many equivalent
+bases by optimizing interpretability — exactly as you'd choose a coordinate system in
+linear algebra to make structure visible.
+
+MBTI's failure is a sampling and measurement failure: it imposes 4 discrete binary
+dimensions on a continuous 5-dimensional (approximately) space, using forced-choice
+items with low information content. The ~50% 5-week retest rate is expected from
+arbitrary thresholding of a continuous distribution — you're reclassifying people
+who sit near the cutpoint. This is the same problem as hard-thresholding a continuous
+classifier score to binary and then observing instability at the decision boundary.
+
+The heritability decomposition (ACE: additive genetic, common environment, nonshared
+environment) is variance decomposition — structurally ANOVA partitioning of total
+personality variance by source. A = fraction explained by genetic differences;
+C = fraction explained by shared environmental differences; E = residual nonshared.
+The striking finding that C ≈ 0.05–0.10 for most Big Five traits means shared family
+environment explains almost nothing of personality variance between siblings, even
+though intuition assigns family the dominant causal role.
 
 ## Decision Cheat Sheet
 

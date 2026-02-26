@@ -320,7 +320,57 @@ Related to but distinct from implicature.
 
 ---
 
-<!-- @editor[bridge/P3]: No computing bridge within this guide — Grice's maxims map to API design principles (covered in 09-COMPUTING-BRIDGE.md but absent here) -->
+## Grice's Maxims and API Design
+
+Grice's cooperative principle and maxims apply to any designed communicative system — including APIs, protocol specifications, and technical documentation.
+
+```
+GRICEAN MAXIMS ↔ API DESIGN PRINCIPLES
+
+MAXIM OF QUANTITY (be as informative as required; no more):
+  API: return exactly the data the client needs.
+  Overly verbose responses (returning full objects when only
+  an ID was needed) violate quantity — they impose parsing cost
+  without communicative value.
+  GraphQL is an attempt to enforce quantity contractually:
+  the client specifies exactly what it needs; the server
+  returns exactly that.
+  REST violations: returning deeply nested objects for a "list"
+  endpoint when clients only need summary fields.
+
+MAXIM OF QUALITY (don't say what you believe false; have evidence):
+  API: return accurate status codes and error messages.
+  Returning 200 OK with an error body is a quality violation —
+  the surface form (200) contradicts the content (error).
+  Returning a vague "internal server error" without a correlation
+  ID or diagnostic message violates quality (no evidence provided).
+
+MAXIM OF RELATION (be relevant):
+  API: error messages should be relevant to the actual error.
+  "Object not found" when the real error is "insufficient permissions"
+  is a relation violation — arguably deliberate (security through
+  obscurity), but it imposes pragmatic inference cost on the caller.
+  Documentation that describes what a function does but not when
+  to use it violates relation for the developer reading it.
+
+MAXIM OF MANNER (avoid obscurity; be brief; be orderly):
+  API: consistent naming conventions, predictable response shapes.
+  An API where similar operations have different naming patterns
+  violates manner — the caller cannot predict the convention.
+  REST maturity level 2 (resource URLs + HTTP verbs) is a
+  manner convention: it reduces the cognitive load of navigation
+  by making the pattern predictable.
+
+IMPLICATURE IN PROTOCOL DESIGN:
+  When an API returns 404 instead of 403, it implicates
+  (via quality + relation) that the resource doesn't exist —
+  but it may actually be implicating that the caller lacks access.
+  The deliberate 404 is a calculated quality flouting for security.
+  Callers who know the convention can recover the implicature;
+  callers who take the 404 literally are misled.
+  This is exactly analogous to irony: the surface violates
+  quality; the pragmatic inference recovers the intended meaning.
+```
 
 ## Common Confusion Points
 

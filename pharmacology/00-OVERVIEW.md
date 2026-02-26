@@ -185,7 +185,66 @@ THERAPEUTIC INDEX (TI)
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel between drug development pipeline and software release pipeline (target ID ~ requirements, preclinical ~ testing, Phase I-III ~ canary/staged rollout, PV ~ production monitoring) would ground this for an engineering reader -->
+## Engineering Bridge: Pharmacology as Systems Engineering
+
+The drug development pipeline and PK/PD framework map directly onto systems engineering and software release processes.
+
+```
+  PHARMACOLOGY                  SYSTEMS ENGINEERING / SOFTWARE PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Drug development pipeline     Software release pipeline:
+    Target identification       → Requirements definition
+    Lead discovery              → Architecture / proof-of-concept
+    Preclinical testing         → Unit + integration testing
+    IND filing                  → Design review gate
+    Phase I (safety)            → Alpha / internal testing
+    Phase II (efficacy signal)  → Beta / limited rollout
+    Phase III (confirmatory RCT)→ GA candidate / staged rollout
+    FDA review                  → Compliance certification / audit
+    Post-marketing surveillance → Production monitoring / incident response
+    REMS programs               → Privileged access controls
+
+  PK (pharmacokinetics)         System state evolution:
+    One-compartment model: C(t) = C₀·e^{-k_el·t}
+    → First-order linear system, exponential decay to zero.
+    Two-compartment model: biexponential
+    → Two-pole transfer function; fast central pool, slow peripheral.
+    Volume of distribution Vd   → Total buffer capacity
+    Clearance CL                → Drain rate
+    Half-life t½ = 0.693·Vd/CL → System time constant
+
+  PD (pharmacodynamics)         Transfer function / input-output model:
+    E = Emax·Cⁿ/(EC50ⁿ + Cⁿ)
+    → Hill/sigmoidal: a saturating nonlinear transfer function.
+    Identical in form to a logistic activation function or a
+    Hill-type cooperative binding curve in control systems.
+    EC50 is the half-saturation point (operating point of the system).
+
+  PK/PD link model              Cascade model with lag:
+  (effect compartment)          Effect lags behind plasma concentration
+                                → first-order lag system (low-pass filter).
+                                Hysteresis loops (E vs. C clockwise vs.
+                                counterclockwise) distinguish absorption
+                                lag (counter-clockwise) from tolerance
+                                (clockwise).
+
+  CYP enzyme induction/inhibition Shared resource contention:
+  (drug-drug interactions)      CYP3A4 is a shared processing pool.
+                                Inhibitor = job holding the thread pool;
+                                victim substrate = starved job waiting for
+                                worker. Inducer = autoscaling (spinning up
+                                more workers). DDI risk = priority inversion.
+
+  Therapeutic index TI = TD50/ED50  Safety margin = (failure threshold) /
+                                (operating level). Narrow TI drugs (warfarin,
+                                digoxin) require tight control — analogous
+                                to systems with small stability margins that
+                                need closed-loop feedback (drug level monitoring).
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## Decision Cheat Sheet
 
 | Question | Pharmacology Concept | Key Parameter |

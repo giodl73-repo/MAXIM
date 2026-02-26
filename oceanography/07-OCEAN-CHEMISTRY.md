@@ -57,9 +57,9 @@ MAJOR ION RESIDENCE TIMES:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the carbonate buffer system is a textbook chemical equilibrium problem (Henderson-Hasselbalch in disguise); the Revelle factor is a sensitivity/gain concept analogous to amplifier gain in electronics; Redfield ratio is a stoichiometric constraint identical to balanced reaction stoichiometry in chemical engineering -->
-
 ## The Carbonate System — Seawater Buffer Chemistry
+
+The carbonate system is Henderson-Hasselbalch applied to a bicarbonate buffer at pH 8.1. The four state variables (DIC, TA, pH, pCO₂) are over-constrained — measure any two and the system is determined. The Revelle factor is a gain parameter: the ratio of relative pCO₂ change to relative DIC change (R ≈ 9–15), analogous to an amplifier gain telling you how much the output (atmospheric CO₂) shifts per unit change in input (oceanic DIC). R > 1 means the ocean is a less efficient CO₂ buffer than a naive calculation suggests — and as acidification proceeds and CO₃²⁻ is depleted, R increases, meaning future ocean uptake efficiency is self-limited. The Redfield ratio (C:N:P = 106:16:1) is a stoichiometric constraint — the same balanced-reaction stoichiometry as chemical engineering mass balances, but derived empirically from marine phytoplankton composition and confirmed to hold in deep-water nutrient ratios globally.
 
 The carbonate system is the most consequential equilibrium chemistry in the ocean. It controls pH, CaCO₃ solubility, and the ocean's capacity to absorb atmospheric CO₂.
 
@@ -324,4 +324,48 @@ STABLE ISOTOPES AS PROXIES:
 
 **Biological pump ≠ 100% carbon removal**: Only ~0.3–0.5% of surface production is permanently buried. The rest (~99.7%) is remineralized back to CO₂ somewhere in the water column or at the seafloor and returns to the atmosphere on the thermohaline timescale (~1000 yr). The pump is a DELAY mechanism, not permanent sequestration (on geological timescales).
 
-<!-- @editor[content/P2]: Dissolved organic carbon (DOC) pool absent — the ocean holds ~660 Gt C as DOC (larger than atmospheric CO2), with refractory DOC having millennial residence times; a significant gap in ocean carbon budget coverage -->
+## Dissolved Organic Carbon (DOC)
+
+The ocean's DOC pool (~660 GtC) is larger than all atmospheric CO₂ (~880 GtC) and is a crucial but underappreciated component of the ocean carbon budget.
+
+```
+DOC POOLS AND THEIR DYNAMICS:
+
+  TOTAL OCEAN DOC: ~660 GtC
+    Surface water:  ~60–80 μmol/kg   (biologically active zone)
+    Deep water:     ~34–40 μmol/kg   (old, refractory)
+
+  BIOAVAILABILITY SPECTRUM:
+  ┌────────────────────────────────────────────────────────┐
+  │ Labile DOC          │ Remineralized hours-days        │
+  │                     │ ~1–10% of production            │
+  │                     │ Fuels microbial loop            │
+  ├────────────────────────────────────────────────────────┤
+  │ Semi-labile DOC     │ Remineralized months-decades    │
+  │                     │ Seasonal accumulation/export    │
+  ├────────────────────────────────────────────────────────┤
+  │ Refractory DOC      │ Millennial residence time       │
+  │ (RDOC)              │ ~6,000 yr average deep water    │
+  │                     │ ~94% of ocean DOC inventory     │
+  └────────────────────────────────────────────────────────┘
+
+ORIGIN OF REFRACTORY DOC:
+  Photochemical transformation: UV creates unreactive molecules
+  Microbial transformation: "microbial carbon pump" —
+    bacteria consume labile DOC, release refractory byproducts
+    (mucopolysaccharides, melanin-like compounds)
+  This is analogous to a chemical refinery that converts
+  reactive feedstocks into inert stable products as a
+  byproduct of processing
+
+CARBON FLUX SIGNIFICANCE:
+  ~0.4 GtC/yr enters deep ocean as DOC via thermohaline sinking
+  Comparable to export production via biological pump (~0.5–1 GtC/yr burial)
+  DOC behaves as a slow-release carbon reservoir: temperature-sensitive
+  remineralization means warming could mobilize some RDOC → positive feedback
+
+MEASUREMENT:
+  High-temperature combustion (HTC): dominant modern method
+  Wet chemical oxidation: historical
+  DOC concentration maps reveal: upwelling, river plumes, vent plumes
+```

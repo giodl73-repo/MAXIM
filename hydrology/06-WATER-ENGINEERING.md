@@ -2,25 +2,38 @@
 
 ## The Big Picture
 
-<!-- @editor[diagram/P2]: Diagram is a flat taxonomy grid of infrastructure categories — doesn't show how they connect (e.g., storage feeds supply and irrigation; stormwater and flood protection interact; hydropower requires dam storage); rework as a flow diagram showing water path through infrastructure systems -->
 ```
 +===========================================================================+
-|                   WATER INFRASTRUCTURE TAXONOMY                            |
+|           WATER INFRASTRUCTURE — FLOW THROUGH THE SYSTEM                 |
 +===========================================================================+
 |                                                                           |
-|  STORAGE / REGULATION          FLOOD PROTECTION        SUPPLY             |
-|  ────────────────────          ──────────────────       ──────            |
-|  Dams and reservoirs           Levees / floodwalls      Intakes           |
-|  Detention basins              Flood bypasses            Pipelines         |
-|  Retention ponds               Emergency spillways       Treatment plants  |
-|                                Floodplain buyouts        Distribution      |
+|  WATERSHED                                                                |
+|  (rain + snowmelt)                                                        |
+|       │                                                                   |
+|       ├──► STORMWATER SYSTEM                                              |
+|       │     GI (rain gardens, bioswales) → attenuate small storms        |
+|       │     Storm sewers → convey runoff to outlet                       |
+|       │     Detention basin → peak attenuation (release slowly)          |
+|       │     Retention pond → volume reduction (infiltrate/evaporate)     |
+|       │            │ excess flow                                          |
+|       │            ▼                                                      |
+|       └──► RIVER / STREAM                                                 |
+|                 │ high flow                                               |
+|                 ├──► FLOOD PROTECTION                                     |
+|                 │     Levees / floodwalls → keep flow in channel          |
+|                 │     Flood bypass → divert excess to safe area           |
+|                 │     Floodplain buyouts → remove people from risk        |
+|                 │                                                         |
+|                 ▼                                                         |
+|           DAM / RESERVOIR  ◄── key: STORES WATER for multiple services   |
+|                 │                                                         |
+|                 ├──► HYDROPOWER (turbines in penstock)                    |
+|                 ├──► WATER SUPPLY (intake → treatment → distribution)    |
+|                 ├──► IRRIGATION (canals, drip, sprinkler)                |
+|                 └──► FLOOD CONTROL (rule curve + controlled release)     |
 |                                                                           |
-|  STORMWATER                    IRRIGATION                ENERGY            |
-|  ────────────                  ──────────                ──────────        |
-|  Sewer networks                Canals/ditches            Hydropower        |
-|  Green infrastructure          Drip irrigation           Pumped storage    |
-|  Bioswales / rain gardens      Groundwater pumping       Run-of-river      |
-|  Permeable pavement                                                        |
+|  KEY INTERACTION: storage enables all services; flood/supply/power       |
+|  COMPETE for the same reservoir volume — managed by rule curves           |
 +===========================================================================+
 ```
 
@@ -366,7 +379,51 @@ PUMPED STORAGE HYDROPOWER (PSH):
 
 ---
 
-<!-- @editor[bridge/P2]: Pipe network analysis (Hardy-Cross) is mentioned as "same as circuit analysis" but deserves a brief bridge callout — the learner has deep .NET/Azure background and will immediately grasp Kirchhoff's laws → node-loop equations in a water distribution network; also: reservoir rule curves are essentially state-machine operating policies -->
+## Bridges from CS and Engineering
+
+```
+WATER ENGINEERING CONCEPT     CS / ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Pipe network analysis         Kirchhoff's circuit laws on a flow graph
+  (Hardy-Cross method)
+  Node equations: Σ Q_in = Σ Q_out  → KCL: current conservation at each node
+  Loop equations: Σ h_f = 0         → KVL: head loss around any closed loop = 0
+  Head loss h_f = r·Q^n            → nonlinear "resistance" (n ≈ 1.85 Hazen-Williams)
+  Hardy-Cross: iterative Δ-correction → Newton-Raphson on system of loop equations
+  Modern solvers (EPANET)          → sparse linear system at each Newton iteration
+
+Reservoir rule curve          Finite-state machine / control policy
+  Zones: flood, conservation,  → states with different operating rules
+    buffer, dead pool
+  Level threshold triggers     → state transitions based on measured level
+    different release policies
+  Competing objectives         → multi-objective optimization (Pareto frontier):
+    flood control vs. supply     maximize supply reliability subject to flood risk
+    vs. power vs. ecology        (same as SLA tradeoff in service engineering)
+
+Spillway design (PMF routing) Worst-case stress test for fail-safe
+  PMF = Probable Maximum Flood → design load = worst credible input (not just
+  Route through reservoir        historical max — analogous to chaos engineering
+  Check: does water top dam?     scenarios exceeding observed failures)
+
+Reservoir sedimentation       Log-structured storage with compaction problem
+  Sediment settles in delta    → incoming writes accumulate in delta (new data)
+  Trap efficiency: 95–99%      → nearly all load captured; no escape
+  Dead storage lost forever    → write amplification with no reclaim path
+  Flushing/sluicing            → compaction / space reclamation operation
+
+Detention basin routing       Discrete-time low-pass filter
+  dS/dt = I(t) - Q(t)         → integrator with bounded state
+  Q = f(S) via stage-discharge → output as function of state (nonlinear)
+  Storage-indication method    → explicit solution: rearrange to isolate Q(t)
+                                  from known S+I; same as z-transform approach
+
+Water hammer (transient flow) Acoustic pressure wave in pipe
+  Joukowsky: ΔP = ρ·c·ΔV      → wave equation; c = speed of sound in pipe
+  Valve closure time < 2L/c   → destructive resonance; pipes burst
+  Pressure relief valves       → circuit breakers for over-pressure
+  Surge tanks                  → impedance matching (reduce wave reflection)
+```
 
 ## Decision Cheat Sheet
 

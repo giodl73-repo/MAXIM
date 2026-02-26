@@ -20,7 +20,7 @@ INDEPENDENT PATHOLOGY:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- atherosclerosis as progressive pipeline failure maps to cascading failure models in layered systems -->
+**Systems Bridge:** Atherosclerosis is a layered pipeline failure that progresses through exactly the same stages as any cascading system degradation. The sequence: endothelial dysfunction (barrier compromise) → lipid infiltration and oxidation (foreign material accumulates in the now-permeable layer) → inflammatory recruitment (the system detects the anomaly and escalates response) → fibrous cap formation (compensatory patch over a growing problem) → vulnerable plaque rupture (the patch fails under stress) → thrombosis and occlusion (catastrophic downstream failure). Each stage is individually compensated — the body builds the fibrous cap to stabilize the plaque, just as a system adds retry logic and circuit breakers to work around an unstable component. But the compensation itself introduces new failure modes: the fibrous cap can rupture; the compensatory inflammation damages the cap further via MMP secretion. The analogy to technical debt is exact: locally adaptive responses that cumulatively increase systemic fragility. The "vulnerable plaque" concept — thin cap, large lipid core, high macrophage density — is a fragility signature, not a size signature. The most dangerous plaques are often not the most obstructive, mirroring how the most fragile components in a distributed system are not necessarily the most loaded ones.
 
 ## Atherosclerosis: Pathogenesis
 

@@ -140,7 +140,51 @@ Convection pattern:
   660 km discontinuity: partial filter → mostly whole-mantle with some ponding
 ```
 
-<!-- @editor[bridge/P2]: No old-world bridge — mantle convection (Rayleigh number, Navier-Stokes) connects directly to classical fluid mechanics and thermal engineering (convection cells, Benard cells). A senior engineer would benefit from seeing the parallel to heat exchanger design and industrial fluid dynamics. -->
+### Mantle Convection — Fluid Mechanics Bridge
+
+Mantle convection is Rayleigh-Bénard convection at planetary scale. The same
+dimensionless parameters and instability analysis govern both a laboratory heated
+fluid layer and the mantle:
+
+```
+RAYLEIGH-BÉNARD CONVECTION:
+
+  Ra = (α g ΔT d³) / (ν κ)
+
+  α = thermal expansion coefficient
+  g = gravity
+  ΔT = temperature difference top to bottom
+  d = layer thickness
+  ν = kinematic viscosity
+  κ = thermal diffusivity
+
+  Critical: Ra_c ≈ 1708 (onset of convection cells — Bénard instability)
+  Lab water (~100°C ΔT): Ra ~ 10⁵–10⁶ → mild turbulence
+  Earth's mantle:         Ra ~ 10⁶–10⁷ → vigorous convection
+
+  SAME GOVERNING EQUATION: Navier-Stokes + energy equation + buoyancy
+    ρ(∂u/∂t + u·∇u) = −∇p + µ∇²u + ρα(T−T₀)g
+    (for mantle: inertia term negligible → Stokes flow, Re ~ 10⁻²³)
+
+HEAT EXCHANGER ANALOGY:
+  Earth = natural convective heat exchanger
+  Heat source: radioactive decay in crust + core cooling (primordial heat)
+  Hot side: core-mantle boundary (CMB, ~3500°C, ~135 GPa)
+  Cold side: ocean floor (0°C, ~250 MPa)
+  Convection cells: upwelling at mid-ocean ridges, downwelling at subduction zones
+
+  Nusselt number Nu = convective / conductive heat transfer:
+    Nu = (q_conv × d) / (k × ΔT)
+    Mantle Nu ~ 10–20: convection enhances cooling ~10–20× over pure conduction
+    Similar to forced convection in industrial heat exchangers (Nu ~ 100–1000)
+
+NON-NEWTONIAN VISCOSITY:
+  Mantle viscosity (10²⁰–10²¹ Pa·s) is strongly T- and P-dependent
+  Power-law creep: ε̇ ∝ σⁿ (n = 3–5 for dislocation creep)
+  → Analogous to non-Newtonian fluids in polymer processing or lava flows
+  → Makes numerical simulation harder: viscosity varies 10⁴× across domain
+```
+
 ### Heat Sources
 
 ```

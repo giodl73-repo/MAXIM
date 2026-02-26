@@ -353,7 +353,13 @@ which are aqueous. Very different chemistry.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the evidence hierarchy (geomorphological > mineralogical > in-situ) maps to the testing pyramid (unit > integration > system); the "habitability assessment vs. life detection" distinction parallels "can the system run" vs. "does the system produce correct output" — natural bridge to engineering mindset -->
+## Engineering Parallels
+
+**The evidence hierarchy as a testing pyramid.** Mars habitability evidence is layered from weakest to strongest: geomorphological (orbital — valley networks, deltas) → mineralogical (spectroscopy — clays, sulfates, chlorides that require water) → in-situ rover (direct sampling of sediments, chemical analysis). This is exactly the testing pyramid: remote observation (smoke test), spectrometric inference (integration test), direct sample analysis (acceptance test). Each tier is more expensive and conclusive than the last. The geomorphological evidence is broad coverage but low fidelity; the in-situ rover data is high fidelity but spatially limited to a single landing ellipse.
+
+**Habitability assessment vs. life detection as "can run" vs. "correct output."** The distinction between habitability assessment (Europa Clipper: does the ocean have the right conditions?) and life detection (does life actually exist there?) is the software engineering distinction between "the system has the resources and conditions to operate" and "the system is producing correct output." Characterizing Europa's ocean chemistry, salinity, and energy sources tells you whether the system *could* run life. Detecting actual biosignatures tells you whether it *does*. Europa Clipper is a system health check; an Enceladus Orbilander with life-detection instruments is a functional correctness test.
+
+**The MARSIS radar signal as ambiguous instrumentation.** The bright basal radar reflector at ~1.5 km depth under the Mars south polar ice cap is consistent with liquid water — but also with CO₂ clathrates and brine-saturated ice with specific dielectric properties. This is the instrumentation ambiguity problem: a single measurement that falls within the confidence interval of multiple competing hypotheses cannot distinguish between them. The resolution is more measurements from different instruments or geometries — the same principle as requiring multiple independent signals before acting on a metric in production system monitoring.
 
 ## Decision Cheat Sheet
 

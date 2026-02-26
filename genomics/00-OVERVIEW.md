@@ -193,8 +193,60 @@ Genomics sits at the DNA layer. To understand why it matters, recall the central
 
 ---
 
+## The Genomics Pipeline as a Data Engineering Problem
+
+The genomics stack maps almost perfectly onto a modern data engineering pipeline — not as an analogy but as a structural identity.
+
+```
+GENOMICS PIPELINE ↔ DATA ENGINEERING STACK
+──────────────────────────────────────────────────────────────────────────────
+RAW DATA ACQUISITION:
+  Sequencer output (FASTQ)          ↔  Raw event log (append-only stream)
+  Base quality scores (Q30)         ↔  Event confidence / reliability metadata
+  Paired-end reads                  ↔  Paired records in a message queue
+  Multiplexed samples on flow cell  ↔  Multi-tenant data in shared ingestion
+
+TRANSFORMATION PIPELINE:
+  Alignment (BWA, STAR)             ↔  ETL: map raw logs → structured records
+  SAM → BAM (sorted + indexed)      ↔  Columnar storage (Parquet/ORC + index)
+  CRAM (reference-anchored compress)↔  Delta encoding / reference compression
+  Mark duplicates (Picard)          ↔  Deduplication step in ETL
+  Base quality recalibration (BQSR) ↔  Calibration pass to correct systematic bias
+
+FORMAT CONTRACTS:
+  FASTQ                             ↔  Raw log format (unstructured, high volume)
+  BAM/CRAM                          ↔  Structured binary store (sorted, indexed)
+  VCF                               ↔  Change log / diff against reference
+  BED/GTF                           ↔  Region annotation (like partition metadata)
+  BCF                               ↔  Binary-encoded VCF (like compressed Parquet)
+
+ORCHESTRATION:
+  Snakemake / Nextflow / WDL        ↔  MSBuild / ADF pipeline / Airflow DAG
+  Scatter-gather in WDL             ↔  Fan-out parallelism in ADF
+  cromwell on Terra                 ↔  Azure Batch + Data Factory
+
+STORAGE:
+  gnomAD variant database           ↔  Reference data lake (population-scale)
+  dbSNP / ClinVar                   ↔  Lookup tables / dimension tables
+  RefSeq / Ensembl annotation       ↔  Metadata catalog
+
+QUERY / ANALYTICS:
+  PLINK (GWAS linear regression)    ↔  Statistical modeling on feature tables
+  DESeq2 (differential expression)  ↔  Group-by + hypothesis test on count data
+  GSEA pathway analysis             ↔  Feature enrichment / set intersection
+
+COMPRESSION RATIOS:
+  Raw FASTQ: ~90 GB per 30x genome
+  BAM:       ~50 GB (10-15x compression vs raw)
+  CRAM:      ~15 GB (reference-anchored delta compression)
+  VCF:       ~1 GB  (just the variants — 90:1 from raw)
+  Equivalent: structured event data → columnar OLAP store → materialized summary
+──────────────────────────────────────────────────────────────────────────────
+```
+
+**Key architectural insight:** The genome is a read-once reference (like a schema or a versioned schema migration). Every person's genome is a VCF — a diff against the reference. All downstream analysis is operating on diffs, not full copies. This is why population-scale genomics is tractable: you store one 3 GB reference + millions of 1 GB VCFs rather than millions of 90 GB FASTQs.
+
 ## Common Confusion Points
-<!-- @editor[bridge/P3]: Natural bridge to Azure Data Factory / ETL terminology could be expanded -- the analogy in the Scale section is a brief aside rather than a full mapping -->
 
 **Genome vs. exome vs. transcriptome**: The genome is all DNA in the cell nucleus. The exome is the ~1.5% of that genome encoding protein. The transcriptome is RNA — it only captures genes actively expressed at a given moment, varies by cell type and state, and changes in response to environment.
 

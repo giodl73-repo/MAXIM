@@ -34,7 +34,6 @@ A community is the set of species coexisting in a place, connected by interactio
 
 **Competitive Exclusion Principle** (Gause, 1934): Two species competing for the same limiting resource cannot coexist at stable equilibrium — one will always exclude the other.
 
-<!-- @editor[bridge/P3]: Competition coefficients alpha map to payoff matrices; coexistence condition is a Nash equilibrium criterion; MIT TCS background makes this immediate -->
 ```
 LOTKA-VOLTERRA COMPETITION:
 
@@ -54,6 +53,8 @@ COEXISTENCE CONDITION:
   → Unstable equilibrium; one species excludes other depending on
     initial conditions
 ```
+
+**Game theory connection:** The competition coefficients α₁₂ and α₂₁ are exactly payoff matrix entries for a two-player symmetric game. Stable coexistence (α₁₂α₂₁ < 1) corresponds to a Nash equilibrium where both species persist — neither can increase fitness by "defecting" (going to zero). Competitive exclusion (α₁₂α₂₁ > 1) is the prisoner's dilemma outcome: the system converges to a corner (one species wins) with the outcome depending on initial conditions. The unstable equilibrium at the interior point (both present) is the knife-edge — any perturbation sends the system to one corner or the other.
 
 **Resource partitioning** — coexistence mechanism: species use different parts of the resource spectrum. MacArthur's warblers: five species of wood warbler coexist in one spruce tree by foraging in different zones (top, middle, bottom, outside, inside branches).
 
@@ -166,7 +167,13 @@ FOOD WEB PROPERTIES:
   (complicates clean trophic level assignments)
 ```
 
-<!-- @editor[bridge/P2]: Food web connectance, linkage density, compartmentalization are graph-theoretic properties; learner would see adjacency matrix spectral analysis immediately -->
+**Graph-theoretic analysis:** A food web is a weighted directed graph: adjacency matrix A where A[i,j] = interaction strength from j to i (nonzero if j eats i or is eaten by i). Standard graph metrics apply directly:
+- Connectance C = L/S²: link density normalized by possible links (like graph density)
+- Compartmentalization: modularity (Q) of the community structure — highly modular webs have block-diagonal interaction matrices
+- Trophic level: fractional trophic level = 1 + mean trophic level of prey (recursive; solved by linear system)
+- Spectral analysis: the dominant eigenvalue of the community matrix (Jacobian at equilibrium) determines local stability — if any eigenvalue has positive real part, equilibrium is unstable
+- May's result: for random matrices with connectance C and average interaction strength s, stability requires s√(SC) < 1 (the "complexity-stability" bound)
+
 **Complexity and stability debate:**
 - May (1973): random food webs — MORE complex (more species, more connections) → LESS stable (mathematics)
 - Real food webs: seem to be stable at high complexity — suggests non-random, selected structure

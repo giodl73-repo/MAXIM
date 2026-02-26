@@ -2,7 +2,8 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P2]: Missing systems-engineering bridge — policing resource allocation is an optimization problem under constraints (budget, geography, political legitimacy). The SARA model is structurally identical to PDCA / observe-orient-decide-act. A senior engineer would anchor faster with that framing -->
+**Systems-engineering bridge:** Policing resource allocation is a constrained optimization problem: maximize crime reduction subject to budget, personnel, geographic coverage, and political legitimacy constraints. The SARA model (Scan → Analyze → Respond → Assess) is structurally identical to PDCA (Plan → Do → Check → Act) or the OODA loop (Observe → Orient → Decide → Act) used in military and operational decision-making. Hot spots policing is essentially a Pareto analysis applied to geographic crime distribution — identify the 3% of addresses generating 50% of events, concentrate resources there. CompStat is a data-driven management accountability system: weekly crime statistics drive resource reallocation decisions, with precinct commanders held accountable for deviation from expected crime trend lines. Predictive policing is a machine learning application: train on historical crime data, generate spatial predictions, deploy resources to predicted locations — with the well-documented feedback-loop failure mode (biased training data → biased predictions → biased patrol → biased new training data).
+
 Policing is the front end of the criminal justice system -- the primary point of contact between state coercive power and the public. Policing strategy determines who gets arrested, for what, and where. Those decisions aggregate into the shape of the entire criminal justice system downstream.
 
 ```
@@ -183,7 +184,6 @@ Policing is the front end of the criminal justice system -- the primary point of
 ### Predictive Policing
 
 ```
-<!-- @editor[bridge/P3]: Natural bridge to ML fairness/bias: predictive policing's feedback loop (biased training data -> biased predictions -> biased enforcement -> more biased data) is the same concept as dataset bias in ML. This learner with AI-engineering context would grasp the technical critique instantly through that lens -->
   PREDICTIVE POLICING
   ===================
 

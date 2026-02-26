@@ -227,27 +227,47 @@ Beyond MOOCs, the more durable EdTech contribution is adaptive learning -- syste
   ADAPTIVE LEARNING ARCHITECTURE
   ================================
 
-<!-- @editor[bridge/P3]: Natural bridge to CS graph theory (directed acyclic graph, topological sort for prerequisite ordering) — learner has MIT background in graph algorithms -->
   KNOWLEDGE GRAPH:
-    Learning content structured as directed graph.
+    Learning content structured as directed acyclic graph (DAG).
     Nodes: concepts/skills.
-    Edges: prerequisites.
+    Edges: prerequisites (directed).
+    Topological sort gives valid learning sequences.
+    Multiple valid topological orderings = multiple valid curricula.
 
-    +--------+     +--------+     +--------+
+    +--------+     +--------+     +----------+
     |Fractions|---> |Ratios  |---> |Proportions|
-    +--------+     +--------+     +--------+
+    +--------+     +--------+     +----------+
         |
         v
     +--------+
     |Decimals|
     +--------+
 
-<!-- @editor[bridge/P3]: Bayesian Knowledge Tracing is a hidden Markov model — natural bridge to Bayesian inference and probabilistic graphical models the learner knows from MIT math/TCS -->
+    Navigation problem: given current mastery state (subset of
+    nodes "known"), find the optimal next node to teach.
+    This is a shortest-path problem on the prerequisite DAG,
+    weighted by expected learning time per concept.
+
   MASTERY ESTIMATION:
-    Bayesian Knowledge Tracing (BKT):
-    Estimates probability student knows each skill.
-    Updates with each response.
-    P(knowledge) + P(learning) + P(slip) + P(guess).
+    Bayesian Knowledge Tracing (BKT) is a Hidden Markov Model:
+    - Hidden state: binary knowledge (knows / doesn't know)
+    - Observable: correctness of responses (0/1)
+    - Transition: P(L0) = prior; P(T) = learning rate
+    - Emission: P(G) = guess rate; P(S) = slip rate
+
+    Four parameters:
+    P(L0) = prior probability student already knows skill
+    P(T)  = probability of learning skill on each opportunity
+    P(G)  = probability of correct response despite not knowing
+    P(S)  = probability of incorrect response despite knowing
+
+    State update (Bayesian posterior after observing response r):
+    P(know | correct) = P(know) × (1 - P(S)) / P(correct)
+    where P(correct) = P(know)(1-P(S)) + (1-P(know))P(G)
+
+    This is exactly the forward algorithm for HMM filtering.
+    Extensions (Deep Knowledge Tracing, 2015, Piech et al.)
+    replace the HMM with an LSTM for richer state representation.
 
   ITEM SELECTION:
     Given mastery estimates:

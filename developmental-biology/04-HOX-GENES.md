@@ -29,7 +29,65 @@ HOX genes are master transcription factors that specify positional identity alon
 
 ---
 
-<!-- @editor[bridge/P2]: No CS/engineering bridge. Colinearity — physical order on the chromosome matching spatial expression — is a direct analogy to "memory-mapped I/O" or "address space layout." The HOX code is a positional address bus. Posterior prevalence is priority encoding. These analogies would be immediately intuitive for someone with MIT TCS background. -->
+## Engineering Bridge: HOX as Positional Address Space
+
+HOX genes implement a positional address bus. Chromosome position encodes spatial address; posterior prevalence is priority encoding.
+
+```
+  HOX GENES                     CS / HARDWARE PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Colinearity                   Memory-mapped I/O / address space layout:
+  (3' → 5' = anterior → posterior)  The physical order of genes on the
+                                chromosome IS the spatial coordinate system
+                                of the body. 3'-most gene → most anterior
+                                expression; 5'-most → most posterior.
+                                This is not metaphorical — the
+                                cis-regulatory logic that produces
+                                colinearity is chromatin-structural, linked
+                                to how the locus opens sequentially.
+
+  HOX code (combinatorial TF    Positional address bus:
+  expression)                   Each segment is defined by the combination
+                                of HOX genes expressed there — a binary
+                                address. 4 clusters × ~13 paralogs → 52
+                                possible "addresses" (most partially
+                                overlapping). Change one bit → homeotic
+                                transformation (wrong segment identity).
+
+  Posterior prevalence          Priority encoding / override logic:
+  (5' HOX genes override 3')    More posterior HOX genes are "dominant"
+                                — a posterior Hox expressed ectopically
+                                converts anterior segments to posterior
+                                identity. This is interrupt priority:
+                                higher-address (posterior) HOX genes take
+                                precedence over lower-address ones.
+                                Gain-of-function of posterior Hox in
+                                anterior → phenotype = anterior deleted
+                                (Antennapedia: head segment replaced by
+                                leg-segment identity).
+
+  HOX gene conservation         Interface contract preserved across
+  (fly → mouse → human,         evolutionary distance: same gene family,
+  same role)                    same chromosomal architecture, same
+                                colinearity principle. The "API" has been
+                                maintained for ~600 million years. Minor
+                                changes in cis-regulatory deployment
+                                (not the TF protein itself) are how
+                                body plan diversity evolved — the library
+                                was preserved; the call sites changed.
+
+  Retinoic acid gradient →      Continuous parameter → discrete address:
+  HOX expression thresholds     RA concentration encodes posterior position.
+                                Different HOX genes have different RA
+                                response element thresholds → they turn on
+                                at different positions. The gradient is
+                                A/D converted into discrete HOX domain
+                                boundaries — a threshold decoder.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## The Discovery: Homeotic Transformations
 
 ```
@@ -174,8 +232,7 @@ WNT GRADIENT
 HOX GENES IN LIMB PATTERNING
 ──────────────────────────────
   HOXA and HOXD clusters control limb development in overlapping domains.
-<!-- @editor[content/P1]: Claim may be incorrect — verify: "collagen III" appears to be a parenthetical error. The three temporal phases of HOX expression in limb development are not named after collagen III. This may be a transcription artifact or confusion with another context. -->
-  Three temporal phases (collagen III)
+  Three temporal phases of HOXD/HOXA expression (Duboulé dual-phase model):
 
   PHASE 1 (early limb bud): Proximal arm/thigh
     HOXD9-D11 expressed

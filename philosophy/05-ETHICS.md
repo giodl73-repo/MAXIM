@@ -219,8 +219,141 @@ RAWLS ON AI GOVERNANCE:
 
 ---
 
-<!-- @editor[content/P2]: Landscape diagram lists bioethics, climate ethics, business ethics, animal ethics under Applied Ethics — all absent; only AI ethics covered; either narrow the diagram or add brief treatments -->
-<!-- @editor[content/P2]: Care ethics listed in landscape diagram (under Normative Ethics) but never discussed — Gilligan/Noddings perspective missing entirely -->
+## 2b. Care Ethics
+
+```
+CARE ETHICS (Carol Gilligan, Nel Noddings, Virginia Held):
+  Critique of dominant frameworks: Kant, Mill, and Rawls all theorize
+    ethics in terms of abstract principles, impartial reason, universal
+    rules. Care ethics says this misses a central dimension of moral life.
+
+  CORE CLAIMS:
+    (1) Particular relationships generate particular obligations that
+        cannot be captured by universal principles.
+        My obligation to my child is different from my obligation to a
+        stranger — not because I value my child more "impartially" but
+        because the relationship itself is morally significant.
+    (2) Care — attention, responsiveness, taking the other's needs
+        seriously — is a fundamental moral value, not derived from utility
+        or duty.
+    (3) Context matters: moral decisions are embedded in relationships,
+        history, and concrete circumstances, not abstract "principles"
+        applied universally.
+
+  GILLIGAN'S CRITIQUE OF KOHLBERG:
+    Kohlberg's moral development scale placed abstract rule-following
+    (Stage 6: universal justice principles) at the top.
+    Gilligan: women in his studies scored lower not because they were
+    less developed but because they were using a different but equally
+    valid moral framework — one oriented toward care, relationships,
+    and context rather than universal rules.
+    NOT: women care, men reason. Claim is: two moral orientations exist;
+    the dominant framework undervalued one.
+
+  RELATION TO OTHER THEORIES:
+    Care ethics vs. Kantian deontology: Kant requires impartiality —
+      treat everyone by the same universal law. Care ethics: special
+      obligations to particular people are not a bias to be overcome;
+      they are central to morality.
+    Care ethics vs. utilitarianism: utilitarian calculation aggregates
+      welfare impersonally. Care ethics: the relationship between the
+      one caring and the one cared-for cannot be dissolved into utility.
+    Care ethics vs. virtue ethics: closest relative; virtue ethics also
+      emphasizes character and context. Care ethics specifies which virtue
+      (care) is primary and emphasizes relational context more heavily.
+
+  ENGINEERING RELEVANCE:
+    Software teams as caring relationships: engineering management that
+      takes care seriously (mentoring, attention to individual engineers'
+      needs, not treating engineers as interchangeable resources) maps
+      onto care ethics.
+    Product design: attention to vulnerable users (elderly, low-literacy,
+      users in crisis) — whose particular needs are not captured by
+      aggregate preference data — is a care-ethics intervention in design.
+    AI systems: an AI assistant that genuinely "cares" in the care-ethics
+      sense would attend to the individual user's particular situation,
+      not just apply universal policy rules (deontological) or maximize
+      aggregate welfare (utilitarian). Current systems do the latter two.
+```
+
+## 2c. Applied Ethics — Bioethics, Climate, Business, Animal Ethics
+
+```
+BIOETHICS (Beauchamp and Childress, Principles of Biomedical Ethics, 1979):
+  Four principles framework — the dominant practical framework in medicine:
+    Autonomy: respect patient's right to make informed decisions.
+    Beneficence: act in the patient's best interest.
+    Non-maleficence: do no harm (first, do no harm — primum non nocere).
+    Justice: fair distribution of benefits and burdens; equitable access.
+  These principles can conflict: autonomy (patient refuses treatment) vs.
+    beneficence (doctor believes treatment is necessary).
+  Informed consent: the autonomy principle operationalized.
+    Must be voluntary, informed, and competent.
+  RELEVANCE TO AI SYSTEMS IN HEALTHCARE:
+    Clinical AI (diagnosis, treatment recommendation): autonomy requires
+      explainability and patient override. Beneficence requires accuracy.
+    Research: data consent under changing models of privacy.
+    Genetic data: special category — family implications extend beyond
+      the individual consenting.
+
+CLIMATE ETHICS:
+  Intergenerational justice: we emit carbon; future generations bear
+    the cost. Standard utilitarian calculation applies; discount rate
+    matters enormously. Stern Review: ~1.4% discount rate → aggressive
+    mitigation justified. Nordhaus: 5% discount rate → less urgent.
+    Philosophical question: what discount rate is ethically defensible
+    for welfare of future people?
+  Rights-based approaches: future people have rights that present
+    generations cannot permissibly violate. Rights don't diminish with
+    distance in time (why should they?).
+  Collective action problem: climate is a commons. Game-theoretically,
+    defecting (emitting) dominates regardless of others' actions.
+    Carbon markets, treaties, and carbon taxes are institutional
+    responses to the commons problem — but presuppose a political
+    authority capable of enforcement.
+  RELEVANCE: AI training compute is energy-intensive. Data centers are
+    a growing fraction of global electricity demand. Climate ethics
+    applies to infrastructure decisions at scale.
+
+BUSINESS ETHICS:
+  Shareholder vs. stakeholder theory:
+    Friedman (1970): the social responsibility of business is to increase
+      its profits (within legal/ethical rules). Managers are agents of
+      shareholders; pursuing other goals is misappropriation.
+    Freeman (1984): stakeholder theory — corporations have obligations to
+      employees, customers, suppliers, communities, as well as shareholders.
+      Sustainable value creation requires balancing all stakeholders.
+  Corruption and collective action: bribery in international markets —
+    if everyone does it, not paying is a competitive disadvantage.
+    FCPA (Foreign Corrupt Practices Act) and UK Bribery Act: legal
+    responses that attempt to level the coordination equilibrium.
+  Whistleblowing: when is employee loyalty overridden by obligations
+    to broader publics? Deontological: duty to prevent wrongdoing.
+    Consequentialist: weigh harms of silence vs. harms of disclosure.
+  RELEVANCE: AI companies making decisions about disclosure of safety
+    findings, use of training data, engagement with authoritarian
+    governments — all structurally identical to classic business ethics problems.
+
+ANIMAL ETHICS:
+  Peter Singer (utilitarian): if an animal can suffer, it is morally
+    considerable. Factory farming causes immense suffering to billions
+    of animals; the ethical arithmetic is clear. "Animal liberation"
+    does not require animals to have rights — just that their suffering
+    counts in utilitarian calculation.
+  Tom Regan (rights-based): animals that are "subjects-of-a-life"
+    (have beliefs, desires, preferences, a welfare that matters to them)
+    have inherent value that cannot be traded off for utility.
+    Rights, not just interests, should protect them.
+  Contractarian response: moral obligations arise from contract-like
+    relationships; animals cannot be parties to contracts → no direct
+    obligations to animals (only indirect obligations not to be cruel,
+    for what it does to us). Most philosophers find this unsatisfying.
+  RELEVANCE TO AI: What confers moral status? If it's sentience/suffering
+    → animals qualify; some future AI might qualify.
+    If it's rationality/contract capacity → neither does.
+    The same framework structures both debates.
+```
+
 ## 3. Applied Ethics — AI
 
 ### Alignment Problem
@@ -301,7 +434,71 @@ AUTONOMOUS WEAPONS:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world → new-world bridge section — natural parallel: code review culture (deontological: follow the process) vs ship-it culture (consequentialist: does it work?) — any engineering leader navigates this tension daily -->
+## Bridge — Ethics and Engineering Practice
+
+```
+ETHICAL THEORY                   ENGINEERING ORGANIZATION PARALLEL
+─────────────────────────────────────────────────────────────────
+Deontology (follow the rule):    Process culture:
+Some actions are prohibited      Code review is mandatory. Security
+regardless of consequences.      sign-off is mandatory. Tests must
+"Never ship without a test."      pass before merge. These are
+"Never expose PII in logs."       deontological constraints —
+Rules apply universally;          rule-following even when bypassing
+no trade-off against utility.     them might produce better outcomes
+                                  in a specific case.
+
+Consequentialism (it works):     Ship-it culture:
+Evaluate actions by outcomes.    "What matters is whether it works
+Maximize aggregate value;         in production." Feature velocity
+individual rule violations        trumps process compliance. A/B
+justified by net positive         testing as empirical ethics:
+outcomes.                         outcomes are the measure.
+                                  The right decision is the one
+                                  with better user metrics.
+
+The engineering ethics tension:  Code review culture (deontological)
+Every engineering leader         vs. sprint velocity (consequentialist)
+navigates the trade-off daily.   is the same argument as Kant vs. Mill,
+                                 applied to your team's norms.
+
+Virtue ethics (character):       Engineering culture as character:
+Not "what rule?" or "what        "What would a senior engineer do
+outcome?" but "what would         here?" Hiring for values, not just
+a person of good character do?"  skills. The "brilliant jerk" problem:
+Character is stable; it guides   high consequentialist output, bad
+novel situations where no rule   virtue character. Most engineering
+pre-exists.                      orgs choose character over output.
+
+Care ethics (relationships):     Engineering management:
+Particular relationships         1:1s, mentoring, attention to
+generate particular obligations.  individual engineers' growth.
+Not "apply the rule to           "Treating engineers as replaceable
+everyone equally" but            resources" is the care-ethics failure.
+"what does this person need?"    Google's Project Aristotle: psychological
+                                 safety (a care-ethics concept) was the
+                                 top predictor of team performance.
+
+Contractualism (Scanlon):        API design / platform governance:
+An act is wrong if it violates   "Could any platform participant
+principles no one could          reasonably reject this API contract?"
+reasonably reject.               If you design an API that works for
+                                 your use case but systematically
+                                 disadvantages third-party developers,
+                                 those developers could reasonably
+                                 reject the principle underlying it.
+                                 Platform ethics = contractualism
+                                 applied to multi-sided systems.
+
+Rawlsian veil of ignorance:      Inclusive design / accessibility:
+Design principles not knowing    Design the system not knowing
+your position in the system.     whether you are a power user or a
+                                 low-vision user on a slow connection.
+                                 WCAG and accessibility standards
+                                 are Rawlsian: optimize for the least
+                                 advantaged user, not the modal user.
+```
+
 ## Decision Cheat Sheet
 
 | Theory | Core Question | Strength | Weakness |

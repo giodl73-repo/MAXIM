@@ -299,7 +299,31 @@ The core lesson: never underestimate context.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world→new-world bridge — natural parallels: bystander effect maps to diffusion of responsibility in incident response; social proof maps to herd behavior in markets/adoption curves; FAE maps to post-mortem blame culture vs system-level root cause analysis. Any senior engineer or leader would benefit from these connections. -->
+**Systems bridge — operational parallels:**
+
+Bystander effect in incident response: when an alert fires to a shared on-call channel
+without an assigned owner, every person assumes someone else is handling it. Pluralistic
+ignorance ("everyone else looks calm; must not be critical") + diffusion of responsibility
+("someone more senior will escalate") produces dangerous delay. Fix: PagerDuty/alerting
+systems that assign a primary responder by name, not by group — directly implements the
+social psychology countermeasure (assign explicit responsibility to specific individual).
+
+Fundamental Attribution Error in post-mortems: engineers who cause incidents are blamed
+dispositionally ("they should have been more careful") when the correct analysis is
+situational (complex system, unclear runbook, inadequate review process). The FAE is
+the root cause of blame-driven post-mortems. Blameless post-mortems are the formal
+institutionalization of the attribution research finding.
+
+Social proof in adoption curves: any new internal tool or process adoption exhibits
+informational social influence — engineers look to peers to gauge whether the new system
+is trustworthy. Early adopters function as confederates breaking the unanimity of the
+status quo. The same mechanism that causes conformity to wrong answers (Asch) causes
+conformity to established toolchains even when better options exist.
+
+Minimal group paradigm in org design: team labels (frontend/backend, product/eng, core/platform)
+create in-group/out-group dynamics without any prior history or conflict — exactly
+the minimal group result. Cross-functional team structures directly address this
+by collapsing the categorization that drives the bias.
 
 ## Decision Cheat Sheet
 

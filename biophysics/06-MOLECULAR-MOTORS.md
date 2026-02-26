@@ -2,10 +2,15 @@
 
 ## The Big Picture
 
-<!-- @editor[diagram/P3]: Landscape diagram is a categorized inventory — could show the shared mechanochemical cycle (ATP bind -> conformational change -> force -> product release) that unifies all motors, with linear/rotary as structural variants of the same engine -->
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                 MOLECULAR MOTORS LANDSCAPE                                │
+│                                                                            │
+│  SHARED MECHANOCHEMICAL CYCLE (all P-loop NTPases):                       │
+│  ATP bind → conformational change (power stroke) → force/torque →        │
+│  ATP hydrolysis → product release (ADP, Pi) → reset                       │
+│  Linear motors: conformational change → linear translation on track       │
+│  Rotary motors: conformational change → rotation of c-ring or γ shaft     │
 │                                                                            │
 │  LINEAR MOTORS                   ROTARY MOTORS                           │
 │  ─────────────                   ─────────────                           │
@@ -24,9 +29,9 @@
 │  None                 ATP synthase    Proton gradient → ATP              │
 │  Flagellar basal body Flagellar motor Bacterial motility                  │
 │                                                                            │
-<!-- @editor[content/P1]: Claim may be incorrect — verify: kinesin stall force is ~7 pN and step is 8 nm, giving ~56 pN*nm max work (~14 k_BT); the "8 pN*nm = 2 k_BT" figure appears inconsistent with Section 2's own calculation -->
 │  ENERGY SCALE:                                                             │
-│  Kinesin step: 8 nm per ATP, ~8 pN·nm = 2 k_BT of work                  │
+│  Kinesin stall force × step: 7 pN × 8 nm = 56 pN·nm ≈ 14 k_BT per step │
+│  ATP hydrolysis in vivo: ~50 pN·nm ≈ 12 k_BT → efficiency ~25-50%       │
 │  Stall force:  kinesin ~7 pN, myosin II ~3-5 pN per head                 │
 │  ATP synthase: 120° rotation per ATP, ~25 k_BT free energy per ATP       │
 └──────────────────────────────────────────────────────────────────────────┘
@@ -384,7 +389,62 @@ Force-velocity curves and stall forces measured with optical tweezers (see also
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — natural parallels: state machines / Markov chains (CS) to motor mechanochemical cycles, ratchet mechanisms in mechanical engineering, efficiency and work in classical thermodynamic engines to molecular motor efficiency -->
+## CS, Mechanics, and Thermodynamics Bridges
+
+Molecular motors are physical machines whose behavior can be understood entirely through state machines, thermodynamic engine theory, and stochastic dynamics.
+
+```
+  MOLECULAR MOTORS              CS / ENGINEERING PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Mechanochemical cycle         Finite state machine / Markov chain:
+  (ATP bind → hydrolyze →       each biochemical state (ATP-bound,
+  release → reset)              ADP·Pi-bound, apo) is a graph node.
+                                Transition rates are edge weights.
+                                The cycle drives a probability flux
+                                around the loop — detailed balance
+                                violation is the signal that the motor
+                                is doing work, not just diffusing.
+
+  Brownian ratchet              Feynman's ratchet revisited: at equilibrium,
+  (asymmetric potential         a classical ratchet does zero net work
+  + energy input)               (thermal fluctuations drive it both ways).
+                                Directed motion requires a nonequilibrium
+                                drive — ATP hydrolysis breaks detailed
+                                balance, creating a rectified random walk.
+                                Exactly analogous to a stochastic resonance
+                                rectifier.
+
+  Force-velocity curve          P-V operating curve of a heat engine:
+  v(F) ≈ v_max·(1 - F/F_stall) maximum power at F_stall/2 (same as
+                                matching load to source impedance for
+                                maximum power transfer). At stall:
+                                maximum force, zero velocity, zero power.
+
+  Kinesin processivity          Coordinated two-thread execution:
+  (hand-over-hand, 100 steps)   one head always bound (mutex held) before
+                                the other releases. Mechanical coordination
+                                prevents simultaneous detachment — analogous
+                                to two-phase commit with one lock always held.
+
+  ATP synthase γ rotation       Torque-generating motor with state machine:
+  120° per ATP, 3-fold symmetry the three β subunits cycle L→T→O in phase,
+                                like a 3-cylinder engine with offset timing.
+                                Boyer's binding change mechanism: synthesis
+                                requires no ATP energy directly — binding
+                                energy at the T site IS the synthetic
+                                mechanism.
+
+  Flagellar motor chemotaxis    Feedback control loop with hysteresis:
+  (CheA/CheY → CW/CCW switch)  attractant → phosphorylation cascade →
+                                switch probability change → run/tumble ratio.
+                                The bistable CW/CCW switch is a Schmitt
+                                trigger with noise-driven transitions.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+**Scale note**: kinesin at stall does 56 pN·nm ≈ 14 k_BT of work per step, consuming ~50 pN·nm per ATP hydrolyzed. Efficiency depends on operating conditions; near stall (thermodynamic limit) efficiency approaches ~100%; at maximum velocity efficiency drops to ~25-50%. This parallels the fundamental efficiency vs. power tradeoff in any engine.
+
+---
 
 ## Decision Cheat Sheet
 

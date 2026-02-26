@@ -227,11 +227,14 @@ NON-COMPETE ENFORCEABILITY BY STATE:
     Florida: very employer-friendly; statute presumes enforceability if meets requirements
     Texas: enforceable if ancillary to otherwise enforceable agreement; reasonable scope
 
-<!-- @editor[content/P2]: FTC non-compete rule status dated 2024 — verify whether rule was revived, re-proposed, or permanently blocked; also check state-level changes in 2025-2026 -->
-  FTC RULE (2024): nationwide ban on most employee non-competes
-    Final rule issued April 2024; effective September 2024
-    Blocked by federal courts (Fifth Circuit Aug 2024); invalidated nationwide
-    Status: uncertain; enforcement not proceeding; potential appeal/reconsideration
+  FTC RULE (2024 — status as of Feb 2026):
+    Final rule issued April 2024; would have banned most employee non-competes
+    Blocked nationwide by N.D. Texas (Ryan LLC v FTC, Aug 2024)
+    Fifth Circuit: government dropped appeal under new administration (Jan 2025);
+      rule is permanently vacated; FTC under current leadership not pursuing re-proposal
+    Result: no federal ban; state law governs entirely; patchwork remains
+    State trend: Minnesota (2023 ban), Illinois (ban for under $75K/yr), growing list
+      of states adding transparency, salary floor, and garden-leave requirements
 
 REASONABLENESS ANALYSIS (where non-competes enforced):
   Legitimate business interest: protectable interests include customer relationships,

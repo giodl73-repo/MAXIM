@@ -286,7 +286,16 @@ the entire discipline.
 
 ---
 
-<!-- @editor[structure/P2]: No comparison tables — a table comparing women's history vs. feminist historiography vs. gender history (object of study, key question, method, exemplar) would clarify the three phases at a glance -->
+## Three Phases at a Glance
+
+| Phase | Object of Study | Key Question | Method | Theoretical Grounding | Exemplar Work |
+|-------|----------------|-------------|--------|----------------------|---------------|
+| **Women's History** (1970s) | Women: their experiences, contributions, lives | "Where are the women?" — add women back into the historical record | New sources: diaries, letters, court records, household accounts | Liberal feminism; empirical recovery | Flexner, *Century of Struggle* (1959); Smith-Rosenberg, "Female World" (1975) |
+| **Feminist Historiography** (late 1970s–80s) | Gender relations, patriarchy as historical system | How did patriarchy operate and reproduce across time? | Class analysis + gender analysis; women's labor and family | Socialist and radical feminism | Thompson-style labor history applied to women; Kaplan, Alexander |
+| **Gender History** (1986–) | Gender as an analytical category structuring *all* of social life | How does gender organize power relations, not just women's sphere? | Discourse analysis; poststructuralism (Foucault, Derrida) | Scott's Foucauldian framework; intersectionality (Crenshaw) | Scott, "Gender: A Useful Category" (1986); Butler, *Gender Trouble* (1990) |
+
+The key step is the shift from studying a *subject* (women) to analyzing a *structural category* (gender) that organizes the whole social field.
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -300,7 +309,18 @@ the entire discipline.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Scott's insight that gender is a structural category (not just "about women") parallels the shift from studying "users" to understanding that user-system interaction is a design category structuring the entire system — the analytical category reframes everything, not just its immediate referent -->
+## Engineering Bridge: Analytical Categories That Restructure the Whole Field
+
+Scott's theoretical move — gender is not just about women, it is a structural category that organizes power and meaning across all of social life — has a direct parallel in how powerful analytical categories work in any domain:
+
+**From "users" to "user-system interaction as a design category."** Early software design treated "users" as a separate concern — add a UI layer, write some docs, done. The UX field made Scott's move: user-system interaction is not a feature, it is a structural category that organizes the entire system. Once you analyze through this lens, *everything* is redesigned: the API surface, the error message taxonomy, the data model, the onboarding flow. The analytical category reframes everything, not just its immediate referent. Scott's point exactly.
+
+**From "accessibility" to "universal design."** The earlier framing: "add accessibility features for disabled users." The structural reframing: accessibility constraints reveal that your design assumptions encoded able-bodied norms everywhere in the system. Universal design (designing for the full range of human capability) is not "adding a feature" — it forces a structural redesign that benefits all users. The category "accessibility" went from a supplementary concern to a structural lens.
+
+**From "security" to "security as a structural property."** The earlier framing: "add a security layer." The structural reframing: security is not a layer — it is a property of the entire system, encoded in every API contract, every data flow, every trust boundary. Moving from "security features" to "threat modeling" is exactly Scott's move: the analytical category restructures the whole.
+
+**Intersectionality → compound failure modes.** Crenshaw's intersectionality (race + gender produces a distinct position not reducible to race or gender separately) maps onto failure mode analysis: a system can pass all its unit tests (tests for each component in isolation) and still fail at the intersection of multiple conditions that each component handles "correctly" in isolation. The intersection is a distinct failure mode. This is why integration testing exists — and why it is not reducible to the sum of unit tests.
+
 ## Common Confusion Points
 
 **Women's history and gender history are not the same.**

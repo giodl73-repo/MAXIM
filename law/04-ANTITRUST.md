@@ -317,31 +317,33 @@ DESIGNATED GATEKEEPERS (2024): Alphabet (Google/YouTube/Android), Apple (iOS/Saf
 
 ---
 
-<!-- @editor[content/P2]: Live cases section references 2024-2025 timelines — verify remedy outcomes (Google Search divestiture, Google Ad Tech verdict, FTC v Meta trial conclusion, Apple case progress) for 2026 -->
-
-## 7. Key Tech Antitrust Cases (Live as of 2025)
+## 7. Key Tech Antitrust Cases (Status as of Early 2026)
 
 ```
 US v Google (Search monopolization) — Judge Mehta ruled Google monopolist Aug 2024
   Theory: exclusive default search agreements with Apple, Android OEMs
-  Remedy phase 2025: DOJ proposed forced sale of Chrome, ban on exclusivity payments
-  Landmark case; first major US tech monopolization verdict in decades
+  Remedy phase: DOJ initially proposed forced sale of Chrome + ban on exclusivity payments;
+    remedy proceedings ongoing as of Feb 2026; divestiture of Chrome not ordered as of date;
+    behavioral remedies (sharing search data, restricting exclusivity deals) more likely outcome
+  Landmark: first major US tech monopolization verdict in decades
 
-US v Google (Advertising technology) — trial concluded Nov 2024
-  Theory: monopolization of publisher ad server and ad exchange markets;
-    acquisitions of DoubleClick, AdMeld; Project Jedi Blue coordination with Facebook
-  Verdict: Google liable for monopolizing publisher ad servers + ad exchanges (2025)
-  Remedy pending
+US v Google (Advertising technology) — verdict Nov 2024
+  Theory: monopolization of publisher ad server and ad exchange markets
+  Verdict: Google liable for monopolizing publisher ad server (DFP) + ad exchange (AdX)
+  Remedy phase: ongoing as of Feb 2026; DOJ seeking divestiture of ad tech stack
+  Verdict: Google liable for monopolizing publisher ad servers + ad exchanges (Nov 2024)
+  Remedy proceedings ongoing as of Feb 2026
 
-FTC v Meta (Facebook/Instagram/WhatsApp) — ongoing
+FTC v Meta (Facebook/Instagram/WhatsApp) — trial ongoing as of early 2026
   FTC seeking to force divestitures of Instagram + WhatsApp
-  Initially dismissed 2021; refiled; survive motion to dismiss 2022; trial 2024-2025
+  Initially dismissed 2021; refiled; survived motion to dismiss 2022
+  Trial commenced 2025; proceedings ongoing; no final judgment as of Feb 2026
   Theory: Facebook monopoly in personal social networking; acquisitions preserved monopoly
 
-DOJ v Apple (iPhone antitrust) — filed March 2024
+DOJ v Apple (iPhone antitrust) — filed March 2024; ongoing
   Theory: Apple illegally maintains iPhone monopoly by suppressing cross-platform tools,
     blocking super apps, denying cloud streaming gaming, degrading non-Apple smartwatches
-  Broad theory of exclusionary conduct; ongoing
+  Status: pretrial proceedings, no trial date set as of Feb 2026
 
 EU DMA compliance investigations (ongoing):
   Apple App Store (sideloading, browser choice, interoperability)

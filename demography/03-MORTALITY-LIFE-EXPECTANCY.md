@@ -66,7 +66,8 @@ EXAMPLE (abridged, modern low-mortality population):
 
 ## The Gompertz Model of Mortality
 
-<!-- @editor[bridge/P3]: Natural bridge to reliability engineering — Gompertz μ(x) is the hazard function h(t) from survival/reliability analysis the reader knows; S(x) is the reliability function R(t). One sentence would connect the domains. -->
+The Gompertz force of mortality μ(x) is identical to the hazard function h(t) in survival analysis and reliability engineering: μ(x) = dF/dt / (1−F(t)) = −d ln S(x)/dx. The survivorship function S(x) is the reliability function R(t). Gompertz's exponentially increasing hazard is the aging analog of the Weibull wear-out failure model with β > 1 (see statistics-applied/05-RELIABILITY-SPC.md); the difference is that Gompertz specifies the functional form h(t) = α e^{βt} while Weibull specifies h(t) = (β/η)(t/η)^{β−1}.
+
 ```
 GOMPERTZ (1825):
   Force of mortality (hazard) increases exponentially with age:

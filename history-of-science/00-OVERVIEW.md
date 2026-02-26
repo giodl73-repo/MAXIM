@@ -5,39 +5,50 @@
 Science is not a method — it is an institution, a practice, and a self-correcting social process with structure, pathologies, and failure modes. The 20th century produced more sophisticated theories of how science actually works than any prior era. None of them fully agree.
 
 ```
-+------------------------------------------------------------------+
-|               PHILOSOPHY OF SCIENCE LANDSCAPE                    |
-+------------------------------------------------------------------+
-|                                                                  |
-|  LOGICAL POSITIVISM          POPPER                              |
-|  (Vienna Circle, 1920s)      (1934 Logik der Forschung)          |
-|  Verification principle  --> Falsificationism                    |
-|  Meaning = verifiability     Demarcation by falsifiability       |
-|  Science = protocol          Science = conjectures + refutations |
-|  statements                  Induction is unjustified            |
-|         |                            |                           |
-|         v                            v                           |
-|  KUHN (1962)                  LAKATOS (1970)                     |
-|  Structure of Scientific      Methodology of Scientific          |
-|  Revolutions                  Research Programmes                |
-|  Normal science / paradigm    Hard core + protective belt        |
-|  Anomaly / crisis             Progressive vs degenerating        |
-|  Paradigm shift               research programmes                |
-|  Incommensurability           More fine-grained than Kuhn        |
-|         |                            |                           |
-|         v                            v                           |
-|  FEYERABEND (1975)            SOCIOLOGY OF KNOWLEDGE             |
-|  Against Method               Strong Programme (Bloor 1976)      |
-|  Anything goes                Edinburgh School                   |
-|  Galileo broke the rules      Social causes explain beliefs      |
-|  Science not uniquely         including scientific beliefs        |
-|  rational                                                        |
-<!-- @editor[diagram/P3]: Landscape diagram lists frameworks chronologically but doesn't show the tension axes (rationalist vs sociological, prescriptive vs descriptive) — adding a 2x2 axis overlay would strengthen the relational view -->
-+------------------------------------------------------------------+
-|                                                                  |
-|  MERTON (1942): Science as institution with norms (CUDOS)        |
-|  Contemporary: Bayesian epistemology, metascience                |
-+------------------------------------------------------------------+
+PHILOSOPHY OF SCIENCE — POSITIONED ON TWO AXES
+================================================
+
+          PRESCRIPTIVE (How science SHOULD work)
+          ^
+          |
+POSITIVISM|  POPPER
+(Vienna   |  (Falsificationism)
+Circle)   |  "Falsifiable or     LAKATOS
+          |   meaningless"       (Research Programmes)
+          |                      "Progressive vs
+          |                       degenerating"
+          |
+----------+------------------------------------------------->
+RATIONALIST                                    SOCIOLOGICAL
+(logic /  |                                    (social forces /
+method    |                                     institutions
+drives    |                                     drive science)
+science)  |
+          |
+          |  KUHN                 EDINBURGH SCHOOL
+          |  (Paradigms)          (Strong Programme)
+          |  "Normal science      "Social causes explain
+          |   + revolution"        scientific beliefs too"
+          |
+          |  FEYERABEND           FEMINIST STANDPOINT
+          |  ("Anything goes")     THEORY
+          v
+          DESCRIPTIVE (How science ACTUALLY works)
+
+READING THE MAP:
+  Top-left:  Logical Positivism — science as pure logical protocol
+  Top-right: Popper/Lakatos — rational method, but fallibilist
+  Bottom-left: Kuhn — descriptive account; paradigms are real
+  Bottom-right: SSK/Edinburgh — social factors causally explain beliefs
+
+MERTON (1942) sits orthogonally: not about logic or sociology
+of beliefs, but sociology of the institution:
+  CUDOS norms: Communalism · Universalism · Disinterestedness
+               Organized Skepticism
+  Science as a self-regulating social system with structural norms
+
+Contemporary: Bayesian epistemology (rational belief update under
+uncertainty) + metascience (empirical study of scientific practice)
 ```
 
 ---
@@ -530,7 +541,24 @@ This practical demarcation is imperfect but workable.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — a VP of Engineering would benefit from explicit parallels: paradigm shifts in science map to platform migrations in tech (mainframe→client-server→cloud), Mertonian norms map to open-source community norms, Kuhnian normal science maps to incremental product development within an architecture -->
+## Bridges — Science Studies as Systems Thinking
+
+The frameworks in this module have direct structural analogues in software engineering and organizational dynamics.
+
+**Kuhnian paradigms → architectural paradigms**
+Normal science (puzzle-solving within an accepted framework) maps precisely to feature development within an established architecture. The anomalies that accumulate before a paradigm shift are exactly the "tech debt warnings" that precede a platform rewrite. The paradigm shift itself — messy, contested, often generational — mirrors the mainframe-to-client-server, client-server-to-cloud, monolith-to-microservices transitions. Each involved: resistance from practitioners with sunk investment, incommensurability arguments ("you can't compare the old and new directly"), and eventual dominance of the new regime once network effects tipped.
+
+**Lakatos's research programmes → product architecture lifecycles**
+A progressive research programme generates novel predictions confirmed by experiment — equivalent to an architecture that keeps unlocking new capabilities with low friction. A degenerating programme piles up post-hoc fixes to protect its core assumptions — equivalent to a legacy architecture accumulating adapters, shims, and workarounds. Lakatos's insight: you can't evaluate a research programme at a single point in time; you need the *trajectory*. Same for architectural decisions.
+
+**Mertonian norms → open-source community norms**
+Communalism (results shared freely) is the open-source default. Universalism (judge work on merit, not author identity) is the PR review ideal — imperfectly realized in both science and software. Disinterestedness (no personal stake in outcome) is violated in both domains by career incentives and NIH syndrome. Organized Skepticism is code review, adversarial testing, and reproducibility requirements. Open source is a Mertonian institution embedded in a commercial context, with the resulting tensions.
+
+**Feyerabend's "anything goes" → exploratory research spikes**
+Feyerabend's prescriptive claim is not that all approaches are equal — it's that methodological rigidity blocks valid innovation. The equivalent in engineering: premature process standardization (mandating a testing framework before the problem space is understood) can kill the productive exploration that reveals what the right process should be. The caveat in both domains: "anything goes" is for exploration phases, not production gates.
+
+**SSK's social construction → consensus mechanisms in distributed systems**
+The Strong Programme's claim — that scientific consensus is partly a social achievement, not pure logic — maps to the insight that distributed consensus is a protocol, not a logical necessity. The fact that two reasonable people examining the same evidence can reach different conclusions (incommensurability) is a feature of knowledge systems that lack a canonical arbiter. How you design the arbitration protocol (peer review, Paxos, BFT) determines what the system converges on.
 
 ## Links to Other Modules
 

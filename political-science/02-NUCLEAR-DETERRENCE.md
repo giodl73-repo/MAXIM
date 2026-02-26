@@ -2,11 +2,25 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P3]: The opening correctly identifies deterrence as applied game theory, but never explicitly connects to the learner's MIT formal background — Schelling's commitment devices are mechanism design, MAD is a Nash equilibrium in a one-shot game with catastrophic payoffs, and the credibility problem is the classic cheap-talk vs. costly-signaling distinction. One bridge paragraph noting "you already have the formalism; here's the domain application" would sharpen the pitch -->
 Nuclear deterrence is applied game theory: you're trying to influence another
 rational actor's decisions by making certain outcomes too costly to risk. The
 intellectual framework, developed 1945–1965, remains the logic governing the
 world's most consequential military postures.
+
+**Formal bridge:** If you have the TCS/formal background, you already own the
+machinery — here's the domain mapping. MAD is a Nash equilibrium in a simultaneous
+game with catastrophic payoffs: both sides choose "don't strike first" because
+the payoff of striking first (annihilation from second strike) is worse than
+mutual restraint, assuming secure second-strike capability. The credibility problem
+is the cheap-talk vs. costly-signaling distinction: verbal threats are cheap talk
+(no cost to make them, adversary can't verify resolve), so they are not credible
+signals. Schelling's commitment devices — trip wires, hostage forces, delegated
+launch authority — are costly signals that make retaliation automatic or
+mechanism-enforced, removing the cheap-talk problem. The positive/negative control
+tension is a classic principal-agent problem under moral hazard: you want the agent
+(launch system) to act only when the principal (national command authority) authorizes,
+but you also want the threat to be credible, which requires the agent to be able to
+act without principal approval in some scenarios.
 
 ```
 +----------------------------------------------------------------------+

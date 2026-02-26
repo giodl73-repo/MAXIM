@@ -5,24 +5,35 @@
 Motivation theory in OB asks: what drives people to exert effort, persist, and perform? Three generations of theory: content theories (what motivates), process theories (how motivation works mechanically), and modern integrated frameworks (when and why different motivators work). The core tension: intrinsic motivation (doing something for its own sake) vs extrinsic motivation (doing something for external reward) — and whether one crowds out the other.
 
 ```
-MOTIVATION THEORY LANDSCAPE
-=============================
+MOTIVATION THEORY LANDSCAPE — EVOLUTION AND STRUCTURE
+=======================================================
 
-<!-- @editor[diagram/P2]: Diagram lists theories in columns but doesn't show how they relate or build on each other — rework to show flow from content → process → integrated as an evolution, or show which theories address which motivational question -->
-CONTENT THEORIES               PROCESS THEORIES            INTEGRATED
-(What motivates)               (How it works)              FRAMEWORKS
-————————————————               —————————————————           ——————————
-Maslow hierarchy               Expectancy theory           SDT
-(needs; hierarchy weak)        (VIE model)                 (Deci & Ryan)
+GENERATION 1: CONTENT THEORIES (1940s-1960s)
+  Q: WHAT MOTIVATES? — identifying the needs and conditions that produce effort
+  ─────────────────────────────────────────────────────────────────────────────
+  Maslow hierarchy        Herzberg two-factor      McClelland nAch/nAff/nPow
+  (need activation)       (hygiene vs motivators)  (three distinct need types)
+  Evidence: weak          Evidence: weak           Evidence: moderate
+  (hierarchy not found)   (attribution artifact)   (nAch in entrepreneurship)
 
-Herzberg two-factor            Goal-setting theory         JD-R model
-(hygiene vs motivators)        (Locke & Latham)            (demands/resources)
+GENERATION 2: PROCESS THEORIES (1960s-1980s)
+  Q: HOW DOES MOTIVATION WORK? — the mechanism from conditions to effort
+  ─────────────────────────────────────────────────────────────────────────────
+  Expectancy (VIE)        Goal-setting             Equity theory (Adams)
+  E × I × V = motivation  Specific + difficult     (My ratio vs referent's)
+  Evidence: mixed         → higher performance     Evidence: strong (esp.
+  (field weaker than lab) Evidence: STRONG         underpayment effects)
+                          Best-supported theory
 
-McClelland needs               Equity theory
-(nAch, nAff, nPow)             (Adams; fairness)
-
-ERG theory (Alderfer)          Social cognitive
-(compressed Maslow)            (Bandura; self-efficacy)
+GENERATION 3: INTEGRATED FRAMEWORKS (1985-present)
+  Q: WHEN AND WHY do different motivators work; what is the unit of analysis?
+  ─────────────────────────────────────────────────────────────────────────────
+  SDT (Deci & Ryan)                          JD-R (Demands/Resources)
+  Motivation quality, not just quantity      Job demands → burnout
+  Autonomous vs controlled regulation        Job resources → engagement
+  Basic needs: autonomy / competence /       Resources buffer demand effects
+  relatedness                                Links individual + org level
+  Evidence: STRONG; cross-cultural
 
 EVIDENCE STRENGTH:
  Maslow hierarchy: virtually no empirical support for the hierarchy order
@@ -347,7 +358,17 @@ TOURNAMENT THEORY BRIDGE:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from incentive design in management accounting / principal-agent framing to motivation theory — the learner's background includes performance management systems; connect economic incentive design to SDT/crowding-out explicitly -->
+## From Incentive Design to Motivation Theory
+
+The economic models of incentive design and the behavioral OB models of motivation are in productive tension. Understanding both — and where they diverge — is the core engineering-management design problem.
+
+**The principal-agent model assumes extrinsic incentives are the primary lever; SDT says this is wrong for the work that matters most.** Principal-agent theory (the foundation of most management accounting frameworks) treats agents as utility maximizers who will shirk when monitoring is imperfect and will respond to financial incentives proportional to measured output. This model is accurate for algorithmic tasks (narrow, rule-governed, measurable output) — piece-rate in agriculture, fixed-scope deliverables, call center volume. For heuristic and creative tasks (software design, architecture decisions, research, strategy), the model is wrong in a specific direction: contingent pay activates a controlled motivation frame that substitutes for intrinsic engagement and narrows the search behavior needed for complex problem-solving. This is Deci's cognitive evaluation theory — not management philosophy, but a mechanism with empirical support.
+
+**The economic intuition that "you get what you measure" formalizes as Goodhart's Law, and SDT explains the mechanism.** When an engineer is evaluated on story points completed per sprint, story points become a target rather than a measure. The SDT mechanism: the metric becomes a controlling external pressure that shifts the engineer from identified motivation ("I care about this product") to introjected or external motivation ("I need to hit the number"). Once the shift happens, optimization is against the metric, not against the underlying goal. This is why OKR grading should be separated from compensation — the moment it is tied to pay, it triggers the crowding-out dynamic.
+
+**Efficiency wages (pay above market) work through multiple SDT-compatible channels simultaneously.** The economic argument: above-market pay reduces shirking (job worth keeping) and attracts higher-ability workers. The SDT complement: above-market pay, when perceived as equitable and non-controlling, sets a high reference anchor that employees feel they must justify — which activates identified motivation ("I'm proud of where I work; I want to contribute to something worth this"). The two mechanisms are not competing explanations; they operate through different channels. What degrades both is the perception of inequity or arbitrariness: if the above-market pay is perceived as unequally distributed (equity theory) or as a controlling tool rather than fair compensation (SDT), neither mechanism operates.
+
+**Tournament theory (large pay gaps between levels) predicts behavioral effects that are well-documented in engineering orgs.** The logic: large level-to-level pay differences create intense competition for promotion, which increases effort. The failure mode: tournament incentives destroy cooperation precisely when cooperation is the core production technology. In engineering organizations where code review, architecture alignment, incident response, and knowledge transfer require active peer cooperation, tournament dynamics create the wrong incentive. The observed pathology — engineers who hoard information, resist code review that would educate competitors, and avoid mentoring junior engineers — is not cultural failure; it is the predicted equilibrium of a tournament incentive structure.
 
 ## Intrinsic vs Extrinsic Rewards in Practice
 

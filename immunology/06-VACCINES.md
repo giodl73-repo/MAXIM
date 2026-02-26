@@ -1,4 +1,3 @@
-<!-- @editor[bridge/P3]: No CS/engineering analogy bridge — mRNA vaccine platform parallels a programmable build system (sequence in, antigen out); adjuvants parallel dependency injection of context that the runtime needs but the payload doesn't carry -->
 # Vaccines and Vaccination
 
 ## The Big Picture
@@ -339,6 +338,79 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
 | Waning immunity issue | Annual booster or reformulation |
 
 ---
+
+## mRNA Platform and Adjuvants as Programmable Systems
+
+```
+mRNA VACCINE PLATFORM ↔ PROGRAMMABLE BUILD SYSTEM
+──────────────────────────────────────────────────────────────────────────────
+TRADITIONAL VACCINE (whole pathogen/protein):
+  = Bespoke compiled artifact
+  Each vaccine is a separate manufacturing effort tied to a specific pathogen
+  Requires growing the pathogen or expressing the protein — different build chain
+  per target
+  Time to first dose: years
+
+mRNA PLATFORM (BNT162b2, mRNA-1273, Spikevax):
+  = Programmable compiler + runtime
+  The delivery system (LNP + mRNA backbone + modifications) is fixed
+  Only the CODING SEQUENCE changes per target
+  New pathogen → sequence it → design spike CDS → synthesize mRNA → done
+  Time to first human dose for COVID-19: 66 days from genome publication
+
+  ANALOGY:
+  LNP + backbone    ↔  Build toolchain (compiler + runtime + standard library)
+  mRNA CDS          ↔  Source file (.cpp → compile → executable antigen)
+  Codon optimization ↔  Profile-guided optimization for target expression system
+  N1-methylpseudo-U ↔  Flag to suppress immune detection of the build artifact
+                        (like signing + obfuscation to bypass AV heuristics)
+  Proline mutations  ↔  Structural constraint at compile time (prefusion lock)
+  5'/3' UTR         ↔  Startup/shutdown hooks; polyA tail = cache lifetime hint
+
+  DEPLOYMENT:
+  LNP = container image with runtime; mRNA = the payload
+  Injection site = production deployment; endosome = package manager install
+  Ionizable lipid (pH-dependent) = auto-shutdown after delivery (LNP dissociates)
+
+  SCALING ADVANTAGE:
+  Once you have the platform, incremental new targets are O(days) not O(years)
+  This is the platform vs. bespoke software engineering distinction
+  BioNTech now has mRNA pipeline for flu, HIV, cancer (neoantigen), CMV, RSV
+
+ADJUVANTS ↔ DEPENDENCY INJECTION OF RUNTIME CONTEXT
+──────────────────────────────────────────────────────────────────────────────
+PROBLEM:
+  Pure protein antigen → no PAMP → innate receptors not triggered → DCs
+  don't mature → no co-stimulation → T cell anergy (Signal 2 missing)
+  The payload (antigen) cannot generate its own activation context
+
+SOLUTION — ADJUVANT = INJECTED DEPENDENCY:
+  Adjuvant provides the "danger signal" context that the antigen payload
+  cannot generate itself
+  DC = the dependent service that requires activation context to function
+  Adjuvant = config/environment injection at deploy time
+
+  ALUM:
+    NLRP3 inflammasome activation → IL-1β
+    Depot effect: antigen slow-release from alum crystal surface
+    = Configuration: long-running process with state (antigen cache)
+
+  AS01B (MPL + QS-21):
+    TLR4 agonist + saponin → very strong Th1 + CD8 response
+    = Two-dependency injection: TLR4 pathway + NLRP3/unknown QS-21 pathway
+    = Constructor injection with two required dependencies
+
+  LNP (mRNA vaccine adjuvant):
+    Ionizable lipid → IL-6 at injection site → DC activation
+    The delivery vehicle IS the adjuvant — bundled as inseparable module
+    = In-process dependency: no need to inject separately; part of the artifact
+
+  THEORETICAL PERFECT ADJUVANT = dependency injection framework:
+    Inject exactly the innate activation context needed for the desired response
+    (Th1 vs. Th2 vs. CD8 vs. mucosal) without excess systemic inflammation
+    Current adjuvants: somewhat blunt; AS01B is the precision leader
+──────────────────────────────────────────────────────────────────────────────
+```
 
 ## Common Confusion Points
 

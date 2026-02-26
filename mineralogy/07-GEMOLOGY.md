@@ -296,11 +296,14 @@ CVD DIAMOND (Chemical Vapor Deposition):
   CVD diamonds: optically identical to natural; spectroscopic detection
   HPHT treatment can remove brown color from CVD diamonds
 
-<!-- @editor[audience/P3]: "The learner knows CVD from semiconductor manufacturing" breaks the fourth wall — rephrase as a direct bridge statement rather than meta-commentary about the reader -->
-  The learner knows CVD from semiconductor manufacturing:
-  Same principle — chemical vapor phase deposits material on substrate.
-  Diamond CVD is higher T than Si CVD; the plasma chemistry is simpler
-  but growth control for gem quality requires precise parameter control.
+  CVD diamond uses the same principle as CVD in semiconductor manufacturing:
+  a reactive gas mixture (H₂/CH₄ here, vs silane/TEOS for silicon oxides)
+  decomposes in a plasma and deposits the target material on a substrate.
+  Diamond CVD runs hotter (~800–1200°C vs ~400–700°C for many Si CVD steps)
+  and uses microwave plasma rather than thermal activation. The atomic hydrogen
+  in the plasma etches sp² carbon (graphite) preferentially, leaving only sp³
+  carbon (diamond) — a selective chemistry that the semiconductor industry
+  would recognize as analogous to selective etch processes.
 
 HPHT DIAMOND (High Pressure High Temperature):
   Metal flux (Fe, Co, Ni) dissolves graphite at high P/T
@@ -379,8 +382,9 @@ DETECTION METHODS AT LABS (GIA, AGL, Gübelin, SSEF)
 | IGI | Diamonds + colored stones | Faster/cheaper; used for lab-grown |
 | HRD Antwerp | Diamonds | European market |
 
-<!-- @editor[content/P2]: The FTC disclosure ruling is a regulatory/legal angle worth expanding — what year did De Beers start marketing lab-grown? How has pricing changed? A 2-line market context would ground the regulatory point -->
 **Lab-grown diamond disclosure**: FTC (2018) ruled "lab-grown," "lab-created," or "man-made" must appear before "diamond" in marketing. Cannot use "synthetic" alone as misleading. The underlying material IS diamond — chemically, physically, optically identical.
+
+The market has bifurcated sharply. De Beers launched Lightbox in 2018 — explicitly pricing lab-grown diamonds as fashion accessories at a fixed $800/ct, deliberately separating them from the mined diamond luxury market. Lab-grown 1-ct colorless stones that sold for ~$4,000 in 2016 fell to ~$300–500 by 2023 as CVD capacity scaled. Mined diamonds have held price for the top quality tiers (D/E/F, IF/VVS) but mid-market mined stones face pricing pressure. The regulatory and market trajectory is the same as other manufactured goods that displaced natural equivalents: price compression once production scales, with a residual premium for "natural" positioned as provenance rather than physical superiority.
 
 ---
 

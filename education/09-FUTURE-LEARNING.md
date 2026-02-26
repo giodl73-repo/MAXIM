@@ -86,28 +86,34 @@ Benjamin Bloom's research is the theoretical foundation for the AI tutoring prom
   ITS ARCHITECTURE
   =================
 
-<!-- @editor[bridge/P3]: ITS 4-component architecture maps naturally to MVC+domain pattern (domain model, student model as state, pedagogical module as controller, interface as view) — learner's software architecture background makes this an obvious bridge -->
   FOUR COMPONENTS (traditional ITS):
+  Maps cleanly to MVC + Domain model architecture:
 
-  1. DOMAIN MODEL:
+  1. DOMAIN MODEL:         [Domain / Knowledge Layer]
      What is to be learned.
      Knowledge structure: concepts, skills, prerequisites.
+     DAG of learning objectives; the "schema" for subject matter.
      "What are the components of solving this type of problem?"
 
-  2. STUDENT MODEL:
+  2. STUDENT MODEL:        [State Layer — runtime state object]
      Current state of student knowledge.
-     Bayesian Knowledge Tracing (BKT) or deeper model.
-     Updated with each student interaction.
+     Bayesian Knowledge Tracing (BKT) or LSTM (Deep KT).
+     Updated with each student interaction (state machine).
      "What does this student know and not know?"
+     Analogous to: session state or user profile object
+     with probabilistic knowledge fields per skill.
 
-  3. PEDAGOGICAL MODULE:
+  3. PEDAGOGICAL MODULE:   [Controller — decision logic]
      Decision-making about what to teach next.
      Selects problems, hints, feedback based on student model.
      "Given what this student knows, what should I do next?"
+     Analogous to: controller that reads state and
+     selects next action / view to render.
 
-  4. INTERFACE:
+  4. INTERFACE:            [View Layer]
      How the system communicates with the student.
      Text, diagrams, problems, hints, explanations.
+     Renders pedagogical module decisions to the user.
 
   MAJOR SYSTEMS:
     Carnegie Learning / MATHia:
@@ -333,7 +339,25 @@ The emergence of GPT-4, Claude, Gemini, and similar models created a new categor
   learning and the environments in which it occurs.
   (LAK, 2011)
 
-<!-- @editor[bridge/P3]: Learning analytics pipeline parallels BI/data engineering pipelines (event ingestion, ETL, dimensional models, dashboards) — natural bridge to Azure Data Factory and Power BI background -->
+  PIPELINE ARCHITECTURE:
+    Learning analytics is a BI/data engineering pipeline
+    applied to educational event streams:
+
+    Event sources (LMS, ITS, video player, forum)
+      → Event ingestion (Kafka / event bus)
+      → ETL / transformation (normalize to learning event schema)
+      → Dimensional model (fact: learning_event;
+          dims: learner, course, skill, time, resource)
+      → Aggregations (mastery estimates, at-risk scores)
+      → Dashboards (instructor view, advisor alert, student feedback)
+
+    This is the same ADF/Power BI pipeline for operational
+    analytics — different domain, identical architecture.
+    The "student at-risk" model is a classification model
+    trained on historical cohort data, deployed to score
+    current students in real-time — same as churn prediction
+    in a SaaS business.
+
   DATA TYPES:
     LMS activity: login frequency, time on task.
     Assessment: quiz scores, time taken, error patterns.

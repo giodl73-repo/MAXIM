@@ -42,7 +42,7 @@
 
 ---
 
-## 1. Why Philosophy Matters for Engineers and Scientists
+## Prelude: Why Philosophy Matters for Engineers and Scientists
 
 ### Gödel's Shadow Over Everything
 
@@ -117,8 +117,7 @@ RELEVANCE TO ML/STATISTICS:
 
 ---
 
-<!-- @editor[structure/P2]: Section not anchored to landscape diagram — "Why Philosophy Matters" doesn't map to a specific node; consider reframing as a prelude before the drill-down sections -->
-## 2. Major Schools and Their Relations
+## 1. Major Schools and Their Relations
 
 ### Analytic vs Continental Philosophy
 
@@ -221,8 +220,91 @@ INTERVENTIONIST/CAUSAL GRAPHS (Pearl):
 
 ---
 
-<!-- @editor[content/P2]: Political philosophy listed in landscape diagram (Ethics & Political Philosophy) but absent from drill-down — significant gap -->
-<!-- @editor[content/P2]: Philosophy of Mathematics listed in landscape diagram but covered only in passing (Gödel section) — deserves its own subsection or cross-reference to 01-LOGIC.md -->
+## 3b. Political Philosophy
+
+```
+CORE QUESTION: What justifies political authority? What makes a state legitimate?
+
+SOCIAL CONTRACT THEORIES:
+  Hobbes: without contract, life is "nasty, brutish, short" (war of all against all).
+    Rational agents cede some freedom to a sovereign for security.
+    Legitimacy = effective protection; no right to rebel if sovereign fails.
+  Locke: natural rights (life, liberty, property) precede the state.
+    State legitimate only if it protects these rights.
+    Right to revolution if it fails → foundational for US Declaration.
+  Rousseau: general will (volonté générale) — the common good, not sum of preferences.
+    Social contract creates collective moral agent; individual freedom preserved
+    by being subject only to laws one has collectively willed.
+
+RAWLS — A THEORY OF JUSTICE (1971):
+  Original position + veil of ignorance:
+    Design a just society not knowing your place in it (class, race, talents).
+    Rational contractors behind veil would choose:
+      (1) Equal basic liberties (liberty principle)
+      (2) Fair equality of opportunity
+      (3) Difference principle: inequalities justified only if they benefit
+          the least-advantaged members of society
+  Relevance: standard framework for AI governance debates (who bears the risk?
+    who benefits? what principles would we choose not knowing our position?)
+
+NOZICK — ANARCHY, STATE, AND UTOPIA (1974):
+  Libertarian response to Rawls.
+  Natural rights as side-constraints: cannot violate individual rights even
+    for aggregate benefit. Taxation = forced labor.
+  Minimal state (night-watchman): only state that can be justified is one
+    that protects against force, theft, fraud. Nothing more.
+
+RELEVANCE TO TECHNOLOGY GOVERNANCE:
+  Rawlsian: AI benefits must reach the least well-off; worst-case protections
+    are non-negotiable regardless of aggregate utility.
+  Nozickian: individual autonomy and property rights constrain data use;
+    consent is foundational regardless of social benefit.
+  Democratic theory: platform governance is quasi-legislative; who has
+    voice in norm-setting? Epistocracy vs democratic legitimacy in AI labs.
+```
+
+## 3c. Philosophy of Mathematics (cross-reference: 01-LOGIC.md §5)
+
+```
+THE FOUNDATIONAL QUESTION: What are mathematical objects, and how do we know about them?
+
+PLATONISM (Mathematical Realism):
+  Mathematical objects (numbers, sets, functions) exist independently of minds.
+  Gödel was a Platonist: we perceive mathematical truths by "mathematical intuition."
+  Explanatory virtue: why does math work so well in physics? (Wigner's "unreasonable
+    effectiveness") — if math is invented, this is mysterious; if discovered, less so.
+  Problem: epistemic access — how do we come into contact with abstract objects?
+
+FORMALISM (Hilbert):
+  Mathematics is manipulation of formal symbols according to rules.
+  No abstract objects; just strings and inference rules.
+  Decimated by Gödel: Hilbert's program (prove consistency of arithmetic by finitary
+    means) is impossible. Formalism must accept axioms on faith.
+
+LOGICISM (Frege, Russell):
+  Mathematics = logic; mathematical truths are logical truths.
+  Russell's Principia Mathematica: derive all math from logic.
+  Russell's paradox undermined naive set theory (set of all sets not members of themselves).
+  Type theory (Russell) as the fix → genealogy of modern type systems in PL.
+
+INTUITIONISM (Brouwer):
+  Mathematical objects are mental constructions; they exist only when constructed.
+  Consequence: reject law of excluded middle (¬¬P ≠ P constructively).
+  Proof must be constructive: existence proof by contradiction is illegitimate.
+  → Intuitionistic type theory (Martin-Löf) → Coq, Agda, Lean foundations.
+  → Curry-Howard: constructive proofs = programs; classical logic = programs with
+    control operators (callcc). The foundational position has real PL consequences.
+
+STRUCTURALISM:
+  Mathematics is about structures, not specific objects.
+  Natural numbers: not specific objects but any ω-sequence satisfying Peano axioms.
+  Multiple realizations: the same structure can be instantiated differently.
+  Explains applicability: science uses mathematical structures; which objects fill
+    the structure roles is irrelevant.
+
+See 01-LOGIC.md for proof theory, Gödel details, and proof assistants.
+```
+
 ## 4. Philosophy in Modern Technical Context
 
 ### Decision Theory
@@ -283,7 +365,67 @@ AI ALIGNMENT (technical philosophy):
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world → new-world bridge section — natural parallel: formal verification culture (VSTS-era CI/CD correctness proofs) → modern philosophical rigor about foundations -->
+## Bridge — Philosophy and Formal Engineering Practice
+
+```
+PHILOSOPHICAL POSITION          ENGINEERING / CS PARALLEL
+─────────────────────────────────────────────────────────────────
+Gödel completeness vs.          Every formal system has limits.
+incompleteness:                 Type systems cannot catch all bugs.
+Some truths are beyond          Turing completeness ↔ halting
+provable reach.                 undecidability. Rice's theorem:
+                                no semantic property of programs
+                                is decidable in general.
+                                Engineers live with this daily.
+
+Hilbert's Program (formalize    Formal verification (TLA+, Coq,
+everything; prove consistency): Lean, Isabelle): provably correct
+failed by Gödel, but the        code. You accept axioms on faith
+practice lives on in            (OS correctness, compiler, hardware).
+proof-assistant culture.        seL4 verified kernel; CompCert
+                                verified C compiler. Hilbert's
+                                dream, bounded.
+
+Philosophical foundations of    Schema-first (relational, typed):
+knowledge (rationalism vs.      rationalist architecture — structure
+empiricism):                    imposed before data arrives.
+How much structure to impose    Schema-last (NoSQL, document store):
+on data vs. let it emerge.      empiricist — let structure emerge
+                                from the data itself.
+                                Any data architect has made this
+                                trade-off explicitly.
+
+Kuhn's paradigm shifts:         Platform migrations: every 10-15
+Normal science → crisis →       years, a new computational paradigm
+new paradigm. The old paradigm  replaces the old.
+is incommensurable with the     mainframe → client-server → web →
+new; no neutral comparison.     cloud → mobile → AI.
+                                Old skills don't directly transfer;
+                                the new paradigm has its own
+                                ontology (containers ≠ VMs, even
+                                though they serve some of the same
+                                function). You cannot evaluate the
+                                new paradigm from entirely within
+                                the old one's terms.
+
+Rawlsian veil of ignorance:     API design and system design under
+Design principles without       uncertainty about who the caller will
+knowing your position.          be. Design contracts that are fair
+                                to all future callers, not just the
+                                first one you have in mind.
+                                "You are not the user."
+
+Arrow's Impossibility Theorem:  No aggregation of diverse team
+No consistent social choice     preferences (on architecture, stack,
+function satisfying basic       process) satisfies all fairness
+fairness axioms exists.         criteria simultaneously. Org
+                                decision-making is inherently
+                                constrained by impossibility results.
+                                Acknowledgment of this is more
+                                productive than searching for the
+                                "right" aggregation procedure.
+```
+
 ## Decision Cheat Sheet
 
 | Philosophical Problem | Current Best Position | Why It Matters Practically |

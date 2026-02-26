@@ -385,7 +385,67 @@ Tools required:
 
 ---
 
-<!-- @editor[content/P3]: Hippocratic medicine absent — the Hippocratic tradition (naturalistic disease explanation, case observation, prognosis) is a significant strand of ancient natural philosophy and the origin of clinical empiricism -->
+---
+
+## Hippocratic Medicine — Clinical Empiricism Without Theory
+
+The Hippocratic corpus (~430–330 BCE, Cos school) represents the first systematic attempt to explain disease through observation rather than divine causation — and the origin of the clinical method that still structures medicine.
+
+```
+HIPPOCRATIC FRAMEWORK
+======================
+
+CORE INNOVATION: Disease as natural process
+  Pre-Hippocratic: disease = divine punishment, demonic possession
+  Hippocratic: disease = imbalance of four humors (blood, phlegm,
+               yellow bile, black bile) in interaction with environment
+  The theory is wrong. The METHOD is foundational.
+
+FOUR HUMORS:
+  Blood     → sanguine temperament; spring; air
+  Phlegm    → phlegmatic; winter; water
+  Yellow bile → choleric; summer; fire
+  Black bile → melancholic; autumn; earth
+  Health = balanced; disease = excess/deficiency of one humor
+
+WHY THE THEORY WAS PRODUCTIVE (despite being wrong):
+  It was NATURALISTIC: causes in the body + environment, not gods
+  It was SYSTEMATIC: same causal framework for all diseases
+  It directed OBSERVATION: what fluids appear? in what quantities?
+  It generated PROGNOSIS: if this pattern, expect this outcome
+  → Created a community of practice with shared vocabulary and
+    shared observational categories
+
+CASE STUDY METHOD (Epidemics I and III):
+  Systematic case records: patient age, sex, habitat, season,
+  symptoms day by day, outcome (recovery or death)
+  No randomization, no controls — but: systematic, comparative,
+  honest about failures (death outcomes recorded, not suppressed)
+  = the first medical database
+
+PROGNOSIS vs DIAGNOSIS:
+  Hippocratic emphasis on prognosis (predicting course of disease)
+  not diagnosis (identifying disease category)
+  Practical reason: classification mattered less than knowing
+  whether patient would survive and how to support recovery
+  Epistemically important: prediction as validation criterion
+
+"FIRST DO NO HARM" (primum non nocere):
+  Not actually in the Hippocratic Oath (commonly misattributed)
+  The Oath (Epidemics I): "As to diseases, make a habit of two
+  things: to help, or at least to do no harm"
+  The principle reflects empirical humility: do not intervene
+  aggressively when the evidence for intervention is weak
+
+TRANSMISSION AND LONGEVITY:
+  Galenic medicine (2nd century CE) fused Hippocratic observation
+  with Aristotelian theory + Platonic teleology
+  This Galenic-Hippocratic synthesis: standard Western + Islamic
+  medicine for ~1,400 years (to Harvey + Vesalius, 16th century)
+  Hippocratic bedside manner → clinical medicine's observational core
+```
+
+**Why this belongs in natural philosophy:** The Hippocratic move — attributing disease to natural causes accessible to observation — is the same move Thales makes in cosmology and Aristotle in biology. Medicine is not separate from Greek natural philosophy; it's the domain where empirical observation was most practically motivated and most systematically recorded.
 
 ## Why Greek Science Didn't Produce the Industrial Revolution
 
@@ -442,7 +502,25 @@ No systematic cross-discipline collaboration
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — the learner would connect immediately to: Babylonian algorithmic astronomy as pattern-matching without model (like ML prediction without causal theory), Euclid's axiomatic method as the original formal specification, Aristotle's four causes as a proto-requirements taxonomy (material=infrastructure, formal=schema, efficient=process, final=business purpose) -->
+## Bridges — Ancient Natural Philosophy as CS Precursor
+
+**Babylonian astronomy → ML prediction without causal model**
+The Babylonians predicted eclipses and planetary positions with high accuracy using pattern-matching on historical cycles (the saros cycle, synodic period tables) — with no physical model of what was actually happening. This is structurally identical to a neural network that achieves 95% accuracy on a task without any interpretable causal mechanism. The Greek achievement — constructing a geometric model (epicycles, deferents) that *explains* the pattern — is the equivalent of building an interpretable model. Both approaches can achieve similar predictive accuracy; they differ in generalization reliability and in what they enable next. The debate between Babylonian-style almanac astronomy and Greek geometric astronomy maps directly to the ML interpretability debate.
+
+**Euclid's axiomatic method → formal specification**
+The Elements (c. 300 BCE) is the original formal specification: five postulates (axioms) from which ~465 propositions are derived by pure logical inference. Nothing is assumed that isn't stated; everything follows by valid inference. This is the ancestor of every formal methods system — Hoare logic, TLA+, type theory, Z specification. The epistemological claim (that derived theorems are *certain*, not merely probable) is exactly the claim formal verification makes. The parallel failure mode: Euclid's fifth postulate (the parallel postulate) seemed self-evident but was actually independent — yielding non-Euclidean geometries when negated. The lesson: what seems like an obvious axiom may encode a contingent choice, and different axiom systems yield internally consistent but mutually incompatible systems.
+
+**Aristotle's four causes → requirements taxonomy**
+The four causes are a framework for explaining *why* something exists/works: material (what it's made of), formal (what pattern/structure it instantiates), efficient (what process produced it), final (what purpose it serves). In systems engineering:
+- Material cause → infrastructure / substrate constraints
+- Formal cause → schema / data model / interface contract
+- Efficient cause → build process / CI pipeline / manufacturing
+- Final cause → business purpose / user requirement / acceptance criteria
+
+The final cause (teleology) is what Aristotle used to explain biological function — "the heart is for pumping blood" — and what modern biology eliminates (replacing purpose with selection). In engineering, teleological explanation is appropriate; in causal analysis it can mislead (the system does X *because* it was designed to does not explain the mechanism).
+
+**Hippocratic prognosis → observability-driven operations**
+The Hippocratic emphasis on prognosis (predict the course) over diagnosis (classify the disease) maps to modern observability practice: instrument everything, track metrics over time, predict failure modes, intervene before collapse rather than after. The case record method (systematic documentation of symptoms, conditions, outcomes) is the ancestor of structured logging and telemetry dashboards. The epistemological insight — that prediction is your validation criterion, not theoretical elegance — is also the pragmatist position in modern software (a system that works reliably matters more than one that's theoretically well-structured).
 
 ## Common Confusion Points
 

@@ -1,8 +1,22 @@
 # Climate Science — Overview: Earth's Energy Budget
 
-<!-- @editor[diagram/P2]: Opening diagram is a detailed energy budget — not a landscape of climate science as a whole. The Module Map table at line 191 is the actual landscape; promote it to the opening position and use the energy budget as a drill-down under its own section -->
+## The Big Picture: Climate Science Landscape
 
-## The Big Picture: Radiative Balance
+| Module | Topic | Key Concept |
+|--------|-------|-------------|
+| 00 | Overview (this) | Radiative forcing, GHG physics, ECS |
+| 01 | Carbon Cycle | Reservoirs, fluxes, ocean chemistry |
+| 02 | Climate Models | EBMs → GCMs → ESMs, validation |
+| 03 | Feedbacks & Tipping | Water vapor, ice-albedo, AMOC, permafrost |
+| 04 | Emissions Pathways | SSP scenarios, remaining carbon budget |
+| 05 | Impacts | Sea level, extremes, agriculture, risk |
+| 06 | Mitigation & Geoengineering | Renewables, CDR, SAI |
+
+Climate science is the study of Earth's coupled PDE system — atmosphere, ocean, land surface, and cryosphere — forced by solar radiation and perturbed by greenhouse gas loading. You already know Stefan-Boltzmann, blackbody radiation, and Wien's law from thermodynamics; climate science is those equations plus feedback loops. The core computation is: what equilibrium temperature does Earth's energy budget reach when you perturb the IR opacity of the atmosphere? Everything else — feedbacks, tipping points, projections — is either quantifying the feedbacks that modify that equilibrium or modeling the transient path to it.
+
+---
+
+## Radiative Balance
 
 ```
 SOLAR INPUT AND EARTH'S ENERGY BUDGET
@@ -38,7 +52,19 @@ NATURAL GREENHOUSE EFFECT:
 
 ---
 
-<!-- @editor[structure/P2]: No comparison tables in the body — entire guide is ASCII code blocks. Add at least one table (e.g., major GHGs compared: gas, concentration, forcing, lifetime, GWP) -->
+## Major Greenhouse Gases — Comparison
+
+| Gas | Conc. (2024) | Forcing since 1750 | Atm. lifetime | GWP-100 | Primary source |
+|-----|-------------|-------------------|---------------|---------|----------------|
+| CO₂ | 422 ppm | +2.16 W/m² | Centuries–millennia | 1 (reference) | Fossil fuels, land use |
+| CH₄ | ~1,900 ppb | +0.54 W/m² | ~9 years | 28 | Agriculture, fossil fuels, wetlands |
+| N₂O | ~334 ppb | +0.21 W/m² | ~114 years | 265 | Agriculture, soils |
+| HFCs | ppt range | +0.04 W/m² | 1–270 years | 100–23,000 | Refrigerants (Freon replacements) |
+| SF₆ | ~11 ppt | ~0.005 W/m² | ~3,200 years | 23,500 | Electrical switchgear |
+
+Water vapor (~0–4% by volume) is the strongest greenhouse gas but is a *feedback*, not a forcing — its concentration is set by temperature, not emitted independently.
+
+---
 
 ## Greenhouse Gas Physics: Why Molecular Absorption Matters
 
@@ -106,8 +132,6 @@ MAJOR FORCING AGENTS (IPCC AR6, 2021):
 ```
 
 ---
-
-<!-- @editor[bridge/P2]: No old-world bridge anywhere in the guide. Natural bridge: the learner knows thermodynamics (Stefan-Boltzmann, blackbody radiation, Wien's law) from MIT physics — open with "you already know radiative equilibrium from thermo; climate science is that equation plus feedbacks" -->
 
 ## Climate Sensitivity: Translating Forcing to Temperature
 
@@ -192,33 +216,18 @@ TEMPERATURE MILESTONES:
 
 ---
 
-## Module Map
-
-| Module | Topic | Key Concept |
-|--------|-------|-------------|
-| 00 | Overview (this) | Radiative forcing, GHG physics, ECS |
-| 01 | Carbon Cycle | Reservoirs, fluxes, ocean chemistry |
-| 02 | Climate Models | EBMs → GCMs → ESMs, validation |
-| 03 | Feedbacks & Tipping | Water vapor, ice-albedo, AMOC, permafrost |
-| 04 | Emissions Pathways | SSP scenarios, remaining carbon budget |
-| 05 | Impacts | Sea level, extremes, agriculture, risk |
-| 06 | Mitigation & Geoengineering | Renewables, CDR, SAI |
-
----
-
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a module navigation table, not a decision tool — reframe as "use X when Y" rows (e.g., "Evaluating whether CO₂ is saturated → 00 GHG physics; Estimating remaining emission budget → 04 Carbon budget math") -->
-
-| I want to understand... | Go to |
+| When I need to... | Go to |
 |---|---|
-| Why CO₂ causes warming (physics) | 00 (this) |
-| How long CO₂ stays in atmosphere | 01 |
-| How climate models work | 02 |
-| Why tipping points matter | 03 |
-| How much CO₂ we can still emit | 04 |
-| Projected sea level rise | 05 |
-| Whether solar geoengineering works | 06 |
+| Evaluate whether "CO₂ is saturated" argument holds | 00 (this) — GHG spectroscopy, wing absorption |
+| Know what fraction of emissions stay in atmosphere | 01 — airborne fraction, Revelle factor |
+| Understand why ECS is uncertain and what constrains it | 00 (this) — feedback table, cloud uncertainty |
+| Understand how climate models are built and validated | 02 — EBMs → GCMs → ESMs, CFL, parameterization |
+| Assess whether a tipping point is near | 03 — bifurcation framework, AMOC, permafrost |
+| Estimate remaining carbon budget for a temperature target | 04 — TCRE, SSP scenarios, budget math |
+| Quantify projected impacts by sector and region | 05 — sea level, extreme events, agriculture |
+| Evaluate whether solar geoengineering is viable | 06 — SAI physics, governance, termination shock |
 
 ---
 

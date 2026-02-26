@@ -31,7 +31,71 @@ Developmental biology is the science of how a single cell — a fertilized egg �
 
 ---
 
-<!-- @editor[bridge/P2]: No universal CS bridge in the overview — the "same genome, different fates" paradox maps directly to polymorphism / runtime dispatch (same codebase, different behavior based on context). A senior engineer would immediately grasp developmental signaling as event-driven architecture, morphogen gradients as configuration gradients, and Waddington's landscape as an energy landscape / attractor model. One bridge paragraph here would anchor the entire series for a technical reader. -->
+## Computing and Dynamical Systems Bridges
+
+Developmental biology is, at its core, an information processing problem. The same genome produces ~200 cell types through context-dependent execution of shared instructions — exactly the challenge of polymorphic dispatch, configuration-driven behavior, and attractor dynamics.
+
+```
+  DEVELOPMENTAL BIOLOGY         CS / DYNAMICAL SYSTEMS PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Same genome, different fates  Polymorphism / runtime dispatch:
+                                Same codebase, different behavior based on
+                                runtime context (position, neighbor signals,
+                                chromatin state). Cell identity is not
+                                determined by genotype alone — it's
+                                determined by (genotype × context).
+
+  Morphogen gradients           Spatial configuration gradients:
+  (BMP, RA, Wnt as position codes)  Concentration encodes position. Reading
+                                the concentration at your location → look
+                                up in a response table → execute the correct
+                                developmental program. Equivalent to a
+                                spatial key-value lookup where the key is
+                                your position in a continuous gradient.
+
+  Gene regulatory networks      Boolean / continuous circuit:
+  (TF networks controlling fate) A network of transcription factors with
+                                mutual activation and repression is a
+                                logical circuit. Boolean models (Kauffman
+                                NK networks) reproduce much of fate
+                                choice behavior. Fixed points of the
+                                Boolean dynamics = cell identities.
+
+  Waddington landscape          Energy landscape / attractor dynamics:
+  (fate valleys = attractors)   Cell states are attractors in the TF
+                                expression state space. Differentiation
+                                is a trajectory toward lower attractors.
+                                Yamanaka reprogramming rolls a ball uphill
+                                by temporarily changing the landscape
+                                (forcing TF expression).
+
+  Lateral inhibition (Notch)    Leader election protocol:
+  (one cell wins, neighbors lose) One cell stochastically activates Notch
+                                ligand → neighbor suppressed → reinforced
+                                by feedback. Distributed consensus:
+                                one winner per local neighborhood,
+                                no central coordinator.
+
+  Cell fate bifurcation         Pitchfork bifurcation in dynamical systems:
+  (HSC → myeloid vs lymphoid)   Two co-expressed TFs (GATA1, PU.1) mutually
+                                repress each other. At the bifurcation point,
+                                either can win → stochastic. Below the
+                                bifurcation (high noise): bimodal distribution.
+                                Above (strong signal): deterministic channel.
+
+  Pattern formation (Turing)    Reaction-diffusion instability:
+  (spots, stripes, periodic)    Short-range activator + long-range inhibitor →
+                                spatial periodicity from uniform initial state.
+                                Formally: Laplacian eigenfunction decomposition;
+                                the wave number with largest linear growth rate
+                                determines pattern wavelength.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+These frameworks recur in every module: Wnt is a morphogen gradient AND a Boolean switch depending on context; Notch is lateral inhibition (leader election); HOX codes are positional addresses; the Waddington landscape underlies all of stem cell biology and reprogramming.
+
+---
+
 ## The Central Paradox
 
 Every cell in the body has the same DNA (with exceptions). Yet the liver is not the brain, and a muscle cell is not a neuron. Development is the controlled differential deployment of a common genome:
@@ -87,7 +151,6 @@ THREE BODY AXES IN VERTEBRATES
 
 ---
 
-<!-- @editor[bridge/P3]: The signaling pathway table below is a natural place for a "pub-sub / event bus" bridge — these pathways are context-dependent event handlers, not hardcoded functions. A one-liner connecting to event-driven architecture would land well. -->
 ## Cell Signaling Hierarchy in Development
 
 ```
@@ -163,7 +226,58 @@ GERM LAYER DERIVATION: A DIAGNOSTIC TOOL
 
 ---
 
-<!-- @editor[content/P2]: Experimental techniques section absent — no mention of CRISPR, Cre-lox, lineage tracing, optogenetics, or single-cell RNA-seq as tools that have transformed the field. A brief "Key Experimental Approaches" section would complete the overview landscape. -->
+## Key Experimental Approaches
+
+```
+APPROACHES THAT TRANSFORMED THE FIELD
+────────────────────────────────────────
+
+  APPROACH               KEY TOOL                   WHAT IT ENABLES
+  ─────────────────────  ─────────────────────────  ─────────────────────────────
+  Genetic loss/gain      CRISPR-Cas9                 Knock out any gene in any
+  of function            Cas9 + guide RNA → cut +    organism; knock in mutations
+                         HDR or NHEJ                 or reporters; conditional
+                                                     alleles; screens at scale
+                                                     (genome-wide in zebrafish,
+                                                     mouse, human organoids)
+
+  Conditional lineage    Cre-lox system              Recombinase expressed only
+  deletion               Cre recombinase +            in a specific cell type →
+                         loxP-flanked allele          delete gene only there.
+                         (floxed) →                  "Did this gene matter
+                         inducible with tamoxifen     specifically in cardiomyocytes?"
+                         (Cre-ERT2)                  Essential to avoid embryonic
+                                                     lethality in knockouts.
+
+  Cell fate tracing      Lineage tracing             Which cells give rise to
+                         (Cre + Rosa26-reporter)      which other cells?
+                         scRNA-seq trajectory        Retrospective: CRISPR
+                         analysis; CRISPR            barcoding (GESTALT, CellTagging)
+                         barcoding                   ← scars accumulate over time
+
+  Single-cell            scRNA-seq (10x Genomics,    Gene expression in individual
+  transcriptomics        Drop-seq, SMART-seq2)       cells → identify all cell
+  + spatial              Spatial transcriptomics      types; infer trajectories
+                         (10x Visium, Slide-seq,      (pseudotime); reconstruct
+                         MERFISH)                     cell state landscapes.
+                                                     Spatial: gene expression
+                                                     with positional coordinates.
+
+  Optogenetics           ChR2, halorhodopsin         Light-activate or silence
+                         (C. elegans, zebrafish,      specific neurons or cells.
+                         Drosophila, mouse)           Millisecond control of
+                                                     signaling in intact tissue.
+
+  Organoids              3D self-organizing cultures  Human-specific development
+                         from iPSC or adult stem      in a dish: intestinal crypts,
+                         cells                        cerebral cortex, kidney
+                                                     tubules, liver ductal cells.
+                                                     Test drugs; model disease;
+                                                     bridge mouse → human.
+```
+
+---
+
 ## Key Model Organisms
 
 ```

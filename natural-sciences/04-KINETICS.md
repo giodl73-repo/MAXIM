@@ -1,9 +1,47 @@
-<!-- @editor[diagram/P2]: Opening comparison table (thermo vs kinetics) is useful but not a landscape diagram — doesn't show how rate laws, Arrhenius, TST, mechanisms, and catalysis relate to each other as a system. Consider a visual map: experimental observables → rate law → mechanism → theory (collision, TST) → catalysis. -->
 # 04-KINETICS — Chemical Kinetics
 
 > Rate laws, integrated equations, Arrhenius, transition state theory, mechanisms,
 > catalysis, and radical chain reactions. Thermodynamics tells you *if*;
 > kinetics tells you *how fast* and *by what path*.
+
+---
+
+## Landscape
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│                      CHEMICAL KINETICS                             │
+│                                                                    │
+│  EXPERIMENTAL OBSERVABLES                                          │
+│  ─────────────────────────                                         │
+│  Concentration vs. time data → method of initial rates            │
+│          │                                                         │
+│          ▼                                                         │
+│  RATE LAWS  rate = k[A]^m [B]^n                                   │
+│  ─────────────────────────────                                     │
+│  Integrated forms (0th, 1st, 2nd order)                           │
+│  Diagnostic plots ([A] vs t, ln[A] vs t, 1/[A] vs t)             │
+│          │                                                         │
+│     ┌────┴─────────────────┐                                       │
+│     ▼                      ▼                                       │
+│  MECHANISM              TEMPERATURE DEPENDENCE                    │
+│  ──────────             ─────────────────────                      │
+│  Elementary steps       Arrhenius: k = A·e^(-Ea/RT)              │
+│  RDS / SSA              TST (Eyring): separates ΔH‡ from ΔS‡    │
+│  Pre-equilibrium        Reaction coordinate diagrams              │
+│     │                                                              │
+│     ▼                                                              │
+│  CATALYSIS                         CHAIN REACTIONS                │
+│  ──────────                        ───────────────                 │
+│  Lower Ea (both directions)        Radical initiation             │
+│  Homogeneous (acid, Rh complex)    Propagation cycles             │
+│  Heterogeneous (surface, Haber)    Termination                    │
+│  Enzyme (TST: ΔH‡ + ΔS‡ both ↓)                                  │
+└───────────────────────────────────────────────────────────────────┘
+
+Key hierarchy: measure rate → fit rate law → hypothesize mechanism →
+explain via collision theory or TST → apply to catalysis design.
+```
 
 ---
 

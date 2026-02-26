@@ -377,7 +377,49 @@ THE ANXIETY PROBLEM:
     is a natural beat to the audience).
 ```
 
-<!-- @editor[audience/P3]: The anxiety management subsection reads slightly instructional — the learner has given hundreds of executive presentations; reframe as analytical reference ("the physiological mechanics of speech anxiety") rather than advice ("take a deep breath") -->
+### The Physiology of Speech Anxiety
+
+```
+SPEECH ANXIETY — PHYSIOLOGICAL MECHANICS
+
+The anxiety response in public speaking is the fight-or-flight
+sympathetic nervous system activation triggered by social
+threat evaluation (prefrontal cortex assessing audience judgment risk).
+
+PHYSIOLOGICAL CHAIN:
+  Amygdala detects social threat → HPA axis activation
+  → cortisol + adrenaline release → heart rate increase,
+  peripheral vasoconstriction, altered respiratory pattern,
+  vocal tract tension.
+
+THE VOICE EFFECTS:
+  Increased subglottal pressure → higher pitch (perceived as anxiety)
+  Laryngeal tension → reduced vocal range (monotone)
+  Respiratory irregularity → unsteady phrasing
+  Dry mouth (reduced parasympathetic salivation) → articulation changes
+
+THE PARADOX:
+  The physiological arousal is identical to excitement.
+  Reframing (Alison Wood Brooks, Harvard Business School, 2014):
+  subjects told to say "I am excited" rather than "I am calm"
+  before a speech performed measurably better. The arousal
+  is not suppressible; the cognitive evaluation of the arousal
+  is controllable.
+
+WHAT SLOWING DOWN DOES:
+  Deliberate rate reduction re-engages parasympathetic activation.
+  Longer exhalation → lower heart rate (vagal tone).
+  The speaker feels this as "slowing down"; the audience
+  perceives it as authority and control.
+
+EXPERIENCED SPEAKERS:
+  The arousal persists regardless of experience.
+  High-performance speakers have not eliminated the response;
+  they have calibrated their interpretation of it and their
+  behavioral management of it. The arousal is treated as
+  signal (attention sharpened, energy available) rather than
+  noise (uncontrollable dysfunction).
+```
 
 ### Delivery in the Digital Age
 
@@ -427,8 +469,14 @@ EXECUTIVE PRESENTATION:
   Memoria: know your material; don't read from slides
   Actio: confident pacing; eye contact; pause for emphasis
 
-<!-- @editor[bridge/P3]: Natural bridge to VSTS/Azure DevOps RFC process missing — the design doc conventions at Microsoft are a direct descendant of dispositio; a brief callout would anchor this for the learner's home turf -->
 WRITTEN DOCUMENT (design doc, RFC, memo):
+  [The design doc and RFC formats are direct descendants of dispositio.
+   The IETF RFC structure (Abstract → Motivation → Design → Alternatives
+   → Security Considerations) is a codified dispositio template developed
+   over decades of engineering practice. When your organization has a
+   "design doc template," it is capturing rhetorical wisdom about what
+   arguments engineers need to see and in what order. The template
+   is the accumulated dispositio of your community of practice.]
   Inventio: what is the claim? what supports it?
     What are the objections?
   Dispositio: executive summary first; logical flow;

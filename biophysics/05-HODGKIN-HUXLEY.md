@@ -358,7 +358,33 @@ Spiking neural networks attempt to re-incorporate the temporal dynamics:
   └────────────────────────────────────────────────────────────────────┘
 ```
 
-<!-- @editor[audience/P3]: The learner has dynamical systems background from MIT TCS — could briefly note the bifurcation classification (Type I: SNIC, Type II: Hopf) maps to neuron firing classes (Class 1 vs Class 2 excitability) -->
+### Bifurcation Classification and Neuron Firing Classes
+
+The onset of repetitive firing corresponds to a bifurcation in the dynamical system. Two canonical cases:
+
+```
+  TYPE I EXCITABILITY (Class 1 neurons):
+    Bifurcation: SNIC (Saddle-Node on Invariant Circle)
+    Characteristic: firing rate can be arbitrarily low near threshold
+                    (continuous F-I curve starting from zero Hz)
+    Example: cortical pyramidal neurons, hippocampal CA1
+    Phase portrait: stable node + saddle annihilate on a limit cycle
+
+  TYPE II EXCITABILITY (Class 2 neurons):
+    Bifurcation: Hopf (subcritical or supercritical)
+    Characteristic: firing jumps from silence to a finite minimum frequency
+                    (discontinuous F-I curve with threshold frequency)
+    Example: squid axon (original H-H model), fast-spiking interneurons
+    Phase portrait: limit cycle appears via Hopf; bistability possible
+
+  H-H squid axon: subcritical Hopf → Type II
+    The threshold in Section 2 is a saddle point near the Hopf boundary.
+    Repetitive firing in H-H requires a sustained depolarizing current.
+    At physiological temperature (37°C), H-H parameters shift toward Type I.
+```
+
+This classification matters for network dynamics: Type I neurons can encode graded analog signals via rate coding; Type II neurons prefer synchronization and resonance at their preferred frequency.
+
 ### Phase Plane Analysis of Excitability
 
 For FitzHugh-Nagumo (2D reduction), the dynamics are visible in phase space:

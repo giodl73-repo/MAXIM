@@ -155,8 +155,54 @@ Example:
   बड़े लड़के गए। (baṛe laṛke gae.) — The big boys went. (m.plur)
 ```
 
-<!-- @editor[bridge/P2]: No ergative-alignment bridge despite obvious parallel — learner knows type theory; ergative alignment is like having two different type-dispatch rules (nominative-accusative vs ergative-absolutive) depending on transitivity — a 2x2 matrix (transitive/intransitive x perfective/imperfective) showing which agreement rule applies would land -->
-### Verb System
+### The Agreement Dispatch Bridge
+
+Hindi-Urdu uses **split ergativity** — two different agreement dispatch rules depending on aspect × transitivity. The split is not an irregularity; it is a systematic two-case type system:
+
+```
+AGREEMENT DISPATCH TABLE:
+
+                    INTRANSITIVE verb          TRANSITIVE verb
+                    (no object)                (has an object)
+
+IMPERFECTIVE/     NOMINATIVE-ACCUSATIVE:     NOMINATIVE-ACCUSATIVE:
+HABITUAL          Subject takes direct case.  Subject takes direct case.
+(non-perfective)  Verb agrees with SUBJECT.   Verb agrees with SUBJECT.
+
+                  राम जाता है।               राम किताब पढ़ता है।
+                  Ram.DIR go.M.SG be.SG       Ram.DIR book.DIR read.M.SG be.SG
+                  Verb agrees with Ram (M.SG) Verb agrees with Ram (M.SG)
+
+PERFECTIVE        NOMINATIVE-ACCUSATIVE:     ERGATIVE CONSTRUCTION:
+(completed)       Subject takes direct case.  Subject takes ने (ne) postposition
+                  Verb agrees with SUBJECT.   → treated as oblique/ergative.
+                                             Verb agrees with OBJECT gender/number.
+
+                  राम गया।                   राम ने किताब पढ़ी।
+                  Ram.DIR go.M.SG             Ram.ERG book.F.SG read.F.SG
+                  Verb agrees with Ram        Verb agrees with किताब (F.SG),
+                                             NOT with Ram
+
+TYPE-DISPATCH ANALOGY:
+  dispatch(agreement) {
+    if (aspect == PERFECTIVE && verb.transitive) {
+      // ergative mode: object drives agreement
+      verb.agreeWith(object.gender, object.number);
+      subject.case = ERGATIVE; // marked with ने
+    } else {
+      // default nominative-accusative mode: subject drives
+      verb.agreeWith(subject.gender, subject.number);
+      subject.case = NOMINATIVE; // direct case
+    }
+  }
+
+  The dispatch condition is determined COMPOSITIONALLY at runtime:
+  same verb, same subject, different aspect → different agreement rule.
+```
+
+**Why "split ergativity":** The language is nominative-accusative in most contexts (the typologically common pattern: subject always gets nominative, verb agrees with subject) but switches to ergative-absolutive in perfective transitive contexts (the typologically rarer pattern: the agent of a transitive verb gets marked, and the verb agrees with the patient instead). The "split" is the trigger condition: aspect × transitivity.
+
+**The structural motivation:** In perfective constructions, the verb form is historically a passive participle that agrees with its grammatical subject — which is the patient/object. The ergative marker ने originated as a postposition marking the causative agent of this passive-like construction. The synchronic agreement rule follows from the diachronic origin, but you don't need to know the history to apply the rule — you just need the dispatch table above.
 
 ```
 VERB STRUCTURE — ergative split is the hardest part

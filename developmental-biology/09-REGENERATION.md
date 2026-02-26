@@ -27,7 +27,73 @@ Regeneration is the ability to replace lost or damaged body parts — from compl
 +──────────────────────────────────────────────────────────────────+
 ```
 
-<!-- @editor[bridge/P2]: No CS/engineering bridge. The regeneration spectrum maps to "fault tolerance strategies" — planaria does full state reconstruction from checkpoint (like RAID rebuild), liver does compensatory scaling (like auto-scaling a cluster), and mammalian scarring is "fail-fast with degraded service." The intercalation rule is "gap-fill interpolation." These would land extremely well for an engineering audience. -->
+## Engineering Bridge: Regeneration as Fault Tolerance Strategies
+
+The regeneration spectrum maps directly onto a hierarchy of fault-tolerance and recovery strategies. Each organism represents a different engineering tradeoff.
+
+```
+  REGENERATION STRATEGY         FAULT TOLERANCE PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Planaria (full body from       Full state reconstruction from checkpoint:
+  1/279th fragment)              Every neoblast contains the complete
+                                blueprint. Any surviving fragment has enough
+                                state to rebuild the whole system. Like RAID-6:
+                                can reconstruct from any two surviving disks.
+                                Cost: maintaining a large population of
+                                totipotent stem cells (neoblasts = ~20-30%
+                                of cells). Very expensive but maximally
+                                fault-tolerant.
+
+  Axolotl limb regeneration     Full state reset with partial reconstruction:
+  (blastema from dedifferentiated  Surviving cells near the amputation plane
+  cells)                         dedifferentiate → form a blastema → rebuild.
+                                This is not just stem cells proliferating —
+                                it's committed cells REVERTING to a
+                                progenitor state. Like a partial factory
+                                reset: committed workers un-commit and
+                                relearn. Expensive epigenetically.
+
+  Zebrafish heart regeneration   Hot-standby with cardiomyocyte proliferation:
+                                Adult zebrafish cardiomyocytes can re-enter
+                                the cell cycle after injury (humans cannot).
+                                Regeneration is complete within 60 days.
+                                Like a hot-standby failover: the reserve
+                                capacity exists and can be activated.
+
+  Mammalian liver regeneration   Compensatory autoscaling:
+  (partial hepatectomy → full    70% hepatectomy → remaining hepatocytes
+  mass restoration in 2 weeks)   proliferate to restore mass.
+                                Controlled by: HGF, TGF-α, IL-6, TNF-α.
+                                Termination: TGF-β feedback + restored
+                                portal blood flow → growth arrest.
+                                Exactly: health-check-based autoscaling
+                                with a setpoint metric (liver mass/function).
+
+  Mammalian wound healing        Fail-fast with degraded service (scar):
+  (fibrotic default)             Inflammatory response → fibroblast
+                                activation → collagen III deposition →
+                                scar. Scar tissue: structurally stable,
+                                functionally inferior (no hair follicles,
+                                reduced elasticity). System is restored
+                                to a degraded-service mode quickly rather
+                                than waiting for full repair.
+                                Why: evolutionary pressure favors fast
+                                closure over perfect repair (prevent
+                                infection > restore function).
+
+  Intercalation rule             Gap-fill interpolation:
+  (polar coordinate model)       Missing tissue between positions 3 and 7
+                                → cells interpolate values 4, 5, 6.
+                                Not "regenerate from scratch" but "fill
+                                the gap by interpolation." Positional
+                                information is an address space; missing
+                                addresses are filled by counting between
+                                neighbors.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 Three mechanistic modes:
 
 ```
@@ -314,8 +380,7 @@ The classical morphogen gradient model predicts pattern by concentration thresho
 +──────────────────────────────────────────────────────────────────+
 ```
 
-<!-- @editor[content/P2]: "Altos Biosciences" should be "Altos Labs" — verify company name -->
-**The partial reprogramming breakthrough**: Yamanaka factors (Oct4, Sox2, Klf4, cMyc) delivered transiently (cycling on/off) to mouse tissue in vivo partially rejuvenate aged cells without inducing pluripotency or tumors (Ocampo et al., Cell 2016; Altos Biosciences paradigm). The theory: briefly lift epigenetic restrictions (age-related methylation), allow cells to access a younger transcriptional state, then turn off before identity loss. This is mechanistically close to what salamanders may do constitutively.
+**The partial reprogramming breakthrough**: Yamanaka factors (Oct4, Sox2, Klf4, cMyc) delivered transiently (cycling on/off) to mouse tissue in vivo partially rejuvenate aged cells without inducing pluripotency or tumors (Ocampo et al., Cell 2016; Altos Labs paradigm). The theory: briefly lift epigenetic restrictions (age-related methylation), allow cells to access a younger transcriptional state, then turn off before identity loss. This is mechanistically close to what salamanders may do constitutively.
 
 ---
 

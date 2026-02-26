@@ -124,23 +124,13 @@ SDT EVIDENCE:
 
 ## Regional Divergence
 
-```
-<!-- @editor[structure/P2]: Three Worlds comparison below would work better as a markdown table with columns for Stage, TFR range, regions, and key characteristics — currently a text box that lists but doesn't compare -->
-THREE WORLDS OF DEMOGRAPHIC TRANSITION:
+### Three Worlds of Demographic Transition
 
-  ┌───────────────────────────────────────────────────────────────────┐
-  │  COMPLETED TRANSITION (Stage 4/SDT):                              │
-  │  Western/Northern/Southern Europe, North America, Japan, Korea,   │
-  │  Australia, China (TFR ~1.0-2.0, declining or stable population) │
-  │                                                                   │
-  │  TRANSITION IN PROGRESS (Stage 2-3):                             │
-  │  South Asia, Southeast Asia, Latin America, MENA, Eastern Africa  │
-  │  (TFR declining from 3-7 → 2-4; rapid fertility decline ongoing) │
-  │                                                                   │
-  │  SLOW/EARLY TRANSITION (Stage 2):                                │
-  │  Much of Sub-Saharan Africa, esp. West and Central Africa         │
-  │  (TFR still 4-7; declining but slowly)                           │
-  └───────────────────────────────────────────────────────────────────┘
+| World | DT Stage | TFR Range | Regions | Key characteristic |
+|---|---|---|---|---|
+| Completed transition | Stage 4 / SDT | 1.0–2.0 | Western/Northern/Southern Europe, North America, Japan, Korea, Australia, China | Population declining or stable; aging rapidly; below-replacement fertility entrenched |
+| Transition in progress | Stage 2–3 | 2.0–4.0 | South Asia, Southeast Asia, Latin America, MENA, Eastern Africa | Rapid fertility decline ongoing; youth dividend window opening |
+| Slow / early transition | Stage 2 | 4.0–7.0 | Sub-Saharan Africa (esp. West and Central Africa) | CDR has fallen substantially; CBR still very high; maximum NI phase |
 
 SUB-SAHARAN AFRICA DIVERGENCE:
   Why is SSA transitioning more slowly than comparable-income regions 1970s?
@@ -190,7 +180,8 @@ GLOBAL TFR VS. GDP PER CAPITA RELATIONSHIP:
       └──────────────────────────────────────────────────────
       Low income  Lower mid  Upper mid  High income
 
-<!-- @editor[bridge/P3]: The TFR-income relationship follows a logistic/sigmoid pattern — natural bridge to logistic functions and S-curves the reader knows from CS and growth modeling -->
+  The TFR-income relationship has the shape of a logistic / sigmoid: steeply negative over a wide middle range of development (the transition), but flattening at both the low-income and high-income extremes. The same functional form appears in technology adoption curves (Bass diffusion), population logistic growth (dP/dt = rP(1 − P/K)), and neural network activation functions — a system with a ceiling and a floor shows sigmoid dynamics when a forcing variable shifts continuously.
+
   Negative correlation: TFR = f(income) is the most robust empirical
   regularity in demography.
 

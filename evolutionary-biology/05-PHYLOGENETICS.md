@@ -135,7 +135,57 @@ Compute posterior distribution P(T, θ | data) using Bayes' theorem and MCMC.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — phylogenetic ML inference is maximum likelihood estimation with tree topology as the latent structure; Bayesian MCMC is the same posterior sampling framework used in probabilistic graphical models; this learner has the statistical foundations from MIT math and would benefit from an explicit bridge box -->
+## Phylogenetic Inference — Statistical Inference Bridge
+
+Phylogenetic inference is a structured estimation problem. The statistical
+machinery is identical to probabilistic graphical models and Bayesian inference:
+
+```
+MAXIMUM LIKELIHOOD PHYLOGENETICS:
+
+  Goal: find tree T* = argmax P(sequences | T, θ)
+        where θ = substitution model parameters (rate matrix Q, branch lengths)
+
+  Likelihood computation: Felsenstein's pruning algorithm (1981)
+    = dynamic programming on the tree (bottom-up message passing)
+    Same structure as: belief propagation on a tree-structured graphical model
+    Time complexity: O(n · L · k²) where n = taxa, L = sites, k = states (4)
+    The tree's topology is the latent structure (discrete, combinatorial)
+
+  Tree topology space: (2n-3)!! unrooted binary trees for n taxa
+    n=10:  2,027,025 trees
+    n=50:  3 × 10⁷⁴ trees (vastly larger than state spaces of most search problems)
+  Search: heuristic (NNI, SPR, TBR branch swapping) — same as local search in
+    combinatorial optimization. Exact solution (exhaustive search) intractable for n > 12.
+
+BAYESIAN PHYLOGENETICS = POSTERIOR SAMPLING ON TREE SPACE:
+
+  P(T, θ | data) ∝ P(data | T, θ) · P(T) · P(θ)
+
+  Identical to any Bayesian model with a discrete latent variable
+  Implemented via MCMC (MrBayes, BEAST, RevBayes):
+    - Proposal moves: NNI/SPR topology moves + parameter updates
+    - Metropolis-Hastings acceptance criterion (same as any MCMC)
+    - Convergence: run multiple chains, check Rhat / ESS (same as Stan/PyMC)
+
+  Output: posterior probability (PP) of each clade
+    PP = fraction of MCMC samples containing the clade
+    PP ≥ 0.95: high support (analogous to 95% credible interval)
+    More conservative than bootstrap (because PP accounts for model uncertainty)
+
+BOOTSTRAP = FREQUENTIST RESAMPLING:
+  Resample sites (columns) of alignment with replacement → 100–1000 pseudoreplicates
+  → run ML on each → frequency of clade across replicates = bootstrap support
+  Conceptually: same as any bootstrap uncertainty estimate in frequentist inference
+  BS ≥ 70% ≈ PP ≥ 0.95 (rough correspondence)
+
+MODEL SELECTION:
+  AIC = 2k − 2·ln(L̂): penalizes parameters
+  BIC = k·ln(n) − 2·ln(L̂): stronger penalty
+  Same as model selection in any regression context
+  IQ-TREE's ModelFinder: tests all models → AIC/BIC rank
+```
+
 ## Substitution Models
 
 DNA evolves non-uniformly. Models account for:
@@ -242,7 +292,61 @@ Sources of calibration:
 
 ---
 
-<!-- @editor[content/P2]: Network phylogenetics absent — significant gap for modern phylogenomics; the "tree of life" for bacteria/archaea is actually a network due to HGT, and split graphs / phylogenetic networks deserve mention alongside tree methods -->
+## Phylogenetic Networks
+
+The "tree of life" is not a tree for bacteria and archaea — it is a network
+due to pervasive horizontal gene transfer (HGT). Network methods are now
+essential for prokaryotic phylogenomics.
+
+```
+WHY NETWORKS, NOT TREES:
+
+  Tree assumption: every nucleotide position shares the same evolutionary history
+  Network reality: different positions have different histories (due to HGT,
+                   hybridization, recombination, ILS)
+
+  Signal in the data: "tree-like" signal from vertical descent
+                    + "non-tree" signal from reticulate events
+  Split decomposition: identifies both types of signal
+
+PHYLOGENETIC NETWORK TYPES:
+
+  1. IMPLICIT NETWORKS (data display):
+     Split graph / NeighborNet:
+       Identifies all splits (bipartitions) supported by the data
+       Conflicting splits displayed as parallelograms
+       → immediately visualizes "tree-like" vs. network-like signal
+       Tool: SplitsTree4
+
+  2. EXPLICIT NETWORKS (model reticulation events):
+     HGT networks: model directed gene transfer edges (donor → recipient)
+     Hybridization networks: model hybrid speciation (two parents → hybrid child)
+     Tools: PhyloNet, HGT-Detection (via parsimony of gene tree incongruence)
+
+  3. GENE TREE RECONCILIATION:
+     Given species tree S and gene trees G₁...Gₙ:
+     Count: duplications + losses + HGT events to explain G within S
+     Parsimony: minimize total events (NP-hard in general)
+     → same combinatorial optimization as string edit distance, but on trees
+
+BACTERIA AND ARCHAEA:
+  ~10–50% of any given bacterial genome has been acquired via HGT
+  Core genome (shared by all strains): mostly vertical, somewhat tree-like
+  Pan-genome (union of all genes in a species): includes accessory genome
+    that flows horizontally between lineages
+  "Tree of life" for bacteria: core genome phylogeny (ribosomal genes)
+    provides a vertical backbone, but most functional diversity = horizontal
+
+EUKARYOTES WITH NETWORK HISTORIES:
+  Plants: allopolyploidy → hybrid species have two parents
+    Bread wheat: hexaploid (AABBDD) from three ancestor genomes
+    → its phylogeny is a network, not a tree
+  Animals: rarer, but documented
+    Darwin's finches: some interspecies hybridization
+    Polar bear + brown bear: ancient admixture
+    Neanderthal + H. sapiens: ~2% Neanderthal DNA in non-African humans
+```
+
 ## Ancestral State Reconstruction
 
 Given a tree and character states at the tips, infer states at internal nodes

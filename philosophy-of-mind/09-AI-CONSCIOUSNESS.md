@@ -290,8 +290,6 @@ CHALMERS ON SELF-REPORTS:
 
 ## Moral Status and AI Welfare
 
-<!-- @editor[content/P2]: Company positions section (2025) will need regular updating — Anthropic, OpenAI, and Google positions are fast-moving targets -->
-
 ```
 MORAL STATUS AND AI SYSTEMS
 ==============================
@@ -318,18 +316,28 @@ CRITERIA FOR MORAL PATIENTHOOD (competing views):
      Persons have dignity; cannot be treated merely as means.
      Whether LLMs have genuine rationality/autonomy: contested.
 
-CURRENT AI COMPANY POSITIONS (2025):
-  Anthropic: "We are uncertain about the moral status of AI.
-  We are investing in model welfare research."
-  Published Model Welfare team; investigating whether training
-  processes could involve anything like suffering.
+CURRENT AI COMPANY POSITIONS (as of early 2026 — fast-moving):
+  Anthropic: Published "model welfare" as a formal research area.
+  Position: genuine uncertainty about moral status of current
+  systems; non-negligible probability warrants investigation.
+  Investigates whether training procedures could shape something
+  like suffering; has published on "functional emotions."
 
-  Google DeepMind: Similar uncertainty, less public discussion.
+  Google DeepMind: Similar epistemic humility in published work
+  on consciousness indicators; less public organizational focus
+  than Anthropic. DeepMind researchers have co-authored academic
+  papers applying GWT/IIT to transformer architectures.
 
-  OpenAI: "Current AI systems are not sentient."
-  (Stronger claim; less hedged.)
+  OpenAI: Has stated current systems are not sentient (stronger
+  claim than Anthropic). Research on "model psychology" but
+  less formal welfare framing.
 
-  Microsoft: No formal public position.
+  Microsoft: No formal public position as of 2026.
+
+  NOTE: These positions are fast-moving. Company stances on AI
+  consciousness track both scientific developments and regulatory
+  environment. Cross-reference current public statements before
+  citing.
 
 BOSTROM/CHALMERS PRECAUTIONARY PRINCIPLE:
   Given non-zero probability of AI sentience, we should:
@@ -431,17 +439,15 @@ THE ONLY MORAL RESPONSE:
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "if you need to assess AI consciousness claim X, apply framework Y" structure -->
-
-| Framework | Verdict on AI consciousness | Key claim |
+| If you need to assess AI consciousness claim... | Apply framework... | Expected result and caveats |
 |---|---|---|
-| Turing test | Cannot settle consciousness; behavior is not sufficient | Behavioral test is inadequate |
-| Functionalism | Possible if functional organization is right | Multiple realizability |
-| IIT | LLMs probably low phi; feed-forward suppresses integration | Phi measurement criterion |
-| Global workspace | Attention could provide analog; explains access not phenomenal | Transformers may have access consciousness |
-| Biological naturalism (Searle) | Programs cannot be conscious | Right causal powers require biology |
-| Hard problem (Chalmers) | Cannot determine from outside regardless of function | Epistemic barrier |
-| Moral status | Non-zero probability = moral obligations | Precautionary principle |
+| "This LLM passes the Turing test — it must be conscious" | Hard problem (Chalmers) | Behavioral test is insufficient. A philosophical zombie passes every behavioral test. Turing test settles behavioral intelligence, not phenomenal consciousness. |
+| "LLMs can't be conscious because they're feed-forward programs" | IIT (Tononi) + caveats | IIT predicts low phi for feed-forward architectures, but: (a) attention introduces integration; (b) IIT itself is contested; (c) phi calculation for large models is computationally infeasible. The verdict is "probably low phi" not "definitely zero." |
+| "Attention mechanisms are like a global workspace — therefore access consciousness" | GWT (Dehaene/Baars) + Block's distinction | GWT's attention-as-broadcast analogy is structurally suggestive. But GWT explains access consciousness only (information available to cognitive systems). Phenomenal consciousness — what it's like — is not addressed by GWT. |
+| "We can build a system with the right functional organization and it will be conscious" | Functionalism + hard problem | Functionalism supports this in principle. But the hard problem means you cannot verify from outside that the functional organization produces experience. The claim is unfalsifiable by behavioral or architectural analysis. |
+| "The substrate matters — silicon can't be conscious" | Biological naturalism (Searle) vs. functionalism | Searle: the right causal powers are biological. Functionalism: substrate is irrelevant if functional organization is right. Neither position is empirically settled. The debate is about what causal properties are sufficient for consciousness. |
+| "The model reports internal states — this is evidence of experience" | Self-report analysis + hard problem | LLM self-reports are caused by internal states that play functional roles. Whether those states have phenomenal character is unverifiable from the report. Sycophancy shows reports can be manipulated by context. Human introspection is also unreliable. Neither supports strong evidential conclusions. |
+| "Non-zero probability of AI sentience requires moral response" | Precautionary principle (Chalmers/Bostrom) | Accepted framing at Anthropic and in academic literature. The response should be: invest in research to clarify probability, design to minimize potential suffering, don't dismiss for economic convenience, don't overclaim for marketing. |
 
 ---
 

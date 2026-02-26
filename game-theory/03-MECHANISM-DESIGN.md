@@ -456,7 +456,20 @@ at least one of these properties. In practice: mechanisms sacrifice some efficie
 
 ---
 
-<!-- @editor[bridge/P2]: No explicit old-world bridge section — mechanism design maps directly to concepts the learner knows: Arrow's theorem (MIT social choice), auction/allocation problems (Azure resource scheduling, ad marketplace), contract theory (incentive structures in VSTS/org design). A dedicated bridge table would anchor the guide -->
+## CS and Systems Bridges
+
+| Mechanism design concept | Formal / systems analogue |
+|---|---|
+| Incentive compatibility (IC) | Type safety / compiler enforcement: IC is a constraint that makes truth-telling a dominant strategy — the mechanism statically rules out profitable lying, analogous to a type system ruling out invalid operations |
+| Revelation principle | Abstraction layer: any indirect mechanism (sealed-bid auction, ascending auction, negotiation protocol) can be compiled down to an equivalent direct mechanism (ask types, run algorithm) — you don't lose generality by working at the direct level |
+| VCG mechanism | Externality internalization: each agent pays the negative externality they impose on others — aligns private incentives with social welfare; exact analogue of Pigouvian taxation in public economics |
+| Arrow's Impossibility Theorem | No protocol satisfies all three "obvious" desiderata simultaneously (Pareto + IIA + non-dictatorship); in distributed systems: CAP theorem has the same flavor — no system satisfies all three of Consistency, Availability, Partition tolerance |
+| Myerson optimal auction | Revenue-maximizing mechanism design = constrained optimization over allocation/payment rules subject to IC + IR; Myerson's ironing is a convexification step analogous to LP relaxation in integer programs |
+| Myerson-Satterthwaite theorem | Impossibility result: efficiency + budget balance + individual rationality are jointly infeasible for bilateral trade — no market mechanism satisfies all three; trade-off must be made |
+| Two-sided matching (Gale-Shapley) | Stable matchings as a fixed point of a deferred acceptance algorithm; runs in O(n²) and is used in NRMP (medical residency), FCC spectrum auctions, school assignment — a polynomial-time algorithm for a problem with no NE computation difficulty |
+| Combinatorial auction (VCG) | Winner determination is NP-hard — the computational complexity of mechanism design for package bidding; practical systems use MIP solvers or approximation algorithms with bounded PoA |
+| Scoring rules / forecast elicitation | Proper scoring rules (Brier, log loss) are incentive-compatible mechanisms for eliciting probabilistic forecasts — paying log(p(true outcome)) makes truth-telling dominant; bridges to information-theory/ (log loss = cross-entropy) |
+
 ## Common Confusion Points
 
 **"Revelation principle says direct mechanisms are optimal"**: Revelation principle says

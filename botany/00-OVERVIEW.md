@@ -161,19 +161,20 @@ Periderm (secondary):        Living support             Sugar transport
 
 ---
 
-<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "use X when Y" structure; currently serves as a file navigator pointing to other guides, not a decision tool for this guide's own content -->
 ## Decision Cheat Sheet
 
-| Question | File |
-|----------|------|
-| How plants pull water against gravity | 01-PLANT-CELL-PHYSIOLOGY |
-| Why trees can grow indefinitely tall | 03-STEMS-WOOD |
-| Why maize is more efficient than wheat | 04-LEAVES (C4 vs C3) |
-| How plants attract pollinators | 05-FLOWERS-REPRODUCTION |
-| What makes old-growth forest different | 06-TREES-FORESTS |
-| Why tropical soil is poor despite lush rainforest | 07-BIOMES |
-| Why broccoli is mildly bitter | 08-PLANT-DEFENSES (glucosinolates) |
-| Where aspirin originally came from | 09-ECONOMIC-BOTANY |
+| When you want to understand... | Look here | The key insight |
+|-------------------------------|-----------|-----------------|
+| How plants pull water against gravity | 01-PLANT-CELL-PHYSIOLOGY | Cohesion-tension: transpiration creates negative pressure; water column under −5 MPa |
+| Why plants don't need a heart | 01-PLANT-CELL-PHYSIOLOGY | Pressure-flow (phloem) and cohesion-tension (xylem) — both passive, driven by thermodynamics |
+| Why trees can grow indefinitely | 03-STEMS-WOOD | Indeterminate growth via apical + lateral meristems; no programmed size limit |
+| Why maize outyields wheat per unit water | 04-LEAVES-PHOTOSYNTHESIS | C4 photosynthesis — CO₂ concentrating mechanism eliminates RuBisCO's oxygenase problem |
+| How a flower "knows" what pollinator to attract | 05-FLOWERS-REPRODUCTION | Pollination syndromes: color, scent, shape, reward co-evolved with specific pollinator sensory systems |
+| What makes old-growth structurally different | 06-TREES-FORESTS | Vertical stratification + standing deadwood + fungal networks missing in second growth |
+| Why cutting rainforest produces poor farmland | 07-BIOMES | Nutrients are in the living biomass, not the soil — slash-and-burn releases them temporarily then they're gone |
+| Why broccoli is bitter | 08-PLANT-DEFENSES | Glucosinolates: sulfur-containing secondary metabolites; activated by myrosinase on tissue damage |
+| How to trace a drug back to a plant | 09-ECONOMIC-BOTANY | Secondary metabolite → medicinal compound pathway (willow bark → salicylate → aspirin) |
+| Which group dominates modern ecosystems | This file | Angiosperms (~300,000 species); explosive diversification after ~130 Mya flower/pollinator coevolution |
 
 ---
 

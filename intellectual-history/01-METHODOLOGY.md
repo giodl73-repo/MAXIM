@@ -282,7 +282,19 @@ The most influential methodological intervention of the late 20th century.
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from hermeneutic circle / interpretation theory to analogous loops in engineering — e.g., requirements-vs-implementation feedback, TDD red-green-refactor, or compiler passes that refine understanding iteratively -->
+## Engineering Bridge: The Hermeneutic Circle as Iterative Refinement
+
+The hermeneutic circle — understanding parts requires the whole; understanding the whole requires the parts; the loop never fully resolves — is structurally identical to several core engineering processes:
+
+**Requirements-implementation feedback.** You cannot fully specify requirements without understanding implementation constraints; you cannot implement without understanding requirements. Every sprint retrospective is a partial hermeneutic resolution: the whole (product vision) is refined by the parts (sprint outcome), which reshapes the next iteration of requirements.
+
+**Compiler multi-pass analysis.** A compiler's first pass sees tokens without knowing types; later passes have full type information that recontextualizes earlier decisions. Semantic analysis is hermeneutic: each pass refines the interpretation of code using knowledge built from previous passes. The abstract syntax tree is a "pre-understanding" revised by subsequent analysis.
+
+**TDD red-green-refactor.** Write a failing test (articulate what the whole should do) → implement just enough to pass (fill in the part) → refactor (revise the whole in light of what the parts revealed). The test is a hypothesis about meaning; the implementation is an interpretation; refactoring is the hermeneutic revision when the interpretation changes your understanding of the hypothesis.
+
+**Code review.** A reviewer must understand the author's intent (whole: what problem is this solving?) to evaluate individual decisions (parts: why this loop structure?). But the parts reveal the actual intent, which may differ from the stated intent — a classic hermeneutic gap. The PR comment thread is a hermeneutic negotiation.
+
+**Skinner's anti-anachronism principle** maps directly to avoiding presentism in code archaeology: when reading a ten-year-old codebase, you must ask "what problem were they solving then, with what tools available, under what constraints?" — not "why didn't they use Docker?"
 
 ## Decision Cheat Sheet
 

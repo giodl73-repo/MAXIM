@@ -343,7 +343,29 @@ DYSBIOSIS CONSEQUENCES:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- GI tract = pipeline architecture, liver = central processing hub (routing, transformation, storage, logging), enterohepatic circulation = resource recycling loop, ENS = embedded controller, zymogens = lazy initialization -->
+## Engineering Bridges
+
+**GI tract as staged pipeline architecture**
+The GI tract is a 9-meter sequential processing pipeline where each stage performs a distinct transformation and the output of one stage feeds the next. The pipeline is not merely passive transport: each stage has its own control system (ENS + hormonal), specialized epithelium, and access point for auxiliary processors (pancreas, liver). Throughput is controlled by sphincters (LES, pylorus, ileocecal valve, anal sphincters) — flow-control valves that prevent backflow and regulate transfer rate between stages. The rate-limiting step shifts depending on load: fasting empties the small intestine with MMC sweeps; post-meal, gastric emptying is rate-limited by duodenal feedback (CCK, secretin).
+
+**Liver as central data hub**
+The liver occupies the most strategically placed node in the metabolic network: it sits on the portal circulation, receiving first pass of everything absorbed from the gut. Its functions map cleanly to a hub's responsibilities:
+- **Routing**: lipoprotein packaging (VLDL, HDL) routes lipids to appropriate destinations
+- **Transformation**: detoxification, conjugation reactions, first-pass drug metabolism (CYP450 enzymes)
+- **Storage**: glycogen buffering (absorbs glucose spikes, releases on demand), iron storage
+- **Logging**: bilirubin conjugation and excretion; coagulation factor synthesis
+- **Protocol translation**: ammonia (toxic waste) → urea (safe for renal excretion) via the urea cycle
+The liver's failure in cirrhosis produces predictable downstream failures: coagulopathy (no clotting factors), ascites (no albumin for oncotic pressure), encephalopathy (ammonia accumulates), portal hypertension (increased back-pressure when routing node fails).
+
+**Enterohepatic circulation as resource recycling loop**
+95% of bile salts secreted into the duodenum are reabsorbed at the terminal ileum and returned to the liver via portal blood. Total bile salt pool (~3 g) circulates 6–10× per day, meaning the liver only synthesizes the 5% lost in feces. This is a closed-loop recycling architecture: the resource (bile salts) is expensive to synthesize from cholesterol but cheap to recycle. Terminal ileum disease (Crohn's) or resection breaks the recycling loop → massive synthesis demand exceeds capacity → fat malabsorption + bile salt diarrhea.
+
+**Zymogens as lazy initialization with a security model**
+Pancreatic digestive enzymes are synthesized as inactive precursors (zymogens) that are only activated when they reach the duodenal lumen. Trypsinogen is activated by enteropeptidase (on the duodenal brush border), and active trypsin then activates all other zymogens. This is lazy initialization with a spatial safety model: the activation event is gated by location (outside the pancreas) rather than time. The pancreas also produces a trypsin inhibitor as a backup guard. Acute pancreatitis is premature activation within the pancreas — the equivalent of a constructor triggering destructive operations before the object is in the correct context.
+
+**Enteric nervous system as embedded autonomous controller**
+The ENS (~500 million neurons, more than the spinal cord) operates independently of the CNS to control all GI motility and secretion. It has its own sensory neurons (detecting stretch, luminal chemistry), interneurons (integrating), and motor neurons (controlling smooth muscle and secretory cells). The CNS modulates but does not control the ENS — vagal inputs set tone; ENS generates the coordinated peristaltic pattern. This is an embedded controller that maintains local control while accepting override inputs from a supervisory system. Hirschsprung disease (absence of ENS in a segment) causes functional obstruction — the segment has normal muscle but no local controller.
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

@@ -2,28 +2,36 @@
 
 ## The Big Picture
 
-<!-- @editor[diagram/P2]: Diagram lists water body types in a taxonomy grid but doesn't show how they relate hydrologically — e.g., how rivers feed lakes, how groundwater sustains wetlands, how stratification connects to eutrophication; rework to show water/nutrient flow relationships between these components -->
 ```
 +===========================================================================+
-|                  STANDING WATER BODIES — TAXONOMY                         |
+|           LAKES AND WETLANDS — HYDROLOGICAL FLOW RELATIONSHIPS           |
 +===========================================================================+
 |                                                                           |
-|  LAKES          RESERVOIRS       PONDS         WETLANDS                  |
-|  ───────        ──────────       ──────        ────────                  |
-|  Natural basin  Dam-impounded    Small lake    Shallow, saturated        |
-|  Old/stable     Managed, young   <8 ha often   or periodically flooded   |
-|  thermal strat  Drawdown cycles  Not stratified Peat possible            |
-|  oligotrophic   Sedimentation    Warms faster   High biodiversity        |
-|  to eutrophic   Nutrient trap    Eutrophic prone                         |
+|  ATMOSPHERE                                                               |
+|  Precipitation ───────────────────────────────────────┐                  |
+|  Evaporation ◄──────────────────────────────────────── │                  |
+|                                                        ▼                  |
+|  WATERSHED RUNOFF ──────────────────────────────► LAKE / RESERVOIR       |
+|  RIVER INFLOW ───────────────────────────────────►  │                    |
+|                                                        │ ←─ Stratification|
+|  GROUNDWATER ◄──────────────────────────────────────── │    (warm epilimnion|
+|  (seepage in or out; direction ← head gradient)       │     over cold    |
+|                                                        │     hypolimnion) |
+|  ┌─── NUTRIENT LOADING (P, N from runoff) ──────────►  │                 |
+|  │                                                      │ → EUTROPHICATION|
+|  │     WETLANDS (riparian, fringe, isolated):           │   (algae blooms,|
+|  │     ├─ Intercept runoff → filter P, N, sediment      │    hypoxia)     |
+|  │     ├─ Denitrification → remove NO₃⁻ as N₂ gas      │                 |
+|  │     └─ Peat accumulation → C sequestration          │                 |
+|  │                                                      ▼                 |
+|  └───────────────────────────────────────────────── OUTFLOW (river)      |
 |                                                                           |
-|  WETLAND SUBTYPES:                                                        |
-|  Freshwater marshes: emergent plants, open water patches                  |
-|  Forested wetlands (swamps): trees in standing/flowing water              |
-|  Bogs: peat-forming, ombrotrophic (rain-fed), Sphagnum-dominated         |
-|  Fens: peat-forming, minerotrophic (groundwater-fed)                     |
-|  Prairie potholes: glacial kettles, N. Great Plains, crucial waterfowl   |
-|  Tidal freshwater: near river mouth, below tide limit                    |
-|                                                                           |
+|  WATER BODY COMPARISON:                                                   |
+|  Lakes:      natural; thermally stratifies seasonally; slow nutrient resp |
+|  Reservoirs: managed; drawdown cycles; rapid sedimentation in delta      |
+|  Ponds:      small; isothermal; fast thermal response; eutrophic-prone   |
+|  Bogs:       rain-fed (ombrotrophic); Sphagnum; pH 3.5–4.5; peat forms  |
+|  Fens:       groundwater-fed (minerotrophic); sedges; higher pH          |
 +===========================================================================+
 ```
 
@@ -354,7 +362,48 @@ HYDRAULIC LOADING RATE (HLR):
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge section — Vollenweider model is a steady-state mass balance (same structure as a CSTR in chemical engineering or a leaky-bucket queue); mixing regimes map to control-theory stability concepts; these analogies would help the learner anchor the material -->
+## Bridges from CS and Engineering
+
+```
+LAKE/WETLAND CONCEPT          CS / ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Vollenweider P model          Continuously-stirred tank reactor (CSTR) / leaky bucket
+  dP/dt = L_in - σ·P·V         → first-order mass balance: in-flow – loss·state
+  Steady state P = L/(σ + ρ)   → DC equilibrium of a first-order system
+  σ = sedimentation coefficient → loss rate (analogous to drain rate)
+  ρ = hydraulic flushing rate  → 1/residence time; more flushing → lower P
+  "Internal loading"           → feedback from sediment (state-dependent source)
+                                  analogous to cache re-fill from backing store
+
+Lake thermal stratification   Density-stratified two-layer system
+  Epilimnion / hypolimnion     → two compartments with low interface conductance
+  Thermocline                  → insulating barrier; conductance → ~0 at turnover
+  Density inversion (4°C)      → Rayleigh-Taylor instability; triggers convective
+                                  overturn (same as buoyancy instability in fluids)
+  Wind mixing vs. stability    → forcing vs. restoring force; Richardson number
+                                  Ri < 0.25 → turbulent mixing; Ri >> 1 → stable
+
+Wetland denitrification       Reactive transport / catalytic pipeline stage
+  NO₃⁻ → N₂ (anaerobic bacteria) → irreversible removal from system
+  Rate depends on: temperature, → same as Arrhenius kinetics in a CSTR
+    C availability, residence time   optimal residence time for reactor design
+  Hydraulic loading (Q/A)      → contact time; too fast → breakthrough
+
+Trophic state classification  Multi-dimensional state clustering
+  Oligotrophic / mesotrophic   → states separated by nutrient thresholds
+  / eutrophic / hypereutrophic → Carlson TSI is a single-index projection
+  Carlson TSI (0–100 scale)    → dimensionality reduction: maps 3 proxies to 1D
+
+Peat accumulation             Integrator with bounded rate
+  dC/dt = NPP - decomposition  → net C = integral of difference signal
+  Net ~0 in mineral soil       → balanced; peat = NPP >> decomp (cold + anoxic)
+  3–5 Gt CO₂/yr if drained    → releasing stored integral on sudden state change
+
+Lake residence time τ = V/Q   Time constant of first-order system
+  Concentration half-life      → τ × ln2 (same as RC circuit T_{1/2})
+  Recovery after cleanup       → e-folding time for contaminant dilution
+  Great Lakes: 1 yr (Superior) to 200 yr (Ontario) → very different recovery speeds
+```
 
 ## Decision Cheat Sheet
 

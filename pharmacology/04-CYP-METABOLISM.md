@@ -259,7 +259,55 @@ THIOPURINE METHYLTRANSFERASE (TPMT)
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — CYP enzyme system maps to a shared-resource processing pipeline: substrates are jobs, enzymes are worker threads with finite capacity, inhibition is resource starvation (one job hogging the thread pool), induction is autoscaling (spinning up more workers). The DDI problem is exactly a resource contention/scheduling problem -->
+## Engineering Bridge: CYP as a Shared Resource Pool
+
+The CYP enzyme system is a shared-capacity processing pipeline. Drug-drug interactions are resource contention problems.
+
+```
+  CYP SYSTEM                    SYSTEMS / CONCURRENCY PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  CYP enzyme (e.g., CYP3A4)     Worker thread pool with finite capacity:
+  Km = substrate concentration  Km ~ inverse of binding affinity ≈ the
+  at half-maximal velocity      rate at which the substrate "captures" a
+                                free worker. Low Km → high affinity →
+                                substrate monopolizes pool at low [drug].
+
+  Competitive CYP inhibition    Priority inversion / lock contention:
+  (e.g., ketoconazole + simva)  inhibitor occupies the active site while
+                                substrate is waiting. Ki is the inhibitor's
+                                "grip strength." The substrate AUC increases
+                                by (1 + [I]/Ki) — exactly how throughput
+                                decreases when a high-priority job holds a
+                                shared resource.
+
+  Mechanism-based inhibition    Permanent worker thread failure:
+  (e.g., grapefruit, erythromycin) inhibitor covalently inactivates CYP →
+                                enzyme is gone. Effect outlasts drug
+                                clearance — the thread pool stays reduced
+                                until new enzyme is synthesized (6-18 hr).
+                                No amount of substrate clearance reverses it;
+                                the capacity is truly lost.
+
+  CYP induction                 Autoscaling: spinning up more workers:
+  (e.g., rifampin + CYP3A4)    inducer activates nuclear receptors
+                                (PXR, CAR) → transcription of more CYP →
+                                more enzyme → more capacity. Effect develops
+                                over 1-2 weeks (time to synthesize new
+                                enzyme pool). Abruptly stopping the inducer:
+                                pool collapses back to baseline over ~2 weeks.
+
+  Substrate-inhibitor-inducer   Multi-resource scheduling problem:
+  triples (complex DDIs)        three drugs on the same CYP → predict the
+                                net effect from Ki, Km, [I], [inducer].
+                                PBPK models are the formal solution —
+                                full mechanistic models of the pipeline
+                                with capacity, occupancy, and induction
+                                dynamics.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## Clinical Decision Framework for DDIs
 
 ```

@@ -28,7 +28,71 @@ In 2006, Shinya Yamanaka demonstrated that fully differentiated adult fibroblast
 
 ---
 
-<!-- @editor[bridge/P2]: No CS/engineering bridge. iPSC reprogramming is "factory reset to firmware" — wiping the differentiation state back to the pluripotent default. The stochastic, low-efficiency nature of reprogramming parallels "probabilistic state machine convergence." Direct reprogramming (skipping iPSC) is "transpilation without intermediate representation." These bridges would immediately resonate. -->
+## Engineering Bridge: Reprogramming as State Machine Reset
+
+iPSC reprogramming is a stochastic state machine transition from a deeply committed state back to the ground state of the hierarchy.
+
+```
+  IPSCS                         CS / ENGINEERING PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Yamanaka reprogramming        Factory reset to firmware:
+  (OSKM → fibroblast becomes    The differentiation state (fibroblast
+  pluripotent)                  identity) is erased; the cell converges
+                                to the pluripotent ground state. The four
+                                factors are not random — each targets a
+                                specific epigenetic barrier:
+                                Oct4 + Sox2: activate pluripotency network
+                                Klf4: repress lineage commitment genes
+                                c-Myc: open chromatin (enable access)
+
+  Stochastic, low-efficiency    Probabilistic state machine convergence:
+  reprogramming (~0.01-0.1%)    Most cells receiving OSKM never reprogram.
+                                The system has many local minima (partially
+                                reprogrammed states — "pre-iPSC states").
+                                Only rare trajectories reach the global
+                                minimum (true pluripotency). Barrier
+                                heights determine probability: epigenetic
+                                barriers → rare events.
+
+  Epigenetic barriers to        State machine transition with high energy
+  reprogramming                 barriers: DNA methylation at pluripotency
+                                loci (OCT4 promoter: highly methylated in
+                                fibroblasts) → must be removed by TET
+                                or passive dilution. Histone marks
+                                (H3K9me3 via SETDB1) → block TF binding.
+                                c-Myc partly lowers these barriers by
+                                opening chromatin globally.
+
+  Direct reprogramming          Transpilation without intermediate
+  (fibroblast → neuron          representation:
+  via ASCL1/BRN2/MYT1L)        Skip the pluripotent state entirely —
+                                convert one differentiated cell type to
+                                another by expressing the destination's
+                                master TFs. Avoids the iPSC intermediate
+                                (less risk of oncogenesis from c-Myc;
+                                faster; less epigenetic drift). Equivalent
+                                to compiling source_A → output_B without
+                                going through IR first.
+
+  iPSC disease modeling         Digital twin at cellular level:
+  (patient-specific)            Take patient's somatic cells → reprogram
+                                → derive the cell type of interest
+                                → the disease phenotype appears in the dish.
+                                Drug screen on the patient's own cells →
+                                personalized pharmacology.
+
+  Universal donor iPSC          Shared infrastructure / platform:
+  (HLA-edited, immune-           HLA-null or HLA-minimized iPSC line:
+  evasive)                       can be used for any patient without immune
+                                rejection. The "base image" that can be
+                                differentiated into any therapeutic cell type
+                                and distributed across patients. Multi-tenant
+                                cell therapy platform.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## The Yamanaka Factors
 
 ```
@@ -247,19 +311,23 @@ iPSC → CELL THERAPY PIPELINE
       HLA homozygous iPSC banks: Match major HLA types (100 homozygous lines → cover 90%+ population)
 
 CLINICAL PROGRAMS (selected, 2024)
-<!-- @editor[content/P2]: Clinical trial status listed as "2024" — may be outdated; Vertex VX-880 reported positive Phase I/II data in late 2024 and VX-264 has progressed. Verify current trial phases and any FDA actions. -->
   Age-related macular degeneration (AMD):
     iPSC → retinal pigment epithelium (RPE) → implanted as patch under retina.
-    Multiple trials (Masayo Takahashi/RIKEN, Astellas): safety established; limited visual recovery.
+    Multiple trials (Masayo Takahashi/RIKEN, Lineage Cell Therapeutics, Astellas):
+    safety established in Phase I; limited visual recovery so far.
   Type 1 Diabetes:
-    iPSC/hESC → beta cells → Vertex VX-880 (naked): immunosuppression required.
-    Vertex VX-264: encapsulated device; no immunosuppression needed; Phase I ongoing.
+    iPSC/hESC → beta cells → Vertex VX-880 (naked infusion): immunosuppression
+    required; Phase I/II completed 2024 with insulin independence achieved in
+    first responders. Vertex VX-264 (encapsulated device; no immunosuppression):
+    Phase I/II ongoing 2025. CRISPR-edited stem cell-derived islets (Phase I).
   Heart Failure:
     iPSC-CMs → purified cardiomyocytes → injection into infarcted heart.
-    Animal models: improved function. Human trials: ongoing.
+    Non-human primate models: improved function but graft arrhythmia a concern.
+    Human Phase I trials (multiple institutions) ongoing as of 2025.
   CAR-iPSC:
-    iPSC → iPSC-NK or iPSC-T cells → CAR-T therapy (allogeneic, universal)
-    Fate Therapeutics: FT596 (iPSC-NK → CAR-NK); clinical trials B-cell malignancies.
+    iPSC → iPSC-NK or iPSC-T cells → allogeneic CAR cell therapy
+    Fate Therapeutics: FT596, FT819 (iPSC-NK → CAR-NK); B-cell malignancy trials.
+    Allogene, Editas, and others: iPSC-derived CAR-T programs in Phase I.
 ```
 
 ---

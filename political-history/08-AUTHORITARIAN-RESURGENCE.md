@@ -124,8 +124,7 @@ The goal is not necessarily to elect specific candidates but to **amplify polari
 
 ## Digital Authoritarianism: China's Model
 
-<!-- @editor[audience/P3]: "This section is relevant to the learner's tech background" — breaks peer tone by pointing out relevance rather than letting the content speak for itself. Remove the meta-commentary; the reader doesn't need to be told what's relevant to them. -->
-China has developed the most sophisticated digital authoritarian system in history. This section is relevant to the learner's tech background — the architecture is genuinely interesting.
+China has developed the most sophisticated digital authoritarian system in history.
 
 ### The Great Firewall
 

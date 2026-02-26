@@ -370,7 +370,41 @@ ECONOMIC DOMINANCE:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to antitrust/monopoly patterns (Edison MPPC cartel -> AT&T/Microsoft antitrust) would resonate with learner's VSTS-era experience -->
+## Platform Monopoly and Antitrust: A Structural Pattern
+
+The Edison MPPC (1908) is an early, clean example of patent-based platform control — a structural pattern that recurs throughout the history of technology platforms.
+
+```
+PATENT CARTEL STRUCTURE — MPPC MODEL (1908-1914)
+
+Edison MPPC controls:
+  ┌─────────────────────────────────────────────────────┐
+  │  Patent pool: 16 patents covering cameras + film     │
+  │  Licensing: production only to trust members         │
+  │  Supply chain: Eastman Kodak raw film → MPPC only    │
+  │  Distribution: licensed exchanges only               │
+  │  Exhibition: licensed theaters only                  │
+  └─────────────────────────────────────────────────────┘
+  Enforcement: Pinkerton agents, patent suits, equipment seizure
+  Collapse: 1914 antitrust suit; cartel broken by 1918
+
+STRUCTURAL PARALLEL:
+  MPPC controlled:     → Modern analog:
+  Raw film supply      → App store distribution / API access
+  Camera patents       → Platform patents / essential facilities
+  Distribution channel → Walled app ecosystems
+  Exhibition licensing → Device compatibility requirements
+
+Antitrust doctrine from U.S. v. MPPC (1915) prefigures:
+  AT&T divestiture (1984): vertical integration in telecom
+  U.S. v. Microsoft (2001): browser bundling, API lock-in
+  App store investigations (2020s): Apple/Google distribution control
+
+The MPPC case established that patent pools controlling an entire
+production pipeline constitute per se antitrust violations —
+a precedent directly applied to platform ecosystem cases a century later.
+```
+
 ## Common Confusion Points
 
 **"Silent films were silent."** They were not silent in exhibition. Virtually all theatrical screenings had musical accompaniment — piano at minimum, orchestra at major theaters. Some early films had narrators (benshi in Japan, very important cultural figures). What was "silent" was the recording/playback: no sync sound on the film itself.

@@ -405,7 +405,130 @@ PHYSIOLOGICAL FACTORS:
 
 ---
 
-<!-- @editor[content/P2]: Copper, manganese, chromium, molybdenum, and fluoride are listed in the taxonomy but have no dedicated subsections — significant gap for copper especially (Wilson disease, ceruloplasmin, SOD) -->
+## Copper, Manganese, and Other Trace Minerals
+
+```
+COPPER (Cu)
+──────────────────────────────────────────────────────────────────────────────
+BODY CONTENT: ~80–100 mg total; liver, brain, kidney, muscle
+
+FUNCTIONS:
+  Ceruloplasmin (ferroxidase):
+    Plasma Cu-containing enzyme; oxidizes Fe²⁺ → Fe³⁺ → loads onto transferrin
+    → Critical for iron export from liver and enterocytes
+    Wilson disease → Fe accumulates alongside Cu because export fails
+  Cu/Zn-SOD (superoxide dismutase 1):
+    Cytoplasmic antioxidant; converts O₂•⁻ → H₂O₂ → catalase → H₂O
+    Mn-SOD (SOD2): mitochondrial; requires Mn instead
+  Cytochrome c oxidase (Complex IV):
+    Cu required for electron transfer to O₂ in OXPHOS terminal step
+    Cu deficiency → impaired OXPHOS → energy production deficit
+  Lysyl oxidase:
+    Cross-links collagen + elastin → vessel wall integrity
+    Deficiency → aortic aneurysm (Menkes disease: connective tissue failure)
+  Dopamine β-hydroxylase:
+    Converts dopamine → norepinephrine → catecholamine synthesis
+    Deficiency → neurological dysfunction
+
+ABSORPTION:
+  CTR1 transporter in duodenum; 25–50% of dietary Cu absorbed
+  Inhibited by high zinc (shared transporter competition)
+  Intracellular distribution via Cu chaperone proteins to specific enzymes
+
+DEFICIENCY:
+  Menkes disease: X-linked; ATP7A mutation
+    → Cu export from gut epithelium and BBB defective
+    → Cu trapped in enterocytes; not delivered to tissues
+    → Kinky hair, neurodegeneration, connective tissue failure
+    → Fatal without parenteral Cu-histidinate
+  Acquired: excessive zinc supplementation → anemia + leukopenia + myelopathy
+    (neuropathy resembling B12 deficiency)
+  DRI: 900 µg/day; UL: 10,000 µg/day
+
+TOXICITY (Wilson disease): ATP7B mutation → Cu accumulates in liver + brain
+  → Liver cirrhosis + neuropsychiatric symptoms + Kayser-Fleischer rings (cornea)
+  → Treatment: D-penicillamine (chelator) or zinc (blocks intestinal absorption)
+  Prevalence: ~1:30,000; autosomal recessive
+```
+
+```
+MANGANESE (Mn)
+──────────────────────────────────────────────────────────────────────────────
+BODY CONTENT: ~10–20 mg; concentrated in mitochondria-rich tissues
+
+FUNCTIONS:
+  Mn-SOD (SOD2): mitochondrial antioxidant; dismutates O₂•⁻ produced in ETC
+    → Cancer cells often downregulate Mn-SOD (tolerates oxidative stress)
+  Arginase: Mn-metalloenzyme; urea cycle (arginine → ornithine + urea)
+  Pyruvate carboxylase: gluconeogenesis from pyruvate (also requires biotin)
+  Glycosyltransferases: proteoglycan synthesis (cartilage, bone matrix)
+
+ABSORPTION:
+  Absorbed via DMT1 (same as Fe²⁺) → high Fe intake competes with Mn
+  AI: 1.8–2.3 mg/day; deficiency rare
+
+TOXICITY (manganism):
+  Occupational (mining, welding): Mn dust inhalation
+  Deposits in basal ganglia → Parkinson-like syndrome (dystonia, gait disturbance)
+  Dietary excess not clinically significant; inhalation and water are risks
+```
+
+```
+CHROMIUM (Cr) — MECHANISTICALLY UNCERTAIN
+──────────────────────────────────────────────────────────────────────────────
+Historical claim: potentiates insulin signaling via chromodulin
+Current status: no Cr-containing enzyme or receptor identified in mammals
+  EFSA (2014): insufficient evidence to establish an EAR/RDA for Cr
+  US AI (25–35 µg/day): reflects typical dietary intake, not established requirement
+  RCT evidence for chromium picolinate in T2DM: inconsistent; small/null effect sizes
+  → Widely sold as blood sugar supplement; mechanism and efficacy unvalidated
+  → Illustrative case: mineral with decades of research yet still no validated biochemical role
+```
+
+```
+MOLYBDENUM (Mo)
+──────────────────────────────────────────────────────────────────────────────
+FUNCTIONS (all as Mo in molybdopterin cofactor complex):
+  Xanthine oxidase/dehydrogenase: purine catabolism → hypoxanthine → xanthine → uric acid
+    → Target of allopurinol and febuxostat (gout drugs inhibit this enzyme)
+  Sulfite oxidase: sulfite → sulfate (sulfur amino acid catabolism; last step)
+    → Isolated sulfite oxidase deficiency: severe neurological disease
+  Aldehyde oxidase: drug and xenobiotic metabolism in liver
+
+DEFICIENCY: extremely rare
+  Only described in prolonged TPN without Mo supplementation
+  Isolated sulfite oxidase deficiency (genetic): devastating neurological disease
+    distinct from dietary deficiency
+
+RDA: 45 µg/day; UL: 2,000 µg/day; widely distributed in legumes, grains, leafy greens
+```
+
+```
+FLUORIDE (F)
+──────────────────────────────────────────────────────────────────────────────
+FUNCTION: structural incorporation into tooth enamel
+  Replaces OH⁻ in hydroxyapatite → fluorapatite (Ca₁₀(PO₄)₆F₂)
+  Fluorapatite: harder, more acid-resistant than hydroxyapatite
+  → Inhibits enamel dissolution by Streptococcus mutans acid production
+  → Also inhibits S. mutans enzymes directly at high local concentrations
+
+PUBLIC HEALTH:
+  Water fluoridation (0.7 ppm US): one of the most cost-effective public health
+    interventions ever implemented; ~25% reduction in dental caries
+  Topical fluoride (toothpaste 1000–1450 ppm, varnish): more effective for adults
+    than systemic supplementation
+
+TOXICITY:
+  Dental fluorosis (excess during tooth development):
+    0.7–2 ppm: caries reduction with minimal fluorosis risk
+    > 2 ppm: mottling + white spots in enamel
+  Skeletal fluorosis (chronic high exposure: > 4 ppm drinking water):
+    Endemic in parts of India, Africa from naturally high groundwater
+    Bone sclerosis, osteophytes, joint stiffening
+
+AI: 3–4 mg/day adults; UL: 10 mg/day
+```
+
 ## Decision Cheat Sheet
 
 | Concern | Mineral action |

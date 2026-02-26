@@ -288,10 +288,68 @@ ALZHEIMER'S PHARMACOLOGY
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — neurotransmitter systems map to event-driven architecture: each NT system is a message bus (dopamine bus, serotonin bus), receptors are subscribers with different coupling (Gs/Gi/Gq = different handler callbacks), reuptake transporters are the garbage collector clearing the event queue, and the BBB is a network firewall with strict ingress rules -->
+## Engineering Bridge: CNS as Event-Driven Architecture
+
+The neurotransmitter system is a distributed event-driven architecture with multiple independent message buses, each with distinct coupling logic, queue management, and access control.
+
+```
+  CNS PHARMACOLOGY              EVENT-DRIVEN ARCHITECTURE PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Neurotransmitter systems      Independent message buses:
+    Dopamine (VTA/NAc, SNc)     → reward/salience bus
+    Serotonin (Raphe nuclei)    → mood/arousal bus
+    Norepinephrine (Locus C.)   → alertness/stress bus
+    GABA (interneurons global)  → global inhibition bus (circuit breaker)
+    Glutamate (excitatory)      → primary signaling bus
+  Each bus carries different message types; one bus does not substitute
+  for another (though all are subject to drug modulation).
+
+  Receptor subtypes             Subscriber callbacks with different coupling:
+    Gs-coupled (β1-adr, D1)     → cAMP↑ → PKA activation (excitatory)
+    Gi-coupled (D2, μ-opioid)   → cAMP↓ → inhibitory
+    Gq-coupled (5-HT2A, α1-adr) → PLC → DAG + IP3 → Ca²+ → varied
+    Ionotropic (GABA_A, NMDA)   → direct channel gating (synchronous)
+  Same ligand, different receptor subtype → different downstream handler.
+  Context-dependent dispatch: same NT, different cell type, different response.
+
+  Reuptake transporters         Garbage collector / event queue drain:
+    SERT (serotonin)            Removes NT from synapse after release.
+    DAT (dopamine)              SSRIs block SERT → NT accumulates in cleft
+    NET (norepinephrine)        → prolonged receptor activation.
+  Without transporter clearance, NT persists in synapse indefinitely —
+  analogous to an event queue that never drains.
+
+  Blood-brain barrier (BBB)     Network firewall with selective ingress rules:
+    Tight junctions (no paracellular)
+    P-glycoprotein efflux pump  → actively ejects lipophilic molecules
+    Carrier-mediated influx     → only specific substrates cross
+  CNS drug design is an ingress filtering problem: logP 1-3 preferred,
+  MW < 500, no P-gp substrate. Prodrug strategies bypass the filter.
+
+  Drug tolerance / sensitization  Circuit state mutation under sustained input:
+  (SSRI 2-6 week delay)         Fast PK steady-state (5-7 days) is NOT the
+                                mechanism. Neuroplastic rewiring (receptor
+                                downregulation, synaptogenesis) is the slow
+                                path — circuit topology is changing, not
+                                just signal strength.
+  ──────────────────────────────────────────────────────────────────────
+```
+
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P3]: Cheat sheet reads as a drug classification table rather than a decision tool — consider reframing as "Patient presents with X / Target system / Drug choice / Why this one" to make it action-guiding rather than reference-summarizing -->
+| Patient Scenario | Target System | Drug Choice | Why This One |
+|------------------|---------------|-------------|--------------|
+| Depression / anxiety | Serotonin ± NE bus | SSRI (first-line) / SNRI | Broadest evidence, acceptable safety; weeks to effect |
+| Psychosis (dopamine excess) | Dopamine D2 bus | Atypical antipsychotic (olanzapine, quetiapine) | D2 + 5-HT2A block; fewer EPS than typical |
+| Acute anxiety / seizure | GABA bus | Benzodiazepine | Rapid allosteric GABA-A potentiation; ceiling limits lethal overdose |
+| Opioid overdose | μ-opioid bus | Naloxone (IV/IM) | Competitive antagonist; fast reversal of respiratory depression |
+| Opioid use disorder | μ-opioid bus | Buprenorphine | Partial agonist ceiling prevents fatal OD; prevents withdrawal |
+| Parkinson's (dopamine deficit) | Dopamine synthesis | Levodopa + carbidopa | Precursor crosses BBB; carbidopa blocks peripheral conversion |
+| Alzheimer's (mild-mod) | Cholinergic bus | AChE inhibitor (donepezil) | Increase ACh availability; symptomatic only |
+| Alzheimer's (moderate-severe) | Glutamate bus | Memantine | NMDA open-channel block; reduces excitotoxicity |
+
+---
+
 | Drug Class | Neurotransmitter | Receptor Target | Main Clinical Use |
 |------------|-----------------|-----------------|------------------|
 | SSRIs/SNRIs | Serotonin (±NE) | SERT blockade | Depression, anxiety |

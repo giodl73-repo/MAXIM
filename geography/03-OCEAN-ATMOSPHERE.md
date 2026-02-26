@@ -111,7 +111,24 @@ propagates spatially.
   → Without it, NW Europe ~5-8°C colder (like same latitude in Canada)
   London at latitude of northern Alberta; Dublin = Labrador
 
-<!-- @editor[bridge/P2]: No feedback loop → tipping point bridge despite obvious parallel — any systems engineer recognizes positive feedback driving runaway behavior; connect AMOC weakening to control theory concepts (positive feedback, hysteresis, bistability) -->
+  BRIDGE — AMOC WEAKENING AS POSITIVE FEEDBACK WITH HYSTERESIS:
+  Control theory framing: AMOC is a system with two stable equilibria
+  (strong conveyor vs. collapsed / weak state) separated by an unstable
+  equilibrium (tipping point). The perturbation is freshwater forcing from
+  Greenland melt, which reduces thermohaline density → reduces sinking →
+  reduces northward heat transport → weakens the salinity gradient that
+  drives sinking → positive feedback. This is a self-reinforcing loop:
+  once the perturbation exceeds the tipping threshold, the system
+  transitions to the collapsed state without requiring continued forcing.
+  The hallmark of bistability: the system doesn't return to the strong
+  state when freshwater forcing is removed (hysteresis) — restoring AMOC
+  requires either stopping Greenland melt or waiting centuries for
+  salinity gradients to rebuild. Boers (2021) used early-warning signals
+  from AMOC fingerprint data (decreasing variance + increasing
+  autocorrelation near a tipping point) to argue AMOC may already be
+  approaching its bifurcation point. This is the same critical slowing
+  down signature used to detect phase transitions in complex systems.
+
   AMOC AS CLIMATE TIPPING POINT:
   ┌────────────────────────────────────────────────────────────────┐
   │ Mechanism for weakening:                                       │
@@ -185,7 +202,40 @@ propagates spatially.
   +0.5°C = El Niño; -0.5°C = La Niña (for 5+ consecutive months)
   Southern Oscillation Index (SOI): pressure difference Tahiti-Darwin
 ```
-<!-- @editor[content/P2]: ENSO prediction and forecasting absent — significant gap; the operational forecasting models (IRI, CPC), their skill horizons (~6-9 months), and why long-term prediction remains difficult belong here -->
+
+  ENSO FORECASTING — SKILL HORIZONS AND LIMITS:
+  ```
+  OPERATIONAL FORECASTING:
+  IRI (International Research Institute): ENSO forecast plumes
+    → Publicly available; multiple models + multi-model ensembles
+  CPC (NOAA Climate Prediction Center): official US operational ENSO
+    outlooks; updated monthly; categorical: El Niño / Neutral / La Niña
+
+  SKILL HORIZON (~6–9 months lead time):
+  Model skill for ONI (SST anomaly): useful to ~6–9 months ahead
+  Drops off rapidly beyond 9 months — especially for onset prediction
+  → Predictability barrier ("spring predictability barrier"):
+    Forecasts initialized in boreal spring (Mar–May) have lower skill
+    than those initialized in other seasons; ENSO state transitions
+    most frequently through the spring → large uncertainty
+
+  WHY LONG-RANGE PREDICTION IS DIFFICULT:
+  1. Deterministic chaos: coupled ocean-atmosphere system is chaotic;
+     small initial condition errors grow exponentially
+  2. Spring barrier: during March–May, SST anomalies are weakest and
+     atmosphere-ocean coupling is loosest → forecast uncertainty peaks
+  3. Decadal modulation: PDO (20–30 year cycle) shifts ENSO base state;
+     a forecast calibrated on recent decades may not hold if PDO shifts
+  4. Model spread: dynamical models disagree on ENSO type (Eastern
+     Pacific vs Central Pacific "Modoki" El Niños have different teleconn.)
+
+  TELECONNECTION PROBABILITY (not determinism):
+  ENSO state shifts the PROBABILITY DISTRIBUTION of downstream
+  weather, not its certainty. El Niño increases P(drought | Indonesia)
+  from ~20% baseline to ~60%, but drought still doesn't always occur.
+  Seasonal climate forecasts are therefore communicated as tercile
+  probabilities (above/near/below normal), not point forecasts.
+  ```
 
 ---
 

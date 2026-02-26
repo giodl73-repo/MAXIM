@@ -1,7 +1,44 @@
 # Islamic Caliphates — From Rashidun to Regional Sultanates
 
 ## The Big Picture: Islam's Political Fragmentation
-<!-- @editor[diagram/P2]: Opening diagram is a chronological timeline, not a spatial landscape — add a geographic diagram showing the caliphate at maximum extent (Iberia to Indus) and how it fragmented into regional sultanates -->
+
+```
+ISLAMIC WORLD — GEOGRAPHIC EXTENT AND FRAGMENTATION
+=====================================================
+
+UMAYYAD MAXIMUM EXTENT (c. 720 CE):
+  IBERIA (Al-Andalus)         NORTH AFRICA          ARABIA
+  [Cordoba]         ←──────── [Kairouan, Cairo] ────→ [Mecca, Medina]
+       |                              |                      |
+  Tours/Poitiers                      |               LEVANT + IRAQ
+  (732 — stopped)               [Alexandria]          [Damascus HQ]
+                                      |                      |
+                              ────────┴──────────────────────┘
+                                        TRANSOXIANA → INDUS
+                                        [Samarkand] [Sindh]
+
+  Span: ~10,000 km west–east (Iberia to Sindh)
+  Structural unity: Arabic as commercial/religious lingua franca,
+  Islamic law as cross-border contract enforcement
+
+FRAGMENTATION PATTERN (9th–13th century):
+  +──────────────────+─────────────────+────────────────────+
+  | IBERIA           | EGYPT/N.AFRICA  | EAST               |
+  | Umayyad emirate  | Fatimid (Shia)  | Abbasid (nominal)  |
+  | → Caliphate      | rival caliphate | Buyid then Seljuk  |
+  | → taifa kingdoms | → Ayyubid       | control; caliph    |
+  | (after 1031)     | → Mamluk        | = figurehead       |
+  +──────────────────+─────────────────+────────────────────+
+  Three simultaneous caliphates at peak (10th century):
+    Baghdad (Abbasid), Cairo (Fatimid), Cordoba (Umayyad)
+  = political fragmentation despite religious unity
+
+POST-MONGOL LANDSCAPE (after 1258):
+  No universal caliphate; regional sultanates:
+  Mamluks (Egypt/Syria) · Ilkhanate (Persia) · Golden Horde (steppe)
+  Ottoman (Anatolia/Balkans) · Timurids (Central Asia)
+  Each claiming varying degrees of Islamic legitimacy
+```
 
 ```
 TIMELINE OF ISLAMIC POLITICAL ENTITIES:

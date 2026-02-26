@@ -6,36 +6,37 @@ Linguistics is the scientific study of language — not prescriptive rules ("don
 
 ```
 +------------------------------------------------------------------+
-|                    THE LINGUISTICS HEXAGON                        |
+|              THE LINGUISTICS PIPELINE — LAYERED SYSTEM           |
 |                                                                  |
-<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view showing feeding relationships (e.g., phonology feeds morphology, morphology feeds syntax, syntax feeds semantics) rather than a hexagonal list -->
-|         WHAT SOUNDS?          HOW SOUNDS →                       |
-|         Phonetics              Meaning?                          |
-|         (articulatory,         Phonology                         |
-|          acoustic,             (phoneme systems,                 |
-|          auditory)             rules, prosody)                   |
-|              \                     /                             |
-|               \                   /                              |
-|    HOW DO       +---LINGUISTICS---+    HOW DO WORDS              |
-|    SENTENCES    |                 |    BUILD?                     |
-|    FORM?        |   The science   |    Morphology                 |
-|    Syntax       |   of language   |    (roots, affixes,           |
-|    (structure,  |   structure     |     inflection,               |
-|     trees,      |                 |     derivation)               |
-|     movement)   +---LINGUISTICS---+                              |
-|               /                   \                              |
-|              /                     \                             |
-|    WHAT DO    \                     /  HOW DOES LANGUAGE         |
-|    WORDS/      \                   /   CHANGE OVER TIME?         |
-|    SENTENCES    Semantics          Historical Linguistics         |
-|    MEAN?        (truth conds,      (sound shifts, recon-         |
-|                  lambda,            struction, family trees)     |
-|                  compositionality)                               |
+|  PHONETICS / PHONOLOGY                                           |
+|  (sound inventory, phoneme rules, prosody)                       |
+|  Output: segmented phoneme stream                                |
+|                        |                                         |
+|                        v  feeds                                  |
+|  MORPHOLOGY                                                      |
+|  (morpheme segmentation, inflection, derivation)                 |
+|  Output: words with internal structure labeled                   |
+|                        |                                         |
+|                        v  feeds                                  |
+|  SYNTAX                                                          |
+|  (phrase structure, movement, binding)                           |
+|  Output: hierarchical tree with grammatical relations            |
+|                        |                                         |
+|                        v  feeds                                  |
+|  SEMANTICS                                                       |
+|  (truth conditions, compositionality, λ-calculus)               |
+|  Output: logical form — meaning representation                   |
+|                        |                                         |
+|                        v  feeds                                  |
+|  PRAGMATICS                                                      |
+|  (speaker intent, implicature, discourse)                        |
+|  Output: interpreted utterance in context                        |
 |                                                                  |
-|              PLUS: Pragmatics (meaning in context)               |
-|                    Sociolinguistics (language + society)         |
-|                    Psycholinguistics / Acquisition               |
-|                    Computational Linguistics / NLP               |
+|  CROSS-CUTTING:                                                  |
+|  Historical Linguistics (change over time — diachronic layer)    |
+|  Sociolinguistics (variation by speaker/community)               |
+|  Language Acquisition (how the pipeline is built)               |
+|  Computational Linguistics / NLP (formal + statistical models)   |
 +------------------------------------------------------------------+
 ```
 
@@ -270,7 +271,49 @@ FORMAL POWER NEEDED FOR NATURAL LANGUAGE:
 
 ---
 
-<!-- @editor[bridge/P2]: No compiler-pipeline → linguistics-pipeline bridge despite obvious parallel (lexer=phonology, parser=syntax, type-checker=semantics, optimizer=pragmatics) — any developer coming from compiler design needs this -->
+## The Compiler-Pipeline Bridge
+
+The pipeline diagram above is not a coincidence. Natural language processing and compiler design are the same problem at different levels of formalization:
+
+```
+COMPILER STAGE           LINGUISTIC STAGE         WHAT IT DOES
+-----------------        ----------------         ----------------
+Lexer / tokenizer        Phonology +              Segments raw signal into
+                         Morphology               discrete units with type
+                                                  labels (tokens = words
+                                                  with morphological analysis)
+
+Parser                   Syntax                   Builds hierarchical
+                                                  structure from token
+                                                  stream — the parse tree
+                                                  IS a phrase-structure tree
+
+Type checker             Semantics                Validates well-formedness
+                                                  at the meaning level;
+                                                  compositional type
+                                                  derivation (Montague:
+                                                  λ-calculus over types
+                                                  e and t) mirrors
+                                                  bidirectional type inference
+
+Optimizer /              Pragmatics               Transforms the logical
+ dead-code analyzer                               form to serve the actual
+                                                  communicative goal —
+                                                  "what does this DO,
+                                                  given context?"
+
+Runtime / linker         Discourse /              Resolves external
+                         Coreference              references, manages
+                                                  shared state across
+                                                  multiple utterances
+```
+
+**The key difference:** Compilers process an unambiguous formal language with a deterministic grammar; natural language is massively ambiguous at every level and requires probabilistic or game-theoretic disambiguation. The formal pipeline exists; it just runs on noisy, underspecified input.
+
+**The formal parallel runs deep:** CYK parsing of PCFGs is structurally identical to Viterbi decoding in HMMs. The inside-outside algorithm (for PCFG parameter estimation) is the forward-backward algorithm under a different name. Formal language theory and computational linguistics are not analogous — they are the same mathematical substrate applied to different input alphabets.
+
+---
+
 ## Part VI: Linguistics as Science
 
 ### Data types

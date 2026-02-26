@@ -26,7 +26,7 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — sonar/multibeam is pulse-echo radar applied underwater (same time-of-flight → distance conversion); ADCP Doppler shift is the same principle as police radar guns; satellite altimetry is radar ranging from orbit; data assimilation (EnKF, 4D-Var) is the same Kalman filtering used in GPS navigation and control theory -->
+Ocean observing and exploration instruments are engineering systems you can map directly to familiar signal processing and control theory concepts. Multibeam sonar is pulse-echo ranging: transmit an acoustic pulse, measure two-way travel time, convert to distance via d = (c × TWT)/2 — identical to radar or medical ultrasound, just at lower frequency (12–300 kHz) and in a more complex medium (sound speed varies with T, S, P). The ADCP (Acoustic Doppler Current Profiler) uses the same Doppler shift as police radar speed guns: backscattering particles moving with the water shift the acoustic return frequency by Δf = 2v·f₀/c, and range-gating at multiple depths provides a velocity profile. Satellite altimetry is radar ranging from orbit — a 10 cm vertical resolution at 1,300 km altitude, repeated every 10 days, produces sea surface height maps used to derive geostrophic current velocities. Ocean data assimilation (4D-Var, EnKF) is the same Kalman filtering used in GPS/INS navigation: combine a prior state estimate (model forecast) with noisy observations (Argo, altimetry, SST) weighted by respective error covariances to produce the optimal posterior state estimate.
 
 ## Bathymetry Methods
 
@@ -391,4 +391,61 @@ OCEAN GENERAL CIRCULATION MODELS (OGCM):
 
 **Real-time ocean observing is still very sparse**: Despite Argo, TAO/TRITON, satellites, large parts of the ocean (Southern Ocean, Arctic under-ice, all depths > 2000 m, most of the seafloor) are still poorly observed. Weather has hourly global surface data from thousands of stations + radiosondes + satellites. Ocean state estimation is fundamentally more uncertain — vast volume, difficult access, sparse observations.
 
-<!-- @editor[content/P3]: CTD instrument absent — the CTD (Conductivity-Temperature-Depth) rosette is the most fundamental oceanographic instrument and never explained in this guide; deserves a brief section covering the rosette package, Niskin bottles, and cast workflow -->
+## CTD Rosette — The Fundamental Oceanographic Instrument
+
+The CTD rosette is the ocean science equivalent of a blood panel: it provides the baseline state variables for any water mass characterization.
+
+```
+CTD ROSETTE SYSTEM:
+  "CTD" = Conductivity, Temperature, Depth sensors (primary measurements)
+  Conductivity + Temperature → Salinity (derived via international equations of state)
+  Depth from pressure sensor (calibrated vs. CTD depth)
+
+PHYSICAL SETUP:
+  ┌──────────────────────────────────────────────────────┐
+  │  ROSETTE FRAME (stainless steel, octagonal/circular) │
+  │                                                      │
+  │  12–36 NISKIN BOTTLES mounted radially               │
+  │  (each 1.7–30 L capacity; close on command)          │
+  │                                                      │
+  │  CTD SENSOR PACKAGE at base:                         │
+  │    Primary + secondary (redundant) CT sensors        │
+  │    Pressure transducer                               │
+  │    Dissolved O₂ (optional — polarographic/optode)    │
+  │    Fluorometer (chlorophyll proxy)                   │
+  │    Transmissometer (particle turbidity)              │
+  │    Altimeter (distance to bottom — prevents crash)   │
+  │    Sometimes: pH, NO₃, PAR, ADCP upward-looking      │
+  │                                                      │
+  │  DATA LINK: Electromechanical coax cable to ship     │
+  │    Real-time data display in ship control room       │
+  │    Technician "fires" (closes) bottles at target depths│
+  └──────────────────────────────────────────────────────┘
+
+CAST WORKFLOW:
+  1. Rosette deployed over side or stern on conducting cable
+  2. CTD data streams live to ship as rosette descends
+  3. Typical descent rate: 1 m/s (downcast used for primary data)
+     (upcast: bottles fired at discrete target depths)
+  4. At target depth (identified from downcast data — pycnocline, oxygen minimum, etc.):
+     Deckhand "fires" a bottle via console → spring-loaded caps snap shut
+  5. Rosette retrieved; bottles subsampled in lab van on deck:
+     O₂ (Winkler titration), nutrients (auto-analyzer), DIC/TA, salinity (salinometer),
+     chlorophyll (filtered, extracted), trace metals (ultra-clean bottles),
+     biology (preservative-fixed samples), microbiome (frozen), radiocarbon, etc.
+
+KEY MEASUREMENTS FROM WATER SAMPLES (cannot be measured in situ reliably):
+  Dissolved O₂ (Winkler titration: more accurate than electrodes at depth)
+  Nutrients (NO₃⁻, PO₄³⁻, Si(OH)₄): requires colorimetric analysis
+  DIC and TA: acid extraction + infrared gas analysis
+  Trace metals: require ultra-clean sampling (separate "clean rosette")
+  Radioisotopes: ¹⁴C, ²³⁰Th, ²³⁴Th for age dating and particle flux
+  Biological samples: DNA, RNA, cell counts, phytoplankton taxonomy
+
+CTD RESOLUTION AND ACCURACY:
+  Temperature: ±0.001°C (SBE 911+ standard instrument)
+  Salinity: ±0.002 PSU
+  Pressure: ±0.5 dbar
+  Sampling rate: 24 Hz (averaged to 1 Hz for profile archive)
+  This resolution allows detection of thermohaline intrusions <1 m thick
+```

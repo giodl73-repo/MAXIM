@@ -1,5 +1,54 @@
-<!-- @editor[diagram/P2]: No landscape diagram — this is a phrase cheatsheet so a visual map of which language families are covered (and where each phrase section sits) would orient the reader before diving into tables -->
 # World Languages — Universal Phrase Cheatsheet
+
+```
++------------------------------------------------------------------------+
+|              LANGUAGE FAMILY LANDSCAPE — FILES 02–14                  |
+|                                                                        |
+|  INDO-EUROPEAN                                                         |
+|    Romance:  Spanish (02) · Portuguese (03) · French (04)             |
+|              Latin (14-A)                                              |
+|    Germanic: German (05)                                               |
+|    Slavic:   Russian (06) · Polish (13-D)                             |
+|    Indo-Aryan: Hindi-Urdu (08)                                        |
+|    Iranian:  Persian/Farsi (13-C)                                     |
+|                                                                        |
+|  AFRO-ASIATIC                                                          |
+|    Semitic:  Arabic (07)                                               |
+|                                                                        |
+|  SINO-TIBETAN                                                          |
+|    Sinitic:  Mandarin (09)                                            |
+|                                                                        |
+|  JAPONIC / KOREANIC (isolates or near-isolates)                       |
+|    Japanese (10) · Korean (11)                                        |
+|                                                                        |
+|  AUSTROASIATIC                                                         |
+|    Vietnamese · Khmer (12)                                            |
+|                                                                        |
+|  TAI-KADAI                                                             |
+|    Thai (12)                                                           |
+|                                                                        |
+|  SINO-TIBETAN (Tibeto-Burman branch)                                  |
+|    Burmese (12)                                                        |
+|                                                                        |
+|  TURKIC                                                                |
+|    Turkish (13-A)                                                      |
+|                                                                        |
+|  NIGER-CONGO (Bantu)                                                   |
+|    Swahili (13-B)                                                      |
+|                                                                        |
+|  DRAVIDIAN                                                             |
+|    Tamil (13-E)                                                        |
+|                                                                        |
+|  CONSTRUCTED                                                           |
+|    Esperanto (14-B)                                                    |
++------------------------------------------------------------------------+
+
+PHRASE SECTIONS IN THIS FILE:
+  Numbers 0–10 · Numbers 11–20 · Days · Months
+  Greetings & Basics · Essential Situations
+  Alphabet/Scripts · Colors · Body/Health · Transport · Food
+  Ordinal Numbers · Time Expressions
+```
 
 Cross-language survival reference. ~35 languages × key phrases.
 Pronunciation guides use approximate English phonetics — not IPA.
@@ -524,19 +573,20 @@ Blocks:  한 = ㅎ+ㅏ+ㄴ (h+a+n)
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet summarizes rather than guides decisions — needs "use X when Y" rows with concrete action guidance (e.g., "landing in Tokyo with no Japanese: start with Greetings + Transport + 'Do you speak English?'") -->
-## Decision Cheat Sheet — Using This Cheatsheet
+## Decision Cheat Sheet — Situational Action Guide
 
-| Situation | What to look at |
-|-----------|----------------|
-| Ordering food in any country | Food & Restaurant section |
-| Getting around a city | Transport & Navigation |
-| Medical emergency | Body/Health + Help! |
-| Can't communicate at all | Do you speak English? + I don't understand |
-| Meeting locals, basic courtesy | Greetings & Basics |
-| Shopping | How much? + Numbers |
-| Scheduling | Days, Months, Time Expressions |
-| Deep dive on one language | See dedicated file (02–14) |
+| Situation | Start here | First phrase to learn |
+|-----------|------------|----------------------|
+| Landing in Tokyo with zero Japanese | Greetings → Transport → "Do you speak English?" | "Eigo hanasemasu ka?" (英語話せますか?) |
+| Medical emergency anywhere | Body/Health → Help! → Hospital vocabulary | "Help!" + "Hospital" in local language |
+| Ordering food with a dietary restriction | Food & Restaurant → "Without meat" / "Allergy" | "Sin carne" / "sans viande" / "ohne Fleisch" + local equivalent |
+| Completely lost, no common language | Numbers → "Where is...?" → show map on phone | Point + "dónde/où/wo/gdje/哪里?" |
+| Checking into a hotel | Transport vocabulary → Numbers (room, floor) → "How much?" | Hotel + numbers 1–20 |
+| Arrival ritual with locals (courtesy) | Greetings & Basics → time-of-day greeting | Good morning/afternoon/evening in local language |
+| Shopping without shared language | Numbers → "How much?" → Ordinals (floor, size) | "Cuánto/Combien/Wieviel/多少钱?" |
+| Making a phone/transport booking | Days + Months + Time Expressions + Numbers | Tomorrow/today + time + number |
+| Deep dive on one language | See dedicated file (02–14) | Read the Profile at a Glance box first |
+| Which languages share vocabulary | See family landscape diagram (top of file) | Romance langs share 80%+ core vocabulary |
 
 ---
 

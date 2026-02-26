@@ -302,19 +302,63 @@ Barthes's late phenomenological work on photography (1980).
 
 ## Decision Cheat Sheet
 
-| Concept | Definition |
-|---------|-----------|
-| Myth (Barthes) | Second-order signification that naturalizes historical/ideological content |
-| Denotation | First-order literal meaning |
-| Connotation | Second-order cultural/evaluative meaning |
-| Readerly text | Classic realist narrative that positions reader passively |
-| Writerly text | Open, plural text that invites productive reading |
-| Five codes (S/Z) | Hermeneutic, Proairetic, Semantic, Symbolic, Cultural — the codes traversing any text |
-| Death of the Author | The author's intention does not control meaning; reader produces meaning |
-| Studium | Cultural, general interest in a photograph |
-| Punctum | The detail that personally wounds/moves the viewer |
+| I'm asking... | Use this concept |
+|--------------|-----------------|
+| Why does this cultural practice, image, or text feel "natural" or "obvious"? | Myth analysis — what ideology is being naturalized? |
+| What does this text/image say literally vs. what cultural values does it activate? | Denotation (first order) vs. connotation (second order) |
+| Why do I keep analyzing this image / why does it hold me? | Punctum — the detail that personally catches you |
+| What is my general, educated interest in this image? | Studium — the cultural competence that lets you read it |
+| Does this text position me as a passive consumer or an active producer? | Readerly (scriptible=passive) vs. writerly (scriptible=active) |
+| What codes is this narrative running simultaneously? | Five codes (S/Z): hermeneutic, proairetic, semantic, symbolic, cultural |
+| Who controls the meaning of this text? | Death of the Author — the author's intention does not; the reader produces meaning in the reading |
+| How does this text present ideology as fact? | Myth mechanism: ideology dressed as evidence / empirical description |
 
 ---
+
+## Formal Systems Bridge
+
+```
+BARTHES'S MYTH MECHANISM ↔ TECHNICAL CONVENTION NATURALIZATION
+
+Myth's operation: transform historical/contingent choices into
+apparent nature. The sign at the first level (denotation) becomes
+the SIGNIFIER at the second level — its history is emptied out
+and replaced by apparent necessity.
+
+TECHNICAL NATURALIZATION — THE SAME MECHANISM:
+
+"Of course we use REST":
+  First-order: REST is an architectural style formalized by Fielding (2000).
+  Second-order (myth): REST is "the right way to build APIs."
+  The history is erased: CORBA, SOAP, XML-RPC, GraphQL, gRPC
+  all existed and made different tradeoffs. REST won partially
+  on technical merits, partially through ecosystem network effects,
+  partially through coincidence (JSON vs. XML adoption).
+  The myth "REST is obvious/natural" suppresses this contingency.
+
+"Obviously microservices":
+  First-order: microservices is an architectural pattern popularized
+  ~2014-2016 for specific scalability and team autonomy problems.
+  Second-order (myth): microservices is "modern architecture."
+  The history erased: monoliths served Google, Amazon, and every
+  successful tech company before 2010. The pattern has real costs
+  (distributed tracing, service mesh, eventual consistency).
+  The myth converts a contingent tradeoff into "what serious
+  engineers do."
+
+"The cloud is just the way things work now":
+  Platform defaults (AWS default regions, Azure resource groups,
+  Kubernetes as "the" container platform) become naturalized:
+  their contingency, their vendor dependencies, their design choices
+  become invisible. Using them "just makes sense."
+
+BARTHES'S DIAGNOSTIC QUESTION FOR ANY TECHNICAL CONVENTION:
+  What history was emptied out to make this feel inevitable?
+  What alternatives were suppressed?
+  What interests does this naturalization serve?
+  (Not a reason to reject the convention —
+   a reason to choose it consciously.)
+```
 
 ## Common Confusion Points
 

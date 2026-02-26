@@ -261,6 +261,43 @@ GYMNOSPERMS (naked seed — no enclosing ovary):
 ## Angiosperms — The Flowering Plant Revolution
 
 ```
+ANGIOSPERMS AS A PLATFORM WITH REINFORCING NETWORK EFFECTS:
+
+  Gymnosperms (incumbents) dominated for ~200 Myr. Angiosperms displaced them
+  not through a single advantage but through a compounding set of reinforcing
+  advantages — a platform effect:
+
+  NETWORK EFFECT 1: Pollinator co-evolution (demand-side)
+    Angiosperms attract pollinators with nectar/pollen rewards
+    Pollinators become dependent on angiosperm rewards → preferentially visit
+    More angiosperm diversity → more pollinator diversity → more pollination service
+    → Classic two-sided platform: plant supply ↔ pollinator demand, both growing
+
+  NETWORK EFFECT 2: Fruit dispersal (distribution)
+    Fleshy fruit rewards animals for seed dispersal
+    More animal diversity → wider seed dispersal range
+    Wider range → more habitats colonized → more competition with gymnosperms
+    → Exponential geographic expansion via animal distribution network
+
+  COMPOUNDING ADVANTAGES (each reinforces the others):
+    1. Double fertilization + 3n endosperm → faster germination + better provisioning
+    2. Enclosed carpel + fruit → ovule protected; dispersal reward provided
+    3. Vessels (wide xylem tubes) → faster water transport → higher photosynthesis
+    4. Short generation time (annuals possible) → faster evolutionary response
+    5. Pollinator co-evolution → directed pollen delivery vs. broadcast (wind)
+
+  INCUMBENT DISADVANTAGE (gymnosperms):
+    Wind pollination: ~99.9% of pollen doesn't reach target → energy waste
+    Naked seeds: no protection or dispersal reward; gravity or wind dispersal only
+    Slow generation time (mostly perennial) → slow evolutionary response
+    No endosperm provisioning advantage
+
+  WHY GYMNOSPERMS PERSIST:
+    Boreal, montane, arid, cold habitats → where angiosperms struggle
+    → Same as: a dominant platform's niches where it cannot operate
+      (gymnosperm = "enterprise software" that holds specific institutional niches
+       after consumer market captured by newer platform)
+
 ANGIOSPERM DEFINITION:
   Seeds enclosed within an ovary (carpel)
   After fertilization: ovary → fruit; ovule → seed
@@ -406,6 +443,36 @@ PLANT RESPONSES TO MASS EXTINCTIONS:
 ## Carboniferous Coal Forests Revisited
 
 ```
+LIGNIN AS ZERO-DAY DEFENSE / CO-EVOLUTIONARY ARMS RACE:
+
+  ~360 Ma: Lignin is an unpatched vulnerability in the carbon cycle.
+    No organism possessed the enzymatic tools to break the aromatic rings.
+    The "attack surface" (lignin bonds) was novel — no evolutionary history
+    of encountering it → no countermeasure existed in any genome.
+
+  Zero-day timeline:
+    ~360 Ma: Lignin deployed widely (Archaeopteris forests, lycopsid trees)
+    ~360–300 Ma: "Exploit window" — 60 Myr when the defense was unbroken
+      → Wood accumulates; does not decompose; buries as peat → coal
+    ~300 Ma: Polyporales fungi evolve class 2 peroxidases (lignin peroxidase)
+      → "Patch deployed" — enzymatic tool finally breaks down lignin aromatic rings
+    Post-300 Ma: coal formation rate drops sharply; carbon cycle closes
+      → "Vulnerability patched" — defense neutralized; arms race continues
+
+  PARALLELS TO CYBERSECURITY:
+    Lignin = cryptographic primitive (hard to break without specific enzymatic key)
+    60 Myr gap = zero-day exploit window before defender patches (here: evolves)
+    Fungal evolution = adversarial discovery of a previously unknown exploit
+    After patch: the defense is now a known attack surface → continuous escalation
+    Modern arms races: fungi evolved more peroxidase variants; plants evolved
+      tannins, silica, other chemical defenses → ongoing co-evolutionary escalation
+
+  MODERN IMPLICATION:
+    Coal = archived exploit: 60 Myr of lignin that decomposers never processed
+    Burning coal = reverse-engineering the exploit: release all stored carbon
+    Rate of release: ~10⁶ faster than the original 60-Myr accumulation
+    → The zero-day was patched 300 Ma; we are now detonating the stockpile
+
 THE LIGNO-CELLULOSIC PROBLEM:
   Woody plants produce lignin: complex 3D aromatic polymer
   Lignin function: structural rigidity; defense against decomposers

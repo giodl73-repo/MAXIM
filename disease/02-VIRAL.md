@@ -23,7 +23,7 @@ KEY INSIGHT:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- Baltimore classification maps genome type to replication strategy, analogous to how a type system maps data representation to permissible operations -->
+**Systems Bridge:** The Baltimore classification is a type system for viruses: genome type (the data representation — dsDNA, ssRNA+, ssRNA−, etc.) fully determines permissible replication operations. A +ssRNA virus can be directly translated by host ribosomes because it is structurally identical to mRNA — it has the right "interface." A −ssRNA virus cannot; it must carry its own RNA-dependent RNA polymerase (RdRP) because the host has no enzyme to read that strand, and the packaged RdRP is literally the adapter layer. A retrovirus's reverse transcriptase is a type converter: RNA → DNA, changing the representation to one the host nucleus can process. The classification also determines drug target availability: host-absent enzymes (RdRP, reverse transcriptase, integrase) are selective drug targets precisely because the host has no homolog — the same principle as targeting an interface that exists only in the external system. DNA viruses that use host DNA machinery offer fewer unique targets; large DNA viruses (herpes, pox) that encode their own polymerases are the exceptions.
 
 ## Universal Viral Replication Cycle
 

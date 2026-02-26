@@ -54,8 +54,42 @@ KEY INSIGHT:
 
 ---
 
-<!-- @editor[bridge/P2]: Missing [case system] bridge — any developer coming from typed languages needs this: German cases are like typed function parameters where the article is the type annotation and the noun is the value -->
 ## The Case System
+
+**The typed-function-parameter model:** German cases are syntactic role annotations carried by the article (and adjective endings), not by the noun itself. The article is the type annotation; the noun is the value. Swapping word order does not change meaning because the type annotation travels with the noun wherever it moves.
+
+```
+TYPED FUNCTION CALL ANALOGY:
+
+  bite(subject: Person, object: Dog)
+  bite(Den Hund beißt der Mann)
+       ^^^^                ^^^
+       ACC=object         NOM=subject
+
+  The article "den" (ACC) tags "Hund" as the object.
+  The article "der" (NOM) tags "Mann" as the subject.
+  Word order is irrelevant — the type annotation encodes the role.
+
+  Compare English (no case on nouns):
+    "The man bites the dog" ≠ "The dog bites the man"
+    → word order IS the type annotation in English
+    → English encodes role by position; German encodes role by inflection
+
+FOUR CASES = FOUR ARGUMENT ROLES:
+  NOM (nominative) → subject (the doer, predicate subject)
+  ACC (accusative) → direct object (the done-to), motion toward
+  DAT (dative)     → indirect object (recipient), location, some prepositions
+  GEN (genitive)   → possessor ("of"), some prepositions
+
+ARTICLE = TYPE ANNOTATION, changes by case+gender:
+  der Mann (NOM, M) → den Mann (ACC, M) → dem Mann (DAT, M) → des Mannes (GEN, M)
+  die Frau (NOM, F) → die Frau (ACC, F) → der Frau (DAT, F) → der Frau (GEN, F)
+  das Kind (NOM, N) → das Kind (ACC, N) → dem Kind (DAT, N) → des Kindes (GEN, N)
+
+The article is doing the work that prepositions do in English:
+  English: "I give TO the man" — preposition "to" marks indirect object
+  German:  "Ich gebe dem Mann" — DAT article encodes the same relation
+```
 
 ### Articles Declined by Case
 

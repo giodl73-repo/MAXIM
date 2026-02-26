@@ -9,16 +9,15 @@
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                      CORPORATE LAW FRAMEWORK                             │
-<!-- @editor[diagram/P2]: Landscape diagram column separators misaligned — the three-column layout has inconsistent borders (middle line breaks the top row divider); reformat for clean three-column ASCII box -->
-├────────────────────┬─────────────────────────┬──────────────────────────┤
-│  ENTITY FORMATION  │  ONGOING GOVERNANCE     │  M&A / EXIT              │
-├────────────────────┼─────────────────────────┼──────────────────────────┤
-│  Corp / LLC / LP   │  Board of directors     │  Asset sale               │
-│  Incorporation state│  Fiduciary duties       │  Stock sale               │
-│  Capitalization    │  Shareholder rights     │  Merger (forward/reverse) │
-│  Organizational    │  Derivative suits       │  Tender offer             │
-│  documents         │  Disclosure (SEC)       │  Going private            │
-└────────────────────┴─────────────────────────┴──────────────────────────┘
+├──────────────────────────┬──────────────────────────┬────────────────────┤
+│   ENTITY FORMATION       │   ONGOING GOVERNANCE     │   M&A / EXIT       │
+├──────────────────────────┼──────────────────────────┼────────────────────┤
+│  Corp / LLC / LP         │  Board of directors      │  Asset sale        │
+│  Incorporation state     │  Fiduciary duties        │  Stock sale        │
+│  Capitalization          │  Shareholder rights      │  Merger (fwd/rev)  │
+│  Organizational docs     │  Derivative suits        │  Tender offer      │
+│  Option pool / cap table │  Disclosure (SEC)        │  Going private     │
+└──────────────────────────┴──────────────────────────┴────────────────────┘
 
 Delaware: ~70% of Fortune 500 incorporated here
   Court of Chancery: specialized business court; deep corporate jurisprudence

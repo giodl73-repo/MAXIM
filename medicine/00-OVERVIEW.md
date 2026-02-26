@@ -4,38 +4,55 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No CS/systems bridge -- PK/PD maps to control theory (input/output/feedback/steady-state convergence); ADME is a pipeline with transforms at each stage; therapeutic index is a safety margin like numerical stability bounds -->
-<!-- @editor[diagram/P2]: Diagram lists items but does not show relationships -- rework as layered system view showing PK-to-PD flow, feedback loops, and how drug classes connect to core concepts -->
+**Systems Bridge:** Pharmacokinetics and pharmacodynamics are input/output/feedback control theory applied to drug delivery. PK (what the body does to the drug) is the pipeline from dosing to concentration at the target site: ADME are the transforms at each stage (absorption = ingestion into the pipeline; distribution = routing to compartments; metabolism = transformation stage; elimination = drain). PD (what the drug does to the body) is the response function: given concentration at the target, what is the output effect? The dose-response curve is the transfer function. Steady-state concentration is what you converge to when input rate equals elimination rate — the system's equilibrium point. The therapeutic index (TI = TD50/ED50) is a safety margin: how far is the effective dose from the toxic dose? Narrow TI drugs (digoxin, warfarin, lithium, aminoglycosides) require monitoring because the operating point is close to the failure threshold — small perturbations (drug interactions, renal function changes) push the system into the toxic region. This is the same as numerical stability bounds: an algorithm that works near the edge of its valid input range requires more careful handling than one with wide margins.
 
 ## Big Picture: The Drug Landscape
 
 ```
-┌──────────────────────────────────────────────────────────────────────────┐
-│                    PHARMACOLOGY FRAMEWORK                                │
-├──────────────────────────────────────────────────────────────────────────┤
-│                                                                          │
-│  PHARMACOKINETICS (PK)          PHARMACODYNAMICS (PD)                   │
-│  "what the body does to drug"   "what drug does to body"                │
-│                                                                          │
-│  A — Absorption                 Receptor binding                        │
-│  D — Distribution               Dose-response curve                     │
-│  M — Metabolism                 Therapeutic index                       │
-│  E — Elimination                Agonism / antagonism                    │
-│                                                                          │
-│  ──────────────────────────────────────────────────────────             │
-│                                                                          │
-│  DRUG DEVELOPMENT PIPELINE                                               │
-│                                                                          │
-│  Target → Lead → Preclinical → Phase I → Phase II → Phase III → NDA    │
-│                                                                          │
-│  ──────────────────────────────────────────────────────────             │
-│                                                                          │
-│  DRUG CLASS MODULES IN THIS DIRECTORY:                                  │
-│  01 Antibiotics   02 Antivirals/Vaccines   03 Cardiovascular            │
-│  04 CNS           05 Endocrine/Metabolic   06 Cancer                    │
-│  07 Immunomodulators  08 Respiratory/GI   09 Anesthesia                 │
-│  10 Diagnostics/Imaging                                                  │
-└──────────────────────────────────────────────────────────────────────────┘
+DRUG ADMINISTRATION
+       │
+       ▼  (Route, dose, formulation)
+┌──────────────────────────┐
+│  PHARMACOKINETICS (PK)   │  "what the body does to the drug"
+│                          │
+│  A — Absorption          │  Entry into systemic circulation
+│      (F = bioavailability│  IV: F=100%; PO: limited by first-pass
+│       first-pass effect) │
+│         ↓                │
+│  D — Distribution        │  Partitioning into tissues (Vd)
+│      (protein binding,   │  High Vd = drug sequestered in tissue
+│       BBB penetration)   │
+│         ↓                │
+│  M — Metabolism          │  CYP450 (Phase I) → conjugation (Phase II)
+│      (CYP enzymes,       │  Prodrug activation or inactivation
+│       first-pass)        │
+│         ↓                │
+│  E — Elimination         │  Renal (GFR-dependent) + biliary
+│      (t½ = 0.693×Vd/CL) │  Steady state at 4-5 × t½
+└──────────────┬───────────┘
+               │
+               │  Concentration at target site
+               ▼
+┌──────────────────────────┐
+│  PHARMACODYNAMICS (PD)   │  "what the drug does to the body"
+│                          │
+│  Receptor binding        │  Affinity (Kd), selectivity
+│  Dose-response curve     │  EC50 (potency), Emax (efficacy)
+│  Therapeutic index       │  TI = TD50/ED50 — safety margin
+│  Agonism/antagonism      │  Activates, blocks, modulates target
+│  Feedback loops          │  Drug effect → physiological response
+│                          │  → may alter drug target (tolerance,
+│                          │    receptor downregulation)
+└──────────────────────────┘
+
+DRUG DEVELOPMENT PIPELINE:
+  Target → Lead → Preclinical → Phase I → Phase II → Phase III → NDA
+
+DRUG CLASS MODULES:
+  01 Antibiotics   02 Antivirals/Vaccines   03 Cardiovascular
+  04 CNS           05 Endocrine/Metabolic   06 Cancer
+  07 Immunomodulators  08 Respiratory/GI   09 Anesthesia
+  10 Diagnostics/Imaging
 ```
 
 ---

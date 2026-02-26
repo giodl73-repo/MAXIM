@@ -442,7 +442,22 @@ Individual patron-based scholars      Scientific societies with
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — rich parallels available: Copernicus's equant elimination as refactoring for elegance without changing behavior; Tycho's data quality program as systematic observability/telemetry investment; Galileo's trial as an institutional authority conflict (cf. internal platform team vs business unit politics); the shift from patron-based scholars to scientific societies parallels the shift from individual contractors to open-source communities -->
+## Bridges — Scientific Revolution as Platform Migration
+
+**Copernicus's equant elimination → refactoring for conceptual clarity**
+The Ptolemaic system required the equant — a mathematical device that made the model work but violated the principle that all motion should be uniform circular motion. Copernicus's primary motivation was eliminating the equant: restoring the elegance of uniform circular motion. Crucially, his system did not *improve* predictive accuracy (it still used epicycles; it was roughly equivalent to Ptolemy). He paid a real cost (complexity in other areas) to achieve conceptual purity. This is refactoring: changing the internal structure to match the conceptual model better, without changing the external behavior. The justification is the same as in software: a system that violates its own governing principles accumulates inconsistencies that eventually become show-stoppers.
+
+**Tycho Brahe's data program → systematic observability investment**
+Tycho spent 20 years (1576–1597) at Uraniborg building precision instruments and measuring planetary positions to an accuracy ~10x better than any prior astronomer. This is a deliberate, funded investment in data quality infrastructure, motivated by the belief that the existing data was too noisy to decide between competing models. He was right: Kepler needed Tycho's data to discover the elliptical orbits. The lesson: when your models disagree and you can't tell which is right, the bottleneck is often measurement quality, not theoretical sophistication. Invest in telemetry before debating architecture.
+
+**Galileo's trial → institutional authority vs new methodology**
+The Galileo conflict was not primarily "science vs religion." It was an institutional authority conflict: the Church had invested in Aristotelian natural philosophy as the framework for theological education; the new mechanical philosophy threatened that investment. The parallel in software organizations: an internal platform team that has built its roadmap on a particular architectural assumption gets threatened by an external team demonstrating a better approach. The suppression response (reassignment, public discrediting, forcing retraction) is organizationally recognizable. The long-term outcome is also familiar: the new approach wins, but the institutional damage from the conflict is real and long-lasting.
+
+**Patron-based scholarship → scientific societies → open source communities**
+Pre-1600: natural philosophers depended on court or church patronage (individual grant support, project-by-project). Results were often unpublished or delayed. The Royal Society (1660) and Académie des Sciences (1666) created a different model: institutional membership, journal publication (Philosophical Transactions, 1665 — the first scientific journal), priority records via dated submissions. This institutional infrastructure made cumulative knowledge possible. The parallel to open-source communities: GitHub, arXiv, and package registries create the same public, timestamped, citable infrastructure for code and research that journals created for 17th-century science. The shift from patronage to community norms is structural, not just cultural.
+
+**Newton's *Principia* → type system that resolves prior debates**
+Newton's achievement was not just deriving better formulas — it was providing a framework (laws of motion + universal gravitation) that made previously contested questions (Kepler's laws, tides, cometary orbits, precession of equinoxes) derivable consequences. The framework ended debates not by argument but by absorption: competing theories became approximations or special cases. This is what a well-designed type system or framework does: it doesn't just solve the problem at hand, it reframes the problem space so that whole classes of prior disputes dissolve.
 
 ## Common Confusion Points
 

@@ -4,27 +4,32 @@
 
 Human spaceflight is not just an engineering challenge — it's a biomedical engineering challenge. The human body did not evolve for microgravity, radiation, or sealed life support systems. Every system that keeps humans alive in space must work 100% of the time.
 
-<!-- @editor[diagram/P2]: Diagram lists physiological challenges, life support systems, and radiation in columns without showing how they interact — bone loss drives exercise time which drives food/water/O2 consumption which sizes ECLSS; radiation constrains mission duration which constrains all other systems; rework as a dependency chain -->
 ```
 +------------------------------------------------------------------+
-|              HUMAN SPACEFLIGHT CHALLENGE MAP                      |
+|        HUMAN SPACEFLIGHT: CONSTRAINT DEPENDENCY CHAIN            |
 +------------------------------------------------------------------+
 |                                                                  |
-|  PHYSIOLOGICAL              LIFE SUPPORT               RADIATION |
-|  CHALLENGES                 SYSTEMS                              |
-|  ----------                 --------                  --------- |
-|  Bone loss (2%/month)       O₂ supply/CO₂ removal    Van Allen  |
-|  Muscle atrophy             Water recovery            Solar SEPs |
-|  Fluid shift (headward)     Food (caloric + nutrition)GCRs       |
-|  Vision changes (VIIP)      Waste management          Cumulative |
-|  Immune suppression         Thermal control           dosimetry  |
-|  Vestibular disruption      Fire suppression                    |
-|  Psychological (isolation)  Pressure control                    |
+|  RADIATION (hard constraint — sets mission duration ceiling)     |
+|  GCRs ~1.8 mSv/day → ~700-1200 mSv Mars round trip             |
+|  Exceeds NASA 400-800 mSv career limit → caps mission duration  |
+|       |                                                          |
+|       v (duration cap drives everything below)                  |
+|  BONE LOSS (2%/month without countermeasures)                   |
+|  Requires 2+ hr/day vigorous exercise to mitigate               |
+|       |                                                          |
+|       v (exercise drives resource consumption)                  |
+|  ECLSS SIZING (closed-loop life support)                         |
+|  O₂ demand  + CO₂ scrubbing + water recovery + food calories    |
+|  Exercise ↑ → O₂ consumption ↑, CO₂ production ↑, water ↑      |
+|  Water recovery efficiency: 93% (goal 98%+)                      |
+|       |                                                          |
+|       v (resource mass → rocket equation → mission feasibility)  |
+|  MASS / LAUNCH CONSTRAINT                                        |
+|  ~2 kg/person/day (food) + consumables + spares + medical       |
+|  Mars 3-year mission: unfeasible without closed-loop + ISRU      |
 |                                                                  |
-|  MISSION DURATION:          VEHICLE SYSTEMS:                     |
-|  LEO (ISS): up to 1 yr      Soyuz → Crew Dragon/Starliner       |
-|  Lunar: ~14-30 days         Orion (Artemis) → Gateway           |
-|  Mars: ~2-3 years           (Starship Mars concepts)            |
+|  VIIP (vision impairment) — orthogonal unresolved constraint     |
+|  70% of ISS astronauts show eye changes; no countermeasure yet  |
 +------------------------------------------------------------------+
 ```
 
@@ -210,8 +215,8 @@ SOYUZ MS CREW CAPSULE
 
   LEGACY:
     Most reliable human spacecraft ever (99.9%+ crew survival rate)
-<!-- @editor[content/P1]: Claim may be incorrect — verify: Scott Kelly is American (NASA), not Russian; listing him under "Russian record" is misleading; the 342-day ISS mission was a joint US-Russia experiment but Kelly is a US astronaut -->
-    Russian record: Valeri Polyakov, 437 days (1994-1995); Scott Kelly + Mikhail Kornienko, 342 days (2015-2016)
+    Long-duration record holders: Valeri Polyakov (Russian), 437 days (1994-1995, Mir)
+    Joint US-Russia ISS year mission: Scott Kelly (NASA/American) + Mikhail Kornienko (Roscosmos), 342 days (2015-2016)
 ```
 
 ### SpaceX Crew Dragon
@@ -342,7 +347,14 @@ MARS MISSION REQUIREMENTS
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: ECLSS closed-loop resource management (O2 generation, CO2 scrubbing, water recovery at 93% efficiency) is the same feedback-control pattern as capacity planning in distributed systems (resource pools, recycling, degradation rates, margin budgets); the learner managed Azure capacity at scale -->
+## Engineering Parallels
+
+**ECLSS as a closed-loop control system.** The Environmental Control and Life Support System is a set of coupled feedback loops: O₂ partial pressure is regulated by the electrolysis system, CO₂ concentration is measured and controlled by zeolite beds, water is recycled from urine and condensate at ~93% efficiency. Each loop has sensors, actuators, setpoints, and error signals — standard control theory applied to life-critical resources. The 93% water recovery figure is the steady-state efficiency under nominal conditions; like any real control system, margin matters because the 7% loss must be resupplied, and on a 3-year Mars mission with no resupply, the closed-loop fraction must approach 98%+.
+
+**Life support sizing as systems reliability engineering.** A human Mars mission cannot be designed around mean performance — it must be designed around failure modes. The FMEA (failure mode and effects analysis) for ECLSS is the same methodology as fault tree analysis for high-availability distributed systems: what are the single points of failure, what are the detection mechanisms, what is the recovery path? On ISS, a CO₂ scrubber failure is recoverable (Soyuz emergency return). On Mars, there is no recovery path — every critical system must have working spares and repair capability, which drives mass and planning complexity in the same way that designing for zero-downtime in a distributed system drives complexity and cost.
+
+**Radiation dose as an exponential risk accumulation problem.** GCR dose accumulates continuously at ~1.8 mSv/day in interplanetary space. The NASA career limit is a statistical risk threshold (3% excess lifetime cancer probability). A Mars mission at ~1,000 mSv total dose is not a binary safe/unsafe question — it is a risk quantification problem with uncertainty in the dose-response curve, individual susceptibility variance, and mitigation effectiveness. The same Bayesian risk framework that governs threat modeling and security risk scoring applies here, with biological dose-response replacing probability of exploit.
+
 ## Common Confusion Points
 
 **Exercise countermeasures do not fully prevent bone loss**: 2 hours of daily vigorous exercise on ISS reduces but doesn't eliminate bone loss. Astronauts typically lose 1-2% per month in critical load-bearing bones even with exercise. The mechanisms of bone remodeling in microgravity are not fully understood.

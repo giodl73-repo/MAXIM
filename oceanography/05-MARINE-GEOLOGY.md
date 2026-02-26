@@ -25,7 +25,7 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the sqrt(t) thermal subsidence law is a direct consequence of 1D heat diffusion (same PDE governing heat sinks in electronics); seismic reflection is identical in physics to radar/sonar pulse-echo systems; CCD is a classic chemical equilibrium threshold analogous to solubility product in process chemistry -->
+The √t thermal subsidence law (d = 2500 + 350√t) is a direct consequence of 1D heat diffusion — the same PDE governing heat spreading from an electronics heat source: d ~ √(κt) where κ is thermal diffusivity. Seismic reflection profiling is pulse-echo ranging with acoustic waves, identical in physics to radar and sonar: two-way travel time converts to depth via sound speed, and reflectivity maps density/velocity contrasts at layer boundaries. The CCD (Carbonate Compensation Depth) is a chemical equilibrium threshold — the depth at which pressure and CO₂ loading push the carbonate ion product below Ksp, exactly as a solubility-product boundary in process chemistry determines where a salt precipitates or dissolves.
 
 ## Ocean Floor Types and Crustal Structure
 
@@ -314,4 +314,46 @@ USING SEISMIC REFLECTION TO READ SEDIMENT ARCHIVES:
 
 **Thermal subsidence vs. isostasy**: Thermal subsidence happens as the plate cools and contracts. Isostasy means the plate floats on the mantle at depth proportional to its density. Both are happening simultaneously — the net result is the √t depth-age relationship. Faster-spreading ridges have the same depth vs. age relationship as slow spreaders; it's about crustal age, not spreading rate.
 
-<!-- @editor[content/P3]: Magnetic anomalies / Vine-Matthews-Morley absent — magnetic stripe reversals on the ocean floor were the decisive evidence for seafloor spreading and plate tectonics; a notable omission in a marine geology guide -->
+## Magnetic Anomalies and Seafloor Spreading
+
+Magnetic stripe reversals recorded in oceanic crust are the decisive evidence for seafloor spreading and plate tectonics. When magma erupts at a mid-ocean ridge and cools below the Curie point (~580°C for magnetite), the iron oxide minerals lock in the orientation of Earth's ambient magnetic field. Earth's field reverses polarity on timescales of 100 kyr–10 Myr (irregularly), recording a sequence of normal and reversed epochs.
+
+```
+VINE-MATTHEWS-MORLEY (1963):
+  Independent proposal by Vine & Matthews (UK) + Morley (Canada)
+  that oceanic crust would record geomagnetic reversals as symmetric
+  striped anomalies parallel to the ridge crest
+
+  OBSERVATION:
+  Magnetometer surveys across mid-ocean ridges reveal symmetric
+  positive/negative magnetic anomaly stripes — identical pattern
+  on both flanks of the ridge → DIRECT EVIDENCE for spreading
+
+  MEASUREMENT:
+  Ship-tow magnetometers measure total field intensity
+  Anomaly = measured field - predicted IGRF (reference field)
+  Positive anomaly: normally magnetized crust (same as today)
+  Negative anomaly: reversely magnetized crust
+
+GEOMAGNETIC POLARITY TIMESCALE (GPTS):
+  Calibrated by radiometric dating of basalt + anomaly correlation:
+  Current epoch (Brunhes): ~0–780 ka
+  Matuyama reversed: ~780–2,580 ka
+  Gauss normal: ~2.58–3.60 Ma
+  Extends to ~160 Ma for oldest ocean floor
+
+APPLICATIONS:
+  SPREADING RATE:
+    Distance from ridge to anomaly / age of anomaly = half-rate
+    Atlantic: ~12.5–30 mm/yr half-rate
+    Pacific (EPR): 50–80 mm/yr half-rate
+
+  CORRELATION:
+    Anomaly sequence is globally unique (like a barcode)
+    → identify crust age from anomaly pattern alone
+    → reconstruct plate motions back to ~160 Ma (age of oldest ocean floor)
+
+  DEEP-SEA DRILL VALIDATION:
+    ODP Hole 504B, etc.: cored basalt age matches predicted
+    from anomaly sequence → confirmed the theory
+```

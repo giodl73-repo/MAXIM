@@ -403,6 +403,35 @@ SURVIVAL ANALYSIS FRAMEWORK:
   Different events have DIFFERENT selectivity rules (different βᵢ):
     → An impact event selects differently than a glaciation
 
+ESTIMATED HAZARD RATIOS (HR) BY TRAIT AND EVENT:
+  HR > 1 → trait increases extinction risk
+  HR < 1 → trait is protective
+  Values below are approximate/qualitative, based on empirical selectivity studies
+
+  TRAIT                     E-Ord  L-Dev  P-T    T-J    K-Pg   DRIVER
+  ─────────────────────────────────────────────────────────────────────────
+  Large body (>100 kg land) ~1.0   ~1.2   ~1.3   ~1.2   ~4.0   starvation
+  Tropical specialist       ~2.5   ~2.0   ~1.8   ~1.6   ~1.3   thermal range
+  Shallow marine habitat    ~2.0   ~2.5   ~2.0   ~1.8   ~1.5   anoxia/acid
+  Deep-water habitat        ~0.4   ~0.5   ~0.6   ~0.6   ~0.8   buffered
+  Wide geographic range     ~0.5   ~0.5   ~0.5   ~0.5   ~0.5   refugia avail
+  Calcareous skeleton       ~1.0   ~1.0   ~2.0   ~1.8   ~1.5   acidification
+  Siliceous skeleton        ~0.8   ~0.9   ~0.6   ~0.7   ~0.8   acid-resistant
+  Ectotherm                 ~1.5   ~1.0   ~0.8   ~0.8   ~0.5   low food need
+  High metabolic rate       ~0.8   ~0.9   ~1.2   ~1.1   ~1.8   food demand
+  Dietary generalist        ~0.7   ~0.8   ~0.7   ~0.7   ~0.3   flexibility
+
+  READING THIS TABLE:
+    K-Pg: massive penalty for large body (HR ~4) + high metabolism → starvation event
+    E-Ordovician: penalty for tropical + ectotherm (cold kills ectotherms) → cold event
+    P-T: penalty for calcareous skeleton (acidification) + shallow marine (anoxia)
+         modest penalty for large body → warming + chemistry event, not just darkness
+
+  DETECTION NOTE: Real empirical hazard ratios estimated from:
+    Foote (2005), Knoll et al. (2007), Rego et al. (2012), Payne and Finnegan (2007)
+    Using genus-level databases (Paleobiology Database) and logistic/Cox regression
+    Uncertainty: sampling biases in fossil record → HR estimates have wide CIs
+
 KEY TRAITS AND THEIR SURVIVAL VALUE:
 
   1. BODY SIZE:
@@ -497,6 +526,26 @@ PERIODICITY HYPOTHESIS (Raup and Sepkoski, 1984):
   Method: exact temporal correlation → which precedes the extinction?
     P-T: volcanism precedes boundary; impact evidence absent → volcanism primary
     K-Pg: impact coincides with boundary within <100 kyr; Deccan precedes by 200 kyr
+
+  PARALLEL TO DISTRIBUTED SYSTEMS POSTMORTEM:
+    The causation problem in mass extinction analysis is identical to root-cause
+    analysis after a complex system failure:
+    - Multiple correlated failures (all factors elevated simultaneously)
+    - Unclear which triggered the cascade vs. which was a pre-existing condition
+    - Temporal correlation is the primary method (did A precede B → A probably caused B)
+    - "Contributing factors" vs. "root cause" distinction matters for remediation
+    Postmortem technique: timeline reconstruction → find earliest anomaly that
+      preceded failure; correlate with change events; separate triggering event
+      from vulnerability that made system susceptible
+    P-T example in postmortem terms:
+      - Pre-existing vulnerability: already-warm, anoxia-prone ocean (climate)
+      - Triggering event: Siberian Traps eruption at ~252 Ma
+      - Amplifying factors: coal combustion, methane release, positive feedbacks
+      - Root cause: volcanism (absent = no extinction; other factors = no extinction alone)
+    K-Pg example in postmortem terms:
+      - Pre-existing degraded state: Deccan Traps volcanic stress for 200 kyr
+      - Triggering event: Chicxulub impact (instantaneous; absent = no acute crisis)
+      - "Contributing but not causal": Deccan preceded impact; impact was proximate cause
 ```
 
 ---

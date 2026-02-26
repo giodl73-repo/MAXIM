@@ -31,9 +31,9 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge anywhere in file — the equation of state is a direct parallel to thermodynamic state equations (PVT surfaces from engineering thermodynamics); SOFAR channel is analogous to waveguide trapping in signal processing / fiber optics; Brunt-Vaisala is the fluid equivalent of a spring-mass oscillator -->
-
 ## Density of Seawater — The Equation of State
+
+The seawater equation of state ρ(T, S, P) is a thermodynamic PVT surface — the same concept as any equation of state in engineering thermodynamics, but parameterized empirically for seawater (TEOS-10: 44-coefficient polynomial). The Brunt-Väisälä frequency N = √[−(g/ρ₀)(∂ρ/∂z)] is directly analogous to a spring-mass oscillator: a water parcel displaced vertically experiences a restoring buoyancy force proportional to the density gradient, oscillating at frequency N (imaginary N means the restoring force is destabilizing — convective instability). The SOFAR channel is a waveguide: sound refracts toward the velocity minimum exactly as light refracts toward the refractive-index maximum in a graded-index optical fiber, producing long-range acoustic propagation with cylindrical rather than spherical spreading loss (1/r instead of 1/r²).
 
 Seawater density (ρ) depends on three variables:
 

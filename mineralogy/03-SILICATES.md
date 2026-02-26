@@ -187,13 +187,24 @@ Crystal form: 2 cleavage planes at ~60°/120° to each other
 → Hexagonal cross-section in thin section (diagnostic)
 → Pyroxene vs. amphibole ID: cleavage angle (90° vs. 60°)
 
-<!-- @editor[content/P2]: Asbestos section is important but could note the engineering/regulatory bridge — EPA/OSHA fiber count thresholds and the analytical method (PLM / TEM) that connects back to polarizing microscopy covered in 09-MINERAL-IDENTIFICATION -->
 ASBESTOS NOTE:
 Six silicate minerals form asbestiform (fibrous) habits:
 chrysotile (serpentine), amosite (cummingtonite), crocidolite (riebeckite),
 tremolite, actinolite, anthophyllite
 The fibrous habit → aerosol → mesothelioma risk
 Chemical composition is secondary to fiber geometry in toxicity
+
+REGULATORY AND ANALYTICAL BRIDGE:
+EPA/OSHA regulate by fiber count: the permissible exposure limit (PEL) is
+0.1 fibers/cm³ (8-hr TWA) for all asbestos types. The count matters, not
+just presence. Two analytical methods implement this:
+  PLM (Polarizing Light Microscopy): bulk analysis of building materials
+    (same optics as 09-MINERAL-IDENTIFICATION petrographic microscopy;
+    uses birefringence and extinction angle to identify fiber type)
+  TEM (Transmission Electron Microscopy): air fiber counting; required for
+    clearance testing; identifies fibers <0.25 µm diameter invisible to PLM
+The PLM/TEM distinction matters for abatement decisions: a building can
+pass PLM bulk sampling but fail TEM air clearance if fine fibers are present.
 ```
 
 ---
@@ -289,13 +300,18 @@ FELDSPAR GROUP — most abundant mineral group (60% of Earth's crust)
     Polysynthetic twinning (definitive microscopic ID)
     ANORTHITE CONTENT controls: density, melting point, weathering rate
 
-<!-- @editor[bridge/P3]: Natural bridge to industrial catalysis (FCC cracking in petroleum refining uses zeolite catalysts) — the learner's Azure Data Factory / pipeline background makes "catalyst selects reaction pathway" a natural metaphor -->
 ZEOLITES — aluminosilicate frameworks with large open channels
   Channel size: 3–13 Å → molecular sieves
   Na, K, Ca in channels — exchangeable → water softeners
   Clinoptilolite, mordenite, natrolite, analcime (natural)
   ZSM-5, zeolite-A, zeolite-Y (synthetic — billions of tons for catalysis)
   → Zeolites = mineral inspiration for industrial molecular sieves
+  → Fluid Catalytic Cracking (FCC): petroleum refinery process that breaks
+    long-chain hydrocarbons into gasoline-range molecules uses zeolite Y
+    as the catalyst. The pore geometry controls which molecules can enter
+    and react — the zeolite framework is a physical size-selection filter
+    that routes specific reaction pathways. ~90% of transportation fuel
+    in the US passes through a zeolite catalyst at some point.
 
 FELDSPATHOIDS — Si-poor relatives of feldspar
   Nepheline (NaAlSiO₄), leucite (KAlSi₂O₆), sodalite

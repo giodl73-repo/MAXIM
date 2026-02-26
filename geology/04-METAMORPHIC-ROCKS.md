@@ -1,6 +1,6 @@
 # Metamorphic Rocks — P-T Paths, Facies, Foliation, Index Minerals
 
-<!-- @editor[bridge/P2]: No old-world bridge — metamorphism as "refactoring without rewriting" (same chemical composition, reorganized structure under new constraints) is a natural parallel for any developer; P-T paths map to the constraint history of the transformation -->
+**Bridge — metamorphism as constrained optimization under changing boundary conditions:** A shale entering a subduction zone carries its original mineral assemblage (the starting data structure). As pressure and temperature increase along the P-T path, the system continuously seeks the lowest free-energy configuration given current constraints — recrystallizing into new mineral assemblages without melting, preserving bulk chemical composition throughout. This is refactoring under new performance requirements: same data, reorganized structure to satisfy the current operating constraints. The P-T path is the full constraint history of the transformation; retrograde overprinting (chlorite replacing garnet during exhumation) records constraint relaxation on the way out. Index minerals are runtime type assertions: finding kyanite in a rock is a proof that the system was once at >5 kbar (>15 km depth), regardless of what it looks like now. Eclogite (dense, garnet + omphacite) is the fully-optimized state for subduction-zone P-T conditions — bring it to the surface and it becomes metastable, a high-performance data structure running on the wrong hardware.
 
 ## The Big Picture
 

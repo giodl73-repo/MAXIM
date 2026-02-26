@@ -98,9 +98,9 @@ Fundamental thermodynamic limit on single-junction solar cell efficiency.
   CPV (concentrating) uses lenses to intensify sunlight on expensive cells.
 ```
 
-<!-- @editor[bridge/P3]: Natural bridge opportunity: Wright's Law / learning curves parallel the learner's experience with technology cost curves in enterprise software and semiconductor scaling (Moore's Law). A one-line bridge ("this is Wright's Law — same phenomenon as Moore's Law but for manufacturing cost per unit of cumulative production") would connect immediately -->
-
 ### Cost Decline: The Learning Curve
+
+Wright's Law governs solar PV costs: every doubling of cumulative production yields a roughly constant percentage cost reduction — the same phenomenon as Moore's Law but for manufacturing cost per unit rather than transistor density. Solar's learning rate (~20-25% cost reduction per production doubling) has been stable for four decades, making its cost trajectory one of the most accurately predicted in energy economics. The difference from Moore's Law: solar improvements come from manufacturing scale and process optimization, not from miniaturization hitting physical limits.
 
 ```
   Solar PV module cost:

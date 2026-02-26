@@ -222,7 +222,62 @@ CORE COMPETENCE (Prahalad & Hamel, 1990):
 
 ---
 
-<!-- @editor[audience/P2]: Technically correct but doesn't connect to what this learner would actually do with it — the learner runs an engineering org; RBV/VRIN as analytical tool for evaluating build-vs-buy or platform investment decisions would make this actionable rather than academic -->
+## RBV Applied: Engineering Org Investment Decisions
+
+VRIN is not just an academic typology — it is an analytical tool for evaluating the most consequential decisions an engineering org makes: build vs. buy, platform investment, and capability development prioritization.
+
+```
+VRIN APPLIED TO ENGINEERING INVESTMENT DECISIONS
+=================================================
+
+BUILD vs BUY DECISION — VRIN LENS:
+  The question: should we build this capability internally or buy/license it?
+  VRIN answer: build only if the capability can be Valuable + Rare + Inimitable
+               + Non-substitutable for YOUR competitive position
+
+  BUILD (potential VRIN resource):
+  - Core algorithms that differentiate your product from competitors
+  - Data pipelines that accumulate proprietary training or behavioral data
+  - Developer experience tooling that encodes institutional knowledge of your stack
+  - Integrations where tight coupling to internal systems creates moat
+
+  BUY / CONSUME AS SERVICE (not a VRIN candidate):
+  - Infrastructure that competitors can access on the same terms (commodity cloud)
+  - Tooling where category leaders have 10x+ investment (monitoring, observability)
+  - Compliance and security primitives (certifications, audit tooling)
+  - Any capability where your build will take 2+ years and you need it in 6 months
+
+PLATFORM INVESTMENT — VRIN LENS:
+  Q: Should we invest heavily in an internal developer platform?
+  Path dependency: platform capabilities compound over time (data, tooling,
+    institutional knowledge); the advantage is built over 5-10 years, not quarters
+  Causal ambiguity: competitors can see your platform outputs; they cannot
+    easily identify which internal processes, team structures, and historical
+    decisions create the capability → classic causal ambiguity
+  Social complexity: an internal developer platform's value is partly in the
+    culture of contribution, the shared mental models, and the trust between
+    platform and stream teams — these cannot be bought or rapidly replicated
+
+CAPABILITY vs RESOURCE DISTINCTION APPLIED:
+  What you build: tangible resource (code, infrastructure, data)
+  How you build it: capability (processes, team structure, institutional knowledge)
+  Capabilities are harder to imitate: a competitor can hire your engineers
+    but cannot immediately replicate the system those engineers work in
+  The most durable engineering advantage is usually a capability
+    (e.g., rapid experimentation, high-trust incident response, fast onboarding)
+    rather than any specific technical resource
+
+DYNAMIC CAPABILITIES APPLIED:
+  Sensing: organizational investment in scanning for platform shifts
+    (AI/ML 2022-2024; quantum computing timeframe; next shift?)
+    → Technology radar processes; dedicated research function; external partnerships
+  Seizing: the org's ability to redirect investment when the signal is clear
+    → This is the reorg problem: can you move 20% of your engineering capacity
+      to a new platform in 18 months? Most orgs cannot.
+  Transforming: reconfiguring the capability base, not just redirecting resources
+    → Upskilling existing engineers vs. hiring new vs. acquiring teams
+    → The portfolio management of capability transitions
+```
 
 ## Dynamic Capabilities
 
@@ -383,7 +438,43 @@ PLATFORM ENVELOPMENT (Eisenmann et al.):
  Microsoft: OS → Office → Azure → M365 → Teams → Copilot
  Defense: differentiation; bundling; exclusive access; regulatory protection
 
-<!-- @editor[content/P2]: Platform governance absent — how platforms manage developer relations, API contracts, breaking changes, and ecosystem health is a significant gap for someone running Azure-adjacent engineering -->
+PLATFORM GOVERNANCE — DEVELOPER ECOSYSTEMS:
+ Platform governance = the rules, APIs, and contracts that shape how
+   external developers build on and with the platform
+
+ API CONTRACT MANAGEMENT:
+  Stability tiers: stable / preview / experimental / deprecated
+  Versioning strategy: additive vs breaking change policies
+  Deprecation cadence: how much notice; migration path; support window
+  The governance tradeoff:
+   → Strict stability: enterprise trust + ecosystem investment + slow evolution
+   → Loose stability: fast innovation + fragmentation + developer attrition
+   → Best practice: separate stable APIs for enterprise; fast lanes for preview
+
+ ECOSYSTEM HEALTH MANAGEMENT:
+  Developer funnel: onboarding friction, time-to-first-success, certification paths
+  Partner tiers: ISV programs, marketplace certification, revenue share models
+  Developer experience investment: documentation quality, SDK maintenance, samples
+  Community governance: feedback mechanisms, public roadmaps, RFC processes
+  Enforcement: policy violations (security, ToS), appeals, reinstatement
+  → Reference: Stripe's developer experience as category-defining example
+     Amazon's marketplace governance as cautionary tale on extractive dynamics
+
+ PLATFORM ENVELOPMENT GOVERNANCE RISK:
+  When the platform expands into adjacent apps where ecosystem partners compete
+  → "Embrace, extend, extinguish" perception destroys ecosystem trust
+  → Mitigation: clear policy on which layers the platform will and won't compete;
+    structural separation between platform team and competing product teams
+  → The "kill zone": the adjacency radius within which startups avoid building
+    because platform expansion risk is too high → self-defeating for ecosystem
+
+ BREAKING CHANGE GOVERNANCE:
+  RFC process: announce → comment period → decision → migration period
+  Automated detection: semver; backward-compatibility test suites
+  Migration tooling: codemods, adapters, compatibility shims
+  Version lifecycle: supported / maintenance-only / end-of-life
+  Communication: changelog quality, migration guides, support channels
+
 ANTI-NETWORK EFFECTS:
  Congestion: too many users → quality declines → value falls
   Highways; crowded restaurants; overfilled social media feeds

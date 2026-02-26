@@ -454,8 +454,207 @@ HOW THE TWO WORK TOGETHER:
 
 ---
 
-<!-- @editor[content/P2]: Dogon cosmology (Mali — Nommo, Amma, Sirius star knowledge debate), Bantu traditions (ancestor veneration, the concept of ubuntu, Nyambe/Mulungu as supreme being), and Zulu mythology (uNkulunkulu, the uHlanga reed) are mentioned in the overview but never covered — the African half of this guide is effectively Yoruba-only plus Anansi, leaving major sub-Saharan traditions absent -->
-<!-- @editor[content/P2]: Melanesian mythology mentioned as "extremely diverse" but gets zero coverage — cargo cults, mana concepts in Melanesia, and the Sepik River traditions are significant comparative material that would strengthen the Oceanian half -->
+## Dogon Cosmology (Mali)
+
+The Dogon people of the Bandiagara Escarpment in Mali have attracted extraordinary scholarly and popular attention since Marcel Griaule's fieldwork (1930s–1950s), partly for the sophistication of their cosmological system and partly for a controversial claim about astronomical knowledge.
+
+```
+DOGON COSMOLOGICAL FRAMEWORK:
+
+AMMA — the supreme creator deity; distant, unknowable; the universe
+  begins with Amma's egg (aduno tal), which contained all potential
+
+NOMMO — the primordial creative beings:
+  Born from Amma's egg in pairs (twinness is the ideal order)
+  The first Nommo are water spirits: amphibious, serpentine
+  Nommo sacrificed and dismembered → body parts scattered to form
+    the world's structure: a cosmological dismemberment parallel to
+    Vedic Purusha and Norse Ymir
+  The "resurrected" Nommo descends to earth on an ark (aduno koro)
+    containing all animals, plants, and humans
+
+THE PALE FOX (Ogo/Yurugu):
+  The "imperfect twin" of the Nommo: born prematurely, incomplete
+  His premature birth causes disorder in the cosmic order
+  He cannot be tamed; he wanders the earth making mischief
+  Divination by fox tracks (soro divination): the Pale Fox's
+    nocturnal wanderings over a prepared sand board
+    → Fox footprints read at dawn → answers to questions
+  The fox's incompleteness explains why disorder is structural
+    (not an accident or failure) — disorder is built into creation
+
+THE SIRIUS QUESTION (controversial):
+  Griaule claimed (1950, Conversations with Ogotemmeli;
+    1965, Le renard pâle with Dieterlen) that Dogon had knowledge
+    of Sirius B (a white dwarf invisible to the naked eye) and
+    of a third star (Sirius C, not confirmed to exist)
+  This became a sensation: how could pre-telescope Africans know this?
+
+  SKEPTICAL EVALUATION (Walter van Beek, 1991 re-study):
+  Van Beek conducted independent fieldwork among the Dogon and
+    found no evidence that ordinary Dogon informants had this
+    "secret knowledge" about Sirius
+  His conclusion: Griaule's informants were sophisticated and
+    may have incorporated French astronomical knowledge they had
+    encountered (Griaule's team was not naive about astronomy)
+    into their answers to satisfy an insistent questioner
+  The "Sirius mystery" is likely a fieldwork artifact, not
+    independent astronomical knowledge — a cautionary case about
+    researcher-informant co-production of "data"
+  The Dogon cosmological system remains genuinely sophisticated
+    regardless of the Sirius question
+```
+
+---
+
+## Bantu Traditions
+
+"Bantu" is a linguistic family covering roughly 500 languages across sub-Saharan Africa (southern Cameroon to South Africa). The underlying mythological and religious structures show both shared features and enormous local variation.
+
+```
+STRUCTURAL FEATURES ACROSS BANTU TRADITIONS:
+
+SUPREME BEING (various names):
+  Nyambe / Leza (Zambia, Zimbabwe, Malawi region)
+  Mulungu (East Africa — Tanzania, Malawi, Mozambique)
+  Nzambi (Central Africa — Kongo, Kikongo-speaking peoples)
+  These supreme beings are typically:
+    → Creator but now withdrawn; does not intervene directly
+    → Not primarily worshipped; prayers go to ancestors instead
+    → Compare to Yoruba's Olodumare: the "high god" who is transcendent
+       while everyday religion focuses on intermediary spirits
+
+ANCESTOR VENERATION AS THE CORE PRACTICE:
+  The dead do not simply disappear — they become "living dead"
+  (John Mbiti's term) who remain in relationship with the community
+  Stages: the recently dead (still remembered by name) have the most
+    power and the most interest in family affairs
+  When the last person who knew them dies, they become "ancestors"
+    in a more generic collective sense
+  Obligations: regular offerings (food, libations), consultation
+    before major decisions, ritual maintenance of the family altar
+  Failure to maintain the relationship: the ancestor may cause
+    illness, misfortune, or death to get the family's attention
+
+UBUNTU (Zulu/Nguni: "I am because we are"):
+  Ontological claim: personhood is constituted through relationships
+    not possessed individually
+  "Ubuntu ngumuntu ngabantu" — a person is a person through other persons
+  Contrast to Western liberal individualism: the self is not prior
+    to community; community is the condition of selfhood
+  This is not simply "collectivism" — it is a claim about what
+    persons ARE, not just how they ought to behave
+  Archbishop Desmond Tutu and Nelson Mandela deployed ubuntu as
+    a philosophical basis for the Truth and Reconciliation Commission:
+    healing requires restoring relationships, not just punishing wrongs
+
+ZULU MYTHOLOGY:
+  uNKULUNKULU — "the great great one"; the first ancestor
+    Not exactly a god: he is the first human being who arose from
+    the uHlanga (a reed bed in primordial waters)
+    He "broke off" the first people and animals from the reeds
+    He established all cultural practices: marriage, agriculture,
+    the differentiation of species
+    He is ancestral rather than supernatural — the first person,
+    not a creator deity external to humanity
+
+  uHLANGA — the primordial reed from which all life emerged
+    Structurally similar to: Polynesian void (Te Kore),
+    Mesopotamian primordial waters, Hindu cosmic ocean
+    But the point of emergence is biological-natural (a reed,
+    a plant), not supernatural: immanence rather than transcendence
+
+  IZINYANYA — ancestral spirits (singular: idlozi)
+    The most important focus of religious practice
+    Communicate through dreams, illness, or divination
+    Diviner (isangoma): mediates between living and ancestors;
+      diagnoses what the ancestors want; trained through years of
+      spirit-initiated illness (ukuthwasa)
+
+  TOKOLOSHE: a small, malevolent being associated with witchcraft
+    Sent by witches to harm enemies
+    Counter-example of ancestor veneration: the "dark" side of
+    the spiritual system that must be managed through ritual
+```
+
+---
+
+## Melanesian Mythology
+
+Melanesia (Papua New Guinea, Vanuatu, Solomon Islands, Fiji, New Caledonia) is the most linguistically and culturally diverse region on earth per capita. Its mythological traditions resist generalization — but several structural features and specific traditions are significant comparatively.
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                  MELANESIAN RELIGIOUS CONCEPTS                    │
+│                                                                  │
+│  MANA (Melanesian origin of the concept):                        │
+│  The word "mana" is Melanesian, not Polynesian in origin —       │
+│  R.H. Codrington introduced it to Western scholarship (1891)     │
+│  from Melanesian informants in the Solomon Islands and Vanuatu   │
+│                                                                  │
+│  Melanesian mana is more diffuse than Polynesian use:            │
+│  → Any source of efficacy: a man who catches fish consistently   │
+│    "has mana" (something about him works)                        │
+│  → Objects can have mana: a lucky amulet, a powerful weapon      │
+│  → Not a "substance" inside things — more like an explanation    │
+│    of success: working backwards from the result                 │
+│  → Critical note: Codrington's account was itself a Western      │
+│    interpretation; later fieldwork suggests "mana" was more       │
+│    locally variable than the generalized concept implies         │
+│                                                                  │
+│  COMPARE to contemporary software: "magic" in code slang        │
+│  functions similarly — "magical numbers", "it just works"        │
+│  both explain success by naming the unexplained efficacy         │
+└──────────────────────────────────────────────────────────────────┘
+
+CARGO CULT MYTHOLOGY — Vanuatu and Papua New Guinea:
+  (Covered in detail in religious-studies/04-INDIGENOUS.md)
+  Mythological structure: a figure (John Frum, the Ancestors,
+    sometimes Jesus) will return bringing cargo for the indigenous
+    people and removing the colonizers
+  The ritual component: build airstrips, warehouses, mock radio masts
+    to attract the cargo planes; enact military drill with bamboo rifles
+  STRUCTURAL INSIGHT: cargo cults are not "primitive" — they are
+    rational responses under information asymmetry:
+    → You observe that ritual precedes European wealth arrival
+      (ships arrive after port ritual; planes land at airstrips)
+    → You attempt to reproduce the ritual preconditions
+    → The mechanism is hidden; the observed correlation is real
+
+JOHN FRUM MOVEMENT (Tanna, Vanuatu):
+  John Frum first appeared ~1930s on Tanna Island
+  Promised: American abundance, removal of Europeans, return of
+    traditional ways (kastom), volcanic mountain as source of wealth
+  The movement rejected European money, consumer goods, Christianity;
+    emphasized traditional dance, kava ceremonies
+  WWII: ~300,000 American troops transited Vanuatu; enormous material
+    wealth visibly arrived → reinforced cargo beliefs
+  John Frum Day: celebrated February 15; red cross flag;
+    movement still active into the 21st century
+  SIGNIFICANCE: demonstrates how contact-era mythology crystallizes
+    into stable religious identity; "failure" of cargo to arrive
+    interpreted as delayed fulfillment, not falsification
+
+SEPIK RIVER TRADITIONS (Papua New Guinea):
+  The Sepik River basin (~1,100 km) contains hundreds of distinct
+  language groups with rich material culture traditions
+  SPIRIT HOUSES (haus tambaran):
+    Large ceremonial buildings; access restricted by initiation grade
+    Interior filled with carved spirit figures, masks, sacred objects
+    The spirits (tambaran) are the real "owners" of the house;
+    initiates are introduced to them through a graduated revelation
+    Each grade of initiation reveals more of the spirit knowledge
+    → Structurally: layered access control; the most powerful spirits
+       (and their associated esoteric knowledge) are innermost
+  CROCODILE MYTHOLOGY: the crocodile is the dominant mythological
+    figure in many Sepik traditions; the river is a crocodile;
+    initiation scars are made to resemble crocodile skin
+    → initiated men are "swallowed" by the crocodile spirit and reborn
+    → scarification = the marks left by being inside the spirit
+  SHIELDS AND MASKS: Sepik carving tradition is among the world's
+    most sophisticated; forms encode mythological narratives that
+    only the fully initiated can read — aesthetic complexity and
+    cosmological complexity are the same thing
 
 ## Decision Cheat Sheet
 

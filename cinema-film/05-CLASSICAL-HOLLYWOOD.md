@@ -113,8 +113,7 @@ CIRCUMVENTION:
   Billy Wilder: Sunset Boulevard (1950) — dark, bitter, Code pushed
   Hitchcock: Psycho (1960) — production without Breen approval
              (Hitchcock was his own producer; released anyway)
-<!-- @editor[content/P1]: Typo — "Otto Premature" should be "Otto Preminger" -->
-  Otto Premature: The Moon Is Blue (1953), The Man with the Golden Arm (1955)
+  Otto Preminger: The Moon Is Blue (1953), The Man with the Golden Arm (1955)
     Released without Code certificate; theater chains accepted anyway
     Proved: Code enforcement was weakening
 
@@ -320,7 +319,41 @@ LONG-TERM IMPACT:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to modern tech vertical integration (Netflix/Disney+ own production + distribution like old Big Five owned all three verticals) — text mentions it but a compact bridge table would crystallize the parallel -->
+## Vertical Integration: Studio Era to Streaming Era
+
+```
+VERTICAL INTEGRATION — STRUCTURAL COMPARISON
+
+Classic Studio System (1930s-1948):
+  Production → Distribution → Exhibition
+  MGM/Paramount/WB/Fox/RKO owned all three tiers
+  Paramount Decree (1948): forced divestiture of exhibition
+
+Post-Decree Partial Reintegration (1980s-2000s):
+  Studios owned: Production + Distribution
+  Exhibition: independent theater chains (AMC, Regal, Cinemark)
+
+Streaming Era (2010s-present):
+  Production → Distribution → Direct-to-consumer delivery
+  Netflix:    Netflix Studios → Netflix distribution → Netflix app
+  Disney:     Disney/Lucasfilm/Marvel → Disney distribution → Disney+
+  Amazon:     Amazon Studios → Amazon distribution → Prime Video
+  Apple:      Apple Original Films → Apple distribution → Apple TV+
+
+STRUCTURAL PARALLEL TO MPPC ERA:
+  Pre-1948 studios        → Streaming verticals
+  Owned theaters          → Own streaming platform
+  Block booking           → Content exclusivity windows
+  Star system contracts   → Exclusive first-look deals
+  Paramount Decree broke  → Ongoing regulatory scrutiny
+  studio theater ownership   of streaming market power
+
+KEY DIFFERENCE: The Paramount Decree targeting exhibition doesn't map
+cleanly onto streaming — "exhibition" and "distribution" collapse into
+a single app. Regulatory frameworks from 1948 antitrust doctrine
+are actively being retested against streaming architectures.
+```
+
 ## Common Confusion Points
 
 **"The Production Code was government censorship."** The Code was industry self-regulation. Government censorship (state/local censor boards) existed simultaneously and was what the industry was trying to preempt. The Code was private, contractual, and economically enforced — studios agreed not to distribute uncertified films to theaters that agreed to the MPPDA system. First Amendment protections didn't apply to film until 1952 (Burstyn v Wilson).

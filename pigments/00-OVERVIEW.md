@@ -1,8 +1,33 @@
 # Pigments — Overview: Color, Chemistry, and the History of Paint
 
-<!-- @editor[diagram/P2]: Landscape diagram covers color-production mechanisms (physics) but does not map the 10-guide series structure — reader opening the overview has no visual roadmap of the chronological/thematic progression (prehistoric → ancient synthetic → … → conservation) -->
-
 ## The Big Picture
+
+```
+GUIDE SERIES MAP: PIGMENTS VOLUME
+===================================
+
+PREHISTORIC / NATURAL MINERALS          SYNTHETIC ERA                  MODERN / INDUSTRIAL
+────────────────────────────────        ────────────────────────────   ─────────────────────
+01-PREHISTORIC                          07-PRUSSIAN-BLUE-ERA           09-MODERN-SYNTHETIC
+  Ochre, charcoal, Blombos Cave           1704 accident → 18th-19th c.   Azo, phthalocyanine,
+  (physics: Fe₂O₃ d-d transitions)        synthetic revolution            quinacridone, quantum dots
+
+02-ANCIENT-SYNTHETIC                    08-IMPRESSIONIST-REVOLUTION    10-CONSERVATION
+  Egyptian blue, lead white,              Tube paint (1841) + synthetic   Pigment stability,
+  malachite, azurite, verdigris           ultramarine → plein air         analytical methods,
+  (first manufactured pigments)           painting, new palette            fading case studies
+
+03-PURPLE-RED-LUXURY                    CROSS-CUTTING THEMES
+  Tyrian purple, cochineal, kermes       ─────────────────────────────────────────────────────
+  (biology → chemistry → power)          04-BLUE-RARITY:  lapis, smalt, ultramarine, Prussian blue
+                                          05-EARTH-PIGMENTS: ochres, umbers, siennas
+06-ORGANIC-DYES-MORDANTS                 (mineral color → industrial scale → synthetic replacement)
+  Indigo, madder, weld, mordant
+  chemistry (textiles + lakes)
+
+PROGRESSION: natural scarcity → synthetic abundance → industrial chemistry → conservation concern
+PHYSICS THREAD: d-d transitions → charge transfer → π→π* → band gap → quantum confinement
+```
 
 ```
 +------------------------------------------------------------------+
@@ -250,7 +275,37 @@ WHY BINDER MATTERS:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world-to-new-world bridge in the overview — the individual guides carry bridges, but the overview should set up at least one framing bridge (e.g., crystal-field theory as the unifying "compiler" that maps mineral input to color output) -->
+## Crystal Field Theory as the Universal Compiler
+
+Crystal field theory (CFT) is the single framework that maps mineral composition to perceived color across most inorganic pigments. If you know CFT, you can predict or explain why any transition-metal compound has the color it does — the same framework used in coordination chemistry, solid-state physics, and materials science.
+
+```
+CFT AS COLOR COMPILER:
+  INPUT: metal ion (Fe, Cu, Co, Cr, Mn...) + ligand geometry + ligand type
+  PROCESS: ligand field splits d-orbital energies into two groups (eg, t2g)
+           electron absorbs photon exactly equal to the splitting energy Δ
+           absorbed wavelength = complement of perceived color
+  OUTPUT: predicted absorption wavelength → predicted hue
+
+  THE COMPILER TABLE (same metal, different ligand field):
+  Cr³⁺ in octahedral oxide field (ruby)  → absorbs blue + red  → RED
+  Cr³⁺ in chromate tetrahedral (CrO₄²⁻) → large Δ shift       → YELLOW-ORANGE
+  Co²⁺ in tetrahedral spinel (cobalt blue) → absorbs orange-red → BLUE
+  Fe³⁺ in hematite + charge transfer      → absorbs green-blue  → RED
+  Cu²⁺ in distorted octahedral (malachite) → absorbs red        → GREEN
+
+WHY THIS IS THE "COMPILER" ANALOGY:
+  The physical mineral is the source code.
+  CFT is the interpreter/compiler.
+  The perceived color is the runtime output.
+  Same source language (Cr³⁺), different compile target (different ligand
+  geometry) → completely different output (red vs yellow). Exactly like the
+  same algorithm producing different results under different execution contexts.
+
+  Conservation scientists reverse-engineer this: spectroscopic measurement
+  of absorption spectrum → infer oxidation state + coordination geometry
+  → identify the pigment non-destructively. Decompiling from output.
+```
 
 ## Decision Cheat Sheet
 

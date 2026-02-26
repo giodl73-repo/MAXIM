@@ -31,20 +31,19 @@ OLD-AGE DEPENDENCY RATIO (OADR):
   OADR = (Population 65+) / (Population 15-64) × 100
   Interpretation: elderly per 100 working-age adults
 
-<!-- @editor[structure/P2]: OADR country comparison below is key reference data — convert to markdown table for quick scanning -->
-  OADR VALUES (2023, approximate):
-  Japan:        51  (highest globally)
-  Italy:        38
-  Germany:      36
-  UK:           30
-  US:           27
-  China:        21
-  Brazil:       14
-  India:        11
-  Nigeria:       6
+### OADR Country Reference (2023, approximate)
 
-  Trajectory:
-  US 1960: 17 → 2000: 21 → 2023: 27 → 2050 (projected): 39
+| Country | OADR (elderly per 100 working-age) | Note |
+|---|---|---|
+| Japan | 51 | Highest globally; super-aging society |
+| Italy | 38 | |
+| Germany | 36 | |
+| UK | 30 | |
+| US | 27 | 1960: 17 → 2000: 21 → 2023: 27 → 2050 (proj.): 39 |
+| China | 21 | Rising rapidly; one-child cohort aging |
+| Brazil | 14 | |
+| India | 11 | Young age structure; dividend window still open |
+| Nigeria | 6 | Lowest among large countries; very young population |
 
 YOUTH DEPENDENCY RATIO (YDR):
   YDR = (Population 0-14) / (Population 15-64) × 100
@@ -105,7 +104,8 @@ ALTERNATIVE MEASURES:
 
 ## Social Security Sustainability
 
-<!-- @editor[bridge/P3]: The PAYG sustainability equation τ = (b/W) × (R/E) is a capacity planning model — same structure as provisioning any shared resource pool. One bridge sentence to queuing/load-balancing would land for this reader. -->
+The PAYG sustainability equation τ = (b/W) × (R/E) is a shared resource pool provisioning model: the tax rate τ is the utilization rate, R/E is the load factor (beneficiaries per contributor), and b/W is the service level (benefit per dollar of wage). As aging increases R/E, the system faces the same options as any overloaded service: raise the capacity cost (τ), reduce the service level (b/W), or add contributors (increase E through immigration or higher employment rates). The only structural difference from queuing theory is that the demand side (R) is driven by demographic dynamics on a 70-year lag, not a Poisson arrival process.
+
 ```
 PAY-AS-YOU-GO (PAYG) PENSION SYSTEM:
   Current workers pay taxes → fund current retirees' benefits.

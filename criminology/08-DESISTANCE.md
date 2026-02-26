@@ -2,7 +2,8 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P2]: Missing empirical-methods bridge — the age-crime curve and longitudinal panel data (Glueck & Glueck followed for 60+ years) are methodologically fascinating. A senior technical leader would want to know: how do you study desistance? What makes the Glueck dataset special? One paragraph on methodology would serve this learner's instinct for "how do we know this?" -->
+**Empirical-methods note:** Desistance is uniquely hard to study because it is defined by the *absence* of events over time — you cannot confirm desistance from a single observation, only infer it from an extended period of non-offending. The methodological gold standard is longitudinal panel data following the same individuals from adolescence into adulthood, ideally with official records (arrest, conviction) supplemented by self-report interviews. The Glueck and Glueck dataset is legendary precisely because Sheldon and Eleanor Glueck tracked 500 Boston delinquents from the 1940s into adulthood, collecting interview and record data through the 1960s. Sampson and Laub rediscovered the archived data in the 1990s, coded it, and extended follow-up through age 70 (death records, criminal records, additional interviews) — giving criminology one of the longest longitudinal datasets in social science: 60+ years of observation on the same cohort. The dataset reveals patterns that shorter studies cannot: chronic offending through middle age, late desistance in the 60s, and the role of specific turning points only visible with long follow-up windows. For a researcher designing such a study today, the challenge is attrition (participants drop from the sample over decades), the endogeneity of turning points (does marriage cause desistance, or do desistance-prone individuals select into marriage?), and survivorship bias (those incarcerated long-term are unavailable for community observation). These are causal identification problems familiar from any long-run natural experiment.
+
 Desistance is the process by which people stop offending. Understanding it is the foundation of rational rehabilitation policy. Most people age out of crime -- the question is what accelerates that process and what the justice system can do (or stop doing) to facilitate it.
 
 ```
@@ -382,6 +383,63 @@ The risk principle says: don't treat low-risk offenders intensively. This is cou
 **Recidivism Measure Matters Enormously**
 Studies citing "67% recidivism rate" typically mean rearrest within 3 years. Reconviction rates are lower (~40%). Reincarceration rates are lower still (~30%). And these include technical violations. The appropriate measure depends on the policy question. A new serious crime is categorically different from a missed parole appointment.
 
-<!-- @editor[content/P2]: Drug treatment programs (therapeutic communities, MAT/medication-assisted treatment) mentioned in the landscape diagram but never given structural treatment — strong evidence base for TC (CDATE, Amity) and MAT (methadone, buprenorphine) deserves at least a subsection comparable to CBT -->
+### Drug Treatment Programs
+
+```
+  THERAPEUTIC COMMUNITIES (TC)
+  ==============================
+
+  Model: Total immersion residential treatment.
+  Duration: 6-24 months (longer = better outcomes).
+  Structure: Hierarchical community; peers as primary therapists.
+  Address: Criminal thinking, substance use, prosocial identity.
+
+  KEY EVIDENCE:
+    CDATE (Correctional Drug Abuse Treatment Effectiveness):
+    Meta-analysis of 78 studies: TC showed strongest effect sizes
+    among all correctional drug treatments.
+
+    Amity Prison TC (California):
+    RCT with 3-year follow-up:
+    TC completers: 27% reincarcerated vs. 75% control.
+    Effect persisted only for TC graduates who entered
+    community TC aftercare -- continuity of care critical.
+
+  NOTE: "Therapeutic community" in prison ≠ TC aftercare.
+  The two-stage model (prison TC → community TC aftercare)
+  produces significantly better outcomes than prison TC alone.
+
+  MEDICATION-ASSISTED TREATMENT (MAT)
+  =====================================
+
+  For opioid use disorder (OUD), MAT is the strongest
+  evidence-based intervention available.
+
+  METHADONE (full opioid agonist):
+    Reduces illicit opioid use, overdose deaths, crime.
+    Must be dispensed daily at licensed clinic (logistically burdensome).
+    Meta-analyses: ~50% reduction in heroin use; crime reduction substantial.
+    Reduces HIV transmission (shared needle use falls).
+
+  BUPRENORPHINE (partial agonist, Suboxone):
+    Can be prescribed by qualified physicians (no daily clinic visit).
+    Ceiling effect: less overdose risk than methadone.
+    More accessible; preferred for mild-moderate OUD.
+    Similar effectiveness to methadone for retention and outcomes.
+
+  NALTREXONE (opioid antagonist, Vivitrol extended-release):
+    Blocks opioid receptors; no abuse potential.
+    Monthly injection form improves adherence.
+    Evidence: comparable to buprenorphine for motivated patients;
+    worse for patients without strong external support (no agonist = harder).
+
+  CRITICAL POLICY FACT:
+    Most US jails and prisons do not offer MAT.
+    People with OUD leave incarceration with zero tolerance.
+    Opioid overdose death rate peaks 1-2 weeks post-release.
+    MAT in correctional settings is evidence-based and cost-effective;
+    its absence is a policy choice, not a resource constraint.
+```
+
 **What Works Is Not "Soft on Crime"**
 CBT and education programs reduce recidivism -- they reduce future crime victims. That is the point of incarceration (or should be). The argument for evidence-based rehabilitation is not humanitarianism alone; it is crime reduction. Punitive measures that feel hard but don't reduce reoffending produce more future victims.

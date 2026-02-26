@@ -4,20 +4,29 @@
 
 A launch vehicle is a rocket system that delivers a payload from Earth's surface to orbit. The architecture choices — staging, propellants, staging ratios, engine count — determine payload capacity, cost, and reliability. The economics have been transformed by reusability.
 
-<!-- @editor[diagram/P2]: Diagram categorizes vehicles by payload class but doesn't show how architecture choices (staging, propellant, engine cycle) flow into capability tiers — rework as a layered view showing how physics constraints map to engineering choices map to payload classes -->
 ```
 +------------------------------------------------------------------+
-|                    LAUNCH VEHICLE LANDSCAPE (2025)                |
+|            LAUNCH VEHICLE LANDSCAPE (2025)                        |
+|   Physics constraints → Architecture choices → Capability tiers  |
 +------------------------------------------------------------------+
 |                                                                  |
-|  SMALL LIFT         MEDIUM LIFT          HEAVY LIFT              |
-|  (< 2 t to LEO)     (2-20 t to LEO)      (20-100+ t to LEO)      |
-|  ----------         -----------           -----------            |
-|  Rocket Lab         Falcon 9 (22.8 t)    Falcon Heavy (63 t)     |
-|  Electron (0.3 t)   Vulcan Centaur (27)  SLS Block 1 (95 t)      |
-|  Alpha (1 t)        Atlas V (18.8 t)     Starship (150+ t)       |
-|  LauncherOne        New Glenn (45 t)     Long March 5B (25 t)    |
-|  Various smallsats  Ariane 6 (10-21 t)  H3 (6.5-16.5 t)         |
+|  PHYSICS CONSTRAINTS                                             |
+|  Δv to LEO ~9.4 km/s  →  exponential mass ratio  →  staging     |
+|  Isp ceiling (chem)   →  propellant choice shapes upper stages   |
+|  TWR > 1 required     →  engine count/thrust scales with GLOW    |
+|       |                                                          |
+|       v                                                          |
+|  ARCHITECTURE CHOICES                                            |
+|  Propellant   Engine cycle    Stages    Reusability              |
+|  LOX/RP-1     Gas generator   2-stage   Expendable → low cost/kg |
+|  LOX/LH₂      Expander        3-stage   Reusable → economics     |
+|  LOX/CH₄      Full-flow SC    +boosters ISRU-compatible          |
+|       |                                                          |
+|       v                                                          |
+|  CAPABILITY TIERS                                                |
+|  SMALL (<2 t LEO)   MEDIUM (2-45 t LEO)   HEAVY (45-150+ t LEO) |
+|  Electron, Alpha    Falcon 9, New Glenn    Falcon Hvy, SLS       |
+|  ~$25K/kg           ~$2-5K/kg              ~$1.5-42K/kg          |
 +------------------------------------------------------------------+
 ```
 
@@ -148,11 +157,10 @@ ACTIVE HEAVY LAUNCH VEHICLES (2025)
 
   NEW GLENN (Blue Origin):
     Type: 2-stage; reusable (1st stage)
-<!-- @editor[content/P1]: Claim may be incorrect — verify: New Glenn first stage uses BE-4 (LOX/LNG methane), not LH2; only the second stage (BE-3U) uses LOX/LH2; "all-hydrogen system" is wrong -->
-    Propellants: LOX/LH₂ (both stages) — all-hydrogen system
-    Engines: 7 × BE-4 (S1); 2 × BE-3U (S2)
+    Propellants: Stage 1: LOX/LNG (methane-like, BE-4 engines)
+                 Stage 2: LOX/LH₂ (BE-3U engine)
+    Engines: 7 × BE-4 (S1, LOX/LNG, 2.4 MN each); 2 × BE-3U (S2, LOX/LH₂)
     LEO: 45 t; GTO: 13 t
-    BE-4: LOX/LNG (natural gas; similar to methane); 2.4 MN
     First launch: January 2025 (commercial payload)
 ```
 
@@ -278,7 +286,14 @@ LAUNCH SITE CONSIDERATIONS
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: the shift from expendable to reusable launch vehicles maps onto the shift from on-premises hardware (buy, use once, depreciate) to cloud elasticity (amortize over many tenants); the learner lived this transition at Microsoft -->
+## Engineering Parallels
+
+**Staging as pipeline decomposition.** A multi-stage rocket is a decomposed pipeline where each stage is optimized for its flight regime and then discarded. Stage 1 runs at high thrust, low altitude, high aerodynamic stress — optimized for that regime. Stage 2 runs in near-vacuum at lower thrust, different nozzle expansion ratio, and lighter structure. You cannot merge them into one stage without compromising both regimes, exactly as you cannot merge a batch ingestion layer with a real-time serving layer without degrading both.
+
+**Expendable vs. reusable as capex/opex model transition.** The shift from expendable launch vehicles (buy hardware, use once, expense entirely to one launch) to reusable vehicles (amortize hardware cost over N flights) is structurally identical to the on-premises-to-cloud transition. An expendable rocket is a dedicated server: full hardware cost allocated to a single use, written off immediately. A reusable rocket with 20+ flights is infrastructure amortized over a fleet. The marginal cost of the 20th flight is close to propellant + labor — equivalent to the marginal cost of an additional cloud tenant. SpaceX's vertical integration creates the same structural advantage as owning the datacenter: no external margin, faster iteration, full-stack optimization.
+
+**Launch vehicle selection as a build-vs-buy trade.** Rideshare (Transporter missions, $5,500/kg) vs. dedicated launch is the same build-vs-buy analysis as shared vs. dedicated infrastructure. Rideshare is cheaper per kg but constrained in orbit, schedule, and interface. Dedicated is more expensive but provides full control. The economics invert when your schedule, orbit, or interface requirements cannot be satisfied by the shared pool — the same threshold at which a tenant moves from shared hosting to a dedicated instance.
+
 ## Common Confusion Points
 
 **Expendable vs reusable costs**: Expendable Falcon 9 costs ~$67M list. But SpaceX barely uses expendable; the reusability is what drives their economics (production costs + refurbishment << new rocket). The "savings" from reuse aren't passed to customers dollar-for-dollar — SpaceX captures the margin for R&D and profit.

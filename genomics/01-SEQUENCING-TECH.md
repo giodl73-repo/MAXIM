@@ -245,7 +245,44 @@ Illumina holds ~80% of the global sequencing market. Understanding its chemistry
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world -> new-world bridge in this file -- natural parallel: Sanger -> Illumina -> nanopore maps to serial -> batch -> streaming architectures (capillary = serial I/O, flow cell = massively parallel, nanopore = real-time stream) -->
+## Sequencing Generations as I/O Architecture Evolution
+
+```
+SEQUENCING GENERATION ↔ I/O ARCHITECTURE
+──────────────────────────────────────────────────────────────────────────────
+SANGER (Generation 1):
+  Capillary electrophoresis — one read per capillary lane
+  ~96 samples/run; serial output, low throughput
+  Analogy: synchronous serial I/O — one record at a time, blocking
+  Use case: high confidence, targeted (like a direct DB query for one key)
+
+ILLUMINA (Generation 2):
+  Bridge PCR → 3.2 billion clusters on flow cell, all read simultaneously
+  Massively parallel: all clusters imaged each cycle
+  Analogy: batch-parallel processing — fork millions of workers,
+           process simultaneously, collect results
+  Constraint: Read length bounded by signal degradation (SBS cycle limit)
+              = like a batch job with a maximum window size
+  Output: petabyte-class at production (NovaSeq X: ~1 TB/run)
+
+NANOPORE / PACBIO (Generation 3):
+  Oxford Nanopore: DNA threads through pore in real-time, signal decoded continuously
+  Analogy: streaming architecture — continuous event stream, no batching
+           MinION writes bases to disk as they're produced
+  Real-time output: can terminate run early (adaptive sampling)
+                   = reactive stream with backpressure control
+  PacBio HiFi: circular consensus = multiple-pass read of same molecule
+               Analogy: read-repair / quorum read — redundant reads → high confidence
+
+TRADE-OFF TRIANGLE (same as distributed systems):
+  Accuracy ←→ Throughput ←→ Read length
+  (Pick two. Improving one degrades others without generational improvements.)
+  Sanger: max accuracy + max read length, minimal throughput
+  Illumina: max throughput + max accuracy, short reads
+  ONT: max read length + max throughput, lower per-base accuracy (improving)
+  PacBio HiFi: max accuracy + long reads, lower throughput
+──────────────────────────────────────────────────────────────────────────────
+```
 
 ## Technology Comparison
 

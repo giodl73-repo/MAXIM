@@ -52,8 +52,9 @@ Ecology is the study of interactions between organisms and their environment. It
 - Decomposers: bacteria, fungi — recycle nutrients from dead organic matter
 - Parasites, pathogens, mutualists
 
-<!-- @editor[bridge/P2]: Liebig's Law maps to bottleneck analysis in systems engineering and critical-path scheduling; any engineer from capacity planning needs this connection -->
 **Liebig's Law of the Minimum** — growth rate of an organism is limited by the resource most scarce relative to requirement. Even if all others are abundant. Originally for crop nutrients (nitrogen, phosphorus, potassium) but applies broadly.
+
+This is bottleneck analysis applied to biology: the system throughput is determined by the single scarcest resource, regardless of excess elsewhere. Equivalent to Amdahl's Law for biological systems — optimizing non-bottleneck resources has zero effect until the true bottleneck is addressed. In practice: adding N fertilizer to a P-limited lake does nothing for algal growth. Adding water to a N-limited desert does nothing for plant growth. Identify the constraint first.
 
 ---
 
@@ -75,8 +76,9 @@ Ecology is the study of interactions between organisms and their environment. It
 
 ## The Niche Concept
 
-<!-- @editor[bridge/P2]: n-dimensional hypervolume = convex feasibility region in R^n; connect to constraint satisfaction or feasible solution spaces for MIT math background -->
 G. E. Hutchinson's (1957) fundamental niche: n-dimensional hypervolume in environmental space within which a species can persist. Realized niche = subset occupied given competition, predation.
+
+Formally: the fundamental niche is the feasible region in ℝⁿ defined by n inequality constraints (one per environmental variable). Each constraint is a range: species survives when temperature ∈ [T_min, T_max], humidity ∈ [H_min, H_max], etc. The intersection of all n constraint sets is the niche hypervolume — exactly a convex polytope in the n-dimensional parameter space if constraints are independent. The realized niche is the feasible region further reduced by biotic constraints (competition, predation) — a constraint satisfaction problem where abiotic constraints define the feasible region and biotic interactions carve out additional infeasible subsets.
 
 ```
 FUNDAMENTAL NICHE:
@@ -112,7 +114,30 @@ NICHE OVERLAP → COMPETITION
 
 ---
 
-<!-- @editor[structure/P1]: Missing Decision Cheat Sheet -- overview should have "which guide to read when" decision table mapping ecological questions to the right file -->
+## Decision Cheat Sheet — Which Guide to Read When
+
+| Your question | Guide | Core concept |
+|---------------|-------|-------------|
+| Why is this population growing / crashing? | 01-POPULATION-DYNAMICS | Exponential / logistic growth, r, K, λ |
+| Will predator-prey cycle? Can both species coexist? | 01-POPULATION-DYNAMICS | Lotka-Volterra, equilibrium stability |
+| Which age class should conservation target? | 01-POPULATION-DYNAMICS | Leslie matrix, sensitivity/elasticity analysis |
+| Why do some species coexist and others exclude each other? | 02-COMMUNITY-ECOLOGY | Competitive exclusion, coexistence theory, niche partitioning |
+| What happens when a top predator is removed? | 02-COMMUNITY-ECOLOGY | Trophic cascade, keystone species |
+| How much energy is available at trophic level 4? | 03-ECOSYSTEM-ENERGETICS | 10% rule: NPP × 10% × 10% × 10% |
+| Why is beef production energetically costly? | 03-ECOSYSTEM-ENERGETICS | Endotherm trophic efficiency (~5–10%); trophic level 2–2.5 |
+| Why is this lake turning green? | 04-BIOGEOCHEMICAL-CYCLES | Phosphorus-limited eutrophication |
+| What's the carbon balance of this ecosystem? | 04-BIOGEOCHEMICAL-CYCLES | GPP, NPP, NEP, NBP; carbon sink vs source |
+| Why is the ecosystem not recovering after disturbance stops? | 05-SUCCESSION-STABILITY | Regime shift, hysteresis, alternative stable states |
+| Why are there more species in the tropics? | 06-BIOGEOGRAPHY | Latitudinal diversity gradient; energy + time hypotheses |
+| How many species will be lost if I reduce habitat by 50%? | 06-BIOGEOGRAPHY | Species-area relationship: S = cA^z; z ≈ 0.25 |
+| Why is lake productivity seasonal? | 07-AQUATIC-ECOSYSTEMS | Thermal stratification, fall/spring overturn |
+| When does fire increase vs decrease biodiversity? | 08-DISTURBANCE-ECOLOGY | IDH; fire regime type; frequency × intensity |
+| How to prioritize which habitats to protect? | 09-CONSERVATION-BIOLOGY | Hotspots, complementarity, Marxan, gap analysis |
+
+**Use 01 when** the question is about a single species over time. **Use 02 when** the question involves species interactions. **Use 05 when** the question is about recovery after disturbance or why an ecosystem isn't returning to its prior state.
+
+---
+
 ## Common Confusion Points
 
 **Ecology ≠ environmentalism** — Ecology is the science of interactions between organisms and environments. Environmentalism is a value system/movement. Ecologists can study invasive species, pest control, agricultural systems — not just "natural" systems.

@@ -327,22 +327,108 @@ Greimas's most abstract contribution — a tool for mapping conceptual oppositio
   as underlying story grammar.
 ```
 
+The actantial model extends into two major contemporary domains:
+
+**Cognitive narratology** (Marie-Laure Ryan, David Herman): how readers
+build mental models of narrative worlds. The actantial model predicts
+which structural roles readers track automatically. Reader confusion
+often corresponds to actant ambiguity: when Subject and Opponent
+are unclear, narrative comprehension degrades. Applied to interactive
+fiction: the player's actant position (Subject? Helper?) must be established
+early or the game's narrative grammar fails to engage.
+
+**Interactive narrative and games**: the actantial model maps directly
+onto game design. The player-character is the Subject; the win-condition
+is the Object; NPCs are Helpers and Opponents; the game system is the
+Sender (sets the goal) and Receiver (evaluates completion). Game designers
+who understand the actantial model can diagnose narrative incoherence:
+if the game's "Sender" (the quest giver) and the player's intrinsic
+motivation conflict, the player feels railroaded. The modalities
+(wanting-to, able-to, knowing-how-to, having-to) map onto the player's
+motivational states and the game's skill/knowledge/permission gates.
+
 ---
 
 ## Decision Cheat Sheet
 
-| Concept | Definition |
-|---------|-----------|
-| Propp's functions | 31 narrative units in fixed sequential order in folk tales |
-| Propp's character roles | 7 functional roles (villain, donor, helper, princess, dispatcher, hero, false hero) |
-| Actant | Structural role in narrative grammar (not a character) — 6 actants |
-| Actantial model | Subject, Object, Sender, Receiver, Helper, Opponent |
-| Narrative program | Subject acquires or loses conjunction with Object |
-| Semiotic square | Map of S1/S2/not-S1/not-S2 relations for any binary opposition |
-| Canonical narrative schema | Manipulation → Competence → Performance → Sanction |
-| Modalities | Wanting-to, Having-to, Being-able-to, Knowing-how-to |
+| I'm asking... | Use this concept |
+|--------------|-----------------|
+| What structural roles does this narrative require? | Actantial model (6 actants: Subject, Object, Sender, Receiver, Helper, Opponent) |
+| What motivational forces drive the plot? | Modalities — wanting-to / having-to / being-able-to / knowing-how-to |
+| What is the deep narrative grammar of this story? | Canonical narrative schema: Manipulation → Competence → Performance → Sanction |
+| Is this narrative function in the right order? | Propp's 31 functions (for folk tale structure) — fixed sequence |
+| What is the logical structure of a binary opposition in this text? | Semiotic square — S1 / S2 / not-S1 / not-S2 with contrariety/contradiction/implication |
+| What is the minimal narrative unit — what does this subject do? | Narrative program: S1 → S2 ∩ O (subject acquires object) or S1 → S2 ∪ O (loses it) |
+| Why does this character feel confusing or contradictory? | Actant ≠ character — one character may fill multiple actant roles; check which actant slots they occupy |
 
 ---
+
+## Formal Systems Bridge
+
+```
+NARRATIVE SEMIOTICS ↔ AUTOMATA THEORY AND DESIGN PATTERNS
+
+PROPP'S FUNCTIONS ↔ DETERMINISTIC FINITE AUTOMATON:
+  Propp identifies 31 functions in fixed sequential order.
+  Not all functions appear in every tale, but those present
+  always appear in the same sequence.
+  Formal model: a DFA over an alphabet of 31 symbols.
+    States: positions in the narrative progress
+    Transitions: valid function sequences (Propp's ordering constraints)
+    Valid strings: the set of folk tales that conform to the morphology
+  The language of folk tales = the language recognized by this automaton.
+  This is precisely what Propp means by "morphology":
+  a generative formal system that produces valid narrative strings.
+
+ACTANTIAL MODEL ↔ DESIGN PATTERNS:
+  The actantial model assigns structural roles to narrative participants.
+  Each role maps to a design pattern:
+    Subject (pursues the Object)  → Client (makes requests)
+    Object (what is sought)       → Resource / Service (the goal)
+    Sender (establishes the goal) → Configurator / Factory (sets up the task)
+    Receiver (benefits from goal) → Consumer / Callback (receives the result)
+    Helper (assists Subject)      → Adapter / Facade (enables the Client)
+    Opponent (blocks the Subject) → Guard / Constraint / Rate Limiter
+
+  A distributed system narrative:
+    "The Client (Subject) requests data (Object) from the API (Sender),
+     helped by the cache (Helper), blocked by the rate limiter (Opponent),
+     for the user (Receiver)."
+  This is the actantial model applied to a service call.
+  Tracing the actants in an incident postmortem clarifies the
+  failure structure: which actant failed? (Helper = cache miss;
+  Opponent = unexpected load spike; etc.)
+
+NARRATIVE PROGRAM ↔ TYPED STATE TRANSITION:
+  Greimas's narrative program: S1 → S2 ∩ O
+  (Subject moves from state S1 to state S2 by acquiring conjunction
+  with Object O)
+  Formal model: a typed state transition in a state machine:
+    S1: initial state of Subject
+    O:  the resource/object being acquired
+    S2: state of Subject after acquisition
+    The transition is typed by the object being acquired.
+  NP(S, O) = type signature of the narrative action:
+    takes a Subject in state S1 and returns it in state S2 with O.
+  Anti-program: S1 → S2 ∪ O (disjunction — loss, dispossession)
+  Narrative conflict = an anti-program opposing the program:
+    two state machines with conflicting transitions running in parallel.
+
+MODALITIES ↔ PERMISSION AND CAPABILITY SYSTEMS:
+  Greimas's modalities describe what the Subject must have to act:
+    Wanting-to (vouloir-faire)   → motivation / goal present
+    Having-to (devoir-faire)     → obligation / constraint
+    Being-able-to (pouvoir-faire) → capability / permission granted
+    Knowing-how-to (savoir-faire) → knowledge / skill present
+  Access control in software:
+    Authentication → knowing-who-you-are (identity)
+    Authorization → being-able-to (permission)
+    Rate limiting → having-to-stop (devoir-ne-pas-faire)
+    Onboarding → knowing-how-to (training / documentation)
+  A narrative in which the hero has wanting + having-to + knowing-how
+  but lacks being-able-to = authorization failure.
+  Precisely the structure of a permission error in a distributed system.
+```
 
 ## Common Confusion Points
 

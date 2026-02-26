@@ -4,7 +4,53 @@
 
 Individual nutrients (vitamin C, omega-3, fiber) are studied in isolation, but people eat food, not nutrients — and foods combine into patterns that have synergistic, antagonistic, and emergent effects not predictable from components. The dietary patterns approach evaluates whole eating patterns against health outcomes, and is increasingly considered more robust evidence than single-nutrient intervention trials. The major lesson of 50 years of nutritional epidemiology: **the quality and source of foods matters more than individual macronutrient ratios**.
 
-<!-- @editor[diagram/P2]: Diagram is an evidence hierarchy (ranking), not a landscape showing how the guide's topics relate — rework to show Mediterranean / DASH / Blue Zones / vegan / TRE / UPF as nodes with shared principles at center and evidence strength as a dimension -->
+```
+DIETARY PATTERNS — LANDSCAPE + EVIDENCE MAP
+──────────────────────────────────────────────────────────────────────────────
+                        SHARED CORE PRINCIPLES
+             ┌──────────────────────────────────────────┐
+             │ High plants (veg/legume/whole grain/fruit) │
+             │ Minimal ultra-processed food              │
+             │ Adequate fiber (≥25–40g/day)              │
+             │ Healthy fat (olive oil, nuts, fatty fish)  │
+             │ Low added sugar + refined carbs           │
+             └──────────────┬───────────────────────────┘
+                            │ all evidence-based patterns share this core
+          ┌─────────────────┼────────────────────────┬──────────────────────┐
+          │                 │                        │                      │
+    Mediterranean         DASH                  Vegan/WFPB               TRE/IF
+    (pattern + EVOO)   (K⁺/Mg/Ca             (plants only)           (timing-based)
+    emphasis: EVOO,    physiology)            emphasis: whole          emphasis:
+    fish, nuts,        emphasis: fruits,      plant foods,             eating window,
+    legumes            vegetables, dairy,     B12/D/DHA                circadian
+                       grains, low Na         supplementation          alignment
+
+    Evidence:          Evidence:              Evidence:               Evidence:
+    PREDIMED RCT       Multiple RCTs          Large cohorts;          RCTs; mostly
+    NEJM 2013/2018     NEJM 1997              confounded by           caloric
+    HR 0.69-0.72       -8-12 mmHg SBP        healthy user            restriction
+    for MACE           effect equivalent      bias; WFPB ≠            as mechanism
+                       to antihypertensive    merely vegan
+    STRONGEST RCT      STRONGEST RCT          MODERATE                MODEST
+
+                                    Blue Zones
+                            (observational; confounders severe;
+                             data quality disputed; Newman 2019)
+                            WEAKEST causal inference; qualitative value
+
+    NEGATIVE EVIDENCE:
+    ┌─────────────────────────────────────────────────────────────────────┐
+    │ Ultra-Processed Food (NOVA 4)                                       │
+    │ Hall 2019 RCT: ad libitum UPF → +508 kcal/day vs unprocessed      │
+    │ Multiple cohorts: dose-response all-cause mortality, T2DM, CVD     │
+    │ Mechanism: hyperpalatable engineering + texture → satiety bypass    │
+    └─────────────────────────────────────────────────────────────────────┘
+
+    EVIDENCE-THIN (popular but insufficient RCT evidence):
+    Carnivore diet, Paleo diet, OMAD — see section below
+──────────────────────────────────────────────────────────────────────────────
+```
+
 ```
 DIETARY PATTERNS — EVIDENCE HIERARCHY:
 
@@ -368,7 +414,74 @@ LIMITATIONS OF NOVA:
 
 ---
 
-<!-- @editor[content/P2]: Paleo and carnivore diets absent — both are popular enough to warrant brief treatment with evidence assessment, even if the evidence is weak or contested -->
+## Paleo and Carnivore Diets
+
+```
+PALEO DIET
+──────────────────────────────────────────────────────────────────────────────
+PREMISE:
+  Eat foods consistent with pre-agricultural human diet:
+  meat, fish, eggs, vegetables, fruits, nuts, seeds
+  EXCLUDE: grains, legumes, dairy, refined sugar, processed foods, seed oils
+
+  Evolutionary argument: ~10,000 years of agriculture insufficient for full
+  genetic adaptation → mismatch hypothesis (Cordain, Boyd Eaton)
+
+NUTRITIONAL PROFILE:
+  High: protein (1.5–2.5x RDA), fat, fiber from vegetables/fruits, micronutrients
+  Low: calcium (no dairy), carbohydrate, legume-based fiber
+  B12: adequate (animal foods); D: variable; calcium: potential gap without dairy
+
+EVIDENCE:
+  RCTs exist but are small (n < 100); short-term (3–12 weeks)
+  Common findings:
+    Weight loss: ~2–5 kg in 6 months vs control diets (mostly caloric deficit)
+    Glycemia: improved fasting glucose; HbA1c reduction vs standard diet in T2DM
+    Lipids: mixed — TG often improved; LDL sometimes elevated (high saturated fat)
+    Blood pressure: modest reduction
+  QUALITY: no large long-term RCT; most trials have methodological limitations
+  Crossover with Mediterranean: both emphasize whole foods; overlap is large
+  Practical gap: expensive; excludes many nutrient-dense, affordable foods (legumes, dairy)
+
+COMMON CRITIQUE:
+  "Evolutionary eating" is not well-defined — pre-agricultural diets varied
+  enormously by geography; there is no single ancestral human diet
+  Legume and grain exclusion: removes some of the best-evidenced food groups
+  (Mediterranean legumes, whole grains) for unvalidated evolutionary reasons
+```
+
+```
+CARNIVORE DIET
+──────────────────────────────────────────────────────────────────────────────
+PREMISE:
+  All-animal-product diet: meat, fish, eggs, some dairy
+  Excludes ALL plant foods (vegetables, fruits, grains, legumes, nuts)
+  Extreme elimination diet sometimes used to identify food intolerances
+
+NUTRITIONAL PROFILE:
+  High: protein, saturated fat (especially if beef-heavy), B12, heme iron, zinc
+  Absent: fiber, vitamin C (if no organ meats), vitamin K1, magnesium, potassium,
+          phytonutrients, all plant-derived antioxidants
+  Carbohydrate: near zero (hepatic ketogenesis primary fuel pathway)
+
+EVIDENCE STATUS:
+  No RCTs. No controlled cohort studies.
+  Evidence base consists of: case reports, anecdotes, self-reported surveys
+  (Baker 2021 survey: n=2,029 self-selected carnivore dieters — not controlled)
+  Known risks: fiber absence → microbiome disruption, butyrate loss, CRC risk
+               vitamin C marginal (raw liver contains some; cooked meat low);
+               no scurvy in short-term because collagen synthesis requires less C
+               than commonly thought; long-term C status unknown
+  ApoB/LDL-C: commonly elevated in published cases; cardiovascular risk unknown
+  No long-term outcome data exists
+
+APPROPRIATE FRAMING:
+  Valid as short-term elimination diagnostic (identify food intolerances)
+  No evidence for long-term safety or health benefit
+  Evidence vacuum should be described honestly — it is not "proven safe"
+  Contraindicated: familial hypercholesterolemia (ApoB rise); CKD (high protein load)
+```
+
 ## Decision Cheat Sheet
 
 | Diet question | Evidence-based answer |

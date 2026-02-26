@@ -289,7 +289,16 @@ CRITIQUE:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to organizational theory missing — Stark/Finke's supply-side model is explicitly a market competition model (religious "firms," market share, product differentiation); Bellah's civil religion maps to corporate culture and its quasi-sacred rituals (all-hands, mission statements). A brief "economics/org-theory → religion" bridge would fit. -->
+## From Market Competition and Corporate Culture to Religion
+
+Two frameworks in this module translate directly into organizational and economic terms.
+
+**Stark and Finke's supply-side model is an industrial organization model of religion.** Religious denominations are firms competing for adherents in a market. Product differentiation (theological distinctiveness, worship style, community services) drives market segmentation. Market concentration (established state churches) produces the monopolist's pathology — complacency and declining quality — while competitive markets (the US with its First Amendment disestablishment) drive product innovation and higher religious participation. Iannaccone's "costly commitment" finding parallels the economic logic of credence goods: high entry costs signal quality and filter for committed consumers, creating the club-good dynamic that makes strict denominations more durable than liberal ones. This is not metaphor — Stark and Finke explicitly use industrial organization vocabulary.
+
+**Bellah's civil religion is the sociological theory of corporate culture as quasi-sacred system.** Every large organization generates the same structural components Bellah identifies in American civil religion: sacred founding narratives (the garage startup mythology; "we almost died in 2008 and came back"), sacred texts (Bezos's shareholder letters as scripture; the AWS leadership principles as commandments), rituals (all-hands meetings as collective effervescence; product launches as celebrations of the tribe), martyrs (founders who sacrificed), and a transcendent mission ("organize the world's information"; "connect the world"). These are not strategic communications choices — they are the natural output of Durkheimian solidarity-production in large organizations. Culture consultants who build these structures are doing applied civil religion.
+
+**Fundamentalism's emergence under threat maps to organizational conservatism under disruption.** The pattern Almond, Appleby, and Sivan identify — reactive, selective, absolutist, manichaean — is observable in technology organizations facing strategic disruption. When an incumbent technology organization faces an existential platform shift (mainframe → client-server → cloud; on-premises → SaaS), a characteristic defensive response combines: appeal to the sacred founding capability ("we are a systems company"), sharp us/them framing ("cloud-native companies don't understand enterprise"), and intensification of existing identity markers. The sociological framework predicts that the strength of the defensive response correlates with the perceived threat to the core identity, not with the actual strategic severity of the disruption.
+
 ## Decision Cheat Sheet
 
 | Question | Relevant theory |

@@ -276,19 +276,17 @@ The philosophical questions remain open even as capabilities scale.
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Cheat sheet is a lookup table — needs "if you want to understand X, start with Y" decision structure rather than concept definitions -->
-
-| Question | Key concept | See |
+| If you want to... | Start with | Because |
 |---|---|---|
-| What is the mind-body problem? | How mental events relate to physical events | 01-MIND-BODY-PROBLEM |
-| Why is functionalism important for AI? | Mental states = functional roles = multiply realizable in silicon | 02-FUNCTIONALISM |
-| What is the hard problem? | Why function gives rise to subjective experience | 03-HARD-PROBLEM |
-| Why doesn't passing a Turing test prove understanding? | Searle's Chinese Room — syntax ≠ semantics | 04-CHINESE-ROOM |
-| What are qualia? | The subjective, intrinsic character of experience | 05-QUALIA-PHENOMENOLOGY |
-| Is free will compatible with determinism? | Compatibilism says yes; most philosophers accept this | 06-FREE-WILL |
-| Does folk psychology (beliefs, desires) survive neuroscience? | Eliminativism says no; Dennett's stance: useful fiction | 07-ELIMINATIVISM |
-| Does embodiment matter for cognition? | Dreyfus/Clark/Chalmers: yes, possibly fundamentally | 08-EMBODIED-COGNITION |
-| Can AI be conscious? | Unresolved; functionalism says yes in principle | 09-AI-CONSCIOUSNESS |
+| Understand the historical arc from Descartes to Chalmers | 01-MIND-BODY-PROBLEM | Establishes why substance dualism failed and why the hard problem survived |
+| Understand why silicon minds are in principle possible | 02-FUNCTIONALISM | Multiple realizability argument is the foundation for AI consciousness debates |
+| Understand what no amount of neuroscience can explain | 03-HARD-PROBLEM | Chalmers' easy/hard distinction is the clearest framing of the residual explanatory gap |
+| Evaluate claims that LLMs "understand" or "don't understand" | 04-CHINESE-ROOM | Searle's argument and its responses frame the live debate about AI semantics |
+| Understand the Mary's Room argument and phenomenal knowledge | 05-QUALIA-PHENOMENOLOGY | Knowledge argument + inverted spectrum are the main attacks on functionalism |
+| Understand whether RLHF training undermines AI "autonomy" | 06-FREE-WILL | Frankfurt/Fischer framework directly applies to trained systems |
+| Know how to talk about LLM beliefs without overclaiming | 07-ELIMINATIVISM | Dennett's intentional stance gives the most defensible vocabulary |
+| Evaluate whether LLMs can have grounded understanding | 08-EMBODIED-COGNITION | Dreyfus/enactivism challenges; Moravec paradox explains LLM failure modes |
+| Assess specific AI consciousness claims with frameworks | 09-AI-CONSCIOUSNESS | IIT, GWT, hard problem applied directly to current AI architectures |
 
 ---
 

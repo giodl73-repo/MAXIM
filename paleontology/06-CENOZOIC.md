@@ -257,7 +257,33 @@ PLEISTOCENE EXTINCTION (~15,000–10,000 BP):
       New Zealand: moa extinct ~1300 AD → Maori arrived 1300 AD
     Climate change hypothesis: end-glacial rapid climate change → habitat loss
     Most likely: human hunting × climate vulnerability = synergistic collapse
-  SURVIVOR BIAS: Animals that evolved with humans (Africa, Asia) were wary; naive prey (Americas, Australia, N. Atlantic islands) were easy targets
+  SURVIVOR BIAS: Animals that evolved with humans (Africa, Asia) were wary;
+    naive prey (Americas, Australia, N. Atlantic islands) were easy targets
+
+  NAIVE PREY / SELECTION EFFECT FRAMING:
+    African megafauna: co-evolved with hominin hunters for ~2 million years
+      → Developed anti-predator behavior (wariness, group defense, range use)
+      → These behaviors are "learned" at the population level across generations
+      → 2 Myr of selection pressure = robust behavioral defenses
+
+    Americas/Australia megafauna: no prior hominin pressure
+      → Naive with respect to coordinated human hunting
+      → No fear response to upright bipeds; no herding anti-ambush behavior
+      → Analogous to: incumbent system with no threat model for a new attack vector
+
+    This is the same dynamic as security-naive incumbents meeting a novel threat:
+      African megafauna = security-aware legacy system (multiple threat models)
+      American megafauna = greenfield system with no threat model for this attack
+      Humans = novel threat (new attack surface: coordinated, ranged, persistent)
+      Overkill rate: mathematical models show hunting pressure 10–30× background
+        extinction rate sufficient to collapse naive populations within 1–10 kyr
+        (same speed as a supply-chain attack depleting an undefended network)
+
+    Key variable: behavioral learning speed vs. hunting rate
+      Selection can't keep up if hunting rate exceeds generational replacement
+      "Evolutionary trap": fitness landscape changes faster than population can adapt
+      Modern analog: antibiotic resistance in fast-reproducing bacteria vs.
+        megafauna with 10–30 year generation times (no time to adapt)
 ```
 
 ---
@@ -265,23 +291,55 @@ PLEISTOCENE EXTINCTION (~15,000–10,000 BP):
 ## Homo Evolution Through the Pleistocene
 
 ```
-HOMO EVOLUTION (brief):
+HOMO EVOLUTION:
   Homo erectus (~1.9 Ma–100,000 BP):
     First Homo to leave Africa (~1.8 Ma to Eurasia)
-    Acheulean tools: hand axe
-    Java Man, Peking Man: H. erectus variants
+    Acheulean tools: hand axe; used for ~1.5 Myr with minimal change ("cognitive stasis")
+    Java Man, Peking Man: H. erectus variants; possibly used fire ~1 Ma
+    Long temporal range: last surviving ~100,000 BP (Solo Man, Indonesia)
+
   Homo heidelbergensis (~600,000–200,000 BP):
-    Larger brain (~1200 cc); possible ancestor of Neanderthals + modern H. sapiens
+    Larger brain (~1200 cc); probable ancestor of both Neanderthals and H. sapiens
+    Hunted large game (Schöningen spears, ~300,000 BP — oldest wooden hunting weapons)
+
   Neanderthals (Homo neanderthalensis, 400,000–40,000 BP):
-    European + W. Asian; cold-adapted (compact body, large nose)
-    Brain as large or larger than modern humans (~1500 cc)
-    Mousterian tools; buried dead; ochre pigment use
-    Admixture: ~2% Neanderthal DNA in non-African modern humans
+    European + W. Asian; cold-adapted (compact body, large nasal passages)
+    Brain as large or larger than modern humans (~1500 cc; proportionally different)
+    Mousterian tools; buried dead with ochre (possible ritual); cared for injured
+    Admixture: ~2–4% Neanderthal DNA in non-African modern humans (interbreeding ~50,000 BP)
+
+  Homo floresiensis (~100,000–50,000 BP, Flores Island, Indonesia):
+    Body: ~1.1 m tall, ~30 kg; markedly small brain (~380 cc) despite making stone tools
+    ISLAND DWARFISM: isolated populations shrink over generations due to resource limits
+      Same mechanism: Pygmy mammoths on Channel Islands; dwarf elephants on Mediterranean islands
+      Selection pressure: smaller body = lower caloric requirement on resource-limited island
+    Coexisted briefly with modern Homo sapiens; extinction timing uncertain
+
+  Denisovans (~300,000–50,000 BP, Siberia and Asia):
+    Known primarily from ancient DNA extracted from a finger bone (Denisova Cave, 2010)
+    No skull or complete skeleton — an entire species defined by genome sequence
+    Admixture: 4–6% Denisovan DNA in Melanesians and Aboriginal Australians
+    HLAB gene introgression from Denisovans to modern Tibetans → high-altitude adaptation
+    (This is horizontal gene transfer at the population level: useful allele moves between
+    species via hybridization — same as lateral gene transfer in bacteria, but via sex)
+
   Homo sapiens (~300,000 BP – present):
-    Africa origin (Jebel Irhoud ~315,000 BP — earliest sapiens)
-    Out of Africa: 60,000–50,000 BP main dispersal
-    Cave art: ~45,000 BP (Sulawesi) to ~17,000 BP (Lascaux)
-    Agriculture: ~12,000 BP → Holocene civilization
+    Africa origin (Jebel Irhoud, Morocco, ~315,000 BP — earliest anatomically modern sapiens)
+    Out of Africa: ~60,000–50,000 BP main dispersal (earlier waves ~120,000 BP documented)
+    Multiregional vs. Out-of-Africa debate: RESOLVED in favor of OOA with regional admixture
+      → H. sapiens from Africa replaced archaic populations, but with low-level hybridization
+      → aDNA (ancient DNA) evidence decisive: archaic human DNA confirmed in modern genomes
+
+  COGNITIVE REVOLUTION (~70,000–40,000 BP):
+    Composite tools: multiple components (stone + wood + sinew) → complex manufacturing chain
+    Symbolic behavior: personal ornaments (shells, beads), ochre use for body decoration
+    Representational art: Sulawesi figurative art ~45,500 BP; Chauvet cave ~36,000 BP
+    Long-distance trade networks: obsidian and shells transported 300–800 km
+    Trigger debated: genetic mutation? social network threshold? environmental pressure?
+    Net effect: behavioral modernity → rapid global colonization and ecological dominance
+    CS analog: the cognitive revolution is a phase transition in information-processing
+      capacity — the same brain hardware, but new "software" (symbolic communication,
+      planning, cumulative culture) enabling qualitatively different capabilities
 ```
 
 ---

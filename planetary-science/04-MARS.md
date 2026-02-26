@@ -276,14 +276,17 @@ MARS SAMPLE RETURN ARCHITECTURE
     Jezero Crater: deltaic sediments, igneous rock, regolith
     Target: Noachian-Hesperian boundary materials; biosignature potential
 
-<!-- @editor[content/P2]: MSR Phase 2/3 timeline may be outdated — program under significant budget/schedule pressure as of 2024-25; NASA restructured architecture; verify current launch dates -->
-  PHASE 2: Sample Retrieval (planned ~2030s)
-    ESA Earth Return Orbiter + NASA Sample Retrieval Lander
-    Mars Ascent Vehicle (MAV): first rocket launch from another planet
-    Rendezvous in Mars orbit
+  PHASE 2: Sample Retrieval (architecture under revision as of 2024–25)
+    Original architecture: ESA Earth Return Orbiter + NASA Sample Retrieval
+    Lander with Mars Ascent Vehicle (MAV); rendezvous in Mars orbit
+    STATUS: NASA restructured MSR in 2024 due to cost overruns (~$10B+ estimate)
+    and schedule slip (original ~2033 Earth return now pushed well beyond 2035).
+    Multiple alternative architectures under study; program may involve commercial
+    partners or a simplified "fetch rover only" approach. ESA's Earth Return
+    Orbiter development continues. Launch dates were not confirmed as of early 2025.
 
-  PHASE 3: Return to Earth (~2033?)
-    Sample containment: Bio-safety concern (though Mars probably sterile)
+  PHASE 3: Return to Earth (date TBD — post-2035 likely under revised plans)
+    Sample containment: Biosafety Level 4 protocols required (precautionary)
     Earth Entry Vehicle delivers samples to Utah Test and Training Range
     Curation facility (similar to Apollo lunar samples, JSC)
 

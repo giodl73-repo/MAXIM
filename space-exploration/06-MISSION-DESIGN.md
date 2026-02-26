@@ -310,7 +310,14 @@ TYPICAL PLANETARY MISSION PHASES
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: mission lifecycle phases (A through F with gate reviews SRR/PDR/CDR/FRR) map directly onto software development lifecycle gates the learner built at VSTS (requirements review, design review, code complete, ship room); NASA phase reviews are the aerospace equivalent of stage gates -->
+## Engineering Parallels
+
+**Mission lifecycle gates as stage-gated development.** NASA's Phase A-F structure with SRR/SDR/PDR/CDR/FRR reviews is the aerospace equivalent of a structured SDLC with gate reviews. PDR (~30-40% design complete) corresponds to a design review where the architecture is committed but implementation is not; CDR (~60-80%) corresponds to code-complete review before integration. The review artifacts — interface control documents (ICDs), test plans, mass/power budgets — are the aerospace equivalent of API contracts, integration test suites, and capacity projections. The difference is that aerospace gate reviews are formal contractual commitments with government oversight, not internal process checkpoints.
+
+**Trajectory correction maneuvers as feedback control.** The navigation loop — measure position via DSN ranging/Doppler, compute trajectory error, execute a TCM — is a discrete-time feedback control system operating on a weeks-to-months time constant. The "plant" is the spacecraft's trajectory; the "sensor" is the DSN; the "actuator" is the thruster; the "controller" is the navigation team's orbit determination software. The phase margin is enormous (corrections are tiny), but the stakes are high: a 1 mm/s error at departure translates to thousands of km of positional error at Mars arrival without correction.
+
+**Gravity assist architecture as algorithm design under resource constraints.** Designing a multi-flyby trajectory (VEEGA for Cassini, or Parker Solar Probe's 7 Venus flybys) is a search problem over a sparse graph: which planets are in the right positions at the right times to provide the needed energy change? The "Tisserand criterion" is a conservation law that constrains which flyby sequences are even physically possible — analogous to an invariant that prunes the search space. Trajectory designers work backward from the destination constraints (arrival energy, approach geometry) to find feasible departure windows — the same dynamic programming structure used in optimal subproblem decomposition.
+
 ## Common Confusion Points
 
 **Gravity assists are not free forever**: You can't keep adding flybys to gain unlimited energy. Each flyby must take energy from the planet's orbital motion; the planet slows by an undetectable amount. More practically: trajectories with many gravity assists have very long flight times and specific geometry constraints.

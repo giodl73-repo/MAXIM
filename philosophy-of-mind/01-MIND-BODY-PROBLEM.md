@@ -365,20 +365,15 @@ THE STANDARD RESPONSE:
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Cheat sheet summarizes positions rather than guiding decisions — needs "if you encounter X argument, the relevant response is Y" structure -->
-
-| Position | Core claim | Key problem |
-|---|---|---|
-| Substance dualism (Descartes) | Mind and matter are distinct substances | Interaction problem |
-| Occasionalism (Malebranche) | God mediates all mind-body events | Requires constant divine intervention |
-| Pre-established harmony (Leibniz) | Mind and body synchronized, no interaction | Eliminates genuine causation |
-| Dual-aspect theory (Spinoza) | Mind and matter are aspects of one substance | How does "one substance" explain divergence? |
-| Category mistake view (Ryle) | "Mind" is a misdescription of behavior/disposition | Doesn't explain phenomenal experience |
-| Type identity theory (Place/Smart) | Pain = C-fiber firing | Multiple realizability objection |
-| Token identity (Davidson) | Each mental event = some physical event | Kim's causal exclusion problem |
-| Functionalism (Putnam) | Mental states defined by functional role | Chinese Room, absent qualia |
-| Property dualism (Chalmers) | Mental properties are non-physical | Hard problem still present |
-| Eliminative materialism (Churchland) | Mental states don't exist | Self-refutation worry |
+| If someone argues... | The relevant response is... |
+|---|---|
+| "Mind is completely separate from brain and can survive it" (substance dualism) | Princess Elizabeth's interaction problem: how does an unextended substance exert force on matter? The interaction mechanism can't be named without pushing the problem back. |
+| "Mental states are just C-fiber firing" (type identity) | Putnam's multiple realizability: octopus pain, Martian pain, silicon pain would all be different *things* if pain = one physical type. Mental kinds don't carve at the same joints as physical kinds. |
+| "But couldn't two systems have identical physical states but different mental states?" (anti-identity) | Token identity handles this — each mental event is *some* physical event, even if no type laws connect mental and physical vocabulary. |
+| "Okay, but then mental properties are causally inert" (epiphenomenalism worry) | Kim's causal exclusion is the right diagnosis. The functionalist response: mental properties just *are* certain functional/causal roles, so causal power comes with the role. Kim disputes this. |
+| "Descartes' category mistake dissolved the mind-body problem" (Ryle) | Ryle explains behavioral dispositions but not phenomenal experience. The category-mistake diagnosis applies to the Cartesian theater picture but leaves the hard problem untouched. |
+| "The hard problem means property dualism is true" (Chalmers) | Property dualism is one response; illusionism (Frankish) and phenomenal concepts strategy (Papineau) are physicalist alternatives that deny the inference from explanatory gap to ontological gap. |
+| "Neuroscience will eventually explain everything" | The easy/hard distinction: neuroscience can solve functional questions (what the brain does). The hard problem asks why those functions are accompanied by experience — a different kind of question, not answerable by more neural detail. |
 
 ---
 

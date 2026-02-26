@@ -27,7 +27,63 @@ Three signaling pathways — Wnt, Notch, and Hedgehog — are deployed repeatedl
 
 ---
 
-<!-- @editor[bridge/P2]: No CS/engineering bridge despite the strongest natural parallel in the series. The destruction complex is a "garbage collector with a kill switch" — constitutive degradation unless a signal intervenes. Notch lateral inhibition is a "leader election protocol" (one cell wins, neighbors are suppressed). Hedgehog via the primary cilium is "hardware-gated signal transduction." These analogies would crystallize the mechanics for a technical reader. -->
+## Engineering Bridges: Circuit Analogies for Three Core Pathways
+
+Each pathway has a structural analog in distributed systems or computational models.
+
+```
+  PATHWAY                       CS / SYSTEMS PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Wnt destruction complex       Garbage collector with a kill switch:
+  (APC/Axin/GSK3β/CK1)         β-catenin is constitutively tagged for
+                                ubiquitin-mediated degradation (mark → sweep).
+                                Wnt signal inhibits the destruction complex
+                                → β-catenin accumulates. The default state
+                                is "degrade"; signal is "pause GC." Exactly
+                                a GC pause triggered by an external event.
+                                APC tumor suppressor loss = GC permanently off
+                                → β-catenin accumulates → colorectal cancer.
+
+  Notch lateral inhibition      Distributed leader election protocol:
+  (Delta → suppress neighbors)  One cell stochastically upregulates Delta
+                                → signals to Notch on neighbors →
+                                suppresses their Delta → reinforces original
+                                cell's lead. Positive feedback locally,
+                                negative feedback to neighbors. No central
+                                coordinator; winner emerges from initial noise.
+                                Final state: one Delta-high cell surrounded
+                                by Notch-high cells — stable consensus.
+
+  Hedgehog via primary cilium   Hardware-gated signal transduction:
+  (signal requires cilia)       Smoothened (SMO) is sequestered in vesicles
+                                until Patched (PTCH) is disabled by Shh.
+                                The entire signaling cascade requires the
+                                primary cilium as a physical platform —
+                                no cilia → no Hh signaling, regardless of
+                                ligand. This is hardware-enforced access
+                                control: signal only processed if physical
+                                substrate present.
+
+  BMP "default allow"           Permit-unless-inhibited:
+  (neural induction)            Default ectoderm state = epidermis (BMP on).
+                                Organizer secretes Chordin → blocks BMP →
+                                neural fate by default. The neural pathway
+                                is enabled by inhibiting an inhibitor —
+                                double-negative logic. Most developmental
+                                "inductions" are really de-repressions.
+
+  Pathway reuse / context-      Multi-tenant execution environment:
+  dependence (Wnt in gut vs.    Same pathway; different cell type →
+  limb vs. hair follicle)       different transcription factor partners →
+                                different target genes → different outcomes.
+                                The pathway is the signal transduction
+                                machinery; the output depends on the
+                                receiving cell's "installed software."
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## Wnt/β-Catenin Pathway
 
 ```

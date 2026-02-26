@@ -330,14 +330,32 @@ CHECKPOINT BLOCKADE (cancer immunotherapy):
 | Viral vector | COVID-19 (AZ/J&J), Ebola (rVSV) | Antigen expression in cells → CD8 + CD4 + B | Strong CTL | Pre-existing vector immunity; adenoviral issues |
 | Toxoid | Tetanus, diphtheria | Antibody (neutralizing) | Excellent track record | Booster required |
 
-<!-- @editor[audience/P3]: Vaccine mRNA/LNP delivery and MHC I+II presentation detail may exceed what's needed for reference -- mechanism covered in T cell section above -->
 **Adjuvants**: enhance immunogenicity by triggering innate immunity (TLR agonists, alum, MF59)
 - Without adjuvant, soluble proteins are often tolerogenic
 - Alum: NLRP3 inflammasome activation → IL-1β → DC activation
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- innate = firewall + IDS (pattern matching, no memory), adaptive = ML-trained classifier (learns, remembers), MHC I = process attestation, MHC II = threat intelligence sharing, complement = automated incident response, tolerance = whitelisting -->
+## Engineering Bridges
+
+**Innate immunity as stateless firewall + IDS**
+Innate immune cells use PRRs (TLRs, NLRs, RIG-I) to match against a fixed pattern database of PAMPs — conserved molecular features of bacteria, viruses, and fungi that evolution has catalogued over millions of years. There is no learning between encounters: the same flagellin (TLR5 ligand) triggers the same response every time, whether it is the first infection or the thousandth. This is a stateless signature-based IDS: fast (minutes), coarse, no memory, high false-negative rate against novel pathogens.
+
+**Adaptive immunity as an online-trained ML classifier with persistent memory**
+The adaptive immune system generates an enormous random hypothesis space (~10⁷ unique TCR/BCR variants) through VDJ recombination, then trains on exposure. Clonal selection is gradient descent: clones with high binding affinity are amplified; low-affinity clones die. Affinity maturation (somatic hypermutation + selection in germinal centers) is iterative optimization: each generation of B cells mutates slightly, the best variants survive, and the process repeats until high-affinity antibodies emerge. Memory cells are cached models: retained after training, fast to load on re-exposure (1–3 day lag vs 5–7 days primary response), high-specificity inference.
+
+**MHC I as process attestation**
+Every nucleated cell displays peptides from its current intracellular protein inventory on MHC I — a continuous broadcast of "here is what I am currently synthesizing." CD8+ T cells patrol this broadcast and kill cells displaying non-self peptides (viral proteins, mutant tumor proteins). This is analogous to a trusted execution environment where each process must attest its current code state; cells that fail attestation (infected, transformed) are terminated. Downregulating MHC I (common viral immune evasion) triggers NK cell killing instead — the missing-self detection fallback.
+
+**MHC II as threat intelligence sharing**
+Professional APCs (DCs, macrophages, B cells) alone express MHC II. After ingesting pathogens, they display degraded fragments on MHC II to CD4+ helper T cells — effectively publishing detected threat signatures to the adaptive intelligence network. CD4+ T cells are the coordinators: they amplify cytotoxic responses (Th1), drive antibody production (Th2/TFH), recruit neutrophils (Th17), or suppress the response (Treg) based on the cytokine context of the APC. This is federated threat analysis: peripheral sensors collect data, a coordination layer (Th) distributes the appropriate response.
+
+**Complement as automated incident response**
+Complement is a plasma protein cascade that deploys without cellular involvement: pattern recognition (classical/lectin/alternative pathways) triggers a proteolytic cascade leading to opsonization (C3b tagging targets for phagocytosis), inflammation amplification (C3a/C5a anaphylatoxins recruit neutrophils), and direct lysis (MAC pore formation). This is automated incident response — no manual review required, fires faster than cellular adaptive responses, operates in the fluid phase without need to find a cell. Complement amplifies ~1,000-fold from C3 to C5 via the amplification loop.
+
+**Immune tolerance as whitelisting**
+Central tolerance (thymic deletion, bone marrow receptor editing) is compile-time whitelisting: self-reactive clones are eliminated before deployment. Peripheral tolerance (Treg suppression, anergy, PD-1/CTLA-4 checkpoints) is runtime ACL enforcement: self-reactive clones that escaped central deletion are held in check by active suppression. Autoimmune disease is whitelist failure: self-reactive clones escape both layers and attack host tissue. Cancer exploits the checkpoint layer: PD-L1 expression on tumor cells mimics normal self-tissue signals to evade CTL killing — checkpoint blockade removes this exploit.
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

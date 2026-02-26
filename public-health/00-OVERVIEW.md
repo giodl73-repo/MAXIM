@@ -169,7 +169,21 @@ See 10-HEALTH-METRICS.md for full methodology.
 | 09-PANDEMIC-RESPONSE | PHEIC; NPI evidence; supply chain; COVID-19 lessons |
 | 10-HEALTH-METRICS | DALY/QALY computation; standardization; GBD |
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel exists between public health surveillance/population risk and distributed systems monitoring/fleet-wide reliability, which this learner knows deeply -->
+## Systems Thinking Bridges
+
+Public health operates on populations as dynamical systems; the concepts map cleanly to systems engineering:
+
+| Public health concept | Systems / CS analogue |
+|---|---|
+| Surveillance system (sentinel + event-based) | Distributed telemetry pipeline: sentinel sites are sampling agents; syndromic surveillance is anomaly detection on aggregated signals; outbreak detection is a change-point algorithm on count time-series |
+| SIR/SEIR epidemic model | Compartmental dynamical system: dS/dt, dI/dt, dR/dt are coupled ODEs; R₀ = β/γ is the spectral radius of the transmission matrix; herd immunity threshold is 1 - 1/R₀, the critical fraction to vaccinate to drive the eigenvalue below 1 |
+| Incubation period distribution | Latency distribution in a queuing system: time from exposure to symptom onset follows a right-skewed distribution (log-normal or Weibull); the tail determines quarantine duration required to contain spread |
+| Herd immunity threshold | Network percolation threshold: above the threshold, an infection percolates to epidemic scale; below it, the outbreak self-extinguishes; derived from the same mathematics as connectivity thresholds in random graph theory |
+| Population attributable risk (PAR) | Counterfactual impact analysis: PAR = (risk_exposed × prevalence) / total risk = proportion of cases that would disappear if exposure were eliminated — the same counterfactual logic as "what fraction of failures are attributable to this dependency?" |
+| Contact tracing | Graph traversal with latency: enumerate the exposure graph from a seed case, prioritize by transmission potential and time-to-quarantine — BFS with exponential decay on the benefit of quarantine over time |
+| Health equity / social determinants | Structural confounding in observational studies: race and income are proxies for differential exposure, access, and biological mechanisms; treating disparities as confounders rather than mediators is a causal modeling choice that changes what interventions are appropriate |
+| Ecological study / aggregate-level inference | Multi-level modeling failure mode: ecological correlation (country-level fat intake vs. CVD) does not imply individual-level association (ecological fallacy = Simpson's paradox at the aggregation level) |
+
 ## Decision Cheat Sheet
 
 | If you need to... | Use module... |

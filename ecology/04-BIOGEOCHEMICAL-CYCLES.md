@@ -167,8 +167,9 @@ HUMAN INTERVENTIONS:
 
 **P as the ultimate limiting nutrient:** In many freshwater lakes, P is the primary limiting nutrient for algal growth (Schindler 1974: whole-lake experiments). Reducing P inputs = primary strategy for controlling eutrophication.
 
-<!-- @editor[bridge/P3]: Redfield ratio is a biological analog of mass-balance constraints; brief note connecting to industrial process stoichiometry would serve the learner -->
 **Ecological stoichiometry** — Redfield ratio (1934): marine phytoplankton have approximately constant C:N:P = 106:16:1 (by atoms). Deviations from this ratio indicate which element is limiting. Liebig's minimum applied to nutrient ratios.
+
+Mass-balance connection: the Redfield ratio is a biological stoichiometric constraint, directly analogous to process mass balances in chemical engineering. A stoichiometric equation has fixed atom ratios; a biological organism has fixed elemental composition demands. If the environment supplies N:P at a ratio far above 16:1, phosphorus is limiting (excess N is unused). If far below 16:1, nitrogen is limiting. Monitoring the N:P ratio of inflowing water relative to Redfield 16:1 immediately identifies which element will limit phytoplankton growth — the same logic as checking limiting reagent in a chemical reaction.
 
 ---
 

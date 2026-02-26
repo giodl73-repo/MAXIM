@@ -320,8 +320,56 @@ GWAS: CONNECTING VARIANTS TO TRAITS AT POPULATION SCALE
 
 ---
 
+## GWAS as Large-Scale A/B Testing and Feature Selection
+
+```
+GWAS ↔ A/B TESTING + FEATURE SELECTION
+──────────────────────────────────────────────────────────────────────────────
+GWAS IS A MASSIVELY PARALLEL A/B TEST:
+
+  Classic A/B test: one treatment, two groups, one metric, one p-value
+  GWAS: 5,000,000 "treatments" (alleles), two groups (cases/controls),
+        one metric per allele (trait), 5,000,000 p-values
+
+  Multiple-testing correction:
+    A/B testing: Bonferroni or BH-FDR across variants
+    GWAS: p < 5×10⁻⁸ (Bonferroni for ~1M independent tests)
+    Same principle: threshold must scale with number of tests
+
+  Statistical power:
+    A/B: power from sample size × effect size
+    GWAS: same — rare variants need larger N; small effects need larger N
+    Meta-analysis = pooling A/B test results across cohorts (METAL = forest plot at scale)
+
+PRS ↔ FEATURE IMPORTANCE AGGREGATION:
+
+  Random forest / XGBoost: feature importance = how much each feature
+    (SNP) predicts the target (disease)
+  PRS = weighted sum of all SNP contributions to a continuous risk score
+  β_i in GWAS = effect size = analogous to feature weight in a linear model
+
+  GWAS → PRS pipeline is exactly supervised learning:
+    Training set: GWAS on discovery cohort
+    Model: linear combination of SNP dosages × effect sizes
+    Regularization: LDpred2 applies Bayesian shrinkage (like ridge regression
+      on correlated features) to handle LD = feature correlation
+    Validation: evaluate PRS in held-out cohort (AUC, calibration)
+    Generalization problem: PRS trained on European ancestry → poor transfer
+      to African ancestry = domain shift in transfer learning
+
+MENDELIAN RANDOMIZATION ↔ INSTRUMENTAL VARIABLE REGRESSION:
+
+  IV regression: use an exogenous instrument Z to estimate causal effect
+    of X on Y when X is confounded
+  MR: genetic variant Z (randomly assigned at conception) → instruments
+    for exposure X (LDL) → estimates causal effect on outcome Y (CHD)
+  Assumption violation (pleiotropy) = IV invalidity (instrument affects Y
+    through pathways other than X)
+  Sensitivity analyses (MR-Egger, MR-PRESSO) = IV validity tests
+──────────────────────────────────────────────────────────────────────────────
+```
+
 ## Common Confusion Points
-<!-- @editor[bridge/P3]: Natural bridge to telemetry/A-B testing -- GWAS is essentially a massively parallel A/B test across millions of SNPs with strict multiple-testing correction; PRS parallels feature importance aggregation in ML models -->
 
 **GWAS hits are rarely in coding regions**: ~90% of GWAS hits fall in non-coding regions (introns, intergenic). This is because most causal variants affect gene regulation (enhancers, promoters), not protein sequence. This is why ENCODE/epigenomics is critical for GWAS interpretation.
 

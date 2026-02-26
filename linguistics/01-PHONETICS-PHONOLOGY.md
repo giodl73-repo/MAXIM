@@ -257,7 +257,57 @@ English has one of the more complex syllable structures in the world.
 
 ---
 
-<!-- @editor[bridge/P2]: No encoding/signal-processing → phonetics bridge — any engineer coming from signal theory would benefit from a formant-as-frequency, spectrogram-as-FFT connection -->
+## The Signal-Processing Bridge
+
+Phonetics is signal processing applied to speech. If you have worked with FFTs, spectrograms, or channel coding, the acoustic layer maps directly:
+
+```
+SIGNAL PROCESSING            ACOUSTIC PHONETICS
+-----------------            ------------------
+Time-domain waveform         The raw pressure wave recorded by a microphone.
+                             Periodicity = voicing; aperiodic noise = fricatives;
+                             silence + burst = plosives.
+
+FFT / power spectrum         Spectrogram: frequency (Y) × time (X) × amplitude
+at a time slice              (darkness). Each vertical slice IS an FFT snapshot.
+
+Formants F1, F2, F3          The resonant frequencies of the vocal tract — peaks
+                             in the power spectrum. F1 and F2 define vowel quality
+                             (F1 ≈ tongue height inverse; F2 ≈ tongue backness).
+                             "i" = low F1 + high F2. "u" = low F1 + low F2.
+                             "a" = high F1. These are acoustic poles of the
+                             vocal-tract transfer function.
+
+Filter / source separation   Source-filter model: the glottis is a pulse source
+                             (periodic for voiced, aperiodic for whisper), the
+                             vocal tract is a time-varying filter shaping the
+                             spectral envelope. Changing tongue/lip position =
+                             changing filter coefficients in real time.
+
+Bandwidth / Q factor         Formant bandwidth: narrow = clear vowel;
+                             wide = nasal or murmured quality.
+
+Zero-crossing rate,          VOT (Voice Onset Time): the interval between
+onset transient              the burst of a stop and the onset of voicing.
+                             English [p] VOT ≈ +60ms (voiceless aspirated);
+                             [b] VOT ≈ 0 to +10ms (voiced / short lag);
+                             Hindi [bʱ] VOT < 0ms (pre-voiced).
+                             VOT is the feature that distinguishes [p b pʰ bʱ] —
+                             it is a timing parameter, not a categorical binary.
+
+Signal-to-noise separation   Phoneme/allophone distinction: the phonemic
+                             "signal" (contrastive) vs. allophonic "noise"
+                             (predictable, non-contrastive variation).
+                             Complementary distribution = exhaustive partition
+                             of phonological contexts.
+```
+
+**The phoneme as discrete symbol:** Phonology treats the continuous acoustic signal as a sequence of discrete symbols (phonemes). This is lossy quantization — much the same as sampling continuous audio at discrete levels. The phonemes are the codebook; allophones are quantization cells; minimal pairs probe the decision boundaries.
+
+**Categorical perception:** Humans perceive speech sounds categorically — not continuously. There is a sharp perceptual boundary between [b] and [p] even though the acoustic VOT cue is graded. This is the perceptual equivalent of a hard threshold in a classification boundary, and it is tuned by language exposure (Japanese listeners have the boundary in a different location for [r]/[l] than English listeners).
+
+---
+
 ## Part VI: Phonological Rules
 
 Phonological rules operate on underlying representations (URs) to produce surface representations (SRs).

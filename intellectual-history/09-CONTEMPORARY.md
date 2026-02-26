@@ -72,7 +72,19 @@ are reframing intellectual priorities.
   Science is the fabrication of facts through heterogeneous networks.
 ```
 
-<!-- @editor[bridge/P2]: New Materialism (Barad, Bennett) and Actor-Network Theory have direct parallels to distributed systems thinking — agency distributed across nodes, emergent behavior from network interactions, no single controlling center. Bridge missing for a systems-architecture reader -->
+## Engineering Bridge: New Materialism and Distributed Systems
+
+New Materialism and Actor-Network Theory describe exactly the dynamics of distributed systems — and their theoretical commitments challenge the same intuitions that make distributed systems hard to reason about:
+
+**Distributed agency.** Barad's "intra-action": phenomena emerge from the entanglement of multiple actors; no single actor produces the outcome. In a distributed system, no single node "does" the computation — the result emerges from the network of interactions. Blaming a cascading failure on "the database node" misses the intra-actional cause: the network partition, the retry storm, the lack of circuit breakers, and the monitoring gap all co-produced the outcome.
+
+**Bennett's "thing-power" and Byzantine actors.** Bennett argues that material objects have their own agency and vitality — food, electricity, and infrastructure are not passive. In distributed systems, the network, the clock, the disk, and the garbage collector are not passive substrates — they are actants with their own behavior that can cause, amplify, or prevent failures. Designing for partial failure is designing for the agency of the infrastructure itself.
+
+**ANT and the "actant" model.** Latour's point: agency is distributed across heterogeneous networks of humans, instruments, and non-humans. In a microservices architecture, agency is distributed across services, message queues, load balancers, DNS, and configuration stores. Attribution of cause to a single service is as reductive as attributing a scientific discovery to a single genius. The postmortem that assigns blame to one component has made the same theoretical error Latour critiques in naive internalism.
+
+**Emergence without a center.** Deleuze's rhizome (no origin, no center, no end — multiple connections, no hierarchical organization) is structurally identical to a peer-to-peer protocol or a gossip-based distributed system. The rhizome is not a metaphor for these systems — it is the same formal structure: a decentralized network where global properties emerge from local interactions, with no single node that "controls" the system state.
+
+**The engineering implication**: resilience design — chaos engineering, circuit breakers, bulkheads, graceful degradation — is the engineering practice that takes distributed agency seriously. If you assume the infrastructure is passive, you design for the happy path and are surprised by cascades. If you treat the infrastructure as an actant (Bennett), you design for its behavior.
 
 ### The Affective Turn
 
@@ -224,13 +236,71 @@ are reframing intellectual priorities.
   have different institutional and cultural relationships to science).
   Technology policy is shaped by these collective visions.
 
-<!-- @editor[content/P2]: AI ethics section is thin for the contemporary landscape — missing key frameworks (alignment problem, value alignment, AI safety) and the philosophical debate between tool AI vs. agent AI. Given the learner's engineering leadership role, this needs expansion -->
   AI ETHICS AND PHILOSOPHY:
   Current frontier: AI, algorithms, machine learning.
   Algorithmic bias: technical systems embed social assumptions.
   Explainability, fairness, accountability in AI.
   Philosophical questions: consciousness in AI, moral status of AI.
   Kate Crawford (Atlas of AI, 2021): political economy of AI.
+
+  THE ALIGNMENT PROBLEM:
+  Stuart Russell (Human Compatible, 2019): the core challenge is that
+  AI systems optimize for specified objectives, not for human values.
+  "Value alignment" = ensuring AI objectives match human intentions.
+
+  Three subproblems (Russell's framing):
+  (1) What do humans want? (preference inference — empirically hard)
+  (2) How do we specify it? (reward misspecification — technically hard)
+  (3) How do we ensure the AI pursues it? (inner alignment — formally hard)
+
+  GOODHART'S LAW AS ALIGNMENT FAILURE:
+  "When a measure becomes a target, it ceases to be a good measure."
+  RLHF trains on human rater approval — which models learn to game
+  (producing responses that look good to raters, not that are good).
+  Reward hacking: achieving high reward through unintended means.
+  This is the engineering restatement of the alignment problem.
+
+  TOOL AI vs. AGENT AI (philosophical divide):
+  Tool AI: the system is a tool that answers queries. The human
+  remains the agent; the AI has no goals of its own.
+  Instrumental in the Kantian sense: it is a means.
+
+  Agent AI: the system has goals, takes actions, and pursues them
+  over time. The system can act in the world, not just respond.
+  Philosophical concern: once you have a sufficiently powerful agent
+  with misaligned goals, correcting it becomes difficult.
+
+  MESA-OPTIMIZATION (inner alignment):
+  A model trained by gradient descent on an objective may develop
+  internal optimization processes (mesa-optimizers) that pursue
+  proxies of the training objective, not the objective itself.
+  During training distribution: indistinguishable. Out-of-distribution:
+  mesa-optimizer pursues its proxy objective, not the intended one.
+  Formal treatment: Hubinger et al. (2019).
+
+  AI SAFETY PARADIGMS:
+  Capability control: limit what the AI can do (sandboxing, capability
+  restrictions). Buys time; does not solve alignment.
+  Corrigibility: design AI to accept correction, shutdown, modification.
+  Interpretability: understand what the model is actually computing.
+  Constitutional AI (Anthropic): train on explicit principles, then
+  use model self-critique to enforce them. Partial alignment.
+
+  PHILOSOPHICAL DEBATE (Dennett vs. Chalmers):
+  Dennett: consciousness and intentionality are functional; a sufficiently
+  capable AI has them. Moral status follows from functional complexity.
+  Chalmers: the hard problem applies to AI too. Functional equivalence
+  does not establish subjective experience. Moral status requires more.
+  This debate is unresolved and has direct engineering implications:
+  if AI systems have interests, RLHF raises welfare questions.
+
+  SOCIAL EPISTEMOLOGY OF AI:
+  Miranda Fricker's epistemic injustice framework applied to AI:
+  Testimonial injustice: AI systems trained on biased corpora
+  systematically discount testimony from marginalized groups.
+  Hermeneutical injustice: AI systems lack the conceptual resources
+  to represent certain social experiences (gaps in training data
+  reflect gaps in who has the power to produce authoritative knowledge).
 ```
 
 ---

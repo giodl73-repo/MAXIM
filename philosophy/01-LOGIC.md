@@ -347,7 +347,6 @@ COMMON MISUNDERSTANDINGS:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to .NET/Azure: Z3 is a Microsoft Research project — worth a one-liner noting the connection when SMT solvers appear -->
 ## 6. Automated Reasoning
 
 ```
@@ -363,7 +362,10 @@ SAT SOLVERS:
   CDCL (Conflict-Driven Clause Learning): DPLL + clause learning from conflicts
     State-of-the-art; solves millions-variable SAT in practice
   SMT (Satisfiability Modulo Theories): SAT + background theories (linear arithmetic, arrays, bitvectors)
-    Z3 (Microsoft), CVC5, Yices: used in program verification, symbolic execution
+    Z3 (Microsoft Research, de Moura & Bjørner 2008): dominant SMT solver; used in program
+      verification, symbolic execution, type checking, and security analysis across industry.
+      Used in: SAGE (Microsoft's whitebox fuzzer), Dafny, Boogie, Azure SDK verification.
+      CVC5, Yices: alternatives with different theory support trade-offs.
 
 FIRST-ORDER THEOREM PROVERS:
   Resolution-based: Vampire, E, Prover9
@@ -380,7 +382,74 @@ PROOF ASSISTANTS vs AUTOMATED PROVERS:
 
 ---
 
-<!-- @editor[content/P2]: Description logics (OWL) listed in landscape diagram and cheat sheet but not covered in any section — significant gap for knowledge-graph/semantic-web context -->
+## 7. Description Logics and the Semantic Web
+
+```
+DESCRIPTION LOGICS (DL): tractable fragments of FOL optimized for knowledge representation.
+  Core operators: concept constructors over a domain of individuals.
+    Concepts (classes): sets of individuals. C, D, ...
+    Roles (properties): binary relations between individuals. r, s, ...
+    Individuals: specific named objects. a, b, ...
+
+  ALC (Attributive Language with Complement) — the baseline DL:
+    Concept intersection: C ⊓ D (and)
+    Concept union: C ⊔ D (or)
+    Complement: ¬C (not)
+    Existential restriction: ∃r.C (has some r-filler in C)
+    Universal restriction: ∀r.C (all r-fillers are in C)
+
+  SROIQ — the logic underlying OWL 2 DL:
+    Adds: role chains (r ∘ s ⊑ t), inverse roles (r⁻), nominals ({a}),
+    concrete domains (integers, strings), cardinality restrictions.
+
+COMPLEXITY TRADE-OFFS:
+  ┌─────────────────┬──────────────────────────────┬────────────────┐
+  │ DL Fragment     │ Reasoning (TBox)             │ OWL Profile    │
+  ├─────────────────┼──────────────────────────────┼────────────────┤
+  │ ALC             │ EXPTIME-complete              │ —              │
+  │ EL              │ Polynomial (tractable)        │ OWL 2 EL       │
+  │ DL-Lite         │ NLogSpace (tractable)         │ OWL 2 QL       │
+  │ SROIQ           │ N2EXPTIME-complete            │ OWL 2 DL       │
+  └─────────────────┴──────────────────────────────┴────────────────┘
+  OWL 2 EL: chosen for large biomedical ontologies (SNOMED CT, Gene Ontology)
+    where tractability > expressiveness.
+  OWL 2 QL: designed for query answering over relational databases (SPARQL ↔ SQL).
+  OWL 2 DL: full expressiveness; decidable but expensive.
+
+THE SEMANTIC WEB STACK:
+  RDF (Resource Description Framework): triple store — subject-predicate-object.
+    (ex:Paris, ex:isCapitalOf, ex:France)
+    Graph data model; each triple is an edge.
+  RDFS (RDF Schema): basic ontology (subClassOf, subPropertyOf, domain, range).
+  OWL (Web Ontology Language): full DL-based ontology; built on RDF triples.
+  SPARQL: query language for RDF graphs (like SQL for triples).
+    SELECT ?capital WHERE { ?capital ex:isCapitalOf ex:France }
+
+OWL REASONING (INFERENCE):
+  Given an OWL ontology (TBox = schema; ABox = instance data):
+    Classification: compute the subsumption hierarchy.
+    Realization: determine which classes each individual belongs to.
+    Consistency checking: detect contradictions.
+    Query answering: answer SPARQL queries using inferred knowledge.
+  Reasoners: HermiT, Pellet, Fact++, ELK (OWL 2 EL only).
+
+KNOWLEDGE GRAPHS (practical deployment):
+  Wikidata, DBpedia, Google Knowledge Graph: RDF-based.
+  Schema.org: lightweight vocabulary for web markup.
+  Enterprise KGs (Microsoft Academic, LinkedIn Graph): blend DL ontologies
+    with probabilistic assertions and property graphs.
+  Property graphs (Neo4j, Amazon Neptune): not RDF; better for traversal
+    queries; weaker formal semantics than OWL.
+
+RELATION TO FOL:
+  DL ontology ≡ a decidable fragment of FOL over unary predicates (classes)
+  and binary predicates (roles). The decision to restrict expressiveness is
+  exactly the decidability/tractability trade-off. Compare: SQL restricts
+  first-order expressiveness (no recursion in standard SQL) to guarantee
+  query optimization; OWL DL profiles restrict FOL to guarantee decidable
+  classification.
+```
+
 ## Decision Cheat Sheet
 
 | Logic | Key Feature | Application |

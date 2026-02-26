@@ -1,4 +1,3 @@
-<!-- @editor[bridge/P3]: No CS/engineering analogy bridge — infection susceptibility pattern parallels fault-tree analysis (symptom pattern identifies which subsystem is down); HIV latent reservoir parallels a rootkit persisting in firmware that the OS cannot reach -->
 # Immunodeficiency and Immune Failure
 
 ## The Big Picture
@@ -375,6 +374,102 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
 | Very late onset poor vaccine response | Immunosenescence | Age-related |
 
 ---
+
+## Immunodeficiency as Fault-Tree Analysis and Rootkit Persistence
+
+```
+INFECTION SUSCEPTIBILITY PATTERN ↔ FAULT-TREE ANALYSIS
+──────────────────────────────────────────────────────────────────────────────
+PRINCIPLE:
+  Infection susceptibility pattern = symptom fingerprint that localizes which
+  immune subsystem is down.
+
+  The immune system has four major layers:
+  [Antibody] → [Complement] → [Phagocytes] → [T cells]
+  Each layer covers different pathogen classes.
+  Failure of layer X → recurrent infections in class X's coverage zone.
+
+FAULT-TREE MAP:
+  ┌───────────────────────────────────────────────────────────────────────┐
+  │ Infection type          → Subsystem down    → Primary defect         │
+  ├───────────────────────────────────────────────────────────────────────┤
+  │ Encapsulated bacteria   → Antibody layer    → XLA, CVID, hyper-IgM  │
+  │ (S. pneumo, H. flu,     (opsonization       BTK, IGHM mutations      │
+  │ N. meningitidis)        required)                                      │
+  ├───────────────────────────────────────────────────────────────────────┤
+  │ Recurrent Neisseria     → Complement C5–9   → Terminal complement    │
+  │ (bacteremia, meningitis) (MAC required for  deficiency               │
+  │                          Neisseria killing)                           │
+  ├───────────────────────────────────────────────────────────────────────┤
+  │ Catalase+ bacteria      → Phagocyte burst   → CGD (NADPH oxidase)   │
+  │ (Staph, Aspergillus,    (ROS needed to                               │
+  │ Burkholderia)            kill post-phagocyte)                         │
+  ├───────────────────────────────────────────────────────────────────────┤
+  │ Infection sites w/o pus → Neutrophil traffic → LAD (CD18/integrin)  │
+  │ (wounds don't heal,      (neutrophils can't  Neutrophilia in blood   │
+  │ delayed cord separation) reach tissue)       = diagnostic giveaway   │
+  ├───────────────────────────────────────────────────────────────────────┤
+  │ PCP, CMV, Candida,       → T cell layer     → SCID, HIV/AIDS,       │
+  │ Mycobacteria, Crypto     (intracellular      DiGeorge, CD40L         │
+  │ (opportunistic spectrum) killing requires    deficiency              │
+  │                          T cell help)                                 │
+  └───────────────────────────────────────────────────────────────────────┘
+
+  CLINICAL USE: Like fault-tree analysis in reliability engineering —
+  the pattern of failures identifies which component is missing without
+  needing to inspect every component directly.
+
+  KEY ASYMMETRY: XLA patients (no B cells) are NOT susceptible to
+  intracellular organisms (T cells intact) — the fault is only in the
+  antibody-dependent pathogen coverage zone.
+
+HIV LATENT RESERVOIR ↔ ROOTKIT IN FIRMWARE / RING-0
+──────────────────────────────────────────────────────────────────────────────
+THE PROBLEM:
+  ART (antiretroviral therapy) suppresses HIV to <50 copies/mL (undetectable)
+  Immune system recovers. Viral production stops.
+  If ART is stopped: HIV rebounds within 2–4 weeks.
+
+WHERE IS IT HIDING?
+  HIV integrates as proviral DNA into the genome of resting memory CD4 T cells.
+  Resting memory T cells:
+    - Do not transcribe HIV (provirus is transcriptionally silent)
+    - Express no viral proteins → invisible to cytotoxic T cells
+    - Have half-lives of YEARS to DECADES (>40-year half-life for latent pool)
+
+ROOTKIT ANALOGY:
+  ART = runtime malware detection (removes active processes, blocks replication)
+  Latent reservoir = rootkit in firmware:
+    - Below the OS (immune system) detection threshold
+    - Not active during normal operation → no signature to detect
+    - Survives OS reinstalls (ART cessation) and re-emerges on next boot
+
+  PERSISTENCE MECHANISM:
+  Homeostatic proliferation: Memory T cells divide slowly to maintain pool size
+  When they divide → daughter cells inherit the integrated HIV genome
+  → Reservoir self-renews without any HIV replication (ART doesn't block this)
+  = Rootkit that copies itself when the host page-faults into memory manager
+
+CURE ATTEMPTS = FIRMWARE REMEDIATION:
+  "Shock and kill": Activate latent reservoir (latency-reversing agents)
+    then immune system kills exposed cells
+    → Problem: not all latent cells activate simultaneously; cytotoxicity incomplete
+    → Analogous to: trigger all rootkit dormant code, then AV scans — partial
+
+  "Block and lock": Make latent cells permanently silent — accept persistence,
+    prevent reactivation → analogous to: sandbox the firmware in read-only memory
+
+  Berlin Patient (Timothy Ray Brown, 2009):
+    Allogeneic HSCT from donor homozygous for CCR5Δ32 (deletion of HIV co-receptor)
+    → Essentially: replace the OS on firmware that removes the rootkit's entry vector
+    → CCR5-deficient T cells cannot be infected by CCR5-tropic HIV
+    → Functionally cured (HIV DNA undetectable 12+ years later)
+
+  CRISPR approach: Excise integrated proviral DNA from genome
+    = Direct firmware rewrite to remove rootkit code
+    → Technical challenge: efficiency across all latently infected cells (billions)
+──────────────────────────────────────────────────────────────────────────────
+```
 
 ## Common Confusion Points
 

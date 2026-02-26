@@ -26,8 +26,7 @@
 +-----------------------------------------------------------------------+
 ```
 
-<!-- @editor[bridge/P3]: Natural bridge to interface-based design (C#/Java) — functionalism is the philosophy equivalent of "program to the interface, not the implementation"; worth making explicit -->
-Functionalism is the natural philosophy for a software engineer. The analogy to software is almost exact: mental states are like programs — the same program can run on different hardware. This is the dominant view in philosophy of mind and cognitive science, and it has direct consequences for AI.
+Functionalism is the natural philosophy of mind for anyone with a formal CS background. The isomorphism to interface-based design is nearly exact: "program to the interface, not the implementation" is functionalism applied to software. A method defined by its contract (inputs, outputs, side effects, invariants) is a functional state — it is realized differently by different implementations, but the contract is what matters for correct composition with other components. Multiple realizability in philosophy maps directly to polymorphism in type theory: the same behavioral type can be instantiated in different physical types, and programs that depend only on the interface work correctly regardless of which concrete type they get. The hard problem is the question of whether there is something about executing a method that is not captured by its contract — something that the specification cannot encode.
 
 ---
 
@@ -317,18 +316,14 @@ DENNETT'S POSITION:
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "use functionalism when Y, but beware Z" action-oriented rows -->
-
-| Concept | Definition | Implication |
-|---|---|---|
-| Functionalism | Mental states = functional roles, not physical states | Silicon minds are in principle possible |
-| Multiple realizability | Same mental state can be in different physical substrates | Undermines type identity theory |
-| Machine-state functionalism | Turing machine model of mind | Direct analogy to software |
-| Language of Thought | Mental processes = computations over representations | Supports computational cognitive science |
-| Liberalism problem | Functionalism attributes minds too liberally | Nation of China thought experiment |
-| Chauvinism problem | Functionalism may deny minds to alien creatures | Functional organization may be too restrictive |
-| Systems Reply | Understanding is a system property, not sub-component | Response to Chinese Room |
-| Strong AI | Correct program = genuine mental states | Functionalism entails this |
+| Use functionalism when... | But beware... |
+|---|---|
+| Arguing that silicon systems can in principle have mental states | Block's liberalism: functionalism as stated attributes mentality too broadly — the Nation of China thought experiment has the same functional organization as a brain but no obvious mentality |
+| Explaining why neuron-by-neuron substrate doesn't determine mental type | Block's chauvinism: a creature with radically different functional organization might have genuine mental states that functionalism would deny |
+| Applying the Systems Reply to Chinese Room arguments | Searle's internalization counter: after memorizing the whole rulebook, the whole system is inside you, and you still don't understand Chinese — the systems reply hasn't settled the debate |
+| Claiming LLM behavior is sufficient for mental states | Putnam's late retraction: he later doubted functionalism is true — human cognition may require specific causal-historical connections to the world, not just abstract functional organization |
+| Defending the possibility of strong AI | The hard problem: even if the functional organization is right, functionalism doesn't entail phenomenal consciousness — Chalmers accepts functionalism's multiple realizability argument but denies that function alone explains experience |
+| Using machine-state functionalism as a formal model | The Turing machine model is clean but underspecified: "same transition table" is not obviously the right criterion for psychological equivalence — which level of description counts as the relevant functional organization? |
 
 ---
 

@@ -355,7 +355,20 @@ generated major controversies, and remains an active field now transformed by di
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: counterfactual analysis is hypothesis testing (the learner knows this from experimental design); IV and RD are standard causal inference techniques the learner would recognize from data science; path dependence maps directly to technical debt and lock-in in software architecture -->
+## Engineering Bridge: Causal Inference and Path Dependence
+
+Quantitative history's methods are not a separate domain — they are the same causal inference toolkit used in product analytics, A/B testing, and data science, applied to observational historical data where randomization is impossible:
+
+**Counterfactual method → A/B testing without randomization.** Fogel's railroad counterfactual ("what would GNP have been without railroads?") is a causal inference problem. When you cannot run the experiment (you cannot remove railroads from 1890 America), you construct a plausible counterfactual and estimate the treatment effect. This is exactly what product analysts do when a feature launched without a holdback group: build a synthetic control, use pre-treatment trends to estimate the counterfactual, measure the gap. The methodology is identical; the domain differs.
+
+**Instrumental Variables → natural experiments in product.** IV exploits a variable that affects treatment but affects the outcome only through treatment — allowing identification of a causal effect in the presence of confounders. Acemoglu's settler mortality instrument (mortality → institutional quality → long-run growth) is methodologically identical to a product IV: using a random server assignment as an instrument for feature exposure to identify the causal effect when self-selection is a confounder. The "classic" IV problems in econometrics (weak instruments, exclusion restriction violations) appear in product analytics under the same names.
+
+**Regression Discontinuity → threshold-based policy analysis.** RD exploits the fact that units just above and below a threshold are otherwise similar — the treatment assignment is as-good-as-random near the cutoff. Historical examples (electoral outcomes, policy thresholds) are formally identical to product examples: did the promotional email (sent only to users with score > 80) causally affect retention? Users at score 79 and 81 are comparable; the discontinuity at 80 identifies the effect. Standard product analytics.
+
+**Path dependence → technical debt and lock-in.** North's path dependence (once institutional arrangements are in place, they are costly to change; initial conditions constrain future options) is the formal concept underlying technical debt. The QWERTY keyboard example (the contested canonical case) is structurally identical to: a schema design made in 2010 constrains the data model in 2025 because migration costs are prohibitive; a vendor lock-in from an early cloud platform choice becomes a structural constraint on architecture options a decade later. Path dependence is not determinism — North traced massive institutional change — but it explains why "obviously better" alternatives often lose to entrenched incumbents with accumulated switching costs.
+
+**Douglass North's transaction cost framing → platform economics.** North: institutions (formal and informal rules) reduce the costs of exchange. API standards, data contracts, and inter-service protocols are institutional arrangements in exactly North's sense — they lower transaction costs between services and teams. The difference between a high-functioning engineering organization (low coordination costs, shared standards, clear contracts) and a dysfunctional one (high coordination overhead, inconsistent interfaces, unclear ownership) is institutional economics. Conway's Law is an informal North-style institutional analysis.
+
 ## Common Confusion Points
 
 **Cliometrics showing slavery was "efficient" is not a moral argument.**

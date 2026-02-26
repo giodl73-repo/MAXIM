@@ -303,8 +303,89 @@ SHIP OF THESEUS:
 
 ---
 
-<!-- @editor[content/P2]: Mereology listed in landscape diagram (under Modality column) but absent from any section — relevant to ontology of composite objects and part-whole reasoning in formal methods -->
-<!-- @editor[content/P2]: Haecceity listed in landscape diagram but never defined or discussed — either remove from diagram or add brief treatment -->
+## 4b. Mereology — Part-Whole Ontology
+
+```
+MEREOLOGY: the formal study of part-whole relations.
+  Core relation: "x is part of y" (Pxy) — reflexive, antisymmetric, transitive.
+  Classical Extensional Mereology (CEM) adds:
+    Unrestricted Composition: for any objects, there exists an object
+      that is their mereological sum. (Controversial: implies there is
+      an object composed of your coffee cup + the Eiffel Tower.)
+    Extensionality: objects with the same proper parts are identical.
+
+PARTHOOD AXIOMS (Simons' classical formulation):
+  P(x,x)                                  — Reflexivity
+  P(x,y) ∧ P(y,x) → x=y                  — Antisymmetry
+  P(x,y) ∧ P(y,z) → P(x,z)              — Transitivity
+  ¬P(x,y) → ∃z[P(z,x) ∧ ¬O(z,y)]        — Strong Supplementation
+  ∃x φ(x) → ∃y∀z[O(z,y) ↔ ∃x(φ(x)∧O(z,x))]  — Unrestricted Fusion
+
+WHERE MEREOLOGY IS DISPUTED:
+  Is the Ship of Theseus the same after part replacement? (identity over time)
+  Is a lump of clay numerically identical to the statue it composes?
+  Are there plural entities, or only mereological sums?
+
+MEREOLOGY IN FORMAL METHODS AND KR:
+  OWL / Description Logic: hasComponent, hasPart properties;
+    mereological relations in biomedical ontologies (SNOMED, FMA).
+    "Liver has-part hepatocyte" — the part-whole hierarchy is a
+    distinct relation from subClassOf.
+  Mereotopology (Casati & Varzi): extend mereology with topological
+    primitives (connectedness, boundary). Used in spatial databases,
+    geographic information systems (GIS), qualitative spatial reasoning.
+  Region Connection Calculus (RCC8): eight mereotopological relations
+    between spatial regions. Used in AI spatial reasoning systems.
+  Software decomposition: "module X is part of subsystem Y" is
+    mereological. The formal difficulty — whether wholes are just
+    their parts or something more — parallels the architecture debate
+    over emergent system properties that can't be reduced to components.
+```
+
+## 4c. Haecceity — Thisness and Individual Essence
+
+```
+HAECCEITY ("thisness" — from Latin haec, "this"):
+  A haecceity is a non-qualitative property that makes an individual
+  the particular individual it is — distinct from all qualitative
+  properties (mass, color, position, history).
+  "Being Barack Obama" is a haecceity; it is not shared by anyone else
+  regardless of how qualitatively similar they might be.
+  Haecceities are contrasted with suchness (qualitative properties).
+
+THE PHILOSOPHICAL PROBLEM:
+  Leibniz's Law (Identity of Indiscernibles): if x and y share all
+    qualitative properties, then x = y.
+  If this law holds: there are no haecceities — identity follows
+    entirely from qualitative properties.
+  But: in quantum mechanics, two electrons can be in states with
+    absolutely identical qualitative properties (same position, spin,
+    energy in a symmetric wavefunction). Are they identical or two?
+    If two, their individuation must be non-qualitative — haecceities.
+  This is why haecceitism matters in philosophy of physics:
+    it is the metaphysical question of particle individuality.
+
+HAECCEITISM IN POSSIBLE-WORLDS SEMANTICS:
+  Haecceitist: whether an individual exists in a possible world is
+    a primitive fact; qualitative description does not determine
+    trans-world identity.
+  Anti-haecceitist: trans-world identity is always determined by
+    qualitative facts. No bare "thisness" — similarity and causal
+    history fully ground cross-world identity.
+
+CS CONNECTION (database identity):
+  Primary keys vs. natural keys: a surrogate key (auto-increment ID,
+    UUID) is a haecceity — it picks out the individual without
+    reference to qualitative properties. A natural key (email address,
+    SSN) is suchness — the individual is identified by properties.
+  The philosophical problem of haecceitism maps directly onto the
+    practical engineering question of entity identity.
+  If two rows are qualitatively identical (same name, address, date of birth),
+    are they the same person or two different people? The haecceitist
+    says: only a non-qualitative ID resolves this. The anti-haecceitist
+    says: any identical rows must be duplicates.
+```
+
 ## 5. Laws of Nature
 
 ```
@@ -336,7 +417,69 @@ STATISTICAL vs DETERMINISTIC LAWS:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world → new-world bridge section — natural parallel: database identity (surrogate keys vs natural keys, entity versioning) → Ship of Theseus / persistence; any engineer who has modeled entity lifecycle recognizes this -->
+## Bridge — Metaphysics and System Design
+
+```
+METAPHYSICAL PROBLEM               SYSTEM DESIGN PARALLEL
+─────────────────────────────────────────────────────────────────
+Ship of Theseus / persistence:     Entity lifecycle modeling.
+What makes an object the same      A customer record updated 1,000 times
+object through change?             — is it the same customer? Which
+                                   fields are essential (identity) vs.
+                                   accidental (changeable without loss
+                                   of identity)?
+                                   Surrogate key: non-qualitative (like
+                                   haecceity) — row is this row regardless
+                                   of all property changes.
+                                   Natural key: qualitative — identity
+                                   constituted by values.
+                                   Event sourcing: the entity IS its
+                                   event history (four-dimensionalist;
+                                   the entity is a sequence of stages).
+
+Universals vs. particulars:        Class hierarchies / type systems.
+Do abstract types exist, or only   "Animal" is a universal; "Rex the
+individual instances?              dog" is a particular.
+                                   Platonist reading: types exist
+                                   independently of instances.
+                                   Nominalist reading: types are
+                                   constructs over instances; the
+                                   instance is what's real.
+                                   Trope theory: properties are
+                                   individual — "Rex's brownness" is
+                                   not the same as "Fido's brownness,"
+                                   even if they look the same. Relevant
+                                   to object equality semantics (value
+                                   equality vs reference equality).
+
+Modal logic / possible worlds:     Test and property verification.
+Necessity: true in all possible    Assert: "this invariant holds in
+worlds. Possibility: true in       ALL states the system can reach"
+some.                              (necessity). Modal logic formalizes
+                                   this. TLA+ uses □ (always) and
+                                   ◇ (eventually) — temporal modal
+                                   operators — as first-class operators
+                                   for system specifications.
+
+Mereology:                         Component / subsystem decomposition.
+Part-whole relations; when does    Is the sum of components identical
+a collection become a whole?       to the system? Emergent behavior
+                                   (the system exhibits properties no
+                                   component has alone) is the mereology
+                                   question. Microservices: the system
+                                   = sum of services? Or is the service
+                                   mesh a distinct whole?
+
+Causation (interventionist):       Debugging / root cause analysis.
+Pearl's do-calculus: what would    "If I had changed X, would Y still
+happen if we intervened on X?      have happened?" Interventionist
+Counterfactual reasoning.          causation is exactly the mental
+                                   model of debugging: hold everything
+                                   constant; change one variable;
+                                   observe effect. RCA (Root Cause
+                                   Analysis) applies this framework.
+```
+
 ## Decision Cheat Sheet
 
 | Question | Main Positions | Current Lean |

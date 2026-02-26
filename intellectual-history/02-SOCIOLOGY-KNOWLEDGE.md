@@ -329,7 +329,20 @@ David Bloor, Barry Barnes, Steven Shapin — University of Edinburgh, 1970s.
 
 ---
 
-<!-- @editor[bridge/P2]: Merton's CUDOS norms map directly to open-source community norms (communalism=OSS, universalism=code review, organized skepticism=CI/CD) — natural bridge for this learner, currently absent -->
+## Engineering Bridge: Merton's CUDOS in Open-Source and Engineering Culture
+
+Merton's four norms of science (1942) describe exactly the normative structure of healthy open-source communities and engineering organizations — and their violations explain failure modes:
+
+| Merton's Norm | Science Form | Open-Source / Engineering Form | Violation |
+|---------------|-------------|-------------------------------|-----------|
+| **Communalism** | Results must be shared; no private ownership of discoveries | OSS: code must be public; contributions merged to commons; no "secret" forks | Proprietary lock-in of research results; stealth forks; knowledge hoarding |
+| **Universalism** | Claims evaluated by impersonal criteria, not author's identity | Code review: the PR is evaluated on its merits, not on whether it came from a senior engineer or an intern | LGTM bias ("approving because it came from X"); HiPPO (Highest Paid Person's Opinion) |
+| **Disinterestedness** | Scientists act for the communal good, not personal gain | On-call rotations, documentation, test coverage — work that benefits the system over personal credit | "Not invented here" syndrome; gaming metrics (commits, PRs) for performance review |
+| **Organized Skepticism** | All claims subject to communal scrutiny; no sacred zone | CI/CD: every commit tested; no code is trusted without verification; blameless postmortems apply equally to everyone | Sacred cows: "we don't question the legacy auth service"; exempting certain code from review |
+
+**The Matthew Effect** (famous scientists get disproportionate credit) maps directly to attribution dynamics in engineering teams: senior engineers' code reviews carry more weight than junior engineers', popular open-source maintainers' opinions dominate discourse, and academic prestige translates to conference speaking slots that amplify the same voices regardless of content quality.
+
+**Bourdieu's field theory** explains why "meritocracy" in engineering is not neutral: field-specific capital (GitHub stars, conference talks, popular libraries) is accumulated through social position, not just technical quality. The "free-floating intelligentsia" analogue is the staff engineer who can synthesize across organizational silos precisely because they are not fully captured by any single team's interests.
 
 ## Decision Cheat Sheet
 

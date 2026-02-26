@@ -212,7 +212,58 @@ trends. This remains controversial.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — kill curves are power-law frequency distributions (same structure as reliability engineering failure rates); species selection is multi-level optimization (individual-level vs. group-level selection parallels local vs. global optimization); this learner would benefit from explicit framing -->
+## Macroevolution — Systems Engineering and Optimization Bridge
+
+```
+KILL CURVES = POWER-LAW FAILURE RATE DISTRIBUTIONS:
+
+  Mass extinction kill curve (Raup 1991):
+    Extinction intensity (% species killed) vs. frequency of events at that intensity
+    Follows roughly a power-law: P(intensity > x) ∝ x^(-α)
+
+  Analogous structures in engineering:
+    Reliability engineering: failure rate curves (bathtub curve, extreme event tail)
+    Software failures: bug severity vs. frequency (power-law in many systems)
+    Network outages: duration vs. frequency (power-law for large internet events)
+    Financial crises: loss magnitude vs. frequency (fat-tailed distributions)
+
+  The implication is the same across domains:
+    Rare catastrophic events dominate total harm (integral of severity × frequency)
+    Planning for "background rate" misses the dominant risk
+    Mass extinctions: rare events that eliminate 75%+ of species matter more for
+      long-run diversity than thousands of background extinction events combined
+
+SPECIES SELECTION = MULTI-LEVEL OPTIMIZATION:
+
+  Individual selection: differential survival/reproduction within species
+    (standard natural selection — local optimization)
+  Species selection: differential speciation/extinction rates among species
+    (lineage sorting — "selection" at a higher level)
+
+  FORMAL PARALLEL TO LOCAL vs. GLOBAL OPTIMIZATION:
+    Individual selection = local search within the fitness landscape of a species
+    Species selection = selection among local optima
+    A species on a lower fitness peak may speciate faster (faster local search)
+    → its descendants fill more of tree-of-life than species on higher individual peak
+
+  HIERARCHY OF SELECTION LEVELS:
+    Gene → Individual → Kin group → Population → Species → Clade
+    Each level: selection can act if there is heritable variance in fitness
+    Debate: how much of macroevolutionary trend is species selection vs.
+      directional individual selection within species?
+    Key test: is the "trait" causing differential speciation/extinction a
+      species-level emergent property, or just correlated with individual fitness?
+
+PUNCTUATED EQUILIBRIUM = STASIS + RAPID CHANGE:
+  Eldredge & Gould (1972): most morphological change concentrated at speciation
+  Stasis: stabilizing selection within species (functional constraint)
+  Rapid change: ecological release at speciation, or new adaptive zone
+  → Same as: complex systems that resist change until a phase transition
+    (percolation threshold, catastrophic shift in dynamical systems)
+  Statistical test: compare morphological change rate within vs. between lineages
+    PE prediction: between-lineage rate >> within-lineage rate
+```
+
 ## Kill Curves and Extinction Selectivity
 
 ### Kill Curves
@@ -320,7 +371,65 @@ At macroevolutionary scales, convergence reveals the limits of adaptive landscap
 
 ---
 
-<!-- @editor[content/P2]: Biogeography absent — continental drift, island biogeography theory (MacArthur-Wilson), and Wallace's line are major macroevolutionary topics that explain geographic distribution patterns; only briefly mentioned in speciation examples -->
+## Biogeography
+
+The geographic distribution of species reflects the interaction of evolutionary
+history, continental drift, and ecological limits:
+
+```
+VICARIANCE vs. DISPERSAL BIOGEOGRAPHY:
+
+  Vicariance: a geographic barrier splits an existing population
+    → allopatric speciation with disjunct distributions explained by barrier history
+    Example: Atlantic and Pacific sister-species pairs separated by Isthmus of Panama
+             (closed ~3.5 mya) — many marine species have twin species either side
+
+  Dispersal (long-distance): rare dispersal events colonize new areas
+    Example: Hawaiian islands: all terrestrial species are colonizers
+             (islands are volcanic — never connected to continents)
+             Colonization rates proportional to distance and organism dispersal ability
+
+MacARTHUR-WILSON EQUILIBRIUM MODEL (1967):
+  Species richness on an island = equilibrium between colonization and extinction
+
+  Rate of colonization:    C(S) = λ (P − S)     decreasing as island fills
+  Rate of extinction:      E(S) = µ S             increasing as island fills
+  Equilibrium: S* = λP / (λ + µ)
+
+  Predictions:
+    Larger islands: lower extinction rate (larger populations) → higher S*
+    Closer islands: higher colonization rate → higher S*
+    Species-area relationship: S ∝ A^z  (z ≈ 0.25–0.35 for oceanic islands)
+    Turnover: even at equilibrium, species composition changes over time
+
+  FORMAL CONNECTION:
+    Birth-death process on species richness
+    Same structure as queuing theory (M/M/1 queue at steady state)
+    S* = arrival rate / (arrival rate + service rate)
+
+WALLACE'S LINE AND BIOGEOGRAPHIC REGIONS:
+
+  Alfred Russel Wallace (1876): defined major biogeographic regions
+  Wallace's Line (Indonesia): sharp boundary between Oriental and Australian faunas
+    West of line: tigers, elephants, monkeys, deer → Asian fauna
+    East of line: kangaroos, cockatoos, birds-of-paradise → Australian fauna
+  Mechanism: deep water channel (Lombok Strait) — was always a deep-sea barrier
+    even during ice-age sea-level lowering (no land bridge ever formed)
+
+  CONTINENTAL DRIFT AND DISJUNCT DISTRIBUTIONS:
+    Gondwana breakup (~180 mya): explains distributions of:
+      Ratites (ostriches, rheas, emus, kiwis): vicariant distribution on former Gondwana
+      Southern beeches (Nothofagus): South America, Australia, New Zealand, Antarctica
+      Marsupials: evolved on Gondwana → dominant in Australia (isolated from placental
+        mammals that diversified on Laurasia)
+
+  REFUGIA AND ICE AGE BIOGEOGRAPHY:
+    Pleistocene glaciations: species retreated to refugia → populations isolated
+    → allopatric divergence in refugia → post-glacial expansion + secondary contact
+    Phylogeography: molecular phylogeography reveals refugia from divergence patterns
+    European refugia: Iberia, Italy, Balkans (confirmed by mitochondrial haplotype trees)
+```
+
 ## Evolutionary Trends and Species Selection
 
 Long-term trends in the fossil record:
@@ -389,7 +498,69 @@ Current extinction rates are estimated at 100-1,000x background:
 
 ---
 
-<!-- @editor[content/P2]: Key innovation concept underserved — adaptive radiation section mentions "key innovation" but doesn't explain the concept (e.g., flight feathers enabling avian radiation, pharyngeal jaws enabling cichlid trophic diversification); deserves its own subsection linking innovation to diversification rate -->
+## Key Innovations and Diversification Rate Shifts
+
+A key innovation is a heritable trait that opens a new adaptive zone — enabling a
+lineage to interact with the environment in a fundamentally new way and triggering
+an elevated diversification rate:
+
+```
+DEFINITION:
+  Key innovation: a trait that, once evolved, permits exploitation of a
+  previously inaccessible ecological opportunity
+  → Causes detectable increase in net diversification rate (speciation − extinction)
+  → Identified by: rate shift on time-calibrated phylogeny coinciding with origin of trait
+
+CLASSIC EXAMPLES:
+
+  FLIGHT FEATHERS (avian radiation):
+    Feathered wings: allowed powered flight → access to aerial niche, rapid dispersal,
+    new foraging modes, reduced predation → ~10,500 extant species
+    Contrast: non-avian dinosaurs without powered flight: much lower diversity
+    Rate test: Bayesian analysis of bird phylogeny shows rate acceleration
+      coinciding with development of refined flight morphology (~65 mya)
+
+  PHARYNGEAL JAWS IN CICHLIDS:
+    Teleost fishes have pharyngeal jaws (secondary jaw apparatus in throat)
+    Cichlids: highly modified pharyngeal jaws → separate chewing from catching
+    → enabled trophic specialization (crushing molluscs, scraping algae, eating fish)
+    without changing the oral jaw morphology
+    → One toolkit → many trophic ecotypes → explosive diversity
+    African rift lake cichlids: >500 species in Lake Victoria, >1000 in Lake Malawi
+    Diversification rate: among fastest recorded for vertebrates
+
+  INSECT WINGS (~400 mya):
+    Flight allowed colonization of aerial niche → plant-insect interactions
+    → diversification of both insects and flowering plants in co-evolutionary spiral
+    >1,000,000 described insect species (vs. ~60,000 vertebrate species)
+    Timing: insect diversification rate increases sharply at wing origin
+
+  VENOM IN SNAKES:
+    Venom enabled subduing large, fast-moving prey without physical combat
+    → access to prey size class previously unavailable
+    Elapidae + Viperidae: highly diverse (>3,000 species)
+    vs. non-venomous Boidae (pythons/boas): ~60 species
+
+  ANGIOSPERM DOUBLE FERTILIZATION:
+    Endosperm (triploid, nutritive): allows faster seed maturation
+    + fruit rewards co-opted pollinators and seed dispersers
+    → ~350,000 angiosperm species vs. ~1,000 gymnosperm species
+
+STATISTICAL TESTS FOR DIVERSIFICATION RATE SHIFTS:
+  BAMM (Bayesian Analysis of Macroevolutionary Mixtures): detects shifts on phylogeny
+  MEDUSA: tests for rate shifts at specific nodes
+  Null: constant diversification rate (Yule pure-birth model)
+  Alternative: heterogeneous rates, with shift at innovation origin
+
+THEORETICAL FRAMEWORK:
+  Key innovation → expanded niche space → reduced competition pressure
+    → ecological release → high speciation rate in new zone
+    → each new species can specialize on a sub-niche → further radiation
+    → stabilizes when niche space saturated → return to background rate
+  Identical to: phase transition from low-diversity steady state to
+    diversification burst when a constraint is removed
+```
+
 ## Common Confusion Points
 
 **Punctuated equilibrium does not deny gradual change.** It claims that most morphological

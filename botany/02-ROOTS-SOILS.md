@@ -255,7 +255,47 @@ Tillage disrupts this web — breaks fungal networks, disrupts water channels, o
 
 ---
 
-<!-- @editor[content/P2]: Root parasitism absent — Striga (witchweed) parasitizes crop roots in sub-Saharan Africa affecting 100M+ people; haustorial parasites (dodder, broomrape) are a significant root/stem interaction topic -->
+## Root Parasitism
+
+Not all root interactions are mutualistic. Holoparasites and hemiparasites attach to host roots or stems via haustoria and extract water, minerals, and photosynthate.
+
+```
+HAUSTORIAL PARASITES
+──────────────────────────────────────────────────────────────────────────────
+MECHANISM: Parasite root tip (haustorium) penetrates host root,
+           fusing with host vascular tissue (xylem + phloem connection)
+           → draws water, nutrients, and photosynthate from host
+
+KEY EXAMPLES:
+  Striga (witchweed):
+    Root parasite of grasses (sorghum, maize, millet, rice)
+    Sub-Saharan Africa: affects ~100 million people; ~$7B annual crop losses
+    Obligate holoparasite — cannot complete life cycle without host
+    Stimulated to germinate by strigolactones exuded from host roots
+      (host's own mycorrhizal signal becomes parasite's cue)
+    Attaches to host root BEFORE emerging — damage done underground before
+    visible above ground (why it's so hard to manage)
+    One plant produces 50,000–500,000 dust-like seeds (persist 15-20 years)
+
+  Orobanche / Phelipanche (broomrape):
+    Root parasites of legumes, sunflower, tomato, carrot
+    Mediterranean and Middle East: major agricultural threat
+    Complete holoparasite (no chlorophyll)
+    Same germination cue system as Striga (strigolactone-triggered)
+
+  Cuscuta (dodder):
+    Stem/leaf parasite (not root — but haustorial mechanism same)
+    Orange-yellow thread-like vine; wraps around host stem
+    Penetrates host stem → phloem/xylem connection
+    Can spread viruses between plants via haustorial connections
+
+CONTROL STRATEGIES:
+  Strigolactone analogs: trigger premature germination (seeds die without host)
+  Resistant crop varieties: reduced strigolactone exudation
+  Intercropping with Desmodium (legume that repels Striga — "push-pull")
+  Biological control: Fusarium oxysporum Fsp. strigae (hyperparasite)
+```
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

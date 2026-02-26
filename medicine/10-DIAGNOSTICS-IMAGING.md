@@ -445,29 +445,67 @@ RADIATION PROTECTION:
 
 ---
 
-<!-- @editor[bridge/P2]: Diagnostic reasoning is native territory for this learner -- sensitivity/specificity IS precision/recall, Bayesian updating IS posterior inference, ROC curves are the same ROC curves in ML; make these connections explicit -->
-
 ## 11. Diagnostic Reasoning
 
+Diagnostic reasoning is Bayesian inference applied to a binary classification problem with non-zero base rates. The vocabulary is different from ML/statistics but the math is identical:
+
 ```
+MEDICAL TERM          ML / STATISTICS EQUIVALENT
+──────────────────────────────────────────────────────────────────────────
+Sensitivity           Recall / True Positive Rate (TPR)
+                      TP/(TP+FN) — of all true positives, what fraction
+                      did the test catch?
+
+Specificity           True Negative Rate (TNR) = 1 - FPR
+                      TN/(TN+FP) — of all true negatives, what fraction
+                      did the test correctly exclude?
+
+Positive predictive   Precision
+value (PPV)           TP/(TP+FP) — of positive test results, fraction
+                      that are true positives (prevalence-dependent)
+
+Negative predictive   NPV: TN/(TN+FN) — of negatives, fraction correct
+value (NPV)
+
+ROC curve             Identical to ML ROC curve — TPR vs FPR at all
+                      thresholds; AUC is the same AUC used in ML model
+                      evaluation
+
+Pre-test probability  Prior probability P(disease) before test
+Post-test probability Posterior probability P(disease|test result)
+Bayesian updating     Bayes' theorem: posterior = prior × likelihood
+                      Post-test odds = Pre-test odds × LR
+                      (this IS posterior inference; LR is the likelihood
+                      ratio of the evidence)
+
+Calibration curve     PPV vs predicted probability — same concept used
+                      to evaluate ML classifier calibration
+```
+
 SENSITIVITY AND SPECIFICITY:
-  Sensitivity (Sn): TP/(TP+FN) = P(test+|disease) = "how well test finds true cases"
-  Specificity (Sp): TN/(TN+FP) = P(test-|no disease) = "how well test excludes disease"
+```
+  Sensitivity (Sn): TP/(TP+FN) = P(test+|disease)
+  Specificity (Sp): TN/(TN+FP) = P(test-|no disease)
 
-  Mnemonic: SnNout / SpPin
-    High Sensitivity → Negative test rules OUT disease (good for screening; many false positives OK)
-    High Specificity → Positive test rules IN disease (good for confirmation; few false positives)
+  SnNout / SpPin:
+    High Sensitivity → Negative test rules OUT (screening; FN is costly)
+    High Specificity → Positive test rules IN (confirmation; FP is costly)
 
-  ROC curve: plot TPR vs FPR at all thresholds; AUC = overall test performance
-  Threshold choice: move cutoff → trade off Sn vs Sp (depends on clinical context: screen vs confirm)
+  ROC curve: plot TPR vs FPR at all thresholds; AUC = overall discrimination
+  Threshold choice: move cutoff → trade off Sn vs Sp (exactly as in ML
+    threshold tuning — depends on cost of FP vs FN in clinical context)
+```
 
 LIKELIHOOD RATIOS (LR):
+```
   LR+ = Sensitivity / (1-Specificity) = P(test+|disease) / P(test+|no disease)
   LR- = (1-Sensitivity) / Specificity = P(test-|disease) / P(test-|no disease)
   Interpretation: LR+ >10 = large increase; LR- <0.1 = large decrease (in post-test probability)
   Moderate: LR+ 5-10 or LR- 0.1-0.2 = moderate change
+```
 
 BAYESIAN UPDATING (Fagan nomogram):
+```
   Pre-test odds = Pre-test probability / (1 - Pre-test probability)
   Post-test odds = Pre-test odds × LR
   Post-test probability = Post-test odds / (1 + Post-test odds)
@@ -477,6 +515,14 @@ BAYESIAN UPDATING (Fagan nomogram):
     D-dimer positive: LR+ ≈ 2 (not very useful to confirm — low specificity)
     D-dimer negative: LR- ≈ 0.08 (very useful to exclude — high sensitivity)
     → D-dimer is a rule-out test (high Sn); not a rule-in test
+
+  Why PPV varies with prevalence: In a low-prevalence population, even a
+  high-specificity test has low PPV (many false positives relative to true
+  positives) — the "screening paradox." This is precisely why the same ML
+  model applied to a rare-event dataset performs differently than on a
+  balanced dataset. Pre-test probability = prevalence in the tested
+  population; the model's performance is always conditional on it.
+```
 
 NUMBER NEEDED TO TREAT / TEST:
   NNT = 1/ARR; NNH = 1/ARI; Number needed to screen = 1/(detection rate reduction)

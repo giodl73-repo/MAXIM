@@ -1,6 +1,6 @@
 # Geology — Overview
 
-<!-- @editor[bridge/P2]: No old-world bridge — a systems-thinker coming from software architecture would benefit from an explicit "state machine" analogy: Earth as a finite set of reservoirs (core, mantle, crust, ocean, atmosphere) exchanging energy and matter via well-defined interfaces -->
+**Bridge — Earth as a coupled reservoir system:** Think of Earth as a set of finite-capacity reservoirs (core, mantle, crust, hydrosphere, atmosphere, biosphere) exchanging energy and mass across well-defined interfaces. Each interface has characteristic flux rates and transfer functions: mantle convection moves heat from core-mantle boundary to crust on ~10⁸-year timescales; weathering moves mass from crust to ocean on ~10⁴-year timescales; the carbon cycle exchanges CO₂ between atmosphere and ocean on ~10²-year timescales. The system is never at equilibrium — it's a set of coupled differential equations with very different time constants per reservoir. Plate tectonics is the dominant long-period controller; the atmosphere/ocean are the fast-response layer. Every geological process is a flux between two of these reservoirs.
 
 ## The Big Picture
 
@@ -161,7 +161,19 @@ RIDGE                 SUBDUCTION ZONE            COLLISION
 
 ---
 
-<!-- @editor[structure/P2]: Missing Decision Cheat Sheet section — overview should include a "which guide do I open first?" decision table based on what the reader is trying to learn -->
+## Decision Cheat Sheet — Which Guide First?
+
+| If you want to understand... | Start here |
+|------------------------------|-----------|
+| Why earthquakes and volcanoes are where they are | `05-PLATE-TECTONICS.md` → `06-EARTHQUAKES-VOLCANOES.md` |
+| How to date a rock or event | `07-GEOLOGIC-TIME.md` |
+| What a rock sample is made of | `01-MINERALS.md` → rock type guide (02, 03, or 04) |
+| Why a mineral deposit exists where it does | `08-ECONOMIC-GEOLOGY.md` |
+| How a landscape formed (valley, glacier, cave) | `09-SURFICIAL-GEOLOGY.md` |
+| Why Mars and Moon look so different from Earth | `10-PLANETARY-GEOLOGY.md` |
+| How mountains form and erode | `05-PLATE-TECTONICS.md` → `04-METAMORPHIC-ROCKS.md` |
+| The full sequence of Earth history | `07-GEOLOGIC-TIME.md` → `00-OVERVIEW.md` time table |
+| How oil and gas form | `03-SEDIMENTARY-ROCKS.md` → `08-ECONOMIC-GEOLOGY.md` |
 
 ## Directory Map
 

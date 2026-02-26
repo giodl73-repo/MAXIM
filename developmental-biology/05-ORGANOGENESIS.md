@@ -8,28 +8,82 @@ Organogenesis (Weeks 4-8 in humans) is when specific organ structures form from 
 +──────────────────────────────────────────────────────────────────+
 |              ORGANOGENESIS OVERVIEW                              |
 |                                                                  |
-<!-- @editor[diagram/P2]: Diagram lists principles but doesn't show how the organs relate to each other or to germ layers — rework as layered system view showing germ-layer origins feeding into organ systems with shared signaling dependencies -->
-|  CORE PRINCIPLES ACROSS ALL ORGANS                              |
-|  ─────────────────────────────────                               |
-|  1. INDUCTION: One tissue instructs another to adopt a fate      |
-|                (usually epithelium ↔ mesenchyme)                |
-|  2. PATTERNING: Morphogen gradients give positional identity     |
-|  3. BRANCHING MORPHOGENESIS: Repeated bifurcation → tree-like   |
-|                              structures (lungs, kidney, glands)  |
-|  4. SELECTIVE APOPTOSIS: Sculpts structures (digit separation,  |
-|                          lens pit, cardiac valve formation)      |
-|  5. MECHANICAL FORCES: Actomyosin, ECM stiffness shape 3D form  |
+|  GERM LAYER → ORGAN SYSTEM DERIVATION                           |
 |                                                                  |
-|  TIMELINE (human): Week 4 = organ rudiments form                 |
-|                    Week 5-8 = most organ-specific morphogenesis  |
-|                    Week 8 = embryo → fetus (all organs present)  |
-|                    Week 9-40 = growth and maturation            |
+|  ECTODERM ──────────────────────────────────────────────────►  |
+|  (outer)    Brain, spinal cord, PNS, skin, eye lens, ear         |
+|             Neural crest → PNS, craniofacial, melanocytes        |
+|                                                                  |
+|  MESODERM ──────────────────────────────────────────────────►  |
+|  (middle)   Heart, blood vessels, kidneys, skeleton, muscle,     |
+|             spleen, gonads, connective tissue (dermis)           |
+|             ↑ receives inductive signals from endoderm (heart)   |
+|             ↑ and from ectoderm (limb)                           |
+|                                                                  |
+|  ENDODERM ──────────────────────────────────────────────────►  |
+|  (inner)    Gut epithelium, liver, pancreas, lungs, thyroid,     |
+|             thymus, bladder lining                               |
+|                                                                  |
+|  CORE PRINCIPLES (shared across all organs)                     |
+|  1. INDUCTION: epithelium ↔ mesenchyme reciprocal signaling      |
+|  2. PATTERNING: morphogen gradients encode positional identity   |
+|  3. BRANCHING: recursive bifurcation (FGF/Wnt on, BMP off tip)  |
+|  4. APOPTOSIS: sculpts cavities, digit separation, valves        |
+|  5. MECHANICS: ECM stiffness, actomyosin tension shape 3D form  |
+|                                                                  |
+|  TIMELINE: Week 4 = rudiments form; Week 5-8 = morphogenesis;   |
+|            Week 8 = embryo→fetus; Week 9-40 = growth+maturation |
 +──────────────────────────────────────────────────────────────────+
 ```
 
 ---
 
-<!-- @editor[bridge/P2]: No CS/engineering bridge. Reciprocal induction (ureteric bud <-> mesenchyme) is a textbook "handshake protocol" — each side waits for the other's signal before proceeding. Branching morphogenesis is recursive tree construction with termination conditions. These are strong parallels for a technical reader. -->
+## Engineering Bridge: Organogenesis as Protocol Handshakes and Recursive Algorithms
+
+Two of the most universal concepts in organogenesis — reciprocal induction and branching morphogenesis — map directly onto distributed protocols and recursive algorithms.
+
+```
+  ORGANOGENESIS                 CS / ENGINEERING PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Reciprocal induction          Two-way handshake protocol:
+  (ureteric bud ↔ metanephric   Each side waits for the other's signal
+  mesenchyme)                   before committing and proceeding.
+    UB → GDNF receptor (RET)    1. Mesenchyme secretes GDNF
+    Mesenchyme → FGF signals    2. UB binds GDNF → branches (ACK)
+    → UB branches (ACK)         3. UB secretes FGF, WNT → mesenchyme
+    → Mesenchyme condenses (ACK)   condenses (ACK)
+                                If either signal is absent → both sides
+                                abort (renal agenesis). Classic 3-way
+                                handshake with mutual dependency.
+
+  Branching morphogenesis       Recursive tree construction:
+  (lung: ~23 generations)       Base case: airway sac (alveolus).
+  FGF10 at tip → grow;          Recursive case: tip cell receives FGF10
+  BMP4 at tip → inhibit         → branches into two daughter buds.
+  adjacent; stalk stable        Termination condition: FGF10 decreases
+                                below threshold (BMP4 inhibition) → stop.
+                                The 23-generation binary tree of airways
+                                is built from this 3-rule L-system.
+
+  Digit formation by apoptosis  Sculpting by selective deletion:
+  (interdigital web removal)    Not: grow fingers separately. Instead:
+                                grow a solid limb paddle, then delete the
+                                web between digits via BMP-induced apoptosis.
+                                This is rendering by subtraction — like
+                                sculpting from a block by removing material,
+                                not by additive construction.
+
+  Morphogen gradient → organ    Spatial lookup table → module assignment:
+  size control (organ stopping  Growth terminates when cells sense they
+  at correct size)              have filled their positional domain.
+                                Hippo pathway: cell density → YAP/TAZ
+                                nuclear exit → growth arrest. Mechanical
+                                sensing of organ boundary.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## Heart Development
 
 ```
@@ -236,7 +290,57 @@ PANCREAS: ENDOCRINE + EXOCRINE FROM FOREGUT
 
 ---
 
-<!-- @editor[content/P2]: Tooth development absent — a classic epithelial-mesenchymal induction example frequently covered alongside eye and limb, and clinically significant (dental stem cells, bioengineered teeth) -->
+## Tooth Development: Classic EMT Induction
+
+```
+TOOTH DEVELOPMENT: EPITHELIAL-MESENCHYMAL INDUCTION
+──────────────────────────────────────────────────────
+Why here: Tooth development is the canonical multi-stage induction example,
+with ~20 reciprocal signaling events between oral epithelium and neural
+crest-derived mesenchyme. Each stage uses a different signaling pathway.
+
+STAGES (human: Week 6 through childhood)
+  1. INITIATION (dental placode):
+     BMP4 from mesenchyme + FGF8 from epithelium → thickening of oral epithelium
+     Where placode forms: determined by Runx2 expression boundary
+
+  2. BUD STAGE:
+     Placode invaginates into underlying mesenchyme.
+     Mesenchyme condenses around epithelial bud (like kidney reciprocal induction).
+     Wnt pathway specifies number of teeth (Wnt gain → extra teeth;
+     loss → tooth agenesis)
+
+  3. CAP STAGE:
+     Inner enamel epithelium (IEE) forms → becomes enamel-forming cells (ameloblasts)
+     Mesenchyme → dental papilla → dentin-forming cells (odontoblasts)
+     Enamel knot forms: signaling center (FGF, BMP, Wnt) that defines cusp number/position
+     Enamel knot cells undergo apoptosis after use — consumed signal center
+
+  4. BELL STAGE:
+     Cytodifferentiation: ameloblasts vs odontoblasts
+     Reciprocal induction: odontoblasts begin dentin → signals ameloblasts to form enamel
+     Ameloblasts produce enamel (hardest substance in body: 96% HAP crystal)
+     Odontoblasts produce dentin (70% mineral; collagen scaffold)
+
+  5. ROOT FORMATION:
+     Hertwig's epithelial root sheath (HERS) shapes root form
+     Cementoblasts (neural crest origin) form cementum → anchors to periodontal ligament
+
+DENTAL STEM CELLS AND CLINICAL IMPLICATIONS
+  Dental pulp stem cells (DPSCs): can differentiate into odontoblasts, neural cells,
+  adipocytes. Potential for bioengineered tooth replacement.
+  Stem cells from apical papilla (SCAP): progenitors for root formation.
+  Periodontal ligament stem cells (PDLSCs): for attachment apparatus regeneration.
+
+  Congenital tooth anomalies:
+    Hypodontia: tooth agenesis (PAX9, MSX1, AXIN2 mutations)
+    Supernumerary teeth: excess Wnt signaling
+    Amelogenesis imperfecta: enamel defect (AMELX, ENAM mutations)
+    Dentinogenesis imperfecta: dentin defect (DSPP mutation)
+```
+
+---
+
 ## Eye Development: Classic Induction Example
 
 ```

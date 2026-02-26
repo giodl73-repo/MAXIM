@@ -253,16 +253,18 @@ The US imprisonment rate is a sociological outlier requiring explanation beyond 
 
 ```
 US INCARCERATION DATA:
-<!-- @editor[content/P2]: Incarceration data uses 2020 figures — post-COVID numbers shifted significantly (temporary releases, then partial rebound); consider updating to 2023-2024 data for accuracy -->
-  US incarceration rate: ~620 per 100,000 population (2020, declining from peak ~760)
+  US incarceration rate: ~530 per 100,000 population (2023, recovering from COVID-era lows)
+  COVID-19 temporarily reduced prison populations 2020-2021; partial rebound by 2023
+  Peak: ~760 per 100,000 (~2008); current rate still far above pre-1980s baseline
   International comparison:
-    Cuba: ~510 (next highest) | Russia: ~350 | UK: ~130 | Germany: ~80
+    El Salvador: ~900 (outlier; 2023 Bukele crackdown) | Cuba: ~510
+    Russia: ~350 | UK: ~130 | Germany: ~80
     France: ~100 | Japan: ~38 | Netherlands: ~60
   US incarcerates ~5× the rate of any comparable wealthy democracy
 
-  Total US incarcerated: ~2.2 million (2020); ~7 million under correctional supervision
-  (probation, parole, jail, prison)
-  Peak: ~2.3 million in 2008 — largest absolute incarcerated population in history
+  Total US incarcerated: ~2.0 million (2023); ~5.5 million under correctional supervision
+  (probation, parole, jail, prison) — down from ~7 million pre-COVID peak
+  Peak absolute count: ~2.3 million in 2008 — largest absolute incarcerated population in history
 
 RACIAL DISPARITY:
   Black Americans: ~38% of prison population; ~12% of US population
@@ -345,7 +347,18 @@ General Theory of Crime (Hirschi + Gottfredson, 1990):
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — Foucault's panopticon maps directly to digital surveillance and algorithmic monitoring (workplace productivity tools, code review systems, performance dashboards); Merton's strain theory parallels organizational pressure to "innovate" when legitimate channels are blocked. A bridge from organizational/tech management → social control would connect. -->
+## From Platform Engineering to Deviance and Control
+
+The theories in this module describe dynamics that are structurally identical to patterns visible in software organizations and digital platforms.
+
+**Foucault's panopticon is the design principle of modern algorithmic management.** Productivity monitoring software (keyloggers, idle-time trackers, GitHub commit frequency dashboards, Jira velocity metrics) instantiates panoptic logic: workers behave as if observed even when not actively monitored, because the monitoring infrastructure exists and they know it. Foucault's insight — that modern power operates through internalized surveillance rather than direct coercion — is precisely the mechanism by which these tools generate compliance. The examination (combining hierarchical observation with normalizing judgment) is the performance review cycle: every engineer's output rendered visible, comparable, and documentable; any deviation from the norm triggering corrective feedback.
+
+**Content moderation is institutional labeling theory at scale.** Becker's claim — that deviance is not a property of the act but of the label successfully applied — is the exact theoretical problem that platform trust-and-safety teams face. The same post can be deplatformed on one platform and amplified on another because the "moral entrepreneur" structures (policies, community standards, enforcement teams) differ. Secondary deviance applies: once an account is labeled (shadow-banned, restricted, deplatformed), the label changes behavior — users learn to post differently, creating a self-fulfilling dynamic.
+
+**Merton's strain theory describes organizational innovation under blocked advancement.** When organizational goals (promotion, compensation, recognition) are clear but legitimate means are structurally restricted (headcount freezes, closed promotion bands, bureaucratic blocking), employees in Merton's "innovation" mode find alternative paths: gaming metrics, building shadow systems, developing external visibility to circumvent internal blockages. White-collar innovation (Merton's term for goal-acceptance with means-rejection) is the behavioral profile of engineers who ship unauthorized side projects, build unofficial APIs, or escalate around formal processes. The strain is structural, not characterological.
+
+**Labeling theory explains security incident culture dynamics.** Organizations with blame-first incident response produce secondary deviance at scale: engineers learn to conceal problems, minimize blast radius reporting, and optimize for avoiding the label "owner of the incident" rather than the label "person who caught the problem early." The labeling creates the behavior it claims to identify. Aviation's transition to blameless post-mortems is the applied anti-labeling intervention; it reduced incident reporting suppression by decoupling the label from the act.
+
 ## Decision Cheat Sheet
 
 | Phenomenon | Relevant theory |

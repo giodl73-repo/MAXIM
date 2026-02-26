@@ -219,7 +219,64 @@ exist; figs abort fruits with too many wasp eggs.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — arms race dynamics and Red Queen are directly analogous to adversarial optimization (GAN training, security/exploit cycles); the transmission-virulence trade-off is a constrained optimization problem; this learner would benefit from explicit mapping to optimization/game theory frameworks -->
+## Coevolution — Optimization and Game Theory Bridge
+
+Arms races, Red Queen dynamics, and trade-offs are adversarial optimization and
+constrained optimization problems with exact formal mappings:
+
+```
+HOST-PARASITE ARMS RACE = ADVERSARIAL OPTIMIZATION / GAN TRAINING:
+
+  Host fitness: maximized by resisting parasite (immune evasion, behavior)
+  Parasite fitness: maximized by overcoming host defenses
+  Both are simultaneously optimizing — minimax structure:
+    min_host max_parasite f(host_trait, parasite_trait)
+
+  Analogy to GAN (Goodfellow et al. 2014):
+    Generator (parasite): produces variants that evade host discrimination
+    Discriminator (host): learns to detect/resist parasite variants
+    Both improve simultaneously → no stable equilibrium (Red Queen cycling)
+
+  Red Queen (Van Valen 1973): just to maintain fitness, must keep evolving
+    (because the "environment" = other coevolving species keeps changing)
+    → Corresponds to: loss landscape in GAN training keeps shifting
+    → Both systems can cycle without converging to a static solution
+
+  ANALOGY TO SECURITY / EXPLOIT CYCLES:
+    Defensive security (host): patch vulnerabilities, build detection
+    Offensive security (parasite): find new attack surfaces, evade detection
+    Temporal structure: patch → evasion → new patch → new evasion
+    → Both player populations maintain standing genetic variation
+    → Rare host genotypes (novel defenses) have advantage (frequency-dependent)
+    → MHC diversity maintained by this mechanism
+
+TRANSMISSION-VIRULENCE TRADE-OFF = CONSTRAINED OPTIMIZATION:
+
+  Parasite evolves to maximize transmission (R₀ = β / (γ + μ + α))
+    β = transmission rate, γ = recovery, μ = natural mortality, α = disease mortality
+
+  Constraint: transmission and virulence are often coupled
+    (parasite load needed for transmission → causes pathology → kills host too fast)
+
+  Optimization:
+    dR₀/dα = 0 → β'(α)/(γ + μ + α) − β(α)/(γ + μ + α)² = 0
+    → Intermediate virulence maximizes R₀
+    → "Optimal virulence" = constrained optimization problem with biological constraint
+
+  This explains:
+    Why pathogens are not maximally virulent (evolution does not favor killing host)
+    Why newly emerged pathogens (Ebola, H5N1) often have high virulence
+      → haven't co-adapted; transmission-virulence uncoupled in naive hosts
+    Why chronic persistent pathogens (HIV, M. tuberculosis) evolve lower virulence
+
+COSPECIATION = CORRELATED DIVERSIFICATION:
+  Host phylogeny and parasite phylogeny: test for congruence
+  Null: random association (host switching only)
+  Significant congruence: cospeciation has occurred
+  Statistical test: same structure as testing correlation between two phylogenetic
+    distance matrices (Mantel test equivalent for trees)
+```
+
 ## Geographic Mosaic of Coevolution
 
 Thompson's theory: coevolution does not happen uniformly across a species' range.
@@ -288,7 +345,57 @@ When host and parasite speciate together, their phylogenies should be congruent.
 
 ---
 
-<!-- @editor[content/P2]: Diffuse coevolution absent — most coevolution involves networks of species, not strict pairwise interactions; community-level coevolution (e.g., plant defense against multiple herbivore species, guild-level mutualism) deserves mention -->
+## Diffuse Coevolution
+
+Most coevolution in nature is diffuse — involving networks of species rather
+than tightly coupled pairwise interactions:
+
+```
+PAIRWISE vs. DIFFUSE COEVOLUTION:
+
+  Pairwise (strict):   one host ↔ one parasite, obligate interaction
+    Examples:          Ficus-fig wasp (one wasp per fig species)
+                       Yucca-yucca moth (obligate mutual pollination)
+    Characteristic:    high specificity, parallel phylogenies, obligate
+
+  Diffuse (network):   one species interacts with multiple others in the guild
+    Examples:          plant ↔ multiple herbivore species, each exerting selection
+                       plant ↔ multiple pollinator species competing for access
+    Characteristic:    selection mosaic, generalized phenotypes, complex dynamics
+
+PLANT DEFENSE NETWORKS:
+  A plant species typically faces 50–200+ herbivore species simultaneously
+  Chemical defenses (glucosinolates, terpenes, alkaloids) evolve in response to
+  the entire herbivore community — not just the most abundant species
+
+  Evolutionary outcome:
+    Plants evolve "defense portfolios" — multiple compounds targeting different
+    herbivore detoxification pathways simultaneously
+    → Analogous to: defense-in-depth security strategy
+    Herbivores: specialize on plants where their specific detoxification mechanism
+      matches the defense profile → host specialization
+
+MUTUALIST NETWORKS (plant-pollinator webs):
+  Structure: bipartite network (plants on one side, pollinators on other)
+  Property: highly nested (specialists interact with subsets of generalist partners)
+    → Not random: specialists use a subset of what generalists use
+    → Robust to random extinctions; vulnerable to loss of hyper-generalists
+
+  NETWORK TOPOLOGY PREDICTS COEVOLUTIONARY DYNAMICS:
+    Generalist plants + generalist pollinators: diffuse coevolution
+      → flower morphology reflects average pollinator community
+    Specialist pair embedded in generalist network: escapes diffuse signal
+      → can coevolve tightly even in species-rich community
+
+COMMUNITY COEVOLUTION (trait evolution driven by community context):
+  Apparent competition: two prey species both suffer when a shared predator
+    is present → indirect coevolution without direct interaction
+  Keystone species coevolution: removing keystone (e.g., sea otter)
+    → trophic cascade → changes selection on multiple species simultaneously
+  Community phylogenetics: phylogenetically clustered vs. overdispersed communities
+    reflect different histories of competitive coevolution
+```
+
 ## Common Confusion Points
 
 **Arms races don't always escalate to extremes.** Multiple factors limit escalation:

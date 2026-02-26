@@ -261,16 +261,17 @@ conceptually since BR is naturally set-valued.
 
 **Analysis**:
 - Two pure NE: (O, O) and (F, F) — coordination with conflicting preferences
-<!-- @editor[content/P2]: Battle of the Sexes mixed NE computation shows draft self-correction ("wait, let's verify") — clean up to present the derivation directly without visible working-out hesitation -->
-- Mixed NE: Row plays O with prob 2/3, Column plays O with prob 1/3
-  - Row indifferent: 1·q = 0·q + 2·(1-q) → q = 2/3... wait, let's verify:
-  - If Column plays O with prob p: Row's payoff from O = 2p, from F = 1-p
-  - Indifference: 2p = 1-p → 3p = 1 → p = 1/3
-  - If Row plays O with prob q: Column's payoff from O = q, from F = 2(1-q)
-  - Indifference: q = 2(1-q) → 3q = 2 → q = 2/3
-<!-- @editor[content/P2]: Mixed NE payoff for Column is left as an incomplete expression ("= ...") — finish the computation or present the result cleanly -->
-- Mixed NE payoffs: Row gets 2(1/3) = 2/3, Column gets 2(2/3) - 2(2/3)(1/3) = ...
-  (both players get expected payoff 2/3 from the mixed NE — worse than either pure NE!)
+- Mixed NE: Column plays O with prob p = 1/3, Row plays O with prob q = 2/3
+  - Row indifference condition (Row mixes iff Column's mixing makes Row indifferent):
+    Column plays O with prob p: Row payoff from O = 2p, from F = (1-p)
+    Equate: 2p = 1-p → p = 1/3
+  - Column indifference condition (Column mixes iff Row's mixing makes Column indifferent):
+    Row plays O with prob q: Column payoff from O = q, from F = 2(1-q)
+    Equate: q = 2(1-q) → q = 2/3
+  - Mixed NE payoffs:
+    Row:    2 × (1/3) = 2/3
+    Column: (2/3) × 1 + (1/3) × 0 = 2/3   [Column gets 1 from O,O and 0 from F,O]
+    Both receive 2/3 — strictly worse than either pure NE (which gives 2 to one player, 1 to the other)
 - Mixed NE is less efficient than either pure NE — a classic illustration
 
 ### Matching Pennies (Zero-Sum)

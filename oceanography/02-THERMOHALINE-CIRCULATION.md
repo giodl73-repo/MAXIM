@@ -47,7 +47,7 @@ SIMPLIFIED CONVEYOR SCHEMATIC (Broecker 1991):
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — Stommel's bistability model (two stable equilibria with hysteresis) is a classic dynamical systems concept directly analogous to flip-flop circuits, Schmitt triggers, or bistable phase diagrams in materials science — any of these would anchor the concept for an engineer -->
+Stommel's (1961) two-box model shows the THC has two stable equilibria with a hysteresis loop between them — mathematically a saddle-node bifurcation, physically the same as a Schmitt trigger or any bistable dynamical system. The mechanism: temperature restores quickly (days to months via air-sea heat flux), salinity restores slowly (centuries via the water cycle). This asymmetric restoring rate creates a regime where freshwater forcing can flip the system from the "on" state to the "off" state without the return path crossing the same threshold — hysteresis. The Younger Dryas is the paleoclimate record of this flip being triggered by meltwater, and the current concern is whether GIS melt is pushing the freshwater forcing parameter toward the bifurcation boundary.
 
 ## Deep Water Formation — The Two Main Sources
 
@@ -328,4 +328,24 @@ YOUNGER DRYAS (12,900–11,700 BP):
 
 **AMOC "collapse" vs. AMOC "weakening"**: The current observed trend is modest weakening (~15% over 60 years per RAPID array). Tipping-point collapse (Stommel bistability) requires crossing a threshold of freshwater forcing that is not yet reached. The two scenarios — gradual weakening vs. abrupt collapse — have very different climate implications.
 
-<!-- @editor[content/P3]: Antarctic Intermediate Water (AAIW) formation mechanism absent — AAIW is the third major water mass by volume and its subduction at the Antarctic Convergence deserves brief coverage alongside NADW and AABW -->
+## Antarctic Intermediate Water (AAIW)
+
+AAIW is the third major water mass by volume, formed at the Antarctic Convergence (Subantarctic Front, ~50°S) where cold, fresh Antarctic surface water subducts beneath warmer subtropical surface water. It fills the 700–1,000 m depth range throughout the Southern Hemisphere and into parts of the North Atlantic and North Pacific.
+
+```
+AAIW PROPERTIES:
+  T = 3–7°C, S = 33.8–34.5 PSU (freshest intermediate water)
+  Characteristic salinity minimum visible in vertical profiles at ~800 m
+  Formation: northward Ekman drift + subduction at Subantarctic Front
+  Volume transport: ~10–15 Sv globally
+
+  PATH: forms at surface → subducts at Antarctic Convergence → spreads
+  equatorward at ~1000 m depth → identifiable as far as ~20°N in Atlantic
+  → key ventilation pathway for O₂ and CO₂ exchange to intermediate depths
+
+WHY IT MATTERS:
+  AAIW carries oxygen to mid-depth ocean — limits extent of oxygen minimum zones
+  Carries anthropogenic CO₂ to ~1000 m depth (significant portion of ocean uptake)
+  Its formation rate responds to Southern Ocean winds and buoyancy fluxes
+  → sensitive to Southern Annular Mode variability and climate change
+```

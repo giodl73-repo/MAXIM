@@ -307,7 +307,22 @@ postcolonial and feminist scholarship.
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from Enlightenment's "submit everything to rational scrutiny" to engineering culture's equivalent — code review, evidence-based decision making, blameless postmortems. The parallel is direct and would ground the material for a technical leader -->
+## Engineering Bridge: Enlightenment Rationalism and Engineering Culture
+
+The Enlightenment's core commitment — "submit everything to rational scrutiny; authority and tradition cannot substitute for evidence" — is the foundational norm of mature engineering culture. The parallels are direct enough to be structural, not merely analogical:
+
+| Enlightenment Principle | Engineering Institution |
+|-------------------------|------------------------|
+| "Sapere aude" — dare to use your own reason; reject authority without argument | Technical culture where junior engineers can challenge senior engineers' designs with evidence, not just deference |
+| Submit everything to rational examination | Code review: no code is trusted because of who wrote it; all code is subject to inspection |
+| Evidence over tradition | A/B testing, feature flags with measurement, data-driven decisions over "we've always done it this way" |
+| Encyclopédie: systematize and make knowledge accessible | Internal wikis, runbooks, architecture decision records (ADRs) — Diderot's project at organizational scale |
+| Organized critique of institutions | Blameless postmortems: the system failed, not the person; the failure reveals a structural problem to fix |
+| Kant's categorical imperative | Engineering ethics: "would I be comfortable if this design decision were applied universally across all systems?" |
+
+**Horkheimer and Adorno's critique** has an exact engineering analogue: when "rational scrutiny" is reduced to metrics and KPIs without asking what those metrics are for, you get instrumental rationality — optimization for a measurable proxy that has decoupled from the underlying goal. "Goodhart's Law" is the engineering name for the "culture industry" problem: the moment a measure becomes a target, it ceases to be a good measure.
+
+**The Counter-Enlightenment analogue**: Burke's "traditions embody accumulated wisdom; reform must be gradual" maps directly to the argument for maintaining legacy systems — accumulated edge-case handling that no one fully understands, but that took decades of production incidents to build. The Burkean instinct in engineering is to be skeptical of rewrites ("strangler fig" over "big bang replacement").
 
 ## Decision Cheat Sheet
 

@@ -32,7 +32,43 @@ ECOLOGY ↔ EVOLUTION FEEDBACK:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — carrying capacity = autoscaling ceiling, predator-prey = load balancer oscillation, food web = dependency graph, keystone species = SPOF -->
+## Engineering Bridges
+
+```
+ECOLOGY ←→ SYSTEMS ARCHITECTURE
+
+Carrying capacity K = autoscaling ceiling enforced by resource constraints
+  dN/dt = rN(K-N)/K: growth decelerates as utilization approaches capacity
+  Unlike autoscaling, K is not configurable — it's set by food, space, predators
+  Allee effects: positive feedback at low density — below threshold, population collapses
+  → Analogous to minimum viable traffic for a service to stay warm/healthy
+
+Predator-prey (Lotka-Volterra) = load balancer oscillation
+  Prey = requests; predator = processing capacity
+  More prey → predator grows → prey suppressed → predator starves → prey recovers
+  Neutrally stable cycles in the basic model (like undamped LC circuit oscillation)
+  Real systems: damped or limit cycles — additional feedback terms (prey refuge,
+    prey switching) add damping
+  → Same math as SIR epidemiological model: dS/dt, dI/dt, dR/dt
+
+Food web = directed dependency graph with energy as the flow metric
+  Nodes: species; edges: trophic interactions (who eats whom)
+  Connectance C = L/S² (link density); empirical food webs: C ≈ 0.05-0.15
+  Stability: May (1972) showed random networks destabilize with more connections
+  Real food webs stable via: compartmentalization (modules), weak links (damping),
+    asymmetric interaction strengths
+  → Parallels: microservice dependency graph; weak coupling = stable architecture
+
+Keystone species = single point of failure (SPOF) in ecosystem architecture
+  Pisaster sea star (<1% of intertidal biomass) → remove → 15 species lost → mussel monoculture
+  Keystone identifies fragility in the dependency graph that biomass alone doesn't reveal
+  → Like identifying critical path nodes in a distributed system
+
+Trophic cascade = indirect effects propagating through the dependency graph
+  Wolves (added) → elk (suppressed) → willows (recovered) → beavers (returned) → hydrology (changed)
+  n-hop indirect effects dominate; direct effects are the minority of ecological impact
+  → Like a service outage propagating through a dependency chain
+```
 
 ## Population Ecology
 

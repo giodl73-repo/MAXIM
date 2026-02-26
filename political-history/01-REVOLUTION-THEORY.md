@@ -347,7 +347,17 @@ COLOR REVOLUTION MODEL
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge section — revolution theory maps naturally to systems failure analysis: Skocpol's causal triangle is a coupled-system failure mode (fiscal stress + elite defection + peasant autonomy = cascading failure); Tilly's "revolutionary situation vs. outcome" parallels the distinction between fault detection and fault propagation in distributed systems -->
+## Bridges: Revolution Theory as Systems Failure Analysis
+
+Revolution theory's core models translate directly into systems failure analysis.
+
+**Skocpol's causal triangle → coupled-system failure mode**: The three conditions (fiscal stress, elite defection, peasant autonomy) are not independent failures — they are a coupled cascade. State fiscal crisis erodes the patronage that keeps elites loyal; elite defection removes the state's coercive enforcement capacity; autonomous peasant communities then exploit the enforcement gap. This is precisely the pattern in Perrow's *Normal Accidents* (1984): tightly coupled systems with hidden interdependencies fail catastrophically rather than gracefully when multiple components stress simultaneously. The key feature is that each failure mode amplifies the others. In distributed systems terms: the circuit breakers don't isolate the failure; instead, cascade propagation exhausts system capacity before any single node reaches its individual fault threshold.
+
+**Tilly's "revolutionary situation vs. outcome" → fault detection vs. fault propagation**: A revolutionary situation (dual sovereignty — two claimants to state power) is a detected fault: the system has entered an anomalous state, and all agents can observe the inconsistency. A revolutionary outcome is fault propagation that reaches a terminal state — the old regime's state apparatus dissolves and cannot be restored. Many detected faults are corrected before propagation (failed revolutions, stabilized crises); the question is whether the challenger coalition can sustain dual sovereignty long enough for state capacity to collapse irreversibly. In distributed systems: detecting split-brain is not the same as resolving it; the resolution depends on which partition can write to durable storage first.
+
+**Goldstone's demographic-structural model → resource exhaustion under load**: Population growth as a slow-moving variable that gradually saturates system capacity (fiscal, elite positional, subsistence) maps to long-term resource exhaustion under increasing load. The system appears stable until multiple resource pools hit limits simultaneously — not because any single limit was reached, but because the buffers that masked earlier stress were depleted. The "17th-century general crisis" (simultaneous state crises across Eurasia) is this pattern at continental scale: the same slow variable (population pressure) drove multiple systems to failure thresholds within the same generation.
+
+**Authoritarian reconsolidation post-revolution → thermidor as stable equilibrium restoration**: Post-revolutionary thermidor (Brinton's term for conservative reaction) is the system returning to a nearby stable equilibrium after being perturbed. The new equilibrium differs from the old (new ruling class, different institutional form) but shares key structural features (centralized coercive apparatus, elite-mass hierarchy). This is consistent with multiple-equilibria models: revolutions move between equilibria rather than creating entirely new ones.
 
 ## Why Some Revolutions Succeed: Synthesis
 

@@ -190,27 +190,30 @@ The canonical ESS example from biology.
 
 ```
   Mixed ESS computation:
-  At mixed ESS x* = (p*, 1-p*), fitness must be equal:
-  f_Hawk(x*) = f_Dove(x*)
-  p*(V-C)/2 + (1-p*)·V = p*·0 + (1-p*)·V/2
-<!-- @editor[content/P2]: Hawk-Dove mixed ESS derivation has visible false-start algebra ("... solving:", "simplify directly") before the clean version — remove the failed attempt and keep only the clean derivation that follows -->
-  p*(V-C)/2 + V - p*V = V/2 - p*V/2
-  p*(V-C)/2 = V/2 - p*V + p*V/2 - V + p*V = ... solving:
-  p*(V-C)/2 + p*V = V - V/2 + p*V/2 + p*V/2 - p*V... (simplify directly)
+  At mixed ESS x* = (p*, 1-p*), Hawk and Dove must have equal fitness.
 
-  Equal fitness condition:
-  p*(V-C)/2 + (1-p*)V = (1-p*)V/2
-  LHS - RHS = p*(V-C)/2 + (1-p*)V - (1-p*)V/2 = 0
-            = p*(V-C)/2 + (1-p*)V/2 = 0
-  p*(V-C)/2 = -(1-p*)V/2
-  p*(V-C) = -(1-p*)V
-  pV - pC = -V + pV
-  -pC = -V
-  p* = V/C  ✓
+  Fitness of Hawk against population x* = (p*, 1-p*):
+    f_Hawk = p*(V-C)/2 + (1-p*)·V
+    (prob p* meet Hawk → expected (V-C)/2; prob (1-p*) meet Dove → win V)
 
-  Population fraction V/C play Hawk, (1-V/C) play Dove.
-  The mixed ESS is stable: if too many Hawks, injury cost exceeds benefit;
-  Doves flourish. If too many Doves, Hawks do well; Hawk fraction grows.
+  Fitness of Dove against population x*:
+    f_Dove = p*·0 + (1-p*)·V/2
+    (prob p* meet Hawk → get 0; prob (1-p*) meet Dove → share V equally)
+
+  Equal fitness condition (indifference at interior ESS):
+    p*(V-C)/2 + (1-p*)V = (1-p*)V/2
+
+  Rearrange:
+    p*(V-C)/2 + (1-p*)V − (1-p*)V/2 = 0
+    p*(V-C)/2 + (1-p*)V/2 = 0
+    p*(V-C) + (1-p*)V = 0
+    pV − pC + V − pV = 0
+    V − pC = 0
+    p* = V/C  ✓
+
+  Population fraction V/C plays Hawk, (1-V/C) plays Dove.
+  Stability: if p > V/C, Hawks are too common → f_Hawk < f_Dove → p falls.
+  If p < V/C, f_Hawk > f_Dove → p rises. Frequency-dependent negative feedback.
 ```
 
 ---
@@ -302,44 +305,58 @@ the resulting equilibrium may be inefficient. How much does selfishness cost?
   │  Cost = latency (time to travel)│
   └────────────────────────────────┘
 
-  With 1000 on each path:
-  A→B→D: 1000/100 + 50 = 60 min.
-  A→C→D: 50 + 1000/100 = 60 min.
-  NE: 1000 on each path. Total cost = 60. PoA = 1.
+  Standard Braess setup (Braess 1968): 4000 drivers, source A, destination D.
 
-  Add a free road from B to C:
-  ┌────────────────────────────────┐
-  │  A ──x/100──► B               │
-  │               │               │
-  │               0 (free edge)   │
-  │               │               │
-  │               ▼               │
-  │  A ──50────► C ──x/100──► D  │
-  │               (also B→D: 50) │
-  └────────────────────────────────┘
+  BEFORE adding the new edge:
+  ┌─────────────────────────────────────────────────────┐
+  │  Two routes only:                                    │
+  │                                                      │
+  │  Route 1: A ──x/100──► B ──45──► D                  │
+  │  Route 2: A ──45────► C ──x/100──► D                │
+  │                                                      │
+  │  Edge A→B: latency = x/100 (x = flow in hundreds)   │
+  │  Edge B→D: latency = 45 (constant)                  │
+  │  Edge A→C: latency = 45 (constant)                  │
+  │  Edge C→D: latency = x/100                          │
+  └─────────────────────────────────────────────────────┘
 
-  New NE: All 2000 drivers take A→B→C→D (the zero-cost detour is attractive):
-  Cost: 2000/100 + 0 + 2000/100 = 20 + 0 + 20 = 40... wait.
+  NE (by symmetry, 2000 on each route):
+    Route 1: 2000/100 + 45 = 20 + 45 = 65 min
+    Route 2: 45 + 2000/100 = 45 + 20 = 65 min
+  Both routes equal. NE cost per driver: 65 min.
+  Social optimum is also 65 min (no coordination gain available here). PoA = 1.
 
-  Let's be precise: with all 2000 on A→B→C→D:
-  A→B: 2000/100 = 20
-  B→C: 0
-  C→D: 2000/100 = 20
-  Total: 40 min.
+  AFTER adding a zero-latency edge B→C:
+  ┌─────────────────────────────────────────────────────┐
+  │  New route available: A→B→C→D                       │
+  │                                                      │
+  │  A ──x/100──► B ──0──► C ──x/100──► D              │
+  │               ╰──45──► D                            │
+  │  A ──45────► C                                      │
+  └─────────────────────────────────────────────────────┘
 
-  But original path A→B→D: 2000/100 + 50 = 70 min (if everyone uses new route)
-  Original path A→C→D: 50 + 2000/100 = 70 min.
-  New route A→B→C→D: 20 + 0 + 20 = 40 min.
+  Claim: A→B→C→D is strictly dominant when routes 1 and 2 are in use.
+  If 2000 drivers use each old route, the new route costs:
+    A→B: 2000/100 = 20. B→C: 0. C→D: 2000/100 = 20. Total: 40 min < 65 min.
+  A defector gains by switching to A→B→C→D.
 
-  All drivers prefer the new route: NE = 2000 on A→B→C→D, cost = 40.
-<!-- @editor[content/P1]: Braess's Paradox example is broken — the worked computation shows cost DECREASING from 60 to 40 after adding the free edge, contradicting the stated claim ("Adding a road can make everyone worse off"). The standard Braess example uses different latency functions. Rework with correct numbers where the NE cost genuinely increases -->
-  But wait — original NE was 60 min for each driver.
-  After adding the free edge: NE is 40 min — better! (Braess usually shows cost increase)
+  Unique NE: ALL 4000 drivers use A→B→C→D.
+    A→B flow = 4000: latency = 4000/100 = 40
+    B→C: 0
+    C→D flow = 4000: latency = 4000/100 = 40
+    Total: 80 min per driver.
 
-  The standard Braess has the free edge and the new equilibrium is 80 min.
-  The key: in equilibrium, the congestion-sensitive edges get all 2000 drivers,
-  and the social optimum (splitting) gives lower cost than the NE (everyone crowds
-  onto the "free" path). PoA > 1 due to coordination failure.
+  Summary:
+    Before new edge: NE = 65 min.
+    After new edge:  NE = 80 min.  (+15 min — everyone is worse off)
+    Social optimum after adding edge: 65 min (split 2000 on routes 1 and 2,
+      ignore the free edge — but no player can unilaterally enforce this).
+
+  The paradox: the free B→C edge creates a dominant strategy that individually
+  rational players adopt, destroying the efficient split equilibrium.
+  Adding infrastructure strictly worsened the NE outcome. PoA = 80/65 ≈ 1.23.
+  This is why Roughgarden-Tardos show PoA ≤ 4/3 for linear latency: the maximum
+  achievable degradation from selfish routing is bounded.
 ```
 
 ### Roughgarden-Tardos PoA Bounds
@@ -624,7 +641,20 @@ frequency of opponents' play.
 
 ---
 
-<!-- @editor[bridge/P2]: No explicit old-world bridge section — evolutionary GT and algorithmic GT connect to concepts the learner knows: distributed systems convergence, load balancing as congestion games, no-regret learning as online optimization (MIT), PoA as system efficiency metric for selfish routing (Azure CDN, network design) -->
+## CS and Systems Bridges
+
+| Evolutionary / Algorithmic GT concept | Formal / systems analogue |
+|---|---|
+| Replicator dynamics | Gradient flow on the simplex: ẋᵢ = xᵢ(fᵢ(x) − f̄(x)) is proportional to the gradient of average fitness; for potential games this is gradient ascent on the potential function |
+| ESS / asymptotically stable fixed point | Lyapunov stability in dynamical systems: the ESS condition (f(y,x*) < f(x*,x*) for y ≠ x*) is exactly the condition that x* is a strict local minimum of the Lyapunov function |
+| Congestion game / Wardrop equilibrium | Load balancing across servers: each request routed to minimize personal latency, ignoring the load it adds to others — distributed routing under selfish scheduling |
+| Braess's Paradox | Counterintuitive in distributed systems: adding a faster node or link can increase overall latency if it concentrates load — relevant to CDN routing, load balancer configurations |
+| Price of Anarchy (PoA) | Distributed system efficiency ratio: the worst-case overhead from removing central coordination; PoA ≤ 4/3 for linear latency = selfish routing degrades performance by at most 33% vs. optimal routing |
+| Potential game (Rosenthal 1973) | The game has an exact potential Φ: each unilateral improvement step increases Φ, so best-response dynamics terminates (finite improvement property) — same as finding a descent direction in convex optimization |
+| No-regret algorithms (Hedge, EXP3) | Online learning / online convex optimization: each round choose a distribution over actions, receive loss, update via multiplicative weights — MIT OCW: Lecture on Online Learning covers the full theory |
+| No-regret learning → correlated equilibrium | Convergence of decentralized learning: if all players run no-regret algorithms, the empirical joint distribution converges to the set of correlated equilibria — distributed coordination without communication |
+| Counterfactual Regret Minimization (CFR) | Deep RL / game solving: basis for AlphaHoldem, Libratus, Pluribus (superhuman poker); converges to Nash in two-player zero-sum EFGs by minimizing local regrets at each information set |
+
 ## Common Confusion Points
 
 **"ESS = Nash"**: Every ESS is a Nash equilibrium; not every Nash is ESS. Strict Nash ⟹

@@ -345,7 +345,8 @@ TECH SUPPLY CHAINS: MINERAL TO DEVICE
 
 ## Mineral Resource Economics
 
-<!-- @editor[bridge/P2]: JORC/NI 43-101 resource classification is directly analogous to software maturity models or technology readiness levels (TRL) — a one-liner bridge would help the learner map this unfamiliar domain taxonomy to known frameworks -->
+The JORC/NI 43-101 classification is the mining industry's equivalent of a technology readiness level (TRL) scale: it encodes confidence in an estimate, not the physical existence of the material. An "Inferred Resource" is like a TRL-2 concept — you have evidence something is there but you haven't characterized it. A "Proven Reserve" is TRL-9 — it's been drilled out, the grade and geometry are confirmed, and someone has shown the economics work. The transition from Resource to Reserve requires both technical studies (feasibility) and economic demonstration (bankable at current prices). Mine financing requires at minimum "Probable Reserve" status.
+
 ```
 RESOURCE CLASSIFICATION (JORC/NI 43-101 standard)
 
@@ -383,9 +384,19 @@ CRITICAL SUPPLY CONCENTRATIONS:
   Gallium:     China ~80% (byproduct of Al)
   Graphite:    China ~65%
 
-<!-- @editor[content/P2]: The 2023 China Ga/Ge export controls example is strong but needs 1-2 lines on the downstream effect — which chip fabs were affected, did pricing normalize, is reshoring happening? The "so what" for a tech VP is the supply chain resilience question -->
-2023 context: China export controls on Ga + Ge → immediate price spike
-→ Illustrates why "critical mineral" designation matters to tech companies
+2023 context: China export controls on Ga + Ge (August 2023, requiring export licenses)
+→ immediate price spike: Ge spot prices rose ~50% within months; Ga prices doubled
+→ Direct impact: GaAs/GaN wafer producers (II-VI/Coherent, Wolfspeed, IQE) faced
+  supply uncertainty; aerospace/defense GaN-on-SiC supply chains flagged as vulnerable
+→ Pricing partially normalized by mid-2024 as buyers drew down inventories and
+  non-Chinese sources (Zn smelters in Canada, Europe, Russia) increased output
+→ Reshoring status: US/EU are investing in Ge refining capacity but cannot fully
+  decouple on 3-5 year timescales — the refining infrastructure gap is as large as
+  the mining gap; processing know-how is concentrated in China after 20 years of
+  investment
+→ The "so what" for supply chain strategy: byproduct metals have no dedicated mine
+  that can be spun up; the only lever is diversifying the primary metal smelting
+  base (Zn, Al) and investing in refining capacity in friendly jurisdictions
 ```
 
 ---

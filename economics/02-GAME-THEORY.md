@@ -4,29 +4,45 @@
 
 ## Big Picture
 
-<!-- @editor[diagram/P2]: Diagram lists game components and applications but doesn't show relationships between solution concepts — e.g., how Nash refines to SPE refines to PBE, how normal form maps to extensive form, how Bayesian games generalize complete-info games -->
 ```
 GAME THEORY: mathematical study of strategic interaction among rational agents
 
-A GAME requires:
-  Players: who is acting?
-  Actions: what can each player do?
-  Payoffs: what does each player get for each outcome?
-  Information: what does each player know when choosing?
+REPRESENTATION FORMS AND THEIR RELATIONSHIP:
+  Normal form:    players, action sets, payoff functions — simultaneous play
+  Extensive form: game tree with information sets — adds timing and information
+  Bayesian game:  types θᵢ drawn from prior; payoffs depend on type profile
+        │
+        │  complete info + simultaneous → Normal form
+        │  complete info + sequential   → Extensive form
+        │  incomplete info              → Bayesian game (normal or extensive)
+        ▼
+SOLUTION CONCEPT HIERARCHY (each refines the one above):
 
-SOLUTION CONCEPTS: predict what rational players will do
-  Nash equilibrium: no player wants to unilaterally deviate
-  Backward induction: work backwards from end of game tree
-  Bayesian Nash: with uncertainty about opponent types
-  Subgame perfect: credible threats only
+  CORRELATED EQUILIBRIUM        ← weakest; allows coordination device
+        │  contains all Nash equilibria as special cases
+        ▼
+  NASH EQUILIBRIUM              ← no unilateral deviation profitable
+        │  applied to extensive form:
+        ▼
+  SUBGAME PERFECT EQUILIBRIUM   ← NE in every subgame; eliminates empty threats
+        │  with incomplete information:
+        ▼
+  PERFECT BAYESIAN EQUILIBRIUM  ← SPE + consistent beliefs via Bayes' rule
+
+  Bayesian NE = NE of the Bayesian game (incomplete info, simultaneous)
+  PBE = SPE analog for sequential games with incomplete info
+
+REFINEMENT DIRECTION: more restrictive → fewer equilibria → stronger predictions
+  CE ⊇ NE ⊇ SPE ⊇ PBE  (each set ⊆ the one to its left)
+  Nash always exists (mixed); SPE always exists in finite games
 
 APPLICATIONS IN TECH:
-  • Auctions (Google Ads, spectrum)
-  • Platform competition (winner-take-all)
-  • Security (adversarial settings)
-  • Multi-agent RL (Nash as convergence point)
-  • P2P protocols (BitTorrent incentive design)
-  • Cryptoeconomics (blockchain consensus as game)
+  • Auctions (Google Ads, spectrum) — Bayesian NE, VCG
+  • Platform competition (winner-take-all) — repeated games, folk theorem
+  • Security (adversarial settings) — minimax, zero-sum
+  • Multi-agent RL (Nash as fixed point of best-response dynamics)
+  • P2P protocols (BitTorrent) — incentive design, mechanism design
+  • Cryptoeconomics (blockchain consensus) — repeated game with fork threat
 ```
 
 ---
@@ -272,5 +288,59 @@ REPLICATOR DYNAMICS:
 | Centipede | Backward induction | Rationality → early exit, experiment says cooperate |
 | Ultimatum | SPE = reject small but accept any | Experiment: people reject "unfair" offers |
 
-<!-- @editor[structure/P2]: Missing Common Confusion Points section — natural gotchas: Nash equilibrium is not necessarily "optimal" or "fair", mixed strategy equilibrium does not mean players literally randomize, backward induction assumes common knowledge of rationality, dominant strategy vs dominated strategy, SPE vs NE -->
-<!-- @editor[content/P2]: Correlated equilibrium appears in Decision Cheat Sheet but has no coverage in the body — either add a section or remove from the table -->
+---
+
+## Correlated Equilibrium
+
+```
+DEFINITION (Aumann 1974, 1987):
+  A correlation device (mediator) draws a signal profile (s₁,...,sₙ) from
+  distribution p over S = S₁×...×Sₙ and privately tells each player i their
+  signal sᵢ. Players choose actions based on sᵢ.
+
+  Profile is a correlated equilibrium if no player benefits from deviating
+  given their signal:
+  For all i, all sᵢ, all alternative action a'ᵢ:
+  Σ_{s₋ᵢ} p(s₋ᵢ|sᵢ) u_i(a(sᵢ), a(s₋ᵢ)) ≥ Σ_{s₋ᵢ} p(s₋ᵢ|sᵢ) u_i(a'ᵢ, a(s₋ᵢ))
+
+  (Following the signal is a best response given what following the signal
+  reveals about others' signals.)
+
+RELATIONSHIP TO NASH:
+  Every Nash equilibrium is a correlated equilibrium (set p = product of
+  mixed strategy distributions; signals are independent).
+  CE contains NE as a special case.
+  CE may achieve higher social welfare than any Nash equilibrium.
+
+EXAMPLE: Battle of the Sexes
+  Pure NE: (Opera,Opera) = (2,1) or (Football,Football) = (1,2).
+  Mixed NE payoffs: both get 2/3.
+  CE: mediator tosses coin → tells P1 "Opera" or "Football," tells P2 same.
+  Expected payoffs: (1.5, 1.5) — Pareto-dominates the mixed NE.
+  This CE is achieved by both following a public random signal.
+
+WHY CE MATTERS FOR CS/ENGINEERING:
+  CE is easier to compute than Nash: CE is a linear program (O(|A|² constraints).
+  NE is PPAD-complete.
+  In multi-agent RL: no-regret learning algorithms (multiplicative weights,
+  online gradient descent) converge to CE in self-play, not Nash.
+  → In practice, distributed agents learning independently converge to CE.
+
+  Regret minimization → CE: if all players minimize their own regret
+  (achievable by algorithms), the empirical distribution of play
+  converges to the set of correlated equilibria.
+```
+
+---
+
+## Common Confusion Points
+
+**Nash equilibrium is not optimal or fair**: NE is a stability concept — no player can profitably deviate. It says nothing about welfare (Prisoner's Dilemma NE is Pareto dominated). It says nothing about fairness (a NE can involve zero for one player). It is not necessarily unique. For welfare-improving results, need mechanism design (VCG, matching) or cooperation (repeated game folk theorem).
+
+**Mixed strategy equilibrium does not mean players literally randomize**: The standard interpretation: at a mixed NE, each player randomizes to make *others* indifferent among their mixed strategies. A deeper interpretation (purification theorem, Harsanyi): players have privately known payoff perturbations; the mixed NE is a limit of pure-strategy BNE of nearby games. In practice: mixed NE represents a population distribution of pure strategies, or uncertainty about opponent behavior, not a literal coin flip.
+
+**Backward induction requires common knowledge of rationality (CKR)**: SPE derivation applies backward induction: P2 will choose optimally at their last node, so P1 anticipates that, etc. This requires not just that both players are rational, but that P1 knows P2 is rational, P2 knows P1 knows P2 is rational, and so on infinitely. CKR is a strong assumption; centipede game experiments show it fails in practice.
+
+**Dominant strategy vs dominated strategy**: A *dominant* strategy is best regardless of opponents' play (you want it). A *dominated* strategy is worse than some other strategy regardless of opponents' play (you never want it). IESDS eliminates strictly dominated strategies; this is weaker than assuming dominant strategies exist. Dominant strategy IC in mechanism design means truth-telling is a dominant strategy — the strongest IC notion.
+
+**SPE vs NE**: Every SPE is a NE, not vice versa. NE allows players to make threats that they would never rationally carry out off the equilibrium path. SPE (via backward induction / one-shot deviation principle) requires strategies to be optimal in every subgame, including off-path ones. SPE eliminates "incredible threats" — the key refinement for dynamic games.

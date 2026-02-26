@@ -25,7 +25,46 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-<!-- @editor[bridge/P2]: Missing explicit old-world bridge — the opening diagram contrasts Homo economicus vs. Homo sapiens but doesn't frame the bridge in terms the learner owns: classical optimization theory (LP, convex optimization, rational agents from AI) maps to EU theory; behavioral economics is the empirical study of where these optimization assumptions break down in human systems. Any senior engineer coming from formal methods or optimization theory needs this framing -->
+## The Formal Systems Bridge
+
+The neoclassical model is a formal optimization system. Behavioral economics is the empirical study of where human agents deviate from that system — and why the deviations are systematic rather than random noise.
+
+```
+FORMAL SYSTEMS YOU ALREADY KNOW     WHAT THEY MAP TO IN ECONOMICS
+────────────────────────────────    ──────────────────────────────────────────
+LP / convex optimization            Utility maximization (linear budget, convex u)
+  max cᵀx s.t. Ax ≤ b                max U(x) s.t. p·x ≤ W
+  Unique optimal solution (if       → Marshallian demand x*(p, W)
+  feasible and bounded)
+
+Expected value maximization         Expected Utility Theory (vNM 1944)
+  EV = Σ pᵢ × payoffᵢ               EU = Σ pᵢ × U(xᵢ)
+  Optimal under risk neutrality     → Rational benchmark for decisions under risk
+
+Fixed-point iteration (Nash)        Equilibrium reasoning in games
+  Best-response dynamics            → If it converges, you have Nash equilibrium
+  NE = fixed point of BRD           Computing NE = PPAD-complete
+
+Rational agent (AI planning)        Homo economicus
+  Knows state space, transitions,   → Fully informed, stable preferences, perfect
+  maximizes expected reward           optimization — the baseline model
+
+BEHAVIORAL ECONOMICS = where these formal models break down in human systems:
+  Convexity violated   → Loss aversion (S-curve utility around reference point)
+  Linearity in p       → Probability weighting (π(p) ≠ p; overweight small probs)
+  Stable preferences   → Reference dependence (utility depends on gains/losses)
+  Global optimization  → Bounded rationality (satisficing, not optimizing)
+  Independent payoffs  → Social preferences (utility depends on others' payoffs)
+  Exponential discounting → Hyperbolic discounting (β-δ model; present bias)
+
+ENGINEER'S FRAME:
+  The neoclassical model is the spec. Human behavior is the implementation.
+  Behavioral economics is the test suite that reveals where implementation ≠ spec.
+  The deviations are not random bugs — they are systematic, reproducible, and
+  predictable. The behavioral program maps those bugs: when do they appear,
+  how large are they, and what environments trigger or suppress them.
+```
+
 ## The Research Lineage
 
 ```

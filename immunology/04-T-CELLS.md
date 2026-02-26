@@ -1,4 +1,3 @@
-<!-- @editor[bridge/P3]: No CS/engineering analogy bridge — immunological synapse parallels client-server handshake with mutual authentication; T cell exhaustion parallels thread starvation under sustained load -->
 # T Cells
 
 ## The Big Picture
@@ -325,6 +324,79 @@ T CELLS: CELLULAR IMMUNITY COORDINATORS AND KILLERS
 | What receptor does CTLA-4 compete with? | CD28 (competes for B7 binding) |
 
 ---
+
+## T Cell Systems Architecture: Authentication, Synapse, and Exhaustion
+
+```
+IMMUNOLOGICAL SYNAPSE ↔ MUTUAL AUTHENTICATION HANDSHAKE
+──────────────────────────────────────────────────────────────────────────────
+T CELL AUTHENTICATION REQUIREMENTS:
+  A T cell activates only when ALL of the following are simultaneously satisfied:
+
+  SIGNAL 1 (antigen specificity):
+    TCR must bind the correct peptide:MHC complex
+    This is the specific credential check — locks to one peptide-MHC pair
+    Neither TCR nor MHC alone is sufficient
+
+  SIGNAL 2 (co-stimulation — context check):
+    CD28 must bind B7 (CD80/CD86) on the APC
+    B7 is only upregulated on activated, mature APCs
+    → Ensures the APC has detected a real threat (PAMP/DAMP present)
+    → Prevents activation against self-antigens displayed without danger signals
+
+  SIGNAL 3 (cytokine context — determines differentiation):
+    Cytokines (IL-12, IL-4, TGF-β, etc.) in the local environment
+    Analogous to: environment variables injected at container startup
+    → Same antigen + same co-stimulation → different T cell type depending on context
+
+  SECURITY MODEL:
+    Without Signal 2 → T cell anergy (permanent inactivation)
+    Without Signal 3 → T cell activates but differentiates poorly
+    All three needed → proper activation + correct differentiation
+
+    This is mutual authentication:
+    T cell verifies APC (requires specific MHC:peptide + B7)
+    APC is only activated when it has detected a genuine PAMP/DAMP
+    → Prevents spurious activation against harmless self-antigens
+
+  IMMUNOLOGICAL SYNAPSE = the physical interface assembly:
+    cSMAC (central zone): TCR + CD3 + PKCθ (signaling zone)
+    pSMAC (perimeter):    LFA-1 + ICAM-1 (adhesion ring, "socket lock")
+    Equivalent: TLS mutual authentication + connection establishment
+    The synapse concentrates signaling molecules and directs secretion
+    toward the target — precisely oriented cytolytic delivery
+
+T CELL EXHAUSTION ↔ THREAD STARVATION / RESOURCE DEPLETION
+──────────────────────────────────────────────────────────────────────────────
+NORMAL RESPONSE:
+  Acute infection → antigen spike → T cell clone expands → clears infection
+  → antigen cleared → contraction → memory persists
+
+EXHAUSTION CONTEXT:
+  Chronic antigen (tumor, HIV, HCV) → T cells never get "done"
+  → Continuous TCR signaling → progressive epigenetic changes → dysfunction
+
+EXHAUSTION AS RESOURCE DEPLETION:
+  Normal effector T cell: thread with queue, processes tasks, can dequeue
+  Exhausted T cell: thread starved by infinite queue depth that never drains
+    → First: effector functions degrade (less IL-2, less proliferation)
+    → Then: cytotoxicity reduced (perforin/granzyme lower)
+    → Finally: all effector function lost; cell expresses "stop" markers
+
+CHECKPOINT RECEPTORS = RATE LIMITERS IN OVERCROWDED QUEUE:
+  PD-1, TIM-3, LAG-3, CTLA-4: All inhibitory receptors
+  Upregulated under chronic stimulation
+  Evolutionary purpose: prevent immunopathology from unchecked T cell activity
+  Cancer exploitation: tumor upregulates PD-L1 → activates rate limiter → T cells idle
+  Anti-PD-1 therapy: removes rate limiter → queue can drain → T cells resume killing
+
+PROGENITOR vs. TERMINAL EXHAUSTION:
+  Tpex (progenitor): has self-renewal capacity → responds to anti-PD-1
+  Tex (terminal): replication blocked, function irreversible lost
+  Analogous to: thread pool with warm-standby threads (Tpex recoverable)
+                vs. permanently crashed threads (Tex → need new thread)
+──────────────────────────────────────────────────────────────────────────────
+```
 
 ## Common Confusion Points
 

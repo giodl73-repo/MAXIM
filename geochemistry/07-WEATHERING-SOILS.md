@@ -74,8 +74,9 @@ KEY WEATHERING REACTIONS
 
 ---
 
-<!-- @editor[bridge/P2]: The Bowen reaction series (high-T minerals weather fastest) is the inverse of the crystallization sequence — framing this explicitly as a thermodynamic stability argument (minerals far from their equilibrium conditions decompose fastest) would connect to the learner's physics intuition -->
 ## Weathering Rates and Controls
+
+The weathering stability sequence is the inverse of the Bowen crystallization sequence — and this is a direct thermodynamic argument, not a coincidence. Minerals that crystallize at high temperature (olivine at ~1200°C, Ca-plagioclase at ~1100°C) formed in a high-temperature, essentially anhydrous, reducing environment. At Earth's surface — low temperature, abundant water, oxidizing, low pressure — they are maximally far from their equilibrium stability conditions. The driving force for dissolution is proportional to the departure from equilibrium (ΔG = RT ln(Q/K)); high-T minerals have the largest ΔG for dissolution at surface conditions, so they weather fastest. Quartz, the last mineral to crystallize from a felsic melt at ~600°C, is already close to the SiO₂-H₂O equilibrium at surface conditions — hence its persistence as beach sand after billions of years of weathering.
 
 ```
 CONTROLS ON WEATHERING RATE
@@ -86,8 +87,9 @@ CONTROLS ON WEATHERING RATE
     Olivine >> Pyroxene >> Ca-plagioclase >> Amphibole >>
     Na-plagioclase >> K-feldspar >> Muscovite >> Quartz
 
-    Rule of thumb: Mineral formed at highest T/P weathers fastest
-    (crystallization stability order reverses weathering order)
+    Thermodynamic explanation: minerals formed at highest T/P are
+    furthest from equilibrium at surface conditions → largest ΔG
+    for dissolution → fastest weathering rate
 
   EXTERNAL CONTROLS:
     TEMPERATURE: Arrhenius equation; rate ∝ e^(-Ea/RT)

@@ -308,7 +308,91 @@ LEAGUE OF MAYAPAN (c. 1200–1441):
 
 ---
 
-<!-- @editor[content/P2]: Southwest civilizations (Ancestral Puebloans/Anasazi, Hohokam irrigation systems) mentioned in Big Picture but have no drill-down section — significant gap given their architectural and agricultural achievements -->
+---
+
+## North American Southwest — Ancestral Puebloans and Hohokam
+
+Two distinct civilizations in the arid Southwest, with fundamentally different adaptive strategies: one vertical (stone architecture, defensive positioning), one hydraulic (canal irrigation, lowland agriculture).
+
+```
+ANCESTRAL PUEBLOANS (formerly "Anasazi")
+=========================================
+
+GEOGRAPHY: Four Corners region (modern Utah/Colorado/Arizona/New Mexico)
+           Canyon landscapes: Chaco Canyon, Mesa Verde, Canyon de Chelly
+
+TIMELINE:
+  ~200 BCE    Basketmaker period: pithouses, agriculture begins (corn, squash)
+  700–900 CE  Early Pueblo: above-ground stone rooms; kiva (ceremonial pit) develops
+  900–1150    CHACO CANYON PEAK:
+                Great Houses (Pueblo Bonito: 800 rooms, 4–5 stories)
+                Road network radiating 400+ km from Chaco
+                Astronomical alignments (solstice/equinox markers in architecture)
+                Long-distance trade: turquoise from NM mines → Pacific shells
+                Population: ~2,000–3,000 at Chaco; broader system much larger
+  1150–1300   MESA VERDE CLIFF DWELLINGS:
+                Population moves from canyon floor to cliff alcoves
+                Cliff Palace: ~150 rooms, 23 kivas
+                Motivation: defense? water management? ritual? debated
+  1276–1299   Great Drought: tree-ring record shows severe drought
+  ~1300       Widespread abandonment of plateau sites
+              Migration: south to Rio Grande pueblos (Taos, Acoma, Hopi, Zuni)
+              These descended communities survive to the present
+
+CHACO AS A REGIONAL SYSTEM (not just a city):
+  Great Houses throughout San Juan Basin connected by roads
+  Roads: too straight and wide for foot traffic alone;
+         may function as ritual/procession routes + commerce
+  Chaco imported: food (maize from outlier sites), timber (200 km away),
+                  turquoise, macaws (from Mexico, ~1,200 km)
+  = a redistributive network, not a self-sufficient settlement
+
+ARCHITECTURAL TECHNOLOGY:
+  Core-and-veneer masonry: rubble core faced with shaped sandstone
+  Multistory construction without metal tools or draft animals
+  Kiva (circular semi-subterranean room): ritual center of each community
+  Sipapu: symbolic hole in kiva floor = emergence from underworld
+
+HOHOKAM IRRIGATION SYSTEM
+===========================
+
+GEOGRAPHY: Sonoran Desert, Salt and Gila River valleys (modern Phoenix basin)
+
+TIMELINE:
+  ~300 BCE    First sedentary settlements; canal irrigation begins
+  600–900 CE  Colonial/Sedentary periods: large villages; red-on-buff pottery
+  900–1150    CLASSIC PERIOD PEAK:
+                Canal system: 800+ km of canals; feeds ~110,000 acres
+                Largest prehistoric irrigation system in North America
+                Platform mounds: raised structures for elite/ritual use
+  ~1450       Widespread abandonment; possible environmental collapse
+
+CANAL SYSTEM — THE ENGINEERING:
+  Main canals: 15–18 m wide, 3 m deep; lined with clay
+  Secondary distribution canals → field-level laterals
+  Headgates: controlled water flow and distribution
+  SCALE: supported ~40,000–50,000 people at peak
+         Phoenix metro today largely follows Hohokam canal alignments
+         (modern canals built over/alongside prehistoric ones)
+
+  MANAGEMENT PROBLEM:
+  Canals require continuous maintenance (silt removal, headgate repair)
+  and coordinated scheduling (who irrigates when)
+  = requires governance structures without central authority evidence
+  Solution likely: community-based water management associations
+  (analogous to acequia systems still used in New Mexico)
+
+COLLAPSE MECHANISMS (shared patterns):
+  Both systems showed signs of:
+  1. ENVIRONMENTAL STRESS: prolonged drought + arroyo cutting (erosion)
+  2. POPULATION PRESSURE: landscape degradation from intensive agriculture
+  3. POLITICAL FRAGMENTATION: Chaco's integrative system dissolved
+  4. CLIMATE FORCING: 1276–99 drought documented in tree rings
+  Not total extinction — descendant communities absorbed populations
+```
+
+**Comparative note — scale and organization:**
+Both Cahokia and the Chaco/Hohokam systems achieved urban scales (tens of thousands of people) without the institutional forms European history treats as prerequisites (writing, metal tools, wheeled transport, draft animals). The Hohokam irrigation system in particular poses a governance puzzle: hundreds of kilometers of canals requiring coordinated maintenance, with no evidence of centralized coercive authority. Distributed consensus coordination at engineering scale.
 
 ## North America — Cahokia, Haudenosaunee, Pacific Northwest
 

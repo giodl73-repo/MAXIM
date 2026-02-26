@@ -2,8 +2,9 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P2]: EOF/PCA bridge missing — teleconnections are defined by Empirical Orthogonal Functions (= PCA on spatiotemporal fields). The learner with MIT math background would immediately grasp "NAO = leading eigenvector of North Atlantic SLP covariance matrix." One sentence connecting EOF to PCA would land -->
 Teleconnections are statistical relationships between climate anomalies in geographically remote regions. They reflect coherent large-scale patterns of atmospheric or ocean-atmosphere variability that modulate weather patterns globally — the primary source of seasonal-scale predictability beyond the 2-week weather forecast limit.
+
+**Mathematical basis:** Teleconnection patterns are defined by Empirical Orthogonal Functions (EOFs) — which are exactly PCA applied to spatiotemporal climate fields. The NAO is the leading eigenvector of the North Atlantic sea-level pressure covariance matrix. The PDO is the leading eigenvector of North Pacific SST anomalies. The MJO's RMM index is the projection onto the two leading EOFs of combined OLR and zonal wind anomalies. EOF decomposition finds the orthogonal modes that explain maximum variance — the same eigendecomposition of a covariance matrix used in dimensionality reduction everywhere in data science.
 
 ```
 +------------------------------------------------------------------+

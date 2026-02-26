@@ -22,7 +22,6 @@ a distinct structural principle:
 
 ---
 
-<!-- @editor[bridge/P2]: No agglutination bridge despite obvious parallel — learner knows compiler theory; Turkish agglutination (stem + suffix + suffix + ...) is exactly like method chaining or a builder pattern: each suffix is a deterministic transform on the stem. A "pipeline" diagram would resonate. -->
 ## Turkish
 
 ### Profile
@@ -76,7 +75,38 @@ EXAMPLE with 4-way harmony (ı/i/u/ü):
   Harmony makes suffixes phonologically predictable once learned.
 ```
 
-### Agglutination in Turkish
+### Agglutination in Turkish — The Pipeline Model
+
+Turkish agglutination is a suffix-chaining pipeline: each suffix is a deterministic transform applied to the current stem, producing a new stem for the next transform. The order is fixed (slot grammar), the composition is left-to-right, and each suffix has a clear semantic/grammatical contribution. This is structurally identical to method chaining or a builder pattern:
+
+```
+BUILDER PATTERN ANALOGY:
+
+  word = stem
+    .add(plural)         // -ler/-lar (vowel harmony)
+    .add(possessive)     // -im/-ım/-um/-üm (1sg), -in/-ın/... (2sg)
+    .add(case)           // -de/-da (LOC), -e/-a (DAT), -den/-dan (ABL)
+    .toString()          // surface form
+
+  evlerimde = ev + ler + im + de
+              house + PL + 1sg.POSS + LOC = "in my houses"
+
+VERB PIPELINE:
+  word = verb_stem
+    .add(causative?)     // -tir/-dir (make X do)
+    .add(passive?)       // -il/-in (be done)
+    .add(reflexive?)     // -in (do to oneself)
+    .add(reciprocal?)    // -iş (do to each other)
+    .add(negative?)      // -me/-ma (not)
+    .add(ability?)       // -ebil/-abil (can)
+    .add(tense/mood)     // -iyor (present), -di (past), -ecek (future)...
+    .add(person/number)  // -im (1sg), -sin (2sg), etc.
+
+  sevdirilememek = sev + dir + il + eme + mek
+  = love + CAUS + PASS + NEG-ABILITY + INF
+  = "to be unable to be made to love"
+  (not common, but grammatically well-formed and parseable)
+```
 
 ```
 TURKISH AGGLUTINATION — stacking suffixes
@@ -245,8 +275,37 @@ ___ کجاست? (___ kojāst?) — Where is ___?
 +--------------------------------------------------------------------+
 ```
 
-<!-- @editor[bridge/P2]: No noun-class bridge despite obvious parallel — learner knows type systems; Swahili's 15 noun classes are a runtime type tag system where class prefix propagates through verbs, adjectives, and possessives — like generic type parameters flowing through a call chain -->
 ### Noun Class System
+
+**The generic type parameter model:** Swahili's noun classes are a runtime type tag system. Every noun carries a class membership (encoded in its prefix). That class membership propagates through the entire sentence via agreement — every verb, adjective, and possessive that relates to that noun must carry a matching class prefix. This is structurally identical to a generic type parameter flowing through a call chain:
+
+```
+GENERIC TYPE ANALOGY:
+
+  // Swahili noun class system:
+  class KitabuWord<Class7_8> {  // kitabu = book, class 7 (ki-/vi-)
+    prefix = "ki-";             // singular: ki-
+    pluralPrefix = "vi-";       // plural: vi-
+  }
+
+  // Agreement = type parameter propagation:
+  kitabu    ki-zuri    ki-ngu    ki-li-anguka
+  book.CL7  CL7-good   CL7-mine  CL7-PAST-fall
+  "My good book fell."
+
+  // Change the noun → change ALL class markers in the sentence:
+  vitabu    vi-zuri    vi-ngu    vi-li-anguka
+  books.CL8 CL8-good   CL8-mine  CL8-PAST-fall
+  "My good books fell."
+
+  // The type parameter (class) flows through every constituent.
+  // One change at the noun → cascade update through the entire predicate.
+
+PRACTICAL CONSEQUENCE:
+  Agreement errors (using wrong class prefix on verb/adjective) are
+  ALWAYS wrong, not just "awkward" — they are like type errors.
+  Native speakers correct them immediately and categorically.
+```
 
 ```
 BANTU NOUN CLASS SYSTEM — the signature of Swahili grammar
@@ -367,7 +426,107 @@ Uwanja wa ndege / Hoteli / Hospitali — Airport / Hotel / Hospital
 +--------------------------------------------------------------------+
 ```
 
-<!-- @editor[content/P2]: Polish section is thin — header + grammar highlights + survival phrases but no dedicated sound system section, no verb conjugation tables, no comparison tables with Russian (natural bridge given Slavic family) -->
+### Polish Sound System
+
+```
+POLISH PHONOLOGY — CONSONANT CLUSTERS
+=======================================
+Polish has the most complex consonant cluster phonology in the Indo-European family.
+Clusters arise from historical vowel deletion — "fleeting vowels" disappeared,
+leaving adjacent consonants in contact.
+
+SIBILANT SERIES (4-way distinction — most languages have 2):
+  sz  [ʃ]  like English "sh" — hard palatal
+  ś   [ɕ]  soft palatal sibilant (between sh and s, tongue forward)
+  cz  [tʃ] like English "ch"
+  ć   [tɕ]  soft affricate (between ch and c)
+  ż/rz[ʒ]  like English "s" in "measure"
+  ź   [ʑ]  soft version
+  dż  [dʒ] like English "j" in "jump"
+  dź  [dʑ] soft version
+
+  The ś/ć/ź/dź series = palatalized versions (tongue raised toward palate).
+  Minimal pairs: szal (scarf) vs ściana (wall) vs szczaw (sorrel).
+
+CLUSTER EXAMPLES:
+  trzy (three)     [tʃɨ]      — moderately hard
+  źródło (source)  [ʑruːdwɔ]  — harder
+  chrząszcz (beetle)[xʂɔw̃ʂtʂ] — 6+ consonants, one syllable
+  dżdżownica (earthworm) — starts with two affricates [dʒdʒ]
+
+NASAL VOWELS:
+  ą [ɔ̃]  — nasal o (at end of word, often denasalized to [ɔw])
+  ę [ɛ̃]  — nasal e (at end of word, often just [ɛ])
+  Nasal quality less stable than in French — varies by position and speaker.
+```
+
+### Polish Verb Conjugation
+
+```
+VERB CONJUGATION (present tense)
+=================================
+THREE CONJUGATION CLASSES (like Spanish/Russian):
+
+CLASS 1 — -ować / -iwać / -ywać → -uję:
+  pracować (to work): pracuję / pracujesz / pracuje / pracujemy / pracujecie / pracują
+
+CLASS 2 — stems ending in palatalized consonant → -ę/-isz:
+  pisać (to write): piszę / piszesz / pisze / piszemy / piszecie / piszą
+
+CLASS 3 — e-class verbs → -ę/-esz:
+  mieć (to have): mam / masz / ma / mamy / macie / mają  [irregular]
+  wiedzieć (to know): wiem / wiesz / wie / wiemy / wiecie / wiedzą [irregular]
+
+PAST TENSE — agrees with subject in gender AND number:
+  pisać (to write) past:
+  +-----------+----------+----------+----------+
+  | Person    | MASC     | FEM      | NEUT/PL  |
+  +-----------+----------+----------+----------+
+  | 1sg       | pisałem  | pisałam  |          |
+  | 2sg       | pisałeś  | pisałaś  |          |
+  | 3sg       | pisał    | pisała   | pisało   |
+  | 1pl       | pisaliśmy| pisałyśmy|          |
+  | 2pl       | pisaliście|pisałyście|         |
+  | 3pl       | pisali   | pisały   |          |
+  +-----------+----------+----------+----------+
+  MASC PLURAL (pisali) vs FEM/NEUT PLURAL (pisały):
+  "virile" (masculine personal) plural vs non-virile plural.
+  A group of all-male or mixed-gender: pisali.
+  A group of all-female, or objects: pisały.
+
+ASPECT: Same system as Russian — every verb has IMP/PERF pair:
+  pisać (IMP) → napisać (PERF): to write / to write and finish
+  czytać (IMP) → przeczytać (PERF): to read / to finish reading
+```
+
+### Polish vs Russian — Slavic Comparison
+
+```
++-----------------------------+-------------------+-------------------+
+| Feature                     | Russian           | Polish            |
++-----------------------------+-------------------+-------------------+
+| Cases                       | 6 (NOM/ACC/GEN/   | 7 (adds VOCATIVE) |
+|                             | DAT/INS/PREP)     |                   |
+| Script                      | Cyrillic          | Latin             |
+| Nasal vowels                | None              | ą ę               |
+| Vowel reduction             | Heavy: unstressed | Minimal: all      |
+|                             | о→[ɐ], е→[ɪ]     | vowels clear      |
+| Aspect system               | IMP/PERF pairs    | IMP/PERF pairs    |
+|                             | (same)            | (same)            |
+| Word order                  | Free (SVO neutral)| Free (SVO neutral)|
+| Past tense gender           | Yes               | Yes (+virile plur)|
+| Verbal noun use             | Common            | Less common       |
+| Mutual intelligibility      | Low (script diff  | ~30-40% spoken;   |
+| with the other              | + phonology)      | more in writing   |
++-----------------------------+-------------------+-------------------+
+
+COGNATE COMPARISON:
+  Russian: вода (voda) / Polish: woda — water (same)
+  Russian: хорошо (khorosho) / Polish: dobrze — well/good (different word)
+  Russian: пожалуйста / Polish: proszę — please (different word)
+  Russian: здравствуйте / Polish: dzień dobry — hello (different)
+```
+
 ### Polish Key Features
 
 ```
@@ -441,7 +600,96 @@ Polish survival phrases:
 +--------------------------------------------------------------------+
 ```
 
-<!-- @editor[content/P2]: Tamil section is thin — profile + grammar highlights but no dedicated sound system, no script table, no verb conjugation grid. Comparable languages (Arabic, Hindi) get full sections for each. -->
+### Tamil Sound System
+
+```
+TAMIL PHONOLOGY — MAJOR FEATURES
+==================================
+Tamil has a unique sound system among major world languages.
+
+RETROFLEX CONSONANTS — 3 stops + nasal + lateral:
+  ட [ʈ]  retroflex t — tongue curled back to palate ridge
+  ட [ɖ]  retroflex d
+  ண [ɳ]  retroflex n
+  ள [ɭ]  retroflex l (distinct from dental l: ல [l])
+  ழ [ɻ]  retroflex approximant — particularly distinctive Tamil sound
+         Found almost nowhere else; approximates "rl" combined.
+
+DENTAL vs RETROFLEX distinction is phonemic:
+  தல taḷa (head region) vs தள taḷa (level surface) — minimal pair
+  Lost on most non-native speakers.
+
+VOWELS — 12, each with long/short distinction = 18 total vowel distinctions:
+  அ ஆ (a/ā), இ ஈ (i/ī), உ ஊ (u/ū), எ ஏ (e/ē), ஐ (ai)
+  ஒ ஓ (o/ō), ஔ (au)
+  Vowel length is phonemically contrastive: வேல் vēl (spear) ≠ வெல் vel (win)
+
+DIGLOSSIA — formal vs colloquial gap:
+  Written/formal Tamil and spoken Tamil are SIGNIFICANTLY different.
+  Written (செந்தமிழ்/centamiḻ): complex morphology, archaic vocabulary.
+  Spoken (கொடுந்தமிழ்): simplified, fast-changing, regional dialects.
+  TV/media Tamil: intermediate style.
+  Impact on learning: textbook Tamil may be useless for daily conversation.
+```
+
+### Tamil Script
+
+```
+TAMIL SCRIPT — 247 CHARACTERS
+===============================
+Type: Abugida (consonant with inherent vowel 'a'; diacritics modify vowel)
+Direction: Left to right
+
+BASE CHARACTERS:
+  12 independent vowels: அ ஆ இ ஈ உ ஊ எ ஏ ஐ ஒ ஓ ஔ
+  18 consonants, each with inherent /a/: க் ங் ச் ஞ் ட் ண் த் ந் ப் ம் ய் ர் ல் வ் ழ் ள் ற் ன்
+  Consonant without vowel: puḷḷi marker (dot above): க் = /k/ with no vowel
+  Consonant + vowel = combined form:
+    க + ா = கா (ka+ā = kā)   க + ி = கி (ka+i = ki)   க + ு = கு (ka+u = ku)
+  Full grid: 18 consonants × 12 vowels = 216 vowel-consonant combos + 18 pure consonants + 12 vowels + ஃ = 247
+
+UNIQUE FEATURES:
+  The "ழ" (ḻ) character represents a sound unique to Tamil and Malayalam —
+  a retroflex approximant not found in other major world scripts.
+  Tamil numerals have their own system: ௧ ௨ ௩ ௪ ௫ ௬ ௭ ௮ ௯ ௦ (1-9, 0)
+  Traditional fraction symbols also exist: ½=½, ¼=¼ — still used in temple
+  inscriptions and formal/religious contexts.
+```
+
+### Tamil Verb Conjugation
+
+```
+TAMIL VERB SYSTEM
+==================
+TENSE: 3 synthetic tenses (past/present/future) + person/number/gender agreement.
+
+STEM + TENSE MARKER + PERSON MARKER:
+
+  செல் (cel, to go) — a strong verb:
+  +-----------+----------+----------+----------+
+  | Person    | PAST     | PRESENT  | FUTURE   |
+  +-----------+----------+----------+----------+
+  | 1sg (M/F) | சென்றேன் | செல்கிறேன்| செல்வேன் |
+  | 2sg (M/F) | சென்றாய் | செல்கிறாய்| செல்வாய் |
+  | 3sg M     | சென்றான் | செல்கிறான்| செல்வான் |
+  | 3sg F     | சென்றாள் | செல்கிறாள்| செல்வாள் |
+  | 3sg N     | சென்றது | செல்கிறது | செல்வது  |
+  | 1pl incl  | சென்றோம் | செல்கிறோம்| செல்வோம் |
+  | 2pl       | சென்றீர்கள்| செல்கிறீர்கள்| செல்வீர்கள்|
+  | 3pl Rat   | சென்றார்கள்| செல்கிறார்கள்| செல்வார்கள்|
+  | 3pl Irrat | சென்றன  | செல்கின்றன| செல்வன  |
+  +-----------+----------+----------+----------+
+
+RATIONAL/IRRATIONAL agreement:
+  3rd person distinguishes RATIONAL (humans + deities) from IRRATIONAL (animals, things).
+  Verb forms and pronouns differ by this distinction.
+  This is the Tamil equivalent of animacy in Slavic languages — but more grammatically pervasive.
+
+NEGATION — a separate paradigm (not just a particle):
+  Negative verbs conjugate completely separately:
+  செல்கிறேன் (I go) → செல்லவில்லை (I do not go) — not just "not + go"
+```
+
 ### Tamil Key Features
 
 ```

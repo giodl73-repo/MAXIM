@@ -292,8 +292,57 @@ ADJECTIVE POSITION: BEFORE the noun (Japanese is head-final)
 
 ---
 
-<!-- @editor[bridge/P2]: No honorific-system bridge despite obvious parallel — learner understands access control patterns; keigo maps directly to authorization levels: sonkeigo elevates subject (granting access), kenjogo humbles speaker (lowering own permissions), teineigo is the default secure baseline. A 3-row access-control table would land. -->
 ## Keigo: The Honorific Register System
+
+**The access-control model:** Japanese keigo is a grammatically encoded permission system. Each utterance carries an authorization level that reflects the relative social position of speaker, listener, and the third party being described. The verb form IS the access token:
+
+```
+ACCESS CONTROL TABLE — KEIGO:
+
++-----------+--------------------+-----------------+-----------------------------+
+| Register  | System             | Direction       | Use context                 |
++-----------+--------------------+-----------------+-----------------------------+
+| SONKEIGO  | Elevated verbs     | Raises OTHER     | Describing what someone     |
+| (尊敬語)  | for the other      | person's actions → superior or in-group guest   |
+|           | person's actions   | (grants elevated | is doing. Never use for     |
+|           |                    | access to them)  | yourself.                   |
+|           | 行く→いらっしゃる  |                 |                             |
+|           | 言う→おっしゃる    |                 |                             |
+|           | 食べる→召し上がる  |                 |                             |
++-----------+--------------------+-----------------+-----------------------------+
+| KENJŌGO   | Humble verbs for   | Lowers YOUR OWN  | Describing your own actions |
+| (謙譲語)  | the speaker's own  | actions          | to a superior or customer.  |
+|           | actions            | (requests lower  | Humbling yourself =         |
+|           |                    | access for self) | elevating the other.        |
+|           | 行く→参る          |                 |                             |
+|           | 言う→申す          |                 |                             |
+|           | 食べる→いただく    |                 |                             |
++-----------+--------------------+-----------------+-----------------------------+
+| TEINEIGO  | Polite copula/     | Neutral —        | Safe default. All formal    |
+| (丁寧語)  | verb endings       | baseline secure  | situations, strangers,      |
+|           | (masu/desu forms)  | tier             | service interactions.       |
+|           |                    |                 | Does not assert relative    |
+|           |                    |                 | rank.                       |
++-----------+--------------------+-----------------+-----------------------------+
+| Plain     | Dictionary forms   | No access token  | Close friends, family,      |
+| (常体)    |                    | asserted         | internal monologue, writing.|
+|           |                    |                 | Using this to a superior    |
+|           |                    |                 | = dropped connection.       |
++-----------+--------------------+-----------------+-----------------------------+
+
+PRACTICAL DISPATCH:
+  stranger/customer/superior → teineigo baseline
+  describing their action → switch to sonkeigo for THEIR verbs
+  describing your own action in response → switch to kenjōgo for YOUR verbs
+  close friend/peer → plain form is fine
+
+  In a business email or customer service interaction:
+  "先生はいらっしゃいますか?" (Is the teacher here? — sonkeigo for teacher)
+  "私は後ほど参ります。" (I will come later — kenjōgo for self)
+  Both in the same utterance — the encoding is per-verb, per-agent.
+```
+
+**The architectural point:** Keigo is not politeness as an attitude; it is an encoding of social topology in grammar. The verb form carries a mandatory access-level annotation that declares the speaker's model of who occupies which position in the social graph. Misfiring this encoding is not "slightly impolite" — it is a syntactically-detectable access violation.
 
 ```
 JAPANESE HONORIFICS (敬語 keigo)

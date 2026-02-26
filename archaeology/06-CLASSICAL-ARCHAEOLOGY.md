@@ -78,7 +78,6 @@ FORUM: Roman equivalent of agora
   Rostra: speaker's platform
   Arches, columns: commemorative monuments
 
-<!-- @editor[bridge/P3]: Natural bridge to engineering/infrastructure — aqueduct gradient engineering (0.3 m/km precision) and Nero's post-fire building code are early examples of the same infrastructure-at-scale and regulatory patterns this learner knows from Azure/enterprise systems -->
 ROMAN INFRASTRUCTURE (engineered city):
   AQUEDUCTS: gravity-fed; Pont du Gard (Nîmes): 50 km system
     Gradient: ~0.3 m per km (precise slope maintenance)
@@ -96,6 +95,8 @@ INSULA (apartment block):
   → Rebuilt to new fire code (Nero's building regulations)
   → One of earliest documented building codes
 ```
+
+**Infrastructure-at-scale parallels**: The Roman aqueduct system is an early instance of the same engineering discipline that underlies modern infrastructure: gradient specifications (0.3 m/km is a tight tolerance requiring survey instruments), redundant supply (11 aqueducts serving Rome are load-balanced), terminal distribution networks (castellum divisorium = the distribution header), and metered access tiers (fountains public and free; baths paying; private connections taxed). Nero's post-fire building code (64 AD) mandated stone party-walls, fire-break streets, and maximum building heights — the same regulatory pattern as modern building codes, triggered by the same failure mode (catastrophic fire in dense urban development). The pattern — unregulated growth → catastrophic failure → imposed standards → compliance infrastructure — recurs in software: unregulated growth → security breach → mandated standards (PCI-DSS, SOC2) → audit and compliance tooling.
 
 ### Pompeii and Herculaneum — The Laboratory
 
@@ -237,16 +238,15 @@ MAJOR WRECKS:
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" rows (e.g., "Use numismatics when: dating historical-period layers (TPQ); Use epigraphy when: recovering names, dates, legal texts from stone/metal") -->
-
-| Question | Answer |
-|----------|--------|
-| What is epigraphy? | Study of inscriptions; crucial for historical dating and text recovery |
-| Why is Pompeii so important? | Frozen moment in 79 AD; unprecedented preservation of everyday Roman life |
-| How do coins date layers? | As TPQ (terminus post quem) — layer can't predate the latest coin in it |
-| What is the Antikythera mechanism? | 1st-c. BC Greek analog computer for astronomical prediction; 37 gears |
-| How do underwater archaeologists record sites? | Photogrammetry + underwater excavation grid; same principles as terrestrial |
-| What was the Roman agora equivalent? | Forum (with basilica, capitolium, curia, rostra surrounding central open space) |
+| Use this when... | Method / concept | Notes |
+|-----------------|-----------------|-------|
+| Dating a historical-period layer with no organic material | Numismatics (coins as TPQ) | Latest coin in a sealed layer gives terminus post quem; layer cannot predate that coin's minting |
+| Recovering names, dates, legal texts, dedications | Epigraphy | Study of inscriptions on stone, metal, pottery; Corpus Inscriptionum Latinarum (CIL) is the standard database |
+| Understanding everyday life, not just elite history | Pompeii-type sites (volcanic seal) | Preserved organic material, wall graffiti, food remains, tools in use — freezes a moment rather than a gradual accumulation |
+| Establishing a city's street plan without excavation | LiDAR + ground-penetrating radar over known sites | Roman grids are highly regular; anomalies map easily |
+| Dating a shipwreck's construction | Dendrochronology of hull timbers (where surviving) | Combined with amphora typology for cargo date |
+| Understanding an underwater site's formation process | Photogrammetry + site plans + sediment analysis | Same stratigraphic principles apply; anoxic conditions give extraordinary preservation (Black Sea wrecks) |
+| Distinguishing Greek from Roman urban form | Comparative urbanism: agora vs. forum, orthogonal vs. radial | Greek agora is flexible open space; Roman forum is more formally bounded and institutionally defined |
 
 ---
 

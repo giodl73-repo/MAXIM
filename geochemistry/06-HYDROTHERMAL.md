@@ -4,31 +4,32 @@
 
 Hydrothermal systems are hot, chemically reactive fluid circulation systems driven by magmatic heat or geothermal gradients. They are responsible for a large fraction of the world's metal ore deposits and are active on the modern ocean floor.
 
-<!-- @editor[diagram/P2]: Landscape "diagram" is a table of settings, not a structural diagram — doesn't show the spatial/genetic relationships between deposit types (e.g., porphyry at depth with epithermal above it, VMS at mid-ocean ridge in cross-section). A schematic cross-section showing how these systems relate in space would be a genuine landscape -->
 ```
+HYDROTHERMAL SYSTEMS: SCHEMATIC CROSS-SECTION (continental arc)
 +------------------------------------------------------------------+
-|              HYDROTHERMAL SYSTEM SPECTRUM                         |
-+------------------------------------------------------------------+
 |                                                                  |
-|  SETTING         TEMP (°C)  FLUID         ORE TYPE              |
-|  -------         --------   -----         --------              |
-|  Mid-ocean ridge 200-400°C  Seawater      VMS (Cu, Zn, Fe, Au)  |
-|  (Black smokers)            modified      Seafloor sulfides      |
+|  SURFACE  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    |
+|  0-1 km   Epithermal Au-Ag  |  MVT Pb-Zn in carbonates          |
+|           (boiling zone)    |  (basinal brine; no magma link)   |
+|           Low-S: adularia   |                                    |
+|           High-S: enargite  |                                    |
+|                ↑ structurally above porphyry                    |
+|  1-4 km   PORPHYRY Cu-Mo core  (300-600°C; magmatic fluid)      |
+|           Alteration zones (outermost → innermost):             |
+|           Propylitic: chlorite + epidote + calcite (distal)     |
+|           Argillic: kaolinite + alunite                         |
+|           Phyllic: quartz + sericite + pyrite                   |
+|           Potassic: K-feldspar + biotite (proximal to intrusion)|
+|                ↑ concentric shells like heat diffusion          |
+|                  contours around a cooling point source         |
+|  4-8 km   Porphyritic granite intrusion (exsolves fluid)        |
+|           Skarn at granite/carbonate contact:                   |
+|           garnet + pyroxene + W/Cu/Fe sulfides                  |
 |                                                                  |
-|  Arc/back-arc    100-350°C  Seawater      Epithermal (Au-Ag)     |
-|                             + meteoric                           |
-|                                                                  |
-|  Porphyry Cu     300-600°C  Magmatic      Porphyry Cu-Mo-Au      |
-|  system          + meteoric               (Chile, Arizona)       |
-|                                                                  |
-|  Epithermal      50-300°C   Meteoric      Low-S (Au-Ag)          |
-|  vein system     + magmatic + High-S (Au-Cu)                     |
-|                                                                  |
-|  Skarn           300-600°C  Magmatic      W, Mo, Cu, Zn, Pb, Au  |
-|                  (contact)                                       |
-|                                                                  |
-|  Mississippi     50-200°C   Sedimentary   MVT: Pb-Zn             |
-|  Valley-Type     basin brine brine        (carbonates)           |
+|  MID-OCEAN RIDGE (separate tectonic setting):                   |
+|  Seawater → down faults → heated (350-400°C) → black smoker    |
+|  VMS deposit: massive sulfide lens at seafloor                  |
+|  (Same chemistry, different geotectonic context)                |
 +------------------------------------------------------------------+
 ```
 
@@ -224,7 +225,6 @@ EPITHERMAL GOLD-SILVER SYSTEM
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from the learner's general science background to the concept of using alteration zonation as a spatial diagnostic — the concentric alteration shells in a porphyry system are analogous to heat diffusion contours around a point source, a concept an MIT physics/math graduate would map to immediately -->
 ## Fluid Inclusions: Reading Hydrothermal Conditions
 
 ```

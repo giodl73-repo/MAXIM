@@ -255,7 +255,24 @@ FETAL PERIOD (week 9 → birth): growth and maturation
 
 ---
 
-<!-- @editor[content/P2]: Contraception absent -- significant gap; comparison table of mechanism classes (hormonal, barrier, IUD, sterilization) with failure rates would serve the learner -->
+## Contraception
+
+Mechanism classes and failure rates (Pearl index = pregnancies per 100 woman-years of use):
+
+| Class | Examples | Mechanism | Typical use failure rate | Perfect use failure rate |
+|-------|----------|-----------|--------------------------|--------------------------|
+| Combined hormonal (estrogen + progestin) | OCP, patch, ring | Suppress LH surge (→ no ovulation) + thicken cervical mucus + thin endometrium | ~9% | ~0.3% |
+| Progestin-only | Mini-pill, implant (Nexplanon), injectable (DMPA) | Thicken cervical mucus; some suppress ovulation (implant/DMPA reliable; mini-pill variable) | Pills: ~9%; Implant: <0.1% | Implant: <0.1% |
+| Intrauterine device (IUD) — copper | Paragard | Cu²⁺ ions toxic to sperm; inhibits fertilization; can be used as emergency contraception up to 5 days | <1% | <1% |
+| Intrauterine device (IUD) — levonorgestrel | Mirena, Kyleena | Progestin thickens mucus + endometrial atrophy; minimal systemic absorption | <1% | <1% |
+| Barrier | Condom (male/female), diaphragm, cervical cap | Mechanical block to sperm + (condom) STI protection | Condom: ~18%; diaphragm: ~12% | Condom: ~2% |
+| Emergency contraception | Plan B (levonorgestrel), ella (ulipristal), Cu-IUD | Delay/inhibit ovulation; does NOT terminate established pregnancy | ~75–95% effective if taken within 72 hrs (Plan B) | — |
+| Sterilization | Vasectomy, tubal ligation | Mechanical interruption of vas deferens or fallopian tubes | <0.5% | <0.5% |
+
+**Failure rate hierarchy**: LARC (implant, IUD) >> sterilization >> hormonal pills (with typical adherence) >> barrier
+
+**Mechanism interaction with cycle**: Combined OCP suppresses FSH/LH (no follicle development, no LH surge) — the primary mechanism. Cervical mucus thickening and endometrial atrophy are secondary backup mechanisms that matter if pill-taking is imperfect.
+
 ## Parturition (Labor)
 
 ```
@@ -309,7 +326,29 @@ Premature ovarian insufficiency (POI): < 40 yrs; spontaneous or iatrogenic (chem
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- oogenesis fixed pool = pre-allocated resource pool, spermatogenesis = continuous production pipeline, menstrual cycle = state machine with hormone-driven transitions, LH surge = runaway amplification with defined termination, hCG = keep-alive signal -->
+## Engineering Bridges
+
+**Oogenesis as pre-allocated fixed resource pool**
+All primary oocytes that a woman will ever have are present at birth (~2 million), arrested in prophase I. No new ones are generated postnatally (unlike spermatogenesis). This is a pre-allocated resource pool with no runtime allocation — the pool only depletes, never replenishes. Atresia is the garbage collector running continuously; only ~400 oocytes are ever used. The implication of the long arrest: primary oocytes in a 40-year-old have been paused in meiosis I for four decades, with cohesins (the protein holding chromosome pairs together) slowly degrading — the root cause of age-related aneuploidy.
+
+**Spermatogenesis as continuous production pipeline**
+In contrast to oogenesis, spermatogenesis is a continuous assembly line: type A spermatogonia (stem cells) self-renew and feed type B spermatogonia into the differentiation pipeline. The 74-day cycle runs in parallel waves along the seminiferous tubule; at any cross-section, multiple stages of development are occurring simultaneously. This is the biological equivalent of a pipelined processor: no single stage waits idle, throughput is continuous (~1,500 sperm per second per human testis). Temperature sensitivity (scrotal temperature 2–3°C below core) sets the operating range for the enzymes in this pipeline.
+
+**Menstrual cycle as state machine with hormone-driven transitions**
+The 28-day cycle can be modeled as a four-state machine:
+- **Menstruation**: progesterone/estrogen withdrawal → endometrial shed → FSH rises (entry condition met)
+- **Follicular phase**: FSH → follicle growth → estrogen rise → inhibits FSH/LH (negative feedback in force)
+- **LH surge / ovulation**: estrogen exceeds threshold → positive feedback → GnRH pulse amplification → LH surge → transition trigger
+- **Luteal phase**: corpus luteum → progesterone dominates → suppresses FSH/LH (negative feedback resumes)
+
+Each transition is driven by a hormone crossing a threshold or withdrawing below a threshold — discrete state transitions from continuous signals.
+
+**LH surge as runaway amplification with designed termination**
+Below the estrogen threshold (~200 pg/mL for >36 hours), estrogen feeds back negatively on LH release. Above the threshold, the feedback sign inverts: estrogen now stimulates GnRH pulsatility and sensitizes pituitary gonadotrophs. The result is a regenerative (positive feedback) amplification loop: more LH → more follicular estrogen → more LH release. This self-terminates because: (1) the LH surge triggers ovulation, collapsing the Graafian follicle that was producing the estrogen; (2) the corpus luteum that forms secretes progesterone, which suppresses GnRH/LH. This is a controlled runaway process with a built-in termination condition — mechanistically similar to a flip-flop circuit that fires, then resets.
+
+**hCG as keep-alive heartbeat signal**
+If implantation occurs, the trophoblast immediately secretes hCG (detectable in blood within 8 days of ovulation). hCG binds the LH/hCG receptor on the corpus luteum and prevents its programmed death at day 23–24. Without hCG, the corpus luteum regresses → progesterone falls → menstruation. hCG is a keep-alive signal that says "implantation happened, maintain the corpus luteum." It has a 24-hour half-life (vs LH's 20-minute half-life) due to heavy glycosylation — it is engineered for sustained receptor occupancy rather than rapid pulsatile signaling.
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

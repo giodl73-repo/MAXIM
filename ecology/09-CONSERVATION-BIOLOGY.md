@@ -60,7 +60,7 @@ FOR CONSERVATION:
 
 **Functional diversity** is arguably more important than species richness for ecosystem function. A community of 10 functionally distinct species may provide more ecosystem services than 30 species doing similar things.
 
-<!-- @editor[bridge/P2]: Shannon diversity H' is literally Shannon entropy from information theory; MIT TCS learner invented with this math; connect explicitly -->
+**Information theory connection:** Shannon diversity H' = -Σ pᵢ ln(pᵢ) is literally Shannon entropy H from information theory (Claude Shannon, 1948). In information theory, H measures the expected information content of a symbol drawn from a distribution — or equivalently, the uncertainty in predicting the next symbol. In ecology, pᵢ is the proportional abundance of species i. A community where all species are equally abundant maximizes H' (maximum entropy = maximum diversity = maximum uncertainty about which species you'd pick at random). A monoculture has H' = 0 (zero entropy = zero uncertainty = minimum diversity). The maximum possible H' for S species = ln(S) (achieved when all pᵢ = 1/S). Evenness J = H'/ln(S) normalizes to [0,1]. This is exactly the same formalism used in physics (Boltzmann entropy), ML (cross-entropy loss), and compression theory (Huffman coding) — the ecology is just a different application of the same mathematical object.
 
 ---
 
@@ -186,7 +186,57 @@ PROTECTED AREA COVERAGE (2024):
 - **Important Bird Areas (IBAs)**: BirdLife criteria → pragmatic global network
 - **Indigenous protected areas**: Recognition that indigenous lands have better biodiversity outcomes in many regions
 
-<!-- @editor[content/P2]: Systematic conservation planning absent -- Marxan, complementarity-based reserve selection algorithms, gap analysis are standard modern tools -->
+## Systematic Conservation Planning — Algorithms and Tools
+
+Protect-what's-left (hotspot intuition) is insufficient when conservation resources are limited and targets are specific. Systematic conservation planning (SCP) frames reserve selection as a combinatorial optimization problem:
+
+```
+PROBLEM FORMULATION:
+  Input: n candidate sites × m biodiversity features (species, habitats)
+         c[i] = cost of protecting site i (acquisition + management)
+         a[i][j] = representation of feature j in site i (presence/abundance)
+         T[j] = target for feature j (e.g., 10% of range protected)
+
+  Objective: minimize Σ c[i] × x[i]   (total cost)
+  Subject to: Σ a[i][j] × x[i] ≥ T[j] for all j   (representation targets)
+              x[i] ∈ {0, 1}   (binary: protect or not)
+
+  → Integer linear program; NP-hard in general
+  → Practical solutions via simulated annealing (Marxan) or ILP solvers
+```
+
+**Key tools:**
+
+**Marxan** (Ball & Possingham, 2000) — the dominant SCP tool globally:
+- Simulated annealing on the reserve selection objective
+- Used to design marine protected area networks, terrestrial reserve systems
+- Key feature: spatial clustering penalty (avoid fragmented reserve networks)
+- Stochastic → run 100× → summarize selection frequency per site (irreplaceability)
+
+**Complementarity** — the core principle of SCP:
+- A site's value depends on what's already protected, not just what it contains
+- Site with species already well-represented adds less marginal value
+- → Builds in functional redundancy across the reserve network
+- Contrast with vulnerability-based scoring (adds high-threat sites regardless of complementarity)
+
+**Gap analysis:**
+```
+PROCEDURE:
+  1. Map distribution of all species/habitats of concern
+  2. Map current protected area network
+  3. Identify "gaps" — species/habitats with inadequate protected area coverage
+  4. Prioritize gap species/habitats for new reserve acquisition
+
+OUTPUTS:
+  Proportion of each species range currently protected
+  Spatial location of gaps (where to add protection)
+  Cumulative protection curves: % target achieved vs % area protected
+```
+
+**Irreplaceability and vulnerability** — two axes for prioritization:
+- High irreplaceability + high vulnerability = immediate priority (few alternatives + high threat)
+- High irreplaceability + low vulnerability = monitor (essential but not yet threatened)
+- Low irreplaceability + high vulnerability = lower priority (threatened but alternatives exist)
 
 ---
 
@@ -256,7 +306,70 @@ ESA (Endangered Species Act, US 1973):
   Success stories: bald eagle, gray wolf, peregrine falcon, whooping crane
 ```
 
-<!-- @editor[content/P2]: Climate change adaptation in conservation absent -- assisted migration, climate corridors, managed relocation are increasingly central -->
+## Climate Change Adaptation in Conservation
+
+Climate change has elevated conservation from static habitat protection toward dynamic, forward-looking management:
+
+```
+CORE PROBLEM:
+  Species' climate envelopes are shifting poleward and upslope
+  Current protected areas were sited for current climate, not future climate
+  → Many reserves may become climatically unsuitable for their target species
+  → Species need to track shifting climate: poleward ~50 km/decade, upslope ~10 m/decade
+  → But landscape fragmentation blocks dispersal
+
+ADAPTATION STRATEGIES:
+  ┌─────────────────────────────────────────────────────────────────┐
+  │ PASSIVE: reduce other stressors, let species self-adjust        │
+  │   Reduce fragmentation (improve matrix permeability)           │
+  │   Reduce overexploitation, pollution                           │
+  │   → Creates "headroom" for adaptation                         │
+  │                                                               │
+  │ CONNECTIVITY: facilitate natural dispersal                     │
+  │   Climate corridors: route from current → future habitat       │
+  │   Stepping stones: intermediate patches for long-distance moves│
+  │   → Design for future climate, not current conditions         │
+  │                                                               │
+  │ MANAGED RELOCATION (assisted migration):                       │
+  │   Deliberately move individuals/populations to future habitat  │
+  │   High controversy: could introduce new invasive dynamics      │
+  │   Best cases: species with very limited dispersal ability      │
+  │   (plants, tortoises, freshwater fish above dispersal barriers)│
+  │   Examples: Torreya taxifolia (Florida) moved to NC mountains  │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+**Climate corridors — design principles:**
+```
+IDENTIFY:
+  Current population locations
+  Predicted future suitable habitat (species distribution model under RCP4.5/8.5)
+  Least-cost path connecting current → future (graph shortest-path on resistance surface)
+
+RESISTANCE SURFACE:
+  Each landscape cell assigned resistance to movement
+  (land cover, slope, human infrastructure)
+  Least-cost corridor = minimum cumulative resistance path
+  Tools: Circuitscape (circuit theory model), Linkage Mapper
+
+TRADEOFFS:
+  Short/direct corridors: less land required; more exposed to predation in matrix
+  Long/wide corridors: more resilient; more land cost; risk of connecting isolated disease patches
+```
+
+**Refugia and microclimate heterogeneity:**
+- Cool microrefugia (north-facing slopes, riparian valleys, fog zones) allow persistence during warming
+- Identifying and protecting microclimate refugia buys decades of time for slow-dispersing species
+- Fine-resolution topographic models now allow refugia mapping at relevant scales
+
+**Triage decision framework:**
+```
+SPECIES × CLIMATE THREAT MATRIX:
+  High climate sensitivity + poor dispersal + no alternative habitat: managed relocation
+  High climate sensitivity + good dispersal + connected landscape: corridor priority
+  Low climate sensitivity: maintain current reserves; address non-climate threats
+  Already past threshold: evaluate ex situ as bridge to future restoration
+```
 
 ---
 

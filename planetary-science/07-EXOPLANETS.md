@@ -30,8 +30,13 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from classical orbital mechanics / spectroscopy (MIT physics) to modern detection techniques — the Doppler RV method is a direct application of Kepler's laws + spectroscopy that the learner already owns; making the connection explicit would anchor the whole section -->
 ## Detection Methods
+
+The two dominant detection techniques are direct applications of physics you already own:
+
+**Radial velocity = Kepler's laws + Doppler spectroscopy.** The star and planet orbit their common center of mass. Kepler's third law (P² ∝ a³/M_star) gives the semi-major axis from the measured period. The star's reflex velocity amplitude K = (2πG/P)^(1/3) × m_p sin(i) / (m_star + m_p)^(2/3) — so measuring K gives m_p sin(i), the minimum planetary mass. The Doppler shift in stellar absorption lines at the ~m/s precision level is the measurement; modern echelle spectrographs achieve this by recording thousands of spectral lines simultaneously and fitting the shift across all of them.
+
+**Transit = occultation photometry.** When a planet transits, it blocks a fraction of the stellar disk equal to (R_planet/R_star)². A 1% dip in flux → R_planet ≈ 0.1 R_star (roughly Jupiter-sized). Combined RV + transit gives both mass and radius, and therefore bulk density — the physical observable that constrains interior composition.
 
 ### Radial Velocity (RV)
 

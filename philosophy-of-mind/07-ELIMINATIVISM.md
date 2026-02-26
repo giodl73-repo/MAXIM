@@ -345,8 +345,7 @@ When we say "ChatGPT believes the capital of France is Paris":
   But: the "belief" is a real pattern in weight space, not a
   discrete propositional state.
 
-<!-- @editor[audience/P3]: "PRAKTIKABLE" is likely a typo for "PRACTICAL" — and the VP-at-Microsoft framing is too specific; generalize to "senior engineering leader working with AI" -->
-PRAKTIKABLE IMPLICATIONS FOR VP AT MICROSOFT:
+PRACTICAL IMPLICATIONS FOR SENIOR ENGINEERING LEADERS WORKING WITH AI:
   When your team says "the model understands X" or "the model thinks Y":
   - This is intentional stance talk
   - It works for communication and product planning
@@ -362,14 +361,14 @@ PRAKTIKABLE IMPLICATIONS FOR VP AT MICROSOFT:
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "when your team says 'the model believes X,' the right framing is Y" action-oriented rows -->
-
-| Position | Claim about folk psychology | Status |
-|---|---|---|
-| Folk psychology realism | Approximately correct; will be reduced to neuroscience | Common; weakened by neuroscience gaps |
-| Dennett's intentional stance | Real patterns, useful but not literally propositional | Influential middle path |
-| Eliminative materialism | Radically false theory; will be replaced | Minority but serious; Churchland |
-| Folk psychology as theory | It's a theory (not given), so can be revised | Sellars; widely accepted meta-point |
+| When someone says... | The right framing is... |
+|---|---|
+| "The model believes X" | Intentional stance (Dennett): a real pattern in weight space that reliably predicts output. Useful and not strictly false. Does NOT imply a discrete propositional state stored anywhere, or that the model has interests in the belief being correct. |
+| "The model understands this topic" | Warranted if the model's behavior across varied inputs is reliably appropriate; not warranted as a claim about semantic understanding (Chinese Room applies). Dennett: understanding is the intentional stance at high confidence. Churchland: the word "understands" may not carve nature at its joints. |
+| "The model doesn't really believe anything — it's just statistics" | Eliminativist move. Possibly correct (Churchland), or possibly a misdescription that throws away real patterns (Dennett). "Just statistics" applied to human neurons would be equally dismissive. The interesting question is whether the computational structure constitutes beliefs in the relevant sense, not whether to use the word. |
+| "I want to say the model thinks X without implying consciousness" | Dennett's intentional stance is designed exactly for this: adopt the stance, gain predictive power, make no phenomenal commitment. The stance is useful even if no propositional attitudes literally exist. |
+| "We should eliminate talk of 'model beliefs' from our engineering discussions" | Churchland's position: if belief-talk doesn't map onto what the model actually does (distributed vector representations, not discrete propositions), the vocabulary misleads product decisions. But: Dennett's counter — the patterns are real enough that intentional vocabulary tracks them reliably, and replacing it with computational vocabulary everywhere would be impractical. |
+| "The model has preferences / values" | More cautious than "beliefs": RLHF training shapes output distributions in ways that behave like preferences (consistent orderings over outputs). Whether these are "genuine" preferences depends on what preferences are — which is exactly the folk psychology debate. |
 
 ---
 

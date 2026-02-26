@@ -49,7 +49,7 @@ HLA is necessary but not sufficient: identical twin concordance typically 25-50%
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- autoimmune disease as type system failure (self/non-self discrimination breaking down); molecular mimicry is literally a hash collision between pathogen and self-antigen -->
+**Systems Bridge:** The immune system's central function is a binary classifier: self vs non-self. Autoimmune disease is type system failure — the classifier produces false positives (attacks self-antigens as if they were foreign). Tolerance mechanisms are the training and enforcement layer: central tolerance (delete autoreactive clones in thymus/bone marrow — training-time pruning), peripheral tolerance (anergize or suppress remaining autoreactive cells — runtime access control via Tregs). When both layers fail, autoimmunity results. Molecular mimicry is the precise parallel to a hash collision: a pathogen antigen (e.g., streptococcal M protein) has sufficient structural similarity to a self-antigen (cardiac myosin) that antibodies raised against the pathogen cross-react with self — a collision in the immune system's epitope recognition function. Epitope spreading is the analogous process to a cascading false-positive: initial misclassification damages tissue, releasing new antigens that were previously hidden (sequestered antigens), which are then also misclassified, widening the attack surface. This explains why autoimmune diseases progress even after the original trigger is cleared — the classifier has been permanently recalibrated against self.
 
 ## Rheumatoid Arthritis (RA)
 

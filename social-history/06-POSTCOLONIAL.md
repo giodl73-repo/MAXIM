@@ -298,7 +298,14 @@ field challenges who tells history, whose perspective counts, and what categorie
 
 ---
 
-<!-- @editor[structure/P2]: No comparison tables — a table comparing postcolonial vs. decolonial vs. subaltern studies (origin, key figures, primary critique, method, limitation) would clarify the three distinct strands -->
+## Three Strands at a Glance
+
+| Strand | Origin | Key Figures | Primary Critique | Method | Core Limitation |
+|--------|--------|-------------|-----------------|--------|-----------------|
+| **Postcolonial studies** | British/French colonial context; Said's *Orientalism* (1978) | Said, Bhabha, Spivak | Colonial discourse constructed "the Orient" / subaltern as objects; knowledge encodes power | Discourse analysis (Foucault); deconstruction (Derrida); close reading of colonial texts | Focused on representation and discourse; risks underweighting material conditions; can be abstract |
+| **Subaltern studies** | Indian historiography; Subaltern Studies Group (1982) | Guha, Spivak, Chakrabarty, Bhabha | Colonial archive erased subaltern voice; nationalist historiography perpetuated elitism | Reading colonial sources "against the grain"; recover traces of subaltern agency | Spivak's own critique: recovery is always already mediated; the subaltern cannot fully speak |
+| **Decolonial theory** | Latin American context; Quijano, Mignolo (1990s–2000s) | Quijano, Mignolo, Maldonado-Torres | Colonialism did not end with independence; "coloniality" continues in knowledge, power, and being | Thinking from colonial wounds; alternative epistemologies; critique of Western universalism | Risks romanticizing pre-colonial knowledge; "provincializing" remains contested; limited uptake outside Latin American studies |
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -313,7 +320,20 @@ field challenges who tells history, whose perspective counts, and what categorie
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Said's point that knowledge frameworks encode power parallels the recognition in software that APIs and data models are never neutral — they encode the worldview and priorities of their designers; Chakrabarty's "provincializing" is the intellectual equivalent of recognizing that your framework's abstractions are not universal but reflect specific design choices -->
+## Engineering Bridge: APIs, Data Models, and the Encoding of Power
+
+Said's core claim — knowledge frameworks are never neutral; they encode the worldview, priorities, and power relations of those who produce them — is structurally identical to what every experienced systems architect knows about APIs and data models:
+
+**APIs encode worldview.** A payment API that treats USD as the default currency, assumes two-party transactions, and represents names as first-name/last-name pairs is not a neutral specification — it encodes the worldview of its designers (likely American, assuming Western naming conventions and banking infrastructure). Every API decision about what is a first-class concept, what is optional, what is a supported edge case, and what is simply not representable reflects the design team's social and organizational position. Said called this Orientalism; engineers call it assumption debt.
+
+**Data models as colonial structures.** When a global system models non-Western addresses, non-binary genders, or non-Western legal names through the lens of what the Western data model supports, it is doing exactly what Chakrabarty describes: forcing the particular through a universal framework that is not universal but provincial. The database schema is not the thing — it is a representation of the thing, encoded in categories developed to represent a specific social world.
+
+**Chakrabarty's "provincializing" as de-centering your framework assumptions.** "Provincializing Europe" means: recognize that your conceptual framework is one tradition among many, not the universal standard. The engineering analogue: your framework's abstractions (REST resources, relational tables, object hierarchies) are not universal descriptions of reality — they are design choices that reflect specific theoretical commitments and organizational contexts. "Provincializing REST" would mean recognizing that it encodes a particular model of stateless client-server interaction that does not fit all distributed systems equally well, and that GraphQL, gRPC, and event-driven architectures are not "deviations" from REST but alternative frameworks with their own coherent assumptions.
+
+**Spivak's "can the subaltern speak?" → can the edge case be represented?** Spivak argues that even sympathetic scholarship distorts the subaltern because it forces subaltern experience through dominant discourse categories. The engineering parallel: even well-intentioned accessibility or internationalization efforts force non-Western, non-abled, non-normative user experiences through categories designed for the normative case. The question "can this user's experience be represented in our data model?" is Spivak's question in a different domain.
+
+**The decolonial implication for platform design.** Mignolo's "decolonial option" (think from the margins, from the colonial wound) has a design analogue: the users most poorly served by your current system — those for whom the data model fails, the API doesn't work, the UI breaks — reveal your framework's unexamined assumptions most clearly. They are the "colonial wound" of your platform. Designing for them requires not adding edge cases but reconsidering the core categories.
+
 ## Common Confusion Points
 
 **Postcolonial is not anti-Western.**

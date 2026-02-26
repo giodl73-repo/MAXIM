@@ -129,8 +129,7 @@ Frege's paper "Über Sinn und Bedeutung" (On Sense and Reference) starts with a 
   SENSE OF A SENTENCE = the thought (Gedanke) it expresses
 
   This principle is foundational for:
-<!-- @editor[content/P1]: Typo — "Davison" should be "Davidson" -->
-  - Every formal semantics (Montague, Tarski, Davison)
+  - Every formal semantics (Montague, Tarski, Davidson)
   - Every type-theoretic semantics
   - Compiler IR: meaning of compound expressions = f(subexpressions)
   - Denotational semantics of programming languages

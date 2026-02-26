@@ -4,27 +4,35 @@
 
 All rocket propulsion works by the same principle: expelling mass backward to create thrust (Newton's third law). The systems differ in how energetically they can expel that mass, and this determines Isp (efficiency) and thrust (force). There is always a fundamental tradeoff: high Isp (efficiency) comes with low thrust, and vice versa.
 
-<!-- @editor[diagram/P2]: Diagram is a comparison table, not a landscape diagram showing how propulsion types relate to mission phases and spacecraft subsystems — rework as a spectrum or decision tree showing the Isp-vs-thrust tradeoff space with mission regimes overlaid -->
 ```
 +------------------------------------------------------------------+
-|                    PROPULSION SPECTRUM                            |
+|           PROPULSION LANDSCAPE: Isp vs. Thrust Tradeoff          |
 +------------------------------------------------------------------+
 |                                                                  |
-|  TYPE              Isp (s)   THRUST       APPLICATION            |
-|  ----              -------   ------       -----------            |
-|  Solid chemical    230-300   High         Strap-ons, SRBs        |
-|  Liquid bipropell. 300-460   High         Main engines, upper st.|
-|  Liquid monoprop.  150-230   Medium       Attitude control       |
-|  Hybrid            280-350   Medium       Suborbital (SpaceShip)|
-|  Cold gas          50-70     Very low     Cubesat attitude ctrl  |
-|  ---------------------------------------------------             |
-|  Electric (ion)    1500-3000 Very low     Deep space science     |
-|  Electric (Hall)   1000-3000 Very low     GEO station-keeping    |
-|  Electric (gridded) 3000-10000 Ultra-low  Deep space/large sat  |
-|  ---------------------------------------------------             |
-|  Nuclear thermal   800-1000  Medium       Future deep space      |
-|  Nuclear electric  3000-10000 Low         Future outer planets   |
-|  Solar sail        ∞         Ultra-low    Photon pressure        |
+|  HIGH                                                            |
+|  THRUST  |  Solid SRBs  Liquid biprop.                          |
+|  (can    |  (230-300s)  (300-460s)     Nuclear thermal           |
+|  lift    |    [Launch, strap-ons]      (800-1000s) [Future Mars]|
+|  off)    |                                                        |
+|          |                                                        |
+|  MED     |              Monoprop/Hybrid                          |
+|  THRUST  |              (150-350s)                               |
+|          |              [ACS, suborbital]                         |
+|          |                                                        |
+|  LOW     |                         Hall/Ion elec.  Nuclear elec.|
+|  THRUST  |                         (1000-3000s)   (3000-10000s) |
+|  (TWR<1; |                         [GEO stn-keep]  [Outer solar]|
+|  no      |                              |               |        |
+|  liftoff)|                         Solar sail (∞, ultra-low)     |
+|          +--------------------------------------------------      |
+|               LOW Isp                        HIGH Isp            |
+|              (less efficient)            (more efficient)        |
+|                                                                  |
+|  MISSION REGIME MAP:                                             |
+|  Launch to orbit    → High thrust required  (chemical only)      |
+|  Orbit transfers    → Chemical (fast) or electric (slow/cheap)   |
+|  Deep space science → Electric (high Δv, no hurry)              |
+|  Station-keeping    → Electric (continuous, low thrust)          |
 +------------------------------------------------------------------+
 ```
 
@@ -319,7 +327,14 @@ SOLAR SAIL
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: the Isp-vs-thrust tradeoff is the same pattern as latency-vs-throughput in systems design (the learner built Azure pipelines); high-Isp/low-thrust is like batch processing (high throughput, high latency), chemical is like low-latency real-time -->
+## Engineering Parallels
+
+**Isp-vs-thrust as the latency-throughput tradeoff.** Chemical propulsion delivers high thrust at low efficiency — the online transaction processing of propulsion. Electric propulsion delivers extremely high efficiency at negligible thrust — the batch analytics workload. You can't use OLAP for a latency-sensitive transaction; you can't use an ion drive to launch off a planet. Mission phases have different requirements, and the right propulsion type is a regime decision, not a performance comparison on a single axis.
+
+**The staged combustion cycle as full-pipeline utilization.** A gas-generator engine wastes turbine exhaust — analogous to a pipeline stage that discards work product. Staged combustion recycles all propellant through the main chamber, achieving higher chamber pressure and Isp. SpaceX's full-flow staged combustion (Raptor) preburns both propellants — both "pipelines" operate at full efficiency before the main chamber. This is the same reasoning as eliminating mid-tier data copies in an ETL pipeline: every pass-through that discards output is waste.
+
+**Nuclear thermal as the compute-at-edge pattern.** Nuclear thermal propulsion heats hydrogen to achieve 800-1000 s Isp — roughly 2× chemical. The physical reason: exhaust velocity ∝ √(T/M); hydrogen has minimum molecular weight, reactor provides maximum temperature independent of chemical bond energy. The architectural insight is the same as edge computing: break the constraint that was holding performance back (bond energy limit / network bandwidth limit) by using a fundamentally different energy source at the point of need.
+
 ## Common Confusion Points
 
 **Isp in seconds is not "how long the engine runs"**: Isp = thrust / (mass flow rate × g₀) = specific impulse. It was originally defined as thrust per unit weight of propellant per second. "450 seconds" doesn't mean 450 seconds of burn time; it means the engine produces 1 lb of thrust per lb/s of propellant consumed (old units). In modern understanding: higher Isp = exhaust moving faster = more momentum per kg of propellant.

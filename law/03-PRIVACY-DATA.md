@@ -17,8 +17,9 @@
 │                       │  AI Act (2024) — AI-specific                     │
 ├───────────────────────┼──────────────────────────────────────────────────┤
 │  United States        │  Sectoral approach: HIPAA, FERPA, COPPA, GLBA   │
-│  (federal)            │  No comprehensive federal privacy law (2025)     │
-<!-- @editor[content/P2]: Federal privacy law status stamped 2025 — verify whether APRA or similar legislation has advanced in 2026 -->
+│  (federal)            │  No comprehensive federal privacy law (Feb 2026) │
+│                       │  APRA (American Privacy Rights Act): passed House│
+│                       │  committee 2024; stalled in Senate as of Feb 2026│
 │                       │  FTC Act §5: deceptive/unfair practices          │
 │                       │  ECPA: electronic communications interception    │
 ├───────────────────────┼──────────────────────────────────────────────────┤
@@ -34,7 +35,20 @@
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge from Azure/VSTS-era compliance (SOC 2, ISO 27001, MSFT Trust Center) to modern privacy engineering obligations (GDPR DPIAs, privacy by design) would ground this learner -->
+**Formal bridge:** Privacy law is a risk management and access control specification
+layered on top of data systems. The mental model shift: legal compliance is not
+about a compliance checklist — it's about encoding constraints into system design.
+GDPR's "privacy by design" principle (Art. 25) is a direct mandate to implement
+data minimization, purpose limitation, and access control at the architecture level
+rather than as an afterthought. A DPIA (Data Protection Impact Assessment, Art. 35)
+is a required risk assessment before deploying high-risk processing — structurally
+identical to threat modeling. Lawful basis documentation maps to access control
+policy documentation: you must identify and record the authorization basis for
+every category of data processing, not just assume permission. SOC 2 / ISO 27001
+cover security (confidentiality, integrity, availability); GDPR additionally
+mandates lawfulness, purpose limitation, minimization, and data subject rights —
+each of which creates engineering requirements (audit logs for access requests,
+deletion workflows, portability APIs, consent management platforms).
 
 ## 1. GDPR — General Data Protection Regulation
 

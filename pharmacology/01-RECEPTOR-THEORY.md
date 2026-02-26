@@ -313,10 +313,63 @@ EXAMPLES OF COOPERATIVITY
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge: receptor binding/occupancy theory maps directly to CS lock contention and resource allocation — Kd is the dissociation constant analogous to a timeout/backoff constant, competitive antagonism is resource contention at a shared binding site -->
+## Engineering Bridge: Receptor Theory as Resource Allocation
+
+Receptor binding follows the same equilibrium mathematics as resource contention in concurrent systems.
+
+```
+  RECEPTOR THEORY               CS / SYSTEMS PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Fractional occupancy          Resource utilization:
+  pO = [D] / ([D] + Kd)         ρ = λ / (λ + μ) in an M/M/1 queue
+                                where λ = arrival rate, μ = service rate.
+                                Kd = μ/k₊₁ is the ratio of departure
+                                to arrival rates — analogous to the
+                                timeout/backoff ratio in retry logic.
+                                At [D] = Kd: 50% occupancy (= ρ = 0.5).
+
+  Competitive antagonism        Resource contention at a shared binding site:
+  pO = [D] / ([D] + Kd(1+[I]/Ki))  the antagonist competes for the same
+                                site — exactly lock contention. More agonist
+                                ([D] ↑) can displace the antagonist —
+                                surmountable, like increasing priority to
+                                win a contended resource.
+
+  Non-competitive antagonism    Allosteric lock on the resource: the
+  (reduces Emax, not EC50)      antagonist doesn't compete for the same
+                                slot but disables the resource regardless
+                                of occupancy. Cannot be overcome by more
+                                agonist — analogous to a deadlock that
+                                can't be broken by adding more requests.
+
+  Receptor desensitization      Adaptive throttling / circuit breaker:
+  (β-arrestin → internalization) sustained high signal → receptor
+                                phosphorylation → uncoupling → internalization.
+                                The system reduces its own responsiveness
+                                under sustained load — exactly a circuit
+                                breaker pattern or adaptive rate limiting.
+
+  Partial agonist               Partial activation function with ceiling:
+  (α < 1)                       saturates at α·Emax < Emax. In presence of
+                                full agonist, acts as antagonist by
+                                displacing it and replacing with lower-
+                                ceiling activation — ceiling drug pattern.
+  ──────────────────────────────────────────────────────────────────────
+```
+
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P3]: Cheat sheet reads as a reference summary rather than a decision tool — consider reframing as "I need to..." / "Look at..." / "Because..." to give it a decision-guiding structure (see 04-CYP for a good example) -->
+| I need to know... | Look at... | Because... |
+|-------------------|------------|------------|
+| How tightly does drug bind? | Kd (dissociation constant) | At [D] = Kd, 50% of receptors occupied |
+| How much receptor is occupied at a given dose? | pO = [D]/([D]+Kd) | Law of mass action at equilibrium |
+| What is the maximum possible response? | Emax × α (intrinsic activity) | α=1 full, 0<α<1 partial, α=0 antagonist |
+| Can I overcome this antagonism with more drug? | Competitive? → yes; Non-competitive? → no | Competitive shifts EC50; non-competitive reduces Emax |
+| Why does tolerance develop? | Receptor desensitization / downregulation | Prolonged agonist → β-arrestin → internalization |
+| Why can't I stop this drug abruptly? | Receptor upregulation from chronic antagonism | Rebound when exogenous antagonist removed |
+
+---
+
 | Concept | Key Equation/Relationship | Clinical Relevance |
 |---------|--------------------------|-------------------|
 | Affinity | Kd = [D][R]/[DR] | Determines concentration needed to occupy receptor |

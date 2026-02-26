@@ -1,7 +1,78 @@
 # Ottoman Rise — From Anatolian Beylik to World Empire
 
 ## The Big Picture
-<!-- @editor[diagram/P2]: Opening diagram is a chronological expansion list — for a historical geography guide, add a spatial map showing the small northwest Anatolian beylik expanding to three-continent empire, with key chokepoints (Bosphorus, Dardanelles, Suez) marked -->
+
+```
+OTTOMAN SPATIAL EXPANSION — FROM BEYLIK TO THREE-CONTINENT EMPIRE
+===================================================================
+
+STARTING POSITION (1299):
+  BYZANTINE EMPIRE (weakened, fragmented)
+  ┌──────────────────────────────────────┐
+  │  Constantinople  │  Thrace (Balkans) │
+  │  (defended city) │                   │
+  └──────────────────┴──────────┬────────┘
+                                │  Bosphorus / Dardanelles
+  ┌─────────────────────────────┴────────────────────────────┐
+  │              ANATOLIA (12 beyliks competing)             │
+  │   OTTOMAN BEYLIK: northwest corner, ~600 km²             │
+  │   [Bursa area, adjacent to Byzantine territory]          │
+  │   Adjacent: KARAMANIDS (strongest), GERMIYANIDS, others  │
+  └──────────────────────────────────────────────────────────┘
+
+EXPANSION SEQUENCE:
+  Phase 1 (1299–1402): ANATOLIAN + EUROPEAN CORE
+    → Bursa 1326 (first capital)
+    → Cross Bosphorus: Gallipoli 1354 (first European foothold)
+    → Edirne (Adrianople) 1361 — European capital
+    → Battle of Kosovo 1389: Serbia tributary
+    → Battle of Nicopolis 1396: Crusade repelled; Balkans secured
+    !! Timur defeats Bayezid I at Ankara 1402 → near collapse
+       (Anatolian beyliks temporarily restored)
+
+  Phase 2 (1402–1453): RECOVERY + CONSTANTINOPLE
+    → Sons of Bayezid civil war (Interregnum 1402–13)
+    → Murad II restores Anatolian control
+    → MEHMED II: Constantinople falls May 29, 1453
+      KEY: Bosphorus now fully Ottoman; Black Sea trade controlled
+      Dardanelles also Ottoman; Mediterranean access locked
+
+  Phase 3 (1453–1520): THREE-DIRECTION EXPANSION
+    WEST:  Wallachia, Bosnia, Albania (Skanderbeg held out to 1468)
+    EAST:  Karamanids finally absorbed 1473; Anatolia unified
+    NORTH: Crimean Khanate vassal 1475; Black Sea → Ottoman lake
+
+  Phase 4 (1516–1566): ARAB WORLD + PEAK EXTENT
+    → Marj Dabiq 1516: Mamluks defeated; Syria absorbed
+    → 1517: Egypt, Arabia, holy cities — Cairo Mamluks end
+    → Suleiman: Hungary 1526; Vienna siege 1529 (failed)
+    → Iraq (intermittent); Yemen; N. Africa coast
+
+KEY CHOKEPOINTS — WHY THE EMPIRE'S GEOGRAPHY MATTERED:
+  ┌────────────────┬─────────────────────────────────────────┐
+  │ Bosphorus      │ Black Sea ↔ Mediterranean; controls     │
+  │                │ Venetian + Genoese eastern trade        │
+  ├────────────────┼─────────────────────────────────────────┤
+  │ Dardanelles    │ Aegean approach to Constantinople;      │
+  │                │ both straits = toll gates on trade      │
+  ├────────────────┼─────────────────────────────────────────┤
+  │ Suez corridor  │ Spice route from Indian Ocean to Med.;  │
+  │                │ Ottomans compete with Portuguese for    │
+  │                │ Indian Ocean trade dominance 1500–1560  │
+  ├────────────────┼─────────────────────────────────────────┤
+  │ Belgrade       │ Gateway to Central Europe; fell 1521    │
+  ├────────────────┼─────────────────────────────────────────┤
+  │ Rhodes         │ Hospitaller naval base blocking eastern │
+  │                │ Med.; fell 1522                         │
+  └────────────────┴─────────────────────────────────────────┘
+
+STRUCTURAL INSIGHT:
+  The Ottoman Empire is a network-control empire:
+  Its core value was controlling chokepoints on trade flows
+  (the straits, the spice routes, the pilgrimage routes to Mecca)
+  not simply maximizing contiguous territory.
+  Revenue from tolls + customs + pilgrimage fees = core fiscal base.
+```
 
 ```
 OTTOMAN TERRITORIAL EXPANSION:

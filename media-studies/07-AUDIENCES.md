@@ -288,7 +288,21 @@ Audience studies examines what people actually do with media -- not what it does
     Assumes rational, autonomous choosers.
     Ignores that "needs" are themselves socially constructed
     (needs for entertainment were created by entertainment industries).
-<!-- @editor[content/P3]: Uses and Gratifications has seen renewed relevance in UX research and app design — "jobs to be done" framework in product management is essentially U&G applied to software; worth a brief contemporary note -->
+
+  CONTEMPORARY RELEVANCE — JOBS-TO-BE-DONE (JTBD):
+    Clayton Christensen's Jobs-to-be-Done framework in product
+    management is essentially U&G applied to software:
+    "What job is the user hiring this product to do?"
+    Cognitive job (get information), Affective job (feel
+    connected), Social job (signal identity/membership),
+    Tension-release job (decompress after work).
+    UX research methods (user interviews, diary studies,
+    contextual inquiry) operationalize U&G questions
+    in product design contexts. Netflix's genre taxonomy,
+    Spotify's mood-based playlists, and social media
+    notification systems are all designed around
+    U&G gratification categories, even if the teams
+    don't use U&G terminology.
 ```
 
 ---
@@ -408,7 +422,62 @@ Henry Jenkins's participatory culture framework emerged from fan studies and tra
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the progression from "hypodermic needle" to "active audience" to "participatory culture" mirrors the shift in software from mainframe (centralized, passive terminal) to client-server (negotiated processing) to peer-to-peer (distributed production); Hall's three decoding positions map to parser behavior (accept/negotiate/reject) — one paragraph connecting to the learner's systems background would anchor this entire file -->
+## Engineering Bridge: Audience Models as Computational Architectures
+
+The history of audience theory maps precisely onto the evolution of computing architectures:
+
+```
+AUDIENCE MODEL                 COMPUTING ARCHITECTURE PARALLEL
+==============                 ==============================
+
+Hypodermic needle              Mainframe / dumb terminal:
+(media injects directly,       Central processor, passive endpoints.
+audience is passive)           All intelligence at the source;
+                               terminals receive and display.
+                               No local processing, no user agency.
+
+Limited effects / two-step     Client-server:
+flow (opinion leaders filter   Intermediate processing layer (server)
+and retransmit)                interprets and serves content to clients.
+                               Opinion leaders = application servers
+                               that transform raw media signals for
+                               their local social network clients.
+                               Lazarsfeld's two-step flow = the API
+                               layer between raw data and end consumers.
+
+Active audience /              Peer-to-peer / distributed systems:
+participatory culture          Every node can be producer and consumer.
+(audiences produce and         BitTorrent: each peer both downloads and
+redistribute)                  uploads. Content is not delivered from
+                               central server — it emerges from
+                               distributed contribution.
+                               Jenkins's participatory culture = P2P
+                               topology applied to cultural production.
+
+Hall's three decoding          Parser / compiler behavior:
+positions (dominant /          Input text processed by receiver with
+negotiated / oppositional)     its own grammar / semantic rules.
+                               Dominant: input accepted as sent
+                               (no parsing errors, accepted meaning).
+                               Negotiated: partial match — input parsed
+                               but locally reinterpreted in context.
+                               Oppositional: alternative grammar applied;
+                               input decoded with counter-schema that
+                               produces systematically different AST.
+                               The "same" source code compiles differently
+                               in different compilers — same text,
+                               different semantic output.
+
+Algorithmic mediation          Middleware / message broker:
+(algorithm interposes between  The algorithm (Kafka, RabbitMQ equivalent)
+sender and receiver)           sits between producer and consumer,
+                               filtering, prioritizing, routing.
+                               "The audience" as shared experience
+                               disappears when every consumer sees
+                               a differently filtered message stream.
+                               Personalization = message broker with
+                               per-consumer topic subscription.
+```
 
 ## Common Confusion Points
 

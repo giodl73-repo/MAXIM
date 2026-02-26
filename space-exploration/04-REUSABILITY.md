@@ -4,25 +4,38 @@
 
 Reusable rockets represent the same paradigm shift in space access that reusable aircraft represented for commercial aviation. The key insight: propellant costs are tiny compared to hardware costs; if you can recover and reuse hardware, launch costs collapse. SpaceX demonstrated this definitively with Falcon 9.
 
-<!-- @editor[diagram/P2]: Diagram compares two cost models but doesn't map the full reusability landscape — players, timeline, technology layers (recovery, refurb, thermal protection); rework as a system view showing how landing tech, refurb process, and flight rate interact to drive economics -->
 ```
 +------------------------------------------------------------------+
-|                    REUSABILITY ECONOMICS                          |
+|             REUSABILITY SYSTEM: HOW ECONOMICS EMERGE             |
 +------------------------------------------------------------------+
 |                                                                  |
-|  EXPENDABLE ROCKET            REUSABLE ROCKET                    |
-|  ---------------              ---------------                    |
-|  Cost = manufacturing         Cost = manufacturing + refurb      |
-|         per mission                   amortized over N flights   |
+|  LANDING TECHNOLOGY                                              |
+|  Entry burn → Grid fins → Landing burn → Legs/arms              |
+|  (propulsive; no wings; precision GNC)                           |
+|       |                                                          |
+|       v                                                          |
+|  REFURBISHMENT PROCESS                                           |
+|  Inspect every Merlin → grid fins → structure → avionics        |
+|  Turnaround target: <30 days (achieved; fastest: <2 weeks)       |
+|  Cost: ~$1-5M per flight (vs ~$30M to build new)                 |
+|       |                                                          |
+|       v                                                          |
+|  FLIGHT RATE (the multiplier)                                    |
+|  Amortized hardware cost = $30M / N flights                      |
+|  N=1: $30M   N=5: $6M   N=10: $3M   N=20: $1.5M                |
+|  Refurb cost is the new floor — not manufacture cost             |
+|       |                                                          |
+|       v                                                          |
+|  ECONOMICS (what emerges from the system)                        |
+|  Launch cost: ~$50-67M (2024 list); actual cost to SpaceX lower  |
+|  Payload penalty for reuse: 22.8 t → ~17 t (-25%)               |
+|  $/kg to LEO: ~$2,900/kg (list); fell from ~$15,000/kg pre-SpX  |
 |                                                                  |
-|  Falcon 9 booster: ~$30M      Refurbishment: ~$1M (estimated)   |
-|  If flown 10 times: $3M/flight vs $30M expendable               |
-|  (propellant: ~$200K — irrelevant)                               |
-|                                                                  |
-|  FUNDAMENTAL CONSTRAINT:                                         |
-|  Payload fraction loss for reuse (landing propellant reserve)    |
-|  Falcon 9: 22.8 t expend. → ~17 t reuse (25% loss)             |
-|  BUT: economics more than compensate for payload reduction       |
+|  PLAYER LANDSCAPE (2025):                                        |
+|  SpaceX: Falcon 9 (orbital; 20+ flights/booster); Starship (dev)|
+|  Blue Origin: New Shepard (suborbital); New Glenn (orbital, 2025)|
+|  Rocket Lab: Electron (helicopter stage catch; partial)          |
+|  ULA Vulcan: engine section recovery (SMART; not yet demoed)     |
 +------------------------------------------------------------------+
 ```
 
@@ -79,8 +92,7 @@ FALCON 9 FIRST STAGE RECOVERY
 FALCON 9 REUSE STATISTICS (through 2024)
 ==========================================
 
-<!-- @editor[content/P1]: Claim may be incorrect — verify: first successful Falcon 9 booster landing was at Cape Canaveral (LZ-1), not Vandenberg; the OG-2 mission launched from CCAFS SLC-40 -->
-  First successful booster landing: December 21, 2015 (Vandenberg)
+  First successful booster landing: December 21, 2015 (Cape Canaveral, LZ-1; OG-2 mission from SLC-40)
   First drone ship landing: April 8, 2016
 
   REUSE MILESTONES:
@@ -293,7 +305,14 @@ RE-ENTRY THERMAL PROTECTION
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: the economics of reusability (amortize hardware cost over N flights; refurbishment cost curve; fleet management) map directly onto cloud infrastructure economics (amortize datacenter capex over N tenants; maintenance cost curve; fleet ops); the learner built Azure's capacity model on exactly this pattern -->
+## Engineering Parallels
+
+**Reusability economics as infrastructure amortization.** The financial model is identical to large-scale infrastructure: a $30M booster amortized over 20 flights costs $1.5M per flight in hardware, plus ~$1-5M in refurbishment, plus operations. The unit economics improve with utilization rate — exactly as a datacenter's cost-per-request falls with higher server utilization. SpaceX's ~90 launches per year is the equivalent of high server utilization driving down per-request cost.
+
+**The refurbishment curve as a maintenance cost model.** Early in a booster's life, refurbishment cost is higher per flight (unknown failure modes, conservative inspection margins). As flight history accumulates, the cost curve flattens — the same learning-curve effect seen in any repeatedly-executed manufacturing or operational process. Flight 15 of a given booster is cheaper to turn around than flight 3, because the anomaly space is better characterized.
+
+**Space Shuttle as a cautionary tale on ignoring operational costs.** The Shuttle's reusability was real but its operational costs were not designed in from the start. ~10,000 person-hours per flight for tile inspection is the equivalent of hand-testing every code path before each production deployment. SpaceX succeeded by designing the refurbishment process into the vehicle from the beginning — minimal exposed tile area, engine architecture that survives multiple flights without teardown, autonomous landing that doesn't require foam/insulation on a cryogenic tank. The lesson is the same as DevOps: operability must be a first-class design constraint, not bolted on afterward.
+
 ## Common Confusion Points
 
 **Reuse doesn't mean instant cost reduction**: The economics improve with flight rate. The more times you fly a booster, the lower the amortized manufacturing cost. Early reuse flights still cost nearly as much to operate as new. The revolution comes after 10+ flights of the same booster — which Falcon 9 has now achieved.

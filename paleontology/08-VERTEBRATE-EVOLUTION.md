@@ -142,7 +142,7 @@ SARCOPTERYGII (lobe-finned fish) — OUR LINEAGE:
       Tetrapod-like: neck (head moves independently of body; fish can't do this)
         flat head, ribs (rigid ribcage), fins with internal wrist joint and distinct digits
         Could do push-up: supporting weight on pectoral fins
-      Discovered by Darryl Shubin 2004, described 2006
+      Discovered by Neil Shubin 2004, described 2006
       PREDICTION-BASED DISCOVERY: phylogenetic gap between known 385 Ma fish
         and 365 Ma tetrapods → must be fossils at 375 Ma → searched Ellesmere specifically
 ```
@@ -305,7 +305,7 @@ CYNODONTIA (~255 Ma – present as mammals):
     Cynognathus: 1 m; powerful carnivore
     Probainognathus: small; near-mammalian skull
 
-JAW BONE REDUCTION — THE KEY TRANSITION:
+JAW BONE REDUCTION — THE KEY TRANSITION (strangler fig migration pattern):
   Reptile jaw: 7 bones (dentary, articular, quadrate, squamosal, surangular, angular, splenial)
   Mammal jaw: 1 bone (dentary)
 
@@ -315,10 +315,35 @@ JAW BONE REDUCTION — THE KEY TRANSITION:
     QUADRATE → INCUS (middle ear ossicle)
     SQUAMOSAL → part of temporal bone
 
+  STRANGLER FIG MIGRATION PATTERN:
+    The jaw-bone-to-ear-ossicle transition is the biological equivalent of
+    refactoring a component to serve a new purpose while maintaining full
+    backward compatibility throughout the transition:
+
+    Phase 1 (reptiles):     articular + quadrate = jaw joint (load-bearing)
+                            same bones also loosely transmit sound (secondary role)
+    Phase 2 (cynodonts):    jaw joint gradually shifts to dentary-squamosal
+                            articular + quadrate still present, still in jaw
+                            both jaw joints co-exist (non-breaking change)
+    Phase 3 (Morganucodon): dentary-squamosal joint = primary jaw joint
+                            articular + quadrate still connected to jaw but
+                            also transmitting vibrations to inner ear (dual role)
+                            → BOTH OLD AND NEW JOINT PRESENT SIMULTANEOUSLY
+                            → This is the transitional state: backward compatible
+                              (jaw still functions) + new capability (better hearing)
+    Phase 4 (Hadrocodium):  articular + quadrate fully detached from jaw
+                            become pure hearing bones; jaw function abandoned
+                            → Migration complete; old API removed
+
+    This is exactly how the strangler fig pattern works:
+      Build new system alongside old → route traffic to new → decommission old
+      Morganucodon = system with both old and new interfaces simultaneously live
+
   WHY IMPORTANT:
     More jaw bones = more middle ear bones = better hearing range
     → Hearing range increases dramatically: from ~250–3000 Hz (reptile) to ~20–20,000 Hz (mammal)
     → Better auditory sensitivity; crucial for nocturnal hunting
+    → The function migration was possible because the bones physically overlap in role
 
   TRANSITIONAL FOSSILS:
     Morganucodon (~200 Ma): the double-jaw joint

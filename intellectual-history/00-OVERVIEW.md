@@ -214,7 +214,22 @@ Quentin Skinner, John Pocock, John Dunn. Founded in 1960s Cambridge.
 
 ---
 
-<!-- @editor[bridge/P3]: No bridge connecting intellectual history's methodological debates to formal/structural reasoning the learner already owns (e.g., paradigm shifts parallel type-system evolution, Kuhn's incommensurability maps to breaking API changes) -->
+## Engineering Bridges
+
+The methodological debates in intellectual history map precisely onto structural problems in software and systems engineering:
+
+| Intellectual History Concept | Engineering Analogue |
+|------------------------------|----------------------|
+| Paradigm shift (Kuhn) | Platform transition (mainframe → web → cloud → AI): normal engineering within the paradigm, then forced migration at the break |
+| Incommensurability | Breaking API changes and semantic versioning: `v1.GET /users` and `v2.GET /users` share a name but have incompatible contracts — the "same" endpoint means something different across the paradigm boundary |
+| Internalism (ideas drive change) | "We succeeded because of superior architecture" — the technical-determinism view |
+| Externalism (social forces drive change) | "We succeeded because of market timing, network effects, and org structure" — the systems/institutional view |
+| Cambridge School: texts as speech acts | Code as communication: a function signature is not just a computational specification but a social act within a codebase's discourse (what problem is being solved, for whom, under what constraints?) |
+| Whig history | Retrospective rationalization of design decisions: "of course we built it this way" when actually the architecture reflected contingent constraints now forgotten |
+| Kuhn's normal science | Greenfield development within an established framework; known patterns, predictable tools — the bulk of engineering work |
+| Begriffsgeschichte (concept history) | Tracking how a term like "service," "microservice," or "serverless" shifts meaning as the technological context evolves |
+
+**The internalist-externalist debate is an exact mirror of the "why did this system succeed?" question**: VHS beat Betamax (externalist: marketing, licensing, recording time), yet technically inferior by many measures. Windows beat OS/2 (externalist: IBM's enterprise focus, Microsoft's OEM deals) despite OS/2's technical superiority. Pure internalism — "the best technical design wins" — fails as historical explanation in both domains.
 
 ## Decision Cheat Sheet
 

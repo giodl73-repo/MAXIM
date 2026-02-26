@@ -254,19 +254,19 @@ TOULMIN IN PRACTICE:
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a directory of files rather than a "use X when Y" decision tool — reframe rows as rhetorical situations: "I need to argue for a platform change" → 05, not "Toulmin model" → 05 -->
-
-| I want to understand... | Start with... |
-|------------------------|---------------|
-| Aristotle's complete rhetorical system | 01-CLASSICAL-RHETORIC.md |
-| Cicero and Quintilian on the ideal orator | 02-ROMAN-RHETORIC.md |
-| The five canons in depth (inventio, dispositio, memoria, actio) | 03-FIVE-CANONS.md |
-| Figures of speech as a writer's reference | 04-FIGURES-OF-SPEECH.md |
-| Toulmin model for engineering arguments | 05-ARGUMENTATION.md |
-| Political framing and Lakoff | 06-POLITICAL-RHETORIC.md |
-| How to structure a eulogy, toast, or award speech | 07-EPIDEICTIC.md |
-| Why memes spread and how digital rhetoric works | 08-DIGITAL-RHETORIC.md |
-| Academic writing and composition pedagogy | 09-RHETORIC-COMPOSITION.md |
+| Rhetorical situation | Best resource |
+|---------------------|--------------|
+| I need to argue for a platform change or architectural decision | 05-ARGUMENTATION.md (Toulmin: claim → grounds → warrant → backing → rebuttal) |
+| I'm drafting an RFC or design doc | 03-FIVE-CANONS.md (dispositio) + 05-ARGUMENTATION.md (Toulmin structure) |
+| I need to give a keynote, all-hands, or onboarding talk | 03-FIVE-CANONS.md (actio + memoria) + 07-EPIDEICTIC.md |
+| I'm preparing for a contentious design review | 02-ROMAN-RHETORIC.md (stasis theory) + 05-ARGUMENTATION.md (refutation) |
+| I'm writing an executive memo or strategy paper | 03-FIVE-CANONS.md (inventio + dispositio) + 09-RHETORIC-COMPOSITION.md |
+| I need to understand how a political argument is being framed against me | 06-POLITICAL-RHETORIC.md (Lakoff frames + Luntz tactics) |
+| I'm giving a team farewell, award speech, or toast | 07-EPIDEICTIC.md |
+| I need to respond to a viral social media situation | 08-DIGITAL-RHETORIC.md (decontextualization + crisis response) |
+| I want to understand the full classical system | 01-CLASSICAL-RHETORIC.md (Aristotle) + 02-ROMAN-RHETORIC.md |
+| I need figures of speech as a working reference | 04-FIGURES-OF-SPEECH.md |
+| I'm trying to understand why junior writers struggle | 09-RHETORIC-COMPOSITION.md (Flower/Hayes cognitive model) |
 
 ---
 
@@ -275,7 +275,8 @@ TOULMIN IN PRACTICE:
 **Rhetoric is not "empty speech"**
 The popular meaning of "rhetoric" is inflated or empty language ("empty rhetoric," "mere rhetoric"). This is a centuries-old anti-rhetorical tradition (Plato condemned it). In the technical/academic sense, rhetoric is the systematic study of persuasion — which is anything but empty. You cannot communicate without rhetoric; you can only use it better or worse.
 
-<!-- @editor[bridge/P3]: Natural bridge to .NET/VSTS experience missing — Cicero's stasis theory maps directly to triage meetings and design review disagreements; a one-line callout here would anchor the overview for this learner -->
+**Stasis theory as engineering triage tool**
+Cicero's stasis doctrine — the four types of disagreement (conjectural: "did it happen?"; definitional: "what is it?"; qualitative: "how serious?"; translative: "whose decision is it?") — maps directly onto technical disagreements. Most contentious design reviews fail not because the argument is wrong but because participants are at different stasis levels: one person is arguing conjectural (is this a real performance problem?) while another is arguing qualitative (how bad is 50ms latency?). Naming the stasis shifts the argument from combat to diagnosis. See 02-ROMAN-RHETORIC.md for the full system.
 
 **"Rhetorical question" means something specific**
 A rhetorical question is a question posed for effect, not for an answer ("Is the sky blue?"). It is a figure of speech (anthypophora or erotema) used to make a point. It is NOT a vague synonym for "interesting question" as it is often used in casual speech.

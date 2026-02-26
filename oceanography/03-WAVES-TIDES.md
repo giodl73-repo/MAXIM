@@ -25,9 +25,9 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — dispersion relations, group vs. phase velocity, and harmonic decomposition (tidal constituents) are directly parallel to Fourier analysis and wave propagation in signal processing / telecommunications; resonance in the Bay of Fundy is a textbook standing-wave resonance problem identical to organ pipes or transmission line matching -->
-
 ## Surface Gravity Wave Mechanics
+
+Ocean wave mechanics is applied signal processing on a fluid medium. The dispersion relation ω²=gk·tanh(kh) is the wave equation's dispersion curve — different frequencies travel at different phase velocities, exactly as in dispersive transmission lines or optical fiber. Group velocity (energy propagation speed) vs. phase velocity (crest speed) is identical to the same concept in any dispersive medium: in deep water c_g = c_p/2, so crests outrun the energy envelope. Tidal harmonic analysis is Fourier decomposition of the tidal signal: the M2, S2, N2 constituents are the Fourier modes, and fitting them to tide-gauge records is nonlinear least squares with known frequencies — the same algorithm as any harmonic regression. Bay of Fundy extreme tides are a standing-wave resonance problem: the basin's natural period ~13.3 hr is near the M2 period ~12.4 hr, so energy input each tidal cycle adds coherently, exactly as an organ pipe or transmission line driven at its quarter-wave resonant frequency.
 
 ### Dispersion Relation
 
@@ -376,4 +376,38 @@ STORM SURGE MECHANISM:
 
 **Storm surge ≠ wave height**: Storm surge is the quasi-static sea level elevation. Waves ride on top of the surge. Total water level during a storm = tide + surge + wave setup + individual wave height. Katrina's 8 m storm surge still had 10 m waves on top in some areas.
 
-<!-- @editor[content/P3]: Rogue waves absent — freak/rogue waves (Draupner 1995 confirmed existence) are a significant modern research topic in nonlinear wave dynamics; brief mention would round out the wave mechanics coverage -->
+## Rogue Waves
+
+Rogue (freak) waves are anomalously large waves — typically defined as having wave height >2× the significant wave height of the surrounding sea. The Draupner platform (North Sea, Jan 1, 1995) recorded the first scientifically confirmed rogue wave: H=25.6 m in a sea with H_s~12 m.
+
+```
+GENERATION MECHANISMS (several compete):
+  1. LINEAR FOCUSING:
+     Directional spread + varying currents can geometrically focus
+     wave energy to a point — purely linear, no nonlinearity needed
+     Steep opposing currents (Agulhas, Gulf Stream) known hotspots
+
+  2. NONLINEAR (Benjamin-Feir instability):
+     Modulation instability: uniform wave train amplifies side-band
+     perturbations → energy concentrates into large packets
+     NLS (nonlinear Schrödinger equation) governs this regime
+     Also responsible for optical rogue waves in fiber lasers
+
+  3. WAVE-CURRENT INTERACTION:
+     Opposing current → wave compresses (shorter λ) → steepens
+     → focusing into rogue event
+     Documented mechanism in Agulhas current (SA to Indian Ocean)
+
+STATISTICS:
+  Linear theory: P(H > 2H_s) ~ 10⁻⁴ (very rare)
+  Observed: significantly more frequent (~10⁻³ in some datasets)
+  Difference = evidence of nonlinear focusing
+
+PRACTICAL ENGINEERING IMPACT:
+  Offshore platform design: 100-year return wave used in structural codes
+  Pre-Draupner: rogue wave dismissed as mariners' tales
+  Post-2000 satellite data: confirmed frequent occurrence globally
+  CMAX/MaxWave programs: systematic satellite measurement
+```
+
+The NLS framework connecting ocean rogue waves to fiber-optic solitons (same governing PDE, different physical medium) is active cross-disciplinary research.

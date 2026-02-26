@@ -255,7 +255,61 @@ STEADY STATE CONCENTRATION (Css)
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — compartment models are directly analogous to queuing theory and system modeling (one-compartment = single-server queue, two-compartment = tiered cache with fast/slow pools, Vd = total buffer capacity, clearance = drain rate). The engineering reader would immediately recognize the differential equation structure -->
+## Engineering Bridge: PK as System Dynamics
+
+Compartment models are linear dynamic systems. Every PK equation has a direct systems-modeling counterpart.
+
+```
+  PHARMACOKINETICS              SYSTEMS / CONTROL THEORY PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  One-compartment model         First-order linear system:
+  C(t) = C₀·e^{-k_el·t}        Laplace transform: C(s) = C₀/(s + k_el)
+  k_el = CL / Vd                Single pole at s = -k_el. Time constant
+                                τ = 1/k_el = t½/0.693. Monoexponential
+                                decay is exactly the step response of a
+                                first-order low-pass filter.
+
+  Two-compartment model         Two-pole system (tiered buffer):
+  C(t) = A·e^{-αt} + B·e^{-βt}  Fast phase α: rapid distribution between
+                                central and peripheral compartments (fast
+                                pool ↔ slow pool). Slow phase β: elimination.
+                                Exactly a two-stage cache: fast RAM (plasma +
+                                well-perfused organs) and slow storage (fat,
+                                muscle). Vd_central and Vd_peripheral are the
+                                respective buffer capacities.
+
+  Volume of distribution Vd     Total buffer capacity:
+  Vd = Total drug / C_plasma    Plasma Vd = 0.04 L/kg (drug stays in plasma);
+                                high Vd = 10+ L/kg (drug partitions into
+                                tissue). High-tissue drugs fill the slow
+                                pool extensively — long half-life even with
+                                fast clearance.
+
+  Clearance CL (L/h)            Drain rate from the system:
+  t½ = 0.693 × Vd / CL          CL is volume processed per unit time —
+                                not the absolute amount removed. Steady-state
+                                concentration Css = F·Dose/(CL·τ) — the
+                                steady-state level when input = output rate.
+
+  First-pass metabolism         Input filter / signal attenuation:
+  F_oral = F_absorption × (1 - F_extraction_hepatic)
+                                The liver acts as a first-pass filter with
+                                attenuation 1 - E_H. High-extraction drugs
+                                (E > 0.7) lose >70% of dose before reaching
+                                systemic circulation. Route of administration
+                                determines whether the filter is in the path.
+
+  Steady state after 5 half-lives  Capacitor charging time constant:
+                                A first-order system reaches 97% of steady
+                                state after 5 time constants. No matter how
+                                large or small the dose, time-to-steady-state
+                                is determined solely by t½ (time constant),
+                                not by dose. Dose sets the level, not the time.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## One-Compartment vs Two-Compartment Models
 
 ```

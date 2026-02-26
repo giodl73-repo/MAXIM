@@ -309,7 +309,20 @@ this to the practical questions of how history is produced outside the academy.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Nora's distinction between living memory (milieux de memoire) and artificial archives (lieux de memoire) maps to the difference between institutional knowledge held in people's heads and formal documentation systems; when senior engineers leave, their "living memory" of architectural decisions is lost and only the documented artifacts remain — this is exactly Nora's point about modernity -->
+## Engineering Bridge: Organizational Memory and Knowledge Systems
+
+Nora's framework — the distinction between living memory embedded in practice and artificial archives that preserve the traces of memory after the living community is gone — describes exactly the organizational knowledge crisis of engineering teams:
+
+**Milieux de mémoire → institutional knowledge held in people.** When an experienced engineer carries the memory of why the authentication service was designed the way it was — the specific security incident in 2017, the vendor constraint that no longer exists, the performance trade-off that made sense then — they are a *milieu de mémoire*: a living environment where memory is transmitted through practice, conversation, and socialization. This knowledge is not in any document; it circulates through pairing, code review, and oral tradition.
+
+**Lieux de mémoire → ADRs, runbooks, and post-mortems.** When the engineer leaves, the living memory environment dissolves. What remains are *lieux de mémoire*: Architecture Decision Records, post-mortem documents, comments in code, old PRs, Confluence pages. These are not living memory — they are sites where memory crystallizes when the living community is gone. Nora's point: these archives are produced by the anxiety of loss, not by the comfort of continuity. Organizations that write ADRs are already experiencing the erosion of living memory.
+
+**Nora's "acceleration of history" → engineer attrition.** Nora argued that modernity's acceleration — the speed of change — destroys living memory environments. In engineering organizations, this is engineer turnover and reorg velocity: when teams change faster than tacit knowledge can be transmitted, the living memory cannot form. The two-year tenure of the average engineer means most systems are running on the *lieux de mémoire* of departed engineers, not on the living understanding of current owners.
+
+**Halbwachs's social frameworks → team as memory community.** Halbwachs argued that memory is not individual but constituted by social frameworks — the family, the religious community, the class. Engineering teams are exactly such frameworks: your memory of a system is structured by the team's shared narrative, its incident retrospectives, its code review culture. When the team dissolves (reorg, attrition, acquisition), the social framework collapses and the memories become inaccessible even to the individuals who hold them — because they no longer have the social context to make the memories coherent.
+
+**Practical implication: documentation is a lieux de mémoire strategy.** Nora's framework implies that documentation is not a substitute for living memory — it is a residue that survives when living memory is gone. The best documentation practice is to create documentation before the living memory experts leave (while they can contextualize why decisions were made, not just what was decided). Post-departure documentation is reconstruction from artifacts, which is Nora's archaeology of memory: reading the trace, not the living tradition.
+
 ## Common Confusion Points
 
 **Collective memory is not just "shared individual memories."**

@@ -292,7 +292,15 @@ See `04-BIOSIGNATURES.md`, `05-JWST-DETECTION.md`, `06-FERMI-PARADOX.md`.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge anywhere in overview — the N=1 statistics problem, Drake equation parameter estimation, and Bayesian reasoning map naturally to information theory and probability (MIT TCS) — a one-paragraph bridge would anchor the learner -->
+## Computational and Mathematical Parallels
+
+Astrobiology's core problems map directly onto probability theory and information theory — fields where the framing sharpens the questions considerably.
+
+**The N=1 problem as a prior with no empirical basis.** Every probability estimate in astrobiology — Drake equation parameters, habitability fractions, the likelihood of abiogenesis — is a prior derived from a single data point (Earth life). In Bayesian terms, we have a posterior conditioned on N=1 observation and a prior that is effectively uniform over many orders of magnitude. This is not a failure of the field; it is the correct description of the epistemic state. The goal of missions to Mars and Enceladus is to convert N=1 into N≥2, which would collapse the uncertainty by many orders of magnitude.
+
+**The Drake equation as a Fermi estimation under uncertainty.** The Drake equation is not a calculator — it is a structured decomposition of a product of conditional probabilities, each with independent uncertainty. The correct framing is: N = ∏ᵢ fᵢ where each fᵢ spans many orders of magnitude and the joint distribution is nearly flat on a log scale. The practical result is that optimistic and pessimistic estimates differ by 10²⁰ — the equation quantifies our ignorance rather than providing an answer. This is the same structure as any back-of-envelope estimation under deep uncertainty: decompose the product, bound each factor, report the distribution rather than the point estimate.
+
+**Biosignature detection as hypothesis testing with dependent evidence.** No single biosignature is sufficient because each has abiotic false-positive explanations. The ensemble approach — O₂ + CH₄ + N₂O + carbon isotope fractionation — is Bayesian combination of independent likelihoods: P(life | ensemble) >> P(life | single signal). This is exactly the same reasoning as multi-factor authentication or defense-in-depth: each factor has a non-zero false-positive rate, but the joint false-positive rate falls as factors multiply, assuming independence. The challenge is that atmospheric chemistry is not independent across species — which is precisely why O₂ + CH₄ disequilibrium is strong evidence (their coexistence requires continuous biological replenishment).
 
 ## Decision Cheat Sheet
 

@@ -126,8 +126,7 @@ One of McLuhan's most discussed (and contested) distinctions:
   all-around involvement. Electric age = re-coolification.
 ```
 
-**Important caveat**: Hot/cool is relative and context-dependent. McLuhan called TV "cool" in 1964 when it was 425-line resolution. By 2024 standards, 4K TV would presumably be "hotter." The framework is a probe, not a fixed taxonomy.
-<!-- @editor[audience/P3]: Hot/cool maps naturally to bandwidth and interactivity in network theory — high-bandwidth unidirectional (hot) vs. low-bandwidth bidirectional (cool) — worth one sentence for this learner -->
+**Important caveat**: Hot/cool is relative and context-dependent. McLuhan called TV "cool" in 1964 when it was 425-line resolution. By 2024 standards, 4K TV would presumably be "hotter." The framework is a probe, not a fixed taxonomy. In network-theoretic terms: hot media are high-bandwidth unidirectional channels (broadcast); cool media are low-bandwidth bidirectional channels (telephone, dialogue) that require the receiver to participate in completing the signal.
 
 ---
 
@@ -350,7 +349,48 @@ Neil Postman extended and applied McLuhan with more rigor:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — McLuhan's "extensions of man" maps directly to abstraction layers in CS (hardware/OS/runtime/application); the tetrad maps to technology lifecycle analysis; learner's MIT background in formal systems would benefit from seeing media theory through that lens -->
+## Engineering Bridge: McLuhan as Systems Analyst
+
+McLuhan's framework maps onto CS and systems concepts with surprising precision:
+
+```
+McLUHAN CONCEPT            ENGINEERING / FORMAL PARALLEL
+===============            ==============================
+
+Extensions of man          Abstraction layers: every medium adds a
+                           layer over a lower-level human capacity.
+                           Hardware → OS → runtime → application.
+                           GPS is a layer over spatial cognition;
+                           email is a layer over written communication.
+                           Each layer amplifies throughput and
+                           reduces access to the layer below
+                           (amputation = layer opacity).
+
+Tetrad                     Technology lifecycle analysis:
+  Enhance                  → what the technology scales or accelerates
+  Obsolete                 → what it renders legacy/deprecated
+  Retrieve                 → what legacy pattern it revives (nostalgia
+                              products, retro interfaces)
+  Reverse                  → emergent failure mode at scale
+                              (internet → epistemic fragmentation;
+                               cars → suburban isolation)
+                           Comparable to Conway's Law applied
+                           dynamically: technology's architecture
+                           eventually shapes the organization that uses it.
+
+Global village             Network topology effect: when all nodes
+                           are connected (low latency, high bandwidth),
+                           the graph collapses distance but amplifies
+                           local-cluster dynamics. Social media tribes
+                           are precisely the dense cliques that form
+                           in fully-connected graphs.
+
+Medium specificity         Protocol constraint: TCP/IP, HTTP, SMTP
+                           each impose different communication models
+                           on the applications above them. McLuhan's
+                           claim is that the protocol layer is the
+                           most consequential layer — not the payload.
+```
 
 ## Common Confusion Points
 

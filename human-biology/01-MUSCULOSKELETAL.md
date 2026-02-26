@@ -279,7 +279,20 @@ Oxidative:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge -- bone remodeling = continuous deployment, Wolff's law = adaptive optimization, motor unit recruitment = thread pool scaling (small threads first, large for heavy load) -->
+## Engineering Bridges
+
+**Bone remodeling as adaptive infrastructure**
+Bone is not static hardware — it is continuously deployed at ~10% annual turnover. Wolff's law (bone remodels along mechanical stress lines) is adaptive optimization: load signals drive reallocation of material to where it is needed. Osteocytes in lacunae detect strain via piezoelectric signaling and suppress sclerostin → locally enable remodeling. The system has no central coordinator; every node responds to local mechanical state — emergent global architecture from local rules.
+
+**Motor unit recruitment as work-conserving thread pool**
+Henneman's size principle is a load-based scheduler: small (Type I, slow-twitch, low-cost) motor units are always recruited first. Large (Type II, high-power) units are reserved for heavy load. This mirrors a thread pool that starts with cheap workers and adds expensive ones only when the queue fills. The "cost" axis is metabolic: Type I units run oxidative metabolism (sustainable); Type II run glycolytic (fast but debt-accumulating). Over-recruitment of fast-twitch units is the biological equivalent of thrashing — powerful but unsustainable.
+
+**Cross-bridge cycle as molecular ratchet (not a motor in the classical sense)**
+Myosin is a chemomechanical transducer: ATP hydrolysis drives a conformational change that is then gated by actin binding and Pi release. The power stroke is irreversible at physiological conditions — it is a one-way latch, not a reversible spring. Rigor mortis (ATP depletion → no release) demonstrates that the default state without ATP is tight coupling: the ratchet locks.
+
+**Sarcomere as servo with feedback**
+The titin protein acts as a passive elastic restoring force (negative feedback spring) preventing over-extension. The Frank-Starling relationship (in cardiac muscle) is the same principle: stretch → increased sensitivity → increased force → return to set point. Sarcomere length is the controlled variable; titin + troponin calcium sensitivity are the feedback mechanism.
+
 ## Pathologies
 
 | Condition | Mechanism | Key Features |
@@ -295,16 +308,15 @@ Oxidative:
 
 ## Decision Cheat Sheet
 
-| Question | Answer |
-|----------|--------|
-| Why does ATP binding release actin? | ATP → myosin head conformational change → ↓ actin affinity (rigor mortis = ATP depletion, can't release) |
-| What triggers Ca²⁺ release from SR? | T-tubule AP → DHPR voltage sensor → RyR1 opens (skeletal: mechanical coupling, not Ca²⁺-induced) |
-| Why can't cartilage repair well? | Avascular — no blood supply to deliver progenitor cells or nutrients for repair |
-| Slow vs fast twitch: which fatigues first? | Fast (Type IIx) — glycolytic only, lactate accumulates quickly |
-| PTH vs calcitonin? | PTH ↑ Ca²⁺ (chronic defender); calcitonin ↓ Ca²⁺ (acute, minor role in adults) |
-| Why bone remodels along stress lines? | Wolff's law: piezoelectric/mechanosensing by osteocytes → sclerostin suppression → remodeling |
-
-<!-- @editor[structure/P2]: Decision Cheat Sheet uses Q&A format rather than "use X when Y" decision structure -- consider reformatting as scenario-driven rows -->
+| Scenario | What to think | Key mechanism |
+|----------|---------------|---------------|
+| Need fine motor control (writing, surgery) | Small motor units, Type I fibers, high innervation ratio | Henneman's size principle; few fibers per neuron |
+| Need explosive power (sprint, jump) | Type IIx recruited on top of Type I; glycolytic fueling | Rate coding at high frequency → fused tetanus |
+| ATP depleted (rigor mortis) | Myosin locked onto actin; can't release without ATP | ATP binding step is the release step, not the power step |
+| Ca²⁺ absent (relaxation) | Tropomyosin blocks actin binding sites; no cycling | SERCA pump restores SR; troponin I re-engages |
+| Cartilage needs repair | Problem: avascular tissue can't deliver progenitors | No healing without blood supply; rely on synovial fluid diffusion only |
+| Bone fracture after menopause | Osteoporosis: resorption > formation; low estrogen removes brake on osteoclasts | T-score < −2.5; DEXA quantifies; bisphosphonates inhibit osteoclasts |
+| Distinguishing MI from rhabdomyolysis | Both ↑ CK; use troponin I/T specificity for cardiac | CK-MM = skeletal; CK-MB + troponin = cardiac |
 
 ---
 

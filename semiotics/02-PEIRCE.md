@@ -335,6 +335,67 @@ Charles Morris (1938) adapted Peirce into a framework that programming language 
 
 ---
 
+## Formal Systems Bridge
+
+```
+PEIRCE'S ICON / INDEX / SYMBOL TRIAD ↔ SOFTWARE REPRESENTATIONS
+
+ICON (sign by resemblance):
+  The sign resembles its object in some relevant quality.
+  Software examples:
+    UML class diagrams: iconic of the object graph they model
+    Entity-relationship diagrams: iconic of the data relationships
+    Flowcharts: iconic of control flow (spatial sequence ≈ temporal order)
+    Emojis in UI: iconic (magnifying glass for search, house for home)
+    Waveform displays in audio editors: iconic of the audio signal shape
+  Key property: you can "read" an icon with less convention knowledge.
+  The resemblance does work independently of knowing the code.
+
+INDEX (sign by causal/existential connection):
+  The sign is connected to its object by real relation (causality,
+  contiguity, co-occurrence). It points to or indicates.
+  Software examples:
+    Stack traces: indexical of the call chain that led to the error
+    Log entries: indexical of the system event they record
+    Core dumps: indexical of the process state at crash time
+    Profiler flame graphs: indexical of actual execution time
+    Memory addresses: indexical (point to actual memory locations)
+    HTTP status codes: indexical of the server's response state
+  Key property: the index is evidence. It was produced by what
+  it signifies. You can reason from it to its cause.
+
+SYMBOL (sign by convention):
+  The sign-object relation is arbitrary, established by convention.
+  Software examples:
+    Keywords (if, while, class): purely conventional; no resemblance
+    API names (GetUser, POST /users): conventional naming
+    Variable names: conventional; no inherent connection to values
+    Domain names: conventional; URL has no resemblance to the content
+    Error codes (404, 500): conventional assignment of meaning
+  Key property: must be learned. No resemblance or causal connection.
+  Universally portable once the convention is known.
+
+THE INTERPRETANT IN COMPILER THEORY:
+  Each sign produces an interpretant — a further sign that
+  represents the same object.
+  Compiler pipeline as interpretant chain:
+    Source text (symbol) →
+    Token stream (symbol, different granularity) →
+    AST (icon of syntactic structure) →
+    IR (symbol, machine-independent) →
+    Machine code (index: directly addresses hardware)
+  Each stage is an interpretant of the previous — a further
+  representation of the same program, in a different sign system.
+
+UNLIMITED SEMIOSIS IN RUNTIME:
+  Peirce's unlimited semiosis (each interpretant → new sign →
+  new interpretant) maps onto the open-ended interpretation
+  chain in a running system: program execution → state →
+  output → interpretation by another process → further output.
+  The chain has no intrinsic endpoint; termination conditions
+  are imposed externally (program exits, connection closed).
+```
+
 ## Common Confusion Points
 
 **The interpretant is not the interpreter**: The interpretant is the sign-relation produced, not the person interpreting. The interpretant is itself a sign (or a habit, or an action) — the effect the sign has.

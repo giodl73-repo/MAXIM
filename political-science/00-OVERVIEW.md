@@ -6,26 +6,35 @@ Political science is the systematic study of power: who gets what, when, and how
 Its subfields differ more in scope than in method — all share an interest in how
 actors pursue interests under constraints, often in the presence of conflict.
 
-<!-- @editor[diagram/P2]: Diagram lists subfields side by side but doesn't show how they relate — no arrows, dependencies, or shared foundations. Rework to show that IR and comparative share methodology (game theory, statistics), that political economy crosscuts both, and that political theory provides normative foundations underneath all three -->
 ```
 +----------------------------------------------------------------------+
 |                    POLITICAL SCIENCE FIELD MAP                        |
 |                                                                      |
-|  INTERNATIONAL              COMPARATIVE              AMERICAN        |
-|  RELATIONS (IR)             POLITICS                 POLITICS        |
-|  ──────────────             ──────────               ────────        |
-|  Between states             Across states            One state       |
-|  Anarchy as condition       Regime types             Congress        |
-|  Power, war, cooperation    Electoral systems        Presidency      |
-|  Nuclear deterrence         Democratic backsliding   Courts, parties |
-|  Trade, finance             State capacity           Public opinion  |
-|                                                                      |
-|       POLITICAL THEORY          POLITICAL ECONOMY                    |
-|       ──────────────────        ────────────────                     |
-|       Normative foundations     Where politics meets markets         |
-|       Justice, legitimacy       Trade, sanctions, finance            |
-|       Democracy theory          Development, inequality              |
-|       Liberal vs communitarian  Institutions and distribution        |
+|  NORMATIVE FOUNDATIONS (Political Theory)                            |
+|  ─────────────────────────────────────────                          |
+|  Justice, legitimacy, democracy theory, liberal vs communitarian     |
+|  Provides the "should" underneath the empirical subfields            |
+|                         │                                            |
+|         ┌───────────────┼────────────────┐                          |
+|         ▼               ▼                ▼                          |
+|  INTERNATIONAL      COMPARATIVE      AMERICAN                       |
+|  RELATIONS (IR)     POLITICS         POLITICS                       |
+|  ──────────────     ──────────       ────────                       |
+|  Between states     Across states    One state                      |
+|  Anarchy, war,      Regime types     Congress, Presidency           |
+|  cooperation        Electoral sys    Courts, parties                |
+|  Nuclear deterrence Backsliding      Public opinion                 |
+|         │               │                                            |
+|         └───────┬────────┘                                          |
+|                 ▼                                                    |
+|  SHARED METHODOLOGY: game theory, rational choice, statistics,      |
+|  experiments, comparative case methods, formal models               |
+|                 │                                                    |
+|                 ▼                                                    |
+|  POLITICAL ECONOMY (crosscutting)                                   |
+|  ─────────────────────────────────                                  |
+|  Where politics meets markets — trade, sanctions, development,      |
+|  institutional distribution — applies IR + comparative frameworks   |
 +----------------------------------------------------------------------+
 ```
 
@@ -198,7 +207,6 @@ The most robust empirical finding in IR — and the most debated:
 
 ---
 
-<!-- @editor[bridge/P2]: No universal CS bridge — the learner has MIT game theory and formal methods background; methodology section should note that formal models (game theory, mechanism design) are the same toolkit applied to political actors, and that the credibility revolution parallels the move from heuristic to rigorous causal inference in ML/statistics -->
 ## Section 6: Methodology
 
 ```
@@ -212,6 +220,23 @@ The most robust empirical finding in IR — and the most debated:
   Regression    → large-N, average effects, but identification problems
   Experiments   → RCT gold standard; field experiments in developing world
   Formal models → game theory, rational choice — precise but limited scope
+
+  FORMAL MODELS AS COMMON GROUND:
+  Political science's formal toolkit is the same apparatus used in CS/economics:
+  - Game theory: players = states/politicians; strategies = policy choices;
+    payoffs = power/welfare; equilibria = stable political outcomes
+  - Mechanism design (reverse game theory): given desired equilibrium,
+    what institutional rules produce it? Directly maps to constitutional design,
+    electoral system design, international treaty structure
+  - Social choice (Arrow, Gibbard-Satterthwaite): aggregating preferences is
+    provably difficult — cycling majorities, agenda manipulation, impossibility
+    theorems. These aren't curiosities; they explain why legislative outcomes
+    depend on who controls the agenda, not just the distribution of votes
+  - Principal-agent theory: bureaucracies, legislatures, international orgs
+    are all variants — principals (voters, states) delegate to agents
+    (officials, secretariats) with information asymmetry and hidden action
+  The political application of these tools is the main content of formal theory
+  in political science; the math is identical to its use in CS/economics
 
   THE CREDIBILITY REVOLUTION:
   Parallel to economics: field experiments, natural experiments, RDD, DiD

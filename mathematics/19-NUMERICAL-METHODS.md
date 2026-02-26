@@ -104,7 +104,50 @@ CATASTROPHIC CANCELLATION:
   Quadratic formula: b² >> 4ac, -b + √(b²-4ac) ≈ 0 → use -2c/(b + √(b²-4ac)).
 ```
 
-<!-- @editor[bridge/P2]: Missing connection between catastrophic cancellation and practical numerical libraries — numpy's np.expm1(x) and np.log1p(x) exist precisely to avoid cancellation for x≈0. Also: fused multiply-add (FMA) instruction computes a*b+c with a single rounding error instead of two, relevant for performance-critical inner product computations in ML. -->
+### Cancellation in Practice: Standard Library Functions and FMA
+
+**Numerically safe standard library functions** exist precisely to avoid catastrophic
+cancellation in common cases. In NumPy and most scientific computing environments:
+
+```python
+# Catastrophic cancellation for x near 0:
+np.exp(x) - 1   # loses ~log10(1/x) digits for small x
+
+# Cancellation-safe equivalent:
+np.expm1(x)     # computes exp(x) - 1 accurately for all x
+                # algorithm: uses a separate code path for |x| < ~1e-5
+
+# Similarly:
+np.log1p(x)     # computes log(1 + x) accurately for |x| << 1
+                # naive: log(1 + 1e-16) = log(1) = 0.0 in float64!
+                # log1p(1e-16) ≈ 1e-16  ← correct
+
+# scipy.special has many more: expit vs sigmoid, xlogy, logsumexp
+# torch: torch.expm1, torch.log1p, torch.logit, torch.special.log_ndtr
+```
+
+The pattern: whenever two nearly-equal quantities are subtracted, look for an
+algebraically equivalent form that avoids the subtraction.
+
+**Fused Multiply-Add (FMA)**: modern CPUs (x86 AVX, ARM NEON, CUDA) implement
+the operation `a*b + c` as a **single** operation with a **single** rounding error
+instead of two. Mathematically:
+```
+Standard:   fl(fl(a*b) + c) = (a·b·(1+δ₁) + c)·(1+δ₂),  |δᵢ| ≤ ε_mach
+FMA:        fma(a, b, c) = round(a·b + c),  |error| ≤ ε_mach · |a·b + c|
+
+Error reduction: FMA halves the error in inner products and dot products.
+```
+
+FMA is critical for:
+- Inner product computation in BLAS (batched GEMM uses FMA at hardware level)
+- Compensated summation algorithms (FMA enables exact error compensation)
+- Iterative refinement: solve Ax=b, compute residual r = b - Ax using FMA for accuracy
+- ML training: TPUs and tensor cores use FMA units for float32/bfloat16 matmul
+
+In Python/NumPy, FMA is used automatically by BLAS routines. In C/C++, it requires
+`-mfma` compile flag or explicit `std::fma()` calls. PyTorch's `torch.addmm` maps
+to GEMM kernels that use FMA internally.
 
 ### 1.3 Condition Number
 
@@ -183,7 +226,53 @@ QUASI-NEWTON (Broyden): update approximate Jacobian cheaply.
   Avoids re-computing/factoring full Jacobian.
 ```
 
-<!-- @editor[bridge/P2]: Newton-Raphson in ℝⁿ is the foundation of optimization — L-BFGS and trust-region methods are quasi-Newton methods for unconstrained optimization (scipy.optimize.minimize). The connection between Newton's method for systems and Newton's method for optimization (minimizing f = solving ∇f = 0) should be explicit. Also: inexact Newton (solve J·Δx = −F only approximately) is the basis for practical implementations at scale. -->
+### Newton-Raphson, Optimization, and Inexact Newton
+
+Newton-Raphson for solving F(x) = 0 and Newton's method for optimization are the
+same algorithm applied to different problems. For minimizing f: ℝⁿ → ℝ, the
+optimality condition is ∇f(x) = 0, so "solve F = 0" with F = ∇f gives:
+```
+Newton step for optimization:
+  x_{k+1} = xₖ − H(xₖ)⁻¹ ∇f(xₖ)     where H = ∇²f (Hessian)
+
+This is equivalent to: solve H·Δx = −∇f, then x ← x + Δx
+Same structure as Newton for systems: solve J·Δx = −F.
+```
+
+**Quasi-Newton methods for optimization**: computing and factoring the full Hessian
+costs O(n³) per step — infeasible when n is large (millions of parameters). The
+BFGS family maintains an approximate inverse Hessian Hₖ⁻¹ updated with rank-2
+corrections:
+```
+L-BFGS (Limited-memory BFGS): stores only the last m (typically m=10) curvature
+  pairs (sₖ, yₖ) where sₖ = xₖ₊₁ − xₖ and yₖ = ∇fₖ₊₁ − ∇fₖ.
+  Implicitly represents Hₖ⁻¹ as a product of 2m rank-1 updates.
+  O(mn) per step (vs O(n²) for full BFGS, O(n³) for exact Newton).
+  scipy.optimize.minimize(method='L-BFGS-B') is the standard for moderate-scale.
+  PyTorch optim.LBFGS: available but rarely used (requires full batch).
+```
+
+**Trust-region methods**: instead of accepting the full Newton step (which can
+diverge far from the current iterate), restrict the step to a "trust region" ball
+of radius Δₖ:
+```
+min_{‖p‖ ≤ Δₖ} f(xₖ) + ∇fₖᵀp + ½pᵀHₖp
+Adjust Δₖ based on how well the quadratic model predicted actual improvement.
+More robust than line-search methods near saddle points and in nonconvex problems.
+scipy.optimize.minimize(method='trust-ncg') and 'trust-krylov'.
+```
+
+**Inexact Newton**: at scale, solving J·Δx = −F exactly per step is too expensive.
+Instead, solve approximately to a relative tolerance ηₖ:
+```
+‖J·Δx + F‖ ≤ ηₖ ‖F‖    (forcing sequence)
+
+If ηₖ → 0 fast enough: superlinear convergence.
+If ηₖ → 0 like ‖F‖: quadratic convergence (but expensive).
+Practical choice: ηₖ = min(0.5, √‖F‖) gives good balance.
+Inner solve: use CG or GMRES on the linear system (Jacobian-free if J is not formed explicitly).
+This is the foundation of "Newton-Krylov" methods in large-scale nonlinear solving.
+```
 
 ### 2.3 Other Root-Finding Methods
 
@@ -251,7 +340,46 @@ SPECIAL STRUCTURE EXPLOITATION:
   Sparse general: fill-in problem → reorder (AMD, Nested Dissection) before factoring
 ```
 
-<!-- @editor[bridge/P2]: Missing the connection to scipy.linalg and numpy.linalg — scipy.linalg.lu, scipy.linalg.cho_factor/cho_solve, and the LAPACK routines they wrap (dgesv, dpotrf, dgetrf). In practice: numpy.linalg.solve uses LAPACK dgesv (LU+pivoting). When to use scipy vs numpy for linear systems. Also worth noting: for n > ~5000, direct methods become impractical for dense matrices and GPU GEMM (cuBLAS) is the go-to. -->
+### Direct Methods in Practice: NumPy, SciPy, and LAPACK
+
+The Python scientific stack wraps LAPACK (and BLAS) for all dense linear algebra.
+Knowing which routine is called and when to use which interface matters:
+
+```python
+# numpy.linalg.solve: calls LAPACK dgesv (LU + partial pivoting)
+# Use for: general dense systems, n up to ~few thousand
+x = np.linalg.solve(A, b)
+
+# scipy.linalg.solve: same LAPACK call but more options
+# assume_a='pos' → Cholesky (dposv); assume_a='sym' → symmetric (dsysv)
+x = scipy.linalg.solve(A, b, assume_a='pos')  # 2× faster for SPD
+
+# scipy.linalg.lu_factor / lu_solve: explicit LU for multiple RHS
+lu, piv = scipy.linalg.lu_factor(A)
+x1 = scipy.linalg.lu_solve((lu, piv), b1)
+x2 = scipy.linalg.lu_solve((lu, piv), b2)  # O(n²) each after O(n³) factorization
+
+# scipy.linalg.cho_factor / cho_solve: explicit Cholesky
+c, low = scipy.linalg.cho_factor(A)  # A must be SPD
+x = scipy.linalg.cho_solve((c, low), b)
+
+# scipy.linalg.lstsq: least squares via SVD (calls LAPACK dgelsd)
+# NEVER use normal equations AᵀAx = Aᵀb — condition number squares
+x, res, rank, sv = scipy.linalg.lstsq(A, b)
+
+# For sparse systems: scipy.sparse.linalg
+from scipy.sparse.linalg import spsolve, cg, gmres
+```
+
+**GPU at scale**: for dense matrices with n ≳ 5000, CPU LAPACK becomes the
+bottleneck. The standard move is GPU GEMM via cuBLAS (called by PyTorch's
+`torch.linalg.solve`, `torch.linalg.lstsq`, etc.). A100 achieves ~300 TFLOPS
+FP16 on GEMM — ~100× faster than CPU for large n. For ML, all matrix operations
+in forward/backward pass use cuBLAS automatically.
+
+**Key rule**: use `scipy.linalg` over `numpy.linalg` for production numerical code
+— scipy offers more control (assume_a, overwrite, check_finite flags) and matches
+LAPACK routines more directly. numpy.linalg is fine for interactive use.
 
 ### 3.2 Conditioning and Stability
 
@@ -471,7 +599,64 @@ HIGHER DERIVATIVES: forward-over-reverse for Hessians. Typically expensive.
   Full Hessian: O(n) reverse passes.
 ```
 
-<!-- @editor[bridge/P2]: Missing the connection between AD and optimization algorithms — JAX's jit+grad+vmap is the standard pattern. Also: checkpointing (gradient checkpointing / rematerialization) trades compute for memory in reverse-mode AD by not storing all intermediate activations. This is essential for training large models and directly connects numerical methods to ML engineering practice. -->
+### AD in Practice: JAX Patterns and Gradient Checkpointing
+
+**JAX functional AD** is the cleanest implementation for understanding the math:
+```python
+import jax
+import jax.numpy as jnp
+
+# grad: R^n → R^m   becomes   R^n → R^n  (Jacobian of scalar output)
+grad_f = jax.grad(f)           # reverse mode, scalar output only
+jacobian_f = jax.jacobian(f)   # full Jacobian (forward or reverse depending on shape)
+
+# Composable transforms — each is a pure function wrapper:
+# jit: trace and compile to XLA (GPU/TPU)
+# vmap: vectorize over a batch dimension (parallel map over examples)
+# grad: reverse-mode AD
+# The transforms compose:
+batched_grads = jax.vmap(jax.grad(loss))(batch_x, batch_y)
+compiled_grad = jax.jit(jax.grad(loss))
+
+# Hessian-vector products (cheap — O(1) extra cost):
+def hvp(f, primals, tangents):
+    return jax.jvp(jax.grad(f), primals, tangents)[1]
+```
+
+**Gradient checkpointing** (rematerialization): reverse-mode AD stores all
+intermediate activations from the forward pass to use in the backward pass.
+For a network with L layers, this requires O(L) memory — a bottleneck for large
+models.
+
+The tradeoff: recomputing some activations during the backward pass (instead of
+storing them) trades compute for memory:
+```
+Naive reverse mode:  O(L) memory,  O(L) compute
+Gradient checkpointing with k checkpoints:
+  Memory: O(√L) if checkpoints placed optimally
+  Compute: O(L) additional forward passes (2× total forward computation)
+  → For large models: 2× slower training but enables ~√L larger models
+
+In PyTorch:
+  torch.utils.checkpoint.checkpoint(fn, *inputs)
+  Recomputes fn during backward instead of storing its output.
+  Standard for training GPT-class models where activation memory dominates.
+
+In JAX: jax.checkpoint (also called jax.remat)
+  @jax.checkpoint
+  def layer(x): ...
+```
+
+**Jacobian-free Newton-Krylov**: in large-scale systems, never form J explicitly.
+Instead, compute Jacobian-vector products J·v using forward-mode AD:
+```python
+# J·v at x in direction v:
+_, jvp = jax.jvp(F, (x,), (v,))
+# Jᵀ·v (for GMRES adjoint):
+_, vjp_fn = jax.vjp(F, x)
+jtv = vjp_fn(v)[0]
+```
+This enables Newton-Krylov solvers where each GMRES iteration costs one Jvp.
 
 ---
 
@@ -598,7 +783,65 @@ ADAPTIVE STEP SIZE CONTROL:
   Classic: PIController, DOPRI5.
 ```
 
-<!-- @editor[bridge/P2]: Missing Butcher tableaux — the systematic framework for constructing and analyzing Runge-Kutta methods. The order conditions (tree-based Butcher theory) explain why RK4 is order 4 and why constructing higher-order explicit methods gets expensive. Also: symplectic integrators (Störmer-Verlet) for Hamiltonian systems — conserve energy exactly over long integration, critical for molecular dynamics and n-body simulation. -->
+### Butcher Tableaux and Symplectic Integrators
+
+**Butcher tableau**: the systematic representation of any Runge-Kutta method.
+An s-stage explicit RK method is defined by the tableau:
+```
+  c | A       where:  A is s×s strictly lower triangular (explicit)
+  ──┼──              c = A·1 (consistency condition: cᵢ = Σⱼ aᵢⱼ)
+    | bᵀ              b is the weight vector (Σbᵢ = 1 for consistency)
+
+STAGE VALUES: kᵢ = f(t + cᵢh,  y + h Σⱼ aᵢⱼkⱼ)
+OUTPUT:        y_{n+1} = yₙ + h Σᵢ bᵢkᵢ
+
+BUTCHER TABLEAU FOR RK4:
+  0   | 0    0    0    0
+  1/2 | 1/2  0    0    0
+  1/2 | 0    1/2  0    0
+  1   | 0    0    1    0
+  ────┼──────────────────
+      | 1/6  1/3  1/3  1/6
+```
+
+**Order conditions**: an s-stage method has order p iff certain algebraic conditions
+on (A, b, c) hold — one condition per "rooted tree" up to order p. This is Butcher's
+B-series theory: there are 1 condition at order 1, 1 at order 2, 2 at order 3,
+4 at order 4, 9 at order 5, ... The exponential growth of conditions explains why
+constructing high-order explicit RK methods is hard (order 5 requires 6+ stages).
+
+Key facts:
+- Order p requires at minimum p stages (explicit methods)
+- 4-stage methods: max order 4 (RK4 is optimal)
+- 5-stage methods: max order 4 or 5 (DOPRI5 is 5-stage order 5)
+- 6-stage methods: max order 5
+
+**Implicit RK and A-stability**: collocation methods (Gauss-Legendre RK) are
+implicit but A-stable and high-order. An s-stage GL method has order 2s.
+
+**Symplectic integrators** (structure-preserving methods): for **Hamiltonian systems**
+```
+dq/dt = ∂H/∂p,   dp/dt = −∂H/∂q
+```
+standard RK methods conserve energy only approximately — energy drifts over long
+integration. Symplectic integrators preserve the **symplectic structure** of phase
+space (conserve a perturbed Hamiltonian H̃ = H + O(hᵖ) exactly).
+
+```
+STÖRMER-VERLET (leapfrog):
+  p_{n+1/2} = pₙ − (h/2) ∇_q H(qₙ)
+  q_{n+1}   = qₙ + h M⁻¹ p_{n+1/2}
+  p_{n+1}   = p_{n+1/2} − (h/2) ∇_q H(q_{n+1})
+
+  Order 2 in accuracy but:
+  • Symplectic → energy error bounded for ALL time (no drift)
+  • Time-reversible → no secular energy growth
+  Standard for: molecular dynamics, n-body simulation, HMC in Bayesian inference
+```
+
+Higher-order symplectic integrators: forest-Ruth (order 4), Yoshida's composition.
+For HMC (Hamiltonian Monte Carlo, used in Stan/PyMC), leapfrog is the standard
+integrator — symplecticity ensures the Metropolis acceptance rate stays high.
 
 ### 7.2 Convergence and Consistency
 
@@ -846,7 +1089,62 @@ FLOATING-POINT IN TRAINING:
   Mixed precision: AMP in PyTorch. See 04-PYTORCH module.
 ```
 
-<!-- @editor[bridge/P2]: Missing the connection between numerical stability and modern deep learning training problems — gradient vanishing/exploding as a conditioning problem (deep networks = product of Jacobians, spectral radii compound multiplicatively). Batch normalization and layer normalization are numerical stabilizers — they condition the optimization landscape. Gradient clipping is an emergency numerical stabilizer. These are the numerical methods perspective on standard ML practices. -->
+### Numerical Stability in Deep Learning: Conditioning and Normalization
+
+**Vanishing/exploding gradients as a conditioning problem**: in a deep network with
+L layers, the gradient of the loss w.r.t. layer 1 weights involves the product
+of L Jacobians:
+```
+∂L/∂W₁ = (∂L/∂hₗ) · (∂hₗ/∂hₗ₋₁) · ⋯ · (∂h₂/∂h₁) · (∂h₁/∂W₁)
+           ────────────────────────────────────────────
+           product of L Jacobians: ∂hᵢ₊₁/∂hᵢ
+
+If spectral radius ρ(∂hᵢ₊₁/∂hᵢ) < 1 consistently: gradients → 0 exponentially (vanishing)
+If spectral radius ρ > 1 consistently:               gradients → ∞ exponentially (exploding)
+```
+
+This is the condition number problem in disguise: the effective condition number of
+the "linear system" that gradients must propagate through is κ = (ρ_max)ᴸ.
+
+**Normalization layers as numerical stabilizers**:
+
+*Batch normalization* (Ioffe-Szegedy 2015): normalize each feature across the batch
+to zero mean, unit variance, then apply learned scale/shift γ, β.
+```
+x̂ᵢ = (xᵢ − μ_B) / √(σ²_B + ε)
+yᵢ = γ x̂ᵢ + β
+```
+Effect: the Jacobian ∂yᵢ/∂xᵢ has controlled singular values — the largest singular
+value of the batch-normalized layer's Jacobian is O(γ/σ_B). This conditions the
+optimization landscape by preventing the Hessian from becoming extremely ill-conditioned.
+It also reduces internal covariate shift (distribution of activations shifts during
+training, creating moving-target optimization problems).
+
+*Layer normalization* (Ba et al. 2016): normalize across features within each example
+rather than across the batch. Preferred in transformers (batch size 1 possible),
+RNNs, and any architecture where batch statistics are unreliable.
+
+**Gradient clipping**: a numerical emergency brake — clip gradient norm to a threshold:
+```python
+torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+```
+Prevents the exploding gradient case from diverging. Standard in:
+- RNN/LSTM training (before LayerNorm was common)
+- Transformer pretraining (GPT-3 uses gradient clipping)
+- Reinforcement learning (policy gradients are high-variance)
+
+**He initialization** (Kaiming): initialize weights so the variance of activations
+is preserved through ReLU layers:
+```
+W ~ N(0, 2/fan_in)    (the factor 2 accounts for ReLU killing half the activations)
+```
+Equivalent to setting the spectral norm of each layer's Jacobian to O(1) at
+initialization — directly a condition number argument.
+
+**Spectral normalization** (Miyato et al.): constrain each weight matrix W so that
+its largest singular value σ₁(W) = 1. Applied to discriminator in GANS. Ensures
+the network is a 1-Lipschitz function, which stabilizes training and prevents
+mode collapse.
 
 ---
 
@@ -868,9 +1166,11 @@ FLOATING-POINT IN TRAINING:
 | Integration, high-dimension | Monte Carlo | O(N^{-1/2}) | Dimension-independent |
 | ODE, non-stiff | RK45 (DOPRI5) | O(hᵖ) adaptive | scipy solve_ivp default |
 | ODE, stiff | BDF/Radau | — | scipy solve_ivp method='BDF' |
+| ODE, Hamiltonian/long-time | Störmer-Verlet | O(h²), bounded energy | Symplectic, no energy drift |
 | All eigenvalues, dense | QR algorithm | O(n³) | LAPACK dsyev/dgeev |
 | Few eigenvalues, sparse | Lanczos/Arnoldi | O(kn) | k << n |
 | Derivatives of code | Reverse-mode AD | O(1) × cost(f) | Backpropagation |
+| Large model gradients, memory-limited | Gradient checkpointing | 2× compute, √L memory | torch.utils.checkpoint |
 
 ---
 
@@ -910,3 +1210,13 @@ reverse order through a computational graph.
 **Richardson extrapolation doubles the order**: If you have an O(h²) method, one step of
 Richardson gives O(h⁴). This is how Romberg integration builds high accuracy from
 the trapezoidal rule. Same idea as polynomial extrapolation on error.
+
+**Symplectic ≠ high-order**: Verlet is only order 2, but its energy error is bounded
+for all time (no secular drift). A 4th-order Runge-Kutta has smaller error per step
+but energy drifts without bound over long integration. For dynamics, use symplectic.
+
+**BatchNorm and LayerNorm are not interchangeable**: BatchNorm normalizes across the
+batch dimension — its behavior depends on batch size and is different at train/test time
+(uses running statistics at test). LayerNorm normalizes across the feature dimension
+within each example — no batch dependence, same behavior train/test. Transformers
+use LayerNorm; CNNs historically used BatchNorm.

@@ -328,20 +328,54 @@ Journalism is the practice of gathering, verifying, and distributing information
     Outlets publish early ("developing story") and update.
     "First is best" creates incentive against waiting to verify.
 
-<!-- @editor[content/P2]: AI-generated content section is thin — by 2025 LLM-generated news articles, synthetic audio (ElevenLabs), and AI video (Sora) have substantially changed the landscape; this section needs updating beyond 2018 Jordan Peele PSA -->
-  DEEPFAKE CHALLENGE:
-    Synthetically generated audio and video.
-    Cannot trust visual/audio evidence as primary verification.
-    Jordan Peele deepfake PSA (2018): Obama appearing to
-    say things he didn't say.
-    AI-generated POTUS audio in 2024 primary calls.
+  DEEPFAKE CHALLENGE (as of 2025):
+    AUDIO: ElevenLabs and equivalent TTS tools generate
+    convincing voice clones from 30 seconds of audio.
+    AI-generated Biden voice in NH 2024 primary robocalls.
+    Used in real-time phone scams, financial fraud,
+    political disinformation at increasing scale.
+
+    VIDEO: Sora (OpenAI, 2024), Runway, Kling enable
+    high-quality video generation from text.
+    2024 election cycle: AI-generated candidate videos
+    distributed via social media in multiple countries
+    (Slovakia, Bangladesh, India, Taiwan documented).
+    Studio-quality deepfake production no longer requires
+    technical expertise or significant compute budget.
+
+    AI-GENERATED TEXT: LLMs produce news-article-format
+    content indistinguishable from human writing.
+    NewsGuard (2023): identified 612 "AI news sites" running
+    LLM-generated content with minimal human oversight.
+    Primary use case: SEO content farming and ad revenue
+    extraction, not organized disinformation (usually).
+
+    VERIFICATION COLLAPSE:
+    Traditional trust signals — recognizable source,
+    known voice, familiar face, official document —
+    can now all be fabricated at low cost.
+    The epistemological problem: if any sensory channel
+    can be spoofed cheaply, verification requires
+    independent corroboration through multiple independent
+    channels, or cryptographic authentication of provenance.
+
+    C2PA (Coalition for Content Provenance and Authenticity):
+    Technical standard for cryptographic content provenance.
+    Content credentials attached to media at creation.
+    Camera → signed metadata → viewer can verify chain.
+    Adopted by Adobe, Microsoft, Google, Truepic, Leica.
+    Practical limitation: only works for content created
+    with C2PA-compatible tools; does not detect AI generation
+    of content that bypasses the provenance chain.
 
   VERIFICATION METHODS EVOLVING:
-    Reverse image search (TinEye, Google Images)
-    Video metadata analysis (InVID)
-    Geolocation verification (Bellingcat methods)
-    Cross-source verification
-    Primary source documentation
+    Reverse image search (TinEye, Google Images, Google Lens)
+    Video metadata analysis (InVID / WeVerify browser extension)
+    Geolocation verification (Bellingcat OSINT methods)
+    Audio forensics: spectrogram analysis for splice artifacts
+    C2PA provenance chain (where available)
+    Cross-source verification; primary source documentation
+    Forensic lip-sync analysis for deepfake video
 ```
 
 ---
@@ -359,7 +393,58 @@ Journalism is the practice of gathering, verifying, and distributing information
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — journalism's verification norms parallel software testing (unit tests = fact-checking; regression tests = corrections policy; CI/CD = editorial pipeline); the revenue model collapse parallels the open-source disruption of commercial software — both are "free substitute destroys incumbent business model" stories the learner knows -->
+## Engineering Bridge: Journalism as Information Pipeline
+
+```
+JOURNALISM CONCEPT            ENGINEERING PARALLEL
+==================            ====================
+
+Verification norms            Software testing discipline:
+                               Fact-checking = unit tests
+                               (each claim independently verified)
+                               Attribution/corroboration = integration
+                               tests (multiple sources confirm)
+                               Editor review = code review / PR process
+                               Corrections policy = regression test suite
+                               (once an error identified, re-test
+                               permanently to prevent recurrence)
+
+Editorial pipeline            CI/CD pipeline with quality gates:
+                               Reporter (dev) writes draft (commits code)
+                               → Editor review (PR review / lint)
+                               → Legal / compliance check (security scan)
+                               → Publication (deploy to prod)
+                               Speed pressure from social media is
+                               equivalent to pressure to ship fast
+                               without testing — same failure modes result.
+
+Revenue model collapse        Open-source destroying commercial software:
+(Craigslist / Google          Free substitutes (Craigslist for classifieds,
+eliminate newspaper revenue)  Google for local search, social media for
+                               display ads) eliminated the incumbent's
+                               revenue base while leaving the cost structure
+                               intact. Same structural dynamic as MySQL /
+                               PostgreSQL eliminating Oracle's mid-market
+                               database revenue, or Linux eliminating
+                               commercial Unix licensing.
+                               The "information wants to be free" ideology
+                               had the same effect on journalism economics
+                               as "open source is free" had on commercial
+                               software — destroyed the monetization model
+                               while the value (journalism, software) remained.
+
+Disinformation spread         Adversarial inputs in ML systems:
+(faster and wider than        False news spreads 6x faster on Twitter
+true news)                    (Vosoughi 2018) — false content has a
+                               higher "click rate" because novelty and
+                               emotional arousal are effective engagement
+                               predictors. Algorithmically, this is
+                               adversarial optimization: bad actors learn
+                               the engagement-maximizing features and
+                               produce content specifically optimized for
+                               platform amplification. The platform's
+                               objective function is being exploited.
+```
 
 ## Common Confusion Points
 

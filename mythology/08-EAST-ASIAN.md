@@ -528,7 +528,140 @@ MATSURI (festival):
 
 ---
 
-<!-- @editor[content/P2]: Korean mythology (Dangun, founding of Gojoseon, shamanistic mudang tradition) and Vietnamese mythology (Lac Long Quan, Au Co, the Hundred Viet) are mentioned in the opening but never covered — significant gap for a file titled "East Asian" -->
+## Korean Mythology
+
+Korea sits at the intersection of Chinese cultural influence and a distinct indigenous shamanic tradition (Mudang). The mythological record is much smaller than China or Japan but includes foundational narratives still actively referenced in Korean cultural identity.
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                    KOREAN MYTHOLOGY                               │
+│                                                                  │
+│  DANGUN — FOUNDING MYTH OF KOREA                                 │
+│                                                                  │
+│  Source: Samguk Yusa (1281 CE) — Buddhist monk Iryeon's          │
+│  compilation; ~1,300 years after the supposed events             │
+│                                                                  │
+│  Hwan-in, the Lord of Heaven, has a son: Hwanung               │
+│  Hwanung descends to earth under the Sandalwood tree on        │
+│  Baekdu Mountain (sacred mountain, Korea-Manchuria border)      │
+│  He rules with ministers of Wind, Rain, and Cloud               │
+│  He teaches humans: agriculture, medicine, law, morality         │
+│                                                                  │
+│  A tiger and a bear both wish to become human                   │
+│  Hwanung's test: eat only mugwort and garlic for 100 days        │
+│  in a cave, out of sunlight                                      │
+│  The tiger gives up; the bear endures → becomes a woman (Ungnyeo)│
+│                                                                  │
+│  Ungnyeo (Bear-woman) prays under the Sandalwood tree for        │
+│  a child; Hwanung temporarily takes human form and marries her  │
+│  → Son: Dangun Wanggeom                                         │
+│                                                                  │
+│  Dangun founds Gojoseon (Old Joseon), Korea's first kingdom      │
+│  Traditional date: 2333 BCE                                      │
+│  → Still celebrated: National Foundation Day (Oct. 3 in Korea)  │
+│  → The "half-heaven, half-earth" origin: Korean kingship        │
+│    legitimacy rooted in celestial descent + terrestrial nature  │
+│                                                                  │
+│  INTERPRETATION:                                                 │
+│  The bear/tiger test encodes an endurance ethic central to      │
+│  Korean identity. The tiger failure / bear success may reflect  │
+│  historical memories of distinct tribal groups: the bear-totem  │
+│  tribe absorbed into proto-Korean culture; tiger-totem tribes   │
+│  excluded. Structurally: totemism as political allegory.        │
+└──────────────────────────────────────────────────────────────────┘
+
+MUDANG — KOREAN SHAMANIC TRADITION:
+  One of the oldest living shamanic traditions in East Asia
+  Mudang = a shaman (usually but not exclusively female) who
+    mediates between living and dead, humans and spirits
+  Primary ritual: GUT (굿) — an elaborate multi-stage ceremony
+    involving music, dance, trance, spirit possession
+    The mudang speaks as the spirit: delivers messages, negotiates
+    grievances, performs healing
+
+  SPIRITUAL COSMOLOGY:
+  Three realms: heavenly world (Cheonggye), human world (Igye),
+    underworld (Jiha-segye)
+  Gods and spirits are organized into a complex hierarchy
+  The spirit of the recently dead must be helped to depart properly;
+    if they died with unresolved grief (han) they become troublesome
+
+  HAN (한) — a uniquely Korean cultural concept:
+  A collective emotional complex: sorrow, longing, resentment,
+    endurance accumulated through historical suffering
+  Central to Korean art, music, the "sorrowful beauty" of Korean
+    traditional aesthetics. Shamanic ritual is partly a technology
+    for resolving accumulated han.
+
+  SURVIVAL AND STATUS:
+  Mudang traditions were suppressed under Confucian dynasties
+    (as low-status, vulgar) and more recently by modernization
+  Now recognized as UNESCO Intangible Cultural Heritage (Ssireum, etc.)
+  The mudang has undergone significant cultural rehabilitation in
+    contemporary Korea; regarded as keeper of indigenous identity
+```
+
+---
+
+## Vietnamese Mythology
+
+Vietnamese mythology is heavily overlaid by two millennia of Chinese cultural influence, yet preserves a distinct founding narrative that insists on indigenous, non-Chinese origins — a politically significant claim given Vietnamese history of resistance to Chinese domination.
+
+```
+LAC LONG QUAN AND AU CO — THE FOUNDING MYTH
+
+Lac Long Quan: "Dragon Lord of Lac" — a divine dragon-king
+  who rules the Vietnamese sea and lowlands
+Au Co: a celestial mountain fairy (immortal bird-woman)
+  from the northern highlands
+
+NARRATIVE:
+  Lac Long Quan meets Au Co; they marry
+  Au Co gives birth to a sac of 100 eggs
+  → 100 sons emerge (the ancestors of the Hundred Viet peoples)
+  The couple separate: their natures are incompatible
+    "I am a dragon; I live in the water. You are a fairy; you live
+    in the mountains. Our origins are different; we cannot stay together."
+  50 sons follow their father to the sea (lowland coastal peoples)
+  50 sons follow their mother to the mountains (highland peoples)
+  The eldest son of the sea-group becomes the first Hung King
+    → Hung Kings: 18 generations of semi-divine rulers
+    → Hung Kings Day: April 10 by lunar calendar; national holiday
+
+SIGNIFICANCE:
+  → Explains the diversity of Vietnamese ethnic groups (Kinh lowland
+    vs. highland minorities) as brothers from a common origin
+  → Claims indigenous divine origin, not Chinese derivation
+  → "Con Rong Chau Tien" (Children of the Dragon, Grandchildren
+    of the Fairy) is still a Vietnamese self-description
+
+THE HUNDRED VIET (Bách Việt):
+  Chinese sources refer to diverse non-Chinese peoples of southern
+  China and northern Vietnam as "Hundred Yue" (Baiyue)
+  The myth appropriates this heterogeneity as a single founding family
+  → Mythology as political claim to ancestral territory
+
+HUNG KINGS AND HISTORICAL MEMORY:
+  Archaeological correlate: Dong Son culture (~700 BCE – 100 CE)
+  Bronze drums (Dong Son drums): the most distinctive artifact;
+    found across Southeast Asia, showing trade networks
+  The Hung Kings story telescopes a complex period of chiefdom
+    formation into a tidy dynastic narrative
+  Modern Vietnam treats the Hung Kings as historical reality:
+    the Hung Kings Temple (Phu Tho Province) is a national pilgrimage site
+
+THE TORTOISE AND THE SWORD (Ly dynasty legend, ~1000 CE):
+  Emperor Le Loi received a magic sword from a golden tortoise
+  (Kim Qui) in a lake → used it to drive out the Chinese Ming army
+  After victory, he returned to the lake; the tortoise reclaimed it
+  → Hoan Kiem Lake ("Lake of the Returned Sword"), Hanoi, is that lake
+  → One of Vietnam's most recognizable national symbols
+  → The giant soft-shell tortoise (Rafetus swinhoei) still (barely)
+    survives in Hoan Kiem; the last known individual died 2016;
+    mythological and conservation significance intertwined
+```
+
+---
 
 ## Common Confusion Points
 

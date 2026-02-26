@@ -2,36 +2,42 @@
 
 ## The Big Picture
 
-<!-- @editor[diagram/P2]: Diagram is a linear pipeline -- effective for signaling cascade but doesn't show lateral relationships (how cable theory and synaptic transmission interact at dendrite, how AP energy cost constrains firing rate) -->
 ```
-    NEURAL SIGNALING HIERARCHY
+    NEURAL SIGNALING HIERARCHY — WITH LATERAL INTERACTIONS
     ══════════════════════════════════════════════════════════
 
-    ION GRADIENTS (Nernst equilibrium)
+    ION GRADIENTS (Nernst equilibrium)  ←── Na/K-ATPase energy cost (20W/brain)
+         │                                        │
+         ▼                                        │ energy budget constrains
+    RESTING POTENTIAL (-70 mV) [GHK]              │ max sustainable firing rate
+         │                                        ▼
+    SYNAPTIC INPUTS (EPSPs, IPSPs) ──→  CABLE THEORY (λ, τ_m) ──→ distal inputs
+         │                               attenuated at soma; thin dendrites =        │
+         │                               high impedance = large EPSP per vesicle     │
+         ▼                                                                           │
+    THRESHOLD CROSSING (-55 mV)  ←── refractory period limits max rate             │
+         │                            (absolute: ~1ms; relative: ~3ms)              │
+         ▼                                                                           │
+    ACTION POTENTIAL (Hodgkin-Huxley model)                                         │
+         │                                                                           │
+         ├──→ AXONAL PROPAGATION (cable equation, saltatory conduction)             │
+         │     AP energy cost → constrains sustainable firing rate ────────────────┘
          │
          ▼
-    RESTING POTENTIAL (-70 mV) [Goldman-Hodgkin-Katz]
+    SYNAPTIC TRANSMISSION (Ca²⁺, SNARE, quantal release)
          │
-         ▼
-    SYNAPTIC INPUTS (EPSPs, IPSPs) + intrinsic conductances
-         │
-         ▼
-    THRESHOLD CROSSING (-55 mV)
-         │
-         ▼
-    ACTION POTENTIAL (Hodgkin-Huxley model)
-         │
-         ▼
-    AXONAL PROPAGATION (cable equation, saltatory conduction)
-         │
-         ▼
-    SYNAPTIC TRANSMISSION (Ca²⁺, vesicle, SNARE, quantal release)
-         │
+         │  ←── Presynaptic plasticity (facilitation, depression): prior activity
+         │       modulates release probability (p) of next AP
          ▼
     POSTSYNAPTIC INTEGRATION (temporal + spatial summation)
          │
+         │  ←── Cable theory again: spatial summation is distance-weighted;
+         │       EPSPs from distal dendrites smaller than proximal at soma
          ▼
     DENDRITIC COMPUTATION (passive + active, NMDA AND-gate)
+         │
+         └──→ Backpropagating APs (bAPs) ──→ Depolarize dendrites ──→ enables
+              NMDA unblocking ──→ LTP induction (requires pre AND bAP coincidence)
 ```
 
 ---
@@ -97,7 +103,6 @@ $$V_m = \frac{RT}{F}\ln\frac{P_K[K^+]_o + P_{Na}[Na^+]_o + P_{Cl}[Cl^-]_i}{P_K[K
 
 ---
 
-<!-- @editor[bridge/P2]: No dynamical-systems bridge for H-H model -- MIT math maps directly: H-H is 4D ODE with Hopf bifurcation at threshold, limit cycle = AP, saddle-node on invariant circle for Type I neurons -->
 ## Action Potential: Hodgkin-Huxley Model
 
 The foundational model of neural computation. Nobel Prize 1963: Hodgkin and Huxley.
@@ -133,6 +138,50 @@ The foundational model of neural computation. Nobel Prize 1963: Hodgkin and Huxl
     α_n = 0.01(V+55)/(1-exp(-(V+55)/10))
     β_n = 0.125 exp(-(V+65)/80)
     (V in mV; temperatures scale α,β by Q₁₀)
+```
+
+### Dynamical Systems View of the Hodgkin-Huxley Model
+
+The H-H equations are a 4-dimensional ODE system (state variables: V, m, h, n). The MIT math background maps directly:
+
+```
+    H-H as a dynamical system:
+
+    State space: ℝ⁴ (V × m × h × n)
+    Fixed point: resting state (V = -70 mV, m ≈ 0.05, h ≈ 0.6, n ≈ 0.3)
+    Stability: stable fixed point for subthreshold inputs
+
+    BIFURCATION AT THRESHOLD:
+    The threshold is not a sharp line but a bifurcation point — the voltage
+    at which the stable fixed point loses stability and a limit cycle appears.
+
+    Type II neuron (H-H squid axon):
+    Hopf bifurcation: at threshold, a stable limit cycle (= AP) bifurcates
+    from the fixed point. Just above threshold → repetitive firing at
+    nonzero frequency (discontinuous f-I curve: jumps from 0 to ~50 Hz).
+
+    Type I neuron (many cortical neurons):
+    Saddle-node on invariant circle (SNIC) bifurcation:
+    Near threshold, V approaches a saddle-node at a specific phase,
+    slowing down → long inter-spike intervals → continuous f-I curve
+    (firing rate can approach 0 Hz near threshold).
+
+    PHASE PLANE ANALYSIS (2D reduction: V + n, fast subsystem):
+    m is fast (τ_m ~ 0.5 ms) → replace with m_∞(V) (quasi-static)
+    h + n: slow nullclines define the shape of AP trajectory
+    V-nullcline: dV/dt = 0 curve in (V, n) plane
+    n-nullcline: dn/dt = 0 curve
+    Fixed point at intersection → stable (rest) or unstable (threshold)
+    Limit cycle = repetitive AP
+
+    IMPLICATIONS:
+    • Why is the AP all-or-nothing? Threshold = separatrix between two
+      basins of attraction (rest vs limit cycle). Subthreshold perturbation
+      → returns to fixed point. Suprathreshold → orbits the limit cycle.
+    • Why is there a refractory period? After AP, trajectory re-enters
+      fixed point basin only after h recovers (Na⁺ inactivation gate).
+    • Bursting neurons: additional slow K⁺ or Ca²⁺ current adds a 5th
+      dimension; relaxation oscillation alternates between silent and firing.
 ```
 
 ### Action Potential Anatomy
@@ -408,7 +457,73 @@ Modern view: dendrites perform complex computations.
 
 ---
 
-<!-- @editor[structure/P2]: No dedicated old-world bridge section -- leaky-integrator electronics bridge is excellent but buried. Add standalone bridges: dynamical systems (bifurcations for HH), thermodynamics (Nernst = Gibbs free energy), information theory (channel capacity of spike train) -->
+## Engineering and Mathematical Bridges
+
+### Thermodynamics: Nernst Equation as Gibbs Free Energy
+
+The Nernst equation is electrochemistry: at equilibrium, the electrical potential energy exactly balances the chemical potential (Gibbs free energy of the concentration gradient).
+
+```
+    E_ion = (RT/zF) ln([ion]_out / [ion]_in)
+
+    This is ΔG = 0 written as a voltage:
+    ΔG = zFΔV + RT ln([ion]_out/[ion]_in) = 0
+    → ΔV = -(RT/zF) ln([ion]_out/[ion]_in) = E_ion
+
+    At 37°C, RT/F = 26.7 mV. Each 10-fold concentration ratio → 59 mV/z.
+
+    The Na/K-ATPase that maintains the gradients consumes ~1 ATP per 3 Na⁺ pumped.
+    This is an entropy-fighting process: it maintains a low-entropy (concentrated)
+    ion distribution by coupling it to ATP hydrolysis (highly exergonic).
+    The free energy stored in the Na⁺ gradient is:
+    ΔG_Na = RT ln([Na]_out/[Na]_in) + zFV_m ≈ -12 kJ/mol at rest
+    This gradient powers secondary active transport (SGLT, NHE, glutamate transporters).
+```
+
+### Information Theory: Channel Capacity of a Spike Train
+
+A single neuron encodes information in its spike train. Shannon's channel capacity applies:
+
+```
+    RATE CODE (firing rate carries information):
+    Maximum rate: ~500 Hz (1/refractory period ≈ 1/2 ms)
+    Typical range: 0–100 Hz
+    If rate is Poisson-distributed over T seconds with mean rate r:
+    Information ≈ r×T × log₂(1 + r×T / noise) bits
+    Typical cortical neuron: ~1-3 bits per spike (Rieke et al., 1999)
+
+    TEMPORAL CODE (spike timing carries information):
+    If timing is precise to δt, then T/δt possible spike times
+    Maximum bits per spike: log₂(T/δt)
+    For T=100ms, δt=1ms: log₂(100) ≈ 6.6 bits per spike
+    Auditory brainstem: δt ~ 0.1 ms → ~10 bits per spike
+
+    POPULATION CODE (N neurons, correlated):
+    Independent neurons: N bits (linear)
+    Correlated noise: fewer independent dimensions → less information
+    Dimensionality reduction: spike trains from N neurons lie in a
+    low-dimensional manifold (Cunningham & Yu 2014)
+    → Population coding ≈ lossy compression with structured noise
+
+    ENERGY-INFORMATION TRADEOFF:
+    ~10 pJ per AP. At 1-3 bits per spike → ~3-10 pJ/bit
+    Modern SRAM: ~0.1-1 pJ/bit. Brain is not thermodynamically optimal
+    but the 20W budget constrains total information throughput to ~10¹² bits/sec
+    (86B neurons × ~10 Hz avg × ~1-3 bits/spike)
+```
+
+### Dynamical Systems Summary (connections to HH section above)
+
+| Neural phenomenon | Dynamical systems concept | Engineering analog |
+|-------------------|--------------------------|-------------------|
+| Resting membrane potential | Stable fixed point | DC operating point of circuit |
+| Action potential threshold | Bifurcation point / separatrix | Comparator threshold |
+| AP waveform | Limit cycle orbit | Relaxation oscillator output |
+| Refractory period | Return to fixed point basin | One-shot timer recovery |
+| Bursting neuron | Slow-fast system with 2 limit cycles | Nested oscillator |
+| Adaptation (firing rate decrease) | Slow K⁺ current pulling fixed point | Negative feedback with slow time constant |
+| Synchronization | Phase locking between coupled oscillators | Injection locking in PLLs |
+
 ## Decision Cheat Sheet
 
 | Biophysical feature             | Functional role                          | Modeling equivalent        |

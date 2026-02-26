@@ -95,8 +95,7 @@ MARRIAGE SYSTEMS:
     → Prevents land fragmentation; maintains household as economic unit
 
   SAME-SEX MARRIAGE:
-<!-- @editor[content/P2]: Same-sex marriage count "35+ countries (2024)" — verify current count; as of late 2025 it is closer to 37 countries; consider updating to avoid appearing stale -->
-    Legally recognized in 35+ countries (2024)
+    Legally recognized in 37+ countries (2025)
     Cross-cultural: various forms of recognized same-sex partnership historically
     → Not a modern invention; institutionalization is new in legal form
 
@@ -340,7 +339,16 @@ CARE WORK ECONOMICS:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to data-driven thinking missing here — the DTM is a classic model-fitting exercise (sigmoid curves, stage classification, parameter estimation) that a quantitative thinker would appreciate being called out explicitly; similarly, TFR as a summary statistic has direct analogy to any composite metric. Not critical but would add resonance. -->
+## Quantitative Models Embedded in Demographic Theory
+
+The DTM and its associated metrics are formal models with structure that a quantitative reader will recognize.
+
+**The DTM is a sigmoid-curve model with four named stages.** The cumulative adoption curve Rogers uses in diffusion theory is the same S-curve: slow initial takeoff, inflection point, saturation. The DTM maps mortality decline and fertility decline as two sequential sigmoid processes, creating the population explosion in the gap between them. "Fitting" a country to a DTM stage is a classification problem: observe the current birth/death rate pair, assign the stage, project forward. The model is oversimplified (mortality and fertility transitions are not clean sigmoid curves; they stall, reverse, and vary enormously by subgroup) but it encodes the most parsimonious story about the long-run demographic pattern of industrialization.
+
+**TFR is a synthetic period statistic with known distortions.** Total Fertility Rate is not the fertility of any actual cohort of women — it is a synthetic measure: take the age-specific fertility rates observed in a single calendar year and ask what total fertility a woman would have if she experienced those rates across her entire reproductive life. This makes TFR responsive to tempo effects: when women delay childbearing (as in SDT), period TFR drops below cohort fertility because fewer births occur in the reference year. South Korea's TFR of 0.78 almost certainly overstates the actual fertility decline because it captures delayed births that will partially occur later. Demographers distinguish period TFR from completed cohort fertility (CCF) for exactly this reason.
+
+**The second demographic transition is a regime-shift hypothesis.** Lesthaeghe and Van de Kaa argue that the post-1965 changes are not a continuation of the FDT but a distinct regime driven by value change rather than material constraint. This is a structural break claim, not a trend extrapolation. The policy implication is significant: if SDT is a value shift (post-materialism, self-actualization), then pronatalist policies (cash transfers, childcare subsidies) may have limited fertility effects because they address the wrong variable. The evidence on this is contested; Scandinavian countries with generous family policy have higher fertility than those without, but higher than a pure post-materialist prediction would suggest.
+
 ## Decision Cheat Sheet
 
 | Phenomenon | Relevant concept |

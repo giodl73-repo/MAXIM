@@ -6,7 +6,47 @@
 
 ---
 
-<!-- @editor[diagram/P2]: The Four Laws section is an excellent text summary but not a landscape diagram — it lists laws sequentially without showing how they connect to the rest of the guide (equilibrium, phase diagrams, Gibbs, Hess, colligative properties). A visual map showing these relationships would anchor the layered drill-down. -->
+## Landscape
+
+```
+┌──────────────────────────────────────────────────────────────────┐
+│               THERMOCHEMISTRY & CHEMICAL THERMODYNAMICS           │
+│                                                                    │
+│  THE FOUR LAWS (foundations)                                       │
+│  ────────────────────────────                                      │
+│  0th: temperature defined    → measurement framework              │
+│  1st: ΔU = q + w             → enthalpy H, Hess's law             │
+│  2nd: ΔS_universe ≥ 0        → spontaneity criterion              │
+│  3rd: S(0K) = 0              → absolute entropy S° tables         │
+│         │           │                                              │
+│         ▼           ▼                                              │
+│  ENTHALPY (ΔH)   ENTROPY (ΔS)                                     │
+│  ─────────────   ─────────────                                     │
+│  Hess's law      Boltzmann S=k ln W                               │
+│  Bond enthalpies Trouton's rule                                    │
+│  Kirchhoff T-dep Colligative props (particle count)               │
+│         │           │                                              │
+│         └─────┬─────┘                                             │
+│               ▼                                                    │
+│  GIBBS FREE ENERGY  ΔG = ΔH − TΔS      ← master criterion        │
+│  ─────────────────────────────────                                 │
+│  ΔG < 0: spontaneous   ΔG° = −RT ln K                            │
+│  ΔG = ΔG° + RT ln Q    links to equilibrium                       │
+│         │                                                          │
+│    ┌────┴────┐                                                     │
+│    ▼         ▼                                                     │
+│  EQUILIBRIUM  PHASE DIAGRAMS                                       │
+│  ──────────── ─────────────                                        │
+│  Kc, Kp, Ksp  P-T phase boundaries                                │
+│  Le Chatelier Clausius-Clapeyron                                   │
+│  Van't Hoff   Critical / triple points                             │
+└──────────────────────────────────────────────────────────────────┘
+```
+
+The Four Laws set the axioms; enthalpy and entropy are the operands; Gibbs
+free energy is the combined criterion; equilibrium and phase diagrams are
+the application domains.
+
 ## The Four Laws — Quick Map
 
 ```

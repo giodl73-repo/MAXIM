@@ -1,30 +1,45 @@
 # Paint History
 
-<!-- @editor[diagram/P2]: Opening diagram is a timeline list, not a landscape showing relationships between eras/technologies — rework as layered view showing how each era's chemistry feeds into the next -->
-
 ## 40,000 Years of Surface Coating
 
 ```
-COATINGS HISTORY TIMELINE
-==========================
+COATINGS HISTORY: TECHNOLOGY GENEALOGY
+=========================================
+Each era's chemistry was not independent — each layer built on and was
+limited by the previous era's binder and pigment science.
 
-~75,000 BCE   Ochre processing, Blombos Cave (South Africa)
-~40,000 BCE   Cave paintings begin (El Castillo, Spain)
-~17,000 BCE   Lascaux (France), Altamira (Spain) — complex pigments
-~3,000 BCE    Egyptian fresco, encaustic wax paintings
-~100 BCE      Roman fresco, Pompeian wall painting traditions
-~430 CE       Egg tempera icons (Byzantine tradition)
-~1420s        Oil painting mastered (Flemish school, van Eyck)
-~1700s        Commercial lead + linseed oil house paint sold
-~1870s        Ready-mixed paint (previously mixed on-site from ingredients)
-1916          Titanium white (TiO₂) — replaces lead white
-1921–1923     Development of synthetic alkyd resin (Kienle, GE)
-~1948         Latex (SBR) paint commercialized
-~1950s        Acrylic latex — superior to SBR latex
-1971          Lead Paint Poisoning Prevention Act (US)
-1978          Full US residential lead paint ban
-1990s         VOC regulations (CARB, EPA Clean Air Act amendments)
-2000s–present Zero-VOC, antimicrobial, self-priming formulations
+ERA 1: MINERAL + FAT (–75,000 BCE to ~0 CE)
+  Pigments: iron oxides, charcoal, manganese dioxide (inorganic, stable)
+  Binders:  animal fat, blood, calcium-rich water, natural resins
+  Mechanism: physical dispersion; calcite encapsulation in caves
+  Limit:    no true film-forming chemistry; pigment in fat ≠ durable coating
+       ↓
+ERA 2: CARBONATION + PROTEIN (~3,000 BCE to ~1400 CE)
+  Pigments: lime wash (antimicrobial, white), natural mineral palette
+  Binders:  egg yolk (protein + lecithin emulsion), gum arabic, lime plaster
+  Mechanism: carbonation (Ca(OH)₂ → CaCO₃); protein crosslinking
+  Breakthroughs: fresco (pigment locked in hardening stone matrix), egg tempera
+  Limit:    brittleness; no reworkability; limited transparency
+       ↓
+ERA 3: OXIDATIVE POLYMERIZATION (~1420s to ~1948)
+  Pigments: lead white, azurite, verdigris, then synthetic (Prussian, cadmium)
+  Binders:  drying oils (linseed, walnut, poppy); then alkyds (synthetic, 1920s)
+  Mechanism: O₂ radical crosslinking of unsaturated fatty acid chains → polymer film
+  Breakthroughs: glazing (layered transparency), house paint industry, alkyd resins
+  Limit:    VOCs, lead toxicity, slow dry, yellowing
+       ↓
+ERA 4: COALESCENCE (~1948 to ~1990)
+  Pigments: TiO₂ (dominant), synthetics
+  Binders:  SBR latex → acrylic latex emulsion
+  Mechanism: water evaporates → polymer particles crowd → coalesce into film at MFFT
+  Breakthroughs: water cleanup, low odor, fast dry, no lead
+  Limit:    VOC solvents still in solvent-borne industrial coatings
+       ↓
+ERA 5: REGULATORY + FUNCTIONAL (~1990 to present)
+  Binders:  waterborne versions of everything; 2K crosslinked systems
+  Mechanism: same chemistries, reformulated without VOC solvents
+  Breakthroughs: zero-VOC, antimicrobial, photocatalytic, intumescent
+  Drivers:  CARB/EPA/EU regulation; green building (LEED, BREEAM)
 ```
 
 ---

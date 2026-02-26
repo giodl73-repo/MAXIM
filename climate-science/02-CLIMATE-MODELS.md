@@ -105,9 +105,9 @@ Each model type answers different questions. The choice depends on what you're t
                    modern models avoid it (physically inconsistent)
 ```
 
-<!-- @editor[bridge/P2]: No old-world bridge in the guide. Natural bridge here: the learner knows numerical methods, spectral methods, and stability conditions (CFL) from MIT computational theory — connect "you know Courant-Friedrichs-Lewy from numerical PDE; climate models live and die by it because 3D refinement costs scale as O(n^4)" -->
-
 ### Dynamical Core
+
+The CFL stability condition you know from numerical PDEs directly governs climate model cost: reducing grid spacing by 2× requires a 2× shorter time step, so full 3D refinement costs 8× per factor-of-2 resolution improvement (2× in x, 2× in y, 2× in time). This is why high-resolution models are disproportionately expensive and why spectral methods (expanding fields in spherical harmonics) were historically preferred — global derivatives are exact in spectral space, avoiding numerical dispersion without the CFL penalty of explicit advection schemes.
 
 ```
   PRIMITIVE EQUATIONS (hydrostatic, spherical geometry):
@@ -142,9 +142,9 @@ Each model type answers different questions. The choice depends on what you're t
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge opportunity: parameterization in climate science is analogous to API contracts in systems design — subgrid processes are "black-boxed" behind a contract interface, with implementation uncertainty hidden from the caller. The learner's software architecture background makes this immediate -->
-
 ## Parameterization: The Core Challenge
+
+Parameterization in climate models is the same contract boundary as a well-defined interface in systems design: subgrid processes (convection, cloud microphysics, turbulence) are black-boxed behind a parameterization scheme that receives resolved-scale variables as input and returns tendencies as output. The implementation uncertainty is hidden from the dynamical core, but divergent implementations of the same interface (different convective schemes) produce different large-scale behavior — this is a primary source of inter-model spread in ECS estimates.
 
 ```
   THE PROBLEM:

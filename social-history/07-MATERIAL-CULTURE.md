@@ -289,7 +289,16 @@ brought objects back to the center of historical analysis.
 
 ---
 
-<!-- @editor[structure/P2]: No comparison tables — a table comparing gift economy vs. commodity exchange vs. singularization (mechanism, social function, examples) would crystallize Appadurai's framework -->
+## Appadurai's Exchange Modes at a Glance
+
+| Mode | Mechanism | Social Function | Examples | What Makes It Distinct |
+|------|-----------|-----------------|----------|------------------------|
+| **Commodity exchange** | Anonymous, impersonal market transaction; price set by supply/demand | Efficient allocation; no lasting social bond created | Buying bread, trading stocks, paying SaaS subscription fees | Social relations between producers and consumers are hidden; "commodity fetishism" |
+| **Gift exchange** | Personal transfer with obligation of reciprocity; the gift carries something of the giver | Creates and maintains social bonds; establishes hierarchy and alliance | Christmas gifts, wedding presents, potlatch, kula ring exchanges | Cannot be purely calculated; calculation violates the social meaning; reciprocity is obligatory |
+| **Singularization** | Object removed from the commodity sphere; treated as unique and inalienable | Marks sacred, heritage, or personal significance; removes from circulation | Museum objects, wedding rings, inherited heirlooms, donated organs | The same physical object shifts register; singularization is a social act, not an intrinsic property |
+
+Key: the same object can move between all three modes. A ring is a commodity (in the jewelry store), becomes a gift (at the wedding), and is then singularized (inalienable; not resellable without social meaning-destruction).
+
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -304,7 +313,23 @@ brought objects back to the center of historical analysis.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Appadurai's "social life of things" (objects shift between commodity, gift, heirloom phases) maps to how software artifacts shift between contexts (a library is a product on npm, a dependency in your project, a legacy constraint in your architecture); "follow the thing" methodology parallels supply chain tracing in manufacturing, which the learner knows from engineering context -->
+## Engineering Bridge: The Social Life of Software Artifacts
+
+Appadurai's framework — objects shift between commodity, gift, and singularized modes depending on social context — describes exactly how software artifacts move through their lifecycle:
+
+**The social life of a library.**
+- *Commodity phase*: published on npm/PyPI/NuGet; has a price (free or paid), a version, a changelog. It is a commodity in Appadurai's sense — exchanged in an anonymous market transaction.
+- *Dependency phase*: imported into your project. Now it is a "gift" in a modified sense: you have a relationship with the maintainer community; you may contribute issues, PRs, or documentation. The artifact is embedded in social relations.
+- *Legacy phase*: still in your codebase, no longer updated, depended on by too much code to remove without major risk. Now it is "singularized" — it has been removed from the commodity sphere (you cannot simply upgrade or replace it) and has become an inalienable part of your architecture. Its meaning is now its history in your system, not its market value.
+
+**"Follow the thing" and supply chain security.** The commodity chain methodology (trace sugar from Caribbean slave plantation → Atlantic trade → British working-class tea ritual) is exactly what software supply chain security requires: trace a dependency from its author → its CI/CD pipeline → its registry publication → your `package.json` → your production container. SBOM (Software Bill of Materials) is "follow the thing" applied to software artifacts. Log4Shell became a crisis precisely because most organizations did not know where Log4j appeared in their supply chain.
+
+**Singularization and technical debt.** Once a system component is heavily depended upon, it undergoes singularization: it can no longer be treated as a replaceable commodity (upgrade, swap, deprecate). Its "social life" in the codebase — the other systems entangled with it, the institutional memory attached to it — makes it inalienable in Appadurai's sense. Technical debt is partly the accumulation of singularized components.
+
+**Mauss's gift exchange and open-source contribution.** OSS contribution is structurally a gift economy: you give time and code with an implicit expectation of reciprocity (recognition, influence, community membership), not a contractual exchange. Violations of gift economy norms (demanding features without contributing, taking forks without attribution) generate exactly the social rupture Mauss describes when gift obligations are violated. OSS burnout often occurs when maintainers discover they are operating a gift economy while users treat them as a commodity provider.
+
+**Veblen's conspicuous consumption and developer tooling.** Technology choices in engineering organizations often signal status as much as they solve problems. Adopting Kubernetes before your scale justifies it, using Rust for a CRUD API, over-engineering with microservices — these exhibit Veblen's conspicuous consumption: the visible complexity demonstrates technical sophistication and membership in a status community, independent of whether it maximizes utility. Understanding this dynamic explains why "obviously simpler" solutions often lose to more elaborate ones.
+
 ## Common Confusion Points
 
 **Material culture history is not the same as archaeology.**

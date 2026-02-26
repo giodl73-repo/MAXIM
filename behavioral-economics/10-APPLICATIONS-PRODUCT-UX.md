@@ -27,7 +27,152 @@
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-<!-- @editor[content/P2]: Guide is heavy on dark patterns but thin on beneficial behavioral design in products — the spectrum diagram promises equal treatment but the content skews ~80% toward manipulation/harm; add a section on genuinely beneficial applications (onboarding friction reduction, smart defaults for accessibility, commitment devices in health/finance apps) to balance the picture -->
+## Beneficial Behavioral Design in Products
+
+The same cognitive patterns that enable dark patterns can be deployed in the user's genuine interest. The spectrum diagram shows both ends — this section covers the beneficial side that the rest of the guide underweights.
+
+### Onboarding Friction Reduction
+
+```
+PROBLEM: Users abandon products before experiencing core value.
+  Every decision step, form field, and permission request is friction.
+  Each friction point loses a percentage of users.
+  Product value behind friction wall → users never reach it.
+
+BEHAVIORAL MECHANISMS AT WORK:
+  Status quo bias + present bias: the effort of setup feels costly now;
+    benefit is future and uncertain. Users default to "not completing setup."
+  Cognitive load: too many decisions at once → decision fatigue → abandon.
+  Implementation intention deficit: "I'll set this up later" = never (present bias).
+
+BENEFICIAL DESIGN PATTERNS:
+
+  Progressive disclosure:
+    Show only what's needed at each step. Defer complex choices to later.
+    Wizard pattern: one question per screen, progress indicator → completion rate ↑
+    "Just-in-time" settings: surface only when the setting becomes relevant.
+
+  Defaults that express care:
+    Choose defaults that work for most users — invest engineering time to find them.
+    Slack: default channel = #general → social proof of where conversation happens
+    VS Code: default extensions for common file types → reduces initial setup barrier
+    Good default ≠ lazy default. It's the highest-leverage UX decision in the product.
+
+  Pre-populated state:
+    Use what you know: pre-fill from account data, prior behavior, import from elsewhere.
+    GitHub: detects language → suggests .gitignore → reduces setup to one click.
+    Reduces decision count; lets user confirm rather than create from scratch.
+
+  Commitment and progress:
+    Progress bars → Zeigarnik effect: incomplete tasks are mentally open.
+    LinkedIn profile completeness meter → users feel compelled to finish.
+    "You're 80% of the way there" → sunk cost triggers completion.
+    Used beneficially: accelerates users toward setup that genuinely serves them.
+
+  Presumptive enrollment (medical analogy applied to products):
+    "I've started your trial" → completion rates higher than "Would you like to try?"
+    Works for beneficial defaults; becomes a dark pattern when the default harms user.
+```
+
+### Smart Defaults for Accessibility
+
+```
+ACCESSIBILITY + BEHAVIORAL DESIGN OVERLAP:
+  Users with disabilities often cannot easily navigate away from defaults.
+  For this population, defaults are not a starting point — they are the product.
+  Smart defaults reduce discrimination by not requiring configuration for basic access.
+
+EXAMPLES:
+  Font size default: Windows 125% default (post-2012) vs 100%
+    Most users benefit from larger default; those who don't easily change it.
+    Changed default improved accessibility without requiring user action.
+
+  High-contrast mode on/off detection:
+    Respect system-level accessibility settings → product inherits user's preference.
+    Behavioral design: don't add a decision; use the signal already available.
+
+  Color choice in data visualization:
+    Default to colorblind-safe palettes (e.g., ColorBrewer viridis).
+    Majority of users are not colorblind; 8% of men are.
+    Default to inclusive; let 92% change if they prefer aesthetically.
+    Power BI / Tableau: moved to improved default palettes in recent versions.
+
+  Captions on video:
+    Default to captions-on for new content discovery contexts.
+    TikTok: auto-captions default on → increased by deaf/hard-of-hearing access
+    AND benefits users in loud/quiet environments → net positive for most users.
+
+  Cognitive load reduction through reduced option counts:
+    For users with cognitive disabilities: fewer choices = lower decision cost.
+    "Simple" / "advanced" mode split: sensible default = simple mode.
+    Windows 11 simplified Start menu: controversy with power users, but
+    lower cognitive load for majority of non-power users.
+```
+
+### Commitment Devices in Health and Finance Apps
+
+```
+PROBLEM: Present bias creates intention-action gaps.
+  Users intend to exercise, save, take medication, eat well.
+  At the moment of action, System 1 preferences dominate → intention not executed.
+  Behavioral solution: help users commit their future selves.
+
+COMMITMENT DEVICE DESIGN PRINCIPLES:
+  1. Triggered at a moment of high motivation (not mid-action)
+  2. Future-dated (exploits present bias: resistance is low for future commitments)
+  3. Penalty or cost for reneging (stakes make commitment credible)
+  4. Easy to set, harder (but not impossible) to undo → bypass impulsive reversal
+
+HEALTH APP EXAMPLES:
+
+  Habit streak mechanics (beneficial form):
+    Duolingo streak: sunk cost + loss aversion → maintains daily learning habit.
+    Key design: streak freeze available (prevents catastrophic failure → gives up entirely)
+    The same mechanism as negative attention capture; used beneficially when
+    the underlying behavior (learning a language) serves the user's stated goal.
+
+  Scheduled activity commitment:
+    "Book your class now" → implementation intention created automatically.
+    Peloton: schedule a ride → commit to specific time slot → 40% higher completion
+    vs. open-ended "work out sometime this week."
+    If miss: re-schedule in one tap (low friction to recover; high friction to abandon).
+
+  Weight loss commitment contracts:
+    StickK.com: user sets goal, names referee, stakes money on failure.
+    Anti-charity commitment: money to an organization user dislikes if goal missed.
+    Loss aversion amplified: not just losing money, but helping an opponent.
+    Empirical: commitment contracts increase weight loss, smoking cessation, exercise
+    by 15-40% vs. simple goal-setting.
+
+FINANCE APP EXAMPLES:
+
+  Round-up saving (Acorns, Chime, Monzo):
+    Round purchases to nearest dollar → auto-invest the spare change.
+    Exploits payment decoupling (spending feels the same; small amounts not salient).
+    Users save without active effort or attention. Net positive: users save more
+    than they would otherwise; amounts are small enough not to cause hardship.
+
+  Visual goal tracking:
+    "Your vacation fund is 73% funded" with progress visualization.
+    Reduces abstraction of saving → concrete goal → motivated reasoning.
+    Users with named, visualized savings goals save 2-3× more than generic accounts.
+    Used in: Monzo pots, Marcus by Goldman Sachs, YNAB.
+
+  Auto-escalation (SMarT plan — Thaler & Benartzi):
+    Pre-commit to increase savings rate with each future raise.
+    Works because: commitment is future-dated (present bias allows it),
+    increase comes from raise (doesn't feel like a pay cut),
+    inertia works FOR you once enrolled.
+    Average savings rate: 3.5% → 11.6% over 4 years.
+
+  DESIGN PRINCIPLE FOR COMMITMENT DEVICES:
+    Transparent: user understands the commitment they're making.
+    Voluntary: user initiates; not hidden default escalation.
+    Reversible with friction: opt out is possible but requires deliberate action.
+    Aligned with stated user goals: the commitment serves what the user said they want.
+    These criteria distinguish beneficial commitment devices from dark patterns.
+```
+
 ## Variable Reward Schedules
 
 ```

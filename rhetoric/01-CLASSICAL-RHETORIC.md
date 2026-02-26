@@ -127,8 +127,6 @@ HISTORICAL IRONY:
 
 ---
 
-<!-- @editor[bridge/P2]: No explicit bridge from Aristotle's faculty/heuristic framing to modern equivalents — the learner knows compiler/interpreter theory from MIT; a one-line aside like "Aristotle's rhetoric is a heuristic, not an algorithm — closer to a language specification than a code generator" would land immediately -->
-
 ## Layer 2: Aristotle's Rhetoric — The Systematic Account
 
 Aristotle's **Rhetoric** (c. 355–322 BCE, though the date is contested) is the foundational systematic treatment:
@@ -144,6 +142,11 @@ case all of the available means of persuasion."
 KEY WORDS:
   "Faculty" (dynamis): a capacity or power, not a body of rules.
   "Discovering": inventio — rhetoric is a heuristic, not an algorithm.
+    It produces a search space of available arguments, not a derivation.
+    Closer to a type-checker's inference algorithm (heuristic, sound but
+    not complete) than to a theorem prover (algorithm, complete).
+    A code generator produces output; inventio maps the possibilities
+    and asks the speaker to choose. The rhetor decides; the canon does not.
   "In any particular case": it is always context-specific.
   "All of the available means": comprehensive, exhaustive.
   "Persuasion": not truth but effective communication.
@@ -303,7 +306,60 @@ INFLUENCE:
 
 ---
 
-<!-- @editor[content/P2]: No mention of Aristotle's Rhetoric Book I logical fallacies (apparent enthymemes) — significant gap given that 05-ARGUMENTATION.md covers informal fallacies and this is where Aristotle's own taxonomy originates -->
+## Layer 3b: Apparent Enthymemes — Aristotle's Fallacy Taxonomy
+
+Aristotle's Rhetoric Book I contains the first systematic taxonomy of logical fallacies in Western thought — framed not as errors but as "apparent enthymemes": arguments that look like valid inferences but are not.
+
+```
+APPARENT ENTHYMEMES (Rhetoric Book I, Ch. 1 / Sophistical Refutations)
+
+An enthymeme is a syllogism from probable premises.
+An apparent enthymeme has the FORM of an enthymeme but the
+inference does not actually hold.
+
+ARISTOTLE'S TAXONOMY (condensed):
+
+1. FROM THE EXPRESSION (formal fallacies):
+   Equivocation: same word used in two different senses.
+   "The law says nothing false may be written above a man's name.
+    He wrote 'he is good at flute-playing.' He is not. Therefore..."
+   Formal structure appears valid; the premise-evaluation fails.
+
+2. FROM THE ACCIDENT:
+   Treating an accidental property as essential.
+   "Coriscus is different from Socrates; Socrates is a man;
+    therefore Coriscus is different from man."
+   The difference is accidental, not categorical.
+
+3. FROM WHAT IS NOT A CAUSE:
+   Post hoc ergo propter hoc (before/after as cause/effect).
+   The enthymeme's warrant (the general principle connecting
+   premises to conclusion) is missing or false.
+
+4. BEGGING THE QUESTION (petitio principii):
+   The conclusion is assumed in the premises.
+   Appears as an enthymeme; actually circular.
+
+5. FROM IGNORANCE OF REFUTATION:
+   Missing what is required to be refuted — changing the claim
+   being argued rather than proving the one at issue.
+
+6. FROM THE CONSEQUENT:
+   Affirming the consequent: "Good people do X; he does X;
+   therefore he is good." The conditional only runs one way.
+
+7. FALSE ENTHYMEMES FROM SIGNS:
+   Treating a sign as conclusive proof.
+   "He has a fever → he is ill" (valid sign)
+   "He is breathing rapidly → he has been running" (not conclusive)
+
+RELEVANCE TO 05-ARGUMENTATION.MD:
+  The informal fallacy taxonomy in 05-ARGUMENTATION.md (ad hominem,
+  straw man, false dilemma, etc.) derives from this Aristotelian base.
+  The Stoics and medieval logicians extended it. The current
+  "fallacy" vocabulary is the scholastic version of Aristotle's
+  apparent enthymemes.
+```
 
 ## Layer 4: The Aristotelian Emotions Catalog
 

@@ -337,7 +337,51 @@ LARGE-SCALE PRODUCTS:
 
 ---
 
-<!-- @editor[bridge/P2]: No dedicated bridge section — the graph-theory framing (DAG, topological sort, BFS/DFS, connected components, fractal branching) is outstanding but scattered through multiple sections; a consolidated "CS Bridges" callout would make these jump out for the learner -->
+## CS Bridges — Watershed Analysis as Graph Algorithms
+
+```
+WATERSHED CONCEPT             CS / GRAPH EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+DEM raster                    Weighted grid graph (implicit adjacency)
+  Each cell = node              → 8-connected grid (D8) or continuous (D-inf)
+  Elevation difference = weight → directed edge to steepest downslope neighbor
+
+Flow direction grid (D8)      Functional graph (each node has exactly 1 out-edge)
+  Cycles impossible             → DAG (gravity guarantees no cycles after pit-fill)
+  Flat areas ambiguous          → tie-breaking heuristics (same as DFS on tie)
+
+Flow accumulation             Topological sort + prefix sums upstream
+  Process nodes in topo order   → add 1 + upstream contributions
+  Result at outlet              → total node count in reachable subgraph
+  Complexity: O(n)              → linear pass after O(n log n) sort
+
+Watershed delineation         Reverse-graph BFS/DFS from outlet
+  Reverse all edge directions   → compute nodes reachable from outlet
+  Result = connected component  → exactly the "upslope contributing area"
+
+Pit filling                   Making DAG property hold globally
+  Fill sinks to overflow point  → repair a broken topological ordering
+  Essential preprocessing step  → same role as cycle-breaking in DAG analysis
+
+Strahler stream order         Binary tree node labeling
+  Two order-k nodes join → k+1  → exactly the "Strahler number" of a binary tree
+  Headwaters (leaves) = 1       → leaf label = 1; propagate up by merge rule
+  Horton's scaling laws         → tree-wide self-similar (fractal) branching stats
+
+TWI = ln(a / tan β)           Log-odds of saturation probability
+  Large upslope area a          → high "upstream supply" (like in-degree)
+  Steep slope β                 → fast drainage (low residence time)
+  High TWI → probable saturation → inverse of drainage capacity / supply
+
+Pfafstetter coding system     Hierarchical spatial index (trie over basins)
+  10-level hierarchy            → prefix tree; basin = path from root to leaf
+  Digit encodes topology        → branching structure recoverable from code alone
+
+Bifurcation ratio Rb          Branching factor of drainage tree
+  Rb = count(order n)/count(n+1) → average branching factor across tree levels
+  High Rb → more tributaries    → wider, shallower tree → synchronized peaks
+  Low Rb → fewer, larger joins  → deeper, balanced tree → staggered peaks
+```
 
 ## Decision Cheat Sheet
 

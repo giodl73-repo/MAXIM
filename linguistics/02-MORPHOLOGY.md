@@ -106,7 +106,58 @@ MORPHEME /negation/→  morphs: un- (unhappy), in- (incomplete), im- (impossible
 
 ---
 
-<!-- @editor[bridge/P2]: No parser/tokenizer → morphological-analysis bridge — any developer coming from compiler front-ends needs the parallel (lexer tokenization = morphological segmentation, token types = morpheme classes) -->
+## The Compiler Front-End Bridge
+
+Morphological analysis is the linguistic equivalent of lexing + symbol-table lookup. The parallels are exact enough to be used directly as mental models:
+
+```
+COMPILER FRONT-END               MORPHOLOGICAL ANALYSIS
+------------------               ----------------------
+Lexer / tokenizer                Morphological segmenter:
+                                 "readers" → [read][er][s]
+                                 token boundaries ≈ morpheme boundaries
+
+Token type (NUM, IDENT, OP)      Morpheme class:
+                                 root (read), agentive suffix (-er),
+                                 plural inflection (-s)
+
+Symbol table / identifier        Lemma / lexeme:
+  resolution                     "walked", "walks", "walking" all point
+                                 to the same lexeme WALK —
+                                 morphological analysis = lemmatization
+
+Maximal munch rule               Maximal onset principle in syllabification;
+                                 morpheme boundary disambiguation:
+                                 "un-lock-able" = (un-)(lock)(able) or
+                                 (un-)(lock-able)?  Scope ambiguity.
+
+Regex-based lexer rules          Finite-state transducer (FST):
+                                 morphological analysis implemented as
+                                 an FST mapping surface forms to
+                                 underlying morpheme sequences.
+                                 (Koskenniemi 1983 two-level morphology —
+                                 the standard for morphological tools.)
+
+Lexer state machine              Phonologically conditioned allomorph
+                                 selection: in- → im- before bilabials,
+                                 il- before laterals. The allomorph
+                                 selector is a finite-state transducer
+                                 operating on the surface phonology.
+```
+
+**Typology maps to implementation strategy:**
+
+| Morphological type | Parsing strategy | Analogy |
+|---------------------|-----------------|---------|
+| Isolating (Mandarin) | No morphology needed; tokenize on whitespace | Keywords only; no compound tokens |
+| Agglutinative (Turkish) | Stack-based FST; strip suffix stack left-to-right | Left-recursive grammar; each suffix = one rule application |
+| Fusional (Latin, Russian) | Paradigm table lookup; can't decompose further | Overloaded operators; one token encodes multiple semantic dimensions |
+| Polysynthetic (Mohawk) | Full clause parser required to analyze one "word" | Macro expansion; a single token expands to a full AST |
+
+**The FST connection:** Production-quality morphological analyzers (Foma, HFST, the Xerox tools) are literally finite-state transducers. The morpheme composition rules you write are transducer compositions. Context-free morphology (for polysynthetic languages) requires pushdown transducers. The Chomsky hierarchy applies here exactly as in formal language theory.
+
+---
+
 ## Part III: Morphological Typology
 
 Languages differ fundamentally in how morphology works:

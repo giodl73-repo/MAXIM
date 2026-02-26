@@ -268,12 +268,14 @@ Herbert Simon (1971): "A wealth of information creates a poverty of attention." 
 ## Network Effects and Winner-Take-All
 
 ```
-<!-- @editor[bridge/P3]: Network effects section — learner knows Metcalfe's law from MIT networking; worth one line connecting platform network effects to the formal n(n-1)/2 value model -->
   NETWORK EFFECTS: WHY PLATFORMS MONOPOLIZE
   ==========================================
 
-  DIRECT NETWORK EFFECT:
-    Product becomes more valuable as more people use it.
+  DIRECT NETWORK EFFECT (Metcalfe's Law):
+    Value scales as n(n-1)/2 — the number of possible
+    connections in an n-node network. This is why
+    network effects are superlinear: doubling users
+    roughly quadruples connection value.
     Telephone: useless with one user;
                valuable with everyone you know on it.
     Facebook: boring with 10 friends;
@@ -370,6 +372,61 @@ Traditional advertising: buy placement near relevant content (a car ad in a car 
 **Network Effects Don't Guarantee Monopoly Forever**
 Network effects create strong lock-in, but they can be overcome. MySpace had network effects; Facebook replaced it. TikTok grew despite Facebook's network effects. The competitive risk is usually from platforms targeting a different user behavior, not direct competition on the same behavior.
 
-<!-- @editor[bridge/P2]: No explicit old-world bridge section — platform capitalism has deep parallels to the learner's Azure platform knowledge: multisided markets (Azure Marketplace), rent extraction (Azure per-unit pricing), winner-take-all (cloud market consolidation), data moats (Azure telemetry) — a short bridge paragraph would make this immediately concrete -->
+## Engineering Bridge: Platform Mechanics in Cloud and Enterprise
+
+```
+PLATFORM CAPITALISM CONCEPT    ENGINEERING / CLOUD PARALLEL
+===========================    ============================
+
+Multisided market              Azure Marketplace: Microsoft mediates
+(platform mediates two groups) ISV software vendors (one side) and
+                               Azure enterprise customers (other side).
+                               Microsoft extracts transaction fees (20%)
+                               from vendor sales while providing access
+                               to enterprise customer base. Identical
+                               structural logic to Uber (driver/rider)
+                               and Google (advertiser/user).
+
+Rent extraction from           Cloud pricing models: AWS/Azure/GCP
+platform position              charge per-unit consumption (compute,
+                               storage, egress) on top of open-source
+                               software you could run yourself. The
+                               rent is the convenience + integration +
+                               managed service wrapper. Srnicek's
+                               "lean platform" model applied: the
+                               cloud provider owns the infrastructure
+                               and extracts rent from usage while
+                               providers (cloud customers) bear the
+                               build cost of their applications.
+
+Data moats and network effects Azure telemetry: every interaction with
+(data network effects)         Azure services generates usage data that
+                               improves recommendations, security alerts,
+                               capacity planning, and ML model training.
+                               More Azure customers → more telemetry →
+                               better service → more customers. Data
+                               network effect operating at infrastructure
+                               level — exact same mechanism as Google
+                               Search improving with query volume.
+
+Winner-take-all cloud market   AWS + Azure + GCP = ~65% of cloud market.
+                               Classic winner-take-all with indirect
+                               network effects: more services on platform
+                               → more developer familiarity → more
+                               enterprise adoption → more ISV investment
+                               → more services. Each layer strengthens
+                               the others. Same flywheel as App Store.
+
+Vendor lock-in as moat         Proprietary data formats, closed APIs,
+                               and switching costs create the same
+                               structural dependency as social network
+                               lock-in. Azure AD, ADF pipelines,
+                               Power Platform integrations — each
+                               additional integration raises the
+                               switching cost to competitors.
+                               This is Srnicek's "data extraction"
+                               logic applied to enterprise software.
+```
+
 **Attention Economy ≠ Platform Economy**
 Advertising platforms are the clearest case of the attention economy, but not all platforms monetize through attention. AWS monetizes through computing services. Spotify monetizes through subscriptions. The attention economy analysis applies specifically to advertising-funded platforms, though the engagement optimization tendency is broader.

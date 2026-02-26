@@ -247,7 +247,55 @@ MODERNIST FORMAL INNOVATIONS
 
 ---
 
-<!-- @editor[bridge/P2]: No formal-system bridge for postmodern fiction — metafiction and intertextuality map naturally onto self-reference and quining; Borges's Library of Babel is a combinatorics argument; worth making these connections explicit for the TCS reader -->
+## Postmodern Fiction and Formal Systems
+
+The postmodern novel's signature moves — metafiction, self-reference, infinite regress, intertextuality — have precise analogs in computability theory and combinatorics. These are not loose metaphors; the structural relationships are exact.
+
+```
+POSTMODERN FICTION ↔ FORMAL SYSTEMS
+
+METAFICTION ↔ SELF-REFERENCE / QUINING
+  Metafiction: a text that refers to itself as a text.
+  Quine: a program that prints its own source code.
+  Quine (W.V.O. Quine) named the phenomenon in logic
+  (Quining = substituting a quoted description of itself).
+  Calvino's "You are about to begin reading..." is a quine:
+    the text contains a description of the act of reading the text.
+  Hofstadter's analysis in Gödel, Escher, Bach:
+    self-referential "strange loops" produce meaning
+    at a level above the ground-level formal system.
+
+INTERTEXTUALITY ↔ FUNCTION COMPOSITION / LINKING
+  All texts are "woven from other texts" (Kristeva).
+  Formally: a text T is a composition T = f(T1, T2, ... Tn)
+  where T1...Tn are prior texts.
+  Pynchon's Gravity's Rainbow: a function with ~400 arguments.
+  The reader's task: resolve the references (dynamic linking).
+  Unresolvable references = the text's productive opacity.
+
+BORGES'S LIBRARY OF BABEL (1941) — COMBINATORICS
+  The Library contains all books of 410 pages, 40 lines,
+  80 characters per line, from a 25-character alphabet.
+  Size: 25^(410 × 40 × 80) = 25^1,312,000 books.
+  Includes every possible combination: every book ever
+  written, every possible book, infinite gibberish.
+  This is the set of all strings of bounded length over
+  a finite alphabet. Borges constructed an information-
+  theoretic argument in 1941 before Shannon (1948).
+  The Library's "librarians" search for meaningful books
+  = search in an exponential space for a computable function.
+  The diagonal argument: no librarian can catalog the Library
+  from within — an exact analog of incompleteness.
+
+POSTMODERN HISTORIOGRAPHIC METAFICTION ↔ UNDECIDABILITY
+  Linda Hutcheon's "historiographic metafiction": fiction that
+  simultaneously constructs and deconstructs its own historical
+  claims. The text asserts and undermines its truth conditions.
+  Formally: a sentence that is neither provable nor disprovable
+  within the system — Gödelian self-reference applied to the
+  history/fiction boundary.
+```
+
 ## Layer 5: Postmodern Novel
 
 ```
@@ -287,7 +335,65 @@ POSTMODERN FICTION — KEY MOVES
 
 ---
 
-<!-- @editor[content/P2]: The contemporary novel (post-2000) is absent — autofiction (Knausgaard, Ferrante), climate fiction, post-postmodern realism, the global digital novel deserve at least a compressed section -->
+## Layer 5b: The Contemporary Novel (Post-2000)
+
+```
+CONTEMPORARY NOVEL — KEY TENDENCIES (2000–present)
+
+AUTOFICTION:
+  The narrator is identifiably the author, but the text
+  is not claimed as memoir or journalism.
+  The distinction fiction/nonfiction is held in suspension.
+  Karl Ove Knausgård: My Struggle (Min Kamp, 2009-2011)
+    6 volumes, ~3,600 pages, immediate family as named characters.
+    Radical autobiography that is also novelistically constructed.
+  Elena Ferrante: Neapolitan Novels (2011-2014)
+    The author is pseudonymous; the fictional autobiography
+    is dense but the author's identity is deliberately withheld.
+    Autofiction that foregrounds the question of authorial identity.
+  Theoretical framing: autofiction operationalizes Barthes's
+  "Death of the Author" — the "I" is simultaneously the author
+  and a fictional construct.
+
+POST-POSTMODERN REALISM:
+  Reaction against postmodern irony; return to emotional engagement,
+  direct statement, and moral seriousness — but without naive realism.
+  David Foster Wallace called it: "The next real literary rebels in
+  this country might well emerge as some weird bunch of
+  'anti-rebels'... who dare to actually endorse and instantiate
+  single-entendre values."
+  Jonathan Franzen, George Saunders, Zadie Smith: different in style
+  but all attempt to reclaim sincerity without abandoning complexity.
+  In TCS terms: not a return to undecidability; a return to proof-
+  relevant content after a period of proof-irrelevant form games.
+
+CLIMATE FICTION (CLI-FI):
+  Novel as a site for representing climate change — a phenomenon
+  that exceeds individual experience (Amitav Ghosh: "The Great
+  Derangement," 2016: the realist novel's temporality is too short
+  for geological time).
+  Richard Powers: The Overstory (2018) — Pulitzer Prize; trees
+  as characters with deep time POV; narrative structure that mimics
+  forest mycorrhizal networks (parallel plots that connect late).
+  Formal problem: how to represent causality operating at scales
+  (centuries, planetary) that exceed narrative scope.
+
+THE GLOBAL DIGITAL NOVEL:
+  Digital distribution has produced world fiction without the
+  traditional translation gatekeeping. Self-publishing and
+  serial fiction (web novels in China/Japan: Danmei, isekai)
+  have readerships in the hundreds of millions — larger than
+  any Booker or Pulitzer winner — but largely absent from
+  Western literary discussion.
+  Chinese danmei (boys' love romance/fantasy): Mo Dao Zu Shi
+    (The Grandmaster of Demonic Cultivation) — 2015, web serial,
+    adapted to audio drama and animation; global fandom.
+  These forms operate under different constraints: serial
+  publication (weekly chapters), reader feedback loops,
+  genre conventions as hard constraints. More like TV writers'
+  rooms than solitary novel composition.
+```
+
 ## Layer 6: The World Novel
 
 ```

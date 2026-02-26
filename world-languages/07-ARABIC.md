@@ -127,8 +127,40 @@ Adult Arabic text has NO vowel markings. You must know the word.
 
 ---
 
-<!-- @editor[bridge/P1]: Missing [root system] bridge — any developer coming from typed/relational systems needs this: the trilateral root system is essentially a 3-letter primary key with vowel patterns as transforms/views — k-t-b is the "table" and kataba/kitab/maktab are "projections" over it. This is the most powerful concept in the file and deserves an explicit CS bridge. -->
 ## The Trilateral Root System
+
+**The database projection model:** The Arabic trilateral root system is a morphological database. The 3-consonant root is a primary key. Vowel patterns (wazn, pl. awzān) are view definitions — each pattern projects the root through a transform to produce a derived form. Learning a root gives you free access to all its projections; learning a pattern gives you free decoding of any root applied through that pattern.
+
+```
+ROOT = 3-LETTER PRIMARY KEY
+k-t-b (domain: writing, recording)
+
+PATTERN (wazn) = VIEW DEFINITION:
+  CaCaCa    → fʕala pattern → kataba (he wrote) [verb, past active]
+  yaCCuCu   → yafʕulu pattern → yaktūbu (he writes) [verb, present]
+  CiCāC     → fiʕāl pattern → kitāb (book) [noun, instrument/artifact]
+  CiCāCa    → fiʕāla pattern → kitāba (writing) [noun, verbal noun/gerund]
+  CāCiC     → fāʕil pattern → kātib (writer) [active participle, "one who does"]
+  maCCūC    → mafʕūl pattern → maktūb (written) [passive participle]
+  maCCaC    → mafʕal pattern → maktab (office/desk) [noun of place]
+  maCCaCa   → mafʕala pattern → maktaba (library) [noun of place + collective]
+
+QUERY ANALOGY:
+  SELECT verb_past FROM k_t_b_table USING pattern_CaCaCa → kataba
+  SELECT place_noun FROM k_t_b_table USING pattern_maCCaC → maktab
+  SELECT agent_noun FROM k_t_b_table USING pattern_CāCiC → kātib
+
+THE SYSTEMATIC PAYOFF:
+  Roots × Patterns → Arabic lexicon.
+  ~6,000 roots × ~30 productive patterns = exponentially large vocabulary
+  Once you know the pattern, you can DECODE any unknown word:
+    maCCaC = "place of" → madrasa (school, from d-r-s = study)
+                        → masjid (mosque, from s-j-d = prostrate)
+                        → matbakh (kitchen, from t-b-kh = cook)
+    fāʕil = "one who" → dāris (student), kātib (writer), qāriʾ (reader)
+```
+
+**Why this matters for learning:** Arabic vocabulary acquisition is not rote memorization of word-pairs. It is pattern recognition over a root-pattern decomposition. Native Arabic speakers use this system productively — encountering an unknown word, they decompose it into root + pattern and infer the meaning from the semantic domain of the root and the grammatical category of the pattern. Learners who internalize ~10 high-frequency roots × ~10 productive patterns have immediate access to ~100 decodable words and a framework for the rest.
 
 ```
 ARABIC ROOT SYSTEM — the defining feature of Semitic morphology

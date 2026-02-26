@@ -166,7 +166,29 @@ The ICF/ECF gradient is maintained by **Na⁺/K⁺-ATPase** in every cell membra
 
 ---
 
-<!-- @editor[bridge/P2]: No explicit old-world bridge section -- would benefit from dedicated "Engineering Analogies" table mapping body systems to engineering concepts (RAAS = PID controller, nervous = interrupt-driven, endocrine = message queue, immune = IDS/firewall) -->
+## Engineering Analogies: Body Systems as Distributed Architecture
+
+The body is a fault-tolerant, self-organizing distributed system with ~37 trillion nodes. Every organ system maps cleanly to engineering concepts.
+
+| Body System | Engineering Analog | Key Parallel |
+|-------------|-------------------|--------------|
+| Nervous system | Interrupt-driven event bus | Fast, wired, low-latency; reflexes = hardware interrupts bypassing OS; CNS = event loop |
+| Endocrine system | Pub/sub message queue | Slow broadcast via shared medium (bloodstream); subscribers (receptors) filter by topic |
+| Cardiovascular | Dual-loop hydraulic circuit with centrifugal pump | Two series loops; Poiseuille r⁴ scaling = pipe bandwidth; arterioles = flow control valves |
+| Respiratory | pH buffer + gas exchange membrane | Henderson-Hasselbalch as ratio controller; CO₂ = proxy signal for pH regulation |
+| Immune (innate) | Stateless firewall + IDS | Pattern-matching against PAMPs; no memory between sessions; fast but coarse |
+| Immune (adaptive) | ML classifier with online training | Trains on antigens → clonal expansion → memory; secondary response = cached model |
+| Renal | Filter pipeline with active reclamation | 180 L/day filtered, 99.2% reclaimed; GFR autoregulation = two-feedback pressure regulator |
+| Digestive (liver) | Central data hub | Routing (lipoproteins), transformation (detox), storage (glycogen), logging (bilirubin) |
+| RAAS | Cascading PID controller | Renin → Ang I → Ang II → aldosterone: each step amplifies; negative feedback via BP |
+| Bone remodeling | Adaptive resource allocation | Wolff's law: load-bearing remodels structure (Hebbian for bone); osteocytes = sensors |
+| Homeostasis loops | PID control with set point | Sensor → comparator → effector → controlled variable → feedback (see diagram below) |
+
+**Information flow rates** (rough orders of magnitude):
+- Nervous system: ~100 m/s, millisecond latency
+- Endocrine: ~5 L/min blood flow, minutes to hours
+- Paracrine/autocrine: diffusion-limited, micrometers, seconds
+
 ## Systems Integration
 
 No system is isolated. Key coupling axes:

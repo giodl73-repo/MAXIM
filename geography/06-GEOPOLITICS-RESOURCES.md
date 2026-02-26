@@ -59,7 +59,33 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   → Supply management → price floor/ceiling policy
   Tensions: Saudi-Russia relationship (geopolitical rivals + economic partners)
 
-<!-- @editor[bridge/P2]: No systems thinking → resource curse bridge despite obvious parallel — any engineer recognizes Dutch Disease as a feedback loop (revenue → currency → deindustrialization → deeper resource dependency); frame explicitly as positive feedback / lock-in -->
+  BRIDGE — DUTCH DISEASE AS POSITIVE FEEDBACK / LOCK-IN:
+  Resource curse dynamics are a textbook positive feedback loop leading
+  to structural lock-in — the same pattern as platform network effects
+  or path-dependent technology adoption:
+
+  Resource discovery → export revenues surge → currency appreciates
+       ↑                                              ↓
+  Deeper resource            Dutch Disease: manufacturing
+  dependency (few            export prices rise in foreign
+  alternatives exist)        currency → uncompetitive
+       ↑                              ↓
+  Investment flows only      Manufacturing deindustrializes
+  into resources (high        → skills, supply chains, and
+  return sector)              industrial capacity atrophy
+       ↑                              ↓
+  Rentier state: govt         Economic diversification
+  revenues from rents,        becomes progressively harder
+  not taxes → weak            (structural lock-in)
+  accountability
+
+  The lock-in is self-reinforcing: each iteration deepens resource
+  dependency and further degrades alternatives. Breaking out requires
+  external intervention (Norway: sovereign wealth fund sterilizes
+  inflows; Botswana: deliberate industrial policy + institutions).
+  The mechanism is identical to platform lock-in: early lead → network
+  effects → switching costs → dominance becomes self-perpetuating.
+
   RESOURCE CURSE:
   ┌──────────────────────────────────────────────────────────────┐
   │ DUTCH DISEASE: oil revenues → currency appreciation →        │
@@ -182,7 +208,24 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │   China controls flow; downstream drought correlation         │
   └──────────────────────────────────────────────────────────────┘
 
-<!-- @editor[bridge/P3]: Natural bridge to embedded/externalized cost accounting — learner from enterprise engineering background will recognize virtual water as an externality quantification pattern similar to lifecycle analysis (LCA) -->
+  BRIDGE — VIRTUAL WATER AS EXTERNALITY QUANTIFICATION (LCA PATTERN):
+  Virtual water is an embedded cost accounting exercise: it makes the
+  hidden resource consumption visible in traded goods, exactly as
+  lifecycle analysis (LCA) makes embedded energy, carbon, or material
+  costs visible in manufactured products. The parallel is exact —
+  both methods trace inputs through a production chain to assign full
+  cost to the end product rather than the point of extraction. A country
+  that imports 1 kg of beef has "imported" ~15,000 liters of virtual
+  water that it didn't have to extract locally — but the accounting
+  only works if you trace through the full production chain. This is
+  the same calculation as carbon footprint accounting (scope 1/2/3
+  emissions): the externality is real and quantifiable, it's just
+  not priced in market transactions. Water-scarce Saudi Arabia
+  deliberately exploited virtual water logic: import wheat → effectively
+  import the water used to grow it → stop depleting fossil aquifers.
+  The trade-off is food security vs resource depletion — the LCA
+  frame clarifies the substitution.
+
   VIRTUAL WATER (Allan 1993):
   Water embedded in products through production process
   1 kg wheat = ~1000 liters of virtual water
@@ -292,7 +335,74 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   Russia's Fertilizer leverage: Russia + Belarus = ~40% of global potash
     → Sanctions create fertilizer price shock → food production costs globally
 ```
-<!-- @editor[content/P2]: Energy transition geography absent — significant gap; geographic redistribution of energy supply chains (solar belt, wind corridors, hydrogen hubs, grid interconnectors) deserves its own section given the scale of the shift -->
+
+---
+
+## Section 5b: Energy Transition Geography
+
+```
+  THE TRANSITION SUBSTITUTION:
+  Oil/gas geography → Critical mineral geography (Section 4 above)
+  But the GENERATION geography also restructures:
+  Fossil energy: concentrated in specific geologic deposits (Persian Gulf,
+    Permian Basin, Siberian fields) — winner-take-all resource endowment
+  Renewable energy: solar and wind are widely distributed but VARIABLE —
+    the geography of generation shifts to resource quality + land + grid
+
+  SOLAR BELT — HIGH IRRADIANCE GEOGRAPHY:
+  ┌────────────────────────────────────────────────────────────────┐
+  │ Highest solar irradiance (GHI >2000 kWh/m²/yr):               │
+  │ North Africa (Sahara): 2400–2800 kWh/m²/yr — stranded unless  │
+  │   long-distance transmission (EU-Africa cables) or H₂ export   │
+  │ Arabian Peninsula: high solar + cheap land + oil $ → NEOM,     │
+  │   Saudi Green Initiative, UAE utility-scale (Al Dhafra: $0.013/│
+  │   kWh — world record auction price)                            │
+  │ Atacama (Chile/Peru): driest + most solar globally; already     │
+  │   cheapest electricity in world at some hours                  │
+  │ Southwest US: solar + storage buildout in CA/AZ/NV             │
+  │ India (Rajasthan, Gujarat): 220 GW solar target by 2028        │
+  └────────────────────────────────────────────────────────────────┘
+
+  WIND CORRIDORS:
+  Offshore wind: UK North Sea, North Sea (EU), US Atlantic coast,
+    Taiwan Strait — high capacity factor (40–50%+) vs onshore (25–35%)
+  Onshore wind: US Great Plains, Patagonia (Chile/Argentina),
+    North Sea coast, Inner Mongolia (China's wind belt)
+  Constraint: not where wind blows best = where people are
+    → long-distance HVDC (high-voltage direct current) transmission
+    or hydrogen conversion + shipping
+
+  GREEN HYDROGEN GEOGRAPHY:
+  H₂ as energy carrier: convert renewable electricity → H₂ → ship
+    or pipeline to industrial demand centers
+  Viable where: (cheap renewables) + (CO₂ storage or direct use)
+  Leading candidates: Australia (to Japan/Korea), Chile (to Europe),
+    Namibia/Morocco (to EU), Saudi Arabia (NEOM green H₂ city)
+  Problem: H₂ supply chains don't exist yet at scale;
+    cost currently 3–5× natural gas equivalent
+
+  GRID INTERCONNECTORS — THE NEW CHOKEPOINTS:
+  Transmission infrastructure is the analog of pipelines/tanker routes
+  for renewable energy. New geopolitical leverage points:
+  HVDC undersea cables: proposed Morocco-UK (Xlinks, 3.6 GW, 3800 km);
+    Australia-Singapore (AAPowerLink, 4200 km, world's longest)
+  These create sovereign dependencies: cable-landing states gain
+    chokepoint leverage analogous to strait control
+  EU-Africa energy corridors: replacing colonial resource extraction
+    pattern with clean energy export — same geographic asymmetry
+
+  DECARBONIZATION SUPPLY CHAIN GEOGRAPHY:
+  Solar panels: China ~90% of global manufacturing; Xinjiang polysilicon
+    concentrated (forced labor + supply chain risk)
+  Wind turbines: China ~60% of global output; Vestas (Denmark), Siemens
+    Gamesa (Spain), GE (US) serve the remainder
+  Battery manufacturing: China ~75% of global Li-ion cell capacity;
+    Korean (Samsung SDI, LG, SK) and US (Tesla) expanding
+  → Energy transition trades oil dependency (OPEC leverage) for
+    manufacturing dependency (China leverage)
+  → Friendshoring + IRA (US) + EU battery acts attempting diversification;
+    10–15 year timeline to materially alter concentration
+```
 
 ---
 

@@ -10,26 +10,33 @@ something occurs is often as explanatory as WHAT it is. Tobler's First Law:
 "Everything is related to everything else, but near things are more related
 than distant things."
 
-<!-- @editor[diagram/P2]: Diagram lists items but doesn't show how they relate — rework as layered system view showing physical→human feedbacks, scale interactions, and how analytical tools connect to both branches -->
 ```
 +----------------------------------------------------------------------+
-|                    GEOGRAPHY FIELD MAP                                |
+|                    GEOGRAPHY — LAYERED SYSTEM VIEW                   |
 |                                                                      |
-|  PHYSICAL GEOGRAPHY                  HUMAN GEOGRAPHY                 |
-|  ──────────────────                  ──────────────                  |
-|  Geomorphology (landforms)           Population + Urban              |
-|  Climatology (patterns)              Economic geography              |
-|  Biogeography (species)              Political geography             |
-|  Hydrology (water)                   Cultural geography              |
-|  Pedology (soils)                    Historical geography            |
-|  Oceanography (seas)                                                  |
+|  PHYSICAL SUBSTRATE (internal + external Earth processes)            |
+|  ─────────────────────────────────────────────────────              |
+|  Tectonics/Climate/Soils/Hydrology/Biogeography/Oceanography        |
+|          │                    │                                      |
+|          │  feedbacks:        │  feedbacks:                          |
+|          │  deforestation     │  irrigation salinization             |
+|          │  → erosion,        │  → soil loss; urbanization          |
+|          │  CO₂ → warming     │  → flood risk                       |
+|          ▼                    ▼                                      |
+|  HUMAN GEOGRAPHY (overlaid on, and reshaping, the substrate)        |
+|  ─────────────────────────────────────────────────────              |
+|  Population + Urban │ Economic geography │ Political geography       |
+|  Cultural geography │ Historical geography                           |
 |                                                                      |
-|  INTEGRATING FRAMEWORKS              ANALYTICAL TOOLS                |
-|  ─────────────────────               ─────────────────               |
-|  Geographic determinism              GIS + Remote Sensing            |
-|  Possibilism                         Spatial autocorrelation         |
-|  World-systems theory                MAUP (scale effects)            |
-|  Geopolitics                         Satellite/NDVI data             |
+|  ANALYTICAL TOOLCHAIN                                               |
+|  ──────────────────                                                  |
+|  SCALE: local ──────────────────────────────────── global           |
+|         (parcel) (neighborhood) (city) (region) (planet)            |
+|  GIS/PostGIS: spatial queries on vector + raster layers             |
+|  Remote sensing: image ML pipeline over multispectral data          |
+|  Spatial stats: Moran's I, Kriging, hot-spot analysis               |
+|  MAUP: results change as aggregation unit changes                   |
+|  → connects physical measurements to human patterns                 |
 +----------------------------------------------------------------------+
 ```
 
@@ -67,8 +74,14 @@ than distant things."
   Same underlying data → different conclusions depending on:
   • Scale: county vs state vs region level analysis
   • Aggregation: which units are combined
-  Gerrymandering exploits MAUP deliberately
-<!-- @editor[bridge/P3]: Natural bridge to apportionment/redistricting algorithms — learner has deep background in this area from Gerry project -->
+  Gerrymandering exploits MAUP deliberately — district boundaries
+  are chosen to produce desired electoral outcomes by controlling
+  which units are aggregated. The computational problem (optimize
+  boundary placement to achieve a target outcome) is NP-hard in the
+  general case; the legal constraint (compactness measures, equal
+  population) bounds the feasible solution space. Algorithmic
+  redistricting (shortest-splitline, Markov chain ensemble methods)
+  attempts to remove human discretion from the aggregation choice.
 
   HUMAN-ENVIRONMENT INTERACTION:
   The reciprocal relationship between humans and environment:
@@ -176,34 +189,75 @@ than distant things."
 ## Section 4: Spatial Analysis Tools
 
 ```
-<!-- @editor[content/P2]: Section is thin — GIS deserves mention of spatial databases (PostGIS), cloud-native formats (COG, Zarr), and the developer toolchain (GDAL, Shapely, GeoPandas) for this audience -->
-  GIS (Geographic Information Systems):
-  Software: ArcGIS (ESRI), QGIS (open source), Google Earth Engine
-  Layers: vector (points/lines/polygons) + raster (grid cells)
-  Operations: overlay analysis, buffer, interpolation, network analysis
-  Applications: disease mapping, supply chain, electoral analysis,
-                urban planning, climate vulnerability
+  GIS (Geographic Information Systems) — the spatial database stack:
+  Conceptually: a spatial RDBMS with geometry types + spatial indexes
+  PostGIS: spatial extension to PostgreSQL; ST_Within, ST_Intersects,
+           ST_Buffer, ST_Distance — SQL over geometry; R-tree indexes
+  QGIS: open-source desktop GIS (ArcGIS ESRI is the commercial equiv.)
+  Google Earth Engine: planetary-scale raster compute (serverless)
+  Layers: vector (points/lines/polygons with attributes) +
+          raster (georeferenced grid; pixel = value at location)
+  Core operations: spatial join, overlay, buffer, dissolve, network analysis
 
-  REMOTE SENSING:
-  Satellite imagery (Landsat, Sentinel, commercial: Planet)
-  NDVI: Normalized Difference Vegetation Index = (NIR - Red)/(NIR + Red)
-  → 0-1 scale; tropical forest ~0.7, bare soil ~0.1
-  Applications: land cover change, deforestation detection, crop yield
-                estimation, urban heat island mapping, flood extent
+  DEVELOPER TOOLCHAIN (Python spatial stack):
+  GDAL: the foundational C++ library; reads/writes 200+ vector + raster
+        formats; everything else depends on it
+  Shapely: geometric operations in Python (union, intersection, difference)
+  GeoPandas: GeoDataFrame = pandas DataFrame + geometry column + CRS
+             → spatial joins, dissolve, overlay as DataFrame ops
+  Rasterio: Python GDAL wrapper for raster I/O + windowed reads
+  Pyproj: coordinate reference system transforms (PROJ under the hood)
 
-  SPATIAL STATISTICS:
-  Moran's I: measures spatial autocorrelation (-1 to +1)
-  Kriging: geostatistical interpolation using variogram
-  Hot spot analysis (Getis-Ord Gi*): identifies spatial clusters
-  Spatial regression: accounts for spatial dependencies
+  CLOUD-NATIVE SPATIAL FORMATS:
+  COG (Cloud-Optimized GeoTIFF): tiled + overviewed raster; HTTP range
+    requests enable reading subregions without downloading full file
+  Zarr: N-dimensional array store; replaces NetCDF for climate model data;
+    chunked + compressed; S3-native; xarray reads it like an array
+  GeoParquet: columnar vector format; geometry as WKB in Parquet column;
+    spatial predicate pushdown in DuckDB / Spark
 
-  CARTOGRAPHIC PROJECTIONS:
-  All projections distort at least one of: shape/area/distance/direction
-  Mercator: preserves shape (conformal); greatly distorts area at poles
-  → Greenland appears same size as Africa (actually 1/14th the area)
-  Peters/Gall-Peters: equal area; distorts shape
-  Robinson: compromise (both distorted moderately)
-  For data visualization: choose projection that matches analytic need
+  REMOTE SENSING (image ML pipeline framing):
+  Input: multispectral satellite imagery (Landsat 8: 11 bands; Sentinel-2: 13)
+  Band math: NDVI = (NIR - Red)/(NIR + Red) → vegetation index
+             NDWI = (Green - NIR)/(Green + NIR) → water extent
+  Pipeline: ingest COG → cloud-mask → composite → classification → change detection
+  Google Earth Engine executes this over petabytes server-side
+  Supervised classification: pixel-wise ML (RF, SVM, CNN) on band values
+  Applications: land cover mapping, deforestation alerts, crop yield,
+                flood extent, urban expansion, glacier retreat
+
+  SPATIAL STATISTICS (graph signal processing framing):
+  Tobler's Law = spatial autocorrelation assumption: adjacent nodes
+    in the spatial graph tend to have correlated values
+  Moran's I: global spatial autocorrelation statistic (-1 to +1);
+    analogous to signal autocorrelation coefficient in time series
+  Kriging: geostatistical interpolation; fits a variogram (covariance
+    function of distance) then uses it as a spatial kernel for
+    Gaussian process regression — interpolation with uncertainty bounds
+  Getis-Ord Gi*: local statistic identifying spatial clusters (hot spots)
+    vs dispersed cold spots; Z-score per feature
+  Spatial regression: OLS with spatially correlated residuals violates
+    independence; spatial lag model (Moran's I correction) or spatial
+    error model handles the dependence structure
+
+  CARTOGRAPHIC PROJECTIONS (coordinate transforms):
+  All map projections are bijective transforms from ellipsoidal (lat/lon)
+    to planar coordinates; all distort at least one of: shape/area/distance
+  Mercator: conformal (preserves angles/shapes locally); area distortion
+    extreme at poles; Greenland appears same size as Africa (1/14th actual)
+  Gall-Peters: equal-area; shape distorted; political statement (global south)
+  Robinson/Winkel Tripel: compromise projections for world maps
+  UTM (Universal Transverse Mercator): 60 zones × 6°; nearly conformal
+    within each zone; what most local GIS work uses
+  For data viz: use equal-area projections for choropleth; conformal for
+    navigation; match projection to the decision being made
+
+  MAUP → SPATIAL AGGREGATION:
+  Statistical results are not projection-invariant to aggregation unit.
+  Same data → different conclusions at county vs state vs census tract.
+  This is the same as choosing bin widths in a histogram, but in 2D.
+  Solutions: multi-scale analysis, dasymetric mapping (weight by ancillary
+    data), areal interpolation (transfer values across mismatched units)
 ```
 
 ---

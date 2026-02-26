@@ -219,7 +219,18 @@ CUMULATIVE RISK:
   EJ populations: PM2.5 + lead + noise + stress + food desert + heat
 ```
 
-<!-- @editor[bridge/P2]: No old-world bridge — dose-response modeling and LNT vs. threshold parallels safety margin engineering; exposure assessment chain (source-transport-dose-effect) maps to fault propagation analysis in systems engineering -->
+## Systems Thinking Bridges
+
+| Environmental health concept | Systems / CS analogue |
+|---|---|
+| Exposure assessment chain (source → transport → dose → effect) | Fault propagation analysis: source emits a defect, transport medium carries it (network, atmosphere, water), dose is what reaches the receptor, effect is the downstream outcome — the chain is a causal DAG for tracing harm from origin to endpoint |
+| Linear no-threshold (LNT) dose-response | Conservative safety margin design: LNT assumes no safe threshold below which risk is zero; same as assuming a security vulnerability exists at all exposure levels with no safe operating region — the regulatory choice reflects risk aversion when evidence is insufficient to identify a threshold |
+| NOAEL → uncertainty factors → reference dose (RfD) | Safety factor engineering: NOAEL from animal studies ÷ 10 (animal-to-human extrapolation) ÷ 10 (population variability) ÷ additional factors = RfD; the cascaded safety factors mirror design safety margins in structural or electrical engineering |
+| Cumulative risk (EJ populations: multiple simultaneous exposures) | Composability of failure modes: independent stressors (PM2.5 + lead + noise + heat + food insecurity) interact non-linearly; total health burden exceeds sum of individual exposures analyzed separately — analogous to how independent service degradations compound in a distributed system under correlated failures |
+| PAR (population attributable risk) | Fraction of failures attributable to a cause: PAR = (risk_exposed − risk_unexposed) × prevalence / total risk; the fraction of cases that would disappear if exposure were eliminated — the same counterfactual reasoning as dependency attribution in root cause analysis |
+| Ecological fallacy in environmental epidemiology | Multi-level modeling error: county-level pollution correlates with health outcomes, but individuals within a county have heterogeneous exposures; aggregate-level correlation ≠ individual-level causation — the same reason you cannot infer user experience from server-side metrics without joining to user-level data |
+| Dose-response threshold (non-carcinogens) | Fault tolerance with graceful degradation: below a threshold, biological repair mechanisms keep pace with damage; above it, cumulative harm exceeds repair — analogous to a circuit breaker that tolerates low error rates but trips above a threshold to prevent cascade failure |
+
 ## Decision Cheat Sheet
 
 | Environmental health question | Tool/approach |

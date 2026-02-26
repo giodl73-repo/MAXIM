@@ -149,8 +149,7 @@ FAMOUS MARGRAVES:
 
 A count with jurisdiction over a "land" — a large territorial unit — rather than a single county. Imperial immediacy (answers to emperor, not to intermediate lord).
 
-<!-- @editor[audience/P3]: "CK2 territory" references a video game — rephrase in historical terms -->
-**Landgraviate of Thuringia**: Crucial CK2 territory in central Germany. Passed through the Ludowingians, then to Wettin (the same family as Saxony). Famous as the place Luther would eventually be sheltered (Wartburg Castle).
+**Landgraviate of Thuringia**: The most contested central German territory — where dynastic succession, religious conflict, and strategic geography converged. Passed through the Ludowingians, then to Wettin (the same family as Saxony). Famous as the place Luther would eventually be sheltered (Wartburg Castle).
 
 **Landgraviate of Hesse**: Split from Thuringia 1264. Becomes important in Reformation era.
 
@@ -214,7 +213,48 @@ REALITY: Habsburgs held the title almost continuously 1438–1806
 ---
 
 ### Non-Western Titles
-<!-- @editor[content/P2]: East Asian imperial titles (Huangdi, Tenno, Wang) appear in the equivalence table but have no individual entries — add brief entries to match Western/Islamic coverage -->
+
+### Huangdi (皇帝 — Emperor of China)
+
+The supreme title of Chinese imperial rule, combining cosmic, administrative, and ritual authority. Adopted by Qin Shi Huang in 221 BCE upon unifying the Warring States — a deliberate break from the Zhou "Wang" system. The character "huang" (august/brilliant) plus "di" (divine ruler/ancestor) signaled a new political ontology: the emperor as son of Heaven (tianzi), mediating between the cosmic order and the human realm.
+
+```
+IMPERIAL AUTHORITY STRUCTURE:
+  Heaven (Tian) — cosmic order
+       ↓ Mandate of Heaven (Tianming)
+  Emperor (Huangdi) — son of Heaven, ruler of All under Heaven
+       ↓ Bureaucratic delegation
+  Ministries → Prefectures → Counties
+  (no feudal intermediaries in the mature system)
+
+KEY CONTRAST WITH WESTERN MODEL:
+  Western: feudal pyramid, personal loyalty chains
+  Chinese: bureaucratic meritocracy (in theory)
+           emperor as cosmic pivot, not just military chief
+  Examination system (605 CE onward under Sui/Tang):
+  Officials recruited by test, not birth → different legitimacy base
+```
+
+### Tenno (天皇 — Heavenly Sovereign, Japan)
+
+Japan's imperial title, introduced ~late 7th century CE under Emperor Tenmu to assert parity with China's Huangdi. Literally "heavenly sovereign" — the emperor as earthly manifestation of Amaterasu (the sun goddess). Unique feature: the imperial line never formally changed dynasty, maintaining continuity (in name if not always in power) from legendary antiquity to the present.
+
+```
+JAPANESE DUAL-POWER STRUCTURE:
+  Tenno (Emperor): sacred legitimacy, ritual functions
+       ↓ appointed (increasingly ceremonial)
+  Shogun (general): actual military/administrative power
+       ↓ from 1192 (Minamoto Yoritomo at Kamakura)
+  Daimyo: regional lords → samurai retinues
+
+CONTRAST: The emperor never lost title even when powerless
+  Cf. Byzantine emperor: deposed frequently by generals
+  Japanese emperor: undeposed, but real power delegated upward
+```
+
+### Wang (王 — King, China and Korea)
+
+Below Huangdi in the Chinese system. Princes of the imperial family received Wang titles. Vassal rulers (Korea's Goryeo kings, Vietnamese rulers) used Wang when acknowledging Chinese suzerainty — a deliberate subordination signal. When a ruler declared himself Huangdi rather than Wang, it was an assertion of independence from Chinese suzerainty (e.g., Vietnamese rulers internally styled themselves emperor while acknowledging Chinese Wang status diplomatically).
 
 ### Sultan (Arabic: سلطان)
 

@@ -350,7 +350,72 @@ CORPORATE EQUIVALENTS:
 
 ---
 
-<!-- @editor[content/P2]: Frank Luntz absent — Lakoff's counterpart on the conservative side; his "Words That Work" (2007) and the "death tax" / "estate tax" reframing is the most concrete illustration of competitive frame-setting and would balance the Lakoff-heavy presentation -->
+## Layer 3b: Frank Luntz — Competitive Frame-Setting
+
+Lakoff's counterpart on the conservative side. While Lakoff works as an academic theorist, Luntz is a practitioner — a pollster and messaging consultant who has shaped the vocabulary of American conservatism since the 1990s.
+
+```
+FRANK LUNTZ — "WORDS THAT WORK" (2007)
+
+CORE METHODOLOGY:
+  Luntz uses focus groups and polling to find the formulation
+  of a position that produces the strongest response.
+  He tests multiple phrasings of the same policy and measures
+  emotional resonance, not just agreement.
+  The result: a vocabulary guide for a political position
+  that maximizes persuasion with target audiences.
+
+KEY REFRAMINGS (Luntz's most-cited examples):
+
+"DEATH TAX" vs. "ESTATE TAX":
+  Both describe the same policy (federal tax on inherited estates).
+  "Estate tax": procedural, institutional framing.
+  "Death tax": two loaded elements:
+    "Death": makes the tax apply at the worst moment.
+    "Tax": always negatively valenced in conservative framing.
+  Effect: "death tax" framing increased opposition to estate tax
+  repeal by significant margins in polling, even among people
+  who would not pay it (estates below the exemption threshold).
+  This is Lakoff's framing theory in pure practice form.
+
+"CLIMATE CHANGE" vs. "GLOBAL WARMING":
+  Luntz advised (2002 memo) using "climate change" rather than
+  "global warming": "While 'global warming' has catastrophic
+  connotations attached to it, 'climate change' sounds a more
+  controllable and less emotional challenge."
+  The memo was eventually leaked; the deliberate substitution
+  became itself a rhetorical issue.
+  Note: the substitution has since been inverted — "global warming"
+  is now sometimes preferred by activists for precisely the
+  emotional force Luntz wanted to eliminate.
+
+"ENERGY EXPLORATION" vs. "DRILLING":
+  The active agent framing ("exploration") vs. the mechanical
+  operation framing ("drilling") — same activity, different connotation.
+
+FRAME COMPETITION IN PRACTICE:
+  The estate tax example shows that framing is competitive.
+  "Estate tax" advocates tried "Paris Hilton tax" as a counter-frame
+  (reframe: only the very wealthy pay this).
+  Both sides are doing the same thing: selecting the frame that
+  activates the desired inference chain in the target audience.
+
+LUNTZ'S OWN PRINCIPLE:
+  "It's not what you say, it's what people hear."
+  This is Grice's cooperative principle's complement:
+  the speaker's intention is irrelevant; the listener's
+  interpretation is the rhetorical event.
+
+RELATION TO LAKOFF:
+  Lakoff (Moral Politics, Don't Think of an Elephant!):
+    Academic; descriptive; left-leaning application.
+    Argues that conservatives have been better at framing.
+  Luntz (Words That Work): practitioner; prescriptive;
+    conservative application.
+  They are using the same underlying model of how language
+  works in political persuasion. The model is correct;
+  the applications differ.
+```
 
 ## Layer 4: Chomsky/Herman — Manufacturing Consent
 
@@ -465,7 +530,8 @@ The rhetorical effect of coded language operates regardless of intent. A speaker
 **Propaganda techniques are neutral as analytical categories**
 Bandwagon, testimonial, fear appeal — these describe what works, not just what is deceptive. A legitimate public health campaign uses fear appeals. A respected expert giving a testimonial for their genuine area of expertise is legitimate. The manipulative versions are when the technique is used to exploit rather than to inform.
 
-<!-- @editor[audience/P3]: The corporate equivalents for dog whistles ("culture fit," "meritocracy") read as editorial commentary rather than analytical reference — the learner is at VP level inside a major tech company and will encounter these terms daily; frame as "terms with contested pragmatic force" rather than implying the reader needs consciousness-raising -->
+**Terms with contested pragmatic force in organizational contexts**
+Certain terms carry different pragmatic force for different audiences depending on their context, history, and the speaker's position. "Culture fit" activates the in-group frame for some listeners (shared values, team cohesion) and the exclusion frame for others (rejection of difference, rationalizing bias). "Meritocracy" similarly activates either the just-rewards frame or the legitimation-of-existing-hierarchy frame depending on the listener's position and the organization's track record. Neither term is inherently coded; both have become contested in contemporary organizations. The rhetorical analysis (not the political analysis): using either term in contexts where its contested pragmatic force is likely to activate requires either explicit disambiguation or deliberate avoidance. This is not a question of intent — it is a question of effect on diverse audiences.
 
 **Kairos is a skill, not luck**
 The ability to recognize and seize the rhetorical moment is a trainable skill, not mere improvisation. Lincoln had been refining the Gettysburg Address's ideas for years; the 272-word version was a distillation. MLK had preached the "dream" imagery before; what he recognized at the March on Washington was the moment when the audience was ready for it. Preparation enables kairos; it does not precede it.

@@ -11,28 +11,52 @@ ultraproducts — that have applications across mathematics.
 +-------------------------------------------------------------------+
 |                    MODEL THEORY LANDSCAPE                         |
 |                                                                   |
-|  CORE MACHINERY              FUNDAMENTAL THEOREMS                 |
-|  +--------------------+      +----------------------------+       |
-|  | Signatures         |      | Completeness (Godel 1929)  |       |
-|  | Structures         |      | Compactness               |       |
-|  | Theories           |      | Lowenheim-Skolem (down)   |       |
-|  | Satisfiability     |      | Upward LS (Skolem 1922)   |       |
-|  | Validity           |      | Craig Interpolation       |       |
-|  | Elementary equiv.  |      | Beth Definability         |       |
-|  +--------------------+      +----------------------------+       |
-|                                                                   |
-|  THEORY CLASSIFICATION       ULTRAPRODUCTS                        |
-|  +--------------------+      +----------------------------+       |
-|  | Complete theories  |      | Ultrafilter               |       |
-|  | Categorical theories      | Ultraproduct M^omega/U    |       |
-|  | Model-complete    |      | Los's theorem             |       |
-|  | Quantifier elim.  |      | Non-standard models        |       |
-|  +--------------------+      +----------------------------+       |
-|                                                                   |
+|  CORE MACHINERY                                                   |
+|  +--------------------+                                           |
+|  | Signatures         |  ← defines the language                  |
+|  | Structures         |  ← give meaning to the language          |
+|  | Theories           |  ← sets of sentences true in a class     |
+|  | Satisfiability     |                                           |
+|  | Elementary equiv.  |  ← same theory (same FOL sentences)      |
+|  +--------------------+                                           |
+|           |                                                       |
+|           | (core machinery feeds)                                |
+|           v                                                       |
+|  FUNDAMENTAL THEOREMS                                             |
+|  +------------------------------------------------------------+   |
+|  | Completeness (Godel 1929): T consistent → T has a model   |   |
+|  |   ↓ immediate consequence                                  |   |
+|  | Compactness: T has a model iff every finite subset does    |   |
+|  |   ← also proved directly via Ultraproducts (Los's thm)    |   |
+|  |                                                            |   |
+|  | Lowenheim-Skolem (down): infinite model → countable model  |   |
+|  | Upward LS (Skolem 1922): model of size κ → model any λ≥κ  |   |
+|  |   → Together: FOL cannot pin down cardinality              |   |
+|  |                                                            |   |
+|  | Craig Interpolation: proved via cut elimination            |   |
+|  | Beth Definability: follows from Craig Interpolation        |   |
+|  +------------------------------------------------------------+   |
+|           |                                                       |
+|           | (theorems enable)                                     |
+|           v                                                       |
+|  THEORY CLASSIFICATION          ULTRAPRODUCTS                     |
+|  +--------------------+         +-----------------------------+   |
+|  | Complete theories  |         | Ultrafilter (needs AC)      |   |
+|  | κ-Categorical      |         | Ultraproduct M^I/U          |   |
+|  | Model-complete    |←─ QE ──→| Los's theorem               |   |
+|  | Quantifier elim.  |         |   → proves Compactness       |   |
+|  +--------------------+         |   → non-standard models     |   |
+|           |                     +-----------------------------+   |
+|           | (classification gives)                                |
+|           v                                                       |
 |  APPLICATIONS                                                     |
 |  +-----------------------------------------------------------+    |
-|  | Non-standard analysis  Algebraically closed fields       |    |
-|  | Tarski: real closed fields  SMT theories  O-minimality   |    |
+|  | RCF (Tarski): QE → decidable real closed fields          |    |
+|  | ACF (algebraically closed): QE → decidable; Nullstellensatz|   |
+|  | DLO: QE → complete, decidable; ω-categorical              |    |
+|  | Non-standard analysis: ultrapowers of R → infinitesimals  |    |
+|  | SMT theories: each background theory uses QE or Nelson-Op |    |
+|  | O-minimality: tame topology from ordered field structure   |    |
 |  +-----------------------------------------------------------+    |
 +-------------------------------------------------------------------+
 ```

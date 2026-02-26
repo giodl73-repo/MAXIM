@@ -327,7 +327,29 @@ Popper is the foil and interlocutor Kuhn most directly challenges.
 
 ---
 
-<!-- @editor[bridge/P1]: Missing paradigm-shift bridge to software — Kuhn's normal science / revolution cycle maps to platform transitions (mainframe->client-server->web->cloud->AI), framework churn, and breaking-change migrations. Any senior engineer coming from long platform tenures needs this anchor -->
+## Engineering Bridge: Paradigm Shifts in Platform Transitions
+
+Kuhn's model is the most accurate description of how the software industry actually changes — not through gradual accumulation but through punctuated transitions where the old guard resists and the revolution is driven by newcomers:
+
+**Normal science → anomalies → crisis → revolution** in software:
+
+| Phase | Scientific Example | Platform Transition Example |
+|-------|-------------------|----------------------------|
+| Normal science | Ptolemaic astronomy; puzzle-solving within the paradigm | COBOL/mainframe: transactions, batch jobs, JCL scripts — all solvable within the paradigm |
+| Anomalies accumulate | Orbital precession calculations don't quite fit | Web scale, user growth, 24/7 availability — mainframe paradigm strains but teams add auxiliary hypotheses (bigger boxes, more batch windows) |
+| Crisis | Geocentric model requires ever more complex epicycles | The auxiliary hypotheses (add more RAM, tune the DB) stop working; incident rate rises; nobody knows how to scale further |
+| Revolution | Copernican heliocentric model + Galileo's telescope | Client-server → web → cloud-native: the new paradigm doesn't just solve the old problems differently, it reframes which problems matter |
+| Incommensurability | "Mass" means different things in Newtonian vs. Einsteinian physics | "Transaction" in a COBOL system vs. a distributed microservices system is not the same concept; ACID semantics do not translate to eventual consistency — the vocabularies are incommensurable |
+
+**Major platform paradigm shifts (each incommensurable with the last):**
+- Mainframe → client-server (1980s): terminal I/O → distributed state
+- Client-server → web (1995-2000): fat client → stateless HTTP
+- Web → cloud-native (2006-2015): pets → cattle; manual provisioning → IaC
+- Cloud-native → AI-augmented (2020s): deterministic logic → probabilistic inference
+
+**Kuhn's observation that revolutions are led by newcomers, not established practitioners**: every major platform transition saw established engineers resisting (client-server engineers who thought web was a toy; web engineers who thought mobile was peripheral; on-prem engineers who thought cloud was insecure). The paradigm entails tacit knowledge — decades of expertise that becomes a liability at the break.
+
+**Incommensurability in breaking API changes**: a v1 API and a v2 API that share an endpoint name but have different semantics exhibit Kuhnian incommensurability. Translation is possible but imperfect — you can write an adapter, but you cannot write a lossless one. The semantic shift is real, not just syntactic.
 
 ## Decision Cheat Sheet
 
@@ -361,7 +383,33 @@ loosely for "worldview" or "framework" in ordinary speech. In precision use, ref
 Kuhn's later "exemplar" (paradigm = model problem-solution) or "disciplinary matrix"
 (paradigm = community's shared beliefs and techniques).
 
-<!-- @editor[bridge/P2]: Lakatos's progressive vs. degenerative research programmes parallel progressive vs. legacy codebases — protective belt = adapter layers, hard core = architecture invariants. Natural bridge missing -->
+## Engineering Bridge: Lakatos's Research Programmes as Codebase Trajectories
+
+Lakatos's model is more useful than Kuhn's for evaluating active engineering decisions, because it provides a prospective criterion (progressive vs. degenerating) rather than just a retrospective description of revolution.
+
+```
+  SCIENTIFIC RESEARCH PROGRAMME         CODEBASE / ARCHITECTURAL PROGRAMME
+  ─────────────────────────────         ──────────────────────────────────
+  Hard core                             Architectural invariants: the core
+  (Newton's laws — not negotiable)      assumptions you will not abandon
+                                        (e.g., "all state in Postgres,"
+                                        "event-sourced writes," "REST-only API")
+
+  Protective belt                       Adapter and shim layers: the code that
+  (auxiliary hypotheses absorbing       absorbs anomalies without touching the
+  anomalies)                            core (caching layers, retry wrappers,
+                                        compatibility shims, feature flags)
+
+  Positive heuristic                    The architectural roadmap: the intended
+  (programme's research agenda)         direction for the next N quarters
+```
+
+**Progressive programme**: each modification to the protective belt predicts new capabilities that are then confirmed. The system handles more load, more complexity, with decreasing marginal cost per feature. Velocity stays high; the architecture compounds.
+
+**Degenerating programme**: each modification is ad hoc. The shim layer grows; the core is more and more insulated from reality by workarounds. Velocity drops; each new feature requires understanding an increasingly baroque protective belt. The "technical debt" framing is exactly Lakatos's degenerating programme.
+
+**The key Lakatosian insight for engineering decisions**: the question is not "does this modification fix the bug?" (that's too local) but "does this modification increase or decrease the programme's predictive scope?" A caching layer that merely hides a slow query is a degenerative move; a caching layer that enables a new class of real-time features is progressive.
+
 **Lakatos's programmes are retrospective.**
 You can only call a programme "progressive" or "degenerative" in retrospect.
 At the time, you cannot always tell whether auxiliary hypothesis modifications are

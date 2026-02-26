@@ -301,7 +301,6 @@ FAMOUS TRANSLATION DEBATES
 
 ---
 
-<!-- @editor[content/P2]: [Tool/version/API] may be outdated — LLM-based translation (GPT-4, Claude) has significantly shifted the MT landscape since 2023; the section stops at seq2seq/Transformer era and doesn't address prompt-based translation, few-shot literary translation, or human-AI collaborative workflows -->
 ## Layer 5: Machine Translation
 
 ```
@@ -351,6 +350,46 @@ Venuti's critique applies perfectly to NMT:
   The translator is maximally invisible.
   The foreignness is maximally erased.
   The model's training objective IS domestication.
+
+LLM-BASED TRANSLATION (2023–present):
+  Large language models (GPT-4, Claude, Gemini) have changed
+  the MT landscape significantly beyond seq2seq/Transformer NMT.
+
+  What LLMs add over NMT:
+    Prompt-controllable register: "translate formally / informally /
+      in the style of Hemingway" — the model can follow
+      metalinguistic instructions about the translation.
+    Few-shot literary translation: provide 3-5 example sentences
+      of a target style; the model generalizes the style pattern.
+    Explanatory mode: ask the model to explain its translation choices,
+      producing a running commentary alongside the translation.
+    Cultural adaptation: LLMs have broad cultural knowledge and can
+      flag culturally-specific references rather than silently adapting.
+
+  What LLMs do NOT solve:
+    The domestication problem persists: the model's training data is
+    overwhelmingly fluent English text, so its default output is fluent
+    English regardless of the source's register or strangeness.
+    Source-language "grain" is still systematically erased.
+    Untranslatable words: the model picks a translation, confidently.
+    Literary ambiguity: the model resolves ambiguity rather than
+      preserving it (its training objective optimizes single-valued output).
+    Hallucination: for less-resourced language pairs, LLMs fabricate
+      plausible-sounding translations with less reliable accuracy than NMT.
+
+  Human-AI collaborative workflows (emerging practice):
+    1. LLM produces first draft (speed > quality)
+    2. Human translator edits for register, grain, cultural accuracy
+    3. LLM revises to match human's corrections (few-shot within context)
+    4. Human provides final review
+    This post-editing workflow is already industry-standard for
+    technical translation; its extension to literary translation
+    is actively debated (see Edith Grossman: "translation is an art").
+
+  The key theoretical question: does human-AI collaboration
+  constitute a new translation philosophy (a third position between
+  foreignization and domestication) or does it simply accelerate
+  domestication at scale?
 ```
 
 ---

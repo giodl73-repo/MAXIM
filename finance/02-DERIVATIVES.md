@@ -6,22 +6,43 @@ Derivatives are contracts whose value derives from an underlying asset (stock, b
 commodity, interest rate, index). The mathematics is stochastic calculus — Brownian
 motion, Itô's lemma, and the risk-neutral pricing measure.
 
-<!-- @editor[diagram/P2]: Diagram lists derivative categories in stacked boxes but doesn't show relationships — e.g., how forwards underpin futures, how swaps decompose into forward contracts, how exotics build on vanilla options -->
 ```
-DERIVATIVE LANDSCAPE:
-  ┌───────────────────────────────────────────────────────────────┐
-  │  FORWARDS/FUTURES: obligation to buy/sell at future price     │
-  │  LINEAR payoff: V = S_T - K  (long forward on S at strike K) │
-  ├───────────────────────────────────────────────────────────────┤
-  │  OPTIONS: right (not obligation) to buy/sell                  │
-  │  NONLINEAR payoff: V = max(S_T - K, 0)  (call option)        │
-  ├───────────────────────────────────────────────────────────────┤
-  │  SWAPS: exchange of cashflow streams (fixed ↔ floating rate)  │
-  │  OTC bilateral; notional can be huge                          │
-  ├───────────────────────────────────────────────────────────────┤
-  │  EXOTICS: path-dependent, barrier, Asian, lookback, digital   │
-  │  Structured products: CLOs, CDOs, synthetic CDOs              │
-  └───────────────────────────────────────────────────────────────┘
+DERIVATIVE LANDSCAPE — STRUCTURAL RELATIONSHIPS:
+
+FORWARDS (atomic building block):
+  Agreement to exchange S for K at T. Linear payoff: V = S_T − K.
+  Value today: V_0 = (F − K)e^{-rT}   where F = S_0 e^{(r-q)T}
+        │
+        ├─→ FUTURES: standardized forward + daily mark-to-market (margin)
+        │    Economically identical if rates non-stochastic
+        │
+        └─→ SWAPS: portfolio of forwards at successive dates
+               Interest rate swap = series of forward rate agreements (FRAs)
+               Currency swap = series of FX forwards
+               CDS = forward on default event
+
+OPTIONS (adds optionality to the linear payoff):
+  Payoff: max(S_T − K, 0)  (call) or max(K − S_T, 0)  (put)
+  Black-Scholes prices European options in closed form
+        │
+        ├─→ AMERICAN OPTIONS: European + early exercise premium
+        │    No closed form; priced by binomial tree or LSM Monte Carlo
+        │
+        ├─→ VANILLA PORTFOLIO: straddles, strangles, spreads, collars
+        │    All built from puts + calls; model-free relationships (put-call parity)
+        │
+        └─→ EXOTICS (build additional structure on vanilla options):
+               Path-dependent: Asian (avg price), Lookback (max/min), Barrier (knock-in/out)
+               Digital/binary: cash-or-nothing, asset-or-nothing
+               Compound options: option on an option
+               Quanto: payoff in different currency from underlying
+               Volatility products: variance swaps, VIX futures
+
+STRUCTURED PRODUCTS (combine multiple instruments):
+  CLO = securitization of leveraged loans; tranching redistributes credit risk
+  CDO = securitization of bonds/CDS; tranches ranked by seniority
+  Synthetic CDO = CDO referencing CDS instead of bonds (no actual loans needed)
+  MBS = securitization of mortgage pool (see 03-FIXED-INCOME)
 ```
 
 ---
@@ -304,8 +325,40 @@ BINOMIAL TREE (CRR model, Cox-Ross-Rubinstein 1979):
                      backward: V[i] = max(early exercise, e^{-rΔt}(p·V_up + (1-p)·V_down))
 
   American option: compare continuation value vs intrinsic value at each node
+  Works well for 1-2 underlying assets; scales poorly to higher dimensions.
+
+LONGSTAFF-SCHWARTZ (LSM) MONTE CARLO — industry standard for high-dimensional:
+  Prices American/Bermudan options with multiple underlyings by Monte Carlo.
+  Key insight: continuation value = E^ℚ[future cash flows | S_t, in-the-money]
+  is estimated by cross-sectional regression on simulated paths at each exercise date.
+
+  ALGORITHM:
+  1. Simulate N paths of S_1,...,S_T under ℚ (all exercise dates)
+  2. At final exercise date T: set value = intrinsic value max(S_T − K, 0)
+  3. Work backward from T-1 to 0:
+     At each date t:
+       a. Select paths where option is in-the-money
+       b. Regress discounted future cash flows on basis functions of S_t
+          (polynomials: a₀ + a₁S_t + a₂S_t² + ... )
+       c. Estimated continuation value Ĉ(S_t) = fitted value from regression
+       d. Exercise if intrinsic value > Ĉ(S_t); otherwise continue
+  4. Option price = discounted average of optimal exercise cash flows
+
+  WHY IT WORKS:
+  Least-squares regression estimates the conditional expectation E^ℚ[CV | S_t]
+  This is the key quantity needed for optimal stopping (exercise when IV > E[CV])
+  Convergence: O(N^{-1/2}) in paths; need N ≥ 10,000 for accuracy
+
+  EXTENSIONS:
+  Bermudan swaptions: same algorithm, S_t = swap rate, payoff = swap value
+  Multi-asset basket options: basis functions include cross-terms S_i × S_j
+  Callable bonds / MBS: standard tool for OAS computation
+
+  COMPARISON:
+  Binomial tree:  O(n³) in steps; scales poorly to d > 2 assets
+  LSM Monte Carlo: O(N × T × d²) — handles d = 10-100 assets easily
+  PDE (finite difference): O(n^d) in grid points — impractical for d > 3
 ```
-<!-- @editor[content/P2]: American options section is thin — missing Longstaff-Schwartz (LSM) Monte Carlo method, which is the industry standard for pricing American/Bermudan options in multiple dimensions -->
 
 ---
 
@@ -338,7 +391,89 @@ INTEREST RATE SWAP:
 
 ---
 
-<!-- @editor[content/P2]: Credit derivatives (CDS, CDO tranching, correlation trading) only mentioned in passing — deserves its own subsection given 2008 crisis relevance and mathematical depth -->
+---
+
+## Credit Derivatives
+
+### Credit Default Swap (CDS)
+
+```
+CDS = insurance contract on a reference entity's default.
+
+STRUCTURE:
+  Protection buyer:  pays periodic spread s (basis points × notional × time)
+  Protection seller: pays (1 − R) × Notional at default if it occurs before T
+  R = recovery rate (typically assumed 40% for investment grade)
+
+PRICING (flat hazard rate λ, constant R):
+  Survival probability to time t: Q(t) = e^{-λt}
+  PV(premium leg) = s × N × Σᵢ Δtᵢ × e^{-(r+λ)tᵢ}
+  PV(protection leg) = (1-R) × N × ∫₀ᵀ λ e^{-(r+λ)t} dt = (1-R)N × λ/(r+λ) × (1-e^{-(r+λ)T})
+
+  At initiation: PV(premium) = PV(protection)
+  CDS spread ≈ λ(1-R)   (approximate rule of thumb for short maturities)
+
+INFORMATION CONTENT:
+  CDS spread = market's risk-neutral expected loss rate
+  Backed out λ: market-implied hazard rate from CDS price
+  CDS vs bond spread: CDS is cleaner measure (no accrued interest, no liquidity premium)
+  CDS-bond basis: CDS spread − bond Z-spread; should ≈ 0; deviations = relative value trade
+
+USES:
+  Hedge credit exposure (buy protection on counterparty)
+  Speculate on credit quality (sell protection to earn carry)
+  Index CDS (CDX IG, CDX HY, iTraxx): basket CDS on 125 names
+```
+
+### CDO Tranching and Correlation Trading
+
+```
+CDO (Collateralized Debt Obligation):
+  Pool of risky assets (bonds, loans, or CDS) → tranched into notes by seniority
+
+  WATERFALL:
+  Senior (AAA):  first to be paid; last to absorb losses; low spread (~20-50bps)
+  Mezzanine (BBB-A): absorbs losses after equity exhausted; medium spread (~200-400bps)
+  Equity (0-3%): first-loss tranche; absorbs losses first; residual upside
+
+  ATTACHMENT AND DETACHMENT:
+  [0%, 3%)   Equity tranche:    loses first; typically retained by CDO manager
+  [3%, 7%)   Junior mezz tranche
+  [7%, 15%)  Senior mezz tranche
+  [15%, 30%) Senior tranche
+  [30%, 100%) Super-senior:     historically considered near-risk-free
+
+GAUSSIAN COPULA MODEL (Li 2000, the infamous model):
+  Default times: τᵢ ~ F_i (marginal default time for obligor i)
+  Joint defaults modeled by Gaussian copula with correlation ρ:
+    τᵢ = F_i^{-1}(Φ(√ρ M + √(1-ρ) Zᵢ))
+    M = common factor; Zᵢ = idiosyncratic; both ~ N(0,1)
+
+  Single-factor model → loss distribution computed analytically (or by recursion)
+  Tranche price = E[tranche loss | correlation ρ]
+
+  CORRELATION TRADING:
+  Different tranches have different sensitivity to ρ:
+    Equity tranche: SHORT correlation (more ρ → more joint defaults → equity wiped out)
+    Senior tranche: LONG correlation (more ρ → joint defaults cluster; either all survive or all fail)
+  "Correlation trader" = buy equity + sell senior → delta-neutral in ρ
+
+  WHAT WENT WRONG (2008):
+  Gaussian copula assumes Gaussian tails — zero tail dependence
+  Housing defaults turned out to be highly correlated (common macro factor)
+  The ρ implied by prices pre-crisis (~15-30%) was far below realized (~70-80%)
+  Senior tranches priced as near-riskless turned out to be highly vulnerable
+  Super-senior CDO tranches lost 30-80% of value
+  Model was used to misprice trillions of dollars of structured credit
+
+SYNTHETIC CDO:
+  References basket of CDS instead of actual bonds
+  No actual asset pool; pure credit risk transfer
+  Allows leverage: sell protection on CDX index tranches
+  2003-2007: explosive growth; enabled rapid credit exposure accumulation
+```
+
+---
 
 ## Decision Cheat Sheet
 

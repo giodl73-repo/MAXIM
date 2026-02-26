@@ -229,7 +229,47 @@ Founder effect: new population established by few individuals → genetic drift 
   subset of original alleles
 ```
 
-<!-- @editor[bridge/P3]: Natural bridge to CS — coalescent theory is essentially a backward-looking Markov chain, and the Wright-Fisher model is a discrete-time stochastic process. For a learner with MIT TCS + probability background, connecting to random walk, coupon collector, and MCMC would deepen understanding. -->
+### Wright-Fisher and Coalescent — Probability Theory Bridge
+
+The Wright-Fisher model and coalescent theory are standard probability structures
+in disguise. The TCS framing is direct:
+
+```
+WRIGHT-FISHER MODEL = DISCRETE-TIME STOCHASTIC PROCESS
+
+  State space: allele count k ∈ {0, 1, ..., 2N}
+  Transition: P(k → j) = C(2N,j) · (k/2N)^j · (1 − k/2N)^(2N−j)
+              = Binomial(2N, k/2N)
+  → Random walk on {0,...,2N} with absorbing barriers at 0 (loss) and 2N (fixation)
+  → Var(Δp) = p(1-p)/2N: variance shrinks as N grows (drift weakens)
+  → Drift dominates selection when s < 1/(2N) (signal buried in noise)
+
+COALESCENT = TIME-REVERSAL OF WRIGHT-FISHER
+
+  Instead of simulating forward (allele frequencies), ask backward:
+  "When did any two sampled lineages last share a common ancestor?"
+
+  For a sample of k lineages:
+    Rate of any pair coalescing = C(k,2) / N_e per generation
+    Expected wait time for first coalescence: 2N_e / C(k,2) generations
+
+  PARALLEL TO COUPON COLLECTOR:
+    Collecting k distinct items from N possible = expected N·H_k draws
+    Coalescent: k lineages need to find common ancestors = O(N log k) generations
+
+  PARALLEL TO RANDOM WALK / HITTING TIME:
+    Allele frequency under neutral drift ≡ 1D random walk
+    Fixation = hitting the boundary {0} or {2N}
+    Expected hitting time from start p: ~4N_e generations (expected time to boundary)
+
+MCMC CONNECTION:
+  Bayesian phylogenetic inference (BEAST, MrBayes) uses MCMC to sample from
+  P(tree, parameters | sequence data)
+  The state space is tree topologies × branch lengths × model parameters
+  Same Metropolis-Hastings framework as any posterior sampling problem —
+  just with a combinatorial topology component in the state.
+```
+
 ### The Wright-Fisher Model
 
 ```

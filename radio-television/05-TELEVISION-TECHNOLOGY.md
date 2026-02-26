@@ -408,8 +408,7 @@ MicroLED:
   Tiny inorganic LEDs: each pixel = actual LED (like OLED but inorganic)
   Advantages: no burn-in, higher brightness than OLED, similar black level
   Status (2024): very expensive, primarily commercial/large-format
-<!-- @editor[content/P1]: Claim may be incorrect — verify: Apple Vision Pro uses micro-OLED (Sony), not microLED -->
-  Apple Vision Pro: microLED per eye, extremely high density
+  Apple Vision Pro: micro-OLED per eye (Sony-manufactured), extremely high density — not microLED
   Consumer TVs: expected 2025+ at premium prices
 ```
 

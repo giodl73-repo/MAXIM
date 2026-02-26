@@ -252,7 +252,19 @@ COST-EFFECTIVENESS ANALYSIS:
     (e.g., effective drug for common disease). Both matter for coverage.
 ```
 
-<!-- @editor[bridge/P2]: No old-world bridge — health system archetypes (Bismarck/Beveridge/mixed) map naturally to system architecture patterns (multi-tenant vs. single-tenant, federated vs. centralized); UHC cube dimensions parallel service-level coverage metrics -->
+## Systems Thinking Bridges
+
+| Health policy concept | Systems / CS analogue |
+|---|---|
+| Bismarck model (multi-payer social insurance) | Federated identity / multi-tenant SaaS: many competing insurance funds (like tenants) operate under common regulatory constraints; risk equalization (transfers between funds) is load balancing across tenants to prevent adverse selection concentration |
+| Beveridge model (single-payer, government provider) | Single-tenant centralized service: one operator owns the infrastructure (hospitals), provides the service (clinical care), and sets prices through global budgets — high consistency, lower administrative overhead, but single point of failure for funding and reform |
+| US multi-payer hybrid | Microservices with heterogeneous contracts: ESI, Medicare, Medicaid, and individual market each have separate financing and delivery rules; administrative overhead arises from interface proliferation (billing codes, prior authorization, formularies) across incompatible systems |
+| Risk pooling (larger pool → more stable insurance) | Statistical averaging in reliability: a single server pool has lower variance in load than many small pools; insurance works the same way — variance in individual health costs averages down with pool size, making per-capita cost more predictable |
+| Risk adjustment (pay sicker-population plans more) | Normalized SLO credits: adjust the benchmark based on the difficulty of the workload, not just the raw outcome; without adjustment, insurers are incentivized to select healthier (easier) patients the same as a service team is incentivized to take only easy-to-meet SLAs |
+| HTA / ICER (cost per QALY) | ROI analysis with standardized units: ICER converts heterogeneous clinical outcomes to a common currency (QALYs) enabling comparison across completely different interventions — the same purpose as normalizing engineering investments to cost-per-availability-nines |
+| UHC cube (who × what services × financial protection) | Service coverage specification: three independent dimensions of coverage policy that can be tuned independently; a country can have 100% population coverage for a narrow benefit package with poor financial protection — the tradeoffs between dimensions are explicit policy choices, not technical constraints |
+| PAYG pension sustainability equation τ = (b/W) × (R/E) | Shared resource pool provisioning: the tax rate τ is the utilization rate of a shared pool; the pool serves R retirees drawn from E workers; the ratio R/E is the load factor; as aging increases R/E, the system must either increase τ (raise capacity cost), decrease b/W (reduce service level), or increase E (add contributors) — standard capacity planning arithmetic |
+
 ## Decision Cheat Sheet
 
 | Health policy question | Key framework |

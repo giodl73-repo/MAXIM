@@ -190,7 +190,36 @@ Lap marks              Recoating over dried edge   Maintain wet edge; work
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to .NET/Azure context — coatings failure modes parallel deployment pipeline failures (prep=build validation, primer=staging, topcoat=production) — would resonate with this learner -->
+## Systems Bridge: Coatings Failure as Multi-Layer System Failure
+
+Coatings systems fail the same way any layered system fails: the weakest interface
+determines total system lifetime. The layer architecture maps directly to any
+staged, validated pipeline:
+
+```
+COATINGS LAYER MODEL          PARALLEL: STAGED PIPELINE
+══════════════════════        ══════════════════════════════════
+Surface preparation           Build validation / environment check
+  (adhesion foundation)         (wrong substrate = everything above fails)
+
+Primer coat                   Staging / integration environment
+  (corrosion inhibition,        (catches compatibility problems;
+   adhesion promotion)           intermediate layer that bridges raw → final)
+
+Intermediate coat             QA / pre-prod gate
+  (build and barrier)           (adds thickness; catches build issues)
+
+Topcoat                       Production release
+  (UV resistance, color,        (user-visible layer; most scrutinized;
+   final performance)            least forgiving of what's underneath)
+
+FAILURE MODES ARE SYMMETRIC:
+  Adhesion failure at primer = delamination in weeks
+  Build failures caught late = expensive rework
+  Contaminated substrate = compromised everything above
+  "Paint over rust" = "deploy without fixing the failing tests"
+  → In both domains: skipping prep is always false economy
+```
 
 ## Module Map
 

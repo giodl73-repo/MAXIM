@@ -346,7 +346,18 @@ AUTOCORRELATION:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: identification assumptions = preconditions/invariants in formal verification (compiler theory); canary deployments and progressive rollouts parallel DiD and synthetic control logic -->
+## CS and Formal Methods Bridges
+
+| Quasi-experimental concept | CS / formal methods analogue |
+|---|---|
+| Identification assumption | Formal precondition / invariant: the causal effect is only recoverable if the assumption holds; the assumption is not testable from within the same data — analogous to a function precondition that cannot be checked inside the function body; you argue it from external domain knowledge |
+| Parallel trends assumption (DiD) | Differential analysis baseline: "absent treatment, both groups would have followed the same trend" is exactly the control-vs-treatment comparison logic in A/B testing, but applied retrospectively to non-randomized rollouts |
+| Difference-in-Differences | Canary / staged rollout retrospective: treatment rolled out to Group A at time T; DiD estimates the treatment effect by comparing Group A's post-T change to Group B's simultaneous change — exactly how post-hoc analysis of a phased rollout works |
+| Regression discontinuity (RDD) | Threshold-based policy gate: units just above a cutoff get treatment; just below do not; the causal effect at the threshold is identified because near-threshold units are exchangeable — mirrors A/B assignment based on a hash threshold |
+| Instrumental variable (2SLS) | Dependency injection for causal inference: Z is an instrument that shifts D without directly affecting Y — Z "injects" variation in D that is clean of confounding, analogous to injecting a mock dependency that exercises the interface without side effects on other components |
+| Synthetic control | Counterfactual time-series modeling: construct a weighted combination of control units that matches the treated unit pre-treatment; the post-treatment gap is the causal effect — same principle as anomaly detection baselines in time-series monitoring (expected vs. observed) |
+| Event study (β_k for each time period k) | Interrupted time-series with pre/post diagnostics: plot the treatment coefficient for each period before and after the event; pre-period coefficients near zero validate the identification assumption; post-period coefficients reveal dynamics — same as deployment impact analysis with pre/post SLO tracking |
+| Staggered DiD / Callaway-Sant'Anna | Multi-wave deployment analysis: different units receive treatment at different times (staggered rollout); naive two-way FE is biased when treatment effects are heterogeneous across cohorts; modern estimators (CS, Sun-Abraham) aggregate correctly |
 
 ## Common Confusion Points
 

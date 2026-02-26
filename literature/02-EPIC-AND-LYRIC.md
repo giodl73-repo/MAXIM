@@ -208,7 +208,42 @@ SUNDIATA (Epic of Old Mali, c. 13th c., recorded 20th c.)
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to formal language theory missing for the lyric — the epic section connects to generative grammars but the lyric section has no parallel CS/math analogy for fixed-form constraints as constraint satisfaction -->
+## Lyric Form as Constraint Satisfaction
+
+Before the lyric content sections: fixed lyric forms (sonnet, ghazal, villanelle, terza rima) are constraint satisfaction problems over a formal alphabet. The form specifies hard constraints (rhyme scheme, syllable count, line count) and soft constraints (thematic turn, tonal register), and the poet's task is to find a satisfying assignment — one that meets constraints while preserving expressive content.
+
+```
+FIXED FORM AS CONSTRAINT SYSTEM
+
+Formal model:
+  Variables:   each line L_i is a sequence of phonemes + stresses
+  Hard constraints:
+    - Rhyme scheme (ABBA ABBA CDC DCD for Petrarchan sonnet)
+    - Stress pattern (iambic pentameter: u / u / u / u / u /)
+    - Line count (14 lines)
+  Soft constraints:
+    - Volta (thematic turn at line 9 or 13)
+    - Closure (final couplet resolves the opening proposition)
+    - Tonal coherence across the form
+
+This frames translation of fixed-form poetry (see 08-TRANSLATION.md)
+as constraint propagation under substitution: find a target-language
+assignment that satisfies the phonological constraints while
+preserving the semantic valuation of each line.
+
+Haiku: an extreme constraint — 5/7/5 syllable count + kigo (season
+word) + kireji (cutting word). The cutting word is a syntactic
+discontinuity that creates juxtaposition. Formally: a two-part
+structure with a hard break, where meaning arises from the gap
+(like a difference operator: the poem is the delta, not the sum).
+
+Ghazal: each sher (couplet) is semantically self-contained +
+shares a radif (refrain) and qafia (rhyme). The couplets need
+not be thematically connected — it is a constraint system without
+a global semantic invariant. This violates standard narrative
+coherence and is the formal source of the form's "elliptical" quality.
+```
+
 ## The Lyric Mode
 
 The lyric is the hardest of the three major genres to define — it is not a structural form (like narrative) or a functional mode (like drama). The definition has shifted at every period.

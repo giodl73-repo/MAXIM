@@ -215,12 +215,99 @@ CAR-T CELLS
   Toxicity: CRS (cytokine release syndrome) → high fever, hypotension, organ failure
             Treated with tocilizumab (IL-6 receptor antagonist)
             Neurotoxicity (ICANS)
-<!-- @editor[content/P2]: Bispecific antibodies (blinatumomab, teclistamab, mosunetuzumab) absent — listed in landscape diagram as a category alongside CAR-T but not drilled into. Growing drug class that bridges the CAR-T section -->
 ```
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — drug resistance is Darwinian selection under pressure, directly analogous to adversarial evolution in security (exploit → patch → new exploit). Combination therapy rationale maps to defense-in-depth: attacking multiple independent pathways reduces the probability of simultaneous resistance (same logic as requiring multiple independent failures for system outage) -->
+## Bispecific Antibodies
+
+```
+BISPECIFIC ANTIBODIES (BiTEs AND RELATED)
+──────────────────────────────────────────
+  Concept: One antibody with TWO binding specificities.
+  One arm binds tumor antigen; other arm binds CD3 (T cells) or NK cell receptor.
+  → Physical proximity forces immune effector cell to engage and kill tumor cell.
+  → No need for antigen presentation; bypasses major tumor immune escape mechanisms.
+
+  BiTE (Bispecific T cell Engager) FORMAT:
+    Single-chain, very short half-life → continuous infusion initially
+    Half-life extended formats now available (blinatumomab → amivantamab)
+
+  KEY APPROVED AGENTS:
+    Blinatumomab (Blincyto): CD19×CD3 BiTE → ALL (B-cell), Ph-negative r/r
+      First approved BiTE. Impressive responses in refractory ALL.
+      Neurotoxicity and CRS are dose-limiting.
+
+    Teclistamab (Tecvayli): BCMA×CD3 → multiple myeloma (r/r, post 4 prior lines)
+      First anti-BCMA BiTE. Deep responses in heavily pretreated patients.
+      Infections (esp. serious bacterial/viral) a major concern with T-cell activation.
+
+    Talquetamab (Talvey): GPRC5D×CD3 → multiple myeloma
+      Non-BCMA target; important for post-BCMA resistance.
+      Nail/skin/taste side effects (GPRC5D expressed in stratified epithelium).
+
+    Mosunetuzumab (Lunsumio): CD20×CD3 → follicular lymphoma (r/r)
+      Fixed-duration (SC, subcutaneous): 8 cycles. Low-grade CRS; high CR rates.
+
+    Epcoritamab (Epkinly): CD20×CD3 → DLBCL, follicular lymphoma
+
+  BiTE vs CAR-T COMPARISON:
+    BiTEs:   Off-the-shelf, immediate use, no manufacturing lag
+             Re-dosable, adjustable (infusion rate ↔ toxicity)
+             Lower persistence than CAR-T → maintenance needed
+    CAR-T:   Durable remission, one-time infusion
+             Manufacturing time: 4-6 weeks; costly; specialized centers
+             Higher toxicity ceiling (CRS, ICANS)
+             Primary resistance: antigen loss, poor T-cell fitness
+```
+
+---
+
+## Engineering Bridge: Resistance as Evolutionary Selection
+
+Drug resistance is Darwinian selection applied to a tumor cell population under treatment pressure. The strategies are directly analogous to adversarial robustness in security engineering.
+
+```
+  ONCOLOGY RESISTANCE           SECURITY / SYSTEMS PARALLEL
+  ──────────────────────────────────────────────────────────────────────
+  Pre-existing resistant clones Heterogeneous population with rare
+  (Darwinian selection)         pre-existing variants. Treatment = adversarial
+                                selection pressure. Resistant clone outcompetes
+                                sensitive cells. "Selection, not induction."
+                                Exactly: existing zero-day vulnerabilities
+                                selected by a specific patch (treatment).
+
+  Combination therapy rationale Defense-in-depth:
+  (attack multiple pathways)    P(resistance to A AND B) = P(A) × P(B)
+                                if mechanisms are independent. With
+                                simultaneous targeting of BCR-ABL + MDM2,
+                                simultaneous resistance requires two
+                                independent mutations → much lower probability.
+                                Same logic as requiring two independent
+                                system failures for an outage.
+
+  Acquired target mutation      Exploit evolves past the patch:
+  (BCR-ABL T315I, EGFR T790M)  The drug defines the selection pressure;
+                                the resistance mutation is the evolved counter.
+                                Each generation of targeted therapy is an
+                                exploit-patch cycle: imatinib → T315I →
+                                ponatinib (third-gen, covers T315I).
+
+  ctDNA monitoring for          Real-time adversarial monitoring:
+  resistance mutations          Liquid biopsy tracks the emerging resistant
+                                subclone in real time — analogous to
+                                continuous security monitoring for novel
+                                attack signatures before full outbreak.
+
+  MDR1 / P-glycoprotein         Transport-layer evasion: tumor cells
+  (drug efflux pump)            overexpress efflux pumps to exclude the drug.
+                                Analogous to egress filtering in a network:
+                                the target machine actively ejects the payload.
+  ──────────────────────────────────────────────────────────────────────
+```
+
+---
+
 ## Drug Resistance
 
 ```

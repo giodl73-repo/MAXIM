@@ -2,8 +2,9 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P2]: Energy flow through trophic levels is directly analogous to entropy increase in irreversible processes; MIT physics/math background makes this a natural anchor -->
 Ecosystems are open thermodynamic systems: energy flows in (solar radiation or chemosynthesis), is transformed and degraded at each biological step, and exits as heat. Unlike nutrients (which cycle), energy flows in one direction — it cannot be recycled. This asymmetry between energy flow and nutrient cycling is the central organizing principle of ecosystem ecology.
+
+**Thermodynamics bridge:** Each trophic transfer is an irreversible process governed by the second law. The ~90% energy loss per level is entropy production made concrete: useful chemical energy (low entropy, organized organic molecules) is degraded to heat (high entropy, disordered thermal motion). Trophic efficiency is bounded by thermodynamics — no biological innovation can raise it above ~100%. The ecological energy pyramid is a direct visual representation of entropy increase through a food web. Endotherms (birds, mammals) have lower trophic efficiency (~5-10%) than ectotherms (fish, invertebrates, ~15-25%) because homeothermy requires continuous metabolic heat production — they pay a high entropy tax to maintain constant body temperature. This is why a calorie of beef requires ~10× the primary production of a calorie of grain: cattle are endotherms, and thermoregulation dominates their energy budget.
 
 ```
 +------------------------------------------------------------------+
@@ -231,8 +232,7 @@ NBP (Net Biome Production) = NEP ± disturbance fluxes (fire, harvest, etc.)
 | Ecological question | Key concept |
 |--------------------|-------------|
 | How much energy available at level 3? | NPP × 10% × 10% = 1% of NPP |
-<!-- @editor[content/P1]: Claim may be incorrect -- verify: "Cattle: ectotherm" -- cattle are endotherms (mammals); factual error in parenthetical -->
-| Why is beef more resource-intensive than chicken? | Cattle: ectotherm → lower trophic efficiency; also cattle are trophic level 2 in grasslands |
+| Why is beef more resource-intensive than chicken? | Cattle are endotherms with large body mass → high thermoregulation cost → low net production efficiency (~5%); also longer time to market than broiler chickens |
 | Why do tropical forests have high NPP? | Warm + wet = high photosynthetic rate year-round |
 | Why is lake phytoplankton biomass lower than zooplankton? | High turnover rate; biomass ≠ production |
 | Which pathway processes most terrestrial NPP? | Detrital; ~90% of NPP enters via dead organic matter |

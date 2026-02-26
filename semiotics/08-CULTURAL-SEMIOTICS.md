@@ -303,19 +303,110 @@ An extension of semiotics to biology, increasingly important.
 
 ## Decision Cheat Sheet
 
-| Concept | Definition |
-|---------|-----------|
-| Semiosphere | Lotman: total semiotic space within which meaning is possible; has boundary |
-| Text (Lotman) | Any bounded, coherent, structured sign complex — can be poem, city, ritual |
-| Primary modeling system | Natural language — the base on which secondary systems are built |
-| Secondary modeling system | Art, myth, religion — sign systems built on natural language |
-| Boundary (semiosphere) | The active zone where codes meet, translation occurs, new meanings emerge |
-| Cultural memory | Collective memory stored in texts; reconstructive, not merely reproductive |
-| Explosion (Lotman) | Unpredictable rupture in cultural dynamics (vs gradual development) |
-| Umwelt (Uexküll) | Each organism's subjective semiotic world — the signs that matter to it |
-| Encyclopedia model (Eco) | Meaning as unlimited interpretant network — not a bounded dictionary entry |
+| I'm asking... | Use this concept |
+|--------------|-----------------|
+| Why does innovation consistently happen at the edges of an organization or ecosystem? | Semiosphere boundary dynamics — the boundary is the zone of intensive code exchange and translation |
+| How does a codebase, a repository, or a company documentation system encode institutional knowledge? | Cultural memory / text-as-memory — texts are generative, not merely archival |
+| Why did this technology / practice appear suddenly, discontinuously? | Lotman's explosion — cultural dynamics have both gradual and explosive modes |
+| What sign-world does this user / community / system inhabit? | Umwelt — what signs matter to this organism / system; what is perceptible, what is not |
+| Why does a term mean something different in different communities? | Semiosphere boundary — the same sign has different codings on each side |
+| How does meaning network out from this term to others? | Eco's encyclopedia model — meaning as an unlimited interpretant network, not a bounded definition |
+| What are the foundational sign systems this cultural/technical practice is built on? | Modeling systems hierarchy: primary (natural language) → secondary (practices built on it) → tertiary |
 
 ---
+
+## Formal Systems Bridge
+
+```
+CULTURAL SEMIOTICS ↔ SOFTWARE ECOSYSTEMS AND ABSTRACTION LAYERS
+
+SEMIOSPHERE ↔ PACKAGE ECOSYSTEM:
+  Lotman's semiosphere: a bounded, internally differentiated
+  space within which semiosis is possible; has a center
+  (established norms) and a periphery (boundary zones).
+  The boundary is where different codes meet and translation occurs.
+
+  Software ecosystem parallel:
+    npm / Node.js ecosystem: a semiosphere.
+      Center: core packages (lodash, express, react) — the shared
+        vocabulary; everyone is fluent in these signs.
+      Periphery: experimental packages, cross-ecosystem ports
+        (Python → Node), community-specific tooling.
+      Boundary: where npm ecosystem meets browser ecosystem,
+        or where Node ecosystem meets Deno ecosystem.
+        The boundary requires translation (bundlers, polyfills,
+        adapter packages). The boundary is the innovation zone:
+        new patterns emerge where the codes must negotiate.
+    NuGet / .NET ecosystem: different semiosphere.
+      Different coding conventions (IDisposable, async/await patterns),
+      different center/periphery dynamics.
+    Maven / Java ecosystem: a third semiosphere.
+    Translation layers (Graal.vm, language interop bridges):
+      operating explicitly at semiosphere boundaries.
+
+  Mergers and acquisitions: forced semiosphere collision.
+  Two ecosystems with different center conventions must either
+  assimilate (one center displaces the other) or develop a
+  permanent boundary with translation overhead.
+
+PRIMARY / SECONDARY / TERTIARY MODELING SYSTEMS ↔ ABSTRACTION LAYERS:
+  Lotman's hierarchy:
+    Primary: natural language (the base semiotic system)
+    Secondary: systems built on natural language (art, myth, ritual)
+    Tertiary: systems built on secondary systems
+
+  Computing abstraction hierarchy:
+    Boolean logic / binary: the primary modeling system
+      (the irreducible foundation — digital computers are
+       sign-processing systems built on binary distinction)
+    Machine code / assembly: built directly on binary
+    Programming languages (C, Python, Rust): secondary modeling systems
+      built on machine code conventions
+    Domain-specific languages (SQL, regex, GraphQL): tertiary —
+      built on programming language conventions
+    Frameworks and platforms (.NET, React, TensorFlow): tertiary+
+      built on DSL and library conventions
+  Each layer is a new modeling system that uses the layer below
+  as its primary signifier but generates new sign relations
+  that cannot be fully reduced to the layer below.
+  This is why "it's all just ones and zeros" is technically true
+  but semiotically useless: the higher modeling system has
+  its own signs that do not reduce without information loss.
+
+CULTURAL MEMORY ↔ CODEBASE AS INSTITUTIONAL KNOWLEDGE:
+  Lotman: cultural texts are not merely stored; they are
+  generative — they produce new meanings by interacting
+  with present contexts.
+  A codebase is a cultural memory object:
+    It encodes the decisions, conventions, and knowledge of
+    the team that built it.
+    It is not merely retrieved (read) — it is interpreted:
+    the present reader produces meanings in dialogue with
+    the past text.
+  This explains why "just read the code" is insufficient for
+  understanding: the code encodes explicit decisions but
+  the reasoning is cultural memory — often lost, sometimes
+  reconstructible via git history (the memory archive),
+  sometimes irretrievably gone.
+  Architecture Decision Records (ADRs) are an attempt to make
+  cultural memory explicit — to preserve the reasoning that
+  would otherwise only live in the code's consequences.
+
+BOUNDARY DYNAMICS ↔ INNOVATION AT THE EDGES:
+  Lotman: the semiosphere's boundary is the zone of maximum
+  semiotic activity — where translation between codes occurs,
+  where new patterns emerge.
+  Technology parallel: the most important innovations often
+  happen at ecosystem boundaries:
+    Web + desktop → Electron
+    Mobile + web → Progressive Web Apps
+    ML + systems programming → CUDA/GPU computing
+    Cloud + on-premises → hybrid cloud patterns
+  These are all boundary translations — taking conventions
+  from one semiosphere and adapting them to another.
+  The center produces stability and standardization;
+  the boundary produces novelty.
+```
 
 ## Common Confusion Points
 

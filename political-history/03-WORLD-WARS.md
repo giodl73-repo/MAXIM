@@ -32,11 +32,11 @@ THE WORLD WARS AS HISTORICAL RUPTURE
 
 ## WWI: Causation Debates
 
-<!-- @editor[bridge/P2]: The July Crisis cascade is described as a systems failure but no explicit bridge section exists — the "tightly coupled system with positive feedback loops" framing deserves a boxed bridge connecting to systems engineering concepts: tight coupling (Perrow's Normal Accidents), positive feedback loops, and the irreversibility of escalation once military mobilization timetables lock in (cf. distributed systems where rollback is impossible once writes propagate) -->
-
 ### The July Crisis as Complexity Problem
 
 The July Crisis (June 28 – August 4, 1914) is the most studied diplomatic failure in history. It is also, from a systems perspective, a cascade failure in a tightly coupled system with multiple positive feedback loops.
+
+**Systems bridge — tight coupling and irreversibility**: The July Crisis is Charles Perrow's *Normal Accidents* (1984) instantiated at continental scale. Tight coupling means there is no slack, no buffer, no time to diagnose before the next step must be taken — military mobilization timetables were designed for speed, not reversibility. The Schlieffen Plan was an irreversible write: once Germany began mobilizing to attack France via Belgium, no political decision could halt it without conceding the entire eastern front to Russian mobilization. This is the distributed-systems problem of write propagation — once the write begins replicating across nodes, rollback requires a global consensus that is impossible to achieve in the available time window. Positive feedback loops operated at every level: Russia's partial mobilization forced German full mobilization, which forced French mobilization, which brought in Britain via Belgian neutrality violation. Each actor's defensive move was interpreted as offensive escalation by the next actor. This is the standard control-theory instability pattern: a system where every actor's response to perceived threat increases the threat perceived by others, with no negative feedback loop to damp the oscillation before it reaches a catastrophic amplitude.
 
 ```
 THE JULY CRISIS — DECISION NETWORK
@@ -297,11 +297,9 @@ Daniel Goldhagen (*Hitler's Willing Executioners*, 1996): ordinary Germans were 
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to postmortem culture — the "diagnosis -> remedy" table below is a textbook engineering postmortem: identify root causes, design corrective actions, verify they address specific failure modes. Worth making explicit for this learner. -->
-
 ## Post-War Order Construction
 
-The post-war order was designed by people who had specific theories of what caused two world wars:
+The post-war order was designed by people who had specific theories of what caused two world wars. The DIAGNOSIS → REMEDY table below is a textbook systems postmortem: identify root causes at the structural level (not just "bad actors"), design corrective mechanisms that address the specific failure mode, and verify the remedy closes the failure path. Acheson, Kennan, Marshall, and Monnet were doing exactly what a post-incident review demands — tracing the causal chain, finding the leverage points, and building institutional infrastructure that changes the incentive structure so the same cascade cannot recur. The Marshall Plan reversed the Versailles logic: instead of extracting resources from a defeated power (which depleted its recovery capacity and generated political grievance), it injected resources and integrated the defeated power into a cooperative economic order (which created a stake in the system's continuity). The failure mode they corrected was not German aggression per se — it was the structural conditions (reparations-driven fiscal collapse, exclusion from legitimate order, no security guarantee for potential allies) that made extremist capture of a major power both possible and rational.
 
 ```
 DIAGNOSIS → REMEDY MAPPING (1944-1949)

@@ -27,7 +27,58 @@ Agricultural mechanization is the story of substituting energy (animal, then fos
 ```
 
 ---
-<!-- @editor[bridge/P2]: No old-world bridge — the three mechanization waves (physical→chemical→data) parallel computing's own progression (mainframe→PC→cloud). The GPS/sensor layer is literally the same IoT stack the learner knows from Azure IoT. Draw the parallel explicitly. -->
+## Engineering Bridge: Mechanization Waves as Computing Eras
+
+```
+MECHANIZATION WAVE              COMPUTING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+WAVE 1: PHYSICAL SUBSTITUTION   Batch mainframe era
+  Hand tools → animal power →     Automate the mechanical bottleneck
+  steam → gasoline tractor         Each step: same task, less human energy
+  Constraint: human/animal power → CPU constraint: one job at a time
+  McCormick reaper (1831)          Operators feed tasks; machine runs
+  Fordson tractor (1917)           batch → machine runs unattended
+
+WAVE 2: CHEMICAL INPUTS         Minicomputer / distributed systems era
+  Synthetic fertilizer (1920s+)   Add a new layer of abstraction over
+  Pesticides, herbicides (1940s+)   the physical layer
+  The machine does physical work;  Software (fertilizer) can substitute
+  chemistry optimizes the process   for architectural complexity (rotation)
+  Constraint: crop genetics         Constraint: bandwidth to connect nodes
+  → Input intensification           → Network-bound, not CPU-bound
+
+WAVE 3: DIGITAL / DATA          IoT / Edge computing era
+  GPS, sensors, analytics (1990s+) Positioning → sensing → analytics →
+  The intelligence layer wraps       actuation: same 4-layer stack
+  the physical + chemical layers    as any IoT/edge deployment
+  Constraint: decision quality       Constraint: latency + edge inference
+  → "Wrong rate at wrong place"      → "Wrong action at wrong node"
+    wastes physical + chemical         wastes compute + network
+
+PRECISION AGRICULTURE STACK     IoT STACK (direct mapping)
+  Layer 1: Positioning (RTK GPS)  → Device registration + location service
+    ±2-5 cm field position           (GPS coordinates in device shadow)
+  Layer 2: Sensing                → Telemetry ingestion
+    Soil EC, NDVI, yield monitor     (time-series sensor streams)
+    Canopy N sensor (real-time)      (edge device → IoT hub)
+  Layer 3: Analytics / Decision  → Stream processing + ML inference
+    FMIS, prescription maps          (Azure Stream Analytics / ML model)
+    Zone management                  (rules engine + model output)
+  Layer 4: Variable Rate Apply   → Actuator command dispatch
+    Planter, spreader, sprayer       (IoT hub → device method invoke)
+    Individual nozzle on/off         (per-device command; not broadcast)
+
+AUTOSTEER (RTK GPS guidance)    GPS-fused dead reckoning in autonomous systems
+  ±2.5 cm accuracy                → Sub-centimeter localization
+  Eliminates 5-15% field overlap  → Removes wasted work from schedule
+
+YIELD MONITOR (combine-mounted) Distributed telemetry with spatial join
+  Grain flow sensor + GPS         → (sensor reading × position) → map
+  Maps yield variation across     → Spatial aggregation: same as keying
+    field in real time               telemetry records by grid cell
+  Input for next year's           → Feedback loop: telemetry informs
+    prescription map                 next deployment configuration
+```
 
 ## Ancient Plow Evolution — Soil Tillage History
 

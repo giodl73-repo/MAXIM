@@ -84,6 +84,52 @@ CARBON ISOTOPES (δ¹³C):
 ## Greenhouse and Icehouse Cycles
 
 ```
+CLIMATE FEEDBACK LOOP DIAGRAM (control systems view):
+
+  POSITIVE FEEDBACKS (destabilizing, amplifying):
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │  Temperature ↑                                                        │
+  │     → Ice melts → albedo decreases (less reflective surface)         │
+  │     → More solar absorption → Temperature ↑ (gain ~0.3–0.5 W/m²/°C) │
+  │                                                                        │
+  │  Temperature ↑                                                        │
+  │     → Water vapor (H₂O) increases → stronger greenhouse              │
+  │     → Temperature ↑ (gain ~1.5–2× CO₂ forcing alone)                │
+  │                                                                        │
+  │  Temperature ↑ (ocean)                                               │
+  │     → Clathrate (CH₄) destabilization → CH₄ released                │
+  │     → Greenhouse forcing → Temperature ↑                             │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  NEGATIVE FEEDBACKS (stabilizing, restoring):
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │  Temperature ↑                                                        │
+  │     → Enhanced silicate weathering (faster kinetics at higher T)    │
+  │     → CaSiO₃ + CO₂ → CaCO₃ + SiO₂ (Urey reaction)                 │
+  │     → CO₂ drawdown → cooling (timescale: 10⁴–10⁶ yr)               │
+  │     → Negative feedback: LONG delay; not fast enough for short events│
+  │                                                                        │
+  │  CO₂ ↑                                                               │
+  │     → Enhanced plant growth → more organic C burial → CO₂ ↓         │
+  │     → Partial negative feedback; saturates when nutrient-limited     │
+  └──────────────────────────────────────────────────────────────────────┘
+
+  SYSTEM BEHAVIOR:
+    Short timescale (<10 kyr): positive feedbacks dominate → rapid change
+    Long timescale (>100 kyr): negative (weathering) feedback stabilizes
+    Greenhouse/Icehouse transitions: driven by forcing that overwhelms negative
+      feedback on the relevant timescale (LIP volcanism = fast forcing; too fast
+      for weathering to compensate → net positive feedback dominates)
+
+  ORBITAL FORCING (Milankovitch) = LIMIT CYCLE input:
+    Eccentricity, obliquity, precession → periodic forcing signal
+    System doesn't oscillate freely; it's FORCED by external periodic input
+    Climate system = driven nonlinear oscillator, not free oscillator
+    Amplitude of response >> amplitude of forcing → large gain at resonance
+    "100 ka problem": eccentricity forcing is tiny; feedback amplification required
+    Equivalent: a PID-controlled process where the process gain is very large;
+      small setpoint change → large output swing
+
 GREENHOUSE vs. ICEHOUSE:
   Greenhouse: warm, high CO₂, no polar ice sheets
   Icehouse: cold, low CO₂, polar ice caps present (at least seasonally)
@@ -297,6 +343,34 @@ LIMITATIONS:
   Under-representation of insect-pollinated taxa (many wildflowers)
   Pollen rain: does not directly map onto living vegetation (transport distances vary)
   Taxonomic resolution: many pollen types only to family level (e.g., "grass pollen")
+
+SEDADNA (SEDIMENT ANCIENT DNA / ENVIRONMENTAL DNA METABARCODING):
+  New technique (2010s–2020s): extract and sequence ancient DNA directly from lake sediment
+  DNA source: plant cells, pollen, spores, microbial communities shed into lake sediment
+  Method:
+    Core lake sediment → extract DNA from dated intervals → PCR + high-throughput sequencing
+    Metabarcoding: sequence a diagnostic marker gene (e.g., trnL for plants, 18S for algae)
+    Match sequences to reference database → reconstruct community composition
+
+  ADVANTAGES OVER POLLEN:
+    Species-level resolution (not just family level for wind-pollinated)
+    Can detect insect-pollinated plants (not in pollen record)
+    Can reconstruct microbial community, zooplankton, algae simultaneously
+    Time resolution: same annual-to-centennial as pollen
+    No skilled palynologist needed for ID → faster, less expertise-dependent
+
+  LIMITATIONS:
+    DNA degradation: DNA fragments to <100 bp over time; older sediments challenging
+    Contamination: modern DNA infiltrates sediment during coring → strict protocols
+    Taphonomy: same deposition biases as pollen (local vs. regional signal)
+    Reference databases: incomplete for non-model organisms; Neotropical plants poorly covered
+
+  CROSS-VALIDATION WITH POLLEN:
+    SedaDNA and pollen reconstruct same interval → compare species lists
+    Agreements: validates both proxies
+    Discrepancies: reveal biases (pollen over-rep of wind-pollinated; DNA misses some taxa)
+    Best practice: use both together → multi-proxy approach reduces systematic error
+    (Same principle as: independent test suites catching different bug classes)
 ```
 
 ---
@@ -362,6 +436,57 @@ RELATED HYPERTHERMAL EVENTS:
 ```
 
 ---
+
+## Paleoclimatology as Multi-Sensor Data Fusion
+
+Paleoclimatology is fundamentally a multi-sensor data fusion problem.
+Each proxy is a sensor with known characteristics:
+
+```
+PROXY SENSOR COMPARISON TABLE:
+
+  Proxy            | Signal         | Resolution | Bias Type           | Coverage
+  ──────────────────────────────────────────────────────────────────────────────────
+  Ice cores δ¹⁸O   | Temp + ice vol | Annual     | Moisture source     | 0–800 ka
+  Foram Mg/Ca      | Deep-sea temp  | 1–100 kyr  | Dissolution bias    | 0–100 Ma
+  Alkenones UK'37  | SST            | 1–100 kyr  | Seasonal bias       | 0–100 Ma
+  Speleothem δ¹⁸O  | T + rain amt   | Annual     | Local hydrology     | 0–700 ka
+  Tree rings       | Summer T/moist | Annual     | Divergence post-1960| 0–12 ka
+  Pollen           | Biome          | Decadal    | Wind-pollinated bias| 0–500 ka
+  Leaf morphology  | MAT            | Myr        | Taphonomic filter   | 0–100 Ma
+  Paleosol B-O₂    | pO₂ estimate   | Myr        | Diagenetic alteration|0–500 Ma
+
+FUSION APPROACH (what paleoclimatologists actually do):
+  1. Each proxy records a DIFFERENT linear combination of climate signals
+       foram δ¹⁸O = f(temperature) + g(ice volume) + noise
+       Mg/Ca = h(temperature) + noise
+       → Solving for temperature and ice volume requires TWO proxies on same sample
+  2. Chronological alignment: different age models (¹⁴C, orbital tuning, U-Th)
+       must be put on a common timescale before fusion
+       → Same problem as: aligning time series from sensors with different clock offsets
+  3. Resolution mismatch: tree rings (1 yr) + forams (1 kyr) cannot be fused
+     at tree-ring resolution → downsampling / averaging required
+  4. Bias correction: every proxy has systematic offsets
+       Foram δ¹⁸O: correct for vital effects (species-specific offsets ~0.5–2‰)
+       Alkenones: correct for seasonal bias (mostly summer signal)
+  5. Bayesian approaches: e.g., PRYSM (Proxy System Model)
+       Forward model: climate → proxy signal (including biases)
+       Inversion: use multiple proxies + forward model → posterior on climate state
+       → Formally identical to Kalman filter or Bayesian sensor fusion framework
+
+EOT (Eocene-Oligocene Transition, ~34 Ma) AS SENSOR FUSION EXERCISE:
+  QUESTION: Was 34 Ma cooling from: (a) CO₂ decline, (b) Drake Passage opening,
+            or (c) orbital forcing? Or all three?
+  PROXY CONVERGENCE:
+    Foram Mg/Ca:          ~4–5°C global deep-sea cooling ✓
+    Foram δ¹⁸O:           +1.5‰ = cooling + ice growth ✓
+    Alkenones:            SST cooling at ~34 Ma ✓
+    Leaf margin analysis: continental T drop in multiple regions ✓
+    CO₂ proxy (boron δ¹¹B): ~800 ppm → ~500 ppm around 34 Ma (debated)
+    All converge → supports major cooling + ice sheet growth event
+    No single proxy would be convincing; convergence of independent proxies provides
+    same confidence as: independent test suites + production metrics all agreeing
+```
 
 ## Other Key Proxy Methods
 

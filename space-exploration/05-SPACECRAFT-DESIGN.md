@@ -4,32 +4,30 @@
 
 A spacecraft is an integrated system of subsystems, each serving a specific function. The challenge is that every subsystem must work perfectly in an environment of vacuum, extreme temperatures, radiation, and microgravity — with no possibility of repair on most missions.
 
-<!-- @editor[diagram/P2]: Diagram lists subsystems in a grid but doesn't show coupling — power feeds all subsystems, thermal constrains power output, ADCS constrains comms pointing, mass budget links everything; rework as a dependency graph showing these cross-subsystem constraints -->
 ```
 +------------------------------------------------------------------+
-|                    SPACECRAFT SUBSYSTEM MAP                       |
+|          SPACECRAFT SUBSYSTEM DEPENDENCY GRAPH                    |
 +------------------------------------------------------------------+
 |                                                                  |
-|  STRUCTURE (S/C)    POWER (EPS)     THERMAL (TCS)               |
-|  -----------        ----------      ---------                   |
-|  Primary structure  Solar panels    Radiators                   |
-|  Secondary struct.  Batteries       Multi-layer insulation (MLI)|
-|  Separation system  Power cond.     Heat pipes                  |
-|  Mechanisms         Dist. unit      Heaters/coolers             |
+|  MASS BUDGET (links everything — every kg costs Δv)              |
+|  ←——————————————————————————————————————————————→               |
 |                                                                  |
-|  COMMS (RF/COM)     ATTITUDE (ADCS)  PROPULSION (ACS)           |
-|  ---------          ----------       ----------                  |
-|  High gain antenna  Star trackers    Thrusters (mono/bi/electric)|
-|  Low gain antenna   Sun sensors      Fuel tank                  |
-|  Transponders       Gyroscopes       Pressure transducers       |
-|  Amplifiers         Reaction wheels                             |
-|  Modems             Magnetometers                               |
-|                                                                  |
-|  PAYLOAD            C&DH            GNC                         |
-|  -------            ----            ---                         |
-|  Science instruments On-board comp. Trajectory planning        |
-|  Mission-specific    Mass memory    Orbit determination         |
-|  OBDH software      Fault management                           |
+|  EPS (Power)  ←——— THERMAL constrains max power dissipation     |
+|  Solar + RTG         (radiators must reject waste heat)          |
+|       |                                                          |
+|       v  (powers all)                                            |
+|  +---------+  +---------+  +---------+  +---------+             |
+|  | ADCS    |  | COMMS   |  | PAYLOAD |  | PROP    |             |
+|  | Star    |  | HGA/LGA |  | Science |  | Δv +    |             |
+|  | trackers|  | Transpdr|  | instr.  |  | ACS     |             |
+|  | RWs/CMG |  | Modem   |  |         |  | thrustr.|             |
+|  +---------+  +---------+  +---------+  +---------+             |
+|       |             |                        ^                   |
+|       +——→ ADCS pointing constrains COMMS    |                   |
+|           (HGA must point within 0.1°)       |                   |
+|                                              |                   |
+|  C&DH (flight computer + fault mgmt) ————→ commands all         |
+|  STRUCTURE (primary + mechanisms) — carries all loads            |
 +------------------------------------------------------------------+
 ```
 
@@ -315,7 +313,14 @@ SPACE RADIATION ENVIRONMENT
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: spacecraft subsystem integration (EPS, TCS, ADCS, comms all coupled through mass and power budgets) is the same constraint-satisfaction problem as enterprise systems integration (compute, network, storage, security all coupled through cost and performance budgets); the learner managed exactly this at scale -->
+## Engineering Parallels
+
+**Spacecraft design as a constraint-satisfaction problem.** Every subsystem has resource requirements (power, mass, volume, data rate) and resource contributions (the EPS provides power, structure provides mass allocation). The design problem is a coupled constraint system: thermal constrains how much power the EPS can deliver (excess heat must be radiated); ADCS constrains comms throughput (HGA must point within fractions of a degree); mass budget couples everything through the rocket equation. This is the same coupled optimization as enterprise capacity planning — compute, memory, network, and storage are all coupled through cost and latency budgets, and optimizing one axis without modeling the others produces locally optimal but globally suboptimal results.
+
+**Mass margins as technical debt reserves.** Spacecraft programs maintain explicit mass margins: 20-30% at PDR, 10-15% at CDR, <5% at launch. These margins are deliberately held back to absorb requirement growth and design surprises. This is identical to a well-run engineering program's schedule buffer or a distributed system's headroom reserve: you don't commit 100% of capacity at design time because real systems always encounter surprises. The difference is that once a spacecraft launches, there is no scaling out.
+
+**Radiation-hardened computing vs. consumer-grade.** Rad-hard processors run at much lower clock speeds than commercial equivalents, implement SECDED error-correcting codes on all memory, use voting logic on critical functions, and are fabricated on older process nodes. The design philosophy is the same as fault-tolerant distributed systems: redundancy over raw performance, error detection and correction as first-class features, graceful degradation under partial failure. The Mars rovers run on PowerPC-class CPUs at ~200 MHz — not because faster isn't available, but because the error budget at those radiation levels requires it.
+
 ## Common Confusion Points
 
 **Solar panels are not simply "power = panels × efficiency"**: Solar panels must be oriented toward the Sun; power varies with angle (cosine function). Panels degrade over time (radiation). Temperature affects output (colder = more efficient). The EPS must handle variable input and provide regulated power through eclipse.
