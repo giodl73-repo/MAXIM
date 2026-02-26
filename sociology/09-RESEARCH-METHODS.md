@@ -72,6 +72,7 @@ SAMPLING — CONNECTING SAMPLE TO POPULATION:
     Cell phone era: landline-only RDD → systematic undercoverage of young/mobile → 2016 polling errors
     Online panels: not probability sample → requires weighting; debate about validity
 
+<!-- @editor[audience/P3]: Tone is too instructional — learner has MIT statistics background and knows power analysis, margin of error, and CI math; focus on what's sociologically distinctive (design effects from clustering, mode-specific biases) rather than defining power from scratch -->
 SAMPLE SIZE AND POWER:
   Power: probability of detecting a true effect of given size
   For given power (0.80 standard): need n depends on effect size + variance
@@ -411,6 +412,7 @@ PRAGMATISM (Dewey; contemporary social science):
 
 ---
 
+<!-- @editor[bridge/P1]: Missing universal bridge — any developer or data scientist already knows sampling (A/B testing), statistical power, survey design (UX research), and the quantitative/qualitative distinction (metrics vs. user interviews). QCA maps to Boolean logic; content analysis maps to NLP pipelines. This file should open with "you already know most of this from software — here's the sociological framing" and doesn't. -->
 ## Decision Cheat Sheet
 
 | Question type | Best method |

@@ -177,7 +177,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `political-science/` | 7 | — | — | |
 | `law/` | 8 | 2026-02 | — | 10 tags → pending |
 | `psychology/` | 7 | — | — | |
-| `sociology/` | 10 | — | — | |
+| `sociology/` | 10 | 2026-02 | — | 18 tags → pending |
 | `organizational-behavior/` | 7 | — | — | |
 | `game-theory/` | 6 | 2026-02 | — | 9 tags → pending |
 | `statistics-applied/` | 6 | — | — | |

@@ -243,6 +243,7 @@ FEMINIST AND INTERSECTIONAL SOCIOLOGY
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — learner's MIT formal-systems background and organizational leadership map naturally to Weber's rationalization, Bourdieu's field theory, and network analysis; a "CS/management → sociology" bridge paragraph would anchor the whole module set -->
 ## Bridges to Adjacent Fields
 
 | Field | Connection |

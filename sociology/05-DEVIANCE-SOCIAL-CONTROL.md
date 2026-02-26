@@ -253,6 +253,7 @@ The US imprisonment rate is a sociological outlier requiring explanation beyond 
 
 ```
 US INCARCERATION DATA:
+<!-- @editor[content/P2]: Incarceration data uses 2020 figures — post-COVID numbers shifted significantly (temporary releases, then partial rebound); consider updating to 2023-2024 data for accuracy -->
   US incarceration rate: ~620 per 100,000 population (2020, declining from peak ~760)
   International comparison:
     Cuba: ~510 (next highest) | Russia: ~350 | UK: ~130 | Germany: ~80
@@ -344,6 +345,7 @@ General Theory of Crime (Hirschi + Gottfredson, 1990):
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — Foucault's panopticon maps directly to digital surveillance and algorithmic monitoring (workplace productivity tools, code review systems, performance dashboards); Merton's strain theory parallels organizational pressure to "innovate" when legitimate channels are blocked. A bridge from organizational/tech management → social control would connect. -->
 ## Decision Cheat Sheet
 
 | Phenomenon | Relevant theory |

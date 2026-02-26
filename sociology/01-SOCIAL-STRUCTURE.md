@@ -354,6 +354,7 @@ BURT: STRUCTURAL HOLES
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — learner's organizational leadership experience maps directly to role conflict, institutional isomorphism, and Goffman's front-stage/back-stage (executives live this daily); a "management → social structure" bridge would connect immediately -->
 ## Decision Cheat Sheet
 
 | Phenomenon | Relevant concept |

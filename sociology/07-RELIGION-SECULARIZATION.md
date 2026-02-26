@@ -289,6 +289,7 @@ CRITIQUE:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to organizational theory missing — Stark/Finke's supply-side model is explicitly a market competition model (religious "firms," market share, product differentiation); Bellah's civil religion maps to corporate culture and its quasi-sacred rituals (all-hands, mission statements). A brief "economics/org-theory → religion" bridge would fit. -->
 ## Decision Cheat Sheet
 
 | Question | Relevant theory |

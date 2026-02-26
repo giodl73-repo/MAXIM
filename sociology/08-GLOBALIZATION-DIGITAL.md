@@ -268,6 +268,7 @@ THE LOGIC OF SURVEILLANCE CAPITALISM:
 UBIQUITOUS SURVEILLANCE:
   "Surveillance capitalism requires more data" → expand surveillance
     → Move beyond online behavior into real-world:
+<!-- @editor[content/P2]: Pokémon Go was developed by Niantic (a Google spinoff/Alphabet subsidiary at launch, later independent) — "Google venture" is imprecise; also the claim it "mapped every home in US for indoor location" overstates — Niantic used AR to gather spatial mapping data, not specifically indoor home mapping -->
       Pokémon Go (Google venture): mapped every home in US for indoor location
       Google Street View: harvested WiFi data while photographing
       Smart home devices (Echo, Nest, Ring): in-home surveillance
@@ -348,12 +349,14 @@ ALGORITHMIC GOVERNANCE:
     GDPR (EU, 2018): data protection rights; consent; portability; right to erasure
     DSA/DMA (EU, 2022–23): platform transparency; interoperability (DMA);
       systemic risk assessment; ban on targeted advertising to children (DSA)
+<!-- @editor[content/P2]: "2024 ruling: illegal monopoly in search" — the August 2024 ruling found Google violated antitrust law by maintaining monopoly in general search; remedies phase ongoing into 2025. Verify characterization is current and note the remedy is still pending. -->
     Antitrust: US DOJ vs Google (2024 ruling: illegal monopoly in search)
     China: data sovereignty; DiDi banned; Alibaba fined $2.8B (2021)
 ```
 
 ---
 
+<!-- @editor[bridge/P1]: Missing universal bridge — any developer or tech leader already understands network effects, platform lock-in, data moats, and algorithmic governance from the inside. Castells' "space of flows" IS the internet architecture they know; Zuboff's surveillance capitalism IS the ad-tech stack they've worked with. This file should have the strongest CS/tech bridge in the module and has none. -->
 ## Decision Cheat Sheet
 
 | Phenomenon | Relevant concept |

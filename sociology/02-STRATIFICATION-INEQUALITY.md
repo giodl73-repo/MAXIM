@@ -4,6 +4,7 @@
 
 Social stratification is **the structural ranking of social groups in a hierarchy of unequal access to valued resources** — income, wealth, power, status, education, health. Unlike individual differences in resources, stratification is systematic, institutionalized, and transmitted across generations.
 
+<!-- @editor[diagram/P2]: Diagram lists three dimensions as columns but doesn't show how they relate — Weber's key insight (they're correlated but separable) deserves a visual showing divergence cases, not just parallel lists -->
 ```
 DIMENSIONS OF STRATIFICATION
 
@@ -343,6 +344,7 @@ MECHANISMS:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — learner's career in large tech organizations provides direct experience of credentialing as closure (Collins), meritocracy narrative, and status-vs-class divergence in corporate hierarchies; a bridge from corporate ladder → Weber's multidimensional stratification would land immediately -->
 ## Decision Cheat Sheet
 
 | Phenomenon | Best explanation |

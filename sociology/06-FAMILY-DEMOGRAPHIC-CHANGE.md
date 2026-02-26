@@ -95,6 +95,7 @@ MARRIAGE SYSTEMS:
     → Prevents land fragmentation; maintains household as economic unit
 
   SAME-SEX MARRIAGE:
+<!-- @editor[content/P2]: Same-sex marriage count "35+ countries (2024)" — verify current count; as of late 2025 it is closer to 37 countries; consider updating to avoid appearing stale -->
     Legally recognized in 35+ countries (2024)
     Cross-cultural: various forms of recognized same-sex partnership historically
     → Not a modern invention; institutionalization is new in legal form
@@ -339,6 +340,7 @@ CARE WORK ECONOMICS:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to data-driven thinking missing here — the DTM is a classic model-fitting exercise (sigmoid curves, stage classification, parameter estimation) that a quantitative thinker would appreciate being called out explicitly; similarly, TFR as a summary statistic has direct analogy to any composite metric. Not critical but would add resonance. -->
 ## Decision Cheat Sheet
 
 | Phenomenon | Relevant concept |
