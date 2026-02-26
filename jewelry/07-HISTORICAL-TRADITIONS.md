@@ -356,6 +356,7 @@ IMPACT: Deco cemented diamond as THE engagement stone.
 
 ---
 
+<!-- @editor[content/P2]: Post-WWII section is a summary table only — each era (especially Retro, Mid-Century, Studio Jewelry) deserves at least a paragraph with technique/material specifics to match the depth of earlier eras -->
 ## Post-WWII to Contemporary
 
 | Era | Characteristic | Key Figures |
@@ -368,6 +369,8 @@ IMPACT: Deco cemented diamond as THE engagement stone.
 | 2010s+ | Ethical sourcing; lab-grown; 3D printing; bespoke CAD | Independent designers, Brilliant Earth |
 
 ---
+
+<!-- @editor[bridge/P3]: A brief "materials science lens" bridge here would connect to the learner — e.g., how each era's technical breakthroughs (oxy-acetylene torch enabling platinum in Art Deco, electroplating enabling Sheffield plate, CAD/3D printing in contemporary) drove the stylistic shifts -->
 
 ## Common Confusion Points
 

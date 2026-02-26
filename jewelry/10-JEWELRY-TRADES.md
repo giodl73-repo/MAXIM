@@ -435,6 +435,7 @@ Idar-Oberstein (Germany):
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to software industry parallels — the bench jeweler/designer/gemologist split maps cleanly to developer/architect/QA; guild → certification → modern credentialing parallels would resonate with this learner's management experience -->
 ## Common Confusion Points
 
 **Bench jeweler ≠ designer ≠ gemologist**:

@@ -391,6 +391,7 @@ Lab diamonds avoid Kimberley Process issues but have their own supply chain conc
 
 ---
 
+<!-- @editor[content/P2]: Market data (price table) cites 2024 — should note data vintage or mark as snapshot; lab-grown prices declining ~15-20%/yr means 2024 figures may already be stale -->
 ## Decision Cheat Sheet
 
 | Goal | Choice |

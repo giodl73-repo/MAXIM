@@ -286,6 +286,7 @@ The germanium doesn't just reduce tarnish — it forms a transparent GeO₂ surf
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to metallurgy or materials science — phase diagrams for Au-Cu-Ag ternary alloys would connect to the learner's engineering background and explain why specific alloy compositions produce specific colors -->
 ## Decision Cheat Sheet
 
 | Goal | Metal Choice |

@@ -246,6 +246,7 @@ COLORED STONE CONSIDERATIONS
    Extinction: too deep pavilion → stone appears dark, lifeless
    Balance: pavilion depth calibrated to stone's RI and desired tone
 
+<!-- @editor[content/P3]: This angle-by-RI list would be stronger as a table with species examples per RI band — easier to look up at the bench -->
 3. STANDARD ANGLES BY RI
    Low RI (1.55–1.65): steeper pavilion needed (43–45°)
    Medium RI (1.70–1.80): 41–43°
