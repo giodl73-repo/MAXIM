@@ -1,5 +1,7 @@
 # Metamorphic Rocks — P-T Paths, Facies, Foliation, Index Minerals
 
+<!-- @editor[bridge/P2]: No old-world bridge — metamorphism as "refactoring without rewriting" (same chemical composition, reorganized structure under new constraints) is a natural parallel for any developer; P-T paths map to the constraint history of the transformation -->
+
 ## The Big Picture
 
 Metamorphism = solid-state recrystallization of existing rocks in response to changes in temperature, pressure, and/or fluid chemistry. The key word is *solid-state* — metamorphic rocks never fully melt. If they do, we're back in the igneous realm.

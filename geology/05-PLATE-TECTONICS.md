@@ -1,5 +1,7 @@
 # Plate Tectonics — Seafloor Spreading, Wilson Cycle, Mantle Plumes
 
+<!-- @editor[bridge/P2]: No old-world bridge — plate tectonics as "the unifying framework" is stated but not bridged to the learner's experience; a natural parallel: plate tectonics unified geology the way Maxwell's equations unified E&M, or how microservices reframed monolithic apps — disparate observations (earthquakes, fossils, mountains) became instances of one mechanism -->
+
 ## The Big Picture
 
 Plate tectonics is geology's grand unified theory, explaining the distribution of mountains, earthquakes, volcanoes, ore deposits, and the assembly/dispersal of continents. The plates are rigid lithospheric slabs moving on the ductile asthenosphere, driven primarily by slab pull and ridge push.

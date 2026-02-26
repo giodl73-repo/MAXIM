@@ -1,5 +1,7 @@
 # Sedimentary Rocks — Stratigraphy, Steno, Depositional Environments
 
+<!-- @editor[bridge/P2]: No old-world bridge — sedimentary rocks as "Earth's version control system" (each stratum is a commit; unconformities are rebased-out history; fossils are tagged releases) would land perfectly for this learner -->
+
 ## The Big Picture
 
 Sedimentary rocks cover ~75% of Earth's land surface but are only ~5% of the crust by volume (a thin veneer). They matter disproportionately because they contain: the fossil record, petroleum systems, groundwater aquifers, most economically mined coal, and the chemical evidence of past climates.

@@ -1,5 +1,7 @@
 # Economic Geology — Ore Deposits, Petroleum Systems, Critical Minerals
 
+<!-- @editor[bridge/P2]: No old-world bridge — concentration factor as the central concept maps to "signal-to-noise ratio" or data enrichment: you need 250,000x enrichment for gold just as you might need orders-of-magnitude data filtering to extract actionable signal — any engineer with data pipeline experience gets this immediately -->
+
 ## The Big Picture
 
 Economic geology connects geologic processes to resource extraction. The core concept: **concentration**. Iron is 5% of the crust; economically minable iron ore requires 50%+ concentration (10× enrichment). Gold is 4 ppb in crust; a mineable deposit might be 1–10 ppm (250–2500× enrichment). Every deposit type reflects specific geologic processes that concentrated material.
@@ -75,6 +77,8 @@ PRECIPITATION: Cooling + pressure drop
 | **Skarn** | Fe, Cu, Pb, Zn, W, Mo | Contact zone between intrusion + carbonate | Many in CRD (carbonate-replacement) |
 | **Orogenic Au** | Au (+ Sb, W, As) | Metamorphic belts, quartz veins | Kalgoorlie (Australia), Mother Lode (CA) |
 | **Mississippi Valley Type (MVT)** | Pb, Zn | Carbonate-hosted; brines in sedimentary basins | Tri-State (OK-KS-MO), Pine Point |
+
+<!-- @editor[content/P2]: Hydrothermal deposit section lacks a diagram showing fluid flow paths (heat source -> fracture network -> deposition zone) — a system-level flow diagram would tie the table entries together -->
 
 ### Sedimentary and Weathering Deposits
 

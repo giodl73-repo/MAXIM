@@ -1,5 +1,7 @@
 # Planetary Geology — Comparative Planetology, Moon, Mars, Venus
 
+<!-- @editor[bridge/P2]: No old-world bridge — comparative planetology as "A/B testing by nature": same physical laws, different initial conditions (size, distance, volatiles) → radically different outcomes — the engineering mindset of isolating variables to understand system behavior applies directly -->
+
 ## The Big Picture
 
 Planetary geology applies terrestrial geologic principles to other bodies. The key comparative framework: each planet's geology is determined by its **size** (internal heat budget), **distance from Sun** (solar energy, volatile inventory), and **history** (impact flux, differentiation). Earth is unusual — it has active plate tectonics. Most other bodies are "one-plate planets."
@@ -195,6 +197,8 @@ EUROPA:
 ```
 
 ---
+
+<!-- @editor[content/P2]: Mercury and outer icy moons (Titan, Enceladus, Ganymede) absent — Mercury's heavily cratered surface + lobate scarps (cooling contraction) and Titan's methane cycle / Enceladus's geysers are significant comparative geology topics -->
 
 ## Impact Geology on Earth
 
