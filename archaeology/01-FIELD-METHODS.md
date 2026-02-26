@@ -356,6 +356,8 @@ PROBLEM: grey literature
 
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" decision tool (e.g., "Use magnetometry when: fast site-wide coverage needed; use GPR when: 3D structural resolution needed") -->
+
 | Question | Answer |
 |----------|--------|
 | Why not dig everything? | Excavation is irreversible; data collection before destruction; future methods will be better |

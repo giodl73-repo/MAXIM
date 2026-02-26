@@ -244,6 +244,8 @@ CURRENT PRACTICE:
 
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" decision tool (e.g., "Use archaeology when: material record diverges from written record") -->
+
 | Question | Answer |
 |----------|--------|
 | What makes archaeology distinct from history? | Studies material culture regardless of literacy; includes 99%+ of human existence before writing |

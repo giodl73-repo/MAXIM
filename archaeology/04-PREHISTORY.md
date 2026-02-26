@@ -300,6 +300,8 @@ BRONZE AGE COLLAPSE (~1200 BC):
 
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" decision tool (e.g., "Use lithic analysis when: dating pre-ceramic sites; Use aDNA when: tracking population movements") -->
+
 | Question | Answer |
 |----------|--------|
 | Oldest stone tools? | Lomekwian, 3.3 Ma (Kenya); Oldowan, 2.6 Ma |

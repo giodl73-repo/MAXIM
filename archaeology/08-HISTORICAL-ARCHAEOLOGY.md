@@ -2,6 +2,8 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: No old-world bridge — the documents-vs-material-record gap is structurally identical to logs-vs-actual-behavior in production systems (what teams report vs. what telemetry shows); Garbage Project findings parallel observability gaps in self-reported metrics -->
+
 ```
 +------------------------------------------------------------------+
 |           HISTORICAL ARCHAEOLOGY: SCOPE AND SIGNIFICANCE        |
@@ -292,6 +294,8 @@ DIGITAL HERITAGE:
 ---
 
 ## Decision Cheat Sheet
+
+<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" rows (e.g., "Use plantation archaeology when: written record is from enslaver perspective only; Use conflict archaeology when: reconstructing troop movements from artifact scatter") -->
 
 | Question | Answer |
 |----------|--------|

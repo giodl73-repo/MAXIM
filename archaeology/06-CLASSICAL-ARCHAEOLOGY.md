@@ -78,6 +78,7 @@ FORUM: Roman equivalent of agora
   Rostra: speaker's platform
   Arches, columns: commemorative monuments
 
+<!-- @editor[bridge/P3]: Natural bridge to engineering/infrastructure — aqueduct gradient engineering (0.3 m/km precision) and Nero's post-fire building code are early examples of the same infrastructure-at-scale and regulatory patterns this learner knows from Azure/enterprise systems -->
 ROMAN INFRASTRUCTURE (engineered city):
   AQUEDUCTS: gravity-fed; Pont du Gard (Nîmes): 50 km system
     Gradient: ~0.3 m per km (precise slope maintenance)
@@ -235,6 +236,8 @@ MAJOR WRECKS:
 ---
 
 ## Decision Cheat Sheet
+
+<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" rows (e.g., "Use numismatics when: dating historical-period layers (TPQ); Use epigraphy when: recovering names, dates, legal texts from stone/metal") -->
 
 | Question | Answer |
 |----------|--------|
