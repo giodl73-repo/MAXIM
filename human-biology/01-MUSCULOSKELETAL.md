@@ -279,6 +279,7 @@ Oxidative:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- bone remodeling = continuous deployment, Wolff's law = adaptive optimization, motor unit recruitment = thread pool scaling (small threads first, large for heavy load) -->
 ## Pathologies
 
 | Condition | Mechanism | Key Features |
@@ -302,6 +303,8 @@ Oxidative:
 | Slow vs fast twitch: which fatigues first? | Fast (Type IIx) — glycolytic only, lactate accumulates quickly |
 | PTH vs calcitonin? | PTH ↑ Ca²⁺ (chronic defender); calcitonin ↓ Ca²⁺ (acute, minor role in adults) |
 | Why bone remodels along stress lines? | Wolff's law: piezoelectric/mechanosensing by osteocytes → sclerostin suppression → remodeling |
+
+<!-- @editor[structure/P2]: Decision Cheat Sheet uses Q&A format rather than "use X when Y" decision structure -- consider reformatting as scenario-driven rows -->
 
 ---
 

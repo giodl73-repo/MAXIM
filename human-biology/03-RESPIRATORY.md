@@ -298,6 +298,7 @@ PERIPHERAL CHEMORECEPTORS (carotid bodies + aortic bodies)
 
 ---
 
+<!-- @editor[content/P2]: Section is thin -- pulmonary circulation deserves comparison table contrasting with systemic circulation (pressure, resistance, hypoxia response) -->
 ## Pulmonary Circulation
 
 Different from systemic:
@@ -309,6 +310,7 @@ Different from systemic:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- V/Q matching = load balancing (shunt = server bypass, dead space = idle server), Henderson-Hasselbalch = ratio-based equilibrium, surfactant = interface stabilization -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

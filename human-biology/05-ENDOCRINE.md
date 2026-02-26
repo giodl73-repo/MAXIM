@@ -314,6 +314,7 @@ FEMALE HPG AXIS (cyclic):
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- endocrine = pub/sub messaging, negative feedback = thermostat/PID, pulsatile GnRH = clock-driven polling vs continuous (continuous = receptor downregulation like queue overflow), nuclear receptors = gene-level config vs membrane receptors = runtime signal -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

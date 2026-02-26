@@ -255,6 +255,7 @@ FETAL PERIOD (week 9 → birth): growth and maturation
 
 ---
 
+<!-- @editor[content/P2]: Contraception absent -- significant gap; comparison table of mechanism classes (hormonal, barrier, IUD, sterilization) with failure rates would serve the learner -->
 ## Parturition (Labor)
 
 ```
@@ -308,6 +309,7 @@ Premature ovarian insufficiency (POI): < 40 yrs; spontaneous or iatrogenic (chem
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- oogenesis fixed pool = pre-allocated resource pool, spermatogenesis = continuous production pipeline, menstrual cycle = state machine with hormone-driven transitions, LH surge = runaway amplification with defined termination, hCG = keep-alive signal -->
 ## Decision Cheat Sheet
 
 | Question | Answer |
