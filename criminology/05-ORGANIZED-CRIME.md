@@ -160,6 +160,7 @@ The market model: organized crime is entrepreneurship in illegal markets. Use st
 
 ## Network Analysis Approach
 
+<!-- @editor[bridge/P2]: Missing graph-theory bridge — this learner has MIT TCS background. Degree centrality, betweenness centrality, clustering coefficient are all graph-theoretic concepts. A one-line bridge ("these are the same centrality metrics from graph theory / social network analysis in CS") would anchor the entire section -->
 Modern criminology uses social network analysis to map criminal organizations without assuming hierarchy.
 
 ```
@@ -313,6 +314,7 @@ The most serious human rights violation in organized crime analysis.
 
 ## Cybercrime as Organized Crime
 
+<!-- @editor[content/P2]: Cybercrime section is thin relative to its current importance — ransomware-as-a-service, cryptocurrency laundering (mixers/tumblers), and state-sponsored cybercrime (North Korea, Lazarus Group) each deserve more treatment. This section reads as a brief compared to the depth given to traditional OC forms -->
 The newest major criminal market, with distinct organizational features.
 
 ```

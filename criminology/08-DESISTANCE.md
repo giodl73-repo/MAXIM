@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: Missing empirical-methods bridge — the age-crime curve and longitudinal panel data (Glueck & Glueck followed for 60+ years) are methodologically fascinating. A senior technical leader would want to know: how do you study desistance? What makes the Glueck dataset special? One paragraph on methodology would serve this learner's instinct for "how do we know this?" -->
 Desistance is the process by which people stop offending. Understanding it is the foundation of rational rehabilitation policy. Most people age out of crime -- the question is what accelerates that process and what the justice system can do (or stop doing) to facilitate it.
 
 ```
@@ -381,5 +382,6 @@ The risk principle says: don't treat low-risk offenders intensively. This is cou
 **Recidivism Measure Matters Enormously**
 Studies citing "67% recidivism rate" typically mean rearrest within 3 years. Reconviction rates are lower (~40%). Reincarceration rates are lower still (~30%). And these include technical violations. The appropriate measure depends on the policy question. A new serious crime is categorically different from a missed parole appointment.
 
+<!-- @editor[content/P2]: Drug treatment programs (therapeutic communities, MAT/medication-assisted treatment) mentioned in the landscape diagram but never given structural treatment — strong evidence base for TC (CDATE, Amity) and MAT (methadone, buprenorphine) deserves at least a subsection comparable to CBT -->
 **What Works Is Not "Soft on Crime"**
 CBT and education programs reduce recidivism -- they reduce future crime victims. That is the point of incarceration (or should be). The argument for evidence-based rehabilitation is not humanitarianism alone; it is crime reduction. Punitive measures that feel hard but don't reduce reoffending produce more future victims.

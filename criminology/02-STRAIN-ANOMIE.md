@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: Missing systems-thinking bridge — Merton's blocked-means model is structurally identical to a resource-contention deadlock: shared goal (resource), limited channels (means), overflow to alternative paths (crime). Any engineer who's debugged contention would grasp this framing instantly -->
 Strain theories locate crime's cause in social structure rather than individual rationality. The core claim: society sets common goals but blocks legitimate access for some groups. That blocked aspiration creates strain, which motivates crime as an alternative route. Anomie is the societal condition where normative regulation collapses.
 
 ```
@@ -376,5 +377,6 @@ The most common adaptation is conformity -- accepting both goals and legitimate 
 **Innovation Is Not Just Property Crime**
 Merton's "innovation" covers any illegitimate means toward legitimate goals: drug dealing, fraud, corruption, political graft. White-collar crime fits the model -- executives using fraud to reach financial goals they could not reach legitimately. The model is not class-specific despite often being taught that way.
 
+<!-- @editor[content/P2]: Section is thin — GST's empirical test design (individual-level survey instruments, longitudinal panels) deserves a brief note on methodology. The learner would want to know how strain is operationalized and measured, not just theorized -->
 **GST and Domestic Violence**
 Agnew's presentation-of-negative-stimuli source of strain directly explains why victimization predicts offending. Abused youth who are exposed to negative stimuli at home generate strain that -- absent adequate coping resources -- can produce delinquency. This is not excuse-making; it is mechanism identification.

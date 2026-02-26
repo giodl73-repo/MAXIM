@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: Missing constraint-satisfaction bridge — Hirschi's bond model is isomorphic to constraint satisfaction: conformity is the default state, and crime occurs only when constraints (bonds) are removed. Any CS graduate with formal methods exposure would recognize this as "safety property = bonds hold; violation = bond failure" -->
 Social control theory asks the opposite question from strain theory: not "why do people commit crime?" but "why do most people NOT commit crime?" The answer is social bonds. Labeling theory inverts the question further: how does the criminal justice system itself produce criminality through the act of labeling?
 
 ```
@@ -369,5 +370,6 @@ Labeling theory is about the *amplification* of deviance through societal reacti
 **Self-Control Theory Is Not Deterministic**
 Gottfredson and Hirschi say self-control is stable after childhood -- not that it is perfectly fixed. High-self-control people can still offend under sufficient provocation; low-self-control people can still avoid crime with sufficient bonds. The trait is probabilistic, not deterministic.
 
+<!-- @editor[content/P2]: Akers' Social Learning Theory mentioned in passing but never explained — it is "among the most empirically supported theories in criminology" per the text, yet gets no structural treatment. Deserves at least a subsection or a note on how it operationalized differential association -->
 **Differential Association Is Not "Bad Companions"**
 The folk version is "you become like who you hang out with." Sutherland's version is more precise: the balance of *definitions* (attitudes toward violation) that are transmitted matters, not simply peer delinquency levels. A highly religious friend transmitting strong anti-crime definitions outweighs casual criminal association.

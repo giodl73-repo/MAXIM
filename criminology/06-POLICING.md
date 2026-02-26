@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: Missing systems-engineering bridge — policing resource allocation is an optimization problem under constraints (budget, geography, political legitimacy). The SARA model is structurally identical to PDCA / observe-orient-decide-act. A senior engineer would anchor faster with that framing -->
 Policing is the front end of the criminal justice system -- the primary point of contact between state coercive power and the public. Policing strategy determines who gets arrested, for what, and where. Those decisions aggregate into the shape of the entire criminal justice system downstream.
 
 ```
@@ -182,6 +183,7 @@ Policing is the front end of the criminal justice system -- the primary point of
 ### Predictive Policing
 
 ```
+<!-- @editor[bridge/P3]: Natural bridge to ML fairness/bias: predictive policing's feedback loop (biased training data -> biased predictions -> biased enforcement -> more biased data) is the same concept as dataset bias in ML. This learner with AI-engineering context would grasp the technical critique instantly through that lens -->
   PREDICTIVE POLICING
   ===================
 

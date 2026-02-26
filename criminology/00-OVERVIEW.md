@@ -2,8 +2,10 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: No old-world bridge — a natural parallel exists: criminology's theory-to-policy pipeline mirrors the software engineering feedback loop (model/hypothesis -> instrument/measure -> evaluate/iterate). A senior engineer would anchor faster with that framing -->
 Criminology spans explanatory theory (why crime occurs), institutional analysis (how justice systems respond), and policy evaluation (what interventions actually work). The field sits at the intersection of sociology, psychology, economics, and law.
 
+<!-- @editor[diagram/P2]: Diagram lists items in four quadrants but doesn't show how they relate — no arrows from theories to policy levers, or crime types to justice system responses. Rework as layered system view showing the causal/institutional flow: theory explains -> crime type manifests -> justice system responds -> policy lever applied -->
 ```
 +------------------------------------------------------------------+
 |                     CRIMINOLOGY LANDSCAPE                        |
@@ -272,5 +274,6 @@ Classical and most mainstream criminology assumes criminal law reflects societal
 **Correlation vs. Causation in Crime Research**
 Poverty correlates with crime. Poverty does not straightforwardly cause crime -- most poor people do not offend. The causal mechanisms run through social disorganization, strain, and weakened bonds, not poverty itself.
 
+<!-- @editor[bridge/P3]: Natural bridge to software testing/QA: certainty of detection >> severity of punishment mirrors the QA principle that high test coverage (certainty of catching bugs) outperforms severe penalties for bugs shipped -->
 **Punishment vs. Deterrence**
 Deterrence has two levers: *certainty* of punishment and *severity* of punishment. Research consistently shows certainty matters far more than severity. Mandatory minimums increase severity without increasing certainty -- limited deterrent effect.
