@@ -4,16 +4,16 @@
 
 | File | Topic | Status |
 |------|-------|--------|
-| 00-OVERVIEW.md | Masonry: Units, Mortar, Structure, and History — Landscape | 🔜 |
-| 01-MASONRY-UNITS.md | Masonry Units: Brick Sizes/Grades, CMU, Natural Stone, Adobe, Tile | 🔜 |
-| 02-MORTAR-GROUT.md | Mortar and Grout: Portland Types, Lime Mortars, Mix Design, Compatibility | 🔜 |
-| 03-BRICKLAYING.md | Bricklaying: Bonds (Running, Flemish, English), Courses, Leads, Corners | 🔜 |
-| 04-STONEWORK.md | Stonework: Ashlar, Rubble, Dry-Stone, Coursed vs. Random | 🔜 |
-| 05-STRUCTURAL-MASONRY.md | Structural Masonry: Load Paths, Slenderness, Reinforced Masonry, Codes | 🔜 |
-| 06-ARCHES-VAULTS.md | Arches and Vaults: Thrust Line, Voussoirs, Barrel, Groin, Gothic | 🔜 |
-| 07-HISTORIC-MASONRY.md | Historic Masonry: Roman Concrete, Medieval Cathedrals, Islamic Brick | 🔜 |
-| 08-REPAIR-RESTORATION.md | Repair and Restoration: Repointing, Crack Repair, Compatibility Issues | 🔜 |
-| 09-MODERN-APPLICATIONS.md | Modern Masonry: Veneer Systems, Glass Block, Thin Brick, Insulated CMU | 🔜 |
+| 00-OVERVIEW.md | Masonry: Units, Mortar, Structure, and History — Landscape | ✅ |
+| 01-MASONRY-UNITS.md | Masonry Units: Brick Sizes/Grades, CMU, Natural Stone, Adobe, Tile | ✅ |
+| 02-MORTAR-GROUT.md | Mortar and Grout: Portland Types, Lime Mortars, Mix Design, Compatibility | ✅ |
+| 03-BRICKLAYING.md | Bricklaying: Bonds (Running, Flemish, English), Courses, Leads, Corners | ✅ |
+| 04-STONEWORK.md | Stonework: Ashlar, Rubble, Dry-Stone, Coursed vs. Random | ✅ |
+| 05-STRUCTURAL-MASONRY.md | Structural Masonry: Load Paths, Slenderness, Reinforced Masonry, Codes | ✅ |
+| 06-ARCHES-VAULTS.md | Arches and Vaults: Thrust Line, Voussoirs, Barrel, Groin, Gothic | ✅ |
+| 07-HISTORIC-MASONRY.md | Historic Masonry: Roman Concrete, Medieval Cathedrals, Islamic Brick | ✅ |
+| 08-REPAIR-RESTORATION.md | Repair and Restoration: Repointing, Crack Repair, Compatibility Issues | ✅ |
+| 09-MODERN-APPLICATIONS.md | Modern Masonry: Veneer Systems, Glass Block, Thin Brick, Insulated CMU | ✅ |
 
 ## Coverage Notes
 
