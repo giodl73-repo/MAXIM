@@ -86,6 +86,7 @@ Benjamin Bloom's research is the theoretical foundation for the AI tutoring prom
   ITS ARCHITECTURE
   =================
 
+<!-- @editor[bridge/P3]: ITS 4-component architecture maps naturally to MVC+domain pattern (domain model, student model as state, pedagogical module as controller, interface as view) — learner's software architecture background makes this an obvious bridge -->
   FOUR COMPONENTS (traditional ITS):
 
   1. DOMAIN MODEL:
@@ -332,6 +333,7 @@ The emergence of GPT-4, Claude, Gemini, and similar models created a new categor
   learning and the environments in which it occurs.
   (LAK, 2011)
 
+<!-- @editor[bridge/P3]: Learning analytics pipeline parallels BI/data engineering pipelines (event ingestion, ETL, dimensional models, dashboards) — natural bridge to Azure Data Factory and Power BI background -->
   DATA TYPES:
     LMS activity: login frequency, time on task.
     Assessment: quiz scores, time taken, error patterns.

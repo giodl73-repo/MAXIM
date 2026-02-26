@@ -4,6 +4,7 @@
 
 Education science spans how learning works (cognitive and developmental science), how teaching is designed (pedagogy and curriculum), how systems are organized (institutional structure and policy), and how power operates within and through education (sociology and equity). The field is uniquely practical: every finding eventually confronts the classroom, the teacher, and the learner.
 
+<!-- @editor[diagram/P2]: Landscape diagram lists items in quadrants but doesn't show how the four areas relate — the genealogy timeline below does the relational work, but the opening diagram could show arrows between learning science and pedagogy, between sociology and policy -->
 ```
 +------------------------------------------------------------------+
 |                      EDUCATION LANDSCAPE                         |

@@ -227,6 +227,7 @@ Beyond MOOCs, the more durable EdTech contribution is adaptive learning -- syste
   ADAPTIVE LEARNING ARCHITECTURE
   ================================
 
+<!-- @editor[bridge/P3]: Natural bridge to CS graph theory (directed acyclic graph, topological sort for prerequisite ordering) — learner has MIT background in graph algorithms -->
   KNOWLEDGE GRAPH:
     Learning content structured as directed graph.
     Nodes: concepts/skills.
@@ -241,6 +242,7 @@ Beyond MOOCs, the more durable EdTech contribution is adaptive learning -- syste
     |Decimals|
     +--------+
 
+<!-- @editor[bridge/P3]: Bayesian Knowledge Tracing is a hidden Markov model — natural bridge to Bayesian inference and probabilistic graphical models the learner knows from MIT math/TCS -->
   MASTERY ESTIMATION:
     Bayesian Knowledge Tracing (BKT):
     Estimates probability student knows each skill.
