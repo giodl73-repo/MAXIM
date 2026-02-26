@@ -1,5 +1,7 @@
 # Networking — The Modern Stack
 
+<!-- @editor[audience/P1]: No "what this guide covers vs what you already know" framing. This learner knows TCP/IP, DNS, HTTP/1.1, TLS 1.2 deeply from building VSTS and Azure. The high-value content is: QUIC/HTTP3 internals, WebSocket vs SSE vs WebRTC trade-offs, gRPC/Protobuf wire format, TLS 1.3 specifics (vs 1.2 they know), HTTP/2 HPACK, connection migration. The file should front-load a one-line audience calibration so the learner knows where to start vs skim. Currently Sections 1–3 read as a tutorial for someone who doesn't know networking. -->
+
 ## The Big Picture
 
 ```
@@ -62,6 +64,8 @@ HTTP/2 over TLS 1.3 brings this to 2 RTTs. QUIC/HTTP/3 can reach 1 RTT (0-RTT on
 ---
 
 ## 1. IP & Subnetting
+
+<!-- @editor[audience/P2]: IPv4 addressing and CIDR binary breakdown (the 11000000 10101000 explainer) is elementary for someone who designed VSTS network topology and Azure VNets. The bit-level explanation of dotted-decimal adds no value. The subnetting reference table and Azure-specific notes (/28 = 11 usable, Azure reserves 5) are genuinely useful — keep those, trim the intro. -->
 
 ### IPv4 Addressing
 
@@ -164,6 +168,8 @@ Dual-stack: host has both IPv4 and IPv6 addresses. Happy Eyeballs (RFC 8305) rac
 ---
 
 ## 2. TCP Deep Dive
+
+<!-- @editor[audience/P2]: The 3-way handshake and 4-way teardown diagrams with annotations ("Client: 'I want to connect, my seq starts at x'") explain what this learner has known since building VSTS. The sequence number fundamentals are noise. What's valuable in this section: TIME_WAIT at scale, Nagle + TCP_NODELAY, CUBIC vs BBR, socket options table — keep all of that. Consider trimming the handshake diagrams to brief reference rows and leading with the production-relevant content (TIME_WAIT port exhaustion, congestion algorithms). -->
 
 ### 3-Way Handshake
 
@@ -303,6 +309,8 @@ Connection pooling is essential for TCP: TLS + TCP handshake costs 2–3 RTTs. K
 
 ## 3. DNS
 
+<!-- @editor[audience/P2]: The DNS resolution chain diagram (stub → recursive → root → TLD → authoritative) explains what this learner built into VSTS and Azure. The detail about "recursive resolver does the work" is pedagogical padding. What's useful: DoH/DoT comparison, DNSSEC chain of trust, split-horizon Azure Private DNS, CNAME-at-apex problem, negative caching gotchas. Consider condensing the resolution chain to 2-3 lines and expanding the modern/operational content. -->
+
 ### Resolution Chain
 
 ```
@@ -405,6 +413,8 @@ Each zone has a ZSK (Zone Signing Key) for signing records and a KSK (Key Signin
 - `dig +trace example.com` shows the full iterative resolution chain. Invaluable for debugging.
 
 ---
+
+<!-- @editor[bridge/P2]: Missing an explicit "HTTP version evolution" bridge that maps from the learner's existing HTTP/1.1 mental model to the specific problems HTTP/2 and HTTP/3 each solve. The guide has the content scattered (HOL blocking mention, QUIC section) but no single "here's the lineage and what changed at each step" table before diving into each version's details. The TLS 1.2→1.3 comparison table in Section 5 is the gold standard for this — a similar table at the start of Section 4 would front-load the "why upgrade" context. -->
 
 ## 4. HTTP/1.1 → HTTP/2 → HTTP/3
 
@@ -606,7 +616,7 @@ Total: 1 RTT. Compare TLS 1.2: 2 RTTs (or 1 RTT with False Start, but non-standa
 Only 5 cipher suites:
 - `TLS_AES_128_GCM_SHA256`
 - `TLS_AES_256_GCM_SHA384`
-- `TLS_CHAES20_POLY1305_SHA256`
+- `TLS_CHACHA20_POLY1305_SHA256` <!-- @editor[content/P3]: Typo in original: "TLS_CHAES20_POLY1305_SHA256" — should be TLS_CHACHA20_POLY1305_SHA256 -->
 - `TLS_AES_128_CCM_SHA256`
 - `TLS_AES_128_CCM_8_SHA256`
 
@@ -1110,6 +1120,8 @@ Caddy manages ACME certificate lifecycle automatically. Handles HTTP-01 and TLS-
 ---
 
 ## 11. Network Security
+
+<!-- @editor[bridge/P2]: The Zero Trust subsection in this networking file (Section 11) is a thin 6-line sketch. The detailed Zero Trust treatment is in 25-SECURITY.md. This section should either cross-reference that file explicitly or expand the network-layer zero-trust content (microsegmentation, NSG micro-perim, Private Endpoints) more concretely. Currently it's a placeholder that duplicates less of what's in Security without adding networking-specific depth. -->
 
 ### Firewalls: Stateful vs Stateless
 

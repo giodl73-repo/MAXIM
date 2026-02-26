@@ -131,6 +131,8 @@ Queue (point-to-point)             Topic / Pub-Sub (fan-out)
 
 ### Kafka
 
+<!-- @editor[bridge/P1]: Critical distinction flagged in calibration notes: the Azure Service Bus → Kafka bridge must make the event streaming vs. message queuing distinction explicit. Azure Service Bus is a message broker: messages are consumed and deleted, delivery is guaranteed-once to a single consumer group. Kafka is an event log: messages are retained, multiple independent consumer groups each read the full stream, replay is possible. This is architecturally different, not just a scale difference. A reader coming from Service Bus will expect Kafka to behave like a queue — that mental model is wrong and leads to bad partition/consumer group design. Add: "If you know Azure Service Bus: Kafka is not a faster Service Bus. It's a different abstraction — a durable, replayable log rather than a delivery mechanism. The consumer group model (each group reads all messages independently) has no Service Bus equivalent." -->
+
 Apache Kafka is the dominant event streaming platform for high-throughput, durable event logs.
 
 ```
@@ -315,6 +317,8 @@ Order Saga (Choreography)
 
 When you have many services, cross-cutting concerns (retries, mTLS, observability) get duplicated in every service. A service mesh moves them to the infrastructure layer.
 
+<!-- @editor[bridge/P2]: WCF service contracts → gRPC is flagged in calibration notes as a bridge that belongs here but is absent from the file entirely. gRPC isn't covered at all — not in this section, not in the bridge table. The service mesh section is where it naturally fits (mTLS, protocol translation). The bridge table row should call out: WCF typed service contracts / SOAP → gRPC (Protocol Buffers, typed service definitions, HTTP/2). Currently the table maps WCF service host → containerized HTTP service, which skips the protocol contract layer. Either add a gRPC subsection or at minimum add it to the bridge table and note the concept here. -->
+
 ```
 Without service mesh               With service mesh (Istio / Linkerd)
 ════════════════════               ═══════════════════════════════════
@@ -448,6 +452,8 @@ Decouple deployment from release. Ship code to prod dark; enable for 1% of users
 
 ## The 12-Factor App
 
+<!-- @editor[bridge/P2]: Factor III (config in env vars) and Factor X (dev/prod parity) have direct .NET bridge points that are absent here. Factor III: `App.config` / `web.config` with `<appSettings>` was the .NET pattern — the 12-factor replacement is env vars, which is a deliberate inversion (config lives outside the artifact). Factor VI (stateless processes): ASP.NET session state stored in-process was the anti-pattern; out-of-process session (Redis, SQL) is the cloud-native equivalent. A one-line callout per relevant factor would help the reader map new to known. -->
+
 The foundational checklist for cloud-native services. Originally from Heroku (2011), still the canonical reference.
 
 ```
@@ -496,6 +502,8 @@ They're also for kill switches (disable a component under load), A/B testing, gr
 ---
 
 ## Old World Bridge
+
+<!-- @editor[content/P2]: WCF service contracts → gRPC is missing from the bridge table entirely. WCF had typed, contract-first service definitions (WSDL / ServiceContract attributes). gRPC uses Protocol Buffers (.proto files) as the contract — same concept, different serialization. This is a direct 1:1 analog the learner will recognize immediately. Add a row: "WCF ServiceContract / WSDL → gRPC + Protocol Buffers (.proto)" with a note that gRPC is the modern equivalent for typed, high-performance inter-service RPC in a microservices architecture. -->
 
 | WCF / SOA / .NET Enterprise Patterns | Cloud-Native Equivalent |
 |---|---|

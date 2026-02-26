@@ -173,6 +173,8 @@ Production uses: Kruskal's MST, dynamic connectivity, image segmentation, cycle 
 
 ## 3. Sorting
 
+<!-- @editor[bridge/P2]: The sorting section covers Introsort and TimSort correctly but misses the bridge to pdqsort (pattern-defeating quicksort) which is what Rust's std::sort and C++ Boost.Sort use. The learner will encounter pdqsort in any systems work. Missing: a paragraph bridging Introsort → pdqsort (the BlockQuicksort pivot selection + fallback strategy, and why it degrades to heapsort on adversarial inputs better than classic Introsort). The "Where These Algorithms Live in Production" table at the end is exactly right — this section could use the same level of implementation grounding. -->
+
 ### Comparison Sort Lower Bound
 
 Ω(n log n) comparisons required in the worst case. Proof via decision tree: must distinguish n! permutations; binary tree with n! leaves has depth ≥ log₂(n!) = Θ(n log n) by Stirling.
@@ -216,6 +218,8 @@ Every database ORDER BY, hash join build phase, and GROUP BY uses external sort 
 ---
 
 ## 4. Graph Algorithms
+
+<!-- @editor[audience/P2]: BFS and DFS with annotated edge classifications (tree edge, back edge, forward edge, cross edge) and the DFS correctness proof scaffolding are 6.006 lecture material this learner has known since undergrad. The Dijkstra algorithm walkthrough ("prerequisites: non-negative edge weights; extract min; relax all edges") is similarly foundational. What adds value: the SPFA warning (susceptible to adversarial inputs — avoid in production), the A* heuristic consistency note, and the Johnson's algorithm vs Floyd-Warshall complexity comparison for sparse graphs. Consider tagging the BFS/DFS fundamentals as "reference" and front-loading the production-relevant nuances. -->
 
 ### Representations
 
@@ -515,6 +519,8 @@ Design without knowing B (block size) or M (memory size), yet achieve optimal I/
 
 ## 8. Randomized Algorithms
 
+<!-- @editor[content/P2]: The streaming algorithms section (HyperLogLog, Count-Min Sketch, Bloom filter) is exactly right for this audience — real systems connections, error guarantees, production deployments. But it's missing the practitioner trap: the difference between a Bloom filter (probabilistic set membership, false positives only) and a Cuckoo filter (same use case, but supports deletions, higher throughput, similar space). Redis 4.0+ ships a Bloom filter module; the Cuckoo filter is the modern upgrade path. This is the kind of "competitive programming vs production" distinction explicitly called out in the audience profile. A one-row addition to the streaming table would be sufficient. -->
+
 ### Las Vegas vs Monte Carlo
 
 | Type | Correctness | Time | Examples |
@@ -609,6 +615,8 @@ SAT (Cook 1971)
 **SETH** (Strong ETH): k-SAT requires 2^((1-ε)n) for any ε>0. Implies fine-grained hardness of many polynomial-time problems (edit distance, LCS require Ω(n^(2-ε)) under SETH).
 
 ---
+
+<!-- @editor[content/P2]: Missing a "competitive programming traps vs production use" section. The audience profile explicitly calls this out. Examples that belong here: (1) Fibonacci heap — O(m + n log V) Dijkstra in theory, but nobody uses it in production due to constant factors; (2) Suffix automaton — asymptotically optimal but practically beaten by suffix array + LCP for most text search; (3) Van Emde Boas tree — O(log log U) in theory, cache-horrible in practice; (4) Segment tree with lazy propagation — competitive staple, but in production a B-tree or skip list beats it for ordered data because of cache locality. The "Common Confusion Points" section has some of this but it's not consolidated as a "theory vs production" contrast. -->
 
 ## Where These Algorithms Live in Production
 

@@ -8,6 +8,8 @@ You know the theory. DFA, NFA, PDA, Turing machine, Rice's theorem, the undecida
 
 The answer is: everywhere, usually disguised. The Chomsky hierarchy isn't just a taxonomy in a textbook — it's a load-bearing constraint in parser design, security tool architecture, and protocol implementation. This guide maps the theory to the concrete artifacts.
 
+<!-- @editor[diagram/P1]: No landscape diagram — guide opens with wall of text before the first ##. Missing a visual map of the theory-to-artifact connections (Chomsky hierarchy → regex engines / parsers / static analysis tools / state machines). The summary map appears at the end but the style contract requires it at the top. -->
+
 ---
 
 ## The Chomsky Hierarchy as a Practical Guide
@@ -28,6 +30,8 @@ The question "can I parse this with a simple parser?" = "is this CFL?"
 ```
 
 ### Why the Boundary Between Type 3 and Type 2 Matters
+
+<!-- @editor[audience/P2]: The examples (balanced parens require counting, why you can't parse HTML with regex) are the standard pumping-lemma lecture examples from 6.840. This person could recite them. The value here is the engineering consequence ("this is why CSS is mostly regular but JavaScript is not"), not the derivation. Trim to the engineering punchline; cut the "critical insight: no DFA can count" block. -->
 
 ```
 Regular (DFA can recognize):
@@ -291,6 +295,8 @@ PDAs appear at every parser boundary. The stack is the core data structure of re
 
 ### Recursive Descent = Explicit Call Stack = PDA
 
+<!-- @editor[audience/P2]: This subsection explains that the call stack IS the PDA stack and why balanced parens require a stack. That's the content of the PDA lecture in 6.840 — this reader proved this. The code example adds nothing new. What would add value: where recursive descent breaks down in practice (left recursion elimination, operator precedence climbing, Pratt parsing as an alternative), not the basic PDA correspondence. -->
+
 ```
 Recursive descent parser for:  E → T ('+' T)*  T → F ('*' F)*  F → '(' E ')' | id
 
@@ -356,6 +362,8 @@ nearley     Earley (any CFG) JS          Can parse ambiguous grammars
 pest        PEG              Rust        Zero-copy, ordered choice resolves ambiguity
 chevrotain  LL(k)            TS          Hand-rolled parser toolkit, very fast
 ```
+
+<!-- @editor[bridge/P2]: tree-sitter's distinguishing feature over yacc/bison is incremental parsing — it re-parses only the changed subtree, which is why it works in editors on every keystroke. The table lists it without this key architectural detail. The theory connection: tree-sitter maintains the LR parse stack across edits and replays only the affected portion. This is the gap-between-theory-and-practice content that adds value for this reader. -->
 
 ### Earley Parsing — Handling Ambiguous Grammars
 

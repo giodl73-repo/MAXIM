@@ -27,6 +27,8 @@ One question drives all rendering strategy decisions: **where and when is HTML g
   The skill is knowing which page/route needs which strategy.
 ```
 
+<!-- @editor[diagram/P1]: The calibration note calls a rendering pipeline diagram "critical" — showing for each mode: where HTML originates, when JS executes, what the browser receives, and when the page becomes interactive. The spectrum above shows WHEN but not the HOW of each pipeline. Add a side-by-side pipeline diagram: for SSG/SSR/CSR/RSC, show the sequence (build/request/browser steps) with timing arrows. This is the mental model gap the learner most needs filled. -->
+
 ---
 
 ## The Core Question
@@ -230,6 +232,8 @@ Hydration is the process of taking static HTML (from SSR or SSG) and making it i
   Astro's islands architecture does this.
 ```
 
+<!-- @editor[bridge/P2]: Hydration has a direct ASP.NET analog worth making explicit: UpdatePanel (WebForms) tried to solve partial-page interactivity server-side; ScriptManager managed JS on the page. The modern hydration model is the inversion of that — ship the HTML first, attach behavior after. Also: ASP.NET Blazor Server uses a SignalR-backed model that is conceptually similar to SSR+hydration but keeps UI state on the server. That contrast (Blazor Server vs Next.js SSR hydration) would sharpen the mental model for this reader. -->
+
 ---
 
 ## SSG — Static Site Generation
@@ -308,6 +312,8 @@ Next.js invention. SSG pages that automatically regenerate in the background whe
   Content editor saves → CMS calls your revalidation API → page regenerates.
   Stale window reduced from minutes to seconds.
 ```
+
+<!-- @editor[bridge/P2]: ISR is the closest modern analog to ASP.NET's OutputCache with sliding expiration and VaryByParam. The `[OutputCache(Duration=60, VaryByParam="id")]` pattern is exactly what ISR + on-demand revalidation replicates. Worth a one-line explicit call-out here since the learner has that mental model already. The bridge table at the end lists this mapping, but it's more useful inline where the concept is introduced. -->
 
 ---
 
@@ -405,6 +411,8 @@ The newest model. Not "SSR" in the traditional sense — a fundamentally differe
 ```
 
 **RSC trade-offs**: More powerful architecture, significantly more complex mental model. The "use client" boundary requires careful thought. Still maturing in 2026.
+
+<!-- @editor[bridge/P2]: RSC has no good .NET equivalent, but the closest mental model is ASP.NET View Components (server-rendered, data-fetching, composable into a page) versus partial views (server-rendered templates) versus Ajax-loaded partials (client-fetched). The distinction RSC introduces — some components are never JS, only HTML — is genuinely novel. Worth a brief note: "This has no .NET equivalent. The closest mental model is a View Component that can be composed freely but whose output is never a JS hydration target." The learner's prior art makes RSC harder to grasp because all prior frameworks (Razor, Blazor WASM, WebForms) have a unified rendering model per page. RSC breaks that assumption. -->
 
 ---
 
@@ -540,6 +548,8 @@ Next.js implements every pattern, per route.
   +----------+--------+--------+---------+---------+--------+
 ```
 
+<!-- @editor[content/P2]: This comparison table omits RSC and Islands, which are covered in depth above. Either add columns for them or add a note explaining why they're excluded (they operate at the component level, not the page level, so they don't fit cleanly into this matrix). The learner will notice the gap. At minimum, a one-line callout: "RSC and Islands don't appear here because they operate at the component level — they compose with the page-level strategies above rather than replacing them." -->
+
 ---
 
 ## Common Confusion Points
@@ -662,6 +672,8 @@ Next.js implements every pattern, per route.
 | JavaScript bundling (System.Web.Optimization) | Vite / Next.js bundling | Same problem, modern solution |
 | Azure Static Web Apps | Vercel / Netlify (SSG hosting) | Deploy SSG output to global CDN |
 | Azure App Service (Node.js) | Vercel / Railway / Fly.io | Host SSR Next.js server |
+
+<!-- @editor[structure/P2]: The bridge table is placed at the end, after Common Confusion Points. In 01-PACKAGE.md (the gold standard), the bridge is integrated inline near relevant concepts OR placed before the Decision Cheat Sheet. Here it follows Common Confusion Points, breaking the established section order. Move bridge before Common Confusion Points to match the pattern used by 07-STATE.md, 08-BACKEND.md, 09-DATABASE.md, and 10-AUTH.md (all place bridge → then Decision Cheat Sheet last). -->
 
 ---
 

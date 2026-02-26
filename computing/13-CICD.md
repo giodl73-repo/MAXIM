@@ -29,6 +29,8 @@ CI/CD — What It Actually Is
   CD = the change reaches production reliably and repeatably
 ```
 
+<!-- @editor[audience/P1]: The intro explains CI/CD philosophy from first principles. This learner built VSTS CI/CD at Microsoft — they invented this. The "CI = fast feedback on every change / CD = the change reaches production reliably" framing is correct but it's teaching someone their own invention. The Big Picture should be inverted: acknowledge the learner already knows CI/CD deeply, then orient immediately to the syntax and ecosystem differences (GitHub Actions vs Azure Pipelines YAML). Something like: "You built this at VSTS. This guide is about GitHub Actions syntax specifically, and the delta from Azure Pipelines YAML you already know." The conceptual walkthrough of what CI and CD mean should be cut or compressed to a one-liner. -->
+
 ```
 The Two Major Platforms
 ========================
@@ -50,6 +52,8 @@ The Two Major Platforms
     OSS or mixed cloud                   Enterprise compliance requirements
                                          Need VSTS release gates / approvals
 ```
+
+<!-- @editor[bridge/P1]: Missing GitHub Actions YAML vs Azure Pipelines YAML side-by-side syntax comparison. The calibration note calls this "essential": "A YAML pipeline spec (GitHub Actions) vs Azure Pipelines YAML comparison is essential." The comparison table above covers conceptual/ecosystem differences, but not the YAML syntax mapping. The learner needs to see: `trigger:` vs `on:`, `pool: vmImage:` vs `runs-on:`, `steps: - task:` vs `steps: - uses: / run:`, `variables:` vs `env:`, `stages:` vs top-level `jobs:`, `dependsOn:` vs `needs:`. This is the concrete translation layer the learner needs and it belongs right here as a named side-by-side code block, not buried in the Azure Pipelines section later. -->
 
 ---
 
@@ -338,6 +342,8 @@ Variable Groups (UI)                   variables + variable groups + Key Vault
 Agent Queues                           pool: vmImage or name: (self-hosted)
 ```
 
+<!-- @editor[bridge/P2]: The "Pipelines vs Releases" table above is the right idea but it should be extended with a concrete YAML syntax side-by-side: Azure Pipelines YAML vs GitHub Actions YAML. The calibration note flags this as "essential." The table compares conceptual model changes within ADO, but not the translation between ADO YAML and GitHub Actions YAML. A developer moving from ADO to GitHub Actions needs to know: `trigger:` → `on: push:`, `pool: vmImage:` → `runs-on:`, `- task: NodeTool@0` → `- uses: actions/setup-node@v4`, `stages:` → top-level `jobs:` (no native stage concept), `dependsOn:` → `needs:`, `$(Build.BuildId)` → `${{ github.run_number }}`. This translation table is the core value for this learner in this section. -->
+
 ### Azure-Native Integrations
 
 ```yaml
@@ -417,6 +423,8 @@ jobs:
 ```
 
 When a job targets a protected environment, the workflow pauses and sends a notification to required reviewers. Deploy doesn't proceed until approved.
+
+<!-- @editor[audience/P2]: The approvals/gates section explains the concept ("required reviewers, deploy doesn't proceed until approved") as if new. The learner designed VSTS release gates, approval workflows, and ServiceNow integration. The valuable content here is the GitHub Actions syntax for environments and the mapping to ADO's richer gate model. The "When a job targets a protected environment..." explanation is handholding for this reader. Consider cutting the prose and leading with the syntax + the gap callout: "GitHub Actions environments are simpler than ADO — no Azure Monitor gates, no ServiceNow integration out of the box. If you need ADO-grade gates, use Azure Pipelines for the CD stage." -->
 
 ---
 
@@ -534,6 +542,8 @@ Regular jobs have no deployment semantics. `deployment` jobs are tracked in the 
 
 **Pipeline YAML lives in the repo — treat it as code.**
 Review changes to CI/CD files in PRs. A compromised pipeline file can exfiltrate secrets or push malicious images. In GitHub Actions, `pull_request` from forks runs with read-only token by default (safe). `pull_request_target` has write access — be careful with untrusted forks.
+
+<!-- @editor[content/P2]: Missing confusion point specific to this learner's context: GitHub Actions has no native equivalent to ADO's Variable Groups linked to Key Vault, no pipeline-level gates (Azure Monitor, ServiceNow), and no native multi-stage release pipeline with promotion between environments built into the UI. GitHub Actions environments are simpler. This gap is the most likely source of confusion for someone migrating from ADO and expecting feature parity. It should be named explicitly: "GitHub Actions environments are not ADO release pipelines — the gate model is simpler. If you need ADO-grade quality gates, use Azure Pipelines for the CD stage and GitHub Actions for CI only." -->
 
 ---
 

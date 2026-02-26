@@ -28,6 +28,8 @@ State management is the most over-engineered topic in frontend. Most complexity 
   that most apps need almost NO client state library at all.
 ```
 
+<!-- @editor[content/P2]: The calibration note specifically calls out "signals" as a topic to cover (Vue signals, Solid signals, TC39 signals proposal). Signals represent a fundamentally different reactivity model — fine-grained, push-based, with no virtual DOM diffing. The landscape diagram omits them entirely. Signals are gaining traction (Angular adopted them in v16+, Vue's reactivity is signal-based under the hood, SolidJS is signals-first). For the learner's mental model: signals are the alternative reactivity primitive to React's re-render model. Add a row or callout in this diagram and a section below covering: what signals are, how they differ from useState/Zustand, and when they matter. -->
+
 ---
 
 ## Categories of State — The Foundation
@@ -129,6 +131,8 @@ When `useState` has too much related state that changes together, or update logi
 ```
 
 `useReducer` is a local Redux. Same reducer pattern — action → pure function → new state. No library needed. This is Redux's core pattern, now built into React.
+
+<!-- @editor[bridge/P2]: The CQRS / Event Sourcing connection is the most important .NET bridge for this reader and it's missing here where it would land hardest. The learner built Azure DevOps / VSTS — which uses an event-sourced architecture internally. The Redux pattern (action dispatched → reducer → new state, never mutate) IS the Elm architecture, IS event sourcing at the UI layer: an append-only log of actions, a fold to derive current state, pure functions only. The `useReducer` example above is the right place to say: "If you've worked with CQRS or event sourcing (VSTS work items are a good example), this pattern is identical: a command (action) is dispatched, a pure function folds it into a new aggregate state. The store is the aggregate root. Time-travel debugging in Redux DevTools works because you replay the action log — exactly as event sourcing replays events." This bridge is the highest-value addition this file could have for this specific reader. -->
 
 ---
 
@@ -436,6 +440,8 @@ Bottom-up approach. Instead of one store, define individual atoms. Components su
   Zustand excels at: clear store structure, actions as methods,
   simpler mental model.
 ```
+
+<!-- @editor[content/P2]: This is the right place to introduce signals as a concept, since Jotai's atoms are the closest React-ecosystem analog to signals. Signals (as in SolidJS, Vue 3 reactivity, Angular 16+, TC39 proposal) are the push-based reactivity primitive that eliminates virtual DOM diffing entirely. The distinction matters architecturally: React's model is "re-render the component when state changes, diff the output"; signals' model is "push the specific value to the specific DOM node that subscribed to it, skip everything else." For the learner: this is analogous to the difference between polling and event-driven architectures — React polls for changes via re-renders, signals push changes directly. Include a brief section on: what signals are, SolidJS as the reference implementation, Angular's adoption, and when signal-based frameworks will matter for architecture decisions. -->
 
 ---
 
@@ -780,6 +786,8 @@ Before reaching for any library, ask: **can this state live lower?**
 | Command pattern | Action dispatch (Redux/useReducer) | Explicit intent → state change |
 | Service layer | Zustand actions / TanStack Query queryFn | Business logic outside UI |
 | Undo/Redo | Redux DevTools time travel / custom history state | |
+
+<!-- @editor[bridge/P2]: The bridge table has a "Redux pattern" row but doesn't make the CQRS/event sourcing connection that is the highest-value bridge for this reader. The learner built VSTS/Azure DevOps — a system with event-sourced work item tracking. Redux is architecturally identical to event sourcing at the UI layer: immutable append-only action log, pure fold function (reducer) to derive current state, no in-place mutation. Redux DevTools' time-travel works for the same reason event sourcing enables audit replays. Add a row: "CQRS / Event Sourcing (work item history in VSTS)" → "Redux action log + reducer" with a note explaining the isomorphism. This is the single bridge that will make Redux instantly intuitive rather than a foreign pattern. -->
 
 ---
 

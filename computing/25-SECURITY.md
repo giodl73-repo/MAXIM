@@ -1,5 +1,7 @@
 # Security & Cryptography — A Layered Reference
 
+<!-- @editor[audience/P2]: No audience calibration at the top. This learner knows AES, RSA, PKI, Kerberos, and TLS 1.2 deeply from building secure Microsoft systems. The high-value sections are: modern cipher suite trade-offs (AES-GCM vs ChaCha20-Poly1305 decision), OWASP Top 10 in a cloud-native context (beyond the SQL injection they know cold), zero-trust architecture (BeyondCorp model vs old perimeter model), and supply chain security (SLSA/SBOM/Sigstore — all new territory). The file should signal which sections are "already know this, use as reference" vs "new territory." Currently reads uniformly, mixing noise with high-signal content. -->
+
 ## The Big Picture
 
 Security is not a feature you bolt on. It is a property that must be designed in at every layer of the stack.
@@ -60,6 +62,8 @@ Cryptographic primitives:
 
 ### Symmetric Encryption: AES
 
+<!-- @editor[bridge/P2]: Missing an explicit AES-GCM vs ChaCha20-Poly1305 decision bridge. The file mentions both are TLS 1.3 cipher suites and that ChaCha20 is for devices without AES-NI, but doesn't give the practitioner-level decision table: when do you pick one over the other in your own code (not just in TLS)? The learner knows AES from building Azure Data Factory encryption pipelines — what they need is the "when to reach for ChaCha20 specifically" guidance and the hardware acceleration detection pattern. -->
+
 AES (Advanced Encryption Standard) is a block cipher. Rijndael won the NIST competition in 2001. Key insight from the math: AES operates over GF(2^8) — polynomial arithmetic modulo an irreducible polynomial. The ByteSub step is the affine transformation in GF(2^8). You already know this algebra.
 
 Block size: always 128 bits. Key sizes: 128, 192, or 256 bits. Use 256.
@@ -104,6 +108,8 @@ Modes of operation:
 **ChaCha20-Poly1305**: stream cipher + MAC. TLS 1.3 cipher suite alongside AES-GCM. Better on devices without AES hardware acceleration (mobile, IoT). Designed by Bernstein. No timing side-channel risk because it avoids table lookups.
 
 ### Asymmetric Cryptography: RSA
+
+<!-- @editor[audience/P2]: The RSA key generation derivation (choose primes p,q; n=pq; φ(n)=(p-1)(q-1); ed≡1 mod φ(n)) explains number theory that an MIT Math + TCS double major has taught in undergrad. This is reference noise for this learner — they know it cold. The file acknowledges "Euler's totient — you know this from number theory" which is correct; the rest of the derivation can be collapsed to one line. The valuable content here is the padding attack history (Bleichenbacher, OAEP) and the "prefer ECDSA over RSA" guidance — that's practitioner-level and correct. -->
 
 RSA security rests on integer factorization hardness. Key pair generation:
 - Choose primes p, q (1024+ bits each for 2048-bit key)
@@ -167,6 +173,8 @@ Common curves:
 
 ### Diffie-Hellman Key Exchange
 
+<!-- @editor[audience/P3]: The g^a mod p DH derivation (Alice picks a, Bob picks b, shared = g^(ab) mod p) is first-principles number theory that this learner has known since MIT. The note "No efficient algorithm known for large prime p" is unnecessary for them. Keep the ECDHE / perfect forward secrecy explanation — that's the operationally important part and well-written. Consider trimming the DH derivation to 2 lines and expanding ECDHE's role in TLS 1.3 specifically (why 1.3 mandates it, the specific groups used). -->
+
 The foundational insight: two parties can agree on a shared secret over a public channel without ever transmitting the secret.
 
 ```
@@ -190,6 +198,8 @@ DH key exchange:
 **ECDHE** (Ephemeral Elliptic Curve DH): uses EC point multiplication instead of modular exponentiation. "Ephemeral" = new key pair generated per handshake. This gives **perfect forward secrecy (PFS)**: even if the server's long-term private key is compromised later, recorded past sessions cannot be decrypted because each session used a fresh ephemeral key. TLS 1.3 mandates ECDHE (or DHE) — there is no static RSA key exchange in TLS 1.3.
 
 ### Hash Functions
+
+<!-- @editor[audience/P3]: Preimage resistance / second preimage resistance / collision resistance definitions are MIT 6.875 (cryptography) material — this learner knows the formal definitions and the birthday bound argument cold. The table of hash functions (MD5 broken, SHA-1 SHAttered, BLAKE3 fastest) is useful as a quick-reference cheat sheet. The length extension vulnerability explanation is genuinely useful (practical implication not always remembered). Consider collapsing the three formal definitions to a single line and keeping the table + length extension content. -->
 
 Information-theoretic framing: a hash function h: {0,1}* → {0,1}^n should behave like a random oracle. Three security properties:
 - **Preimage resistance**: given h(x), infeasible to find x (one-way function)
@@ -289,6 +299,8 @@ UUID v4 contains 122 bits of randomness (6 bits are version/variant markers). Bi
 **AES-GCM nonce**: 96-bit (12-byte) random nonce. Each (key, nonce) pair must be used at most once. At 2^32 random nonces per key, the birthday collision probability is ~2^(-33). In practice: derive nonces from a counter or use random + counter hybrid. If nonce collides in GCM, both confidentiality and the authentication tag are compromised.
 
 ---
+
+<!-- @editor[content/P1]: Post-quantum cryptography is completely absent from this file. NIST finalized FIPS 203 (ML-KEM/Kyber), FIPS 204 (ML-DSA/Dilithium), and FIPS 205 (SLH-DSA/SPHINCS+) in August 2024. For a VP of Engineering at Microsoft who manages systems with 10+ year lifespans, the "harvest now, decrypt later" threat (adversaries collecting TLS traffic today to decrypt when quantum computers arrive) is operationally relevant now. Missing: a section on PQC migration timeline, which algorithms replace RSA/ECDSA/ECDH, and TLS 1.3's hybrid key exchange (X25519+Kyber768 — already deployed by Cloudflare and available in BoringSSL/OpenSSL 3.4). This is a P1 gap for a 2024+ reference. -->
 
 ## 2. PKI — Public Key Infrastructure
 
@@ -607,6 +619,8 @@ Failure modes:
 - Rotate keys; store keys separate from data
 
 ### A03: Injection
+
+<!-- @editor[audience/P2]: The SQL injection example (SELECT * FROM users WHERE name = '" + userName) with the ' OR '1'='1 input is textbook material this learner has known for 20+ years and likely reviewed in code reviews at Microsoft. The parameterized query remedy is equally obvious. What's NOT obvious and worth covering: NoSQL injection (MongoDB $gt operator bypass shown below is good), SSTI (shown, good), and GraphQL injection patterns (missing — a modern blind spot). Consider trimming the SQL injection walkthrough to 2 lines and expanding the less-obvious injection vectors. -->
 
 **SQL injection** — the classic:
 ```sql

@@ -26,6 +26,8 @@ JavaScript is a runtime language. TypeScript is a compile-time layer on top of i
 
 **The key insight**: TypeScript is a *static analysis tool* that happens to compile. The output is plain JavaScript. If you want to check a type at runtime, you do it yourself with `typeof` or `instanceof` — TypeScript can't help you there.
 
+<!-- @editor[audience/P1]: This file covers JS language features (destructuring, optional chaining, async/await runtime model, class syntax) and TypeScript type system internals (primitive types, utility types, generics, structural typing deep-dive) that belong in the companion language guides — languages/07-JAVASCRIPT.md and languages/08-TYPESCRIPT.md. This file's distinct value is the toolchain and module system layer: CJS vs ESM, module resolution algorithms, tsconfig settings, the compilation pipeline split between tsc and esbuild. The language-level content should be cut or heavily summarized here with a pointer to the language guides, and the toolchain content expanded (module resolution algorithm, how "moduleResolution": "Bundler" vs "NodeNext" actually differ, path alias resolution, declaration file discovery). See calibration note in CLAUDE.md for this directory. -->
+
 ---
 
 ## JavaScript: What It Actually Is
@@ -181,6 +183,8 @@ This is the #1 source of confusion in the JS ecosystem. There are **two incompat
   - Use a bundler (Vite, Webpack) which handles this for you
 ```
 
+<!-- @editor[content/P2]: Module resolution algorithm is absent. The learner has compiler theory background — the resolution algorithm (how Node/bundlers locate a bare specifier like `import x from 'lodash'`) is the interesting part. The algorithm: (1) check node_modules/ starting from current dir, walking up to filesystem root; (2) find package.json "exports" field (conditional exports: "import" vs "require" vs "browser"); (3) fall back to "main" or "module" fields; (4) for relative imports, check file extension, then index files. The "exports" field is especially important — it's how dual-mode packages expose different entry points to CJS vs ESM consumers. This is the toolchain depth this file is supposed to provide. -->
+
 ---
 
 ## TypeScript
@@ -229,6 +233,8 @@ TypeScript finds an entire class of bugs at *edit time* (in your IDE) and *build
   // Never — a type that can never occur
   // (unreachable code, exhaustive checks)
 ```
+
+<!-- @editor[audience/P2]: The primitive types, interfaces, generics, utility types, and structural typing sections below are language guide content belonging in languages/08-TYPESCRIPT.md. The structural typing / nominal vs structural comparison is genuinely valuable for this reader (C# background), but it belongs in the TypeScript language guide. This file should either cut these sections with a pointer to 08-TYPESCRIPT.md, or keep only the structural typing bridge (since it has direct toolchain implications in how .d.ts files work) and remove the rest. -->
 
 #### Object Types and Interfaces
 
@@ -426,6 +432,8 @@ This file controls the TypeScript compiler. Key settings:
   Library (dual output):      Two tsconfig files, one per output format
 ```
 
+<!-- @editor[structure/P2]: Missing a diagram showing how "moduleResolution" interacts with the module resolution algorithm. The four values ("Node", "Node16", "NodeNext", "Bundler") have meaningfully different behaviors: "Node" uses the old algorithm (ignores package.json "exports" field); "Node16"/"NodeNext" enforce ESM-compatible resolution with explicit file extensions; "Bundler" allows extensionless imports and respects "exports" but doesn't require .js extensions. A decision table or flow diagram here — pairing which moduleResolution value to use with which runtime/toolchain — is the core of what a toolchain guide for this audience should provide. -->
+
 ---
 
 ## The Compilation Pipeline
@@ -505,6 +513,8 @@ This file controls the TypeScript compiler. Key settings:
 ---
 
 ## JavaScript Runtime Features You Use Daily
+
+<!-- @editor[audience/P2]: The async/await, destructuring, optional chaining, and classes sections below are JavaScript language content. For this audience (MIT CS, knows async models deeply) the async/await section adds marginal value here — the Promise model is well understood conceptually. The destructuring and optional chaining sections belong in languages/07-JAVASCRIPT.md. The classes section is similarly language-guide territory. Consider replacing these with a single "see languages/07-JAVASCRIPT.md and languages/08-TYPESCRIPT.md for language-level features" pointer, and using the space for deeper toolchain content: the module graph, how bundlers handle dynamic import(), conditional exports in package.json, etc. -->
 
 ### Async / Await
 

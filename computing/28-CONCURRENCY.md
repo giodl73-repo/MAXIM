@@ -186,6 +186,8 @@ while (!flag.load(std::memory_order_acquire));  // Sees all writes that preceded
 
 ## 3. Lock-Based Concurrency
 
+<!-- @editor[audience/P2]: The mutex properties (mutual exclusion, progress, bounded waiting), Dekker's algorithm, Peterson's algorithm, TAS/TTAS definitions, Coffman conditions, and Banker's algorithm are CS curriculum material this learner wrote multi-threaded .NET code with professionally for years. They know Monitor.Enter/Exit, ReaderWriterLockSlim, and Interlocked from production use. What's valuable in this section: CLH/MCS queue locks (AQS internals — probably new), the priority inversion explanation, and the deadlock detection/recovery discussion. Consider trimming Dekker/Peterson/TAS definitions to one-liners and leading with CLH/MCS since that's what actually runs in JVM's AbstractQueuedSynchronizer. -->
+
 ### Mutex (Mutual Exclusion)
 
 ```
@@ -264,6 +266,8 @@ Upgrade: hold read → acquire write. Risks deadlock if two threads try simultan
 ```
 
 ### Deadlock
+
+<!-- @editor[audience/P2]: The four Coffman conditions and Banker's algorithm are OS curriculum material (Dijkstra 1965). This learner has reviewed deadlock post-mortems in production .NET codebases. The conditions are useful as a quick reference checklist, but the Banker's algorithm explanation ("O(n²) check per request; too slow") is textbook content that adds no value beyond "it's too slow, nobody uses it." The valuable content here is lock ordering and the practical note about hard enforcement in large codebases. Consider collapsing Coffman conditions to a reference table and cutting Banker's to one sentence. -->
 
 **Four Coffman conditions** (all must hold for deadlock):
 1. Mutual exclusion
@@ -461,6 +465,8 @@ transfer from to amount = do
 
 ## 6. Message Passing Models
 
+<!-- @editor[content/P2]: The CSP vs Actors section correctly identifies Go channels (CSP) and Erlang/Akka (Actors) but is missing the third major model this learner will encounter: the .NET Channel<T> API (System.Threading.Channels, introduced in .NET Core 3.0). This is the modern C# replacement for BlockingCollection<T> and the TPL Dataflow pipeline. The learner knows TPL Dataflow from Azure Data Factory internals — there is a direct bridge from Dataflow pipelines → Channel<T> + async pipelines that's missing. Also absent: the comparison between Channel<T> (bounded/unbounded, single producer/multi producer) and Go's buffered channels — they're solving the same problem with different ergonomics. -->
+
 ### CSP (Communicating Sequential Processes — Hoare 1978)
 
 ```
@@ -587,6 +593,8 @@ async Task<string> FetchDataAsync(string url) {
 // CancellationToken: cooperative cancellation throughout async chains.
 ```
 
+<!-- @editor[bridge/P2]: The C# async/await section is correct but misses the SynchronizationContext trap that bites .NET developers most frequently: library code that calls .GetAwaiter().GetResult() or .Wait() on a Task from a context that has a SynchronizationContext (ASP.NET classic, WPF, WinForms) deadlocks because the continuation tries to resume on the captured context which is blocked waiting for the task. This is not mentioned. The ConfigureAwait(false) note is present but the *why it deadlocks without it* explanation is absent. For someone who built async pipelines in Azure Data Factory, this is a known failure mode worth documenting explicitly. -->
+
 **Rust async/await** (zero-cost abstraction):
 ```rust
 // Futures are lazy: nothing runs until polled by an executor.
@@ -608,6 +616,8 @@ async fn fetch(url: &str) -> Result<String, Error> {
 - Single-threaded event loop. `async def` / `await`.
 - `asyncio.gather()` for concurrent tasks.
 - GIL means threads don't help CPU-bound code; async helps I/O-bound.
+
+<!-- @editor[bridge/P2]: Missing an explicit bridge from C# Task-based Parallel Library (which this learner knows deeply: Task.Run, Task.WhenAll, CancellationToken, async/await with ConfigureAwait) to structured concurrency in Swift and Kotlin. The learner knows the C# model; what's new is how Swift's `async let` / TaskGroup and Kotlin's coroutines + CoroutineScope enforce the parent-child lifetime contract at the type level (cancellation propagates, exceptions can't escape the scope). A "C# TPL vs Swift structured concurrency vs Kotlin coroutines" comparison table showing what each enforces and what it doesn't would make this section genuinely useful rather than just listing syntax. -->
 
 ### Structured Concurrency
 
