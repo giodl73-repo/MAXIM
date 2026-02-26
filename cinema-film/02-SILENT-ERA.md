@@ -370,6 +370,7 @@ ECONOMIC DOMINANCE:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to antitrust/monopoly patterns (Edison MPPC cartel -> AT&T/Microsoft antitrust) would resonate with learner's VSTS-era experience -->
 ## Common Confusion Points
 
 **"Silent films were silent."** They were not silent in exhibition. Virtually all theatrical screenings had musical accompaniment — piano at minimum, orchestra at major theaters. Some early films had narrators (benshi in Japan, very important cultural figures). What was "silent" was the recording/playback: no sync sound on the film itself.

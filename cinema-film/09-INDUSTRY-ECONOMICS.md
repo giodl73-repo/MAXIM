@@ -151,6 +151,7 @@ TRADITIONAL WINDOW TIMELINE:
 
 COVID DISRUPTION (2020):
   Theater closures -> compressed or eliminated theatrical window
+<!-- @editor[content/P1]: "Rove One" appears garbled — Rogue One released 2016, not during COVID; Disney Premier Access titles were Mulan (2020), Black Widow (2021), Cruella (2021) -->
   Disney: Mulan, Rove One (Premier Access at $30 on Disney+)
   Universal: Trolls World Tour (day-and-date PVOD, $20)
   AMC threatened to ban Universal films (briefly)
@@ -306,6 +307,7 @@ SUNDANCE ECONOMICS:
   Acquisition:
     Average: $1-5M purchase
     Major: $10-25M (Neon, A24, Searchlight)
+<!-- @editor[content/P1]: Claim may be incorrect — Blair Witch Project sold for ~$1.1M to Artisan (1999), not $17.5M; the $17.5M Sundance record was The Birth of a Nation (Fox Searchlight, 2016); "React" appears garbled -->
     Record: $17.5M for React (1999, The Blair Witch Project - sort of)
 
   DISTRIBUTION PROBLEM:

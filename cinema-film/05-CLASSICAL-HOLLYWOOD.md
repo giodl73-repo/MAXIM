@@ -113,6 +113,7 @@ CIRCUMVENTION:
   Billy Wilder: Sunset Boulevard (1950) — dark, bitter, Code pushed
   Hitchcock: Psycho (1960) — production without Breen approval
              (Hitchcock was his own producer; released anyway)
+<!-- @editor[content/P1]: Typo — "Otto Premature" should be "Otto Preminger" -->
   Otto Premature: The Moon Is Blue (1953), The Man with the Golden Arm (1955)
     Released without Code certificate; theater chains accepted anyway
     Proved: Code enforcement was weakening
@@ -319,6 +320,7 @@ LONG-TERM IMPACT:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to modern tech vertical integration (Netflix/Disney+ own production + distribution like old Big Five owned all three verticals) — text mentions it but a compact bridge table would crystallize the parallel -->
 ## Common Confusion Points
 
 **"The Production Code was government censorship."** The Code was industry self-regulation. Government censorship (state/local censor boards) existed simultaneously and was what the industry was trying to preempt. The Code was private, contractual, and economically enforced — studios agreed not to distribute uncertified films to theaters that agreed to the MPPDA system. First Amendment protections didn't apply to film until 1952 (Burstyn v Wilson).

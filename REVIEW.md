@@ -199,12 +199,12 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `codes/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
 | `typography/` | 12 | 2026-02 | — | 1 tags → pending |
 | `printing-publishing/` | 10 | — | — | |
-| `cinema-film/` | 11 | — | — | |
+| `cinema-film/` | 11 | 2026-02 | — | 5 tags → pending |
 | `radio-television/` | 10 | — | — | |
-| `literature/` | 10 | — | — | |
+| `literature/` | 10 | 2026-02 | — | 15 tags → pending (1 polished) |
 | `rhetoric/` | 10 | 2026-02 | — | 18 tags → pending |
 | `philosophy-of-language/` | 10 | — | — | |
-| `semiotics/` | 10 | — | — | |
+| `semiotics/` | 10 | 2026-02 | — | 17 tags → pending |
 | `translation/` | 10 | — | — | |
 
 ---
