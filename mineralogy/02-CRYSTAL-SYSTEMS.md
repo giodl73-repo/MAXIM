@@ -85,6 +85,7 @@ This is the exact same group theory from abstract algebra — the classification
 - **Inversion center**: i — point reflection through origin
 - **Roto-inversion**: S̄n — rotation + inversion combined
 
+<!-- @editor[bridge/P2]: The crystallographic restriction theorem is a direct application of the learner's MIT abstract algebra background — worth a one-liner connecting it to cyclic group orders that divide the lattice automorphism group -->
 **Why not 5-fold symmetry?** A periodic lattice can tile with 2-, 3-, 4-, or 6-fold rotation — but not 5-fold. This is the crystallographic restriction theorem. (Quasicrystals, discovered by Dan Shechtman in 1984, have non-periodic long-range order with 5-fold symmetry — they're a separate category.)
 
 ```
@@ -285,6 +286,7 @@ The notation {hkl} means all symmetrically equivalent planes (the whole family).
 |-------|------------------------------|
 | **Semiconductor mfg** | Silicon wafers are cut along specific crystal planes (001, 110, 111) to control etch behavior; crystal defects (dislocations, twins) degrade device performance |
 | **Materials design** | Crystal structure → predicted elastic moduli, cleavage directions, optical behavior |
+<!-- @editor[content/P2]: Ritonavir polymorph incident is a great example but thin — one sentence on what happened (Abbott had to reformulate when Form II appeared spontaneously) would make it land -->
 | **Pharmaceutical** | Drug polymorphs have different solubility, stability, bioavailability (Ritonavir disaster — same formula, wrong polymorph changed solubility) |
 | **Metals** | BCC steel vs. FCC austenite → different slip systems → different deformation behavior |
 | **Powder diffraction** | Quality control in manufacturing: cement phases, battery cathode materials, pigments |

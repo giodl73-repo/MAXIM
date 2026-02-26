@@ -22,6 +22,7 @@
 +------------------------------------------------------------------+
 ```
 
+<!-- @editor[bridge/P2]: No bridge from oxide crystal structures to semiconductor substrates — sapphire (Al2O3) wafers, spinel as engineering ceramic, and TiO2 as photocatalyst all connect oxides to the learner's tech industry context -->
 **Economic relevance**: These minerals are the primary sources of every metal in the periodic table. The silicates dominate by volume; oxides and sulfides dominate by economic value.
 
 ---
@@ -144,6 +145,7 @@ LEAD-ZINC SULFIDES (Mississippi Valley Type deposits)
 |  → Indium Tin Oxide (ITO) = transparent conductor in all LCDs  |
 |    and touchscreens — sphalerite is the source of your phone's  |
 |    touchscreen material                                         |
+<!-- @editor[content/P2]: Germanium and gallium byproduct sourcing from sphalerite is critically important for semiconductor supply chains — deserves 2-3 lines rather than a single trailing sentence -->
 |  Also source of cadmium, germanium, gallium as byproducts      |
 +------------------------------------------------------------------+
 

@@ -345,6 +345,7 @@ TECH SUPPLY CHAINS: MINERAL TO DEVICE
 
 ## Mineral Resource Economics
 
+<!-- @editor[bridge/P2]: JORC/NI 43-101 resource classification is directly analogous to software maturity models or technology readiness levels (TRL) — a one-liner bridge would help the learner map this unfamiliar domain taxonomy to known frameworks -->
 ```
 RESOURCE CLASSIFICATION (JORC/NI 43-101 standard)
 
@@ -382,6 +383,7 @@ CRITICAL SUPPLY CONCENTRATIONS:
   Gallium:     China ~80% (byproduct of Al)
   Graphite:    China ~65%
 
+<!-- @editor[content/P2]: The 2023 China Ga/Ge export controls example is strong but needs 1-2 lines on the downstream effect — which chip fabs were affected, did pricing normalize, is reshoring happening? The "so what" for a tech VP is the supply chain resilience question -->
 2023 context: China export controls on Ga + Ge → immediate price spike
 → Illustrates why "critical mineral" designation matters to tech companies
 ```

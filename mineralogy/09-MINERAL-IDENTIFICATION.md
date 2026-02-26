@@ -70,6 +70,7 @@ HAND SPECIMEN IDENTIFICATION WORKFLOW
 +------------------------------------------------------------------+
 ```
 
+<!-- @editor[content/P2]: Field database list is thin on the actual workflow — a sentence on how RRUFF integrates with handheld Raman devices (measure spectrum in the field, match against database) would show the practical pipeline -->
 **Field databases and apps**:
 - Mindat.org: comprehensive mineral database (locality + property data)
 - RRUFF database: Raman spectra + XRD patterns
@@ -174,6 +175,7 @@ POWDER XRD WORKFLOW
 +------------------------------------------------------------------+
 ```
 
+<!-- @editor[bridge/P2]: The Fourier transform analogy also appears in 02-CRYSTAL-SYSTEMS — consolidate the best version in one file and cross-reference from the other to avoid duplication -->
 **The Fourier transform analogy**:
 
 XRD measures the reciprocal lattice of the crystal — equivalent to the Fourier transform of the electron density. Each peak in the XRD pattern corresponds to a set of crystal planes (hkl). The pattern IS the frequency-domain representation of the crystal structure. Solving a crystal structure = inverting the Fourier transform (with the phase problem as the complication).

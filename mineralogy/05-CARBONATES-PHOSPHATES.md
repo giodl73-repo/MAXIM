@@ -148,6 +148,7 @@ Flowstone: sheet deposits on floors and walls
 Cave pearl: concentric calcite around grain in pool
 ```
 
+<!-- @editor[content/P2]: Speleothem climate records are thin — this is a major intersection with climate science; worth 2-3 more lines on how δ18O time series from cave records compare to ice core and ocean sediment records -->
 **Speleothem paleoclimate records**: Oxygen isotope ratios (δ¹⁸O) in speleothem calcite record past rainfall and temperature. Uranium-thorium (U-Th) dating gives precise ages. Together: high-resolution climate records extending back 500,000+ years.
 
 ---
@@ -199,6 +200,7 @@ ECONOMIC SIGNIFICANCE:
     Florida phosphate district (mined out or depleting)
     China, Russia (significant reserves)
 
+<!-- @editor[bridge/P2]: Peak phosphorus is a strategic resource risk analogous to rare earth supply concentration — worth a one-liner bridge to the critical minerals framework in 08-ECONOMIC-GEOLOGY for cross-referencing -->
 PEAK PHOSPHORUS:
   Phosphate rock is a non-renewable resource on human timescales
   Recoverable reserves: ~50–300 years at current consumption
