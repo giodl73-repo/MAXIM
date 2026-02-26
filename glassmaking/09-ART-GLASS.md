@@ -243,6 +243,8 @@ ARCHITECTURE:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to learner's world missing — thin-film interference physics (Favrile iridescence), studio glass economics (Chihuly's business model as engineering-scale production), or optics of stained glass colorants would connect art to the learner's technical frame -->
+
 ## Studio Glass Movement (Harvey Littleton, 1962)
 
 ```
@@ -313,6 +315,8 @@ CZECH/BOHEMIAN GLASS ART:
 ```
 
 ---
+
+<!-- @editor[structure/P3]: No comparison tables in body — a markdown table comparing Tiffany vs Gallé vs Lalique (technique, period, market, signature product) would provide quick-reference value -->
 
 ## Contemporary Glass Art Market
 
