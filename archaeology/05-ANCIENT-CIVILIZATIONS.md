@@ -296,6 +296,8 @@ INFORMATION MANAGEMENT AS STATE DRIVER:
 
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" rows (e.g., "Use comparative urbanism when: distinguishing independent invention from diffusion") -->
+
 | Question | Answer |
 |----------|--------|
 | Why did writing emerge? | Primarily for accounting/administration, not narrative |

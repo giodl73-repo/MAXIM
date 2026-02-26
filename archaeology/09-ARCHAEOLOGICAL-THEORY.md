@@ -18,6 +18,7 @@
 |  "What?" / "When?"       "Why?" / "How?"         "Who says?"    |
 +------------------------------------------------------------------+
 
+<!-- @editor[bridge/P2]: Missing software-engineering paradigm bridge — culture history -> processualism -> post-processualism parallels waterfall -> agile -> DevOps/SRE: from classification to systematic process to acknowledging human context and reflexivity. This learner lived through the same paradigm shifts in engineering. -->
 The Kuhnian model (Structure of Scientific Revolutions) maps neatly:
   Each shift = anomalies accumulate → crisis → new paradigm
   The learner knows Kuhn from history-of-science/

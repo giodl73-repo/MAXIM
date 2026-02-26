@@ -157,7 +157,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `philosophy/` | 7 | — | — | |
 | `mythology/` | 12 | — | — | |
 | `religious-studies/` | 8 | — | — | |
-| `archaeology/` | 10 | — | — | |
+| `archaeology/` | 10 | 2026-02 | — | 12 tags → pending |
 | `logic/` | 10 | — | — | |
 | `intellectual-history/` | 10 | — | — | |
 | `social-history/` | 10 | — | — | |

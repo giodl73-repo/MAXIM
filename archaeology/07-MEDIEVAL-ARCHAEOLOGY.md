@@ -114,6 +114,8 @@ CHURCH ARCHAEOLOGY:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — Hanseatic League trade networks and medieval supply chains (salt, wool, herring, grain) parallel modern supply chain management concepts this learner understands; dendro-dated timbers as audit trail is a natural bridge to versioned infrastructure -->
+
 ## Trade and Exchange
 
 ```
@@ -253,6 +255,8 @@ STANDING BUILDING RECORDING:
 ---
 
 ## Decision Cheat Sheet
+
+<!-- @editor[structure/P2]: Decision Cheat Sheet is Q&A format — rework as "use X when Y" rows (e.g., "Use dendrochronology when: timber survives in medieval structure; Use pottery sequence when: dating occupation layers") -->
 
 | Question | Answer |
 |----------|--------|

@@ -21,6 +21,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No signal-processing / data-engineering bridge — provenance tracing via elemental fingerprints is structurally identical to log correlation in distributed systems (match signature to source); aDNA signal-to-noise ratio is a familiar concept from any noisy-channel problem -->
+
 ## Stable Isotope Analysis
 
 Stable isotopes are non-radioactive isotope pairs that fractionate predictably through biological and geological processes. Measured by IRMS (Isotope Ratio Mass Spectrometry).
