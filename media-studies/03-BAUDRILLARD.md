@@ -323,6 +323,7 @@ Baudrillard's most controversial application -- and most misunderstood:
   5. EMPIRICAL VACUITY:
      What would count as evidence that we are NOT
      in hyperreality? The theory seems unfalsifiable.
+<!-- @editor[audience/P3]: The unfalsifiability critique connects to Popper's demarcation criterion — worth a one-line nod for a reader who knows formal methods and scientific method from MIT -->
 ```
 
 ---
@@ -365,6 +366,8 @@ Baudrillard's most controversial application -- and most misunderstood:
 | Implosion | Collapse of distinctions | TV and reality collapse into each other |
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge — "map precedes territory" has a direct parallel in software: ORMs and schemas define the data model before the data exists; credit scoring is a classifier that constitutes what it measures; the learner's database/Azure Data Factory background makes this immediately graspable -->
 
 ## Common Confusion Points
 

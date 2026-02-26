@@ -6,6 +6,7 @@ Political science is the systematic study of power: who gets what, when, and how
 Its subfields differ more in scope than in method — all share an interest in how
 actors pursue interests under constraints, often in the presence of conflict.
 
+<!-- @editor[diagram/P2]: Diagram lists subfields side by side but doesn't show how they relate — no arrows, dependencies, or shared foundations. Rework to show that IR and comparative share methodology (game theory, statistics), that political economy crosscuts both, and that political theory provides normative foundations underneath all three -->
 ```
 +----------------------------------------------------------------------+
 |                    POLITICAL SCIENCE FIELD MAP                        |
@@ -197,6 +198,7 @@ The most robust empirical finding in IR — and the most debated:
 
 ---
 
+<!-- @editor[bridge/P2]: No universal CS bridge — the learner has MIT game theory and formal methods background; methodology section should note that formal models (game theory, mechanism design) are the same toolkit applied to political actors, and that the credibility revolution parallels the move from heuristic to rigorous causal inference in ML/statistics -->
 ## Section 6: Methodology
 
 ```

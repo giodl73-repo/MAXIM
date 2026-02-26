@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: No universal CS bridge anywhere in file — the learner has MIT game theory and formal methods background. The security dilemma is literally a Prisoner's Dilemma; Keohane's institutions solve iteration/information problems the learner knows from mechanism design; constructivism maps to the distinction between syntax (material structure) and semantics (interpreted meaning). These bridges would anchor the entire guide for this reader -->
 IR theory is a family of competing frameworks that disagree on a central question:
 what causes state behavior? Material power vs. institutions vs. ideas — and how much
 does each variable explain? Each theory highlights a different causal mechanism.

@@ -54,6 +54,7 @@ Algorithmic media is media whose curation, recommendation, and distribution is g
      +---------+------+------+------+------+
 
      User A's ? is predicted from User B's similar taste.
+<!-- @editor[audience/P3]: This learner has MIT math + CS — collaborative filtering is matrix factorization (SVD) which they know cold; content-based filtering is feature vector similarity (cosine distance); a one-line technical note connecting to the formal methods would be appropriate -->
 
   2. CONTENT-BASED FILTERING
      "You liked X (features); here is Y (similar features)"
@@ -399,5 +400,6 @@ The algorithm does not "want" to spread outrage. It maximizes engagement metrics
 **Chronological Feeds Are Not Neutral**
 A common regulatory proposal: let users see content in reverse-chronological order without algorithmic curation. This is better but not neutral -- the social graph (who you follow) is itself shaped by prior algorithmic recommendations, self-selection, and platform features. There is no "view from nowhere" in any feed.
 
+<!-- @editor[bridge/P2]: No explicit old-world bridge section — algorithmic curation is a recommender system engineering problem the learner understands as ML infrastructure; the "black box" debate maps to ML interpretability/XAI research; filter bubbles are a special case of training data feedback loops (model collapse); connecting to the learner's technical vocabulary would strengthen the entire guide -->
 **Researchers Cannot Replicate Platform Experience**
 Sock puppet studies (creating fake accounts to test recommendations) are methodologically limited. Real users have years of behavioral history, social graph data, device fingerprints, and location data that the platform uses. A fresh account will have a different experience. This makes external audit of algorithmic effects genuinely difficult.

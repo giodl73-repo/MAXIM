@@ -287,6 +287,7 @@ The digital era created new forms of media/technology dominance:
     Underrepresentation of global majority languages.
     AI "intelligence" encodes Western knowledge paradigms.
     Non-Western knowledge systems marginalized in AI outputs.
+<!-- @editor[content/P2]: AI training data bias section is thin — by 2025 this is a major area with concrete examples (GPT-4 multilingual benchmarks, translation quality gaps, cultural bias in RLHF); deserves expansion given the learner's AI engineering interests -->
 ```
 
 ---
@@ -375,6 +376,8 @@ The digital era created new forms of media/technology dominance:
 | What did NWICO achieve? | Little institutionally; US rejected it | Media sovereignty remains asymmetric |
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge — digital colonialism maps directly to platform lock-in and vendor dependency the learner knows from enterprise IT (Azure vs. AWS ecosystem lock-in, data sovereignty in cloud contracts, API dependency); the infrastructure ownership argument is the same argument as "who owns the cloud" — one paragraph bridging to enterprise platform politics would ground this for a VP of Engineering -->
 
 ## Common Confusion Points
 

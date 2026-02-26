@@ -328,6 +328,7 @@ Journalism is the practice of gathering, verifying, and distributing information
     Outlets publish early ("developing story") and update.
     "First is best" creates incentive against waiting to verify.
 
+<!-- @editor[content/P2]: AI-generated content section is thin — by 2025 LLM-generated news articles, synthetic audio (ElevenLabs), and AI video (Sora) have substantially changed the landscape; this section needs updating beyond 2018 Jordan Peele PSA -->
   DEEPFAKE CHALLENGE:
     Synthetically generated audio and video.
     Cannot trust visual/audio evidence as primary verification.
@@ -357,6 +358,8 @@ Journalism is the practice of gathering, verifying, and distributing information
 | Partisan epistemological split | Different audiences, different facts | Shared civic media; political challenge |
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge — journalism's verification norms parallel software testing (unit tests = fact-checking; regression tests = corrections policy; CI/CD = editorial pipeline); the revenue model collapse parallels the open-source disruption of commercial software — both are "free substitute destroys incumbent business model" stories the learner knows -->
 
 ## Common Confusion Points
 
