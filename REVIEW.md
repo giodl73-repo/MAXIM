@@ -39,7 +39,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `mathematics/` | 24 | 2026-02 | — | 122 tags → pending |
+| `mathematics/` | 24 | 2026-02 | 2026-02 | 122 tags → 0 |
 | `physics/` | 10 | — | — | |
 | `electronics/` | 8 | — | — | |
 | `materials/` | 7 | — | — | |
@@ -133,7 +133,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `geology/` | 12 | 2026-02 | — | 16 tags → pending |
 | `meteorology/` | 11 | 2026-02 | — | 7 tags → pending |
 | `climate-science/` | 7 | 2026-02 | — | 16 tags → pending |
-| `oceanography/` | 12 | — | — | |
+| `oceanography/` | 12 | 2026-02 | — | 22 tags → pending |
 | `hydrology/` | 10 | 2026-02 | — | 11 tags → pending |
 | `paleontology/` | 11 | 2026-02 | — | 21 tags → pending |
 | `agriculture/` | 11 | — | — | |
@@ -275,7 +275,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | Section | Dirs | Clean | Swept | Pending |
 |---------|-----:|------:|------:|--------:|
 | Computing & Software | 10 | 10 | 9 | 0 |
-| Mathematics & Physics | 20 | 0 | 0 | 20 |
+| Mathematics & Physics | 20 | 1 | 0 | 19 |
 | Mechanics | 14 | 0 | 0 | 14 |
 | Technology | 9 | 0 | 0 | 9 |
 | Life Sciences | 18 | 0 | 16 | 2 |

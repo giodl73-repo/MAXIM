@@ -31,6 +31,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge anywhere in file — the equation of state is a direct parallel to thermodynamic state equations (PVT surfaces from engineering thermodynamics); SOFAR channel is analogous to waveguide trapping in signal processing / fiber optics; Brunt-Vaisala is the fluid equivalent of a spring-mass oscillator -->
+
 ## Density of Seawater — The Equation of State
 
 Seawater density (ρ) depends on three variables:

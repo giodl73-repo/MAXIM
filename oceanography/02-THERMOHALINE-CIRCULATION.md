@@ -47,6 +47,8 @@ SIMPLIFIED CONVEYOR SCHEMATIC (Broecker 1991):
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — Stommel's bistability model (two stable equilibria with hysteresis) is a classic dynamical systems concept directly analogous to flip-flop circuits, Schmitt triggers, or bistable phase diagrams in materials science — any of these would anchor the concept for an engineer -->
+
 ## Deep Water Formation — The Two Main Sources
 
 ### North Atlantic Deep Water (NADW)
@@ -325,3 +327,5 @@ YOUNGER DRYAS (12,900–11,700 BP):
 **Sverdrup unit (Sv)**: 1 Sv = 10⁶ m³/s. The entire Amazon River ~0.2 Sv. Total global river discharge ~1 Sv. AMOC at 26°N = ~17 Sv. Just making sure the scale registers: AMOC moves 17× all the world's rivers combined.
 
 **AMOC "collapse" vs. AMOC "weakening"**: The current observed trend is modest weakening (~15% over 60 years per RAPID array). Tipping-point collapse (Stommel bistability) requires crossing a threshold of freshwater forcing that is not yet reached. The two scenarios — gradual weakening vs. abrupt collapse — have very different climate implications.
+
+<!-- @editor[content/P3]: Antarctic Intermediate Water (AAIW) formation mechanism absent — AAIW is the third major water mass by volume and its subduction at the Antarctic Convergence deserves brief coverage alongside NADW and AABW -->

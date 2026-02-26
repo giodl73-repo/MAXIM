@@ -30,6 +30,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — isostasy is Archimedes' principle applied to geophysics (same floating-body equilibrium from first-year statics); GIA relaxation is a viscoelastic creep response identical to polymer creep or dashpot models in materials science; return-period statistics are the same extreme value theory used in structural reliability engineering -->
+
 ## Isostasy — Crustal Adjustments
 
 ```
@@ -297,3 +299,5 @@ PROXIES FOR PAST SEA LEVEL:
 **"Committed" vs. "projected" sea level**: Committed SLR is the rise that will occur even under immediate zero emissions (from existing ocean heat + GIA + short-term ice dynamics). Projected SLR includes all future emissions. Commitments are already ~0.5 m+ for this century. Future emissions determine whether we get 0.5 m or 2+ m.
 
 **Return periods are not memoryless in non-stationary climate**: A "100-year event" is defined relative to a stationary historical distribution. As sea level rises, that distribution shifts — the return period of the same flood level decreases. An event that was 100-year in 1990 may be a 10-year event by 2050 with 30 cm SLR. Engineering designed for 1% AEP becomes inadequate without recalibration.
+
+<!-- @editor[content/P3]: Coastal adaptation strategies absent — the Decision Cheat Sheet ends at physical processes; a brief treatment of protect-accommodate-retreat frameworks and managed realignment would connect the science to engineering practice -->

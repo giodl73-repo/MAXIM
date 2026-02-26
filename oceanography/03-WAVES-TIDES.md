@@ -25,6 +25,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — dispersion relations, group vs. phase velocity, and harmonic decomposition (tidal constituents) are directly parallel to Fourier analysis and wave propagation in signal processing / telecommunications; resonance in the Bay of Fundy is a textbook standing-wave resonance problem identical to organ pipes or transmission line matching -->
+
 ## Surface Gravity Wave Mechanics
 
 ### Dispersion Relation
@@ -373,3 +375,5 @@ STORM SURGE MECHANISM:
 **Tidal range and tidal amplitude**: Range is the height difference between high and low water (= 2 × amplitude). Bay of Fundy range of 16 m → amplitude of 8 m. Bay of Fundy tides are extreme due to near-resonance, NOT because the Bay is close to the Moon.
 
 **Storm surge ≠ wave height**: Storm surge is the quasi-static sea level elevation. Waves ride on top of the surge. Total water level during a storm = tide + surge + wave setup + individual wave height. Katrina's 8 m storm surge still had 10 m waves on top in some areas.
+
+<!-- @editor[content/P3]: Rogue waves absent — freak/rogue waves (Draupner 1995 confirmed existence) are a significant modern research topic in nonlinear wave dynamics; brief mention would round out the wave mechanics coverage -->

@@ -37,6 +37,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — 10% trophic efficiency is an energy cascade analogous to multi-stage amplifier losses; the microbial loop is a feedback/recycling loop similar to regenerative circuits; MSY from logistic growth is the same optimization problem as maximum power transfer in electrical engineering -->
+
 ## Primary Producers
 
 ### Phytoplankton — Classification and Function
@@ -358,3 +360,5 @@ ICE EDGE PRODUCTIVITY:
 **Trophic efficiency is not fixed at 10%**: The 10% rule is an average. Actual transfer efficiencies range from 2% to 20% depending on organism type, temperature, food quality. Gelatinous organisms (salps) can have higher transfer efficiencies. Deep-sea food webs may operate at lower efficiency due to cold temperatures.
 
 **Baleen whale feeding isn't filtering seawater randomly**: Baleen whales don't swim with mouths open filtering all water. They target dense krill aggregations — lunge-feeding (rorquals like blue and fin whales), skim-feeding (right whales), benthic-feeding (gray whales). Krill aggregate in patches of 10,000+ individuals/m³, and whales target these patches efficiently. Blue whales consume ~3.6 tonnes of krill per day during summer feeding season.
+
+<!-- @editor[content/P2]: Invasive species absent — no mention of lionfish invasion (Atlantic/Caribbean), Caulerpa taxifolia (Mediterranean), ship ballast water introductions — significant gap for marine ecology -->

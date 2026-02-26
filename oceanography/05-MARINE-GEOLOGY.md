@@ -25,6 +25,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the sqrt(t) thermal subsidence law is a direct consequence of 1D heat diffusion (same PDE governing heat sinks in electronics); seismic reflection is identical in physics to radar/sonar pulse-echo systems; CCD is a classic chemical equilibrium threshold analogous to solubility product in process chemistry -->
+
 ## Ocean Floor Types and Crustal Structure
 
 ```
@@ -311,3 +313,5 @@ USING SEISMIC REFLECTION TO READ SEDIMENT ARCHIVES:
 **MORB vs. OIB (ocean island basalt)**: Mid-ocean ridge basalt (MORB) forms from depleted mantle (lithosphere recycled through subduction). Ocean island basalt (OIB) comes from mantle plumes that tap the deeper, undepleted mantle. Different trace element and isotope signatures. Hawaii basalts are OIB; seamounts along a chain progressively change from OIB → becoming more MORB-like as the magmatic system evolves.
 
 **Thermal subsidence vs. isostasy**: Thermal subsidence happens as the plate cools and contracts. Isostasy means the plate floats on the mantle at depth proportional to its density. Both are happening simultaneously — the net result is the √t depth-age relationship. Faster-spreading ridges have the same depth vs. age relationship as slow spreaders; it's about crustal age, not spreading rate.
+
+<!-- @editor[content/P3]: Magnetic anomalies / Vine-Matthews-Morley absent — magnetic stripe reversals on the ocean floor were the decisive evidence for seafloor spreading and plate tectonics; a notable omission in a marine geology guide -->

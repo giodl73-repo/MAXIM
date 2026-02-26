@@ -57,6 +57,8 @@ MAJOR ION RESIDENCE TIMES:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — the carbonate buffer system is a textbook chemical equilibrium problem (Henderson-Hasselbalch in disguise); the Revelle factor is a sensitivity/gain concept analogous to amplifier gain in electronics; Redfield ratio is a stoichiometric constraint identical to balanced reaction stoichiometry in chemical engineering -->
+
 ## The Carbonate System — Seawater Buffer Chemistry
 
 The carbonate system is the most consequential equilibrium chemistry in the ocean. It controls pH, CaCO₃ solubility, and the ocean's capacity to absorb atmospheric CO₂.
@@ -321,3 +323,5 @@ STABLE ISOTOPES AS PROXIES:
 **Conservative ≠ constant concentration**: Conservative ions maintain constant RATIOS to salinity. But their absolute concentration varies with salinity (more dilute near rivers/ice melt, more concentrated in evaporation zones). Chloride is conservative but varies from ~19 to ~25 g/kg between fresh-influenced and evaporating basins.
 
 **Biological pump ≠ 100% carbon removal**: Only ~0.3–0.5% of surface production is permanently buried. The rest (~99.7%) is remineralized back to CO₂ somewhere in the water column or at the seafloor and returns to the atmosphere on the thermohaline timescale (~1000 yr). The pump is a DELAY mechanism, not permanent sequestration (on geological timescales).
+
+<!-- @editor[content/P2]: Dissolved organic carbon (DOC) pool absent — the ocean holds ~660 Gt C as DOC (larger than atmospheric CO2), with refractory DOC having millennial residence times; a significant gap in ocean carbon budget coverage -->

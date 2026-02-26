@@ -28,6 +28,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — geostrophic balance (pressure gradient vs. Coriolis) is directly analogous to steady-state force balance in engineering statics; the Sverdrup relation is a vorticity conservation law analogous to Kelvin's circulation theorem; western boundary intensification parallels boundary layer theory in aerodynamics -->
+
 ## Geostrophic Balance — The Dominant Balance
 
 In the interior of the ocean (away from boundaries, surface, bottom), the dominant momentum balance is:
@@ -332,3 +334,5 @@ SUBMESOSCALE (<10 km):
 **Western boundary current transport increases downstream**: The Gulf Stream carries 30 Sv at Florida Straits, but 150 Sv by the time it separates from the coast. The additional transport comes from recirculation eddies — not the Sverdrup circulation adding mass. The Sverdrup balance gives ~35 Sv; the rest is eddy recirculation.
 
 **The Gulf Stream does not heat Europe by itself**: While AMOC transports heat, so do the mid-latitude westerly winds over warm SST, the land distribution, and the general circulation. "The Gulf Stream keeps Europe warm" is correct in direction but overstated in magnitude. Some studies suggest atmospheric circulation differences (land vs. ocean at the same latitude) account for most of the N. Atlantic–N. Pacific temperature asymmetry.
+
+<!-- @editor[content/P2]: Antarctic Circumpolar Current (ACC) absent — the largest current by volume transport (~130-150 Sv), the only current circling the globe, and the primary mechanism distributing NADW/AABW globally; deserves its own section or at least substantial coverage -->

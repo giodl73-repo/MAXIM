@@ -25,6 +25,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — estuary mixing (salt wedge / partial / well-mixed) is a classic two-fluid stratified flow problem from fluid dynamics; the sediment budget approach (inputs - outputs = net change) is identical to mass balance in chemical or civil engineering; the Bruun rule is a geometric scaling law -->
+
 ## Estuaries — Mixing Zones
 
 ```
@@ -367,3 +369,5 @@ SETBACK LINE MANAGEMENT:
 **Seawall erosion paradox**: Seawalls protect the property immediately behind them but accelerate erosion of the beach in front and the coast on either side. If everyone builds seawalls, beaches disappear (terminal groyne effect). The coast can't migrate landward → beach drowned between seawall and rising sea level.
 
 **Mangrove carbon is conditional**: Mangroves are among the highest carbon-storing ecosystems per unit area. BUT: destroying mangroves releases the stored peat carbon RAPIDLY (aerobic decomposition in drained soil). A cleared mangrove plantation that grows shrimp for 20 years may emit more CO₂ than it ever sequestered. The carbon stock is a debt: the longer the mangrove stood, the larger the penalty for clearing it.
+
+<!-- @editor[content/P3]: Coral reef geomorphology absent — while mentioned in 08-MARINE-BIOLOGY, reef types (fringing, barrier, atoll — Darwin's subsidence theory) and reef accretion/erosion budgets are coastal system topics that belong here as well -->
