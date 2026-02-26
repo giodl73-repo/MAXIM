@@ -375,6 +375,7 @@ USE:
   WARNING: overused to the point of banality in some contexts
 
 WHY ARIAL IS NOT HELVETICA:
+<!-- @editor[content/P1]: Typo: "Ariel" should be "Arial" — factual spelling error for the typeface name -->
   Ariel was designed to have identical character widths (metrics) to Helvetica
   so documents typeset in Helvetica would reflow identically in Arial.
   The letterforms are subtly different (more curved 'R' leg, less 'G' spur).

@@ -184,7 +184,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `public-health/` | 11 | 2026-02 | — | 4 tags → pending |
 | `demography/` | 10 | — | — | |
 | `criminology/` | 10 | — | — | |
-| `media-studies/` | 10 | — | — | |
+| `media-studies/` | 10 | 2026-02 | — | 18 tags → pending |
 | `education/` | 10 | 2026-02 | — | 5 tags → pending |
 | `international-relations/` | 10 | 2026-02 | — | 0 tags -- polished |
 
@@ -197,7 +197,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `linguistics/` | 10 | 2026-02 | — | 10 tags → pending (1 polished) |
 | `world-languages/` | 15 | — | — | |
 | `codes/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
-| `typography/` | 12 | — | — | |
+| `typography/` | 12 | 2026-02 | — | 1 tags → pending |
 | `printing-publishing/` | 10 | — | — | |
 | `cinema-film/` | 11 | — | — | |
 | `radio-television/` | 10 | — | — | |
