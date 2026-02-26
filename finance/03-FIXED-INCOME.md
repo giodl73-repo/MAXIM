@@ -334,6 +334,10 @@ OAS PRICING:
 
 ---
 
+<!-- @editor[content/P2]: Inflation-linked bonds (TIPS) appear in landscape diagram ("Inflation-linked") but have no drill-down — real yield vs nominal yield, breakeven inflation rate missing -->
+<!-- @editor[content/P2]: Repo markets absent — repurchase agreements are fundamental to fixed-income funding, short selling, and the plumbing of bond markets -->
+<!-- @editor[bridge/P2]: No old-world bridge — e.g., DCF from corporate finance maps directly to bond pricing; bootstrap is iterative dependency resolution (familiar pattern from build systems or topological sort) -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

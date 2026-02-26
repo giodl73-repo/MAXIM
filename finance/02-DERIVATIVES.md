@@ -6,6 +6,7 @@ Derivatives are contracts whose value derives from an underlying asset (stock, b
 commodity, interest rate, index). The mathematics is stochastic calculus — Brownian
 motion, Itô's lemma, and the risk-neutral pricing measure.
 
+<!-- @editor[diagram/P2]: Diagram lists derivative categories in stacked boxes but doesn't show relationships — e.g., how forwards underpin futures, how swaps decompose into forward contracts, how exotics build on vanilla options -->
 ```
 DERIVATIVE LANDSCAPE:
   ┌───────────────────────────────────────────────────────────────┐
@@ -304,6 +305,7 @@ BINOMIAL TREE (CRR model, Cox-Ross-Rubinstein 1979):
 
   American option: compare continuation value vs intrinsic value at each node
 ```
+<!-- @editor[content/P2]: American options section is thin — missing Longstaff-Schwartz (LSM) Monte Carlo method, which is the industry standard for pricing American/Bermudan options in multiple dimensions -->
 
 ---
 
@@ -335,6 +337,8 @@ INTEREST RATE SWAP:
 ```
 
 ---
+
+<!-- @editor[content/P2]: Credit derivatives (CDS, CDO tranching, correlation trading) only mentioned in passing — deserves its own subsection given 2008 crisis relevance and mathematical depth -->
 
 ## Decision Cheat Sheet
 
