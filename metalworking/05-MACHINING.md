@@ -304,6 +304,7 @@ CNC EVOLUTION:
 
   CAD/CAM integration (1980s–90s):
     Design in CAD → post-process to G-code → machine
+<!-- @editor[content/P2]: SurfCAM was acquired and folded into Hexagon/Vero product line — consider replacing with a current CAM package (e.g., Fusion 360, SolidCAM, or HSMWorks) -->
     CATIA, Pro/E (now Creo), Mastercam, SurfCAM
 
   Modern CNC (2000s+):
