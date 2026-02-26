@@ -72,6 +72,7 @@ RATIO METRICS (careful):
   Var(Y/X) ≈ (1/μ_X)² × Var(Y) + (μ_Y/μ_X²)² × Var(X) − 2(μ_Y/μ_X³)Cov(Y,X)
   All major platforms use delta method automatically; know when to question it
 ```
+<!-- @editor[structure/P2]: No comparison tables in body sections — metric taxonomy, CUPED properties, or bandit-vs-A/B tradeoffs would benefit from tabular format -->
 
 ---
 
@@ -397,6 +398,8 @@ HTE IN PRACTICE:
 | How does cluster randomization affect power? | Reduces effective N by design effect = 1 + (cluster_size - 1) × ICC. For typical cluster sizes and ICC, may require 2-5× more raw observations. |
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: A/B assignment + feature flags = Azure DevOps deployment rings; experiment logging pipeline = VSTS build/release telemetry; guardrail metrics = Application Insights alert rules -->
 
 ## Common Confusion Points
 

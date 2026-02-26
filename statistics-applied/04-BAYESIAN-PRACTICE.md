@@ -443,6 +443,8 @@ MODEL COMPARISON:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: Bayesian posterior updating = type narrowing/refinement in TypeScript or pattern matching; prior-to-posterior is constraint propagation; MCMC sampling efficiency parallels compiler optimization search-space traversal -->
+
 ## Common Confusion Points
 
 **Bayesian credible intervals are NOT automatically better than frequentist CIs:** They answer a different question (posterior probability vs coverage frequency). With diffuse priors, they produce similar numbers. With informative priors, they can differ substantially. The Bayesian CI is "better" if you want a probability statement and your prior is reasonable.
