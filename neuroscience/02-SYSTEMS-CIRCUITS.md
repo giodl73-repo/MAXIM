@@ -1,3 +1,4 @@
+<!-- @editor[diagram/P2]: Landscape shows 5 systems as independent pipelines -- add cross-system connections (BG + cerebellum both feed motor, hippocampus consolidates to cortex, visual streams feed motor planning and memory) -->
 # Neural Systems and Circuits
 
 ## The Big Picture
@@ -68,6 +69,7 @@
     K (koniocellular) between layers: color (S-cone), diffuse projections
 ```
 
+<!-- @editor[bridge/P2]: No CNN/Gabor-filter bridge despite direct biological motivation for convolutional networks -- at minimum add forward reference to 04-AI-BRIDGE.md -->
 ### Primary Visual Cortex (V1)
 
 Hubel and Wiesel (Nobel 1981): discovered orientation selectivity and ocular dominance columns.
@@ -210,6 +212,7 @@ Hubel and Wiesel (Nobel 1981): discovered orientation selectivity and ocular dom
 
 ---
 
+<!-- @editor[bridge/P2]: Basal ganglia direct/indirect pathway is isomorphic to Go/NoGo in RL -- no bridge to action selection, scheduling, or priority queues from distributed systems -->
 ## Basal Ganglia: Action Selection
 
 ### Circuit Structure
@@ -405,3 +408,5 @@ strengthening that supports learning. But:
 (3) LTP can be blocked in slice without preventing learning in vivo
 (4) The relationship between synaptic plasticity and behavioral learning is complex
     and active research area
+
+<!-- @editor[structure/P1]: Missing old-world bridge section entirely -- visual hierarchy = CNN layers, basal ganglia = Go/NoGo in RL, hippocampal indexing = database indexing, cerebellar forward model = Kalman filter / PID control -->
