@@ -11,7 +11,7 @@ Each directory has a `STATUS.md` with its full file list.
 | Directory | Files | Status | Group |
 |-----------|-------|--------|-------|
 | [`computing/`](computing/STATUS.md) | 28 | ✅ |
-| [`ai-engineering/`](ai-engineering/STATUS.md) | 5 | ✅ |
+| [`ai-engineering/`](ai-engineering/STATUS.md) | 10 | ✅ |
 | [`data-science/`](data-science/STATUS.md) | 17 | ✅ |
 | [`mathematics/`](mathematics/STATUS.md) | 24 | ✅ |
 | [`languages/`](languages/STATUS.md) | 19 | ✅ |
@@ -19,16 +19,16 @@ Each directory has a `STATUS.md` with its full file list.
 | [`scripting/`](scripting/STATUS.md) | 10 | ✅ |
 | [`os/`](os/STATUS.md) | 8 | ✅ |
 | [`physics/`](physics/STATUS.md) | 10 | ✅ |
-| [`electronics/`](electronics/STATUS.md) | 8 | ✅ |
-| [`materials/`](materials/STATUS.md) | 7 | ✅ |
+| [`electronics/`](electronics/STATUS.md) | 10 | ✅ |
+| [`materials/`](materials/STATUS.md) | 10 | ✅ |
 | [`neuroscience/`](neuroscience/STATUS.md) | 5 | ✅ |
 | [`economics/`](economics/STATUS.md) | 5 | ✅ |
-| [`information-theory/`](information-theory/STATUS.md) | 5 | ✅ |
+| [`information-theory/`](information-theory/STATUS.md) | 10 | ✅ |
 | [`natural-sciences/`](natural-sciences/STATUS.md) | 18 | ✅ |
 | [`astronomy/`](astronomy/STATUS.md) | 12 | ✅ |
 | [`biology/`](biology/STATUS.md) | 7 | ✅ |
-| [`quantum-computing/`](quantum-computing/STATUS.md) | 5 | ✅ |
-| [`control-theory/`](control-theory/STATUS.md) | 5 | ✅ |
+| [`quantum-computing/`](quantum-computing/STATUS.md) | 10 | ✅ |
+| [`control-theory/`](control-theory/STATUS.md) | 10 | ✅ |
 | [`finance/`](finance/STATUS.md) | 5 | ✅ |
 | [`mechanical/`](mechanical/STATUS.md) | 6 | ✅ |
 | [`structural/`](structural/STATUS.md) | 5 | ✅ |
