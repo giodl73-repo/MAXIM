@@ -274,6 +274,7 @@ IMPLICATIONS:
   Workplace design is cognitive system design.
   Artifacts are cognitive components, not just tools.
 
+<!-- @editor[bridge/P3]: Natural bridge to VSTS/Azure DevOps — the distributed cognition concept maps directly to the CI/CD pipeline as a cognitive system (build server + tests + dashboards + team = distributed cognition in practice) -->
   This maps to software engineering: a development team + IDE +
   documentation + tests is a distributed cognitive system.
   Productivity is a property of the system, not just individuals.
@@ -332,6 +333,8 @@ IMPLICATION FOR LLMs:
 ---
 
 ## Decision Cheat Sheet
+
+<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "if evaluating AI claim X, the embodied cognition counter is Y" structure -->
 
 | Concept | Claim | Key figure |
 |---|---|---|

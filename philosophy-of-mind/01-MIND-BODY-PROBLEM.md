@@ -365,6 +365,8 @@ THE STANDARD RESPONSE:
 
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P2]: Cheat sheet summarizes positions rather than guiding decisions — needs "if you encounter X argument, the relevant response is Y" structure -->
+
 | Position | Core claim | Key problem |
 |---|---|---|
 | Substance dualism (Descartes) | Mind and matter are distinct substances | Interaction problem |

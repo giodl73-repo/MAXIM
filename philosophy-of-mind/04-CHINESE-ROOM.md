@@ -338,6 +338,8 @@ The debate is philosophical, not empirical.
 
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "if someone argues X about AI understanding, the relevant counter is Y" format -->
+
 | Concept | Definition | Verdict |
 |---|---|---|
 | Chinese Room setup | Person follows rules to translate Chinese, passes Turing Test | The scenario is coherent |
