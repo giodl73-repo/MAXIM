@@ -508,6 +508,8 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world→new-world bridge section — natural parallels: HPA negative feedback = control loop (the learner knows control theory); allostatic load = accumulated technical debt from chronic overload without recovery; adaptive→maladaptive transition = the same pattern as a system designed for burst traffic failing under sustained load. These are not metaphors — they are the same dynamical systems principles applied to different substrates. -->
+
 ## Decision Cheat Sheet
 
 | Health Psychology Question | Evidence-Based Answer |
