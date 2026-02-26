@@ -10,7 +10,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 
 | Card | Title | Image concept |
 |------|-------|---------------|
-| K♣ | The Architect | 3-tier system diagram: browser → API → database, with layer boundaries and data flow arrows |
+| K♣ | The Architect | 3-tier system diagram: browser → API → database, with layer boundaries and data flow arrows — the bottom layer drawn first, still warm, the pencil line not yet lifted |
 | K♦ | The Craftsman | A terminal window — small elegant program, call chain visible, syntax implied by indentation |
 | K♥ | The Prover | A proof tree with `⊢` nodes, one branch marked UNDECIDABLE — Gödel's sentence at the root |
 | K♠ | The Sentinel | Network topology with nodes, edges, a firewall perimeter, and threat vectors as dotted intrusion lines |
@@ -19,10 +19,10 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 
 | Card | Title | Image concept |
 |------|-------|---------------|
-| Q♣ | The Composer | Musical staff fragment — clef, time signature, notes — overlaid on a building elevation |
+| Q♣ | The Composer | Musical staff fragment — clef, time signature, notes — overlaid on a building elevation, and when you look again the building IS the score: every window a rest, every column a bar line |
 | Q♦ | The Surveyor | Topographic contour map with grid coordinates and compass rose |
 | Q♥ | The Performer | Stage cross-section: proscenium arch, curtains, single spotlight cone converging on center |
-| Q♠ | The Editor | Typographic layout grid — columns, gutters, text blocks mid-arrangement, one block being cut |
+| Q♠ | The Editor | Typographic layout grid — columns, gutters, text blocks mid-arrangement, one block being cut — and the serif of the new typeface just visible where the old sans-serif was scraped away |
 
 ### J — Mathematics & Physics
 
@@ -37,8 +37,8 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 
 | Card | Title | Image concept |
 |------|-------|---------------|
-| 10♣ | The Scribe | A letterform anatomy diagram: serif, stem, counter, ascender, baseline — one large glyph dissected |
-| 10♦ | The Broadcaster | A film strip — 4 sequential frames — with a broadcast tower radiating concentric signal waves |
+| 10♣ | The Scribe | A letterform anatomy diagram: serif, stem, counter, ascender, baseline — one large glyph dissected, and beside it twenty-seven more waiting in a row, each one a different hand |
+| 10♦ | The Broadcaster | A film strip — 4 sequential frames — with a broadcast tower radiating concentric signal waves, the outermost ring fading past the edge of the card |
 | 10♥ | The Interpreter | The semiotic triangle: SIGN at top, SIGNIFIER and SIGNIFIED at base corners, arrows between all three |
 | 10♠ | The Narrator | A horizontal timeline: clay tablet → scroll → codex → press → screen → stream — same impulse, new vessel |
 
@@ -55,7 +55,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 
 | Card | Title | Image concept |
 |------|-------|---------------|
-| 8♣ | The Fabricator | MOSFET cross-section — gate oxide, source, drain, channel — labeled layer by layer |
+| 8♣ | The Fabricator | MOSFET cross-section — gate oxide, source, drain, channel — labeled layer by layer, five identical devices being etched in parallel across the wafer |
 | 8♦ | The Verifier | A state machine — states as circles, transitions as arrows, one path to SAFE, one to UNSAFE |
 | 8♥ | The Planner | Urban grid plan view — zoning blocks labeled R (residential), C (commercial), G (green), I (industrial) |
 | 8♠ | The Operator | A data center rack — servers, switches, patch panel — with power and data flows annotated |
@@ -64,7 +64,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 
 | Card | Title | Image concept |
 |------|-------|---------------|
-| 7♣ | The Constructor | A bridge cross-section — compression members (thick), tension members (thin), forces as arrows |
+| 7♣ | The Constructor | A bridge cross-section — compression members (thick), tension members (thin), forces as arrows — and a small figure already crossing before the last cable is drawn |
 | 7♦ | The Alchemist | An energy diagram — reactants at high energy, products at low, activation barrier, ΔH arrow down |
 | 7♥ | The Provider | Building wall cross-section — three parallel runs: electrical conduit, water pipe, HVAC duct |
 | 7♠ | The Instrumentalist | Three-panel wave diagram: sound wave / light ray through lens / mechanical crank and wheel |
@@ -73,8 +73,8 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 
 | Card | Title | Image concept |
 |------|-------|---------------|
-| 6♣ | The Chronicler | An old map fragment — coastline, latitude lines, trade route arrows, "here be dragons" in margin |
-| 6♦ | The Sage | A genealogy tree of philosophical traditions: Socrates branching to Plato / Aristotle / Cynics |
+| 6♣ | The Chronicler | An old map fragment — coastline, latitude lines, trade route arrows, "here be dragons" in margin, and a second map visible underneath where the ink has bled through |
+| 6♦ | The Sage | A genealogy tree of philosophical traditions: Socrates branching to Plato / Aristotle / Cynics — one branch at the very bottom unlabeled, root-stock before all schools |
 | 6♥ | The Dialectician | Hegelian spiral ascending: THESIS → ANTITHESIS → SYNTHESIS → new THESIS, cycling upward |
 | 6♠ | The Ethicist | A trolley problem diagram — track fork, five figures, one figure, lever, decision node |
 
@@ -109,7 +109,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 
 | Card | Title | Image concept |
 |------|-------|---------------|
-| 2♣ | The Taxonomist | Linnaean hierarchy tree — Domain → Kingdom → Phylum → Class → Order → Family → Genus → Species |
+| 2♣ | The Taxonomist | Linnaean hierarchy tree — Domain → Kingdom → Phylum → Class → Order → Family → Genus → Species, one label crossed out and rewritten in a steadier hand |
 | 2♦ | The Brewer | Fermentation vessel cross-section — grain in, yeast colony, CO₂ rising, alcohol accumulating |
 | 2♥ | The Collector | A specimen tray — 3×4 grid of pinned insects, each labeled, arranged by order |
 | 2♠ | The Ecologist | A food web — producers at base, consumers rising, apex predator at top, arrows showing energy flow |
