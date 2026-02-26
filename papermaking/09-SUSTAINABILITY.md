@@ -314,6 +314,8 @@ rivers for both water supply and power.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — LCA methodology parallels total cost of ownership (TCO) analysis in engineering: the paper-vs-plastic comparison requires system boundary definition, functional unit choice, and impact category weighting — identical to build-vs-buy or cloud-vs-on-prem TCO debates. The "honest conclusion" framing (context-dependent, not absolute) is the same intellectual discipline required in any engineering trade-off analysis -->
+
 ## Decision Cheat Sheet
 
 | Sustainability question | Key fact |

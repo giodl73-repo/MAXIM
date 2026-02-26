@@ -304,6 +304,8 @@ Mass deacidification outcome:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: paper degradation maps directly to data preservation concerns (bit rot, media decay, format obsolescence). The Arrhenius-based lifespan modeling is identical to accelerated lifetime testing in electronics reliability engineering (Ea, temperature acceleration factor). The "slow fires" crisis — 30 million brittle books — is the physical-media analogue of data loss from obsolete formats and decaying storage -->
+
 ## Decision Cheat Sheet
 
 | Archival need | Specification |

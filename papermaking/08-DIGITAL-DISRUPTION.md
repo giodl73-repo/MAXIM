@@ -279,6 +279,8 @@ Paper industry has undertaken significant sustainability messaging:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — this is the one file where the learner's own career experience IS the bridge. The digital disruption story (office paper -6%/yr, newsprint -8%/yr, packaging +3%/yr) maps directly to platform transition economics the learner has lived through: legacy revenue declining while new-platform revenue grows, with mill conversions paralleling team reorgs and product pivots. Worth making this explicit rather than leaving the connection implicit -->
+
 ## Decision Cheat Sheet
 
 | Strategic question | Answer |
