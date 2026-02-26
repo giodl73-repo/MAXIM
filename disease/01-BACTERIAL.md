@@ -30,6 +30,8 @@ NEITHER (atypical — no cell wall or unique structure):
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- Gram staining (1884) is the original "typed vs untyped" classification; bridge to type systems or classification taxonomies would serve this learner -->
+
 ## Bacterial Structure and Virulence Factors
 
 ### Cell Envelope

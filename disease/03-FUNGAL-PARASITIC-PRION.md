@@ -21,6 +21,8 @@ PRIONS: misfolded proteins — no nucleic acid, no conventional pathogen structu
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- therapeutic challenge with fungi (eukaryote targeting eukaryote) parallels selectivity problem where attacker and defender share architecture; bridge to selective toxicity principle -->
+
 ## Fungi
 
 ### Antifungal Drug Targets

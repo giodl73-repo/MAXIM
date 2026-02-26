@@ -23,6 +23,8 @@ KEY INSIGHT:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- Baltimore classification maps genome type to replication strategy, analogous to how a type system maps data representation to permissible operations -->
+
 ## Universal Viral Replication Cycle
 
 ```

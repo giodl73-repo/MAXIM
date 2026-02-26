@@ -35,6 +35,8 @@ Core question types:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- epidemiological study design hierarchy (RCT > cohort > case-control > cross-sectional) maps to evidence quality in any empirical discipline; RR vs OR parallels prospective measurement vs retrospective estimation -->
+
 ## 1. Epidemiological Measures
 
 ### Frequency Measures
@@ -469,7 +471,7 @@ OVERDIAGNOSIS:
 | mRNA | COVID-19 (mRNA-1273, BNT162b2) | mRNA → cell produces antigen → immune response | Rapid development, no live pathogen, scalable | Cold chain requirements (original formulations) |
 | Viral vector | AstraZeneca COVID-19, J&J COVID-19, Ebola | Adenovirus carries antigen gene | Potent T-cell response | Pre-existing vector immunity can reduce response |
 
-**Cold chain:** Vaccines must be stored at 2–8°C (some at −20°C/−70°C); breaks at any point (warehouse → transport → clinic) can inactivate vaccines. Critical for developing-world programs.
+**Cold chain:** Vaccines must be stored at 2-8°C (some at −20°C/−70°C); breaks at any point (warehouse → transport → clinic) can inactivate vaccines. Critical for developing-world programs.
 
 **WHO EPI (Expanded Programme on Immunization):** Since 1974; core antigens (BCG, OPV/IPV, DTP, HepB, Hib, measles). Global immunization coverage ~85% (2023).
 

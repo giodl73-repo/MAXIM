@@ -9,6 +9,7 @@ Every climate zone is the product of four interacting controls: latitude,
 altitude, continentality, and ocean currents. Biomes map onto climate zones
 with remarkable fidelity — you can reconstruct one from the other.
 
+<!-- @editor[diagram/P3]: Landscape diagram is functional but could show the modifier interactions (altitude, currents, orography) as arrows feeding into the latitude bands rather than a flat footnote -->
 ```
 +----------------------------------------------------------------------+
 |                    CLIMATE CONTROL HIERARCHY                          |
@@ -169,6 +170,7 @@ with remarkable fidelity — you can reconstruct one from the other.
 ## Section 3: Biome Distribution
 
 ```
+<!-- @editor[bridge/P2]: No classification system → Koppen bridge despite obvious parallel — any engineer building rule-based classifiers from empirical thresholds recognizes this pattern; connect Koppen to decision-tree classification logic -->
   BIOME-CLIMATE RELATIONSHIP:
   Climate envelope determines which biome occurs — ~90% predictable from
   mean annual temperature × mean annual precipitation alone
@@ -259,6 +261,7 @@ with remarkable fidelity — you can reconstruct one from the other.
   East African equatorial mountains (Kilimanjaro): tropical base →
     montane forest → heath/moorland → alpine desert → snow cap
 ```
+<!-- @editor[content/P2]: Climate change impacts on zone shifts absent — significant gap; Koppen zone migration, biome redistribution under warming scenarios, and treeline advance all belong here -->
 
 ---
 

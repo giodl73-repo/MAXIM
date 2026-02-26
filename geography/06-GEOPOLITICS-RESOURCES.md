@@ -59,6 +59,7 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   → Supply management → price floor/ceiling policy
   Tensions: Saudi-Russia relationship (geopolitical rivals + economic partners)
 
+<!-- @editor[bridge/P2]: No systems thinking → resource curse bridge despite obvious parallel — any engineer recognizes Dutch Disease as a feedback loop (revenue → currency → deindustrialization → deeper resource dependency); frame explicitly as positive feedback / lock-in -->
   RESOURCE CURSE:
   ┌──────────────────────────────────────────────────────────────┐
   │ DUTCH DISEASE: oil revenues → currency appreciation →        │
@@ -181,6 +182,7 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │   China controls flow; downstream drought correlation         │
   └──────────────────────────────────────────────────────────────┘
 
+<!-- @editor[bridge/P3]: Natural bridge to embedded/externalized cost accounting — learner from enterprise engineering background will recognize virtual water as an externality quantification pattern similar to lifecycle analysis (LCA) -->
   VIRTUAL WATER (Allan 1993):
   Water embedded in products through production process
   1 kg wheat = ~1000 liters of virtual water
@@ -290,6 +292,7 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   Russia's Fertilizer leverage: Russia + Belarus = ~40% of global potash
     → Sanctions create fertilizer price shock → food production costs globally
 ```
+<!-- @editor[content/P2]: Energy transition geography absent — significant gap; geographic redistribution of energy supply chains (solar belt, wind corridors, hydrogen hubs, grid interconnectors) deserves its own section given the scale of the shift -->
 
 ---
 

@@ -174,6 +174,7 @@ Climate change is now rewriting species distributions in real time.
   │ → Turnover continues (different species at same richness)     │
   └────────────────────────────────────────────────────────────────┘
 
+<!-- @editor[bridge/P2]: No power law → species-area bridge despite obvious parallel — learner knows power laws from Zipf (used in 05-POPULATION-URBAN); connect S=cA^z to the broader family of power law distributions and log-log linearity -->
   SPECIES-AREA RELATIONSHIP:
   S = cA^z
   S = species richness
@@ -216,6 +217,7 @@ Climate change is now rewriting species distributions in real time.
 ## Section 5: Species Distributions & Niches
 
 ```
+<!-- @editor[bridge/P2]: No n-dimensional space → hypervolume niche bridge despite obvious parallel — learner with MIT math background will immediately recognize the hypervolume as a convex hull / constraint satisfaction problem in R^n; make that connection explicit -->
   HUTCHINSON'S N-DIMENSIONAL HYPERVOLUME (1957):
   Ecological niche = all combinations of environmental variables
   within which a species can maintain viable population
@@ -264,6 +266,7 @@ Climate change is now rewriting species distributions in real time.
   NOT uniformly positive: tropical greening may coexist with
   biodiversity loss from savanna encroachment
 ```
+<!-- @editor[content/P2]: Marine biogeography absent — significant gap for this field; ocean biomes, pelagic vs benthic zonation, and deep-sea endemism are major biogeographic domains missing entirely -->
 
 ---
 

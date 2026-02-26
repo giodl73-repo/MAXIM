@@ -159,6 +159,7 @@ to economic and political geography.
 ## Section 4: City Size Distribution & Internal Structure
 
 ```
+<!-- @editor[bridge/P3]: Natural bridge to Zipf's Law in linguistics/information theory — learner knows Zipf from word frequency distributions; connect the same power-law mechanics across domains -->
   ZIPF'S LAW FOR CITIES:
   Rank × Size ≈ constant
   → 2nd largest city ≈ 1/2 size of largest
@@ -302,6 +303,7 @@ to economic and political geography.
 ## Section 7: Urban Heat Islands & Urban Environment
 
 ```
+<!-- @editor[structure/P2]: Section not anchored to landscape diagram — UHI is not in the opening diagram; either add it or note it as a cross-cutting environmental urban topic -->
   URBAN HEAT ISLAND (UHI) EFFECT:
   Cities 1-3°C warmer than surrounding rural areas on average
   Peak difference at night (up to 10°C on calm, clear nights)

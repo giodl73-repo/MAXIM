@@ -26,6 +26,8 @@ Most require 2–8 "driver" mutations; passenger mutations are just noise
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge -- oncogene gain-of-function (dominant) vs tumor suppressor loss-of-function (recessive, two-hit) maps to positive vs negative regulators in any control system -->
+
 ## Oncogenes
 
 Proto-oncogene → oncogene by **gain-of-function** mutations (dominant — one mutant allele sufficient):
