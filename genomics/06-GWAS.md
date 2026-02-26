@@ -321,6 +321,7 @@ GWAS: CONNECTING VARIANTS TO TRAITS AT POPULATION SCALE
 ---
 
 ## Common Confusion Points
+<!-- @editor[bridge/P3]: Natural bridge to telemetry/A-B testing -- GWAS is essentially a massively parallel A/B test across millions of SNPs with strict multiple-testing correction; PRS parallels feature importance aggregation in ML models -->
 
 **GWAS hits are rarely in coding regions**: ~90% of GWAS hits fall in non-coding regions (introns, intergenic). This is because most causal variants affect gene regulation (enhancers, promoters), not protein sequence. This is why ENCODE/epigenomics is critical for GWAS interpretation.
 

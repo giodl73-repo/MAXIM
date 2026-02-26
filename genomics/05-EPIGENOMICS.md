@@ -348,6 +348,7 @@ EPIGENOMICS: THE CHEMICAL LAYER ABOVE THE SEQUENCE
 ---
 
 ## Common Confusion Points
+<!-- @editor[bridge/P2]: No old-world -> new-world bridge anywhere in this file -- natural parallel: epigenome as a configuration layer over source code (same source, different build config -> different binary). Histone marks = compiler flags / feature toggles; methylation = commenting out code permanently. Any senior engineer would benefit from this framing -->
 
 **H3K4me3 vs. H3K4me1**: Both methylations on the same residue but with different numbers of methyl groups — and completely different biological meanings. Trimethylation (me3) marks active promoters. Monomethylation (me1) marks enhancers. The distinction is experimentally determined by the antibody specificity used in ChIP-seq.
 
