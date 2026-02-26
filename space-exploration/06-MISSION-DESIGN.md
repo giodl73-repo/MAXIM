@@ -310,6 +310,7 @@ TYPICAL PLANETARY MISSION PHASES
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: mission lifecycle phases (A through F with gate reviews SRR/PDR/CDR/FRR) map directly onto software development lifecycle gates the learner built at VSTS (requirements review, design review, code complete, ship room); NASA phase reviews are the aerospace equivalent of stage gates -->
 ## Common Confusion Points
 
 **Gravity assists are not free forever**: You can't keep adding flybys to gain unlimited energy. Each flyby must take energy from the planet's orbital motion; the planet slows by an undetectable amount. More practically: trajectories with many gravity assists have very long flight times and specific geometry constraints.

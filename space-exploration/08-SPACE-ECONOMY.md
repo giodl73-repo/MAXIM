@@ -395,6 +395,7 @@ NATIONAL SPACE POLICIES AND PROGRAMS
 
 ---
 
+<!-- @editor[bridge/P2]: No explicit old-world bridge section — the content implicitly bridges (cost-plus vs fixed-price, platform economics) but deserves a dedicated bridge callout: the shift from cost-plus to fixed-price competitive contracts is the same shift the learner saw from waterfall government IT procurement to cloud marketplace models; Starlink's platform economics mirror Azure's infrastructure-as-a-service model -->
 ## Common Confusion Points
 
 **Launch cost is not the dominant cost in space**: Launch is $3,000-10,000/kg but is just a fraction of the value. GPS downstream is worth 30× the entire launch market. Satellite services are 14× the launch market. Launch cost matters for mission feasibility but "space economy" is mostly about applications, not getting there.

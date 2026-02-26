@@ -4,6 +4,7 @@
 
 Space exploration is the application of physics, engineering, and systems design to put objects and humans beyond Earth's atmosphere. The physics is orbital mechanics and propulsion; the engineering is reliability under extreme conditions; the systems challenge is the hardest integration problem humans routinely tackle.
 
+<!-- @editor[diagram/P2]: Diagram lists items in columns but doesn't show how physics feeds engineering feeds operations — rework as layered system view with flow arrows -->
 ```
 +------------------------------------------------------------------+
 |                    SPACE EXPLORATION LANDSCAPE                    |
@@ -174,6 +175,7 @@ SPACE SECTOR TAXONOMY
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world-to-new-world bridge anywhere in overview — natural parallel: cost-plus government contracting (VSTS-era Microsoft procurement) vs fixed-price commercial (SpaceX model) maps directly onto waterfall-vs-agile or on-prem-vs-cloud transitions the learner lived through -->
 ## Common Confusion Points
 
 **Orbital velocity ≠ escape velocity**: To stay in LEO you need ~7.8 km/s (just enough centripetal balance). To leave Earth entirely you need 11.2 km/s (another ~3.4 km/s more). The rocket equation means that extra 3.4 km/s is enormously expensive in propellant.

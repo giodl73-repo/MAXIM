@@ -4,6 +4,7 @@
 
 Human spaceflight is not just an engineering challenge — it's a biomedical engineering challenge. The human body did not evolve for microgravity, radiation, or sealed life support systems. Every system that keeps humans alive in space must work 100% of the time.
 
+<!-- @editor[diagram/P2]: Diagram lists physiological challenges, life support systems, and radiation in columns without showing how they interact — bone loss drives exercise time which drives food/water/O2 consumption which sizes ECLSS; radiation constrains mission duration which constrains all other systems; rework as a dependency chain -->
 ```
 +------------------------------------------------------------------+
 |              HUMAN SPACEFLIGHT CHALLENGE MAP                      |
@@ -209,6 +210,7 @@ SOYUZ MS CREW CAPSULE
 
   LEGACY:
     Most reliable human spacecraft ever (99.9%+ crew survival rate)
+<!-- @editor[content/P1]: Claim may be incorrect — verify: Scott Kelly is American (NASA), not Russian; listing him under "Russian record" is misleading; the 342-day ISS mission was a joint US-Russia experiment but Kelly is a US astronaut -->
     Russian record: Valeri Polyakov, 437 days (1994-1995); Scott Kelly + Mikhail Kornienko, 342 days (2015-2016)
 ```
 
@@ -340,6 +342,7 @@ MARS MISSION REQUIREMENTS
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: ECLSS closed-loop resource management (O2 generation, CO2 scrubbing, water recovery at 93% efficiency) is the same feedback-control pattern as capacity planning in distributed systems (resource pools, recycling, degradation rates, margin budgets); the learner managed Azure capacity at scale -->
 ## Common Confusion Points
 
 **Exercise countermeasures do not fully prevent bone loss**: 2 hours of daily vigorous exercise on ISS reduces but doesn't eliminate bone loss. Astronauts typically lose 1-2% per month in critical load-bearing bones even with exercise. The mechanisms of bone remodeling in microgravity are not fully understood.

@@ -4,6 +4,7 @@
 
 A launch vehicle is a rocket system that delivers a payload from Earth's surface to orbit. The architecture choices — staging, propellants, staging ratios, engine count — determine payload capacity, cost, and reliability. The economics have been transformed by reusability.
 
+<!-- @editor[diagram/P2]: Diagram categorizes vehicles by payload class but doesn't show how architecture choices (staging, propellant, engine cycle) flow into capability tiers — rework as a layered view showing how physics constraints map to engineering choices map to payload classes -->
 ```
 +------------------------------------------------------------------+
 |                    LAUNCH VEHICLE LANDSCAPE (2025)                |
@@ -147,6 +148,7 @@ ACTIVE HEAVY LAUNCH VEHICLES (2025)
 
   NEW GLENN (Blue Origin):
     Type: 2-stage; reusable (1st stage)
+<!-- @editor[content/P1]: Claim may be incorrect — verify: New Glenn first stage uses BE-4 (LOX/LNG methane), not LH2; only the second stage (BE-3U) uses LOX/LH2; "all-hydrogen system" is wrong -->
     Propellants: LOX/LH₂ (both stages) — all-hydrogen system
     Engines: 7 × BE-4 (S1); 2 × BE-3U (S2)
     LEO: 45 t; GTO: 13 t
@@ -276,6 +278,7 @@ LAUNCH SITE CONSIDERATIONS
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: the shift from expendable to reusable launch vehicles maps onto the shift from on-premises hardware (buy, use once, depreciate) to cloud elasticity (amortize over many tenants); the learner lived this transition at Microsoft -->
 ## Common Confusion Points
 
 **Expendable vs reusable costs**: Expendable Falcon 9 costs ~$67M list. But SpaceX barely uses expendable; the reusability is what drives their economics (production costs + refurbishment << new rocket). The "savings" from reuse aren't passed to customers dollar-for-dollar — SpaceX captures the margin for R&D and profit.
