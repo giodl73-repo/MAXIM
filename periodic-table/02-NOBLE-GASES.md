@@ -225,6 +225,8 @@ TESTING: charcoal canisters or electret devices placed in lowest level of home 9
 MITIGATION: sub-slab depressurization (pipe from under foundation → exterior vent + fan)
 ```
 
+<!-- @editor[content/P2]: Radon section above is thorough but no bridge from noble gas chemistry to semiconductor fab -- Ar is the workhorse inert atmosphere for Si wafer processing, and this learner would connect that to Azure IoT chip supply chains -->
+
 ### Oganesson (Og, Z=118)
 
 ```

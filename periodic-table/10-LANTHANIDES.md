@@ -206,6 +206,7 @@ QUANTUM DOTS (next gen):
   CdSe quantum dots: size-tunable emission → replacing RE phosphors in displays
   Samsung QLED TV: In-substituted ZnSe QDs (Cd-free) → precise color gamut
 ```
+<!-- @editor[content/P2]: Holmium (Ho) and Thulium (Tm) absent from individual profiles -- Ho has the highest magnetic moment of any element and is used in MRI pole pieces and laser surgery (Ho:YAG at 2100 nm); Tm is used in portable X-ray sources and fiber amplifiers -->
 
 ---
 
@@ -310,6 +311,8 @@ LUTETIUM (Lu, Z=71):
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: Missing bridge from lanthanide magnetic properties to the broader magnets-materials progression -- a "what replaced what" table (lodestone -> Alnico -> ferrite -> SmCo -> NdFeB -> ?) would give the learner the old-world -> new-world context the style contract requires -->
 
 ## REE Supply Chain and Geopolitics
 

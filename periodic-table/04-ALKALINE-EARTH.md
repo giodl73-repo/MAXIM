@@ -295,6 +295,8 @@ Element 88 completes Group 2. Its chemistry (confirmed where accessible) mirrors
 
 ---
 
+<!-- @editor[structure/P2]: Trends summary table below is useful but would benefit from a "Group 2 vs Group 1" comparison table -- the learner already read 03-ALKALI-METALS and the contrast (IE, reactivity, oxidation state, solubility patterns) would anchor the layered drill-down -->
+
 ## Group 2 Trends Summary
 
 ```

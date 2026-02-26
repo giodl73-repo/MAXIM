@@ -201,6 +201,8 @@ CRITICALITY ACCIDENTS:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge connecting reactor physics to modern energy policy debate -- the learner is a VP-level leader who would want the "nuclear vs renewables vs fossil" decision framework; a brief capacity-factor / LCOE / baseload comparison table would serve the reference purpose -->
+
 ## The Manhattan Project
 
 ```
@@ -291,6 +293,8 @@ USES:
 ```
 
 ---
+
+<!-- @editor[content/P2]: Neptunium (Np, Z=93) has no dedicated section -- first transuranic element, historically important (McMillan/Abelson 1940), and Np-237 is a concern in nuclear waste (2.14 Myr half-life, dominant long-term alpha emitter in spent fuel) -->
 
 ## Transuranics Synthesis History
 
