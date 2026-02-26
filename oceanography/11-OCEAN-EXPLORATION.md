@@ -26,6 +26,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — sonar/multibeam is pulse-echo radar applied underwater (same time-of-flight → distance conversion); ADCP Doppler shift is the same principle as police radar guns; satellite altimetry is radar ranging from orbit; data assimilation (EnKF, 4D-Var) is the same Kalman filtering used in GPS navigation and control theory -->
+
 ## Bathymetry Methods
 
 ### Historical Methods
@@ -388,3 +390,5 @@ OCEAN GENERAL CIRCULATION MODELS (OGCM):
 **Model resolution and skill**: Higher resolution isn't always better for all applications. A 1° model run for 1000+ years of climate simulation may give better climate statistics than a 0.1° model run for 50 years. Resolution choice involves compute budget tradeoffs. Eddies matter for some processes (heat transport, tracer mixing) but average out for others (large-scale thermohaline patterns) over long timescales.
 
 **Real-time ocean observing is still very sparse**: Despite Argo, TAO/TRITON, satellites, large parts of the ocean (Southern Ocean, Arctic under-ice, all depths > 2000 m, most of the seafloor) are still poorly observed. Weather has hourly global surface data from thousands of stations + radiosondes + satellites. Ocean state estimation is fundamentally more uncertain — vast volume, difficult access, sparse observations.
+
+<!-- @editor[content/P3]: CTD instrument absent — the CTD (Conductivity-Temperature-Depth) rosette is the most fundamental oceanographic instrument and never explained in this guide; deserves a brief section covering the rosette package, Niskin bottles, and cast workflow -->

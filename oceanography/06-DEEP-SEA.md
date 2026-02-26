@@ -26,6 +26,8 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — pressure adaptations (TMAO piezolytes, membrane fluidity engineering) parallel materials science under extreme conditions (high-pressure metallurgy, polymer glass transition); chemosynthesis is the biological equivalent of fuel cells (chemical energy → useful work without combustion/photons) -->
+
 ## Hadal Zone — Below 6000 m
 
 ```
@@ -369,3 +371,5 @@ VISION:
 **Bioluminescence is not the same as phosphorescence**: Bioluminescence is active biological light production (enzymatic reaction). Phosphorescence in the classic sense is persistent glow after light exposure (photon storage). When sailors observed "phosphorescent seas," they were seeing bioluminescent dinoflagellates, not phosphorescence.
 
 **Deep-sea fish aren't all pressure-adapted throughout body**: Many deep-sea fish organs contain gas-filled swim bladders — these species live only in the mesopelagic and cannot ascend to the surface without bladder injury. True hadal fish have no gas-filled spaces at all.
+
+<!-- @editor[content/P3]: Deep-sea mining absent — polymetallic nodules (Mn, Ni, Co, Cu), seafloor massive sulfides at vents, and cobalt-rich crusts on seamounts are driving active regulatory debate (ISA/UNCLOS); brief mention would connect geology + biology + policy -->

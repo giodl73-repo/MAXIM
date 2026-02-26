@@ -175,6 +175,8 @@ MODERN OBSERVING SYSTEMS
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge in overview — consider a brief "if you know X from engineering/CS, here's how oceanography maps" orientation paragraph (e.g., signal processing → sonar/acoustic methods, fluid dynamics → geostrophic balance, thermodynamics → stratification) -->
+
 ## Cross-Library Connections
 
 | Topic | Covered elsewhere |
