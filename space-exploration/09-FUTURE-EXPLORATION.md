@@ -161,6 +161,7 @@ COMMERCIAL LUNAR PAYLOAD SERVICES (CLPS)
     Effective cost: $5,000-$50,000/kg to lunar surface (vs Earth-to-LEO: $3,000/kg)
     Goal: cost reduction as competition + reuse improves the market
 
+<!-- @editor[content/P2]: [Tool/version/API] may be outdated — check current state: NASA cancelled VIPER in July 2024 due to cost overruns and delays; the rover was offered to industry but the cancellation is the current status, not just "uncertain" -->
   VIPER (VOLATILES INVESTIGATING POLAR EXPLORATION ROVER):
     NASA rover planned for Astrobotic Griffin delivery
     Goal: characterize water ice concentration and accessibility at south pole
@@ -453,6 +454,7 @@ LONG-HORIZON: SETTLEMENT SCENARIOS
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: ISRU (making propellant on Mars from local resources) is the same pattern as edge computing (processing data locally instead of shipping it back to the cloud/datacenter); the learner's Azure edge strategy is exactly this tradeoff — ship compute to the data vs ship data to the compute -->
 ## Common Confusion Points
 
 **Artemis is not Apollo repeat**: Apollo was a geopolitical race with no sustainability mandate and no south pole focus. Artemis is explicitly building toward permanent presence; south pole resource utilization is the goal, not flag-planting. The architecture is fundamentally different (reusable commercial landers, international partnership, space station staging point).

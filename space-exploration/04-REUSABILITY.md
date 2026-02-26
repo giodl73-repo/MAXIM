@@ -4,6 +4,7 @@
 
 Reusable rockets represent the same paradigm shift in space access that reusable aircraft represented for commercial aviation. The key insight: propellant costs are tiny compared to hardware costs; if you can recover and reuse hardware, launch costs collapse. SpaceX demonstrated this definitively with Falcon 9.
 
+<!-- @editor[diagram/P2]: Diagram compares two cost models but doesn't map the full reusability landscape — players, timeline, technology layers (recovery, refurb, thermal protection); rework as a system view showing how landing tech, refurb process, and flight rate interact to drive economics -->
 ```
 +------------------------------------------------------------------+
 |                    REUSABILITY ECONOMICS                          |
@@ -78,6 +79,7 @@ FALCON 9 FIRST STAGE RECOVERY
 FALCON 9 REUSE STATISTICS (through 2024)
 ==========================================
 
+<!-- @editor[content/P1]: Claim may be incorrect — verify: first successful Falcon 9 booster landing was at Cape Canaveral (LZ-1), not Vandenberg; the OG-2 mission launched from CCAFS SLC-40 -->
   First successful booster landing: December 21, 2015 (Vandenberg)
   First drone ship landing: April 8, 2016
 
@@ -291,6 +293,7 @@ RE-ENTRY THERMAL PROTECTION
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: the economics of reusability (amortize hardware cost over N flights; refurbishment cost curve; fleet management) map directly onto cloud infrastructure economics (amortize datacenter capex over N tenants; maintenance cost curve; fleet ops); the learner built Azure's capacity model on exactly this pattern -->
 ## Common Confusion Points
 
 **Reuse doesn't mean instant cost reduction**: The economics improve with flight rate. The more times you fly a booster, the lower the amortized manufacturing cost. Early reuse flights still cost nearly as much to operate as new. The revolution comes after 10+ flights of the same booster — which Falcon 9 has now achieved.

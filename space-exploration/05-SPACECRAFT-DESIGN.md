@@ -4,6 +4,7 @@
 
 A spacecraft is an integrated system of subsystems, each serving a specific function. The challenge is that every subsystem must work perfectly in an environment of vacuum, extreme temperatures, radiation, and microgravity — with no possibility of repair on most missions.
 
+<!-- @editor[diagram/P2]: Diagram lists subsystems in a grid but doesn't show coupling — power feeds all subsystems, thermal constrains power output, ADCS constrains comms pointing, mass budget links everything; rework as a dependency graph showing these cross-subsystem constraints -->
 ```
 +------------------------------------------------------------------+
 |                    SPACECRAFT SUBSYSTEM MAP                       |
@@ -314,6 +315,7 @@ SPACE RADIATION ENVIRONMENT
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: spacecraft subsystem integration (EPS, TCS, ADCS, comms all coupled through mass and power budgets) is the same constraint-satisfaction problem as enterprise systems integration (compute, network, storage, security all coupled through cost and performance budgets); the learner managed exactly this at scale -->
 ## Common Confusion Points
 
 **Solar panels are not simply "power = panels × efficiency"**: Solar panels must be oriented toward the Sun; power varies with angle (cosine function). Panels degrade over time (radiation). Temperature affects output (colder = more efficient). The EPS must handle variable input and provide regulated power through eclipse.

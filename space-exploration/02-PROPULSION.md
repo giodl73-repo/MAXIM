@@ -4,6 +4,7 @@
 
 All rocket propulsion works by the same principle: expelling mass backward to create thrust (Newton's third law). The systems differ in how energetically they can expel that mass, and this determines Isp (efficiency) and thrust (force). There is always a fundamental tradeoff: high Isp (efficiency) comes with low thrust, and vice versa.
 
+<!-- @editor[diagram/P2]: Diagram is a comparison table, not a landscape diagram showing how propulsion types relate to mission phases and spacecraft subsystems — rework as a spectrum or decision tree showing the Isp-vs-thrust tradeoff space with mission regimes overlaid -->
 ```
 +------------------------------------------------------------------+
 |                    PROPULSION SPECTRUM                            |
@@ -318,6 +319,7 @@ SOLAR SAIL
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: the Isp-vs-thrust tradeoff is the same pattern as latency-vs-throughput in systems design (the learner built Azure pipelines); high-Isp/low-thrust is like batch processing (high throughput, high latency), chemical is like low-latency real-time -->
 ## Common Confusion Points
 
 **Isp in seconds is not "how long the engine runs"**: Isp = thrust / (mass flow rate × g₀) = specific impulse. It was originally defined as thrust per unit weight of propellant per second. "450 seconds" doesn't mean 450 seconds of burn time; it means the engine produces 1 lb of thrust per lb/s of propellant consumed (old units). In modern understanding: higher Isp = exhaust moving faster = more momentum per kg of propellant.

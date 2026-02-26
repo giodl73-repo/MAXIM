@@ -4,6 +4,7 @@
 
 Orbital mechanics is the application of Newtonian gravity and classical mechanics to spacecraft trajectories. The Tsiolkovsky rocket equation is the fundamental constraint; Kepler's laws govern orbits; the Hohmann transfer is the minimum-energy path between orbits.
 
+<!-- @editor[diagram/P2]: Diagram lists items in three columns but doesn't show the dependency chain — rework to show how governing physics constrains equations which constrain applications (layered flow) -->
 ```
 +------------------------------------------------------------------+
 |                    ORBITAL MECHANICS FRAMEWORK                    |
@@ -306,6 +307,7 @@ CUMULATIVE Δv BUDGET (km/s from Earth surface)
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: Δv budget as a resource-allocation optimization problem (learner's MIT optimization background); gravity assists as graph-search over a constrained trajectory space; Hohmann transfer as the minimum-cost path in a weighted graph -->
 ## Common Confusion Points
 
 **Orbiting is not "escaping" gravity**: ISS is in Earth's gravity field. It's in free fall — falling in a circle. Gravity is providing the centripetal force. "Zero-g" is a misnomer; it's "free fall" or "microgravity" (tidal forces over the spacecraft volume cause tiny differential accelerations).

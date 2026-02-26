@@ -140,7 +140,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `mineralogy/` | 10 | 2026-02 | — | 21 tags → pending |
 | `planetary-science/` | 10 | 2026-02 | — | 7 tags → pending |
 | `geochemistry/` | 10 | 2026-02 | — | 14 tags → pending |
-| `space-exploration/` | 10 | — | — | |
+| `space-exploration/` | 10 | 2026-02 | — | 21 tags → pending |
 | `astrobiology/` | 10 | 2026-02 | — | 11 tags → pending |
 
 ---
