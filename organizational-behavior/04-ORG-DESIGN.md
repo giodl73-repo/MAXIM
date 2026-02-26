@@ -5,6 +5,7 @@
 Org design is the choice of how to divide and coordinate work. Every organizational structure is a set of tradeoffs between efficiency and flexibility, depth and breadth, control and autonomy. Mintzberg's configurations provide the best taxonomy of how organizations actually look. Conway's Law adds the essential tech-org insight: your system architecture will mirror your communication structure whether you intend it or not.
 
 ```
+<!-- @editor[diagram/P2]: Decision tree is useful but purely top-down branching — doesn't show the Mintzberg structural dimensions (specialization, formalization, centralization) that cut across all configurations; a second diagram mapping configurations to dimensions would complete the picture -->
 ORG DESIGN DECISION TREE
 ==========================
 
@@ -335,6 +336,8 @@ INTERACTION MODES:
 ```
 
 ---
+
+<!-- @editor[content/P2]: Missing coverage of platform organization as a distinct structural form — the learner works at a platform company; internal platform teams (Azure DevOps, GitHub) don't fit neatly into Mintzberg's taxonomy; this gap matters -->
 
 ## Bureaucracy Paradox and Greiner Growth
 

@@ -106,6 +106,7 @@ MORPHEME /negation/→  morphs: un- (unhappy), in- (incomplete), im- (impossible
 
 ---
 
+<!-- @editor[bridge/P2]: No parser/tokenizer → morphological-analysis bridge — any developer coming from compiler front-ends needs the parallel (lexer tokenization = morphological segmentation, token types = morpheme classes) -->
 ## Part III: Morphological Typology
 
 Languages differ fundamentally in how morphology works:

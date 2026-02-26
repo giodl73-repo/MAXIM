@@ -182,6 +182,7 @@ CLASSIC POS EXAMPLE: Aux-Inversion in Questions
 
 The nativist account is not uncontested. Usage-based linguistics argues statistical learning + social cognition is sufficient.
 
+<!-- @editor[bridge/P2]: No machine-learning → acquisition bridge — any ML engineer would immediately see Saffran's transition probabilities as unsupervised n-gram learning; the nativist/empiricist debate maps to inductive-bias vs. data-driven architecture choices -->
 ### Saffran et al. (1996) — Statistical Word Segmentation
 
 ```

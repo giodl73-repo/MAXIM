@@ -174,6 +174,7 @@ VERNER'S LAW:
 
 ---
 
+<!-- @editor[bridge/P2]: No version-control/diff → comparative-method bridge — any developer coming from VCS would immediately grasp "reconstruct the common ancestor from divergent branches" as a git merge-base analogy -->
 ## Part V: The Comparative Method
 
 The procedure for reconstructing proto-languages:

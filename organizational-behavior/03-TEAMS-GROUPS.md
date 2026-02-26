@@ -313,6 +313,8 @@ LENCIONI'S FIVE DYSFUNCTIONS:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to engineering team composition at scale (Microsoft-style org with hundreds of teams) — fault lines, diversity, and virtual team findings map directly to how a VP structures orgs across Redmond + Hyderabad + Dublin -->
+
 ## Diversity and Virtual Teams
 
 ```

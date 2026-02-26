@@ -702,6 +702,8 @@ DUE DILIGENCE FAILURE:
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from traditional software development lifecycle (waterfall/V-model) that the learner lived through at VSTS/Azure DevOps — connecting SDLC evolution to change theory models would make the Agile section resonate with personal history -->
+
 ## Agile Transformation
 
 ```
@@ -768,6 +770,7 @@ SCALING FRAMEWORKS:
   Works best when: genuinely product-focused; fewer dependencies; empowered teams
   Critique: requires significant organizational restructuring as prerequisite
 
+<!-- @editor[content/P2]: Section is thin on AI/automation-driven organizational change — given the current wave of LLM adoption transforming engineering orgs, this is a significant gap for a 2026 reference -->
  SPOTIFY MODEL:
   Tribes/Squads/Chapters/Guilds — highly influential because it came from a credible source
   Critical point: it's a description of what Spotify tried in 2012; not a prescription

@@ -214,6 +214,8 @@ PRACTICAL MANAGEMENT IMPLICATION:
 
 ---
 
+<!-- @editor[audience/P3]: Situational Leadership section is thorough for a theory with weak evidence — the learner would benefit more from a brief dismissal and redirection to what does work, rather than a full explication of the D1-S4 matching -->
+
 ## Situational Leadership
 
 ```
@@ -308,6 +310,8 @@ AUTHENTIC LEADERSHIP (Luthans, Avolio, others)
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No bridge from the learner's direct experience running engineering orgs — VP-level leadership selection, performance reviews, and 360 feedback are personal territory; connect predictors to what a VP actually decides when hiring directors/principals -->
 
 ## Psychometric Predictors and Assessment
 
