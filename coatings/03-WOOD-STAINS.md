@@ -2,21 +2,39 @@
 
 ## Penetrating vs Film-Forming, Dyes vs Pigments, Blotch Control
 
-<!-- @editor[diagram/P2]: Opening diagram is a decision tree, not a landscape showing the full stain taxonomy (penetrating vs film-forming, dye vs pigment, interior vs exterior) — rework as a landscape map with the decision tree below it -->
-
 ## The Big Picture
 
 ```
-PURPOSE OF STAINING WOOD:
-  ENHANCE or CHANGE color while keeping wood texture visible
-  (If hiding grain is acceptable: use paint)
+WOOD STAIN TAXONOMY — FULL LANDSCAPE
+======================================
 
-STAIN SELECTION DEPENDS ON:
-  1. Wood species (open-grain? blotch-prone?)
-  2. Interior or exterior
-  3. Penetrating (no film) vs film-forming (builds surface)
-  4. Colorant type: dye vs pigment vs combination
-  5. Whether clear topcoat will be applied
+                         WOOD STAIN
+                             │
+          ┌──────────────────┴──────────────────┐
+          │                                     │
+    PENETRATING                           FILM-FORMING
+    (no surface film)                    (builds surface layer)
+          │                                     │
+    ┌─────┴─────┐                     ┌─────────┴─────────┐
+    │           │                     │                   │
+ Interior   Exterior               THIN FILM           SOLID COLOR
+ (oil/water  (oil-based;           Semi-transparent    (hides grain;
+  based)      fence/log)           (deck stains,       more like paint)
+                                    siding stains)
+          │
+  COLORANT TYPE (applies to both penetrating and film-forming)
+  ─────────────────────────────────────────────────────────────
+  DYE STAINS:         PIGMENT STAINS:       COMBINATION:
+  Dissolved in        Particles suspended   Dye + pigment
+  carrier; stains     in carrier; sit in    Most commercial
+  cell walls          pores and on surface  "wood stains"
+  molecular-level     Fade-resistant        Balance depth
+  color; can bleed    Mottled/blotchy       vs fade-resist
+
+  INTERIOR vs EXTERIOR:
+  Interior: UV stability less critical; dyes acceptable
+  Exterior: UV causes dye fading → pigment required; also
+            needs mildewcide + UV absorbers in binder
 
 +------------------------------------------------------------------+
 |                    STAIN DECISION TREE                           |
@@ -32,6 +50,10 @@ STAIN SELECTION DEPENDS ON:
 |                                                                  |
 +------------------------------------------------------------------+
 ```
+
+PURPOSE OF STAINING WOOD:
+  ENHANCE or CHANGE color while keeping wood texture visible
+  (If hiding grain is acceptable: use paint)
 
 ---
 

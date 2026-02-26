@@ -328,7 +328,11 @@ RESISTANCE MANAGEMENT:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge — IPM's economic threshold concept maps directly to SLA-based alerting (act before breach, not at breach); pesticide resistance evolution parallels antibiotic resistance or security exploit escalation; the IRAC rotation strategy parallels cryptographic key rotation. One bridge connecting to operations/security would be natural -->
+### Engineering Bridges
+
+Pesticide resistance evolution is the biological version of security exploit escalation with key rotation as the countermeasure. A pesticide targets a specific molecular mechanism (acetylcholinesterase inhibition, sodium channel blocking, GABA receptor binding — each is an IRAC mode of action group). A resistance allele is a mutation that defeats that specific mechanism: modified target site (the equivalent of a zero-day that patches the attack surface), metabolic detoxification (the equivalent of an IDS that intercepts the attack before it reaches the target), or behavioral avoidance (the equivalent of detecting and evading the attack vector). Once a resistance allele reaches high frequency in a pest population, that mode of action is effectively deprecated against that population.
+
+IRAC (Insecticide Resistance Action Committee) resistance management strategy: rotate modes of action across generations. Use Group 1A (organophosphates) this application, then Group 2A (cyclodienochlorines) next, then Group 28 (diamides) — never two consecutive applications of the same group. This is cryptographic key rotation: you rotate keys not because the current key is broken, but to limit the exposure window and prevent accumulated attacks from succeeding. The difference from crypto key rotation: in resistance management, the rotation prevents the *evolution* of resistance — the pest population has no time to reach high resistance allele frequency before selection pressure switches to a different target. Once resistance is established, rotation doesn't help (the allele persists even without selection pressure, since there's usually no fitness cost). Rotation is prevention, not remediation.
 
 ## Decision Cheat Sheet
 

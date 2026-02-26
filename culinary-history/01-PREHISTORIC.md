@@ -200,7 +200,8 @@ Cultural:   covenant salt (Bible), sacred status in many traditions
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to engineering economics — Wrangham's "energy budget" argument is a constrained optimization problem (fixed metabolic budget, reallocation from gut to brain); connecting to resource allocation / compute-vs-storage tradeoffs would resonate with this learner -->
+**Wrangham's argument as resource reallocation**: the cooking-brain hypothesis is a constrained optimization argument over a fixed metabolic budget. Digestion is computationally expensive — the human gut is metabolically active tissue that consumes roughly 20% of resting metabolic rate. Cooking externalizes part of the digestive work: heat denatures proteins (breaking tertiary structure before stomach acids do it), gelatinizes starch (making it immediately bioavailable), and kills pathogens (reducing immune system load). Caloric yield from cooked food is ~30% higher than raw for the same inputs. The evolutionary response to a reliable cooked-food caloric surplus was gut shrinkage (reduced metabolically expensive tissue) and brain expansion (increased metabolically expensive tissue). This is resource reallocation: free up capacity from a lower-priority subsystem (digestion) and redirect it to a higher-priority subsystem (cognition). The compute/storage tradeoff analogy: cooking is precomputation — spend energy transforming the raw material upfront to reduce the work required at consumption time.
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

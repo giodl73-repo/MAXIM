@@ -323,7 +323,43 @@ variants of this fundamental layout, scaled to:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: the rag-to-wood transition mirrors any platform migration where the old substrate hits a scaling wall (rag shortage ≈ capacity bottleneck) and a new, lower-cost substrate takes over despite initial quality concerns. The Fourdrinier machine is the industrial standardization moment — hand-forming to continuous process, analogous to batch-to-stream processing in software -->
+## Platform Migration Bridge
+
+The rag-to-wood transition (1840s–1880s) follows the classic platform substitution pattern found in every major technology shift:
+
+```
+RAG PAPER → WOOD PULP: PLATFORM SUBSTITUTION PLAYBOOK
+========================================================
+
+PHASE 1 — OLD PLATFORM HITS SCALING WALL:
+  Rag supply: limited by human cloth production; ~5% of cloth becomes
+  rags suitable for papermaking; Gutenberg's press multiplied demand
+  10–100× faster than rag supply could scale; "rag shortage crisis"
+  by mid-1800s = exact analog of capacity bottleneck.
+
+PHASE 2 — NEW PLATFORM ARRIVES (LOWER QUALITY, LOWER COST):
+  Esparto grass, straw (1850s) → poor quality; short-lived
+  Mechanical wood pulp / groundwood (Keller/Voelter, 1840s):
+    cheap, abundant, high yield — but newsprint yellows in weeks
+    (residual lignin oxidizes). "Good enough" for daily newspapers.
+  Chemical wood pulp (sulfite 1867, kraft 1884): removes lignin;
+    archival stable; higher quality — but lower yield, higher cost.
+  Adoption pattern: groundwood for newspapers (don't care about longevity),
+  chemical for books/writing (quality premium justified).
+
+PHASE 3 — OLD PLATFORM RETREATS TO PREMIUM NICHE:
+  Rag paper → banknotes, archival documents, cotton writing paper
+  (the same niche retreat seen: mainframes → HPC, film → medium format)
+
+FOURDRINIER MACHINE = BATCH → STREAM TRANSITION:
+  Hand-formed sheets = batch process (one sheet per mold dip)
+  Fourdrinier (1807 commercial): continuous wire belt; fiber suspension
+  poured at one end, dry paper emerges from the other — the first
+  industrial stream-processing pipeline for a physical material.
+  Throughput: hand papermaker → 200 sheets/day
+              early Fourdrinier → 2,000–5,000 sheets/day
+              modern twin-wire → 600,000+ m² of paper/day
+```
 
 ## Decision Cheat Sheet — Historical Questions
 

@@ -320,7 +320,8 @@ SCALE: European Union: >200 million grafted vegetable transplants/year.
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to interface compatibility: graft compatibility rules parallel API contract compatibility — same interface (genus) usually works, different interface (family) almost never does. Would resonate with this learner -->
+Graft compatibility follows interface compatibility rules: same genus usually works (intra-genus grafting — apple on apple, tomato on tomato); same family is hit-or-miss (inter-genus within family — some Rosaceae cross-genus grafts work, most don't); different family almost never works. The analogy to API contract compatibility is tight: shared interface definition (same genus = shared biochemical signaling vocabulary) permits integration; divergent interfaces (different family = incompatible phytohormone and nutrient transport signals) produces graft failure even if both components are individually healthy. Incompatibility can be immediate (union never forms) or delayed (union forms, then breaks down after 2–5 years as the biochemical conflict accumulates) — exactly like an API integration that passes unit tests but fails under production load when implicit contract assumptions are violated.
+
 ## Decision Cheat Sheet
 
 | Situation | Grafting Method | Why |

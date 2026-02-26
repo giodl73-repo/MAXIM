@@ -472,7 +472,7 @@ MOSAIC TECHNIQUE SPECTRUM
 
 ---
 
-<!-- @editor[bridge/P3]: No explicit old-world bridge in this guide -- Polykleitos's Canon (proportional system where each body part is a ratio of the whole, the module system) maps directly to modular design in engineering and the guide nearly says so for the Egyptian grid ("proto-modular design system") but does not make the explicit bridge for the Greek version. The learner from MIT mathematics would find the Pythagorean harmony/simple-integer-ratio argument immediately familiar from signal processing or musical acoustics. -->
+**Mathematical bridge — Polykleitos's Canon as a ratio system:** The Canon is a normative specification: head height = 1 module, total body = 7 modules, each segment a rational ratio of the whole. This is exactly a modular design system in the engineering sense — every component's dimensions are determined by the top-level module, so the system scales coherently. The Pythagorean underpinning is literal: simple integer ratios (1:2, 2:3, 3:4) govern proportions the same way they govern consonant intervals in acoustics (octave = 2:1 frequency ratio, perfect fifth = 3:2). Pythagoras identified the same ratios in both musical harmony and spatial proportion — the Canon is the visual instantiation of that harmonic theory. If you've worked with signal processing: the "pleasing" proportions Polykleitos encodes are low-complexity rational approximations — the visual equivalent of low-distortion waveforms. The Egyptian grid is a simpler instance of the same principle: a fixed coordinate system that enforces proportional consistency across any scale.
 
 ## Technical Concepts
 

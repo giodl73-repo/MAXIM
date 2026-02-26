@@ -1,5 +1,26 @@
-<!-- @editor[bridge/P2]: No old-world→new-world bridge in overview — the learner knows materials science and phase diagrams from MIT; a bridge from metallurgy (reversible melting/casting) vs ceramics (irreversible sintering) would anchor the entire volume -->
 # Ceramics — Overview: Clay to Ceramic: Earth, Fire, and Form
+
+## Engineering Entry Point
+
+If you come from metallurgy or materials science, the most useful orienting fact is this: **ceramics are irreversible, metals are not.**
+
+```
+METALLURGY (reversible)          CERAMICS (irreversible)
+========================         ========================
+Metal → melt → cast → solid      Clay → fire → ceramic (done)
+Solid → remelt → recast          Cannot remelt; no equivalent of
+                                  recast cycle
+Failure mode: ductile plastic    Failure mode: brittle fracture
+  deformation before fracture      with little warning
+Phase transitions: TTT curves     Phase transitions: dehydroxylation,
+  govern solid-state transforms    quartz inversion, vitrification
+  → reversible microstructure      → irreversible (each step one-way)
+Sintering: powder metallurgy      Sintering: the primary densification
+  (optional; reversible at         mechanism; glass phase fills pores
+  sufficient temp)                 permanently
+```
+
+This irreversibility is load-bearing for everything that follows: why ceramics survive as archaeological evidence for millennia (you cannot "un-fire" a pot), why glaze defects cannot be repaired by remelting, and why the kiln schedule is the most consequential decision in the production process.
 
 ## The Big Picture
 
@@ -94,8 +115,9 @@ Examples:     Greek pottery,     German Rhineland  Meissen, Jingdezhen,
 
 ---
 
-<!-- @editor[bridge/P2]: Phase transformations section is a natural bridge to materials science phase diagrams — the learner knows eutectic diagrams, TTT curves from MIT; connect sintering/vitrification to that framework -->
 ## The Key Chemistry
+
+The phase transformation sequence maps directly onto materials science phase diagram thinking. If you know eutectic diagrams and TTT (Time-Temperature-Transformation) curves, the ceramic firing schedule is the same framework applied to an irreversible system: instead of suppressing a phase transition (TTT curve, quench to martensite), you drive the sequence to completion in a controlled schedule.
 
 ```
 CLAY MINERAL → CERAMIC: PHASE TRANSFORMATIONS

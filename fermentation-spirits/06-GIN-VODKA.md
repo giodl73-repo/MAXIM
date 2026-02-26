@@ -117,31 +117,6 @@ FINAL FILTRATION:
   Some add glycerol (legal under EU rules) for mouthfeel softening
 ```
 
-<!-- @editor[structure/P2]: Lincoln County Process section belongs in 04-WHISKEY.md, not gin/vodka — misplaced content that breaks the layered drill-down from the landscape diagram -->
-### Lincoln County Process (Tennessee Whiskey)
-
-```
-LINCOLN COUNTY PROCESS (Jack Daniel's, George Dickel)
-
-  New-make corn whiskey
-      |
-      | CHARCOAL FILTRATION through 10 feet of sugar maple charcoal
-      | (made by burning hard maple, then dousing with flame)
-      |
-      v
-  Filtered spirit -> new charred oak barrel -> aging
-
-This step REMOVES the spirit from the bourbon legal category
-(bourbon cannot have its character altered by filtering before barreling)
--> Tennessee whiskey is not bourbon by law (though distilled similarly)
--> Jack Daniel's is not bourbon (despite looking, tasting, and being made like bourbon)
-
-Debate: does Lincoln County Process actually change the flavor profile significantly?
-Studied opinion: yes, it removes some fusel oils and adds a subtly sweet, smoky note.
-```
-
----
-
 ## Genever: The Origin of Gin
 
 ```

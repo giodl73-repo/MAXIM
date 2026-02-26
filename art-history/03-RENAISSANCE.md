@@ -470,7 +470,34 @@ RENAISSANCE PATRONAGE ARC
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge anywhere in this guide -- the learner coming from engineering/CS would benefit from: linear perspective as a projection algorithm (3D-to-2D transform, equivalent to a pinhole camera model); Alberti's construction as a rendering pipeline (ground plane, vanishing point, transversals = viewport transform in computer graphics). The mathematical substrate is the same and would land immediately with this reader. -->
+**CS/geometry bridge — linear perspective as a projection pipeline:** Brunelleschi's 1420s demonstration and Alberti's formalization in *Della Pittura* (1435) are, in modern terms, a perspective projection algorithm — the same transform your GPU runs on every frame. The mathematical structure:
+
+```
+LINEAR PERSPECTIVE = PERSPECTIVE PROJECTION (homogeneous coordinates)
+
+  3D world point (X, Y, Z)
+        │
+        │  camera model: pinhole (no lens distortion)
+        ▼
+  Image plane at distance d from eye
+        │
+        │  projection: x' = d·X/Z,  y' = d·Y/Z
+        ▼
+  2D image point (x', y')
+
+  Alberti's "costruzione legittima":
+    ground plane = world XZ plane
+    picture plane = image plane
+    vanishing point = principal point (where optical axis hits image plane)
+    transversals = horizontal grid lines = lines of constant Z
+    orthogonals = lines converging to VP = rays from eye through scene
+
+  The "distance point" construction Alberti describes
+  is geometrically equivalent to computing the foreshortening
+  of the ground plane using the camera's field of view.
+```
+
+Alberti didn't have the matrix formalism, but the geometric construction is identical to what homogeneous coordinate transforms formalize in the 20th century. The Renaissance artist's Cartesian ground plane, single viewpoint, and defined horizon are exactly the parameters of a perspective camera matrix. When Dürer built physical "perspective machines" (grids, sighting devices), he was building analog rendering rigs. Brunelleschi's original demonstration used a painted panel with a hole — the viewer looked through the hole to a mirror, comparing the painting to the actual scene: a controlled A/B test of the projection accuracy.
 
 ## Disegno vs Colorito: The Central Debate
 

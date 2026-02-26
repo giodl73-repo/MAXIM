@@ -328,7 +328,54 @@ Used as the backing for pressure-sensitive adhesive (PSA) labels and tapes.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — banknote security layers (substrate / visible / machine-readable / forensic) map directly to defense-in-depth in cybersecurity (physical / network / application / monitoring). The multi-level authentication model is the same architectural pattern: each layer catches what the previous one misses. Any engineer familiar with layered security architecture will immediately see the parallel -->
+## Defense-in-Depth Bridge
+
+Banknote security architecture is defense-in-depth applied to physical authentication:
+
+```
+BANKNOTE SECURITY — LAYERED AUTHENTICATION ARCHITECTURE
+=========================================================
+
+LAYER           SECURITY ELEMENT         DETECTION METHOD
+=====           ================         ================
+Substrate       Cotton/linen fiber        Feel (softness, crinkle)
+(physical)      Security thread           Backlight (embedded strip)
+                Watermark                 Backlight (portrait/numeral)
+                Colored security fibers   UV lamp (fluoresce)
+                → defeats: home printer, photocopier, inkjet
+
+Visible         Intaglio (raised ink)     Fingernail (tactile ridge)
+(overt)         Color-shifting ink (OVI)  Tilt (green→gold shift)
+                Microprinting            10× loupe
+                UV fluorescent ink       UV lamp
+                → defeats: high-res scanner, offset replica
+
+Machine-        Magnetic ink (MICR)       Reader at cash machine
+readable        IR transparency           Banknote sorter
+(covert)        Currency authentication   Verification terminal
+                machine (CIS sensors)
+                → defeats: visual-only counterfeits
+
+Forensic        Chemical taggants         Lab analysis only
+(covert         Isotopic markers          Mass spectrometry
+advanced)       Machine-readable serial   Central database query
+                number encoding
+                → defeats: sophisticated forgeries that pass
+                           all prior layers
+
+ARCHITECTURE PRINCIPLE:
+  Each layer catches what the previous one misses. No single layer
+  is sufficient. Identical to network security defense-in-depth:
+  perimeter firewall → network IDS → host-based IDS → application
+  WAF → SIEM monitoring. An attacker who defeats layer N still faces
+  layer N+1. The multi-layer design means the cost of defeating ALL
+  layers exceeds the value of successful forgery.
+
+  The counterfeit detection heuristic: "check the easy layer first"
+  (feel, tilt) — same as security triage: check for missing TLS
+  before running a full pentest. Obvious failures exit early; the
+  expensive forensic layer is reserved for edge cases.
+```
 
 ## Decision Cheat Sheet
 

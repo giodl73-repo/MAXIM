@@ -339,7 +339,49 @@ Applies starch or other binder to web surface between dryer sections.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the paper machine is a real-time continuous process control challenge: 100+ CD actuators, basis weight feedback loops, jet/wire ratio tuning. Anyone from industrial automation, SCADA, or even CI/CD pipeline design will recognize the pattern: measure → compare → adjust → repeat at machine speed. The "always remove water mechanically before thermally" imperative maps to any optimization principle where you exhaust cheap methods before expensive ones -->
+## Real-Time Control System Bridge
+
+The paper machine is a real-time continuous process control problem running at 1,000–2,000 m/min. The control architecture maps directly onto any SCADA or industrial automation system:
+
+```
+PAPER MACHINE CONTROL — FEEDBACK LOOP ARCHITECTURE
+====================================================
+
+CONTROLLED VARIABLES:
+  Basis weight (g/m²) — primary quality variable
+  Moisture content (%) — affects reel weight, customer spec
+  Caliper (thickness, µm) — affects stack height, print nip
+  Formation uniformity — affects print quality
+  CD (cross-direction) profiles — variation across machine width
+
+SENSOR LAYER (scanning measurement):
+  Nuclear basis weight gauge: scan 1× per 15–30 sec (full width)
+  Infrared moisture sensor: same scan
+  Beta-backscatter caliper: same scan
+  → Measurement delay: ~30 sec minimum (scan cycle)
+  → Machine runs 500–1,000 m of paper between measurements
+
+ACTUATOR LAYER (100+ control points):
+  Headbox dilution water: 100–200 CD actuators control local
+    fiber concentration → basis weight profile
+  Steam boxes: CD moisture correction (heat → evaporate)
+  Infrared dryers: section-level moisture trim
+  Jet/wire speed ratio: MD/CD tensile balance
+
+CONTROL ARCHITECTURE:
+  Basis weight: headbox total flow → feedforward from refiner consistency
+  CD basis weight: dilution actuators → pure feedback (slow loop)
+  Moisture: dryer steam flow → feedforward; IR sensors → feedback (fast loop)
+
+OPTIMIZATION PRINCIPLE:
+  "Remove water mechanically before thermally"
+  = always exhaust cheap methods before expensive ones
+  Mechanical press: ~0.01 $/ton water removed (press nip, shoe press)
+  Thermal drying:  ~1.50 $/ton water removed (steam, energy)
+  Same principle: in any optimization, identify the cost hierarchy and
+  exhaust the cheap option before committing to the expensive one —
+  whether that's caching before computation, or pressing before drying.
+```
 
 ## Decision Cheat Sheet
 

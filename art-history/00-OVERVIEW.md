@@ -307,7 +307,7 @@ TECHNOLOGY → STYLE CAUSATION CHAIN
 
 ---
 
-<!-- @editor[bridge/P3]: No explicit old-world bridge in the overview -- the four analytical frames (formal, iconographic, contextual, materialist) map to standard analytical layers in engineering: formal analysis = structural review, iconographic = requirements traceability, contextual = stakeholder analysis, materialist = supply chain audit. A one-line bridge per frame would orient the learner immediately. -->
+**Engineering parallel for the methodological schools above:** each school applies a different analytical lens to the same artifact — the same way a software system can be analyzed at structural (architecture review), semantic (requirements traceability), contextual (stakeholder and political audit), or materialist (supply chain, infrastructure cost) levels. Formalism = structural review: does the design cohere on its own terms? Iconography = requirements traceability: does the output match the stated spec? Social history = stakeholder analysis: who commissioned this and why, and whose interests does it serve? Psychoanalytic = latent dependency analysis: what unstated assumptions are baked in? You pick the lens for the question — no single method is universally correct, and combining them produces the richest reading.
 
 ## Global Art History vs Western Canon
 

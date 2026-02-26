@@ -433,7 +433,9 @@ concealed. The strategy is: the medium carries meaning in its material.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge in this guide -- Duchamp's readymade as "designation by the artist = art" maps directly to the concept of an interface vs implementation: the readymade is a declaration (interface) that any implementation (manufactured object) can satisfy. The learner from CS/engineering would find this framing immediate. Also: collage's insertion of real materials into painted surface parallels mixed-media systems (embedding real data in a model). -->
+**CS bridge — Duchamp's readymade as interface declaration:** Duchamp's readymade (*Fountain*, 1917: a purchased urinal submitted to an exhibition) makes an argument that maps directly onto the interface/implementation distinction in type theory. The claim: "art" is a designation, not an intrinsic property. Any object can satisfy the interface `Art` if the appropriate authority (the artist, the institution) declares it to. The urinal-as-sculpture is an implementation of `Art` — and a deliberately pathological one, chosen to stress-test whether the type system (the art world's classification machinery) is based on intrinsic properties or on declaration. It is not. The readymade proves by counterexample that "art" is a social predicate, not a physical one. In software terms: Duchamp is demonstrating that the interface and the implementation are fully decoupled, and that the runtime (the gallery, the catalogue, the critical apparatus) instantiates the interface regardless of what the underlying object is.
+
+Collage (Picasso and Braque, 1912) is a related but distinct move: real materials (newspaper, wallpaper, rope) embedded in the painted surface. The ontological problem it creates — is the newspaper in the painting a representation of a newspaper, or an actual newspaper? — parallels the problem of embedding live data in a model or embedding real executable code in a document. The medium boundary becomes permeable. Braque and Picasso were not solving that problem; they were exposing it as a problem worth examining.
 
 ## The Connections: Cubism and Spacetime
 

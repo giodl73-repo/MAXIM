@@ -5,7 +5,45 @@
 Avian mating systems range from strict monogamy to extreme polygyny and polyandry, with the dominant pattern being social monogamy with extra-pair copulation (EPC). The advent of molecular paternity testing revealed that many "monogamous" birds engage in extra-pair mating — transforming avian behavioral ecology in the 1990s. Parental care is the most elaborate in the vertebrate world, and its distribution (biparental, uniparental male, uniparental female) maps onto mating system ecology.
 
 ```
-<!-- @editor[diagram/P2]: Opening diagram is a classification table (mating system types) but doesn't show how breeding systems relate to ecology, phylogeny, or life history — a landscape diagram connecting mating system to parental care mode, nest type, and chick type (precocial/altricial) would anchor the layered drill-down -->
+BREEDING SYSTEM LANDSCAPE
+============================
+
+          ECOLOGY / LIFE HISTORY INPUTS
+          Resource distribution, predation, altriciality
+                          |
+                          v
++------------------------------------------------------------------+
+|                     MATING SYSTEM                                 |
+|                                                                    |
+|  Monogamy (~90%)        Polygyny (~2%)      Polyandry (<1%)       |
+|  1M + 1F pair bond      1M + >1F            1F + >1M              |
+|  +/- extra-pair         resource/lek/       classic or            |
+|  copulation (EPC)       female defense      cooperative           |
++--------+----------------+---------+---------+----+----------------+
+         |                          |               |
+         v                          v               v
+  PARENTAL CARE MODE          NEST TYPE        CHICK TYPE
+  +------------------+   +-------------+   +-------------+
+  | Biparental care  |   | Open cup    |   | Altricial   |
+  | (most monogamy)  |   | Cavity      |   | (helpless,  |
+  +------------------+   | Ground      |   |  eyes shut) |
+  | Uniparental male |   | Platform    |   +-------------+
+  | (polyandry;      |   | No nest     |   | Precocial   |
+  |  some polygamy)  |   | (megapodes) |   | (mobile,    |
+  +------------------+   +-------------+   |  eyes open) |
+  | Uniparental fem  |                     +-------------+
+  | (most polygyny)  |
+  +------------------+
+  | Helpers-at-nest  |   COOPERATIVE BREEDING
+  | (cooperative     |   ~3% of species; helpers are often
+  |  breeding)       |   non-breeding kin — kin selection
+  +------------------+
+
+BROOD PARASITISM (outlier — no parental investment by parasite):
+  ~1% of bird species (Cuculidae, Icteridae, Viduidae, Indicatoridae)
+  Parasite lays in host nest; host raises parasite chick
+```
+
 BREEDING SYSTEM OVERVIEW
 ==========================
 
@@ -278,7 +316,11 @@ HONEYGUIDES (Indicatoridae):
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: brood parasitism arms race (cuckoo egg mimicry vs host rejection) is a textbook adversarial co-evolution — same structure as security/crypto arms races (attacker evolves exploit, defender evolves detection, attacker evolves evasion). EPP discovery via DNA fingerprinting parallels how instrumentation/monitoring reveals hidden system behavior (production metrics revealing unexpected coupling). Any engineer from security or systems observability needs this bridge -->
+### Engineering Bridges
+
+The cuckoo-host arms race is an adversarial co-evolutionary system with the same structure as a security exploit cycle. The attacker (cuckoo) evolves a more convincing forgery (egg mimicry — matching host egg color, size, and patterning). The defender (host) evolves better detection (egg rejection — discriminating against eggs that don't match the clutch). The attacker evolves evasion (cuckoo females specialized to single host species; host-specific egg mimicry maintained by host-specific cuckoo "gentes"). The defender evolves stronger discrimination, raising the cost of misidentification. This is an iterated adversarial game with arms race dynamics, escalation, and specialization — identical in structure to an exploit-patch-evasion cycle in security. The "cost of false rejection" (ejecting your own egg) is the false-positive rate that constrains how aggressive the discriminator can be.
+
+The discovery that "monogamous" birds regularly produce extra-pair offspring — revealed only after DNA microsatellite paternity testing became available in the 1990s — is a direct parallel to what happens when you instrument a system that was previously a black box. Behavioral observation (field study) said: birds form pair bonds, behaviors look monogamous. Molecular monitoring (DNA fingerprinting) revealed: 5–30% of offspring in most "monogamous" species are sired by males other than the pair-bonded male. The behavior is not the mechanism. Observation without ground-truth instrumentation produces systematically wrong models. This is why production observability matters — the system behavior you see without detailed telemetry is not the system behavior.
 
 ## Decision Cheat Sheet
 

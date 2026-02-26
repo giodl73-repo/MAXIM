@@ -368,7 +368,15 @@ ALARM PHEROMONES:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge — Hamilton's rb > c maps to cost-benefit optimization; pheromone-based queen suppression parallels distributed consensus with a leader-lease pattern; colony task allocation parallels load-balancing in distributed systems. One bridge would anchor this for the learner -->
+### Engineering Bridges
+
+Eusocial insect colonies are distributed systems running without central coordination. Three architectural patterns from CS map directly:
+
+**Stigmergy as indirect message passing**: ant trail pheromones are not signals between agents — they are state written to shared medium (the substrate) that other agents read and modify. No ant communicates directly with another to recruit to a food source; each ant reads the pheromone gradient and writes more pheromone on its return trip. The trail emerges from this read-write process without any agent having global knowledge. This is the actor model with persistent shared state: agents are stateless, the environment is the state, messages are indirect. It is also identical to how distributed cache invalidation works via shared counters — no direct peer communication, just writes to shared state that others poll.
+
+**Queen pheromone as distributed leader-lease**: the queen produces Queen Mandibular Pheromone (QMP) that suppresses worker ovary development and worker queen-rearing behavior. As long as QMP is detectable at sufficient concentration throughout the colony, the queen's "lease" is active — no workers attempt to supersede her. When QMP concentration drops (queen aging, death, or removal), the lease expires and the colony initiates emergency queen rearing or swarms. This is a heartbeat-based leader election protocol: the leader broadcasts a keep-alive signal; if the signal drops below threshold, followers initiate election. The pheromone gradient from queen to peripheral workers provides the implicit TTL — workers furthest from the queen detect pheromone loss first.
+
+**Task allocation as distributed load balancing**: a honey bee colony allocates workers to tasks (nursing, foraging, guarding, building) without any central scheduler. Each worker's probability of accepting a task increases when: (a) the task-associated stimulus is above threshold and (b) the worker's response threshold for that task is low (workers vary in individual response thresholds). High-demand tasks (many larvae needing nursing) raise stimulus signals; workers with low nursing thresholds respond first; as they respond, stimulus drops and others stop. This is demand-responsive load balancing without a coordinator — each worker is a self-scheduling agent that responds to load signals in proportion to its threshold.
 
 ## Decision Cheat Sheet
 

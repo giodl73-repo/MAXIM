@@ -1,9 +1,10 @@
-<!-- @editor[bridge/P2]: No old-world→new-world bridge — the learner knows thermodynamics and process control from MIT/engineering; a bridge from PID control loops and thermal profiles in semiconductor fab→kiln firing schedules would resonate strongly -->
 # Drying & Firing — Greenware, Bisque, Cone System, Kiln Types
 
 ## The Big Picture
 
 Firing is the transformation: plastic clay → permanent ceramic. Every step in the kiln has a specific chemical reaction. Understanding the sequence means understanding why slow cooling through 573°C matters, why organic materials must burn out before reduction, and why earthenware must be glazed to hold water.
+
+**Process control bridge:** A kiln firing schedule is a programmed thermal profile — the ceramic analog of a reflow oven profile in PCB assembly or a crystal growth recipe in semiconductor fab. The controller tracks temperature vs time, holds at specific setpoints to complete reactions (dehydroxylation, carbon burnout), then ramps through critical phase transition points (573°C quartz inversion) at controlled rates. Modern electric kilns run PID controllers with programmable multi-segment ramps. The failure modes map directly onto process control concepts: overshoot at 573°C = thermal shock cracking; insufficient hold at 600°C = carbon trapping in reduction atmosphere = black core in porcelain. The "heat-work" concept (effect depends on both temperature and time, not temperature alone) is identical to the Arrhenius-based accumulated thermal exposure in solder joint reliability.
 
 ```
 FIRING SEQUENCE: TEMPERATURE VS TRANSFORMATION
@@ -48,7 +49,6 @@ FIRING SEQUENCE: TEMPERATURE VS TRANSFORMATION
 
 ---
 
-<!-- @editor[bridge/P3]: The cone system as analog sensor is a natural bridge to instrumentation concepts the learner knows — cones measure heat-work (time×temperature integral) vs thermocouples measuring instantaneous temperature; analogous to cumulative dose vs dose rate in radiation physics -->
 ## The Cone System
 
 ```
@@ -64,6 +64,12 @@ Why not just use a thermometer?
  Firing at 1,200°C for 1 hour ≠ firing at 1,260°C for 10 minutes
  A cone bends when the clay body receives enough heat-work
  → better indicator of maturation than temperature alone
+
+ Instrumentation analog: thermocouples measure instantaneous temperature
+ (dose rate); cones measure accumulated heat-work (cumulative dose) — same
+ distinction as radiation dose rate (mGy/hr) vs integrated dose (Gy).
+ A thermocouple tells you where you are; a cone tells you what the material
+ has actually experienced. Both are needed.
 
 WITNESS CONES (three in a set):
  Guide cone (one number BELOW target): begins bending first

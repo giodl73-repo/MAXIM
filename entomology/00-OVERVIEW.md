@@ -233,7 +233,13 @@ ENTOMOLOGY SUBDISCIPLINES
 
 ---
 
-<!-- @editor[bridge/P2]: No universal CS bridge anywhere in this guide — the arms-race coevolution model maps to adversarial ML; phylogenetic trees map to DAGs; morphological cladistic keys map to decision-tree classifiers. At least one bridge would anchor the learner -->
+### Engineering Bridges
+
+The morphological cladistic identification key used throughout entomology — if wing venation shows X then Y, if tarsal segments are Z then W — is a decision-tree classifier. Each node is a binary or multi-way split on a morphological feature; each leaf is a taxon identification. The construction of a dichotomous key from a species matrix is feature selection for a decision tree: choose the features that most efficiently partition the remaining taxa (minimize expected depth to classification). The analogy is not loose — the algorithmic structure is identical, and the performance characteristics match: shallow keys (few questions to ID) require features with high discriminative power across the full taxa set; deep keys are efficient only if well-designed.
+
+Coevolutionary arms races — host vs. parasite, plant vs. herbivore, predator vs. prey — are adversarial optimization problems with escalating strategy spaces. The Red Queen dynamic (both parties must keep evolving just to maintain their current relative fitness) is exactly the adversarial training dynamic in GANs and adversarial ML: the discriminator and generator co-evolve, neither reaching a stable solution unless one side's capacity is capped. In biological coevolution, capacity is capped by mutation rate and generation time; in adversarial ML, capacity is capped by model architecture and training compute.
+
+Phylogenetic trees are DAGs with specific constraints: directed (time flows root-to-leaf), acyclic (no reticulation in strict cladograms), and typically bifurcating (each node has exactly two children in a fully resolved tree). The analogy to dependency graphs and version DAGs is structural. Where the analogy breaks: phylogenies represent inference about a single historical process (evolution of life), while dependency graphs represent intentional design. Polytomies (unresolved nodes with 3+ children) are the phylogenetic equivalent of an ambiguous merge — the historical branching order is genuinely uncertain.
 
 ## Decision Cheat Sheet
 

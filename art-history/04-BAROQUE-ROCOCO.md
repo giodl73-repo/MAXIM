@@ -404,7 +404,31 @@ BAROQUE                          ROCOCO
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge in this guide -- the Dutch Republic's open art market (no church/royal patron, bourgeois buyers, commodity market with fairs and dealers) is a natural bridge for any reader who understands market economics: the shift from commission-based to market-based models parallels any industry's move from bespoke to commodity production. Worth making explicit. -->
+**Market economics bridge — from bespoke commission to commodity market:** The Dutch art market of the 17th century is the first instance of a modern commodity art market, and the structural shift maps directly to any industry transition from bespoke to commodity production. The before/after:
+
+```
+COMMISSION MODEL (pre-Dutch)          OPEN MARKET MODEL (Dutch Republic)
+═══════════════════════════════════   ════════════════════════════════════
+Buyer defines product before          Seller produces speculatively,
+production begins                     buyer selects from inventory
+
+Single buyer, unique work             Many buyers, standardized genres
+                                      (still life, landscape, interior —
+                                      each a product category)
+
+Price set by negotiation              Price set by market at fairs
+between artist and patron             and through dealers (middlemen)
+
+Artist's reputation secondary         Reputation drives repeat purchase;
+to patron's status                    Rembrandt's name is a brand
+
+Production to known demand            Overproduction, gluts, crashes
+(no inventory risk)                   (Dutch market collapsed 1672)
+
+Failure = rejected commission         Failure = unsold inventory
+```
+
+The Dutch Republic's Calvinist bourgeoisie wanted affordable art for domestic interiors — a mass market with defined price points. Artists responded by specializing: Jan Steen did genre scenes, Hobbema did landscapes, Pieter Claesz did still lifes. Specialization = product differentiation in a commodity market. This is the same structural logic as any industry moving from enterprise bespoke to SaaS: standardized product categories, volume pricing, dealer networks as distribution layer, reputation/brand as the primary differentiator when quality is hard to assess pre-purchase.
 
 ## Patronage Shift: Church vs Secular
 

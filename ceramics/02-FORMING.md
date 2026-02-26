@@ -1,9 +1,10 @@
-<!-- @editor[bridge/P2]: No old-world→new-world bridge — the learner knows manufacturing processes (injection molding, CNC, casting) from engineering context; a bridge from metal forming/casting→ceramic forming would ground the spectrum immediately -->
 # Forming — Hand Building, Wheel Throwing, Slip Casting, Industrial
 
 ## The Big Picture
 
 Forming methods span from a person's bare hands to industrial hydraulic presses that produce 10,000 identical tiles per day. The physics is the same — deforming plastic clay to a desired shape before it dries — but the scale, skill, and equipment differ radically.
+
+**Manufacturing process bridge:** The ceramic forming spectrum maps directly onto the metal forming / polymer processing spectrum you already know. Slip casting = investment casting (liquid poured into mold, solidifies, mold removed). Jiggering = a specialized variant of spinning/stamping (rotary die forces clay against mold profile). RAM pressing = compression molding in polymer processing. Isostatic pressing = cold isostatic pressing (CIP) used in powder metallurgy for uniform density. The key difference: metal casting involves phase change (liquid → solid on cooling, reversible); ceramic slip casting involves capillary dewatering (plaster absorbs water, concentration gradient drives densification), followed by irreversible firing.
 
 ```
 FORMING METHOD SPECTRUM
@@ -336,7 +337,6 @@ TIMING:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to FDM/SLA 3D printing the learner likely knows from engineering context — compare layer adhesion, anisotropy, and post-processing to plastic FDM equivalents -->
 ## Contemporary Developments
 
 ```
@@ -354,10 +354,20 @@ Current capabilities:
  Scale: small to architectural scale (robotic arm extrusion)
 
 Limitations:
- Anisotropic strength (layer boundaries = weakness)
- Shrinkage and warping same as manual work
+ Anisotropic strength (layer boundaries = weakness) — same as FDM plastic
+ Shrinkage and warping same as manual work (10-20% linear; unlike plastic FDM ~0.5%)
  Not yet competitive with hand-throwing for traditional forms
  Production speed slower than industrial methods
+
+FDM PARALLEL: Layer adhesion in clay printing follows the same physics as FDM
+ thermoplastic: interface strength depends on contact area, surface condition,
+ and time before next layer is deposited. In FDM, the extruded strand must be
+ warm enough to bond but cool enough not to collapse. In clay printing, the
+ deposited layer must be firm enough to support the next pass but moist enough
+ to bond. The engineering trade-off is identical; the working window is set
+ by material rheology rather than thermal state. Post-processing is also
+ analogous: FDM → support removal → (optionally) sanding/painting;
+ ceramic → dry → bisque fire → glaze → glaze fire.
 
 NOTABLE PRACTITIONERS:
  Jonathan Keep: algorithmic natural forms

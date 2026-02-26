@@ -311,7 +311,43 @@ GOYA'S DISASTERS: WHAT THEY DO
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge in this guide -- photography's disruption of painting is a direct parallel to any technology disruption: the incumbent medium redefines its value proposition when a cheaper/faster alternative captures its commodity function. This is the same pattern as mainframes vs PCs, or on-prem vs cloud. The learner would instantly grasp the structural logic if the parallel were made explicit. -->
+**Technology disruption bridge — photography as the new algorithm:** Photography's arrival in 1839 follows the standard incumbent-disruption pattern: a new technology captures the commodity function of the incumbent, which forces the incumbent to redefine its value proposition around what the disruptor cannot do. The sequence:
+
+```
+DISRUPTION PATTERN — PHOTOGRAPHY VS PAINTING
+
+  BEFORE 1839:
+  Painting = only medium for visual documentation and portraiture
+  Portrait painters = highly paid professionals; landscape painting
+  = documentation of specific places for patrons who owned them
+
+  1839: DAGUERREOTYPE ARRIVES
+  Disruption vector: cheaper, faster, more accurate than painting
+  for the commodity functions (portraiture, documentation)
+
+  INCUMBENT RESPONSE (painting):
+  Cannot compete on the commodity dimension → redefine value proposition
+
+  Moves painting could NOT do before but did after 1839:
+  ┌────────────────────────────────────────────────────────┐
+  │ Impressionism: capture transient light photography     │
+  │   cannot stop (before fast shutters)                   │
+  │ Symbolism / Expressionism: subjective inner state,     │
+  │   emotion, distortion — camera is neutral by default   │
+  │ Abstraction: pure formal investigation; camera always  │
+  │   depicts something                                    │
+  │ Scale and material presence: a 3m canvas has           │
+  │   physical presence no print matches                   │
+  └────────────────────────────────────────────────────────┘
+
+  The same pattern: mainframes → minicomputers → PCs
+  Each displacement forces up-market into what the disruptor
+  cannot yet do. On-prem → cloud forced on-prem vendors to
+  emphasize control, compliance, latency — the dimensions
+  cloud initially couldn't match.
+```
+
+This framing makes the post-1839 art history legible as a rational competitive response, not a random sequence of avant-garde experiments. Each movement is a strategic pivot away from photography's expanding capability envelope.
 
 ## Photography Arrives: 1839
 

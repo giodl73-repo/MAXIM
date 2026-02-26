@@ -230,7 +230,8 @@ GLOBAL HORTICULTURE (approximate 2023):
 
 ---
 
-<!-- @editor[content/P2]: Post-harvest physiology absent — mentioned in the Production Chain diagram but no guide in the directory map. Significant gap: post-harvest is described here as having "as much economic impact as growing practice" yet has no dedicated file -->
+**Note on coverage**: Post-harvest physiology is represented in the Production Chain diagram above (the "Post-harvest physiology and handling" stage). A dedicated guide on post-harvest handling — CA storage atmospheres, ethylene management, cold chain design, wound healing and curing, and quality grading standards — would cover the economic zone that accounts for roughly as much value destruction as poor growing practice. The current guides (01–09) cover the production and design phases; post-harvest is a significant gap in this directory's coverage.
+
 ## Connection to Other Fields
 
 ```

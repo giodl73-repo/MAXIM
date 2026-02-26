@@ -1,9 +1,10 @@
-<!-- @editor[bridge/P2]: No old-world→new-world bridge — the learner knows glass chemistry concepts from materials science; a bridge from silicate glass (windows, optical fiber) → glaze glass (same SiO₂ network, different flux/alumina ratios) would unify the chemistry immediately -->
 # Glazes — Chemistry, Colorants, Surface Types, Firing Atmosphere
 
 ## The Big Picture
 
 A glaze is a layer of glass fused to a ceramic surface. The chemistry is silicate glass chemistry — the same family as window glass, optical fiber, and Pyrex — but formulated to melt at pottery temperatures and bond to the clay body.
+
+**Silicate glass bridge:** All silicate glasses share the same network former — SiO₄ tetrahedra linked at corners into a disordered 3D network. Window glass (soda-lime: SiO₂ ~73%, Na₂O ~14%, CaO ~9%) and optical fiber (pure SiO₂ or GeO₂-doped) and ceramic glazes are variations on this same structural theme. The flux oxides (Na₂O, K₂O, CaO, MgO) break Si-O-Si linkages and lower the network's melting point. Alumina (Al₂O₃) is an intermediate oxide — it can enter the network as AlO₄ tetrahedra (when charge-balanced by alkalis) and stiffens the melt, raising viscosity. The glaze formulation problem is: choose fluxes and alumina ratios so the glass melts at kiln temperature, flows enough to level but not enough to run off, and then has a thermal expansion coefficient matched to the clay body. Mismatch in thermal expansion = crazing (glaze in tension, microcracks) or peeling (glaze in compression, pops off).
 
 ```
 GLAZE STRUCTURE
@@ -41,12 +42,18 @@ THREE REQUIRED COMPONENTS (Unity Molecular Formula / Seger formula):
 
 ---
 
-<!-- @editor[audience/P3]: The UMF section explains normalization of molar ratios — the learner has MIT chemistry; this is straightforward stoichiometry. Focus on what makes UMF different from standard molar notation (the unity normalization convention) rather than explaining what moles are -->
 ## Glaze Chemistry: The Seger / Unity Molecular Formula
 
 ```
 UNITY MOLECULAR FORMULA (UMF)
 ==============================
+The UMF is not standard stoichiometry — it's a normalization convention
+specific to ceramics. Standard molar notation expresses each component as
+absolute moles. UMF sets flux oxides (RO + R₂O) to sum = 1.00, then
+expresses Al₂O₃ and SiO₂ relative to that unity. This lets you compare
+glaze structure across recipes regardless of batch size, and makes the
+flux balance (which combination of Na/K/Ca/Mg/etc.) directly readable.
+
 Normalize ALL flux oxides to sum = 1.00
 Then express alumina and silica relative to that unity
 

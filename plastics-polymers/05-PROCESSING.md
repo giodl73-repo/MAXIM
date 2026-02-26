@@ -266,7 +266,49 @@ material thins. Draw ratio = depth / width. Ratio > 1 requires plug assist.
 
 ---
 
-<!-- @editor[structure/P2]: Rotational molding referenced in landscape diagram and Decision Cheat Sheet but has no drill-down section — layering broken -->
+## Rotational Molding (Rotomolding)
+
+```
+   ROTATIONAL MOLDING PROCESS
+   ──────────────────────────
+   1. Load: powdered resin charged into hollow mold (typically LLDPE powder)
+   2. Heat: mold placed in oven (260–370°C); rotated on two perpendicular axes
+            simultaneously (biaxial rotation: 2–20 rpm)
+   3. Melt and coat: powder melts and sinters onto inner mold wall;
+                     gravity + rotation ensures even coverage
+   4. Cool: mold transferred to cooling station; continued rotation during
+            cooling to prevent sagging
+   5. Demold: part removed; hollow, seamless, uniform wall thickness
+
+   MATERIALS:
+   LLDPE: ~80% of rotomolding market (easy powder form, wide processing window)
+   HDPE, PP, plastisol PVC (liquid), nylon 6 (anionic polymerization in-mold)
+   Crosslinked PE (XLPE): for large storage tanks requiring UV/chemical resistance
+
+   KEY CHARACTERISTICS:
+   ┌──────────────────────────────────────────────────────────────┐
+   │  + Large hollow parts: impossible by injection or blow mold  │
+   │  + Uniform wall thickness (controlled by powder distribution)│
+   │  + Low tooling cost: aluminum molds ~$5K–$50K vs injection   │
+   │    steel molds $50K–$500K                                    │
+   │  + No weld lines, no gates, no sink marks                    │
+   │  – Slow cycle: 20–45 minutes (limited by thermal mass)       │
+   │  – Material must be powder-form or liquid                     │
+   │  – Dimensional tolerance: ±0.5–1% (worse than injection)     │
+   └──────────────────────────────────────────────────────────────┘
+
+   APPLICATIONS:
+   Large liquid storage tanks (500–20,000 L)
+   Kayaks, canoes, playground equipment
+   Fuel tanks, septic tanks, chemical storage
+   Traffic barriers (water-fillable; bright colors)
+   Industrial bins, pallets, large housings
+
+   WALL THICKNESS CONTROL:
+   Determined by powder charge weight and mold surface area
+   Typical: 3–10 mm; can design double-wall hollow parts by
+   loading two materials in sequence (foam + skin)
+```
 
 ## Compression and Transfer Molding (Thermosets)
 

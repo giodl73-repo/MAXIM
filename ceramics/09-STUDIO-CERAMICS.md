@@ -1,9 +1,10 @@
-<!-- @editor[bridge/P2]: No old-world→new-world bridge — the studio ceramics movement (individual craft vs industrial mass production) parallels the open-source/artisanal software movement vs enterprise software; the "Leach vs factory" debate maps to "indie dev vs BigCo" that the learner lives -->
 # Studio Ceramics — Bernard Leach, Mingei, Raku, Contemporary Practice
 
 ## The Big Picture
 
 Studio ceramics is the intersection of craft, design, and fine art. The 20th century transformed ceramics from a pure production trade into a medium for individual artistic expression — a shift driven by a handful of key figures and a series of philosophical arguments about what ceramics is for.
+
+**Craft vs. industry parallel:** The studio ceramics movement is structurally identical to the open-source and artisanal software movements. Wedgwood's factory model (industrial, divided labor, quality controlled, commoditized) created a market for its opposite: individual, variable, hand-made, priced on authenticity not cost. Bernard Leach's argument — that a pot made by one person carrying the form from raw clay to fired object has an integrity no factory can replicate — is the same argument indie developers make against enterprise software: the individual touch is a feature, not a deficiency. The "Leach vs factory" debate maps exactly to "artisanal vs enterprise": both camps coexist, both are economically viable in their segments, and each serves a market the other cannot. The premium for a Lucie Rie bowl over IKEA stoneware is the same premium for a bespoke software tool over an enterprise ERP — the former has provenance, personality, and expressive intent; the latter has scale, consistency, and support.
 
 ```
 STUDIO CERAMICS GENEALOGY
@@ -291,7 +292,6 @@ SIGNIFICANCE:
 
 ---
 
-<!-- @editor[content/P2]: Contemporary section omits the significant ceramic art market in East Asia — Korean and Japanese contemporary ceramicists (Isezaki Jun, Park Young-sook) and the Jingdezhen revival as global studio destination; Western-centric gap -->
 ## Contemporary Ceramics Landscape
 
 ```
@@ -340,6 +340,40 @@ NOTABLE CONTEMPORARY FIGURES:
    "Sunflower Seeds" (Tate Modern 2010): 100 million porcelain seeds
    (made by Jingdezhen artisans)
    Uses ceramics conceptually, not as primary medium
+
+EAST ASIAN CONTEMPORARY MARKET:
+ The Western-centric narrative of studio ceramics obscures the far larger
+ and more established contemporary ceramics market in East Asia.
+
+ Japan — Living National Treasures (Ningen Kokuhō):
+  Japan's government-designated master craftspeople include ceramicists.
+  Isezaki Jun (b. 1936, Bizen): bizen unglazed stoneware; fire marks as
+    intentional design element; work commands ¥10M–¥50M ($70K–$350K)
+  Kakurezaki Ryūichi: contemporary Bizen tradition; highly collected
+  The "honeyama" (kiln group) system: master–apprentice lineage maintained
+  Tokyo, Osaka, Kyoto galleries have more ceramics sales volume than
+  equivalent Western markets — the functional/art distinction never happened
+  the same way in Japan; a tea bowl by a master IS fine art.
+
+ Korea — continuing the jeong (情) tradition:
+  Park Young-sook: contemporary Goryeo celadon revival; blue-grey glazes;
+    museum collections internationally
+  Chung Dong-hyo: buncheong tradition with contemporary sensibility
+  Korean ceramics market: smaller than Japanese but growing post-2000
+  Seoul galleries (Gana Art, Kukje) actively promote ceramic fine art
+
+ Jingdezhen revival (China, 2010s–present):
+  Jingdezhen — historically the world's largest ceramics manufacturing
+  city — has experienced a dramatic studio ceramics revival. Thousands of
+  studio potters (Chinese graduates + international immigrants) work in
+  the taoci district (tǎo cí = porcelain).
+  Infrastructure advantage: access to the finest porcelain raw materials,
+  specialist glaze suppliers, and legacy craft knowledge unavailable elsewhere
+  The "neo-Jingdezhen" output: ranges from traditional blue-and-white revival
+  to conceptual contemporary work
+  International pottery programs routinely run residencies at Jingdezhen
+  Global art market recognition: Sotheby's and Christie's Hong Kong now
+  include contemporary Chinese ceramics in fine art auctions
 ```
 
 ---

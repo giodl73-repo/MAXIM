@@ -272,7 +272,6 @@ BURIED DRIP TAPE:
 
 ## ET-Based Irrigation Scheduling
 
-<!-- @editor[audience/P3]: Penman-Monteith equation presented with full variable list but no worked numerical example — this learner would benefit from one concrete calculation walking through real weather data to a runtime recommendation, not just the formula -->
 ### Penman-Monteith Equation
 
 The gold standard for estimating evapotranspiration from weather data:
@@ -297,6 +296,40 @@ IN PRACTICE:
   calculate ET₀ automatically from measured weather variables.
   Growers subscribe to the data service.
   ET₀ is the reference for a standardized grass surface.
+
+WORKED EXAMPLE (Central Valley, California, July):
+  Inputs from CIMIS station data:
+    Rn  = 18.0 MJ/m²/day  (net radiation, high summer sun)
+    G   = 0.0 MJ/m²/day   (soil heat flux ≈ 0 for daily calc)
+    T   = 30°C             (mean air temperature)
+    u₂  = 3.0 m/s          (wind at 2m height)
+    RH  = 35%              (low relative humidity, hot dry day)
+
+  Derived:
+    es = 0.6108 × exp(17.27 × 30 / (30 + 237.3)) = 4.243 kPa
+    ea = es × (RH/100) = 4.243 × 0.35 = 1.485 kPa
+    Δ  = 4098 × es / (T + 237.3)² = 0.243 kPa/°C
+    γ  = 0.067 kPa/°C (at sea level)
+
+  Numerator:
+    0.408 × 0.243 × (18.0 - 0) + 0.067 × (900/303) × 3.0 × (4.243 - 1.485)
+    = 0.408 × 0.243 × 18.0  +  0.067 × 2.970 × 2.758
+    = 1.786 + 0.549
+    = 2.335
+
+  Denominator:
+    0.243 + 0.067 × (1 + 0.34 × 3.0)
+    = 0.243 + 0.067 × 2.02
+    = 0.243 + 0.135
+    = 0.378
+
+  ET₀ = 2.335 / 0.378 = 6.2 mm/day
+
+  RUNTIME CALCULATION for mature tomato crop (Kc = 1.15), drip efficiency 90%:
+    ETc  = 6.2 × 1.15 = 7.1 mm/day water demand
+    Apply = 7.1 / 0.90 = 7.9 mm/day through the system
+    Drip tape: 1.2 L/hr emitters at 30cm spacing = 4.0 mm/hr application rate
+    Runtime = 7.9 mm ÷ 4.0 mm/hr = 1.98 hr → run 2 hours
 ```
 
 ### Crop Coefficients (Kc)
@@ -381,7 +414,41 @@ CALIBRATION:
 
 ---
 
-<!-- @editor[bridge/P2]: Missing control-theory bridge — ET-based irrigation scheduling is a classic feedforward control loop (weather model predicts demand); tensiometer/capacitance probes are feedback sensors. This learner with MIT background would immediately grasp the control systems framing -->
+### Control Systems Framing
+
+ET-based irrigation scheduling is feedforward control: a weather model (the Penman-Monteith equation applied to measured atmospheric inputs) predicts plant water demand and drives actuator output (irrigation runtime) without waiting for a measured error signal. The plant's actual soil moisture state is not the control input — the weather prediction is. This is appropriate when the model is accurate and disturbances are predictable, but it has the fundamental feedforward limitation: model errors and unmodeled disturbances (soil spatial heterogeneity, unexpected drainage, mulch effect) accumulate uncorrected.
+
+Tensiometer and capacitance probe networks add feedback: they measure the actual controlled variable (soil matric potential or volumetric water content) and close the loop. A setpoint-based control logic fires irrigation when measured soil moisture drops below a lower threshold and stops when it reaches an upper threshold — a simple on/off (bang-bang) controller. More sophisticated systems use the soil moisture reading as a correction to the ET model (feedforward + feedback compensation), which is the standard approach in precision horticulture: the ET model provides the base schedule, sensor readings trim the schedule if the model diverges from reality.
+
+The controlled variable, setpoint, and actuator map directly:
+
+```
+IRRIGATION CONTROL LOOP
+
+  FEEDFORWARD PATH:
+  Weather data (Rn, T, u₂, RH)
+       |
+       v
+  Penman-Monteith model
+       |
+       v
+  ET₀ × Kc = ETc (demand prediction)
+       |
+       v
+  Irrigation controller -> Valve open/close -> Water to soil
+
+  FEEDBACK PATH (adds correction):
+  Soil moisture sensor -> measured VWC or matric potential
+       |
+       v
+  Compare to setpoint (e.g., -30 kPa tensiometer)
+       |
+  Error signal (above/below setpoint)
+       |
+       v
+  Adjust irrigation timing (extend or skip next cycle)
+```
+
 ## Common Confusion Points
 
 **P₂O₅ and K₂O are not the forms plants take up**: these are analytical conventions. Plants take up H₂PO₄⁻ (phosphate ion) and K⁺ (potassium ion). The fertilizer label uses oxide notation. Convert for plant physiology discussions; use oxide notation for fertilizer calculations.

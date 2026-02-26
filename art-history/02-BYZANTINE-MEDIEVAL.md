@@ -46,7 +46,7 @@ BYZANTINE AND MEDIEVAL VISUAL CULTURE
           - Northern panel painting: tempera on wood
 ```
 
-<!-- @editor[bridge/P2]: No old-world bridge in opening section -- the learner's engineering background maps naturally: Byzantine inverse perspective as a deliberately designed coordinate system (different from Renaissance linear perspective) vs naive "wrong perspective" reading. The shift from Roman spatial realism to Byzantine theological space parallels paradigm shifts in engineering (e.g., waterfall to agile -- the old approach is not wrong, it serves different requirements). -->
+**Engineering bridge — paradigm shifts and coordinate systems:** Byzantine art is not failed Roman art. It is a deliberate respecification. Roman painting used empirical perspective to model physical space; Byzantine art replaced that with a coordinate system organized by theological hierarchy — size encodes importance, gold ground removes figures from spatial indexing entirely. This is a requirements change, not a regression. The analogy: waterfall-to-agile is not "agile is broken sequential process." Each model optimizes for different constraints. Byzantine inverse perspective (figures recede *toward* the viewer rather than away) is not "wrong perspective" — it is a different projection chosen because it keeps sacred figures frontal and present rather than receding into pictorial depth. Critically, the Byzantine system was transmitted with extreme fidelity for ~900 years; it is one of the most successfully maintained style specifications in human history. Variance was a defect, not a virtue.
 
 ---
 
@@ -404,7 +404,22 @@ The apex of International Gothic manuscript illumination:
 
 ---
 
-<!-- @editor[structure/P2]: No standalone comparison table in this guide besides the Decision Cheat Sheet -- consider a table comparing Byzantine, Romanesque, and Gothic structural systems (barrel vault vs pointed arch vs flying buttress; thick wall vs thin wall; small window vs glass screen) to give the reader a quick reference -->
+## Structural Systems: Byzantine vs Romanesque vs Gothic
+
+The three major medieval architectural systems solve the same engineering problem — how to roof a large masonry structure — with different structural logics:
+
+| Feature | Byzantine | Romanesque | Gothic |
+|---------|-----------|------------|--------|
+| **Primary vault** | Pendentive dome (spherical) | Barrel vault (semicircular arch) | Ribbed groin vault (pointed arch) |
+| **Lateral thrust** | Distributed through pendentives into piers | Continuous outward thrust along full wall length | Concentrated at rib intersections, transmitted to flying buttresses |
+| **Wall thickness** | Moderate — dome on pendentives is self-buttressing | Very thick — walls carry and resist vault thrust | Thin — walls are non-structural once buttresses carry the load |
+| **Window area** | Small, high — walls must remain solid | Very small — thick walls cannot be pierced much | Large, approaching full-wall glass screens (Sainte-Chapelle) |
+| **Interior light** | Mosaic-reflected, golden, diffuse | Low, dim, filtered through thick walls | Direct, colored, theatrical — stained glass is load-bearing in visual terms |
+| **Plan** | Greek cross or centralized | Latin cross, longitudinal nave | Latin cross, but with increasingly elaborate radiating chapels |
+| **Key structural innovation** | Pendentive (transition from square base to round dome) | Groin vault intersecting barrel vaults | Pointed arch + flying buttress = thrust redirection and height |
+| **Representative buildings** | Hagia Sophia (537), San Vitale, Ravenna | Durham Cathedral, Speyer Cathedral | Chartres, Notre-Dame de Paris, Cologne Cathedral |
+
+The Gothic solution is an engineering optimization: by concentrating load into ribs and flying buttresses, you free the wall plane entirely. The wall becomes a curtain — which architects immediately filled with glass. The structural logic directly produces the aesthetic effect.
 
 ## Northern Panel Painting: Tempera Technique
 

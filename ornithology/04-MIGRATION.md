@@ -323,7 +323,13 @@ INTERNATIONAL TREATIES:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: multi-cue navigation (magnetic + celestial + olfactory + landmarks) is sensor fusion — same architecture as autonomous vehicle navigation (GPS + IMU + LIDAR + vision). The hierarchy of cues (global vs local, always-on vs conditional) maps to redundant system design. Any engineer who has worked with fault-tolerant systems needs this bridge -->
+### Engineering Bridges
+
+Migratory navigation is sensor fusion with hierarchical cue priority — the same architecture as autonomous vehicle navigation or any fault-tolerant positioning system. The magnetic compass provides always-on global positioning (like GPS); the sun compass provides high-accuracy directional data when the sensor is available (clear sky, daytime — like a differential GPS with dropout); the star compass is an alternative to the sun compass for nocturnal migrants (like a backup positioning source that activates when primary is unavailable); olfactory mapping and landmarks are local, high-precision inputs that activate near the destination (like IMU dead reckoning and visual odometry in the final approach phase).
+
+The cue hierarchy is not simply "use the best sensor" — it is a trust-weighted fusion with plasticity. Birds can recalibrate the magnetic compass against celestial cues during development (the star compass, learned by watching stellar rotation, sets the true north reference against which the magnetic compass is calibrated). If you experimentally shift the star compass reference during development, the bird's magnetic compass shifts accordingly. This is sensor calibration chaining: the absolute reference propagates from stellar rotation → magnetic field calibration → sun compass calibration → integrated navigation. Disrupting the chain at the right developmental moment corrupts downstream calibration, just as a clock drift in a distributed system corrupts all timestamps derived from it.
+
+The redundancy model maps to fault-tolerant systems design: each cue is independently unreliable (clouds obscure stars, geomagnetic storms distort magnetic fields, olfactory landscape is novel for first-year birds), but the combination is robust. The migration system doesn't fail gracefully at one cue failure — it degrades proportionally, using remaining cues with higher weight. This is exactly the architecture of a redundant sensor array where failure modes are independent.
 
 ## Decision Cheat Sheet
 

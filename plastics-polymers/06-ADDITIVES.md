@@ -331,7 +331,66 @@ Slip agents: erucamide, oleamide — bloom to film surface for smooth handling.
 
 ---
 
-<!-- @editor[content/P2]: Coupling agents (silanes, titanates) listed in landscape diagram under Functional Additives but have no section — significant gap for glass-fiber and mineral-filled compounds -->
+## Coupling Agents
+
+Coupling agents are bifunctional molecules that chemically bridge the interface between inorganic filler/fiber and organic polymer matrix. Without them, glass-fiber or mineral-filled compounds have poor fiber-matrix adhesion and significantly lower mechanical properties.
+
+```
+   COUPLING AGENT MECHANISM
+   ──────────────────────────
+   Bifunctional molecule:
+   [INORGANIC-REACTIVE END] — [ORGANIC-REACTIVE END]
+         bonds to glass/             bonds to or
+         mineral surface             compatibilizes
+                                     with polymer
+
+   SILANE COUPLING AGENTS (most common):
+   General structure: X₃Si-R-Y
+   X = hydrolyzable groups (methoxy, ethoxy) → hydrolyze to SiOH
+       → condense with glass surface Si-OH groups → Si-O-Si bond to glass
+   R = organic spacer (propyl, aminopropyl, etc.)
+   Y = functional group reactive with specific polymer system
+
+   SILANE SELECTION BY POLYMER SYSTEM:
+   ─────────────────────────────────────
+   System                    Silane                  Functional Group (Y)
+   Epoxy + glass fiber       γ-GPS (A-187)           Glycidoxy (epoxide)
+   Polyester + glass fiber   γ-MPS (A-174)           Methacrylate
+   Nylon + glass fiber       γ-APS (A-1100)          Amine (H-bonds to amide)
+   PP + glass fiber          γ-APS + MAH-PP          Amine + compatibilizer
+   Rubber + silica           TESPT (Si-69)           Polysulfide (vulcanize)
+   PVC + CaCO3               Titanate TC-9            Titanate (wet out)
+
+   PROPERTY IMPROVEMENT WITH vs WITHOUT COUPLING AGENT:
+   30% glass-fiber nylon 6 (PA6):
+     Without coupling agent: tensile 120 MPa, elongation 3%
+     With aminosilane:        tensile 185 MPa, elongation 5%
+   Improvement: ~55% tensile strength, significantly better fatigue resistance
+   Failure mode shift: from interfacial debonding (poor adhesion) to
+                       fiber fracture (good adhesion) — the desired failure mode
+
+   TITANATE COUPLING AGENTS:
+   Structure: (RO)₄Ti or (RO)₃TiOX (organotitanates)
+   Mechanism: react with surface -OH on mineral fillers (CaCO3, BaSO4, talc)
+   Advantages vs silane:
+     – Process at melt compounding temperature (no pre-treatment needed)
+     – Effective on calcium carbonate and sulfates (silanes less effective here)
+     – Reduce compound viscosity (better processing with high filler loading)
+   Disadvantages:
+     – More expensive than silanes
+     – Color contribution (titanates can yellow)
+     – Less well-characterized than silane-glass systems
+
+   ZIRCONATE COUPLING AGENTS:
+   Neoalkoxy zirconates: similar to titanates, higher hydrolytic stability
+   Used in water-sensitive environments where titanates may hydrolyze
+
+   PRACTICAL NOTES:
+   Silane treatment of glass fiber: applied at fiber manufacturing (sizing)
+   Silane treatment of filler: pre-treatment (dry or slurry) or in-situ
+   Typical use level: 0.1–1.5 wt% on filler surface
+   Verify with supplier: coupling agent must match polymer chemistry exactly
+```
 
 ## Decision Cheat Sheet
 

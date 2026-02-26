@@ -1,9 +1,10 @@
-<!-- @editor[bridge/P2]: No old-world→new-world bridge — the temperature/permanence trade-off maps directly to process scheduling in manufacturing (higher commitment earlier = less flexibility later); this systems-thinking bridge would land for any engineer -->
 # Decoration — Underglaze, Overglaze, Reduction, Luster, Majolica
 
 ## The Big Picture
 
 Ceramic decoration is fundamentally about the relationship between temperature and permanence. Decorations fired at high temperature are permanent but limit your palette. Decorations fired at low temperature have full palette options but are more vulnerable. The choices cascade through the entire production process.
+
+**Process scheduling bridge:** The temperature/permanence trade-off in ceramic decoration is the same commit/flexibility tension that governs process scheduling in manufacturing and software. Underglaze decisions are made early and fired into glass at full temperature — they are immutable once the glaze fires. Overglaze decisions are made after the main fire — more palette freedom, lower commitment temperature, but less durability. Luster is the last step, lowest temperature, maximum palette freedom, minimum permanence. This is exactly the architecture of any staged manufacturing process: decisions made early in the pipeline are cheaper to execute and harder to undo; decisions deferred to late stages retain flexibility but add cost and fragility. The tradeoff is identical whether you're scheduling a fabrication run or decorating a porcelain plate.
 
 ```
 DECORATION SEQUENCE AND TEMPERATURE LADDER
@@ -217,8 +218,9 @@ STUDIO USE: fine art limited-edition ceramic works use custom-printed decals
 
 ## Luster Decoration
 
-<!-- @editor[bridge/P3]: Thin-film interference physics in luster decoration is the same physics as anti-reflective coatings on camera lenses and semiconductor thin-film deposition — a natural bridge for the learner's optics/materials knowledge -->
 The most technically demanding surface decoration. Islamic potters invented it in 9th-century Iraq; the technique spread to Egypt, Spain, Italy.
+
+**Thin-film optics:** Luster produces color by thin-film interference — the same physics as anti-reflective coatings on camera lenses, oil films on water, and silicon nitride passivation layers on semiconductor wafers. A metal film 50–500 nm thick causes partial reflection at both the air-film and film-glaze interfaces. The two reflected beams interfere constructively or destructively depending on film thickness and wavelength, producing the characteristic iridescent color shift. Thicker films shift the interference peak toward longer wavelengths (red/gold); thinner films toward shorter wavelengths (silver/blue). Islamic potters empirically controlled this by varying metal salt concentration and reduction atmosphere; modern materials engineers do the same with PVD deposition time and pressure.
 
 ```
 LUSTER TECHNIQUE

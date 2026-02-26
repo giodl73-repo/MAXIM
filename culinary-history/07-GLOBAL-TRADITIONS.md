@@ -292,7 +292,10 @@ BBQ: multiple overlapping origins (Caribbean indigenous, West African,
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge — the eight Chinese schools map to a "polymorphism by ecology" pattern: same base language (wok, soy, fermentation) with regional dispatch by climate and ingredient availability; the Indian regional system is the same pattern with a different organizing axis (grain type + fat type + souring agent) -->
+**Regional cuisine systems as polymorphism by ecology**: Chinese regional cooking (the "eight schools" — Cantonese, Sichuan, Shandong, Fujian, Jiangsu, Zhejiang, Hunan, Anhui) is a shared base language (wok technique, soy-based fermentation, rice or wheat foundation, umami flavor emphasis) with regional dispatch by climate and ingredient availability. Sichuan's numbing heat (Sichuan peppercorn + chili) = a flavor profile evolved from climate (high humidity requiring preservative spices) + ingredient availability (peppercorns native to the basin). Cantonese's minimal seasoning and fresh ingredients = coastal access to year-round produce + Guangzhou's trade history bringing premium ingredients. Same base class, different runtime behavior based on environmental parameters.
+
+Indian regional cooking follows the same polymorphism pattern with a different organizing axis. The base class is: spice-forward aromatics + fat medium + souring agent + protein + starch. The regional dispatch varies the parameter values: North India = wheat (roti), ghee, yogurt-based sours, dairy-rich gravies. South India = rice, coconut oil or mustard oil, tamarind, coconut-based gravies. Bengal = mustard oil, mustard seeds, fish. Rajasthan = millet, ghee, amchur (dried mango powder as souring agent), minimal water use. Same abstract recipe structure; different concrete instantiation per regional ecology.
+
 ## Fermentation Traditions Worldwide
 
 ```

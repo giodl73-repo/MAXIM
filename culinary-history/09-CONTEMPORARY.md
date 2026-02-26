@@ -204,13 +204,23 @@ PROCESS:
 
 Current limitation: serum-free media cost, 3D vascularization, scaling
 
-<!-- @editor[content/P2]: Cultivated meat company status and approval dates are 2023 vintage — verify current state; several companies have had funding/scaling setbacks since -->
-COMPANIES (2023):
-  GOOD Meat (Eat Just): FDA + USDA approved, limited commercial sales 2023
-  Upside Foods: FDA GRAS approval 2023; commercial launch pending
-  Mosa Meat (Netherlands): Mark Post lab 2013 ($280,000 burger → 2023 scale-up)
-  Aleph Farms (Israel): thin-cut steak
-  BlueNalu: cultivated fish
+COMPANIES (status as of early 2026):
+  GOOD Meat (Eat Just): US regulatory approval obtained 2023; commercial sales
+    were limited and did not scale; company faced funding and operational
+    challenges through 2024-2025; restaurant channel remains thin
+  Upside Foods: FDA/USDA approval 2023; commercial launch remained limited;
+    significant workforce reductions in 2024 amid slower-than-projected scaling
+  Mosa Meat (Netherlands): Mark Post lab origin (2013 $280K burger);
+    continuing R&D; European Novel Food approval process ongoing
+  Aleph Farms (Israel): thin-cut steak; funding challenges in 2024
+  BlueNalu: cultivated fish; pre-commercial stage as of 2026
+
+  SECTOR NOTE (2024-2025): Multiple well-funded cultivated meat startups reduced
+  headcount significantly, paused commercialization, or pivoted. The primary
+  bottlenecks — serum-free media cost, bioreactor scaling, 3D vascularization —
+  have proven harder and more expensive to solve at commercial scale than
+  2021-2022 projections suggested. The regulatory approvals exist; the cost
+  structure and scaling engineering do not yet support price-competitive product.
 ```
 
 ### Regulatory Status (US)

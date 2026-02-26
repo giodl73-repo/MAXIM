@@ -344,7 +344,58 @@ lignin must be removed without degrading cellulose.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the kraft recovery cycle is a textbook closed-loop process control system: reactants in, products out, waste stream recycled as fuel and feedstock. Any engineer who has seen a chemical plant or refinery flow diagram will recognize this pattern. The recovery boiler dual role (energy + chemical regeneration) is the architectural insight that makes the whole process economically viable — worth framing as "the architectural decision that defines kraft" -->
+## Closed-Loop Process Architecture Bridge
+
+The kraft chemical recovery cycle is a textbook closed-loop system — the architectural pattern that makes the process economically viable:
+
+```
+KRAFT RECOVERY CYCLE — CLOSED-LOOP ARCHITECTURE
+=================================================
+
+  Wood chips + white liquor (NaOH + Na2S)
+              │
+              ▼
+        DIGESTER (batch, 170°C, 2 hr)
+         Lignin dissolved → "black liquor" (pulp + spent chemicals)
+              │
+       ┌──────┴──────┐
+       │             │
+    PULP           BLACK LIQUOR
+    (washed,        (25% solids: lignin + Na compounds)
+    bleached)              │
+                           ▼
+                  MULTIPLE EFFECT EVAPORATORS
+                  Concentrate to 65–80% solids
+                           │
+                           ▼
+                    RECOVERY BOILER  ◄── THE ARCHITECTURAL INSIGHT
+                  ┌─────────────────────────────────────────────┐
+                  │  DUAL ROLE:                                  │
+                  │  1. Burn organics (lignin) → STEAM → POWER  │
+                  │     (mill is energy self-sufficient or net   │
+                  │      exporter — pulp mill as power plant)   │
+                  │  2. Na2SO4 reduced to Na2S in smelt →       │
+                  │     CHEMICAL REGENERATION                    │
+                  └─────────────────────────────────────────────┘
+                           │ (smelt: Na2S + Na2CO3)
+                           ▼
+                    CAUSTICIZER
+                  Na2CO3 + Ca(OH)2 → NaOH + CaCO3
+                  CaCO3 → CaO (lime kiln) → Ca(OH)2 (slaker)
+                           │
+                           ▼
+                    WHITE LIQUOR (NaOH + Na2S)
+                           │
+                           └─────────────────────► back to digester
+
+ENGINEERING SIGNIFICANCE:
+  Without recovery: NaOH and Na2S are consumables → process is uneconomical
+  With recovery: chemicals cycle indefinitely; only makeup additions needed
+  Energy balance: kraft mill burns lignin → self-sufficient; sells surplus
+  This is the same principle as any closed chemical loop in process engineering
+  (chlor-alkali, ammonia-urea, petroleum refining) — waste stream as feedstock
+  is the architectural decision that determines economic viability.
+```
 
 ## Decision Cheat Sheet
 

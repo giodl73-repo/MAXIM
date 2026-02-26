@@ -281,8 +281,76 @@ Microplastics in deep sea sediment: up to 1.9 million fibers/m²
 
 ---
 
-<!-- @editor[content/P2]: No regulatory frameworks section — EU Single-Use Plastics Directive, Extended Producer Responsibility (EPR), Basel Convention plastic waste amendments are significant for this field -->
-<!-- @editor[content/P2]: Tire wear identified as largest MP source in industrialized nations in Decision Cheat Sheet but has no dedicated treatment in body — deserves its own subsection with wear mechanism, particle fate, and stormwater pathway -->
+## Tire Wear Microplastics
+
+Tire wear particles (TWP) are the largest source of microplastics in waterways in industrialized countries — larger than all other sources combined in urban runoff.
+
+```
+   TIRE WEAR PARTICLE PATHWAY
+   ───────────────────────────
+   GENERATION:
+   SBR/NR rubber compound + carbon black + silica + steel belt
+   ~1.5 kg of tire mass lost per tire over ~50,000 km service life
+   → ~140,000 metric tons TWP/yr in US; ~500,000 metric tons/yr globally
+
+   PARTICLE CHARACTERISTICS:
+   Size range: 1 µm – 1 mm (most 100–200 µm); classified as MPs
+   Composition: vulcanized SBR/NR rubber + carbon black (45–65 wt%)
+               + ZnO residue + benzothiazole, amine antioxidants (leachable)
+   Density: ~1.2 g/cm³ (sinks in freshwater)
+   Persistence: highly resistant to degradation; no biodegradation pathway
+
+   TRANSPORT PATHWAY:
+   Road surface → stormwater runoff (first flush: high concentration
+   after dry period) → storm drains → surface water → rivers
+     ├── Sedimentation in urban waterways (most TWP — river bed reservoir)
+     └── Dissolved + colloidal fraction → estuary → coastal ocean
+
+   ECOTOXICOLOGY:
+   ZnO from tire compounds: toxic to aquatic invertebrates at µg/L
+   6-PPD-quinone (antiozonant reaction product): acutely lethal to
+     coho salmon at ~0.1 µg/L — identified cause of Pacific NW
+     urban runoff salmon die-offs
+
+   STORMWATER MANAGEMENT:
+   Bioretention cells (rain gardens): >90% TWP retention
+   Vegetated swales: 50–70% retention
+   Catch basin inserts: ~30% (coarse-only)
+```
+
+## Regulatory Frameworks
+
+```
+   KEY REGULATORY FRAMEWORKS
+   ───────────────────────────
+
+   EU SINGLE-USE PLASTICS DIRECTIVE (SUPD, EU 2019/904, effective July 2021):
+   Bans: 10 SUP categories (cutlery, plates, straws, stirrers, balloon sticks,
+         cotton buds, oxo-degradable plastics)
+   EPR: food containers, cups, wrappers, tobacco filters, wet wipes, balloons
+   Target: 90% collection rate for plastic bottles by 2029 (deposit return)
+
+   EXTENDED PRODUCER RESPONSIBILITY (EPR):
+   Core concept: producer bears end-of-life cost, not consumer/municipality
+   EU: Packaging and Packaging Waste Directive — producers pay into PRO
+       (Producer Responsibility Organization) by packaging weight placed on market
+   US: state-level only; Maine, Oregon, Colorado, California enacted 2021–2023
+   Design impact: EPR fees penalize difficult-to-recycle plastics (PVC, PVDC,
+     multi-layer laminates) → economic pressure toward design-for-recycling
+
+   BASEL CONVENTION PLASTIC WASTE AMENDMENTS (2019, effective 2021):
+   Controls transboundary movement of hazardous/mixed plastic waste
+   Effect: restricts exporting contaminated/mixed plastic waste to
+           countries without adequate recycling infrastructure
+   Significance: closed the export loophole that moved ~70% of global
+                 plastic "recycling" to SE Asia; forces domestic solutions
+
+   PFAS IN PACKAGING (EU + US EPA, 2021–2024):
+   EU Food Contact Materials reform: banning PFAS in paper/board food contact
+   US EPA: significant new use rules; food packaging phase-out timeline
+   Impact: fluoropolymer grease barriers being replaced with bio-based
+           alternatives (PLA, starch, chitosan) — performance and cost penalties
+```
 
 ## Decision Cheat Sheet
 

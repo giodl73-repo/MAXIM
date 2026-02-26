@@ -473,7 +473,8 @@ ESTABLISHMENT PERIOD:
 
 ---
 
-<!-- @editor[bridge/P3]: Natural bridge to architecture/design patterns: design elements vs. design principles maps to vocabulary vs. grammar, or in software terms, primitives (data types) vs. composition rules (design patterns). This file handles the distinction well but could make the analogy explicit for this learner -->
+**Design elements vs. design principles as vocabulary vs. grammar**: design elements (line, form, color, texture, mass, space) are the primitives — the typed values you work with. Design principles (balance, rhythm, emphasis, unity, proportion, scale) are composition rules — how primitives combine to produce coherent output. In software terms: elements are data types, principles are design patterns. You can enumerate every element in a design and still fail to explain why it works or doesn't; you need the principles to understand the composition. The same distinction applies in typography (letterforms are elements; kerning, leading, hierarchy are principles) and in music theory (notes are elements; harmony, counterpoint, rhythm are principles).
+
 ## Common Confusion Points
 
 **Design elements and design principles are not interchangeable**: "line" is an element (a tool); "rhythm" is a principle (how elements relate). Using them as synonyms causes confusion in design review discussions.

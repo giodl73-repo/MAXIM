@@ -314,7 +314,51 @@ rivers for both water supply and power.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — LCA methodology parallels total cost of ownership (TCO) analysis in engineering: the paper-vs-plastic comparison requires system boundary definition, functional unit choice, and impact category weighting — identical to build-vs-buy or cloud-vs-on-prem TCO debates. The "honest conclusion" framing (context-dependent, not absolute) is the same intellectual discipline required in any engineering trade-off analysis -->
+## TCO / LCA Bridge
+
+Life Cycle Assessment methodology is the environmental equivalent of Total Cost of Ownership analysis — the same structural discipline applied to a different cost domain:
+
+```
+LCA ↔ TCO METHODOLOGY PARALLELS
+=================================
+
+LCA PARAMETER          DESCRIPTION                TCO EQUIVALENT
+=============          ===========                ==============
+System boundary        What processes to include   Build vs buy scope
+                       (gate-to-gate? cradle-to-   definition: include
+                       gate? cradle-to-grave?)      maintenance? migration?
+
+Functional unit        1 kg paper? 1 grocery bag?  Normalize per user,
+                       1 year of bag use?           per transaction,
+                       Sets basis for comparison.  per request handled.
+
+Impact categories      Climate change (CO2eq),      Cost categories:
+                       water use, land use,          CapEx, OpEx, support,
+                       eutrophication, toxicity —   risk, opportunity cost —
+                       cannot optimize all at once. cannot optimize all
+                                                    dimensions simultaneously.
+
+Allocation             How to split impacts among   Shared infrastructure
+                       co-products (e.g., kraft     cost allocation:
+                       lignin burned for energy     how to charge shared
+                       vs displacing fossil fuel)   services to products
+
+PAPER VS PLASTIC GROCERY BAG — THE HONEST LCA:
+  "Paper is better" is context-dependent, not absolute:
+  - Climate only, used once: plastic slightly better (lower production energy)
+  - Litter-prone environment: paper dramatically better (biodegrades; no
+    marine persistence)
+  - Reused 4+ times: reusable plastic bag better on all metrics
+  - Water use: paper much worse (pulp washing, bleaching, coating)
+  - Land use: paper much worse (plantation)
+
+  THE DISCIPLINE: defining system boundary, functional unit, and
+  impact weighting BEFORE running the numbers is the same intellectual
+  requirement as defining TCO scope before comparing build vs buy.
+  "Paper is better" without these definitions is as meaningless as
+  "cloud is cheaper" without a specific workload, pricing model,
+  and time horizon.
+```
 
 ## Decision Cheat Sheet
 

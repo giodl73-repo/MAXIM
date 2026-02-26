@@ -426,7 +426,14 @@ ORGANIC IPM TOOLS (OMRI-listed or approved):
 
 ---
 
-<!-- @editor[bridge/P2]: Missing systems-thinking bridge — IPM's economic threshold concept is directly analogous to capacity planning / SLA-based alerting: you don't act at the damage point, you act at the threshold that prevents reaching it. Degree-day models parallel time-series forecasting. This learner would connect immediately -->
+### Control Systems and Operations Framing
+
+IPM's Economic Injury Level (EIL) / Economic Threshold (ET) framework is a pre-emptive alerting system identical in logic to SLA-based capacity alerting. The EIL is the damage point — pest density at which economic damage equals the cost of control. Intervening at the EIL is already too late (you've taken the hit). The ET (typically 75–80% of EIL) is the intervention trigger: you act at the threshold that prevents reaching the damage level. This is exactly the capacity planning model: don't alert when you're at 100% CPU utilization (EIL — already degraded), alert at 80% (ET — enough headroom to intervene before the service degrades).
+
+Degree-day (DD) accumulation models are univariate time-series forecasting for biological systems. The model accumulates heat above a base temperature (T_base) over time: DD = sum(T_mean - T_base) for each day where T_mean > T_base. Each pest species has calibrated DD thresholds for life stage transitions (egg hatch, larval peak, adult flight peak). When accumulated DD crosses the threshold, the forecast triggers a scouting recommendation or treatment window. This is threshold-crossing event detection on a time-integrated signal — identical to the statistical process control methods used to detect drift in manufacturing or service metrics.
+
+The combination of ET + DD models provides the full alerting architecture: the DD model predicts *when* pests will be at a vulnerable stage (timing the intervention window), and the ET model determines *whether* density is high enough to justify intervention (avoiding unnecessary treatments). The intersection — "pest is at vulnerable stage AND density exceeds ET" — is the trigger. This is AND-gate logic on two independent signals, which is standard practice in alert engineering to reduce false positives.
+
 ## Common Confusion Points
 
 **Biological control agents are not zero-cost**: purchasing Phytoseiulus sachets, Trichogramma cards, or entomopathogenic nematodes has a direct cost that must be compared to pesticide costs. The comparison must include: pesticide cost + application labor + resistance risk + benefit impact + regulatory risk. Biologicals often win this comparison but are not free.

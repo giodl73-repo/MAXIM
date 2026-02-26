@@ -296,21 +296,48 @@ ERA 5: REGULATORY + FUNCTIONAL (~1990 to present)
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world-to-new-world bridge — the shift from lead to latex parallels many "regulated replacement" stories (leaded gas, asbestos, CFCs) — a universal engineering pattern worth calling out -->
+## Regulated Replacement Bridge
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is an era-summary table, not a decision tool — needs "use X when Y" structure (e.g., "restoring a pre-1978 home → assume lead, follow EPA RRP") -->
+The lead-to-latex transition is the paint industry's example of the "regulated replacement" pattern — a universal engineering cycle that recurs whenever a high-performing material is identified as a health/environmental risk:
+
+```
+REGULATED REPLACEMENT PATTERN
+================================
+1. Performance material dominates: lead white pigment + linseed oil (1700s–1950s)
+   Best opacity, adhesion, durability — genuine performance advantages
+2. Health/environmental risk identified: lead neurotoxicity confirmed (1950s–1970s)
+   Occupational exposure → childhood paint chips → house dust pathway documented
+3. Regulatory cascade:
+   1971: US Lead-Based Paint Poisoning Prevention Act
+   1978: US Consumer Product Safety Commission ban (>0.06% Pb in residential paint)
+   1992: HUD Lead Safe Housing Rule (disclosure + abatement for pre-1978 homes)
+   EPA RRP Rule (Renovation, Repair and Painting): licensed contractors required
+4. Replacement chemistry matures: latex/acrylic coalescence (1948+)
+   TiO2 replaces Pb white; acrylic binder replaces linseed oil in most uses
+5. Legacy hazard persists: ~37 million US homes still have lead paint (pre-1978)
+   Abatement, disclosure, RRP compliance = ongoing industry
+
+EXACT SAME PATTERN:
+  Leaded gasoline (tetraethyllead → catalytic converter → MTBE → no additive)
+  Asbestos insulation (chrysotile → refractory ceramic fiber → aerogel)
+  CFCs (R-12 → R-134a → HFOs → natural refrigerants)
+  Halon fire suppression (→ FM-200/Novec 1230)
+  In each case: superior performance → risk identified → regulatory timeline
+  → performance gap closed by replacement chemistry → legacy remediation burden
+```
 
 ## Decision Cheat Sheet
 
-| Era | Technology | Key chemistry | Current relevance |
-|-----|-----------|---------------|-------------------|
-| Prehistoric | Mineral pigments in fat | Physical dispersion | Pigment technology still evolving |
-| Classical | Lime fresco | CaCO₃ crystallization | Still used (natural building) |
-| Medieval | Egg tempera | Emulsion + oxidation | Icon painting; archival applications |
-| 1400s–1900s | Oil paint | Oxidative polymerization | Fine art; oil-based trim |
-| 1700s–1978 | Lead/linseed oil | Lead carbonate opacity | Legacy hazard; legally banned |
-| 1948–present | Latex/acrylic | Coalescence | 80%+ of consumer paint |
-| 1990s–present | Low/zero-VOC | Water-based binders | Regulatory standard |
+| Situation | Action |
+|-----------|--------|
+| Restoring a pre-1978 US home | Assume lead paint; test before sanding/scraping; EPA RRP contractor required for disturbing >6 sq ft interior |
+| Buying a pre-1978 home | HUD disclosure required; negotiate lead inspection into due diligence |
+| DIY repair in pre-1978 home (<6 sq ft) | HEPA vacuum, wet methods, P100 respirator; no dry sanding |
+| Period-correct exterior restoration | Specify TiO₂/linseed oil formulation; DO NOT use actual lead paint |
+| Selecting interior paint today | Latex acrylic 100%; zero-VOC if health-sensitive occupants |
+| Selecting exterior paint today | 100% acrylic latex (best weathering) or alkyd if specific adhesion needed |
+| Oil-based paint — still needed when? | Extreme hard use (floors, metal), blocking severe stains (shellac often better) |
+| Historical fresco restoration | Lime-based consolidant only; never acrylic over fresco |
 
 ---
 

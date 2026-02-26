@@ -405,16 +405,15 @@ LAMINAR FLOW HOOD MAINTENANCE:
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet uses Application/Stage/Critical Parameters columns — should be "use X when Y" decision format per style contract -->
 ## Decision Cheat Sheet
 
-| Application | Stage | Critical Parameters |
-|-------------|-------|---------------------|
-| Rapid clonal multiplication | Stage II: high cytokinin, 4-week cycles | Genetic fidelity via axillary buds |
-| Virus elimination | Stage I: meristem tips only | PCR/ELISA testing before Stage II |
-| Genetic transformation | Stage II: Agrobacterium infection + selection | Transformation efficiency vs. regeneration rate |
-| Rooting | Stage III: high auxin, low salt | Ex vitro rooting often faster and cheaper |
-| Acclimatization | Post-Stage III | Humidity reduction gradient; 4–6 weeks |
+| Use tissue culture when... | Approach | Critical watch point |
+|---------------------------|----------|---------------------|
+| You need thousands of genetically identical plants fast | Stage II rapid multiplication: high cytokinin, 4-week subculture cycles | Use axillary bud proliferation, not callus — callus accumulates somaclonal variation |
+| You need certified virus-free stock | Stage I: meristem tip culture (0.1–0.5mm tip only) | PCR/ELISA test each line before bulk Stage II — meristem culture reduces but doesn't guarantee virus elimination |
+| You want to insert foreign genes or select mutants | Stage II: Agrobacterium co-cultivation + antibiotic selection or biolistics | Transformation efficiency and regeneration rate trade off — high-efficiency lines often regenerate poorly |
+| Plants will not root in vitro or in vitro rooting is slow | Stage III: transfer to ex vitro with IBA drench + humidity tent | Ex vitro rooting is often faster and cheaper than in vitro for many woody species |
+| Transitioning plants from lab to greenhouse | Acclimatization phase: progressive humidity reduction over 4–6 weeks | Stomata must learn to close; cuticle must thicken — rushing kills plants that survived all in vitro stages |
 
 ---
 
@@ -428,5 +427,6 @@ LAMINAR FLOW HOOD MAINTENANCE:
 
 **Acclimatization failure is not a Stage I–III problem**: many tissue culture programs produce beautiful plants in vitro and then lose them in the first week outside. Acclimatization is not a "handoff" — it requires as much attention as the in vitro phases. Stomata need to learn to close; cuticle needs time to thicken. Rushing this transition is the most common commercial error.
 
-<!-- @editor[bridge/P3]: Natural bridge to sandboxed vs. production environments: in vitro plants are "running in a sandbox" (controlled resources, no adversarial pressure) and acclimatization is the deployment/hardening phase. Would resonate with this learner -->
+**In vitro = sandbox; acclimatization = hardening deployment**: plants grown in vitro are running in a fully controlled environment — sterile medium, constant humidity at saturation, stable temperature, no pathogens, no wind, no UV stress. Their stomata are non-functional (permanently open — no need to close in saturated air), cuticle is thin (no cuticular wax synthesis needed), and they are partially heterotrophic (sucrose in the medium bypasses photosynthetic demand). Moving them directly to ambient conditions is equivalent to deploying a sandbox service directly to production with no hardening — the environment assumptions are violated all at once. Acclimatization is the deployment pipeline: progressively increase vapor pressure deficit over 4–6 weeks, allowing stomata to recover function and cuticle to thicken before full exposure.
+
 **In vitro plants are not ready to survive outside**: they look like plants but behave differently. Their stomata are dysfunctional, cuticle is thin, and they are adapted to heterotrophic carbon nutrition. Treat them as neonates requiring intensive support, not as mature plants that have been shrunk.

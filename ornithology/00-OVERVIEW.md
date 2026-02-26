@@ -249,7 +249,11 @@ MAJOR AVIAN ECOLOGICAL GUILDS
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: Linnaean classification hierarchy maps to database normalization / ontology design (kingdom->phylum->class = schema nesting); cladistics parallels graph theory (directed acyclic graphs). Any engineer coming from hierarchical data modeling needs this bridge -->
+### Engineering Bridges
+
+The Linnaean classification hierarchy is a strict tree — each node has exactly one parent, ranks are fixed, and every organism occupies exactly one position. This is a normalized taxonomy, structurally equivalent to a schema with enforced foreign-key hierarchy: kingdom → phylum → class → order → family → genus → species maps cleanly to five or six levels of a parent-child table. The analogy breaks exactly where ontology design breaks: when you need to represent multiple inheritance (hybrids) or when the hierarchy is contested (taxonomic splits), a pure tree fails and you need a directed acyclic graph.
+
+Cladistics is that DAG. Modern phylogenetic trees are not strict Linnaean hierarchies — they are bifurcating trees (approximately DAGs with no cycles) where node positions are inferred, edges are weighted by evolutionary distance, and disagreements between datasets produce polytomies (unresolved branching). Taxonomic checklists that disagree about species limits (IOC vs. Clements vs. eBird) are versioned ontology conflicts — same data, different edge definitions, incompatible schemas. The checklist wars in ornithology are structurally identical to the problem of merging two independently evolved domain models.
 
 ## Decision Cheat Sheet
 

@@ -322,7 +322,42 @@ Printed paper must be deinked before use in white paper grades.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — natural parallel: fiber selection for paper is analogous to materials selection in any engineering discipline (steel alloy grades, semiconductor substrate choices). SW/HW blending to hit property targets maps directly to composite material design: optimize strength vs. surface quality by mixing components with complementary properties -->
+## Materials Selection Bridge
+
+Fiber selection and blending in papermaking is the same problem as materials selection in structural engineering or semiconductor substrate choice: pick the material with the right property profile for the application, blend where complementary properties are needed.
+
+```
+FIBER AS ENGINEERING MATERIAL — PROPERTY TRADEOFFS
+====================================================
+
+SOFTWOOD (SW) KRAFT — long fiber (3–4 mm):
+  High tensile, tear, burst strength → load-bearing capacity
+  Coarser surface texture → limits print quality
+  Like: high-yield structural steel — strong, not pretty
+
+HARDWOOD (HW) KRAFT — short fiber (0.8–1.5 mm):
+  Lower strength, tighter formation, smoother surface → print quality
+  Packs more fibers per unit area → higher opacity for same weight
+  Like: aluminum alloy — lighter, finer, lower structural load
+
+BLEND LOGIC:
+  SW:HW = 20:80 for fine printing paper → optical quality priority
+  SW:HW = 80:20 for sack paper, linerboard → strength priority
+  50:50 → general printing; balanced trade-off
+  Identical to composite design: load-bearing fibers (SW) in a
+  matrix of short fine fibers (HW) for surface and formation
+
+COTTON/RAG — pure cellulose, no lignin, no hemicellulose:
+  Maximum archival stability; high DP (degree of polymerization)
+  Like: pure titanium in medical implants — expensive, uniquely stable
+  Niche: banknotes, legal documents, archival paper
+
+RECYCLED (OCC, deinked):
+  Shorter fiber (mechanical refibering shortens chains); residual fines
+  Lower tensile; adequate for corrugated, tissue, newsprint
+  Like: recycled aluminum — reduced embodied energy, acceptable properties
+  for lower-performance applications; not suitable for high-strength spec
+```
 
 ## Decision Cheat Sheet
 

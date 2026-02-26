@@ -370,7 +370,23 @@ ENVIRONMENTAL:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge — the vectorial capacity formula is a structured sensitivity analysis (parallel to reliability engineering MTBF calculations); ADH-based PMI estimation parallels degree-day models in hardware thermal testing; R0 threshold parallels epidemic threshold in network contagion models. One bridge connecting to quantitative engineering would be natural -->
+### Engineering Bridges
+
+Vectorial capacity is a structured sensitivity analysis of disease transmission probability. The formula:
+
+```
+  C = (m × a² × b × p^n) / (-ln p)
+
+  m = mosquito density relative to humans
+  a = daily biting rate on humans (host preference × biting rate)
+  b = probability of infection transmission per infective bite
+  p = daily survival probability of mosquito
+  n = extrinsic incubation period (days from infection to infectiousness)
+```
+
+The p^n term is the key: it measures the probability that a mosquito survives the entire extrinsic incubation period and becomes infective. For malaria (n ≈ 10–12 days), a change in daily survival from p = 0.90 to p = 0.80 reduces p^n by a factor of 0.90^11 / 0.80^11 = 0.314 / 0.086 ≈ 3.6× — mosquito lifespan is the most sensitive parameter by far. This is the kind of sensitivity analysis done in reliability engineering: which parameter most affects MTBF? Vectorial capacity reveals that interventions targeting mosquito survival (insecticide-treated nets, indoor residual spraying) have dramatically higher impact per unit cost than interventions targeting biting rate alone.
+
+The R₀ threshold for epidemic spread (R₀ > 1 sustains transmission; R₀ < 1 leads to extinction) is the epidemic threshold in a network contagion model. R₀ is the expected number of secondary cases per primary case in a fully susceptible population — equivalent to the branching factor in a tree of contagion. For vector-borne diseases, R₀ = C × (1/recovery rate), so the vectorial capacity analysis directly predicts epidemic potential. This threshold concept maps to the critical point in network percolation theory: below the threshold, an outbreak is subcritical and dies out; above it, an outbreak can become a large-scale epidemic. The same threshold mathematics governs fault propagation in distributed systems: if the cascade branching factor > 1, a single failure propagates to the whole system.
 
 ## Decision Cheat Sheet
 

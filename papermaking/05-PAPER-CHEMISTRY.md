@@ -332,7 +332,47 @@ art prints.
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — the acid-to-alkaline sizing transition (1980s) is a perfect "old world → new world" story: a fundamental chemistry change that unlocked CaCO3 fillers and archival stability simultaneously, but required retooling the entire wet-end process. Any engineer who has lived through a platform migration (mainframe → client-server, monolith → microservices) will recognize the pattern: the new platform enables capabilities impossible on the old one, but demands wholesale process change -->
+## Platform Migration Bridge
+
+The acid-to-alkaline sizing transition (1970s–1990s) is the textbook platform migration in paper chemistry:
+
+```
+ACID → ALKALINE SIZING: OLD WORLD → NEW WORLD
+===============================================
+
+OLD PLATFORM — Acid sizing (rosin + alum):
+  pH: 4.5–5.5 (acidic wet end)
+  Sizing agent: rosin + aluminum sulfate (alum) → precipitation on fiber
+  Fillers: limited to kaolin clay (acid-stable)
+  CaCO3: INCOMPATIBLE — dissolves in acid → CO2 → foam → machine disaster
+  Archival stability: POOR — acid hydrolyzes cellulose → paper self-destructs
+    in 50–100 years ("slow fires" problem in libraries)
+  Industry standard: ~1850–1980s
+
+NEW PLATFORM — Alkaline sizing (AKD/ASA):
+  pH: 7.0–8.5 (neutral to mildly alkaline wet end)
+  Sizing agent: alkyl ketene dimer (AKD) or alkenyl succinic anhydride (ASA)
+    → covalently bond to cellulose → water repellency
+  Fillers: CaCO3 (PCC/GCC) — NOW COMPATIBLE — alkaline filler; much cheaper
+    and brighter than clay; 20–30% filler loading achievable
+  Archival stability: PERMANENT — alkaline buffer (2% CaCO3 reserve) prevents
+    acid hydrolysis → ISO 9706 permanent paper spec
+
+TRANSITION COST:
+  Entire wet-end chemistry must change: pH control, retention chemistry,
+  biocide selection, drainage aids — all tuned for acid no longer work.
+  Same migration cost as mainframe → client-server or monolith → microservices:
+  the new platform unlocks capabilities impossible on the old one (CaCO3
+  fillers → lower cost + better optics; archival stability impossible in acid),
+  but demands wholesale process re-engineering.
+
+CAPABILITIES UNLOCKED BY NEW PLATFORM:
+  1. CaCO3 as filler: 30% cheaper than clay + higher brightness (ISO 92 vs 85)
+  2. Archival stability: books printed on post-1990 alkaline paper will survive
+     500+ years; pre-1980 acid paper: 50–100 years before brittle failure
+  3. Lower alum load: reduces sulfur in effluent; simplifies water chemistry
+  4. Higher filler loading possible → lighter weight paper at same opacity
+```
 
 ## Decision Cheat Sheet
 

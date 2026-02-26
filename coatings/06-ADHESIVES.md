@@ -2,11 +2,35 @@
 
 ## CA Glue, Epoxy, Contact Cement, Hot Melt — Bond Mechanisms and Selection
 
-<!-- @editor[diagram/P2]: Opening diagram covers bond mechanisms and loading modes but doesn't map the full adhesive landscape — add a taxonomy diagram showing all 9 adhesive families positioned by cure type (reactive vs thermoplastic vs PSA) and bond strength -->
-
 ## The Big Picture
 
 ```
+ADHESIVE LANDSCAPE — FULL TAXONOMY
+====================================
+
+CURE TYPE     ADHESIVE FAMILY        STRENGTH       KEY EXAMPLES
+=========     ===============        ========       ============
+REACTIVE      Epoxy (2-part)         High–Very high Araldite, Loctite Hysol
+(crosslinks   Urethane (2-part)      High           SikaFlex structural
+irreversibly) Acrylic (2-part)       High           Loctite AA 3335
+              Cyanoacrylate (CA)     Med–High       Super Glue, Loctite 401
+              Anaerobic              Med            Loctite 243 (threadlock)
+              UV-cure acrylic        Med–High       Loctite AA 3321
+
+THERMO-       Hot melt (EVA, PA)     Low–Med        3M HM, Henkel Technomelt
+PLASTIC       PVA/aliphatic          Med (wood)     Titebond I, II, III
+(reversible   Contact cement         Med (area)     DAP Weldwood, 3M 1357
+with heat     Thermoplastic PU       Med            HB Fuller
+or solvent)
+
+PSA           Acrylic PSA tape       Low–Med        3M 4910 VHB (foam core)
+(pressure-    Rubber PSA             Low            Masking, duct tape
+sensitive)    Silicone PSA           Low (high T)   3M 966, Nitto 5000N
+
+INORGANIC     Epoxy with metal       High           Devcon Steel, JB Weld
+(specialty)   Ceramic adhesive       Med (high T)   Resbond 919
+              Cyanoacrylate + baking  High (ceramic) Gap filling technique
+
 ADHESIVE BOND MECHANISMS:
 
   ALL adhesives use one or more of:
@@ -454,7 +478,47 @@ ADHESIVE BOND MECHANISMS:
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world-to-new-world bridge — adhesive joint design (shear vs peel loading) maps to structural engineering load path concepts any engineer knows — worth calling out the analogy -->
+## Structural Load Path Bridge
+
+Adhesive joint design is applied structural engineering — the same load path thinking applies:
+
+```
+ADHESIVE JOINT LOADING — STRUCTURAL ENGINEERING PARALLEL
+==========================================================
+
+SHEAR LOADING:
+  Forces parallel to bond plane → bond area carries load in shear
+  Adhesives are strongest in shear — this is the preferred load mode
+  Example: lap joint, bonded sandwich panel face sheet
+  Structural analog: bolts in shear (pin joint), not bolts in tension
+  Rule: maximize overlap area; load in the plane of the bond
+
+PEEL LOADING:
+  Force applied at 90° to bond, lifting one substrate away from the other
+  Starting at the bond edge → stress concentrates at the peel front
+  Adhesive "unzips" from the peel front; full bond area never activated
+  Adhesives are weakest in peel — avoid this load mode
+  Structural analog: a weld loaded in tension with an eccentric point load
+                     at the weld toe — stress concentration at the edge
+  Rule: redesign to convert peel to shear (use a rigid substrate;
+        distribute load; use a rigid adhesive to prevent peel angle)
+
+CLEAVAGE:
+  Uniform tension perpendicular to bond area (both edges pull apart equally)
+  Better than peel (whole area carries load) but still poor vs shear
+  Structural analog: bolts in pure axial tension (acceptable but not optimal)
+
+TENSION (hydrostatic):
+  Uniform through-thickness pull on a rigid adherend pair
+  Useful only for rigid-to-rigid bonds with no moment
+  Uncommon; mostly theoretical loading mode
+
+DESIGN RULE (same in structural and adhesive joint design):
+  Load in the most capable mode (shear) and avoid the least capable (peel).
+  Joint geometry controls load mode — the same as weld joint geometry
+  controls stress concentration. Never specify an adhesive without
+  considering the joint geometry and load direction.
+```
 
 ## Decision Cheat Sheet
 

@@ -384,7 +384,39 @@ DIF (DIFFERENCE BETWEEN DAY AND NIGHT TEMPERATURE):
 
 ---
 
-<!-- @editor[bridge/P2]: Missing explicit control-systems bridge — this file describes a SCADA-like architecture (sensors, actuators, setpoints, PID loops) without naming it. For this learner with engineering background, explicitly framing the climate computer as an industrial control system with VPD/temperature/CO2 as controlled variables would be a high-value bridge -->
+### Industrial Control Systems Framing
+
+A modern greenhouse climate computer is a multi-variable industrial control system running continuous closed-loop control on four primary variables: temperature, humidity (expressed as VPD), CO₂ concentration, and light (DLI). The architecture is SCADA-equivalent: distributed sensors feed a central controller that drives actuators (heating valves, ventilation motors, foggers, CO₂ injectors, supplemental lighting) based on setpoints and control logic.
+
+```
+GREENHOUSE CLIMATE CONTROL ARCHITECTURE
+
+  SENSORS                    CONTROLLER              ACTUATORS
+  ─────────────────────────────────────────────────────────────
+  Thermocouples/RTDs         Climate computer        Heating pipes (hot water)
+  (air + leaf temp)          (setpoints + PID)       Roof vents (motors)
+       |                          |                  Side vents
+  Capacitive RH sensors      Multi-variable          Fogging system (VPD)
+  (-> VPD calculation)       control logic           CO₂ injectors
+       |                          |                  Shade screens
+  NDIR CO₂ sensors           Feedforward:            LED/HPS lights
+  (infrared absorption)      Solar radiation         Pump/fertigation valves
+       |                     predicts load
+  Pyranometer                Feedback:
+  (solar radiation)          Measured deviation
+       |                     from setpoint
+  EC/pH in solution          -> actuator adjustment
+
+  SETPOINTS (typical):
+  Day air temp:     20–24°C     VPD:     0.8–1.2 kPa
+  Night air temp:   16–18°C     CO₂:     800–1200 ppm
+  Root zone:        18–22°C     DLI:     17–25 mol/m²/day
+```
+
+Temperature control runs PID loops on heating and ventilation — the heating loop has different dynamics (thermal mass of the structure is the plant, not the building) than standard HVAC. VPD control is a cascade loop: temperature and humidity are independently controlled, but the setpoint for humidity is derived from the temperature setpoint to maintain a target VPD (a nonlinear function of both variables). CO₂ injection is simpler — bang-bang or PI control since CO₂ concentration responds quickly and the system has no significant thermal lag.
+
+The critical engineering challenge in CEA is multi-variable interaction: opening vents to control temperature also drives CO₂ out of the greenhouse, requiring increased CO₂ injection to compensate. Heating to maintain temperature in winter drives down RH (raising VPD above target), requiring fogging to compensate. The system is not a set of independent SISO controllers — it is a coupled multi-input multi-output (MIMO) system where every actuator affects multiple controlled variables. Industrial climate computers handle this with decoupled control strategies and constraint hierarchies (e.g., temperature takes priority over CO₂ conservation when venting is required for safety).
+
 ## Common Confusion Points
 
 **Hydroponics is not soil-free nutrition magic**: the plant biology is the same. Roots still require O₂, appropriate temperature, and the same mineral nutrients. Hydroponics provides precise delivery of what the plant needs but does not override plant physiology.

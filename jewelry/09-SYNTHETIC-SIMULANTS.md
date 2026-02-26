@@ -391,7 +391,8 @@ Lab diamonds avoid Kimberley Process issues but have their own supply chain conc
 
 ---
 
-<!-- @editor[content/P2]: Market data (price table) cites 2024 — should note data vintage or mark as snapshot; lab-grown prices declining ~15-20%/yr means 2024 figures may already be stale -->
+**Pricing note (2024 snapshot — verify current):** Lab-grown diamond prices have been declining at approximately 15–20% per year since 2020 as CVD reactor capacity expanded rapidly. The price differential vs. mined diamonds has compressed from ~80% discount in 2023 toward ~85–90% discount by late 2024. Treat any specific price figures in this section as directional; current spot prices should be verified with trade sources (Rapaport, IDEX, Pricescope). The trajectory (continued decline toward commodity pricing) is the stable signal; the specific numbers are a snapshot.
+
 ## Decision Cheat Sheet
 
 | Goal | Choice |
