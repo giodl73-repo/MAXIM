@@ -4,8 +4,45 @@
 
 Botanically, a fruit is any seed-bearing structure derived from the ovary of a flowering plant. This includes tomatoes, cucumbers, squash, and peppers — culinary "vegetables" that are botanically fruits. The evolutionary purpose is seed dispersal: fruits attract animals that consume the flesh and disperse seeds.
 
-<!-- @editor[diagram/P2]: Opening diagram is a taxonomy of fruit types (botanical classification), not a landscape showing the major fruit crops and their relationships — consider a relationship map of apple/citrus/banana/strawberry by origin region and propagation strategy -->
 ```
+MAJOR FRUIT CROPS — LANDSCAPE BY ORIGIN, PROPAGATION, AND TYPE
+
+FAMILY         KEY FRUITS       ORIGIN          PROPAGATION      FRUIT TYPE
+─────────────────────────────────────────────────────────────────────────────────
+Rosaceae       Apple (Malus)    Kazakhstan       Grafting/clonal  Pome (false fruit)
+               Pear (Pyrus)     China/Caucasus   Grafting         Pome
+               Peach (Prunus)   China            Budding          Drupe
+               Cherry (Prunus)  Europe/W Asia    Grafting         Drupe
+               Strawberry       Hybrid (N+S Am.) Runners          Aggregate
+               (×Fragaria)
+
+Rutaceae       Orange           Hybrid           Grafting         Hesperidium (berry)
+               (Citrus sinensis) (pomelo×mandarin) + seed          (leathery rind)
+               Lemon            Hybrid           Grafting         Hesperidium
+               (C. limon)       (citron×sour orange)
+               Grapefruit       Hybrid           Grafting         Hesperidium
+               (C. paradisi)    (pomelo×sweet orange, ~1750 AD)
+               Kumquat          China            Grafting         Hesperidium
+
+Musaceae       Banana           SE Asia          Vegetative       Berry (true!)
+               (Musa)           (New Guinea)     (corms, offsets)  (no stone; seedless)
+               → Cavendish: triploid (sterile, no seeds, clonal worldwide monoculture)
+
+Vitaceae       Grape (Vitis)    Caucasus/Near E  Cuttings         Berry
+               vinifera         (~8,000 BP)      + grafting
+
+Bromeliaceae   Pineapple        S America        Crowns/ratoons   Multiple fruit
+               (Ananas comosus) (Paraguay/Brazil)  suckers         (syncarp)
+
+Caricaceae     Papaya           Mesoamerica      Seed             Berry
+               (Carica papaya)                    (fast-growing)
+
+KEY PROPAGATION PATTERNS:
+  Grafting/budding: prevents genetic variation in seeds; maintains cultivar;
+    standard for tree fruits (apple scions on rootstock = clonal flavor consistency)
+  Vegetative (runners, corms, offsets): inherently clonal; fast; banana model
+  Seed: genetic recombination; used for annual crops, papaya; loses cultivar fidelity
+
 FRUIT TYPES — BOTANICAL CLASSIFICATION
 ──────────────────────────────────────────────────────────────────────────────
 SIMPLE FRUITS (from single flower, single ovary)

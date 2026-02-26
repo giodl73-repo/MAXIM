@@ -88,7 +88,17 @@ MODERN ATOMIC EMISSION SPECTROSCOPY (AES):
 
 ## Lithium (Li, Z=3)
 
-<!-- @editor[bridge/P2]: No old-world --> new-world bridge for battery chemistry -- learner coming from lead-acid / NiCad era would benefit from a "what replaced what" evolution table (Pb-acid -> NiCd -> NiMH -> Li-ion -> solid-state) before diving into Li-ion internals -->
+**Battery chemistry progression — what replaced what:**
+
+| Generation | Chemistry | Specific energy | Why superseded |
+|------------|-----------|-----------------|----------------|
+| Lead-acid (1859) | Pb / H₂SO₄ / PbO₂ | 30–50 Wh/kg | Heavy; memory effect; toxic Pb |
+| Nickel-cadmium (1899/1960s) | Ni(OH)₂ / KOH / Cd | 40–60 Wh/kg | Cd toxicity; severe memory effect |
+| Nickel-metal hydride (1989) | Ni(OH)₂ / KOH / MH alloy | 60–120 Wh/kg | Lower energy than Li-ion; self-discharges |
+| Lithium-ion (1991, Sony) | LiCoO₂ / organic electrolyte / graphite | 150–265 Wh/kg | Current dominant; thermal runaway risk |
+| Solid-state (emerging) | Li metal / solid electrolyte | 400–500 Wh/kg (projected) | Replacing liquid electrolyte → safer + denser |
+
+The energy density improvement is roughly 5–10× over the lead-acid baseline. The enabling factor at each step was a new electrolyte chemistry that allowed either a higher-voltage cell or a lighter anode material.
 
 ### Li-Ion Batteries — The World-Changing Application
 
@@ -282,7 +292,39 @@ NaCs/RbCs magneto-optical traps: ultracold physics, quantum information experime
 
 ---
 
-<!-- @editor[content/P2]: Rubidium (Rb) section missing entirely -- Rb is skipped between Potassium and Cesium despite having important applications (Rb atomic clocks in GPS satellites, Rb-87 dating, laser cooling) -->
+## Rubidium (Rb, Z=37)
+
+```
+[Kr]5s¹  |  IE₁: 403 kJ/mol  |  Radius: 248 pm  |  E° = −2.98 V
+
+RUBIDIUM ATOMIC CLOCK:
+  Rb has two ground-state hyperfine levels separated by 6.834682… GHz
+  → microwave transition, same physics as Cs but less accurate long-term
+  Rb clocks: compact, low-power, fast warm-up → used in GPS satellites
+    (each GPS satellite carries two Rb + one Cs; Rb for normal operation)
+  Accuracy: ~5×10⁻¹² (vs Cs at ~5×10⁻¹⁴) — sufficient for GPS; periodically
+    corrected against Cs ground standards
+  Size: ~1 L module vs Cs fountain ~1 m³ → why Rb wins in space applications
+
+Rb-Sr RADIOMETRIC DATING:
+  ⁸⁷Rb → ⁸⁷Sr  (β⁻ decay, t½ = 49.23 Gyr)
+  Isochron dating: plot ⁸⁷Sr/⁸⁶Sr vs ⁸⁷Rb/⁸⁶Sr for cogenetic rocks
+  Slope of isochron = (eλt − 1) → solve for t
+  Range: ~10 Myr to Earth's age (4.54 Gyr)
+  Useful for: crustal formation ages, mantle differentiation, meteorites
+
+LASER COOLING AND BEC:
+  ⁸⁷Rb: most commonly laser-cooled atom (1995 BEC — Cornell/Wieman Nobel 2001)
+  Reason: strong D1/D2 lines accessible with cheap diode lasers (~780 nm)
+  Doppler cooling → magneto-optical trap → evaporative cooling → ~100 nK
+  Bose-Einstein Condensate: macroscopic quantum state; tests of QM, atom interferometry
+  → Rb-based atom interferometers as gravimeters (precision g measurement)
+
+OTHER USES:
+  RbAg₄I₅: solid-state ion conductor (historical battery electrolyte research)
+  Rb in photomultipliers: photoelectric cathode (lower IE → sensitive to longer wavelengths)
+  Rb₂CO₃: specialized optics glass dopant
+```
 
 ## Francium (Fr, Z=87)
 

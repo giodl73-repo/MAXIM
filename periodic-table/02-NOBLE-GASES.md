@@ -225,7 +225,7 @@ TESTING: charcoal canisters or electret devices placed in lowest level of home 9
 MITIGATION: sub-slab depressurization (pipe from under foundation → exterior vent + fan)
 ```
 
-<!-- @editor[content/P2]: Radon section above is thorough but no bridge from noble gas chemistry to semiconductor fab -- Ar is the workhorse inert atmosphere for Si wafer processing, and this learner would connect that to Azure IoT chip supply chains -->
+**Noble gases in semiconductor manufacturing:** Argon is the dominant process gas in silicon wafer fabrication — the inert atmosphere for sputter deposition (PVD), plasma etching chambers, and annealing furnaces. Every TSMC, Samsung, or Intel fab runs on a continuous Ar supply; a standard 300 mm fab uses ~10 million standard cubic feet of Ar per month. Krypton and xenon are used in excimer laser photolithography (KrF at 248 nm, ArF at 193 nm) — the laser systems that defined semiconductor nodes from ~180 nm down to 65 nm. The shift to EUV (13.5 nm) removed the need for KrF/ArF as the imaging source but Ar plasma remains the dominant etch gas. Helium is used in mask cooling and wafer chuck backside cooling (He at ~10 Torr maintains thermal contact without contaminating the wafer). The noble gas supply chain is therefore a direct dependency of every CPU, GPU, and memory chip.
 
 ### Oganesson (Og, Z=118)
 

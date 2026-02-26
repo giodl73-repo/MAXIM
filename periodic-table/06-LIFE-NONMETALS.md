@@ -276,7 +276,7 @@ PHOSPHOLIPID BILAYER:
   Self-assemble into bilayer (hydrophobic core, hydrophilic exterior) → all cell membranes
 ```
 
-<!-- @editor[bridge/P2]: No bridge from phosphorus scarcity to supply chain risk -- learner with engineering leadership background would connect "finite phosphorus reserves" to geopolitical/food-security implications; parallel to rare-earth supply concern in 10-LANTHANIDES -->
+**Phosphorus as a finite, non-substitutable supply chain risk:** Unlike nitrogen (fixed from atmospheric N₂ via Haber-Bosch), phosphorus has no atmospheric reservoir. It must come from mining phosphate rock — and reserves are geographically concentrated: Morocco controls ~70% of global reserves (and essentially 100% of high-quality reserves if you include the Western Sahara, which Morocco administers). China, Russia, and a few other nations hold most of the rest. There is no geological cycle returning phosphorus from ocean sediments to land on human timescales (the cycle takes ~10–100 Myr). Current USGS reserve estimates at current mining rates give ~300–400 years, but "peak phosphorus" (maximum rate of production before decline) may arrive within 50–80 years. The parallel to rare-earth supply chains (10-LANTHANIDES.md) is direct: a material with no substitute, concentrated geopolitical control, and a finite reserve. The engineering response being researched is phosphorus recovery from sewage (struvite precipitation: MgNH₄PO₄) and from agricultural runoff — essentially recycling the element rather than extracting it from rock.
 
 ### Phosphorus Allotropes
 
@@ -377,22 +377,51 @@ ACID RAIN:
 
 ---
 
-<!-- @editor[diagram/P2]: Systems view section below uses a text list, not a true ASCII diagram -- an interconnected diagram showing the C/N/O/P/S metabolic web (e.g., TCA cycle hub, ATP linkage, DNA backbone linkage) would satisfy the style contract's "ASCII boxes for system diagrams" requirement -->
-
 ## The Five Elements Together — A Systems View
 
 ```
-CORE BIOCHEMISTRY ROLES:
+C/N/O/P/S METABOLIC WEB:
 
-  CARBON    Backbone of all organic molecules; structural diversity
-  │
-  NITROGEN  Amino groups → amino acids; ring N in DNA bases; protein charge/reactivity
-  │
-  OXYGEN    Hydroxyl/carbonyl groups; water; aerobic energy; structural (ester/ether)
-  │
-  PHOSPHORUS Phosphodiester (DNA/RNA backbone); phosphoanhydride (ATP); phospholipids
-  │
-  SULFUR    Disulfide bridges (structure); thioester (CoA); Fe-S clusters (electron transfer)
+  ATMOSPHERE
+  CO₂ (C+O)  ←──────────────────────────────────────────┐
+  N₂         ←──────────────────────────┐               │
+                                         │               │
+  Photosynthesis                         │ Respiration    │
+  (C+O: CO₂ → glucose)                  │ (C+O: glucose  │ Decomposition
+                                         │  → CO₂)       │ (all 5 elements
+  ┌─────────────────────────────────────┐│               │  released)
+  │          LIVING CELL                ││               │
+  │                                     ││               │
+  │  DNA/RNA ─────── C+N+O+P ─────────────────────→ DEAD ORGANIC
+  │  (phosphodiester │ backbone)         │            MATTER
+  │                  │                   │               │
+  │  Protein ─────── C+N+O+S  ──────→  │               │
+  │  (amino acids,   │ disulfides)       │               │
+  │  enzymes)        │                   │               │
+  │                  │                   │               │
+  │  ATP ──────────  C+N+O+P            │               │
+  │  (energy         phosphoanhydride    │               │
+  │   currency)      bonds               │               │
+  │                  │                   │               │
+  │  Membrane ─────  C+O+P              │               │
+  │  (phospholipid   polar head +        │               │
+  │   bilayer)       fatty acid tails    │               │
+  │                  │                   │               │
+  │  Redox ────────  S (Fe-S clusters), N (NAD+)         │
+  │  (electron       CoA thioester                       │
+  │   transport)                         │               │
+  └──────────────────────────────────────┘               │
+                │                                         │
+                └──────────────────── Decomposers (fungi, bacteria) ───┘
+
+KEY FLUX CONSTRAINTS:
+  C: freely cycled via atmosphere (CO₂ ↔ organic carbon)
+  N: atmosphere reservoir (N₂) accessible only via Rhizobium/Azotobacter/Haber-Bosch
+  O: freely cycled (O₂ ↔ H₂O ↔ CO₂)
+  P: NO atmospheric reservoir → LIMITING NUTRIENT in many ecosystems
+     must come from rock weathering or recycled organic matter
+  S: mostly cycled; can limit in some agricultural soils (acid rain adds inadvertent SO₄²⁻)
+```
 
 ELEMENTAL SCARCITY IN THE BIOSPHERE:
   C, N, O: readily cycled through atmosphere (CO₂, N₂, O₂)

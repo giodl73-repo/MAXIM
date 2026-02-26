@@ -88,8 +88,9 @@ Phanerozoic       541–present
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge — cladistics is maximum parsimony / graph theory (minimum spanning tree on character-state matrices); learner with MIT TCS background would connect immediately to NP-hard optimization -->
 ## How Phylogeny Works
+
+Cladistics is a maximum parsimony problem on a character-state matrix. Each taxon is a row vector of binary or multi-state characters (presence/absence of a trait, nucleotide at a position). Finding the most parsimonious tree — the tree requiring the fewest evolutionary changes to explain the observed character states — is NP-hard (equivalent to Steiner tree on a weighted graph). In practice: branch-and-bound for small datasets, heuristic tree-rearrangement (SPR/TBR moves) for larger ones. Bayesian phylogenetics replaces parsimony with posterior probability (Bayes' theorem over tree topology × branch lengths × substitution model), computed by MCMC over tree space. The molecular clock is a Poisson process: mutations accumulate at a roughly constant rate per site per unit time, so genetic distance ≈ time since divergence × substitution rate. Calibrate against fossil dates → absolute divergence times.
 
 ### Cladistics: The Core Method
 
@@ -127,7 +128,8 @@ Interpretation:
 - Branch length = meaningful in phylograms, not in cladograms
 ```
 
-<!-- @editor[bridge/P3]: Natural bridge to sequence alignment algorithms (Needleman-Wunsch, BLAST) and distance matrices — learner would appreciate the computational pipeline behind molecular phylogenetics -->
+**The computational pipeline for molecular phylogenetics:** Sequence alignment (Needleman-Wunsch for global, Smith-Waterman for local) produces a multiple sequence alignment — the character matrix for phylogenetic inference. BLAST provides the rapid database search to find homologs before the slower alignment step. Distance methods (UPGMA, Neighbor-Joining) build trees from a pairwise distance matrix (O(n²) space); character-based methods (maximum parsimony, maximum likelihood) operate directly on aligned sequences and are computationally heavier. The MAFFT → IQ-TREE → FigTree pipeline is the current standard for phylogenomics.
+
 ### Molecular vs Morphological Phylogenetics
 
 | Approach | Data Source | Strengths | Weaknesses |

@@ -254,7 +254,8 @@ NEURAL CREST IN PHYLOGENETIC CONTEXT:
   Full neural crest in gnathostomes (jawed vertebrates)
 ```
 
-<!-- @editor[bridge/P3]: Whole-genome duplication is essentially a fork() of the entire codebase — paralogs diverge like feature branches that never merge back; learner with software engineering background would connect immediately -->
+Whole-genome duplication is a fork() of the entire codebase at a single event. Every gene now has a paralog — an identical copy that immediately starts diverging because selective pressure on each copy is relaxed (the other copy maintains the original function). Paralogs diverge like feature branches that never merge back: one copy retains the original function, the other accumulates mutations freely and may eventually acquire a new function (neofunctionalization), a subset of the original function (subfunctionalization), or become a pseudogene. The vertebrate 2R WGD explains why vertebrate genomes have four HOX clusters (vs. one in amphioxus) and four copies of most ancient regulatory genes — each copy a branch of the original that has diverged since ~550 Ma.
+
 ### Two Rounds of Whole-Genome Duplication (2R WGD)
 
 ```

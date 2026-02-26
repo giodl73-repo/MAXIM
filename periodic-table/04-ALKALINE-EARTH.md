@@ -295,7 +295,18 @@ Element 88 completes Group 2. Its chemistry (confirmed where accessible) mirrors
 
 ---
 
-<!-- @editor[structure/P2]: Trends summary table below is useful but would benefit from a "Group 2 vs Group 1" comparison table -- the learner already read 03-ALKALI-METALS and the contrast (IE, reactivity, oxidation state, solubility patterns) would anchor the layered drill-down -->
+**Group 1 vs Group 2 — side-by-side contrast:**
+
+| Property | Group 1 (alkali metals) | Group 2 (alkaline earths) | Key reason |
+|----------|------------------------|--------------------------|------------|
+| Valence electrons | 1 (ns¹) | 2 (ns²) | One vs two electrons to lose |
+| Oxidation state | +1 exclusively | +2 exclusively | Losing one vs two e⁻ to reach noble gas |
+| Reactivity with H₂O | Violent (K explodes; Cs detonates) | Moderate (Ca reacts; Be/Mg do not in cold water) | Higher IE₁ for Group 2; IE₂ still achievable |
+| Density | Very low (Li 0.53, Na 0.97 g/cm³) | Higher (Be 1.85, Mg 1.74, Ca 1.55 g/cm³) | Two-electron metallic bonding is stronger |
+| Hydroxide solubility | All soluble (NaOH, KOH strong bases) | Increases down group (Be(OH)₂ amphoteric; Ba(OH)₂ moderately soluble) | Charge density of M²⁺ affects lattice energy |
+| Typical ionic character | More ionic (large, low-charge cation) | Less ionic for lighter members (Be²⁺ tiny → covalent) | Charge/radius ratio: Be²⁺ very high → polarizes anions |
+| Hardness | Very soft (cut with knife) | Harder (Be near steel; Mg hardens alloys) | Two electrons in metallic bond → stronger lattice |
+| Biological role | Na⁺/K⁺: membrane potential, nerve | Ca²⁺/Mg²⁺: bone structure, enzyme cofactors | Different ionic sizes select different binding sites |
 
 ## Group 2 Trends Summary
 

@@ -395,7 +395,8 @@ HOW POORLY KNOWN:
 
 ---
 
-<!-- @editor[content/P2]: No mention of amphibian genome sizes — salamanders have among the largest vertebrate genomes (axolotl: 32 Gb, ~10x human); this C-value paradox is significant and connects to the genome duplication themes in 08-CHORDATA-ORIGINS -->
+**Salamander genome size and the C-value paradox:** The axolotl (Ambystoma mexicanum) genome is 32 Gb — approximately 10× the human genome (3 Gb). The marbled lungfish genome is 130 Gb. This is the C-value paradox: genome size does not correlate with organismal complexity. Salamanders have vastly more DNA per cell than humans, but are not more complex. The explanation: large salamander genomes are stuffed with repetitive elements (transposons, satellite DNA, non-coding sequences) that have expanded without being purged by selection. The organism doesn't need the extra DNA; it just hasn't eliminated it. This connects to the genome duplication themes in 08-CHORDATA-ORIGINS.md: vertebrate 2R WGD gave gene copies that diverged or became pseudogenes; in salamanders, the same relaxation of selection allows transposon proliferation on a massive scale. The axolotl genome was sequenced in 2018 (32 Gb was a technical challenge requiring new assembly algorithms — the largest animal genome sequenced at the time) and revealed ~20,000 protein-coding genes similar to other vertebrates despite the 10× size difference.
+
 ## Layer 6 — The Amphibian Decline Crisis
 
 ```

@@ -192,9 +192,13 @@ HISTOPLASMA CAPSULATUM (Histoplasmosis):
 
 COCCIDIOIDES immitis / C. posadasii (Coccidioidomycosis, "Valley Fever"):
   Geographic: San Joaquin Valley (CA), Sonoran Desert (AZ/NM/TX)
-  Expanding range: moving northward as climate warms
-<!-- @editor[content/P2]: Valley Fever case counts and range expansion data may be outdated — check current CDC surveillance data for updated case numbers and northward range shift -->
-  ~100,000 diagnosed cases/year in USA; possibly 150,000+ unrecognized
+  Expanding range: documented northward and eastward expansion linked to climate warming
+    CDC surveillance (2019-2023): cases confirmed in previously non-endemic WA, OR, ID
+    Range expansion model: soil temperature and moisture thresholds shifting northward
+    ~20,000 confirmed cases/year in USA (CDC MMWR 2024); significant underdiagnosis
+    estimated; true incidence likely 150,000-300,000/year (many present as "flu")
+  Northward shift: epidemiological evidence from military training camps (Fort Irwin, CA)
+    and construction worker cohorts shows case rates rising in non-traditional areas
   Arthrospores: dangerous — inhaled → convert to spherules in lung
     → Each spherule bursts → 100s endospores → expand infection
   Severity: range from flu-like to chronic pneumonia to disseminated disease
@@ -376,5 +380,4 @@ RESISTANCE MECHANISMS:
 
 **Ringworm is not a worm**: "Ringworm" is a fungal infection (tinea corporis, caused by dermatophytes). The name comes from the ring-shaped lesion. No worms involved. This is one of those lay-term/scientific-reality disconnects that comes up clinically.
 
-<!-- @editor[bridge/P3]: Pneumocystis reclassification from protozoan to fungus parallels the Microsporidia story in 02-PHYLOGENY — worth a cross-reference to reinforce the "molecular phylogenetics overturns morphology" theme -->
-**Pneumocystis jirovecii**: This is a fungus that was previously classified as a protozoan. It causes Pneumocystis pneumonia (PCP) in immunocompromised patients (classic AIDS-defining illness). Treated with trimethoprim-sulfamethoxazole (not a conventional antifungal) because Pneumocystis has unusual biochemistry (no ergosterol). It cannot be cultured in the lab outside a living host.
+**Pneumocystis jirovecii**: This is a fungus that was previously classified as a protozoan. The reclassification mirrors the Microsporidia story in 02-PHYLOGENY-CLASSIFICATION.md: morphological and biochemical phenotype (lack of ergosterol, intracellular lifecycle, responds to antiprotozoal drugs) argued for protozoan; rRNA sequence data settled it as a fungus. This is the recurring theme of molecular phylogenetics overturning confident morphological classification. The clinical implication is unchanged: Pneumocystis lacks ergosterol (so azoles and amphotericin B don't work) and cannot be cultured ex vivo — it is treated with trimethoprim-sulfamethoxazole targeting its folate synthesis pathway. The organism is the same; only the taxonomy changed. It causes Pneumocystis pneumonia (PCP) in immunocompromised patients (classic AIDS-defining illness). Treated with trimethoprim-sulfamethoxazole (not a conventional antifungal) because Pneumocystis has unusual biochemistry (no ergosterol). It cannot be cultured in the lab outside a living host.

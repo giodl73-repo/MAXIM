@@ -181,7 +181,8 @@ TRUFFLES (Tuber spp.):
 ---
 
 ## Cultivation Technology
-<!-- @editor[bridge/P3]: Natural bridge to process engineering / fermentation control systems — substrate preparation, contamination control, and environmental parameter management (CO2, RH, temperature) parallel industrial process control that this learner would recognize from manufacturing contexts -->
+
+Commercial mushroom cultivation is a controlled manufacturing process: substrate = feedstock, sterilization = upstream processing, inoculation = process initiation, incubation = batch reactor phase, fruiting = product formation phase, harvest = downstream processing. The environmental control parameters (CO₂ ppm, relative humidity %, temperature, photoperiod) map directly to industrial process control — PID loops on ventilation, humidification, and heat exchange. Contamination control is analogous to sterile manufacturing: cleanroom-equivalent protocols for inoculation, HACCP-style monitoring for competitor mold (Trichoderma, Penicillium). The biggest commercial mushroom operations (China, Netherlands) are fully automated sensor-actuator loops with continuous environmental monitoring.
 
 ```
 SUBSTRATE TYPES AND PREPARATION:

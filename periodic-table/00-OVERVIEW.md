@@ -402,7 +402,7 @@ Remaining elements not explicitly covered above:
 
 ## Common Confusion Points
 
-<!-- @editor[bridge/P3]: Natural bridge to compiler/type-system thinking -- the periodic table as a type system (groups = interfaces, periods = concrete implementations) would resonate with this learner's MIT TCS background -->
+The periodic table is also a type system. Groups define interfaces — a shared behavioral contract (valence electron count, bonding geometry, oxidation state). Periods are the concrete implementations of those interfaces at successive energy levels. The s, p, d, f blocks are module namespaces: all Group 2 metals implement `+2 cation` but with different performance characteristics (Be tiny and covalent, Ba large and ionic). Exceptions like Cr ([Ar]3d⁵4s¹ instead of 3d⁴4s²) are the equivalent of a class overriding a default interface method to exploit a local energy minimum — half-filled d shells are a more stable configuration that breaks the naive pattern.
 
 **"Why is the periodic table split into two parts (main table + f-block below)?"**
 Pure pragmatics — the f-block has 14 columns and inserting it between Groups 2 and 3 would

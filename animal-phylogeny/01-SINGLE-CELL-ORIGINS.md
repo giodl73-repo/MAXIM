@@ -114,7 +114,8 @@ ARCHAEA ECOLOGICAL NICHES (extremophiles + mainstream)
 
 ---
 
-<!-- @editor[bridge/P2]: No old-world bridge for the whole file — bacterial/archaeal classification is a clustering problem on high-dimensional feature vectors; learner with MIT TCS would connect metabolic type matrix to k-means/hierarchical clustering immediately -->
+Bacterial and archaeal classification is a clustering problem on a high-dimensional feature space: the character matrix is metabolic type (carbon source, energy source, electron acceptor/donor), morphology, 16S rRNA sequence, and membrane lipid type. 16S rRNA distance is the standard clustering key — a pairwise distance matrix that feeds hierarchical clustering (UPGMA or Neighbor-Joining) to produce the prokaryote tree of life. The 97% 16S similarity threshold for "same species" is an arbitrary cluster cutoff, exactly like choosing k in k-means. Whole-genome average nucleotide identity (ANI ≥ 95%) is the more principled modern threshold — higher-dimensional, harder to compute, but much more accurate. The entire metagenomics field is unsupervised clustering applied to environmental sequence data: extract DNA from soil → sequence → cluster by similarity → assign to known or novel lineages, no culturing required.
+
 ## Layer 2 — The Great Oxidation Event
 
 ```
@@ -252,7 +253,8 @@ OPISTHOKONTA (animals + fungi share this ancestor)
     → DIRECT ANCESTOR-TYPE of animals
 ```
 
-<!-- @editor[bridge/P3]: Choanoflagellate-to-animal transition parallels the monolith-to-microservice architecture transition — cells specializing like service decomposition; learner would appreciate the analogy -->
+The choanoflagellate-to-animal transition is a monolith-to-microservices decomposition: start with identical generalist cells (each does everything — metabolize, reproduce, sense, move), then specialization emerges (differentiated cell types each do one function well). The Volvox lineage shows the progression in real time: Chlamydomonas (one cell, all functions), Gonium (8-32 cells, loose division of labor), Volvox (~1000 cells, strict germ-soma split — somatic cells sacrifice reproduction to serve the germ line). The analogy holds structurally: the monolith is simpler per-unit, more resilient if a cell fails; the specialized system has higher throughput but requires coordination overhead and cannot survive if the germ-line "service" fails.
+
 ### The Transition to Multicellularity
 
 ```

@@ -4,8 +4,42 @@
 
 Plant domestication is the most consequential technological act in human history. More than fire, more than the wheel, more than writing — the ability to grow predictable, abundant food was the precondition for everything else.
 
-<!-- @editor[diagram/P2]: Opening diagram is a linear flow (foraging → agriculture → civilization) — consider adding a landscape diagram that maps crop families, Vavilov centers, and the 12 key crops in one unified view -->
 ```
+FOOD PLANT LANDSCAPE — FAMILIES, VAVILOV CENTERS, AND KEY CROPS
+
+VAVILOV CENTER     MAJOR CROPS DOMESTICATED THERE
+─────────────────────────────────────────────────────────────────────
+Near East          Wheat (emmer, einkorn), barley, lentil, pea,
+(Fertile Crescent) chickpea, flax, rye | ~10,000-8,000 BP
+                   ↓ Poaceae (grasses) + Fabaceae (legumes) dominant
+
+China              Rice (O. sativa), soybean, millet (foxtail, broomcorn),
+                   adzuki bean, peach, apricot | ~8,000-7,000 BP
+                   ↓ Poaceae + Fabaceae + Rosaceae
+
+Mesoamerica        Maize (corn), common bean, squash, chili pepper,
+                   tomato, avocado, cacao, vanilla | ~7,000-3,500 BP
+                   ↓ Poaceae + Fabaceae + Solanaceae + Cucurbitaceae
+
+South America      Potato, sweet potato, cassava, peanut, quinoa,
+(Andes + Amazon)   pineapple, strawberry, tomato | ~8,000-3,000 BP
+                   ↓ Solanaceae + Fabaceae + Poaceae
+
+Sub-Saharan Africa Sorghum, pearl millet, finger millet, cowpea,
+(Ethiopia + W.Afr) African rice (O. glaberrima), yam, coffee | ~5,000-3,000 BP
+                   ↓ Poaceae + Fabaceae + Dioscoreaceae
+
+Indian Subcontinent Mung bean, moth bean, eggplant (brinjal),
+                   cucumber, sesame, jute | ~4,000-3,000 BP
+                   ↓ Fabaceae + Solanaceae + Cucurbitaceae
+
+THE 12 CROPS THAT FEED 80% OF HUMANITY:
+  Wheat, rice, maize, barley (grains)
+  Soybean, common bean, chickpea (legumes)
+  Potato, sweet potato, cassava (roots)
+  Sugar cane/beet (sugar)
+  Palm oil (oil crop)
+
 FORAGING → AGRICULTURE → CIVILIZATION
 ──────────────────────────────────────────────────────────────────────────────
 Wild plants:            Domesticated crops:       Civilizational results:
@@ -170,18 +204,17 @@ Modern plant breeders and CGIAR institutes maintain **germplasm banks** (seed ba
 
 ## Decision Cheat Sheet
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a "topic → file" lookup, not a "use X when Y" decision tool — reformat as "if you want to understand X, start with Y because Z" -->
-| Topic | File |
-|-------|------|
-| Why wheat has 42 chromosomes | 01-GRAINS (polyploidy) |
-| How plants feed the atmosphere nitrogen | 02-LEGUMES (Rhizobium) |
-| Irish famine cause | 03-ROOT-TUBERS |
-| Why there's no natural "orange" species | 04-FRUITS (citrus hybrids) |
-| How kale and broccoli are the same plant | 05-VEGETABLES |
-| Why the olive shaped Mediterranean civilization | 06-TREE-CROPS |
-| Sugar and slavery | 07-SUGAR-CROPS |
-| Why coffee houses preceded the Enlightenment | 08-STIMULANT-CROPS |
-| What CRISPR means for food | 09-MODERN-BREEDING |
+| If you want to understand... | Start with | Because |
+|------------------------------|------------|---------|
+| Why wheat has 42 chromosomes (and why that matters) | 01-GRAINS | Polyploidy section explains the emmer × einkorn × wild grass hybridization chain — the best example of how genome doubling can be selected for |
+| How legumes chemically fix atmospheric nitrogen | 02-LEGUMES | Nitrogenase biochemistry and the root nodule symbiosis — the only agronomically significant nitrogen fixation outside Haber-Bosch |
+| Why the Irish Famine was a systems failure, not just a disease | 03-ROOT-TUBERS | Phytophthora infestans + genetic monoculture + British colonial policy — the supply chain fragility case study |
+| Why there is no natural "orange" fruit species | 04-FRUITS | Citrus genetics section: all cultivated citrus are hybrids of 3 ancestral species; "orange" is a cross between pomelo and mandarin |
+| How kale, broccoli, cabbage, and cauliflower are the same species | 05-VEGETABLES | Brassica oleracea domestication — single species, different organs selected in different landraces |
+| Why olive oil was the petroleum of ancient Mediterranean civilization | 06-TREE-CROPS | Olive section: caloric density, lamp fuel, trade commodity, sacred symbol — covers all dimensions |
+| How sugar transformed the Atlantic world | 07-SUGAR-CROPS | Sugar-slavery-triangle trade nexus; Caribbean plantation economy as the first industrial agriculture |
+| Why coffee houses were prerequisite for the Enlightenment | 08-STIMULANT-CROPS | Coffeehouses as sober information exchange replacing alcohol — caffeine's cognitive effect and the social institution it enabled |
+| What CRISPR actually changes vs. conventional GMO | 09-MODERN-BREEDING | Precision comparison: random mutagenesis → Agrobacterium insertion → CRISPR edit — each generation increased specificity |
 
 ---
 

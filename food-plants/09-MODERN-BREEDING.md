@@ -4,9 +4,35 @@
 
 Modern plant breeding is the fastest-evolving discipline in applied biology. Within 80 years, it went from empirical hybridization (Mendelian, 1930s) to genetic engineering (1983) to CRISPR precision editing (2012+). Each step increased precision and speed; each step raised new questions about intellectual property, ecological risk, and who controls the food supply.
 
-<!-- @editor[bridge/P2]: No precision-progression bridge — the evolution from mutation breeding (random) → GMO (targeted insertion) → CRISPR (precise edit) parallels random testing → targeted testing → formal verification in CS; the learner's MIT TCS background makes this a natural connection -->
-<!-- @editor[diagram/P2]: Opening is a linear timeline — consider a landscape diagram showing the three breeding paradigms (conventional/hybrid, transgenic GMO, genome editing) as columns with precision, regulatory status, and IP model compared -->
+The precision progression in plant breeding maps directly to the testing/verification spectrum in software engineering:
+
+| Breeding method | Precision analogy | Error class | Regulatory treatment |
+|----------------|-------------------|-------------|----------------------|
+| Mutation breeding (radiation/EMS) | Random fuzz testing — throw energy at the genome and see what useful variants fall out | Off-target mutations everywhere; most harmful; some useful | Unregulated — "conventional" (paradoxically, the most random approach gets least scrutiny) |
+| Classical hybridization | Integration testing — combine two tested genomes, select for desired phenotype in offspring | Brings in linked undesired loci (linkage drag); takes many backcross generations to remove | Unregulated |
+| Marker-assisted selection | Targeted regression testing — use molecular markers to select for specific loci without sequencing | Still works at genome level; precision in selecting, not inserting | Unregulated |
+| Transgenic GMO (Agrobacterium) | Dependency injection — insert a known-function module (gene) into the codebase | Insertion site somewhat random; possible position effects; transgene integrates into chromosome | Heavily regulated (USDA, EPA, FDA triple pathway in US; EU essentially prohibited) |
+| CRISPR-Cas9 | Surgical refactoring — edit a specific codon in a specific gene | Near-zero off-target if designed correctly; no foreign DNA required | Light-touch or unregulated for small edits (US, Japan, Argentina); EU still regulated as GMO |
+| Gene drive | Configuration at compile time — change propagates through entire population, not just one organism | Population-level; theoretically irreversible; no field deployments approved | No current regulatory framework; still contained lab/island trial stage |
+
 ```
+BREEDING TECHNOLOGY LANDSCAPE
+
+  CONVENTIONAL/HYBRID     TRANSGENIC GMO           GENOME EDITING (CRISPR)
+  ──────────────────────────────────────────────────────────────────────
+  Precision:   Low-medium   Targeted insertion       Site-specific edit
+  Foreign DNA: No           Yes (transgene)          No (in many applications)
+  Regulation:  None         Full GMO review          Varies (US: less; EU: full)
+  IP model:    PVP, F1      Patents on transgene +   Patents on Cas9 method +
+               hybridization method                  specific edit
+  Key crops:   Corn, wheat, Bt corn/cotton,          High-oleic soybean (2019)
+               rice, sunflower RR soy/canola          CRISPR mushroom (2016)
+               (F1 hybrids)  HB4 soy/wheat           Purple tomato (2023)
+                             (drought tolerance)      Waxy corn, high-amylose
+  Limitation:  Slow (years); Regulatory cost;        Off-target risks (low);
+               linkage drag  consumer rejection (EU)  patent landscape complex
+  ──────────────────────────────────────────────────────────────────────
+
 BREEDING TECHNOLOGY TIMELINE
 ──────────────────────────────────────────────────────────────────────────────
 1866    Mendel: particulate inheritance (ignored until rediscovery 1900)

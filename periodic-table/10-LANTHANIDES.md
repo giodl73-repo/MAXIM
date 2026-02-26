@@ -206,7 +206,37 @@ QUANTUM DOTS (next gen):
   CdSe quantum dots: size-tunable emission → replacing RE phosphors in displays
   Samsung QLED TV: In-substituted ZnSe QDs (Cd-free) → precise color gamut
 ```
-<!-- @editor[content/P2]: Holmium (Ho) and Thulium (Tm) absent from individual profiles -- Ho has the highest magnetic moment of any element and is used in MRI pole pieces and laser surgery (Ho:YAG at 2100 nm); Tm is used in portable X-ray sources and fiber amplifiers -->
+```
+HOLMIUM (Ho, Z=67):
+  [Xe] 4f¹¹ 6s²  → Ho³⁺: 4f¹⁰ — 5 unpaired electrons, highest magnetic moment of any element
+  μeff = 10.6 μB (Bohr magnetons) → used in MRI pole piece materials and variable magnetic field
+  standards (NIST SRM 2806: holmium oxide glass for UV-Vis spectrometer calibration)
+
+  Ho:YAG laser: 2100 nm (near-IR)
+    Strongly absorbed by water and soft tissue → precise incision with minimal collateral damage
+    Urology: Ho:YAG lithotripsy — standard of care for kidney stone fragmentation
+    Arthroscopy: cartilage ablation, meniscus repair
+    Also used in prostate surgery (HoLEP, HoLRP procedures)
+
+  Holmium magnets: HoFe₂ has exceptional magnetocrystalline anisotropy
+    Used in neutron-scattering beam guides and specialized magnetic field concentrators
+
+THULIUM (Tm, Z=69):
+  [Xe] 4f¹³ 6s²  → Tm³⁺: 4f¹²
+
+  Tm:YAG and Tm fiber lasers: 1900–2100 nm emission
+    High-power Tm fiber lasers (kW class): atmospheric transmission window → LIDAR, DIRCM
+    Tm:YAG: similar tissue absorption to Ho:YAG; used in some surgical contexts
+
+  Thulium-170 (portable X-ray):
+    ¹⁷⁰Tm: t½ = 128.6 days, β⁻ + γ emitter (84 keV γ)
+    Produced in reactor: ¹⁶⁹Tm + n → ¹⁷⁰Tm
+    Used in portable X-ray sources for field radiography (no electricity required)
+    Also: brachytherapy research
+
+  Tm fiber amplifiers: amplification near 1900–2000 nm → S-band optical communications
+    Emerging for optical fiber systems where C-band (Er) is congested
+```
 
 ---
 
@@ -312,7 +342,18 @@ LUTETIUM (Lu, Z=71):
 
 ---
 
-<!-- @editor[bridge/P2]: Missing bridge from lanthanide magnetic properties to the broader magnets-materials progression -- a "what replaced what" table (lodestone -> Alnico -> ferrite -> SmCo -> NdFeB -> ?) would give the learner the old-world -> new-world context the style contract requires -->
+**Permanent magnet technology progression — what replaced what:**
+
+| Generation | Material | Max energy product (BH)max | Key limitation |
+|------------|----------|---------------------------|----------------|
+| Lodestone (antiquity) | Fe₃O₄ (magnetite) | ~0.4 MGOe | Natural; weak |
+| Alnico (1930s) | Al-Ni-Co alloy | 5–9 MGOe | Low coercivity; demagnetizes easily |
+| Ferrite/ceramic (1950s) | BaFe₁₂O₁₉, SrFe₁₂O₁₉ | 3–4 MGOe | Cheap; still dominant by volume (car motors, fridge door seals) |
+| SmCo (1970s) | SmCo₅, Sm₂Co₁₇ | 16–32 MGOe | High Curie temp (820°C); expensive; brittle |
+| NdFeB (1983) | Nd₂Fe₁₄B | 52–64 MGOe | Highest energy product; Curie temp 312°C → needs Dy at high T; corrodes |
+| Next gen (research) | MnBi, L1₀ FeNi, FePt | ~20–30 MGOe target | Avoid REE dependence; not yet commercial |
+
+Each step roughly doubled the magnetic energy stored per unit volume. NdFeB enabled: electric vehicle motors, wind turbine generators, hard disk drive actuators, consumer electronics actuators — essentially the entire modern motor/generator economy. The Dy addition (to suppress high-T coercivity loss) is why Dysprosium is the most geopolitically sensitive rare earth: EV adoption × NdFeB motor use × high-T operation = increased Dy demand.
 
 ## REE Supply Chain and Geopolitics
 

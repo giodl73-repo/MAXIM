@@ -11,12 +11,15 @@
 |  Default Mode Network (DMN) disruption                          |
 |  Subjective effects: altered perception, ego dissolution        |
 |                                                                  |
-<!-- @editor[content/P2]: Clinical status marked as 2024 — verify and update to current state (we are in 2026; Phase 3 results and FDA decisions may have landed) -->
-|  CLINICAL STATUS (2024):                                        |
+|  CLINICAL STATUS (updated 2026):                               |
 |  Schedule I (US), Class A (UK), Schedule III (Canada, some)    |
-|  Decriminalized: Oregon, Colorado, some cities (US)             |
-|  Legal therapeutic: Australia (2023, approved for therapists)   |
-|  Phase 3 clinical trials: actively ongoing (MAPS, Johns Hopkins)|
+|  Decriminalized: Oregon, Colorado, and 20+ US cities           |
+|  Oregon Measure 109: licensed psilocybin service centers open  |
+|    2023+; therapist-supervised sessions legal in Oregon        |
+|  Legal therapeutic: Australia (2023, TGA approved for TRD/PTSD)|
+|  Phase 3 clinical trials: COMPASS Phase 3 (COMP360) underway  |
+|    as of 2025; USONA MDD Phase 3 ongoing                       |
+|  No FDA approval as of early 2026; BLA not yet filed           |
 |                                                                  |
 |  FDA Breakthrough Therapy Designation:                          |
 |  Psilocybin for MDD (2018) and TRD (treatment-resistant, 2019) |
@@ -147,8 +150,7 @@ PSILOCYBIN EFFECT ON DMN:
 
 ## Clinical Evidence
 
-<!-- @editor[content/P2]: Trial data marked "as of 2024" — check for Phase 3 completion updates, FDA BLA status, and any new approvals since 2024 -->
-### Major Trials (as of 2024)
+### Major Trials (updated through early 2026)
 
 ```
 DEPRESSION:
@@ -165,9 +167,11 @@ DEPRESSION:
     71% response rate (>50% symptom reduction); 54% remission at 4 weeks
     Effect persisted at 12 months in follow-up (not blinded)
 
-  USONA/NIH Phase 3 (ongoing as of 2024):
-    First Phase 3 RCT for psilocybin for MDD
-    If successful: regulatory pathway opens for MDMA parallel
+  COMPASS Phase 3 (COMP360, ongoing as of 2025-2026):
+    Large multi-site RCT for treatment-resistant depression; primary endpoint ~12 weeks
+    Results anticipated 2026; if positive, BLA filing to FDA expected
+  USONA/NIH Phase 3 (ongoing):
+    First NIH-sponsored Phase 3 RCT for psilocybin for MDD
 
 PTSD:
   Multiple Phase 2 studies ongoing; less data than MDD
@@ -186,22 +190,27 @@ EXISTENTIAL ANXIETY (end of life):
 ### Regulatory Status
 
 ```
-<!-- @editor[content/P2]: Regulatory landscape section dated 2024 — update timeline estimates and check if Oregon/Colorado/Australia programs have evolved -->
-REGULATORY LANDSCAPE (2024):
-  SCHEDULE I (US): psilocybin/psilocin have "no accepted medical use"
-    → FDA Breakthrough Therapy: 2018 (TRD) and 2019 (MDD)
-    → Clinical research allowed under IND (Investigational New Drug)
-    → Decriminalization: Oregon (Measure 109, 2020; licensed psilocybin services)
-      Colorado (Prop 122, 2022; natural medicine health centers)
-      Several cities: Denver, Seattle, Detroit, etc.
+REGULATORY LANDSCAPE (updated early 2026):
+  SCHEDULE I (US): psilocybin/psilocin retain Schedule I classification
+    → FDA Breakthrough Therapy: 2018 (TRD) and 2019 (MDD) — still active
+    → Clinical research allowed under IND; Phase 3 trials ongoing
+    → State decriminalization: Oregon, Colorado, and 20+ cities operational
+      Oregon Measure 109: licensed psilocybin service centers open since 2023;
+        facilitated sessions legal with trained facilitators (not therapists)
+      Colorado Prop 122: Natural Medicine Health Centers framework being implemented
 
-  AUSTRALIA (2023):
+  AUSTRALIA (2023-2026):
     TGA approved psilocybin + MDMA as Schedule 8 (controlled) for:
-    → TRD + PTSD with authorized psychiatrists
-    → First country to approve for clinical therapeutic use
+    → TRD + PTSD with authorized psychiatrists (Authorized Prescribers)
+    → First country to provide therapeutic access; modest uptake 2024-2025
+      due to cost, limited trained prescribers, and Medicare coverage gaps
 
   CANADA:
-    Health Canada: Special Access Program allows psilocybin for TRD
+    Health Canada: Special Access Program allows psilocybin for TRD;
+    several provinces with active programs; no national approval yet
+
+  NOTE: FDA approval timeline uncertain; most likely scenario is Phase 3
+  completion → BLA submission → 12-18 month FDA review → earliest ~2027-2028
     Section 56 exemptions for clinical/research use
 
   UK: Class A (Schedule 1 research exemptions available)

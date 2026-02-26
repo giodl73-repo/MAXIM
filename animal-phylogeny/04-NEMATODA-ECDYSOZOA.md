@@ -64,8 +64,9 @@ LOCOMOTION: body waves in dorsoventral plane
   (contrast with earthworm: peristalsis in any substrate)
 ```
 
-<!-- @editor[bridge/P2]: C. elegans connectome is a directed graph (302 nodes, 7000 edges) — natural bridge to graph theory, adjacency matrices, shortest-path algorithms the learner owns from MIT TCS -->
 ### C. elegans — The Most Important Research Animal
+
+The C. elegans connectome is a directed weighted graph: 302 nodes (neurons), ~7,000 edges (synaptic connections), fully mapped (White et al., 1986 — the first complete connectome). Each edge has a weight (synapse count). This is a real adjacency matrix you can run graph algorithms on: shortest-path analysis shows how sensory neurons reach motor neurons; betweenness centrality identifies the "hub" interneurons (AIY, AVA, AVB) that dominate information routing; small-world network properties (high clustering coefficient, short average path length) match the topology seen in other neural and social networks. The OpenWorm project is a computational simulation of the full connectome — a running neural network model with 302 simulated neurons.
 
 ```
 CAENORHABDITIS ELEGANS — why it matters

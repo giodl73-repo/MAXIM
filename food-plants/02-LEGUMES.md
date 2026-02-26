@@ -4,8 +4,36 @@
 
 Legumes (family Fabaceae) are the second most important crop family after grasses. They are the primary protein source for most of the world's population, and uniquely, they can fix atmospheric nitrogen — effectively making their own fertilizer and enriching soil for subsequent crops.
 
-<!-- @editor[diagram/P2]: Opening diagram is a role summary (nitrogen cycle + protein complementarity + key crops list) rather than a landscape showing how the major legume genera relate — consider a relationship map of soybean/lentil/chickpea/common bean/peanut by origin, use, and domestication -->
 ```
+MAJOR LEGUMES — RELATIONSHIP MAP
+
+FAMILY FABACEAE (legumes) — unified by: nitrogen fixation, seed pod, compound leaves
+
+  SUBFAMILY PAPILIONOIDEAE (largest — >70% of the family)
+  │
+  ├── PHASEOLEAE tribe (New World center of diversity)
+  │   ├── Soybean (Glycine max): China origin; ~350 Mt/yr globally
+  │   │     Dominates: edible oil + protein feed + industrial (biodiesel, plastics)
+  │   │     ~70-75% of US soy = animal feed; <5% eaten directly as tofu/edamame
+  │   ├── Common bean (Phaseolus vulgaris): Mesoamerica; kidney, black, pinto, navy
+  │   │     Independent secondary domestication in Andes (different size/starch)
+  │   ├── Lima bean (P. lunatus): Andes; contains linamarin (cyanogenic glycoside)
+  │   └── Mung bean / adzuki (Vigna): East/South Asia; sprouts, red bean paste
+  │
+  ├── CICEREAE tribe
+  │   └── Chickpea (Cicer arietinum): Fertile Crescent; desi (small, colored) / kabuli (large, beige)
+  │         Second most consumed legume globally; hummus, dal, flour
+  │
+  ├── VICIEAE tribe (Old World)
+  │   ├── Lentil (Lens culinaris): Near East; fastest-cooking legume; red/green/French varieties
+  │   ├── Pea (Pisum sativum): Near East; Mendel's model organism; split peas / garden peas
+  │   └── Fava bean (Vicia faba): oldest Old World legume; G6PD deficiency risk
+  │
+  └── AESCHYNOMENEAE tribe
+      └── Peanut (Arachis hypogaea): South America; geocarpic (seeds ripen underground)
+            Nutritionally: high fat (50%), high protein — more nut-like than bean-like
+            Aflatoxin risk from Aspergillus flavus contamination in storage
+
 LEGUME POSITION IN GLOBAL FOOD SYSTEMS
 ──────────────────────────────────────────────────────────────────────────────
 NITROGEN CYCLE ROLE:
@@ -251,7 +279,31 @@ Vegans need adequate total protein (0.8-1.0g/kg bodyweight) + B12.
 
 ---
 
-<!-- @editor[content/P2]: Peas (Pisum sativum) absent — significant gap; Mendel's model organism, major food legume, and one of the oldest domesticates -->
+## Peas (Pisum sativum) — Mendel's Organism and Ancient Staple
+
+```
+PISUM SATIVUM:
+  Origin: Fertile Crescent (~10,000 BP); one of the earliest Near Eastern domesticates
+  Grown alongside lentil and wheat in the first agricultural settlements
+  Current production: ~20 million tonnes/yr globally; major in Canada, Russia, China
+
+MENDEL'S EXPERIMENTS (1856–1863):
+  Gregor Mendel chose pea because:
+    → Short generation time (3-4 months)
+    → Self-pollinating by default (true-breeding lines easily maintained)
+    → Distinct, clearly separable traits (seed color, seed shape, pod color, etc.)
+    → Easily cross-pollinated manually (remove anthers, apply foreign pollen)
+  Seven traits studied → discovered particulate inheritance (genes, called "factors")
+  Results published 1866 → ignored until rediscovered 1900 by de Vries, Correns, von Tschermak
+  Mendel's peas directly established the chromosome theory of inheritance
+
+CULINARY FORMS:
+  Garden peas (shelling peas): eaten fresh or frozen; high sugar (converts to starch rapidly)
+  Snow peas / snap peas: eaten whole, including pod
+  Dried split peas: yellow or green; field varieties with starchy seeds; soup base
+  Pea protein: major ingredient in plant-based meat (Beyond Burger: pea protein isolate)
+```
+
 ## Common Confusion Points
 
 **Peanuts are legumes, not nuts.** *Arachis hypogaea* (Fabaceae). Seeds grow underground (geocarpy). Nutritionally more like a nut (high fat, high protein) but taxonomically a legume.

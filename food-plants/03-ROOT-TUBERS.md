@@ -236,7 +236,42 @@ This naming confusion is an American phenomenon, not global.
 
 ---
 
-<!-- @editor[content/P2]: Taro (Colocasia esculenta) absent — major staple for ~500M people across Oceania, SE Asia, and W Africa; independent domestication in SE Asia ~10,000 BP -->
+## Taro (Colocasia esculenta) — Oceania's Foundational Starch
+
+```
+COLOCASIA ESCULENTA (family Araceae):
+  Origin: SE Asia; domesticated ~10,000 BP (among the earliest known crop domestications)
+  Current range: Oceania, SE Asia, W Africa, Caribbean, South Asia, E Africa
+  Feeds: estimated 500 million people as a primary starch source
+
+BOTANY:
+  Corm (underground swollen stem) is the main edible part
+  Leaves also edible (must be cooked — see toxicity below)
+  Requires tropical/subtropical climate; waterlogged conditions tolerated (paddy taro)
+  Propagated by corms and cormels; rarely by seed in cultivation
+
+NUTRITION:
+  Starch: ~77% of dry weight; small starch granule size (~1-4 μm) — highly digestible
+  Protein: ~7% dry weight; reasonable for a root vegetable
+  Calcium oxalate crystals: raw taro causes intense mouth/throat irritation (needle-like
+    crystals mechanically damage mucous membranes)
+  Must be cooked: heat degrades and softens calcium oxalate; extended cooking important
+  Suitable for gluten-free and low-allergen diets (one of the least allergenic starches)
+
+CULTURAL SIGNIFICANCE:
+  Hawaii: kalo (taro) is central to Hawaiian cosmology; "Kalo is the elder sibling of humanity"
+    (Kumulipo creation chant); poi (fermented taro paste) is the traditional staple
+  Fiji, Samoa, Tonga: taro is prestige food for feasts and ceremonies
+  W Africa (Ghana, Nigeria): cocoyam; important secondary starch alongside yam and cassava
+  Papua New Guinea: central to highland agriculture; 300+ varieties cultivated
+
+FOOD PRODUCTS:
+  Poi: Hawaiian fermented taro paste; slightly sour, thick, eaten with fingers
+  Taro chips/crisps: thin-sliced, fried
+  Taro milk tea (bubble tea): purple taro paste as flavoring (often artificial purple color)
+  Boiled, steamed, or mashed as potato substitute
+```
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

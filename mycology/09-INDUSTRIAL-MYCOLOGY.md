@@ -434,8 +434,16 @@ MYCELIUM LEATHER AND TEXTILES:
     → Hermès: shelf bag in Reishi mycelium leather (2021, "Sylvania")
     → Extremely tight fine mycelium → mechanical properties closer to
        traditional leather than earlier composites
-<!-- @editor[content/P2]: Mycelium materials market status dated 2024 — check whether Bolt Threads (Mylo) and MycoWorks (Reishi) have scaled, pivoted, or folded since then; this is a fast-moving space -->
-  Limitations (2024): price still premium vs. synthetic alternatives;
+  MARKET STATUS UPDATE (2025-2026):
+    Bolt Threads (Mylo): paused commercial production 2023-2024 citing scale-up
+      costs; pivoted to licensing technology; Mylo consumer product launch delayed
+      indefinitely. Key challenge: cost-per-square-meter vs. synthetic leather.
+    MycoWorks (Reishi): continued production; Hermès "Sylvania" bag remains in
+      limited production; expanded facilities but volumes remain small vs. leather.
+    Ecovative: scaled mushroom packaging (Mushroom Packaging) more successfully
+      than leather; construction/insulation applications growing.
+    Bottom line: the materials science works; the scaling economics remain hard.
+  Limitations (current): price still premium vs. synthetic alternatives;
     scaling production challenging; durability data still being gathered
 
 FUNGAL-BASED CONSTRUCTION (research/emerging):

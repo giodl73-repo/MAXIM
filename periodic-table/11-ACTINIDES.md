@@ -201,7 +201,18 @@ CRITICALITY ACCIDENTS:
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge connecting reactor physics to modern energy policy debate -- the learner is a VP-level leader who would want the "nuclear vs renewables vs fossil" decision framework; a brief capacity-factor / LCOE / baseload comparison table would serve the reference purpose -->
+**Nuclear vs. alternatives — the engineering policy tradeoffs:**
+
+| Metric | Nuclear (LWR) | Offshore wind | Utility solar PV | Natural gas (CCGT) |
+|--------|---------------|---------------|------------------|--------------------|
+| Capacity factor | 90–93% | 35–45% | 20–28% | 50–85% (dispatchable) |
+| LCOE (US, 2024) | $80–120/MWh (new build) | $80–130/MWh | $45–75/MWh | $40–80/MWh |
+| CO₂ lifecycle (g/kWh) | 12 | 12–15 | 20–50 | 490 |
+| Land use (km²/TWh/yr) | 0.3 | 70–150 | 50–100 | 0.4 |
+| Baseload provision | Yes — continuous 24/7 | No — intermittent | No — intermittent | Yes — dispatchable |
+| Key constraint | Capital cost + long build time (~10 yr); waste storage | Storage + grid integration | Storage + grid integration | Methane leaks; fuel price exposure |
+
+The energy policy argument for nuclear is the capacity factor: a 1 GW nuclear plant produces ~8 TWh/year; a 1 GW solar farm produces ~2 TWh/year, requiring ~4× the nameplate capacity to match the output (and still doesn't match timing or reliability). The argument against is upfront capital cost: a new LWR costs ~$8–15B and takes 10–15 years to build in the West (vs 5–7 years in Korea/China). Small modular reactors (SMRs: <300 MWe, factory-built) are the current attempt to break the capital/schedule problem — NuScale, Rolls-Royce SMR, GE Hitachi BWRX-300 are in licensing.
 
 ## The Manhattan Project
 
@@ -294,7 +305,39 @@ USES:
 
 ---
 
-<!-- @editor[content/P2]: Neptunium (Np, Z=93) has no dedicated section -- first transuranic element, historically important (McMillan/Abelson 1940), and Np-237 is a concern in nuclear waste (2.14 Myr half-life, dominant long-term alpha emitter in spent fuel) -->
+## Neptunium (Np, Z=93)
+
+```
+[Rn] 5f⁴ 6d¹ 7s²  — first transuranic element
+
+DISCOVERY:
+  McMillan and Abelson (Berkeley, 1940): bombarded U-238 with neutrons (cyclotron)
+  ²³⁸U + n → ²³⁹U (t½ = 23.5 min) → β⁻ → ²³⁹Np (t½ = 2.36 days) → β⁻ → ²³⁹Pu
+  Named for Neptune (next planet after Uranus, as Np follows U)
+  McMillan shared 1951 Nobel Chemistry with Seaborg (for discovering transuranic elements)
+
+ISOTOPES:
+  ²³⁹Np: t½ = 2.36 days; produced continuously in U reactors; decays to ²³⁹Pu
+  ²³⁷Np: t½ = 2.14 MILLION years; main long-lived concern in nuclear waste
+    Produced by: ²³⁵U + n → ²³⁶U + n (double capture), then β⁻; or ²³⁸U (n,2n) → ²³⁷U → β⁻
+    1 tonne of spent LWR fuel contains ~0.5–1 kg of ²³⁷Np
+
+NUCLEAR WASTE SIGNIFICANCE:
+  In spent nuclear fuel, fission products (Cs-137, Sr-90) dominate radioactivity for ~300 years
+  After 300 years, actinides dominate — and Np-237 is the dominant ALPHA EMITTER at ~10,000 years
+  Its 2.14 Myr half-life means it persists through the full Yucca Mountain isolation requirement
+  Np is also relatively mobile in groundwater (neptunyl NpO₂⁺ ion) → not retained by rock
+
+  TRANSMUTATION strategies (advanced nuclear fuel cycles):
+    Burn Np in fast reactors → fissions into shorter-lived products
+    → Reduces required isolation time from ~1 Myr to ~300 years
+    → Key rationale for Generation IV reactors (IFR, PRISM, Molten Salt)
+
+CHEMISTRY:
+  Np can access +2 through +7 oxidation states (more accessible than Pu)
+  NpO₂⁺ (neptunyl): analogous to UO₂²⁺ (uranyl); linear O=Np=O²⁺ favored
+  Used as spectroscopic reference for actinide chemistry (well-characterized)
+```
 
 ## Transuranics Synthesis History
 

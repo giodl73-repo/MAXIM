@@ -4,8 +4,42 @@
 
 Five grass species (wheat, rice, maize, barley, sorghum/millet) provide the majority of all human calories. This is not coincidence — grasses evolved dense starchy seeds specifically as a nutrient store. The story of grains is the story of polyploidy, hybridization, and one Norwegian plant breeder saving a billion lives.
 
-<!-- @editor[diagram/P2]: Opening diagram is a linear timeline, not a landscape showing how wheat/rice/maize/barley/sorghum/millet relate to each other — rework as a family tree or relationship map of the major grains -->
 ```
+MAJOR GRAINS — FAMILY TREE AND KEY STATS
+
+FAMILY POACEAE (true grasses) — all grain crops except buckwheat/quinoa/amaranth
+
+  TRIBE TRITICEAE (C3, temperate)
+  ├── Wheat (Triticum): 42 chromosomes (hexaploid), N. hemisphere winter/spring crop
+  │     Yield: ~800 kg/ha (traditional) → 3,500+ kg/ha (Green Revolution dwarf varieties)
+  ├── Barley (Hordeum vulgare): 14 chromosomes (diploid); beer + animal feed + some food
+  └── Rye (Secale cereale): cold-hardy; fermentation (rye bread, whiskey)
+
+  TRIBE ORYZEAE (C3, tropical/subtropical)
+  └── Rice (Oryza sativa): 24 chromosomes (diploid); paddy flooded or upland
+        ssp. japonica (short grain, sticky) / ssp. indica (long grain, firm)
+        Staple for 3.5 billion people; primary calorie source in Asia
+
+  TRIBE ANDROPOGONEAE (C4, tropical)
+  ├── Maize/corn (Zea mays): 20 chromosomes (diploid); highest yield/ha of any grain
+  │     C4 photosynthesis: more efficient at high temperature + light
+  │     Wild ancestor: teosinte (barely recognizable; <10 seeds per cob)
+  └── Sorghum (Sorghum bicolor): drought-tolerant; critical in Africa, India
+        Teff (Eragrostis tef): tiny seeds; Ethiopia staple; gluten-free
+
+  TRIBE PANICEAE (C4, warm-season)
+  ├── Pearl millet (Pennisetum): semi-arid Africa/India; drought champion
+  └── Foxtail millet (Setaria italica): earliest domesticated grain (~8000 BP, China)
+
+NON-GRASS "PSEUDOCEREALS" (Amaranthaceae, Polygonaceae):
+  Quinoa, amaranth: complete amino acid profile (unlike true grains)
+  Buckwheat: not related to wheat; gluten-free; routed by Maillard reaction (soba noodles)
+
+C3 vs C4 COMPARISON:
+  C3 (wheat, rice, barley): standard Calvin cycle; loses ~30% efficiency at high T
+  C4 (maize, sorghum, millet): CO₂ concentrating mechanism; higher efficiency >25°C
+  → Climate change (rising temperature) → shifts relative advantage toward C4 crops
+
 GRASS → GRAIN → CIVILIZATION
 ──────────────────────────────────────────────────────────────────────────────
 WILD GRASSES                    DOMESTICATED GRAINS
