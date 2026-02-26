@@ -231,6 +231,7 @@ PREVENTION: Smoking cessation is the only proven intervention that slows
   FEV1 decline. All other treatments are symptomatic.
 ```
 
+<!-- @editor[bridge/P2]: No old-world bridge — Rose theorem (population shift vs. high-risk targeting) maps directly to fleet-wide config changes vs. targeted hotfix in reliability engineering; Framingham risk scoring parallels predictive alerting models -->
 ## Decision Cheat Sheet
 
 | NCD prevention question | Approach |

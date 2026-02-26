@@ -219,6 +219,7 @@ CUMULATIVE RISK:
   EJ populations: PM2.5 + lead + noise + stress + food desert + heat
 ```
 
+<!-- @editor[bridge/P2]: No old-world bridge — dose-response modeling and LNT vs. threshold parallels safety margin engineering; exposure assessment chain (source-transport-dose-effect) maps to fault propagation analysis in systems engineering -->
 ## Decision Cheat Sheet
 
 | Environmental health question | Tool/approach |

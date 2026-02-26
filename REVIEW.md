@@ -181,7 +181,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `organizational-behavior/` | 7 | — | — | |
 | `game-theory/` | 6 | — | — | |
 | `statistics-applied/` | 6 | — | — | |
-| `public-health/` | 11 | — | — | |
+| `public-health/` | 11 | 2026-02 | — | 4 tags → pending |
 | `demography/` | 10 | — | — | |
 | `criminology/` | 10 | — | — | |
 | `media-studies/` | 10 | — | — | |
