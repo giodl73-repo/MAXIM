@@ -249,6 +249,8 @@ MAJOR AVIAN ECOLOGICAL GUILDS
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: Linnaean classification hierarchy maps to database normalization / ontology design (kingdom->phylum->class = schema nesting); cladistics parallels graph theory (directed acyclic graphs). Any engineer coming from hierarchical data modeling needs this bridge -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

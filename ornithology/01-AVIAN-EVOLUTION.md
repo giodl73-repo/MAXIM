@@ -289,6 +289,9 @@ ANTHROPOCENE:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: fossil-calibrated phylogenetics uses Bayesian inference / maximum likelihood (same statistical framework as ML model training); molecular clock = time-series regression. Any engineer from a quantitative background needs this bridge -->
+<!-- @editor[structure/P2]: No comparison tables in body — feather stage evolution (Stage 1-5) and Cretaceous bird groups would benefit from structured tables rather than ASCII blocks -->
+
 ## Decision Cheat Sheet
 
 | Event | When | Significance |

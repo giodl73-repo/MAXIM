@@ -323,6 +323,8 @@ INTERNATIONAL TREATIES:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: multi-cue navigation (magnetic + celestial + olfactory + landmarks) is sensor fusion — same architecture as autonomous vehicle navigation (GPS + IMU + LIDAR + vision). The hierarchy of cues (global vs local, always-on vs conditional) maps to redundant system design. Any engineer who has worked with fault-tolerant systems needs this bridge -->
+
 ## Decision Cheat Sheet
 
 | Navigation cue | Range | Required conditions | Who uses it |

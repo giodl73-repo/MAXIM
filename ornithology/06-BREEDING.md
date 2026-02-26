@@ -5,6 +5,7 @@
 Avian mating systems range from strict monogamy to extreme polygyny and polyandry, with the dominant pattern being social monogamy with extra-pair copulation (EPC). The advent of molecular paternity testing revealed that many "monogamous" birds engage in extra-pair mating — transforming avian behavioral ecology in the 1990s. Parental care is the most elaborate in the vertebrate world, and its distribution (biparental, uniparental male, uniparental female) maps onto mating system ecology.
 
 ```
+<!-- @editor[diagram/P2]: Opening diagram is a classification table (mating system types) but doesn't show how breeding systems relate to ecology, phylogeny, or life history — a landscape diagram connecting mating system to parental care mode, nest type, and chick type (precocial/altricial) would anchor the layered drill-down -->
 BREEDING SYSTEM OVERVIEW
 ==========================
 
@@ -276,6 +277,8 @@ HONEYGUIDES (Indicatoridae):
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: brood parasitism arms race (cuckoo egg mimicry vs host rejection) is a textbook adversarial co-evolution — same structure as security/crypto arms races (attacker evolves exploit, defender evolves detection, attacker evolves evasion). EPP discovery via DNA fingerprinting parallels how instrumentation/monitoring reveals hidden system behavior (production metrics revealing unexpected coupling). Any engineer from security or systems observability needs this bridge -->
 
 ## Decision Cheat Sheet
 

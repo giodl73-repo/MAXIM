@@ -297,6 +297,8 @@ CARRION ECOSYSTEM:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: Optimal Foraging Theory is constrained optimization (maximize E/T subject to search time, handling time, risk) — identical mathematical framework to operations research, scheduling, and resource allocation problems. Central Place Foraging is the traveling salesman with diminishing returns. MacArthur's resource partitioning maps to load balancing across workers with heterogeneous capability. Any engineer from optimization or distributed systems needs this bridge -->
+
 ## Decision Cheat Sheet
 
 | Foraging strategy | Bill adaptation | Example species | Prey type |

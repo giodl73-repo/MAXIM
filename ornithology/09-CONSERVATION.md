@@ -281,6 +281,8 @@ REMOTE SENSING:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridges — natural parallel: conservation triage (allocate limited resources across species with different recovery probabilities) is the same decision framework as incident response prioritization (P0/P1/P2 with limited SRE bandwidth). Population viability analysis uses Monte Carlo simulation (same as financial risk modeling). Synergistic threat multiplication parallels cascading failure in distributed systems. Any engineer from reliability engineering or risk management needs this bridge -->
+
 ## Decision Cheat Sheet
 
 | Threat | Affected taxa | Mitigation approach |
