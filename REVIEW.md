@@ -179,7 +179,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `psychology/` | 7 | — | — | |
 | `sociology/` | 10 | — | — | |
 | `organizational-behavior/` | 7 | — | — | |
-| `game-theory/` | 6 | — | — | |
+| `game-theory/` | 6 | 2026-02 | — | 9 tags → pending |
 | `statistics-applied/` | 6 | — | — | |
 | `public-health/` | 11 | 2026-02 | — | 4 tags → pending |
 | `demography/` | 10 | — | — | |
