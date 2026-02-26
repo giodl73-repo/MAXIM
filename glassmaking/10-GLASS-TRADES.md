@@ -357,6 +357,8 @@ QUALITY REQUIREMENTS:
 
 ---
 
+<!-- @editor[structure/P3]: No comparison tables in body — a markdown table comparing the major trades (gaffer, scientific glassblower, glazier, optical fabricator) on training path, scale, precision, typical employer would sharpen the reference value -->
+
 ## Common Confusion Points
 
 **Gaffer ≠ just the lead blower**:

@@ -326,6 +326,8 @@ COMPETITION WITH VENICE:
 
 ---
 
+<!-- @editor[structure/P3]: No comparison tables in body — a side-by-side table comparing Roman vs Islamic vs Venetian vs Bohemian traditions (composition, technique, key innovation, period) would aid quick scanning -->
+
 ## Common Confusion Points
 
 **Core-forming ≠ glass casting**:
