@@ -320,6 +320,8 @@ Related to but distinct from implicature.
 
 ---
 
+<!-- @editor[bridge/P3]: No computing bridge within this guide — Grice's maxims map to API design principles (covered in 09-COMPUTING-BRIDGE.md but absent here) -->
+
 ## Common Confusion Points
 
 **Implicature ≠ entailment**: Entailment: "John is married" entails "someone is married" — true in all models where the entailing sentence is true. Implicature: "Some students passed" implicates "not all students passed" — cancellable inference, not a logical consequence.
