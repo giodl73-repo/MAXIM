@@ -353,6 +353,7 @@ Calvino, García Márquez. Borges called Scheherazade
 
 ---
 
+<!-- @editor[content/P2]: Hebrew/biblical literary tradition absent — Psalms' parallelism (the defining formal feature), Song of Songs, Lamentations, and their influence on Western lyric and prose rhythm mentioned in 00-OVERVIEW but never treated here -->
 ## African Oral Traditions
 
 ### Sundiata: The Mande Epic
@@ -414,6 +415,7 @@ PRAISE POETRY AS FORM:
 
 ---
 
+<!-- @editor[content/P2]: Japanese literature section absent — Genji Monogatari (world's first novel?), haiku tradition (Basho/Buson/Issa), mono no aware aesthetic, and modern Japanese fiction (Tanizaki, Kawabata, Mishima, Murakami) all mentioned in landscape but never given a subsection -->
 ## Latin American Tradition
 
 ### The Boom Novel (1960s–70s)

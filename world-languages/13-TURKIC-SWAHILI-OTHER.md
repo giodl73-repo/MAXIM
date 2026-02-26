@@ -22,6 +22,7 @@ a distinct structural principle:
 
 ---
 
+<!-- @editor[bridge/P2]: No agglutination bridge despite obvious parallel — learner knows compiler theory; Turkish agglutination (stem + suffix + suffix + ...) is exactly like method chaining or a builder pattern: each suffix is a deterministic transform on the stem. A "pipeline" diagram would resonate. -->
 ## Turkish
 
 ### Profile
@@ -244,6 +245,7 @@ ___ کجاست? (___ kojāst?) — Where is ___?
 +--------------------------------------------------------------------+
 ```
 
+<!-- @editor[bridge/P2]: No noun-class bridge despite obvious parallel — learner knows type systems; Swahili's 15 noun classes are a runtime type tag system where class prefix propagates through verbs, adjectives, and possessives — like generic type parameters flowing through a call chain -->
 ### Noun Class System
 
 ```
@@ -365,6 +367,7 @@ Uwanja wa ndege / Hoteli / Hospitali — Airport / Hotel / Hospital
 +--------------------------------------------------------------------+
 ```
 
+<!-- @editor[content/P2]: Polish section is thin — header + grammar highlights + survival phrases but no dedicated sound system section, no verb conjugation tables, no comparison tables with Russian (natural bridge given Slavic family) -->
 ### Polish Key Features
 
 ```
@@ -438,6 +441,7 @@ Polish survival phrases:
 +--------------------------------------------------------------------+
 ```
 
+<!-- @editor[content/P2]: Tamil section is thin — profile + grammar highlights but no dedicated sound system, no script table, no verb conjugation grid. Comparable languages (Arabic, Hindi) get full sections for each. -->
 ### Tamil Key Features
 
 ```

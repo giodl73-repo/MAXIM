@@ -292,6 +292,7 @@ ADJECTIVE POSITION: BEFORE the noun (Japanese is head-final)
 
 ---
 
+<!-- @editor[bridge/P2]: No honorific-system bridge despite obvious parallel — learner understands access control patterns; keigo maps directly to authorization levels: sonkeigo elevates subject (granting access), kenjogo humbles speaker (lowering own permissions), teineigo is the default secure baseline. A 3-row access-control table would land. -->
 ## Keigo: The Honorific Register System
 
 ```

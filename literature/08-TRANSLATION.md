@@ -301,6 +301,7 @@ FAMOUS TRANSLATION DEBATES
 
 ---
 
+<!-- @editor[content/P2]: [Tool/version/API] may be outdated — LLM-based translation (GPT-4, Claude) has significantly shifted the MT landscape since 2023; the section stops at seq2seq/Transformer era and doesn't address prompt-based translation, few-shot literary translation, or human-AI collaborative workflows -->
 ## Layer 5: Machine Translation
 
 ```

@@ -256,6 +256,7 @@ COMMON MEASURE WORDS:
 When unsure: 个 (gè) works for almost anything with people/objects.
 ```
 
+<!-- @editor[bridge/P2]: No tense-vs-aspect bridge despite obvious parallel — learner knows automata theory; Mandarin aspect markers (了/着/过) are state-machine transitions (completion/continuation/experience) rather than absolute timestamps — connecting to finite-state concepts would make this click -->
 ### Aspect Markers
 
 ```

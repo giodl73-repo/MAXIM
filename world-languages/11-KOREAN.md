@@ -176,6 +176,7 @@ TOPIC vs SUBJECT (은/는 vs 이/가):
   [Topic는 + subject가 + verb is common pattern for preferences/abilities]
 ```
 
+<!-- @editor[bridge/P2]: No speech-level bridge despite obvious parallel — 7 speech levels encoded in verb endings are like API versioning or graduated permission tiers — the verb suffix IS the auth token. A tier table with "when to use" column would serve the learner. -->
 ### Speech Levels — The 7-Level System
 
 ```

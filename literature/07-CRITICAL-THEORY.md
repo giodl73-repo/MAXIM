@@ -193,6 +193,7 @@ Relation to Chomsky:
 
 ---
 
+<!-- @editor[content/P2]: Marxist literary criticism absent as a Layer section — Lukacs on realism, Althusser on ideology and ISAs, Jameson's "Political Unconscious" (1981), and the Frankfurt School (Adorno on the culture industry) all listed in landscape but never treated; this is a significant gap given Marxism's influence on New Historicism, postcolonial theory, and cultural studies -->
 ## Layer 3: Poststructuralism and Deconstruction
 
 ### The Crisis Point: 1966
@@ -354,6 +355,7 @@ BHABHA: HYBRIDITY
 
 ---
 
+<!-- @editor[content/P2]: Section is thin — feminist criticism gets one code block where Marxist/postcolonial/formalist each get full layers with multiple subsections; Kristeva (abjection, intertextuality), Cixous (ecriture feminine), and Irigaray (mimicry/fluidity) named in the comparison table but never discussed -->
 ## Layer 5: Feminist and Gender Theory
 
 ```
@@ -389,6 +391,7 @@ JUDITH BUTLER: GENDER PERFORMATIVITY
 
 ---
 
+<!-- @editor[content/P2]: Section is thin — ecocriticism gets one code block; Lawrence Buell's "The Environmental Imagination" (1995) not mentioned; no examples of ecocritical reading in practice; contrast with the multi-subsection treatment of other schools -->
 ## Layer 6: Ecocriticism
 
 The most recent of the major critical schools, emerging in the 1990s:
@@ -436,6 +439,7 @@ THE NATURE-CULTURE BINARY
 | New Historicism | How do text and context interpenetrate? | Negotiation, circulation, power, anecdote | Greenblatt, Gallagher | "Thick description" risks losing the text |
 | Postcolonial | Who speaks? On whose terms? | Orientalism, subaltern, hybridity, mimicry | Said, Spivak, Bhabha | Western theory applied to anti-western project |
 | Feminist | How is gender constructed in/by the text? | Performativity, the gaze, patriarchal discourse | Showalter, Butler, Cixous, Irigaray | Multiple feminisms; no unified position |
+<!-- @editor[content/P2]: Psychoanalytic criticism absent as a Layer section — listed in landscape and comparison table but never given its own treatment; Freud's dreamwork/literary analysis, Lacan's Real/Symbolic/Imaginary, and the uncanny deserve at least one subsection -->
 | Psychoanalytic | What does the text desire/repress? | Uncanny, displacement, condensation, suture | Freud, Lacan, Kristeva | Theory may explain theory more than texts |
 | Ecocriticism | How does the text represent the nonhuman? | Nature/culture binary, agency, posthumanism | Williams, Morton, Buell | Recent; methods still developing |
 

@@ -22,6 +22,7 @@
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to formal language theory missing — learner knows automata/formal grammars from MIT; a note connecting fusional morphology to the concept of "paradigm as finite-state table" would resonate -->
 ## The Big Picture: Grammar System
 
 ```

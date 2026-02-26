@@ -233,6 +233,7 @@ TU vs VOUS
 
 ---
 
+<!-- @editor[bridge/P2]: No formal/informal register bridge despite obvious parallel — learner understands compiler IR vs surface syntax; the spoken/written French split is analogous to "two frontends, one grammar IR" -->
 ## Spoken vs Written French — The Split
 
 ```

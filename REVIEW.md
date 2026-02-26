@@ -195,7 +195,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
 | `linguistics/` | 10 | 2026-02 | — | 10 tags → pending (1 polished) |
-| `world-languages/` | 15 | — | — | |
+| `world-languages/` | 15 | 2026-02 | — | 17 tags → pending |
 | `codes/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
 | `typography/` | 12 | 2026-02 | — | 1 tags → pending |
 | `printing-publishing/` | 10 | — | — | |

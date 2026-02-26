@@ -54,6 +54,7 @@ KEY INSIGHT:
 
 ---
 
+<!-- @editor[bridge/P2]: Missing [case system] bridge — any developer coming from typed languages needs this: German cases are like typed function parameters where the article is the type annotation and the noun is the value -->
 ## The Case System
 
 ### Articles Declined by Case

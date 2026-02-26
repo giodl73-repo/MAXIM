@@ -432,6 +432,7 @@ WAITING FOR GODOT (Beckett, 1952):
 
 ---
 
+<!-- @editor[content/P2]: Non-Western dramatic traditions absent — Sanskrit natya (Natyashastra, Kalidasa's Shakuntala), Chinese xiqu (Peking opera), Japanese noh and kabuki, and their formal systems deserve at least a compressed section given the world-literature scope of the set -->
 ## Decision Cheat Sheet
 
 | I want to understand... | Key concept / section |

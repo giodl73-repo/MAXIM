@@ -155,6 +155,7 @@ Example:
   बड़े लड़के गए। (baṛe laṛke gae.) — The big boys went. (m.plur)
 ```
 
+<!-- @editor[bridge/P2]: No ergative-alignment bridge despite obvious parallel — learner knows type theory; ergative alignment is like having two different type-dispatch rules (nominative-accusative vs ergative-absolutive) depending on transitivity — a 2x2 matrix (transitive/intransitive x perfective/imperfective) showing which agreement rule applies would land -->
 ### Verb System
 
 ```
