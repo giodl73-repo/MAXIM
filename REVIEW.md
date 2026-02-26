@@ -129,7 +129,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
 | `astronomy/` | 12 | 2026-02 | — | 0 tags — polished |
-| `geography/` | 8 | — | — | |
+| `geography/` | 8 | 2026-02 | — | 23 tags → pending |
 | `geology/` | 12 | 2026-02 | — | 16 tags → pending |
 | `meteorology/` | 11 | 2026-02 | — | 7 tags → pending |
 | `climate-science/` | 7 | 2026-02 | — | 16 tags → pending |
