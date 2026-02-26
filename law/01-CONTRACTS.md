@@ -304,6 +304,8 @@ SELLER'S REMEDIES on buyer breach:
 
 ## 7. Software Licensing
 
+<!-- @editor[content/P2]: Missing SaaS/cloud-specific contract issues (subscription terms, SLA structure, data portability clauses, vendor lock-in provisions) — highly relevant for this learner's daily contracting -->
+
 ```
 LICENSE vs SALE DISTINCTION:
   Vernor v Autodesk: if licensor retains title and significantly restricts use → license, not sale

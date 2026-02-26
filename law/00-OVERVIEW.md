@@ -39,6 +39,8 @@ SOURCES OF LAW HIERARCHY (US):
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge from engineering systems thinking (specs, versioning, precedent in RFCs) to legal reasoning (statutes, precedent, stare decisis) would ground this learner immediately -->
+
 ## 1. Common Law vs Civil Law — Deep Difference
 
 ### Common Law: Precedent-Driven
@@ -240,6 +242,8 @@ POST-TRIAL:
 ---
 
 ## 6. Major Substantive Law Fields
+
+<!-- @editor[content/P2]: Section is just a summary table — no drill-down or narrative connecting fields to each other or to the landscape diagram above -->
 
 | Field | Core Concepts | Key Federal/Uniform Law |
 |-------|--------------|------------------------|

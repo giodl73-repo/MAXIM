@@ -175,7 +175,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `finance/` | 5 | 2026-02 | — | 14 tags → pending |
 | `behavioral-economics/` | 11 | — | — | |
 | `political-science/` | 7 | — | — | |
-| `law/` | 8 | — | — | |
+| `law/` | 8 | 2026-02 | — | 10 tags → pending |
 | `psychology/` | 7 | — | — | |
 | `sociology/` | 10 | — | — | |
 | `organizational-behavior/` | 7 | — | — | |

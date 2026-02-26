@@ -317,6 +317,8 @@ DESIGNATED GATEKEEPERS (2024): Alphabet (Google/YouTube/Android), Apple (iOS/Saf
 
 ---
 
+<!-- @editor[content/P2]: Live cases section references 2024-2025 timelines — verify remedy outcomes (Google Search divestiture, Google Ad Tech verdict, FTC v Meta trial conclusion, Apple case progress) for 2026 -->
+
 ## 7. Key Tech Antitrust Cases (Live as of 2025)
 
 ```

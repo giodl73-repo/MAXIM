@@ -230,6 +230,7 @@ Key fair use cases:
   Harper & Row v Nation (1985): quoting 300 words of Ford memoir = NOT fair use
     (heart of the work; scooped first-publication market)
   AI training data: actively litigated 2023-2025; no definitive ruling yet
+  <!-- @editor[content/P2]: AI training data fair use status marked 2023-2025 — verify current rulings as of 2026; NYT v OpenAI, Doe v GitHub Copilot, and others may have progressed -->
 ```
 
 ### Copyright in Software

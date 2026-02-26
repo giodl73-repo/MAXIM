@@ -9,7 +9,8 @@
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                      CORPORATE LAW FRAMEWORK                             │
-├────────────────────┬─────────────────────────────────────────────────────┤
+<!-- @editor[diagram/P2]: Landscape diagram column separators misaligned — the three-column layout has inconsistent borders (middle line breaks the top row divider); reformat for clean three-column ASCII box -->
+├────────────────────┬─────────────────────────┬──────────────────────────┤
 │  ENTITY FORMATION  │  ONGOING GOVERNANCE     │  M&A / EXIT              │
 ├────────────────────┼─────────────────────────┼──────────────────────────┤
 │  Corp / LLC / LP   │  Board of directors     │  Asset sale               │
