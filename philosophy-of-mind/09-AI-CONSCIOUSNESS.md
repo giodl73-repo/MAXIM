@@ -290,6 +290,8 @@ CHALMERS ON SELF-REPORTS:
 
 ## Moral Status and AI Welfare
 
+<!-- @editor[content/P2]: Company positions section (2025) will need regular updating — Anthropic, OpenAI, and Google positions are fast-moving targets -->
+
 ```
 MORAL STATUS AND AI SYSTEMS
 ==============================
@@ -428,6 +430,8 @@ THE ONLY MORAL RESPONSE:
 ---
 
 ## Decision Cheat Sheet
+
+<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "if you need to assess AI consciousness claim X, apply framework Y" structure -->
 
 | Framework | Verdict on AI consciousness | Key claim |
 |---|---|---|

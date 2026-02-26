@@ -225,6 +225,8 @@ BLOCK'S NATION OF CHINA (revisited as absent qualia):
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from formal type systems or interface design to Husserl's noesis/noema distinction — the act/content separation maps naturally to method signatures vs. return types, or to the observer pattern -->
+
 ## Husserlian Phenomenology
 
 ### Intentionality of Consciousness
@@ -386,6 +388,8 @@ HIGHER-ORDER THEORIES (HOT):
 ---
 
 ## Decision Cheat Sheet
+
+<!-- @editor[structure/P2]: Cheat sheet is definitional — needs "if debating X, the key move is Y" decision structure -->
 
 | Concept | Definition | Key figure |
 |---|---|---|

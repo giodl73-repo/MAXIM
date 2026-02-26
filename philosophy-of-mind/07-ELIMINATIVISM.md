@@ -345,6 +345,7 @@ When we say "ChatGPT believes the capital of France is Paris":
   But: the "belief" is a real pattern in weight space, not a
   discrete propositional state.
 
+<!-- @editor[audience/P3]: "PRAKTIKABLE" is likely a typo for "PRACTICAL" — and the VP-at-Microsoft framing is too specific; generalize to "senior engineering leader working with AI" -->
 PRAKTIKABLE IMPLICATIONS FOR VP AT MICROSOFT:
   When your team says "the model understands X" or "the model thinks Y":
   - This is intentional stance talk
@@ -360,6 +361,8 @@ PRAKTIKABLE IMPLICATIONS FOR VP AT MICROSOFT:
 ---
 
 ## Decision Cheat Sheet
+
+<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "when your team says 'the model believes X,' the right framing is Y" action-oriented rows -->
 
 | Position | Claim about folk psychology | Status |
 |---|---|---|

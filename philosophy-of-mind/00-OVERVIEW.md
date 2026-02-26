@@ -276,6 +276,8 @@ The philosophical questions remain open even as capabilities scale.
 
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P2]: Cheat sheet is a lookup table — needs "if you want to understand X, start with Y" decision structure rather than concept definitions -->
+
 | Question | Key concept | See |
 |---|---|---|
 | What is the mind-body problem? | How mental events relate to physical events | 01-MIND-BODY-PROBLEM |

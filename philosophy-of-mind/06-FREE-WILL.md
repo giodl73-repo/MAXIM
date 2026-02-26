@@ -324,6 +324,8 @@ VERDICT:
 
 ## AI and Free Will
 
+<!-- @editor[content/P2]: Section is thin on the connection between RLHF/training and the manipulation argument — if a corporation trained your values into you via gradient descent, the Frankfurt/Fischer framework has direct implications worth expanding -->
+
 ```
 FREE WILL AND AI SYSTEMS
 =========================
@@ -361,6 +363,8 @@ MORAL RESPONSIBILITY FOR AI SYSTEMS:
 ---
 
 ## Decision Cheat Sheet
+
+<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "if your concern is X, adopt Y position because Z" structure -->
 
 | Position | Core claim | Main argument | Key problem |
 |---|---|---|---|

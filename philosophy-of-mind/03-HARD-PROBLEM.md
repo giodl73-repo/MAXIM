@@ -351,6 +351,8 @@ GLOBAL WORKSPACE THEORY (Dehaene/Baars):
 
 ## Decision Cheat Sheet
 
+<!-- @editor[structure/P2]: Cheat sheet is definitional — needs "if someone claims X, the relevant counter is Y" decision structure -->
+
 | Concept | Definition | Key proponent |
 |---|---|---|
 | Easy problems | Explaining functions: attention, integration, report | Standard cognitive science |

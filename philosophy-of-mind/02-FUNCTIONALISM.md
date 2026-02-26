@@ -26,6 +26,7 @@
 +-----------------------------------------------------------------------+
 ```
 
+<!-- @editor[bridge/P3]: Natural bridge to interface-based design (C#/Java) — functionalism is the philosophy equivalent of "program to the interface, not the implementation"; worth making explicit -->
 Functionalism is the natural philosophy for a software engineer. The analogy to software is almost exact: mental states are like programs — the same program can run on different hardware. This is the dominant view in philosophy of mind and cognitive science, and it has direct consequences for AI.
 
 ---
@@ -315,6 +316,8 @@ DENNETT'S POSITION:
 ---
 
 ## Decision Cheat Sheet
+
+<!-- @editor[structure/P2]: Cheat sheet summarizes rather than guides decisions — needs "use functionalism when Y, but beware Z" action-oriented rows -->
 
 | Concept | Definition | Implication |
 |---|---|---|
