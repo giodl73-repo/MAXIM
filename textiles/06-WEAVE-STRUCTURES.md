@@ -2,6 +2,8 @@
 
 ## Plain, Twill, Satin, Pile, Jacquard — The Grammar of Woven Fabric
 
+<!-- @editor[diagram/P2]: Opening section jumps straight into the three fundamental weaves without a landscape diagram showing the full weave-structure taxonomy (plain/twill/satin -> pile/dobby/jacquard -> specific fabrics). A layered map would anchor all subsequent sections. -->
+
 ## The Three Fundamental Weaves
 
 Everything woven is a variation of three interlacement patterns:
@@ -322,4 +324,5 @@ TERRY CLOTH:
 
 **Jacquard is a mechanism, not a fabric**: "Jacquard" describes how the loom controls warp threads — individually, via punch cards or digital actuators. A "Jacquard shirt" is a shirt with a woven-in pattern produced using Jacquard-controlled interlacement. The pattern can look like anything.
 
+<!-- @editor[bridge/P3]: Natural bridge to Jacquard → computing lineage could reference the learner's MIT background in automata/formal languages — Jacquard's hole/no-hole binary encoding is a physical finite automaton worth one sentence connecting to the Babbage lineage already mentioned -->
 **"Thread count" is gamed above 400**: Good single-ply fine cotton sheets at 300–400 TC are superior to 800TC sheets made from 2-ply yarn counted as 2 threads each. Higher thread count ≠ better beyond the point of diminishing returns in single-ply construction.

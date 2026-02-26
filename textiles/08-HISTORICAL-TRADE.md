@@ -2,6 +2,8 @@
 
 ## Silk Road, Cotton Slavery, Wool and Medieval Europe — Cloth as Economic Engine
 
+<!-- @editor[diagram/P2]: Opens with a text thesis block, not an ASCII landscape diagram. The five structures listed would work much better as a visual timeline/map showing geographic and temporal relationships (Silk Road east-west, Atlantic triangle, wool Flanders-England-Florence, Lancashire hub). Currently the reader must assemble the spatial picture mentally. -->
+
 ## The Central Thesis
 
 ```

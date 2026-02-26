@@ -55,6 +55,7 @@ FASHION INDUSTRY STRUCTURE: THE TIER PYRAMID
     → Must include both day and evening wear
 
   CURRENT OFFICIAL MEMBERS: ~15 (varies year to year)
+<!-- @editor[content/P1]: Duplicate "Elie Saab, Elie Saab" — remove one instance and verify the full current member list -->
     Chanel, Dior, Givenchy, Valentino, Jean Paul Gaultier,
     Schiaparelli, Elie Saab, Elie Saab, Viktor & Rolf,
     Iris van Herpen (among others)
