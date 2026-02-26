@@ -261,6 +261,7 @@ colonized. The British Marxist historians (Thompson, Hobsbawm, Hill) created the
 
 ---
 
+<!-- @editor[structure/P2]: No comparison tables — a table comparing Thompson, Hobsbawm, Hill, and Scott (method, period, key concept, exemplar work) would be high-value quick reference for the core figures -->
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -274,6 +275,7 @@ colonized. The British Marxist historians (Thompson, Hobsbawm, Hill) created the
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Scott's hidden vs. public transcript maps to any organizational context where subordinates comply publicly but resist privately (the learner, as a VP of Engineering, will recognize this dynamic in corporate hierarchies immediately) -->
 ## Common Confusion Points
 
 **"History from below" does not exclude class analysis.**

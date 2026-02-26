@@ -366,6 +366,7 @@ science and data science; the questions are historical.
 
 ---
 
+<!-- @editor[structure/P2]: No comparison tables beyond the Decision Cheat Sheet — a table comparing text mining vs. GIS vs. network analysis (input data, method, output, typical question, limitations) would help the learner pick the right approach -->
 ## Decision Cheat Sheet
 
 | I want to do... | Use |
@@ -383,6 +384,7 @@ science and data science; the questions are historical.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world -> new-world bridge — the learner's CS/data science background makes this the most natural bridge point in the entire directory: topic modeling (LDA) is a generative probabilistic model the learner knows from ML; word2vec is familiar from NLP; regression/IV/RD are standard causal inference; GIS is spatial databases; network analysis is graph theory — connect these tools explicitly to their CS foundations rather than presenting them as "digital humanities" novelties -->
 ## Common Confusion Points
 
 **Digital history is not the same as digitization.**

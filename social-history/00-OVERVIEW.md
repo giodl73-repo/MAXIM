@@ -175,6 +175,7 @@ making social history the dominant mode of historical practice from the 1970s on
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a directory rather than a decision tool — needs "use X when Y" structure (e.g., "studying long-term structural change over centuries -> Annales / longue duree; recovering voices of the marginalized -> history from below") -->
 ## Decision Cheat Sheet
 
 | Question | Go to |
@@ -191,6 +192,7 @@ making social history the dominant mode of historical practice from the 1970s on
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: traditional "great man" narrative history maps to event-driven political history; social history's structural/quantitative turn parallels the shift from narrative case studies to data-driven analysis in any empirical discipline -->
 ## Common Confusion Points
 
 **Social history is not the same as political history of the left.**

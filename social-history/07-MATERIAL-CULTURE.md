@@ -289,6 +289,7 @@ brought objects back to the center of historical analysis.
 
 ---
 
+<!-- @editor[structure/P2]: No comparison tables — a table comparing gift economy vs. commodity exchange vs. singularization (mechanism, social function, examples) would crystallize Appadurai's framework -->
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -303,6 +304,7 @@ brought objects back to the center of historical analysis.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Appadurai's "social life of things" (objects shift between commodity, gift, heirloom phases) maps to how software artifacts shift between contexts (a library is a product on npm, a dependency in your project, a legacy constraint in your architecture); "follow the thing" methodology parallels supply chain tracing in manufacturing, which the learner knows from engineering context -->
 ## Common Confusion Points
 
 **Material culture history is not the same as archaeology.**

@@ -278,6 +278,7 @@ prestigious school in world historical scholarship.
 
 ---
 
+<!-- @editor[structure/P2]: No comparison tables — guide is prose-only; a table comparing the four generations (key figures, methods, timescale focus, primary sources) would be high-value quick reference -->
 ## Decision Cheat Sheet
 
 | I want to understand... | Go to |
@@ -291,6 +292,7 @@ prestigious school in world historical scholarship.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Annales' rejection of event-driven narrative for structural analysis mirrors the move from anecdotal case studies to systems thinking in engineering; Febvre's "outillage mental" parallels Kuhn's paradigms (which the learner knows from MIT TCS/philosophy of science) -->
 ## Common Confusion Points
 
 **The Annales school is not homogeneous.**

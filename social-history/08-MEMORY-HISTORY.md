@@ -309,6 +309,7 @@ this to the practical questions of how history is produced outside the academy.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world -> new-world bridge — natural parallel: Nora's distinction between living memory (milieux de memoire) and artificial archives (lieux de memoire) maps to the difference between institutional knowledge held in people's heads and formal documentation systems; when senior engineers leave, their "living memory" of architectural decisions is lost and only the documented artifacts remain — this is exactly Nora's point about modernity -->
 ## Common Confusion Points
 
 **Collective memory is not just "shared individual memories."**
