@@ -204,6 +204,7 @@ PROCESS:
 
 Current limitation: serum-free media cost, 3D vascularization, scaling
 
+<!-- @editor[content/P2]: Cultivated meat company status and approval dates are 2023 vintage — verify current state; several companies have had funding/scaling setbacks since -->
 COMPANIES (2023):
   GOOD Meat (Eat Just): FDA + USDA approved, limited commercial sales 2023
   Upside Foods: FDA GRAS approval 2023; commercial launch pending

@@ -258,7 +258,7 @@ LASTING IMPACT:
 | What are the 5 sauces mères? | Béchamel, Velouté, Espagnole, Tomat, Hollandaise |
 | What is Hollandaise? | Egg yolk + clarified butter emulsion (hot emulsified sauce) |
 | What is Béarnaise? | Hollandaise + tarragon + shallot reduction |
-| What did Michelin Guide originally was? | Free motorist guide (1900), stars added 1926 for restaurant quality |
+| What was the Michelin Guide originally? | Free motorist guide (1900), stars added 1926 for restaurant quality |
 | What was Nouvelle Cuisine's main break? | Lighter sauces, fresh seasonal ingredients, smaller portions, artistic plating |
 
 ---

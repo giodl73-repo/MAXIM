@@ -66,6 +66,7 @@ DEEP TIME ───────────────────────�
 
 ---
 
+<!-- @editor[bridge/P2]: No universal CS bridge in overview — the "compounding technology" framing maps naturally to composability and platform layering (each layer enables the next); connecting to systems thinking would anchor the learner immediately -->
 ## Five Axes of Analysis
 
 For any food tradition or technology, examine:

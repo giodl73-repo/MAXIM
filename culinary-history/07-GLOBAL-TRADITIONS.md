@@ -292,6 +292,7 @@ BBQ: multiple overlapping origins (Caribbean indigenous, West African,
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge — the eight Chinese schools map to a "polymorphism by ecology" pattern: same base language (wok, soy, fermentation) with regional dispatch by climate and ingredient availability; the Indian regional system is the same pattern with a different organizing axis (grain type + fat type + souring agent) -->
 ## Fermentation Traditions Worldwide
 
 ```
