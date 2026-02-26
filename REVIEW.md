@@ -155,7 +155,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `military-history/` | 11 | 2026-02 | — | 4 tags → pending |
 | `anthropology/` | 9 | — | — | |
 | `philosophy/` | 7 | — | — | |
-| `mythology/` | 12 | — | — | |
+| `mythology/` | 12 | 2026-02 | — | 5 tags → pending |
 | `religious-studies/` | 8 | — | — | |
 | `archaeology/` | 10 | 2026-02 | — | 12 tags → pending |
 | `logic/` | 10 | — | — | |

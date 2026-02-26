@@ -528,6 +528,8 @@ MATSURI (festival):
 
 ---
 
+<!-- @editor[content/P2]: Korean mythology (Dangun, founding of Gojoseon, shamanistic mudang tradition) and Vietnamese mythology (Lac Long Quan, Au Co, the Hundred Viet) are mentioned in the opening but never covered — significant gap for a file titled "East Asian" -->
+
 ## Common Confusion Points
 
 **Chinese mythology has no single authoritative text**: Unlike the Greek Theogony, there is no single canonical account of Chinese creation. The Shanhaijing (Classic of Mountains and Seas) is the most important source but is encyclopedic, not narrative. Different myths coexist without reconciliation — Pangu appears in 3rd-century CE texts, long after most "classic" mythology was written.

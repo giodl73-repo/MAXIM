@@ -454,6 +454,9 @@ HOW THE TWO WORK TOGETHER:
 
 ---
 
+<!-- @editor[content/P2]: Dogon cosmology (Mali — Nommo, Amma, Sirius star knowledge debate), Bantu traditions (ancestor veneration, the concept of ubuntu, Nyambe/Mulungu as supreme being), and Zulu mythology (uNkulunkulu, the uHlanga reed) are mentioned in the overview but never covered — the African half of this guide is effectively Yoruba-only plus Anansi, leaving major sub-Saharan traditions absent -->
+<!-- @editor[content/P2]: Melanesian mythology mentioned as "extremely diverse" but gets zero coverage — cargo cults, mana concepts in Melanesia, and the Sepik River traditions are significant comparative material that would strengthen the Oceanian half -->
+
 ## Decision Cheat Sheet
 
 | Topic | Key knowledge |
