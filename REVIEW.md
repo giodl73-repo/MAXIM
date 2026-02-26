@@ -246,7 +246,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `metalworking/` | 10 | 2026-02 | — | 4 tags → pending |
 | `plastics-polymers/` | 10 | — | — | |
 | `papermaking/` | 10 | — | — | |
-| `composite-materials/` | 10 | — | — | |
+| `composite-materials/` | 10 | 2026-02 | — | 0 tags -- polished |
 | `furniture/` | 10 | — | — | |
 
 ---
@@ -264,7 +264,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `mycology/` | 10 | — | — | |
 | `marine-biology/` | 10 | 2026-02 | — | 0 tags -- polished |
 | `entomology/` | 10 | 2026-02 | — | 10 tags → pending |
-| `ornithology/` | 10 | — | — | |
+| `ornithology/` | 10 | 2026-02 | — | 16 tags → pending |
 | `zoology/` | 10 | 2026-02 | — | 0 tags -- polished |
 | `horticulture/` | 10 | 2026-02 | — | 12 tags → pending |
 
