@@ -4,6 +4,8 @@
 
 Modern plant breeding is the fastest-evolving discipline in applied biology. Within 80 years, it went from empirical hybridization (Mendelian, 1930s) to genetic engineering (1983) to CRISPR precision editing (2012+). Each step increased precision and speed; each step raised new questions about intellectual property, ecological risk, and who controls the food supply.
 
+<!-- @editor[bridge/P2]: No precision-progression bridge — the evolution from mutation breeding (random) → GMO (targeted insertion) → CRISPR (precise edit) parallels random testing → targeted testing → formal verification in CS; the learner's MIT TCS background makes this a natural connection -->
+<!-- @editor[diagram/P2]: Opening is a linear timeline — consider a landscape diagram showing the three breeding paradigms (conventional/hybrid, transgenic GMO, genome editing) as columns with precision, regulatory status, and IP model compared -->
 ```
 BREEDING TECHNOLOGY TIMELINE
 ──────────────────────────────────────────────────────────────────────────────

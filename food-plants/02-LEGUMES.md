@@ -4,6 +4,7 @@
 
 Legumes (family Fabaceae) are the second most important crop family after grasses. They are the primary protein source for most of the world's population, and uniquely, they can fix atmospheric nitrogen — effectively making their own fertilizer and enriching soil for subsequent crops.
 
+<!-- @editor[diagram/P2]: Opening diagram is a role summary (nitrogen cycle + protein complementarity + key crops list) rather than a landscape showing how the major legume genera relate — consider a relationship map of soybean/lentil/chickpea/common bean/peanut by origin, use, and domestication -->
 ```
 LEGUME POSITION IN GLOBAL FOOD SYSTEMS
 ──────────────────────────────────────────────────────────────────────────────
@@ -250,6 +251,7 @@ Vegans need adequate total protein (0.8-1.0g/kg bodyweight) + B12.
 
 ---
 
+<!-- @editor[content/P2]: Peas (Pisum sativum) absent — significant gap; Mendel's model organism, major food legume, and one of the oldest domesticates -->
 ## Common Confusion Points
 
 **Peanuts are legumes, not nuts.** *Arachis hypogaea* (Fabaceae). Seeds grow underground (geocarpy). Nutritionally more like a nut (high fat, high protein) but taxonomically a legume.

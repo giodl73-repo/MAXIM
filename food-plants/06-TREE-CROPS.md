@@ -275,6 +275,7 @@ Almond in California:
 | Question | Answer |
 |----------|--------|
 | Why was olive oil equivalent to petroleum in ancient Mediterranean? | Primary caloric fat + lamp fuel + cosmetic + medicinal + religious — covered all household energy needs |
+<!-- @editor[content/P2]: This Q&A is a non-question — "never really ended" is not actionable; replace with a genuine decision entry (e.g., "Why can olive trees survive millennia?" or "What is the oldest domesticated tree crop?") -->
 | What ended the Venetian olive oil dominance? | Never really ended — Mediterranean production still dominant |
 | How was phylloxera solved? | Grafting European vines onto American *Vitis* rootstocks (phylloxera-resistant) |
 | Why are most wine grapes grafted? | Phylloxera devastated ungrafted European roots in 1860s-1890s |

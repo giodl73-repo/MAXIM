@@ -323,6 +323,7 @@ CONCHING (Rodolphe Lindt, 1879):
     → invented the "fondant" style
 ```
 
+<!-- @editor[content/P2]: Modern cacao labor absent — child labor in West African cacao farming (~2M children, Tulane/NORC studies) is a major ongoing issue; given the slavery coverage in 07-SUGAR-CROPS, the parallel labor exploitation here is a notable gap -->
 ### Chocolate Science
 
 ```
