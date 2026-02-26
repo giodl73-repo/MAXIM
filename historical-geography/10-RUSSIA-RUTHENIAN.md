@@ -1,6 +1,7 @@
 # Kievan Rus to Muscovy — Russia's Medieval Arc
 
 ## The Big Picture
+<!-- @editor[diagram/P2]: Opening diagram is a chronological timeline, not a spatial landscape — add a geographic diagram showing the river route system (Varangian trade routes), Kievan Rus principalities, Golden Horde territory, and Moscow's expansion -->
 
 ```
 EASTERN SLAVIC POLITICAL EVOLUTION:

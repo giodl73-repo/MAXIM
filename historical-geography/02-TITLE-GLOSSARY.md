@@ -149,6 +149,7 @@ FAMOUS MARGRAVES:
 
 A count with jurisdiction over a "land" — a large territorial unit — rather than a single county. Imperial immediacy (answers to emperor, not to intermediate lord).
 
+<!-- @editor[audience/P3]: "CK2 territory" references a video game — rephrase in historical terms -->
 **Landgraviate of Thuringia**: Crucial CK2 territory in central Germany. Passed through the Ludowingians, then to Wettin (the same family as Saxony). Famous as the place Luther would eventually be sheltered (Wartburg Castle).
 
 **Landgraviate of Hesse**: Split from Thuringia 1264. Becomes important in Reformation era.
@@ -213,6 +214,7 @@ REALITY: Habsburgs held the title almost continuously 1438–1806
 ---
 
 ### Non-Western Titles
+<!-- @editor[content/P2]: East Asian imperial titles (Huangdi, Tenno, Wang) appear in the equivalence table but have no individual entries — add brief entries to match Western/Islamic coverage -->
 
 ### Sultan (Arabic: سلطان)
 

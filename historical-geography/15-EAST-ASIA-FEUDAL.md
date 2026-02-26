@@ -363,6 +363,8 @@ JOSEON DYNASTY (1392–1910):
 
 ---
 
+<!-- @editor[content/P2]: Vietnam (Dai Viet) absent — a significant feudal state that repelled Mongol invasions three times, maintained Confucian bureaucracy, and warrants at least a brief section parallel to Korea -->
+
 ## Decision Cheat Sheet — East Asian Dynasties
 
 | Dynasty | Country | Period | Key feature | Fall cause |

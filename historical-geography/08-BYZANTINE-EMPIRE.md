@@ -1,4 +1,5 @@
 # The Byzantine Empire — Eastern Rome, 330–1453
+<!-- @editor[diagram/P2]: No opening landscape diagram showing the empire's geographic extent and contraction over time — the file opens with the continuity argument (a timeline) but the style contract calls for a spatial Big Picture diagram first -->
 
 ## Self-Understanding and Modern Misconceptions
 

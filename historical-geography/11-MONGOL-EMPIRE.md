@@ -1,6 +1,7 @@
 # The Mongol Empire — Unification, Conquest, Divergence
 
 ## The Big Picture
+<!-- @editor[diagram/P2]: Opening diagram is a chronological timeline with four khanates shown as a 2x2 table — add a spatial landscape diagram showing the steppe heartland, the four khanate territories, and the conquest vectors radiating outward from Mongolia -->
 
 ```
 MONGOL EMPIRE FORMATION AND DIVISION:

@@ -32,6 +32,7 @@ Science is not a method — it is an institution, a practice, and a self-correct
 |  Galileo broke the rules      Social causes explain beliefs      |
 |  Science not uniquely         including scientific beliefs        |
 |  rational                                                        |
+<!-- @editor[diagram/P3]: Landscape diagram lists frameworks chronologically but doesn't show the tension axes (rationalist vs sociological, prescriptive vs descriptive) — adding a 2x2 axis overlay would strengthen the relational view -->
 +------------------------------------------------------------------+
 |                                                                  |
 |  MERTON (1942): Science as institution with norms (CUDOS)        |
@@ -528,6 +529,8 @@ This practical demarcation is imperfect but workable.
 **Feyerabend's "anything goes" is prescriptive for methodology, not epistemology.** He means: no rigid rule should be used to exclude research programs in advance. He doesn't mean all beliefs are equally supported by evidence.
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge section — a VP of Engineering would benefit from explicit parallels: paradigm shifts in science map to platform migrations in tech (mainframe→client-server→cloud), Mertonian norms map to open-source community norms, Kuhnian normal science maps to incremental product development within an architecture -->
 
 ## Links to Other Modules
 

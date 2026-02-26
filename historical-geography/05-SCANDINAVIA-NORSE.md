@@ -191,6 +191,7 @@ EASTERN ROUTE (Swedish primarily — Varangians):
 
 ## The Orkney Earldom — Norse Persistence in Britain
 
+<!-- @editor[audience/P3]: "CK2-complete" references a video game — rephrase in historical terms -->
 The Earldom of Orkney is one of the most CK2-complete examples of Norse persistence.
 
 ```

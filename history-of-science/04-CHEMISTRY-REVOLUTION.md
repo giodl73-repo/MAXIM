@@ -498,6 +498,8 @@ Anomaly that forced crisis:      New anomaly (later):
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — direct parallels for the learner: Lavoisier's naming reform as API rename for conceptual clarity (old names encoded the wrong abstraction); Mendeleev's periodic table predictions as the original schema-driven validation (predict from structure, confirm empirically); Avogadro's 50-year neglect as a case where dominant architecture (Berzelius's electrochemical framework) blocked adoption of a correct but incompatible module -->
+
 ## Common Confusion Points
 
 **Phlogiston was not a stupid theory.** It organized chemistry for 80 years, made correct predictions about reducing agents, and explained why certain materials burn. It had one decisive anomaly (weight gain) that turned out to be fatal.

@@ -442,6 +442,8 @@ Individual patron-based scholars      Scientific societies with
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — rich parallels available: Copernicus's equant elimination as refactoring for elegance without changing behavior; Tycho's data quality program as systematic observability/telemetry investment; Galileo's trial as an institutional authority conflict (cf. internal platform team vs business unit politics); the shift from patron-based scholars to scientific societies parallels the shift from individual contractors to open-source communities -->
+
 ## Common Confusion Points
 
 **Copernicus did not improve astronomical predictions.** His system still used epicycles and predicted positions about as well as Ptolemy. Kepler's ellipses (1609) gave the first genuine improvement.

@@ -388,5 +388,6 @@ Five different dynasties over 320 years, each with different origins, policies, 
 **Akbar didn't abolish Islam**
 Din-i-Ilahi was not a state religion; it had fewer than 20 adherents. Akbar's empire was administered through Muslim legal norms; he was personally curious and heterodox but didn't impose that on his subjects. The idea that he tried to create a new religion is an exaggeration of his court syncretism.
 
+<!-- @editor[content/P2]: Marathas deserve their own section — Shivaji's guerrilla state-building, the Peshwa system, and Maratha dominance 1720–1818 are too significant for a 4-line footnote in Confusion Points -->
 **The Maratha Confederacy (briefly)**
 By the 18th century the Marathas (centered in Maharashtra) under Shivaji (1627–1680) and his successors had become the dominant military power in India. The Maratha Confederacy (Peshwa-led after 1713) controlled more of India than the Mughals by 1750. The Third Anglo-Maratha War (1817–1818) ended this — replaced by British paramountcy.

@@ -1,6 +1,7 @@
 # Ottoman Rise — From Anatolian Beylik to World Empire
 
 ## The Big Picture
+<!-- @editor[diagram/P2]: Opening diagram is a chronological expansion list — for a historical geography guide, add a spatial map showing the small northwest Anatolian beylik expanding to three-continent empire, with key chokepoints (Bosphorus, Dardanelles, Suez) marked -->
 
 ```
 OTTOMAN TERRITORIAL EXPANSION:

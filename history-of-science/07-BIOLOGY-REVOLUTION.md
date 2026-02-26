@@ -563,6 +563,8 @@ PROGRAM OF MOLECULAR BIOLOGY:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — rich parallels: Mendel's discrete factors as the original digital vs analog insight (discrete inheritance vs blending, like digital vs analog signal processing); the Central Dogma's information flow (DNA→RNA→Protein, no reverse) maps to compile-time vs runtime separation (source→bytecode→execution, with no decompilation guarantee); Sturtevant's genetic mapping from recombination frequencies is inference of physical structure from behavioral observation (like profiling to infer architecture) -->
+
 ## Common Confusion Points
 
 **Darwin did not invent "survival of the fittest."** Spencer coined it; Darwin later used it as a synonym for natural selection in later editions of Origin. Darwin's term was "natural selection."

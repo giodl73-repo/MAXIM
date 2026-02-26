@@ -385,6 +385,8 @@ Tools required:
 
 ---
 
+<!-- @editor[content/P3]: Hippocratic medicine absent — the Hippocratic tradition (naturalistic disease explanation, case observation, prognosis) is a significant strand of ancient natural philosophy and the origin of clinical empiricism -->
+
 ## Why Greek Science Didn't Produce the Industrial Revolution
 
 ### Structural Reasons
@@ -439,6 +441,8 @@ No systematic cross-discipline collaboration
 | Why Ptolemy survived 1400 years | Predictive success | Model worked for its purpose — not truth-seeking |
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge section — the learner would connect immediately to: Babylonian algorithmic astronomy as pattern-matching without model (like ML prediction without causal theory), Euclid's axiomatic method as the original formal specification, Aristotle's four causes as a proto-requirements taxonomy (material=infrastructure, formal=schema, efficient=process, final=business purpose) -->
 
 ## Common Confusion Points
 
