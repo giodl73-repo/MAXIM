@@ -290,6 +290,7 @@ PRACTICAL IMPLICATIONS:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to CI/CD observability — SPC control charts are the manufacturing equivalent of production metrics dashboards: control limits = alerting thresholds, Cpk = process health score, Western Electric rules = anomaly detection rules; the learner's VSTS/DevOps background maps directly -->
 ## Statistical Process Control (SPC)
 
 ```
