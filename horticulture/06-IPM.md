@@ -426,6 +426,7 @@ ORGANIC IPM TOOLS (OMRI-listed or approved):
 
 ---
 
+<!-- @editor[bridge/P2]: Missing systems-thinking bridge — IPM's economic threshold concept is directly analogous to capacity planning / SLA-based alerting: you don't act at the damage point, you act at the threshold that prevents reaching it. Degree-day models parallel time-series forecasting. This learner would connect immediately -->
 ## Common Confusion Points
 
 **Biological control agents are not zero-cost**: purchasing Phytoseiulus sachets, Trichogramma cards, or entomopathogenic nematodes has a direct cost that must be compared to pesticide costs. The comparison must include: pesticide cost + application labor + resistance risk + benefit impact + regulatory risk. Biologicals often win this comparison but are not free.

@@ -272,6 +272,7 @@ BURIED DRIP TAPE:
 
 ## ET-Based Irrigation Scheduling
 
+<!-- @editor[audience/P3]: Penman-Monteith equation presented with full variable list but no worked numerical example — this learner would benefit from one concrete calculation walking through real weather data to a runtime recommendation, not just the formula -->
 ### Penman-Monteith Equation
 
 The gold standard for estimating evapotranspiration from weather data:
@@ -380,6 +381,7 @@ CALIBRATION:
 
 ---
 
+<!-- @editor[bridge/P2]: Missing control-theory bridge — ET-based irrigation scheduling is a classic feedforward control loop (weather model predicts demand); tensiometer/capacitance probes are feedback sensors. This learner with MIT background would immediately grasp the control systems framing -->
 ## Common Confusion Points
 
 **P₂O₅ and K₂O are not the forms plants take up**: these are analytical conventions. Plants take up H₂PO₄⁻ (phosphate ion) and K⁺ (potassium ion). The fertilizer label uses oxide notation. Convert for plant physiology discussions; use oxide notation for fertilizer calculations.

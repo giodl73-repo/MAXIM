@@ -424,6 +424,7 @@ TOPIARY:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to resource allocation: pruning is fundamentally about redirecting a fixed resource budget (stored carbohydrates) to fewer endpoints — same logic as capacity planning where reducing consumer count increases per-consumer resource share -->
 ## Common Confusion Points
 
 **"Flush cuts" are taught in old references and wrong**: many older pruning guides (pre-1980s) recommend cutting flush with the trunk. Shigo's research definitively showed this destroys the collar and prevents compartmentalization. Cut outside the collar.

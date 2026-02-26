@@ -266,7 +266,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `entomology/` | 10 | 2026-02 | — | 10 tags → pending |
 | `ornithology/` | 10 | — | — | |
 | `zoology/` | 10 | 2026-02 | — | 0 tags -- polished |
-| `horticulture/` | 10 | — | — | |
+| `horticulture/` | 10 | 2026-02 | — | 12 tags → pending |
 
 ---
 

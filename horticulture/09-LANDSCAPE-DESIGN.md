@@ -473,6 +473,7 @@ ESTABLISHMENT PERIOD:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to architecture/design patterns: design elements vs. design principles maps to vocabulary vs. grammar, or in software terms, primitives (data types) vs. composition rules (design patterns). This file handles the distinction well but could make the analogy explicit for this learner -->
 ## Common Confusion Points
 
 **Design elements and design principles are not interchangeable**: "line" is an element (a tool); "rhythm" is a principle (how elements relate). Using them as synonyms causes confusion in design review discussions.

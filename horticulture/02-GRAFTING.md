@@ -320,6 +320,7 @@ SCALE: European Union: >200 million grafted vegetable transplants/year.
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to interface compatibility: graft compatibility rules parallel API contract compatibility — same interface (genus) usually works, different interface (family) almost never does. Would resonate with this learner -->
 ## Decision Cheat Sheet
 
 | Situation | Grafting Method | Why |
