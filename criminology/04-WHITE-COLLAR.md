@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P3]: Natural bridge to corporate engineering culture — the "normalization of deviance" in corporate crime (Vaughan, Challenger) maps directly to technical debt accumulation and ignored warnings in software orgs. This learner managed engineering teams and would resonate with the organizational dynamics -->
 White-collar crime is crime committed by persons of respectability and high social status in the course of their occupations. Sutherland's 1939 presidential address to the American Sociological Association transformed criminology by showing that the focus on street crime was a systematic bias -- elite crime was larger in economic impact, under-prosecuted, and theoretically explained by the same mechanisms.
 
 ```
@@ -345,5 +346,6 @@ Not all corporate wrongdoing is crime. EPA permit violations can be civil, admin
 **DPAs Are Not Exoneration**
 Deferred Prosecution Agreements are controversial precisely because they admit corporate wrongdoing without a criminal conviction. Critics argue they enable executives to avoid accountability. Defenders argue they achieve more compliance reform than adversarial prosecution.
 
+<!-- @editor[content/P2]: Sarbanes-Oxley (2002) and Dodd-Frank (2010) absent — these are the two major legislative responses to corporate fraud (Enron, 2008 crisis) and created the modern enforcement architecture. Significant gap for a guide covering prosecution and enforcement -->
 **"No Victim" Rationalization**
 Securities fraud, insider trading, and price-fixing have diffuse victims who are individually unaware they are harmed. This does not mean there are no victims -- investors who traded without insider information lost real money. Diffuse victimization is one reason white-collar crime is systematically under-reported and under-prosecuted.

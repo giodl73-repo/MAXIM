@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: Missing decision-theory bridge — any developer with formal CS background knows expected utility from game theory or mechanism design. One sentence connecting Beccaria's EU model to von Neumann-Morgenstern or minimax would anchor this instantly for the learner -->
 Classical criminology grounds crime explanation in economics: crime is a choice made by a rational actor weighing expected benefits against expected costs. Deterrence policy flows directly from this model -- manipulate the cost side of the ledger and behavior changes.
 
 ```
@@ -345,6 +346,7 @@ Classical rational choice assumes full rationality (utility maximization with st
                               preferences
 ```
 
+<!-- @editor[bridge/P3]: Natural bridge to dual-process theory from cognitive science/AI: System 1 vs System 2 maps directly to fast/slow thinking in ML agent design. This learner would recognize Kahneman immediately -->
 **Implication**: If most crime is impulsive rather than calculated, certainty of swift apprehension matters even more than deterrence theory already suggests -- but so do interventions that reduce hot-state triggers (alcohol policy, conflict de-escalation).
 
 ---

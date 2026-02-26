@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: Missing feedback-loop bridge — mass incarceration as a self-reinforcing system (arrest -> record -> unemployment -> recidivism -> re-arrest) is a textbook positive feedback loop. Any engineer who's modeled control systems or runaway processes would recognize the structure. One sentence connecting to control theory or systems dynamics would serve this learner -->
 The United States incarcerates at a rate 5-10x higher than comparable democratic nations. This is not a natural response to crime -- it is the result of specific policy decisions made from the 1970s onward. Understanding mass incarceration requires separating the causes (policy choices), the mechanisms (drug war + mandatory minimums + sentencing guidelines), and the consequences (individual, family, community, fiscal).
 
 ```
@@ -360,5 +361,6 @@ At low levels of incarceration, incapacitating dangerous offenders reduces crime
 **Germany/Scandinavia Have Crime Too**
 Lower incarceration rates do not mean utopian crime-free societies. Germany has serious organized crime, violent crime, and drug markets. The relevant comparison is: similar crime inputs produce vastly different incarceration outputs. This is not a crime difference -- it is a policy choice difference.
 
+<!-- @editor[content/P2]: Private prison industry absent — the GEO Group and CoreCivic as lobbying actors and their role in perpetuating incarceration policy is a significant topic in the mass incarceration literature. Briefly noted as "prison-industrial complex" in 09-COMPARATIVE but not analyzed here where institutional drivers belong -->
 **Recidivism Is Not Fixed**
 Common claim: recidivism is ~66% within 3 years. This measures *rearrest*, not reconviction or reincarceration. Many rearrests do not result in conviction. More importantly, recidivism varies enormously by offense type, age, program participation, housing stability, employment, and support services. It is not a fixed property of "criminals."

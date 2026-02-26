@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P2]: Missing natural-experiment bridge — comparative criminology is essentially a natural-experiment research design (same input, different policy treatment, different outcome). Any engineer familiar with A/B testing or controlled experiments would grasp the methodology instantly through that lens -->
 Comparative criminology examines crime and justice across nations to separate universal patterns from policy-contingent ones. The central lesson: incarceration rates, crime responses, and criminal justice practices are political choices, not natural outcomes of crime rates. Similar crime inputs produce radically different outputs depending on institutions, culture, and politics.
 
 ```
@@ -373,5 +374,6 @@ Common claim: Nordic models work because of cultural homogeneity or wealth. Coun
 **Adversarial vs. Inquisitorial Is Not Pure**
 Modern legal systems mix features. Germany has adversarial elements; US has investigative magistrate-like elements (grand jury). The distinction is a heuristic for key structural differences, not a binary classification.
 
+<!-- @editor[content/P2]: Transitional justice absent — truth commissions (South Africa TRC, Colombia), lustration, and reparations are major comparative criminology topics that don't appear anywhere in the directory. At minimum a note pointing to the gap -->
 **The ICC Is Not a World Government**
 The ICC has no enforcement power. It depends on states to arrest and transfer defendants. If the host country won't arrest, the ICC warrant is symbolic. This is why Putin can travel to some countries and not others. The ICC is an institution with normative force, not coercive power.
