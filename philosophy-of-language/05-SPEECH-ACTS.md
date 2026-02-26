@@ -352,6 +352,8 @@ One of Searle's most important contributions.
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to software preconditions/contracts missing — felicity conditions map directly to API preconditions, could note parallel here -->
+
 ## Common Confusion Points
 
 **Illocutionary ≠ perlocutionary**: The illocutionary act is what the speaker IS DOING (warning, promising, requesting) — it is constituted by the utterance in context. The perlocutionary act is the EFFECT it has on the hearer (they become scared, they comply) — it is causal and contingent.

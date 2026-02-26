@@ -15,6 +15,7 @@ For TCS background: Montague grammar IS typed lambda calculus applied to natural
 |  Intensional logic + λ-calc    Event semantics                        |
 |  PTQ — "English is a fragment  Action sentences analyzed via          |
 |  of a formal language"         events as first-class entities         |
+<!-- @editor[content/P1]: Typo — "Davidosn" should be "Davidson" -->
 |  Denotational: phrases →       Davidosn: T-sentences as the          |
 |  mathematical objects          core of meaning theory                 |
 |                                                                       |

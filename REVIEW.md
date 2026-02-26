@@ -203,7 +203,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `radio-television/` | 10 | 2026-02 | — | 1 tags -> pending |
 | `literature/` | 10 | 2026-02 | — | 15 tags → pending (1 polished) |
 | `rhetoric/` | 10 | 2026-02 | — | 18 tags → pending |
-| `philosophy-of-language/` | 10 | — | — | |
+| `philosophy-of-language/` | 10 | 2026-02 | — | 4 tags → pending (6 polished) |
 | `semiotics/` | 10 | 2026-02 | — | 17 tags → pending |
 | `translation/` | 10 | 2026-02 | — | 1 tags → pending (9 polished) |
 
