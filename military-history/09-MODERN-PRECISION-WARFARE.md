@@ -307,6 +307,7 @@ FUNDAMENTAL CONSTRAINT:
 
 ### Counter-Drone Evolution
 
+<!-- @editor[content/P2]: Section is thin — missing specific engagement data (e.g., Ukraine FPV drone kill counts, Houthi cost-per-sortie analysis) and doctrinal response evolution compared to depth of Predator/Reaper section above -->
 ```
 LOW-COST DRONE THREAT (2015-present):
   Commercial off-the-shelf (COTS) drones modified for attack:

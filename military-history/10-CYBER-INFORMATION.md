@@ -521,6 +521,7 @@ PERSISTENT ENGAGEMENT (US Cyber Command doctrine):
 | Why was Stuxnet a watershed? | First cyber attack causing physical damage; crossed sabotage threshold | Accelerated adversary capabilities (Iran) |
 | What's the difference between espionage and attack? | Espionage: read/copy data. Attack: disrupt/destroy/manipulate | Legal threshold differs; SolarWinds was espionage |
 | Why did Colonial Pipeline shut down? | IT compromise + OT uncertainty + safety precaution | Not an OT attack directly |
+<!-- @editor[structure/P3]: Cheat sheet entry "What is the Gerasimov Doctrine?" is informational, not decisional — rework as "How do I distinguish coordinated hybrid campaign from opportunistic actions?" with use-when guidance -->
 | What is the Gerasimov Doctrine? | A Western analyst label, not actual Russian doctrine | Describes Russian observed behavior, doesn't prescribe it |
 | How do you defend against supply chain attacks? | Build integrity, signed reproducible builds, SBOMs, zero trust | Can't verify every component; upstream compromise breaks the chain |
 | What does AI enable in targeting? | Speed and scale beyond human analysis capacity | Accountability gap, distinction/proportionality problems |
