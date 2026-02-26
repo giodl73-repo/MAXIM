@@ -276,6 +276,7 @@ MARS SAMPLE RETURN ARCHITECTURE
     Jezero Crater: deltaic sediments, igneous rock, regolith
     Target: Noachian-Hesperian boundary materials; biosignature potential
 
+<!-- @editor[content/P2]: MSR Phase 2/3 timeline may be outdated — program under significant budget/schedule pressure as of 2024-25; NASA restructured architecture; verify current launch dates -->
   PHASE 2: Sample Retrieval (planned ~2030s)
     ESA Earth Return Orbiter + NASA Sample Retrieval Lander
     Mars Ascent Vehicle (MAV): first rocket launch from another planet

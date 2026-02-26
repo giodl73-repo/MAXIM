@@ -16,6 +16,7 @@ The four outer planets dominate the solar system's mass and angular momentum. Th
 |  Radius:  11.2 R⊕      9.45 R⊕     4.01 R⊕     3.88 R⊕         |
 |  Distance: 5.2 AU      9.5 AU      19.2 AU      30.1 AU          |
 |  Period:  11.9 yr      29.5 yr     84 yr        165 yr           |
+<!-- @editor[content/P2]: Moon counts for Jupiter (95) and Saturn (146) change frequently as new irregular satellites are discovered — verify against current IAU/MPC totals -->
 |  Moons:   95           146         27            16               |
 |  Rings:   Yes (faint)  Yes (major) Yes (faint)  Yes (faint)      |
 |  B field: Huge         Large       Tilted 59°   Tilted 47°       |

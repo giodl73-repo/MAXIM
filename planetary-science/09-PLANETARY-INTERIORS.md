@@ -33,6 +33,7 @@ We cannot drill to the core of any planet (except partially Earth). Everything w
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from classical wave physics (MIT TCS/physics: Fourier analysis, wave equations, eigenmode decomposition) to planetary seismology — the learner already owns the math; connecting normal modes and travel-time tomography to signal processing would anchor this section -->
 ## Seismology: Reading the Interior with Waves
 
 ### Wave Types
@@ -321,6 +322,7 @@ INTERIOR MODELING APPROACH
     From precession rate + J₂ gravity harmonic
     Lower C/MR² = more centrally concentrated
 
+<!-- @editor[content/P1]: Claim may be incorrect — LAPACK is a linear algebra library (eigenvalue/SVD routines), not an SPH simulation code; giant impact simulations typically use codes like Gadget, SWIFT, or custom SPH solvers. LAPACK may be used internally by those codes but citing it as the simulation tool is misleading — verify and correct -->
   CURRENT FRONTIER:
     Ab initio molecular dynamics (DFT-MD) for high-P/T EOS
     LAPACK for giant impact simulations (SPH: smoothed particle hydrodynamics)
