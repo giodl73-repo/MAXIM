@@ -240,6 +240,7 @@ Treatment: "oiling" = filling surface fractures with cedar oil,
 | Amethyst | Quartz | Fe³⁺ + irradiation | Purple; heat treatment → citrine |
 | Tourmaline | Borosilicate | Fe, Mn, Cr | Widest color range of any gem species |
 | Garnet | Multiple species | Fe, Cr, Mn | Demantoid (green, high dispersion); tsavorite (Cr grossular) |
+<!-- @editor[content/P2]: Duplicate row — tanzanite already listed as first entry in this table; remove this duplicate -->
 | Tanzanite | Zoisite | V³⁺ | Only from Tanzania; pleochroism trichroic |
 
 ---
@@ -289,6 +290,7 @@ Heat treatment is so standard for corundum (~95% treated) that unheated stones c
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to crystallography or solid-state physics (MIT background) — lattice symmetry groups map directly to the 7 crystal systems; a one-line pointer would connect to learner's existing mental model -->
 ## Decision Cheat Sheet
 
 | Scenario | Recommendation |
