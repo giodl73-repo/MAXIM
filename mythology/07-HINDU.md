@@ -402,6 +402,7 @@ One of the most distinctive Hindu cosmological contributions — time as cyclica
 
 ## The Devi: Goddess Traditions
 
+<!-- @editor[content/P2]: Devi/Shakti section is thin relative to the multi-section treatment of Vishnu (Dashavatara, Mahabharata, Ramayana) and Shiva. Shaktism is one of the three major devotional traditions — the Devi Mahatmya narrative (Durga slaying Mahishasura), the Dasha Mahavidyas' individual significance, and the philosophical concept of Shakti as the active principle deserve comparable depth -->
 ```
 SHAKTI — THE DIVINE FEMININE
 

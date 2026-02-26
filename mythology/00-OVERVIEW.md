@@ -4,6 +4,7 @@
 
 Mythology is the systematic study of **sacred narratives** — stories that a culture uses to explain the origin of the world, the nature of divinity, the structure of society, and what it means to be human. Every major civilization independently developed remarkably similar narrative patterns, which is the central puzzle that comparative mythology tries to solve.
 
+<!-- @editor[diagram/P2]: Landscape diagram lists five frameworks vertically but doesn't show how they relate — which compete, which complement, which apply to IE vs. non-IE traditions. Rework as a relationship map or layered view showing overlaps and scope boundaries -->
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                  ANALYTICAL FRAMEWORKS                            │
