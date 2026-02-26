@@ -22,6 +22,7 @@ The first developmental events — fertilization, cleavage, and blastulation —
 
 ---
 
+<!-- @editor[bridge/P2]: No CS/engineering bridge anywhere in this guide. The maternal-to-zygotic transition is a natural "bootstrap loader" analogy — maternal mRNA is firmware, EGA is the OS kernel taking over. The polyspermy block maps to mutex / lock acquisition. Even one bridge paragraph would connect this material to the learner's mental model. -->
 ## Gamete Structure and Function
 
 ```
@@ -58,6 +59,7 @@ ACROSOME REACTION
   Sperm-zona binding: now to ZP2 (secondary receptor, post-acrosome reaction)
 
 SPERM-EGG MEMBRANE FUSION
+<!-- @editor[content/P1]: Claim may be incorrect — verify: JUNO was identified by Bianchi et al. 2014, not Imai et al. 2014. IZUMO1 was identified by Inoue et al. 2005. Also "both named after Shinto gods" is imprecise — JUNO is named after the Roman goddess of fertility, not a Shinto god. -->
   Sperm IZUMO1 protein + egg JUNO protein: fusion mediators (required)
   Both proteins named after Shinto gods (Imai et al. 2014)
 

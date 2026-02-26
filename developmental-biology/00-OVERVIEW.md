@@ -31,6 +31,7 @@ Developmental biology is the science of how a single cell — a fertilized egg �
 
 ---
 
+<!-- @editor[bridge/P2]: No universal CS bridge in the overview — the "same genome, different fates" paradox maps directly to polymorphism / runtime dispatch (same codebase, different behavior based on context). A senior engineer would immediately grasp developmental signaling as event-driven architecture, morphogen gradients as configuration gradients, and Waddington's landscape as an energy landscape / attractor model. One bridge paragraph here would anchor the entire series for a technical reader. -->
 ## The Central Paradox
 
 Every cell in the body has the same DNA (with exceptions). Yet the liver is not the brain, and a muscle cell is not a neuron. Development is the controlled differential deployment of a common genome:
@@ -86,6 +87,7 @@ THREE BODY AXES IN VERTEBRATES
 
 ---
 
+<!-- @editor[bridge/P3]: The signaling pathway table below is a natural place for a "pub-sub / event bus" bridge — these pathways are context-dependent event handlers, not hardcoded functions. A one-liner connecting to event-driven architecture would land well. -->
 ## Cell Signaling Hierarchy in Development
 
 ```
@@ -161,6 +163,7 @@ GERM LAYER DERIVATION: A DIAGNOSTIC TOOL
 
 ---
 
+<!-- @editor[content/P2]: Experimental techniques section absent — no mention of CRISPR, Cre-lox, lineage tracing, optogenetics, or single-cell RNA-seq as tools that have transformed the field. A brief "Key Experimental Approaches" section would complete the overview landscape. -->
 ## Key Model Organisms
 
 ```

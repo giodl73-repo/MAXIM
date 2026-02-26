@@ -27,6 +27,7 @@ Regeneration is the ability to replace lost or damaged body parts — from compl
 +──────────────────────────────────────────────────────────────────+
 ```
 
+<!-- @editor[bridge/P2]: No CS/engineering bridge. The regeneration spectrum maps to "fault tolerance strategies" — planaria does full state reconstruction from checkpoint (like RAID rebuild), liver does compensatory scaling (like auto-scaling a cluster), and mammalian scarring is "fail-fast with degraded service." The intercalation rule is "gap-fill interpolation." These would land extremely well for an engineering audience. -->
 Three mechanistic modes:
 
 ```
@@ -313,6 +314,7 @@ The classical morphogen gradient model predicts pattern by concentration thresho
 +──────────────────────────────────────────────────────────────────+
 ```
 
+<!-- @editor[content/P2]: "Altos Biosciences" should be "Altos Labs" — verify company name -->
 **The partial reprogramming breakthrough**: Yamanaka factors (Oct4, Sox2, Klf4, cMyc) delivered transiently (cycling on/off) to mouse tissue in vivo partially rejuvenate aged cells without inducing pluripotency or tumors (Ocampo et al., Cell 2016; Altos Biosciences paradigm). The theory: briefly lift epigenetic restrictions (age-related methylation), allow cells to access a younger transcriptional state, then turn off before identity loss. This is mechanistically close to what salamanders may do constitutively.
 
 ---

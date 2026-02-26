@@ -25,6 +25,7 @@ The nervous system is the most complex structure built by developmental biology.
 
 ---
 
+<!-- @editor[bridge/P2]: No CS/engineering bridge. Neural development has the richest parallels: inside-out cortical layering is a "stack push" model; axon guidance is "routing with attract/repel metrics" (analogous to BGP path selection); synaptic pruning is "garbage collection of underused connections" or "competitive resource allocation." Retinotopic mapping is a spatial hash function. A bridge paragraph would connect powerfully here. -->
 ## Neural Induction and Neural Plate Formation
 
 ```
@@ -316,6 +317,7 @@ NEUROCRISTOPATHIES
 
 ---
 
+<!-- @editor[content/P2]: Myelination absent — a major phase of neural development (oligodendrocyte wrapping, saltatory conduction, developmental timeline extending into 3rd decade) with clinical relevance (MS, leukodystrophies) -->
 ## Decision Cheat Sheet
 
 | Event | Timing | Key Signal | Defect If Fails |

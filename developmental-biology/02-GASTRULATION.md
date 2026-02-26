@@ -23,6 +23,7 @@ Gastrulation is the most consequential single event in development — Lewis Wol
 
 ---
 
+<!-- @editor[bridge/P2]: No engineering/CS bridge in this guide. Gastrulation as a "deployment pipeline" — cells migrate through a single entry point (primitive streak) and get routed to destinations based on positional signals — maps to message routing in event-driven systems. The organizer secreting inhibitors (not activators) is a "default-allow with selective deny" pattern familiar from firewall rules or permission systems. -->
 ## The Primitive Streak
 
 ```
@@ -204,6 +205,7 @@ FOREGUT, MIDGUT, HINDGUT PATTERNING
 
 ---
 
+<!-- @editor[content/P2]: Primordial germ cell (PGC) specification and migration is thin — mentioned in one line under "Posterior PS" but deserves its own subsection given its significance (germline segregation, epigenetic reprogramming, clinical relevance to gonadal tumors) -->
 ## Ectoderm: The Remaining Layer
 
 ```
