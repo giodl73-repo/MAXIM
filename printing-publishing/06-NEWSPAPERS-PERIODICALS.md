@@ -362,6 +362,7 @@ PHASE 3: CLASSIFIED DOMINANCE (1900s-1990s)
 PHASE 4: DIGITAL ADVERTISING COLLAPSE (2000s-2010s)
   Google (2000): search advertising eats brand spending
   Facebook (2004): social advertising eats local spending
+<!-- @editor[content/P2]: Digital display CPM rates ($1-3/1000) may be outdated — premium digital CPMs have risen significantly (programmatic ~$3-8, video $15-30+); the print-digital gap has narrowed in some segments -->
   Display CPM rates: $25-40/1000 (print) -> $1-3/1000 (digital)
   Newspaper digital revenue: never replaced print losses
   US newspaper ad revenue: $60B (2000) -> $9B (2020)

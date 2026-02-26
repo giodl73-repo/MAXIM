@@ -198,14 +198,14 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `world-languages/` | 15 | 2026-02 | — | 17 tags → pending |
 | `codes/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
 | `typography/` | 12 | 2026-02 | — | 1 tags → pending |
-| `printing-publishing/` | 10 | — | — | |
+| `printing-publishing/` | 10 | 2026-02 | — | 3 tags → pending (7 polished) |
 | `cinema-film/` | 11 | 2026-02 | — | 5 tags → pending |
 | `radio-television/` | 10 | 2026-02 | — | 1 tags -> pending |
 | `literature/` | 10 | 2026-02 | — | 15 tags → pending (1 polished) |
 | `rhetoric/` | 10 | 2026-02 | — | 18 tags → pending |
 | `philosophy-of-language/` | 10 | — | — | |
 | `semiotics/` | 10 | 2026-02 | — | 17 tags → pending |
-| `translation/` | 10 | — | — | |
+| `translation/` | 10 | 2026-02 | — | 1 tags → pending (9 polished) |
 
 ---
 

@@ -111,6 +111,8 @@ SELESKOVITCH'S INTERPRETIVE THEORY — THREE STAGES
 
 ## Gile's Effort Model
 
+<!-- @editor[bridge/P2]: Gile's effort model is a bounded-resource scheduling problem — L+M+P+C <= capacity maps directly to CPU scheduling, bounded buffers, throughput-vs-latency tradeoffs any engineer knows. Making this bridge explicit would land the model faster for the learner. -->
+
 Daniel Gile (*Basic Concepts and Models for Interpreter and Translator Training*, 1995) provides a cognitive load model for simultaneous interpretation:
 
 ```
