@@ -56,7 +56,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 | Card | Title | Image concept |
 |------|-------|---------------|
 | 8♣ | The Fabricator | MOSFET cross-section — gate oxide, source, drain, channel — labeled layer by layer, five identical devices being etched in parallel across the wafer |
-| 8♦ | The Verifier | A state machine — states as circles, transitions as arrows, one path to SAFE, one to UNSAFE |
+| 8♦ | The Verifier | A state machine — states as circles, transitions as arrows, one path to SAFE, one to UNSAFE — and the arrows drawn not by one hand but by a hundred, each state resolved in parallel, the whole machine converging at once |
 | 8♥ | The Planner | Urban grid plan view — zoning blocks labeled R (residential), C (commercial), G (green), I (industrial) |
 | 8♠ | The Operator | A data center rack — servers, switches, patch panel — with power and data flows annotated |
 
