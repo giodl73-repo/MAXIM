@@ -252,6 +252,7 @@ Hamilton (1964): altruistic behavior can evolve if it benefits genetic relatives
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — honest signaling (Zahavi handicap) maps directly to signaling theory in economics/game theory; Spence's job market signaling model has the same structure (costly signal credible because cost inversely correlated with quality); this learner would benefit from this cross-domain bridge -->
 ## Decision Cheat Sheet
 
 | Question | Framework | Key concept |
@@ -266,6 +267,7 @@ Hamilton (1964): altruistic behavior can evolve if it benefits genetic relatives
 
 ---
 
+<!-- @editor[content/P2]: Sexual conflict absent — a major driver of rapid evolution; intra-locus (same trait optimal for different sexes) and inter-locus (chase-away, traumatic insemination) sexual conflict are well-established and deserve coverage alongside the cooperative mate-choice models -->
 ## Common Confusion Points
 
 **Sexual selection is not a special type of natural selection.** Darwin treated them

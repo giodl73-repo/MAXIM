@@ -212,6 +212,7 @@ trends. This remains controversial.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — kill curves are power-law frequency distributions (same structure as reliability engineering failure rates); species selection is multi-level optimization (individual-level vs. group-level selection parallels local vs. global optimization); this learner would benefit from explicit framing -->
 ## Kill Curves and Extinction Selectivity
 
 ### Kill Curves
@@ -319,6 +320,7 @@ At macroevolutionary scales, convergence reveals the limits of adaptive landscap
 
 ---
 
+<!-- @editor[content/P2]: Biogeography absent — continental drift, island biogeography theory (MacArthur-Wilson), and Wallace's line are major macroevolutionary topics that explain geographic distribution patterns; only briefly mentioned in speciation examples -->
 ## Evolutionary Trends and Species Selection
 
 Long-term trends in the fossil record:
@@ -387,6 +389,7 @@ Current extinction rates are estimated at 100-1,000x background:
 
 ---
 
+<!-- @editor[content/P2]: Key innovation concept underserved — adaptive radiation section mentions "key innovation" but doesn't explain the concept (e.g., flight feathers enabling avian radiation, pharyngeal jaws enabling cichlid trophic diversification); deserves its own subsection linking innovation to diversification rate -->
 ## Common Confusion Points
 
 **Punctuated equilibrium does not deny gradual change.** It claims that most morphological

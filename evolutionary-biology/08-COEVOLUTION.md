@@ -219,6 +219,7 @@ exist; figs abort fruits with too many wasp eggs.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — arms race dynamics and Red Queen are directly analogous to adversarial optimization (GAN training, security/exploit cycles); the transmission-virulence trade-off is a constrained optimization problem; this learner would benefit from explicit mapping to optimization/game theory frameworks -->
 ## Geographic Mosaic of Coevolution
 
 Thompson's theory: coevolution does not happen uniformly across a species' range.
@@ -287,6 +288,7 @@ When host and parasite speciate together, their phylogenies should be congruent.
 
 ---
 
+<!-- @editor[content/P2]: Diffuse coevolution absent — most coevolution involves networks of species, not strict pairwise interactions; community-level coevolution (e.g., plant defense against multiple herbivore species, guild-level mutualism) deserves mention -->
 ## Common Confusion Points
 
 **Arms races don't always escalate to extremes.** Multiple factors limit escalation:

@@ -173,6 +173,7 @@ Heterochrony: evolutionary change in the timing or rate of developmental events.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — cis-regulatory modularity is directly analogous to separation of interface from implementation (same function, different call sites); enhancer evolution = changing the binding/dispatch without modifying the shared library; this learner's software architecture background makes this bridge natural -->
 ## Convergent Evolution — What the Toolkit Tells Us
 
 Convergent evolution: independent evolution of similar phenotypes in unrelated lineages.
@@ -249,6 +250,7 @@ can evolve independently.
 
 ---
 
+<!-- @editor[content/P2]: Epigenetic inheritance and transgenerational effects absent — relevant to Extended Evolutionary Synthesis debate mentioned in 00-OVERVIEW; chromatin modifications, DNA methylation, and small RNAs as non-genetic inheritance channels deserve at least a subsection -->
 ## Common Confusion Points
 
 **HOX genes do not "make" structures — they specify positional identity.** HOX genes

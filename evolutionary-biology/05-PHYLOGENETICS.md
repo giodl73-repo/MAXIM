@@ -135,6 +135,7 @@ Compute posterior distribution P(T, θ | data) using Bayes' theorem and MCMC.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — phylogenetic ML inference is maximum likelihood estimation with tree topology as the latent structure; Bayesian MCMC is the same posterior sampling framework used in probabilistic graphical models; this learner has the statistical foundations from MIT math and would benefit from an explicit bridge box -->
 ## Substitution Models
 
 DNA evolves non-uniformly. Models account for:
@@ -241,6 +242,7 @@ Sources of calibration:
 
 ---
 
+<!-- @editor[content/P2]: Network phylogenetics absent — significant gap for modern phylogenomics; the "tree of life" for bacteria/archaea is actually a network due to HGT, and split graphs / phylogenetic networks deserve mention alongside tree methods -->
 ## Ancestral State Reconstruction
 
 Given a tree and character states at the tips, infer states at internal nodes
