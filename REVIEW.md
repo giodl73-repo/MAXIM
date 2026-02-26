@@ -103,24 +103,24 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `natural-sciences/` | 18 | — | — | |
+| `natural-sciences/` | 18 | 2026-02 | — | 17 tags → pending (3 polished) |
 | `biology/` | 7 | 2026-02 | — | 12 tags → pending |
-| `botany/` | 10 | 2026-02 | — | sweeping |
+| `botany/` | 10 | 2026-02 | — | 4 tags → pending (6 polished) |
 | `ecology/` | 11 | 2026-02 | — | 23 tags → pending |
 | `human-biology/` | 11 | 2026-02 | — | 17 tags → pending |
-| `neuroscience/` | 5 | 2026-02 | — | 13 tags → pending (1 file polished) |
+| `neuroscience/` | 5 | 2026-02 | — | 13 tags → pending (1 polished) |
 | `cognitive-science/` | 10 | — | — | |
 | `disease/` | 11 | 2026-02 | — | 13 tags → pending |
 | `medicine/` | 11 | 2026-02 | — | 14 tags → pending |
-| `nutrition/` | 10 | 2026-02 | — | sweeping |
-| `genomics/` | 10 | 2026-02 | — | sweeping |
-| `immunology/` | 10 | 2026-02 | — | sweeping |
+| `nutrition/` | 10 | 2026-02 | — | 7 tags → pending (4 polished) |
+| `genomics/` | 10 | 2026-02 | — | 6 tags → pending (4 polished) |
+| `immunology/` | 10 | 2026-02 | — | 7 tags → pending (4 polished) |
 | `microbiology/` | 10 | 2026-02 | — | swept, injection pending |
-| `evolutionary-biology/` | 10 | — | — | |
-| `virology/` | 10 | — | — | |
-| `biophysics/` | 10 | — | — | |
-| `pharmacology/` | 10 | — | — | |
-| `developmental-biology/` | 10 | — | — | |
+| `evolutionary-biology/` | 10 | 2026-02 | — | 20 tags → pending |
+| `virology/` | 10 | — | — | blocked (content policy) |
+| `biophysics/` | 10 | 2026-02 | — | 16 tags → pending |
+| `pharmacology/` | 10 | 2026-02 | — | 16 tags → pending |
+| `developmental-biology/` | 10 | 2026-02 | — | 21 tags → pending |
 
 ---
 
@@ -278,7 +278,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | Mathematics & Physics | 20 | 0 | 0 | 20 |
 | Mechanics | 14 | 0 | 0 | 14 |
 | Technology | 9 | 0 | 0 | 9 |
-| Life Sciences | 18 | 0 | 7 | 11 |
+| Life Sciences | 18 | 0 | 16 | 2 |
 | Earth & Space | 14 | 0 | 0 | 14 |
 | History & Ideas | 15 | 0 | 0 | 15 |
 | Social Sciences | 16 | 0 | 0 | 16 |
