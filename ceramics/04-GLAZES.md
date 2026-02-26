@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P2]: No old-world→new-world bridge — the learner knows glass chemistry concepts from materials science; a bridge from silicate glass (windows, optical fiber) → glaze glass (same SiO₂ network, different flux/alumina ratios) would unify the chemistry immediately -->
 # Glazes — Chemistry, Colorants, Surface Types, Firing Atmosphere
 
 ## The Big Picture
@@ -40,6 +41,7 @@ THREE REQUIRED COMPONENTS (Unity Molecular Formula / Seger formula):
 
 ---
 
+<!-- @editor[audience/P3]: The UMF section explains normalization of molar ratios — the learner has MIT chemistry; this is straightforward stoichiometry. Focus on what makes UMF different from standard molar notation (the unity normalization convention) rather than explaining what moles are -->
 ## Glaze Chemistry: The Seger / Unity Molecular Formula
 
 ```

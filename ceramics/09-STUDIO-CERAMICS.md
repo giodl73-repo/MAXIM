@@ -1,3 +1,4 @@
+<!-- @editor[bridge/P2]: No old-world→new-world bridge — the studio ceramics movement (individual craft vs industrial mass production) parallels the open-source/artisanal software movement vs enterprise software; the "Leach vs factory" debate maps to "indie dev vs BigCo" that the learner lives -->
 # Studio Ceramics — Bernard Leach, Mingei, Raku, Contemporary Practice
 
 ## The Big Picture
@@ -290,6 +291,7 @@ SIGNIFICANCE:
 
 ---
 
+<!-- @editor[content/P2]: Contemporary section omits the significant ceramic art market in East Asia — Korean and Japanese contemporary ceramicists (Isezaki Jun, Park Young-sook) and the Jingdezhen revival as global studio destination; Western-centric gap -->
 ## Contemporary Ceramics Landscape
 
 ```
