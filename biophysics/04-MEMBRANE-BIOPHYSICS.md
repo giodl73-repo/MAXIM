@@ -391,12 +391,15 @@ Biological curvature generation:
   → Allows K⁺ in but not out at depolarized potentials
   → Sets resting potential in cardiomyocytes
 
+<!-- @editor[content/P1]: Claim may be incorrect — verify: hERG is KCNH2 (Kv11.1), not KVLQT which is KCNQ1 (Kv7.1); these are distinct cardiac K+ channels -->
   hERG (cardiac KVLQT):
   → Drug binding causes long-QT syndrome (arrhythmia)
   → ~200 drugs affect hERG: must screen all new drugs
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge section — the RC circuit model, Kirchhoff's current law, and cable theory are all directly from electrical engineering; making this explicit would anchor the learner who knows circuit theory cold -->
 
 ## Decision Cheat Sheet
 

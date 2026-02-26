@@ -358,6 +358,7 @@ Spiking neural networks attempt to re-incorporate the temporal dynamics:
   └────────────────────────────────────────────────────────────────────┘
 ```
 
+<!-- @editor[audience/P3]: The learner has dynamical systems background from MIT TCS — could briefly note the bifurcation classification (Type I: SNIC, Type II: Hopf) maps to neuron firing classes (Class 1 vs Class 2 excitability) -->
 ### Phase Plane Analysis of Excitability
 
 For FitzHugh-Nagumo (2D reduction), the dynamics are visible in phase space:

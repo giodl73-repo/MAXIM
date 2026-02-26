@@ -520,6 +520,7 @@ functional annotation, no experimental validation, and no knowledge of cellular
 context. The database is a hypothesis repository — useful for hypothesis generation
 but not a replacement for experiment.
 
+<!-- @editor[content/P2]: AlphaFold3 access status may be outdated — AF3 weights were released in late 2024; verify current availability and whether Boltz-1/Chai-1 remain the primary open alternatives -->
 **AlphaFold3 is not fully open.** Unlike AF2 (published with full code and weights),
 AF3 was initially released as a server with restricted access and without full
 model weights. This limits community use and validation. The open-source community

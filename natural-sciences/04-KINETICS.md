@@ -1,3 +1,4 @@
+<!-- @editor[diagram/P2]: Opening comparison table (thermo vs kinetics) is useful but not a landscape diagram — doesn't show how rate laws, Arrhenius, TST, mechanisms, and catalysis relate to each other as a system. Consider a visual map: experimental observables → rate law → mechanism → theory (collision, TST) → catalysis. -->
 # 04-KINETICS — Chemical Kinetics
 
 > Rate laws, integrated equations, Arrhenius, transition state theory, mechanisms,

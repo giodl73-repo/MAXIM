@@ -256,6 +256,7 @@ Applications:
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge for plasma waves — dispersion relations are the same mathematical structure as signal processing and wave optics. EM waves in plasma (cutoff at omega_p) parallel to waveguide cutoff frequencies. The learner's engineering background makes waveguide-to-plasma the natural bridge. -->
 ## Plasma Waves
 
 ### Wave Taxonomy

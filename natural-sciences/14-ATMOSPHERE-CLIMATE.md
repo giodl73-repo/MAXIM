@@ -274,6 +274,7 @@ Feedback factor:
 
 ## General Circulation Models (GCMs)
 
+<!-- @editor[bridge/P2]: No old-world bridge for GCMs — these are fundamentally PDE solvers with parameterized subgrid physics, analogous to FEM/CFD codes. A software leader who built CI/CD at VSTS would connect to: spectral methods = FFT-based PDE solvers, parameterizations = plug-in physics modules, ensemble runs = Monte Carlo testing of chaotic systems. -->
 ### Architecture
 
 ```

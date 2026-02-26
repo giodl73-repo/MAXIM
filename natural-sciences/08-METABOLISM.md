@@ -174,6 +174,7 @@ The electron transport chain (ETC) in the inner mitochondrial membrane.
 Electrons flow from NADH/FADH₂ through protein complexes to O₂, pumping
 protons to create the electrochemical gradient that drives ATP synthesis.
 
+<!-- @editor[bridge/P2]: No old-world bridge for oxidative phosphorylation — Mitchell's chemiosmotic hypothesis is essentially a charge-separation capacitor driving a rotary motor. For a learner with engineering background, the analogy to electrochemical cells (05-ELECTROCHEMISTRY.md) and turbines is natural and missing here. -->
 ### The Five Complexes
 
 ```

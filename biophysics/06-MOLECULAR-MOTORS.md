@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[diagram/P3]: Landscape diagram is a categorized inventory — could show the shared mechanochemical cycle (ATP bind -> conformational change -> force -> product release) that unifies all motors, with linear/rotary as structural variants of the same engine -->
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                 MOLECULAR MOTORS LANDSCAPE                                │
@@ -23,6 +24,7 @@
 │  None                 ATP synthase    Proton gradient → ATP              │
 │  Flagellar basal body Flagellar motor Bacterial motility                  │
 │                                                                            │
+<!-- @editor[content/P1]: Claim may be incorrect — verify: kinesin stall force is ~7 pN and step is 8 nm, giving ~56 pN*nm max work (~14 k_BT); the "8 pN*nm = 2 k_BT" figure appears inconsistent with Section 2's own calculation -->
 │  ENERGY SCALE:                                                             │
 │  Kinesin step: 8 nm per ATP, ~8 pN·nm = 2 k_BT of work                  │
 │  Stall force:  kinesin ~7 pN, myosin II ~3-5 pN per head                 │
@@ -381,6 +383,8 @@ Force-velocity curves and stall forces measured with optical tweezers (see also
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No old-world bridge section — natural parallels: state machines / Markov chains (CS) to motor mechanochemical cycles, ratchet mechanisms in mechanical engineering, efficiency and work in classical thermodynamic engines to molecular motor efficiency -->
 
 ## Decision Cheat Sheet
 

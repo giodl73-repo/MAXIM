@@ -371,6 +371,8 @@ invisible in most other techniques.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — natural parallels exist: chemical engineering energy balances to biological free energy transduction, electrical circuit theory to membrane equivalent circuits, or classical thermo engine efficiency to mitochondrial ATP yield -->
+
 ## Decision Cheat Sheet
 
 | Question | Concept | Formula / Value |

@@ -372,6 +372,8 @@ emerging chain and begin folding before synthesis completes.
 
 ---
 
+<!-- @editor[bridge/P2]: No old-world bridge section — natural parallels: combinatorial search/pruning (CS) to funnel-guided folding, NP-hard optimization landscapes to protein energy landscapes, error-correction codes to chaperone quality control -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer | Module |

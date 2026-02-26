@@ -174,6 +174,7 @@ Second messengers:
   Ca²⁺: calmodulin (CaM) → CaM-kinases, calcineurin, myosin light chain kinase
 ```
 
+<!-- @editor[bridge/P3]: Natural bridge to CS/software — signal transduction cascades are event-driven architectures with amplification, feedback, and timeout (GTPase timer). GPCR → second messenger → kinase cascade mirrors pub/sub with message amplification. The learner's software architecture background makes this connection natural. -->
 ### RTK / RAS / MAPK Cascade
 
 ```

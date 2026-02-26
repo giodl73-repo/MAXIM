@@ -1,3 +1,4 @@
+<!-- @editor[diagram/P2]: No landscape diagram — guide opens with text explanation of redox. Needs an ASCII diagram showing the field: redox foundations → electrochemical cells (galvanic/electrolytic) → Nernst/thermodynamic links → applications (batteries, corrosion, electrolysis, Pourbaix). The Core Idea section is good content but not a structural map. -->
 # 05-ELECTROCHEMISTRY — Electrochemistry
 
 > Redox reactions, electrochemical cells, Nernst equation, batteries, electrolysis,

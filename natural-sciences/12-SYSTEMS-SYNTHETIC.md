@@ -50,6 +50,7 @@ Example: negative feedback oscillator
   Delayed negative feedback → oscillation (circadian clock motif)
 ```
 
+<!-- @editor[bridge/P3]: Natural bridge to CS — Boolean networks are finite state automata. Kauffman NK model maps to random Boolean circuits. This learner's TCS background (MIT) would benefit from explicit connection to automata theory, SAT, and state-space explosion. -->
 ### Boolean Network Models
 
 Simplest abstraction: each gene is ON (1) or OFF (0).

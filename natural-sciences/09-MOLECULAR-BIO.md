@@ -324,6 +324,7 @@ Layers of eukaryotic regulation:
 
 ---
 
+<!-- @editor[bridge/P3]: Natural bridge to CS — CRISPR-Cas is a biological pattern-matching + find-and-replace system. The PAM requirement is a search constraint (like regex anchoring). For a software leader, the analogy to sed/grep with a guide RNA as the search pattern would be instantly clarifying. -->
 ## CRISPR-Cas9 Mechanism
 
 ```

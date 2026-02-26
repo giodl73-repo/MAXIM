@@ -6,6 +6,7 @@
 
 ---
 
+<!-- @editor[diagram/P2]: The Four Laws section is an excellent text summary but not a landscape diagram — it lists laws sequentially without showing how they connect to the rest of the guide (equilibrium, phase diagrams, Gibbs, Hess, colligative properties). A visual map showing these relationships would anchor the layered drill-down. -->
 ## The Four Laws — Quick Map
 
 ```
