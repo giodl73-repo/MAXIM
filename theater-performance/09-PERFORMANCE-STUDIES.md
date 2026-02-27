@@ -234,7 +234,8 @@ The Grotowski connection:
 
 J.L. Austin's **How to Do Things with Words** (1962) introduced the distinction that became central to performance studies:
 
-<!-- @editor[bridge/P2]: Austin's performative speech act theory has a direct structural parallel to type theory and formal verification that's worth noting for this learner — a performative is an utterance whose semantic content IS its execution; felicity conditions are preconditions/invariants; an infelicitous performative is a precondition failure. The distinction constative/performative maps roughly to denotational vs. operational semantics: a constative describes a world-state; a performative changes it. Any MIT TCS graduate will recognize the formal structure immediately; naming the parallel would make this section richer in one sentence. -->
+For the TCS reader: a performative is an utterance whose semantic content IS its execution (saying "I promise" creates the promise). Felicity conditions are preconditions/invariants; an infelicitous performative is a precondition failure. The constative/performative distinction maps to denotational vs. operational semantics: a constative describes a world-state; a performative changes it.
+
 ```
 AUSTIN'S SPEECH ACT THEORY
 ----------------------------
@@ -457,7 +458,11 @@ THE DIGITAL AGE COMPLICATION:
     New form? Or deficit simulation of theater?
 
 No consensus; the debate continues and is generative.
-<!-- @editor[content/P2]: The digital performance section raises the live/recorded question but doesn't address the technology — networked performance (telematic performance, Jack Carpenter's work with latency-aware composition), avatar-mediated performance (performers in mocap driving real-time avatars), and VR/XR theater all have specific technical architectures that shape the performance. The latency problem alone (network jitter making synchronous ensemble performance impossible beyond ~20ms round-trip) is a systems engineering constraint that reshapes what digital theater can be. This connects directly to the learner calibration's "digital theater technology" target. -->
+Technical architectures of digital performance:
+
+- **Telematic performance**: Networked performers in different locations. The hard constraint: synchronous ensemble performance requires <20ms round-trip latency (the threshold of perceptible audio delay). Network jitter makes this impossible beyond local metro distances without latency-aware composition (deliberately designing for delay). JackTrip and LoLa are dedicated low-latency audio networking systems designed for this use case.
+- **Avatar-mediated performance**: Performers in motion capture suits drive real-time avatars (Unreal Engine, Unity). The audience sees the avatar; the performer is elsewhere. Used in VTuber culture, experimental theater (Royal Shakespeare Company's *The Tempest* with Intel RealSense tracking), and virtual concert environments.
+- **VR/XR theater**: Audience members wear headsets and move through a virtual space shared with performers (or their avatars). The ontological question: is this theater (shared liveness) or cinema (mediated by a device)? No consensus; the debate is generative.
 ```
 
 ---

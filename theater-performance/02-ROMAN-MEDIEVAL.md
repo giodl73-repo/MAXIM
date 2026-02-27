@@ -138,7 +138,38 @@ ELIZABETHAN SENECAN INFLUENCE:
 
 ---
 
-<!-- @editor[content/P2]: Roman permanent stone theater architecture is absent — the Theatrum Pompei (55 BCE, first permanent Roman theater), the semi-circular cavea vs. Greek hillside design, the scaenae frons as a permanent decorated facade replacing the Greek skene building. These are significant architectural engineering differences from Greek theaters that shaped the stagecraft. The section goes from Seneca directly to popular performance without covering the physical infrastructure. -->
+### Roman Theater Architecture
+
+Roman theaters represented a fundamental engineering departure from Greek precedent:
+
+```
+GREEK vs. ROMAN THEATER ARCHITECTURE
+--------------------------------------
+GREEK:                          ROMAN:
+  Built into hillside             Freestanding structure
+  (natural excavation)            (barrel-vaulted substructure)
+  Orchestra = full circle         Orchestra = semicircle
+  Skene = temporary building      Scaenae frons = permanent
+  that evolved into stone           multi-story decorated facade
+  Open to landscape               Enclosed: cavea + scaena
+  behind stage                      connected, no exterior view
+
+THEATRUM POMPEI (55 BCE):
+  First permanent stone theater in Rome.
+  Pompeius circumvented the Senate ban on permanent
+  theaters by adding a temple of Venus at the top —
+  technically a temple with seats.
+  Capacity: ~11,000. Semi-circular cavea.
+  Scaenae frons: 3-story decorated stone facade with
+  columns, statues, and architectural detailing.
+  The scaenae frons IS the permanent set — it replaced
+  the painted scenery function of the Greek skene.
+```
+
+The Roman scaenae frons created a fixed visual relationship between performers and background that persisted for 1,500 years — and directly influenced the Renaissance proscenium arch.
+
+---
+
 ## Layer 2: Roman Spectacle — The Other Tradition
 
 Roman theatrical culture was not only comedy and tragedy. The popular forms were often more important:

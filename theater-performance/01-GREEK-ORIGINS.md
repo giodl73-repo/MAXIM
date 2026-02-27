@@ -142,8 +142,9 @@ WHAT HAPPENED WHERE:
   of the orchestra — performances literally in his presence
 ```
 
-<!-- @editor[bridge/P3]: The stage machinery section describes the ekkyklema and mechane as theatrical devices but doesn't connect to the mechanical engineering they represent — these are crane systems, rolling platforms, and rope/pulley mechanisms operating in real-time performance. The "deus ex machina" was a load-bearing crane; the ekkyklema a wheeled dolly. A brief note on the engineering constraints (load, timing, sight-lines as the "spec") would resonate with this learner without breaking the flow. -->
 ### Stage Machinery
+
+These are real-time mechanical engineering systems: the mechane is a load-bearing crane (rope, pulley, counterweight) operating during live performance with timing constraints and sight-line specifications. The ekkyklema is a wheeled platform on tracks. Both required rehearsed coordination between operators and performers — the earliest examples of stagecraft as engineering discipline.
 
 ```
 THEATRICAL MACHINERY
