@@ -281,7 +281,11 @@ EQUAL-AREA PROJECTION COMPARISON
 CONFORMAL PROJECTION COMPARISON
 ══════════════════════════════════════════════════════════════════════
 
-<!-- @editor[content/P2]: EPSG codes are used throughout this file (EPSG:3857, EPSG:4326) without explaining what they are. The EPSG (European Petroleum Survey Group) registry (now maintained by IOGP) assigns standardized integer codes to coordinate reference system definitions. epsg.io is the lookup tool. EPSG:4326 = WGS84 geographic (lat/lon in degrees); EPSG:3857 = Web Mercator (meters, spherical). The practical workflow: look up EPSG code at epsg.io, use in PostGIS/QGIS/PROJ. The explanation belongs here as a brief aside when first introduced, not deferred entirely to 08-GIS. -->
+  NOTE: EPSG codes are standardized integer identifiers for coordinate reference systems,
+  maintained by the International Association of Oil & Gas Producers (formerly EPSG).
+  Lookup: epsg.io. Key codes: EPSG:4326 = WGS84 geographic (lat/lon, degrees);
+  EPSG:3857 = Web Mercator (x/y, meters, spherical). Use in PostGIS/QGIS/PROJ.
+
   MERCATOR:
   - Cylindrical conformal
   - Straight rhumb lines
