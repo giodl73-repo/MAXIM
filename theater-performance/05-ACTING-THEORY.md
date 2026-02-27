@@ -344,6 +344,7 @@ enables spontaneous musical feeling. You cannot
 improvise freely without mastery of the grammar.
 The more internalized the technique, the freer the feeling.
 ```
+<!-- @editor[bridge/P3]: The jazz analogy is good but the direct software parallel is closer: technique-as-compiled-runtime vs. feeling-as-emergent-behavior. The Diderot paradox maps cleanly to the difference between a formal specification (reliable, consistent, "dead" in isolation) and runtime behavior (alive, variable). The structured decomposition section above already makes the CS bridge explicitly; a brief echo here would close the loop. Low priority given the jazz analogy already works. -->
 
 ---
 

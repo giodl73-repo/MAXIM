@@ -138,6 +138,7 @@ ELIZABETHAN SENECAN INFLUENCE:
 
 ---
 
+<!-- @editor[content/P2]: Roman permanent stone theater architecture is absent — the Theatrum Pompei (55 BCE, first permanent Roman theater), the semi-circular cavea vs. Greek hillside design, the scaenae frons as a permanent decorated facade replacing the Greek skene building. These are significant architectural engineering differences from Greek theaters that shaped the stagecraft. The section goes from Seneca directly to popular performance without covering the physical infrastructure. -->
 ## Layer 2: Roman Spectacle — The Other Tradition
 
 Roman theatrical culture was not only comedy and tragedy. The popular forms were often more important:
