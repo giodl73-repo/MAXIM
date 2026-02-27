@@ -163,6 +163,8 @@ MAPPER ALGORITHM:
   4. Connect clusters with shared points.
   Result: a graph (or simplicial complex) summarizing the shape of data.
   Used in breast cancer survival analysis (Carlsson group) — identified a subtype.
+
+<!-- @editor[content/P2]: Mapper algorithm description is correct but thin on the theoretical basis. Missing: (1) the connection to Reeb graphs (Mapper = a generalized Reeb graph); (2) the nerve theorem that justifies Mapper — the nerve of a cover has the same homotopy type as the covered space under good cover conditions; (3) the role of the filter function choice and how different filters give different topological summaries; (4) the multiscale Mapper (varying cover resolution). For a learner at this level, the "why it works" is as important as the recipe. -->
 ```
 
 ---
@@ -443,6 +445,7 @@ GRASP PLANNING:
 ## Topological Methods in Other Fields
 
 ```
+<!-- @editor[content/P1]: Knot theory connections to biology/physics are flagged as "DOES need" in the learner calibration, but the current treatment is 5 lines buried under "Topological Methods in Other Fields." This needs substantial expansion. Required content: (1) DNA topology — supercoiling, linking number of DNA strands, topoisomerases as knot-simplifying enzymes (Type I changes writhe, Type II changes crossing number), the Călugăreanu-White-Fuller theorem (Lk = Tw + Wr); (2) protein knotting — how knotted proteins are classified using the same knot invariants; (3) the Alexander polynomial as the determinant of the knot's Seifert matrix (the linear algebra a TCS person can compute); (4) knot groups π₁(S³ \ K) and their Wirtinger presentations (bridge to 06-FUNDAMENTAL-GROUP.md); (5) the connection between Jones polynomial and quantum computing via Witten's Chern-Simons theory. The current paragraph is a stub of what a "DOES need" topic requires. -->
 KNOT THEORY:
   A knot = embedding of S¹ in S³.
   Knot invariants: Jones polynomial, Alexander polynomial, HOMFLY polynomial.
@@ -468,6 +471,10 @@ TOPOLOGICAL QUANTUM FIELD THEORY (TQFT):
   Chern-Simons theory: 3D TQFT with Jones polynomial as partition function.
   BF theory: topological field theory in any dimension.
   Witten-Donaldson: 4D TQFT counting instantons = Donaldson invariants.
+
+<!-- @editor[content/P1]: Missing ∞-categories and HoTT as applications of topology — explicitly flagged in learner calibration as "DOES need." The applications file should include: (1) Homotopy Type Theory — topology as a foundation for mathematics; types are spaces, proofs are paths, higher equalities are homotopies. The univalence axiom (Voevodsky): equivalent types are equal. HoTT is both a programming languages / type theory topic (TCS learner connection) and a modern development in topology. (2) ∞-categories — the (∞,1)-category of spaces (∞-groupoids), ∞-topoi (Lurie's "Higher Topos Theory"), the cobordism hypothesis. These modern developments are the frontier of topology and the learner explicitly needs them. Currently entirely absent from the guide. -->
+
+<!-- @editor[structure/P2]: The applications file covers TDA, condensed matter physics, and robotics well, but the "DOES need" list includes several items that either have no dedicated section or are too brief: (1) differential topology bridge to differential geometry — no section (should reference Morse theory, Atiyah-Singer); (2) ∞-categories / HoTT — entirely missing; (3) knot theory connections to biology/physics — stub. Consider adding a Part 4 on modern foundations (HoTT, ∞-cats) and substantially expanding the knot theory section. -->
 ```
 
 ---

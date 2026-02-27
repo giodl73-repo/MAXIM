@@ -220,6 +220,8 @@ DEFORMATION RETRACT: r: X → A ⊆ X with r|_A = id_A and r ≃ id_X.
 
 ---
 
+<!-- @editor[content/P2]: Missing homotopy type theory (HoTT) connection — directly relevant to the learner per calibration. In HoTT, types are ∞-groupoids; paths between points are identifications; homotopy equivalence becomes the fundamental notion of equality. The identity type Id_A(a,b) is exactly π₁-like structure. Since the learner needs "modern developments (∞-categories, HoTT)" this file — which defines homotopy equivalence and contractibility — is the natural place for a paragraph bridging classical homotopy to HoTT's reinterpretation. -->
+
 ## Common Confusion Points
 
 **"Bijective + continuous = homeomorphism."**

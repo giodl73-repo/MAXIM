@@ -1,5 +1,7 @@
 # Qubits, Quantum Gates & Circuits
 
+<!-- @editor[diagram/P1]: No opening landscape diagram — guide jumps directly into qubit math without mapping the full circuit model territory (qubits → gates → multi-qubit states → measurement → circuits → no-cloning → Clifford/Pauli groups). Learner needs a single diagram showing how these pieces fit before the drill-down begins. -->
+
 ## The Qubit — Mathematical Foundation
 
 A qubit is a unit vector in ℂ²:
@@ -243,6 +245,8 @@ SYNDROME MEASUREMENT (for error correction):
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No bridge from classical Markov/stochastic processes to the Lindblad master equation — learner has strong probability background from MIT; the Lindblad equation is the quantum analog of a classical master equation (Fokker-Planck for density matrices), and the jump operators Lⱼ correspond directly to classical transition rate terms. A one-line bridge here would anchor the formalism immediately. -->
 
 ## Density Matrices (Mixed States)
 

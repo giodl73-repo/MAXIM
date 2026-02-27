@@ -29,6 +29,8 @@ Compactness is the most important single concept in point-set topology.
 It turns infinite arguments into finite ones. It's why continuous functions
 on closed bounded intervals achieve their maximum — a fact that requires proof.
 
+<!-- @editor[bridge/P2]: No bridge from topological compactness to the compactness theorem in logic (which is mentioned later, but the connection to TCS should come here). The learner's MIT TCS background means: first-order logic compactness ↔ Tychonoff for {0,1}^A is a landmark insight. Also missing: the algorithmic/complexity connection — compact = "finite in disguise," which is why compactness arguments in complexity theory (e.g., finite model theory, compactness of propositional proof systems) work. -->
+
 ---
 
 ## Definitions and Equivalences

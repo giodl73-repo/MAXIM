@@ -174,6 +174,8 @@ RANDOM n-QUBIT ANSATZ:
 → Need exponentially many shots to estimate gradient to noise-floor precision
 ```
 
+<!-- @editor[bridge/P2]: "Approximate unitary 2-design" is used without anchoring to the learner's linear algebra background. A 2-design is a distribution over unitaries that matches the Haar measure on the unitary group through second moments — analogous to a classical 2-wise independent hash family. The implication (cost function is nearly constant on the unit sphere in ℂ^(2^n)) follows from the same concentration-of-measure arguments the learner has seen in random matrix theory or high-dimensional probability. One sentence bridging "2-design → Haar-uniform → concentration of measure" would make this immediately graspable. -->
+
 **Why it happens:** Deep random circuits form approximate unitary 2-designs. The state |ψ(θ)⟩ is essentially uniformly distributed on the Hilbert space. The cost function is nearly constant on this sphere, so all gradients are exponentially small.
 
 **Formal statement (McClean et al. 2018):** For a unitary 2-design U(θ) and global observable O:

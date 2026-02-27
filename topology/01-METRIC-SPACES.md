@@ -28,6 +28,7 @@
 
 ---
 
+<!-- @editor[audience/P3]: The axioms section restates d(x,y)=0 iff x=y and triangle inequality from scratch. Learner has MIT analysis — drop the definitional prose, lead with the interesting structure (ultrametric, Gromov-Hausdorff, metric geometry). -->
 ## Metric Axioms and Examples
 
 ```
@@ -39,6 +40,8 @@ STANDARD METRICS:
   p-adic: dₚ(m,n) = p^{-v_p(m-n)} where v_p = p-adic valuation.
   Hamming: d(x,y) = |{i : xᵢ ≠ yᵢ}| on strings of length n.
   Hausdorff: on compact subsets of a metric space.
+
+<!-- @editor[content/P2]: Missing Gromov-Hausdorff distance — the metric on the space of metric spaces up to isometry. Critical for TDA and shape analysis (persistence diagrams use it implicitly); learner needs this bridge to understand why TDA stability theorems are stated the way they are. Also missing: ultrametric spaces (d(x,z)≤max(d(x,y),d(y,z))) — arise naturally in p-adic analysis (which is listed above) and in hierarchical clustering, which is a direct bridge to TDA. -->
 
 Lᵖ SPACES:
   Lᵖ([0,1]) = {measurable f : ∫|f|ᵖ < ∞}, d(f,g) = (∫|f-g|ᵖ)^{1/p}.
@@ -157,6 +160,7 @@ BAIRE: In a complete metric space X, if X = ∪Aₙ (countable union), then
   at least one Aₙ has nonempty interior.
   Equivalently: intersection of countably many dense open sets is dense.
 
+<!-- @editor[bridge/P2]: No bridge from Baire category to computability/descriptive set theory. The learner has MIT TCS — Borel sets, analytic sets, and the Borel hierarchy are the TCS connection (decidable = Borel, semidecidable = Σ₁⁰, etc.). Baire category and meager sets appear in descriptive complexity. Worth a paragraph here. -->
 APPLICATIONS:
   Open mapping theorem: Continuous surjective linear map between Banach spaces is open.
     (Proof uses Baire → one term of the preimage has nonempty interior → expand.)

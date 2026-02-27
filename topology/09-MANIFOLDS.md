@@ -216,6 +216,10 @@ CURVATURE:
     Connects curvature (local/differential) to Euler characteristic (global/topological).
     For S²: ∫_{S²} K dA = 4π = 2π · χ(S²) = 2π · 2. ✓
     For T²: ∫_{T²} K dA = 0 = 2π · 0. ✓
+
+<!-- @editor[content/P1]: Missing Morse theory — the single most important bridge between differential topology and the rest of the guide. Morse theory (Milnor's book is the reference) says: a smooth function f: M → R with isolated non-degenerate critical points completely determines H*(M). Each critical point of index k attaches a k-cell. The Morse inequalities: bₖ ≤ Cₖ (Betti number ≤ count of index-k critical points). The Morse complex gives an efficient chain complex computing H*. This is: (1) the bridge to differential geometry (critical points of the height function on a surface); (2) the foundation of TDA's sublevel-set persistence; (3) the tool used in Smale's h-cobordism proof; (4) the precursor to Floer homology. Its absence is a P1 gap given the learner's profile and the guide's stated scope ("differential topology bridge to differential geometry"). -->
+
+<!-- @editor[bridge/P2]: Gauss-Bonnet is given but its generalization — the Chern-Gauss-Bonnet theorem for higher-dimensional manifolds (∫_M Pf(Ω) = χ(M), where Pf is the Pfaffian of the curvature form) — is missing. More importantly, the Atiyah-Singer index theorem (which generalizes Gauss-Bonnet, Hirzebruch-Riemann-Roch, and more) is not mentioned in this guide at all. For a learner who has seen the Chern-Weil material in 08-COHOMOLOGY.md, the index theorem is the apex of the differential topology → differential geometry bridge. -->
 ```
 
 ---
@@ -357,6 +361,8 @@ COBORDISM:
   Two n-manifolds M, N are cobordant if ∃ (n+1)-manifold W with ∂W = M ⊔ N.
   Cobordism classes form a ring under disjoint union (addition) and product (multiplication).
   Thom's theorem: oriented cobordism ring ⊗Q = Q[CP², CP⁴, CP⁶, ...] (polynomial on CP^{2k}'s).
+
+<!-- @editor[content/P2]: Missing the connection between cobordism and TQFT — a key modern application. A TQFT is precisely a symmetric monoidal functor from the cobordism category Cob(n) to Vect. Atiyah's axioms define TQFT in these terms. The cobordism hypothesis (Lurie, 2009) classifies all fully extended TQFTs in terms of ∞-categories. This is the "modern development" connection the learner needs, and cobordism is exactly where it attaches. -->
 
 EXOTICA IN HIGH DIMENSIONS:
   Kervaire-Milnor (1963): exotic n-spheres for n ≥ 7.
