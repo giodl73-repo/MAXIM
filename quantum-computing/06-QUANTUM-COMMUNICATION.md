@@ -336,7 +336,11 @@ STATUS (2025):
 
 **QKD ≠ quantum computing.** QKD is about key distribution using quantum channel properties (no-cloning, measurement disturbance). It does not require a quantum computer. A QKD system is closer to an optical communications device than a quantum processor.
 
+<!-- @editor[bridge/P3]: Learner has deep systems/security background (built authentication infrastructure at VSTS/Azure DevOps). The connection between BB84's classical authentication requirement and the standard MAC/HMAC infrastructure they've deployed is a natural bridge — BB84 needs information-theoretically secure authentication (Wegman-Carter MACs over a short shared secret), not computationally secure MACs. This is a practical deployment question any architect would ask immediately. -->
+
 **BB84 security requires an authenticated classical channel.** Without authentication, BB84 is vulnerable to a man-in-the-middle attack: Eve intercepts everything, runs BB84 with Alice pretending to be Bob, and BB84 with Bob pretending to be Alice. Authentication can use classical MACs — but these require a short pre-shared secret (information-theoretically secure authentication can extend it from a short seed key).
+
+<!-- @editor[content/P2]: The QKD vs PQC decision is critically important for this learner (VP of Engineering deciding infrastructure investment) but is only in Common Confusion Points, not in a dedicated section. The practical decision framework — QKD only makes sense when: (1) channel is point-to-point, (2) adversary has long-term quantum capability AND targets your data specifically, (3) information-theoretic security required (vs computational) — should be prominent. For the vast majority of enterprise workloads, ML-KEM is the right answer and QKD is operationally complex with minimal security benefit. This needs a direct "QKD vs PQC" comparison table in the body, not buried in confusion points. -->
 
 **QKD does not replace TLS for most applications.** QKD distributes symmetric keys. You still need authentication, key management, and a classical communication protocol. For most applications, post-quantum classical cryptography (ML-KEM) is sufficient and far cheaper. QKD is for adversaries with long-term quantum capability and extremely high-value information.
 

@@ -32,6 +32,7 @@
 
 ### Simplicial Complexes
 
+<!-- @editor[bridge/P2]: No bridge from simplicial complexes to data structures the learner knows. Simplicial complex = generalized graph: vertices are 0-simplices, edges are 1-simplices, triangles are 2-simplices. A graph IS a 1-dimensional simplicial complex. The Vietoris-Rips complex (in 10-APPLICATIONS.md) is built exactly like a clique complex of a graph. For a learner who knows graphs/trees deeply (per calibration), this bridge would make homology computation feel like a natural generalization of graph theory (where H₀ = connected components = standard graph algorithm, H₁ = cycle rank = |E|-|V|+components). -->
 ```
 SIMPLEX: The n-simplex Δⁿ is the convex hull of (n+1) affinely
   independent points v₀,...,vₙ ∈ Rᴺ.
@@ -445,6 +446,8 @@ EXAMPLE: Hₙ(Sᵐ × Sᵏ):
 ```
 
 ---
+
+<!-- @editor[content/P2]: Missing Morse theory — the connecting link between homology and analysis, and the theoretical underpinning of TDA. Morse theory: for a smooth function f: M → R with isolated non-degenerate critical points, H*(M) can be computed from the critical points. Morse index k of a critical point corresponds to attaching a k-cell — each critical point contributes a generator to Hₖ. The Morse inequalities relate Betti numbers to counts of critical points. This is where "topology meets calculus" and where sublevel-set persistence in TDA gets its theory. Without Morse theory, the connection between homology (07) and TDA (10) has a gap. -->
 
 ## Decision Cheat Sheet
 

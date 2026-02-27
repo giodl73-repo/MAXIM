@@ -28,6 +28,7 @@
 
 ---
 
+<!-- @editor[audience/P2]: This section re-derives the open set axioms from metric spaces and explains why topology abstracts away the metric. Learner already owns this derivation at graduate level — the explanation of "why these axioms" is the right pitch, but the derivation from open balls is below their floor. Compress to the key insight (continuity is open-set-theoretic; ∞-intersections fail) and pivot quickly to the interesting examples the learner doesn't know. -->
 ## Why Open Sets?
 
 ```
@@ -147,6 +148,10 @@ EXAMPLES:
 METRIC SPACES ARE NORMAL (T₄):
   Urysohn's metrization theorem: regular + second countable → metrizable.
   Nagata-Smirnov: normal + second countable → metrizable.
+
+<!-- @editor[content/P2]: Missing Stone duality and spectral spaces — a gap the learner (MIT TCS) would notice immediately. Stone duality: Boolean algebras ↔ Stone spaces (compact Hausdorff + totally disconnected); distributive lattices ↔ spectral spaces. This is the TCS connection to topology: the Zariski topology on Spec(R) IS the Stone-type topology for commutative rings. The sober space / locale theory connection is also missing — this bridges topology and lattice theory (which TCS people know deeply from domain theory and denotational semantics). -->
+
+<!-- @editor[bridge/P2]: No bridge to domain theory / denotational semantics — a natural TCS connection. Scott topology on a dcpo (directed-complete partial order) is a T₀ non-Hausdorff topology fundamental to programming language semantics. The learner's MIT TCS background means this bridge would land immediately. -->
 ```
 
 ---

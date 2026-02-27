@@ -213,6 +213,8 @@ FUNDAMENTAL GROUP OF GRAPH:
 
 ---
 
+<!-- @editor[content/P2]: Missing Morse theory connection — the topology of sublevel sets {x : f(x) ≤ c} changes precisely at critical points of f. This is the topological explanation for why H₀ persistence in TDA (birth-death of connected components) works the way it does: components merge at saddle points. Since this file covers connectedness and path-components, a paragraph on "connectedness changes via Morse theory" would bridge directly to 10-APPLICATIONS.md's TDA section. The merge tree / contour tree in TDA is exactly the H₀ persistence story. -->
+
 ## Common Confusion Points
 
 **"Connected = path-connected."**

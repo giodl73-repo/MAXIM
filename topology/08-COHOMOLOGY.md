@@ -320,6 +320,7 @@ CHERN-WEIL THEORY:
 ## Spectral Sequences (Overview)
 
 ```
+<!-- @editor[content/P2]: Spectral sequences section is correct but thin for a learner who needs computational topology — the E₂ page description and one fibration example don't give enough to actually work with them. Missing: the Adams spectral sequence (computes stable homotopy groups of spheres from Ext groups in the Steenrod algebra), the Atiyah-Hirzebruch spectral sequence (computes K-theory from singular cohomology). These are the spectral sequences a modern algebraic topologist uses. A table showing which spectral sequence to use when would serve this learner well. -->
 SPECTRAL SEQUENCE: A machine that computes cohomology via successive approximation.
   A spectral sequence is a collection {Eᵣᵖ·q} (r ≥ 0) with differentials
   dᵣ: Eᵣᵖ·q → Eᵣᵖ⁺ʳ·q⁻ʳ⁺¹
@@ -383,6 +384,10 @@ The bridge: periods ∫_σ ω pair de Rham cohomology with singular homology.
 | Apply Gauss-Bonnet | χ(M) = ∫_M e(TM) (Euler class of tangent bundle) |
 
 ---
+
+<!-- @editor[content/P1]: Missing Steenrod operations — a major gap. Steenrod squares Sqⁱ: Hⁿ(X;Z/2) → Hⁿ⁺ⁱ(X;Z/2) are cohomology operations that go beyond the ring structure and detect additional homotopy-theoretic information. They're essential for: distinguishing spaces with the same cohomology ring (e.g., RP²×RP² vs certain other spaces), computing stable homotopy groups of spheres via the Adams spectral sequence, and are the foundation of the Steenrod algebra (the algebra of all stable cohomology operations). The learner needs "modern developments" and Steenrod operations are the first step from classical cohomology into the modern stable homotopy world. This section is currently a stub: it mentions Steenrod operations once in a parenthetical but gives no definition, no computation, no examples. -->
+
+<!-- @editor[content/P2]: Missing derived categories and the modern perspective — relevant to learner's "∞-categories, HoTT" need. Cohomology groups Hⁿ(X;R) are the cohomology of the derived functor RΓ(X;R). The derived category D(Ab) is where long exact sequences live as triangles. The ∞-categorical perspective: the derived ∞-category, the ∞-topos of sheaves, and how singular cochains C*(X;R) are an E∞-algebra (not just a graded ring) — the E∞-structure captures all higher coherences. A pointer here would bridge classical cohomology to the modern ∞-categorical toolkit. -->
 
 ## Common Confusion Points
 

@@ -204,6 +204,8 @@ Syndrome = (−1, +1) → X₁ error → apply X₁ → corrected
 
 ---
 
+<!-- @editor[bridge/P1]: CSS codes are constructed directly from classical linear codes (Hamming, Reed-Solomon) via the H_x/H_z parity-check matrix construction — but the bridge to classical ECC theory is never made explicit. Learner has MIT TCS background and knows Hamming codes, parity-check matrices, and the dual-code relationship. The [[7,1,3]] Steane code IS the classical [7,4,3] Hamming code — this equivalence is load-bearing conceptual content, not flavor. Any senior engineer who knows classical coding theory needs this bridge to understand CSS codes without treating them as a black box. -->
+
 ## CSS Codes (Calderbank-Shor-Steane)
 
 Construct quantum codes from two classical codes H_x, H_z:
@@ -319,6 +321,8 @@ THEOREM (Aharonov-Ben-Or 1997, Knill-Laflamme-Zurek 1996, ...):
   Overhead:
     Gate overhead: O(poly(log 1/ε)) per logical gate
     Space overhead: 2d² physical per logical (surface code, distance d)
+
+<!-- @editor[content/P2]: "At/near threshold, not yet well below it" — Google Willow (2024) demonstrated error suppression below threshold (logical error rate decreased as code distance increased), which is the key threshold criterion. IBM Heron EPLG ~0.14% is now consistently below the ~1% surface code threshold. Framing should distinguish being below threshold (already demonstrated) from having sufficient qubit count for useful fault-tolerant computation (still years away). The two are often conflated. -->
 
 CURRENT STATE (2024):
   Best physical error rates: ~0.1–0.5% 2Q gate error (superconducting)

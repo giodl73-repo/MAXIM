@@ -223,6 +223,8 @@ ANALOGY TO GALOIS THEORY:
   This is the precise topological analog of Galois correspondence:
   Extension fields of K ↔ Subgroups of Gal(K/F).
   The same categorical structure!
+
+<!-- @editor[content/P2]: The Galois correspondence for covers is stated correctly but the deeper categorical statement is missing: π₁ is a functor Top* → Grp, and the full correspondence is an equivalence of categories between covering spaces of X and π₁(X)-sets. This is the version a learner who needs "∞-categories" will want — it generalizes to the ∞-categorical statement that the ∞-groupoid fundamental groupoid Π₁(X) classifies fibrations with discrete fiber. Add a line on the groupoid version (Π₁(X) not just π₁) since the single-basepoint version breaks for non-connected spaces. -->
 ```
 
 ---
@@ -255,6 +257,10 @@ HOMOTOPY GROUPS OF SPHERES πₙ(Sᵏ):
   Stable range (n > 2k-1): stable homotopy theory.
   General: extremely difficult. πₙ(S²) is known for small n; no complete pattern.
   This is one of the hardest open problems in topology.
+
+<!-- @editor[content/P2]: Missing knot groups — π₁(S³ \ K) for a knot K is the "knot group," the primary algebraic invariant of a knot. This is the direct bridge to knot theory (flagged as "DOES need" in learner calibration). The meridian and longitude of a knot are generators of π₁; Wirtinger presentation gives an explicit group presentation from a knot diagram. The abelianization of the knot group is always Z — which is why H₁(S³ \ K) = Z and why knots are detected by higher invariants. This bridge from π₁ to knot theory belongs in this file. -->
+
+<!-- @editor[content/P2]: Missing ∞-groupoids and the homotopy hypothesis — a key modern development the learner needs. Grothendieck's homotopy hypothesis: ∞-groupoids (up to equivalence) are the same as topological spaces (up to homotopy equivalence). HoTT formalizes this: types are ∞-groupoids, the identity type is the path space. The higher homotopy groups πₙ(X) are the π₀ of iterated loop spaces Ωⁿ(X). A brief bridge here would anchor the ∞-categories / HoTT content the learner needs. -->
 ```
 
 ---

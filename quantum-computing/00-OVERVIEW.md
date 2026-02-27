@@ -1,5 +1,7 @@
 # Quantum Computing — Field Map & Orientation
 
+<!-- @editor[bridge/P2]: No bridge from classical noise/channel models to quantum decoherence — learner has deep background in distributed systems reliability and classical error models; connecting T1/T2 to classical SNR and channel capacity concepts would anchor the hardware section. -->
+
 ## The Big Picture
 
 Quantum computing exploits superposition, entanglement, and interference to solve structured
@@ -199,6 +201,8 @@ Current NISQ machines are useful        For a few chemistry problems, maybe;
 ---
 
 ## Session Arc for This Directory
+
+<!-- @editor[content/P2]: Session Arc lists only 5 files but directory contains 10 — files 05-09 (Variational Algorithms, Quantum Communication, NISQ Applications, Quantum Software, Quantum ML) are absent from this navigation block. Update to reflect actual directory contents. -->
 
 ```
 00-OVERVIEW.md        ← You are here (field map, complexity, hardware, roadmap)

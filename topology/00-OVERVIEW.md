@@ -3,6 +3,7 @@
 ## The Big Picture
 
 ```
+<!-- @editor[diagram/P2]: Diagram lists branches and their items but doesn't show how they feed into each other or into modern developments — rework to show the dependency flow: point-set → algebraic → differential → TDA/physics, and add a modern layer (∞-categories, HoTT, derived algebraic geometry) that the learner explicitly needs per calibration -->
 +====================================================================+
 |              TOPOLOGY — THREE BRANCHES                             |
 +====================================================================+
@@ -148,6 +149,10 @@ n-MANIFOLDS (n ≥ 5): Surgery theory, h-cobordism theorem.
 ```
 
 ---
+
+<!-- @editor[content/P1]: No mention of modern developments the learner explicitly needs: ∞-categories (∞-topoi, (∞,1)-categories in homotopy theory), homotopy type theory (HoTT / Univalent Foundations — topology as a foundation for math), and derived algebraic geometry. These are flagged as "DOES need" in the learner calibration. A single section here orienting the learner to where classical topology meets these modern frameworks would unblock 10-APPLICATIONS.md and set context for all files. -->
+
+<!-- @editor[content/P2]: Knot theory connections to biology/physics (DNA topology, protein knotting, topological quantum computing via anyons) are listed in "DOES need" but get only a one-liner in the overview diagram. The overview should orient the learner to the depth available and point to 10-APPLICATIONS.md explicitly. -->
 
 ## File-by-File Guide
 

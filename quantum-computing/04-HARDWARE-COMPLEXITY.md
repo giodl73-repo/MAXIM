@@ -213,6 +213,8 @@ THEORY:
   Errors must physically move Majorana modes around each other to
   affect qubit state → topological protection.
 
+<!-- @editor[content/P2]: Microsoft announced a "topological qubit" milestone in early 2025 (Nature paper on InAs-Al heterostructure Majorana signatures), distinct from the 2022/2023 retracted results. Verify current status — the landscape may have shifted since this was written. Distinguish between: (a) the 2022 retraction, (b) any subsequent 2024-2025 claims, and (c) operational qubit demonstrations (none confirmed as of writing). -->
+
 STATUS (2025):
   Microsoft: First demonstrated Majorana topological qubit (Qubit 2023 paper).
   However: results retracted/questioned; science is difficult.
@@ -281,6 +283,8 @@ KEY IMPLICATION:
 ```
 
 ### Oracle Separations
+
+<!-- @editor[audience/P2]: Learner knows BQP and oracle separations from MIT TCS — this section is at the right level but doesn't push to the interesting edge. The Raz-Tal 2019 result (BQP ⊄ PH relative to an oracle) is significant because it's an *unconditional* separation (no unproven assumptions), unlike P vs NP. The framing "First unconditional quantum speedup result" needs qualification — it's an unconditional oracle separation, not an unconditional non-relativizing separation. This distinction matters to someone with TCS depth. -->
 
 ```
 Relative to oracles:
