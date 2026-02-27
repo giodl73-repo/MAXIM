@@ -38,8 +38,9 @@
 
 ---
 
-<!-- @editor[audience/P2]: "Four Forces" section explains what lift and drag are at a level appropriate for a first introduction to flight. This learner doesn't need lift re-explained — they need the rigorous connections: L = ρVΓ (Kutta-Joukowski), drag decomposition (induced vs parasite), and why induced drag ∝ CL²/AR. The naive "pressure difference" explanation appears in the Common Confusion section, which is good, but the opening section sets the wrong tone. -->
 ## 1. The Four Forces of Flight
+
+The rigorous foundation: lift arises from circulation around the wing (Kutta-Joukowski: L = rho*V*Gamma per unit span), not simply from "pressure difference." Drag decomposes into parasite drag (profile + interference, proportional to V^2) and induced drag (drag due to lift: D_i = L^2/(q*pi*b^2*e), proportional to CL^2/AR). The drag polar CD = CD0 + CL^2/(pi*AR*e) encodes both.
 
 ```
 LIFT (L): aerodynamic force perpendicular to freestream velocity
@@ -73,7 +74,8 @@ FLIGHT ENVELOPE:
 
 ---
 
-<!-- @editor[bridge/P2]: Standard atmosphere section is accurate but missing the connection to dimensional similarity that underpins all of aerodynamics. Re = ρVL/μ is the single number that tells you whether two flows are physically similar — a 1:10 scale model in a wind tunnel at 10× the Reynolds number of the full aircraft is not similar to full-scale flight. This is the dimensionless similarity principle from physics (Buckingham Π theorem), and it governs everything from wind tunnel testing to CFD validation. The section on Mach number regimes should note that Ma and Re together define the operating point in the two most important dimensionless groups. -->
+**Dimensional similarity:** All of aerodynamics rests on the Buckingham Pi theorem — Reynolds number Re = rho*V*L/mu and Mach number Ma = V/a together define the operating point. Two flows at the same (Re, Ma) are physically similar regardless of absolute scale. This is why wind tunnel testing works: match Re and Ma, and a 1:10 model produces the same force coefficients as the full aircraft. Conversely, a model at the wrong Re gives misleading data (laminar flow where full-scale is turbulent).
+
 ## 2. Standard Atmosphere
 
 ```
@@ -102,7 +104,19 @@ DYNAMIC PRESSURE: q = ½ρV² (EAS) or q = ½ρ₀V_EAS²
 
 ---
 
-<!-- @editor[content/P2]: Modern aircraft developments (UAVs/UAS, electric aircraft, supersonic transport revival, eVTOL) are absent from the overview. These are the most relevant current developments for a technically-oriented VP: UAV autonomy (connects to software systems engineering), electric propulsion (thermodynamic efficiency limits, battery energy density vs kerosene), supersonic revival (Boom Overture, planned 2030s certification). A "Current Developments" section would significantly increase the overview's value. -->
+## Current Developments
+
+| Development | Status | Key Engineering Tradeoff |
+|-------------|--------|--------------------------|
+| **Electric aircraft** | Short-range (<300 km) | Battery: ~300 Wh/kg vs jet fuel 12,000 Wh/kg (40:1 gap). Motor efficiency >95% vs turbine ~45%. Carnot limit doesn't apply to electric motors. |
+| **eVTOL / urban air mobility** | Certification in progress (Joby, Lilium) | Distributed electric propulsion; VTOL power requirement ~3x cruise; battery weight dominates. |
+| **UAV/UAS** | Operational (military, commercial) | Autonomy stack = software systems engineering problem; sense-and-avoid, command/control links, airspace integration. |
+| **Supersonic revival** | Development (Boom Overture, 2030s) | Sonic boom mitigation (shaped waveform), high-temperature materials, fuel efficiency at M1.7. |
+| **Hybrid-electric** | Regional aircraft demos (2030s target) | Turbine + battery for takeoff/climb supplement; ~30% fuel reduction for 500 nm missions. |
+| **Sustainable aviation fuel (SAF)** | In production, scaling | Drop-in replacement for Jet-A; 50-80% lifecycle CO2 reduction; cost 2-4x conventional. |
+
+---
+
 ## 3. Airworthiness and Certification
 
 ### FAR/CS Structure

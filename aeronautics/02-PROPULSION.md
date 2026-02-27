@@ -90,7 +90,8 @@ TEMPERATURE RATIOS:
   T₄/T₃ = (p₄/p₃)^((γ-1)/γ)  [turbine exit]
   T₃ = Turbine Inlet Temperature (TIT); limited by material → ~1800-2000 K with cooling
 
-<!-- @editor[bridge/P2]: Brayton cycle thermal efficiency is presented without connecting it to the Carnot limit. The insight: η_Brayton = 1 − T₁/T₂ = 1 − T_cold/T_hot_compressor_exit (not inlet), which is why high OPR helps — you're raising the effective cold temperature (T₂) but also the hot temperature (T₃). The Carnot efficiency for the same temperature ratio would be 1 − T₁/T₃, and real gas turbines approach ~60% of this. The combined cycle (gas turbine + steam Rankine on exhaust) achieves 60% thermal efficiency — closest any thermal engine gets to Carnot at scale. -->
+Thermodynamic context: eta_Brayton = 1 - 1/OPR^((gamma-1)/gamma) = 1 - T1/T2, which approaches but never reaches the Carnot limit eta_Carnot = 1 - T1/T3 (where T3 = turbine inlet temperature). High OPR raises T2 (compressor exit), improving efficiency. Real gas turbines achieve ~40-45% thermal efficiency, roughly 60% of the Carnot limit for the same temperature extremes. Combined cycle plants (gas turbine + steam Rankine on exhaust heat) reach ~60% thermal efficiency — closest any thermal engine gets to Carnot at scale.
+
 THERMAL EFFICIENCY:
   η_th = 1 − 1/OPR^((γ-1)/γ) = 1 − T₁/T₂
   Higher OPR → higher efficiency
@@ -276,8 +277,13 @@ PRESSURE-FED vs PUMP-FED:
 
 ---
 
-<!-- @editor[content/P2]: Electric propulsion for aviation is entirely absent. This is a rapidly developing field with major engineering tradeoffs: battery energy density (currently ~300 Wh/kg vs jet fuel 12,000 Wh/kg — a 40:1 gap), electric motor efficiency (>95% vs gas turbine ~45-50%), the fundamental thermodynamic constraint (Carnot limit doesn't apply to electric motors), and current operational ceiling (~30 min range for all-electric, hybrid-electric for regional aircraft). For a VP following aerospace technology, this is the most relevant current development. At minimum, a paragraph noting the energy density gap and why it constrains short-range missions only. -->
-## 5. Ramjet and Scramjet
+## 5. Electric Propulsion for Aviation
+
+The fundamental constraint is energy density: batteries at ~300 Wh/kg vs jet fuel at ~12,000 Wh/kg (a 40:1 gap). Electric motors are >95% efficient vs gas turbine ~45%, but the energy storage gap dominates range calculations. The Carnot limit does not apply to electric motors — they convert electrical to mechanical energy directly, bypassing the heat engine efficiency ceiling. Current state: all-electric viable for <300 km range (~30 min flight); hybrid-electric (turbine + battery supplement for takeoff/climb) is the near-term path for regional aircraft (500-1000 km). Key players: Joby (eVTOL, 240 km range), Lilium (eVTOL jet), Heart Aerospace (hybrid-electric regional, 200 pax-km target).
+
+---
+
+## 6. Ramjet and Scramjet
 
 ```
 RAMJET:

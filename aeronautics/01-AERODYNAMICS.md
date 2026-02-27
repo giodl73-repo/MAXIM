@@ -65,7 +65,8 @@ BERNOULLI EQUATION (incompressible, inviscid, steady, along streamline):
 
 ### Potential Flow
 
-<!-- @editor[bridge/P2]: Potential flow is introduced with "∇²φ = 0 (Laplace equation — same as electrostatics)" — this is exactly right but the connection deserves more. The learner knows from MIT physics that electrostatic potential satisfies Laplace's equation, and complex analysis (which they have from MIT math) provides the full toolkit: analytic functions map conformally, and the Joukowski transform maps circles (solved by cylinder + vortex) to airfoil shapes. The reason thin airfoil theory works is that the airfoil can be replaced by a distribution of singularities on the chord line — a method-of-moments approach on the Laplace equation. This makes potential flow aerodynamics a solved PDE problem, which this learner would understand immediately. -->
+**PDE bridge:** Potential flow solves Laplace's equation (nabla^2 phi = 0) — the same equation governing electrostatic potential and steady-state heat conduction. The full toolkit from complex analysis applies: analytic functions map conformally, and the Joukowski transform maps the solved cylinder+vortex problem to airfoil shapes. Thin airfoil theory replaces the airfoil with a singularity distribution on the chord line — a method-of-moments approach on Laplace's equation. This is why potential flow aerodynamics is a solved PDE problem, and why panel methods (discretized boundary integral equations) work so well.
+
 ```
 IRROTATIONAL FLOW: ∇×**u** = 0 → exists velocity potential φ: **u** = ∇φ
   Incompressible: ∇²φ = 0 (Laplace equation — same as electrostatics)
@@ -149,7 +150,8 @@ RESULTS:
 
 ### Prandtl's Boundary Layer
 
-<!-- @editor[bridge/P2]: Prandtl's boundary layer equations are a singular perturbation of Navier-Stokes: the small parameter is 1/Re, and the boundary layer is the inner solution in the matched asymptotic expansion (inner/outer matching). This learner's PDE background makes this the most natural entry into boundary layer theory — it's the same matched asymptotic expansions technique they'd see in perturbation theory. The Blasius solution is then a self-similar ODE reduction. Framing it this way unlocks why the BL thickness scales as Re^{-1/2} and why the technique breaks down at separation. -->
+**Singular perturbation bridge:** Prandtl's boundary layer is a singular perturbation of Navier-Stokes: the small parameter is 1/Re, and the boundary layer is the inner solution in a matched asymptotic expansion. The outer solution is inviscid potential flow; the inner solution satisfies the boundary layer equations (parabolic PDE). The Blasius solution is a self-similar ODE reduction. This explains why BL thickness scales as delta ~ Re^(-1/2) and why the technique breaks down at separation (where the parabolic assumption fails).
+
 ```
 PHYSICAL PICTURE:
   For high Re: thin viscous layer near surface; inviscid flow outside
