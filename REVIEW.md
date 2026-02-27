@@ -40,25 +40,25 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
 | `mathematics/` | 24 | 2026-02 | 2026-02 | 122 tags → 0 |
-| `physics/` | 10 | — | — | |
-| `electronics/` | 8 | — | — | |
-| `materials/` | 7 | — | — | |
-| `quantum-computing/` | 5 | — | — | |
-| `control-theory/` | 5 | — | — | |
-| `information-theory/` | 5 | — | — | |
-| `signal-processing/` | 11 | — | — | |
-| `number-theory/` | 11 | — | — | |
-| `abstract-algebra/` | 11 | — | — | |
-| `topology/` | 11 | — | — | |
-| `probability-statistics/` | 10 | — | — | |
-| `differential-geometry/` | 10 | — | — | |
-| `numerical-methods/` | 10 | — | — | |
-| `complex-analysis/` | 10 | — | — | |
-| `fluid-dynamics/` | 10 | — | — | |
-| `statistical-mechanics/` | 10 | — | — | |
-| `partial-differential-equations/` | 10 | — | — | |
-| `variational-calculus/` | 10 | — | — | |
-| `lie-groups/` | 10 | — | — | |
+| `physics/` | 10 | 2026-02 | — | 22 tags, 4 P1s |
+| `electronics/` | 8 | 2026-02 | — | 22 tags, 1 P1 |
+| `materials/` | 7 | 2026-02 | — | 12 tags, 0 P1s |
+| `quantum-computing/` | 5 | 2026-02 | — | 17 tags, 2 P1s |
+| `control-theory/` | 5 | 2026-02 | — | 21 tags, 0 P1s |
+| `information-theory/` | 5 | 2026-02 | — | 11 tags, 2 P1s |
+| `signal-processing/` | 11 | 2026-02 | — | 12 tags, 1 P1 |
+| `number-theory/` | 11 | 2026-02 | — | 7 tags, 1 P1 |
+| `abstract-algebra/` | 11 | 2026-02 | — | 25 tags, 3 P1s |
+| `topology/` | 11 | 2026-02 | — | 27 tags, 5 P1s |
+| `probability-statistics/` | 10 | 2026-02 | — | 20 tags, 3 P1s |
+| `differential-geometry/` | 10 | 2026-02 | — | 25 tags, 0 P1s |
+| `numerical-methods/` | 10 | 2026-02 | — | 23 tags, 7 P1s |
+| `complex-analysis/` | 10 | 2026-02 | — | 20 tags, 4 P1s |
+| `fluid-dynamics/` | 10 | 2026-02 | — | 11 tags, 0 P1s |
+| `statistical-mechanics/` | 10 | 2026-02 | — | 30 tags, 0 P1s |
+| `partial-differential-equations/` | 10 | 2026-02 | — | 9 tags, 2 P1s |
+| `variational-calculus/` | 10 | 2026-02 | — | 2 tags, 0 P1s |
+| `lie-groups/` | 10 | 2026-02 | — | 2 tags, 1 P1 |
 
 ---
 
@@ -66,20 +66,20 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `mechanical/` | 6 | — | — | |
-| `structural/` | 5 | — | — | |
-| `aeronautics/` | 6 | — | — | |
-| `chemical-eng/` | 6 | — | — | |
-| `nuclear/` | 6 | — | — | |
-| `energy-systems/` | 8 | — | — | |
-| `electrical-grid/` | 11 | — | — | |
-| `hvac/` | 10 | — | — | |
-| `plumbing/` | 10 | — | — | |
-| `construction-materials/` | 10 | — | — | |
-| `acoustics/` | 11 | — | — | |
-| `optics/` | 8 | — | — | |
-| `transportation/` | 9 | — | — | |
-| `manufacturing/` | 10 | — | — | |
+| `mechanical/` | 6 | 2026-02 | — | 15 tags, 1 P1 |
+| `structural/` | 5 | 2026-02 | — | 11 tags, 2 P1s |
+| `aeronautics/` | 6 | 2026-02 | — | 13 tags, 2 P1s |
+| `chemical-eng/` | 6 | 2026-02 | — | 11 tags, 4 P1s |
+| `nuclear/` | 6 | 2026-02 | — | 8 tags, 2 P1s |
+| `energy-systems/` | 8 | 2026-02 | — | 7 tags, 2 P1s |
+| `electrical-grid/` | 11 | 2026-02 | — | 7 tags, 1 P1 |
+| `hvac/` | 10 | 2026-02 | — | 9 tags, 5 P1s |
+| `plumbing/` | 10 | 2026-02 | — | 4 tags, 2 P1s |
+| `construction-materials/` | 10 | 2026-02 | — | 3 tags, 0 P1s |
+| `acoustics/` | 11 | 2026-02 | — | 5 tags, 0 P1s |
+| `optics/` | 8 | 2026-02 | — | 1 tag, 0 P1s |
+| `transportation/` | 9 | 2026-02 | — | 1 tag, 0 P1s |
+| `manufacturing/` | 10 | 2026-02 | — | 1 tag, 0 P1s |
 
 ---
 
@@ -87,15 +87,15 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `semiconductor-manufacturing/` | 11 | — | — | |
-| `telecommunications/` | 12 | — | — | |
-| `robotics/` | 10 | — | — | |
-| `biomedical-engineering/` | 9 | — | — | |
-| `formal-methods/` | 7 | — | — | |
-| `systems-engineering/` | 10 | — | — | |
-| `urban-planning/` | 7 | — | — | |
-| `environmental-engineering/` | 7 | — | — | |
-| `materials-processing/` | 10 | — | — | |
+| `semiconductor-manufacturing/` | 11 | 2026-02 | — | 7 tags, 0 P1s |
+| `telecommunications/` | 12 | 2026-02 | — | 6 tags, 0 P1s |
+| `robotics/` | 10 | 2026-02 | — | 6 tags, 0 P1s |
+| `biomedical-engineering/` | 9 | 2026-02 | — | 7 tags, 0 P1s |
+| `formal-methods/` | 7 | 2026-02 | — | 3 tags, 0 P1s |
+| `systems-engineering/` | 10 | 2026-02 | — | 10 tags, 0 P1s |
+| `urban-planning/` | 7 | 2026-02 | — | 5 tags, 0 P1s |
+| `environmental-engineering/` | 7 | 2026-02 | — | 9 tags, 2 P1s |
+| `materials-processing/` | 10 | 2026-02 | — | 18 tags, 4 P1s |
 
 ---
 
@@ -109,7 +109,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `ecology/` | 11 | 2026-02 | 2026-02 | 23 tags → 0 |
 | `human-biology/` | 11 | 2026-02 | 2026-02 | 17 tags → 0 |
 | `neuroscience/` | 5 | 2026-02 | 2026-02 | 13 tags → 0 |
-| `cognitive-science/` | 10 | — | — | |
+| `cognitive-science/` | 10 | 2026-02 | — | 25 tags, 4 P1s |
 | `disease/` | 11 | 2026-02 | 2026-02 | 13 tags → 0 |
 | `medicine/` | 11 | 2026-02 | 2026-02 | 14 tags → 0 |
 | `nutrition/` | 10 | 2026-02 | 2026-02 | 7 tags → 0 |
@@ -214,22 +214,22 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
 | `art-history/` | 12 | 2026-02 | 2026-02 | 12 tags → 0 |
-| `architecture-history/` | 10 | — | — | |
-| `architecture/` | 8 | — | — | |
-| `music-theory/` | 10 | — | — | |
-| `photography/` | 10 | — | — | |
-| `colors/` | 10 | — | — | |
-| `cartography/` | 12 | — | — | |
-| `games-history/` | 10 | — | — | |
-| `sports-history/` | 10 | — | — | |
-| `watchmaking/` | 10 | — | — | |
-| `theater-performance/` | 10 | — | — | |
-| `dance/` | 10 | — | — | |
-| `industrial-design/` | 10 | — | — | |
-| `graphic-design/` | 10 | — | — | |
-| `fashion/` | 10 | — | — | |
-| `comics-sequential-art/` | 10 | — | — | |
-| `sports-science/` | 10 | — | — | |
+| `architecture-history/` | 10 | 2026-02 | — | 22 tags, 1 P1 |
+| `architecture/` | 8 | 2026-02 | — | 2 tags, 0 P1s |
+| `music-theory/` | 10 | 2026-02 | — | 11 tags, 4 P1s |
+| `photography/` | 10 | 2026-02 | — | 7 tags, 0 P1s |
+| `colors/` | 10 | 2026-02 | — | 6 tags, 0 P1s |
+| `cartography/` | 12 | 2026-02 | — | 5 tags, 1 P1 |
+| `games-history/` | 10 | 2026-02 | — | 22 tags, 1 P1 |
+| `sports-history/` | 10 | 2026-02 | — | 20 tags, 3 P1s |
+| `watchmaking/` | 10 | 2026-02 | — | 15 tags, 4 P1s |
+| `theater-performance/` | 10 | 2026-02 | — | 17 tags, 3 P1s |
+| `dance/` | 10 | 2026-02 | — | 5 tags, 0 P1s |
+| `industrial-design/` | 10 | 2026-02 | — | 2 tags, 0 P1s |
+| `graphic-design/` | 10 | 2026-02 | — | 4 tags, 0 P1s |
+| `fashion/` | 10 | 2026-02 | — | 11 tags, 0 P1s |
+| `comics-sequential-art/` | 10 | 2026-02 | — | 6 tags, 2 P1s |
+| `sports-science/` | 10 | 2026-02 | — | 3 tags, 0 P1s |
 
 ---
 
@@ -272,20 +272,21 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 ## Summary
 
-| Section | Dirs | Clean | Not Swept |
-|---------|-----:|------:|----------:|
-| Computing & Software | 10 | 10 | 0 |
-| Mathematics & Physics | 20 | 1 | 19 |
-| Mechanics | 14 | 0 | 14 |
-| Technology | 9 | 0 | 9 |
-| Life Sciences | 18 | 16 | 2 |
-| Earth & Space | 14 | 14 | 0 |
-| History & Ideas | 15 | 15 | 0 |
-| Social Sciences | 16 | 16 | 0 |
-| Language & Communication | 12 | 12 | 0 |
-| Arts & Culture | 17 | 1 | 16 |
-| Material Culture | 11 | 11 | 0 |
-| Natural World | 12 | 12 | 0 |
-| **Total** | **168** | **108** | **60** |
+| Section | Dirs | Clean | Swept (pending fix) | Not Swept |
+|---------|-----:|------:|--------------------:|----------:|
+| Computing & Software | 10 | 10 | 0 | 0 |
+| Mathematics & Physics | 20 | 1 | 19 | 0 |
+| Mechanics | 14 | 0 | 14 | 0 |
+| Technology | 9 | 0 | 9 | 0 |
+| Life Sciences | 18 | 16 | 1 | 1 (virology blocked) |
+| Earth & Space | 14 | 14 | 0 | 0 |
+| History & Ideas | 15 | 15 | 0 | 0 |
+| Social Sciences | 16 | 16 | 0 | 0 |
+| Language & Communication | 12 | 12 | 0 | 0 |
+| Arts & Culture | 17 | 1 | 16 | 0 |
+| Material Culture | 11 | 11 | 0 | 0 |
+| Natural World | 12 | 12 | 0 | 0 |
+| **Total** | **168** | **108** | **59** | **1** |
 
-*60 directories not yet swept: Mathematics & Physics (19), Mechanics (14), Technology (9), Arts & Culture (16), Life Sciences/virology (blocked), Life Sciences/cognitive-science (not started).*
+*667 @editor tags outstanding across 59 swept directories · 86 P1 blocking issues*
+*Next: fix pass — resolve P1s first, then P2s. Target: 167 clean (virology perpetually blocked).*
