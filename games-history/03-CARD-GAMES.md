@@ -265,7 +265,10 @@ INFORMATION FLOW:
   holding from bidding and play patterns.
   This is Bayesian inference: update distribution
   of unknown cards given observed plays.
-<!-- @editor[bridge/P2]: The card-inference problem in Bridge maps directly to constraint propagation / belief propagation — as each card is played, the distribution over unknown cards is updated via conditioning; for the TCS learner, this is the same structure as BP on a factor graph (variables = unknown cards, factors = bid/play constraints); a one-sentence connection to this formal structure would be a valuable bridge -->
+  Formally: a factor graph where variables are unknown
+  hands and factors encode bid + play constraints —
+  each card played is a conditioning event, same
+  structure as belief propagation on a graphical model.
 
 VARIANTS ON CORE:
   HEARTS: avoid tricks (negative scoring) for heart cards
@@ -535,7 +538,10 @@ FREECELL: Variant where all cards are visible.
   Only 8 known unsolvable deals in the standard 32,000
   numbered deals. TRUE: 99.999% solvable.
   This makes FreeCell a puzzle, not a chance game.
-<!-- @editor[bridge/P1]: FreeCell solvability is a planning/reachability problem in a deterministic state space — this is directly the kind of problem a TCS reader would recognize as graph reachability (is the goal state reachable from the start state?); FreeCell is known to be NP-complete in general (Helmert 2003), which is a clean TCS result that would resonate strongly with this learner; worth one sentence here -->
+  TCS note: FreeCell is a deterministic planning problem —
+  graph reachability in a finite state space. Generalized
+  FreeCell is NP-complete (Helmert 2003), placing it in
+  the same complexity class as SAT satisfiability.
 
 SPIDER SOLITAIRE: 2 decks, 10 columns.
   Much harder than Klondike. ~0.5% of deals unwinnable

@@ -411,7 +411,41 @@ BROADCAST:
 
 ## Section 6: Physics of Billiards
 
-<!-- @editor[content/P2]: Billiards as a dynamical systems / chaos example is absent — the reflection of rays off curved surfaces (in carom billiards, cushion angles) is a classic example of billiard dynamical systems studied in mathematical physics; a convex-table billiard is integrable (no chaos), while certain irregular table shapes are ergodic or chaotic; this connection would interest a mathematically-oriented learner and bridge to the mathematics/ section -->
+### Billiards as Dynamical Systems
+
+In mathematical physics, "billiards" is a canonical model in dynamical systems theory. A point particle reflecting specularly off boundaries produces trajectories whose behavior depends entirely on boundary geometry:
+
+```
+BILLIARD DYNAMICS BY TABLE SHAPE
+═════════════════════════════════
+
+ELLIPTICAL TABLE:  Integrable (no chaos)
+  All trajectories either pass through both foci
+  or never pass through either. Caustics are confocal
+  ellipses/hyperbolas. Fully predictable.
+
+RECTANGULAR TABLE:  Integrable
+  Trajectories reduce to torus flow via unfolding.
+  Ball path = straight line on the torus.
+  Rational angle → periodic orbit.
+  Irrational angle → ergodic (fills table uniformly).
+
+STADIUM (Bunimovich):  Chaotic
+  Rectangle with semicircular endcaps.
+  Proved ergodic by Bunimovich (1979).
+  Exponential divergence of nearby trajectories
+  (positive Lyapunov exponent).
+
+SINAI BILLIARD:  Chaotic
+  Square table with circular obstacle in center.
+  Sinai (1970) proved ergodicity — foundational
+  result in ergodic theory.
+```
+
+The practical billiards table (rectangular with pockets) is integrable in the mathematical sense, but cushion deformation, spin, and friction introduce nonlinear effects that make long-range prediction difficult — the "chaos" of real billiards is physical, not geometric.
+
+### Ball Collision Physics
+
 The physics of billiard ball collisions is interesting enough to be taught in physics courses:
 
 ```

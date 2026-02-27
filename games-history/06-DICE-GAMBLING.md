@@ -507,7 +507,30 @@ GAMMON IMPACT: If opponent has gammon chance (wins 2× base),
 
 ### TD-Gammon — The AI Precursor
 
-<!-- @editor[bridge/P2]: No bridge from Markov Decision Processes to the TD-Gammon setup — the backgammon state forms a Markov chain (given current board position + whose turn, the next state distribution depends only on current state + dice roll + action); TD(λ) is a policy evaluation algorithm on this MDP; for a TCS reader familiar with probability theory, connecting TD learning to the Bellman equation (V(s) = r + γ·E[V(s')]) would make the algorithm immediately readable -->
+## Engineering Bridge: TD-Gammon as MDP Policy Evaluation
+
+```
+DOMAIN CONCEPT                CS / ENGINEERING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Backgammon board position     State s in a Markov Decision Process (MDP)
+  + whose turn + dice roll      next state depends only on current state +
+                                action + dice (Markov property)
+
+TD(λ) update rule             Bellman equation for policy evaluation:
+  V(s) ← V(s) + α[r + γV(s') - V(s)]    V(s) = r + γ · E[V(s')]
+  temporal difference error               Bellman residual driven to zero
+
+Neural network V(s)           Function approximator for the value function
+  (2 hidden layers, 80 units)   replaces tabular V(s) — necessary because
+                                backgammon has ~10^20 states
+
+Self-play training            On-policy evaluation: the MDP's transition
+                                probabilities are defined by the current
+                                policy (which is being learned simultaneously)
+```
+
+TD-Gammon showed that TD learning on an MDP — with a neural function approximator and self-play — converges to near-optimal policy evaluation without any domain knowledge. The same Bellman-equation-plus-NN architecture reappears in AlphaGo's value network 24 years later.
+
 ```
 TD-GAMMON (Gerald Tesauro, IBM, 1992)
 ═══════════════════════════════════════
@@ -651,7 +674,16 @@ SETUP: Two players, A and B.
 
   This is a random walk on {0, 1, ..., a+b} with absorbing
   barriers at 0 and a+b.
-<!-- @editor[bridge/P2]: No connection to the optional stopping theorem (Doob) — the gambler's ruin probability formula follows cleanly from the optional stopping theorem applied to the appropriate martingale (for p≠q: (q/p)^X_t is a martingale; for p=q: X_t itself is a martingale); this is a clean result from measure-theoretic probability that a MIT math background would recognize immediately, and it gives a second derivation of the formula presented here -->
+
+  Martingale derivation (Doob's optional stopping theorem):
+    If p ≠ q: M_t = (q/p)^X_t is a martingale.
+    If p = q: M_t = X_t itself is a martingale.
+    Apply optional stopping at the hitting time of
+    {0, a+b}. Since M_0 = E[M_τ]:
+      (q/p)^a = P(ruin) · (q/p)^0 + (1-P(ruin)) · (q/p)^(a+b)
+    Solve for P(ruin) to recover the formula below.
+    This is a cleaner derivation than the difference-
+    equation approach and generalizes to asymmetric walks.
 
 PROBABILITY OF RUIN (player A is ruined):
   If p ≠ q:  P(A ruined) = [(q/p)^a - (q/p)^(a+b)] / [1 - (q/p)^(a+b)]
