@@ -323,7 +323,7 @@ Six sections graduated clean. Earth & Space: all 14 directories. History & Ideas
 
 **Card**: Q♦ — Queen of Diamonds
 **Date**: February 26, 2026
-**Commits**: `eb0f92a` → `0a74737` (~25 commits)
+**Commits**: `eb0f92a` → `7d7ce24` (~27 commits)
 **Image flair**: *...59 blank territories inked in — contour lines running from valley floor to ridge — and in the lower-left corner, a correction note where the last of the old stakes were pulled: three more sections cleared*
 
 The Surveyor's work is comprehensive mapping. Before you can fix a thing you must know where everything is. Phase 14 did two jobs: it finished the outstanding fix residuals from the previous session, then it surveyed the entire unmapped half of the library.
@@ -360,8 +360,9 @@ All 168 directories are now swept — 167 with tags pending fix, 1 (virology) pe
 - `fa7b60f` Sweep topology/ — 27 tags, 5 P1s
 - `f958212` Sweep architecture-history, architecture, music-theory — 35 tags, 5 P1s
 - `0a74737` Sweep 59 dirs — 667 @editor tags, 86 P1s — update REVIEW.md
+- `7d7ce24` Sweep residuals — 78 @editor tags, 8 P1s across 7 dirs (recovered after session crash)
 
-**Scale**: 59 new directories swept, 667 @editor tags injected, 86 P1 blocking issues, 3 sections graduated clean (Material Culture, Natural World, Arts & Culture/art-history), all 168 tracked directories now swept (virology excepted)
+**Scale**: 59 new directories swept, 745 @editor tags injected, 94 P1 blocking issues, 3 sections graduated clean (Material Culture, Natural World, Arts & Culture/art-history), all 168 tracked directories now swept (virology excepted)
 
 ---
 
@@ -386,10 +387,10 @@ Now the cards need faces — 52 new ASCII art visuals, each illustrating the arc
 | Days | 5 |
 | Cards designed | 52 + The Fool |
 | Directories reviewed | 167 of 168 (virology blocked) |
-| @editor tags injected | ~1,867 |
+| @editor tags injected | ~1,945 |
 | @editor tags resolved | ~575 |
-| Tags outstanding | 667 |
-| P1 blocking issues | 86 |
+| Tags outstanding | 745 |
+| P1 blocking issues | 94 |
 | Clean directories | 108 |
 | Roles claimed | 14 of 52 |
 | Roles remaining | 38 |
