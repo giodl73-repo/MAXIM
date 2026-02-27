@@ -46,7 +46,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 
 | Card | Title | Image concept |
 |------|-------|---------------|
-| 9♣ | The Strategist | A 2×2 prisoner's dilemma payoff matrix with dominant strategy highlighted |
+| 9♣ | The Strategist | A 2×2 prisoner's dilemma payoff matrix with dominant strategy highlighted — and in the lower-right cell of the payoff matrix, three rings drawn in gold ink — Narya, Nenya, Vilya — the dominant strategy revealed as: make more copies, in more places, at every price point |
 | 9♦ | The Governor | Three-branch diagram: Legislature / Executive / Judiciary with bidirectional check arrows |
 | 9♥ | The Witness | A social network graph — clusters, bridges, isolated nodes, one node with many connections labeled |
 | 9♠ | The Correspondent | A world map (ASCII outline) with information flow vectors radiating from media centers |

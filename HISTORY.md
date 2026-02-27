@@ -29,8 +29,9 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 | 17 | Feb 26 | The Collector | 2♥ | Concept Index — 8 agents, 4,026 specimens, 196 cross-cutting entries |
 | 18 | Feb 26 | The Cultivator | 3♥ | Foundational layer — 118 ubiquitous concepts, index to 314 entries |
 | 19 | Feb 26 | The Voyager | 3♠ | Atlas — 52 maps planned, design panel, ASCII→SVG pivot |
+| 20 | Feb 27 | The Strategist | 9♣ | Publishing plan — 56-book set, 3 tiers, annex, scorecard, 4 improvement waves |
 
-*33 roles remain unclaimed.*
+*32 roles remain unclaimed.*
 
 ---
 
@@ -59,8 +60,9 @@ Each phase adds a small poetic detail to its card's image concept — a mark lef
 | 17 | The Collector | *...196 specimens pinned across the tray, each one where two habitats overlap — and a penciled note in the margin: "the common ones are still flying"* |
 | 18 | The Cultivator | *...and in the O horizon, 118 root tips — water, iron, carbon — each one reaching down through every layer, the common substrate that feeds all thirteen fields above* |
 | 19 | The Voyager | *...and at the midcourse correction, a small notation on the trajectory arc: cx equals negative longitude, cy equals negative latitude — the navigator who stopped guessing and started measuring* |
+| 20 | The Strategist | *...and in the lower-right cell of the payoff matrix, three rings drawn in gold ink — Narya, Nenya, Vilya — the dominant strategy revealed as: make more copies, in more places, at every price point* |
 
-*33 cards await their flair.*
+*32 cards await their flair.*
 
 ---
 
@@ -501,6 +503,35 @@ The atlas now has a hybrid format: SVG for geography (where accuracy matters), A
 
 ---
 
+# Phase 20: The Strategist
+
+**Card**: 9♣ — Nine of Pentacles
+**Date**: February 27, 2026
+**Commits**: `d9a5363` → `0f5e5fe` (4 commits)
+**Image flair**: *...and in the lower-right cell of the payoff matrix, three rings drawn in gold ink — Narya, Nenya, Vilya — the dominant strategy revealed as: make more copies, in more places, at every price point*
+
+The library was complete. Every directory written, every tag resolved, every concept indexed, every card named. What it lacked was a plan to leave the screen and enter the world. Phase 20 built that plan — and then measured whether the library deserved it.
+
+First: the publishing strategy. Three tiers mapped to Tolkien's rings. Three Elven Rings — Smyth-sewn, acid-free, buckram-bound archival sets built to survive five centuries, stored in three separate locations (Narya, Nenya, Vilya). Seven Dwarven Rings — standard hardcover gift sets in PUR adhesive. Nine Rings of Men — print-on-demand paperbacks, available to anyone on Amazon and IngramSpark. And the One Ring — the digital source, CC BY-SA licensed, free forever. The strategy was simple game theory: maximize copies across maximum locations at every price point. The dominant strategy for survival is redundancy.
+
+Then: the apparatus. LICENSE.md (CC BY-SA 4.0 — because Chapter 10 says "make more copies"). FOREWORD.md (why this exists, for every volume). COLOPHON.md (typefaces, paper, binding). DEDICATION.md (for Maximus and Felix, who chose well — and for whoever finds these books). The 12-ray radial mark as production SVG. A full print stylesheet for PDF generation. The vendor RFQ ready to send.
+
+Then: the hard question. VOLUMES.md became the canonical deck manifest — one table, 53 rows, every metric that matters. The annex plan emerged from a simple test: "Would a reader 200 years from now need this?" Overviews and cheatsheets stay in the deck. Per-language syntax cards go to the annex. 55 reference files moved to two companion volumes. K♣ and K♦ — the two volumes that couldn't be bound — rebalanced to 312 and 303 pages. The deck stays at 52.
+
+Finally: the measurement. SCORECARD.md defined six dimensions (Length, Suit Fit, Cohesion, Style, Depth, Archetype) scored 0–5 each. Thirteen agents — one per section — read every overview and spot-checked every volume in parallel. The results: 42 A's, 9 B's, 1 C. Six perfect 30s. Mean 26.5/30. The weakest volumes were weak not in content but in voice — their archetypes didn't sing. The four-wave improvement plan sorted 27 volumes into executable batches: archetype sharpening (10 volumes, ~10 hours), style tightening (6 volumes, ~12 hours), content expansion (5 volumes, ~20-40 hours), structural proposals (2 volumes, decisions pending).
+
+The Strategist counts everything — price, incentive, pages, scores, waves, hours — and from the numbers, the plan falls out. The library doesn't just exist. It has a production pipeline, a quality dashboard, and a shipping manifest. The next phase writes content. This phase wrote the strategy that decides what to write.
+
+**Key commits**:
+- `d9a5363` Publishing plan: 56-book set — 52 cards + Card 0 + Index + 2 Annex volumes
+- `5f33042` Add SCORECARD.md — 6-dimension volume quality rubric
+- `c175698` Complete 52-volume scorecard — 13-agent content sweep, all 6 dimensions scored
+- `0f5e5fe` Add improvement plan to VOLUMES.md — 4 waves, 27 volumes need work
+
+**Scale**: 4 commits, 15 new files created (VOLUMES.md, SCORECARD.md, LICENSE.md, FOREWORD.md, COLOPHON.md, DEDICATION.md, maxim-mark.svg, print.css, PUBLISHING-PLAN.md, PIPELINE.md, VENDOR-RFQ-DRAFT.md + 4 stale-fix edits), 52 volumes scored across 6 dimensions, 13 parallel scoring agents, 56-book publishing plan, 3-tier distribution strategy, 2 annex volumes designed, 4-wave improvement plan
+
+---
+
 ## Cumulative Scale
 
 | Metric | Count |
@@ -508,8 +539,8 @@ The atlas now has a hybrid format: SVG for geography (where accuracy matters), A
 | Directories | 217 |
 | Files | 2,481 |
 | Lines written | 826,537 |
-| Commits | ~203 |
-| Days | 5 |
+| Commits | ~207 |
+| Days | 6 |
 | Cards designed | 52 + The Fool |
 | Directories reviewed | 167 of 168 (virology blocked) |
 | @editor tags injected | ~1,945 |
@@ -520,5 +551,10 @@ The atlas now has a hybrid format: SVG for geography (where accuracy matters), A
 | Concept index entries | 314 |
 | Atlas maps planned | 52 |
 | Design reviews | 5 (Tufte, Vignelli, Wurman, Fuller, cartographers) |
-| Roles claimed | 19 of 52 |
-| Roles remaining | 33 |
+| Roles claimed | 20 of 52 |
+| Roles remaining | 32 |
+| Volumes scored | 52 of 52 (all 6 dimensions) |
+| Publishing tiers | 3 (Elven/Dwarven/Human) |
+| Physical books planned | 56 |
+| Annex volumes | 2 (55 reference files extracted) |
+| Improvement waves | 4 (27 volumes, ~46-66 hrs) |
