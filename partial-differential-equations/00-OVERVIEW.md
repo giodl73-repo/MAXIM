@@ -184,7 +184,40 @@ for x<0).
 
 ---
 
-<!-- @editor[diagram/P2]: The Solution Strategy Map and Analytical Toolkit diagram cover only classical analytical methods. For this learner, the landscape is incomplete without modern PDE theory (Sobolev spaces, weak formulations, elliptic regularity) and ML-based approaches (PINNs, neural operators, diffusion models as SDEs) visible at the overview level. The diagram presents the field as if numerical methods are a fallback after analytical methods fail — not as a first-class domain. Rework to show the modern theory layer alongside the classical layer. -->
+## Solution Methods: Full Landscape
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                    PDE SOLUTION METHODS — THREE ERAS                 │
+│                                                                     │
+│  CLASSICAL ANALYTICAL (18th–20th c.)                                │
+│  ┌──────────────┐ ┌──────────────┐ ┌─────────────┐ ┌────────────┐  │
+│  │ Separation   │ │ Fourier      │ │ Green's     │ │ Method of  │  │
+│  │ of Variables │ │ Transform    │ │ Functions   │ │ Charact's  │  │
+│  └──────┬───────┘ └──────┬───────┘ └──────┬──────┘ └─────┬──────┘  │
+│         │                │                │              │          │
+│         └───── exact solutions on separable/symmetric domains ─────┘│
+│                              │                                      │
+│  MODERN THEORY (20th c.)     │                                      │
+│  ┌──────────────┐ ┌──────────┴──────┐ ┌─────────────────────┐      │
+│  │ Sobolev      │ │ Weak/variational│ │ Elliptic regularity │      │
+│  │ spaces H^k   │ │ formulations    │ │ Calderón-Zygmund    │      │
+│  └──────┬───────┘ └──────┬──────────┘ └──────────┬──────────┘      │
+│         │                │                       │                  │
+│         └──── existence/uniqueness/regularity theory ───────────────┘│
+│                              │                                      │
+│  NUMERICAL METHODS           │      ML-BASED METHODS                │
+│  ┌────────┐ ┌────────┐ ┌────┴───┐  ┌────────┐ ┌──────┐ ┌───────┐  │
+│  │  FD    │ │  FV    │ │  FEM   │  │ PINNs  │ │ FNO  │ │DeepO- │  │
+│  │stencil │ │flux    │ │weak+   │  │residual│ │Fourier│ │Net    │  │
+│  │approx  │ │balance │ │basis   │  │as loss │ │space  │ │branch/│  │
+│  └────────┘ └────────┘ └────────┘  │mesh-   │ │oper.  │ │trunk  │  │
+│  Mesh-based, proven error bounds   │free    │ │learn  │ │decomp │  │
+│                                    └────────┘ └──────┘ └───────┘  │
+│                                    Mesh-free, amortized, no        │
+│                                    rigorous error bounds (yet)     │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
 ## Key Analytical Tools
 
@@ -224,7 +257,20 @@ for x<0).
 +------------------------------------------------------------------+
 ```
 
-<!-- @editor[content/P2]: The overview makes no mention of ML-based PDE approaches at the landscape level. Physics-Informed Neural Networks (PINNs), Fourier Neural Operators (FNO), DeepONet, and diffusion models as SDEs (the heat equation as the forward noising process in score-based generative models) are significant modern developments explicitly needed by this learner. These should appear alongside classical methods in the overview — not deferred to individual files. -->
+## ML-Based PDE Methods at a Glance
+
+Modern machine learning has produced a fourth class of PDE solution methods alongside analytical, theoretical, and classical numerical approaches:
+
+| Method | Core Idea | Strengths | Limitations |
+|--------|-----------|-----------|-------------|
+| **PINNs** | Parameterize u as neural net; minimize PDE residual as loss | Mesh-free; handles inverse problems naturally | Spectral bias; no rigorous error bounds; training instability |
+| **FNO** | Learn solution operator G: f → u in Fourier space | Amortized: one training, instant evaluation; O(N log N) | Requires training data from classical solvers; periodic domains preferred |
+| **DeepONet** | Branch (input function) + trunk (eval point) → inner product | Handles variable domains; flexible architecture | More training data needed; less spectral structure |
+| **Diffusion models** | Forward noising = heat equation on probability density; reverse = learned score-driven SDE | State-of-the-art generative models | Not PDE solvers per se — the PDE is the mechanism, not the target |
+
+The heat equation connection to diffusion models is particularly deep: the forward process of DDPM/score-based models **is** ∂ₜρ = β(t)∇²ρ (heat equation on the data density), and generation runs the reverse-time SDE using a learned score ∇ log p_t. See `04-HEAT-EQUATION.md` for the full treatment.
+
+Full numerical details in `09-NUMERICAL-PDES.md`. The variational/weak-form connection (Deep Ritz, Deep Galerkin) in `08-VARIATIONAL-WEAK.md`.
 
 ---
 

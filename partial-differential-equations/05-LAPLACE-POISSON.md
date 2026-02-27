@@ -294,8 +294,6 @@ The natural basis for ∇²u = 0 on spherical domains:
 
 ## Regularity Theory
 
-<!-- @editor[content/P2]: The regularity section is too thin for a learner who needs elliptic regularity. Four lines covering the Sobolev shift-by-2 and a one-line mention of Schauder estimates is insufficient. This section should cover: (1) the Lp elliptic regularity (Calderón-Zygmund: if f ∈ Lp then D²u ∈ Lp for 1 < p < ∞), (2) what fails at p=1 and p=∞ (not L¹ or L∞ — use BMO instead), (3) the distinction between interior and boundary regularity and what smoothness of ∂Ω is required, (4) why regularity is non-trivial (the boundary regularity requires ∂Ω ∈ C^{k+2} or C^{k,α}) and what breaks for Lipschitz or polyhedral domains (crack-tip singularities). The learner explicitly needs elliptic regularity for understanding FEM error analysis and PINN limitations. -->
-
 ```
   INTERIOR REGULARITY:
 
@@ -305,15 +303,43 @@ The natural basis for ∇²u = 0 on spherical domains:
   If f ∈ C∞(Ω), then u ∈ C∞(Ω).
   If f = 0 (harmonic), u ∈ C∞ (in fact real analytic).
 
-  In Sobolev spaces: if f ∈ H^k(Ω) then u ∈ H^{k+2}(Ω).
-  SHIFT BY 2: solving Poisson gains two derivatives.
+  SOBOLEV FRAMEWORK (shift-by-2):
+  If f ∈ H^k(Ω) then u ∈ H^{k+2}(Ω).
+  Solving Poisson gains exactly two derivatives.
+
+  Lp REGULARITY (Calderón-Zygmund):
+  If f ∈ Lp(Ω), 1 < p < ∞, then D²u ∈ Lp(Ω).
+  Estimate: ‖D²u‖_{Lp} ≤ C_p ‖f‖_{Lp}
+  ──────────────────────────────────────────────────────────────────
+  Fails at the endpoints:
+    p = 1:  D²u ∉ L¹ in general (Ornstein non-inequality)
+    p = ∞:  D²u ∉ L∞ in general; must use BMO (bounded mean oscillation)
+  The C-Z constant C_p → ∞ as p → 1 or p → ∞.
 
   BOUNDARY REGULARITY:
-  If additionally ∂Ω is smooth and g ∈ H^{k+3/2}(∂Ω),
-  then u ∈ H^{k+2}(Ω) up to boundary.
+  Interior regularity is free. Boundary regularity costs domain smoothness.
+  ──────────────────────────────────────────────────────────────────
+  ∂Ω ∈ C^{k+2}  and  g ∈ H^{k+3/2}(∂Ω)  →  u ∈ H^{k+2}(Ω) up to ∂Ω
+  ∂Ω ∈ C^{k,α}  (Hölder smooth)            →  Schauder estimates apply
 
-  SCHAUDER ESTIMATES:
-  In Hölder spaces: ‖u‖_{C^{2,α}} ≤ C(‖f‖_{C^α} + ‖g‖_{C^{2,α}})
+  What breaks for rough domains:
+  • Lipschitz ∂Ω: H² regularity holds, but higher regularity fails
+  • Polyhedral domains (3D): corner/edge singularities u ~ r^λ
+    (λ depends on corner angle; re-entrant corners → λ < 1 → u ∉ H²)
+  • Crack tips: u ~ r^{1/2} sin(θ/2) — the classic stress singularity
+  These singularities limit FEM convergence on non-smooth domains
+  and explain why adaptive mesh refinement near corners is essential.
+
+  WHY THIS MATTERS FOR NUMERICS:
+  FEM error: ‖u − u_h‖_{H¹} ≤ C h^k ‖u‖_{H^{k+1}}
+  If u ∉ H^{k+1} (corner singularity), the rate degrades.
+  PINNs face the same issue: spectral bias + singularities = poor
+  approximation of r^λ modes near corners.
+
+  SCHAUDER ESTIMATES (Hölder spaces):
+  ‖u‖_{C^{2,α}} ≤ C(‖f‖_{C^α} + ‖g‖_{C^{2,α}})
+  These are the classical regularity estimates; they preceded Sobolev
+  theory historically but are less natural for FEM analysis.
 ```
 
 ---

@@ -1,6 +1,6 @@
 # Fourier Methods and Separation of Variables
 
-<!-- @editor[audience/P2]: This file is calibrated toward material the learner does NOT need. The user calibration explicitly states "Does NOT need: separation of variables, basic wave/heat equation." Nearly half the file (Sturm-Liouville derivations, separation of variables step-by-step algorithms for rectangles and cylinders, Gibbs phenomenon) covers this territory at an introductory level. The sections the learner DOES need — spectral methods, pseudospectral methods, and the connection between spectral decomposition and modern ML (attention as kernel regression, Fourier Neural Operator using spectral decomposition) — are one short section. The file needs rebalancing: treat separation of variables and classical Fourier series as a brief reference table, expand the spectral methods section significantly, and add the FNO/spectral ML connection. -->
+**Reader note**: The classical material below (Sturm-Liouville, separation of variables, Fourier series) serves as reference tables. The sections with the most value for working understanding are **Spectral Methods**, **Pseudospectral and Collocation Methods**, and **Fourier Methods in Modern ML** at the bottom of the file — these connect eigenfunction decomposition to modern numerical PDE solving and neural operator architectures.
 
 ## The Big Picture
 
@@ -298,6 +298,60 @@ The same eigenfunction expansion idea applied numerically:
   REMEDY: Filtering (Lanczos filter, σ-approximation), spectral
   element methods, or using the correct weak/entropy solution.
 ```
+
+---
+
+## Pseudospectral and Collocation Methods
+
+```
+PSEUDOSPECTRAL METHOD:
+  Evaluate u_N at collocation points {x_j}, compute derivatives
+  in spectral space, then transform back.
+
+  FOURIER COLLOCATION (periodic, N points):
+  1. Given values u(x_j) at N equi-spaced points
+  2. FFT → Fourier coefficients ĉ_n           O(N log N)
+  3. Differentiate: ĉ'_n = in·ĉ_n             O(N)
+  4. IFFT → derivative values u'(x_j)           O(N log N)
+  Total: O(N log N) per derivative evaluation.
+
+  CHEBYSHEV COLLOCATION (non-periodic):
+  Points: x_j = cos(jπ/N)  (Chebyshev-Gauss-Lobatto)
+  Derivative via differentiation matrix D_{ij} (dense, N×N).
+  Fast Chebyshev transform via DCT: O(N log N).
+
+  SPECTRAL ELEMENT METHODS:
+  Divide domain into elements, use high-order polynomial basis
+  (Gauss-Lobatto-Legendre) within each element.
+  Combines: spectral accuracy within elements + geometric flexibility
+  of FEM. Used in Nek5000, Nektar++, deal.II.
+```
+
+## Fourier Methods in Modern ML
+
+The Fourier Neural Operator (FNO) directly exploits the spectral decomposition structure: each layer applies a learned linear transform in Fourier space, then transforms back. This is the spectral method generalized — instead of fixed differential operators in Fourier space, the network learns the operator.
+
+```
+FNO LAYER — SPECTRAL VIEW:
+  Classical spectral:  û_new(k) = L(k) · û(k)     (L = known operator)
+  FNO layer:          v̂_{l+1}(k) = R_l(k) · v̂_l(k)  (R_l = LEARNED)
+
+  Each FNO layer:
+  v_{l+1}(x) = σ( W_l · v_l(x)  +  F⁻¹[ R_l · F[v_l] ](x) )
+                   ↑ local            ↑ global (spectral)
+
+  The R_l matrix in Fourier space IS the learned Green's function kernel.
+  Truncate to K modes (K << N): O(K) parameters per layer, not O(N²).
+  FFT/IFFT for the transforms: O(N log N) per layer.
+
+  WHY THIS WORKS:
+  Green's functions are convolution kernels: u = G * f.
+  Convolution in physical space = multiplication in Fourier space.
+  FNO learns G in Fourier space where it's diagonal.
+  This is exactly the spectral method insight, parameterized.
+```
+
+The connection to attention mechanisms: self-attention computes a kernel regression K(x_i, x_j) over all pairs — this is a non-local operator like the Green's function integral. FNO replaces the O(N²) all-pairs attention with O(N log N) spectral convolution, achieving the same "global receptive field" property at lower cost. Both are approximations to integral operators; spectral methods happen to be the most efficient parameterization when the kernel is translation-invariant.
 
 ---
 
