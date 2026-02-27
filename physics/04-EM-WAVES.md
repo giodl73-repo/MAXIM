@@ -303,7 +303,8 @@ the reflected wave is completely polarized — polarized sunglasses exploit this
 
 ---
 
-<!-- @editor[bridge/P2]: No connection to coherence and quantum optics — the Fresnel/Snell treatment is classical geometrical optics. Missing: the concept of optical coherence (temporal and spatial), which connects to the Wiener-Khinchin theorem (power spectral density = Fourier transform of autocorrelation) — a direct bridge from signal processing. Coherence length and coherence time are the same concepts as correlation length in statistical mechanics and signal coherence in communications. This reader will immediately recognize the Fourier duality; the guide should make it explicit. -->
+**Coherence bridge**: Optical coherence — both temporal (coherence time tau_c) and spatial (coherence length l_c = c * tau_c) — connects directly to signal processing via the Wiener-Khinchin theorem: the power spectral density is the Fourier transform of the autocorrelation function. A narrow-linewidth laser has long tau_c (high temporal coherence); a thermal source has short tau_c (broadband). These are the same concepts as correlation length in statistical mechanics and signal coherence in communications theory. Coherence determines what interference experiments are possible — and sets the limits of interferometric measurement (LIGO's sensitivity is bounded by laser coherence).
+
 ## EM Waves in Conductors — Skin Depth
 
 In a conductor with conductivity σ, free charges respond to E by flowing —
@@ -360,7 +361,8 @@ to the surface — completely different MHD dynamics.
 
 ---
 
-<!-- @editor[bridge/P2]: No photonic crystal / condensed matter bridge — standing waves in cavities are the continuum limit of the tight-binding model in condensed matter. Photonic crystals (periodic dielectric structures) create photonic bandgaps by the same mathematics as electron bandgaps in solids: Bloch's theorem, Brillouin zones, avoided crossings. This is a clean bridge from EM waves to solid-state physics and a natural connection to the band theory section in module 08. -->
+**Photonic crystals bridge**: Periodic dielectric structures (photonic crystals) create photonic bandgaps by the same mathematics as electron bandgaps in solids: Bloch's theorem applies to EM waves in periodic media just as it applies to electrons in periodic potentials. The photonic band structure has Brillouin zones, avoided crossings, and Bloch modes — the "tight-binding model" of optics. Photonic crystals enable optical waveguides, slow light, and photonic integrated circuits. This is the continuum limit of the discrete cavity modes treated below, and connects directly to the band theory discussion in `08-QUANTUM-BRIDGE.md`.
+
 ## Standing Waves and Cavities
 
 Two counterpropagating waves superpose to form a standing wave:

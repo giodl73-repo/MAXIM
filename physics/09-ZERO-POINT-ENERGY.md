@@ -334,7 +334,8 @@ multiple times.
 
 ---
 
-<!-- @editor[bridge/P2]: No renormalization group / effective field theory bridge — the cosmological constant problem is presented as "theory predicts X, experiment sees Y, nobody knows why." Missing: the EFT framing that makes this precise. In EFT, you only integrate up to a cutoff Λ_UV, and all physics below Λ_UV is captured by renormalized couplings. The vacuum energy is a relevant operator (dimension-0, grows as Λ⁴) — it runs dramatically with the cutoff. The concept of naturalness (Wilson's sense: why would a relevant operator be fine-tuned to near-zero?) is the precise statement of the cosmological constant problem. A reader who knows about ML regularization (L1/L2 penalties control model complexity) has the intuition: why would nature choose a near-zero coefficient for the most relevant operator? This EFT framing is the right level for this reader and is currently absent. -->
+**EFT framing**: In effective field theory, you integrate out physics above a UV cutoff Lambda and capture everything below in renormalized couplings. The vacuum energy is a *relevant* operator (dimension 0, coefficient grows as Lambda^4 as you raise the cutoff). In Wilson's naturalness framework, relevant operators should be O(1) in units of the cutoff — a near-zero coefficient requires fine-tuning. The cosmological constant problem is the statement that the observed vacuum energy (Lambda_obs ~ 10^-122 M_Pl^4) requires cancellation of contributions to 1 part in 10^122. This is the most extreme naturalness violation in physics. The ML analogy: it's as if the L2 regularization coefficient in your model were tuned to 120 decimal places to produce the observed behavior — you'd suspect your model is wrong, not that nature is fine-tuned. No known mechanism produces this cancellation; this is the deepest unsolved problem in theoretical physics.
+
 ## The Cosmological Constant Problem
 
 The worst theoretical prediction in the history of physics.
@@ -403,7 +404,8 @@ is not even in the same universe as the observed value.
 
 ---
 
-<!-- @editor[bridge/P2]: No condensed matter ZPE bridge — the guide covers Casimir between metal plates and quantum optics (spontaneous emission, cavity QED) but misses the condensed matter manifestations: (1) zero-point fluctuations in crystals cause zero-point entropy and set the Debye zero-point energy, directly measurable from the zero-temperature heat capacity; (2) in superfluids (He-4 below 2.17 K), zero-point motion prevents solidification and enables quantum flow without viscosity; (3) in quantum magnets, zero-point fluctuations of spins (quantum spin liquids) can destroy magnetic order even at T=0 — an active research area in condensed matter. These are the experimentally accessible faces of ZPE that a reader tracking modern physics should know about. -->
+**Condensed matter manifestations of ZPE**: (1) In crystals, zero-point motion of atoms contributes a Debye zero-point energy (1/2 * 9 N k_B Theta_D for the Debye model), directly measurable from the T=0 intercept of the heat capacity. (2) Helium-4 remains liquid down to absolute zero — zero-point kinetic energy exceeds the weak van der Waals binding energy, preventing solidification. Below 2.17 K, He-4 becomes a superfluid (Bose-Einstein condensation of the liquid), flowing without viscosity. (3) In quantum magnets, zero-point fluctuations of spins can destroy magnetic order even at T=0, producing *quantum spin liquids* — exotic phases with fractionalized excitations (spinons) and long-range entanglement. Quantum spin liquids are an active frontier in condensed matter, with candidate materials including herbertsmithite (ZnCu3(OH)6Cl2) and alpha-RuCl3.
+
 ## Can Zero-Point Energy Be Tapped?
 
 This is the question that motivates most fringe interest. The answer requires

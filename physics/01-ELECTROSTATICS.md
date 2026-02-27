@@ -154,8 +154,7 @@ For continuous distributions, the sum becomes an integral:
 
 ## Gauss's Law — The Shortcut for Symmetric Problems
 
-<!-- @editor[content/P2]: "From module 02" — cross-reference is wrong, divergence theorem is from vector calculus prereqs (module 01 in mathematics/ or implicit). Fix the forward reference or remove it. -->
-From module 02: applying the divergence theorem to ∇·E = ρ/ε₀ gives:
+Applying the divergence theorem (from vector calculus — see `mathematics/01-VECTOR-CALC.md`) to ∇·E = ρ/ε₀ gives:
 
 ```
   ∮∮_S E·dA = Q_enc/ε₀
@@ -315,7 +314,30 @@ this is how lightning rods work and why Van de Graaff generators spark at edges.
 
 ---
 
-<!-- @editor[bridge/P1]: Missing computational bridge — Poisson/Laplace equations are the core of boundary element methods, finite element E-field solvers, and graph Laplacians in spectral graph theory. A reader with MIT Math+TCS background will recognize ∇²V=0 as the continuous analog of the graph Laplacian L = D−A. The connection from electrostatics to numerical PDE solvers (FEM, BEM) and to discrete harmonic analysis on graphs belongs here. -->
+## Engineering Bridge: The Laplacian in Computation
+
+```
+CONTINUOUS LAPLACIAN               DISCRETE / COMPUTATIONAL EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+∇²V = 0 (Laplace)                  Graph Laplacian L = D - A
+  V at each point is the average     V at each node is the average of
+  of its neighbors (mean value       its neighbors — same mean value
+  property of harmonic functions)    property on the discrete graph
+
+∇²V = -ρ/ε₀ (Poisson)             Lv = b (discrete Poisson equation)
+  Source-driven potential              Charge sources at specific nodes
+  Solved by: FEM (mesh domain),       Solved by: sparse linear algebra
+  BEM (mesh boundary only),            (conjugate gradient, multigrid)
+  spectral methods (Fourier basis)
+
+Eigenvalues of ∇²                  Eigenvalues of L (spectral graph theory)
+  Modes of vibration, resonance       Fiedler value = algebraic connectivity
+  Continuous spectrum for open         Graph partitioning, clustering
+  domains; discrete for bounded       Community detection in networks
+```
+
+The graph Laplacian L = D - A (where D is the degree matrix and A is the adjacency matrix) is the discrete analog of the continuous Laplacian. Spectral graph theory — PageRank, spectral clustering, graph neural networks — is discrete harmonic analysis. The Poisson equation you solve in electrostatics is the same equation (with different boundary conditions) that FEM solvers solve for structural analysis, heat transfer, and fluid flow.
+
 ## Poisson's and Laplace's Equations
 
 From E = -∇V and ∇·E = ρ/ε₀:
@@ -402,7 +424,8 @@ is physically real and carries energy.
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge to condensed matter / quantum — the electrostatic energy density u = ε₀E²/2 has a direct quantum analog in the zero-point energy of EM modes (½ℏω per mode, module 09). The connection from classical field energy to quantum vacuum energy density is a natural forward link here. Also missing: dielectrics and the microscopic origin of ε (polarizability → dielectric constant) is only mentioned in passing in module 03; a pointer would help this reader connect to semiconductor physics and optical materials. -->
+**Forward connections**: The electrostatic energy density u = epsilon_0 E^2 / 2 has a quantum analog: each EM mode carries zero-point energy 1/2 hbar omega (see `09-ZERO-POINT-ENERGY.md`). The macroscopic dielectric constant epsilon arises from the microscopic polarizability of atoms/molecules in a material — the connection to semiconductor physics and band theory is covered in `08-QUANTUM-BRIDGE.md`.
+
 ## Common Confusion Points
 
 **V is defined up to a constant — only differences matter.**
