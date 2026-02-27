@@ -94,7 +94,7 @@ Two physical puzzle books. Two Joker cards. One deck.
 | 239 | PbS | Galena | Math + History | Lead ore. Heavy foundations. |
 | 267 | PbCO₃ | Cerussite | Math + Life Sci + Earth | White lead pigment. Beauty and poison. |
 | 310 | Ca₃(PO₄)₂ | Apatite | Earth + Life Sci | Bone mineral. What endures. |
-| 324 | FeMnSiO₄ | Tool Olivine | Mech + Mech + Computing + Earth | Everything combined. The final synthesis. **Black meta.** |
+| 498 | Fe₃Al₂Si₃O₁₂ | Almandine Garnet | Mech + Natural + Computing + Earth | A crystal forged under pressure. Four sections fused. **Black meta.** |
 
 **Difficulty:** A team of 3-4 sharp readers over multiple sessions. Some puzzles require genuine intellectual synthesis — not just looking things up but understanding how ideas connect. The kind of challenge where the "aha" changes how you see the encyclopedia.
 
@@ -130,7 +130,7 @@ Two physical puzzle books. Two Joker cards. One deck.
          │ Elements            │       │ Compounds             │
          │ Guided              │       │ Unguided              │
          │ Breadth             │       │ Depth                 │
-         │ H → Pb              │       │ H₂O → Tool Steel     │
+         │ H → Pb              │       │ H₂O → Almandine Garnet     │
          │ Solo weekend        │       │ Team, multi-session   │
          ├─────────────────────┤       ├───────────────────────┤
          │ 26 answers          │       │ 26 answers            │
