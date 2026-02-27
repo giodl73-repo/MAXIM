@@ -245,6 +245,8 @@ LIMITATIONS:
 
 ---
 
+<!-- @editor[bridge/P3]: The applications table omits cloud infrastructure scheduling — a natural entry for this learner. Kubernetes HPA/VPA is a form of MPC: it predicts future load (model), applies constraints (min/max replicas, cooldown periods), and optimizes a cost (resource utilization vs. SLA). Azure Autoscale uses a similar receding-horizon approach. Adding one row to the applications table would anchor MPC in familiar territory. -->
+
 ## Applications
 
 ```
@@ -273,6 +275,8 @@ LIMITATIONS:
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: The receding-horizon principle in MPC maps exactly to rolling deployment and staged rollout patterns in CI/CD. At each step, MPC solves an N-step plan but commits only to the first action — exactly like a deployment pipeline that plans a full rollout sequence but re-evaluates after each canary ring based on measured state. The constraint handling (u_min ≤ u ≤ u_max, rate limits) maps to deployment guardrails: max pods per minute, rollback triggers, traffic shift caps. This bridge belongs in the Big Picture section or as a dedicated subsection near the formulation. -->
 
 ## MPC as PID + Constraints + Preview
 

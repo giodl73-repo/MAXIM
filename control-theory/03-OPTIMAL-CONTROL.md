@@ -135,6 +135,8 @@ CURSE OF DIMENSIONALITY:
   Grid-based solution: exponential in n
   → Practical only for low-dimensional systems (n ≤ 4-5 typically)
   → LQR solves it analytically for linear-quadratic case
+
+<!-- @editor[bridge/P3]: The curse of dimensionality in HJB has a direct analog in distributed systems planning: optimal resource scheduling across N services with M constraint dimensions is NP-hard, and approximate methods (greedy, LP relaxation, receding-horizon MPC) are the practical answer for the same reason that LQR and MPC supplant direct HJB solutions. Worth a one-sentence bridge. -->
 ```
 
 ---
@@ -201,6 +203,8 @@ STABILITY GUARANTEE:
 ```
 
 ### Q and R Tuning Intuition
+
+<!-- @editor[bridge/P2]: The Q/R trade-off is the control-theory formalization of a resource allocation decision that this learner makes constantly: Q weights how much you care about deviation from target (SLA violations, error budget burn rate), R weights how expensive correction is (compute cost, deployment risk, toil). Setting Q_ii = 1/(max acceptable xᵢ)² via Bryson's rule is the same reasoning as setting SLO error budget percentages — normalize by tolerance. The explicit bridge to SLO/error budget thinking would land well here. -->
 
 ```
 TUNING GUIDELINES:

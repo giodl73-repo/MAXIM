@@ -17,6 +17,8 @@
 │  FUNDAMENTAL QUESTION:                                              │
 │  Design C(s) that stabilizes G(s)(1+Δ(s)) for ALL admissible Δ    │
 │                                                                     │
+<!-- @editor[bridge/P2]: This framing — nominal model plus bounded uncertainty, design for all admissible Δ — maps directly to designing deployment systems for production variance: staging environment is G(s), production is G(s)(1+Δ(s)), and the uncertainty set ‖Δ‖∞ ≤ 1 is the service contract on how far production can deviate. Robust control's guarantee is the same guarantee an SRE wants from a deployment pipeline: stable for any environment within the uncertainty spec. Brief bridge here anchors the whole chapter. -->
+│                                                                     │
 │  TOOLS:                                                             │
 │  Small Gain Theorem ──► H∞ control ──► μ-synthesis               │
 │  (stability condition)  (min worst-case gain)  (structured Δ)      │
@@ -174,6 +176,8 @@ WATERBED EFFECT:
   S(jω) + T(jω) = 1  →  pushing down S somewhere pushes up T elsewhere
   Bode's integral: ∫₀^∞ log|S(jω)|dω = π Σ Re(pᵢ) (RHP poles)
   Can't make S small everywhere — must budget sensitivity
+
+<!-- @editor[bridge/P2]: The waterbed effect is the control-theory statement of a throughput/latency or reliability/cost trade-off that this learner navigates daily. You can't make sensitivity (error amplification) small at all frequencies simultaneously — the integral is conserved. The direct analog: you can't simultaneously minimize P99 latency, cost, and failure rate across all traffic patterns — SRE error budget allocation is bounded by the same conservation principle. Bode's integral is a formal lower bound on "you can't have everything." This bridge would resonate strongly with a VP of Eng who has fought over error budgets. -->
 ```
 
 ### Riccati Equation Solution

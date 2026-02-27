@@ -77,6 +77,7 @@ CERAMICS & COMPOSITES LANDSCAPE
   tetrahedral holes
   filled with anion
 
+  <!-- @editor[content/P2]: Ferroelectricity in perovskites is mentioned ("spontaneous polarization") but the physics is absent — for a learner with quantum mechanics and phase transition background, the key insight is that the cubic→tetragonal transition at the Curie temperature is a second-order phase transition where the B-site cation (Ti in BaTiO₃) displaces off-center, breaking inversion symmetry and creating a permanent dipole. This is exactly Landau theory (order parameter = polarization P, free energy F = a(T-T_c)P² + bP⁴ + ...). The connection between crystal symmetry breaking and macroscopic polarization belongs here and would resonate with the learner's physics background -->
   PEROVSKITE (ABO₃) BaTiO₃, SrTiO₃     FERROELECTRIC: spontaneous polarization
   B-site in center  PbZrO₃, PbTiO₃      BaTiO₃: ~1000 MLCCs in every smartphone
   of BO₆ octahedron PZT (PbZr₁₋ₓTiₓO₃) PZT: piezoelectric actuators/sensors

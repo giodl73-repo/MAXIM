@@ -219,6 +219,8 @@ SAC (Soft Actor-Critic):
 
 ### Behavior Cloning
 
+<!-- @editor[bridge/P2]: Behavior cloning's covariate shift problem maps precisely to a failure mode in CI/CD pipeline automation: a trained "auto-merge bot" trained on expert engineer decisions fails when it encounters states the expert never generated during training. The DAgger fix (let the learner generate states, have the expert label them) is the same as shadow mode + human review: run the automated system in shadow, collect cases where it diverges, have humans label those specific cases, retrain. This concrete analogy makes the theoretical distinction between BC and DAgger immediately actionable for this learner. -->
+
 ```
   Given: Expert demonstrations D = {(x_t, u_t*)}
   Goal:  Learn π_θ(x) ≈ u_t*
@@ -260,9 +262,13 @@ SAC (Soft Actor-Critic):
     CQL (Conservative Q-Learning): penalizes Q-values for OOD actions
     IQL (Implicit Q-Learning): avoids OOD queries entirely
     Use case: robotics (expensive real-world data), healthcare, finance
+
+<!-- @editor[bridge/P2]: Offline RL from a fixed dataset is exactly the situation when optimizing from historical telemetry logs without the ability to run new A/B experiments — a common constraint in regulated industries or when experiments are too costly. The OOD action problem (the learned policy may recommend actions that never appeared in training data, where Q-values are unreliable) maps to recommendation systems that confidently recommend items with no historical engagement data. CQL's conservatism maps to epsilon-greedy or UCB exploration bounds in bandit systems. This is worth a direct note: offline RL is the control-theory formalization of learning from production logs. -->
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: Sim-to-real transfer is the robotics framing of a problem this learner knows as the staging-to-production gap. The strategies map directly: domain randomization (randomize sim parameters) = chaos engineering + environment parity testing; domain adaptation (train discriminator to match sim to real) = A/B testing with traffic shaping; residual RL (classical model + RL correction) = conventional autoscaler + learned anomaly correction layer. The "gap" framing (contact dynamics, friction, sensor noise in robotics = network latency variance, instance heterogeneity, cache warming in cloud) is worth making explicit — the mathematical problem structure is identical. -->
 
 ## 6. Sim-to-Real Transfer
 

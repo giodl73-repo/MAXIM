@@ -355,6 +355,7 @@ $$FF = \frac{P_{max}}{V_{OC} \cdot I_{SC}} = \frac{V_{mp} \cdot I_{mp}}{V_{OC} \
     InP (1.35 eV): 33.8%
     Optimal E_g for AM1.5G: ~1.1-1.4 eV
 
+    <!-- @editor[content/P2]: Record efficiency figures date to 2024 and will drift — these update annually. Consider anchoring to the NREL Best Research-Cell Efficiency Chart URL rather than listing specific numbers, or flag clearly as "as of 2024" -->
     Record cells (2024):
     Si single junction:  29.4% (kaneka, HIT cell)
     GaAs single junction: 29.6% (Alta Devices)

@@ -241,6 +241,7 @@ diffusion of carbon → carbon trapped in BCT structure.
 **TTT = Time-Temperature-Transformation** (isothermal): austenitize then hold at fixed T.
 **CCT = Continuous-Cooling-Transformation**: austenitize then cool at constant rate.
 
+<!-- @editor[diagram/P2]: TTT diagram is a series of horizontal dashes with labels rather than a real C-curve shape — the defining visual feature of a TTT diagram is the "C" or nose shape where transformation rate peaks at an intermediate temperature. The current diagram doesn't convey this shape. Redraw to show the characteristic "C" curve (fast transformation at the nose ~550°C, slowing at both higher and lower temperatures), with start and finish lines for pearlite and bainite separately -->
 ```
     TTT diagram for eutectoid steel (0.76%C):
 
@@ -454,6 +455,8 @@ where F = geometry factor ≈ 1 for large plate.
 ```
 
 ---
+
+<!-- @editor[content/P2]: Nickel superalloys are absent — the overview (00-OVERVIEW.md) lists Inconel 718, René N6, and CMSX-4 as key materials and DS/SC processing as a landmark development. Ni superalloys are the primary material for jet engine hot sections above 900°C, featuring γ/γ' precipitation strengthening, creep resistance, and oxidation coatings. A section at minimum covering γ' (L1₂ ordered precipitate), creep mechanisms, and directional solidification belongs here alongside the steel and Al content -->
 
 ## Aluminum Alloys
 

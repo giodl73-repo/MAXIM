@@ -83,6 +83,8 @@ UPDATE (measurement update) — when measurement y[k] arrives:
 
 ### Interpretation
 
+<!-- @editor[bridge/P2]: The Kalman gain K as a weighted trust between model and measurement is the exact same reasoning behind Bayesian A/B test analysis and anomaly detection ensembles: when your sensor (metric) is noisy (high R), trust the prior model more; when the sensor is reliable, update aggressively. Azure Monitor's anomaly detection is a Kalman-type filter. The "software observability" connection here is concrete: the Kalman filter is the mathematically optimal answer to "how do I reconstruct system state from noisy telemetry?" — which is exactly what an observability platform does. -->
+
 ```
 Kalman gain K mediates between model and measurement:
 
@@ -268,6 +270,8 @@ DISADVANTAGE: High computational cost; degeneracy in high dimensions
 ```
 
 ---
+
+<!-- @editor[bridge/P3]: SLAM's state management (growing state vector as new landmarks are added, O(L²) EKF-SLAM scaling) has a direct parallel in distributed tracing: as the number of tracked service instances grows, naive correlation of all spans becomes quadratic — the same scalability argument that drives Graph SLAM and sparse methods also drives sampling-based distributed trace strategies. Brief note would connect this well. -->
 
 ## SLAM (Simultaneous Localization and Mapping)
 

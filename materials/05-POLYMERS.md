@@ -61,6 +61,8 @@ M_0 = molecular weight of one repeat unit (g/mol).
 
 ### Chain Statistics: The Freely Rotating Chain
 
+<!-- @editor[bridge/P3]: No explicit connection to random walk / statistical mechanics — a physicist immediately recognizes ⟨r²⟩ = nl² as the random walk result (mean-square displacement of N steps of length l). The freely rotating chain and characteristic ratio C_∞ are corrections to the ideal random walk for correlated steps. Worth one line: "This is a biased random walk with bond-angle correlations — C_∞ > 1 encodes the correlation length of the walk" -->
+
 Real polymer chain: backbone bonds have fixed angle θ (C-C = 109.5°) and can rotate.
 
 **Freely rotating chain model** (no correlation beyond bond angle):
