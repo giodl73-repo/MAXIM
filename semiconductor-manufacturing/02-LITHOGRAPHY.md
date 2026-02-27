@@ -114,7 +114,7 @@ CHEMICALLY AMPLIFIED RESIST (CAR):
 
 ---
 
-<!-- @editor[bridge/P3]: Multi-patterning section could connect to a software analogy: SADP/SAQP adds litho steps to recover resolution that physics no longer provides directly — same pattern as technical workarounds that accumulate layers of complexity to compensate for a fundamental constraint; the comparison to shim layers / compatibility layers in software would resonate with a senior engineering leader evaluating architectural trade-offs -->
+Multi-patterning adds process steps to recover resolution that physics no longer provides directly — the semiconductor equivalent of accumulating shim layers and compatibility workarounds to compensate for a fundamental architectural constraint. Each patterning layer doubles the design rule complexity, much like each software compatibility layer adds integration surface area.
 
 ## Multi-Patterning: Extending 193i Beyond Its Limit
 

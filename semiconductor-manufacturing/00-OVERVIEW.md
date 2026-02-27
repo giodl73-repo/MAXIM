@@ -47,9 +47,7 @@ LEVEL 0: RAW MATERIAL
 
 ---
 
-<!-- @editor[audience/P2]: "Moore's Law: History and Slowdown" section restates Moore's Law from 1965→2025 with full transistor count table and Dennard scaling derivation — calibration explicitly says learner does NOT need "Moore's Law stated"; compress to the slowdown mechanics (Dennard break ~2005, power wall, architectural pivot to multi-core and chiplets) and cut the historical table; the learner already owns this history -->
-
-## Moore's Law: History and Slowdown
+## Moore's Law: The Slowdown That Matters
 
 ```
 MOORE'S LAW (1965 → 2025)
@@ -127,9 +125,15 @@ REVENUE BREAKDOWN (2024):
 
 ---
 
-<!-- @editor[bridge/P2]: Missing photolithography → information encoding bridge — spatial frequency content of circuit patterns (k₁·λ/NA) is directly analogous to Nyquist sampling: the diffraction limit is the spatial Nyquist limit, and multi-patterning is spatial oversampling; an MIT math/TCS reader maps this immediately, and the analogy explains why each successive resolution doubling requires exponentially more litho steps -->
+### Engineering Bridge: Lithography as Spatial Sampling
 
-<!-- @editor[bridge/P2]: Missing yield curve → reliability engineering bridge — Murphy's model (infant-mortality defect clustering → binomial yield distribution) is the manufacturing analog of the software reliability bathtub curve (burn-in failures + steady-state + wear-out); die yield binning by speed/power grade is also directly analogous to SLA-tier provisioning; learner has the MTTF/SLA modeling background from VSTS/Azure infrastructure -->
+The resolution limit R = k1 * lambda / NA is the **spatial Nyquist limit** — the diffraction limit determines the minimum resolvable feature, exactly as the Nyquist frequency determines the maximum resolvable temporal signal. Multi-patterning (SADP/SAQP) is spatial oversampling: each additional exposure doubles spatial frequency content at the cost of exponentially more process steps. An MIT math reader sees immediately why each resolution halving requires disproportionately more effort — the information content per wafer grows faster than lithographic bandwidth.
+
+### Engineering Bridge: Yield as Reliability Engineering
+
+Murphy's yield model (Y = ((1 - e^(-AD0))/AD0)^2) produces a yield-vs-die-area curve with the same shape as the software **reliability bathtub curve**: high early failure rate (new process, high D0), rapid improvement on the learning curve (Brice's law: yield doubles per doubling of cumulative volume), eventual steady-state. Die binning — sorting dies by speed/power grade based on measured performance — is SLA-tier provisioning applied to silicon: the same physical wafer produces multiple product SKUs, each priced by its measured quality tier.
+
+---
 
 ## Fab Process Flow at a Glance
 
