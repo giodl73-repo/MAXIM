@@ -240,8 +240,6 @@ The ELBO has a physics interpretation: − (energy of reconstruction) + (entropy
 
 ## Connections to Finance — Stochastic Processes
 
-<!-- @editor[content/P2]: The finance section (Black-Scholes = Fokker-Planck, GBM = Langevin) is correct but the risk-neutral measure / Girsanov theorem connection is missing. The change of measure from physical probability P to risk-neutral measure Q is a time-reversal symmetry / path-reweighting exactly analogous to the Crooks fluctuation theorem (reweighting trajectories by e^{β(W−ΔF)}). This connection between financial risk-neutral pricing and stochastic thermodynamics is non-obvious and genuinely illuminating for this learner. -->
-
 The mathematics of statistical mechanics and financial mathematics are largely identical.
 
 ```
@@ -272,6 +270,8 @@ The Black-Scholes formula for a European option is:
     V(S₀, 0) = e^{-rT} ∫ payoff(S_T) × P(S_T | S₀) dS_T
 
 where P is the lognormal transition probability — the exact propagator of GBM. This is the path integral formula for the partition function, with time replaced by −iT (Wick rotation connects quantum mechanics to thermal field theory; same Wick rotation connects finance to QM).
+
+**Risk-neutral measure as path reweighting (Girsanov ↔ Crooks)**: In physical probability P, asset drift = expected return μ. In risk-neutral measure Q, drift = risk-free rate r. The change of measure P → Q (Girsanov's theorem) reweights trajectories by a Radon-Nikodym derivative dQ/dP = exp(−(μ−r)/σ × W_T − (μ−r)²/(2σ²) × T). This is structurally identical to the Crooks fluctuation theorem, which reweights forward trajectories by exp(β(W−ΔF)): both are path-level exponential tilts that shift the effective drift. In finance, risk-neutral pricing removes the risk premium; in stat mech, the Crooks relation removes the irreversible work. The mathematical identity is: the Radon-Nikodym derivative for changing drift in an SDE IS the exponential of the action difference — exactly the Boltzmann weight reweighting of the Crooks/Jarzynski framework.
 
 ---
 
@@ -358,6 +358,51 @@ SGD ↔ LANGEVIN EQUATION:
 
 **SGD is NOT Langevin dynamics unless noise is deliberately added**: Standard SGD minimizes L — it converges to a local minimum, not to a distribution. SGLD (Welling-Teh) adds explicit noise to sample from P(θ) ∝ e^{-U(θ)}. Without the added noise term, SGD is a gradient flow, not Langevin dynamics. The noise from mini-batches alone does not satisfy detailed balance.
 
-<!-- @editor[content/P2]: Missing: diffusion generative models as stat mech. DDPM and score-based models (Langevin sampling via score matching) are exactly the reverse Fokker-Planck dynamics — the model learns the score ∇_x log P(x) (the force driving the reverse diffusion), which is the same as learning the free energy landscape gradient. Anderson's reverse-time SDE (1982) is the theoretical foundation and it is purely non-equilibrium stat mech. This is in the learner calibration as an explicit target ("diffusion models as stochastic processes") and 09-CONNECTIONS.md is the right place for it. Currently absent. -->
+## Diffusion Generative Models — Score Matching as Stat Mech
 
-<!-- @editor[content/P2]: Missing: the connection between spin glasses and computational complexity. The learner calibration says "spin glasses → optimization landscapes" but this file focuses on ML connections without making the TCS bridge: random k-SAT, random MAX-CUT, the traveling salesman problem, and integer programming all have spin glass phases. The replica method (from spin glass theory) predicts the satisfiability threshold for random k-SAT — a result that would be directly interesting to an MIT TCS background. One table mapping CSP problems to their spin glass analogs would serve this learner's deepest interest. -->
+DDPM (Ho et al. 2020) and score-based models (Song & Ermon 2019) are non-equilibrium stat mech made generative. The full treatment of the forward/reverse SDE structure is in 08-NON-EQUILIBRIUM.md. The connection to this chapter's framework:
+
+```
+DIFFUSION MODELS IN THE STAT MECH / ML UNIFIED FRAMEWORK:
+
+  Stat Mech Concept         Diffusion Model Equivalent
+  ────────────────────────────────────────────────────────────────
+  Forward Langevin SDE      Forward noising process (destroy signal)
+  Fokker-Planck equation    Evolution of data density p(x,t)
+  Score ∇_x log p(x,t)     Force field = −∇U/(kT) from free energy
+  Reverse-time SDE          Generative process (noise → data)
+  Anderson (1982)           Theoretical foundation for reverse SDE
+  Free energy gradient      Learned score function s_θ(x,t)
+  Simulated annealing       Multi-scale denoising (high → low noise)
+
+  Unlike EBMs:  no partition function Z required.
+  Unlike VAEs:  no ELBO — train by score matching on noise levels.
+  Like Langevin MCMC: sampling IS running the reverse SDE.
+```
+
+The practical advantage over EBMs: score matching avoids computing the intractable Z_θ. The score ∇_x log p(x) = −∇_x E(x) is independent of Z (it's the force, not the energy), so the model learns the landscape gradient without ever evaluating the partition function.
+
+## Spin Glasses and Computational Complexity
+
+The spin glass → TCS bridge: random constraint satisfaction problems (CSPs) have phase structures predicted by replica methods from spin glass theory.
+
+```
+CSP PROBLEM                  SPIN GLASS ANALOG                   KEY RESULT
+─────────────────────────────────────────────────────────────────────────────
+Random k-SAT                 Diluted random spin glass            Satisfiability threshold
+  N variables, αN clauses    k-body interactions on random graph  α_s(3) ≈ 4.267 (cavity method)
+
+Random MAX-CUT               ±J SK model on random graph          Parisi value ≈ 0.763√N
+  Partition vertices          Frustration = unsatisfied edges      (replica symmetric)
+
+Graph q-coloring             q-state Potts glass                  Clustering transition before
+  c edges per vertex          Random interactions                  uncolorability (1-RSB)
+
+Number partitioning          1D random-field Ising                Phase transition at
+  Subset sums                 Spins = ±1, random fields = aᵢ      M ~ N log N bits precision
+
+Random linear programming    Spherical spin glass                 Gardner transition
+  Constraints = patterns      Perceptron energy function           (capacity α_c ≈ 2)
+```
+
+The cavity method (belief propagation on the factor graph) and its 1-RSB extension (survey propagation) are both spin glass algorithms that provide the best known solvers for random CSPs near the satisfiability threshold. The replica prediction of the 3-SAT threshold at α ≈ 4.267 (Mézard-Parisi-Zecchina 2002) has been confirmed by rigorous methods (Ding-Sly-Sun 2015). For an MIT TCS reader, this is where the physics of disordered systems meets the theory of NP-hardness: random instances become hard exactly at the spin glass transition, where the solution space shatters into an exponential number of disconnected clusters (the "clustering transition").

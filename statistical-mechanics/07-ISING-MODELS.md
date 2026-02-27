@@ -256,8 +256,6 @@ HOPFIELD ↔ ISING CORRESPONDENCE:
 
 ## Spin Glasses
 
-<!-- @editor[content/P2]: The spin glass section names the SK model and replica symmetry breaking but is thin for a topic listed in the learner calibration as a target. Parisi's replica symmetry breaking and its physical meaning (an ultrametric hierarchy of pure states, each with its own order parameter q) is profound and warrants more than two sentences. The connection to optimization landscapes — why spin glasses are the canonical model for NP-hard problems (random k-SAT, MAX-CUT, number partitioning all have spin glass phases) — is exactly what "spin glasses → optimization landscapes" means in the calibration notes. This needs a dedicated ASCII diagram showing the energy landscape structure and the replica order parameter q(x). -->
-
 Beyond ferromagnets: **spin glasses** have random couplings Jᵢⱼ (positive AND negative), creating frustration.
 
 **Sherrington-Kirkpatrick model** (SK model, infinite-range spin glass):
@@ -267,6 +265,41 @@ Beyond ferromagnets: **spin glasses** have random couplings Jᵢⱼ (positive AN
 This model has a glass transition at T_g, below which the system freezes into one of many metastable configurations. The **replica trick** (analytical continuation in replica number n) and **replica symmetry breaking** (Parisi 1979) solve this model.
 
 The SK model is formally equivalent to the Hopfield model with random patterns — both undergo a spin glass transition when the system is overloaded.
+
+**Parisi's replica symmetry breaking (RSB)**: The SK model is solved via the replica trick: compute Z^n for integer n, then analytically continue to n → 0. The naive (replica-symmetric) solution is unstable below T_g. Parisi (1979, Nobel Prize 2021) showed that the correct solution breaks replica symmetry in a hierarchical pattern:
+
+```
+SPIN GLASS ENERGY LANDSCAPE — ULTRAMETRIC STRUCTURE:
+
+  Energy
+    │     ╱╲           ╱╲               ╱╲
+    │    ╱  ╲         ╱  ╲             ╱  ╲
+    │   ╱ ╱╲ ╲       ╱ ╱╲ ╲           ╱ ╱╲ ╲
+    │  ╱ ╱  ╲ ╲     ╱ ╱  ╲ ╲         ╱ ╱  ╲ ╲
+    │ ·  ·  ·  ·   ·  ·  ·  ·       ·  ·  ·  ·
+    └──────────────────────────────────────────── configuration
+
+  The landscape is a hierarchy of metastable states:
+  - Many "pure states" (valleys), each with overlap q between them
+  - Overlap q(x) is the Parisi order parameter, 0 ≤ x ≤ 1
+  - States within the same valley have q close to 1
+  - States in distant valleys have small q
+  - The hierarchy is ULTRAMETRIC: d(A,C) ≤ max(d(A,B), d(B,C))
+    (like a taxonomy tree — all distances are determined by the
+    most recent common ancestor)
+```
+
+**Spin glasses as optimization landscapes**: The connection to TCS is direct. The ground state of a spin glass is an NP-hard optimization problem (equivalent to MAX-CUT on a weighted graph). The replica method from spin glass theory predicts phase transitions in random combinatorial problems:
+
+| CSP Problem | Spin Glass Analog | Critical Threshold |
+|-------------|-------------------|-------------------|
+| Random k-SAT | Diluted spin glass, k-body interactions | α_s(k) clauses/variable |
+| Random MAX-CUT | ±J Ising on random graph | ~ 0.763N |
+| Number partitioning | 1D random-field Ising | Phase transition at N ~ 2^{c·M} |
+| Graph coloring | Potts glass | q colors, c edges/vertex threshold |
+| TSP | Continuous spin glass | Parisi-type RSB in random instances |
+
+The satisfiability threshold for random 3-SAT (α_s ≈ 4.267) was predicted by the cavity method (the spin glass "belief propagation" algorithm) before being rigorously proved. Survey propagation — an algorithm derived from 1-RSB spin glass theory — is the best known algorithm for random k-SAT near the threshold.
 
 ---
 
@@ -325,8 +358,39 @@ GENERALIZATIONS:
 
 **The Hopfield network "memories" are local energy minima, not global**: The energy landscape has many local minima (spurious states: mixtures of stored patterns, reversed patterns). Above ~14% capacity, the network fails to recall stored patterns reliably — too many spurious states compete. This is not a flaw in the model; it reflects the physics of spin glasses.
 
-<!-- @editor[content/P2]: Missing: the modern dense associative memory / modern Hopfield network (Ramsauer et al. 2020) which shows that using a higher-power energy function (instead of quadratic) exponentially increases storage capacity and that the attention mechanism in Transformers is the update rule for such a network. This is a current, direct bridge between Ising/Hopfield physics and modern ML architecture. Given the learner calibration explicitly names "Ising model → neural networks (Hopfield networks)" as a target bridge, the 2020 result is the punchline — and its absence is a significant gap. -->
+**Modern Hopfield networks and Transformer attention**: The classical Hopfield network stores ~0.14N patterns using a quadratic energy E = −(1/2)Σ_{ij} J_{ij} s_i s_j. Ramsauer et al. (2020) showed that replacing the quadratic energy with a higher-order interaction energy E = −log Σ_μ exp(ξ^μ · s) — a log-sum-exp of pattern-state overlaps — exponentially increases storage capacity to O(e^{αN}) patterns. The update rule for this modern Hopfield network is:
 
-<!-- @editor[content/P2]: The BKT transition (2D XY model) is mentioned in the Lattice Models section but receives only 4 lines. The Berezinskii-Kosterlitz-Thouless transition is topological (vortex-antivortex unbinding), does not fit the Landau symmetry-breaking framework, and is the canonical example of a topological phase transition — a major qualitatively different category. For a learner coming from this calibration, the BKT transition deserves its own subsection explaining the vortex gas picture and the stiffness jump. Currently it is underdeveloped. -->
+    s^{new} = softmax(β Ξ^T s^{old}) · Ξ
+
+where Ξ is the matrix of stored patterns. This is exactly the self-attention mechanism in Transformers: queries = current state, keys = stored patterns, values = stored patterns, and softmax(QK^T/√d) · V is the Hopfield update. The classical Hopfield → modern Hopfield → Transformer attention chain closes the loop between Ising-like associative memory and the dominant ML architecture.
+
+**BKT transition — topological phase transitions beyond Landau**: The Berezinskii-Kosterlitz-Thouless transition in the 2D XY model does not fit the Landau symmetry-breaking framework. There is no local order parameter that turns on at T_c — instead, the transition is driven by topological defects (vortices).
+
+```
+BKT VORTEX-ANTIVORTEX UNBINDING:
+
+  Below T_BKT: vortex-antivortex pairs bound (dipoles).
+               No free vortices. Algebraic (power-law) correlations:
+               ⟨cos(θ(0) − θ(r))⟩ ~ r^{−η(T)}  (quasi-long-range order)
+               Superfluid stiffness ρ_s > 0.
+
+  At T_BKT:   Pairs unbind → free vortices proliferate.
+              Superfluid stiffness jumps DISCONTINUOUSLY to zero:
+              ρ_s(T_BKT⁻) = 2k_BT_BKT/π  (universal jump)
+              Correlation length diverges EXPONENTIALLY:
+              ξ ~ exp(b/√(T − T_BKT))  (essential singularity, not power law)
+
+  Above T_BKT: Free vortices destroy coherence.
+               Exponential correlation decay: ⟨cos(θ(0)−θ(r))⟩ ~ e^{−r/ξ}
+
+  KEY DISTINCTION from Ising-type transitions:
+  - No symmetry breaking (⟨e^{iθ}⟩ = 0 on both sides in 2D)
+  - No power-law divergence of ξ (essential singularity instead)
+  - Transition is in the topology of the defect configuration, not
+    in the order parameter
+  - Nobel Prize 2016 (Kosterlitz, Thouless, Haldane)
+```
+
+This is the prototype for all topological phase transitions: the transition is between a phase with bound topological defects and one with free defects, classified by a topological invariant (winding number) rather than a broken symmetry.
 
 **Mean-field theory overestimates T_c because it ignores fluctuations**: Mean-field gives T_c = zJ/k_B (z = coordination number). The actual T_c is lower because fluctuations reduce the effective coupling. In 2D with z = 4: mean-field gives T_c = 4J/k_B, but the exact answer is 2.269 J/k_B — 43% lower. The discrepancy grows as dimension decreases (more fluctuations in lower dimensions).
