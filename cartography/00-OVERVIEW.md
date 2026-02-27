@@ -259,8 +259,9 @@ Full treatment with mathematics in 04-PROJECTIONS.md.
 **Astronomy**: Celestial navigation (finding position via star angles) fed directly into cartography — latitude from pole star altitude, longitude from lunar distances or chronometers. The transit of Venus expeditions (Cook, 1769) were simultaneously astronomical events and cartographic expeditions that produced the first accurate Pacific charts.
 
 **Computing/GIS**: Modern digital cartography is a database plus rendering problem. A Web Mercator tile server is a function `(z, x, y) → PNG` over a spatially indexed database. The slippy map is a UI pattern built on lazy tile loading via HTTP. PostGIS extends PostgreSQL with spatial types and the full suite of geometric/geographic operators.
-<!-- @editor[bridge/P2]: The tile scheme deserves explicit framing as a spatial data structure: zoom level z gives a 2ⁿ × 2ⁿ grid, which is precisely a quadtree — tile (z,x,y) contains exactly 4 children at (z+1, 2x, 2y), (z+1, 2x+1, 2y), etc. The tile URL is a quadtree path. This is the same spatial indexing structure used in spatial databases and game engines. A software engineer with this background maps it immediately once stated. -->
-<!-- @editor[bridge/P2]: GIS as spatial database is mentioned but not expanded here. The key framing for a database-familiar engineer: GIS = relational database + geometry column type + spatial index (R-tree) + spatial predicates (ST_Intersects, ST_DWithin, ST_Buffer). Tomlinson's 1963 insight was that map overlay = relational join. PostGIS is PostgreSQL + this. The conceptual bridge from SQL to GIS needs one paragraph in this overview given how directly useful it is. -->
+The tile scheme is a **quadtree**: zoom level z gives a 2^z x 2^z grid, and tile (z,x,y) contains exactly 4 children at (z+1, 2x, 2y), (z+1, 2x+1, 2y), (z+1, 2x, 2y+1), (z+1, 2x+1, 2y+1). The tile URL encodes the quadtree path. This is the same spatial indexing structure used in spatial databases (R-tree) and game engines (octree).
+
+**GIS as spatial database**: GIS = relational database + geometry column type + spatial index (R-tree) + spatial predicates (ST_Intersects, ST_DWithin, ST_Buffer). Tomlinson's 1963 insight was that **map overlay = relational join** — two thematic layers overlaid spatially is the same operation as joining two tables on a shared key. PostGIS is PostgreSQL extended with this. Any database-familiar engineer can reason about GIS operations as SQL with a geometry type.
 
 **Data visualization**: Thematic maps are a specialized subclass of information visualization. The design principles for effective maps overlap heavily with Tufte's principles for statistical graphics — data-ink ratio, avoiding chartjunk, encoding data in appropriate visual variables (color hue vs lightness vs size).
 
@@ -298,5 +299,34 @@ Understanding this is the meta-skill: any map you encounter is the output of a l
 | 09-GPS-DIGITAL | GPS to Google Maps | Trilateration, slippy maps, OSM |
 | 10-CARTOGRAPHIC-DESIGN | Making effective maps | Color, hierarchy, typography, propaganda |
 
-<!-- @editor[structure/P1]: Missing Decision Cheat Sheet section. The Module Guide is navigation, not a decision tool. Need a "which projection/tool/approach for which task" table: e.g., "need to preserve area for choropleth → equal-area projection", "web mapping application → EPSG:3857 / Leaflet or MapboxGL", "spatial SQL queries → PostGIS", "survey-grade positioning → RTK GPS". -->
-<!-- @editor[structure/P2]: Missing Common Confusion Points section. Candidates: (1) "EPSG:4326 and EPSG:3857 are the same — both use WGS84" (false — different projections, different units), (2) "Web Mercator is standard Mercator" (false — uses spherical approximation), (3) "GIS = ArcGIS" (false — GIS is the discipline), (4) "GPS triangulates" (false — trilateration), (5) "A map with a north arrow is always north-up" (false — north arrow indicates orientation precisely because it may not be north-up). -->
+## Decision Cheat Sheet
+
+| Task | Approach | Why |
+|------|----------|-----|
+| Choropleth (area comparison) map | Equal-area projection (Albers, Mollweide) | Area must be preserved for visual comparison of density/rate data |
+| Navigation / bearing measurement | Conformal projection (Mercator) | Angles preserved = constant compass bearing = straight rhumb lines |
+| Web mapping application | EPSG:3857 (Web Mercator) + Leaflet or MapboxGL | Industry standard tile system; all basemaps use this CRS |
+| Spatial SQL queries on geodata | PostGIS (PostgreSQL + spatial extension) | Full SQL + geometry types + R-tree spatial index + OGC predicates |
+| Survey-grade positioning (cm) | RTK GPS (Real-Time Kinematic) | Carrier-phase corrections give cm-level accuracy vs. m-level standalone |
+| Satellite/aerial image analysis | QGIS or Google Earth Engine | Raster analysis, multispectral bands, change detection |
+| Offline field data collection | QField (mobile QGIS) or ArcGIS Field Maps | GPS-tagged feature collection with custom attribute forms |
+| Global thematic comparison | Robinson or Natural Earth projection | Compromise projections — neither conformal nor equal-area but visually balanced |
+
+---
+
+## Common Confusion Points
+
+**"EPSG:4326 and EPSG:3857 are the same — both use WGS84"**
+False. EPSG:4326 is WGS84 geographic coordinates (latitude/longitude in degrees). EPSG:3857 is Web Mercator (x/y in meters, using a spherical approximation of WGS84). They have different units, different projections, and different coordinate ranges. Mixing them without reprojection produces wildly incorrect results.
+
+**"Web Mercator is standard Mercator"**
+False. Web Mercator uses a spherical approximation (EPSG:3857) while standard Mercator uses the WGS84 ellipsoid. The difference is ~0.33% — negligible for web mapping but unacceptable for geodetic work or legal survey boundaries.
+
+**"GIS = ArcGIS"**
+GIS is the discipline. ArcGIS (Esri) is one commercial implementation. QGIS (open-source), PostGIS (spatial database), GRASS, and Google Earth Engine are equally valid tools. The conceptual framework (spatial data + topology + overlay analysis) is tool-independent.
+
+**"GPS uses triangulation"**
+GPS uses **trilateration** (distance measurement from known positions), not triangulation (angle measurement). Each satellite provides a sphere of constant distance; the intersection of 4+ spheres gives the receiver position. Triangulation uses angles; trilateration uses distances.
+
+**"A map with a north arrow is always north-up"**
+The north arrow exists precisely because the map may not be north-up. Many navigation maps, building plans, and oblique-view maps orient differently. The arrow tells you which way is north on that specific map.
