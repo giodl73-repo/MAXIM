@@ -103,7 +103,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `natural-sciences/` | 18 | 2026-02 | — | 17 tags → pending |
+| `natural-sciences/` | 18 | 2026-02 | 2026-02 | 17 tags → 0 |
 | `biology/` | 7 | 2026-02 | 2026-02 | 12 tags → 0 |
 | `botany/` | 10 | 2026-02 | 2026-02 | 4 tags → 0 |
 | `ecology/` | 11 | 2026-02 | 2026-02 | 23 tags → 0 |
@@ -116,11 +116,11 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `genomics/` | 10 | 2026-02 | 2026-02 | 6 tags → 0 |
 | `immunology/` | 10 | 2026-02 | 2026-02 | 7 tags → 0 |
 | `microbiology/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
-| `evolutionary-biology/` | 10 | 2026-02 | — | 20 tags → pending |
+| `evolutionary-biology/` | 10 | 2026-02 | 2026-02 | 20 tags → 0 |
 | `virology/` | 10 | — | — | blocked (content policy) |
-| `biophysics/` | 10 | 2026-02 | — | 16 tags → pending |
-| `pharmacology/` | 10 | 2026-02 | — | 16 tags → pending |
-| `developmental-biology/` | 10 | 2026-02 | — | 21 tags → pending |
+| `biophysics/` | 10 | 2026-02 | 2026-02 | 16 tags → 0 |
+| `pharmacology/` | 10 | 2026-02 | 2026-02 | 16 tags → 0 |
+| `developmental-biology/` | 10 | 2026-02 | 2026-02 | 21 tags → 0 |
 
 ---
 
@@ -171,21 +171,21 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `economics/` | 5 | 2026-02 | — | 11 tags → pending |
-| `finance/` | 5 | 2026-02 | — | 14 tags → pending |
-| `behavioral-economics/` | 11 | 2026-02 | — | 7 tags → pending |
-| `political-science/` | 7 | 2026-02 | — | 9 tags → pending |
-| `law/` | 8 | 2026-02 | — | 10 tags → pending |
-| `psychology/` | 7 | 2026-02 | — | 9 tags → pending |
-| `sociology/` | 10 | 2026-02 | — | 18 tags → pending |
-| `organizational-behavior/` | 7 | 2026-02 | — | 14 tags → pending |
-| `game-theory/` | 6 | 2026-02 | — | 9 tags → pending |
-| `statistics-applied/` | 6 | 2026-02 | — | 7 tags → pending |
-| `public-health/` | 11 | 2026-02 | — | 4 tags → pending |
-| `demography/` | 10 | 2026-02 | — | 12 tags → pending |
-| `criminology/` | 10 | 2026-02 | — | 20 tags → pending |
-| `media-studies/` | 10 | 2026-02 | — | 18 tags → pending |
-| `education/` | 10 | 2026-02 | — | 5 tags → pending |
+| `economics/` | 5 | 2026-02 | 2026-02 | 11 tags → 0 |
+| `finance/` | 5 | 2026-02 | 2026-02 | 14 tags → 0 |
+| `behavioral-economics/` | 11 | 2026-02 | 2026-02 | 7 tags → 0 |
+| `political-science/` | 7 | 2026-02 | 2026-02 | 9 tags → 0 |
+| `law/` | 8 | 2026-02 | 2026-02 | 10 tags → 0 |
+| `psychology/` | 7 | 2026-02 | 2026-02 | 9 tags → 0 |
+| `sociology/` | 10 | 2026-02 | 2026-02 | 18 tags → 0 |
+| `organizational-behavior/` | 7 | 2026-02 | 2026-02 | 14 tags → 0 |
+| `game-theory/` | 6 | 2026-02 | 2026-02 | 9 tags → 0 |
+| `statistics-applied/` | 6 | 2026-02 | 2026-02 | 7 tags → 0 |
+| `public-health/` | 11 | 2026-02 | 2026-02 | 4 tags → 0 |
+| `demography/` | 10 | 2026-02 | 2026-02 | 12 tags → 0 |
+| `criminology/` | 10 | 2026-02 | 2026-02 | 20 tags → 0 |
+| `media-studies/` | 10 | 2026-02 | 2026-02 | 18 tags → 0 |
+| `education/` | 10 | 2026-02 | 2026-02 | 5 tags → 0 |
 | `international-relations/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
 
 ---
@@ -194,18 +194,18 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `linguistics/` | 10 | 2026-02 | — | 10 tags → pending |
-| `world-languages/` | 15 | 2026-02 | — | 17 tags → pending |
+| `linguistics/` | 10 | 2026-02 | 2026-02 | 10 tags → 0 |
+| `world-languages/` | 15 | 2026-02 | 2026-02 | 17 tags → 0 |
 | `codes/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
-| `typography/` | 12 | 2026-02 | — | 1 tag → pending |
-| `printing-publishing/` | 10 | 2026-02 | — | 3 tags → pending |
-| `cinema-film/` | 11 | 2026-02 | — | 5 tags → pending |
-| `radio-television/` | 10 | 2026-02 | — | 1 tag → pending |
-| `literature/` | 10 | 2026-02 | — | 15 tags → pending |
-| `rhetoric/` | 10 | 2026-02 | — | 18 tags → pending |
-| `philosophy-of-language/` | 10 | 2026-02 | — | 4 tags → pending |
-| `semiotics/` | 10 | 2026-02 | — | 17 tags → pending |
-| `translation/` | 10 | 2026-02 | — | 1 tag → pending |
+| `typography/` | 12 | 2026-02 | 2026-02 | 1 tag → 0 |
+| `printing-publishing/` | 10 | 2026-02 | 2026-02 | 3 tags → 0 |
+| `cinema-film/` | 11 | 2026-02 | 2026-02 | 5 tags → 0 |
+| `radio-television/` | 10 | 2026-02 | 2026-02 | 1 tag → 0 |
+| `literature/` | 10 | 2026-02 | 2026-02 | 15 tags → 0 |
+| `rhetoric/` | 10 | 2026-02 | 2026-02 | 18 tags → 0 |
+| `philosophy-of-language/` | 10 | 2026-02 | 2026-02 | 4 tags → 0 |
+| `semiotics/` | 10 | 2026-02 | 2026-02 | 17 tags → 0 |
+| `translation/` | 10 | 2026-02 | 2026-02 | 1 tag → 0 |
 
 ---
 
@@ -213,7 +213,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `art-history/` | 12 | 2026-02 | — | 12 tags → pending |
+| `art-history/` | 12 | 2026-02 | 2026-02 | 12 tags → 0 |
 | `architecture-history/` | 10 | — | — | |
 | `architecture/` | 8 | — | — | |
 | `music-theory/` | 10 | — | — | |
@@ -237,17 +237,17 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `pigments/` | 11 | 2026-02 | — | 7 tags → pending |
-| `coatings/` | 10 | 2026-02 | — | 10 tags → pending |
-| `textiles/` | 14 | 2026-02 | — | 4 tags → pending |
-| `ceramics/` | 11 | 2026-02 | — | 20 tags → pending |
-| `glassmaking/` | 11 | 2026-02 | — | 4 tags → pending |
-| `jewelry/` | 11 | 2026-02 | — | 7 tags → pending |
-| `metalworking/` | 10 | 2026-02 | — | 4 tags → pending |
-| `plastics-polymers/` | 10 | 2026-02 | — | 6 tags → pending |
-| `papermaking/` | 10 | 2026-02 | — | 11 tags → pending |
+| `pigments/` | 11 | 2026-02 | 2026-02 | 7 tags → 0 |
+| `coatings/` | 10 | 2026-02 | 2026-02 | 10 tags → 0 |
+| `textiles/` | 14 | 2026-02 | 2026-02 | 4 tags → 0 |
+| `ceramics/` | 11 | 2026-02 | 2026-02 | 20 tags → 0 |
+| `glassmaking/` | 11 | 2026-02 | 2026-02 | 4 tags → 0 |
+| `jewelry/` | 11 | 2026-02 | 2026-02 | 8 tags → 0 |
+| `metalworking/` | 10 | 2026-02 | 2026-02 | 4 tags → 0 |
+| `plastics-polymers/` | 10 | 2026-02 | 2026-02 | 6 tags → 0 |
+| `papermaking/` | 10 | 2026-02 | 2026-02 | 11 tags → 0 |
 | `composite-materials/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
-| `furniture/` | 10 | 2026-02 | — | 5 tags → pending |
+| `furniture/` | 10 | 2026-02 | 2026-02 | 5 tags → 0 |
 
 ---
 
@@ -255,35 +255,37 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 
 | Directory | Files | Swept | Clean | Notes |
 |-----------|------:|-------|-------|-------|
-| `periodic-table/` | 12 | 2026-02 | — | 20 tags → pending |
-| `animal-phylogeny/` | 13 | 2026-02 | — | 15 tags → pending |
+| `periodic-table/` | 12 | 2026-02 | 2026-02 | 20 tags → 0 |
+| `animal-phylogeny/` | 13 | 2026-02 | 2026-02 | 15 tags → 0 |
 | `spices/` | 11 | 2026-02 | 2026-02 | 0 tags → 0 |
-| `food-plants/` | 10 | 2026-02 | — | 13 tags → pending |
-| `culinary-history/` | 10 | 2026-02 | — | 4 tags → pending |
-| `fermentation-spirits/` | 10 | 2026-02 | — | 3 tags → pending |
-| `mycology/` | 10 | 2026-02 | — | 17 tags → pending |
+| `food-plants/` | 10 | 2026-02 | 2026-02 | 13 tags → 0 |
+| `culinary-history/` | 10 | 2026-02 | 2026-02 | 4 tags → 0 |
+| `fermentation-spirits/` | 10 | 2026-02 | 2026-02 | 3 tags → 0 |
+| `mycology/` | 10 | 2026-02 | 2026-02 | 17 tags → 0 |
 | `marine-biology/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
-| `entomology/` | 10 | 2026-02 | — | 10 tags → pending |
-| `ornithology/` | 10 | 2026-02 | — | 16 tags → pending |
+| `entomology/` | 10 | 2026-02 | 2026-02 | 10 tags → 0 |
+| `ornithology/` | 10 | 2026-02 | 2026-02 | 16 tags → 0 |
 | `zoology/` | 10 | 2026-02 | 2026-02 | 0 tags → 0 |
-| `horticulture/` | 10 | 2026-02 | — | 12 tags → pending |
+| `horticulture/` | 10 | 2026-02 | 2026-02 | 12 tags → 0 |
 
 ---
 
 ## Summary
 
-| Section | Dirs | Clean | Swept | Pending |
-|---------|-----:|------:|------:|--------:|
-| Computing & Software | 10 | 10 | 0 | 0 |
-| Mathematics & Physics | 20 | 1 | 0 | 19 |
-| Mechanics | 14 | 0 | 0 | 14 |
-| Technology | 9 | 0 | 0 | 9 |
-| Life Sciences | 18 | 11 | 5 | 2 |
-| Earth & Space | 14 | 14 | 0 | 0 |
-| History & Ideas | 15 | 15 | 0 | 0 |
-| Social Sciences | 16 | 1 | 15 | 0 |
-| Language & Communication | 12 | 1 | 11 | 0 |
-| Arts & Culture | 17 | 0 | 1 | 16 |
-| Material Culture | 11 | 1 | 10 | 0 |
-| Natural World | 12 | 3 | 9 | 0 |
-| **Total** | **168** | **57** | **51** | **60** |
+| Section | Dirs | Clean | Not Swept |
+|---------|-----:|------:|----------:|
+| Computing & Software | 10 | 10 | 0 |
+| Mathematics & Physics | 20 | 1 | 19 |
+| Mechanics | 14 | 0 | 14 |
+| Technology | 9 | 0 | 9 |
+| Life Sciences | 18 | 16 | 2 |
+| Earth & Space | 14 | 14 | 0 |
+| History & Ideas | 15 | 15 | 0 |
+| Social Sciences | 16 | 16 | 0 |
+| Language & Communication | 12 | 12 | 0 |
+| Arts & Culture | 17 | 1 | 16 |
+| Material Culture | 11 | 11 | 0 |
+| Natural World | 12 | 12 | 0 |
+| **Total** | **168** | **108** | **60** |
+
+*60 directories not yet swept: Mathematics & Physics (19), Mechanics (14), Technology (9), Arts & Culture (16), Life Sciences/virology (blocked), Life Sciences/cognitive-science (not started).*
