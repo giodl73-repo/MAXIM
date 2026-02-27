@@ -2,6 +2,8 @@
 
 ## The Big Picture
 
+<!-- @editor[diagram/P2]: Diagram maps Shannon's 3 problems (1948) but doesn't show the field landscape — the 9 guide files (entropy measures, source coding, channel coding, rate-distortion, network IT, algorithmic IT, quantum IT, information geometry) and how they branch from Shannon's foundation. Rework as a layered tree: Shannon core → sub-fields → modern results. -->
+
 ```
     INFORMATION THEORY LANDSCAPE
     ══════════════════════════════════════════════════════════
@@ -136,6 +138,8 @@ $$\boxed{E_{min} = k_B T \ln 2 \approx 2.87 \times 10^{-21} \text{ J at 300K}}$$
 ## Connection to TCS (For Learner's Background)
 
 ### Kolmogorov Complexity
+
+<!-- @editor[audience/P2]: Basic K(x) properties (upper bound, chain rule, uncomputability, Shannon ≥ H on average) are MIT TCS core curriculum — learner knows these. Compress to a one-line recall and pivot immediately to the MDL and circuit-complexity applications, which are the useful bridges here. -->
 
 K(x) = length of shortest program that outputs x and halts.
 

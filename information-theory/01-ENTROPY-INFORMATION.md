@@ -2,6 +2,8 @@
 
 ## The Full Entropy Toolbox
 
+<!-- @editor[diagram/P2]: The "MEASURES LANDSCAPE" diagram lists the measures but doesn't show their relationships as a layered structure — e.g., that I(X;Y) = KL(p(x,y)||p(x)p(y)) connecting mutual info to KL, or that cross-entropy H(P,Q) = H(P) + KL(P||Q) connecting all three. Rework as a relationship diagram showing how the measures derive from each other. -->
+
 ```
     MEASURES LANDSCAPE
     ══════════════════════════════════════════════════════════
@@ -26,6 +28,8 @@
 ## Entropy H(X): Axiomatics and Properties
 
 ### Shannon's Uniqueness Theorem
+
+<!-- @editor[audience/P2]: The 5-axiom uniqueness theorem characterization and proof sketch are standard MIT probability/information theory curriculum — this learner knows that H = -Σ p log p is the unique function satisfying continuity + symmetry + expansibility + maximum + recursion. Trim the proof sketch; the key point to preserve is the axiomatic grounding and the Gibbs inequality interpretation, not rederiving the result. -->
 
 Shannon (1948) showed that H(X) = -Σ p_i log p_i is the UNIQUE function satisfying:
 

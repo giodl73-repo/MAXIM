@@ -159,6 +159,8 @@ where ∂/∂n is the outward normal derivative on ∂Ω.
 
 ---
 
+<!-- @editor[bridge/P2]: The file covers 2D harmonic functions but does not bridge to 3D or n-dimensional harmonic analysis. The fundamental difference — in 2D, the Laplacian is connected to holomorphic functions via CR; in ℝⁿ for n≥3, that connection breaks — is significant for a learner who may encounter 3D PDE contexts. A one-paragraph note on "Why the complex analysis approach is special to 2D" would help locate this material in the broader landscape. -->
+
 ## Subharmonic and Superharmonic Functions
 
 **Subharmonic**: u satisfies ∇²u ≥ 0. Equivalently: u(z₀) ≤ average of u on circles.

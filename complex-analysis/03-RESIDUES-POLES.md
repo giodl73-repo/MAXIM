@@ -256,6 +256,8 @@ By Rouché, p(z) has the same number of zeros inside |z|=R as zⁿ, which has n 
 
 ---
 
+<!-- @editor[bridge/P2]: The Mellin-type integral (keyhole contour for ∫₀^∞ x^{α-1}f(x)dx) is introduced but the connection to the Mellin transform itself is not made. The Mellin transform is the bridge between Dirichlet series and multiplicative number theory — for a learner targeting the prime number theorem, the Perron formula (inverting a Dirichlet series via a vertical contour integral, which is a Mellin inversion) belongs here or in a dedicated pointer. -->
+
 ## Connection to Signal Processing (Z-transform Bridge)
 
 The Z-transform X(z) = Σ x[n] z^{-n} is a Laurent series in z^{-1}. The **inverse Z-transform** uses contour integration:

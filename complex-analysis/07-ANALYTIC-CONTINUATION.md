@@ -134,6 +134,10 @@ CONDITION: f real on I  ↔  f takes ℝ to ℝ  ↔  f satisfies the "reflectio
 
 ---
 
+<!-- @editor[bridge/P1]: The file describes Riemann's analytic continuation of ζ(s) via the theta function but does not connect this to the prime number theorem proof. The key missing step: the zero-free region of ζ (there are no zeros on Re(s)=1, proved via ζ(1+it)≠0) combined with Perron's formula gives the PNT. For a learner calibrated at this level, the proof chain "continuation → functional equation → zero-free region → PNT via Perron" should at least appear in outline. Currently the file stops at the functional equation without explaining why it matters for primes. -->
+
+<!-- @editor[content/P2]: Dirichlet L-functions L(s,χ) = Σ χ(n)n^{-s} and their analytic continuation are absent. These are the direct generalization of ζ(s), continue to entire functions (for non-trivial characters), and give Dirichlet's theorem on primes in arithmetic progressions via the same complex-analytic machinery. The special functions table at the end of the file lists L(s,χ) but gives no context for why it's entire or what its zeros control. -->
+
 ## Analytic Continuation in Practice — The Riemann Zeta Function
 
 This is the canonical, deepest example.
