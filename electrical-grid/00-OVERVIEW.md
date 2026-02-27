@@ -313,8 +313,7 @@ Resources (DER)                          EV chargers, fuel cells,    DISCO coord
 
 ## The Grid as a Distributed Real-Time System
 
-<!-- @editor[bridge/P2]: The distributed systems analogy table below is excellent but stops short of the optimization framing. AC Optimal Power Flow (OPF) — minimizing generation cost subject to power balance constraints (KCL/KVL equality), line thermal limits (inequality), and voltage bounds — is a large-scale constrained optimization problem (LP for DC approximation, nonlinear for full AC). Any engineer with math background maps this immediately to LP/QP. A one-sentence bridge ("AC power flow is a continuous optimization problem, not just Kirchhoff propagation") would connect the dispatcher's control problem to the reader's LP/convex optimization background called out as a key need. -->
-For anyone with large-scale distributed systems background, the grid is the most demanding real-time distributed system in existence. The analogies are exact:
+For anyone with large-scale distributed systems background, the grid is the most demanding real-time distributed system in existence. Beyond the real-time control challenge, AC power flow is a continuous constrained optimization problem: the dispatcher solves an optimal power flow (OPF) — minimize generation cost subject to KCL/KVL balance, thermal line limits, and voltage bounds — every few minutes. The DC approximation is a linear program; the full AC OPF is nonlinear/non-convex. The analogies are exact:
 
 | Distributed Systems Concept | Electrical Grid Equivalent |
 |-----------------------------|---------------------------|

@@ -77,8 +77,7 @@ SCAN RATE: 4 seconds (traditional SCADA)
 
 ### EMS Functions
 
-<!-- @editor[bridge/P2]: The EMS control hierarchy (field sensors → RTU → SCADA master → EMS optimization) maps directly to the BAS/DDC hierarchy in building automation (field sensors → DDC controllers → BAS supervisory → management platform) — and both map to the control plane / management plane architecture this learner knows from distributed systems. For a VP who runs Azure datacenters: the datacenter's BMS (Building Management System) that controls HVAC, power distribution, and cooling is exactly the same three-layer control architecture as grid SCADA, just with chilled water setpoints instead of MW dispatch signals. A one-sentence connection would make the EMS architecture immediately intuitive. -->
-The Energy Management System is the control plane for transmission grid operations:
+The Energy Management System is the control plane for transmission grid operations — the same three-layer architecture as building management systems or datacenter BMS (field sensors -> controllers -> supervisory optimization), with MW dispatch signals replacing chilled-water setpoints:
 
 ```
 EMS FUNCTIONAL STACK:
