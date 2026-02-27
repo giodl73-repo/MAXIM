@@ -140,7 +140,7 @@ EWLB (Embedded Wafer Level Ball Grid Array, Infineon/STM):
 
 ---
 
-<!-- @editor[bridge/P2]: Missing chiplet disaggregation → microservices decomposition bridge — splitting a monolithic SoC into chiplets (CPU compute die + I/O die + HBM stacks, each on optimal process node) is structurally identical to microservice decomposition: independently deployable units, standardized interconnect contracts (UCIe = the API), yield/cost optimization per function; the learner has directly managed this architectural pattern at scale and will immediately recognize the tradeoff topology -->
+Chiplet disaggregation is **microservice decomposition applied to silicon**: splitting a monolithic SoC into independently manufactured dies (CPU compute die + I/O die + HBM stacks), each built on its optimal process node, connected by standardized interconnect contracts (UCIe is the API contract, specifying bandwidth/latency/protocol). The yield benefit is the same as deploying independent services: a defect in one chiplet doesn't scrap the entire package, and each function can iterate on its own release cadence.
 
 ## 2.5D: Interposer and CoWoS
 

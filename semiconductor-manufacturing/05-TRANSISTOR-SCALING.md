@@ -47,7 +47,7 @@ GAA NANOSHEET (2022+, 3 nm and below):
 
 ---
 
-<!-- @editor[audience/P2]: MOSFET Fundamentals section derives transistor operation from first principles — Vgs/Vt threshold voltage, IDS current equations (linear and saturation regions), subthreshold slope from Boltzmann — calibration explicitly says learner does NOT need "what a transistor is"; this section belongs in an introductory guide, not a reference targeting MIT TCS/Math; replace with the scaling-relevant parameters (Ion/Ioff ratio, SS approaching Boltzmann limit, effective oxide thickness) framed as engineering constraints, not device physics lecture -->
+**Reader note**: The MOSFET physics below serves as reference for the scaling constraints that follow. The key parameters for scaling analysis are Ion/Ioff ratio, subthreshold slope (Boltzmann limit ~60 mV/decade at 300K), and effective oxide thickness — these are the engineering constraints that drive the planar-to-FinFET-to-nanosheet evolution.
 
 ## MOSFET Fundamentals
 
