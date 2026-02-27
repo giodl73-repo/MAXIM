@@ -294,6 +294,7 @@ AlphaZero (2017): trained only against itself with no human game data, learned c
 ### Mathematical Connections
 
 - **Combinatorial game theory** (Berlekamp, Conway, Guy, *Winning Ways*, 1982): Go endgames decompose into sums of independent combinatorial games, each with a surreal number value. You can literally add game positions as surreal numbers and the sum determines optimal play.
+<!-- @editor[content/P2]: The surreal number claim needs precision for a TCS reader — CGT values for Go endgames are not always surreal numbers in the strict sense; they can be "hot games" with temperature, represented as {L|R} game trees, which form a broader class than surreals (surreals are the "cold" special case with L < R); Berlekamp-Conway-Guy's Winning Ways covers this distinction; worth clarifying "surreal or game value" to avoid a technically incorrect statement -->
 - **Temperature**: In CGT, each Go position has a "temperature" (the value of the next move there). As the game progresses, temperature drops. Optimal play: always play the highest-temperature position.
 - **Computational hardness**: Determining if a Go position is alive or dead is PSPACE-complete. Generalized n×n Go is EXPTIME-complete.
 
@@ -371,6 +372,7 @@ The 2×6 board with 4 seeds each (48 total) is the standard form. Despite the si
 
 - **State space**: approximately 2 × C(48+11, 11) ≈ large but finite
 - **Complexity class**: Generalized mancala is PSPACE-hard (proven)
+<!-- @editor[content/P2]: The Sprague-Grundy connection is missing here — mancala-family games are impartial games (same moves available to both players) in certain configurations, making them natural candidates for Grundy analysis; a single sentence noting where Sprague-Grundy applies vs. where it breaks down (partisan/non-impartial variants) would be valuable for this TCS reader -->
 - **Optimal play**: Human champions can play near-optimally but not perfectly on a fixed board; computer solvers have largely mapped 2×6 Oware
 - **Draw possibility**: Both players can cycle if the opponent has very few seeds — games have maximum move limits to prevent infinite games
 

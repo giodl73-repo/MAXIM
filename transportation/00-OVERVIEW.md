@@ -377,3 +377,5 @@ Road EVs are near-term (2030s phase-out of ICE sales). Aviation net-zero is 2050
 
 **Induced demand vs capacity**
 Adding road capacity in a congested corridor typically generates enough new traffic within 5-10 years to restore the original congestion level. The empirical elasticity of VMT with respect to lane-miles is approximately 1.0 over the long run (Duranton-Turner 2011). This is why adding capacity is not always the answer — demand management (pricing) is the alternative.
+
+<!-- @editor[content/P2]: EV charging infrastructure absent from directory — explicitly called out in learner calibration as a "DOES need" topic. Covers: charging levels (L1/L2/DC fast/HPC), network topology (home vs public vs fleet depot), range anxiety vs actual behavior, grid impact (V2G, demand response), charging standard wars (CCS vs CHAdeMO vs NACS/Tesla → convergence), battery swapping (NIO), infrastructure planning models. Natural fit in a standalone file or as a major section of 07-AUTONOMOUS-VEHICLES.md (since EV+AV fleet charging is an integrated planning problem). -->

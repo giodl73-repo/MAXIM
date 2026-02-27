@@ -235,6 +235,8 @@ Result:
 
 ---
 
+<!-- @editor[bridge/P2]: Prospect theory's probability weighting function is discussed but not connected to the learner's probability/statistics background. The overweighting of small probabilities and underweighting of moderate ones is a systematic distortion of a proper probability measure — it violates expected utility axioms in a predictable way. For a TCS/math reader, the precise claim is that humans use a distorted probability weighting function π(p) rather than p itself. Add a note that CPT (Cumulative Prospect Theory) uses rank-dependent integration to avoid stochastic dominance violations — this connects to measure theory they know. -->
+
 ## Bounded Rationality (Simon 1955)
 
 Herbert Simon's alternative to classical economic rationality:
@@ -252,6 +254,8 @@ Herbert Simon's alternative to classical economic rationality:
 **The debate**: Kahneman: heuristics cause systematic errors; we should correct for them. Gigerenzen: heuristics are adaptive; the errors only appear in artificial lab conditions. Both have good evidence. The resolution depends on the specific task and environment.
 
 ---
+
+<!-- @editor[content/P2]: The dual-process section lacks the most important recent development: the debate about whether System 2 "corrects" System 1 or merely endorses it. Stanovich's "cognitive miser" framing and the "bat and ball" problem (1+0.10=1.10, so bat costs $1.00 — 80% of high-SAT students get this wrong) demonstrate that System 2 often rationalizes rather than overrides. This is the key empirical point that distinguishes the lazy-controller view from the serial-correction view. Currently understated as a parenthetical. -->
 
 ## Decision Cheat Sheet
 

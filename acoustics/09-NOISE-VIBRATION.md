@@ -301,3 +301,5 @@ must be addressed. Enclosures handle airborne; isolation mounts handle structure
 **dB(A) weighting ignores infrasound and some high frequencies**: dB(A) de-emphasizes frequencies
 below ~1 kHz. Wind turbine infrasound and very-low-frequency machinery are poorly captured by dB(A).
 Alternative: dB(G) G-weighting for infrasound assessment, dB(C) for peak impact noise assessment.
+
+<!-- @editor[content/P2]: Acoustic metamaterials absent — locally resonant structures (negative effective mass, Liu et al. 2000), phononic crystals (band-gap noise blocking analogous to photonic crystals), and membrane-type acoustic metamaterials (MAMS) are significant modern developments that break the mass law for sound isolation. Sub-wavelength blocking of low-frequency noise without the weight penalty of conventional mass-law approaches is directly relevant to NVH engineering. This section is the appropriate home; a "beyond the mass law" subsection covering the phononic band-gap concept would close the gap. -->

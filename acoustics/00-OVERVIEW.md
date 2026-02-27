@@ -101,6 +101,8 @@ SPL(r₂) = SPL(r₁) - 20·log₁₀(r₂/r₁)  dB
 
 ---
 
+<!-- @editor[diagram/P2]: Module map is a directory listing, not a conceptual landscape diagram. It tells you what files exist, not how the concepts relate. A proper landscape diagram would show: wave physics (foundation) → room acoustics / psychoacoustics (two branches from physics) → electroacoustics (transduction layer) → architectural acoustics / underwater / ultrasound / noise-vibration (applications). Show the dependency relationships, not the directory tree. -->
+
 ## Module Map
 
 ```
@@ -203,3 +205,5 @@ is well-behaved. Microphones should be in the far field of measured sources.
 **Impedance mismatch at every boundary**: Any time sound crosses between media with different
 Z = ρc, some reflects back. Air to glass, air to water, air to concrete — all have massive
 mismatches. This is why sound isolation requires mass (adding mass = adding impedance).
+
+<!-- @editor[content/P2]: Acoustic metamaterials absent from entire directory — locally resonant structures (Liu et al. 2000), phononic crystals, and negative effective mass/modulus materials represent a significant modern development. These achieve sub-wavelength sound blocking (breaking the mass law) and are directly analogous to photonic crystals and electromagnetic metamaterials the learner will encounter in optics. The 09-NOISE-VIBRATION file is the natural home; a brief mention and pointer in the overview would prevent a gap at the directory level. -->

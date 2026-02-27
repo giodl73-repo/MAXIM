@@ -916,6 +916,7 @@ mid-range shots entirely, maximize layups and threes. The 2018 Rockets led the
 league in 3PA and nearly beat the Golden State Warriors. The system hit a
 structural ceiling (defenders adapt) but the league average followed the logic.
 
+<!-- @editor[content/P2]: xG section lists the input features but doesn't describe the model class or the underlying statistical approach. xG is a logistic regression / gradient boosting classifier trained on historical shot outcomes — the output is a probability in [0,1] of a given shot resulting in a goal. The "defensive pressure" feature is computed from optical tracking (player position vectors relative to shot trajectory). More importantly: xG assumes shot outcomes are i.i.d., which is a significant modeling assumption that breaks down for elite players (Messi's xG-overperformance is consistent across seasons, suggesting individual skill is a real signal, not noise). This is a direct statistical modeling question the learner's MIT background would ask immediately. -->
 ### Expected Goals (xG) in Football
 
 The expected goals model assigns each shot a probability of scoring based on:
@@ -951,6 +952,7 @@ analytics tells you where to look; film tells you why. The best organizations
 integrate both. The pure-quant teams (Houston) and pure-scout teams (late-career
 Spurs under Pop) both had ceilings.
 
+<!-- @editor[content/P2]: Missing a section on officiating technology / computer vision in sport — the learner profile explicitly calls out "officiating technology (Hawk-Eye as computer vision)" as a bridge interest. This file covers analytics broadly but has no treatment of sensor-based adjudication systems: Hawk-Eye (tennis/cricket) uses multi-camera triangulation + ball physics model to predict trajectory; VAR (football) uses video review with calibrated cameras to determine offside to sub-centimeter precision; Hawkeye ball-tracking in cricket (DRS) models ball bounce and continuation. These are commercial computer vision deployments that changed game outcomes and competitive strategy — directly in the analytics revolution narrative of this file. -->
 ### Sloan Conference as Cultural Marker
 
 The MIT Sloan Sports Analytics Conference, launched 2006, is the annual crossing

@@ -141,6 +141,7 @@ AMATEURISM AS CLASS MECHANISM:
 
 ---
 
+<!-- @editor[content/P2]: Officiating technology is entirely absent from this file. The Olympics are where Hawk-Eye, photo-finish cameras, touch-pad timing, and video review systems were developed and first deployed at scale. The learner profile explicitly calls out "officiating technology (Hawk-Eye as computer vision)" as a bridge interest. At minimum: photo-finish cameras (introduced 1948 London), electronic timing to 1/1000s (vs stopwatch ±0.1s), Omega's role as official Olympic timekeeper, and the transition from human-eye to sensor-based adjudication belong here. This is not a minor omission — it's a key technology-sport intersection absent from the most natural home. -->
 ## The Political Olympics: Flash Points
 
 ### 1936 Berlin
@@ -393,6 +394,7 @@ DOPING TIMELINE:
 2000 Sydney:   First EPO blood test (indirect markers)
                Gene doping concerns begin
 
+<!-- @editor[bridge/P2]: Biological passport is described operationally but the statistical method is not named. It is anomaly detection via Bayesian longitudinal modeling: establish per-athlete baseline distribution of blood values, flag deviations beyond credible interval. This is statistical process control applied to biomarkers — the "normal range" is athlete-specific, not population-level. The learner's MIT statistics background makes this immediately accessible; naming the method turns "tracking blood values" into a recognizable algorithmic pattern. -->
 2008 Beijing:  Biological Passport introduced
                (hematological module -- tracks blood values)
                Steroidal module added 2014

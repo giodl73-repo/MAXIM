@@ -240,6 +240,10 @@ Starting ~1990s, a cluster of critiques:
 
 ---
 
+<!-- @editor[bridge/P1]: Missing Turing Test → computability bridge for this learner. The overview introduces the "computer metaphor for mind" without noting that the Turing Test is a decidability question in disguise: behavioral indistinguishability = membership in a language. A reader from MIT TCS sees this immediately and it earns credibility. Add 2-3 sentences connecting the Church-Turing thesis to functionalism, and note where this breaks down (Searle's Chinese Room, Penrose). -->
+
+<!-- @editor[bridge/P1]: The four-waves table (Symbolic → Connectionist → Embodied → Predictive) maps directly onto the GOFAI vs connectionism debate this learner knows cold. No bridge is drawn. Add a row or note explicitly linking Wave 1 = GOFAI/production systems, Wave 2 = connectionist resurgence (this learner likely remembers the 1986 PDP books), and note that Wave 4 (predictive processing / Friston) is variational inference — the same ELBO they've seen in VAEs. This bridge is load-bearing for 08-COMPUTATIONAL-MODELS. -->
+
 ## Decision Cheat Sheet — Which Framework for Which Question?
 
 | Question | Best Framework | Where in This Series |
@@ -255,6 +259,8 @@ Starting ~1990s, a cluster of critiques:
 | Does the brain compute Bayesian inference? | Predictive processing | 08-COMPUTATIONAL-MODELS |
 
 ---
+
+<!-- @editor[structure/P2]: Decision Cheat Sheet guides to specific sub-modules but doesn't help the learner decide *which computational framework* to use for a given modeling question (GPS/SOAR vs connectionist vs Bayesian vs active inference). This is the most likely question a VP-Engineering-turned-AI-enthusiast brings to the overview. Add a "choose your modeling framework" row or a separate mini-table. -->
 
 ## Common Confusion Points
 

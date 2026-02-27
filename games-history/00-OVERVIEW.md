@@ -1,4 +1,5 @@
 # Games History — Overview
+<!-- @editor[bridge/P2]: No bridge from formal language theory / automata to game trees — a learner with MIT TCS background will immediately recognize extensive-form games as trees with labeled nodes and labeled edges (information sets as equivalence classes on histories); make this connection explicit near the extensive-form diagram -->
 
 ## The Big Picture
 
@@ -156,6 +157,7 @@ The mathematical formalization: if we define skill as the mutual information bet
 
 Formally: uᵢ(sᵢ*, s₋ᵢ*) ≥ uᵢ(sᵢ, s₋ᵢ*) for all sᵢ ∈ Sᵢ
 
+<!-- @editor[content/P2]: PPAD-completeness claim needs more precision for this learner — PPAD is a subclass of TFNP (total function problems guaranteed to have a solution by a parity/existence argument); Daskalakis-Goldberg-Papadimitriou 2006 (3+ players) and Chen-Deng 2006 (2-player) are major TCS results worth naming since this learner will recognize their significance -->
 Nash's 1950 theorem guarantees existence in finite games with mixed strategies. The challenge is *selection* among multiple equilibria and *computation* (PPAD-complete for general games).
 
 **Dominant Strategies**: Strategy sᵢ strictly dominates sᵢ' if:
@@ -190,6 +192,7 @@ Useful for simultaneous games.     Extensive form preserves:
                                    - Subgame perfect equilibria
 ```
 
+<!-- @editor[content/P2]: Backward induction connection missing — SPE via backward induction is the natural algorithm for finite perfect-information games (like chess), and this is directly analogous to dynamic programming; the learner's MIT TCS background means this bridge (backward induction = DP on the game tree) would be immediately useful here -->
 **Subgame perfect equilibrium** (Selten 1965): Nash equilibrium that is a Nash equilibrium in every subgame. Eliminates non-credible threats. Critical for sequential games — chess, for example, has an SPE (theoretically).
 
 ---
@@ -439,6 +442,7 @@ Backgammon          Stochastic          TD-Gammon, GNU BG near-optimal
                     (chance nodes)      via RL
 ```
 
+<!-- @editor[content/P2]: Sprague-Grundy theory absent from the complexity section — for a TCS reader this is a glaring gap; the theorem that every impartial game is equivalent to a Nim heap (Grundy value), and that sums of games have Grundy value = XOR of individual values, is one of the cleanest results in combinatorial game theory; fits naturally here alongside the EXPTIME/PSPACE complexity discussion -->
 **Key insight**: Shannon's 1950 paper "Programming a Computer for Playing Chess" estimated ~10^120 possible chess games (Shannon number). The branching factor of ~35 and average game length of ~80 means tree search alone is hopeless — you need evaluation functions, which is what all modern engines do. AlphaZero replaced handcrafted evaluation with neural networks.
 
 ```

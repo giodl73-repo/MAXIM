@@ -131,6 +131,8 @@ Visual and verbal systems are separate but can be linked. Information encoded in
 
 **Application**: Combine text with relevant diagrams (not decorative images). The diagram creates a visual code; the text creates a verbal code; both activated together = better encoding.
 
+<!-- @editor[audience/P2]: The Fitts' Law and Hick's Law sections are pitched at a level appropriate for a junior UX designer, not a VP of Engineering. The math is already shown, which is good, but the framing ("make buttons bigger") is too basic. For this learner, the value is in understanding these as information-theoretic laws (Hick's Law is literally Shannon channel capacity), and in knowing the limits: Fitts' Law breaks for gesture/touch inputs differently than mouse, and for voice interfaces the distance metaphor changes. The applications section should lead with the quantitative design tradeoff, not the "corner of screen" observation. -->
+
 ### GOMS (Card, Moran, Newell 1983)
 
 A framework for modeling user task performance:
@@ -233,6 +235,8 @@ Status: No credible evidence learning styles affect outcomes.
 
 ## Cognitive Ergonomics
 
+<!-- @editor[bridge/P3]: Hick's Law: RT = a + b × log₂(n+1) is Shannon's theorem applied to human choice reaction time — each choice is one bit of information, and RT grows linearly with bits. The "log₂" is not a coincidence; Hick himself cited information theory. For a learner with information theory background, this bridge (Hick's Law = information-theoretic bound on human choice RT) is worth one sentence. Currently the information-theoretic grounding is implicit at best. -->
+
 ### Endsley's Situation Awareness (SA)
 
 ```
@@ -326,6 +330,8 @@ RPD MODEL:
 - Effect sizes often smaller than initial studies suggested (replication issues)
 
 ---
+
+<!-- @editor[content/P2]: The Cognitive Biases in Engineering table is the highest-value section for the target learner and it's also the thinnest. "Automation bias" gets one sentence; "hindsight bias in post-mortems" gets one. For an engineering leader, each row deserves a concrete intervention that works — not just "adversarial testing" but the specific pre-mortem format, the reference class forecasting procedure, and the blameless post-mortem structure. Currently the Mitigation column is too brief to be actionable. -->
 
 ## The Replication Crisis — What Survived
 

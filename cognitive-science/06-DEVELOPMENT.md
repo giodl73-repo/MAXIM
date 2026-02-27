@@ -321,6 +321,10 @@ LEVEL III — POSTCONVENTIONAL (principled ethics)
 
 ---
 
+<!-- @editor[audience/P2]: The development module covers Piaget, Vygotsky, and ToM in solid depth, but the content that would most interest this learner — the nativist/core-knowledge debate as it bears on AI (is there an analog of "innate priors" in neural networks? Spelke's core knowledge systems vs learned representations) — is only gestured at in the Baillargeon section. A VP of Engineering with AI interest will immediately ask: does the nativist/empiricist debate in developmental psychology map onto inductive biases in deep learning? Framing this explicitly would be the highest-value addition for this profile. -->
+
+<!-- @editor[content/P2]: The Vygotsky ZPD section is good but missing the connection to scaffolding in AI/ML systems (few-shot prompting as scaffolding within the ZPD; chain-of-thought prompting as externalized private speech). This connection is productive for this learner and not made anywhere in the module. -->
+
 ## Common Confusion Points
 
 **Piaget's stages are sequential, not age-locked**: Ages are averages; there's wide variation. A child from a culturally different background may show concrete operations earlier or later. Cross-cultural studies show the sequence is universal; the ages vary.

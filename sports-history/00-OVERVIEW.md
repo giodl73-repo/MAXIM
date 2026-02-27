@@ -233,6 +233,7 @@ ELITE / OLYMPIC
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from "performance metrics evolution" to signal processing / applied statistics: sabermetrics is Bayesian inference + regression applied to event data; Statcast is computer vision + radar fusion; the progression from box scores to tracking data is exactly the learner's analytics background applied to sport — worth one paragraph framing it that way -->
 ## Performance Metrics Evolution
 
 ```
@@ -451,6 +452,7 @@ Sport has been a proxy for national competition since the modern Olympic revival
 
 ---
 
+<!-- @editor[content/P2]: Missing a section on officiating technology — Hawk-Eye (tennis/cricket), goal-line technology (football), TMO (rugby), VAR (football), HawkEye ball-tracking in cricket: this is computer vision + probabilistic ball trajectory modeling, directly in the learner's interest area (stated: "officiating technology (Hawk-Eye as computer vision)") and absent from the overview entirely -->
 ## History Arc Timeline
 
 ```
@@ -526,6 +528,7 @@ Sport has been a proxy for national competition since the modern Olympic revival
 
 ---
 
+<!-- @editor[bridge/P1]: Missing the "rules as API versioning" bridge — the learner's stated framing is "how rules evolved as a response to emergent strategies (like an API versioning problem)." The overview taxonomy and timeline present rules as facts but never model the meta-pattern: sport governance bodies publish a spec (rules), practitioners find exploits (emergent strategies), the spec is patched (rule change), new exploits emerge. This bridge belongs in the overview as a structural lens for the whole section, not buried in individual files. Examples: shot clock (exploit: stalling), Fosbury Flop (exploit: rule says "clear bar," not how), forward pass (exploit enabled by rule change), ground effect in F1 (exploit: flat-bottom rule then closed it). -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

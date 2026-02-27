@@ -362,6 +362,8 @@ PRE-TENSIONING vs POST-TENSIONING
 
 ---
 
+<!-- @editor[bridge/P2]: Durability as reliability engineering framing absent — carbonation depth d=k√t, chloride diffusion (Fick's 2nd law), and time-to-corrosion-initiation are exactly MTTF distributions: each mechanism has a time-to-threshold with variance driven by mix quality, cover depth, and environment. EN 1992 cover rules are reliability targets (50-year service life at given exposure class). Frame this section: "durability = reliability engineering for material degradation pathways, each a competing failure mode." -->
+
 ## Concrete Durability: Mechanisms of Deterioration
 
 ### Carbonation
