@@ -210,7 +210,24 @@ This is why radar waveforms are designed for good autocorrelation properties
 
 ---
 
-<!-- @editor[bridge/P2]: No CNN-as-filter-bank bridge despite this being the most direct connection to modern ML. A CNN convolutional layer IS a bank of learned FIR filters: the kernel weights are the filter coefficients, the forward pass is cross-correlation (note: ML libraries call it convolution but implement correlation without flipping), and backprop is gradient descent on filter coefficients. This bridge from classical DSP convolution → learned filter banks is explicitly in the learner's "does need" list. Add a short section here or in 09-APPLICATIONS. -->
+## Bridge: CNN Layers as Learned FIR Filter Banks
+
+A CNN convolutional layer IS a bank of FIR filters with learned coefficients:
+
+```
+DSP CONVOLUTION              CNN "CONVOLUTION"
+──────────────────────────────────────────────────────────────────────────
+FIR filter h[n]              Kernel weights w[k] (3×3, 5×5, etc.)
+Convolution y = h * x        Forward pass y = w ⊛ x (actually cross-correlation —
+  (flip h, slide, dot)          ML libraries don't flip the kernel)
+Filter bank (parallel FIRs)  Multiple output channels = multiple learned filters
+Downsampling by M            Stride = M (skip M positions between outputs)
+Filter design (Parks-McCl)   Backpropagation (gradient descent on w)
+```
+
+The forward pass in a CNN is cross-correlation, not convolution — `torch.nn.Conv2d` does NOT flip the kernel. For symmetric kernels this doesn't matter; for asymmetric ones the distinction is real. In classical DSP the flip is essential for the associativity property (cascade of filters); in ML the kernel is learned end-to-end so the flip is irrelevant.
+
+---
 
 ## Decision Cheat Sheet
 

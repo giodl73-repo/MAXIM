@@ -280,7 +280,33 @@ Log-mel spectrogram: most common for deep learning (YAMNet, VGGish, AST)
 CQT (constant-Q transform): logarithmic frequency bins, good for music
 ```
 
-<!-- @editor[bridge/P2]: The ML section shows CNNs consuming spectrograms but never makes the explicit bridge from classical DSP to learned DSP — the central connection the learner calibration flags as needed. A CNN convolutional layer IS a bank of learned FIR filters: kernel weights = filter coefficients, stride = downsampling, depth = number of filter channels. Backprop is gradient descent on the filter bank. Pooling layers = downsampling (cf. DWT ↓2). The entire spatial-hierarchy of CNN features maps directly to multiresolution filter banks. Attention mechanisms (transformer) are dynamic, input-dependent filters: Q·Kᵀ softmax weighting = data-driven spectral shaping. This bridge from classical filter banks → learned filter banks → attention-as-filtering should appear explicitly here as a section (e.g., "DSP → Deep Learning Correspondence"). -->
+### DSP → Deep Learning Correspondence
+
+```
+CLASSICAL DSP                    DEEP LEARNING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────
+FIR filter bank                  CNN convolutional layer
+  hand-designed coefficients       → learned kernel weights (backprop = filter optimization)
+  parallel filters                 → output channels = number of learned filters
+
+Downsampling (↓M)                Stride = M in conv layer; pooling layers
+  anti-alias filter + decimate     → max/avg pool = nonlinear downsampling
+
+DWT multiresolution              CNN depth hierarchy
+  coarse → fine scale analysis     → early layers = low-frequency features
+                                   → deep layers = high-frequency/local features
+
+Wiener filter (MMSE)             Linear layer with MSE loss
+  optimal linear estimator         → same objective, same solution (Wiener-Hopf = normal eqns)
+
+Matched filter (correlation)     Attention mechanism (transformer)
+  fixed template × signal          → Q·Kᵀ = dynamic cross-correlation
+  output = similarity score        → softmax weighting = data-driven spectral shaping
+                                   → attention IS an input-dependent matched filter bank
+
+Note: ML "convolution" is actually cross-correlation (no kernel flip).
+For symmetric kernels the distinction vanishes; for asymmetric ones it's real.
+```
 
 ### Signal Features in ML Pipelines
 

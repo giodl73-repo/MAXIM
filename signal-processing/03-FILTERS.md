@@ -269,4 +269,38 @@ at different times — that's dispersion/smearing.
 IIR order N = number of poles = N coefficients each in numerator and denominator.
 An N-th order IIR can match roughly a 10N to 20N-order FIR for the same spec.
 
-<!-- @editor[content/P2]: Adaptive filters absent — LMS (Least Mean Squares) and RLS (Recursive Least Squares) are a significant subtopic in digital filtering. Adaptive filters are used in echo cancellation, noise cancellation (active noise control), channel equalization, and system identification. The learner's background (practical DSP implementation, ML bridge) makes this a natural fit; LMS is gradient descent on a filter, which directly bridges to ML optimization. -->
+## Adaptive Filters
+
+Adaptive filters adjust their coefficients in real time to minimize an error signal — they are gradient descent applied to FIR filter coefficients.
+
+```
+ADAPTIVE FILTER STRUCTURE
+                    ┌──────────────────┐
+  x[n] ──────────► │  FIR filter w[n]  │──► y[n] = wᵀx
+                    └──────────────────┘       │
+                           ▲                    ▼
+                    weight update          e[n] = d[n] - y[n]
+                    w[n+1] = w[n] + μ·e[n]·x[n]     (LMS)
+                           ▲
+                    d[n] (desired signal)
+
+LMS (Least Mean Squares, Widrow-Hoff 1960):
+  w[n+1] = w[n] + μ · e[n] · x[n]
+  μ = step size (learning rate — same parameter as in SGD)
+  Convergence: 0 < μ < 2/(λ_max) where λ_max = largest eigenvalue of Rxx
+  Misadjustment: excess MSE ∝ μ·M (M = filter order)
+  Cost: O(M) per sample — very cheap
+
+RLS (Recursive Least Squares):
+  Minimizes weighted least squares over all past data (exponential forgetting λ)
+  Convergence: much faster than LMS (~M× fewer samples)
+  Cost: O(M²) per sample — expensive but justified for fast-changing environments
+
+APPLICATIONS:
+  Echo cancellation (telephone, video): model echo path, subtract estimate
+  Active noise control: generate anti-noise signal to cancel acoustic noise
+  Channel equalization: invert channel distortion in real time
+  System identification: estimate unknown plant transfer function online
+```
+
+LMS is literally stochastic gradient descent on the MSE cost function with the FIR filter weights as parameters — the same algorithm that trains neural networks, applied to a linear model. RLS is the recursive form of weighted least squares (normal equations updated incrementally).

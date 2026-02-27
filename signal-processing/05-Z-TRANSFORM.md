@@ -224,11 +224,8 @@ State variables w[n]:
 w[n] = x[n] - a₁·w[n-1] - a₂·w[n-2]
 y[n] = b₀·w[n] + b₁·w[n-1] + b₂·w[n-2]
 
-<!-- @editor[content/P1]: Code block below has a leftover self-correction artifact: the first line `float y = b0*x + b1*w[0] + b2*w[1] - a1*w[0] - a2*w[1];` is the wrong Direct Form II (non-transposed) and the comment `// Wait, actually Direct Form II transposed:` is an inline editing note that was never removed. The duplicate `float y` declaration is also a compile error. Remove both the wrong first line and the correction comment; retain only the correct transposed implementation. -->
-Implementation (C-like):
+Implementation (C-like, Direct Form II transposed):
 float biquad(float x, float* w) {
-    float y = b0*x + b1*w[0] + b2*w[1] - a1*w[0] - a2*w[1];
-    // Wait, actually Direct Form II transposed:
     float y = b0*x + w[0];
     w[0] = b1*x - a1*y + w[1];
     w[1] = b2*x - a2*y;

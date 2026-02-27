@@ -188,9 +188,24 @@ N         DFT (N²)   FFT (N·log₂N)   Speedup
 **Variants**: Radix-4 FFT, split-radix FFT, prime-factor FFT (for non-power-of-2 N),
 Bluestein FFT (arbitrary N via convolution). Libraries like FFTW auto-select.
 
-<!-- @editor[bridge/P2]: No bridge from FFT O(N log N) to algorithmic complexity context the learner knows cold — this is exactly the kind of bridge that lands. E.g.: Cooley-Tukey is a divide-and-conquer recurrence identical in structure to merge sort; the twiddle-factor cancellation is the "merge step." The learner will immediately map this to recurrence trees and master theorem. Also missing: FFTW's runtime algorithm auto-selection (measures cache/SIMD performance → chooses plan) is a practical implementation detail worth one paragraph. -->
+**Algorithmic bridge:** Cooley-Tukey is a divide-and-conquer recurrence identical in structure to merge sort: split N-point DFT into two N/2-point DFTs (the "divide"), apply twiddle factors and combine (the "merge"). Master theorem gives T(N) = 2T(N/2) + O(N) → O(N log N). FFTW auto-selects the algorithm at runtime: it benchmarks different radix combinations and cache-line strategies during a "planning" phase, then executes the fastest measured plan — adaptive algorithm selection optimized for the specific hardware.
 
-<!-- @editor[content/P2]: Fixed-point FFT implementation absent — butterfly overflow/scaling strategies (block floating point, static scaling, saturation), Q-format arithmetic, and rounding modes are practical DSP implementation content this learner does need (per calibration: "practical DSP implementation (fixed-point arithmetic, pipeline architectures, numerical precision)"). -->
+**Fixed-point FFT implementation:** In embedded DSP (no FPU), the FFT operates in Q-format fixed-point arithmetic (e.g., Q15 = 15 fractional bits, range [-1, 1)). Each butterfly can overflow because the sum of two Q15 values exceeds the range. Three strategies:
+
+```
+SCALING STRATEGY      HOW                          TRADEOFF
+──────────────────────────────────────────────────────────────────────────
+Static scaling        Right-shift by 1 after each    Simple; loses 1 bit SNR per stage
+                      radix-2 stage (divide by 2)    Total loss: log₂N bits
+
+Block floating point  Track max magnitude per block  Better dynamic range; more complex
+                      shift only when near overflow   logic
+
+Saturation            Clamp to max on overflow       Preserves large signals; distorts
+                      (ARM SSAT instruction)          small signals near clipping
+```
+
+Q-format rounding: truncation (fast, biased) vs round-to-nearest (add 0.5 before shift, unbiased). For audio FFTs, round-to-nearest is standard; for real-time radar, truncation is often acceptable.
 
 ---
 
