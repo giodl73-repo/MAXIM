@@ -163,7 +163,7 @@ signal-processing/
         Audio; image processing; radar; medical; ML features
 ```
 
-<!-- @editor[content/P2]: Module map omits two significant modern topics the learner explicitly needs: (1) compressed sensing / sparse recovery (sub-Nyquist sampling, L1 minimization, RIP) — currently absent from all files; (2) the ML bridge (CNNs as learned filter banks, attention as dynamic filtering) — mentioned only partially in 09-APPLICATIONS. Consider adding notes here, or flagging that 02-SAMPLING-THEORY and 09-APPLICATIONS cover these angles. -->
+**Modern extensions not fully covered:** Compressed sensing (sub-Nyquist sampling via L1 minimization, RIP condition — see brief treatment in 02-SAMPLING-THEORY Common Confusion Points). The CNN-as-learned-filter-bank bridge and attention-as-dynamic-filtering are covered in 09-APPLICATIONS under the DSP-to-Deep-Learning correspondence section.
 
 ---
 
@@ -198,7 +198,9 @@ signal-processing/
 | Azure pipeline stages | Signal processing chain (cascade of LTI systems) |
 | Poisson process | Shot noise, Poisson spectral statistics |
 
-<!-- @editor[bridge/P2]: Missing bridge: CNN learned weights → FIR filter coefficients (backprop optimizes the filter bank); attention mechanism → dynamic, input-dependent filter. These are explicitly in the learner's "does need" list and belong in this overview's bridges table. -->
+| CNN convolutional layer | Bank of learned FIR filters (kernel weights = coefficients, backprop = filter optimization) |
+| Attention mechanism (transformer) | Dynamic, input-dependent filter: Q·Kᵀ softmax = data-driven spectral shaping |
+| Pooling layers | Downsampling (cf. DWT ↓2) |
 
 ---
 

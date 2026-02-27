@@ -235,4 +235,29 @@ This is why amplifier noise specs are given in nV/√Hz — makes them bandwidth
 These are independent conditions. Most DSP textbooks assume both WSS and ergodic without
 being explicit about it.
 
-<!-- @editor[content/P2]: Kalman filter absent — this is the natural capstone for stochastic signals through LTI systems. Kalman = optimal linear estimator for state-space models with Gaussian noise, equivalent to Wiener filter in the recursive/causal case. The derivation (predict → update, Riccati equation) is the practical counterpart to Wiener-Hopf. For a learner who uses Azure IoT/telemetry or control systems this is directly applicable. At minimum, note the Wiener filter → Kalman filter relationship. -->
+## Kalman Filter — Recursive Optimal Estimation
+
+The Kalman filter is the recursive, causal counterpart to the Wiener filter. Where Wiener requires stationarity and operates in frequency domain, Kalman operates in state-space (time domain) and handles non-stationary processes.
+
+```
+STATE-SPACE MODEL:
+  State:       x[n+1] = A·x[n] + B·u[n] + w[n]    (process noise w ~ N(0,Q))
+  Observation: z[n]   = C·x[n] + v[n]               (measurement noise v ~ N(0,R))
+
+PREDICT step (propagate state and covariance forward):
+  x̂[n|n-1] = A·x̂[n-1|n-1] + B·u[n-1]
+  P[n|n-1]  = A·P[n-1|n-1]·Aᵀ + Q
+
+UPDATE step (incorporate measurement):
+  K[n] = P[n|n-1]·Cᵀ·(C·P[n|n-1]·Cᵀ + R)⁻¹       ← Kalman gain
+  x̂[n|n] = x̂[n|n-1] + K[n]·(z[n] - C·x̂[n|n-1])    ← state update
+  P[n|n] = (I - K[n]·C)·P[n|n-1]                    ← covariance update
+
+RELATIONSHIP TO WIENER:
+  For stationary processes, the Kalman gain converges to a constant K∞
+  → steady-state Kalman = causal Wiener filter
+  The algebraic Riccati equation (P = A·P·Aᵀ + Q - A·P·Cᵀ·(C·P·Cᵀ+R)⁻¹·C·P·Aᵀ)
+  gives K∞ directly
+```
+
+Applications: GPS/INS fusion, target tracking (radar), telemetry smoothing, control systems state estimation. Extended Kalman filter (EKF) and Unscented Kalman filter (UKF) handle nonlinear state models.
