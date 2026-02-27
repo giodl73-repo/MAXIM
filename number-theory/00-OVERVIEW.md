@@ -35,7 +35,7 @@ That gap between local definition and global behavior IS number theory.
 
 ## Branch Descriptions
 
-<!-- @editor[bridge/P2]: Overview describes four branches but never bridges to the learner's TCS background — the complexity classifications (P vs sub-exp vs NP-hard) that appear in the Complexity Landscape table deserve a forward pointer here, noting that number theory gave TCS some of its most important "intermediate" problems (factoring, DLP: not in P, not NP-complete). A two-sentence bridge from "you know complexity theory" to "number theory is where the interesting unresolved complexity lives" would frame the whole section for this reader. -->
+Number theory gave theoretical computer science some of its most important "intermediate" complexity problems — factoring and the discrete logarithm problem sit in the gap between P and NP-complete, with no proof of hardness in either direction. This unresolved complexity is what makes modern cryptography possible: if factoring were in P, RSA breaks; if it were NP-complete, cryptosystems would have provable security. The complexity landscape table in `10-CRYPTOGRAPHY-CONNECTIONS.md` maps these classifications directly.
 
 ### Elementary Number Theory
 

@@ -273,7 +273,7 @@ Cryptographic note: Over F_p, E(F_p) is an abelian group of order p ± O(√p)
   (Hasse's theorem). The discrete log problem in E(F_p) is the ECDLP.
 ```
 
-<!-- @editor[content/P2]: Elliptic curves section introduces E(Q) and the group law but stays at the algebraic-crypto level. The learner has algebraic geometry from MIT — the connection from the chord-tangent group law to the formal group / divisor class group (Pic⁰) picture is absent. This is the right depth here: why the group law is actually Pic⁰(E) and how that connects to the Jacobian, making elliptic curves the simplest non-trivial case of the full algebro-geometric story. One paragraph would close a real gap. -->
+The chord-tangent group law on E is not ad hoc — it is the group structure of Pic^0(E), the divisor class group of degree-0 divisors modulo principal divisors. For a smooth projective curve of genus g, Pic^0 is a g-dimensional abelian variety (the Jacobian). For elliptic curves, g = 1, so the Jacobian is the curve itself: E ≅ Jac(E). This is what makes elliptic curves the simplest non-trivial case: genus 0 curves have no interesting Pic^0; genus >= 2 curves have Jacobians of dimension >= 2 (harder to work with). The chord-tangent construction is the explicit realization of the abstract group law on Pic^0.
 
 ### Birch-Swinnerton-Dyer Conjecture
 
@@ -338,6 +338,6 @@ of genus ≥ 2 have only finitely many rational points (Faltings, 1983) —
 this is why FLT for high n follows from Faltings before Wiles (but Faltings
 doesn't give explicit bounds on n).
 
-<!-- @editor[bridge/P2]: The genus hierarchy (degree-2 = genus 0, elliptic = genus 1, degree ≥ 4 = genus ≥ 2) is mentioned implicitly but never stated. The learner has algebraic topology from MIT TCS — a one-line bridge "genus = topological handle count of the complex curve; over C an elliptic curve is a torus (genus 1), which is why it has a group structure" would make the Faltings/Wiles/degree landscape feel connected rather than a list of results. The genus column is load-bearing for understanding why degree matters. -->
+The genus hierarchy is the organizing principle: genus = topological handle count of the curve over C. Genus 0 (conics) are rational, so their Diophantine theory is trivial. Genus 1 (elliptic curves) are tori, which is why they carry a group structure — the unique handle gives the additive structure. Genus >= 2 curves have only finitely many rational points (Faltings, 1983). This is why degree matters: higher degree generally means higher genus, and higher genus means fewer rational points.
 
-<!-- @editor[content/P2]: Wiles's proof strategy outline is present but the connection to the Langlands program is missing — the modularity theorem (every elliptic curve over Q is automorphic) is a special case of Langlands functoriality. For a reader who will encounter Langlands in 07-ANALYTIC-NUMBER-THEORY.md and 06-ALGEBRAIC-NUMBER-THEORY.md, one sentence noting "this was the first major instance of a non-abelian Langlands correspondence proved" would give FLT its proper place in the larger story. -->
+Wiles's proof of FLT via the modularity theorem (every semistable elliptic curve over Q is modular) was the first major instance of a non-abelian Langlands correspondence proved — placing FLT within the larger Langlands program that connects Galois representations to automorphic forms. See `06-ALGEBRAIC-NUMBER-THEORY.md` for class field theory (the abelian case) and `07-ANALYTIC-NUMBER-THEORY.md` for L-functions.
