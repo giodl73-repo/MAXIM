@@ -340,7 +340,30 @@ COMMON RHYTHMIC NOTATIONS:
 
 ---
 
-<!-- @editor[content/P2]: The file covers the classical and jazz rhythm frameworks well but is missing computational/digital dimensions that are directly relevant: (1) MIDI timing — MIDI uses ticks per quarter note (PPQ/TPQB, typically 480 or 960) as an integer subdivision grid, making meter and subdivisions explicit as integer arithmetic; compound meters and tuplets require LCM-based quantization; (2) DAW quantization — "quantizing to a grid" is snapping note timestamps to the nearest tick, with "swing" quantization implemented as a systematic offset to odd-numbered subdivisions; (3) tempo maps — storing BPM as a function of time (not constant) which is standard for orchestral recording sync. These connections between rhythm theory and its computational representation would benefit a reader who thinks in terms of data representations. -->
+## Computational Representation of Rhythm
+
+```
+MIDI TIMING:
+  PPQ (Pulses Per Quarter note): 480 or 960 ticks per quarter note
+  A quarter note = 480 ticks; eighth = 240; sixteenth = 120; triplet eighth = 160
+  Compound meter: dotted quarter = 720 ticks (480 × 1.5)
+  Tuplets require LCM-based quantization: quintuplet = 480/5 = 96 ticks each
+
+DAW QUANTIZATION:
+  "Quantize to 1/16" = snap each note timestamp to nearest multiple of 120 ticks
+  Swing quantization: shift every other subdivision by a percentage
+    50% swing = straight; 67% swing = triplet feel; 55–60% = typical jazz swing
+    Implementation: odd-numbered subdivisions offset by (swing% - 50%) × tick_value
+
+TEMPO MAPS:
+  BPM as a function of time: tempo(t) — not constant for orchestral music
+  Rubato: human performers continuously vary tempo(t)
+  Click track: quantized tempo(t) = constant over a section
+  Metric modulation in MIDI: change PPQ mapping at the modulation point
+```
+
+---
+
 ## Common Confusion Points
 
 **6/8 vs 3/4:** Both have 6 eighth notes per measure, but they feel completely different. 6/8 groups as 2×3 (compound duple), 3/4 groups as 3×2 (simple triple). At the same BPM: 3/4 has 3 beats, 6/8 has 2. A famous ambiguous passage: Bernstein's "America" from West Side Story alternates between 6/8 and 3/4.
