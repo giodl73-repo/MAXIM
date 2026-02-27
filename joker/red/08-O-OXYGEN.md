@@ -11,16 +11,16 @@
 ## The Puzzle
 
 **Type:** Star Chart Connect-the-Dots -- plot celestial objects, groups trace letters
-**References:** astronomy/00-OVERVIEW.md, astronomy/04-STELLAR-PHYSICS.md, astronomy/03-CELESTIAL-MECHANICS.md
+**References:** astronomy/00-OVERVIEW.md, astronomy/04-STELLAR-PHYSICS.md
 
 Seven groups of celestial objects are described below. None are named. Each description contains enough information to identify the object using the astronomy section of the encyclopedia.
 
 For each group:
 
-1. Identify all objects from their descriptions.
+1. Identify every object from its description.
 2. Look up each object's approximate coordinates -- Right Ascension (RA) and Declination (Dec).
-3. Plot each group on the star chart grid at the end of this puzzle. Use a different color or symbol for each group.
-4. Step back and look at the pattern each group makes. Each group's plotted points trace the shape of a letter.
+3. Plot the group's objects on that group's mini-chart below. Mark each point clearly.
+4. Look at the pattern the plotted points form. Each group traces the shape of a letter.
 
 Seven groups. Seven letters. One word.
 
@@ -28,221 +28,313 @@ Seven groups. Seven letters. One word.
 
 ### Group 1 -- five objects
 
-**(a)** A variable blue star at the center of a prominent W-shaped constellation. One of the most luminous stars in the Milky Way, it is a prototype for an entire class of eruptive variables that build and shed circumstellar disks. Its constellation is circumpolar from mid-northern latitudes and never sets.
+**(a)** The brightest star in the constellation of the Charioteer, a yellow giant of magnitude 0.1 and the sixth-brightest star in the night sky. Circumpolar from most northern latitudes, it is a spectroscopic binary 43 light-years away.
 
-**(b)** The brightest star of that same W-shaped constellation. An orange giant, magnitude 2.2, it marks the deeper of the two V-shapes in the W. Its name derives from Arabic for "the breast."
+**(b)** The brightest star in the constellation of the Champion, a yellow-white supergiant of magnitude 1.8 at 510 light-years. It anchors a young open cluster that shares its Greek-letter designation. Found by following the Milky Way northwest from the Bull's shoulder cluster.
 
-**(c)** The second-brightest star of the W. A white star at the shallow end of the pattern, the one closest to the north celestial pole. First star listed in many variable-star catalogs because of the constellation's alphabetical position.
+**(c)** The first entry in Messier's catalog, a supernova remnant in the constellation of the Bull. The explosion was witnessed and recorded by Chinese astronomers in 1054 CE. A pulsar at its center spins 30 times per second.
 
-**(d)** The nearest major spiral galaxy to the Milky Way, visible to the naked eye as a faint smudge from dark sites. Approximately 2.5 million light-years distant, it is on a collision course with our galaxy. Cataloged as Messier 31.
+**(d)** The eye of the Bull, an orange giant of magnitude 0.9 at 65 light-years. It appears embedded in a V-shaped cluster (the Hyades), though it lies at only half the cluster's distance. Its name means "the follower" in Arabic.
 
-**(e)** A smaller spiral galaxy in the same constellation as M31, but further from the W, triangular in form. The third-largest galaxy in the Local Group after the Milky Way and M31. Cataloged as Messier 33.
+**(e)** The red supergiant at the shoulder of the Hunter, a semi-regular variable whose diameter exceeds the orbit of Mars. One of the first stars whose angular diameter was directly measured. When it finally detonates, it will be visible in daylight.
 
 ---
 
 ### Group 2 -- five objects
 
-**(a)** The star at the northwest corner of the Great Square, a white star of magnitude 2.5 at the junction of the horse's body and wing. Its name means "the saddle."
+**(a)** The brightest star in the head of the Dragon, an orange giant of magnitude 2.2. In 1728, James Bradley's careful observations of this star led to the discovery of the aberration of starlight -- the first direct observational proof that the Earth orbits the Sun.
 
-**(b)** The star at the northeast corner of the Great Square, a red giant of magnitude 2.4 whose name means "the leg." It is one of the largest stars visible to the naked eye.
+**(b)** The brightest star in the constellation of the Lyre, a blue-white main-sequence star of magnitude 0.0, only 25 light-years away. It was the pole star around 12,000 BCE and will be again around 13,700 CE. The first star (besides the Sun) to be photographed and the first to have its spectrum recorded.
 
-**(c)** The star at the southeast corner of the Great Square, a blue-white star of magnitude 2.8. It lies at the junction of the horse's wing tip and the chain of stars leading to M31.
+**(c)** The Great Globular Cluster in the constellation of the Strongman, visible to the naked eye as a fuzzy patch. Roughly 300,000 stars packed into a sphere 145 light-years across. The brightest globular cluster in the northern sky. Cataloged as Messier 13.
 
-**(d)** The star at the southwest corner of the Great Square, a blue-white star of magnitude 2.5. It serves as a zero-point reference in some photometric systems. Its name means "the horse's navel."
+**(d)** The brightest star in the constellation of the Serpent-Bearer, a white giant of magnitude 2.1. Its name means "head of the serpent collector." It sits between the constellation of the Strongman and the bright star of the Eagle.
 
-**(e)** The brightest star in the constellation of the Southern Fish, the most solitary of the first-magnitude stars. One of the first stars confirmed to have a debris disk. It lies far below the Great Square, roughly 45 degrees south of the Square's center.
+**(e)** The heart of the Scorpion, a red supergiant of magnitude 1.1 whose ruddy color is obvious to the naked eye. Its name means "rival of Mars." Approximately 550 light-years distant, far south of the other four objects in this group.
 
 ---
 
 ### Group 3 -- four objects
 
-**(a)** The brighter of the two Twins, an orange giant of magnitude 1.1. Despite its Beta designation, it outshines its neighbor. The nearest giant star to the Sun at 34 light-years.
+**(a)** The brightest star in the constellation of the King, a white main-sequence star of magnitude 2.5, 49 light-years away. It lies near the prime hour circle (RA 21h) and will replace Polaris as the north pole star in roughly 2,000 years due to axial precession. The highest in declination of the four objects in this group.
 
-**(b)** The Little Dog Star, an F-type subgiant of magnitude 0.3 and the eighth-brightest star in the night sky. Only 11.5 light-years away, it is one of our nearest stellar neighbors. Together with Sirius and Betelgeuse it forms a prominent winter asterism.
+**(b)** The brightest star in the constellation of the Swan, a blue-white supergiant of magnitude 1.3 at approximately 2,600 light-years. Its extreme luminosity (over 200,000 Suns) keeps it among the twenty brightest stars despite its distance. It marks the tail of the bird and the top of the Northern Cross.
 
-**(c)** The red supergiant at the shoulder of the Hunter, a semi-regular variable ranging between magnitudes 0.0 and 1.6. Its diameter exceeds the orbit of Mars. One of the first stars whose angular diameter was directly measured by interferometry. When it explodes as a supernova, it will be visible in daylight.
+**(c)** A bright star at the muzzle of the Winged Horse, an orange supergiant of magnitude 2.4 at roughly 690 light-years. Despite its Epsilon designation, it is one of the most luminous stars in its constellation. Its name means "the nose" in Arabic. It lies well west of the Great Square, isolated from the horse's body.
 
-**(d)** The remnant of a supernova witnessed and recorded in 1054 CE by Chinese and possibly Arab astronomers. A pulsar at its center spins 30 times per second. The first object in Messier's catalog, located in the constellation of the Bull near the tip of one horn.
+**(d)** The brightest star in the constellation of the Eagle, a white main-sequence star of magnitude 0.8, only 17 light-years away. The southern vertex of a famous three-star asterism spanning three constellations. The lowest in declination of the four objects in this group.
 
 ---
 
 ### Group 4 -- three objects
 
-**(a)** A binary star in the handle of the Big Dipper, famous as a naked-eye double with a fainter companion. Arab astronomers used the pair as a vision test. Its name means "the girdle" or "the waistband."
+**(a)** A famous double star in the handle of the Great Bear's Dipper, resolvable by sharp naked eyes into a pair. Arab astronomers used it as a vision test. Its name means "the girdle" or "the waistband." The highest of the three in declination.
 
-**(b)** The brightest star in the Northern Hemisphere's spring sky, an orange giant of magnitude -0.05 at 37 light-years. Found by following the arc of the Dipper's handle. Its name derives from the Greek for "guardian of the bear."
+**(b)** The brightest star in the spring sky of the Northern Hemisphere, an orange giant of magnitude -0.05 at 37 light-years. Found by following the arc of the Dipper's handle southward. Its name means "guardian of the bear" in Greek. The middle of the three in declination.
 
-**(c)** The brightest star in the constellation of the Virgin, a blue giant of magnitude 1.0 nearly on the ecliptic. One of the 20 brightest stars in the sky, used for millennia to mark the harvest season. Its name comes from the Latin for "ear of grain."
+**(c)** The brightest star in the constellation of the Virgin, a blue giant of magnitude 1.0 sitting almost on the ecliptic. One of the twenty brightest stars, used for millennia to mark the harvest season. Its name comes from the Latin for "ear of grain." The lowest of the three in declination.
 
 ---
 
 ### Group 5 -- four objects
 
-**(a)** The tail star of the Lion, a blue-white main-sequence star of magnitude 2.1, approximately 36 light-years distant. Its name means "the lion's tail" in Arabic. It marks the eastern triangle of its constellation.
+**(a)** The tail star of the Lion, a blue-white star of magnitude 2.1 at 36 light-years. Its name means "the lion's tail" in Arabic. It marks the eastern vertex of the Lion's hindquarters. Low declination, high right ascension within this group.
 
-**(b)** The star at the tip of the Great Bear's nose -- the brighter of the two Pointer Stars that guide the eye to Polaris. An orange giant of magnitude 1.8 at 124 light-years. Its name means "the back of the Great Bear."
+**(b)** The brighter of the two Pointer Stars that guide the eye from the Dipper's bowl to Polaris. An orange giant of magnitude 1.8 at 124 light-years. Its name means "the back of the Great Bear." High declination, high right ascension within this group.
 
-**(c)** The heart of the Lion, a blue-white star of magnitude 1.4 sitting almost exactly on the ecliptic. A quadruple star system. One of the four Royal Stars of ancient Persia. Its name means "the little king" in Latin.
+**(c)** The heart of the Lion, a blue-white star of magnitude 1.4 sitting almost exactly on the ecliptic. A quadruple star system and one of the four Royal Stars of ancient Persia. Its name means "the little king" in Latin. Low declination, low right ascension within this group.
 
-**(d)** A bright spiral galaxy in the constellation of the Great Bear, one of the nearest galaxies outside the Local Group at 12 million light-years. Paired visually with its starburst companion M82, it is also known as Bode's Galaxy.
+**(d)** A bright spiral galaxy in the Great Bear, one of the nearest galaxies outside the Local Group at 12 million light-years. Paired with its starburst companion M82 in photographs. Also known as Bode's Galaxy. High declination, low right ascension within this group.
 
 ---
 
 ### Group 6 -- four objects
 
-**(a)** The brightest star in the constellation of the Lyre, a blue-white main-sequence star of magnitude 0.0 at 25 light-years. It was the northern pole star around 12,000 BCE and will be again around 13,700 CE. The first star (besides the Sun) to be photographed and the first to have its spectrum recorded.
+These four stars form one of the most recognizable geometric shapes in the autumn sky.
 
-**(b)** The Great Globular Cluster in the constellation of the Strongman, visible as a fuzzy spot to the naked eye. Containing roughly 300,000 stars in a sphere 145 light-years across, it is the brightest globular cluster in the northern sky. Cataloged as Messier 13.
+**(a)** The star at the northwest corner of a famous Great Square, a red giant of magnitude 2.4 and one of the largest stars visible to the naked eye. Its name means "the leg."
 
-**(c)** The brightest star in the constellation of the Eagle, a white main-sequence star of magnitude 0.8 at 17 light-years. One of the nearest bright stars. The southern vertex of a famous asterism made of three bright stars from three different constellations.
+**(b)** The star at the northeast corner of the same Great Square. Technically the alpha star of a neighboring constellation, it marks the junction between the Square and the chain of stars leading toward Messier 31. Magnitude 2.1.
 
-**(d)** The brightest star in the constellation of the Serpent-Bearer, a white giant of magnitude 2.1. Its name means "head of the serpent collector." It lies between the Strongman's cluster and the Eagle's bright star, roughly halfway in both right ascension and declination.
+**(c)** The star at the southwest corner of the Great Square, a blue-white star of magnitude 2.5. It serves as a reference zero-point in some stellar photometric systems. Its name means "the horse's navel."
+
+**(d)** The star at the southeast corner of the Great Square, a blue-white star of magnitude 2.8 at the tip of the horse's wing. The faintest of the four corners.
 
 ---
 
 ### Group 7 -- five objects
 
-**(a)** The brightest star in the constellation of the Charioteer, a yellow giant of magnitude 0.1, the sixth-brightest star in the night sky. Circumpolar from most northern latitudes. A spectroscopic binary at 43 light-years.
+**(a)** The alpha star of the Twins despite being the fainter sibling (magnitude 1.6 to its brother's 1.1). A remarkable sextuple star system at 51 light-years. It sits due north of its brighter twin in the sky. The highest in declination of the five objects in this group.
 
-**(b)** The eye of the Bull, an orange giant of magnitude 0.9 at 65 light-years. It appears embedded in a V-shaped cluster (the Hyades) though it is only half the cluster's distance. Its name comes from Arabic for "the follower," because it rises after the famous nearby cluster.
+**(b)** The most prominent naked-eye star cluster in the sky, a compact group of hot blue stars in the shoulder of the Bull. Known since antiquity and referenced in Homer and the Bible. Roughly 100 million years old at 444 light-years. Cataloged as Messier 45.
 
-**(c)** A famous open cluster in the shoulder of the Bull, the most prominent naked-eye star cluster in the sky. Known since antiquity, referenced in Homer, the Bible, and the Quran. Contains hot blue stars approximately 100 million years old at 444 light-years. Cataloged as Messier 45.
+**(c)** The great emission nebula in the Hunter's Sword, the nearest major star-forming region to Earth at roughly 1,350 light-years. Visible to the naked eye as a fuzzy patch below the Belt. Cataloged as Messier 42.
 
-**(d)** The blue supergiant at the foot of the Hunter, magnitude 0.1, the seventh-brightest star in the night sky. A true powerhouse at 120,000 solar luminosities and roughly 860 light-years distant. It illuminates a nearby reflection nebula.
+**(d)** The Dog Star -- the brightest star in the entire night sky at magnitude -1.46. A white main-sequence star only 8.6 light-years away. Its heliacal rising marked the onset of the Nile flood for the ancient Egyptians. Its white dwarf companion was found in 1862.
 
-**(e)** The Dog Star, the brightest star in the entire night sky at magnitude -1.46. A white main-sequence star only 8.6 light-years away. Its heliacal rising marked the Nile flood season for the ancient Egyptians. It has a white dwarf companion discovered in 1862.
+**(e)** The blue supergiant at the foot of the Hunter, magnitude 0.1, the seventh-brightest star in the night sky. A true powerhouse at 120,000 solar luminosities and roughly 860 light-years away. It illuminates the Witch Head reflection nebula.
 
 ---
 
 ## Worksheet
 
-### Group 1 -- Identify and Plot
-
-| Clue | Object Name | RA (hours, min) | Dec (degrees) |
-|------|-------------|-----------------|---------------|
-| (a)  |             |                 |               |
-| (b)  |             |                 |               |
-| (c)  |             |                 |               |
-| (d)  |             |                 |               |
-| (e)  |             |                 |               |
-
-**Letter formed:** ___
+**How to read the charts:** On each mini-chart, Right Ascension (RA) increases to the LEFT and Declination (Dec) increases UPWARD. This matches the standard orientation of a sky chart when facing south. Plot each object as a dot at its coordinates, then step back and look at the shape the dots make.
 
 ---
 
-### Group 2 -- Identify and Plot
+### Group 1
 
-| Clue | Object Name | RA (hours, min) | Dec (degrees) |
-|------|-------------|-----------------|---------------|
-| (a)  |             |                 |               |
-| (b)  |             |                 |               |
-| (c)  |             |                 |               |
-| (d)  |             |                 |               |
-| (e)  |             |                 |               |
-
-**Letter formed:** ___
-
----
-
-### Group 3 -- Identify and Plot
-
-| Clue | Object Name | RA (hours, min) | Dec (degrees) |
-|------|-------------|-----------------|---------------|
-| (a)  |             |                 |               |
-| (b)  |             |                 |               |
-| (c)  |             |                 |               |
-| (d)  |             |                 |               |
-
-**Letter formed:** ___
-
----
-
-### Group 4 -- Identify and Plot
-
-| Clue | Object Name | RA (hours, min) | Dec (degrees) |
-|------|-------------|-----------------|---------------|
-| (a)  |             |                 |               |
-| (b)  |             |                 |               |
-| (c)  |             |                 |               |
-
-**Letter formed:** ___
-
----
-
-### Group 5 -- Identify and Plot
-
-| Clue | Object Name | RA (hours, min) | Dec (degrees) |
-|------|-------------|-----------------|---------------|
-| (a)  |             |                 |               |
-| (b)  |             |                 |               |
-| (c)  |             |                 |               |
-| (d)  |             |                 |               |
-
-**Letter formed:** ___
-
----
-
-### Group 6 -- Identify and Plot
-
-| Clue | Object Name | RA (hours, min) | Dec (degrees) |
-|------|-------------|-----------------|---------------|
-| (a)  |             |                 |               |
-| (b)  |             |                 |               |
-| (c)  |             |                 |               |
-| (d)  |             |                 |               |
-
-**Letter formed:** ___
-
----
-
-### Group 7 -- Identify and Plot
-
-| Clue | Object Name | RA (hours, min) | Dec (degrees) |
-|------|-------------|-----------------|---------------|
-| (a)  |             |                 |               |
-| (b)  |             |                 |               |
-| (c)  |             |                 |               |
-| (d)  |             |                 |               |
-| (e)  |             |                 |               |
-
-**Letter formed:** ___
-
----
-
-### Star Chart Grid
-
-Plot each group using a different symbol or color. Then look at the shape each group makes.
+| Clue | Object | RA | Dec |
+|------|--------|----|-----|
+| (a)  |        |    |     |
+| (b)  |        |    |     |
+| (c)  |        |    |     |
+| (d)  |        |    |     |
+| (e)  |        |    |     |
 
 ```
-Dec
-+90 +-----------------------------------------------------+
-    |                                                       |
-+75 |                                                       |
-    |                                                       |
-+60 |                                                       |
-    |                                                       |
-+45 |                                                       |
-    |                                                       |
-+30 |                                                       |
-    |                                                       |
-+15 |                                                       |
-    |                                                       |
-  0 |-------------------------------------------------------|
-    |                                                       |
--15 |                                                       |
-    |                                                       |
--30 |                                                       |
-    |                                                       |
--45 |                                                       |
-    |                                                       |
--60 |                                                       |
-    |                                                       |
--75 |                                                       |
-    |                                                       |
--90 +-----------------------------------------------------+
-    24h  22h  20h  18h  16h  14h  12h  10h  8h   6h   4h   2h   0h
-                                 RA
+  Dec
+  +55 +----------------------------------------------+
+      |                                              |
+  +45 |                                              |
+      |                                              |
+  +35 |                                              |
+      |                                              |
+  +25 |                                              |
+      |                                              |
+  +15 |                                              |
+      |                                              |
+   +5 |                                              |
+      |                                              |
+   -5 +----------------------------------------------+
+      6h30  6h  5h30   5h  4h30   4h  3h30   3h  2h30
+                           RA
 ```
+
+**Letter:** ___
+
+---
+
+### Group 2
+
+| Clue | Object | RA | Dec |
+|------|--------|----|-----|
+| (a)  |        |    |     |
+| (b)  |        |    |     |
+| (c)  |        |    |     |
+| (d)  |        |    |     |
+| (e)  |        |    |     |
+
+```
+  Dec
+  +60 +----------------------------------------------+
+      |                                              |
+  +45 |                                              |
+      |                                              |
+  +30 |                                              |
+      |                                              |
+  +15 |                                              |
+      |                                              |
+    0 |                                              |
+      |                                              |
+  -15 |                                              |
+      |                                              |
+  -30 +----------------------------------------------+
+      19h  18h30   18h  17h30   17h  16h30   16h  15h30
+                           RA
+```
+
+**Letter:** ___
+
+---
+
+### Group 3
+
+| Clue | Object | RA | Dec |
+|------|--------|----|-----|
+| (a)  |        |    |     |
+| (b)  |        |    |     |
+| (c)  |        |    |     |
+| (d)  |        |    |     |
+
+```
+  Dec
+  +70 +----------------------------------------------+
+      |                                              |
+  +55 |                                              |
+      |                                              |
+  +40 |                                              |
+      |                                              |
+  +25 |                                              |
+      |                                              |
+  +10 |                                              |
+      |                                              |
+   -5 +----------------------------------------------+
+      22h30  22h  21h30   21h  20h30   20h  19h30  19h
+                           RA
+```
+
+**Letter:** ___
+
+---
+
+### Group 4
+
+| Clue | Object | RA | Dec |
+|------|--------|----|-----|
+| (a)  |        |    |     |
+| (b)  |        |    |     |
+| (c)  |        |    |     |
+
+```
+  Dec
+  +60 +----------------------------------------------+
+      |                                              |
+  +45 |                                              |
+      |                                              |
+  +30 |                                              |
+      |                                              |
+  +15 |                                              |
+      |                                              |
+    0 |                                              |
+      |                                              |
+  -15 +----------------------------------------------+
+      15h   14h30    14h   13h30    13h   12h30   12h
+                           RA
+```
+
+**Letter:** ___
+
+---
+
+### Group 5
+
+| Clue | Object | RA | Dec |
+|------|--------|----|-----|
+| (a)  |        |    |     |
+| (b)  |        |    |     |
+| (c)  |        |    |     |
+| (d)  |        |    |     |
+
+```
+  Dec
+  +75 +----------------------------------------------+
+      |                                              |
+  +60 |                                              |
+      |                                              |
+  +45 |                                              |
+      |                                              |
+  +30 |                                              |
+      |                                              |
+  +15 |                                              |
+      |                                              |
+    0 +----------------------------------------------+
+      12h30   12h  11h30   11h  10h30   10h  9h30   9h
+                           RA
+```
+
+**Letter:** ___
+
+---
+
+### Group 6
+
+| Clue | Object | RA | Dec |
+|------|--------|----|-----|
+| (a)  |        |    |     |
+| (b)  |        |    |     |
+| (c)  |        |    |     |
+| (d)  |        |    |     |
+
+```
+  Dec
+  +35 +----------------------------------------------+
+      |                                              |
+  +30 |                                              |
+      |                                              |
+  +25 |                                              |
+      |                                              |
+  +20 |                                              |
+      |                                              |
+  +15 |                                              |
+      |                                              |
+  +10 +----------------------------------------------+
+      23h30   23h15   23h    0h     0h15   0h30   0h45
+                           RA
+```
+
+*Note: This chart wraps through RA 0h. The left side is RA 23h30; the right side is RA 0h45.*
+
+**Letter:** ___
+
+---
+
+### Group 7
+
+| Clue | Object | RA | Dec |
+|------|--------|----|-----|
+| (a)  |        |    |     |
+| (b)  |        |    |     |
+| (c)  |        |    |     |
+| (d)  |        |    |     |
+| (e)  |        |    |     |
+
+```
+  Dec
+  +40 +----------------------------------------------------------+
+      |                                                          |
+  +25 |                                                          |
+      |                                                          |
+  +10 |                                                          |
+      |                                                          |
+   -5 |                                                          |
+      |                                                          |
+  -20 +----------------------------------------------------------+
+      8h   7h30    7h   6h30    6h   5h30    5h   4h30   4h   3h30
+                              RA
+```
+
+**Letter:** ___
 
 ---
 
@@ -262,4 +354,4 @@ Dec
 
 **Your answer** (7 letters): _ _ _ _ _ _ _
 
-*You may find the Earth & Space section helpful -- particularly astronomy/00-OVERVIEW and astronomy/04-STELLAR-PHYSICS.*
+*You may find the Earth & Space section helpful -- particularly the astronomy guides on stellar physics and celestial mechanics.*
