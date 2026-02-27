@@ -23,6 +23,7 @@ Fast spectrum: no moderation (max fissions at 0.1–1 MeV)
 *RBMK: graphite moderator + water coolant — unusual combination
 ```
 
+<!-- @editor[bridge/P3]: Reactor type selection is a classic multi-dimensional trade-off matrix — the same structure as database engine selection (relational vs document vs columnar vs time-series) or compute platform selection (VM vs container vs serverless). Every design locks in a set of coupled constraints: PWR's high-pressure primary circuit enables subcooled operation but requires a pressure vessel; CANDU's natural uranium fuel eliminates enrichment dependency but requires expensive D₂O. Understanding which axis was optimized (fuel cycle, safety behavior, capital cost, operating simplicity) explains why the "best" design is always context-dependent. -->
 Understanding reactor types means understanding what each design choice trades:
 moderator/coolant selection drives spectrum, pressure, temperature, coolant chemistry,
 safety behavior, and fuel cycle. Every type is a different engineering trade-off solution.

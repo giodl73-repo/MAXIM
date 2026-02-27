@@ -220,6 +220,7 @@ W-3 Correlation (PWR DNB):
 
   (P = pressure, x = quality, G = mass flux, D_e = hydraulic diameter, H = enthalpy)
 
+<!-- @editor[bridge/P2]: DNBR is the thermal-hydraulic equivalent of a rate limiter with a hard threshold: the system operates safely within the nucleate boiling regime (analogous to sustainable queue depth), and DNB onset is the phase transition where the heat transfer mechanism collapses catastrophically — the thermal analog of a queue overflow or connection pool exhaustion. The DNBR ≥ 1.3 design margin is deliberately kept well above 1.0 for the same reason circuit breakers open before the actual failure threshold: you want the safety system to trigger before the physical limit is reached. The minimum DNBR occurring at the axial point of maximum heat flux maps exactly to a hot-spot analysis: find the worst-case node in the distribution, not the average. -->
 Departure from Nucleate Boiling Ratio:
   DNBR = q''_CHF / q''_actual ≥ 1.3 (NRC design limit for PWR)
   Typical design: DNBR ≈ 1.7–2.0 at rated power

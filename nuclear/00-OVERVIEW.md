@@ -92,6 +92,8 @@ Countries by share of electricity from nuclear:
 
 ---
 
+<!-- @editor[structure/P1]: Missing Decision Cheat Sheet — the "Decision Guide" below is a module routing flowchart, not a decision table. Needs a "use X when Y" table: e.g., "when studying reactor stability → reactivity coefficients in 02; when comparing reactor types → 04; when analyzing safety margins → DNBR in 03; when evaluating waste management → 05." The overview should close with a quick-reference table, not just navigation bullets. -->
+<!-- @editor[structure/P2]: Missing Common Confusion Points at the overview level. The cross-cutting gotchas (criticality ≠ danger, decay heat ≠ fission, containment ≠ reactor vessel, k_eff = 1 is normal operation) are distributed across the individual module files. A brief field-level confusion section here would orient the reader before they encounter the technical depth. -->
 ## Decision Guide
 
 ```

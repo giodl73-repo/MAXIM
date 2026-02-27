@@ -19,6 +19,7 @@ NEUTRON LIFE CYCLE IN A THERMAL REACTOR
                                          Add leakage: k_eff = k∞ · P_FNL · P_TNL
 ```
 
+<!-- @editor[bridge/P1]: Reactor criticality is a positive-feedback control problem — the canonical example of managing a system that is inherently unstable and must be held at a precise operating point by continuous active intervention. The parallel to distributed systems is direct: a system that scales horizontally under increasing load where each new instance can both serve and generate more load (thundering herd, retry storms, autocatalytic cascades) exhibits the same S-curve instability as a supercritical reactor. k_eff > 1 → runaway; k_eff < 1 → dies. The entire field of reactor control is about holding k_eff ≈ 1.000 within ±200 pcm using negative feedback coefficients (Doppler, MTC) — exactly the role of circuit breakers, backpressure, and load shedding in distributed services. The delayed neutron fraction β_eff (0.65%) deserves explicit framing: without it, the effective generation time is microseconds and no mechanical system can respond; with it, the effective period extends to ~100 seconds — the same reason software control loops need sufficient response margin above the process time constant. -->
 Nuclear reactor design is the engineering of a self-sustaining neutron chain reaction.
 The challenge: balance neutron production against all loss mechanisms (absorption + leakage)
 to hold k_eff exactly at 1.000, then **control** it with small reactivity changes.

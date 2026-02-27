@@ -2,6 +2,7 @@
 
 ## Distillation, Absorption, Extraction, Membranes, Adsorption
 
+<!-- @editor[diagram/P2]: The "Separation Selection Framework" is a text list, not a landscape diagram. The file needs an ASCII diagram showing the separation process hierarchy — feed composition → driving force selection → equipment type → column/stage design. The current text block lists items but doesn't show how they relate to one another (e.g., which driving forces work for which feed phases, how equilibrium stages vs differential contact differ architecturally). Rework as a layered selection tree or process flow. -->
 ```
 SEPARATION SELECTION FRAMEWORK
 
@@ -40,6 +41,7 @@ y_A = α x_A / (1 + (α−1) x_A)    (binary, for constant α)
 
 ## Distillation
 
+<!-- @editor[bridge/P1]: Distillation is the canonical separation algorithm — exploiting a property difference (volatility) to partition a mixture using a staged cascade. The bridge to software: merge sort and radix sort are also staged separation algorithms that exploit a property (key ordering) to partition data. The reflux ratio is analogous to re-examination passes in sorting. The McCabe-Thiele step-off method is a graphical fixed-point iteration — the learner knows fixed-point iteration. This bridge should appear before the graphical method explanation. -->
 The workhorse of chemical engineering separations. Based on volatility differences.
 
 ### McCabe-Thiele Graphical Method (Binary Distillation)
