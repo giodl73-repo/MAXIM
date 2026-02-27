@@ -484,8 +484,9 @@ UNITED STATES:
 
 ---
 
-<!-- @editor[bridge/P2]: The software architecture analogy section names distributed systems but misses the most direct TCS entry points: (1) transit network design is graph optimization — Wardrop's first principle (users minimize travel time) is a Nash equilibrium on the network graph; (2) urban growth models are agent-based simulation (cellular automata / ABM) — maps directly to distributed systems thinking; (3) zoning is constraint satisfaction — permitted uses = feasible set, FAR = capacity bound, building permit = feasibility check. These bridges work for any senior engineer and don't require Microsoft-specific knowledge. -->
 ## The Software Architecture Analogy
+
+Three TCS bridges into urban planning: (1) Transit network design is **graph optimization** — Wardrop's first principle (users minimize individual travel time) is a Nash equilibrium on the network graph; the system-optimal solution requires tolling (pricing externalities). (2) Urban growth models are **agent-based simulation** — cellular automata and ABMs model land-use change through local rules producing emergent spatial patterns. (3) Zoning is **constraint satisfaction** — permitted uses = feasible set, FAR = capacity bound, building permit = feasibility check.
 
 Urban planning and software architecture share the same fundamental problem: designing systems that will be built incrementally by many independent actors over decades, where early decisions constrain later options.
 
