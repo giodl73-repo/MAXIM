@@ -173,6 +173,7 @@ NYCB aesthetic                        |
 
 ---
 
+<!-- @editor[bridge/P2]: Notation section treats each system descriptively but misses the bridge to formal language theory — Labanotation is a formal grammar with alphabet, syntax rules, and compositional closure; Eshkol-Wachman is essentially a coordinate-based formal specification language. Senior engineers coming from any typed language can map "notation system" to "formal language with defined semantics" immediately — name that explicitly. -->
 ## Dance Notation Systems
 
 Notation is to dance what musical score is to music -- a formal language encoding movement in two dimensions.
@@ -202,6 +203,7 @@ Full coverage of Labanotation grammar: see `04-LABAN-NOTATION.md`.
 
 ---
 
+<!-- @editor[bridge/P2]: Missing motor learning / mirror neuron bridge at overview level — the learner profile includes cognitive science depth; the mapping of "observing dance activates the same motor cortex regions as performing it" (action observation network) is a foundational bridge that explains why watching dance teaches technique and why audiences physically respond to virtuosity. This bridge is missing at the overview level and in 07-DANCE-SCIENCE.md. -->
 ## Dance Science: Physical Demands Summary
 
 | System | Demands | Key Metrics |
@@ -261,6 +263,7 @@ Silence            |  Movement without sound           |  Pilobolus; post-Cage w
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a module directory, not a "use X when Y" decision tool — convert to rows like "use Labanotation when you need to reconstruct a specific work; use LMA when you need to analyze movement quality" -->
 ## Decision Cheat Sheet
 
 | You want to understand... | Go to |

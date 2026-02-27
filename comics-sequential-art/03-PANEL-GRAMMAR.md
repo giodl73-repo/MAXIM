@@ -356,6 +356,7 @@ reader participates. "Blank" is a material description; functionally it is full.
 
 ---
 
+<!-- @editor[bridge/P2]: Page layout section describes layout types (grid/free/splash/widescreen) without bridging to information architecture — a grid of panels is a spatial information layout problem: how to allocate reading-path attention across a 2D surface. For a reader who understands information architecture or UI layout systems, framing "panel layout = spatial allocation of reader attention across a constrained 2D surface" would bridge immediately. The Watchmen 9-panel grid example is excellent; connecting it explicitly to "grid as constraint → content within constraint" (the same insight as in 02-SWISS-STYLE.md) would strengthen the cross-topic coherence. -->
 ## Decision Cheat Sheet
 
 | I want to create...                               | Panel grammar technique           |

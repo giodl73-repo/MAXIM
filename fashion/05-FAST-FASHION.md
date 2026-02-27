@@ -324,6 +324,7 @@ The 2000s-2010s multiplied it by 10.
 
 ---
 
+<!-- @editor[bridge/P2]: Zara's information flywheel is described in detail but not explicitly bridged to observability/feedback loop pattern in software systems — the daily store-manager reporting → design team response → small-batch production → twice-weekly delivery cycle is a tight feedback loop: observe (demand signal) → decide (design/production) → act (manufacturing) → observe (next day signal). This is the same OODA loop or observability-driven development pattern. The comparison to "Netflix recommendations" appears for SHEIN, but Zara's supply chain architecture is the deeper and more interesting observability bridge and it's not named as such. -->
 ## Decision Cheat Sheet
 
 | I want to understand...                         | Key concept                       |

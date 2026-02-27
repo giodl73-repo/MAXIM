@@ -271,6 +271,7 @@ The Bauhaus was modernist but very much included color, craft, and playfulness.
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a module directory ("I want to understand…") not a "use X when Y" decision tool — convert to rows like "use Swiss grid system when designing for information clarity under space constraints; use American-modernist single-solution approach when brand identity work requires confident singular vision" -->
 ## Decision Cheat Sheet
 
 | I want to understand...                 | Start with                    |

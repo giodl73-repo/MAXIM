@@ -249,6 +249,9 @@ BRIDGE: This is identical to Agile/Lean Product Discovery:
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a module directory, not a "use X when Y" decision tool — convert rows to decisions like "choose DFM audit when moving from prototype to production; choose Ashby chart when selecting materials under competing constraints" -->
+
+<!-- @editor[content/P2]: No coverage of IP strategy in industrial design anywhere in this directory — design patents vs. trade dress vs. copyright vs. utility patents is a critical gap for any engineer-adjacent learner. Which protection applies to a product's appearance vs. function vs. both? This is a standard consideration in product commercialization and is absent from this 10-file directory. -->
 ## Decision Cheat Sheet
 
 | You want to understand... | Go to |
