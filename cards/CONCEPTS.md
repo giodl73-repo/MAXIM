@@ -65,7 +65,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 | Card | Title | Image concept |
 |------|-------|---------------|
 | 7♣ | The Constructor | A bridge cross-section — compression members (thick), tension members (thin), forces as arrows — and a small figure already crossing before the last cable is drawn |
-| 7♦ | The Alchemist | An energy diagram — reactants at high energy, products at low, activation barrier, ΔH arrow down |
+| 7♦ | The Alchemist | An energy diagram — reactants at high energy, products at low, activation barrier, ΔH arrow down — and beside the diagram, a periodic table with 26 cells highlighted — the ones that matter — and below it, 26 molecular formulas where the highlighted elements recombine into compounds no single element could become |
 | 7♥ | The Provider | Building wall cross-section — three parallel runs: electrical conduit, water pipe, HVAC duct |
 | 7♠ | The Instrumentalist | Three-panel wave diagram: sound wave / light ray through lens / mechanical crank and wheel |
 
@@ -119,7 +119,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 | Card | Title | Image concept |
 |------|-------|---------------|
 | A♣ | The Discoverer | A field of great equations — E=mc², ∇·E=ρ/ε₀, e^iπ+1=0, F=ma — arranged like stars, and one equation still being written: the ink not yet dry, the chalk still in hand |
-| A♦ | The Inventor | A patent-style mechanical drawing — device with part reference numbers and leader lines |
+| A♦ | The Inventor | A patent-style mechanical drawing — device with part reference numbers and leader lines — and the reference numbers skip: 1, 6, 7, 8, 11, 14, 26 — not sequential, not random — each one an atomic number, each leader line pointing to a puzzle that didn't exist before this drawing was made |
 | A♥ | The Humanist | A library cross-section — shelves floor to ceiling, reading table, single lamp, single figure |
 | A♠ | The Revolutionary | A broken chain — links intact on left, snapped at center, open on right — nothing else needed |
 

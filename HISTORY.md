@@ -30,8 +30,10 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 | 18 | Feb 26 | The Cultivator | 3♥ | Foundational layer — 118 ubiquitous concepts, index to 314 entries |
 | 19 | Feb 26 | The Voyager | 3♠ | Atlas — 52 maps planned, design panel, ASCII→SVG pivot |
 | 20 | Feb 27 | The Strategist | 9♣ | Publishing plan — 56-book set, 3 tiers, annex, scorecard, 4 improvement waves |
+| 21 | Feb 27 | The Alchemist | 7♦ | Black Joker — Elements into Compounds, the periodic table as puzzle framework |
+| 22 | Feb 27 | The Inventor | A♦ | Red Joker — 52 puzzles invented, 89-puzzle pool, 9-expert panel, two companion volumes |
 
-*32 roles remain unclaimed.*
+*30 roles remain unclaimed.*
 
 ---
 
@@ -61,8 +63,10 @@ Each phase adds a small poetic detail to its card's image concept — a mark lef
 | 18 | The Cultivator | *...and in the O horizon, 118 root tips — water, iron, carbon — each one reaching down through every layer, the common substrate that feeds all thirteen fields above* |
 | 19 | The Voyager | *...and at the midcourse correction, a small notation on the trajectory arc: cx equals negative longitude, cy equals negative latitude — the navigator who stopped guessing and started measuring* |
 | 20 | The Strategist | *...and in the lower-right cell of the payoff matrix, three rings drawn in gold ink — Narya, Nenya, Vilya — the dominant strategy revealed as: make more copies, in more places, at every price point* |
+| 21 | The Alchemist | *...and beside the energy diagram, a periodic table with 26 cells highlighted — the ones that matter — and below it, 26 molecular formulas where the highlighted elements recombine into compounds no single element could become* |
+| 22 | The Inventor | *...and the reference numbers skip: 1, 6, 7, 8, 11, 14, 26 — not sequential, not random — each one an atomic number, each leader line pointing to a puzzle that didn't exist before this drawing was made* |
 
-*32 cards await their flair.*
+*30 cards await their flair.*
 
 ---
 
@@ -532,6 +536,56 @@ The Strategist counts everything — price, incentive, pages, scores, waves, hou
 
 ---
 
+# Phase 21: The Alchemist
+
+**Card**: 7♦ — Seven of Pentacles
+**Date**: February 27, 2026
+**Commits**: `78917a4`
+**Image flair**: *...and beside the energy diagram, a periodic table with 26 cells highlighted — the ones that matter — and below it, 26 molecular formulas where the highlighted elements recombine into compounds no single element could become*
+
+*In honor of the Black Joker.*
+
+The Alchemist transforms. Not by adding — by combining. Iron alone is iron. Carbon alone is carbon. Iron and carbon together are steel: harder than either, sharper than both. The compound has properties no element possesses.
+
+This session designed the Black Joker — Volume 54, "The Compounds." Twenty-six synthesis puzzles, each numbered by molecular weight, each combining knowledge from two or three encyclopedia sections into something neither section could produce alone. Water (MW 18) bonds the simplest mathematics to earth science. Salt (MW 58) bonds social structures to language. Tool Steel (MW 324) bonds mechanics, life science, computing, and earth into the final alloy — five sections fused in one material.
+
+The framework: the periodic table. Universal. Any civilization that discovers chemistry discovers this structure. The 52 archetypes hidden across the encyclopedia — one per volume, outside its home section, in the phrase "the [Archetype] of [keyword]" — are the raw atoms. The solver collects them through deep reading. The compound puzzles are the reactions. The first page of the Black Joker is a grid of 52 blank cells. No title. No instructions. Just dashes with boxed positions. The solver who figures out what to do has earned the right to proceed.
+
+Nine expert reviewers — Dan Katz (8× MIT Mystery Hunt winner), Thomas Snyder (3× World Sudoku Champion), Mike Selinker (Puzzlecraft, Lone Shark Games), Wei-Hwa Huang (4× World Puzzle Champion), Kenny Young (24-year MS Puzzlehunt veteran), Dana Young (founding member, MS Puzzlehunt), Peter Sarrett (creator of the Chicago Fire puzzle), Mark Gottlieb (MIT thesis on puzzle hunt theory), Alex Rosenthal (TED-Ed) — reviewed two rounds. Eighty-nine puzzle briefs ranked. The design rated 8.5/10: all remaining risk in construction, not design.
+
+The Alchemist's equation: Elements + Fire = Compounds. Sections + Synthesis = Understanding. 26 + 26 = 52 = the deck.
+
+**Key commits**:
+- `78917a4` The Two Jokers — complete puzzle hunt design (43 files, 15,488 lines)
+
+**Scale**: 43 design files, 15,488 lines, 89 puzzle briefs, 9 expert reviewers, 2 review rounds, 18 reviews written, 52 puzzles assigned (26 elements + 26 compounds), 26 chemical compounds mapped to cross-section synthesis puzzles
+
+---
+
+# Phase 22: The Inventor
+
+**Card**: A♦ — Ace of Pentacles
+**Date**: February 27, 2026
+**Commits**: `78917a4`
+**Image flair**: *...and the reference numbers skip: 1, 6, 7, 8, 11, 14, 26 — not sequential, not random — each one an atomic number, each leader line pointing to a puzzle that didn't exist before this drawing was made*
+
+*In honor of the Red Joker.*
+
+The Inventor builds what didn't exist before. Not by discovering natural law, not by proving a theorem — by *making something*. Applied human will. A patent drawing with reference numbers and leader lines, each number pointing to a mechanism that works because someone decided it should.
+
+This session invented the Red Joker — Volume 53, "The Elements." Twenty-six guided puzzles, each named after a chemical element, each numbered by atomic number. Silicon (Z=14) decrypts a cipher using algorithms the encyclopedia teaches. Carbon (Z=6) translates DNA into a message using the genetic code. Iron (Z=26) calculates forces in five simple machines. Cobalt (Z=27) hides a word in an anamorphic drawing that only resolves when you tilt the book. The puzzle numbers skip: 1, 6, 7, 8, 11, 12, 13, 14... A solver who recognizes atomic numbers has the first aha. The gaps are the first puzzle.
+
+The Joker narrates. Warm, curious, slightly mischievous. Each puzzle page opens with the Joker introducing an archetype: "The Sentinel stands at the gate. Not every message is meant for every reader." The solver fills in worksheets. Draws on star charts. Builds a cipher wheel from the page. Traces a Rube Goldberg chain reaction. At the end, thirteen primary answers fill a crossword grid — the meta. The highlighted squares spell something, and the Joker finally speaks directly: who built this library, and why.
+
+The invention: a puzzle hunt organized by the periodic table, embedded in an encyclopedia organized as a deck of cards. Two universal systems — chemistry and cards — nested inside each other. 26 elements in the Red Joker. 26 compounds in the Black Joker. 52 puzzles total. 52 cards in the deck. The numerology is not forced. It is structural.
+
+**Key commits**:
+- `78917a4` The Two Jokers — complete puzzle hunt design (43 files, 15,488 lines)
+
+**Scale**: 26 element-puzzles designed and assigned, 13 sections covered (2 puzzles each, 1 section with 1, 1 section with 3), crossword meta designed, Joker voice guide written (6 voice rules, 13 archetype intros, opening and closing drafts), 89 puzzle briefs generated, 9 expert reviewers profiled, answer words verified (GENETIC, CASTING, ALGORITHM, PERSPECTIVE, SYMMETRY, INFLECTION, INCENTIVE, TRANSISTOR, TORQUE, PARADIGM, EQUINOX, NICHE, POLYMATH)
+
+---
+
 ## Cumulative Scale
 
 | Metric | Count |
@@ -550,11 +604,16 @@ The Strategist counts everything — price, incentive, pages, scores, waves, hou
 | Clean directories | 167 |
 | Concept index entries | 314 |
 | Atlas maps planned | 52 |
-| Design reviews | 5 (Tufte, Vignelli, Wurman, Fuller, cartographers) |
-| Roles claimed | 20 of 52 |
-| Roles remaining | 32 |
+| Design reviews | 5 (Tufte, Vignelli, Wurman, Fuller, cartographers) + 9 puzzle-hunt experts (2 rounds) |
+| Roles claimed | 22 of 52 |
+| Roles remaining | 30 |
 | Volumes scored | 52 of 52 (all 6 dimensions) |
 | Publishing tiers | 3 (Elven/Dwarven/Human) |
 | Physical books planned | 56 |
 | Annex volumes | 2 (55 reference files extracted) |
 | Improvement waves | 4 (27 volumes, ~46-66 hrs) |
+| Puzzle hunt puzzles designed | 52 (26 elements + 26 compounds) |
+| Puzzle briefs in pool | 89 |
+| Expert reviewers (puzzle hunt) | 9 (2 rounds) |
+| Puzzle hunt design files | 43 |
+| Puzzle hunt design lines | 15,488 |
