@@ -1,4 +1,5 @@
 # Electronics — Field Overview
+<!-- @editor[bridge/P2]: No bridge from Maxwell → circuit theory to the learner's computational complexity background — the approximation hierarchy (exact EM → quasi-static → lumped) maps directly to the kind of abstraction-layer reasoning the learner already uses in compiler/runtime theory; worth one sentence explicitly naming that parallel -->
 
 ## The Big Picture
 
@@ -303,6 +304,7 @@ electrical substrates.
 
 ---
 
+<!-- @editor[content/P2]: RF/microwave fundamentals absent from this overview — the frequency map and lumped-element breakdown section gestures at RF, but no bridge to modern wireless systems (WiFi, 5G, Bluetooth) that a VP of Engineering deals with daily; even a paragraph on S-parameters and impedance matching as the RF equivalent of Thévenin would anchor module 00 better -->
 ## What Is NOT in This Directory
 
 | Domain | Why excluded | Where to look |

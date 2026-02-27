@@ -19,6 +19,7 @@ SIGNALS & SYSTEMS LANDSCAPE
   This is the central insight of signals & systems.
 
   6.003 bridge: This IS 6.003. The module is a structured refresher.
+  <!-- @editor[audience/P2]: Opening frames this as "a 6.003 refresher" but the learner knows 6.003 thoroughly — the value-add is sections 8-9: state space, controllability/observability, and the feedback loop connecting to control theory; the opening should flag what's new vs what's review, otherwise the learner may skip the genuinely new material assuming it's all familiar -->
 ```
 
 ---
@@ -262,6 +263,7 @@ SIGNALS & SYSTEMS LANDSCAPE
     (exact if input held constant between samples)
 ```
 
+<!-- @editor[bridge/P2]: No bridge from controllability/observability matrix rank conditions to the broader computational linear algebra context — the rank([B AB ... A^(n-1)B]) = n condition is a linear independence check; the learner knows rank/nullspace from MIT linear algebra and would benefit from the explicit framing: "unreachable states live in the null space of the controllability matrix" — this is the kind of structural insight that lands for a mathematician -->
 ### Why State Space?
 
 ```

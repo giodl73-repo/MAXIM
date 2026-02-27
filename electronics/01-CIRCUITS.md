@@ -1,5 +1,6 @@
 # 01 — Circuit Analysis Fundamentals
 
+<!-- @editor[diagram/P2]: Landscape diagram lists analysis methods but doesn't show how they relate — the crucial dependency (sources + elements → node/mesh equations → Thévenin → op-amp analysis) is the spine of the guide; a vertical stack or flow would show the progression instead of three parallel columns that appear independent -->
 ```
 CIRCUIT ANALYSIS LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
@@ -262,6 +263,7 @@ CIRCUIT ANALYSIS LANDSCAPE
   CMR: rejects signals common to both inputs — key for sensor interfaces.
 ```
 
+<!-- @editor[bridge/P2]: No bridge from op-amp integrator/differentiator to control theory — H(s) = -1/(sRC) is a pure integrator; this is the building block of PID controllers and the point where circuits directly become control systems; one sentence connecting this to Laplace-domain controller design (addressed in 05-SIGNALS-SYSTEMS) would anchor the learner -->
 ### Integrator
 
 ```

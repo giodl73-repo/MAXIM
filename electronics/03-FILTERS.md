@@ -253,6 +253,7 @@ FILTER LANDSCAPE
   Standard form for Chebyshev sections.
 ```
 
+<!-- @editor[content/P2]: State variable / KHN section is thin — three op-amps, block diagram sketch, "Q and ω₀ set independently" but no component equations, no practical design example, and no explanation of why independent tuning of Q and ω₀ matters for production tolerance; this topology is the right choice for Q > 10 yet the guide doesn't show how to actually build one -->
 ### State Variable / KHN (Kerwin-Huelsman-Newcomb)
 
 ```
@@ -293,6 +294,7 @@ FILTER LANDSCAPE
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from analog filter pole placement to digital filter design via bilinear transform — the guide ends with analog RC active filters, but the natural next question for this learner is "how do these translate to DSP?" A single line pointing to module 06 and naming the bilinear transform s = (2/T)(z-1)/(z+1) would close the analog→digital loop that both audiences (hardware and software) need -->
 ## 6. Filter Frequency Transformations
 
 ```
