@@ -1,5 +1,8 @@
 # Mechanical Engineering — Landscape & Field Taxonomy
 
+<!-- @editor[bridge/P2]: No bridge from machine elements as design patterns — gears as reduction contracts, bearings as friction interfaces. This learner sees mechanism design through an API/abstraction lens; the "contract" framing would be a natural entry. -->
+<!-- @editor[content/P2]: Overview lacks tribology and mechanism synthesis — two of the highest-value topics for this learner. Tribology (friction, wear, lubrication) is the practical science behind bearings and gear life; mechanism synthesis (designing linkages for required motion) connects to state machine design. Neither appears in module map. -->
+
 ## The Big Picture
 
 Mechanical engineering is the discipline of **energy, matter, and motion** — how energy converts
@@ -118,6 +121,7 @@ Valid when Knudsen number Kn = λ/L ≪ 1, where λ = mean free path.
 
 ---
 
+<!-- @editor[bridge/P2]: "Connections to Computing" table maps FEA → sparse linear system but misses the richer structural bridges for this learner: vibration modes → eigenvalue decomposition (which they know from MIT linear algebra), gear ratio as a type-safe transformation (torque in / speed out), PID control → transfer functions (connects to their control-theory familiarity). The existing table reads like a side note rather than a conceptual bridge. -->
 ## Connections to Computing
 
 | ME Concept | CS/Software Analog |

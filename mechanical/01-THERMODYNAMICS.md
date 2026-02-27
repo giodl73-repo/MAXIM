@@ -1,5 +1,6 @@
 # 01 — Thermodynamics
 
+<!-- @editor[audience/P2]: Opening section re-derives the Four Laws from scratch — this learner has MIT physics including thermodynamics. The laws section is at the right depth (includes Clausius inequality, entropy generation) but the conceptual framing "how much work can you extract" could be sharpened to exergy analysis immediately. The Zeroth Law paragraph is unnecessary for this reader. -->
 ## Laws, Cycles, Entropy, Exergy
 
 ```
@@ -36,6 +37,7 @@ Notation: δQ and δW (inexact differentials) vs dU (exact differential)
 
 ## The Four Laws
 
+<!-- @editor[audience/P3]: Zeroth law explanation is undergraduate-level background. This learner knows temperature is a state property. Cut or compress to one sentence. -->
 ### Zeroth Law — Temperature
 
 If system A is in thermal equilibrium with B, and B with C, then A with C.

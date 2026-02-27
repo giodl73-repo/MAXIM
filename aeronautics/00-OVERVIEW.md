@@ -38,6 +38,7 @@
 
 ---
 
+<!-- @editor[audience/P2]: "Four Forces" section explains what lift and drag are at a level appropriate for a first introduction to flight. This learner doesn't need lift re-explained — they need the rigorous connections: L = ρVΓ (Kutta-Joukowski), drag decomposition (induced vs parasite), and why induced drag ∝ CL²/AR. The naive "pressure difference" explanation appears in the Common Confusion section, which is good, but the opening section sets the wrong tone. -->
 ## 1. The Four Forces of Flight
 
 ```
@@ -72,6 +73,7 @@ FLIGHT ENVELOPE:
 
 ---
 
+<!-- @editor[bridge/P2]: Standard atmosphere section is accurate but missing the connection to dimensional similarity that underpins all of aerodynamics. Re = ρVL/μ is the single number that tells you whether two flows are physically similar — a 1:10 scale model in a wind tunnel at 10× the Reynolds number of the full aircraft is not similar to full-scale flight. This is the dimensionless similarity principle from physics (Buckingham Π theorem), and it governs everything from wind tunnel testing to CFD validation. The section on Mach number regimes should note that Ma and Re together define the operating point in the two most important dimensionless groups. -->
 ## 2. Standard Atmosphere
 
 ```
@@ -100,6 +102,7 @@ DYNAMIC PRESSURE: q = ½ρV² (EAS) or q = ½ρ₀V_EAS²
 
 ---
 
+<!-- @editor[content/P2]: Modern aircraft developments (UAVs/UAS, electric aircraft, supersonic transport revival, eVTOL) are absent from the overview. These are the most relevant current developments for a technically-oriented VP: UAV autonomy (connects to software systems engineering), electric propulsion (thermodynamic efficiency limits, battery energy density vs kerosene), supersonic revival (Boom Overture, planned 2030s certification). A "Current Developments" section would significantly increase the overview's value. -->
 ## 3. Airworthiness and Certification
 
 ### FAR/CS Structure

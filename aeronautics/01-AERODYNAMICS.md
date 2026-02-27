@@ -65,6 +65,7 @@ BERNOULLI EQUATION (incompressible, inviscid, steady, along streamline):
 
 ### Potential Flow
 
+<!-- @editor[bridge/P2]: Potential flow is introduced with "∇²φ = 0 (Laplace equation — same as electrostatics)" — this is exactly right but the connection deserves more. The learner knows from MIT physics that electrostatic potential satisfies Laplace's equation, and complex analysis (which they have from MIT math) provides the full toolkit: analytic functions map conformally, and the Joukowski transform maps circles (solved by cylinder + vortex) to airfoil shapes. The reason thin airfoil theory works is that the airfoil can be replaced by a distribution of singularities on the chord line — a method-of-moments approach on the Laplace equation. This makes potential flow aerodynamics a solved PDE problem, which this learner would understand immediately. -->
 ```
 IRROTATIONAL FLOW: ∇×**u** = 0 → exists velocity potential φ: **u** = ∇φ
   Incompressible: ∇²φ = 0 (Laplace equation — same as electrostatics)
@@ -148,6 +149,7 @@ RESULTS:
 
 ### Prandtl's Boundary Layer
 
+<!-- @editor[bridge/P2]: Prandtl's boundary layer equations are a singular perturbation of Navier-Stokes: the small parameter is 1/Re, and the boundary layer is the inner solution in the matched asymptotic expansion (inner/outer matching). This learner's PDE background makes this the most natural entry into boundary layer theory — it's the same matched asymptotic expansions technique they'd see in perturbation theory. The Blasius solution is then a self-similar ODE reduction. Framing it this way unlocks why the BL thickness scales as Re^{-1/2} and why the technique breaks down at separation. -->
 ```
 PHYSICAL PICTURE:
   For high Re: thin viscous layer near surface; inviscid flow outside

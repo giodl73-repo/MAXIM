@@ -2,6 +2,8 @@
 
 ## Equilibrium, Free Bodies, Trusses, Frames, Distributed Loads
 
+<!-- @editor[audience/P2]: This file spends substantial space re-deriving Newton's laws and vector cross products from first principles. This learner has MIT classical mechanics — they don't need ΣF=0 explained. The value here is the structural application: support conditions, determinacy/indeterminacy, truss methods. The opening "fundamental concepts" section should be replaced with a fast orientation to structural determinacy as the core concept, then move immediately to the truss/frame analysis methods that are structurally specific. -->
+
 ```
 THE STATICS WORKFLOW
 
@@ -271,6 +273,7 @@ Self-locking:    λ < φ'  (lead angle < friction angle)
 
 ## Virtual Work
 
+<!-- @editor[bridge/P2]: Virtual work principle is stated mechanically but the bridge to variational calculus and the principle of minimum potential energy is missing. This learner has variational calculus context — virtual work δU=0 is the Euler-Lagrange equation specialized to statics. This connection is the conceptual bridge from statics to FEM (which is also a variational principle: minimize the total potential energy over the displacement field). One sentence would unlock this. -->
 **Principle of virtual work:** For a body in equilibrium, the total virtual work done by all
 forces during any virtual displacement consistent with constraints = 0.
 

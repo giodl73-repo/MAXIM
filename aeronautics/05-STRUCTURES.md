@@ -352,6 +352,7 @@ CRITICAL CRACK SIZE:
   For design stress σ and K_IC: minimum detectable crack must be ≤ a_c/2
   Smaller K_IC → smaller critical crack → harder inspection requirement
 
+<!-- @editor[bridge/P2]: Paris law integration (N = ∫ da / (C·ΔK^m)) is a numerical integration problem with a potentially stiff integrand (crack growth accelerates rapidly near a_critical as ΔK grows). The inspection interval derivation is a reliability calculation with scatter factors — equivalent to setting a service-level objective with a safety margin. The connection to reliability engineering (failure rate models, Weibull distributions for fatigue scatter) would resonate with this learner's background in systems reliability from Azure infrastructure. -->
 PARIS LAW (fatigue crack propagation):
   da/dN = C · (ΔK)^m    [crack growth per cycle]
   ΔK = ΔS · √(πa) · F   (stress intensity range)
@@ -384,6 +385,7 @@ SAFE-LIFE vs FAIL-SAFE vs DAMAGE TOLERANCE:
 
 ---
 
+<!-- @editor[bridge/P2]: The classical laminate theory (CLT) A/B/D matrices are presented without connecting them to the homogenization framework: CLT is the effective medium theory for a layered composite — it replaces N discrete plies with one equivalent anisotropic plate. This is the same idea as effective medium theory in physics (Maxwell Garnett, Bruggeman), or model reduction by homogenization in numerical analysis. The B matrix (bending-extension coupling = 0 for symmetric laminates) has an elegant explanation: symmetry eliminates the coupling between in-plane forces and bending curvature, just as symmetric operators in linear algebra have decoupled eigenspaces. -->
 ## 8. Aeroelasticity
 
 ```
@@ -413,6 +415,7 @@ AILERON REVERSAL (static; A+E):
   Mitigation: use spoilers instead of outboard ailerons at high speed (B747, B777)
   Modern FBW: inboard ailerons only above certain speed; no reversal issue
 
+<!-- @editor[bridge/P1]: Flutter is described as "eigenvalue analysis" but the connection to the full eigenvalue problem structure is missing. Flutter is a Hopf bifurcation: the system has a parameter (airspeed V) and at V_F a pair of complex eigenvalues crosses the imaginary axis. Below V_F: negative real parts (stable, damped). At V_F: purely imaginary eigenvalues (neutral stability, constant-amplitude oscillation). Above V_F: positive real parts (unstable, growing oscillation). This is exactly the stability criterion for a linear system Δẋ = A(V)·Δx where A depends parametrically on airspeed. For this learner who knows eigenvalue analysis from MIT, this framing makes flutter immediately intuitive rather than mysterious. -->
 FLUTTER (dynamic; A+E+I):
   Coupled bending-torsion oscillation; amplitude grows exponentially if not damped
   Physical mechanism: aerodynamic moment in phase with torsional velocity → energy input

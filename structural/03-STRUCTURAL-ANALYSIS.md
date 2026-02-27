@@ -14,6 +14,7 @@ Nonlinear + dynamics:         Geometric nonlinearity, material nonlinearity, tim
 **The direct stiffness method is the mathematical foundation of every structural software package
 (SAP2000, ETABS, STAAD, ANSYS, ABAQUS, LS-DYNA).** Understanding it lets you interpret results
 and know when your model is wrong.
+<!-- @editor[bridge/P2]: No explicit connection from [K]{d}={F} to sparse matrix solve algorithms the learner knows. The global stiffness matrix K is symmetric positive semi-definite (before BCs) → symmetric positive definite after BCs. Solved by sparse Cholesky (LAPACK dpotrf / direct solvers like PARDISO/MUMPS) or iterative methods (conjugate gradient with incomplete Cholesky preconditioner). The sparsity structure of K reflects the mesh connectivity graph — exactly the adjacency matrix / graph Laplacian this learner would recognize from graph algorithms. -->
 
 ---
 
@@ -107,6 +108,7 @@ Local 6×6 stiffness assembled from axial and bending sub-matrices.
 
 ## Finite Element Method (FEM)
 
+<!-- @editor[bridge/P1]: FEM is introduced without the variational/weak form foundation that gives it mathematical rigor and connects it to the learner's PDE/numerical methods context. The displacement-based FEM derives from minimizing the total potential energy Π = ½∫σ:ε dV − ∫f·u dV. The stiffness matrix k_e = ∫B^T D B dV is the discrete representation of the bilinear form in the Galerkin method — exactly the discretization of a continuous operator that this learner knows from numerical analysis. Without this derivation, FEM looks like a black box. With it, the learner understands why it works and where it breaks (ill-conditioned operators → ill-conditioned K). -->
 FEM generalizes the matrix stiffness method to arbitrary geometry and loading.
 
 ### Displacement-Based FEM
@@ -239,6 +241,7 @@ Mode shapes orthogonal: φᵢᵀ[M]φⱼ = 0  (i≠j) — mass orthogonality
 Modal superposition: x(t) = Σ qᵢ(t) φᵢ
   → Decouples N coupled equations into N independent SDOF equations
 ```
+<!-- @editor[bridge/P1]: The generalized eigenvalue problem [K]φ = ω²[M]φ is presented without connecting it to the standard eigenvalue decomposition this learner knows from MIT linear algebra. The key insight: if M is positive definite (it always is for physical systems), you can write M = L L^T (Cholesky), transform to standard eigenvalue problem (L^{-1}KL^{-T})ψ = ω²ψ, and recover φ = L^{-T}ψ. The mass-orthogonality condition φᵢᵀMφⱼ=0 is exactly the statement that mode shapes are orthogonal in the M-inner product — a natural extension of the orthogonality of eigenvectors of a symmetric matrix. This bridge makes modal analysis click for this learner. -->
 
 ### Seismic Analysis
 

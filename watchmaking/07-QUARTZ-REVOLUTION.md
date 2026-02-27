@@ -116,6 +116,7 @@ No analog components required in the divider chain
 Power consumption: nanowatts per flip-flop stage at 3V
 ```
 
+<!-- @editor[bridge/P2]: The quartz oscillator circuit (inverter + crystal + feedback capacitors) is a Pierce oscillator topology. This reader likely knows oscillator circuits from EE fundamentals. The parallel: the crystal's mechanical Q (80,000–100,000) is doing the work that an LC tank circuit does in a Colpitts oscillator, but with 100× better selectivity. The stability advantage of quartz over LC: Q_crystal / Q_LC ≈ 10^5 / 10^2 = 1000× — which is exactly the mechanical watch vs quartz accuracy gap. The Q factor is the unifying concept across the entire watchmaking series: foliot Q ≈ 1, pendulum Q ≈ 10^4, quartz Q ≈ 10^5–10^7, atomic transition Q ≈ 10^10–10^17. Bridge this explicitly here. -->
 **The crystal shape:** Wristwatch quartz crystals are tuning-fork shaped (not the rectangular blocks used in oscillator modules for electronics). Tuning-fork resonators vibrate in a flexural mode (the tines bend toward and away from each other). This mode:
 - Operates at lower frequency (32kHz vs MHz for thickness-mode crystals) with smaller physical size
 - Consumes less current (important for battery life)
@@ -334,6 +335,7 @@ ETA Delirium-derived movement (ETA 255.111):
 
 ## Modern Quartz: MEMS and the Next Generation
 
+<!-- @editor[bridge/P2]: MEMS section mentions photolithographic manufacture but misses the key bridge: MEMS oscillators are already in every smartphone as the timing reference for the cellular baseband and Wi-Fi PHY. The SiTime SIT1602 or Microchip DSC1001 are in devices this reader carries. The transition from quartz to MEMS in watches is the same transition already completed in the telecom/mobile stack — the watch industry is 10–15 years behind smartphones on this. Also: the "integration with IC" row in the table is the key competitive advantage — a MEMS resonator can be fabricated on the same die as the digital divider chain, collapsing the quartz crystal + CMOS IC stack into a single die. The cost and power implications are significant. -->
 **MEMS oscillators** (Micro-Electro-Mechanical Systems) are silicon-based resonators made by photolithographic processes — the same semiconductor fabs that make microchips.
 
 ```

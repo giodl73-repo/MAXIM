@@ -144,6 +144,7 @@ VERGE ACCURACY — ERROR TREE
     - Contact angles vary through the beat cycle
 ```
 
+<!-- @editor[bridge/P1]: Missing control theory / stability bridge. "No restoring force" is the mechanical statement; the equivalent for this reader is: the foliot is an undamped integrator — marginally stable at best, with no eigenvalue structure that enforces a natural frequency. A pendulum has a pair of purely imaginary eigenvalues at ±j√(g/L); a foliot has eigenvalues at 0. Any engineer who has worked with control systems immediately recognizes why the foliot is hopeless: you can't regulate a system with a pole at the origin using only open-loop drive. This bridge pays off again in 03 (isochronism = limit cycle), 07 (quartz Q factor = filter bandwidth), and 08 (atomic transition linewidth = Q factor). -->
 **Comparison to a pendulum (previewing 03):** A pendulum has a restoring force (gravity acting on the displaced mass), which creates a natural frequency: T = 2π√(L/g). This period is independent of driving force and amplitude (for small amplitudes). The verge-and-foliot has no restoring force — the foliot just has inertia. Remove the drive force and it stops immediately; push it harder and it oscillates faster. This is the fundamental reason it's inaccurate.
 
 ---

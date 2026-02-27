@@ -1,5 +1,8 @@
 # 04 — Machine Design
 
+<!-- @editor[content/P2]: File covers stress/fatigue/elements well but is missing entire sections on: (1) Tribology — friction, wear mechanisms, lubrication regimes (boundary/mixed/hydrodynamic); the Stribeck curve is the machine design equivalent of a phase diagram; (2) Vibration and resonance — critical modes for rotating machinery, Campbell diagram, critical speeds; this learner's signal processing background makes this the most natural entry into machine design; (3) Mechanism synthesis — designing linkages for prescribed motion paths, Grashof condition; maps to state machine design. These aren't minor omissions — they're core to understanding why machine elements are designed the way they are. -->
+<!-- @editor[bridge/P1]: Machine elements are presented as geometric/formula objects, not as design contracts. Gears should be framed as speed/torque transformers: gear ratio i = ω₁/ω₂ = T₂/T₁ is a transmission function with defined input/output contracts (exactly how a software API contract works). Bearings are friction-reduction contracts: they let a shaft rotate with minimal power loss by replacing sliding friction with rolling contact. This abstraction layer is missing entirely — the file reads as a collection of formulas rather than a design pattern library. -->
+
 ## Stress, Failure Theories, Fatigue, Machine Elements
 
 ```
@@ -197,6 +200,7 @@ n_i = cycles at stress level i
 N_i = cycles to failure at stress level i (from S-N curve)
 ```
 
+<!-- @editor[bridge/P2]: Paris Law (da/dN = C(ΔK)^m) is stated but the connection to crack propagation as a discrete dynamical system is missing. Integrating Paris law from initial to critical crack size is a summation / recurrence that this learner would immediately recognize as a fixed-point iteration. The "inspection interval" conclusion is the engineering punchline — lead with it. -->
 ### Fracture Mechanics (LEFM)
 
 For high-cycle fatigue or brittle materials with cracks:
@@ -232,6 +236,7 @@ Solve for diameter d:
 
 ---
 
+<!-- @editor[bridge/P2]: Rolling element bearings presented purely as load-life formula objects. Missing the design contract framing: a bearing is a friction-reduction interface that converts sliding friction (μ~0.3 for metal-on-metal) to rolling friction (μ~0.001) — a 300:1 reduction in friction coefficient. The L10 life equation embeds the probabilistic contract: C/P ratio determines reliability at a given operating life. Hydrodynamic plain bearings (crankshafts, turbines) are entirely absent — they operate on a different contract (require minimum speed to maintain oil film). The Stribeck curve (friction vs speed: boundary → mixed → hydrodynamic) is the fundamental tribology diagram that explains when each bearing type is appropriate. -->
 ## Rolling Element Bearings
 
 **Load-life relationship (L10 = 90% reliability):**
@@ -354,6 +359,7 @@ Shear stress (Wahl factor):
 Solid length: L_s = d(Nt)   (natural stop against overcompression)
 Natural frequency: fn = (d/πNa D²)√(G/8ρ)  (avoid resonance)
 ```
+<!-- @editor[content/P2]: Spring natural frequency is mentioned but vibration and resonance is not developed as a standalone section. This is a major gap for this learner. The SDOF equation mẍ + cẋ + kx = F(t) and its eigenvalue ωn = √(k/m) directly maps to eigenvalue decomposition from MIT linear algebra. The frequency response function is the mechanical transfer function (exactly the Z-transform/Fourier domain they know). Campbell diagram (rotating machinery: critical speeds where excitation harmonics cross natural frequencies) is the most important practical application. Add a Vibration section before or after Springs. -->
 
 ---
 

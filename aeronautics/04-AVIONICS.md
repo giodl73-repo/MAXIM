@@ -79,6 +79,7 @@ INTEGRATED MODULAR AVIONICS (IMA) — ARINC 651 / DO-297:
   Advantages: reduced weight/boxes, easier upgrades, common sparing
   Challenges: certification complexity (mixed DAL on same hardware); ARINC 653
 
+<!-- @editor[bridge/P2]: DO-178C software assurance levels are presented without connecting to their exact analog in software engineering: the concept of safety integrity levels (SIL) in IEC 61508, or the broader formal verification → model checking → testing verification hierarchy. For this learner who built VSTS/Azure DevOps CI systems: DAL-A's MC/DC coverage requirement is the most stringent test coverage criterion in existence — it requires that every boolean condition independently affects every decision outcome. This is significantly stronger than branch coverage or even condition coverage. The connection to formal methods (model checking, theorem proving) for DAL-A requirements would resonate strongly. -->
 DO-178C — SOFTWARE ASSURANCE:
   Design Assurance Levels (DAL): A (catastrophic) → E (no safety effect)
   DAL-A: MC/DC (Modified Condition/Decision Coverage) + independence review
@@ -168,6 +169,7 @@ STRAPDOWN INS INTEGRATION:
     Error mechanism: gyro drift → attitude error → residual gravity component → velocity error → position error
     Schuler oscillation: 84-minute period (pendulum length = Earth radius); dominates bounded error
 
+<!-- @editor[bridge/P2]: GPS/INS Kalman filter coupling is described at the structural level but without explaining why the Kalman filter is the right tool. This learner's signal processing background makes this natural: the Kalman filter is the optimal linear estimator (minimum variance) for a system with Gaussian process and measurement noise — it is the recursive form of least squares, and it handles the INS drift (process noise) + GPS measurement noise optimally. The innovation sequence (GPS − INS predicted position) is the key diagnostic: if the innovations are white noise, the filter is working; correlated innovations mean the model is wrong. This connects directly to state estimation theory they'd know from MIT. -->
 GPS/INS COUPLING (Kalman filter integration):
   Loosely coupled: GPS provides position/velocity; INS position/velocity as state
   Tightly coupled: GPS raw pseudoranges; better for degraded GPS (< 4 SVs)

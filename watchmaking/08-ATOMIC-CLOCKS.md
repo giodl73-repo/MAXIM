@@ -364,6 +364,7 @@ Current best accuracy: ~2×10⁻¹⁸ (JILA Sr2, 2017)
   = 1 second in ~15 billion years (longer than the age of the universe)
 ```
 
+<!-- @editor[bridge/P2]: The Q-factor unification bridge is missing from this file. The strontium lattice Q ≈ 4×10^17 is the capstone of the Q-factor progression running through the entire series (foliot Q≈1, pendulum Q≈10^4, quartz Q≈10^5, atomic microwave Q≈10^10, optical Q≈10^17). This reader has signal processing background; the Q factor as the unifying concept — from mechanical resonance through electronic oscillators to quantum transitions — is the single most elegant thread in the series. A short paragraph connecting Δf/f = 1/Q back through all previous chapters would crystallize the whole arc. Without it, the optical lattice section reads as "very accurate" without explaining *why* higher frequency + narrower linewidth = better fractional accuracy. -->
 ### What To Do With 10⁻¹⁸ Accuracy?
 
 At 10⁻¹⁸ accuracy, you can measure things that seem unrelated to timekeeping:
