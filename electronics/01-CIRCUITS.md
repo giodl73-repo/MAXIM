@@ -1,26 +1,35 @@
 # 01 — Circuit Analysis Fundamentals
 
-<!-- @editor[diagram/P2]: Landscape diagram lists analysis methods but doesn't show how they relate — the crucial dependency (sources + elements → node/mesh equations → Thévenin → op-amp analysis) is the spine of the guide; a vertical stack or flow would show the progression instead of three parallel columns that appear independent -->
 ```
 CIRCUIT ANALYSIS LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
 
-  SOURCES             PASSIVE ELEMENTS          ANALYSIS METHODS
-  ─────────────────   ──────────────────────    ────────────────────────────
-  Voltage source Vs   R: V = IR                 KVL (loop):    ΣV = 0
-  Current source Is   C: I = C dV/dt            KCL (node):    ΣI = 0
-  Dependent sources   L: V = L dI/dt            Node voltage method
-    VCVS, VCCS           Z(s): s-domain          Mesh current method
-    CCVS, CCCS                                   Superposition
-                                                 Thévenin / Norton equivalent
-
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │  SYSTEMATIC APPROACH:                                                    │
-  │  1. Choose method: node voltage (fewer nodes) or mesh current            │
-  │  2. Write equations: KVL/KCL                                             │
-  │  3. Solve algebraically                                                  │
-  │  4. In AC/s-domain: replace R,L,C with impedances first                 │
-  └─────────────────────────────────────────────────────────────────────────┘
+  Sources + Elements                      Analysis builds upward:
+  ────────────────────                    ────────────────────────────────────
+  V/I sources (indep/dep)                 Layer 1: KVL/KCL
+  R, C, L, Z(s)                              Write equations from topology
+                 │                                    │
+                 ▼                                    ▼
+            ┌─────────────────────────────────────────────┐
+            │  Layer 2: Node Voltage / Mesh Current       │
+            │  Systematic approach: converts circuit into │
+            │  system of linear equations Ax = b          │
+            └─────────────────┬───────────────────────────┘
+                              │
+                              ▼
+            ┌─────────────────────────────────────────────┐
+            │  Layer 3: Thévenin / Norton Equivalents     │
+            │  Reduce any subcircuit to V_th + R_th       │
+            │  Enables interface thinking: source → load  │
+            └─────────────────┬───────────────────────────┘
+                              │
+                              ▼
+            ┌─────────────────────────────────────────────┐
+            │  Layer 4: Op-Amp Analysis                   │
+            │  Golden rules (V+=V−, I_in=0) from         │
+            │  negative feedback + high open-loop gain    │
+            │  Builds on Layers 1–3 for each topology    │
+            └─────────────────────────────────────────────┘
 
   6.002 bridge: This is the 6.002 core. 30-year refresher for intuition,
   not re-derivation from first principles.
@@ -263,8 +272,9 @@ CIRCUIT ANALYSIS LANDSCAPE
   CMR: rejects signals common to both inputs — key for sensor interfaces.
 ```
 
-<!-- @editor[bridge/P2]: No bridge from op-amp integrator/differentiator to control theory — H(s) = -1/(sRC) is a pure integrator; this is the building block of PID controllers and the point where circuits directly become control systems; one sentence connecting this to Laplace-domain controller design (addressed in 05-SIGNALS-SYSTEMS) would anchor the learner -->
 ### Integrator
+
+The op-amp integrator is where circuit analysis directly meets control theory: H(s) = -1/(sRC) is a pure integrator in the Laplace domain — the same transfer function that appears in the "I" term of a PID controller. Analog PID controllers were historically built from exactly these op-amp blocks (integrator for I, differentiator for D, summing amplifier to combine). See 05-SIGNALS-SYSTEMS for the full s-domain framework and control-theory/01-PID-CLASSICAL for the control perspective.
 
 ```
        C

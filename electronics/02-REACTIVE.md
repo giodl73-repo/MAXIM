@@ -1,22 +1,36 @@
 # 02 — Reactive Components: Capacitors, Inductors, RLC
 
-<!-- @editor[diagram/P2]: Opening diagram is a summary block, not a landscape — it lists C, L, and RLC properties side by side but doesn't show the progression from individual elements → series/parallel combinations → resonance → filter behavior that the sections then drill into; restructuring as a layered dependency would tie sections together -->
 ```
 REACTIVE LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
 
   Energy storage elements — they remember. Resistors dissipate; these store.
 
-  Capacitor C:                    Inductor L:
-    Stores electric field E          Stores magnetic field B
-    I = C dV/dt                      V = L dI/dt
-    Z_C = 1/(jωC) = 1/(sC)          Z_L = jωL = sL
-    Voltage can't change instantly   Current can't change instantly
-
-  Together in RLC circuits:
-    Natural frequency ω₀ = 1/√(LC)
-    Damping ζ controls oscillation vs exponential decay
-    Q = ω₀L/R = 1/(ω₀RC) = (1/R)√(L/C) — quality factor
+  INDIVIDUAL ELEMENTS
+  ┌──────────────────────────────┐    ┌──────────────────────────────┐
+  │  Capacitor C                 │    │  Inductor L                  │
+  │  Stores E-field: W = ½CV²   │    │  Stores B-field: W = ½LI²   │
+  │  I = C dV/dt                 │    │  V = L dI/dt                 │
+  │  Z_C = 1/(sC)  — falls w/ ω │    │  Z_L = sL   — rises w/ ω   │
+  └──────────────┬───────────────┘    └──────────────┬───────────────┘
+                 │                                    │
+                 ▼                                    ▼
+  COMBINATIONS: Series/parallel rules (§1-2), mutual inductance (§2)
+                 │
+                 ▼
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  RLC CIRCUITS — energy exchanges between C and L                 │
+  │  Natural frequency ω₀ = 1/√(LC)    Q = ω₀L/R = 1/(2ζ)         │
+  │  Damping ζ controls: oscillation (ζ<1) vs exponential decay (ζ>1)│
+  │  Characteristic equation roots = s-domain poles (§3-4)          │
+  └──────────────────────────────┬───────────────────────────────────┘
+                                 │
+                                 ▼
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  RESONANCE & FILTERING — frequency selectivity (§5-6)           │
+  │  High Q → narrow bandpass, voltage magnification                │
+  │  → Foundation for filter design (03-FILTERS)                    │
+  └──────────────────────────────────────────────────────────────────┘
 
   6.002/6.003 bridge: RLC is where circuit analysis meets differential equations
   and s-domain analysis becomes essential.
@@ -136,8 +150,9 @@ REACTIVE LANDSCAPE
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from RLC poles (s = -ζω₀ ± jω_d) to the pole-zero framework in 05-SIGNALS-SYSTEMS — the characteristic equation roots ARE the s-domain poles; stating explicitly that overdamped/underdamped/critically-damped maps to poles on real axis / complex pair / repeated real pole would give the learner a direct hook into the transfer function analysis coming later -->
 ## 3. Series RLC Circuit
+
+**Pole-zero connection:** The characteristic equation roots s₁,₂ = -ζω₀ ± ω₀√(ζ²-1) are exactly the s-domain poles of the circuit's transfer function H(s). Overdamped (ζ > 1) = two real poles on the negative real axis. Critically damped (ζ = 1) = repeated real pole. Underdamped (ζ < 1) = complex conjugate pole pair. This is the same pole-zero framework developed fully in 05-SIGNALS-SYSTEMS — the RLC circuit is the physical system that makes poles tangible.
 
 ```
     Vs ──R──L──C──┐
