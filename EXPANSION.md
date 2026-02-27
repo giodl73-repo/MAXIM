@@ -188,13 +188,13 @@ Commit message format: `Add Batch {N}: {X} new reference directories, {Y} files`
 | 4 | 4A–4D | robotics, optics, biomedical-engineering, formal-methods, energy-systems, anthropology, religious-studies, architecture, game-theory, transportation, urban-planning, environmental-engineering | ~96 | 2026-02 |
 | 5 | 5A–5D | oceanography, hydrology, paleontology, number-theory, abstract-algebra, topology, printing-publishing, cinema-film, radio-television, public-health, demography, behavioral-economics | ~129 | 2026-02 |
 | 6 | 6A–6D | probability-statistics, differential-geometry, numerical-methods, genomics, immunology, microbiology, literature, theater-performance, rhetoric, mineralogy, archaeology, mycology | ~120 | 2026-02 |
-| 7 | 7A–7D | complex-analysis, fluid-dynamics, statistical-mechanics, partial-differential-equations, variational-calculus, lie-groups, evolutionary-biology, virology, biophysics, dance, industrial-design, marine-biology | ~120 | — |
-| 8 | 8A–8D | logic, intellectual-history, social-history, manufacturing, systems-engineering, materials-processing, criminology, media-studies, education, philosophy-of-language, semiotics, computer-architecture | ~120 | — |
-| 9 | 9A–9D | entomology, ornithology, zoology, planetary-science, geochemistry, space-exploration, plastics-polymers, papermaking, composite-materials, graphic-design, fashion, comics-sequential-art | ~120 | — |
-| 10 | 10A–10D | machine-learning-theory, pharmacology, developmental-biology, political-history, translation, international-relations, furniture, horticulture, sports-science, astrobiology, philosophy-of-mind, ethics | ~120 | — |
-| 11 | 11A–11D | mathematicians-logicians, physicists-astronomers, chemists-naturalists, engineers-inventors, computing-pioneers, explorers, philosophers-thinkers, artists-architects, writers-poets, political-reformers, social-reformers, visionaries | ~132 | — |
-| 12 | 12A–12F | dendrology, freshwater-biology, soil-science, coral-reefs, woodworking, leatherworking, masonry, rope-cordage, journalism, oral-tradition, epigraphy, digital-media, distributed-systems, security-engineering, cloud-architecture, nanotechnology, energy-storage, infrastructure-systems | ~198 | — |
-| 13 | 13A–13C | remote-sensing, dyeing-fiber, historiography, philosophy-of-science, geotechnical-engineering, development-studies, programming-language-theory | ~77 | — |
+| 7 | 7A–7D | complex-analysis, fluid-dynamics, statistical-mechanics, partial-differential-equations, variational-calculus, lie-groups, evolutionary-biology, virology, biophysics, dance, industrial-design, marine-biology | ~120 | 2026-02 |
+| 8 | 8A–8D | logic, intellectual-history, social-history, manufacturing, systems-engineering, materials-processing, criminology, media-studies, education, philosophy-of-language, semiotics, computer-architecture | ~120 | 2026-02 |
+| 9 | 9A–9D | entomology, ornithology, zoology, planetary-science, geochemistry, space-exploration, plastics-polymers, papermaking, composite-materials, graphic-design, fashion, comics-sequential-art | ~120 | 2026-02 |
+| 10 | 10A–10D | machine-learning-theory, pharmacology, developmental-biology, political-history, translation, international-relations, furniture, horticulture, sports-science, astrobiology, philosophy-of-mind, ethics | ~120 | 2026-02 |
+| 11 | 11A–11D | mathematicians-logicians, physicists-astronomers, chemists-naturalists, engineers-inventors, computing-pioneers, explorers, philosophers-thinkers, artists-architects, writers-poets, political-reformers, social-reformers, visionaries | ~132 | 2026-02 |
+| 12 | 12A–12F | dendrology, freshwater-biology, soil-science, coral-reefs, woodworking, leatherworking, masonry, rope-cordage, journalism, oral-tradition, epigraphy, digital-media, distributed-systems, security-engineering, cloud-architecture, nanotechnology, energy-storage, infrastructure-systems | ~198 | 2026-02 |
+| 13 | 13A–13C | remote-sensing, dyeing-fiber, historiography, philosophy-of-science, geotechnical-engineering, development-studies, programming-language-theory | ~77 | 2026-02 |
 
 ---
 

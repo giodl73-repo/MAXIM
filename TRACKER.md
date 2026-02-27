@@ -258,7 +258,7 @@ Each directory has a `STATUS.md` with its full file list.
 | 3C | `art-history/` `economic-history/` `military-history/` `history-of-science/` | 47 |
 | 3D | `metalworking/` `photography/` `nutrition/` `sociology/` | 44 |
 
-**Batch 4 agent groups (stubs scaffolded — content pending):**
+**Batch 4 agent groups (complete):**
 
 | Group | Directories | Files |
 |-------|-------------|-------|
@@ -294,7 +294,7 @@ Each directory has a `STATUS.md` with its full file list.
 | 7C | `evolutionary-biology/` `virology/` `biophysics/` | 30 | Life Sciences |
 | 7D | `dance/` `industrial-design/` `marine-biology/` | 30 | Arts & Culture / Natural World |
 
-**Batch 11 agent groups (stubs scaffolded — content pending):**
+**Batch 11 agent groups (complete):**
 
 | Group | Directories | Files | Section |
 |-------|-------------|-------|---------|

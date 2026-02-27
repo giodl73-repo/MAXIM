@@ -1,0 +1,365 @@
+/*
+ * MAXIM Encyclopedia — Print Stylesheet
+ *
+ * Target: 8.5 × 11 in, 0.75" margins, single-column
+ * Body: EB Garamond 11pt / 14pt line height
+ * Code: JetBrains Mono 10pt
+ * Headers: small caps 8pt
+ * Footer: page number centered
+ *
+ * Usage:
+ *   - With mkdocs-with-pdf or mkdocs2book: reference this CSS
+ *   - With Pandoc: --css=print.css
+ *   - With WeasyPrint: direct @page support
+ *
+ * Spec source: book.md § Print Specification
+ */
+
+/* ── Page Setup ─────────────────────────────────────────────── */
+
+@page {
+  size: 8.5in 11in;
+  margin: 0.75in;
+
+  @top-left {
+    content: string(section-name);
+    font-family: "EB Garamond", Palatino, "Palatino Linotype", Georgia, serif;
+    font-variant: small-caps;
+    font-size: 8pt;
+    color: #444;
+  }
+
+  @top-right {
+    content: string(directory-name);
+    font-family: "EB Garamond", Palatino, "Palatino Linotype", Georgia, serif;
+    font-variant: small-caps;
+    font-size: 8pt;
+    color: #444;
+  }
+
+  @bottom-center {
+    content: counter(page);
+    font-family: "EB Garamond", Palatino, "Palatino Linotype", Georgia, serif;
+    font-size: 9pt;
+    color: #333;
+  }
+}
+
+/* First page of each chapter: no header, page number only */
+@page :first {
+  @top-left { content: none; }
+  @top-right { content: none; }
+}
+
+/* Blank verso pages in duplex printing */
+@page :blank {
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-center { content: none; }
+}
+
+
+/* ── Fonts ──────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: "EB Garamond";
+  src: local("EB Garamond"), local("EBGaramond-Regular");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  src: local("EB Garamond Bold"), local("EBGaramond-Bold");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  src: local("EB Garamond Italic"), local("EBGaramond-Italic");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: local("JetBrains Mono"), local("JetBrainsMono-Regular");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* ── Body ───────────────────────────────────────────────────── */
+
+body {
+  font-family: "EB Garamond", Palatino, "Palatino Linotype", Georgia, serif;
+  font-size: 11pt;
+  line-height: 14pt;
+  color: #000;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  orphans: 3;
+  widows: 3;
+}
+
+
+/* ── Headings ───────────────────────────────────────────────── */
+
+h1 {
+  font-size: 22pt;
+  line-height: 26pt;
+  margin-top: 0;
+  margin-bottom: 14pt;
+  page-break-before: always;
+  page-break-after: avoid;
+  string-set: section-name content();
+}
+
+h1:first-of-type {
+  page-break-before: avoid;  /* Don't break before the very first heading */
+}
+
+h2 {
+  font-size: 16pt;
+  line-height: 20pt;
+  margin-top: 28pt;
+  margin-bottom: 10pt;
+  page-break-after: avoid;
+  string-set: directory-name content();
+}
+
+h3 {
+  font-size: 13pt;
+  line-height: 16pt;
+  margin-top: 21pt;
+  margin-bottom: 7pt;
+  page-break-after: avoid;
+}
+
+h4, h5, h6 {
+  font-size: 11pt;
+  line-height: 14pt;
+  margin-top: 14pt;
+  margin-bottom: 7pt;
+  page-break-after: avoid;
+}
+
+
+/* ── Paragraphs ─────────────────────────────────────────────── */
+
+p {
+  margin-top: 0;
+  margin-bottom: 7pt;
+  text-align: justify;
+  hyphens: auto;
+}
+
+
+/* ── Code & Diagrams (critical — ASCII must align) ──────────── */
+
+code, pre, .codehilite, .highlight {
+  font-family: "JetBrains Mono", "Consolas", "Monaco", "Courier New", monospace;
+  font-size: 10pt;
+  line-height: 13pt;
+  font-variant-ligatures: none;  /* Disable ligatures — breaks ASCII alignment */
+  -webkit-font-feature-settings: "liga" 0;
+  font-feature-settings: "liga" 0;
+}
+
+pre {
+  margin-top: 7pt;
+  margin-bottom: 7pt;
+  padding: 7pt;
+  background-color: #f8f8f8;
+  border: 0.5pt solid #ddd;
+  overflow: visible;            /* Do NOT wrap or scroll — print all content */
+  white-space: pre;             /* Preserve exact spacing for ASCII diagrams */
+  page-break-inside: avoid;     /* Keep code blocks together on one page */
+}
+
+/* Inline code */
+p code, li code, td code {
+  font-size: 9.5pt;
+  background-color: #f0f0f0;
+  padding: 0 2pt;
+  border-radius: 1pt;
+}
+
+
+/* ── Tables ─────────────────────────────────────────────────── */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 7pt;
+  margin-bottom: 14pt;
+  font-size: 10pt;
+  line-height: 13pt;
+  page-break-inside: auto;
+}
+
+thead {
+  display: table-header-group;  /* Repeat header on page breaks */
+}
+
+tr {
+  page-break-inside: avoid;
+}
+
+th, td {
+  border: 0.5pt solid #999;
+  padding: 3pt 5pt;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+/* Alternating row shading for readability */
+tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+
+/* ── Lists ──────────────────────────────────────────────────── */
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 7pt;
+  padding-left: 20pt;
+}
+
+li {
+  margin-bottom: 3pt;
+}
+
+/* Nested lists */
+li ul, li ol {
+  margin-top: 3pt;
+  margin-bottom: 0;
+}
+
+
+/* ── Horizontal Rules ───────────────────────────────────────── */
+
+hr {
+  border: none;
+  border-top: 0.5pt solid #999;
+  margin: 21pt 0;
+}
+
+
+/* ── Blockquotes ────────────────────────────────────────────── */
+
+blockquote {
+  margin: 7pt 0;
+  padding: 0 0 0 14pt;
+  border-left: 2pt solid #ccc;
+  font-style: italic;
+  color: #333;
+}
+
+
+/* ── Links (print-friendly) ─────────────────────────────────── */
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/* Optionally show URLs in print — uncomment if desired:
+a[href^="http"]::after {
+  content: " [" attr(href) "]";
+  font-size: 8pt;
+  color: #666;
+}
+*/
+
+
+/* ── Images ─────────────────────────────────────────────────── */
+
+img {
+  max-width: 100%;
+  page-break-inside: avoid;
+}
+
+
+/* ── Page Break Utilities ───────────────────────────────────── */
+
+.page-break-before { page-break-before: always; }
+.page-break-after  { page-break-after: always; }
+.keep-together     { page-break-inside: avoid; }
+
+
+/* ── Front Matter Pages ─────────────────────────────────────── */
+
+.title-page {
+  page-break-after: always;
+  text-align: center;
+  padding-top: 3in;
+}
+
+.title-page h1 {
+  font-size: 36pt;
+  letter-spacing: 6pt;
+  text-transform: uppercase;
+  page-break-before: avoid;
+}
+
+.title-page .section-name {
+  font-size: 18pt;
+  margin-top: 28pt;
+  letter-spacing: 2pt;
+}
+
+.title-page .volume-number {
+  font-size: 14pt;
+  margin-top: 7pt;
+  color: #444;
+}
+
+.colophon-page {
+  page-break-before: always;
+  font-size: 9pt;
+  line-height: 12pt;
+  color: #444;
+}
+
+.dedication-page {
+  page-break-before: always;
+  page-break-after: always;
+  text-align: center;
+  padding-top: 4in;
+  font-style: italic;
+  font-size: 12pt;
+}
+
+
+/* ── Print-Specific Overrides ───────────────────────────────── */
+
+@media print {
+  body {
+    background: none;
+  }
+
+  /* Hide navigation, search, and other screen-only elements */
+  .md-header,
+  .md-nav,
+  .md-sidebar,
+  .md-footer,
+  .md-search,
+  .md-top {
+    display: none !important;
+  }
+
+  /* Ensure code blocks never wrap — ASCII diagrams break if wrapped */
+  pre {
+    white-space: pre;
+    overflow: visible;
+    word-wrap: normal;
+  }
+}
