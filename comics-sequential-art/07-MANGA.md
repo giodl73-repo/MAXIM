@@ -332,7 +332,10 @@ dominant pipeline but not the only one.
 
 ---
 
-<!-- @editor[bridge/P2]: Jump's weekly popularity voting mechanism is described but not bridged to continuous market testing / A/B testing — the popularity voting system where the bottom-ranked series get cancelled and the top-ranked get more pages is real-time continuous market testing at scale: each week's data directly influences the product (story direction, chapter length, continuation decisions). This is the same mechanism as feature flags + usage metrics → product roadmap decisions in software. The bridge is extremely direct and would be immediately legible to an engineering-background reader. -->
+Jump's weekly reader popularity voting is **real-time continuous market testing at scale**: the bottom-ranked series get cancelled, the top-ranked get more pages, and each week's data directly influences product decisions (story direction, chapter length, continuation). This is the same mechanism as feature flags + usage metrics driving product roadmap in software — except the feedback loop is weekly rather than per-release, and the stakes are existential for each series.
+
+---
+
 ## Decision Cheat Sheet
 
 | I want to understand...                        | Key reference                    |
