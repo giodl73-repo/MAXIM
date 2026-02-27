@@ -2,9 +2,7 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P2]: The treatment train (coagulation → flocculation → sedimentation → filtration → disinfection) is a pipeline of unit operations with defined inputs, outputs, and removal efficiencies. Each stage is a transformation with a specific transfer function. The composition of stages is a transformation pipeline — the same architecture pattern used in ETL, compiler front-ends, and signal processing. Naming this as a "pipeline architecture with composable unit operations" would immediately orient any systems engineer. Absent despite being the natural framing for this learner. -->
-Drinking water treatment is a sequence of unit processes — each one removes a different
-class of contaminants. Design is driven by source water quality and regulatory requirements.
+Drinking water treatment is a **pipeline of composable unit operations** — each stage has defined inputs, outputs, and a removal transfer function. The composition of stages is the same architecture as an ETL pipeline, a compiler pass chain, or a signal processing cascade: raw input enters, each stage transforms it, and the cumulative effect of the chain achieves the target output spec. Design is driven by source water quality and regulatory requirements.
 
 ```
 SURFACE WATER TREATMENT TRAIN (conventional)

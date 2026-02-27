@@ -142,8 +142,7 @@ Both use the same scientific foundation. Engineering adds:
 
 ## The Fundamental Tool: Mass Balance
 
-<!-- @editor[bridge/P1]: The mass balance equation d(M_sys)/dt = Q_in·C_in − Q_out·C_out + r·V is the continuity equation from fluid mechanics / transport theory — the same conservation law appearing in heat transfer, electromagnetics, and control theory. This is the single most important TCS bridge in the entire domain: any physicist or applied mathematician recognizes this form immediately as a conservation PDE. Calling it "mass balance" without naming the isomorphism to fundamental conservation laws (continuity equation, Reynolds transport theorem) blocks any engineer from mapping their existing knowledge. The connection should be made explicitly here. -->
-Every environmental engineering calculation starts here.
+Every environmental engineering calculation starts here. The mass balance equation is the **continuity equation** — the same conservation PDE that governs heat transfer (energy balance), electromagnetics (charge conservation), and fluid mechanics (Reynolds transport theorem). The form d(M)/dt = flux_in - flux_out + source is universal across physics and engineering; environmental engineering applies it to chemical species concentrations rather than energy or charge.
 
 ```
   Accumulation = Inputs - Outputs + Generation - Consumption
@@ -185,7 +184,22 @@ The vessel configuration determines the removal equation:
 
   PFR (plug flow — ideal):
     C_out = C_in · exp(-k·τ)
-<!-- @editor[bridge/P2]: The CSTR/PFR reactor models map directly to queueing models: a CSTR is a memoryless (M/M/1-like) system where output depends only on current state; a PFR is a deterministic pipeline with fixed transit time. CSTR: C_out = C_in/(1+kτ) — first-order system with time constant τ. PFR: C_out = C_in·exp(−kτ) — plug flow is a pure delay. This queue-theory bridge is explicitly called out in the user calibration for this section and is absent. -->
+
+  ENGINEERING BRIDGE — REACTOR MODELS AS SYSTEM ARCHETYPES:
+  ─────────────────────────────────────────────────────────────────
+  CSTR ≡ memoryless system (M/M/1 queue analog)
+    Output depends only on current state, not history.
+    Transfer function: H(s) = 1/(1 + τs)  — first-order lag.
+    Impulse response: exponential decay e^{-t/τ}.
+
+  PFR ≡ deterministic delay line (pure pipeline)
+    Every element spends exactly τ time in the system.
+    Transfer function: H(s) = e^{-τs}  — pure time delay.
+    Impulse response: delta function at t = τ.
+
+  N CSTRs in series → approaches PFR as N → ∞
+    (gamma distribution RTD converges to delta function)
+  ─────────────────────────────────────────────────────────────────
 
   Real reactors: characterized by tracer tests (RTD — residence time
   distribution). Most treatment reactors behave between CSTR and PFR.
