@@ -151,9 +151,7 @@ At BER = 10⁻³: Eb/N₀ ≈ 6.8 dB for QPSK; ~11 dB for 16-QAM
 
 ## OFDM: Orthogonal Frequency Division Multiplexing
 
-<!-- @editor[bridge/P3]: OFDM section shows IFFT/FFT in the implementation block diagram but doesn't explicitly label this as "the DFT you know from signal processing or numerical methods applied to multicarrier modulation" — one sentence making this explicit ("OFDM is essentially the DFT applied to channel equalization: transform to frequency domain, apply per-subcarrier gains, transform back") would help a reader with MIT math background immediately lock in the mathematical structure rather than treating the FFT block as a mysterious DSP primitive -->
-
-OFDM is the dominant modulation for WiFi, LTE, 5G, DVB, DOCSIS.
+OFDM is the DFT applied to channel equalization: the transmitter uses an IFFT to convert frequency-domain symbols to time-domain samples, the receiver uses an FFT to recover them, and the frequency-selective channel becomes a set of parallel flat-fading subchannels — each equalized by a single complex multiplication. This is the dominant modulation for WiFi, LTE, 5G, DVB, DOCSIS.
 
 ```
 OFDM CONCEPT:
