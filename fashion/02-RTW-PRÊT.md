@@ -276,17 +276,16 @@ The consumer has to learn to see it.
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a reference FAQ ("I want to understand…"), not a decision tool — restructure as "choose accessory-heavy product mix when brand targets luxury signaling with maximum margin; choose made-to-order production when demand forecasting risk is high" -->
+Size standardization in RTW is the same coordination problem as any domain standardization: incompatible local conventions (each brand's proprietary fit block), coordination failure across the industry, and vanity sizing as a competitive race-to-the-bottom. The USDA 1930s anthropometric study was the ANSI/ISO equivalent attempt for apparel — it failed because brands had stronger incentives to differentiate than to standardize.
 
-<!-- @editor[bridge/P3]: RTW size standardization problem is described historically but not bridged to engineering standards — size standardization is the same problem as any domain standardization: incompatible local conventions, coordination failure, network effects favoring whoever establishes the standard first. The USDA 1930s anthropometric study is the ANSI/ISO equivalent for apparel. For a reader who has lived through API versioning and protocol wars, naming this parallel would click immediately. -->
 ## Decision Cheat Sheet
 
-| I want to understand...                      | Key point                          |
-|----------------------------------------------|------------------------------------|
-| When designer RTW started                    | YSL Rive Gauche, 1966              |
-| Why sizes are inconsistent across brands     | Each brand has its own block/standard|
-| Why luxury profits come from accessories     | No sizing; Veblen signaling; margins|
-| The traditional production calendar          | 52-week cycle; buyer orders 6mo out|
-| What contemporary segment is                 | Better RTW; $100-$500; professional |
-| Why department stores declined               | DTC + Amazon + luxury flagships    |
-| The economic structure of RTW margins        | 5x cost-of-goods to retail typical |
+| When you need to...                                      | Strategy / Key point                    | Because                                               |
+|----------------------------------------------------------|-----------------------------------------|-------------------------------------------------------|
+| Maximize margin in luxury RTW                            | Lean into accessories over garments     | No sizing risk; Veblen signaling; 80-90% gross margin |
+| Reduce demand forecasting risk                           | Made-to-order or see-now-buy-now model  | Eliminates inventory markdown; requires DTC channel    |
+| Choose between wholesale and DTC distribution            | DTC: 2x margin; wholesale: broader reach| DTC costs more per customer acquisition               |
+| Understand why contemporary segment exists               | Better RTW at $100-$500 price point     | Bridge between fast fashion and designer; professional wear|
+| Diagnose sizing inconsistency across brands              | Each brand owns its fit block           | No binding industry standard; vanity sizing incentives |
+| Plan a 52-week production calendar                       | Buyer orders 6 months ahead of season   | Fabric sourcing lead time drives the constraint        |
+| Evaluate department store channel viability              | DTC + Amazon + luxury flagships eroded it| Multi-brand aggregation value declined with e-commerce |

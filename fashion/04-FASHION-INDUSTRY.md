@@ -310,18 +310,16 @@ returned, and reshipped may have higher carbon cost than a single wholesale pall
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is "I want to understand…" reference, not a "use X when Y" decision tool — restructure as decisions: "choose vertical integration when time-to-market and quality control outweigh cost; choose Tier 1 audit program when regulatory compliance is the minimum bar but recognize it cannot audit Tier 2/3" -->
+The supply chain tier structure (Tier 1 = cut-sew factory; Tier 2 = fabric mill; Tier 3 = fiber/chemical supplier) maps directly to software dependency management: Tier 1 = direct dependencies you can audit; Tier 2/3 = transitive dependencies with limited visibility. Brands can audit Tier 1 (their direct suppliers) but have minimal sight into Tier 2/3 — the same pattern as organizations that can vet direct vendors but cannot see into their vendors' dependencies (the Log4Shell pattern in software supply chain security).
 
-<!-- @editor[bridge/P2]: Supply chain tier structure is described in detail but never explicitly bridged to software dependency management — the Tier 1/2/3 structure is the same as direct/transitive/fourth-party dependencies in software supply chain security. Brands can audit Tier 1 (direct suppliers) but have limited visibility into Tier 2/3, exactly like organizations that can audit their direct vendors but can't see into their vendors' vendors (Log4Shell pattern). This parallel would be immediately legible to any engineering-background reader. -->
 ## Decision Cheat Sheet
 
-| I want to understand...                       | Key concept                        |
-|-----------------------------------------------|------------------------------------|
-| Factory labor economics                       | Tier 1 wages; brand vs. factory margin|
-| Why LVMH is so profitable                     | LV bag: 80-90% gross margin        |
-| How retail price is built from factory cost   | COG x 5-10x depending on tier      |
-| Why fast fashion can sell a $5 shirt          | Volume + margin compression + labor|
-| Who is actually responsible for labor abuse   | Brands set the prices; complexity hides it|
-| How DTC disrupted the channel                 | 2x margin; higher acquisition cost |
-| Post-Rana Plaza safety changes                | Bangladesh Accord (binding); limited|
-| The conglomerate concentration of luxury      | LVMH + Kering + Richemont = ~60%+  |
+| When you need to...                                      | Strategy / Key concept                    | Because                                                  |
+|----------------------------------------------------------|-------------------------------------------|----------------------------------------------------------|
+| Choose vertical integration vs outsourced manufacturing  | Vertical: time-to-market + quality control| Zara/Inditex model; higher capex, lower markdowns        |
+| Assess audit reach across the supply chain               | Tier 1 auditable; Tier 2/3 are visibility gaps | Regulatory compliance (EU CSDDD) requires deeper reach   |
+| Understand luxury conglomerate economics                 | LVMH bag: 80-90% gross margin             | Brand value, not production cost, drives price           |
+| Evaluate DTC vs wholesale channel economics              | DTC: 2x margin; wholesale: lower CAC      | Trade-off is margin per unit vs customer acquisition cost|
+| Diagnose why a $5 shirt exists                           | Volume + margin compression + labor cost externalization | Brand pricing power squeezes factory margins to <5%     |
+| Assess post-Rana-Plaza regulatory landscape              | Bangladesh Accord (binding) vs Alliance (voluntary) | Binding accords with enforcement mechanisms are more effective |
+| Map market concentration in luxury                       | LVMH + Kering + Richemont = ~60%+ of luxury market | Conglomerate model: shared services, brand portfolio    |
