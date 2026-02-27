@@ -50,7 +50,6 @@ FINDING POLARIS (NORTH STAR)
   Measure angle with your fist at arm's length:
     · 1 fist width ≈ 10°
     · 1 finger width ≈ 2°
-
 ```
 
 ---
@@ -102,7 +101,6 @@ NORTHERN HEMISPHERE SKY MAP — LOOKING NORTH
                    (use when Big Dipper is below horizon)
   Summer Triangle → Vega + Deneb + Altair (overhead in summer)
   Arc to Arcturus → follow Big Dipper handle's curve
-
 ```
 
 ---
@@ -154,7 +152,6 @@ FINDING SOUTH — THE SOUTHERN CROSS METHOD
            → confirms this    · Acrux
              is the TRUE
              Southern Cross
-
 ```
 
 ---
@@ -203,8 +200,116 @@ SOUTHERN HEMISPHERE SKY MAP — LOOKING SOUTH
   Canopus         → 2nd brightest star, circumpolar from far south
   Magellanic Clouds → two fuzzy patches near south pole
                       (satellite galaxies of Milky Way)
-
 ```
+
+---
+
+## Navigation Star Visibility
+
+Which stars can you see from where? Declination determines visibility: a star at declination D is visible from latitudes north of (D - 90°) to south of (D + 90°). In practice, atmospheric extinction limits naked-eye visibility to ~5° above the horizon.
+
+<svg viewBox="-185 -95 370 185" width="960" height="480" xmlns="http://www.w3.org/2000/svg" style="background:#faf8f5; font-family: Georgia, serif;">
+
+  <!-- Star visibility by latitude. Stars are plotted at their declination (y-axis)
+       and spread across the x-axis for readability only — x-position is NOT geographic. -->
+
+  <!-- Grid -->
+  <line x1="-180" y1="0" x2="180" y2="0" stroke="#e0ddd8" stroke-width="0.3"/>
+  <line x1="-180" y1="-30" x2="180" y2="-30" stroke="#e0ddd8" stroke-width="0.2"/>
+  <line x1="-180" y1="30" x2="180" y2="30" stroke="#e0ddd8" stroke-width="0.2"/>
+  <line x1="-180" y1="-60" x2="180" y2="-60" stroke="#e0ddd8" stroke-width="0.2"/>
+  <line x1="-180" y1="60" x2="180" y2="60" stroke="#e0ddd8" stroke-width="0.2"/>
+  <line x1="-180" y1="-90" x2="180" y2="-90" stroke="#e0ddd8" stroke-width="0.15"/>
+  <line x1="-180" y1="90" x2="180" y2="90" stroke="#e0ddd8" stroke-width="0.15"/>
+
+  <!-- Simplified land outlines — very light context -->
+  <path d="M-168,-65 L-120,-73 L-80,-68 L-55,-50 L-75,-42 L-88,-25 L-105,-20 L-125,-35 L-155,-60 L-168,-65 Z"
+        fill="#e8e4dc" fill-opacity="0.25" stroke="none"/>
+  <path d="M-82,-10 L-50,-2 L-35,5 L-50,28 L-68,48 L-75,55 L-55,25 L-65,-5 L-82,-10 Z"
+        fill="#e8e4dc" fill-opacity="0.25" stroke="none"/>
+  <path d="M-18,-35 L20,-35 L42,-12 L50,2 L38,18 L15,18 L-10,-12 L-18,-35 Z"
+        fill="#e8e4dc" fill-opacity="0.25" stroke="none"/>
+  <path d="M-10,-72 L40,-70 L40,-60 L20,-42 L-5,-38 L-10,-60 L-10,-72 Z"
+        fill="#e8e4dc" fill-opacity="0.25" stroke="none"/>
+  <path d="M50,-68 L155,-62 L180,-50 L120,-22 L80,10 L50,2 L35,-35 L50,-68 Z"
+        fill="#e8e4dc" fill-opacity="0.25" stroke="none"/>
+  <!-- India -->
+  <path d="M68,-22 L80,-8 L73,6 L68,5 L73,-15 L68,-22 Z"
+        fill="#e8e4dc" fill-opacity="0.25" stroke="none"/>
+  <path d="M112,12 L152,20 L145,35 L118,28 L112,12 Z"
+        fill="#e8e4dc" fill-opacity="0.25" stroke="none"/>
+
+  <!-- POLARIS visibility band — everything north of equator -->
+  <rect x="-180" y="-90" width="360" height="90" fill="#c0d8f0" fill-opacity="0.10"/>
+  <text x="-178" y="-83" font-size="3" fill="#4060a0" font-weight="bold">POLARIS visible (N hemisphere)</text>
+  <text x="-178" y="-79" font-size="2.2" fill="#6080b0">altitude above horizon = your latitude</text>
+
+  <!-- SOUTHERN CROSS visibility band — south of ~25°N, full to south pole -->
+  <rect x="-180" y="-25" width="360" height="115" fill="#f0d0c0" fill-opacity="0.10"/>
+  <text x="40" y="55" font-size="3" fill="#a06040" font-weight="bold">SOUTHERN CROSS visible</text>
+  <text x="40" y="59" font-size="2.2" fill="#b08060">(south of ~25°N)</text>
+
+  <!-- BOTH-HEMISPHERE overlap zone — equatorial band -->
+  <rect x="-180" y="-25" width="360" height="25" fill="#d0e0c0" fill-opacity="0.12"/>
+  <text x="-60" y="-8" font-size="2.5" fill="#608040" font-weight="bold">OVERLAP: Orion, Sirius, Arcturus, Spica, Altair visible from both hemispheres</text>
+
+  <!-- Latitude markers -->
+  <text x="182" y="-88" font-size="2.5" fill="#aaa">90°N</text>
+  <text x="182" y="-58" font-size="2.5" fill="#aaa">60°N</text>
+  <text x="182" y="-28" font-size="2.5" fill="#aaa">30°N</text>
+  <text x="182" y="2" font-size="2.5" fill="#aaa">EQ</text>
+  <text x="182" y="32" font-size="2.5" fill="#aaa">30°S</text>
+  <text x="182" y="62" font-size="2.5" fill="#aaa">60°S</text>
+  <text x="182" y="88" font-size="2.5" fill="#aaa">90°S</text>
+
+  <!-- Star position dots (plotted at declination; x spread for readability only) -->
+
+  <!-- Northern stars — blue -->
+  <circle cx="-30" cy="-89" r="1.2" fill="#4060a0"/>
+  <text x="-27" y="-88" font-size="2.2" fill="#333" font-weight="bold">Polaris +89°</text>
+
+  <circle cx="-80" cy="-39" r="1" fill="#4060a0"/>
+  <text x="-77" y="-38" font-size="2" fill="#333">Vega +39°</text>
+
+  <circle cx="60" cy="-46" r="1" fill="#4060a0"/>
+  <text x="63" y="-45" font-size="2" fill="#333">Capella +46°</text>
+
+  <circle cx="-140" cy="-45" r="0.8" fill="#4060a0"/>
+  <text x="-137" y="-44" font-size="1.8" fill="#333">Deneb +45°</text>
+
+  <!-- Equatorial stars — green (visible from both hemispheres) -->
+  <circle cx="100" cy="-19" r="1" fill="#608040"/>
+  <text x="103" y="-18" font-size="2" fill="#333">Arcturus +19°</text>
+
+  <circle cx="-20" cy="-9" r="0.8" fill="#608040"/>
+  <text x="-17" y="-8" font-size="1.8" fill="#333">Altair +9°</text>
+
+  <circle cx="30" cy="11" r="0.8" fill="#608040"/>
+  <text x="33" y="12" font-size="1.8" fill="#333">Spica -11°</text>
+
+  <circle cx="-100" cy="17" r="1.2" fill="#608040"/>
+  <text x="-97" y="18" font-size="2.2" fill="#333" font-weight="bold">Sirius -17°</text>
+
+  <circle cx="140" cy="26" r="0.8" fill="#608040"/>
+  <text x="143" y="27" font-size="1.8" fill="#333">Antares -26°</text>
+
+  <!-- Southern stars — warm -->
+  <circle cx="120" cy="53" r="1.0" fill="#a06040"/>
+  <text x="123" y="54" font-size="2.2" fill="#333" font-weight="bold">Canopus -53°</text>
+
+  <circle cx="-60" cy="63" r="0.8" fill="#a06040"/>
+  <text x="-57" y="64" font-size="2" fill="#333">Acrux -63° (S. Cross)</text>
+
+  <!-- Note about x-axis -->
+  <text x="-178" y="86" font-size="1.8" fill="#999" font-style="italic">Stars spread horizontally for readability — x-position is not geographic longitude.</text>
+
+  <!-- Scale bar -->
+  <line x1="150" y1="82" x2="160" y2="82" stroke="#444" stroke-width="0.3"/>
+  <line x1="150" y1="81" x2="150" y2="83" stroke="#444" stroke-width="0.2"/>
+  <line x1="160" y1="81" x2="160" y2="83" stroke="#444" stroke-width="0.2"/>
+  <text x="152" y="86" font-size="1.8" fill="#444">~1,100 km</text>
+
+</svg>
 
 ---
 
@@ -215,19 +320,19 @@ These are the stars that navigators have used for centuries. Learn these and you
 | Star | Constellation | Magnitude | Declination | Hemisphere | Navigation Use |
 |------|--------------|-----------|-------------|------------|----------------|
 | **Polaris** | Ursa Minor | +2.0 | +89° | N only | TRUE NORTH. Altitude = latitude. |
-| **Sirius** | Canis Major | −1.5 | −17° | Both | Brightest star. Rises in east. |
-| **Canopus** | Carina | −0.7 | −53° | S mainly | 2nd brightest. Southern pointer. |
-| **Arcturus** | Bootes | −0.1 | +19° | Both | Arc from Big Dipper handle. |
+| **Sirius** | Canis Major | -1.5 | -17° | Both | Brightest star. Rises in east. |
+| **Canopus** | Carina | -0.7 | -53° | S mainly | 2nd brightest. Southern pointer. |
+| **Arcturus** | Bootes | -0.1 | +19° | Both | Arc from Big Dipper handle. |
 | **Vega** | Lyra | +0.0 | +39° | N mainly | Summer Triangle. Very blue-white. |
 | **Capella** | Auriga | +0.1 | +46° | N mainly | Yellow, high in northern sky. |
-| **Rigel** | Orion | +0.1 | −8° | Both | Orion's foot. Blue-white. |
+| **Rigel** | Orion | +0.1 | -8° | Both | Orion's foot. Blue-white. |
 | **Betelgeuse** | Orion | +0.4 | +7° | Both | Orion's shoulder. Red giant. |
 | **Altair** | Aquila | +0.8 | +9° | Both | Summer Triangle. Fast rotator. |
 | **Deneb** | Cygnus | +1.3 | +45° | N mainly | Summer Triangle. Northern Cross. |
-| **Acrux** | Crux | +0.8 | −63° | S only | Southern Cross bottom. |
-| **Spica** | Virgo | +1.0 | −11° | Both | Arc to Arcturus, spike to Spica. |
-| **Antares** | Scorpius | +1.1 | −26° | Both | Red. "Rival of Mars." Low south. |
-| **Fomalhaut** | Piscis Aust. | +1.2 | −30° | Both | Lonely bright star in autumn S. |
+| **Acrux** | Crux | +0.8 | -63° | S only | Southern Cross bottom. |
+| **Spica** | Virgo | +1.0 | -11° | Both | Arc to Arcturus, spike to Spica. |
+| **Antares** | Scorpius | +1.1 | -26° | Both | Red. "Rival of Mars." Low south. |
+| **Fomalhaut** | Piscis Aust. | +1.2 | -30° | Both | Lonely bright star in autumn S. |
 | **Aldebaran** | Taurus | +0.9 | +17° | Both | Orange. Orion's belt points to it. |
 
 ---
@@ -261,7 +366,6 @@ LATITUDE DETERMINATION — THREE METHODS
   ─────────────────────────────────────────────────────
   The south celestial pole's altitude = your latitude south.
   Extend the Cross 4.5×, estimate that point's altitude.
-
 ```
 
 ---
@@ -306,7 +410,6 @@ SUN NAVIGATION — DAYTIME METHODS
   Summer: rises NE, sets NW.
   Winter: rises SE, sets SW.
   Nearer the equator → less variation.
-
 ```
 
 ---
@@ -349,7 +452,6 @@ DIRECTION FROM THE MOON
   Last quarter moon (left half lit):
     · rises at midnight, highest at 6am, sets at noon
     · at midnight it's in the EAST
-
 ```
 
 ---
@@ -397,7 +499,6 @@ WHAT'S VISIBLE WHEN — NORTHERN HEMISPHERE
   │  Andromeda Galaxy visible (fuzzy patch)│
   │  Orion rising in east (winter coming)  │
   └────────────────────────────────────────┘
-
 ```
 
 ---
@@ -445,7 +546,7 @@ This connects Map 01 (Earth's rotation drives the 15-degrees-per-hour relationsh
 | Find south at night (S. Hemisphere)? | Southern Cross long axis × 4.5 → south pole |
 | Find my latitude? | Polaris altitude (N) or meridian transit method |
 | Find direction during the day? | Shadow stick: first mark = W, second = E |
-| Brightest star in sky? | Sirius (−1.5 mag), below Orion in winter |
+| Brightest star in sky? | Sirius (-1.5 mag), below Orion in winter |
 | Stars visible from both hemispheres? | Orion belt stars, Sirius, Arcturus, Spica, Altair |
 | Best season for night navigation? | Winter (longest nights, clearest skies, Orion up) |
 | How accurate is star navigation? | ±1° latitude (±111 km) with care. Longitude is harder. |
