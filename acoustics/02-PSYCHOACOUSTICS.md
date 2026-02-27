@@ -143,7 +143,17 @@ Pre-masking (backward): ~10–20 ms before masker (perceptual lookahead?)
 Post-masking (forward): 50–200 ms after masker ends (neurons still firing)
 ```
 
-<!-- @editor[bridge/P2]: Missing bridge from masking/critical bands to MP3/AAC codec architecture — this is the direct application of psychoacoustics that a signal-processing-aware learner would want. Critical bands → filterbank (MDCT), simultaneous masking → allocate fewer bits to masked frequencies, temporal masking → avoid pre-echo artifacts, missing fundamental → quality metrics. MPEG Audio Layer III (MP3) and AAC are essentially psychoacoustic models operationalized as bit allocation algorithms. A compact "psychoacoustics → codec" table (perceptual phenomenon → codec mechanism → tradeoff) would close this gap cleanly. -->
+### Psychoacoustics in Audio Codecs
+
+MP3 and AAC are psychoacoustic models operationalized as bit allocation algorithms:
+
+| Perceptual Phenomenon | Codec Mechanism | Trade-off |
+|-----------------------|----------------|-----------|
+| Critical bands (Bark scale) | MDCT filterbank divides spectrum into ~32 subbands | More subbands = finer masking control = more overhead |
+| Simultaneous masking | Allocate fewer bits to frequencies masked by louder neighbors | More aggressive masking = lower bitrate = more artifacts |
+| Temporal masking | Pre-echo control: shorten MDCT window around transients | Short window = less frequency resolution during attacks |
+| Missing fundamental | Pitch preservation metric for quality assessment | Low bitrates may destroy harmonic structure |
+| Equal-loudness contours | Quieter frequencies get fewer bits (less audible distortion) | Low-frequency detail sacrificed first at low bitrates |
 
 ---
 

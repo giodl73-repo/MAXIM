@@ -22,11 +22,9 @@ Wave equation ──► Plane waves, speed of sound, wavelength
 
 ---
 
-<!-- @editor[audience/P2]: Wave equation derivation from first principles is MIT undergrad physics — this learner owns it. The derivation (Newton + continuity → wave equation) adds no value. Start instead with the wave equation as a given, briefly note the derivation path for completeness, and go directly to the acoustic-specific consequences: impedance mismatch, reflection coefficients, standing wave boundary conditions. The real value is in acoustic impedance and what it means at material interfaces, not rederiving d'Alembert. -->
-
 ## The Wave Equation
 
-Starting from Newton's second law + mass conservation for a small fluid element:
+The derivation path (Newton's second law + mass conservation for a fluid element → linearize → wave equation) is standard. The acoustic-specific value lies in what follows: impedance mismatch at material interfaces, reflection/transmission coefficients, and standing wave boundary conditions.
 
 ```
 ACOUSTIC WAVE EQUATION (linear, lossless):

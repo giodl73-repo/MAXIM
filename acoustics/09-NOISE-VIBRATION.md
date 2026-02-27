@@ -302,4 +302,31 @@ must be addressed. Enclosures handle airborne; isolation mounts handle structure
 below ~1 kHz. Wind turbine infrasound and very-low-frequency machinery are poorly captured by dB(A).
 Alternative: dB(G) G-weighting for infrasound assessment, dB(C) for peak impact noise assessment.
 
-<!-- @editor[content/P2]: Acoustic metamaterials absent — locally resonant structures (negative effective mass, Liu et al. 2000), phononic crystals (band-gap noise blocking analogous to photonic crystals), and membrane-type acoustic metamaterials (MAMS) are significant modern developments that break the mass law for sound isolation. Sub-wavelength blocking of low-frequency noise without the weight penalty of conventional mass-law approaches is directly relevant to NVH engineering. This section is the appropriate home; a "beyond the mass law" subsection covering the phononic band-gap concept would close the gap. -->
+## Beyond the Mass Law: Acoustic Metamaterials
+
+```
+ACOUSTIC METAMATERIALS — KEY CONCEPTS
+═══════════════════════════════════════════════════════════════════
+
+LOCALLY RESONANT STRUCTURES (Liu et al., 2000):
+  Small resonators embedded in a matrix. At their resonance frequency,
+  they produce negative effective mass → sound cannot propagate.
+  Achieves sub-wavelength blocking: isolates low-frequency sound with
+  a structure much thinner/lighter than the mass law would require.
+
+PHONONIC CRYSTALS:
+  Periodic structures with acoustic band gaps — frequency ranges
+  where sound cannot propagate, analogous to photonic crystals
+  in optics and electronic band gaps in semiconductors.
+  Design parameter: lattice period ≈ wavelength of target frequency.
+
+MEMBRANE-TYPE ACOUSTIC METAMATERIALS (MAMS):
+  Tensioned membranes with attached masses. Create transmission loss
+  peaks at specific frequencies. Lightweight alternative to mass-based
+  barriers for targeted frequency control.
+
+PRACTICAL STATUS (2025):
+  Lab-proven for narrowband isolation. Broadband and tunable designs
+  are active research. Commercial products emerging for HVAC duct
+  silencers and automotive NVH panels.
+```
