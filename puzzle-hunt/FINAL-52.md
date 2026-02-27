@@ -196,4 +196,73 @@ ALGORITHM · PERSPECTIVE · SYMMETRY · INFLECTION · INCENTIVE · TRANSISTOR ·
 ### Black Joker Meta
 26 compound puzzle answers + The Grid's 52 boxed letters combine into the final challenge. Requires both Red and Black Joker completion. The meta answer = the library's thesis.
 
-Almandine Garnet (MW 498) — the final compound — combines Iron + Manganese + Carbon + Silicon + Oxygen (Mechanics + Mechanics + Life Sci + Computing + Earth). Five sections in one alloy. Everything the library teaches, folded into one material. The tool that builds everything else.
+Almandine Garnet (MW 498) — the final compound — combines Iron + Aluminum + Silicon + Oxygen (Mechanics + Natural World + Computing + Earth). Four sections fused in one crystal. A gemstone forged under pressure — the library's knowledge compressed into a single structure.
+
+---
+
+## Library Asset Integration
+
+How the puzzle hunt uses the library's existing infrastructure. Based on blind review by 12 experts (10+ agreement on top assets).
+
+### Assets Fully Integrated
+
+| Asset | How it's used | Score |
+|-------|--------------|-------|
+| **52 Content Volumes** | Every puzzle sends the solver into the encyclopedia. The content IS the puzzle substrate. | 9/10 |
+| **Card Roles** (`ROLES.md`) | Each Red Joker puzzle invokes one archetype. 52 archetype names are the target of The Grid scavenger hunt. | 8/10 |
+| **Concept Index** (`CONCEPT-INDEX.md`) | Numbers in compound puzzles are section references → solver discovers the Index to identify cross-cutting concepts. Powers 15 of 26 compound puzzles. See `CONCEPT-INDEX-MECHANISM.md`. | 8/10 |
+| **Card Backs** (`cards/backs/*.md`) | The 52 card backs with 7 key concepts each serve as The Grid's deduction manifest — like Obra Dinn's crew portraits. Printed as reference cards in the Black Joker. Solver matches encyclopedia content to card-back fingerprints to identify which archetype hides where. | 8/10 |
+
+### Assets Newly Integrated (from blind review consensus)
+
+| Asset | How it's used | Replaces | Score |
+|-------|--------------|----------|-------|
+| **Read This First** (`read-this-first/`) | Hydrogen (Z=1) warm-up puzzle draws from survival content. The Fool (Card 0) bridges encyclopedia → Joker books. | Was abstract tutorial | 7/10 |
+| **Reading Maps** (`READING-MAPS.md`) | One compound puzzle follows a curated path through volumes, collecting answers at each stop. Replaces one shallow compound (MW 40, MgO Magnesia). | Magnesia (vague "Tech + Earth" prompt) | 7/10 |
+| **Prerequisite Graph** (`PREREQUISITES.md`) | One compound puzzle uses the dependency DAG — find the critical path, extract from the nodes on it. Replaces one shallow compound (MW 41, AlN). | AlN (vague "Natural + Language" prompt) | 7/10 |
+| **Card Identity System** (suits, tarot, elements) | DISCOVERED by solver, never explained. The suit-element mapping (♣=Fire, ♦=Earth, ♥=Water, ♠=Air) and tarot correspondences are hidden structure the solver may or may not find. Enriches The Grid for those who discover it. | N/A — enrichment layer | 7/10 |
+| **HISTORY.md** | Informs the Joker's closing monologue. "I built this library in X days." The Joker IS the builder; the chronicle is the soul. Not a puzzle mechanism — narrative fuel. | N/A | 5/10 |
+| **Archetype Epithets** | Used as matching clues in The Grid. Solver can grep for epithet fragments to locate archetypes. "Shannon's channel, Feynman's qubit, Bode's loop" → The Analyst (J♦). | N/A — enrichment | 6/10 |
+
+### Assets Intentionally NOT Used
+
+| Asset | Why not |
+|-------|---------|
+| **SCORECARD.md** | Breaks the fourth wall (quality scores for the encyclopedia itself). 6/12 reviewers said "do not use." |
+| **TRACKER.md** | Internal project management. Not puzzle material. |
+| **Card Front Art** | Doesn't exist yet. When built, can be designed with hidden puzzle layer. |
+
+### The Grid — Enhanced Deduction Tools
+
+The Grid (Black Joker Puzzle 0) is now supported by three reference systems:
+
+```
+Solver's toolkit for The Grid:
+├── Card Backs (52 cards × 7 concepts) — "WHO am I looking for?"
+│   Each card back fingerprints a volume with specific formulas/terms.
+│   Match content to fingerprints to identify which card is which.
+│
+├── Concept Index (314 entries) — "WHERE do sections connect?"
+│   Cross-reference map showing which concepts span which sections.
+│   Helps predict where foreign archetypes might be hiding.
+│
+└── Bill of Materials (file lists) — "WHAT is in each volume?"
+    Master table of contents. Helps narrow which files to search.
+```
+
+This transforms The Grid from a raw scavenger hunt (Huang: 5/10) into an Obra Dinn-style deduction puzzle with multiple overlapping clue systems (Pope's design principle: "lateral information").
+
+### Compound Puzzle Mechanism Split
+
+The 26 Black Joker compounds now use three mechanism types:
+
+| Type | Count | Mechanism | Which compounds |
+|------|-------|-----------|----------------|
+| **Named synthesis** | 7 | Rich narrative cross-section puzzles with unique mechanisms | The Debate (H₂SO₄), The Chain (CaCO₃), The Proof (KNO₃), The Spectrum (AgCl), The Blueprint (FeCr₂O₄), Reading Map Path (MgO), Prerequisite DAG (AlN) |
+| **Concept Index** | 15 | Number rows → section patterns → Index lookup → concept names → extraction | NH₃, H₂O, CO₂, SiO₂, TiO₂, FeS, CuS, ZnS, Na₂CO₃, FeS₂, CaSO₄, SnO₂, Fe₂O₃, As₂O₃, PbCO₃ |
+| **NaCl (Salt)** | 1 | Dedicated cross-section puzzle (Social + Language) — too important to be generic | NaCl |
+| **Galena** | 1 | Dedicated (Math + History) | PbS |
+| **Apatite** | 1 | Dedicated (Earth + Life Sci) | Ca₃(PO₄)₂ |
+| **Garnet Meta** | 1 | The Black Meta — combines everything | Fe₃Al₂Si₃O₁₂ |
+
+This addresses Snyder's critique: the 15 "shallow" compounds now have a specific, verifiable mechanism (Concept Index lookup). The 7 named synthesis puzzles retain their unique narrative mechanisms. 4 important compounds get dedicated puzzle designs.
