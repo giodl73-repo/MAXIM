@@ -177,6 +177,7 @@ Escape wheel   15/7 pinion    ...
 
 Total ratio from barrel to escape wheel: approximately 14,400:1 to 16,000:1
 
+<!-- @editor[content/P1]: This gear ratio verification section is internally confused and self-contradictory — it attempts the calculation, gets a wrong intermediate result, says "Nope", restarts, and arrives at "21.4 seconds" for the fourth wheel period with a note that it's "close to standard." The fourth wheel in a 28,800 vph movement should make one revolution per 60 seconds (it drives the seconds hand). The calculation here is wrong and visibly broken. This needs to be replaced with a clean, correct derivation. The correct chain for a standard 28,800 vph (4 Hz balance, 8 beats/sec) movement: balance at 4 Hz → 8 beats/sec → escape wheel (15t) advances 8 teeth/sec = 8/15 rev/sec; fourth wheel (let's say 80t) drives escape wheel pinion (8t), so 4th wheel at (8/15) × (8/80) = 0.0533 rev/sec = 1 rev per 18.75 sec ≈ ~20 sec. That's still not 60 sec — the tooth counts in this section don't match a real caliber. The example should use actual caliber tooth counts (e.g., ETA 2824: verify and use real numbers) or state clearly that the numbers are illustrative and will not produce exactly canonical results. -->
 VERIFICATION for 28,800 vph (8 beats/second = 4 Hz balance):
   Each balance oscillation → 2 escape wheel teeth advance
   Escape wheel advances 2×8 = 16 teeth/second... wait:
@@ -311,6 +312,7 @@ Period of oscillation:
     - Tradeoff: 28,800 vph is well-established sweet spot
 ```
 
+<!-- @editor[bridge/P2]: Balance wheel oscillation period T = 2π√(I/k) is stated but the engineering insight for this reader is missing: this is a torsional harmonic oscillator — structurally identical to an LC tank circuit with I↔L (inductance stores kinetic energy) and k↔1/C (spring stores potential energy). The frequency stability of the balance wheel is limited by the temperature coefficients of I and k, which is why Nivarox and Glucydur exist (compensating dI/dT and dk/dT against each other). The temperature compensation design problem is the same as designing a temperature-stable LC oscillator: use components whose temperature coefficients cancel. Worth a sentence bridging to the electronic analog. -->
 **Balance wheel materials:** Brass (historical), monometallic copper-beryllium (for reduced temperature coefficient), Glucydur (copper-beryllium alloy, developed 1950s — near-zero temperature coefficient of inertia, non-magnetic).
 
 ### Hairspring (Balance Spring)

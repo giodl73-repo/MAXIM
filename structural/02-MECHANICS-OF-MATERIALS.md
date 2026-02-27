@@ -50,6 +50,7 @@ Concrete:          E = 30 GPa,  ν ≈ 0.2 (elastic range only)
 
 ### Generalized Hooke's Law (3D)
 
+<!-- @editor[bridge/P2]: Generalized Hooke's Law appears as a set of equations without the connection to continuum mechanics (the constitutive relation σ = C:ε where C is the 4th-order elasticity tensor). For this learner, the insight is that the full 3D Hooke's law is an isotropic linear map from a symmetric 3×3 strain tensor to a symmetric 3×3 stress tensor — exactly the matrix equation it is. Isotropy reduces 81 coefficients to 2 (E and ν). This is the bridge from linear algebra to continuum mechanics. -->
 ```
 ε_x = (σ_x − ν(σ_y + σ_z)) / E
 ε_y = (σ_y − ν(σ_x + σ_z)) / E
@@ -231,6 +232,7 @@ Superposition: δ_total = Σδ_i for each load acting alone (valid only in linea
 
 ## Column Buckling
 
+<!-- @editor[bridge/P2]: Column buckling (P_cr = π²EI/L²) is presented without connecting to the eigenvalue problem it is: the buckling mode is the eigenmode of the beam differential operator, and P_cr is the smallest eigenvalue. This learner would immediately recognize the solution — deflection shape is the first eigenfunction of EId²y/dx² = -Py, giving sinusoidal modes with eigenvalue P_cr = n²π²EI/L². The connection to the eigenvalue decomposition of the stiffness matrix in FEM (buckling = solve [K]φ = λ[Kg]φ) is the modern form of the same idea. -->
 **Euler critical load (long column, pin-pin):**
 ```
 P_cr = π²EI / L_e²

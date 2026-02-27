@@ -247,6 +247,7 @@ DIRECTIONAL STATIC STABILITY (weathercock):
 ## 5. Dynamic Stability — Modes and Eigenvalues
 
 ```
+<!-- @editor[bridge/P1]: Linearization Δẋ = A·Δx + B·Δu is the classic linear state-space model — this learner has control theory background and immediately recognizes this. But the file doesn't make the explicit connection: the stability modes (short period, phugoid, Dutch roll) are exactly the eigenvalues of A. The eigenvalue structure determines whether the mode is oscillatory (complex pair) or monotone (real), and whether it's stable (negative real part) or unstable (positive real part). This is precisely the control-theory stability analysis the learner knows from MIT — the aircraft stability problem IS a linear time-invariant (LTI) system analysis. The stability derivative matrix A is a Jacobian ∂f/∂x evaluated at trim — the same linearization used in any nonlinear control system. -->
 LINEARIZATION ABOUT TRIM:
   Δẋ = A·Δx + B·Δu   (small perturbation from trim)
   State: Δx = [Δu, Δw (or Δα), Δq, Δθ | Δv (or Δβ), Δp, Δr, Δφ]

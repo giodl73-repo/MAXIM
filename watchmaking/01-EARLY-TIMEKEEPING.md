@@ -363,6 +363,7 @@ From astrolabe to astronomical clock is a small conceptual step: instead of rota
 
 ---
 
+<!-- @editor[structure/P1]: Missing Decision Cheat Sheet section. The summary table exists but is an accuracy/error comparison, not a "use X when Y" decision tool. Add a section titled "Decision Cheat Sheet" that frames choices: "Need outdoor time, no electronics → calibrated sundial; Need elapsed interval, portable → sand glass; Need equal hours, pre-clock era → clepsydra" etc. -->
 ## Summary: Error Comparison Table
 
 ```
@@ -388,6 +389,7 @@ No. The equation of time represents the true difference between apparent solar t
 **"Water clocks were primitive and inaccurate."**
 The Ctesibius clepsydra achieved ±15 min/day — comparable to early mechanical clocks 1500 years later. They failed not from imprecision but from temperature sensitivity (water viscosity changes ~2% per °C, so a 10°C temperature swing shifts rate by ~20%) and difficulty of maintaining them in cold climates. In Mediterranean and Chinese climates, they worked well.
 
+<!-- @editor[bridge/P2]: No bridge from clepsydra constant-head mechanism to feedback control systems. The Ctesibius float valve is literally a proportional controller — float position proportional to water level, output proportional to error. This reader has control theory background; the 270 BCE float valve as the world's first closed-loop feedback controller would land hard. -->
 **"Medieval people didn't know what time it was."**
 Medieval people knew canonical time extremely well — they had bells, regulated sundials on church walls (scratch dials), and later tower clocks. What they lacked was portable precise timekeeping or equal-hour coordination across distance. The demand for precise equal-hour timekeeping emerged from commerce, navigation, and astronomy, not from daily life.
 

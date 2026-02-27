@@ -217,6 +217,7 @@ Each GPS satellite carries 4 atomic clocks (2 cesium, 2 rubidium). The fundament
 
 ---
 
+<!-- @editor[bridge/P2]: No oscillator-stability → control theory bridge here. The balance wheel / pendulum as a limit-cycle oscillator with a restoring force is a direct parallel to a 2nd-order LTI system's eigenvalue structure — this reader has the math to follow it and it would reframe the entire "why the foliot failed" story in terms they already own. Bridge: foliot = no restoring force = marginally stable system; pendulum = restoring force = stable poles; quartz = high-Q resonator = narrow-band filter. -->
 ## Bridge: Watchmaking → Distributed Computing
 
 This is where horology connects directly to your world:

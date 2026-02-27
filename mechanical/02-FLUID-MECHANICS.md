@@ -113,6 +113,7 @@ Written out in x:
 The N-S equations are **nonlinear** (the v·∇v term). This nonlinearity is why turbulence is hard.
 Exact analytical solutions exist only for simple geometries (Couette, Poiseuille, Stokes flow).
 All else: approximations (boundary layer theory, potential flow) or CFD.
+<!-- @editor[bridge/P2]: No bridge from N-S simplification hierarchy → PDE approximation strategies. This learner has numerical methods context; the connection from "nonlinear PDE with no closed form" → "boundary layer as singular perturbation" → "potential flow as inviscid limit" → "RANS as time-averaged closure" maps directly onto the approximation-hierarchy thinking they use for numerical methods. -->
 
 **Euler equations** = N-S with μ=0 (inviscid). Applicable far from boundaries.
 
@@ -343,6 +344,7 @@ RANS (Reynolds  Time-average + turbulence   Everyday CFD. k-ε, k-ω SST
 Averaged N-S)   model (k-ε, k-ω, etc.)     models. 90% of industry work.
 ```
 
+<!-- @editor[bridge/P2]: Turbulence closure problem is stated but the connection to underdetermined linear systems and regularization is missing. This learner immediately recognizes "more unknowns than equations" as an ill-posed system — a k-ε model is a regularization strategy, just as RANS itself is a model-order reduction from DNS. Framing it that way would give the engineering intuition for why different closure models give different results. -->
 **Turbulence closure problem:** Time-averaging N-S introduces Reynolds stress tensor with 6 new unknowns but no new equations. Every turbulence model is a different closure assumption.
 
 ---

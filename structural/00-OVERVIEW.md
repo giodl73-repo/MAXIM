@@ -45,6 +45,8 @@ APPLIED LOADS
 | `03-STRUCTURAL-ANALYSIS` | Matrix methods, FEM, dynamics | [K]{d}={F} | Computer analysis |
 | `04-GEOTECHNICAL` | Soil, foundations, slopes | τ=c+σ'tanφ | Foundation design |
 
+<!-- @editor[content/P2]: Module map lists 4 modules but the overview's decision tree references "Structural Design" (RC, AISC, timber) and the landscape diagram shows it as a fifth layer — yet there's no 05-STRUCTURAL-DESIGN.md. The modern structural design layer (LSD vs ASD, performance-based design, LRFD load combinations) is partially covered in 00-OVERVIEW.md but deserves its own module. This is a significant content gap for a field whose practice is dominated by design codes. -->
+
 ---
 
 ## Fundamental Quantities
@@ -114,6 +116,7 @@ Allowable stress = S_y / Factor of safety (typically n = 1.5–3)
 
 ---
 
+<!-- @editor[bridge/P2]: The Connection to Computing table maps [K]{d}={F} to "sparse linear system solve" but doesn't explain why this is the same as FEA in every domain — the structural stiffness matrix IS the discrete Laplacian operator on the mesh, same as in finite difference heat transfer or electrostatics. This connection to the learner's numerical methods context (PDE discretization → sparse matrix → iterative solve) is the most important bridge in this guide. It's mentioned in the module map but not developed. -->
 ## Connection to Computing/Software
 
 | Structural Concept | Software Analog |

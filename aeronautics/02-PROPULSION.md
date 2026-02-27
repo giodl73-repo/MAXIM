@@ -90,6 +90,7 @@ TEMPERATURE RATIOS:
   T₄/T₃ = (p₄/p₃)^((γ-1)/γ)  [turbine exit]
   T₃ = Turbine Inlet Temperature (TIT); limited by material → ~1800-2000 K with cooling
 
+<!-- @editor[bridge/P2]: Brayton cycle thermal efficiency is presented without connecting it to the Carnot limit. The insight: η_Brayton = 1 − T₁/T₂ = 1 − T_cold/T_hot_compressor_exit (not inlet), which is why high OPR helps — you're raising the effective cold temperature (T₂) but also the hot temperature (T₃). The Carnot efficiency for the same temperature ratio would be 1 − T₁/T₃, and real gas turbines approach ~60% of this. The combined cycle (gas turbine + steam Rankine on exhaust) achieves 60% thermal efficiency — closest any thermal engine gets to Carnot at scale. -->
 THERMAL EFFICIENCY:
   η_th = 1 − 1/OPR^((γ-1)/γ) = 1 − T₁/T₂
   Higher OPR → higher efficiency
@@ -275,6 +276,7 @@ PRESSURE-FED vs PUMP-FED:
 
 ---
 
+<!-- @editor[content/P2]: Electric propulsion for aviation is entirely absent. This is a rapidly developing field with major engineering tradeoffs: battery energy density (currently ~300 Wh/kg vs jet fuel 12,000 Wh/kg — a 40:1 gap), electric motor efficiency (>95% vs gas turbine ~45-50%), the fundamental thermodynamic constraint (Carnot limit doesn't apply to electric motors), and current operational ceiling (~30 min range for all-electric, hybrid-electric for regional aircraft). For a VP following aerospace technology, this is the most relevant current development. At minimum, a paragraph noting the energy density gap and why it constrains short-range missions only. -->
 ## 5. Ramjet and Scramjet
 
 ```

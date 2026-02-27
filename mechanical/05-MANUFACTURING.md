@@ -291,6 +291,7 @@ energy dep.)   or wire         wire melted by
                                laser/arc
 ```
 
+<!-- @editor[content/P2]: Additive manufacturing section is accurate but missing the current state of metal AM post-processing: hot isostatic pressing (HIP) for closing internal porosity in DMLS/SLM parts, heat treatment requirements for residual stress relief, and surface finishing options. These are the practical barriers between "print a part" and "flight-certified part" — the gap matters. Also absent: topology optimization as the algorithmic driver of DfAM (optimize shape for stiffness/weight subject to manufacturing constraints — essentially convex optimization on a voxel mesh). -->
 **Design for AM (DfAM):**
 - Lattice structures for lightweight stiffness
 - Organic topology-optimized shapes impossible by subtractive methods
@@ -324,6 +325,7 @@ Common fits:
   H7/s6: Force fit (heavy press, or shrink fit)
 ```
 
+<!-- @editor[bridge/P3]: GD&T and the ISO tolerance system are well covered, but there's no bridge to statistical process control (SPC) and process capability indices (Cpk, Cp). For this learner who managed CI/CD pipelines, the analogy is direct: tolerance stack-up is a root-sum-square calculation equivalent to error budgeting in distributed systems; Cpk is the process equivalent of a service-level agreement. Six Sigma (3.4 defects per million) has an obvious software quality parallel. A short "Manufacturing Quality → SPC" note would complete this section for the learner. -->
 ### GD&T (Geometric Dimensioning and Tolerancing)
 
 ```

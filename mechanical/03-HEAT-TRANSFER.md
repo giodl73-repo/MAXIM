@@ -127,6 +127,7 @@ Rayleigh:   Ra = Gr × Pr     (natural convection parameter)
 Useful form: Nu = C Re^m Pr^n  (forced convection correlations all have this form)
 ```
 
+<!-- @editor[bridge/P3]: Dimensionless numbers (Nu, Re, Pr) appear without the explicit connection to dimensional similarity that this learner would appreciate from physics — same physics at different scales collapses to identical solutions when dimensionless groups match. A sentence on how Buckingham Π connects to unit invariance / representation theory would resonate. -->
 **Prandtl number intuition:**
 - Pr ≪ 1 (liquid metals: Pr ~ 0.003–0.03): thermal BL >> velocity BL
 - Pr ≈ 1 (gases: Pr ~ 0.7): similar thicknesses
