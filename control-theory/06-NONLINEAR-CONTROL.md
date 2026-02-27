@@ -68,6 +68,8 @@ CLASSIFICATION from eigenvalues λ₁, λ₂ of A:
 
 ### Limit Cycles and Poincaré-Bendixson
 
+<!-- @editor[bridge/P2]: Limit cycles in control theory have a direct analog in distributed systems: resource contention oscillations. A service pool that oscillates between "all threads busy, requests queuing" and "threads freed, burst of queued requests dispatches" is a self-sustained limit cycle. The Van der Pol oscillator's energy balance (negative damping at small x, positive at large x) maps exactly to queue dynamics: when load is low, the service "pulls" more work (negative damping); when overloaded, it sheds or fails work (positive damping), creating oscillation. This is a high-recognition bridge for a distributed systems engineer. -->
+
 ```
 VAN DER POL OSCILLATOR:
   ẍ - μ(1 - x²)ẋ + x = 0     (μ > 0)
@@ -198,6 +200,8 @@ STATE TRANSFORMATION:
 ```
 
 ### Zero Dynamics and Stability Condition
+
+<!-- @editor[bridge/P2]: Zero dynamics and minimum phase have a precise software analog that this learner will recognize. A non-minimum-phase system is one where canceling the visible output error (y = 0) causes the internal state to grow unboundedly — you fix the symptom, the root cause worsens. This is exactly the pattern of treating P99 latency by adding aggressive timeouts: the surface metric improves, but the underlying queue depth (internal state) grows until cascading failure. "Minimum phase" in software terms: interventions that fix observed metrics also fix the underlying state, not just mask it. -->
 
 ```
 ZERO DYNAMICS: Internal dynamics when output is held to zero (y ≡ 0)

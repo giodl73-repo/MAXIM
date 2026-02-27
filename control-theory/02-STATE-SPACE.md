@@ -193,6 +193,8 @@ rank(𝒞) = rank([B, AB]) = ... depends on current θ
 
 ## Observability
 
+<!-- @editor[bridge/P2]: "Observability" is used in both control theory and software engineering but means different things — and confusing them is a real trap for this learner. Control-theory observability is a structural property (rank condition on the observability matrix 𝒪): can the full internal state be reconstructed from outputs? Software observability is an operational property: do your logs/metrics/traces emit enough signal to diagnose production behavior? The mathematical connection is real — if rank(𝒪) < n, there are state dimensions that are invisible to any measurement strategy, no matter how good your logging. Worth a crisp contrast here. -->
+
 A system is **observable** if the initial state x₀ can be uniquely determined from
 observations of y(t) over a finite time interval.
 
@@ -378,6 +380,8 @@ FOR LINEAR SYSTEMS (ẋ = Ax):
 ---
 
 ## Discrete-Time State-Space
+
+<!-- @editor[bridge/P2]: This section — discrete state-space for digital control — is where the bridge to software systems modeling is strongest. The pattern x[k+1] = A_d x[k] + B_d u[k] is structurally identical to a state machine or actor model: current state + input → next state. Every microservice with internal state (connection pool, circuit breaker, request queue) is a discrete-time state-space system. The A_d matrix captures how internal state propagates; B_d how external inputs (requests, events) perturb it. A VP of Eng modeling service dependencies daily is already doing informal state-space analysis — name that bridge explicitly. -->
 
 For digital control systems (what actually runs in software):
 

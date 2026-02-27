@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[diagram/P2]: Landscape diagram lists thermal and optical properties side by side but doesn't show how they relate to each other or to device applications — "layered drill-down" requires the diagram to map out which sections will drill into which nodes. Missing: (1) the thermal → optical coupling via emissivity/Planck radiation (hot surfaces emit photons — Kirchhoff's law), (2) how phonons appear in BOTH thermal conductivity AND optical absorption (IR phonon absorption), (3) the device application layer (CPU cooling, telecom fiber, photovoltaics) as output nodes. The current diagram is two parallel lists, not a relationship diagram -->
 ```
 THERMAL & OPTICAL PROPERTIES LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════

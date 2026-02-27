@@ -64,6 +64,7 @@
 │  SELF-CONSISTENT FIELD (SCF) LOOP:                                   │
 │    Guess ρ → compute V_eff → solve KS equations → new ρ → repeat    │
 └─────────────────────────────────────────────────────────────────────┘
+<!-- @editor[bridge/P3]: The SCF loop is a fixed-point iteration — directly analogous to fixed-point algorithms in numerical methods and functional programming (ρ → F(ρ) → fixed point). An MIT TCS reader would recognize this as a Banach contraction and ask about convergence guarantees. Worth one sentence: "SCF convergence is a fixed-point iteration; Anderson mixing (analogous to DIIS) accelerates convergence by using history of residuals, like Krylov methods in linear algebra" -->
 ```
 
 ### XC Functionals and Jacob's Ladder
@@ -228,6 +229,7 @@
     ∂c/∂t = ∇·[M ∇(δF/δc)] = M ∇²[f''(c)c - κ∇²c]
     Models: spinodal decomposition, phase separation in alloys
     c conserved — total composition fixed (∫c d³r = const)
+    <!-- @editor[bridge/P3]: Cahn-Hilliard is a 4th-order parabolic PDE (∂c/∂t = -M κ ∇⁴c + ...) — a reader with PDE background would recognize this as related to the biharmonic operator. When f''(c) < 0 (spinodal region), the ∇²c term has wrong-sign diffusion (uphill diffusion), making the linear part ill-posed as a standard diffusion equation; the ∇⁴c term from the gradient energy provides the regularization. This is the same regularization structure as the Swift-Hohenberg equation and thin-film equations. Worth flagging for a reader who knows PDEs -->
 
   COUPLED PROBLEM (solidification — Kim-Steinbach):
     Phase field + diffusion + latent heat + anisotropy

@@ -397,6 +397,8 @@ CNTs = rolled-up graphene sheet. Structure indexed by chiral vector (n,m).
 
 ---
 
+<!-- @editor[structure/P2]: MEMS section is not anchored to the landscape diagram — the opening diagram covers quantum confinement physics, carbon allotropes, and fabrication, but MEMS appears as a separate topic without connection to the nanomaterials narrative. MEMS uses silicon microfabrication (connects to top-down section) and mechanical resonance at small scale (connects to size-dependent physics), but neither connection is made explicit. Consider adding a one-sentence bridge: "MEMS exploits silicon's mechanical properties at the micro/nano scale using the same lithographic techniques as semiconductor fabrication" -->
+
 ## MEMS: Micro-Electro-Mechanical Systems
 
 ```

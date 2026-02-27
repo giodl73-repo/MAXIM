@@ -408,6 +408,8 @@ Sort remaining candidates by M_I value. Plot on chart.
 
 ## Bridge to Learner's Prior Knowledge
 
+<!-- @editor[audience/P3]: "You know the Schrödinger equation" — peer doesn't need to be told what they know. Rephrase as "The Schrödinger equation maps onto materials as follows" or cut the preamble entirely and start with the application -->
+
 ### Quantum Mechanics Bridge
 You know the Schrödinger equation and Hilbert space formalism.
 Materials science uses it for:
