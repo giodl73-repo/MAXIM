@@ -121,7 +121,21 @@ organic matter in an aeration basin, then settle in a secondary clarifier.
                 |                 ↓ WAS (waste activated sludge)
                 └─── RAS ─────────┘
                         recycle maintains MLSS
-<!-- @editor[bridge/P2]: The RAS loop IS a feedback control system: MLSS (mixed liquor suspended solids) is the controlled variable, WAS rate is the actuator, and SRT is the setpoint. The diagram literally shows the recycle arrow. The user calibration explicitly identifies "wastewater treatment as a feedback control pipeline" as the key bridge for this section — yet "feedback control," "controlled variable," "actuator," and "setpoint" are never used. Naming this as a PID-style feedback loop (or even a simple negative feedback control system) would immediately orient any control systems or software engineer. -->
+
+  ENGINEERING BRIDGE — ACTIVATED SLUDGE AS FEEDBACK CONTROL:
+  ─────────────────────────────────────────────────────────────────
+  Controlled variable:  MLSS (mixed liquor suspended solids, mg/L)
+  Setpoint:             SRT (solids retention time, days)
+  Actuator:             WAS rate (waste activated sludge pump speed)
+  Feedback signal:      RAS return (recycle loop shown above)
+  Disturbance:          Influent flow and BOD load variations
+
+  The RAS loop IS a negative feedback control system.
+  Increase WAS → decrease MLSS → decrease SRT.
+  Decrease WAS → increase MLSS → increase SRT.
+  Modern plants use DO probes + ammonia sensors in closed-loop
+  PID control of aeration blowers and WAS pumps.
+  ─────────────────────────────────────────────────────────────────
 
   KEY DESIGN VARIABLES:
   ├── SRT (sludge retention time / solids retention time / MCRT)

@@ -83,8 +83,7 @@ Hazardous waste is RCRA Subtitle C. These run under completely different regulat
 
 ## Materials Recovery Facility (MRF)
 
-<!-- @editor[bridge/P2]: The MRF sort line (tipping floor → screens → optical sorters → eddy current → output streams) is a multi-stage classification pipeline. Each stage is a classifier with a specific feature space: disc screens classify by size, NIR optical sorters classify by spectral signature, eddy current separates by conductivity. The AI-enhanced systems (ZenRobotics, AMP Robotics) use CV classification pipelines on a conveyor stream — a physical implementation of a streaming classification architecture. Naming this as a classification/sorting pipeline with physical and spectral feature extraction would be the natural bridge for any ML or systems engineer. -->
-A MRF sorts commingled recyclables into marketable commodity streams.
+A MRF sorts commingled recyclables into marketable commodity streams. The sort line is a **multi-stage classification pipeline**: each stage applies a different classifier to the stream using a different feature space — disc screens classify by size, NIR optical sorters classify by spectral signature (reflectance wavelength), eddy current separators classify by electrical conductivity, and AI-enhanced systems (ZenRobotics, AMP Robotics) use computer vision classification on the conveyor stream. This is a physical implementation of a streaming classification architecture with cascaded binary and multi-class classifiers.
 
 ```
   MRF SORT LINE (clean MRF — pre-sorted recyclables)
