@@ -281,6 +281,7 @@ vary by zone.
 
 ---
 
+<!-- @editor[content/P2]: Datacenter-specific HVAC efficiency standards are entirely absent from this file. For this learner who manages Azure datacenters, the relevant standards are: ASHRAE TC 9.9 (Mission Critical Facilities, Data Centers, Web Hosting Facilities, and Telecommunications Facilities — defines allowable temperature/humidity envelopes for IT equipment, A1–A4 classes); ENERGY STAR for Data Centers (certifies facilities, not equipment); The Green Grid's PUE (Power Usage Effectiveness) metric — now ISO/IEC 30134-2 — as the dominant datacenter efficiency benchmark. Best-in-class hyperscale PUE: 1.1–1.2 (Microsoft, Google). US average datacenter PUE: ~1.5. AFUE, SEER2, and residential minimums are irrelevant to this learner's professional context; PUE and ASHRAE TC 9.9 are directly relevant. At minimum, a section connecting the residential/commercial efficiency framework to the datacenter domain would complete the coverage. -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

@@ -235,6 +235,7 @@ is fundamentally different and getting it wrong causes major efficiency losses.
 
 ### Building Automation System (BAS)
 
+<!-- @editor[bridge/P2]: The BAS three-layer hierarchy (supervisory / automation / field) maps exactly to the control plane architecture this learner uses daily: management plane (analytics, scheduling, alarming) / control plane (DDC controllers running local logic, continue operating if network fails) / data plane (sensors and actuators). Azure datacenter BMS (Building Management System) uses this same hierarchy to control chilled water systems, CRAC units, power distribution, and lighting. The automation layer's "continue operating if network fails" property is the same partition-tolerance property in distributed systems design. This parallel is obvious to a distributed systems engineer and worth naming explicitly. -->
 ```
   BAS HIERARCHY:
   ┌──────────────────────────────────────────────────────────────────┐
@@ -269,6 +270,7 @@ is fundamentally different and getting it wrong causes major efficiency losses.
 
 ## Section 6: Economizers
 
+<!-- @editor[bridge/P1]: This section covers building HVAC economizers but makes zero connection to datacenter free cooling — the most directly relevant application for this learner. Hyperscale datacenters (Azure, AWS, Google) are designed around maximizing "economizer hours": annual hours when outdoor conditions allow free cooling without running chillers. PUE (Power Usage Effectiveness) = total facility power / IT equipment power; best hyperscale facilities achieve PUE 1.1–1.2 vs an inefficient facility at PUE 2.0+. Economizer hours are the primary lever — Microsoft's datacenter in Dublin runs on economizer cooling ~85% of the year (cool, dry climate). The same principle (use cold outdoor air instead of refrigeration when conditions allow) is why hyperscale operators choose northern latitudes. This learner manages Azure datacenters and would immediately recognize this — it is the dominant energy efficiency story in their professional context. ASHRAE TC 9.9 sets temperature guidelines specifically for datacenter equipment. This is a P1 gap because it's the key applied context for this learner and it's entirely absent. -->
 ```
   CONCEPT: When outdoor air is cool/dry enough, use it directly for cooling
   instead of running refrigeration. "Free cooling."

@@ -129,6 +129,7 @@ THE MODEL CODE SYSTEM:
 
 ## Supply Pipe Sizing
 
+<!-- @editor[bridge/P1]: The hydraulic engineering framework underlying the sizing tables is absent. The governing equation is Darcy-Weisbach: ΔP = f × (L/D) × (ρv²/2), which gives pressure drop as a function of pipe geometry and velocity (hence flow rate Q = v × A). The "system curve" (required pressure vs flow rate) is a parabola (ΔP ∝ Q²). When a pump or municipal supply provides head, the operating point is where the supply head curve intersects the system curve — this is "pump curve analysis." Hunter's method is a probabilistic approximation on top of this physics: SFU → probable simultaneous demand GPM → Darcy-Weisbach sizing. The velocity limit (8 ft/s) is a practical bound derived from erosion and noise, not an arbitrary code number. For a learner who was told the plumbing section should bridge to hydraulic system design (Darcy-Weisbach, head loss, pump curves), none of this framework appears anywhere in the plumbing section. At minimum it belongs here in the sizing discussion. -->
 ```
   HUNTER'S METHOD (Fixture Unit Method):
     Developed by Roy Hunter (National Bureau of Standards, 1940)

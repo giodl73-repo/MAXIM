@@ -93,6 +93,7 @@ Where:
 - P_m = mechanical power from turbine (pu)
 - P_e = electrical power delivered to grid (pu)
 
+<!-- @editor[bridge/P2]: This is a second-order linear ODE in δ. For a reader with MIT Math background: linearize around the equilibrium point (δ₀ where P_m = P_e), and the system reduces to δ̈ = -(P_e/δ)|_δ₀ × (δ - δ₀)/M — a harmonic oscillator. Stability condition: synchronizing torque coefficient ∂P_e/∂δ > 0 (i.e., the equilibrium is on the rising side of the P-δ curve). The eigenvalues of the linearized system determine whether small perturbations damp out or grow. This connects directly to control theory / linear systems analysis the learner knows from MIT, and makes the stability criterion immediately interpretable. One bridging sentence would suffice. -->
 This is Newton's second law applied to a rotating machine: angular acceleration is proportional to net torque. The grid is a massive network of coupled swing equations — all generators are oscillators coupled by electrical springs (synchronizing torques).
 
 **Rate of Change of Frequency (ROCOF):**

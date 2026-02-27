@@ -33,6 +33,7 @@ creating heat, you're moving it. Moving heat requires less work than creating it
 
 ## Section 1: The Physics — Why COP > 1
 
+<!-- @editor[bridge/P1]: The Carnot-derived COP maximum for a heat pump is absent. COP_max (heat pump) = T_hot / (T_hot − T_cold) in Kelvin. Example: heating to 70°F (294K) when outdoor is 20°F (266K) → COP_max = 294 / (294−266) = 10.5. Real ASHP achieves COP 2–3 at those conditions, i.e., 20–30% of Carnot efficiency. The "work moves heat uphill against ΔT" note is correct but the precise relationship is COP_max ∝ 1/ΔT — this explains the steep performance curve vs temperature that follows in this section. A reader who knows thermodynamics will immediately ask "what's the Carnot bound?" — and the answer makes the whole performance vs temperature relationship interpretable. One formula belongs here. -->
 ```
   GAS FURNACE:                  HEAT PUMP:
   ┌──────────────────┐          ┌──────────────────────────────────┐

@@ -192,6 +192,7 @@ FTRs are financial instruments that hedge against congestion costs:
 
 ## The Merit Order and Uniform Clearing Price
 
+<!-- @editor[bridge/P2]: Economic dispatch is a linear program: minimize Σᵢ Cᵢ(Pᵢ) (total fuel cost) subject to Σᵢ Pᵢ = Pdemand (power balance), Pᵢ_min ≤ Pᵢ ≤ Pᵢ_max (generator limits), and ramp rate constraints. The uniform clearing price is the LP dual variable (shadow price) on the power balance constraint — the textbook definition of a competitive market equilibrium. LMP congestion components are shadow prices on line flow constraints. The entire market mechanism is LP duality made into real-time policy. This is standard operations research / convex optimization, which any MIT Math/CS graduate would recognize immediately. The section below shows the result (merit order + clearing price) without showing the optimization structure behind it. -->
 ```
 MERIT ORDER DISPATCH + UNIFORM CLEARING PRICE:
 

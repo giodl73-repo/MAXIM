@@ -487,6 +487,7 @@ KEY EQUIPMENT:
 
 ## Power Flow and Kirchhoff in Meshed Networks
 
+<!-- @editor[bridge/P1]: AC Optimal Power Flow (OPF) is a constrained optimization problem: minimize total generation cost (or losses) subject to power balance at every bus (equality constraints from KCL/KVL), thermal line limits (inequality constraints), and voltage magnitude bounds. The DC power flow approximation (drop reactive power, linearize) turns OPF into a linear program — solvable in seconds for systems with thousands of buses. The full AC OPF is nonlinear/non-convex but convex relaxations (SDP, SOCP) are an active research area. This is the mathematical framework behind every EMS economic dispatch run — the "find the cheapest feasible operating point" problem the grid solves continuously. The section below describes Kirchhoff-driven power flow but never frames it as the optimization problem it is. Missing this framing is the key gap called out in the learner calibration. -->
 This is the key concept that makes AC power systems hard to control: power doesn't flow where you want it. It flows where impedance (mostly inductance at transmission frequency) directs it.
 
 ```
