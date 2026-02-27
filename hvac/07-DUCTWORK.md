@@ -30,7 +30,8 @@ if the distribution system defeats them.
 
 ## Section 1: Manual D — Duct Design Standard
 
-<!-- @editor[bridge/P2]: The duct pressure-flow relationship is structurally identical to Hagen-Poiseuille flow in pipes and to network flow in any distributed system: pressure drop ∝ flow rate × resistance; total resistance of branches in series = sum of resistances; branches in parallel share the pressure drop. The Manual D friction rate calculation is exactly a network flow sizing problem — allocate available pressure drop across a tree-structured network to achieve target flow at every leaf node. For this learner who has deep distributed systems background, framing the duct design as a network flow allocation problem would make the sizing logic immediately interpretable rather than domain-specific. -->
+Duct design is a network flow allocation problem: pressure drop is proportional to flow rate times resistance; series resistances add; parallel branches share the pressure drop. The Manual D friction rate calculation allocates the available system pressure drop across a tree-structured duct network to achieve target airflow (CFM) at every leaf node (supply register) — structurally identical to sizing bandwidth in a hierarchical network topology or pipe diameters in a hydraulic distribution system.
+
 Manual D (ACCA) is to ductwork what Manual J is to equipment sizing. Most residential
 duct systems in existing homes were not designed with Manual D. Most installers still
 don't use it. This is why duct problems are epidemic.
