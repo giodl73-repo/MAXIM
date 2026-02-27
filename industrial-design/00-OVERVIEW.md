@@ -249,15 +249,30 @@ BRIDGE: This is identical to Agile/Lean Product Discovery:
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a module directory, not a "use X when Y" decision tool — convert rows to decisions like "choose DFM audit when moving from prototype to production; choose Ashby chart when selecting materials under competing constraints" -->
+### IP Strategy in Industrial Design
 
-<!-- @editor[content/P2]: No coverage of IP strategy in industrial design anywhere in this directory — design patents vs. trade dress vs. copyright vs. utility patents is a critical gap for any engineer-adjacent learner. Which protection applies to a product's appearance vs. function vs. both? This is a standard consideration in product commercialization and is absent from this 10-file directory. -->
+| Protection Type | Covers | Duration | Key Requirement |
+|----------------|--------|----------|-----------------|
+| **Design patent** | Ornamental appearance (shape, surface) | 15 years (US) | Novel and non-obvious appearance; no functional features |
+| **Utility patent** | Functional mechanism | 20 years | Novel, non-obvious, useful; expensive to obtain and defend |
+| **Trade dress** | Distinctive product appearance in market | Indefinite | Acquired distinctiveness (secondary meaning); non-functional |
+| **Copyright** | Artistic/sculptural expression | Life + 70 years | Originality; does not cover functional aspects (separability test) |
+
+Rule of thumb: design patent for the look, utility patent for the mechanism, trade dress for brand recognition through appearance. Many products use all three in combination.
+
+---
+
 ## Decision Cheat Sheet
 
-| You want to understand... | Go to |
-|---------------------------|-------|
-| How industrial design evolved historically | `01-HISTORY-MOVEMENTS.md` |
-| Dieter Rams and the Bauhaus-to-Apple lineage | `02-BRAUN-RAMS.md` |
+| Situation | Approach | Why |
+|-----------|----------|-----|
+| Moving from prototype to production | DFM (Design for Manufacture) audit | Identifies cost/feasibility issues before tooling investment |
+| Selecting materials under competing constraints | Ashby chart (property map) | Visualizes trade-off space; identifies Pareto-optimal material families |
+| Consumer product needs differentiation | CMF (Color, Material, Finish) strategy | Perceived quality and brand identity driven by surface treatment |
+| Evaluating design quality / principles | Apply Rams's 10 principles as checklist | Time-tested evaluation framework; "good design is as little design as possible" |
+| IP protection for a new product form | Design patent + trade dress filing | Protect ornamental appearance; establish distinctiveness early |
+
+**Module reference**: `01-HISTORY-MOVEMENTS.md` (evolution), `02-BRAUN-RAMS.md` (Dieter Rams lineage)
 | The design process (double diamond etc.) | `03-DESIGN-PROCESS.md` |
 | How materials and manufacturing shape design | `04-MATERIALS-MANUFACTURING.md` |
 | Anthropometrics, reach envelopes, human factors | `05-ERGONOMICS.md` |
