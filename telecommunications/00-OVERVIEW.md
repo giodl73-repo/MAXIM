@@ -170,9 +170,14 @@ telecommunications/
 
 ## Bridges to Prior Knowledge
 
-<!-- @editor[bridge/P2]: Bridges table maps exclusively to Azure/Microsoft context — per SKILL.md bridge hierarchy, universal CS bridges must come first; missing entries: Shannon capacity C = B·log₂(1+SNR) is directly analogous to a complexity bound (hard upper limit no algorithm/code can beat, provably), physical layer → hardware abstraction layer (any OS developer maps the OSI physical layer to the HAL), spectrum scarcity → resource contention scheduling (spectrum allocation = CPU/memory scheduling under scarcity); these are the load-bearing bridges for any systems engineer, not just Azure users -->
+| Universal CS Concept | Telecom Equivalent |
+|----------------------|-------------------|
+| **Complexity bound** (hard limit no algorithm beats) | Shannon capacity C = B*log2(1+SNR) — provable upper limit on data rate for any code |
+| **Hardware abstraction layer** (OS hides hardware) | OSI physical layer abstracts EM propagation from protocols above |
+| **Resource scheduling under scarcity** (CPU/memory) | Spectrum allocation = scheduling a shared, finite resource among competing users |
+| **Multiplexing** (time-sharing, threads) | TDM, FDM, CDM, OFDMA — same concept, different physical resources |
 
-| Microsoft/Azure Background | Telecom Equivalent |
+| Azure/Infrastructure Background | Telecom Equivalent |
 |---------------------------|-------------------|
 | Azure networking (VNets, gateways) | Physical layer that carries IP packets |
 | TCP/IP protocols | Built on top of physical + data link telecom layers |
