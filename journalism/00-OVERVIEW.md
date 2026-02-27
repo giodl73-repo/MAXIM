@@ -212,3 +212,78 @@ TENSIONS IN JOURNALISM
 **The fourth estate concept has limits.** The press is not a formal constitutional institution with defined powers. Its "check" on power is informal: exposing wrongdoing and enabling public accountability through democratic processes. When those democratic processes fail, the press's watchdog function also fails.
 
 **Wire services (AP, Reuters) are not neutral aggregators.** Wire services have editorial standards, make selection decisions, and employ reporters. They are journalistic organizations that happen to distribute to other media. "Wire service said so" is not a substitute for verification — wire services also make errors and can be manipulated.
+
+---
+
+## News Ecosystem Feedback Loop
+
+The ecosystem diagram above shows a pipeline; in practice it is a loop. Audience response reshapes sourcing, assignment, and distribution in real time.
+
+```
+NEWS ECOSYSTEM FEEDBACK LOOP
+==============================
+
+  SOURCES                                            AUDIENCE
+  ┌──────────┐    ┌───────────┐    ┌───────────┐    ┌──────────┐
+  │ Officials│    │ REPORTING │    │ EDITING /  │    │ Citizens │
+  │ Documents│ →  │ (gather + │ →  │ PRODUCTION│ →  │ Readers  │
+  │ Leaks    │    │  verify)  │    │ (gate-    │    │ Viewers  │
+  │ Data sets│    │           │    │  keeping) │    │ Clicks   │
+  └──────────┘    └───────────┘    └───────────┘    └──────────┘
+       ↑                                                  │
+       │           ┌────────────────────────────┐         │
+       │           │  DISTRIBUTION LAYER        │         │
+       │           │  Print · Broadcast · Web · │ ←───────┘
+       │           │  Social · Newsletter · RSS │    engagement
+       │           └────────────────────────────┘    signals
+       │                        │
+       │                        v
+       │              ┌──────────────────┐
+       └──────────────│ FEEDBACK SIGNALS │
+         new tips,    │ Metrics · Letters│
+         follow-up    │ Social shares ·  │
+         angles       │ Tip lines · FOIA │
+                      │ requests sparked │
+                      └──────────────────┘
+
+  Key insight: digital distribution collapsed the feedback
+  delay from weeks (letters to editor) to seconds (analytics
+  dashboards). This accelerated the loop but also introduced
+  metric-driven editorial drift (chasing clicks over impact).
+```
+
+---
+
+## Journalistic Mode Selection
+
+Which reporting mode fits which story? The mode determines method, timeline, and output shape.
+
+| Mode | When to Use | Method | Typical Output | Timeline |
+|------|-------------|--------|----------------|----------|
+| **Breaking / wire** | Event just happened, facts still emerging | Phone calls, on-scene, official statements | 200-600 word updates, live blog | Minutes to hours |
+| **Beat reporting** | Ongoing coverage of a domain (courts, city hall, tech) | Source cultivation, document review, institutional access | Daily/weekly articles, trend pieces | Continuous |
+| **Investigative** | Suspected wrongdoing, hidden pattern, systemic failure | FOIA, leaked documents, data analysis, deep sourcing | 3,000-10,000 word series, docs appendix | Weeks to months |
+| **Data journalism** | Pattern in structured data, public-interest dataset | Statistical analysis, visualization, database reporting | Interactive graphics + narrative | Weeks |
+| **Longform / narrative** | Human story with emotional complexity, needs scene + character | Immersive reporting, observation, extended interviews | 5,000-15,000 word feature | Weeks to months |
+| **Opinion / editorial** | Institution takes a public position on policy | Argument from evidence, editorial board deliberation | 800-1,200 word column | Days |
+| **Explanatory** | Complex topic the audience needs context to understand | Research synthesis, expert interviews, analogies | 2,000-4,000 word explainer | Days to weeks |
+
+```
+MODE SELECTION DECISION TREE
+==============================
+
+  Story arrives
+       │
+       ├── Event just happened? ──→ BREAKING / WIRE
+       │
+       ├── Ongoing domain you cover? ──→ BEAT REPORTING
+       │
+       ├── Suspected hidden wrongdoing? ──→ INVESTIGATIVE
+       │     └── Large structured dataset? ──→ DATA JOURNALISM assist
+       │
+       ├── Complex topic, public confused? ──→ EXPLANATORY
+       │
+       ├── Human story, needs immersion? ──→ LONGFORM / NARRATIVE
+       │
+       └── Institutional position on policy? ──→ OPINION / EDITORIAL
+```

@@ -1,5 +1,42 @@
 # Distributed Systems — Landscape
 
+## Sentinel Context
+
+This directory is one of three in the Sentinel triad (K-Spade C-IV). The thesis: *no single point of truth, no single point of trust, no single point of failure.*
+
+```
+THE SENTINEL TRIAD — Distributed Systems View
+═══════════════════════════════════════════════════════════════════
+
+              FLP Impossibility (1985)
+              "No deterministic async consensus with 1 crash."
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+        ▼                ▼                ▼
+  ╔════════════╗   ┌───────────┐   ┌──────────────┐
+  ║ DISTRIBUTED║   │ SECURITY  │   │ CLOUD        │
+  ║ SYSTEMS    ║   │ ENG.      │   │ ARCHITECTURE │
+  ║            ║   │           │   │              │
+  ║ "Who has   ║   │ "Who do   │   │ "Where do    │
+  ║  the       ║   │  you      │   │  you put     │
+  ║  truth?"   ║   │  trust?"  │   │  the truth?" │
+  ╚═════╤══════╝   └─────┬─────┘   └──────┬───────┘
+        │                │                │
+        └────────────────┴────────────────┘
+                         │
+              Consensus as unifying abstraction
+```
+
+Distributed systems provides the **theoretical floor** for the entire volume. FLP impossibility, CAP, and Byzantine fault tolerance are the constraints that security engineering and cloud architecture must work within. Every consistency model, every quorum, every replication strategy covered here sets the bounds on what can be achieved in the other two domains. When security engineering asks "how do we verify trust across nodes?" and cloud architecture asks "how do we survive AZ failure?", the answers begin with the consensus protocols and consistency guarantees defined here.
+
+**See also:**
+- `../computing/00-SENTINEL-THESIS.md` — Volume thesis: the Sentinel principle and constraint stack
+- `../security-engineering/00-OVERVIEW.md` — Trust: the adversary model that consensus must survive
+- `../cloud-architecture/00-OVERVIEW.md` — Infrastructure: where consensus protocols run at scale
+
+---
+
 ## The Big Picture
 
 A distributed system is a collection of independent computers that appears to its users as a single coherent system. The appearance of coherence is hard. The following diagram shows the fundamental landscape of problems.

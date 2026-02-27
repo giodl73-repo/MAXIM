@@ -173,18 +173,231 @@ MEASUREMENT TECHNOLOGY EVOLUTION:
 
 ---
 
+## Engineering Bridges
+
+Sports science is applied physics, applied chemistry, and applied control theory
+operating on a biological plant. If you already know the engineering, you already
+know 80% of the sports science — the rest is domain-specific measurement and
+biological variability.
+
+### Biomechanics = Applied Newtonian Mechanics
+
+```
+BIOMECHANICS MAPPING
+
+  Classical Mechanics         Biomechanics Application
+  ──────────────────────────────────────────────────────────────────
+  F = ma                      Ground reaction force analysis:
+                              force plate measures F; body mass is m;
+                              acceleration determines jump height,
+                              sprint force, landing impact
+
+  Torque = r × F              Joint moments: how hard a muscle must
+                              pull (F) at its insertion distance (r)
+                              to produce movement. Short moment arm
+                              = muscle must generate more force.
+
+  Impulse = F × Δt            Why sprinters need high force AND short
+                              ground contact time. Impulse determines
+                              velocity change; elite sprinters minimize
+                              Δt while maximizing F.
+
+  Work = F · d                Mechanical efficiency of movement:
+                              metabolic energy in vs. mechanical work
+                              out. Running economy = how many mL O₂
+                              per km — the "miles per gallon" of gait.
+
+  Free body diagram           Every joint analysis in biomechanics IS
+                              a free body diagram: forces at insertion,
+                              joint reaction force, gravity, external load.
+  ──────────────────────────────────────────────────────────────────
+```
+
+### VO2max as Metabolic Efficiency
+
+```
+THE METABOLIC ENGINE
+
+  Metabolic model:
+    Chemical energy (food) → ATP → Mechanical work + Heat
+
+  VO2max = maximum rate of O₂ consumption (mL/kg/min)
+         = maximum aerobic power output of the metabolic engine
+
+  Fick equation:  VO2 = HR × SV × (a-v)O₂ diff
+                        ──────────   ────────────
+                        Cardiac      O₂ extraction
+                        output       efficiency
+                        (pump rate)  (tissue utilization)
+
+  Engineering analog:
+    Cardiac output   = flow rate through the system (L/min)
+    (a-v)O₂ diff     = extraction efficiency at the load (tissue)
+    VO2max           = max throughput of the aerobic pipeline
+
+  A 70kg elite cyclist at VO2max ~80 mL/kg/min produces ~400W.
+  Gross efficiency ≈ 22-25%. The rest is heat.
+  Same thermal management problem as any power system:
+  the body's radiator (evaporative cooling via sweat) is the
+  performance limiter in hot environments.
+```
+
+### Periodization as Control Theory
+
+```
+TRAINING AS A CONTROL SYSTEM
+
+  ┌──────────┐     ┌──────────────┐     ┌──────────────┐
+  │ TRAINING │     │   ATHLETE    │     │ PERFORMANCE  │
+  │ LOAD     │────>│   (PLANT)    │────>│ OUTPUT       │
+  │ (input)  │     │              │     │ (measured)   │
+  └──────────┘     └──────────────┘     └──────┬───────┘
+       ^                                       │
+       │           ┌──────────────┐            │
+       └───────────│  COACH       │<───────────┘
+                   │  (CONTROLLER)│
+                   └──────────────┘
+
+  Control Theory Term        Sports Science Equivalent
+  ──────────────────────────────────────────────────────────────
+  Input signal               Training load (volume × intensity)
+  Plant                      Athlete's physiology
+  Output                     Performance (race time, power, speed)
+  Transfer function          Dose-response: how load → adaptation
+  Feedback                   Testing, monitoring (HRV, lactate, RPE)
+  Setpoint                   Target performance / race goal
+  Gain too high              Overtraining: system driven past
+                             stability — performance crashes,
+                             immune suppression, mood disturbance
+  Gain too low               Undertraining: insufficient stimulus,
+                             no adaptation, plateau
+  Time constant              Adaptation latency: aerobic base takes
+                             6-8 weeks; neural strength gains 2-4 wks
+  Supercompensation          Overshoot in the step response:
+                             performance temporarily exceeds baseline
+                             after recovery from a training block
+  ──────────────────────────────────────────────────────────────
+
+  Matveyev's periodization (1964) is a manually designed input
+  waveform: ramp load for 3 weeks, deload for 1 week, repeat with
+  higher amplitude. Block periodization concentrates one quality
+  per mesocycle — the equivalent of training one degree of freedom
+  at a time rather than exciting the whole system simultaneously.
+```
+
+### Acute:Chronic Workload Ratio as a Moving Average Filter
+
+```
+ACWR SIGNAL PROCESSING
+
+  Acute load  = this week's total load (the "now" signal)
+  Chronic load = rolling 4-week exponentially weighted moving average
+
+  ACWR = acute / chronic
+
+  ┌──────────────────────────────────────────────────────┐
+  │  ACWR    │  Zone          │  Interpretation          │
+  │──────────│────────────────│──────────────────────────│
+  │  < 0.8   │  Undertraining │  Insufficient stimulus   │
+  │  0.8–1.3 │  Sweet spot    │  Progressive overload    │
+  │  > 1.5   │  Danger zone   │  Spike: injury risk ↑↑   │
+  └──────────────────────────────────────────────────────┘
+
+  This is exactly a ratio of a short-window MA to a long-window MA.
+  Same structure as a MACD crossover in finance or a moving average
+  convergence detector in signal processing.
+
+  When acute >> chronic, the system has been shocked with a step input
+  it hasn't been conditioned for. The biological equivalent of
+  resonance: tissue fatigue accumulates faster than repair.
+
+  Limitation: ACWR treats all load as fungible. Running load and
+  swimming load stress different tissues. A composite ACWR can mask
+  tissue-specific overload — same problem as aggregating heterogeneous
+  metrics in any monitoring system.
+```
+
+---
+
 ## Decision Cheat Sheet
+
+### Quick Reference
 
 | Question | Answer |
 |----------|--------|
-| What are the three energy systems in order? | PCr (0–10s), glycolytic (10s–2min), oxidative (>2min) |
-| What limits VO2max? | Central (cardiac output) and peripheral (O₂ extraction) |
+| What are the three energy systems in order? | PCr (0-10s), glycolytic (10s-2min), oxidative (>2min) |
+| What limits VO2max? | Central (cardiac output) and peripheral (O2 extraction) |
 | What is the best predictor of endurance performance? | Lactate threshold (not VO2max) when comparing trained athletes |
 | What is the most evidence-supported ergogenic aid? | Creatine monohydrate |
 | What is "polarized training"? | ~80% training below LT1, ~20% above LT2; Seiler's model |
 | What is the biological passport? | Longitudinal athlete biomarker profile used to detect doping manipulation |
-| What is flow state in sport? | Csikszentmihalyi's "zone": challenge-skill balance → effortless performance |
+| What is flow state in sport? | Csikszentmihalyi's "zone": challenge-skill balance -> effortless performance |
 | What is the acute:chronic workload ratio? | Current week load / rolling 4-week average; >1.5 = injury risk spike |
+
+### Which Metric for Which Sport?
+
+```
+METRIC SELECTION BY SPORT TYPE
+
+  Metric             Best For                    Less Useful For
+  ──────────────────────────────────────────────────────────────────
+  VO2max             Endurance ceiling:           Already-elite endurance
+  (mL/kg/min)        rowing, XC skiing,           athletes (LT matters
+                     distance running             more at that level)
+
+  Lactate threshold  Sustained-effort events:     Short-burst sports
+  (speed/power       marathon, cycling TT,        (sprints, weightlifting)
+   at LT2)           triathlon, 10K+
+
+  Power-to-weight    Cycling (climbing),          Flat-ground or water
+  (W/kg)             running (hills),             sports where weight
+                     any gravity-dependent sport  is not penalized
+
+  Peak power output  Sprinting, jumping,          Endurance events
+  (Watts)            throwing, weightlifting       (wrong energy system)
+
+  Rate of force      Ballistic sports: baseball   Steady-state endurance
+  development (N/s)  pitch, golf drive, shot put
+
+  Ground contact     Sprinting, middle-distance   Non-running sports
+  time (ms)          running; shorter = better
+
+  Heart rate         General load monitoring;     Poor proxy for actual
+  variability (HRV)  readiness / recovery status  performance capacity
+
+  GPS load           Team sport session load:     Individual endurance
+  (PlayerLoad,       soccer, rugby, AFL           (power meter is better)
+  total distance)
+  ──────────────────────────────────────────────────────────────────
+```
+
+### VO2max vs. Lactate Threshold vs. Power-to-Weight
+
+```
+WHEN EACH METRIC IS THE LIMITING FACTOR
+
+  Athlete Level    Limiting Factor         Training Priority
+  ──────────────────────────────────────────────────────────────
+  Beginner         VO2max (low ceiling)    Build aerobic base;
+                                           any training helps
+
+  Intermediate     VO2max still growing    Mix of base + threshold
+                   but LT becoming         work; some intervals
+                   relevant
+
+  Advanced         LT is the limiter:     Threshold intervals;
+                   VO2max is near genetic  polarized model (80/20)
+                   ceiling
+
+  Elite            Economy + LT at high   Micro-gains: running
+                   % of VO2max            economy, heat adaptation,
+                                          altitude, race tactics
+
+  Climber/hilly    Power-to-weight is     Lose non-functional mass
+  course           the deciding metric    OR increase FTP; both
+                                          improve W/kg
+  ──────────────────────────────────────────────────────────────
+```
 
 ---
 

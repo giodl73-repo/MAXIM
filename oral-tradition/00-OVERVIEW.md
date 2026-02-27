@@ -235,3 +235,71 @@ SECONDARY ORALITY / DIGITAL ORALITY
 **Primary orality ≠ primitive.** Walter Ong was explicit: oral cultures are not cognitively inferior, they are differently organized. The characteristics of oral thought are adaptations to storing knowledge without external media.
 
 **Oral-derived text ≠ oral text.** Beowulf is written. But its composition was shaped by oral tradition — its formulas, its themes, its digressive catalogues. "Oral-derived" is a precise technical term, not a synonym for "old."
+
+---
+
+## Transmission Chain: The Oral-Formulaic Feedback Loop
+
+The landscape diagram above shows structure; this diagram shows the *process* — how an oral tradition propagates across performances and generations.
+
+```
+ORAL TRADITION TRANSMISSION CHAIN
+====================================
+
+  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+  │ COMPOSITION │    │ PERFORMANCE │    │  AUDIENCE    │
+  │             │    │             │    │             │
+  │ Singer draws│ →  │ Real-time   │ →  │ Co-creates  │
+  │ on formula  │    │ assembly of │    │ via response│
+  │ stock +     │    │ formulas +  │    │ (call-back, │
+  │ theme stock │    │ themes into │    │  attention,  │
+  │ (Parry-Lord)│    │ narrative   │    │  ritual)     │
+  └─────────────┘    └─────────────┘    └─────────────┘
+        ↑                                      │
+        │         ┌──────────────────┐         │
+        │         │     MEMORY       │         │
+        │         │                  │ ←───────┘
+        │         │ Audience members │  what resonated
+        │         │ retain schema +  │  is remembered;
+        │         │ key episodes;    │  what didn't is
+        │         │ surface detail   │  forgotten
+        │         │ drifts           │  (homeostasis)
+        │         └──────────────────┘
+        │                  │
+        │                  v
+        │         ┌──────────────────┐
+        └─────────│ RE-PERFORMANCE   │
+  next singer     │                  │
+  draws on what   │ New singer or    │
+  survived in     │ same singer at   │
+  communal        │ next occasion    │
+  memory          │ recomposes from  │
+                  │ remembered stock │
+                  └──────────────────┘
+
+  MECHANISM (Parry-Lord):
+  ┌──────────────────────────────────────────────────┐
+  │ Composition IS performance. There is no "original│
+  │ text" behind the performances. Each performance  │
+  │ is the text. Formula = metrically useful phrase   │
+  │ in a syntactic slot. Theme = narrative block      │
+  │ (arming, feasting, voyage) assembled from         │
+  │ formulas. The system is generative, not rote.    │
+  └──────────────────────────────────────────────────┘
+```
+
+---
+
+## Oral Form Selection: Which Form for Which Function?
+
+| Oral Form | Social Function | Typical Length | Performer | Transmission Fidelity |
+|-----------|----------------|----------------|-----------|----------------------|
+| **Epic** | Communal identity, heroic models, cosmological framing | 1,000-100,000+ lines | Specialist singer (guslar, griot, rhapsode) | Structure high, surface variable |
+| **Genealogy** | Legitimize lineage, land rights, political authority | Hundreds of names in sequence | Hereditary keeper (Polynesian, West African) | Very high — errors have political cost |
+| **Law code** | Encode binding community norms without writing | Variable | Elders, designated law-speakers (Icelandic logsogumadur) | High — legal force demands accuracy |
+| **Proverb** | Compress practical wisdom for rapid retrieval | 1-2 sentences | Anyone; situational use | Very high — brevity = stability |
+| **Riddle** | Cognitive play, initiation testing, category boundary exploration | 1-4 lines | Anyone; contest context | High — formal structure constrains drift |
+| **Song / ballad** | Emotional expression, courtship, labor rhythm, mourning | 20-200 lines | Specialist or communal | Melody anchors text; moderate drift |
+| **Myth** | Explain origins, cosmology, sacred order | Variable | Ritual specialist, priest | High in sacred context; drift in secular retelling |
+| **Legend** | Explain local features, recent events, moral exemplars | 1-5 min narrative | Anyone; conversational | Low — adapts to local context rapidly |
+| **Gossip / rumor** | Social regulation, reputation management, norm enforcement | Seconds to minutes | Anyone | Very low — maximum drift, maximum speed |
