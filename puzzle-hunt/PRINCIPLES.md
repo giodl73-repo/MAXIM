@@ -172,6 +172,30 @@ Every fact in every puzzle is correct. Every quote is real. Every chemical formu
 
 ---
 
+## Interlock, Not Independence
+
+*Source: Cobalt test (24/30 — Elegance 2.7), Magnesium test (20.7/30 — Elegance 1.7)*
+
+> "Eleven independent lookups with no cross-referencing is a quiz, not a puzzle."
+
+If every clue can be solved in isolation, the solver is doing N small puzzles, not one big one. At least 2-3 clues should INTERLOCK — where solving clue A gives you information needed for clue B, or where two answers confirm each other through a shared constraint. The crossword meta does this at the book level (crossing words confirm each other). Individual puzzles should do it at the clue level.
+
+**Test:** Can you solve the clues in any order with no advantage? If yes, add interlock.
+
+---
+
+## Snyder's Computer Test
+
+*Source: Magnesium test (20.7/30 — Snyder: Elegance 1/5)*
+
+> "Could a computer generate and solve this puzzle? If yes, it's not hand-crafted enough."
+
+A puzzle where the solver applies known rules to given inputs — with no ambiguity, no judgment, no deduction — is an exercise, not a puzzle. The solver must make at least one decision that requires insight, not just execution. Missing gates to deduce, unknown inputs to infer, or a reading frame to discover.
+
+**Test:** Write a 10-line script that solves the puzzle. If you can, the puzzle needs a deduction layer.
+
+---
+
 ## The Voice Rules (Joker)
 
 *Source: JOKER-VOICE.md*
@@ -205,4 +229,6 @@ When principles conflict, higher beats lower:
 12. **Discovered, Never Explained** — hidden depth rewards curiosity
 13. **The Periodic Table Is Not Decoration** — the framing is structural
 14. **Three Deduction Tools** — the Grid is deduction, not search
-15. **The Voice Rules** — the Joker is consistent
+15. **Interlock, Not Independence** — clues should cross-reference, not isolate
+16. **Snyder's Computer Test** — if a script can solve it, add a deduction layer
+17. **The Voice Rules** — the Joker is consistent
