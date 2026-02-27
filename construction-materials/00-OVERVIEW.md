@@ -58,7 +58,7 @@ MATERIAL FAMILIES AND STRUCTURAL ROLES
 
 ---
 
-<!-- @editor[bridge/P2]: Durability as reliability engineering framing absent — this learner would immediately map carbonation depth, chloride diffusion (Fick's 2nd law), and fatigue to MTTF/MTBF and reliability curves. Frame durability mechanisms as failure-mode reliability: each degradation pathway (carbonation, chloride, ASR, creep) is a competing failure mode with a time-to-threshold distribution. Cover rules and service-life specs = reliability targets. -->
+**Reliability engineering framing**: Each durability mechanism (carbonation, chloride ingress, ASR, freeze-thaw, creep) is a competing failure mode with a time-to-threshold distribution — carbonation depth follows d = k*sqrt(t), chloride ingress follows erfc profiles (Fick's 2nd law). Service-life specifications (50 or 100 years) are reliability targets. Cover rules and concrete mix specs are the engineering controls ensuring these MTTF targets are met.
 
 ## Why Materials Change: The Driving Forces
 
@@ -450,7 +450,7 @@ CARBON BUDGET SHIFT: OPERATIONAL vs EMBODIED
 
 ---
 
-<!-- @editor[bridge/P2]: Specifications-as-interface-contracts bridge missing throughout overview — EN 1992, AISC, NDS, EN 15978 are interface contracts between designer, fabricator, and inspector: they define acceptable state space, test protocols, and acceptance criteria. Same mental model as an API contract or type system. A sentence framing this explicitly would help this learner categorize the entire standards ecosystem instantly. -->
+Material specifications (EN 1992, AISC, NDS, EN 15978) are **interface contracts** between designer, fabricator, and inspector — they define the acceptable state space, test protocols, and acceptance criteria. Same mental model as an API contract or type system: the spec defines what each party must guarantee about their deliverable.
 
 ## Structural Systems Selection
 
