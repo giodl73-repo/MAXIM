@@ -210,6 +210,24 @@ Reader-facing guide: how to navigate, what the card symbols mean, how bridges wo
 
 ---
 
+### 7. The Two Jokers — Puzzle Hunt Companion Volumes
+**Status**: 🟡 Design phase — reviewed by 9-expert panel, V2 approved
+**Home**: `puzzle-hunt/TWO-JOKERS.md` (concept), `puzzle-hunt/V2-JOKER-BOOK.md` (Red Joker puzzles)
+**Reviews**: `puzzle-hunt/reviews/` (9 expert reviews), `puzzle-hunt/PUNCHLIST.md` (synthesis)
+**Profiles**: `puzzle-hunt/profiles/` (9 reviewer profiles for future use)
+
+Two companion puzzle books — the 53rd and 54th cards in the deck.
+
+**Red Joker — "The Tour"** (Vol. 53): 13 guided puzzles, one per section. Fill-in worksheets, the Joker narrates. Each puzzle requires reading the encyclopedia to solve. Accessible, solo weekend. Teaches breadth.
+
+**Black Joker — "The Expedition"** (Vol. 54): 7 expert puzzles, each spanning 2-4 sections. Less guidance, creative synthesis required. Forces cross-section connections. Team, multi-session. Teaches depth.
+
+**Panel**: Dan Katz, Thomas Snyder, Mike Selinker, Wei-Hwa Huang, Kenny Young, Dana Young, Peter Sarrett, Mark Gottlieb, Alex Rosenthal. V1 (embedded steganography) reviewed and pivoted to V2 (companion volumes) based on panel consensus.
+
+**Next**: Finalize answer words, design metas, prototype top 5 Red Joker puzzles, sketch Black Joker puzzles in detail.
+
+---
+
 ## Status Summary
 
 | # | Project | Status | Files | Blocking? |
@@ -220,6 +238,7 @@ Reader-facing guide: how to navigate, what the card symbols mean, how bridges wo
 | 4 | Reading Maps | ✅ Complete | READING-MAPS.md | — |
 | 5 | Prerequisite Graph | ✅ Complete | PREREQUISITES.md | — |
 | 6 | Atlas (52 maps) | 🟡 Plan complete | atlas/ (53 files) | Independent |
+| 7 | Two Jokers (Puzzle Hunt) | 🟡 Design phase | puzzle-hunt/ | Independent |
 
 **Dependency chain**: Fix Pass ✅ → Concept Index ✅ (chain complete)
 **Everything else is independent** — can be built in any order.
