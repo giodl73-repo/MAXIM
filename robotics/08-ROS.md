@@ -226,7 +226,7 @@ USE CASE: deterministic startup/shutdown sequence.
 
 ## DDS (Data Distribution Service)
 
-<!-- @editor[bridge/P3]: DDS discovery section explains PDP/EDP multicast but missing bridge to service mesh discovery — DDS PDP is the same problem as service registration/discovery in a distributed system (nodes announce themselves, peers discover topics they can subscribe to); the failure modes are identical: multicast-based discovery fails across NAT/VLANs for the same reason Kubernetes service discovery requires explicit configuration in multi-cloud or air-gapped environments; the Common Confusion Point at the bottom notes the multicast failure case but doesn't connect it to why this is a known pattern in distributed systems networking -->
+DDS participant discovery (PDP/EDP) is the same problem as service registration/discovery in distributed systems: nodes announce themselves via multicast, peers discover available topics. The failure modes are identical — multicast-based discovery fails across NAT boundaries and VLANs for the same reason Kubernetes service discovery requires explicit configuration in multi-cloud or air-gapped environments.
 
 The middleware that powers ROS 2. Understanding DDS helps debug QoS issues.
 

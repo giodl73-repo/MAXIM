@@ -380,11 +380,7 @@ FUSION PIPELINE:
                     (continuous, globally consistent)
 ```
 
-<!-- @editor[bridge/P2]: "This is exactly the layered architecture of Azure Service Bus" is a forced and incorrect bridge — Azure Service Bus is a message broker (pub/sub queueing), not a distributed consistency protocol; the actual universal bridge here is eventual consistency with authoritative reconciliation: high-rate local state (odometry) accumulates drift, periodic low-rate authoritative updates (SLAM loop closure) reset accumulated error — this is the same pattern as vector clock reconciliation in distributed systems, or periodic checkpoint/restore in any fault-tolerant system; frame it as the distributed consistency pattern any systems engineer knows, not as a specific Azure product analogy -->
-This is exactly the layered architecture of Azure Service Bus: high-frequency unreliable
-local messages (odometry) + low-frequency authoritative corrections (SLAM) fused into
-a consistent state. The SLAM update is the "distributed transaction coordinator" that
-corrects accumulated local drift.
+This is the **eventual consistency with authoritative reconciliation** pattern from distributed systems: high-frequency local state updates (odometry) accumulate drift unboundedly, and periodic low-frequency authoritative corrections (SLAM loop closure, GPS fix) reset accumulated error across the entire trajectory. The same pattern appears in vector clock reconciliation, optimistic concurrency control with periodic checkpoints, and any system where local operations proceed optimistically until a global consistency check corrects accumulated divergence.
 
 ---
 

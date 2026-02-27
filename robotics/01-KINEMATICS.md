@@ -72,9 +72,7 @@ Rotation matrix encodes direction cosines. Three common parametrizations:
 
 ## Denavit-Hartenberg Convention
 
-<!-- @editor[bridge/P2]: DH convention is introduced without explicitly bridging to the homogeneous coordinate transform composition the learner knows from linear algebra — the FK chain T_0n = T_01 * T_12 * ... * T_{n-1,n} is matrix composition of homogeneous transforms, the same operation used in 3D graphics scene graphs, CSS transforms, and any coordinate system chaining in linear algebra; calling this out explicitly ("DH gives you a systematic recipe for constructing the transform matrices; the FK computation is just matrix chain multiplication you already know") immediately anchors the abstraction for an MIT math reader; without this, DH looks like domain-specific magic rather than standard linear algebra dressed up with a naming convention -->
-
-DH is the standard way to attach coordinate frames to robot links systematically. It
+DH is a systematic recipe for constructing the homogeneous transform matrices — the FK computation T_0n = T_01 * T_12 * ... * T_{n-1,n} is matrix chain multiplication of 4x4 homogeneous transforms, the same operation used in 3D graphics scene graphs, CSS transform stacking, and any coordinate frame chaining in linear algebra. DH just standardizes which four parameters define each inter-frame transform. It
 reduces an arbitrary serial chain to a table of 4 parameters per joint.
 
 ### The Four DH Parameters
