@@ -265,9 +265,36 @@ OPEN: The general inverse Galois problem.
   No known group G for which the answer is definitively NO.
   But also no proof that the answer is always YES.
 
-<!-- @editor[content/P2]: Missing absolute Galois group and Langlands program — the absolute Galois group Gal(Q̄/Q) is one of the central objects of modern mathematics, and its representations are the subject of the Langlands program. For a TCS/Math reader at this level, the statement "Gal(Q̄/Q) acts on ℓ-adic cohomology of varieties → Weil conjectures → Deligne's proof" is the natural next step after the inverse Galois problem. At minimum a forward pointer and a 3-line orientation to why Gal(Q̄/Q) is hard and important -->
+THE ABSOLUTE GALOIS GROUP Gal(Q̄/Q):
+  The profinite group of ALL automorphisms of Q̄ fixing Q.
+  Gal(Q̄/Q) = lim← Gal(K/Q) over all finite Galois K/Q.
+  This is one of the central objects of modern mathematics — understanding its
+  representations IS the Langlands program.
 
-<!-- @editor[bridge/P2]: No connection between Galois theory and pairing-based cryptography — the learner calibration explicitly flags "Galois theory → algebraic cryptography" as a best bridge. Weil pairings on elliptic curves, the Tate pairing, and bilinear pairing groups (used in BLS signatures, SNARKs, identity-based encryption) all rely on Galois-theoretic structure of the field extensions. The file handles solvability/radicals well but doesn't connect Galois theory to the pairing-based crypto that defines modern post-SNARKs cryptography -->
+  Key connections:
+  - Gal(Q̄/Q) acts on ℓ-adic étale cohomology of varieties over Q.
+  - This action encodes arithmetic information (Weil conjectures, proved by Deligne 1974).
+  - The Langlands correspondence: n-dimensional representations of Gal(Q̄/Q) ↔
+    automorphic forms on GL(n) — a vast generalization of class field theory.
+  - Fermat's Last Theorem (Wiles 1995) proved that a specific Galois representation
+    (from a semistable elliptic curve) is modular — a case of Langlands.
+
+GALOIS THEORY AND PAIRING-BASED CRYPTOGRAPHY:
+  Weil and Tate pairings on elliptic curves:
+    e: E[r] × E[r] → μ_r ⊂ F*_{p^k}
+  This is a bilinear, non-degenerate, Galois-equivariant map from the r-torsion
+  group of an elliptic curve into roots of unity in the extension field F_{p^k}.
+
+  The embedding degree k (smallest k with r | p^k - 1) determines the extension
+  field — this is Galois theory at work: μ_r ⊂ F_{p^k} iff Frobenius^k acts
+  trivially on r-torsion, iff p^k ≡ 1 (mod r).
+
+  Applications built on pairings:
+    BLS aggregate signatures (Ethereum 2.0 consensus layer)
+    Identity-based encryption (Boneh-Franklin 2001)
+    zk-SNARKs (Groth16, PLONK): bilinear pairing groups enable the
+      polynomial commitment scheme that makes zero-knowledge proofs efficient.
+  See `10-APPLICATIONS.md` for the full cryptographic treatment.
 ```
 
 ---

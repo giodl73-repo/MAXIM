@@ -294,9 +294,41 @@ WHY LOCALIZATION MATTERS:
   Algebraic number theory: localize at a prime ideal p in O_K to study
   ramification at p.
 
-<!-- @editor[content/P2]: Localization section mentions Spec(R) only in passing — missing the key insight: Spec(R) (prime ideals with Zariski topology) IS the geometric object associated to a ring. The map R → Spec(R) is the functor Ring^op → Top that underlies all of algebraic geometry and scheme theory. A single diagram showing Spec(Z) = {(0), (2), (3), (5), (7), ...} (the "arithmetic line") would orient the learner to how ring theory and geometry are the same thing -->
+SPEC(R) — THE GEOMETRIC OBJECT OF A RING:
+  Spec(R) = {prime ideals of R} with the Zariski topology.
+  This IS the geometric space associated to R.
+  The functor Spec: Ring^op → Top underlies all of algebraic geometry (schemes).
 
-<!-- @editor[bridge/P2]: No mention of Dedekind domains and the ideal class group — the failure of unique factorization in rings like Z[√-5] is introduced, but the resolution (ideals factor uniquely in Dedekind domains; the class group measures how far from being a PID) is absent. This directly bridges to the post-quantum crypto material in 10-APPLICATIONS (Ring-LWE hardness depends on ideal lattice properties) -->
+  EXAMPLE: Spec(Z) = "the arithmetic line"
+    Points: (0), (2), (3), (5), (7), (11), ...
+    Generic point: (0) (contained in every open set)
+    Closed points: (p) for each prime p
+    Zariski topology: open sets = complements of finitely many primes
+
+    Spec(Z):  ··· (0) ···─── (2) ─── (3) ─── (5) ─── (7) ─── (11) ──→
+                   ↑
+              generic point (dense; specializes to every closed point)
+
+  The map from rings to geometry: ring homomorphism R → S corresponds to
+  continuous map Spec(S) → Spec(R) — arrows reverse (contravariant functor).
+
+DEDEKIND DOMAINS AND THE CLASS GROUP:
+  Z[√-5] fails unique factorization: 6 = 2·3 = (1+√-5)(1-√-5).
+  Resolution: in Dedekind domains (integrally closed Noetherian domains of dim 1),
+  IDEALS factor uniquely into prime ideals, even when elements don't factor uniquely.
+
+  In Z[√-5]: (6) = (2, 1+√-5)² · (3, 1+√-5) · (3, 1-√-5) — unique ideal factorization.
+
+  CLASS GROUP Cl(O_K): measures how far O_K is from being a PID.
+    Cl(O_K) = {fractional ideals} / {principal ideals}
+    O_K is a PID iff Cl(O_K) = 0 (trivial class group, class number h = 1).
+    Z[√-5] = O_{Q(√-5)} has class number h = 2 — the simplest failure of PID.
+
+  Crypto connection: Ring-LWE hardness (Kyber/ML-KEM) depends on the ideal lattice
+  structure of Z[x]/(x^n+1), which is a Dedekind domain. The security reduction
+  goes from worst-case ideal-SVP to average-case Ring-LWE, and the algebraic
+  structure of the ideal lattice (determined by the ring's class group and
+  unit group) is what makes the reduction work.
 ```
 
 ---

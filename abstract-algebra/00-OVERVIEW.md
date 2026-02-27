@@ -36,7 +36,28 @@
 The power of abstraction: prove once at the group level, get the result for
 S_n, GL(n,F), Z/nZ, elliptic curve groups, Galois groups — simultaneously.
 
-<!-- @editor[diagram/P2]: Landscape diagram shows the ring-of-structures chain well but is purely vertical — doesn't show the cross-connections that motivate this learner: Galois theory bridges field extensions ↔ group theory; representation theory bridges groups ↔ modules ↔ linear algebra; category theory unifies all of them. Rework as a 2D map with lateral connections, not just a linear hierarchy -->
+**Cross-connections** (the real landscape — the vertical chain above shows containment; this shows how the theories interconnect):
+
+```
+        GROUPS ←───── Galois Theory ─────→ FIELDS
+          |                                    |
+   Representation                        Field Extensions
+      Theory                             Splitting Fields
+          |                                    |
+          v                                    v
+  MODULES / VECTOR SPACES             POLYNOMIAL RINGS
+      (R-modules)                       (F[x], ideals)
+          |                                    |
+          +──────── Structure Theorem ────────+
+          |         (over PIDs: Z, F[x])       |
+          |                                    |
+  abelian groups ←──────── Z-modules          |
+  Jordan form    ←──────── k[x]-modules       |
+          |                                    |
+          └──────── CATEGORY THEORY ──────────┘
+                  (unifies all via functors,
+                   adjunctions, Yoneda)
+```
 
 ---
 
@@ -192,7 +213,14 @@ COMPILER THEORY:
   Regular languages: recognized by finite monoids.
   (Kleene-Myhill: language is regular iff its syntactic monoid is finite)
 
-<!-- @editor[bridge/P1]: Missing group isomorphism problem — a canonical TCS topic that directly connects abstract algebra to computational complexity. GI is in NP ∩ coAM; Babai's 2015 quasipolynomial algorithm was a landmark result. This learner's MIT TCS background makes this a primary bridge point; any TCS/Math person coming from complexity theory needs this connection prominently -->
+COMPUTATIONAL ALGEBRA AND COMPLEXITY:
+  Group isomorphism problem (GI): given two groups by Cayley tables, are they isomorphic?
+    GI ∈ NP ∩ coAM. Not known to be in P. Not known to be NP-complete.
+    Babai (2015): quasipolynomial time (exp(polylog(n))) for graph isomorphism
+    — a landmark connecting group theory and complexity.
+    Permutation group algorithms: Schreier-Sims (polytime membership, order, generators).
+    These underpin GAP, Magma, SageMath computer algebra systems.
+
   Linear codes = subspaces of F_q^n.
   Cyclic codes = ideals in F_q[x]/(x^n-1).
   Reed-Solomon = polynomial evaluation codes over F_q.
@@ -216,7 +244,18 @@ COMPILER THEORY:
 | 09-CATEGORY-THEORY.md | Categories, functors, natural transforms, Yoneda, adjoints |
 | 10-APPLICATIONS.md | Reed-Solomon, crystallography, crypto, quantum groups |
 
-<!-- @editor[content/P2]: File-by-file table lists topic coverage but omits depth signals — reader can't tell which files are full guides vs. thin; add page-count/section-count column or a depth annotation (e.g., "includes Sylow, group actions, Burnside") -->
+| File | Core Content | Depth |
+|------|-------------|-------|
+| 01-GROUPS.md | Axioms, examples, Lagrange, Sylow theorems, group actions, Burnside, computational group theory | Full guide — Sylow classification examples, equivariant ML bridge |
+| 02-SUBGROUPS-QUOTIENTS.md | Normal subgroups, cosets, quotients, isomorphism theorems, semidirect products, solvability, CFSG | Full guide — composition series, Jordan-Holder, derived series |
+| 03-PERMUTATION-GROUPS.md | Cayley's theorem, cycle notation, sign, A_n simplicity, Polya enumeration, Schreier-Sims | Full guide — computational permutation groups, conjugacy classes |
+| 04-RINGS-IDEALS.md | Ring axioms, ideals, quotients, domain hierarchy (UFD/PID/ED), localization, Spec(R) | Full guide — prime/maximal ideals, polynomial rings, Dedekind domains |
+| 05-POLYNOMIALS-FIELDS.md | Polynomial rings, irreducibility, field extensions, finite fields, splitting fields | Full guide — Eisenstein, GF(p^n), algebraic closure, NTT connection |
+| 06-GALOIS-THEORY.md | Galois correspondence, cyclotomic, solvability by radicals, quintic impossibility | Full guide — inverse Galois, absolute Galois group, ruler-compass |
+| 07-REPRESENTATION-THEORY.md | Characters, Schur's lemma, character tables, SU(2)/SO(3), induced reps, Fourier on groups | Full guide — Clebsch-Gordan, FFT/NTT, equivariant networks |
+| 08-MODULES-LINEAR-ALGEBRA.md | Modules, free/projective/injective/flat, structure theorem, tensor products, chain complexes | Full guide — Jordan form, persistent homology, derived categories |
+| 09-CATEGORY-THEORY.md | Categories, functors, natural transforms, Yoneda, adjunctions, limits, monads | Full guide — Curry-Howard-Lambek, HoTT, programming connection |
+| 10-APPLICATIONS.md | Reed-Solomon, crystallography, crypto (DH/ECC/LWE/pairings), quantum groups | Full guide — Goppa codes, RAID-6, space groups, stabilizer codes |
 
 ---
 
