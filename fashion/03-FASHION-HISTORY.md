@@ -343,15 +343,14 @@ seam or an off-grain cut. The simplest clothes demand the most skill.
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is "I want to understand…" / era reference, not a decision tool — restructure as "use historical analogy to X when evaluating whether current trend cycle represents structural shift vs. pendulum swing; use Simmel's imitation-differentiation model when explaining why luxury trickles down and street style percolates up" -->
 ## Decision Cheat Sheet
 
-| I want to understand...                          | Era / Designer                  |
-|--------------------------------------------------|---------------------------------|
-| Who invented the modern fashion system           | Worth, 1858                     |
-| The liberation from the corset                   | Poiret (1906), Chanel (1920s)   |
-| The post-WWII silhouette revolution               | Dior New Look, 1947             |
-| The most technically revered couturier            | Balenciaga                      |
+| When you need to...                                          | Use this historical model / analogy    | Because                                                 |
+|--------------------------------------------------------------|----------------------------------------|---------------------------------------------------------|
+| Evaluate whether a trend is structural or cyclical           | Compare to pendulum swings (volume ↔ minimalism, tight ↔ loose) | Most fashion movements are reactions to the prior era |
+| Explain why luxury trickles down and street style percolates up | Simmel's imitation-differentiation (1904) | Elite adoption → mass imitation → elite abandonment is the core cycle |
+| Assess whether a designer is innovating or reviving          | Check against Worth (1858) → Poiret (1906) → Chanel (1920s) → Dior (1947) pattern | Innovation = new relationship to the body, not just new decoration |
+| Identify the most technically revered couturier as benchmark | Balenciaga (1950s-60s)                 | Sculptural construction without visible structure        |
 | When fashion became young and accessible          | 1960s (Quant, Courreges)        |
 | When Japanese designers challenged Paris          | 1981 (Yamamoto, Kawakubo)       |
 | 1980s power and excess                           | Armani + Versace (opposite poles)|

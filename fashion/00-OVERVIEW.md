@@ -252,19 +252,18 @@ it offloads costs to garment workers, ecosystems, and the future.
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a module directory, not a "use X when Y" decision tool — restructure as decisions, e.g. "use Veblen pricing logic when you want scarcity to amplify demand; use fast-fashion inventory model when short cycle time and test-and-chase is the strategy" -->
+Fashion trend forecasting is a time-series prediction problem: seasonal decomposition of style adoption curves, lagged diffusion signals (runway to retail), and S-curve adoption models for new silhouettes. SHEIN uses algorithmic demand sensing (small-batch test → real-time sales signal → chase winners); Zara uses human observers in the same feedback loop. Both are OODA loops over demand data with different latency characteristics.
 
-<!-- @editor[bridge/P2]: Fashion forecasting is mentioned (AI in trend forecasting) but not bridged to time-series analysis / demand prediction — fashion forecasting is literally a time-series prediction problem (trend cycles, adoption curves, S-curves for new styles). For a learner who understands statistical models, naming this explicitly — "trend forecasting = seasonal decomposition + lagged adoption signal" — would be a useful bridge. Currently the field is named but the analytical framing is absent. -->
 ## Decision Cheat Sheet
 
-| I want to understand...                   | Module                      |
-|-------------------------------------------|-----------------------------|
-| The top of the fashion pyramid            | 01-COUTURE-SYSTEM.md        |
-| How everyday designer clothes are made    | 02-RTW-PRET.md              |
-| The history of fashion movements          | 03-FASHION-HISTORY.md       |
-| Supply chain economics and structure      | 04-FASHION-INDUSTRY.md      |
-| How Zara disrupted fashion                | 05-FAST-FASHION.md          |
-| The human cost of cheap clothing          | 06-RANA-PLAZA.md            |
-| Materials, circularity, and alternatives  | 07-SUSTAINABILITY.md        |
-| Fashion as communication and culture      | 08-FASHION-THEORY.md        |
+| When you need to...                                    | Use / Go to                     | Because                                                |
+|--------------------------------------------------------|---------------------------------|--------------------------------------------------------|
+| Understand Veblen pricing and scarcity logic           | 01-COUTURE-SYSTEM               | Couture economics are anti-commodity: price ↑ → demand ↑|
+| Analyze RTW production calendar and margin structure   | 02-RTW-PRET                     | 52-week cycle, 5x markup, wholesale vs DTC trade-offs  |
+| Evaluate whether a trend is structural or cyclical     | 03-FASHION-HISTORY              | Historical analogies (Simmel trickle-down, pendulum swings)|
+| Map supply chain tier visibility and audit risk        | 04-FASHION-INDUSTRY             | Tier 1/2/3 structure; brand audit reach limits at Tier 2|
+| Compare fast-fashion inventory models (Zara vs SHEIN)  | 05-FAST-FASHION                 | Test-and-chase vs algorithmic micro-batch               |
+| Assess labor conditions and regulatory frameworks      | 06-RANA-PLAZA                   | Bangladesh Accord; binding vs voluntary compliance      |
+| Compare fiber and material sustainability trade-offs   | 07-SUSTAINABILITY               | LCA data: linen/hemp > organic cotton > conventional    |
+| Apply cultural/sociological frameworks to fashion      | 08-FASHION-THEORY               | Barthes, Simmel, Veblen, subcultural capital theory     |
 | NFTs, virtual dress, metaverse fashion    | 09-DIGITAL-FASHION.md       |

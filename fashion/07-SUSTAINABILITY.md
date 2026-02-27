@@ -347,7 +347,8 @@ total production also grows? The latter is marketing, not transformation.
 
 ---
 
-<!-- @editor[bridge/P3]: Life Cycle Assessment (LCA) framework is implicitly present (fiber impact data, dyeing emissions, end-of-life) but never named as LCA or bridged to engineering lifecycle assessment — LCA is the standard engineering tool for comparing total environmental impact across product lifetime phases (raw material extraction → manufacturing → use → end-of-life). Any engineer familiar with reliability engineering or SDLC lifecycles would immediately understand "lifecycle assessment" framing. The data is all here; just needs the explicit bridge label. -->
+The data throughout this module follows the **Life Cycle Assessment (LCA)** framework — the standard engineering methodology for comparing total environmental impact across product lifetime phases: raw material extraction -> manufacturing -> distribution -> use -> end-of-life. Every fiber comparison (cotton vs polyester vs linen) and every process comparison (conventional dyeing vs solution dyeing) is an LCA question. The ISO 14040/14044 standards define the methodology; the fashion-specific challenge is system boundary definition (do you include consumer washing? how many wears do you assume?).
+
 ## Decision Cheat Sheet
 
 | I want to understand...                        | Key point                         |

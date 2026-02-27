@@ -324,16 +324,15 @@ The 2000s-2010s multiplied it by 10.
 
 ---
 
-<!-- @editor[bridge/P2]: Zara's information flywheel is described in detail but not explicitly bridged to observability/feedback loop pattern in software systems — the daily store-manager reporting → design team response → small-batch production → twice-weekly delivery cycle is a tight feedback loop: observe (demand signal) → decide (design/production) → act (manufacturing) → observe (next day signal). This is the same OODA loop or observability-driven development pattern. The comparison to "Netflix recommendations" appears for SHEIN, but Zara's supply chain architecture is the deeper and more interesting observability bridge and it's not named as such. -->
+Zara's supply chain is an OODA loop: observe (daily store-manager demand reports) -> orient (design team identifies winners) -> decide (small-batch production order) -> act (manufacturing in proximate factories, twice-weekly store delivery). The 2-3 week lead time is the cycle time of this feedback loop. SHEIN compresses it further with algorithmic demand sensing: micro-batch test -> real-time sales data -> chase winners. Both are observability-driven systems; Zara uses human observers, SHEIN uses algorithmic telemetry.
+
 ## Decision Cheat Sheet
 
-| I want to understand...                         | Key concept                       |
-|-------------------------------------------------|-----------------------------------|
-| Zara's supply chain innovation                  | Test-and-chase; 2-3 week lead time|
-| How SHEIN differs from Zara                     | Algorithmic design; direct factory|
-| The environmental scale of the problem          | 10% of emissions; 87% to landfill |
-| Why people keep buying despite knowing          | Price, variety, social media, algo|
-| What regulatory responses exist                 | EU ESPR; France anti-fast-fashion |
-| Whether "sustainable" fashion lines help        | Only if they replace volume, not  |
-|                                                 | add to it (currently they add)    |
-| Inditex's financial advantage over H&M          | Lower markdowns; better turns     |
+| When you need to...                                        | Strategy / Key concept                    | Because                                                |
+|------------------------------------------------------------|-------------------------------------------|--------------------------------------------------------|
+| Minimize inventory markdown risk                           | Test-and-chase model (Zara/Inditex)       | Small initial batches; reorder winners; 2-3 week lead  |
+| Maximize speed-to-consumer at lowest unit cost             | Algorithmic micro-batch (SHEIN model)     | Direct factory; no stores; data-driven design          |
+| Evaluate environmental impact of fast fashion              | 10% of global emissions; 87% to landfill  | Scale of production is the core problem, not just materials|
+| Assess regulatory risk to fast-fashion business model      | EU ESPR; France anti-fast-fashion law     | Extended producer responsibility + potential surcharges |
+| Compare Inditex financial advantage over H&M               | Lower markdowns; better inventory turns   | Proximity manufacturing + demand sensing = less waste  |
+| Evaluate whether "sustainable" fast-fashion lines work     | Only if they replace volume, not add to it| If total production grows, the sustainable line is marketing|

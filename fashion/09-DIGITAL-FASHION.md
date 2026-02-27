@@ -331,17 +331,16 @@ spending on in-game cosmetics spans from children to adults in their 40s.
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet uses "I want to understand…" reference format rather than decision tool — restructure as "use CLO/3D sampling when you want to reduce physical sample iterations; invest in gaming cosmetics partnerships when brand wants Gen Z reach at lower unit economics than physical product" -->
+CLO 3D and Browzwear are **digital twin pipelines for garment production**: simulate drape physics on a virtual avatar, check fit before cutting physical fabric, iterate design in software. This is exactly the digital twin concept — a virtual representation of a physical product that enables simulation, testing, and iteration before manufacturing. The value proposition is identical to simulation-driven design in aerospace or automotive: reduce physical prototype iterations (and their cost/waste) by front-loading decisions into the digital model.
 
-<!-- @editor[bridge/P3]: CLO 3D / Browzwear not explicitly bridged to digital twin concept — 3D sampling is exactly "digital twin of garment before manufacturing": simulate drape physics, check fit on avatar before cutting physical fabric, iterate in software. For a learner who works in Azure with IoT digital twins, naming this framing explicitly ("3D sampling = digital twin pipeline for fashion production") would connect immediately. -->
 ## Decision Cheat Sheet
 
-| I want to understand...                          | Key point                         |
-|--------------------------------------------------|-----------------------------------|
-| The biggest actual digital fashion market        | Gaming cosmetics ($50B+)          |
-| The most useful digital fashion technology       | 3D design tools (CLO, Browzwear)  |
-| What happened to NFT fashion                     | Speculation bubble; 97% collapse  |
-| Whether digital fashion is sustainable           | 3D sampling: yes. Virtual dress: unclear|
+| When you need to...                                        | Strategy / Tool                           | Because                                                  |
+|------------------------------------------------------------|-------------------------------------------|----------------------------------------------------------|
+| Reduce physical sample iterations in design                | CLO 3D / Browzwear (digital twin of garment)| Simulate drape physics and fit before cutting fabric     |
+| Reach Gen Z at lower unit economics than physical product  | Gaming cosmetics partnerships (Fortnite, Roblox)| $50B+ market; digital-only margin structure              |
+| Evaluate NFT fashion as a strategy                         | Don't — speculation bubble collapsed 97%  | Speculative asset, not product with use value            |
+| Assess whether digital fashion reduces environmental impact| 3D sampling: proven. Virtual-only garments: unclear | 3D sampling eliminates physical prototypes; virtual wear is additive |
 | Virtual influencers and their use                | Brand partnerships; authenticity risk|
 | Metaverse fashion in 2024                        | Mostly shelved; gaming thrives    |
 | AI role in fashion design currently              | Moodboards, patterns; not full design|
