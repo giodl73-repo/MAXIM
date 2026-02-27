@@ -177,31 +177,34 @@ Escape wheel   15/7 pinion    ...
 
 Total ratio from barrel to escape wheel: approximately 14,400:1 to 16,000:1
 
-<!-- @editor[content/P1]: This gear ratio verification section is internally confused and self-contradictory — it attempts the calculation, gets a wrong intermediate result, says "Nope", restarts, and arrives at "21.4 seconds" for the fourth wheel period with a note that it's "close to standard." The fourth wheel in a 28,800 vph movement should make one revolution per 60 seconds (it drives the seconds hand). The calculation here is wrong and visibly broken. This needs to be replaced with a clean, correct derivation. The correct chain for a standard 28,800 vph (4 Hz balance, 8 beats/sec) movement: balance at 4 Hz → 8 beats/sec → escape wheel (15t) advances 8 teeth/sec = 8/15 rev/sec; fourth wheel (let's say 80t) drives escape wheel pinion (8t), so 4th wheel at (8/15) × (8/80) = 0.0533 rev/sec = 1 rev per 18.75 sec ≈ ~20 sec. That's still not 60 sec — the tooth counts in this section don't match a real caliber. The example should use actual caliber tooth counts (e.g., ETA 2824: verify and use real numbers) or state clearly that the numbers are illustrative and will not produce exactly canonical results. -->
-VERIFICATION for 28,800 vph (8 beats/second = 4 Hz balance):
-  Each balance oscillation → 2 escape wheel teeth advance
-  Escape wheel advances 2×8 = 16 teeth/second... wait:
-  Actually: each beat (half-oscillation) releases 1 tooth.
-  8 Hz balance = 16 beats/second → escape wheel advances 16 teeth/second.
-  Escape wheel has 15 teeth → 16/15 = 1.067 revolutions/second.
-  Nope: at 8 beats/second (4 Hz balance), each full oscillation = 2 beats
-  → escape wheel advances 2 teeth per oscillation.
-  At 4 Hz: 4 oscillations/sec × 2 teeth = 8 teeth/sec.
-  Escape wheel (15 teeth) → 8/15 revolutions/second ≈ 0.533 r/sec.
-  Fourth wheel pinion (7 teeth) advanced 0.533 × 15/7 = 1.14 r/sec by escape wheel?
-  The gear ratio works in reverse: fourth wheel drives escape wheel.
-  Fourth wheel (80 teeth) → escape wheel pinion (typically 7 or 8 teeth).
-  4th wheel 1 rev → escape wheel 80/7 = 11.4 revolutions.
-  Escape wheel at 8/15 r/sec → 4th wheel at (8/15) × (7/80) = 0.0467 r/sec.
-  = one revolution per 1/(0.0467) = 21.4 seconds...
-  Close to standard; actual tooth counts vary by caliber.
+GEAR TRAIN CALCULATION (28,800 vph = 4 Hz balance):
 
-Point is: the total reduction from barrel to escape wheel:
-  Barrel → Center: ~8:1 (barrel turns once every 8h; center once/hour)
-  Center → Third: ~8:1 (center once/hour; third once/7.5 min)
-  Third → Fourth: ~8:1 (third once/7.5 min; fourth once/minute)
-  Fourth → Escape: ~8:1 (fourth once/minute; escape 7.5 per minute = 0.125/s)
-  Total: ~4096:1 to ~8192:1 ... actual calibers vary, 14,400:1 commonly cited
+  Step 1: Balance oscillates at 4 Hz → 8 beats/sec
+    Each beat advances escape wheel by 1 tooth.
+    Escape wheel: 8 teeth advanced per second.
+
+  Step 2: Escape wheel (21 teeth, ETA 2824-type):
+    8 teeth/sec ÷ 21 teeth/rev = 0.381 rev/sec
+
+  Step 3: Fourth wheel drives escape wheel pinion.
+    Fourth wheel (60t) meshes with escape pinion (8t).
+    Fourth wheel speed = 0.381 × (8/60) = 0.0508 rev/sec
+    = 1 revolution per 19.7 seconds.
+
+  Note: The fourth wheel carries the seconds hand
+    ONLY when tooth counts are chosen to give exactly
+    1 rev/60 sec. In the ETA 2824, the center wheel
+    indirect seconds mechanism achieves 60-second
+    rotation. Tooth counts vary by caliber — the
+    illustrative numbers above show the principle,
+    not a specific caliber's exact ratios.
+
+  Step 4: Working backward from design targets:
+    Center wheel: 1 rev/hour (carries minute hand)
+    Third wheel: intermediate reduction
+    Fourth wheel: 1 rev/min (if it carries seconds hand)
+    Escape wheel: driven at 8 teeth/sec by balance
+    Tooth counts are selected to hit these exact targets.
 ```
 
 **Pinions:** The small driving gears (pinions) in the going train have far fewer teeth (6–10 typically) than the wheels they drive (60–100 teeth). This large ratio between wheel teeth and pinion leaves (teeth on pinion) provides the reduction. Pinion leaves are wider and more robust than wheel teeth.
@@ -312,7 +315,8 @@ Period of oscillation:
     - Tradeoff: 28,800 vph is well-established sweet spot
 ```
 
-<!-- @editor[bridge/P2]: Balance wheel oscillation period T = 2π√(I/k) is stated but the engineering insight for this reader is missing: this is a torsional harmonic oscillator — structurally identical to an LC tank circuit with I↔L (inductance stores kinetic energy) and k↔1/C (spring stores potential energy). The frequency stability of the balance wheel is limited by the temperature coefficients of I and k, which is why Nivarox and Glucydur exist (compensating dI/dT and dk/dT against each other). The temperature compensation design problem is the same as designing a temperature-stable LC oscillator: use components whose temperature coefficients cancel. Worth a sentence bridging to the electronic analog. -->
+The balance wheel is a torsional harmonic oscillator — structurally identical to an LC tank circuit: moment of inertia I maps to inductance L (stores kinetic energy), spring constant k maps to 1/C (stores potential energy). The frequency stability is limited by the temperature coefficients of I and k, which is why Nivarox and Glucydur exist: their dI/dT and dk/dT are chosen to cancel each other over the operating temperature range. This is the same design problem as a temperature-stable LC oscillator — use components whose temperature coefficients compensate.
+
 **Balance wheel materials:** Brass (historical), monometallic copper-beryllium (for reduced temperature coefficient), Glucydur (copper-beryllium alloy, developed 1950s — near-zero temperature coefficient of inertia, non-magnetic).
 
 ### Hairspring (Balance Spring)

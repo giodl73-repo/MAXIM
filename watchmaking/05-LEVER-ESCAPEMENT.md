@@ -64,7 +64,7 @@ LEVER ESCAPEMENT (detached):
 
 This is exactly analogous to a distributed system where a node mostly processes independently and synchronizes only at checkpoints — minimizing the fraction of time that network jitter (external perturbation) affects the computation.
 
-<!-- @editor[bridge/P2]: The "detached escapement = checkpoint synchronization" analogy is good but could go one level deeper for this reader. The coupling fraction (~5%) maps directly to "duty cycle of lock acquisition" in a PLL or DLL. The balance wheel's free-running arc is the local oscillator running between phase corrections; the impulse event is the phase detector firing. A reader with signal processing background will recognize the lever escapement as a mechanical phase-locked loop: the balance wheel is the VCO, the escapement is the phase detector + charge pump, and the gear train is the reference divider. This bridge connects 05 to 07 (quartz oscillator circuit) and 08 (atomic clock Ramsey method). -->
+The lever escapement is a mechanical phase-locked loop: the balance wheel is the VCO (voltage-controlled oscillator — here, energy-controlled), the escapement interaction is the phase detector + charge pump (corrects phase at each beat), and the gear train is the reference divider. The ~5% coupling fraction is the duty cycle of lock acquisition. This PLL framing connects directly to the quartz oscillator circuit (07-QUARTZ) where the Pierce oscillator topology is an electronic PLL, and to the atomic clock Ramsey method (08-ATOMIC) where the interrogation cycle is a sampled phase comparison.
 
 
 ---
@@ -305,7 +305,8 @@ COSC-certified movements are labeled "Chronometer" on the dial.
 
 ## Silicon Revolution in Lever Escapements
 
-<!-- @editor[bridge/P2]: Silicon section mentions DRIE (Deep Reactive Ion Etching) but doesn't connect it to semiconductor manufacturing this reader knows. DRIE is exactly the same photolithographic process flow used to pattern MEMS devices — the escape wheel is manufactured the same way as an accelerometer or gyroscope die. Tolerances achievable: ±1–2 µm vs ±20 µm for traditional machining. The parallel: silicon watch components are MEMS devices that happen to be installed in a mechanical watch. This is also the bridge to 07-QUARTZ.md (MEMS oscillators) and explains why the same firms making smartphone motion sensors (STMicroelectronics, Bosch) are the technology base for next-generation escapement components. -->
+Silicon watch components are manufactured using DRIE (Deep Reactive Ion Etching) — the same photolithographic process flow used to fabricate MEMS accelerometers and gyroscopes in smartphones. Tolerances: +/-1-2 um vs +/-20 um for traditional machining. The escape wheel in a Patek Philippe Advanced Research watch is a MEMS device installed in a mechanical watch. This explains why the firms making smartphone motion sensors (STMicroelectronics, Bosch) are the technology base for next-generation escapement components — and why the bridge to MEMS oscillators (07-QUARTZ) is not just conceptual but literal.
+
 Since the early 2000s, several manufacturers have replaced traditional metal components with silicon (Patek Philippe's Silinvar, Rolex's Parachrom, Breguet's silicon components):
 
 ```
