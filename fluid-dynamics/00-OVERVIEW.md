@@ -159,22 +159,28 @@ FLUID TAXONOMY:
 
 ### Fluid Dynamics ↔ Engineering / Azure Analogy
 
-<!-- @editor[bridge/P2]: The network analogy is offered as a bridge but several mappings are loose to the point of misleading: "Reynolds number ↔ traffic load ratio" obscures that Re is a dimensionless ratio of inertial to viscous forces — not simply a load metric. "Bernoulli ↔ bandwidth conservation" conflates an energy conservation law with mass conservation (continuity). The stronger universal bridge for this learner is the dimensional analysis / similarity argument: Re similarity in fluid dynamics is structurally identical to the use of normalized load metrics and scale-free laws in distributed systems analysis (Little's Law, Amdahl's Law). That connection — "dimensionless numbers as similarity laws that let you transfer results between scales" — is the mathematical core and would serve any senior engineer, not just one with Azure context. The network analogy can stay as informal flavor but should not be the primary bridge. -->
-A useful analogy from distributed systems engineering: fluid flow is like network traffic flow.
+### Engineering Bridge: Dimensionless Numbers as Similarity Laws
+
+The deeper bridge to engineering and CS is not a loose network analogy but the concept of **dimensionless similarity** — the idea that a single dimensionless parameter collapses an infinite family of problems into one.
 
 ```
-FLUID FLOWS       ↔      NETWORK/DATA FLOWS
-────────────────────────────────────────────
-Viscous resistance  ↔  Network latency / bandwidth limit
-Reynolds number     ↔  Traffic load ratio
-Laminar flow        ↔  Ordered, predictable packet flow
-Turbulence          ↔  Chaotic, unpredictable congestion
-Boundary layer      ↔  Rate-limiting near slow nodes
-Shock wave          ↔  Sudden congestion collapse
-Bernoulli           ↔  Bandwidth conservation (continuity)
+FLUID DYNAMICS SIMILARITY         CS / ENGINEERING SIMILARITY
+──────────────────────────────────────────────────────────────────────────────
+Reynolds number Re = ρUL/μ        Normalized load metric (demand/capacity)
+  Same Re → dynamically similar   → Same utilization ratio → same queueing
+  flows (model → full scale)         behavior regardless of absolute scale
+
+Froude number Fr = U/√(gL)        Amdahl's Law: speedup = 1/(s + p/N)
+  Wave propagation vs flow speed   → A single dimensionless ratio (serial
+  → subcritical/supercritical       fraction s) governs all parallel scaling
+
+Dimensional analysis (Buckingham  Little's Law: L = λW
+  Pi): n vars, k dims → n−k        Scale-free relationship between
+  dimensionless groups govern       throughput, latency, concurrency —
+  entire physics                    holds regardless of system details
 ```
 
-This is informal but useful for intuition about Reynolds-number-like transitions in complex systems.
+The principle: any system governed by a small set of dimensionless groups exhibits **similarity** — measurements from one scale predict behavior at another. Wind tunnel testing exploits Re similarity; capacity planning exploits utilization-based models. The mathematical structure is identical.
 
 ---
 

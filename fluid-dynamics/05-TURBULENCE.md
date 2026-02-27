@@ -198,8 +198,7 @@ Resolve all scales from L down to η. No turbulence model needed.
 At Re = 10⁴: N³ ~ 10⁹, total ~ 10¹⁰ operations — feasible on supercomputer.
 At Re = 10⁶: cost increases by (10²)^{11/4} ~ 10^{5.5} → 3×10¹⁵ — impossible today.
 
-<!-- @editor[bridge/P3]: DNS cost scaling (Re^{11/4}) and the resulting parallelization imperative is a natural bridge to the learner's Azure/HPC background. The domain decomposition pattern in DNS (partition the 3D grid, communicate halo cells, all-reduce for global statistics) is the same pattern used in distributed training and large-scale data processing. A brief note connecting DNS scaling to why modern CFD codes are MPI-first, GPU-optimized, and use the same communication patterns as distributed ML would make the cost argument concrete and memorable. -->
-DNS is a research tool for low-Re flows and fundamental turbulence physics.
+DNS is a research tool for low-Re flows and fundamental turbulence physics. The Re^{11/4} cost scaling means DNS runs are MPI-first, GPU-optimized, and use the same domain decomposition + halo exchange pattern as distributed ML training — partition the 3D grid, compute local derivatives, exchange boundary data with neighbors each timestep, all-reduce for global statistics.
 
 ### LES (Large Eddy Simulation)
 
@@ -240,8 +239,7 @@ Turbulence is not purely random — it contains recurring organized structures:
 - Brown-Roshko large structures at moderate Re
 - Fine-scale turbulence overlaid on large-scale organization
 
-<!-- @editor[bridge/P3]: POD and DMD are mentioned by name but not connected to their mathematical underpinnings — POD is SVD of the snapshot matrix; DMD is Koopman operator approximation via eigendecomposition. Learner has linear algebra depth from MIT Math; a one-sentence bridge ("POD = SVD of snapshot matrix; DMD = eigendecomposition of the linear operator that best approximates the nonlinear dynamics") would make these immediately usable rather than opaque acronyms. -->
-**Detection methods**: Proper Orthogonal Decomposition (POD), Dynamic Mode Decomposition (DMD), Q-criterion (vortex identification), λ₂-criterion.
+**Detection methods**: Proper Orthogonal Decomposition (POD = SVD of the snapshot matrix, extracting the energetically dominant spatial modes), Dynamic Mode Decomposition (DMD = eigendecomposition of the best-fit linear operator approximating the nonlinear dynamics — the data-driven Koopman operator), Q-criterion (vortex identification), lambda_2-criterion.
 
 ---
 

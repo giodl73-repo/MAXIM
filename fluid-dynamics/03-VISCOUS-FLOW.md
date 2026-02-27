@@ -31,12 +31,7 @@ NAVIER-STOKES — FULL STRUCTURE
 
 ## Physical Interpretation of Viscosity
 
-<!-- @editor[audience/P2]: Defines τ = μ(∂u/∂y) (Newton's law of viscosity) from scratch — learner calibration explicitly says this does NOT need explaining. Skip the constitutive law; open directly with the diffusivity interpretation and the μ vs ν distinction, which ARE new and useful. -->
-**Dynamic viscosity μ**: Proportionality constant between shear stress and shear rate.
-
-    τ = μ (∂u/∂y)    (Newton's law of viscosity)
-
-**Kinematic viscosity ν = μ/ρ**: What appears in the N-S equations after dividing by ρ. Units: m²/s. Think of it as the "diffusivity of momentum."
+The constitutive law tau = mu (du/dy) is the starting point. The quantity that matters in the equations and in Re is **kinematic viscosity** nu = mu/rho [m^2/s] — the diffusivity of momentum, directly analogous to thermal diffusivity alpha = k/(rho c_p) and mass diffusivity D.
 
 ```
 VISCOSITY VALUES (approximate, 20°C):
