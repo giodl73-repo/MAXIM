@@ -194,6 +194,7 @@ The most important special case — admits a closed-form solution:
   K = R⁻¹Bᵀ P = constant feedback gain matrix.
   Standard feedback controller for linear systems.
 
+  <!-- @editor[bridge/P3]: This bridge is incongruous in a mathematics text. The BRIDGE hierarchy specifies stack-specific bridges (Azure/VSTS) as P3 — nice to have, not load-bearing. More importantly, the bridge as written doesn't add mathematical value and reads as an awkward detour in the middle of the LQR derivation. If a bridge is warranted here, the universal engineering bridge is better: "LQR is the foundation of model-predictive control (MPC) — the standard approach in process control, aerospace, and any system requiring constrained optimal feedback." Leave Azure/VSTS out of a pure math file. -->
   BRIDGE TO AZURE/VSTS: LQR is the foundation of model-predictive control
   (MPC) used in real-time manufacturing, cloud resource allocation, etc.
 ```

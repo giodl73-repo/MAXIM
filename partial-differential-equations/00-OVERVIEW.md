@@ -184,6 +184,8 @@ for x<0).
 
 ---
 
+<!-- @editor[diagram/P2]: The Solution Strategy Map and Analytical Toolkit diagram cover only classical analytical methods. For this learner, the landscape is incomplete without modern PDE theory (Sobolev spaces, weak formulations, elliptic regularity) and ML-based approaches (PINNs, neural operators, diffusion models as SDEs) visible at the overview level. The diagram presents the field as if numerical methods are a fallback after analytical methods fail — not as a first-class domain. Rework to show the modern theory layer alongside the classical layer. -->
+
 ## Key Analytical Tools
 
 ```
@@ -221,6 +223,8 @@ for x<0).
 |                                                                  |
 +------------------------------------------------------------------+
 ```
+
+<!-- @editor[content/P2]: The overview makes no mention of ML-based PDE approaches at the landscape level. Physics-Informed Neural Networks (PINNs), Fourier Neural Operators (FNO), DeepONet, and diffusion models as SDEs (the heat equation as the forward noising process in score-based generative models) are significant modern developments explicitly needed by this learner. These should appear alongside classical methods in the overview — not deferred to individual files. -->
 
 ---
 

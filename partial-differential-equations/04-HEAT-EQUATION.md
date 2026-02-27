@@ -273,6 +273,8 @@ The long-time asymptotics are controlled by the lowest eigenvalue:
 
 ---
 
+<!-- @editor[content/P1]: The connection between the heat/diffusion equation and modern generative AI is entirely absent. The forward process of score-based diffusion models (DDPM, Song & Ermon 2019, Ho et al. 2020) IS the heat equation: dX_t = dW_t (Brownian motion, ∂ₜρ = ½∇²ρ). The reverse process is a reverse-time SDE driven by the score function ∇log p_t(x). The neural network learns ∇log p_t — the score — and then runs the SDE backward. This is not tangential: understanding that "denoising diffusion = solving the heat equation backward approximately using a learned score" is the correct mental model for why diffusion models work. The heat equation's smoothing/forward process and the ill-posedness of the backward heat equation both have direct counterparts in generative model behavior. This is a P1 gap for this learner. -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

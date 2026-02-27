@@ -219,6 +219,7 @@ The Standard Model of particle physics is entirely about connections on principa
   4-manifolds provides information about the topology of 4-manifolds.
   Led to exotic 4-manifolds and proved R^4 has exotic smooth structures.
 ```
+<!-- @editor[bridge/P2]: Donaldson theory is mentioned but the circle is not closed back to 01-MANIFOLDS — this is the payoff of the exotic smooth structure discussion. The full chain: Yang-Mills instantons (gauge connections) on a 4-manifold → moduli space of self-dual connections → Donaldson's polynomial invariants distinguish smooth structures → R^4 has exotic smooth structures (uncountably many) → smooth Poincaré conjecture in dim 4 remains open. This should be a 4-5 line explicit chain of reasoning, connecting gauge theory (fiber bundles) to smooth topology (manifolds) — exactly the cross-guide coherence this learner needs. -->
 
 ---
 
@@ -294,3 +295,5 @@ They are equivalent: a connection on a principal G-bundle P induces a connection
 
 **"The Chern class is a differential geometry invariant."**
 Chern classes are topological invariants — they don't change when you smoothly deform the bundle. The Chern-Weil theorem says you can COMPUTE them using curvature (differential geometry), but the result is a topological invariant independent of the connection or metric used to compute it.
+
+<!-- @editor[content/P2]: Missing the gauge-equivariant neural networks bridge from fiber bundles — this is explicitly flagged as a priority in the sweep calibration. The direct connection: a gauge-equivariant CNN (Cohen & Welling 2016, Weiler et al. 2018) is a neural network whose feature maps are sections of a vector bundle E → M associated to a principal G-bundle, and whose convolutional kernels are parallel transport operators. The gauge freedom (choice of local trivialization) corresponds to the choice of local coordinate frame, and equivariance means the network output is independent of this choice. This is not an analogy — it is the literal mathematical content. A short section "Fiber Bundles and Equivariant Networks" with the bundle-section-parallel-transport mapping to feature-map-kernel-equivariance would make this guide complete for the ML-aware reader. -->

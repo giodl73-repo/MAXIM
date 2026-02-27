@@ -33,6 +33,7 @@ A smooth manifold is a topological space that locally looks like R^n, with compa
 
 ---
 
+<!-- @editor[audience/P2]: The learner profile explicitly states "does NOT need: what a manifold is, smooth maps" — the full formal definition from topological manifold up, atlas construction, and smooth maps from scratch are below the pitch level. The learner knows this cold from MIT. Replace with: the key subtleties that matter for the applications (exotic smooth structures, manifolds that aren't subsets of R^n, why the definition is set up the way it is) rather than restating the definition. -->
 ## Formal Definition
 
 **Topological manifold**: A Hausdorff, second-countable topological space M such that every point p in M has an open neighborhood U homeomorphic to an open set V in R^n.
@@ -98,6 +99,7 @@ A smooth manifold is a topological space that locally looks like R^n, with compa
 
 ---
 
+<!-- @editor[audience/P2]: "Smooth maps" section defines immersion/submersion/embedding from scratch — learner has differential topology at this level from MIT. Condense to a quick reference table (keep the Whitney embedding theorem result and its implication for intrinsic vs. extrinsic geometry). The section should focus on what's surprising or non-obvious, not the vocabulary. -->
 ## Smooth Maps
 
 A function f: M -> N between smooth manifolds is **smooth** if in any charts (U, phi) on M and (V, psi) on N:
@@ -253,6 +255,7 @@ Exotic smooth structures: A topological manifold can admit multiple non-diffeomo
   the topological category in dimension 4. This is related to why
   4-dimensional spacetime is special in physics.
 ```
+<!-- @editor[bridge/P2]: Exotic R^4 and its physics implication is mentioned but not developed — this is the most important point in this section for a sophisticated reader. The connection: Donaldson's theorem (from Yang-Mills gauge theory on 4-manifolds) was what revealed the exotic smooth structures. The smooth Poincaré conjecture in dim 4 being open is directly connected to the difficulty of 4D spacetime topology. Expand this bridge: Yang-Mills instantons on 4-manifolds (08-FIBER-BUNDLES) provided the first tools to distinguish smooth structures, connecting gauge physics to 4-manifold topology. -->
 
 ---
 
@@ -282,3 +285,5 @@ Very different. There are continuous everywhere but nowhere differentiable funct
 
 **"The dimension of a manifold is obvious from looking at it."**
 Dimension is defined locally (dimension of R^n in charts). For embedded manifolds in R^k, the dimension equals the dimension of the tangent plane. But the invariance of dimension under homeomorphism (let alone diffeomorphism) requires proof — it follows from invariance of domain, which requires algebraic topology.
+
+<!-- @editor[content/P2]: Missing ML/applications bridge — the guide defines manifolds rigorously but never connects to why a practitioner working with Riemannian optimization, geometric deep learning, or information geometry cares about the smooth structure specifically (as opposed to just the metric structure). Add a short "Manifolds in Practice" section: parameter spaces of neural networks are smooth manifolds (implicitly or explicitly), configuration spaces in robotics are manifolds, the space of probability distributions with Fisher metric is a statistical manifold. The smooth structure (not just topology) is what makes gradient-based optimization well-defined. -->

@@ -295,6 +295,8 @@ For d >> 5, Monte Carlo is often the only practical method:
   In statistics: normalizing constants for Gaussian posteriors.
 ```
 
+<!-- @editor[content/P2]: Path integrals section is thin — two sentences and a comma-separated list of techniques. For a learner with MIT physics/math background who "needs numerical PDEs", the connection between Feynman path integrals (which reduce quantum field theory to a high-dimensional integration problem), lattice QCD Monte Carlo, and the Monte Carlo methods in this module is substantial and worth a real paragraph. Currently reads as a dropped reference rather than usable content. -->
+
 **Path integrals (physics)**:
 
 ```
@@ -309,6 +311,8 @@ For d >> 5, Monte Carlo is often the only practical method:
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No connection to automatic differentiation. Integration and differentiation are dual operations; in AD, the integral of a function can itself be differentiated through (ODE-constrained optimization, neural ODEs). A note connecting "integrating a differential equation → ODE solver → can be differentiated through via adjoint method → AD" would bridge this module to the 08-OPTIMIZATION and 09-SCIENTIFIC-COMPUTING AD sections. -->
 
 ## Decision Cheat Sheet
 

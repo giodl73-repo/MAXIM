@@ -370,6 +370,7 @@ PYTHON-GPU WORKFLOW:
   JAX:     NumPy-compatible, supports CPU/GPU/TPU with same code.
            jnp.linalg.solve(A, b)  -> XLA-compiled (GPU or TPU)
   RAPIDS cuML: SciPy equivalent for GPU (scikit-learn API, GPU backend).
+<!-- @editor[content/P2]: cuSPARSE patterns for iterative solvers on GPU are not covered. The learner explicitly needs cuSPARSE patterns. The GPU section covers cuBLAS (dense GEMM) and cuSOLVER (factorizations) but not cuSPARSE — which is the critical library for CG/GMRES on GPU. The pattern is: CSR matrix stays on device, cuSPARSE::csrmv computes SpMV each iteration, cuBLAS handles the vector operations (dot, axpy). A code-pattern box showing the CG loop in terms of cuSPARSE/cuBLAS calls would directly serve the stated learner need. -->
 
 MEMORY MANAGEMENT:
   Transfer bottleneck: always minimize CPU-GPU transfers.
@@ -656,6 +657,7 @@ REVERSE MODE AD (backpropagation):
 
   This is why backpropagation in neural networks uses reverse mode:
   Loss is scalar, parameters are millions -> reverse mode essential.
+<!-- @editor[bridge/P1]: The AD section here is the primary place in the library where AD is fully explained, but it lacks the bridge to the ODE/PDE adjoint method. Reverse-mode AD through an ODE solve (neural ODEs, sensitivity analysis) uses exactly the same adjoint principle: the adjoint equations are the "backward pass" of the ODE solver, directly analogous to backpropagation through time. The connection "reverse-mode AD → adjoint method for ODEs → adjoint-based sensitivity analysis for PDEs" is the key bridge connecting modules 06, 07, 08, and 09 for the learner. Currently these sections exist in isolation. -->
 
 PYTHON AD LIBRARIES:
   PyTorch (torch.autograd): reverse mode, dynamic computation graph.

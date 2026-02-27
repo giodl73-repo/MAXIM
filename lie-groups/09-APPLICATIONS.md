@@ -281,6 +281,8 @@ This is optimization on the Lie group SO(m) with an analytic solution.
 
 ---
 
+<!-- @editor[content/P2]: Geometric Deep Learning (GDL) as a unifying theoretical framework is absent. The equivariant network architectures described (TFN, SE(3)-Transformers, MACE, Equiformer) are instances of the broader framework developed by Bronstein, Bruna, LeCun, Szlam, Vandergheynst (2021 "Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges"). GDL provides the theoretical unification: CNNs = equivariant to translation (T^n), GNNs = equivariant to permutation (S_n), SE(3)-GNNs = equivariant to SE(3), gauge-equivariant networks on manifolds = equivariant to gauge transformations. The blueprint is: pick your symmetry group G, build G-equivariant layers via the representation theory of G, and you get the appropriate inductive bias for your geometric domain. This missing context means a reader learns about specific architectures without understanding the unifying principle that makes them all instances of the same construction. -->
+
 ## Decision Cheat Sheet
 
 | Application | Lie group | Key tool |

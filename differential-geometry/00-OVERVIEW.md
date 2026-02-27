@@ -4,6 +4,7 @@
 
 Differential geometry extends calculus from flat Euclidean spaces to curved spaces (manifolds). The central insight: local coordinates exist everywhere, but the global space need not be flat.
 
+<!-- @editor[diagram/P2]: Landscape diagram lists the 9 modules in boxes but doesn't show the dependency arrows — which modules build on which, and which structures branch off the core (smooth manifold → tangent bundle → {metric branch, forms branch, connection branch}). Also missing: symplectic geometry and information geometry as named structures in the landscape, even though they are first-class applications. Rework to show layered dependency: smooth structure → tangent/cotangent bundles → {Riemannian (metric), symplectic (2-form), principal bundles (gauge)} → curvature → applications. -->
 ```
 +------------------------------------------------------------------+
 |              DIFFERENTIAL GEOMETRY LANDSCAPE                     |
@@ -148,6 +149,7 @@ Classical multivariate calculus ties everything to R^n coordinates. Differential
     ML on manifolds: optimization on S^n, SO(n), positive definite matrices
     Riemannian SGD, natural gradient (= natural gradient of Fisher metric)
     Geometric deep learning (gauge equivariance in ML)
+<!-- @editor[content/P2]: Information geometry is listed here in a subordinate bullet but deserves its own cross-reference entry — statistical manifolds with the Fisher information metric are a major application domain (natural gradient descent, amortized inference, exponential families as curved submanifolds). The Fisher metric is a Riemannian metric on the space of probability distributions; this bridge from DG to ML is the most direct and should be elevated. -->
 ```
 
 ---
@@ -185,6 +187,7 @@ Classical multivariate calculus ties everything to R^n coordinates. Differential
 
 ---
 
+<!-- @editor[structure/P2]: Cheat sheet is a navigation index, not a decision tool — rows should be "use X when Y" (e.g., "Need to optimize a loss on rotation matrices → 04-RIEMANNIAN-GEOMETRY + 09-APPLICATIONS §ML; need to formulate a gauge theory → 08-FIBER-BUNDLES + 05-CONNECTIONS"). Redirect pointers alone don't guide decisions. -->
 ## Decision Cheat Sheet
 
 | I need to... | See |

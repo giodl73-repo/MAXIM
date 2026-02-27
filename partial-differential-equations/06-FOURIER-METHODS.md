@@ -1,5 +1,7 @@
 # Fourier Methods and Separation of Variables
 
+<!-- @editor[audience/P2]: This file is calibrated toward material the learner does NOT need. The user calibration explicitly states "Does NOT need: separation of variables, basic wave/heat equation." Nearly half the file (Sturm-Liouville derivations, separation of variables step-by-step algorithms for rectangles and cylinders, Gibbs phenomenon) covers this territory at an introductory level. The sections the learner DOES need — spectral methods, pseudospectral methods, and the connection between spectral decomposition and modern ML (attention as kernel regression, Fourier Neural Operator using spectral decomposition) — are one short section. The file needs rebalancing: treat separation of variables and classical Fourier series as a brief reference table, expand the spectral methods section significantly, and add the FNO/spectral ML connection. -->
+
 ## The Big Picture
 
 Fourier methods convert a PDE into an algebraic or ODE problem by representing the solution

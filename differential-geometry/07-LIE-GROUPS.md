@@ -236,6 +236,7 @@ A **symmetric space** is a Riemannian manifold M where every point p has a geode
   Gamma(t) = A^{1/2} exp(t A^{-1/2} log(A^{-1/2} B A^{-1/2}) A^{1/2})
   Distance: d(A,B)^2 = ||log(A^{-1/2} B A^{-1/2})||_F^2
 ```
+<!-- @editor[content/P2]: Sym+(n) section is correct but missing the connection to natural gradient and information geometry: the Fisher information matrix F(theta) of a parametric model is an element of Sym+(n), making the parameter space itself a Riemannian manifold with metric F. Natural gradient descent replaces the identity preconditioner with F^{-1}, i.e., it uses the Riemannian gradient (sharp of df with the Fisher metric) instead of the Euclidean gradient. This is exactly Riemannian gradient descent on the statistical manifold — the most direct application of Sym+(n) geometry to ML. Also missing: the log-Euclidean metric (approximation to affine-invariant metric, computationally cheaper) and its use in practical Riemannian ML frameworks (Geomstats, pyRiemann). -->
 
 ---
 
@@ -266,6 +267,8 @@ Only for compact connected G. For SL(2,R) (non-compact), some elements cannot be
 
 **"The abstract algebra background is separate from the geometry."**
 The whole point of Lie groups is that they are both. The abstract group structure tells you about symmetries. The manifold structure tells you about smooth deformations of those symmetries. The Lie bracket in the algebra encodes the curvature of the group manifold. Abstract algebra (groups) + differential geometry (manifolds) = Lie group theory.
+
+<!-- @editor[bridge/P2]: Missing the equivariant networks → representation theory bridge. The Peter-Weyl theorem (compact Lie group G has irreducible representations that decompose L^2(G)) is the foundation for spherical harmonics (irreps of SO(3)) and the Clebsch-Gordan coefficients used in equivariant networks. This is mentioned in 09-APPLICATIONS but should be anchored here where the representation theory machinery lives. The key bridge: NequIP, SEGNN, and similar architectures use SO(3)/SE(3) irreducible representations as feature types; equivariance is enforced by requiring network layers to be linear maps between representation spaces (intertwiners). The abstract framework is the representation theory of Lie groups — it belongs in this file. -->
 
 **"SO(3) and SU(2) are different objects."**
 They are different groups (different as abstract groups, since SU(2) is simply connected and SO(3) is not). But they have the same Lie algebra. The covering map SU(2) -> SO(3) is a smooth group homomorphism with kernel Z_2. Physically: classical mechanics lives in SO(3), quantum mechanics of spin-1/2 particles requires SU(2).

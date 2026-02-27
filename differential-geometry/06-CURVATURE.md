@@ -272,6 +272,7 @@ The complete classification:
   APPLICATION to machine learning: "neural ODEs" on manifolds, geometric flows
   for shape analysis, Ricci flow for graph neural networks.
 ```
+<!-- @editor[content/P2]: The ML application note for Ricci flow is thin — one line with no detail. Specific gaps: (1) Ollivier-Ricci curvature on graphs (discrete analogue) detects community structure and bottlenecks; Forman-Ricci curvature on edges identifies graph surgery candidates — active research in network analysis. (2) The optimization landscape connection: positive sectional curvature in the loss landscape geometry correlates with saddle-point problems in training; negative curvature is exploited by second-order methods. (3) Normalized Ricci flow on compact surfaces: converges to constant curvature metric, providing the 2D classification (sphere, flat torus, hyperbolic surface) as a flow fixed point. -->
 
 ---
 
@@ -298,6 +299,8 @@ Ricci-flat (Ric = 0) is much weaker than flat (R = 0). A Ricci-flat manifold can
 
 **"Gauss-Bonnet only works in 2D."**
 The classical Gauss-Bonnet is for 2-manifolds. The Chern-Gauss-Bonnet theorem generalizes to all even dimensions, and the Atiyah-Singer index theorem is a further vast generalization connecting differential geometry (curvature) to analysis (elliptic operators) and topology (characteristic classes).
+
+<!-- @editor[content/P2]: Atiyah-Singer index theorem is mentioned here and in the decision table but not developed anywhere in the guide. For this learner (MIT TCS background, interested in gauge theory and ML), this is a priority: the index theorem says analytical index (dim ker D - dim coker D for elliptic operator D) equals topological index (integral of characteristic classes). Specific instance: Dirac operator on a spin manifold — index = A-hat genus; Dolbeault operator on a complex manifold — index = holomorphic Euler characteristic. The theorem also underlies the classification of anomalies in quantum field theory (chiral anomaly = index of Dirac operator). A short section with these examples would complete the curvature → topology → analysis chain. -->
 
 **"The curvature tensor has n^4 components."**
 The naive count is n^4, but the symmetries of Riemann reduce this to n^2(n^2-1)/12. For n=2: 1 component (Gaussian curvature). For n=3: 6 components. For n=4: 20 components. For n=10 (string theory): 825 independent components.

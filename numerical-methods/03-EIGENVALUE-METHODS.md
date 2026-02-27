@@ -228,6 +228,8 @@ For very large matrices (n, m > 10^5) where even O(mn) work is expensive:
 
 ---
 
+<!-- @editor[content/P2]: Randomized SVD section mentions power iteration variant but does not cover the sketching framework (Johnson-Lindenstrauss, CountSketch, leverage score sampling) that underlies randomized linear algebra more broadly. The learner calibration explicitly calls out "sketching" as a needed topic. A paragraph connecting RandSVD's random projection Omega to the JL lemma and to streaming/one-pass sketching algorithms would fill this gap. -->
+
 ## Generalized Eigenvalue Problems
 
 Many physical problems lead to generalized eigenvalue problems:
@@ -270,6 +272,8 @@ Many physical problems lead to generalized eigenvalue problems:
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No GPU-accelerated eigenvalue/SVD callout. cuSOLVER has cusolverDn*gesvd for dense SVD and cusolverSp* for sparse eigenvalue problems. For the randomized SVD, the random projection Y = A*Omega is a dense matrix multiply — pure cuBLAS DGEMM — making it naturally GPU-accelerated. A table showing "Algorithm → GPU library → when GPU wins" would be the practical bridge the learner needs. -->
 
 ## Singular Value Decomposition in ML Context
 

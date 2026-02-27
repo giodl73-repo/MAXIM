@@ -180,6 +180,8 @@ BDF methods are implicit linear multistep methods, standard for stiff problems:
   MATLAB: ode15s (variable-order BDF), ode23s (Rosenbrock), ode23t (trapezoidal).
 ```
 
+<!-- @editor[bridge/P2]: No automatic differentiation bridge for Jacobian computation. BDF and Rosenbrock methods require the Jacobian df/dy at each step. In practice this is either computed by finite differences (slow, inaccurate) or by AD. Forward-mode AD is ideal for this: df/dy for a vector-valued f: R^n → R^n is O(n) forward passes — same as finite differences but machine-precision accurate. The learner explicitly needs AD; this is the most direct practical application of it in the ODE module. -->
+
 **Newton's method for the implicit solve** (at each BDF step):
 
 ```
@@ -267,6 +269,8 @@ DAEs mix differential equations and algebraic constraints:
 ```
 
 ---
+
+<!-- @editor[content/P2]: Cheat sheet row "Conservative system (Hamiltonian) | Symplectic integrator (Verlet, Leapfrog) | Preserves energy long-term" has no corresponding section in the guide. Symplectic integrators are mentioned only in the table — there is no explanation of why they preserve energy (symplecticity = area-preserving in phase space), no Störmer-Verlet algorithm, and no discussion of when this matters vs. standard RK methods. Stub row in the cheat sheet — needs a section or removal. -->
 
 ## Decision Cheat Sheet
 
