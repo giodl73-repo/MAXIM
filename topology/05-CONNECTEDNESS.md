@@ -213,7 +213,9 @@ FUNDAMENTAL GROUP OF GRAPH:
 
 ---
 
-<!-- @editor[content/P2]: Missing Morse theory connection — the topology of sublevel sets {x : f(x) ≤ c} changes precisely at critical points of f. This is the topological explanation for why H₀ persistence in TDA (birth-death of connected components) works the way it does: components merge at saddle points. Since this file covers connectedness and path-components, a paragraph on "connectedness changes via Morse theory" would bridge directly to 10-APPLICATIONS.md's TDA section. The merge tree / contour tree in TDA is exactly the H₀ persistence story. -->
+## Morse Theory and Connectedness Changes
+
+For a smooth function f: M → R on a manifold, the topology of the sublevel set M_c = {x : f(x) ≤ c} changes precisely at critical points of f (where ∇f = 0). As c increases past a critical value with Morse index 0 (a local minimum), a new connected component is born. As c passes a critical value with index 1 (a saddle point), two components merge (or a cycle is created). The merge tree (contour tree) of f records exactly these H₀ births and deaths — it is the H₀ persistence diagram of the sublevel set filtration. This is the theoretical foundation of sublevel-set persistence in TDA (see 10-APPLICATIONS.md): the birth-death pairs in the H₀ persistence diagram correspond one-to-one to the critical points of the filter function, and the "persistence" (death − birth) of each feature measures the prominence of the corresponding topological event.
 
 ## Common Confusion Points
 

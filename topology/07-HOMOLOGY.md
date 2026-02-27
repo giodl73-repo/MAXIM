@@ -32,7 +32,23 @@
 
 ### Simplicial Complexes
 
-<!-- @editor[bridge/P2]: No bridge from simplicial complexes to data structures the learner knows. Simplicial complex = generalized graph: vertices are 0-simplices, edges are 1-simplices, triangles are 2-simplices. A graph IS a 1-dimensional simplicial complex. The Vietoris-Rips complex (in 10-APPLICATIONS.md) is built exactly like a clique complex of a graph. For a learner who knows graphs/trees deeply (per calibration), this bridge would make homology computation feel like a natural generalization of graph theory (where H₀ = connected components = standard graph algorithm, H₁ = cycle rank = |E|-|V|+components). -->
+BRIDGE TO GRAPH THEORY (the data structures you know):
+  A graph G = (V, E) IS a 1-dimensional simplicial complex:
+    vertices = 0-simplices, edges = 1-simplices.
+  Homology of a graph:
+    H₀(G) = Z^(# connected components) — same as BFS/DFS components.
+    H₁(G) = Z^(cycle rank) where cycle rank = |E| − |V| + components.
+    This is the first Betti number b₁ = dim(cycle space).
+  A simplicial complex generalizes: add 2-simplices (filled triangles),
+    3-simplices (filled tetrahedra), etc. Each dimension adds new
+    "holes" that Hₙ detects.
+  The Vietoris-Rips complex (used in TDA, see 10-APPLICATIONS.md) is
+    built exactly like a clique complex of a graph: connect vertices
+    within distance r, then fill in all cliques as higher simplices.
+    Computing persistent H₀ on a Rips filtration = tracking connected
+    components as the distance threshold r increases — a graph algorithm.
+    H₁ persistence = tracking cycle births/deaths = higher-dimensional
+    generalization of cycle rank.
 ```
 SIMPLEX: The n-simplex Δⁿ is the convex hull of (n+1) affinely
   independent points v₀,...,vₙ ∈ Rᴺ.
@@ -447,7 +463,41 @@ EXAMPLE: Hₙ(Sᵐ × Sᵏ):
 
 ---
 
-<!-- @editor[content/P2]: Missing Morse theory — the connecting link between homology and analysis, and the theoretical underpinning of TDA. Morse theory: for a smooth function f: M → R with isolated non-degenerate critical points, H*(M) can be computed from the critical points. Morse index k of a critical point corresponds to attaching a k-cell — each critical point contributes a generator to Hₖ. The Morse inequalities relate Betti numbers to counts of critical points. This is where "topology meets calculus" and where sublevel-set persistence in TDA gets its theory. Without Morse theory, the connection between homology (07) and TDA (10) has a gap. -->
+## Morse Theory — Homology from Critical Points
+
+For a smooth function f: M → R on a compact manifold with isolated non-degenerate critical points (a Morse function), the homology H*(M) can be computed entirely from the critical points.
+
+```
+MORSE THEORY — THE BRIDGE FROM ANALYSIS TO HOMOLOGY:
+
+  Critical point of f: point p where ∇f(p) = 0.
+  Morse index k: number of negative eigenvalues of Hess(f) at p.
+    index 0 = local minimum
+    index 1 = saddle (one down-direction)
+    index k = k independent down-directions
+
+  As c increases past a critical value f(p) with index k:
+  The sublevel set M_c = {x : f(x) ≤ c} changes by attaching a k-cell.
+    index 0: new connected component born (H₀ generator born)
+    index 1: handle attached — either two components merge (H₀ death)
+             or a 1-cycle created (H₁ generator born)
+    index 2: 2-cell caps off a 1-cycle (H₁ death) or creates a void (H₂ born)
+
+  MORSE INEQUALITIES:
+    bₖ ≤ Cₖ   (Betti number bₖ ≤ count of index-k critical points)
+    Σ(-1)ᵏ Cₖ = Σ(-1)ᵏ bₖ = χ(M)   (alternating sum = Euler char.)
+
+  MORSE COMPLEX: Chain complex with one generator per critical point,
+    boundary maps counting gradient flow lines between critical points.
+    H*(Morse complex) ≅ H*(M) — an efficient chain complex.
+
+  BRIDGE TO TDA:
+    Sublevel-set persistence of f = tracking births/deaths of Hₖ generators
+    as c increases. Each birth/death pair corresponds to a critical point.
+    The persistence diagram IS the Morse-theoretic decomposition of f.
+```
+
+Morse theory is the bridge from differential topology (09-MANIFOLDS.md) to homology computation and to TDA (10-APPLICATIONS.md). It was the key tool in Smale's proof of the h-cobordism theorem and the precursor to Floer homology (infinite-dimensional Morse theory on loop spaces).
 
 ## Decision Cheat Sheet
 

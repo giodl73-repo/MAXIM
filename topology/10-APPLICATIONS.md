@@ -164,7 +164,26 @@ MAPPER ALGORITHM:
   Result: a graph (or simplicial complex) summarizing the shape of data.
   Used in breast cancer survival analysis (Carlsson group) — identified a subtype.
 
-<!-- @editor[content/P2]: Mapper algorithm description is correct but thin on the theoretical basis. Missing: (1) the connection to Reeb graphs (Mapper = a generalized Reeb graph); (2) the nerve theorem that justifies Mapper — the nerve of a cover has the same homotopy type as the covered space under good cover conditions; (3) the role of the filter function choice and how different filters give different topological summaries; (4) the multiscale Mapper (varying cover resolution). For a learner at this level, the "why it works" is as important as the recipe. -->
+WHY MAPPER WORKS — THE THEORETICAL BASIS:
+  Mapper is a discrete approximation to the REEB GRAPH of f.
+  Reeb graph: quotient space X/~ where x ~ y iff x,y are in the same
+    connected component of f⁻¹(f(x)). Continuous version of Mapper.
+
+  NERVE THEOREM (justification):
+    If U = {U₁,...,Uₖ} is a "good cover" of X (all intersections contractible),
+    then the nerve N(U) has the same homotopy type as X.
+    Mapper builds a nerve of the pullback cover — under good-cover conditions,
+    it captures the topology of X faithfully.
+
+  FILTER FUNCTION CHOICE matters:
+    f = first PCA component → captures dominant linear variation.
+    f = eccentricity (max distance to other points) → reveals outliers.
+    f = density → captures cluster structure.
+    Different filters give complementary topological summaries.
+
+  MULTISCALE MAPPER: vary the cover resolution (interval width, overlap).
+    Coarse cover → global structure. Fine cover → local structure.
+    The persistence of features across resolutions is the signal.
 ```
 
 ---
@@ -445,14 +464,57 @@ GRASP PLANNING:
 ## Topological Methods in Other Fields
 
 ```
-<!-- @editor[content/P1]: Knot theory connections to biology/physics are flagged as "DOES need" in the learner calibration, but the current treatment is 5 lines buried under "Topological Methods in Other Fields." This needs substantial expansion. Required content: (1) DNA topology — supercoiling, linking number of DNA strands, topoisomerases as knot-simplifying enzymes (Type I changes writhe, Type II changes crossing number), the Călugăreanu-White-Fuller theorem (Lk = Tw + Wr); (2) protein knotting — how knotted proteins are classified using the same knot invariants; (3) the Alexander polynomial as the determinant of the knot's Seifert matrix (the linear algebra a TCS person can compute); (4) knot groups π₁(S³ \ K) and their Wirtinger presentations (bridge to 06-FUNDAMENTAL-GROUP.md); (5) the connection between Jones polynomial and quantum computing via Witten's Chern-Simons theory. The current paragraph is a stub of what a "DOES need" topic requires. -->
-KNOT THEORY:
-  A knot = embedding of S¹ in S³.
-  Knot invariants: Jones polynomial, Alexander polynomial, HOMFLY polynomial.
-  Jones polynomial (1984): connections to quantum groups, topological QFT.
-  Knot Floer homology (Ozsváth-Szabó): powerful categorified invariant.
-  Applications: protein folding (topological knots in DNA/proteins),
-    quantum computing (anyonic braiding = knot/link invariants).
+KNOT THEORY — BIOLOGY, PHYSICS, AND COMPUTATION:
+
+  A knot K = embedding of S¹ in S³ (up to ambient isotopy).
+  Knot group: π₁(S³ \ K) — see 06-FUNDAMENTAL-GROUP.md for Wirtinger presentation.
+
+  INVARIANTS (hierarchy of power):
+    Knot group π₁(S³\K)         strongest algebraic invariant (hard to compare)
+    Alexander polynomial Δ_K(t)  computable: det(tV − Vᵀ), V = Seifert matrix
+    Jones polynomial V_K(t)      discovered 1984, quantum groups connection
+    HOMFLY-PT P_K(a,z)           generalizes both Alexander and Jones
+    Knot Floer homology HFK      categorified invariant (Ozsváth-Szabó)
+                                 detects genus, fiberedness
+
+  DNA TOPOLOGY:
+    Double-stranded DNA is a ribbon (two curves with linking).
+    LINKING NUMBER Lk = algebraic crossing count of two DNA strands.
+    Călugăreanu-White-Fuller theorem: Lk = Tw + Wr
+      Tw = twist (local helical winding of strands around each other)
+      Wr = writhe (global coiling of the DNA axis in 3D)
+    Lk is a topological invariant (unchanged by deformation).
+    Tw and Wr are geometric — they trade off while Lk stays fixed.
+
+    TOPOISOMERASES: enzymes that change DNA topology.
+      Type I: cuts one strand → changes Lk by ±1 → relaxes supercoiling.
+      Type II: passes one strand through another → changes Lk by ±2
+               → decatenates linked DNA circles, unknots knotted DNA.
+    DNA replication creates catenanes (linked rings);
+      Type II topoisomerase is essential to separate them.
+
+    Gel electrophoresis separates knotted DNA by crossing number —
+      literally a physical knot invariant measurement.
+
+  PROTEIN KNOTTING:
+    ~1% of protein structures contain topological knots (trefoil, figure-8).
+    Classified by the same knot invariants used in mathematics.
+    Knotted proteins: slower folding, increased stability.
+    How they fold into knots is an open question (threading vs. slipknot).
+
+  KNOTS AND QUANTUM COMPUTING (Jones → Chern-Simons → anyons):
+    Witten (1989): the Jones polynomial V_K(t) is the expectation value
+      of a Wilson loop observable in Chern-Simons gauge theory at level k:
+      V_K(e^{2πi/(k+2)}) = ⟨W_K⟩_{CS}
+    The path integral of Chern-Simons theory on S³ computes V_K(t).
+    This connects: knot invariants ↔ 3D TQFT ↔ quantum computation.
+    ANYONIC BRAIDING: in 2+1D topological phases, particle worldlines
+      form braids; the resulting amplitudes are knot/link invariants.
+      Fibonacci anyons: braiding alone gives universal quantum computation.
+      Evaluating the Jones polynomial is #P-hard in general — but
+      quantum computers can approximate it efficiently (BQP-complete).
+    The Freedman-Kitaev-Wang theorem: topological quantum computation
+      is equivalent to standard quantum computation.
 
 NETWORK TOPOLOGY:
   Social networks, internet topology, protein interaction networks.
@@ -472,9 +534,91 @@ TOPOLOGICAL QUANTUM FIELD THEORY (TQFT):
   BF theory: topological field theory in any dimension.
   Witten-Donaldson: 4D TQFT counting instantons = Donaldson invariants.
 
-<!-- @editor[content/P1]: Missing ∞-categories and HoTT as applications of topology — explicitly flagged in learner calibration as "DOES need." The applications file should include: (1) Homotopy Type Theory — topology as a foundation for mathematics; types are spaces, proofs are paths, higher equalities are homotopies. The univalence axiom (Voevodsky): equivalent types are equal. HoTT is both a programming languages / type theory topic (TCS learner connection) and a modern development in topology. (2) ∞-categories — the (∞,1)-category of spaces (∞-groupoids), ∞-topoi (Lurie's "Higher Topos Theory"), the cobordism hypothesis. These modern developments are the frontier of topology and the learner explicitly needs them. Currently entirely absent from the guide. -->
+```
 
-<!-- @editor[structure/P2]: The applications file covers TDA, condensed matter physics, and robotics well, but the "DOES need" list includes several items that either have no dedicated section or are too brief: (1) differential topology bridge to differential geometry — no section (should reference Morse theory, Atiyah-Singer); (2) ∞-categories / HoTT — entirely missing; (3) knot theory connections to biology/physics — stub. Consider adding a Part 4 on modern foundations (HoTT, ∞-cats) and substantially expanding the knot theory section. -->
+---
+
+## Part 4: Modern Foundations — HoTT and ∞-Categories
+
+### Homotopy Type Theory (HoTT)
+
+```
+HOMOTOPY TYPE THEORY — TOPOLOGY AS A FOUNDATION FOR MATHEMATICS:
+
+  Core idea: reinterpret Martin-Löf type theory so that types ARE spaces.
+
+  TYPE ↔ SPACE DICTIONARY:
+    Type A              ↔  Space A
+    Term a : A          ↔  Point a ∈ A
+    Id_A(a,b)           ↔  Path space (paths from a to b)
+    Proof of a = b      ↔  A path from a to b
+    Id_{Id_A}(p,q)      ↔  Homotopy between paths p and q
+    Function A → B      ↔  Continuous map A → B
+    Π(x:A).B(x)         ↔  Section of fibration B → A
+    Σ(x:A).B(x)         ↔  Total space of fibration B → A
+
+  UNIVALENCE AXIOM (Voevodsky):
+    (A ≃ B) ≃ Id_U(A,B)
+    "Equivalent types are equal in the universe U."
+    This means: any property that respects equivalence (= homotopy
+    equivalence) can be transported along an equivalence.
+    This is EXACTLY what mathematicians do informally ("Q and R are
+    isomorphic, so anything true of Q is true of R").
+
+  WHY IT MATTERS FOR TCS:
+    1. Proof assistants (Coq, Agda, Lean) can formalize homotopy theory.
+       The HoTT library formalizes: π₁(S¹) = Z, Freudenthal suspension,
+       Blakers-Massey, Seifert-van Kampen — all constructively.
+    2. Higher inductive types: define S¹ as a type with one point and one
+       loop (no embedding in R² needed). Fully synthetic homotopy theory.
+    3. Cubical type theory (Cohen-Coquand-Huber-Mörtberg): computational
+       interpretation of univalence — the axiom is no longer an axiom but
+       a theorem of the type theory.
+```
+
+### ∞-Categories
+
+```
+(∞,1)-CATEGORIES — THE MODERN FRAMEWORK FOR HOMOTOPY THEORY:
+
+  An (∞,1)-category has:
+    Objects, morphisms, 2-morphisms (homotopies), 3-morphisms, ...
+    All k-morphisms for k ≥ 2 are invertible (up to higher morphisms).
+
+  THE (∞,1)-CATEGORY OF SPACES:
+    Objects = topological spaces (or ∞-groupoids).
+    Morphisms = continuous maps.
+    2-morphisms = homotopies.
+    3-morphisms = homotopies of homotopies.
+    This is the fundamental object of homotopy theory.
+
+  ∞-TOPOI (Lurie, "Higher Topos Theory" 2009):
+    An ∞-topos is an (∞,1)-category satisfying the ∞-categorical
+    version of Giraud's axioms (descent, colimits, generators).
+    Classical sheaf theory ⊂ ∞-topos theory:
+      Sheaves of sets → sheaves of spaces (∞-groupoids).
+      Cohomology = mapping spaces in the ∞-topos of sheaves.
+
+  COBORDISM HYPOTHESIS (Lurie 2009):
+    Fully extended n-dimensional TQFTs (functors from Cob(n) to a
+    symmetric monoidal (∞,n)-category C) are classified by
+    fully dualizable objects of C.
+    This is the most powerful classification result in modern TQFT,
+    and its statement and proof require the full ∞-categorical framework.
+
+  DERIVED ALGEBRAIC GEOMETRY:
+    Replace commutative rings with E∞-ring spectra.
+    "Spaces" are derived stacks — functors from E∞-rings to ∞-groupoids.
+    Classical algebraic geometry ⊂ derived algebraic geometry.
+    Moduli problems that are "wrong" classically (non-smooth, obstructed)
+    become well-behaved in the derived setting.
+
+  WHY ∞-CATEGORIES FOR THIS GUIDE:
+    The classical tools (π₁, homology, cohomology) are shadows of
+    ∞-categorical data. The fundamental groupoid Π_∞(X) carries strictly
+    more information than all πₙ(X) combined (they lose the interaction
+    between different levels). Modern topology works in ∞-categories
+    because that is where the full structure lives.
 ```
 
 ---

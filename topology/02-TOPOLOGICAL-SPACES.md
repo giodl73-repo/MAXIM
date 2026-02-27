@@ -28,25 +28,9 @@
 
 ---
 
-<!-- @editor[audience/P2]: This section re-derives the open set axioms from metric spaces and explains why topology abstracts away the metric. Learner already owns this derivation at graduate level — the explanation of "why these axioms" is the right pitch, but the derivation from open balls is below their floor. Compress to the key insight (continuity is open-set-theoretic; ∞-intersections fail) and pivot quickly to the interesting examples the learner doesn't know. -->
 ## Why Open Sets?
 
-```
-In a metric space: B(x,r) = {y : d(x,y) < r} = open ball.
-Open set = union of open balls.
-
-AXIOM 1: ∅ open (vacuously), X open (everything is within distance ∞ of anything).
-AXIOM 2: Arbitrary unions: any collection of balls, union is open.
-AXIOM 3: Finite intersections: B(x,r₁) ∩ B(x,r₂) = B(x,min(r₁,r₂)) open.
-  But INFINITE intersections can fail: ∩_n B(x,1/n) = {x}, a single point,
-  which is open only in the discrete metric.
-
-ABSTRACTING AWAY THE METRIC:
-  Continuity depends only on open sets, not on distances.
-  Key: f: X→Y continuous ↔ for every open U ⊆ Y, f^{-1}(U) is open in X.
-  This reformulation requires no distances — just open sets.
-  So: specify open sets directly, without a metric.
-```
+The key insight: continuity is entirely open-set-theoretic (f continuous iff f^{-1}(open) = open), and the open set axioms are exactly what makes this work. The axiom restricting to *finite* intersections is load-bearing: ∩_n B(x,1/n) = {x} would force every singleton to be open, collapsing to the discrete topology. Infinite intersections destroy the structure.
 
 ---
 
@@ -149,9 +133,29 @@ METRIC SPACES ARE NORMAL (T₄):
   Urysohn's metrization theorem: regular + second countable → metrizable.
   Nagata-Smirnov: normal + second countable → metrizable.
 
-<!-- @editor[content/P2]: Missing Stone duality and spectral spaces — a gap the learner (MIT TCS) would notice immediately. Stone duality: Boolean algebras ↔ Stone spaces (compact Hausdorff + totally disconnected); distributive lattices ↔ spectral spaces. This is the TCS connection to topology: the Zariski topology on Spec(R) IS the Stone-type topology for commutative rings. The sober space / locale theory connection is also missing — this bridges topology and lattice theory (which TCS people know deeply from domain theory and denotational semantics). -->
+STONE DUALITY (TCS CONNECTION):
+  Boolean algebras ↔ Stone spaces (compact Hausdorff + totally disconnected).
+  Every Boolean algebra B has a Stone space: Spec(B) = {ultrafilters on B}.
+  Topology: clopen sets of Spec(B) are in bijection with elements of B.
+  Generalization: distributive lattices ↔ spectral spaces.
+  The Zariski topology on Spec(R) (prime ideals of a ring R) is exactly
+    the Stone-type topology for the lattice of ideals of R.
+  Sober spaces / locale theory: topology defined without points —
+    the lattice of opens IS the fundamental object, not the set X.
+    This bridges topology and lattice theory (domain theory, order theory).
 
-<!-- @editor[bridge/P2]: No bridge to domain theory / denotational semantics — a natural TCS connection. Scott topology on a dcpo (directed-complete partial order) is a T₀ non-Hausdorff topology fundamental to programming language semantics. The learner's MIT TCS background means this bridge would land immediately. -->
+SCOTT TOPOLOGY AND DOMAIN THEORY:
+  For a dcpo (directed-complete partial order) D:
+  Scott-open sets = upward-closed sets U such that every directed set
+    with sup in U already has an element in U.
+  Scott topology is T₀ but generally not T₁ or Hausdorff.
+  This is the foundational topology for denotational semantics:
+    continuous functions in the Scott topology = computable functions
+    (in the domain-theoretic sense). A function f: D → E is Scott-continuous
+    iff it preserves directed sups — exactly the monotone functions that
+    are compatible with the "approximation" order.
+  Dana Scott's domain theory (1969–): models of the λ-calculus live
+    in categories of dcpos with Scott-continuous functions.
 ```
 
 ---
