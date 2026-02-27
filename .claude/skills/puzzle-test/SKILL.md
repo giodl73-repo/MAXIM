@@ -18,47 +18,110 @@ Present a completed puzzle to a selection of expert reviewers for scoring and fe
 
 ### 1. Select Testers
 
-Default: 5 reviewers selected for relevance to the puzzle type.
+Default: **3 testers per puzzle**, pre-assigned by puzzle type. Full assignments for all 52 puzzles are in `puzzle-hunt/TEST-CREWS.md`.
 
-| Puzzle type | Default testers |
+**Quick reference by type** (use TEST-CREWS.md for the specific puzzle):
+
+| Puzzle type | Typical testers |
 |------------|----------------|
-| Cipher / code-breaking | Huang, Snyder, Kenny, Blow, Pope |
-| Crossword / word puzzle | Katz, Snyder, Dana, Rosenthal, Gottlieb |
-| Logic grid / deduction | Huang, Snyder, Katz, Pope, Gottlieb |
-| Calculation / diagram | Kenny, Snyder, Sarrett, Dana, Gottlieb |
-| Identification / matching | Rosenthal, Dana, Miller, Pope, Katz |
-| Visual / physical | Sarrett, Dana, Miller, Blow, Selinker |
-| Narrative / timeline | Selinker, Katz, Rosenthal, Miller, Dana |
-| Cross-section synthesis | Blow, Miller, Selinker, Katz, Snyder |
+| Cipher / code-breaking | Huang, Blow, Snyder |
+| Logic grid / deduction | Huang, Katz, Pope |
+| Calculation / diagram | Kenny, Snyder, Sarrett |
+| Identification / matching | Pope, Miller, Rosenthal |
+| Visual / physical | Sarrett, Miller, Blow |
+| Narrative / timeline | Selinker, Katz, Rosenthal |
+| Cross-section synthesis | Blow, Selinker, Katz |
 
-### 2. Present the Puzzle Clean
+### 2. Sanitize the Puzzle (CRITICAL)
+
+Before ANY tester sees the puzzle, create a clean copy by stripping contaminating information. See `puzzle-hunt/TEST-CREWS.md` § Sanitization Protocol for full details.
+
+**REMOVE:**
+- `**Answer:**` line and letter count
+- `★ T1` / `T2` tier designation
+- All `<!-- comments -->`
+- `**Panel votes:**` line
+- `**References:**` line pointing to specific files
+- Any reference to design docs (FINAL-52, PUZZLE-POOL, etc.)
+
+**KEEP:**
+- Page header (element number, name, archetype, section)
+- Joker intro
+- The puzzle content
+- The worksheet with blanks
+- Answer blank — change to: `**Your answer:** _______________` (no letter count hint)
+- Subtle reference hint at bottom
+
+### 3. Present the Puzzle Clean
 
 Each tester agent receives:
-- The puzzle page ONLY (from `joker/`)
-- The relevant encyclopedia files (what a solver would have access to)
+- The **sanitized** puzzle page (not the raw joker/ file)
+- Full encyclopedia access ("You have access to the entire encyclopedia. Browse freely.")
 - Their reviewer profile (for voice/perspective)
-- NO design notes, NO intended solution, NO scoring rubric
+- The scoring rubric below
+- **NOTHING ELSE.** No design docs. No other puzzles. No TEST-CREWS.md.
 
-The tester is told:
+The tester prompt:
 ```
-You are [NAME]. You have been given a puzzle page and access to
-the encyclopedia. Solve the puzzle. Then evaluate it.
+You are [NAME] — [ONE-LINE CREDENTIAL].
 
-1. ATTEMPT TO SOLVE IT. Show your work. Note where you get stuck.
-2. SCORE IT on these dimensions (1-5 each):
-   - Clarity: Is it clear what you're supposed to do?
-   - Solvability: Can you reach the answer with the materials provided?
-   - Elegance: Is the mechanism clean? One aha?
+You have been given a single puzzle page from a puzzle book. You also
+have access to an encyclopedia (a reference library organized by field).
+
+Your task:
+
+1. READ the puzzle page carefully.
+2. ATTEMPT TO SOLVE IT using the encyclopedia as your reference.
+   Show your work step by step. Note where you get stuck.
+3. WRITE YOUR ANSWER on the answer line.
+4. SCORE the puzzle on these 6 dimensions (1-5 each):
+   - Clarity: Was it clear what you were supposed to do?
+   - Solvability: Could you reach the answer with the materials provided?
+   - Elegance: Was the mechanism clean? Was there one satisfying aha?
    - Reading Reward: Did solving require genuine engagement with the content?
-   - Fun: Would you enjoy this? Would you recommend it?
-   - Confirmation: Can you tell if your answer is right?
-3. FLAG any issues:
-   - Ambiguous clues (multiple valid interpretations)
-   - Broken paths (clue references content that doesn't exist)
+   - Fun: Did you enjoy this? Would you recommend it to a friend?
+   - Confirmation: Could you tell whether your answer was right?
+5. FLAG any issues:
+   - Ambiguous clues (multiple valid answers)
+   - Broken paths (references content that doesn't exist)
    - Red herrings (unintentional misdirection)
    - Difficulty spikes (one step much harder than the rest)
-   - Factual errors
-4. SUGGEST specific fixes for any issues found.
+   - Factual errors (anything wrong in the puzzle or the encyclopedia)
+6. SUGGEST specific fixes for any issues found.
+
+Do NOT read any files in puzzle-hunt/ or any design documents.
+Only the puzzle page and the encyclopedia.
+```
+
+### 4. Results format
+
+Each tester saves to: `puzzle-hunt/tests/[element]-[tester-name].md`
+
+```markdown
+# Test: [Element/Compound] — [Tester Name]
+
+## Solve Attempt
+[Show all work, step by step]
+
+## Answer
+[What the tester wrote]
+
+## Scores
+| Dimension | Score (1-5) | Notes |
+|-----------|-------------|-------|
+| Clarity | | |
+| Solvability | | |
+| Elegance | | |
+| Reading Reward | | |
+| Fun | | |
+| Confirmation | | |
+| **Total** | **/30** | |
+
+## Issues
+[List by severity: blocking / major / minor]
+
+## Suggested Fixes
+[Specific, actionable]
 ```
 
 ### 3. Collect Results
