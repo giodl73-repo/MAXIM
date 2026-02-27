@@ -161,7 +161,7 @@ A **(r, s) tensor field** is a smooth section of T^r_s M = TM^{tensor r} tensor 
   g and omega are the geometric structures added to a smooth manifold.
   Riemannian: + g.  Symplectic (Hamiltonian mechanics): + omega.
 ```
-<!-- @editor[bridge/P2]: Symplectic form is correctly introduced here as a (0,2) tensor but the connection to Hamiltonian mechanics is left as a parenthetical. This is a key bridge: the cotangent bundle T*Q is the natural home of phase space (positions + momenta), and the tautological 1-form lambda = p_i dq^i gives the canonical symplectic form omega = dlambda. The non-degeneracy condition means omega defines a musical isomorphism between TM and T*M (different from the Riemannian one), and this isomorphism is exactly what turns gradient vectors into Hamiltonian vector fields. A few lines here would anchor the symplectic geometry in 09-APPLICATIONS. -->
+**Symplectic structure on T*Q — phase space**: The cotangent bundle T*Q of any manifold Q carries a canonical symplectic form. The tautological 1-form is λ = p_i dq^i (in local coordinates (q^i, p_i) on T*Q), and the symplectic form is ω = dλ = dp_i ∧ dq^i. This ω is closed (dω = 0) and non-degenerate (ω^n ≠ 0), making T*Q a symplectic manifold. The non-degeneracy defines a musical isomorphism ω♭: TM → T*M (different from the Riemannian g♭) that converts the gradient of the Hamiltonian H into the Hamiltonian vector field X_H: ω(X_H, ·) = dH. Hamilton's equations q̇ = ∂H/∂p, ṗ = −∂H/∂q are exactly the flow of X_H. This is the geometric formulation of classical mechanics; symplectic integrators in 09-APPLICATIONS preserve ω numerically.
 
 ---
 
@@ -263,7 +263,7 @@ A global concept unifying the bundle perspective:
 
 This connects to fiber bundles (08) — a Riemannian metric is exactly an O(n)-reduction of the frame bundle.
 
-<!-- @editor[bridge/P2]: The frame bundle / G-structures section is the right place to bridge to equivariant neural networks. A G-equivariant neural network on a manifold is precisely a network that respects a G-structure on the feature bundle — gauge equivariant CNNs (Cohen et al.) formalize this as connections on associated bundles. The Stiefel manifold St(k,n) (frames) appears directly as the parameter space of orthogonal weight matrices in equivariant architectures. One paragraph here would connect this abstract machinery to geometric deep learning before the reader gets to 09-APPLICATIONS. -->
+**Frame bundle → equivariant neural networks**: A G-equivariant neural network on a manifold is precisely a network that respects a G-structure on the feature bundle. In gauge-equivariant CNNs (Cohen et al. 2019), feature maps are sections of an associated vector bundle E = F(M) ×_G V, where F(M) is the frame bundle and V is a representation of G. The convolutional kernel is a parallel transport operator (connection on E), and gauge equivariance means the output is independent of the local frame choice (local trivialization). The Stiefel manifold St(k,n) of orthonormal k-frames in R^n appears directly as the parameter space for orthogonal weight matrices in these architectures. This is not an analogy — it is the literal mathematical content of geometric deep learning. Full treatment in 09-APPLICATIONS.
 
 ---
 

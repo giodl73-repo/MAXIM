@@ -153,7 +153,7 @@ The exponential map encodes the "go straight from p in direction v" operation:
   Used in Riemannian optimization: optimization algorithms generalize by
   replacing Euclidean steps with geodesic steps (using exp and log maps).
 ```
-<!-- @editor[content/P2]: The exp/log map section correctly previews Riemannian optimization but misses the most important specific case for ML: the SPD manifold Sym+(n). Riemannian gradient descent on Sym+(n) with the affine-invariant metric (g_A(U,V) = tr(A^{-1}U A^{-1}V)) is the basis for geometric approaches to covariance estimation, diffusion tensor MRI, and Gaussian process covariance learning. The exp and log maps have closed forms: exp_A(U) = A^{1/2} exp(A^{-1/2} U A^{-1/2}) A^{1/2}. This is the concrete instantiation of what's described abstractly here, and it belongs in this section. -->
+**SPD manifold Sym+(n) — the key ML example**: The manifold of symmetric positive definite n×n matrices with the affine-invariant metric g_A(U,V) = tr(A^{-1}U A^{-1}V) is the most important concrete Riemannian manifold for ML. The exp and log maps have closed forms: Exp_A(U) = A^{1/2} exp(A^{-1/2} U A^{-1/2}) A^{1/2}, Log_A(B) = A^{1/2} log(A^{-1/2} B A^{-1/2}) A^{1/2}. Geodesic distance: d(A,B) = ||log(A^{-1/2} B A^{-1/2})||_F. Applications: covariance estimation (each data covariance matrix is a point on Sym+(n)), diffusion tensor MRI (each voxel has a 3×3 SPD diffusion tensor), and Gaussian process kernel learning. Riemannian gradient descent on Sym+(n) automatically preserves positive definiteness — no projection step needed.
 
 ---
 
@@ -273,7 +273,17 @@ A map F: (M,g) -> (N,h) is an **isometry** if F*h = g (pullback of metric = metr
 
 **Homogeneous spaces**: M is homogeneous if Isom(M) acts transitively — you can move any point to any other point by an isometry. Homogeneous spaces have constant sectional curvature. They are of the form G/H where G is a Lie group and H is a closed subgroup.
 
-<!-- @editor[content/P2]: Missing information geometry section — the Fisher information metric is a canonical Riemannian metric on the manifold of probability distributions, and this is the highest-value bridge between Riemannian geometry and ML for this learner. For a parametric family p(x; theta) in R^n, the Fisher metric is g_{ij}(theta) = E[partial_i log p * partial_j log p], making the parameter space a Riemannian manifold. Natural gradient descent = Riemannian gradient descent with the Fisher metric (Amari 1998), and it outperforms SGD on curved loss landscapes. The exponential family manifolds (Gaussian, multinomial) have explicit constant curvature metrics. This belongs in a dedicated subsection here or as a forward reference that is more substantial than the current one-line mentions scattered through the file. -->
+## Information Geometry — Fisher Metric as Riemannian Geometry
+
+For a parametric family {p(x; θ) : θ ∈ Θ ⊂ R^n}, the **Fisher information metric** makes the parameter space a Riemannian manifold:
+
+    g_{ij}(θ) = E_{p(·;θ)}[∂_i log p(x;θ) · ∂_j log p(x;θ)]
+
+This is positive semi-definite (positive definite for identifiable models), symmetric, and transforms correctly under reparametrization — a bona fide Riemannian metric.
+
+**Natural gradient descent** (Amari 1998) = Riemannian gradient descent with the Fisher metric: θ_{t+1} = θ_t − η g^{-1}(θ_t) ∇L(θ_t). The Fisher metric g^{-1} acts as an adaptive preconditioner that accounts for the curvature of the statistical manifold. This is why natural gradient outperforms vanilla SGD on curved loss landscapes: it follows geodesics rather than coordinate lines.
+
+**Exponential families are flat**: For an exponential family p(x; η) = h(x) exp(η·T(x) − A(η)), the Fisher metric under natural parameters η gives zero curvature (the e-connection is flat). This means: Newton's method on the natural parameter space converges in one step, and the Bregman divergence D_A(η||η') = KL(p_η || p_{η'}) is the squared geodesic distance. Practical approximations: K-FAC ≈ block-diagonal Fisher, Shampoo ≈ Kronecker-factored Fisher.
 
 ---
 
