@@ -23,11 +23,11 @@ This file tracks everything else.
 ---
 
 ### 2. Concept Index
-**Status**: ✅ Complete (v1)
+**Status**: ✅ Complete (v2)
 **Home**: `CONCEPT-INDEX.md`
 **Skill**: `/reference-index build` · `/reference-index update <dir>`
 **Scope**: Cross-cutting concept index — entries for terms discussed substantively in 2+ sections.
-**Result**: 196 entries across 139 directories. 8 parallel extraction agents scanned all 205 directories (4,026 raw pairs). Fuzzy matching (synonym groups + parenthetical stripping + Jaccard token overlap ≥0.6) filtered to 2+ section threshold. Top entries: entropy (5 sections), Kalman filter (4), Bayesian inference (4).
+**Result**: 314 entries across 199 directories. Two layers: (1) 196 specialist entries from 8 parallel extraction agents (4,026 raw pairs, fuzzy-matched), (2) 118 foundational entries from targeted grep (water, iron, gravity, DNA, etc. — ubiquitous concepts missed by heading-based extraction). All 13 sections contribute strongly. Top entries: water (13 sections), iron (13), gravity (13), entropy (5), Kalman filter (4), Bayesian inference (4).
 **Next**: Can be refreshed with `/reference-index build` as content evolves.
 
 ---
@@ -215,7 +215,7 @@ Reader-facing guide: how to navigate, what the card symbols mean, how bridges wo
 | # | Project | Status | Files | Blocking? |
 |---|---------|--------|-------|-----------|
 | 1 | Editorial Fix Pass | ✅ Complete | REVIEW.md | — |
-| 2 | Concept Index | ✅ Complete (v1) | CONCEPT-INDEX.md | — |
+| 2 | Concept Index | ✅ Complete (v2) | CONCEPT-INDEX.md | — |
 | 3 | Bill of Materials | ✅ Complete | BILL-OF-MATERIALS.md | — |
 | 4 | Reading Maps | ✅ Complete | READING-MAPS.md | — |
 | 5 | Prerequisite Graph | ✅ Complete | PREREQUISITES.md | — |
