@@ -139,6 +139,9 @@ transformation chain.
 | `05-GRID-INTEGRATION` | Dispatch, frequency, VRE integration | The orchestration problem: reliability vs. waste |
 | `06-NUCLEAR-SYSTEMS` | Reactor designs in energy context | Carnot at 550K: the safety-efficiency trade |
 | `07-FOSSIL-TRANSITION` | Coal, gas, CCS, phase-out pathways | Stranded assets: exergy of sunk capital |
+| `08-THERMAL-CYCLES` | Rankine, Brayton, combined cycle, sCO₂, ORC | Where the Carnot tax is collected: cycle-by-cycle |
+| `09-HYDROPOWER` | Turbines, reservoir ops, ROR, pumped storage | Gravity's gift: PE → work with no Carnot limit |
+| `10-GRID-DISPATCH` | Merit order, unit commitment, BESS dispatch | Scheduling exergy destruction in real time |
 
 ---
 
@@ -648,6 +651,15 @@ WHAT ENERGY SYSTEMS QUESTION?
         │
         ├── How do fossil plants transition and what replaces them?
         │   └──► 07-FOSSIL-TRANSITION
+        │
+        ├── How do thermal power cycles work and where does exergy die?
+        │   └──► 08-THERMAL-CYCLES (Rankine, Brayton, CCGT, sCO₂, ORC)
+        │
+        ├── How does hydropower work and which turbine for which site?
+        │   └──► 09-HYDROPOWER (Pelton, Francis, Kaplan, reservoir ops)
+        │
+        ├── How does the grid dispatch generators and storage in real time?
+        │   └──► 10-GRID-DISPATCH (merit order, unit commitment, BESS ops)
         │
         ├── How do chemical processes transform feedstock at scale?
         │   └──► chemical-eng/ directory (reaction, separation, transport)

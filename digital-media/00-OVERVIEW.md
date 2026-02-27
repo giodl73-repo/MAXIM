@@ -205,3 +205,106 @@ PERVERSE INCENTIVE STRUCTURE:
 **Content strategy is not the same as content marketing.** Content marketing is a promotional technique (create valuable content to attract customers). Content strategy is an organizational discipline (how does all content get planned, created, governed, and maintained). Content marketing is a subset of content strategy.
 
 **Misinformation and disinformation are not the same.** Misinformation is false content shared without intent to deceive. Disinformation is false content shared with deliberate intent to deceive. The distinction matters for attribution and for intervention design.
+
+---
+
+## Attention Economy Feedback Loop
+
+The landscape diagram above shows structure; this diagram shows the *dynamic* — how algorithmic curation creates a self-reinforcing cycle.
+
+```
+ATTENTION ECONOMY FEEDBACK LOOP
+==================================
+
+  CONTENT CREATION                        ALGORITHMIC CURATION
+  ┌──────────────────┐                    ┌──────────────────┐
+  │ Creator publishes│                    │ Platform ranks by│
+  │ text / image /   │ ──── submit ────→  │ predicted engage-│
+  │ video / audio    │                    │ ment (watch time,│
+  │                  │                    │ clicks, shares,  │
+  │ Incentives:      │                    │ comments, saves) │
+  │  reach, revenue, │                    └──────────────────┘
+  │  status, mission │                             │
+  └──────────────────┘                             │ surface to
+        ↑                                          │ feed / FYP /
+        │                                          │ search results
+        │                                          v
+        │                                 ┌──────────────────┐
+        │                                 │   CONSUMPTION    │
+        │                                 │                  │
+        │                                 │ User scrolls,    │
+        │                                 │ watches, reads,  │
+        │                                 │ skips            │
+        │                                 └──────────────────┘
+        │                                          │
+        │              ┌──────────────────┐        │
+        │              │ ENGAGEMENT SIGNAL│        │
+        │              │                  │ ←──────┘
+        │              │ Like, share,     │  every action
+        │              │ comment, watch   │  (and non-action)
+        │              │ duration, save,  │  is a signal
+        │              │ click-through    │
+        │              └──────────────────┘
+        │                       │
+        │                       │ feeds back to
+        │                       v
+        │              ┌──────────────────┐
+        └──────────────│ CREATOR ADAPTS   │
+   creator sees what   │                  │
+   gets reach and      │ Analytics dash-  │
+   optimizes for it    │ board shows what │
+   (thumbnail style,   │ "worked" → next  │
+   hook timing, topic  │ content tilts    │
+   selection, outrage  │ toward whatever  │
+   framing)            │ the algorithm    │
+                       │ rewarded         │
+                       └──────────────────┘
+
+  THE RATCHET EFFECT:
+  ┌────────────────────────────────────────────────────────┐
+  │ Algorithm rewards engagement → creators optimize for  │
+  │ engagement → content becomes more engaging (emotional, │
+  │ extreme, short) → audience habituates → algorithm must │
+  │ find even more engaging content → escalation cycle.    │
+  │                                                        │
+  │ This is why "just don't watch it" fails as policy —   │
+  │ the system is designed to defeat that intention.       │
+  └────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Platform / Format Selection Matrix
+
+Which platform and format for which distribution goal? The choice is strategic, not aesthetic.
+
+| Distribution Goal | Best Platform Type | Best Format | Why |
+|-------------------|--------------------|-------------|-----|
+| **Mass reach (cold audience)** | Interest graph (TikTok, YouTube Shorts) | Short video (15-60s), strong hook in first 2s | Algorithm serves to non-followers; no existing audience needed |
+| **Professional authority** | LinkedIn, Substack | Long-form text (800-2,000 words), carousel | Professional graph rewards expertise signaling |
+| **Community building** | Discord, Reddit, private Facebook group | Discussion threads, Q&A, live events | Symmetric engagement; repeat interactions build trust |
+| **Search discoverability** | Blog/website (SEO), YouTube (long-form) | Evergreen how-to, reference content (1,500+ words or 8+ min video) | Search intent = high-value traffic; compounds over time |
+| **Breaking news / real-time** | Twitter/X, Bluesky, Mastodon | Short text + thread, live updates | Broadcast asymmetric graph; speed is the value |
+| **Visual storytelling** | Instagram, Pinterest | Image carousel, infographic, Reel | Image-first ranking; Pinterest has search + interest graph |
+| **Deep audience relationship** | Email newsletter (Substack, Buttondown, Ghost) | Weekly essay, curated links (1,000-3,000 words) | Owned channel; no algorithmic intermediary; highest conversion |
+| **Audio / passive consumption** | Podcast (RSS), YouTube | 20-60 min conversation or monologue | Commute/exercise time; high attention per session |
+| **Ephemeral / casual engagement** | Instagram Stories, Snapchat, BeReal | Photo/video with 24h expiry | Low-stakes posting; high frequency; authenticity signal |
+
+```
+FORMAT SELECTION DECISION TREE
+================================
+
+  What's your goal?
+       │
+       ├── Reach strangers at scale? ──→ SHORT VIDEO (TikTok / Reels / Shorts)
+       │
+       ├── Build authority in a field? ──→ LONG-FORM TEXT (Substack / LinkedIn / Blog)
+       │
+       ├── Compound over time (SEO)? ──→ EVERGREEN WEB CONTENT + YouTube
+       │
+       ├── Own the relationship? ──→ EMAIL NEWSLETTER (no algorithm between you and reader)
+       │
+       ├── Real-time conversation? ──→ TWITTER / BLUESKY (text) or TWITCH (video)
+       │
+       └── Niche community? ──→ DISCORD / REDDIT / PRIVATE GROUP
+```

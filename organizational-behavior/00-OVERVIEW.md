@@ -47,6 +47,19 @@ If you run engineering organizations, you are already practicing applied OB — 
 
 **The OB-economics interface is where your formal training is most applicable.** Principal-agent theory, tournament theory, efficiency wages, and transaction cost economics are the formal economic models underlying the management accounting intuitions you work with daily. SDT and equity theory are the behavioral corrections to those models: people are not narrow self-interest maximizers, and the behavioral departures are systematic and predictable. The interaction between economic incentive structures and intrinsic motivation crowding-out is the central design question for engineering performance management.
 
+## Management Frameworks — Quick Reference
+
+| Framework | Core Insight | When It Works | When It Fails | Bridge to Engineering |
+|---|---|---|---|---|
+| Scientific Mgmt (Taylor, ~1900) | Work is measurable; decompose tasks, optimize each | Repetitive physical tasks; throughput optimization | Knowledge work; creative problem-solving; demotivates skilled workers | Time-and-motion → cycle time analysis; ancestor of Lean value stream mapping |
+| Administrative Mgmt (Fayol, ~1916) | Management has universal functions (plan/organize/command/coordinate/control) | Establishing vocabulary; designing reporting structures | Prescriptive without evidence; culturally bound; ignores informal organization | "Unity of command" = one manager per IC; "span of control" = team size limits you already use |
+| Bureaucracy (Weber, ~1910) | Rational-legal authority via written rules, specialized roles, merit promotion | Large orgs needing consistency, fairness, predictability | Innovation-dependent orgs; fast-changing environments; "iron cage" pathology | Your org IS a Weberian bureaucracy — levels, job families, promo criteria. The pathology is when process replaces judgment |
+| Human Relations (Mayo, ~1927) | Social dynamics and attention affect output more than physical conditions | Any setting where motivation > task design as bottleneck | Ignores structural constraints; "Hawthorne effect" is weaker than claimed | 1-on-1s, skip-levels, team morale investment — all human relations descendants |
+| Systems Theory (Katz & Kahn, ~1966) | Orgs are open systems: input → transform → output; interact with environment | Diagnosing cross-boundary failures; understanding feedback loops | Too abstract for operational decisions without domain-specific instantiation | Directly maps to systems thinking in SRE: feedback loops, entropy (tech debt), homeostasis (on-call) |
+| Contingency Theory (~1960s) | No one best way; effectiveness = fit between org design and environment | Choosing structure for a given problem space (stable vs volatile) | Doesn't specify HOW to achieve fit; combinatorial complexity | "It depends" is the engineering answer too — monolith vs microservices is a contingency question |
+
+---
+
 ## History of Management Thought
 
 ```

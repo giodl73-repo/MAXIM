@@ -212,3 +212,86 @@ SURVIVAL WHERE ARCHIVES DON'T:
 **Dating by letter forms (paleographic dating) is approximate.** Letter forms evolve, but they evolve differently in different regions and social contexts. A "date range by paleography" is typically a span of 50-150 years, not a precise date.
 
 **Decipherment is not translation.** Decipherment establishes the reading system — what sounds the signs represent. Translation then requires knowing the language. Linear B was deciphered (1952) before the Linear B texts were fully translated (because Mycenaean Greek was already known). Maya glyphs took longer because both script and language had to be worked out.
+
+---
+
+## Inscription Lifecycle
+
+The field diagram above shows what epigraphy relates to; this diagram shows the lifecycle of an individual inscription from commission to modern scholarship.
+
+```
+INSCRIPTION LIFECYCLE
+=======================
+
+  COMMISSION          CARVE / CAST        DISPLAY
+  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+  │ Patron:      │    │ Stonecutter  │    │ Temple wall  │
+  │  state, cult,│ →  │ or scribe    │ →  │ Agora pillar │
+  │  private     │    │ Drafts →     │    │ Tomb face    │
+  │ Content:     │    │ incises /    │    │ Road marker  │
+  │  decree, ded-│    │ casts / molds│    │ Coin in      │
+  │  ication,    │    │              │    │ circulation  │
+  │  epitaph     │    │ Material:    │    │              │
+  │              │    │ stone, bronze│    │ PUBLIC or    │
+  │              │    │ clay, lead   │    │ BURIED       │
+  └──────────────┘    └──────────────┘    └──────────────┘
+                                                │
+                      centuries to millennia     │
+                                                v
+  DISCOVER            DECODE                PUBLISH
+  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+  │ Excavation   │    │ Identify     │    │ Corpus entry │
+  │ Surface find │ →  │ script +     │ →  │ (CIL, PHI,   │
+  │ Reuse in     │    │ language     │    │  CDLI)       │
+  │ later wall   │    │ Read signs   │    │ Commentary   │
+  │ Underwater   │    │ Restore gaps │    │ Translation  │
+  │ recovery     │    │ (epigraphic  │    │ Historical   │
+  │              │    │  convention: │    │ analysis     │
+  │ WEATHER:     │    │  [ ] = lost  │    │              │
+  │ erosion,     │    │  ( ) = editor│    │ Now: digital │
+  │ reuse, war   │    │  addition)   │    │ RTI, 3D scan │
+  └──────────────┘    └──────────────┘    └──────────────┘
+
+  KEY FAILURE MODES:
+  ┌────────────────────────────────────────────────────────┐
+  │ • Stone reused as building material (spolia) — text   │
+  │   preserved but decontextualized                       │
+  │ • Bronze melted for reuse — most bronze inscriptions  │
+  │   are lost; stone survives because it is worthless     │
+  │ • Clay tablets: only survive if accidentally fired     │
+  │   (palace destruction = archive preservation)          │
+  │ • Forgery: detectable via material analysis, letter    │
+  │   form anachronism, content inconsistency              │
+  └────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Script / Material / Function Matrix
+
+Which script on which material for which purpose? The intersection determines what survives and what is lost.
+
+| Script Type | Typical Material | Primary Functions | Survival Rate | Example Corpus |
+|-------------|-----------------|-------------------|---------------|----------------|
+| **Cuneiform (logosyllabic)** | Clay tablet, stone | Admin records, royal annals, literature, letters | High (clay endures) | CDLI: 330,000+ |
+| **Hieroglyphic (logosyllabic)** | Stone, painted plaster | Monumental, funerary, religious | High (dry climate + stone) | Temples, tombs |
+| **Hieratic / Demotic** | Papyrus, ostraca | Admin, literary, personal | Low (organic) | Oxyrhynchus papyri |
+| **Greek alphabet** | Stone, bronze, pottery | Decrees, dedications, laws, graffiti | Moderate (stone survives, bronze melted) | PHI: 190,000+ |
+| **Latin alphabet** | Stone, bronze, lead | Laws, epitaphs, dedications, curse tablets | Moderate | CIL: 290,000+ |
+| **Runic (alphabet)** | Stone, bone, metal, wood | Memorial, ownership, magic, casual | Low-moderate (wood lost, stone survives) | ~6,500 known |
+| **Maya (logosyllabic)** | Stone, stucco, codex bark | Royal, calendrical, ritual | Low (codices destroyed, stone survives) | ~10,000 texts |
+| **Indus (undeciphered)** | Steatite seals, pottery | Probably admin/trade | Moderate (seals endure) | ~4,000 objects |
+
+```
+MATERIAL SURVIVAL RULE OF THUMB
+=================================
+
+  Stone ──────── survives unless deliberately destroyed
+  Fired clay ─── survives (accidental firing helps)
+  Bronze ─────── usually melted for reuse (rare survivors)
+  Lead ────────── survives (curse tablets, trade tags)
+  Bone / ivory ─ survives in dry / cold conditions
+  Wood ────────── almost always lost
+  Papyrus ────── survives only in extreme dry (Egypt)
+  Bark / leaf ── almost always lost
+```

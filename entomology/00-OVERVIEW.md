@@ -2,7 +2,7 @@
 
 ## The Big Picture
 
-Insects are the dominant animals on Earth by species count, biomass, and ecological function. Everything else — vertebrates, other invertebrates — is a thin veneer on top of an insect world.
+Insects are the dominant animals on Earth by every metric that matters: species count, biomass, ecological function, evolutionary tenure. Count anything alive and legged — most of what you count will be an insect. Everything else — all vertebrates, all other invertebrates — is a thin veneer on top of an insect world. The collector who tries to catalog insects never finishes. That is the first fact of entomology.
 
 ```
 +------------------------------------------------------------------+
@@ -67,43 +67,109 @@ Not insects but commonly confused:
 ## Major Orders: The Classification Landscape
 
 ```
-INSECTA
+INSECTA — SPECIES-WEIGHTED ORDER TREE
 |
-+-- APTERYGOTA (primitively wingless)
++-- APTERYGOTA (primitively wingless)                              ~900 spp
 |   +-- Archaeognatha -- bristletails (~500 spp)
 |   +-- Zygentoma    -- silverfish, firebrats (~400 spp)
 |
-+-- PTERYGOTA (winged)
-    +-- PALAEOPTERA (cannot fold wings flat)
++-- PTERYGOTA (winged)                                        ~1,019,000 spp
+    +-- PALAEOPTERA (cannot fold wings flat)                     ~8,000 spp
     |   +-- Ephemeroptera -- mayflies (~3,000 spp)
     |   +-- Odonata       -- dragonflies, damselflies (~5,000 spp)
     |
-    +-- NEOPTERA (can fold wings over abdomen)
-        +-- POLYNEOPTERA ("many-veined")
-        |   +-- Orthoptera  -- grasshoppers, crickets (~25,000 spp)
-        |   +-- Phasmatodea -- stick insects (~3,000 spp)
-        |   +-- Blattodea   -- cockroaches + TERMITES (~7,000 spp)
-        |   +-- Mantodea    -- mantids (~2,400 spp)
-        |   +-- Dermaptera  -- earwigs (~1,800 spp)
-        |   +-- Plecoptera  -- stoneflies (~3,500 spp)
+    +-- NEOPTERA (can fold wings over abdomen)              ~1,011,000 spp
+        +-- POLYNEOPTERA ("many-veined")                      ~43,200 spp
+        |   +-- Orthoptera  -- grasshoppers, crickets (~25,000)
+        |   +-- Blattodea   -- cockroaches + TERMITES (~7,000)
+        |   +-- Phasmatodea -- stick insects (~3,000)
+        |   +-- Plecoptera  -- stoneflies (~3,500)
+        |   +-- Mantodea    -- mantids (~2,400)
+        |   +-- Dermaptera  -- earwigs (~1,800)
         |
-        +-- PARANEOPTERA
-        |   +-- Hemiptera   -- true bugs, cicadas, aphids (~80,000 spp)
-        |   +-- Thysanoptera -- thrips (~5,800 spp)
-        |   +-- Psocoptera  -- booklice, bark lice (~5,500 spp)
+        +-- PARANEOPTERA                                      ~91,300 spp
+        |   +-- Hemiptera   -- true bugs, cicadas, aphids (~80,000)
+        |   +-- Thysanoptera -- thrips (~5,800)
+        |   +-- Psocoptera  -- booklice, bark lice (~5,500)
         |
-        +-- HOLOMETABOLA (complete metamorphosis -- ~87% of insects)
-            +-- Coleoptera  -- BEETLES (~400,000 spp)  <- largest order
-            +-- Lepidoptera -- moths + butterflies (~160,000 spp)
-            +-- Hymenoptera -- ants, bees, wasps (~150,000 spp)
-            +-- Diptera     -- true flies (~125,000 spp)
-            +-- Neuroptera  -- lacewings (~6,000 spp)
+        +-- HOLOMETABOLA (complete metamorphosis)            ~876,600 spp
+            |                                                (87% of all insects)
+            |
+            |  SPECIES COUNT (described, to scale):
+            |  Coleoptera   ████████████████████████████████████████  400,000
+            |  Lepidoptera  ████████████████                         180,000
+            |  Hymenoptera  ███████████████                          153,000
+            |  Diptera      ██████████████                           152,000
+            |  Trichoptera  █▌                                        14,500
+            |  Neuroptera   ▌                                          6,000
+            |  Siphonaptera ▏                                          2,500
+            |  Strepsiptera ▏                                            600
+            |
+            +-- Coleoptera  -- BEETLES (~400,000 spp)  <- LARGEST ORDER OF LIFE
+            +-- Lepidoptera -- moths + butterflies (~180,000 spp)
+            +-- Hymenoptera -- ants, bees, wasps (~153,000 spp)
+            +-- Diptera     -- true flies (~152,000 spp)
             +-- Trichoptera -- caddisflies (~14,500 spp)
+            +-- Neuroptera  -- lacewings (~6,000 spp)
             +-- Siphonaptera -- fleas (~2,500 spp)
             +-- Strepsiptera -- stylopids (~600 spp)
 ```
 
+The bar chart makes the point that the Numerical Dominance section states in prose: four orders — beetles, moths, wasps, flies — contain ~97% of holometabolan diversity. Everything else is rounding error.
+
 Haldane's quip — "God has an inordinate fondness for beetles" — reflects real data: ~400,000 described Coleoptera, ~25% of all animal species.
+
+---
+
+## The Collector's Count
+
+The numbers are the argument. Not analogy, not metaphor — raw inventory.
+
+```
+INSECT SPECIES vs EVERYTHING ELSE
+====================================
+
+  Described beetle species (Coleoptera):     ~400,000
+  ALL described vertebrate species:          ~70,000
+      Mammals:        ~6,400
+      Birds:          ~10,600
+      Reptiles:       ~11,700
+      Amphibians:     ~8,500
+      Fish:           ~35,000
+                                             --------
+  BEETLES ALONE > ALL VERTEBRATES COMBINED       ✓
+
+  Described insect species:                  ~1,020,000
+  ALL described animal species:              ~1,500,000
+  Insects as fraction of known animals:         ~68%
+  Insects as fraction (incl. undescribed est.): ~80%
+
+  THE UNDESCRIBED MAJORITY:
+  ┌─────────────────────────────────────────────────────┐
+  │  Described insect species:          ~1,020,000      │
+  │  Estimated real total:              ~5,500,000      │
+  │  Undescribed fraction:                   ~81%       │
+  │                                                     │
+  │  At current description rate (~7,000 new spp/yr):   │
+  │    Time to describe all:            ~640 years      │
+  │    Taxonomists actively publishing:  ~3,000 world   │
+  │    Undescribed spp per taxonomist:   ~1,500         │
+  └─────────────────────────────────────────────────────┘
+
+  WHERE THE UNDESCRIBED SPECIES HIDE:
+    Parasitoid Hymenoptera (ichneumonids, braconids): ~200,000+ undescribed
+    Tropical canopy beetles:                          ~500,000+ undescribed
+    Soil/leaf-litter microfauna:                      ~400,000+ undescribed
+    Diptera (esp. Phoridae, Cecidomyiidae):           ~300,000+ undescribed
+
+  INDIVIDUAL COUNT:
+    Estimated insects alive right now:        ~10,000,000,000,000,000,000
+    That is 10^19 — ten quintillion
+    Insects per human:                        ~1.25 billion
+    Ants alone:                               ~20 quadrillion (10^16)
+```
+
+Every number above is a lower bound. The collector counts, and the count is never finished.
 
 ---
 
@@ -266,6 +332,6 @@ Phylogenetic trees are DAGs with specific constraints: directed (time flows root
 
 **"Bug" is not "insect"**: True bugs (Hemiptera) have piercing-sucking mouthparts and characteristic wing structure. All bugs are insects; most insects are not bugs.
 
-**Species counts are a lower bound**: Tropical forests, soil fauna, and parasitoid Hymenoptera remain massively under-described. Estimated 5-10 million total insect species; ~1 million described.
+**Species counts are a lower bound**: Tropical forests, soil fauna, and parasitoid Hymenoptera remain massively under-described. Estimated 5.5 million total insect species; ~1 million described. We have named barely one-fifth of what exists. The collection is never complete.
 
 **The insect decline literature**: Headlines about "40% decline" conflate different metrics — flying insect biomass (Germany, Hallmann 2017), species extinction rates, and abundance trends. Real but geographically uneven; tropical forest diversity may be less affected than temperate agricultural zones.

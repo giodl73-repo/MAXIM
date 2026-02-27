@@ -106,6 +106,88 @@ NEOGNATHAE (all other birds)
 
 Passeriformes is by far the largest order: ~6,500 species in ~140 families. Within Passeriformes, the Oscines (songbirds) with learned vocal learning (~4,500 spp) and the Suboscines (~1,000 spp, mostly South America) are the two major groups.
 
+### The Neoaves Radiation
+
+The central puzzle of avian phylogenetics. After K-Pg (66 Mya), Neoaves exploded into ~30+ lineages in 10-15 million years — a radiation so rapid that different gene trees disagree on branching order. This is incomplete lineage sorting at macroevolutionary scale.
+
+```
+NEOAVES RADIATION — species counts by major clade (~10,000 spp total)
+=====================================================================
+
+  K-Pg boundary (66 Mya)
+       |
+       |  ██ 10-15 My window of explosive diversification
+       |
+       +─ Passeriformes (perching birds)         ██████████████████████  6,500
+       +─ Charadriiformes (shorebirds/gulls)     ██                       380
+       +─ Accipitriformes (hawks/eagles)         █                        260
+       +─ Psittaciformes (parrots)               █                        400
+       +─ Piciformes (woodpeckers)               █                        240
+       +─ Strigiformes (owls)                    █                        250
+       +─ Apodiformes (swifts+hummingbirds)      █▌                       480
+       +─ Columbiformes (pigeons/doves)          █                        350
+       +─ Pelecaniformes (pelicans/herons)       █                        120
+       +─ Procellariiformes (albatrosses/petrels)▌                        145
+       +─ Sphenisciformes (penguins)             ▏                         18
+       +─ All other Neoaves combined             ██                       ~700
+                                                              TOTAL:  ~9,843
+
+  WHY THE TREE IS HARD TO RESOLVE:
+    Short internodes → few informative substitutions per branch
+    Different genes → different topologies (ILS)
+    Retrotransposon insertions now used as tiebreakers
+    No single "correct" Neoaves tree exists yet — only consensus regions
+```
+
+Passeriformes alone accounts for 66% of Neoaves diversity. Within that single order, the Oscine songbirds (~4,500 spp) underwent their own secondary radiation in Australia before dispersing globally — a radiation within a radiation.
+
+---
+
+## Quick ID Framework
+
+The birder's identification sequence, from coarsest to finest signal. This is how field ornithologists actually work — not by memorizing every species, but by progressively narrowing a decision space.
+
+```
+FIELD ID DECISION TREE — the practiced birder's sequence
+=========================================================
+
+  1. HABITAT (eliminates 70-80% of possibilities)
+     ├── Ocean pelagic? → tubenoses, alcids, jaegers, tropicbirds
+     ├── Freshwater? → ducks, herons, rails, kingfishers, sandpipers
+     ├── Forest canopy? → warblers, vireos, tanagers, raptors
+     ├── Forest floor? → thrushes, ovenbirds, antpittas
+     ├── Grassland/open? → sparrows, pipits, larks, raptors, shrikes
+     └── Urban/suburban? → house sparrow, starling, pigeons, corvids
+
+  2. SIZE (relative to known anchors)
+     Sparrow-sized (~15 cm) | Robin-sized (~25 cm) | Crow-sized (~45 cm)
+     Goose-sized (~80 cm)   | Eagle-sized (~90 cm) | Heron-sized (~100 cm)
+
+  3. SILHOUETTE (shape at distance — often sufficient for family)
+     Duck shape | Raptor shape | Shorebird shape | Songbird shape
+     Long legs | Long neck | Long tail | Crest | Bill shape
+
+  4. BEHAVIOR (what is it doing?)
+     Soaring (raptors, vultures) | Hovering (hummingbirds, kestrels)
+     Diving (loons, grebes, gannets) | Probing mud (shorebirds)
+     Flycatching sallies (flycatchers) | Trunk-climbing (nuthatches)
+
+  5. FIELD MARKS (now you're close enough)
+     Wing bars | Eye ring | Spectacles | Breast streaking
+     Rump patch | Tail pattern | Bill color | Leg color
+
+  6. SONG / CALL (often diagnostic to species before visual ID)
+     Learned songs (Oscines) vs innate calls (Suboscines)
+     Song = territory/mate attraction; Call = alarm/contact/flight
+     Some species ID'd more reliably by ear than by eye
+     (e.g., Empidonax flycatchers — nearly identical visually)
+
+  CONVERGENCE:
+    Steps 1-3 narrow to family (~249 → 5-10 candidates)
+    Steps 4-5 narrow to genus/species
+    Step 6 confirms or overrides visual ID
+```
+
 ---
 
 ## Key Diagnostic Features
@@ -254,6 +336,8 @@ MAJOR AVIAN ECOLOGICAL GUILDS
 The Linnaean classification hierarchy is a strict tree — each node has exactly one parent, ranks are fixed, and every organism occupies exactly one position. This is a normalized taxonomy, structurally equivalent to a schema with enforced foreign-key hierarchy: kingdom → phylum → class → order → family → genus → species maps cleanly to five or six levels of a parent-child table. The analogy breaks exactly where ontology design breaks: when you need to represent multiple inheritance (hybrids) or when the hierarchy is contested (taxonomic splits), a pure tree fails and you need a directed acyclic graph.
 
 Cladistics is that DAG. Modern phylogenetic trees are not strict Linnaean hierarchies — they are bifurcating trees (approximately DAGs with no cycles) where node positions are inferred, edges are weighted by evolutionary distance, and disagreements between datasets produce polytomies (unresolved branching). Taxonomic checklists that disagree about species limits (IOC vs. Clements vs. eBird) are versioned ontology conflicts — same data, different edge definitions, incompatible schemas. The checklist wars in ornithology are structurally identical to the problem of merging two independently evolved domain models.
+
+Field bird identification is a classification pipeline that maps directly to ML pattern recognition. The birder's ID sequence (habitat → size → silhouette → behavior → field marks → song) is a staged feature extraction pipeline: coarse features eliminate most of the hypothesis space early (habitat alone removes 70-80% of candidates — this is the high-information-gain split at the top of a decision tree), then progressively finer features resolve the remaining ambiguity. Field marks (wing bars, eye rings, breast streaking) are hand-engineered features; experienced birders have internalized hundreds of decision boundaries that they apply in milliseconds. The "jizz" of a bird — the gestalt impression that lets an expert ID a bird at distance from shape and movement alone — is the biological equivalent of a learned embedding: a compressed, high-dimensional representation that captures discriminative information the observer cannot fully articulate. Empidonax flycatchers (five nearly identical species separated primarily by song) are the adversarial examples of ornithology — visually indistinguishable, requiring a completely different feature modality (audio) to classify.
 
 ## Decision Cheat Sheet
 

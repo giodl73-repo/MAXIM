@@ -1,5 +1,43 @@
 # Cloud Architecture: Models, Patterns, and Trade-offs — Landscape
 
+## Sentinel Context
+
+This directory is one of three in the Sentinel triad (K-Spade C-IV). The thesis: *no single point of truth, no single point of trust, no single point of failure.*
+
+```
+THE SENTINEL TRIAD — Cloud Architecture View
+═══════════════════════════════════════════════════════════════════
+
+              CAP Theorem (2000)
+              "Every design choice picks a point
+               on the C-A-P trade-off surface."
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+        ▼                ▼                ▼
+  ┌────────────┐   ┌───────────┐   ╔══════════════╗
+  │ DISTRIBUTED│   │ SECURITY  │   ║ CLOUD        ║
+  │ SYSTEMS    │   │ ENG.      │   ║ ARCHITECTURE ║
+  │            │   │           │   ║              ║
+  │ "Who has   │   │ "Who do   │   ║ "Where do    ║
+  │  the       │   │  you      │   ║  you put     ║
+  │  truth?"   │   │  trust?"  │   ║  the truth?" ║
+  └─────┬──────┘   └─────┬─────┘   ╚══════╤═══════╝
+        │                │                │
+        └────────────────┴────────────────┘
+                         │
+              Infrastructure as the execution layer
+```
+
+Cloud architecture is the **execution layer** for the entire volume. The consensus protocols from distributed systems and the trust models from security engineering are theoretical until they run on actual infrastructure --- AZs, regions, load balancers, managed services. Cloud architecture answers the question of *where* and *how*: multi-AZ for partition tolerance, managed Kubernetes for consensus (etcd runs Raft), mTLS between services for zero-trust enforcement, health probes for failure detection. Every CAP trade-off, every quorum configuration, every security control from the other two domains materializes here as an infrastructure decision with cost, latency, and blast-radius consequences.
+
+**See also:**
+- `../computing/00-SENTINEL-THESIS.md` — Volume thesis: the Sentinel principle and constraint stack
+- `../distributed-systems/00-OVERVIEW.md` — Consensus: the theory that cloud services implement internally
+- `../security-engineering/00-OVERVIEW.md` — Trust: the controls that cloud infrastructure must enforce
+
+---
+
 ## The Big Picture
 
 Cloud architecture is the discipline of designing systems that run on cloud infrastructure — exploiting the economics of shared, elastic infrastructure while managing the distributed systems complexity it introduces.

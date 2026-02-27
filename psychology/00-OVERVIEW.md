@@ -1,5 +1,72 @@
 # Psychology — Overview
 
+## Systems Architecture
+
+```
+PSYCHOLOGY AS A MEASUREMENT PROBLEM — FOUR ANALYSIS LEVELS
+============================================================
+
+              BIOLOGICAL                          SOCIAL
+         (hardware / wetware)                (context / environment)
+  ┌──────────────────────────┐      ┌──────────────────────────┐
+  │ Neurotransmitters        │      │ Group norms              │
+  │ HPA axis / cortisol      │◄────►│ Cultural scripts         │
+  │ Neural circuits          │      │ Power structures         │
+  │ Genetic variance (h²)   │      │ Conformity pressure      │
+  │ Psychopharmacology       │      │ Role expectations        │
+  └────────────┬─────────────┘      └─────────────┬────────────┘
+               │                                   │
+               │   ┌───────────────────────┐       │
+               │   │      COGNITIVE        │       │
+               ├──►│  (computation layer)  │◄──────┤
+               │   │                       │       │
+               │   │ Perception · Memory   │       │
+               │   │ Attention · Language   │       │
+               │   │ Decision / Judgment   │       │
+               │   │ Executive control     │       │
+               │   └───────────┬───────────┘       │
+               │               │                   │
+               │   ┌───────────▼───────────┐       │
+               └──►│   CLINICAL / APPLIED  │◄──────┘
+                   │   (cross-cutting)     │
+                   │                       │
+                   │ Diagnosis · Treatment │
+                   │ I-O · Forensic        │
+                   │ Health · Counseling   │
+                   └───────────────────────┘
+
+  ALL ARROWS ARE BIDIRECTIONAL:
+   Bio → Cog:  serotonin levels alter decision thresholds
+   Cog → Bio:  CBT measurably changes amygdala reactivity (fMRI)
+   Social → Cog: conformity pressure shifts risk perception
+   Cog → Social: attribution errors create self-fulfilling group dynamics
+   Bio → Social: oxytocin modulates in-group trust
+   Social → Bio: chronic social stress → cortisol dysregulation
+
+  FUNDAMENTAL MEASUREMENT CONSTRAINTS:
+   • Most constructs (personality, intelligence, motivation) are LATENT —
+     never observed directly, only inferred from indicators
+   • Self-report is the dominant instrument; demand characteristics are endemic
+   • Effect sizes are small (median d ≈ 0.4); large samples required for power
+   • Ecological validity gap: lab ≠ field; WEIRD samples ≠ humanity
+```
+
+### Field Map — Quick Reference
+
+| Subdiscipline | Core Question | Key Method | Replication Status |
+|---|---|---|---|
+| Behavioral neuroscience | How does brain structure → behavior? | fMRI, lesion studies, animal models | Generally robust; imaging reproducibility improving |
+| Cognitive psychology | How do perception, memory, attention work? | RT paradigms, signal detection, eye-tracking | Strong — conditioning, priming (basic), memory effects hold |
+| Social psychology | How does social context shape behavior? | Lab experiments, surveys, field studies | Mixed — conformity/obedience hold; social priming collapsed |
+| Personality | What are stable individual differences? | Psychometrics, longitudinal, twin studies | Strong — Big Five structure, heritability, predictive validity |
+| Developmental | How do cognition/behavior change across lifespan? | Longitudinal, cross-sectional, habituation | Moderate — attachment basics hold; stage models oversimplified |
+| Clinical | Which disorders exist and which treatments work? | RCTs, meta-analysis, diagnostic reliability | CBT effects robust; diagnostic boundaries contested (DSM revision cycle) |
+| I-O psychology | What predicts job performance? | Meta-analysis, structured assessment, field RCTs | Strong — GMA validity (r≈.51), structured interviews (r≈.58) |
+| Evolutionary | What is the adaptive function of behavior? | Cross-cultural comparison, modelling | Contested — framework generative but many specific claims untestable |
+| Health psychology | How do behavior and health interact? | Longitudinal cohort, intervention RCTs | Moderate — stress-health link robust; specific mechanisms debated |
+
+---
+
 ## The Big Picture
 
 Psychology is the scientific study of behavior and mental processes. It occupies

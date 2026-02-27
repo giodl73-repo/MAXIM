@@ -125,6 +125,7 @@ TIMELINE: MAJOR EXPLORATION ERAS
 | 07-CONTINENTAL-INTERIORS.md | 1800–1875 | Lewis+Clark, Livingstone+Stanley, Burke+Wills | Interior geography |
 | 08-VERTICAL-FRONTIERS.md | 1924–1986 | Hillary+Tenzing, Herzog, Messner, Cousteau | Altitude and depth |
 | 09-MODERN-FRONTIERS.md | 1957–present | Armstrong+Aldrin, Gagarin, Piccard, Ballard | Space and deep sea |
+| 10-NAVIGATION-AND-SHIPS.md | Cross-era | Harrison, Mercator, Snellius, Lind | Technology substrate: navigation, ship design, cartography, provisions |
 
 ---
 
