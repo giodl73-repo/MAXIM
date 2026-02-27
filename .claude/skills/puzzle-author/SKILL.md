@@ -191,12 +191,24 @@ Black Joker examples:
 
 ## Quality Bar
 
-A puzzle is ready for `/puzzle-test` when:
-- The mechanism works end-to-end (verified by the author)
+A puzzle is ready for `/puzzle-test` when it passes the design principles in `puzzle-hunt/PRINCIPLES.md`. Key checks before saving:
+
+- [ ] **The Riven Standard**: the puzzle IS what the section does, not overlaid on it
+- [ ] **Solving = Proving Understanding**: the solver knows more after solving
+- [ ] **Blame the Player**: every clue is fair in retrospect
+- [ ] **No Over-Scaffolding**: the worksheet provides space, not instructions
+- [ ] **Surprise the Answer**: the answer word couldn't be guessed from the topic
+- [ ] **Reading Reward ≥ 4**: requires genuine engagement with encyclopedia content
+- [ ] **One Aha**: one clean mechanism, mechanical extraction after discovery
+- [ ] **The Book Test** (Red Joker): pencil and book only, no tools
+- [ ] **No Deliberate Errors**: every fact is verifiable
+- [ ] **Voice Rules**: Joker intro follows all 6 rules from JOKER-VOICE.md
+
+Also verify:
+- The mechanism works end-to-end
 - The worksheet is complete and usable
-- The Joker intro sets the right tone
 - A solver with access to the encyclopedia could complete it in 20-60 minutes
-- The Reading Reward score is ≥ 4 (requires genuine engagement with content)
+- Snyder's test: "Could a computer generate this?" If yes, add a deduction layer.
 
 ---
 
