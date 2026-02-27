@@ -190,8 +190,8 @@ Why depth of field is deeper on smaller sensors:
 
 ## Bridges to Adjacent Fields
 
-<!-- @editor[bridge/P2]: The signal-processing row mentions "Fourier analysis of MTF" but the connection is not articulated: MTF is the magnitude of the optical transfer function (OTF), which is the Fourier transform of the point spread function (PSF). Any engineer from signal processing immediately maps this to LTI system frequency response. That bridge should be explicit in this overview, not just a row label. -->
-<!-- @editor[bridge/P2]: RAW processing as a signal processing pipeline is named in the Technical Domains Map but never framed as a pipeline for this learner: capture → demosaic (sampling reconstruction) → white balance (linear transform) → tone curve (nonlinear compression) → NR (spatial filtering) → output. This is the same pipeline structure any DSP engineer would recognize. Worth one paragraph in the overview. -->
+**Signal processing framing**: MTF (Modulation Transfer Function) is the magnitude of the optical transfer function (OTF), which is the Fourier transform of the point spread function (PSF). Any signal processing engineer recognizes this as LTI system frequency response — the lens is a spatial low-pass filter characterized by its frequency response. RAW processing is a signal processing pipeline: capture (sampling) -> demosaic (reconstruction from undersampled color channels) -> white balance (3x3 linear transform) -> tone curve (nonlinear compression) -> noise reduction (spatial filtering) -> output (quantization + encoding). Each stage has a well-defined transfer function.
+
 | Field | Connection |
 |-------|-----------|
 | `physics/` | Geometric optics, wave optics, quantum efficiency of photodetectors |
@@ -203,20 +203,18 @@ Why depth of field is deeper on smaller sensors:
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a module navigation index ("go to X"), not a decision tool. Needs "use X when Y" rows — e.g., "want to understand why your images are soft wide-open → Seidel aberrations / MTF", "shooting handheld in low light → multi-frame NR / Night Mode pipeline". Navigation table belongs in the Module Map section above. -->
 ## Decision Cheat Sheet
 
-| You want to understand | Go to |
-|------------------------|-------|
-| Why lenses are soft at edges or wide open | `01-OPTICS-LENSES.md` — MTF, aberrations |
-| How film actually records and stores light | `02-FILM-CHEMISTRY.md` — Gurney-Mott |
-| How Ansel Adams zone system worked | `03-DARKROOM.md` — zone system |
-| Why color film is more complex than B&W | `04-COLOR-PHOTOGRAPHY.md` — dye coupling |
-| Why mirrorless displaced DSLRs | `05-CAMERA-TECHNOLOGY.md` — mirror box problems |
-| Why small sensors are noisier | `06-DIGITAL-SENSORS.md` — photon shot noise |
-| What RAW vs JPEG actually encodes | `07-DIGITAL-WORKFLOW.md` |
-| How iPhone beats physics with computation | `08-COMPUTATIONAL-PHOTOGRAPHY.md` |
-| Full photographic history | `09-HISTORY-ARC.md` |
+| Situation | Technique / Concept | Why |
+|-----------|--------------------|----|
+| Images soft wide-open | Seidel aberrations, MTF at working aperture | Spherical + coma dominate at max aperture; stop down 2 stops for sharpest MTF |
+| Shooting handheld in low light | Multi-frame NR / Night Mode pipeline | Computational stack: align + merge N short exposures > single long exposure |
+| Noisy high-ISO images | Photon shot noise (Poisson), read noise floor | Noise is sqrt(signal); larger pixels collect more photons per pixel = higher SNR |
+| Color mismatch between camera and print | ICC profile chain: camera -> working space -> output | Each conversion is a 3x3 matrix; mismatched profiles = wrong gamut mapping |
+| Moiré patterns on fine textures | Bayer CFA aliasing above Nyquist for color channels | Optical low-pass filter or demosaic algorithm handles anti-aliasing |
+| Need 3D reconstruction from photos | Structure-from-Motion + bundle adjustment | Feature matching -> RANSAC -> BA -> dense MVS; NeRF/Gaussian Splatting for ML |
+| Choosing between RAW and JPEG | RAW = linear sensor data, 12-14 bit; JPEG = processed, 8-bit, lossy | RAW preserves latitude for post-processing; JPEG for immediate sharing |
+| HDR scene exceeds sensor dynamic range | Exposure bracketing + computational merge | Multiple exposures mapped to HDR then tone-mapped to display range |
 
 ---
 
