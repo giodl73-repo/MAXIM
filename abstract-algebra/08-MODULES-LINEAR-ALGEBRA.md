@@ -265,6 +265,10 @@ THE SNAKE LEMMA: If you have a commutative diagram of two SES rows
 LONG EXACT SEQUENCE IN Ext:
   0 → Hom(C,A) → Hom(B,A) → Hom(A,A) → Ext¹(C,A) → Ext¹(B,A) → ...
   The Ext groups measure obstructions to extending homomorphisms.
+
+<!-- @editor[content/P2]: Chain complexes and Ext/Tor section is thin — introduces the concepts but stops short of the derived category, which is where this machinery lives. The derived category D(A) of an abelian category A is the natural setting for Ext^n (as Hom in D(A) shifted by n). For a TCS/Math reader: derived categories appear in mirror symmetry, algebraic K-theory, and persistent homology. The "so what" is completely missing from this section -->
+
+<!-- @editor[bridge/P2]: No connection between module theory and persistent homology / topological data analysis — persistent homology is module theory over the polynomial ring k[t] (persistence modules), and the structure theorem for finitely generated modules over k[t] (a PID) gives the barcode decomposition. This is one of the most compelling modern applications of the structure theorem and directly relevant to ML/data science work -->
 ```
 
 ---

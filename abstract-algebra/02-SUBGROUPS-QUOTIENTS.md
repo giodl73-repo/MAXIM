@@ -271,6 +271,10 @@ JORDAN-HÖLDER THEOREM:
 CLASSIFICATION OF FINITE SIMPLE GROUPS (CFSG):
   Completed 2004, 10,000+ pages.
   Categories: cyclic Z/p, alternating A_n (n≥5), groups of Lie type, 26 sporadic.
+
+<!-- @editor[content/P2]: CFSG entry is a 2-line stub for a result requiring 10,000+ pages — at minimum add: the count and names of the 26 sporadic groups, the Monster's order (~8×10^53), why Lie-type groups are the bulk of the classification, and what "completed 2004" means (the second-generation proof project). The learner can handle the full structure of the classification -->
+
+<!-- @editor[bridge/P2]: No category-theoretic lens on quotients — in Grp (groups), normal subgroups are exactly what's needed for quotients to work because Grp is not an abelian category; in Ab (abelian groups), every subgroup is normal and every subgroup gives a quotient. The contrast Grp vs. Ab is the exact reason abelian categories were invented (Buchsbaum, Grothendieck). A TCS/category-theory reader needs this connection spelled out -->
 ```
 
 ---

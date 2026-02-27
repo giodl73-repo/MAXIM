@@ -36,6 +36,8 @@
 The power of abstraction: prove once at the group level, get the result for
 S_n, GL(n,F), Z/nZ, elliptic curve groups, Galois groups — simultaneously.
 
+<!-- @editor[diagram/P2]: Landscape diagram shows the ring-of-structures chain well but is purely vertical — doesn't show the cross-connections that motivate this learner: Galois theory bridges field extensions ↔ group theory; representation theory bridges groups ↔ modules ↔ linear algebra; category theory unifies all of them. Rework as a 2D map with lateral connections, not just a linear hierarchy -->
+
 ---
 
 ## Why Abstract Algebra
@@ -190,7 +192,7 @@ COMPILER THEORY:
   Regular languages: recognized by finite monoids.
   (Kleene-Myhill: language is regular iff its syntactic monoid is finite)
 
-ERROR-CORRECTING CODES:
+<!-- @editor[bridge/P1]: Missing group isomorphism problem — a canonical TCS topic that directly connects abstract algebra to computational complexity. GI is in NP ∩ coAM; Babai's 2015 quasipolynomial algorithm was a landmark result. This learner's MIT TCS background makes this a primary bridge point; any TCS/Math person coming from complexity theory needs this connection prominently -->
   Linear codes = subspaces of F_q^n.
   Cyclic codes = ideals in F_q[x]/(x^n-1).
   Reed-Solomon = polynomial evaluation codes over F_q.
@@ -213,6 +215,8 @@ ERROR-CORRECTING CODES:
 | 08-MODULES-LINEAR-ALGEBRA.md | Modules, free/projective/injective, structure theorem |
 | 09-CATEGORY-THEORY.md | Categories, functors, natural transforms, Yoneda, adjoints |
 | 10-APPLICATIONS.md | Reed-Solomon, crystallography, crypto, quantum groups |
+
+<!-- @editor[content/P2]: File-by-file table lists topic coverage but omits depth signals — reader can't tell which files are full guides vs. thin; add page-count/section-count column or a depth annotation (e.g., "includes Sylow, group actions, Burnside") -->
 
 ---
 

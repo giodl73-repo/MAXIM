@@ -292,4 +292,8 @@ ENSEMBLE ↔ LEGENDRE TRANSFORM:
 
 **Factorization Z = z^N/N! fails for interacting systems**: Once particles interact (Σᵢⱼ V(rᵢ−rⱼ)), Z does not factorize. Computing Z for interacting systems requires virial expansions, cluster expansions, mean-field theory, or numerical methods. Most of statistical mechanics is the study of this difficulty.
 
+<!-- @editor[content/P2]: Missing confusion point: the grand canonical ensemble's chemical potential μ is introduced at the end of this file but the meaning of μ = 0 for photons/phonons (no particle number conservation) is not discussed here — only in 04-QUANTUM-STATS.md. Since the grand canonical treatment is introduced in this file, a forward pointer or one sentence on why μ = 0 for bosons with no conservation law is appropriate here. -->
+
+<!-- @editor[bridge/P2]: The Legendre transform connection (canonical ↔ microcanonical via F = E − TS) is explicitly noted and is good. Missing: the parallel connection to Legendre duality in optimization / convex analysis. The transform S(E) → F(T) is exactly the convex conjugate — F(T) = sup_E[E/T − S(E)/k]. A learner with MIT math will immediately recognize this as the Fenchel conjugate, which explains why β = ∂S/∂E is the natural dual variable. One sentence would suffice. -->
+
 **"Fixed T" requires the system to be small compared to the reservoir**: The derivation of the canonical distribution relies on E_n << E_reservoir. If system and reservoir are comparable in size, neither is canonical. For macroscopic systems, the canonical and microcanonical ensembles give identical macroscopic predictions anyway.

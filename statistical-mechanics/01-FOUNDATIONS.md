@@ -32,6 +32,8 @@ FOUNDATIONS STRUCTURE
 
 ## Microstates and Macrostates
 
+<!-- @editor[audience/P2]: The macrostate/microstate definitions are written at introductory level — this learner knows thermodynamics. The coin example (4 coins, 2 heads) is pedagogically correct but far below the calibration level. The learner needs the *combinatorial scaling* argument (why Ω grows as e^N) to understand why fluctuations vanish in the thermodynamic limit, not a 4-coin illustration. Consider replacing with the N-coin binomial / Stirling argument that shows the Gaussian sharpening. -->
+
 **Macrostate**: defined by macroscopic variables (N, V, T, P, ...) — what we measure.
 **Microstate**: complete specification of the state of every particle (positions and momenta in classical mechanics, quantum numbers in quantum mechanics).
 
@@ -117,6 +119,8 @@ So:
 ---
 
 ## Derivation via Maximum Entropy (Jaynes)
+
+<!-- @editor[bridge/P2]: The Jaynes MaxEnt derivation is present but doesn't land the connection this learner most needs: the Lagrange multiplier β here is exactly the dual variable in a convex optimization problem (Legendre-Fenchel duality). A learner with MIT math background will recognize that the exponential family distribution is the general solution to any MaxEnt problem with linear constraints — and that this is why logistic regression, Gaussian, Poisson, and exponential distributions all take the same e^{linear} form. One sentence bridging MaxEnt → exponential family → ML would pay off. -->
 
 Alternatively: find the distribution {p_n} that **maximizes entropy** subject to:
 
@@ -255,3 +259,7 @@ For N₂ at room temperature (T = 300K, m = 28 amu): v_rms ≈ 517 m/s.
 **The N! factor prevents the Gibbs paradox**: For classical identical particles, dividing phase space by N! accounts for indistinguishability. Without it, mixing two containers of the same gas would increase entropy — which is wrong (Gibbs paradox). The N! makes entropy extensive.
 
 **Equipartition fails at low T for quantum systems**: The classical equipartition theorem gives each quadratic mode k_BT/2 of energy. But if the quantum level spacing ℏω >> k_BT, the mode cannot be thermally excited — it contributes nearly zero. This explains why specific heats of solids decrease at low T (Einstein and Debye models).
+
+<!-- @editor[content/P2]: Missing: the Gibbs entropy formula S = −k Σ p_n ln p_n should be connected explicitly to Shannon entropy H = −Σ p_n log₂ p_n here at the foundations level, not deferred to 09-CONNECTIONS.md. This is where the identity is *derived* (both emerge from the same axiomatic constraints), and this learner already knows Shannon entropy. The connection at derivation time is more illuminating than a mapping table later. -->
+
+<!-- @editor[content/P2]: The Maxwell-Boltzmann speed distribution section derives the result but never states the practical use case: it sets the scale for when quantum statistics are required (nλ³ ~ 1 is the quantum crossover). The thermal de Broglie wavelength λ = h/√(2πmkT) should appear here with the quantum criterion, not only in 04-QUANTUM-STATS.md. -->

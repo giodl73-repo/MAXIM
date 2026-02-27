@@ -135,6 +135,8 @@ DENSITY OF STATES g(E) FOR DIFFERENT SYSTEMS:
 
 ## The Second Law from Counting
 
+<!-- @editor[bridge/P2]: The combinatorial derivation of the second law as Ω_total maximization is correct but misses a powerful bridge: this is the same argument as maximum likelihood estimation in statistics. Maximizing Ω = Ω_A × Ω_B over E_A is exactly maximizing a product of probabilities — the physics is maximum likelihood in disguise. This learner (MIT TCS) will find this connection illuminating and it directly connects to the Jaynes MaxEnt picture. -->
+
 **Setup**: Two systems A and B, initially isolated at energies E_A and E_B, then allowed to exchange energy (total E = E_A + E_B is fixed).
 
 The total number of microstates:
@@ -254,6 +256,8 @@ At high T (k_BT >> ℏω): Ω grows polynomially → equipartition → C_V = 3Nk
 At low T (k_BT << ℏω): Ω ~ e^{-ℏω/k_BT} → quantum freeze-out → C_V → 0.
 
 **The Debye model** improves on Einstein by using a spectrum of frequencies ω_k (phonons) up to a Debye cutoff ω_D. The density of states goes as g(ω) ∝ ω² for ω < ω_D. This gives C_V ∝ T³ at low T — observed in all crystalline solids.
+
+<!-- @editor[content/P2]: The quantum microcanonical section covers Einstein and Debye models but does not connect back to the density of states diagram above. The C_V ∝ T³ result should follow visibly from g(ω) ∝ ω² by a one-line argument (∫ ε g(ε) n_BE(ε) dε gives the energy, and the low-T integral scales as T^(d+1) for g(ε) ∝ ε^{d-1}). This would close the section's logic without requiring the reader to look it up elsewhere. -->
 
 ---
 

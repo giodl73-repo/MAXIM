@@ -147,6 +147,8 @@ CONNECTING EXPONENTS:
 
 ## Wilson's Epsilon Expansion
 
+<!-- @editor[content/P2]: The epsilon expansion is presented correctly but the file does not discuss the convergence failure: the ε series is asymptotic (zero radius of convergence), and setting ε=1 for d=3 gives ~15% accuracy for ν but diverges at higher orders. The practical way to extract d=3 results is Borel resummation or conformal bootstrap (which gives near-exact results). The file mentions conformal bootstrap in 07-ISING-MODELS.md but the reader reaching this file first will not know that the ε expansion is superseded for precision. A sentence on this is warranted. -->
+
 For φ⁴ theory (the field theory of the Ising universality class):
 
     S[φ] = ∫ d^d r [(1/2)|∇φ|² + (r/2)φ² + (u/4!)φ⁴]
@@ -274,6 +276,10 @@ STAT MECH ↔ QFT DICTIONARY:
 
 The Wilsonian view of QFT: the standard model of particle physics is an effective field theory, valid below some UV cutoff Λ. Relevant operators correspond to the finite number of renormalizable interactions (mass, kinetic term, couplings). Irrelevant operators are suppressed by powers of E/Λ — hence the standard model works so well without knowing the UV completion.
 
+<!-- @editor[content/P2]: Missing: the connection from RG to scale-free networks and ML. Wilson's RG gives scale invariance at a fixed point — and scale invariance is exactly what makes neural networks at the "edge of chaos" or at an initialization critical point work well (gradient signal neither vanishes nor explodes). The file covers QFT thoroughly but the ML bridge (neural tangent kernel, mean-field theory of deep networks, and the connection to the RG fixed point as the "right" initialization) is entirely absent. This is listed in the learner calibration as a target bridge. -->
+
+<!-- @editor[bridge/P2]: Missing the connection to the multiscale / coarse-graining paradigm in computer science. The RG block-spin transformation is exactly the same idea as hierarchical clustering, wavelet transforms, and convolutional neural networks (spatial coarse-graining at each layer). A CNN with pooling layers IS a block-spin renormalization — features at each scale integrate out the fine-grained structure below. This connection is profound and directly relevant to this learner's CS background. -->
+
 ---
 
 ## Decision Cheat Sheet
@@ -300,3 +306,5 @@ The Wilsonian view of QFT: the standard model of particle physics is an effectiv
 **The epsilon expansion is asymptotic**: The series in ε is not convergent — it's an asymptotic expansion (like the perturbative expansion in QFT). Setting ε = 1 gives useful estimates, but the series technically diverges. Padé approximants and resummation techniques improve accuracy.
 
 **Fixed point ≠ equilibrium**: In thermodynamics, equilibrium means the system has minimized free energy. A fixed point of the RG is NOT a thermodynamic equilibrium — it's a scale-invariant configuration in the space of Hamiltonians. A critical system at T = T_c is in thermodynamic equilibrium (at its free energy minimum for that T) AND at the RG fixed point.
+
+<!-- @editor[content/P2]: Missing confusion point about the beta function sign convention: in QFT, the beta function β(g) = dg/d ln μ is defined with the *opposite* sign convention from some stat mech texts. A coupling that is "relevant" in stat mech RG (grows under coarse-graining, i.e., y > 0) is one with positive beta function in QFT (coupling grows with energy scale). This sign confusion trips up anyone moving between the two literatures, and this learner will hit it immediately reading QFT texts after this guide. -->
