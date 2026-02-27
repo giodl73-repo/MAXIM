@@ -184,6 +184,20 @@ If every clue can be solved in isolation, the solver is doing N small puzzles, n
 
 ---
 
+## No Computation Without Deduction
+
+*Source: Testing data — Carbon v1 (20/30), Magnesium (20.7/30), Silicon (22/30), Iron (18.7/30). ALL pure-computation puzzles failed.*
+
+> "Computation is not deduction. Evaluation is not insight. Applying a formula is not solving a puzzle."
+
+Every puzzle that presents complete rules + complete inputs + a worksheet and asks the solver to mechanically evaluate fails testing. The pattern is 4-for-4. The fix is always the same three things: (1) remove inline formulas/tables — make the solver find them in the encyclopedia, (2) add at least one step that requires DEDUCTION not just execution — a missing value to infer, a reading frame to discover, a broken component to diagnose, (3) create interlock so solving one part constrains another.
+
+The revised Carbon (v2) shows the fix working: template strand + reading frame discovery + codon table removed from page. The mechanism is the same (DNA→protein), but now the solver must THINK, not just FOLLOW.
+
+**Test:** Remove all worksheets and instructions from the puzzle. Is there still a puzzle? If not, the puzzle is the worksheet — and worksheets are not puzzles.
+
+---
+
 ## Snyder's Computer Test
 
 *Source: Magnesium test (20.7/30 — Snyder: Elegance 1/5)*
@@ -229,6 +243,7 @@ When principles conflict, higher beats lower:
 12. **Discovered, Never Explained** — hidden depth rewards curiosity
 13. **The Periodic Table Is Not Decoration** — the framing is structural
 14. **Three Deduction Tools** — the Grid is deduction, not search
-15. **Interlock, Not Independence** — clues should cross-reference, not isolate
-16. **Snyder's Computer Test** — if a script can solve it, add a deduction layer
-17. **The Voice Rules** — the Joker is consistent
+15. **No Computation Without Deduction** — 4/4 pure-computation puzzles failed testing
+16. **Interlock, Not Independence** — clues should cross-reference, not isolate
+17. **Snyder's Computer Test** — if a script can solve it, add a deduction layer
+18. **The Voice Rules** — the Joker is consistent
