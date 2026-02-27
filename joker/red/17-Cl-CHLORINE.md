@@ -4,7 +4,7 @@
 
 ---
 
-> The Broadcaster sends a signal through noise and distance and time. Some signals arrive clean. Some do not. This one has been waiting for the right pair of hands.
+> The Broadcaster sends a signal through noise and distance and time. Some signals arrive clean. Some do not. This one has been waiting for you.
 
 ---
 
@@ -57,9 +57,7 @@ Place a straight edge vertically across both strips. To set up for a key letter,
 
 ### Step 1 -- Find the key
 
-The inventor of the first cipher disc. Florence. More than three centuries before the telegraph (1837). His surname.
-
-Read the timeline in `codes/08-HISTORICAL-CIPHERS.md`. Look for the word "disc."
+The puzzle text names the city, the century, and the device. The encyclopedia names the inventor.
 
 ```
 Key (7 letters):  ___  ___  ___  ___  ___  ___  ___
