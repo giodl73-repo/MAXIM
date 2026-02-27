@@ -26,8 +26,8 @@
     Optical diffraction (far-field = 2D FT of aperture)
 
   6.003 bridge: everything from 1D carries over with (m,n) indices.
-  You took 2D DSP at MIT — this is a precision refresher.
-  <!-- @editor[audience/P3]: "You took 2D DSP at MIT" is direct learner address — breaks the style contract's peer-level voice; rephrase as a note about scope ("standard MIT 6.003/6.341 material — the value-add here is MRI/CT applications and compressed sensing") -->
+  Standard MIT 6.003/6.341 material — the value-add here is MRI k-space
+  reconstruction, CT filtered backprojection, and compressed sensing.
 ```
 
 ---
@@ -301,7 +301,30 @@
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from 2D convolution / frequency-domain analysis to neural network convolution layers — the CNN convolution operation is exactly 2D DSP convolution (cross-correlation) on feature maps; learned filters in CNNs are learned kernels for the same operation; this is the direct computational bridge from image processing DSP to the ML acceleration context the learner will encounter in 09-EMBEDDED-VLSI (DSP48 slices, NPUs) -->
+## Engineering Bridge: 2D Convolution and Neural Networks
+
+```
+2D DSP OPERATION                  CNN EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+2D convolution kernel h[m,n]      Learned filter (weight matrix) in conv layer
+  fixed, designed by engineer      learned via backpropagation from data
+
+y[m,n] = x[m,n] ** h[m,n]        Feature map = input ** kernel
+  cross-correlation (technically)   CNN "convolution" is actually cross-correlation
+  slide kernel, multiply-accumulate same multiply-accumulate, same separability
+
+Multiple kernels in parallel      Multiple output channels (filters per layer)
+  edge detect, blur, sharpen        each channel learns a different feature
+
+FFT-based fast convolution        cuDNN uses Winograd or FFT for large kernels
+  O(MN log MN) vs O(MN·PQ)         same complexity tradeoff applies
+──────────────────────────────────────────────────────────────────────────────
+```
+
+The CNN convolution layer is exactly 2D DSP convolution with learned kernels — the same operation this guide covers, but where the filter coefficients are optimized by gradient descent rather than designed from specifications. Hardware accelerators (DSP48 slices in FPGAs, NPU tensor cores in SoCs) execute the same multiply-accumulate dataflow for both classical DSP and neural network inference.
+
+---
+
 ## 6. k-Space and MRI
 
 ### What Is k-Space?

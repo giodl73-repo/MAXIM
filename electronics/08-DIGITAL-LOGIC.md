@@ -1,6 +1,7 @@
 # 08 — Digital Logic
 
-<!-- @editor[bridge/P2]: No explicit bridge from digital logic to the computing stack the learner knows — CMOS gates → Boolean algebra → FSMs → RTL is the exact fabrication substrate for the CPU/OS/runtime stack the learner has deep expertise in; a one-paragraph "why this matters for software engineers" framing at the top (NAND gates → ALU → pipeline → ISA → OS scheduler) would anchor the guide for a learner who has always worked above the hardware boundary -->
+This is the physical substrate beneath the entire computing stack: NAND gates compose into ALUs, ALUs into pipeline stages, pipelines into CPUs that execute the ISA, and the OS scheduler manages threads atop that ISA. Every abstraction from Boolean algebra through FSMs to RTL synthesis has a direct counterpart in the software world — truth tables are lookup tables, FSMs are state machines in protocol handlers, and the synthesis flow is a compiler toolchain targeting silicon instead of machine code.
+
 ```
 DIGITAL LOGIC LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
@@ -547,8 +548,26 @@ NOR: series pMOS is slow (pMOS already slower than nMOS).
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from RTL synthesis flow to compiler toolchain analogy — the learner knows compilers deeply (MIT TCS); RTL synthesis is exactly: Verilog/VHDL = source language, synthesis tool = compiler (AST → technology-mapped netlist), P&R = linker (resolves physical addresses), STA = static analysis / verification, GDSII = binary; naming this parallel explicitly would make the entire VLSI section click for a software person -->
 ## 9. HDL Synthesis Concepts
+
+**Compiler toolchain analogy:** The RTL-to-silicon flow maps directly onto the compiler pipeline:
+
+```
+SOFTWARE COMPILATION                  HARDWARE SYNTHESIS
+──────────────────────────────────────────────────────────────────────────────
+C/C++/Rust source code                Verilog / SystemVerilog / VHDL
+  ↓ parsing, AST                        ↓ elaboration, design hierarchy
+Intermediate representation (IR)      Generic gate-level netlist
+  ↓ optimization passes                 ↓ boolean optimization, retiming
+Target-specific code generation       Technology mapping (library cells / LUTs)
+  ↓ register allocation                  ↓ placement (cells → physical locations)
+Linker (resolves addresses)           Routing (connects wires, resolves geometry)
+  ↓ static analysis / verification       ↓ STA (static timing analysis)
+Executable binary                     GDSII (ASIC) or bitstream (FPGA)
+──────────────────────────────────────────────────────────────────────────────
+```
+
+The synthesis constraint file (.sdc) is analogous to compiler flags and link-time optimization targets — it tells the tool what clock frequency to target, which paths are critical, and where to trade area for speed.
 
 ### RTL (Register Transfer Level) Design Flow
 

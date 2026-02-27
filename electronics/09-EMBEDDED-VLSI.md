@@ -119,8 +119,7 @@ The embedded boot sequence — what happens before `main()`:
   main()
 ```
 
-<!-- @editor[bridge/P3]: No bridge from embedded linker script (LMA/VMA, .text/.data/.bss sections) to the PE/ELF format the learner knows from .NET — the embedded linker script is doing the same job as the PE section table: .text = code section (rx), .data = initialized data (initialized at load from Flash like PE loader copies initialized data), .bss = BSS segment (zeroed, not stored in binary); naming "this is the embedded equivalent of the PE section layout" would make it immediately concrete -->
-Linker script memory regions (what the `.ld` file controls):
+Linker script memory regions (what the `.ld` file controls) — this is the embedded equivalent of the PE/ELF section table: .text maps to the code section (rx), .data to initialized data (copied from Flash to SRAM at startup, just as the PE loader copies initialized data from disk to memory), and .bss to the zero-initialized segment (not stored in the binary, zeroed at startup):
 
 ```
   MEMORY {
@@ -319,8 +318,11 @@ overflows are silent corruption bugs in bare-metal contexts.
   Timing signoff: PrimeTime — corner analysis (worst-case: SS/0.9V/125°C)
          │
          ▼
-  <!-- @editor[content/P2]: Tapeout section doesn't convey the cost/risk context — DRC/LVS/STA failures caught before tapeout are free; a re-spin at advanced node costs $5M–$30M in new masks and 3–6 months; this economic reality is why the verification steps (RTL sim, gate-level sim, formal verification, STA corners) are so heavyweight; one line on "re-spin economics" would explain why the entire flow is as rigorous as it is -->
   TAPEOUT → GDS II file to foundry
+  Re-spin economics: a mask set at 5nm costs $25M–$30M and adds 3–6 months.
+  Every bug caught before tapeout is free; every bug caught after costs millions.
+  This is why verification (RTL sim, gate-level sim, formal, STA at all PVT
+  corners) consumes 60–70% of the total design effort.
          │
          ▼
   FABRICATION (TSMC, Samsung, GlobalFoundries, Intel Foundry)
@@ -433,8 +435,9 @@ overflows are silent corruption bugs in bare-metal contexts.
   Useful for: DSP kernels, control algorithms, ML accelerators
 ```
 
-<!-- @editor[bridge/P2]: No bridge from VLSI power grid / IR drop to the software-visible performance effects the learner knows — IR drop on the VDD grid means the core receives less than nominal voltage → slower transistors → timing margin shrinks → that's why CPUs throttle under load even when thermally OK; the learner has seen DVFS from the software side; connecting "IR drop → reduced gate overdrive → slower logic → STA violations → auto-throttle" closes the hardware→software loop -->
 ### Physical Design Details
+
+**Software-visible consequence of IR drop:** When all cores are active, current draw peaks and the resistive power grid causes IR drop — the voltage at transistor gates falls below nominal. Lower gate voltage means slower switching (reduced gate overdrive), which erodes timing margin. If IR drop exceeds the ~5% budget, the chip faces STA violations at those corners. This is why CPUs throttle frequency under heavy all-core load even when thermally within limits — the voltage regulator and power grid cannot maintain nominal VDD at peak current. The DVFS mechanism visible from software (frequency stepping down under load) is the direct consequence of this physical IR drop constraint.
 
 ```
   POWER GRID

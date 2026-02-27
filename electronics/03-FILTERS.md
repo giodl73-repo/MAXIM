@@ -253,7 +253,6 @@ FILTER LANDSCAPE
   Standard form for Chebyshev sections.
 ```
 
-<!-- @editor[content/P2]: State variable / KHN section is thin — three op-amps, block diagram sketch, "Q and ω₀ set independently" but no component equations, no practical design example, and no explanation of why independent tuning of Q and ω₀ matters for production tolerance; this topology is the right choice for Q > 10 yet the guide doesn't show how to actually build one -->
 ### State Variable / KHN (Kerwin-Huelsman-Newcomb)
 
 ```
@@ -261,11 +260,32 @@ FILTER LANDSCAPE
   Best for high-Q sections (Q > 10).
   Excellent component sensitivity.
 
-  Architecture:
-    Input summing → [integrator] → LP out
-                 → [integrator] → ─ BP out
-                 ↑ feedback from LP and BP
-  Q and ω₀ set independently.
+  ARCHITECTURE
+  ┌─────────────┐    ┌──────────────┐    ┌──────────────┐
+  │  Summing amp │───▶│ Integrator 1 │───▶│ Integrator 2 │
+  │  (op-amp 1)  │    │  (op-amp 2)  │    │  (op-amp 3)  │
+  │  HP output   │    │  BP output   │    │  LP output   │
+  └──────┬───────┘    └──────────────┘    └──────┬───────┘
+         ↑                                        │
+         └────── R_Q feedback ────────────────────┘
+         └────── R_f feedback (from BP) ──────────┘
+
+  Transfer functions (equal-value design: R₁=R₂=R, C₁=C₂=C):
+    ω₀ = 1/RC                        (set by integrator R and C)
+    Q  = (1 + R_f/R_Q) / 3           (set by feedback resistor ratio)
+    → ω₀ depends only on RC; Q depends only on R_f/R_Q
+    → tuning Q does not shift ω₀, and vice versa
+
+  Design example — 1 kHz bandpass, Q = 20:
+    Choose C = 10 nF → R = 1/(2π×1000×10⁻⁸) ≈ 15.9 kΩ  (use 16 kΩ)
+    Q = 20 → R_f/R_Q = 3Q - 1 = 59 → R_Q = 1 kΩ, R_f = 59 kΩ
+
+  Why independent tuning matters for production:
+    In Sallen-Key at Q > 10, ω₀ and Q both depend on the same component
+    ratios — a 1% resistor tolerance can shift both simultaneously.
+    In the KHN topology, component drift in the integrator chain shifts ω₀
+    without affecting Q, and vice versa. This makes KHN practical for
+    high-Q sections where Sallen-Key would need 0.1% components.
 ```
 
 ---
@@ -294,8 +314,9 @@ FILTER LANDSCAPE
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from analog filter pole placement to digital filter design via bilinear transform — the guide ends with analog RC active filters, but the natural next question for this learner is "how do these translate to DSP?" A single line pointing to module 06 and naming the bilinear transform s = (2/T)(z-1)/(z+1) would close the analog→digital loop that both audiences (hardware and software) need -->
 ## 6. Filter Frequency Transformations
+
+**Analog → digital bridge:** Every analog filter prototype H(s) in this guide can be converted to a digital IIR filter via the bilinear transform: s = (2/T)(z-1)/(z+1). This maps the entire s-plane left half-plane to the interior of the unit circle, preserving stability. The analog pole locations designed here become digital pole locations in module 06-DSP. Pre-warp the critical frequency to compensate for the nonlinear frequency mapping.
 
 ```
   Start with prototype LP with ω_c = 1 rad/s.

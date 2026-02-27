@@ -296,8 +296,37 @@ AMPLIFIER LANDSCAPE
   Noise: input-referred noise unchanged; output noise reduced.
 ```
 
-<!-- @editor[content/P2]: Stability analysis is compressed — phase margin is defined but there's no Bode plot example showing a real two-pole system, where the gain crossover and phase crossover frequencies are, and what PM < 45° looks like in the time domain (ringing); the learner has the math but needs the visual mapping of pole locations to Bode shape to phase margin numbers -->
 ### Stability and the Miller Effect
+
+```
+  BODE PLOT EXAMPLE: TWO-POLE SYSTEM — LOOP GAIN Aβ(jω)
+
+  |Aβ| (dB)     Phase of Aβ
+  60│──.                           0°│──────────────.
+    │   ╲  -20 dB/dec                │                ╲
+  40│    ╲                        -45°│                 ╲
+    │     ╲                          │                   ╲
+  20│      ╲  p₁                 -90°│        ╲           ╲
+    │       ·─── -40 dB/dec          │         ╲           ╲
+   0│─ ─ ─ ─╲─ gain crossover  -135°│          ╲  p₂       ╲
+    │    ωgc  ╲  (|Aβ|=1)           │           ·────────────╲
+ -20│          ╲            PM -180°│─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ (oscillation)
+    └───────────────→ ω              └───────────────────────→ ω
+              p₂                            ωgc
+                                       PM = 180° + phase(Aβ) at ωgc
+
+  Phase margin vs step response:
+    PM ≈ 75°:  no overshoot, slow response
+    PM ≈ 60°:  ~5% overshoot, well-damped
+    PM ≈ 45°:  ~23% overshoot, slight ringing — minimum acceptable
+    PM ≈ 20°:  severe ringing, near-oscillation
+    PM ≤ 0°:   unstable — sustained oscillation
+
+  Mapping to pole locations (closed-loop):
+    PM ≈ 60° → ζ ≈ 0.6 → complex poles well into LHP
+    PM ≈ 45° → ζ ≈ 0.45 → poles closer to jω axis, more ringing
+    PM < 0°  → poles cross into RHP → unstable
+```
 
 ```
   Stability:
@@ -322,8 +351,55 @@ AMPLIFIER LANDSCAPE
 
 ---
 
-<!-- @editor[bridge/P1]: Missing noise analysis bridge — the guide covers gain, bandwidth, and stability but noise is absent; for this learner, the bridge is noise figure (NF) → Shannon capacity (C = B log₂(1 + SNR)) — amplifier noise directly sets the information-theoretic floor on what signals can be recovered; a section on Johnson-Nyquist noise, noise figure, and how noise referred-to-input limits ADC dynamic range would complete the signal chain story and bridge directly to information theory -->
-## 6. Multi-Stage and Operational Amplifiers
+## 6. Amplifier Noise — The Information-Theoretic Floor
+
+Every amplifier adds noise to the signal, setting a fundamental limit on recoverable information. Noise analysis completes the gain–bandwidth–stability triad.
+
+```
+  NOISE SOURCES IN AMPLIFIERS
+  ┌────────────────────────────────────────────────────────────────────────────┐
+  │  Johnson-Nyquist (thermal):  v_n² = 4kTRΔf                              │
+  │    k = 1.38×10⁻²³ J/K, T = temperature (K), R = resistance, Δf = BW    │
+  │    At 300K, 1 kΩ, 1 Hz BW: v_n = 4.07 nV/√Hz                           │
+  │    → Every resistor is a noise source. R_source noise → amplifier input. │
+  │                                                                           │
+  │  Shot noise:  i_n² = 2qI_DC Δf                                           │
+  │    q = 1.6×10⁻¹⁹ C, I_DC = DC bias current                              │
+  │    Dominant in BJT base current and photodiode dark current.              │
+  │                                                                           │
+  │  Flicker (1/f):  S(f) ∝ 1/f                                              │
+  │    Dominant below corner frequency f_c (1 Hz – 10 kHz depending on tech). │
+  │    CMOS has higher 1/f noise than BJT — matters for DC precision amps.    │
+  └────────────────────────────────────────────────────────────────────────────┘
+
+  NOISE FIGURE AND SIGNAL CHAIN
+  ┌────────────────────────────────────────────────────────────────────────────┐
+  │  Noise figure NF = 10 log₁₀(SNR_in / SNR_out) [dB]                      │
+  │  NF = 0 dB → noiseless amplifier (impossible; ≥ 0.5 dB for best LNAs)   │
+  │                                                                           │
+  │  Friis cascade formula (N stages):                                        │
+  │    NF_total = NF₁ + (NF₂-1)/G₁ + (NF₃-1)/(G₁G₂) + ...                 │
+  │    → First stage dominates! Low-noise amplifier (LNA) must be first.     │
+  │                                                                           │
+  │  Information-theoretic connection:                                        │
+  │    Shannon capacity: C = B log₂(1 + SNR)  [bits/s]                       │
+  │    Amplifier NF degrades SNR → directly reduces channel capacity.         │
+  │    For an ADC front end: input-referred noise + quantization noise        │
+  │    together set ENOB = (SINAD - 1.76) / 6.02.                            │
+  │    A 16-bit ADC with NF = 10 dB front-end amp may achieve only 14 ENOB.  │
+  └────────────────────────────────────────────────────────────────────────────┘
+
+  DESIGN RULES
+  Input-referred noise:  v_ni = √(v_n_amp² + (i_n_amp × R_source)²)
+  SNR at ADC input:      SNR = V_signal_rms / v_ni
+  Budget allocation:     amplifier noise ≤ quantization noise → ENOB preserved
+    For N-bit ADC, full-scale V_FS:  v_q = V_FS / (√12 × 2^N)
+    Require v_ni < v_q for noise not to degrade resolution.
+```
+
+---
+
+## 7. Multi-Stage and Operational Amplifiers
 
 ### Op-Amp Internal Architecture
 
@@ -350,8 +426,22 @@ AMPLIFIER LANDSCAPE
   GBW = g_m1 / Cc
 ```
 
-<!-- @editor[content/P2]: Op-amp non-idealities table lists parameters but doesn't connect them to system design decisions — V_os of 5mV means what for a 12-bit ADC front end? I_B of 1µA through 10kΩ source impedance means 10mV error at output; practical rules (max R_source = V_os_budget / I_B) are missing and would make this actionable -->
 ### Op-Amp Non-Idealities
+
+**Practical impact of non-idealities on system design:**
+
+```
+  12-bit ADC with 3.3V full-scale → LSB = 3.3V / 4096 ≈ 0.8 mV
+  → V_os of 5 mV = 6 LSB error at DC (unacceptable without calibration)
+  → I_B of 1 µA through R_source = 10 kΩ → V_error = 10 mV = 12 LSB
+  → CMRR of 80 dB with 1V common-mode → CM error = 100 µV ≈ 0.1 LSB (OK)
+
+  Design rules:
+  • V_os budget: select op-amp with V_os < 1 LSB of your ADC
+  • Source impedance limit: R_source < V_os_budget / I_B
+  • For precision (>14 bits): use chopper-stabilized op-amp (V_os < 10 µV)
+  • Slew rate check: SR > 2π × f_signal × V_peak for full-power bandwidth
+```
 
 | Parameter | Effect | Typical Value |
 |---|---|---|

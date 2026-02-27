@@ -95,8 +95,12 @@ DSP LANDSCAPE
   Output: h[n] coefficients
   Algorithm: iterative exchange of extremal frequencies.
 
-  <!-- @editor[content/P2]: "30% fewer taps than Kaiser" claim is a loose rule of thumb — the actual saving depends heavily on transition bandwidth and stopband spec; for wide transition bands the difference is small; for very narrow bands Parks-McClellan can save 50%+; better to state "typically fewer taps; gap widens as specs tighten" and point to the filter order formula comparison -->
-  Roughly 30% fewer taps than Kaiser window for same spec.
+  Typically fewer taps than Kaiser window for the same spec — the gap widens as
+  specifications tighten (narrow transition band, high stopband attenuation).
+  For wide transition bands the saving may be modest; for very narrow bands
+  Parks-McClellan can require 50%+ fewer taps. Compare the order estimation
+  formulas: Kaiser N ≈ (A-7.95)/(2.285·Δω) vs Parks-McClellan's equiripple
+  optimality guarantee.
   The standard choice for production FIR filter design.
   Implemented in MATLAB firpm(), Python scipy.signal.remez().
 ```
@@ -299,7 +303,31 @@ DSP LANDSCAPE
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from DSP to information theory — quantization noise, ENOB, and the Shannon limit are directly connected: quantization noise power ≈ Δ²/12 (where Δ is the LSB step), SNR ≈ 6.02N + 1.76 dB for an N-bit ADC, and then Shannon C = B log₂(1+SNR) closes the loop from physical sampling → DSP → information capacity; this learner has information theory background and this bridge would make the guide far more valuable -->
+## Engineering Bridge: DSP and Information Theory
+
+```
+DSP CONCEPT                       INFORMATION THEORY EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Quantization step Δ = V_FS/2^N    Channel noise floor
+  noise power = Δ²/12             → sets minimum distinguishable signal level
+  (uniform quantization model)
+
+ADC SNR ≈ 6.02N + 1.76 dB        Signal-to-noise ratio at channel input
+  N = number of bits               → each additional bit ≈ 6 dB SNR
+  ENOB = (SINAD - 1.76)/6.02      → effective bits after all noise sources
+
+Shannon capacity                   Theoretical maximum data rate
+  C = B × log₂(1 + SNR)            B = bandwidth (Hz), SNR = linear power ratio
+  → physical sampling sets B (Nyquist: B ≤ f_s/2)
+  → quantization + amplifier noise set SNR
+  → DSP cannot recover information beyond C
+──────────────────────────────────────────────────────────────────────────────
+```
+
+The chain is: anti-aliasing filter sets bandwidth B → ADC quantization sets noise floor → amplifier noise figure degrades SNR further → Shannon capacity C = B log₂(1 + SNR) is the hard ceiling on recoverable information. Oversampling (sigma-delta ADCs) trades bandwidth for SNR by spreading quantization noise across a wider band and then digitally filtering, effectively moving along the Shannon curve.
+
+---
+
 ## 7. Adaptive Filters
 
 ```

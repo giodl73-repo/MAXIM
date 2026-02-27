@@ -1,5 +1,6 @@
 # Electronics — Field Overview
-<!-- @editor[bridge/P2]: No bridge from Maxwell → circuit theory to the learner's computational complexity background — the approximation hierarchy (exact EM → quasi-static → lumped) maps directly to the kind of abstraction-layer reasoning the learner already uses in compiler/runtime theory; worth one sentence explicitly naming that parallel -->
+
+Electronics is applied electromagnetism, reduced through successive approximations to tractable models — the same abstraction-layer strategy used in compiler theory (source → IR → machine code) or numerical analysis (exact PDE → finite element → algebraic system). The approximation hierarchy here is Maxwell's equations → quasi-static fields → lumped circuit elements (R, L, C), and the art of electronics is knowing when each layer breaks.
 
 ## The Big Picture
 
@@ -304,7 +305,36 @@ electrical substrates.
 
 ---
 
-<!-- @editor[content/P2]: RF/microwave fundamentals absent from this overview — the frequency map and lumped-element breakdown section gestures at RF, but no bridge to modern wireless systems (WiFi, 5G, Bluetooth) that a VP of Engineering deals with daily; even a paragraph on S-parameters and impedance matching as the RF equivalent of Thévenin would anchor module 00 better -->
+## RF/Microwave Bridge — When Lumped Models Break
+
+Above ~300 MHz, circuit dimensions approach the signal wavelength and the lumped-element model fails. The replacement framework is **scattering parameters (S-parameters)** — the RF equivalent of Thévenin/Norton, but describing incident and reflected power waves at each port rather than voltage and current.
+
+```
+  S-PARAMETER FRAMEWORK (2-port example)
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │  Incident power a₁ → [DUT] → Transmitted power b₂                      │
+  │  Reflected power b₁ ←        ← Incident power a₂                      │
+  │                                                                         │
+  │  S₁₁ = b₁/a₁  (reflection at port 1 = "return loss")                  │
+  │  S₂₁ = b₂/a₁  (forward transmission = "gain" or "insertion loss")     │
+  │  S₁₂ = b₁/a₂  (reverse isolation)                                     │
+  │  S₂₂ = b₂/a₂  (reflection at port 2)                                  │
+  │                                                                         │
+  │  Measured with a vector network analyzer (VNA) at 50Ω reference.       │
+  │  Smith chart: graphical tool mapping complex S₁₁ to impedance plane.   │
+  │                                                                         │
+  │  Modern wireless relevance:                                             │
+  │  WiFi 6E (6 GHz):   antenna S₁₁ < -10 dB over 5.925–7.125 GHz band   │
+  │  5G FR2 (mmWave):   phased array with per-element S-param calibration  │
+  │  Bluetooth (2.4 GHz): matching network designed via Smith chart         │
+  │  PCIe 5.0 (32 GT/s): S₂₁ insertion loss budget < 30 dB at 16 GHz     │
+  └─────────────────────────────────────────────────────────────────────────┘
+```
+
+Impedance matching in RF replaces the Thévenin max-power-transfer condition: conjugate match Z_L = Z_S* maximizes power delivered to load, and the matching network (LC, stub, or microstrip) serves the same role as a Thévenin equivalent — transforming an arbitrary impedance to the 50Ω system impedance.
+
+---
+
 ## What Is NOT in This Directory
 
 | Domain | Why excluded | Where to look |
