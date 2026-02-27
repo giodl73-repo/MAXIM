@@ -117,6 +117,23 @@ Each tester saves to: `puzzle-hunt/tests/[element]-[tester-name].md`
 | Confirmation | | |
 | **Total** | **/30** | |
 
+## Principle Checks
+Run every puzzle against `puzzle-hunt/PRINCIPLES.md`. Flag violations:
+
+| Principle | Pass? | Notes |
+|-----------|-------|-------|
+| Riven Standard (puzzle IS the field) | | |
+| Solving = Proving Understanding | | |
+| Blame the Player (fair in retrospect) | | |
+| No Over-Scaffolding | | |
+| Surprise the Answer | | |
+| Reading Reward ≥ 4 | | |
+| One Aha | | |
+| Book Test (pencil only) | | |
+| No Deliberate Errors | | |
+| Interlock (clues cross-reference) | | |
+| Snyder's Computer Test (not scriptable) | | |
+
 ## Issues
 [List by severity: blocking / major / minor]
 
@@ -151,15 +168,25 @@ Automatic fix-and-retest loop:
 
 ```
 1. Read test results from puzzle-hunt/tests/[element]-RESULTS.md
-2. If PASS → done, congratulations
-3. If REVISE:
-   a. Apply the prioritized fixes to the puzzle page
-   b. Save updated puzzle to joker/
-   c. Re-test with the SAME testers (they see the revised version)
-   d. Collect new results
-   e. If PASS → done
-   f. If still REVISE → loop (max 3 iterations)
-   g. If REDESIGN → stop, flag for manual intervention
+2. Read puzzle-hunt/PRINCIPLES.md — the 17 design principles
+3. If PASS → done, congratulations
+4. If REVISE:
+   a. Identify which PRINCIPLES were violated (check the Principle Checks table)
+   b. Apply the prioritized fixes, ensuring each fix addresses a principle violation
+   c. Before saving, verify against ALL 17 principles (especially the ones that failed)
+   d. Save updated puzzle to joker/
+   e. Re-test with the SAME testers (they see the revised version)
+   f. Collect new results
+   g. If PASS → done
+   h. If still REVISE → loop (max 3 iterations)
+   i. If REDESIGN → stop, flag for manual intervention
+
+Common revision patterns (from testing data):
+- Score < 22 with low Elegance → likely fails Snyder's Computer Test → add deduction layer
+- Score < 22 with low Fun → likely fails Surprise the Answer → change answer word
+- High Clarity but low Elegance → likely Over-Scaffolded → remove step-by-step instructions
+- High Reading Reward but low Elegance → likely fails Interlock → add cross-clue references
+- All dimensions ≥ 4 but Elegance = 2 → "quiz not puzzle" → restructure so clues depend on each other
 4. If REDESIGN → stop, describe the fundamental problem
 ```
 
