@@ -4,6 +4,8 @@
 
 Stagecraft is the technical art of making theater happen: scene design, lighting, sound, costume, and the organizational structure (production management, dramaturgy) that integrates them. It is simultaneously art (vision), engineering (execution), and project management (coordination).
 
+<!-- @editor[diagram/P2]: The landscape diagram lists subsystems but doesn't show the coordination model — how the subsystems interact during a live performance. For this learner's calibration (lighting/sound/rigging as coordinated subsystems, live production as no-rollback system engineering) the missing layer is the integration architecture: the stage manager as the runtime coordinator calling all cues, DMX as the lighting control bus, the fly system as a load-bearing mechanical subsystem with its own rigging state. The diagram reads as a feature list, not a system diagram. -->
+<!-- @editor[content/P1]: Rigging and fly systems are entirely absent from this guide. For a learner mapping stagecraft to systems engineering, the counterweight fly system is the most mechanically interesting subsystem: a fixed-capacity load-balancing system (counterweights matched to load), operated by line sets, with hard constraints on load distribution and timing. Hemp houses, counterweight linesets, motor-driven automation, and the grid/gallery/fly tower as the vertical infrastructure are all missing. This is a significant gap given the learner calibration explicitly names "rigging" as a target domain. -->
 ```
 +------------------------------------------------------------------+
 |              STAGECRAFT — LANDSCAPE                              |
@@ -164,6 +166,7 @@ CONTEMPORARY:
   form onto which any environment is projected.
   LEDs as set elements (not just lighting instruments).
   Immersive: the entire building as set.
+<!-- @editor[content/P2]: Projection mapping as a scene design technology deserves more than two sentences given the learner calibration explicitly names it as a target. The technical architecture: a media server (e.g., disguise/d3, Resolume) renders video in real-time; the output is warped/blended to correct for the non-planar surface geometry (mesh calibration); the result is projected via high-lumen projectors. Timecode sync (SMPTE or MIDI) locks the media server to the lighting console and audio playback, making the full production a synchronized multi-stream system. The computational geometry of mapping to arbitrary surfaces — calibration, warping, edge-blending — is directly in this reader's domain. -->
 ```
 
 ---
@@ -227,6 +230,7 @@ CONTEMPORARY:
   a software application. The designer programs cues
   (states, transitions, timing) in advance; the stage
   manager executes them in performance.
+<!-- @editor[bridge/P2]: DMX512 is a serial lighting control protocol — 512 channels per universe, 0-255 values, 44 Hz refresh rate. The lighting console is literally a real-time control plane: it holds the desired state (cue stack), and the stage manager calling "go" is a state transition trigger with no rollback. This is a compelling systems engineering parallel that the guide leaves implicit. The analogy: DMX universe = control bus; moving light = intelligent actuator; console = state machine with programmed transitions; the show = a sequence of pre-validated state transitions executed live with no ability to pause. One paragraph would make this section substantially more valuable for this reader. -->
 ```
 
 ### Lighting Functions
@@ -267,6 +271,7 @@ WHAT LIGHTING DOES
 
 ---
 
+<!-- @editor[content/P1]: The sound design section covers functions and categories but omits the signal chain architecture entirely — and for a systems-engineering-minded reader, the signal chain IS the sound design infrastructure: microphones → preamps → mixing console → DSP/processing → amplifiers → speaker arrays → monitoring. Spatial audio (described in the learner calibration as a target topic) gets one sentence at the end ("surround sound systems"). The signal chain, matrix routing, and the distinction between FOH (front of house) and monitor mixing are the engineering substance here. This section is thin relative to the lighting section which covered technology history in depth. -->
 ## Layer 4: Sound Design
 
 Sound design was the last of the main design elements to be systematized (only recognized as a professional credit in major theater from the 1960s–70s):
@@ -347,6 +352,7 @@ DIRECTOR (production)
     - Calls cues in performance
     - The point of communication between all departments
     - The production's institutional memory
+<!-- @editor[bridge/P1]: The stage manager role is described correctly but the no-rollback systems engineering parallel is never made explicit — and it's the sharpest bridge in this entire guide for the learner calibration. The stage manager calling cues is the runtime coordinator of a distributed system with no ability to pause, rewind, or retry: lighting, sound, fly, automation, and performance subsystems all execute on verbal "go" signals with no compensating transactions. The prompt copy is the execution plan; tech rehearsals are the integration testing phase; the production run is the deployment. A missed cue cannot be un-called; a fly cue that moves at the wrong moment has physical consequences. This is the operational model of a no-rollback system under SLA. Making this bridge explicit here — even two sentences — is the single highest-value edit in this file. -->
 
 DRAMATURGY:
   The dramaturg provides research support, text analysis,

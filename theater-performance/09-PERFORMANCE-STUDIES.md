@@ -234,6 +234,7 @@ The Grotowski connection:
 
 J.L. Austin's **How to Do Things with Words** (1962) introduced the distinction that became central to performance studies:
 
+<!-- @editor[bridge/P2]: Austin's performative speech act theory has a direct structural parallel to type theory and formal verification that's worth noting for this learner — a performative is an utterance whose semantic content IS its execution; felicity conditions are preconditions/invariants; an infelicitous performative is a precondition failure. The distinction constative/performative maps roughly to denotational vs. operational semantics: a constative describes a world-state; a performative changes it. Any MIT TCS graduate will recognize the formal structure immediately; naming the parallel would make this section richer in one sentence. -->
 ```
 AUSTIN'S SPEECH ACT THEORY
 ----------------------------
@@ -456,6 +457,7 @@ THE DIGITAL AGE COMPLICATION:
     New form? Or deficit simulation of theater?
 
 No consensus; the debate continues and is generative.
+<!-- @editor[content/P2]: The digital performance section raises the live/recorded question but doesn't address the technology — networked performance (telematic performance, Jack Carpenter's work with latency-aware composition), avatar-mediated performance (performers in mocap driving real-time avatars), and VR/XR theater all have specific technical architectures that shape the performance. The latency problem alone (network jitter making synchronous ensemble performance impossible beyond ~20ms round-trip) is a systems engineering constraint that reshapes what digital theater can be. This connects directly to the learner calibration's "digital theater technology" target. -->
 ```
 
 ---

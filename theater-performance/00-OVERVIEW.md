@@ -4,6 +4,7 @@
 
 Theater is the art of live performance before an audience. It is distinct from recorded performance (cinema, television) by its liveness — the irreducible present-tense co-presence of performers and audience. Performance studies expanded this definition to include any behavior that is "performed" in a broader sense — from ritual to political speechmaking to everyday social behavior.
 
+<!-- @editor[diagram/P2]: Diagram lists items in columns but doesn't show how the subsystems relate — missing the relationship layer: how Western tradition connects to theoretical frameworks, how global traditions cross-pollinate. Rework as a layered system view with connection arrows or dependency lines. -->
 ```
 +------------------------------------------------------------------+
 |          THEATER AND PERFORMANCE — LANDSCAPE                     |
@@ -219,6 +220,7 @@ Theater of the Oppressed (Boal, 1970s):
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from theater-as-system to systems engineering despite the obvious parallel — a live production is a no-rollback coordinated system (lighting, sound, rigging, performance) running with no ability to pause or undo. The "what makes theater live" section discusses liveness theoretically but never maps to the learner's domain: distributed system with zero downtime tolerance, where all subsystems must execute in real-time coordination. A sentence here would make the whole overview land differently for this reader. -->
 ## Decision Cheat Sheet
 
 | I want to understand... | Start with... |

@@ -464,6 +464,7 @@ VIDEO/DIGITAL:
   the three-dimensional spatial design.
   Digital volumetric capture (motion capture) is
   the closest approximation to notational completeness.
+<!-- @editor[content/P2]: Motion capture in live performance (named in the learner calibration as a target topic) gets only this brief mention in a notation context. The actual use of mocap in live performance — markerless real-time tracking systems feeding generative visuals, avatar projection, or interactive scenography — is a distinct topic from archival documentation and deserves at least a paragraph. Systems like Notch, TouchDesigner pipelines, and full-body tracking rigs that drive real-time visual systems are the live performance application; they connect directly to the learner's interest in digital theater technology. -->
 ```
 
 ---
