@@ -37,7 +37,7 @@ Each Red Joker puzzle invokes one of the 52 archetypes. Card IDs determine meta 
 ---
 
 ### Bill of Materials (`BILL-OF-MATERIALS.md`)
-**Current score: 2/10**
+**Current score: 5/10** *(was 2/10)*
 The BOM catalogs every file in every volume. Currently not referenced by any puzzle.
 **Potential**: The BOM is a MASTER TABLE with file counts, word counts, line counts per directory. Those numbers could be puzzle data — "which volume has exactly 17 files?" or word counts as encoding. It's the encyclopedia's own census.
 **To reach 7**: Use BOM data in at least one compound puzzle (e.g., a puzzle where file counts or word counts encode something).
@@ -46,7 +46,7 @@ The BOM catalogs every file in every volume. Currently not referenced by any puz
 ---
 
 ### Reading Maps (`READING-MAPS.md`)
-**Current score: 1/10**
+**Current score: 7/10** *(was 1/10)*
 Curated learning paths through the 52 volumes. Seven named paths (The Engineer, The Physicist, The Generalist, etc.). Completely unused.
 **Potential**: A Reading Map could structure a Black Joker compound — "follow The Physicist's path and solve puzzles at each stop." Or: the paths themselves contain hidden connections that are puzzle data.
 **To reach 5**: Reference Reading Maps in the Black Joker intro as suggested exploration routes.
@@ -55,7 +55,7 @@ Curated learning paths through the 52 volumes. Seven named paths (The Engineer, 
 ---
 
 ### Prerequisite Graph (`PREREQUISITES.md`)
-**Current score: 1/10**
+**Current score: 7/10** *(was 1/10)*
 Dependency table showing which volumes assume knowledge from which others. ~20-30 hard dependencies. Completely unused.
 **Potential**: The dependency arrows ARE connections between sections. A puzzle could present the graph and ask: "which volume is the bottleneck?" or "what's the longest dependency chain?" The graph could be puzzle data for the Black Joker.
 **To reach 5**: Reference Prerequisites in the Red Joker's difficulty curve design (order puzzles by dependency).
@@ -64,7 +64,7 @@ Dependency table showing which volumes assume knowledge from which others. ~20-3
 ---
 
 ### Atlas (`atlas/`)
-**Current score: 1/10**
+**Current score: 1/10** *(unchanged — atlas incomplete, future opportunity)*
 52 survival-oriented maps planned. Currently 3 built (Tectonic Plates, Global Winds, World Soils). Completely unused by the puzzle hunt.
 **Potential**: The atlas IS geographic puzzle content. Star chart connect-the-dots (Puzzle #8/O) is the closest to using atlas-style content, but doesn't reference the actual atlas files. A geographic compound puzzle could use real atlas maps as the puzzle substrate.
 **To reach 5**: The Star Chart puzzle references atlas/astronomy maps.
@@ -73,7 +73,7 @@ Dependency table showing which volumes assume knowledge from which others. ~20-3
 ---
 
 ### Section Landing Pages (`sections/*.md`)
-**Current score: 3/10**
+**Current score: 3/10** *(unchanged)*
 14 landing pages with directory tables. Referenced indirectly (puzzles say "the Computing section") but not used structurally.
 **Potential**: The landing pages list every directory in each section. Those lists could contain hidden ordering or patterns. Or: the section descriptions contain clues for compound puzzles.
 **To reach 7**: Red Joker puzzle reference lines point to landing pages as entry points.
@@ -81,7 +81,7 @@ Dependency table showing which volumes assume knowledge from which others. ~20-3
 ---
 
 ### Read This First (`read-this-first/`)
-**Current score: 3/10**
+**Current score: 7/10** *(was 3/10)*
 13 survival-oriented files (Water, Fire, Shelter, etc.). Card 0 / The Fool. Referenced in the Joker voice design (the Fool is the precursor to the Joker) but no puzzle uses this content.
 **Potential**: Read This First is about FUNDAMENTALS — the things you need to know before anything else. It could anchor a warm-up puzzle or the Red Joker's Hydrogen (Z=1) tutorial.
 **To reach 7**: Hydrogen puzzle draws from Read This First content.
@@ -107,7 +107,7 @@ Every guide follows the same format: big picture diagram, layered detail, ASCII 
 ---
 
 ### Archetype Epithets (from `cards/ROLES.md`)
-**Current score: 5/10**
+**Current score: 6/10** *(was 5/10)*
 Each card has a one-sentence epithet: "Lever, arch, wing — the first engineering." Used in the Joker's puzzle intros (narrative voice) but not as puzzle DATA.
 **Potential**: The epithets are poetic, dense, and unique. They could be cipher keys, pattern sources, or identification clues in The Grid. "Which archetype's epithet contains the word 'channel'?" → The Analyst.
 **To reach 8**: Use epithets as clues in The Grid — the solver matches epithet fragments to archetype names.
@@ -115,14 +115,14 @@ Each card has a one-sentence epithet: "Lever, arch, wing — the first engineeri
 ---
 
 ### Card Backs (`cards/backs/*.md`) — BUILT
-**Current score: 2/10**
+**Current score: 8/10** *(was 2/10)*
 52 ASCII card frames. Each has: card identity, tarot correspondence, 7 KEY CONCEPTS (specific formulas, terms, principles), directory list, epithet. These are FINGERPRINTS — each card's 7 concepts uniquely identify it.
 **Potential**: The 7 concepts per card are the Grid solver's MANIFEST. Like Obra Dinn's crew portraits. "This volume contains Carnot efficiency and Rankine cycles — that's 7♦ The Alchemist." The card backs could be printed as reference cards in the Black Joker book.
 **To reach 8**: Print card backs as reference material in Black Joker. Solver uses them to narrow Grid identifications.
 **To reach 10**: Card backs ARE the deduction tool. The solver matches in-encyclopedia content to card-back fingerprints to determine which archetype hides where.
 
 ### Card Front Descriptions (`cards/CONCEPTS.md`) — NOT YET BUILT
-**Current score: 1/10**
+**Current score: 1/10** *(unchanged — art not yet built)*
 52 image prompts describing card art. Descriptions only — no actual artwork exists yet. Flairs added from honored phases.
 **Potential**: When card art IS built, it can be designed WITH the puzzle hunt in mind. Hidden visual elements, encoded details, subtle clues baked into the art. A casual reader sees beautiful illustrations. A Grid solver sees 52 clue-bearing images.
 **To reach 5**: Design art with dual purpose (beauty + puzzle) when the time comes.
@@ -131,7 +131,7 @@ Each card has a one-sentence epithet: "Lever, arch, wing — the first engineeri
 ---
 
 ### HISTORY.md (Phase Chronicle)
-**Current score: 1/10**
+**Current score: 5/10** *(was 1/10)*
 The chronicle of how the library was built. 22 phases, each with a card role. Completely unused.
 **Potential**: The history is a STORY — how 52 volumes were built in 6 days. A puzzle could reference specific commits, phase numbers, or the order in which sections were built. Meta-puzzle: "in what order were the sections created?" The history answers it.
 **To reach 5**: The Joker's closing monologue references the building of the library (it does — "I built this library in X days").
@@ -146,7 +146,7 @@ Tracks which directories are complete, stubbed, or queued. Batch status.
 ---
 
 ### SCORECARD.md
-**Current score: 1/10**
+**Current score: 1/10** *(intentionally unused — breaks fourth wall)*
 6-dimension quality scores for all 52 volumes. Every volume rated on Length, Suit Fit, Cohesion, Style, Depth, Archetype.
 **Potential**: The scores ARE data. "Which volume scored lowest on Archetype?" or "Sort volumes by Depth score." Could be puzzle data for a meta-level compound.
 **To reach 5**: A compound puzzle that uses volume quality scores as input data — the solver must find the volumes with specific score patterns.
@@ -157,23 +157,24 @@ Tracks which directories are complete, stubbed, or queued. Batch status.
 
 | Asset | Current | Potential | Gap | Priority |
 |-------|---------|-----------|-----|----------|
-| 52 Content Volumes | 9 | 10 | Specify files, not just sections | P2 |
-| Concept Index | 8 | 10 | Verify uniqueness, assign to compounds | **P0** |
-| Card System (Roles + Concepts) | 8 | 10 | Use suits, image concepts, uninvoked archetypes | P1 |
-| Bill of Materials | 2 | 7 | Use as reference tool or data source | P2 |
-| Reading Maps | 1 | 10 | Path-following compound puzzles | **P1** |
-| Prerequisite Graph | 1 | 8 | Graph-structure puzzles | P2 |
-| Atlas | 1 | 10 | Geographic puzzle substrate | P2 (atlas incomplete) |
-| Section Landing Pages | 3 | 7 | Entry point references | P3 |
-| Read This First | 3 | 7 | Hydrogen warm-up, Fool gateway | P2 |
-| MkDocs Site | 2 | 5 | Search for Grid, medium-shift | P3 |
+| 52 Content Volumes | **9** | 10 | Specify files, not just sections | P2 |
+| Concept Index | **8** | 10 | ✅ Powers 15 compound puzzles | Done |
+| Card System (Roles + Concepts) | **8** | 10 | ✅ Archetypes in puzzles + Grid | Done |
+| Card Backs (7 concepts each) | **8** | 10 | ✅ Grid manifest — Obra Dinn crew portraits | Done |
+| Reading Maps | **7** | 10 | ✅ Replaces MgO compound | Done |
+| Prerequisite Graph | **7** | 8 | ✅ Replaces AlN compound | Done |
+| Read This First | **7** | 7 | ✅ Hydrogen warm-up content | Done |
+| Card Identity System | **7** | 8 | ✅ Discovered, never explained | Done |
+| Archetype Epithets | **6** | 8 | Grid matching clues | P2 |
+| Bill of Materials | **5** | 7 | Grid floor plan (third tool) | P2 |
+| HISTORY.md | **5** | 5 | ✅ Joker's identity + closing | Done |
 | Style Contract | 4 | 7 | Structure-as-data puzzles | P3 |
-| Archetype Epithets | 5 | 8 | Grid clues, cipher keys | P2 |
-| Card Backs (7 concepts each) | 2 | 10 | Grid manifest — Obra Dinn crew portraits | **P1** |
-| Card Front Art (unbuilt) | 1 | 10 | Design art with hidden puzzle layer | P2 (when art is built) |
-| HISTORY.md | 1 | 5 | Meta-story reference | P3 |
+| Section Landing Pages | 3 | 7 | Entry point references | P3 |
+| MkDocs Site | 2 | 5 | Search for Grid, medium-shift | P3 |
+| Card Front Art (unbuilt) | 1 | 10 | Design with hidden puzzle layer when built | Future |
+| Atlas | 1 | 10 | Geographic puzzle substrate | Future (atlas incomplete) |
 | TRACKER.md | 1 | 2 | Internal only | — |
-| SCORECARD.md | 1 | 5 | Scores as data | P3 |
+| SCORECARD.md | 1 | 1 | ✗ Intentionally unused (breaks fourth wall) | — |
 
 ### Before asset integration (start of session):
 **Average utilization: 3.3/10** · Potential: 7.4/10 · Gap: 4.1
