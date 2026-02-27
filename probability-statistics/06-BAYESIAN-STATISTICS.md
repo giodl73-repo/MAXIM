@@ -212,7 +212,28 @@ MCMC is exact but slow. Variational inference (VI) is approximate but fast.
   Foundation of VAEs (Variational Autoencoders).
 ```
 
-<!-- @editor[bridge/P2]: No bridge from variational inference to probabilistic programming — this learner needs: "Stan implements HMC/NUTS; Pyro/NumPyro implements VI with reparameterization trick; Edward2/TFP implement both." The reparameterization trick is the implementation-level insight that makes modern probabilistic programming work, and connecting to the probabilistic programming ecosystem (Stan, Pyro, Turing.jl) is an explicit bridge this learner needs per the calibration. -->
+**Probabilistic programming ecosystem** — where the theory meets implementation:
+
+```
+  FRAMEWORK             INFERENCE ENGINE          LANGUAGE
+  ──────────────────────────────────────────────────────────────────
+  Stan                  HMC / NUTS                Custom DSL (C++ backend)
+                        (gold standard for MCMC)   R/Python/Julia interfaces
+  Pyro / NumPyro        VI (reparameterization)   Python (PyTorch / JAX)
+                        + HMC                      GPU-accelerated
+  TensorFlow Probability VI + HMC                 Python (TF backend)
+  (TFP / Edward2)       Bijectors for transforms
+  Turing.jl             HMC/NUTS + particle MCMC  Julia (composable)
+  PyMC                  NUTS + ADVI               Python (PyTensor)
+  ──────────────────────────────────────────────────────────────────
+
+  THE REPARAMETERIZATION TRICK (implementation insight):
+  To differentiate through sampling theta ~ q(theta; phi):
+  Write theta = mu + sigma * epsilon, epsilon ~ N(0,1).
+  Now grad_phi depends on mu, sigma (deterministic), not on the sample.
+  This enables stochastic gradient optimization of the ELBO.
+  Pyro/NumPyro and TFP implement this automatically.
+```
 
 ---
 
@@ -302,7 +323,68 @@ When you have groups of observations with shared structure:
 
 ---
 
-<!-- @editor[content/P1]: Bayesian nonparametrics is completely absent — this is an explicit "DOES need" in the learner calibration. Bayesian nonparametrics (Dirichlet process, Gaussian process regression as nonparametric Bayes, Chinese restaurant process, Indian buffet process, Pitman-Yor process) is the modern bridge between Bayesian statistics and machine learning. Missing: Dirichlet process mixture models, stick-breaking representation, the CRP as a generative model, and connection to modern topics like topic models (LDA) and neural network priors. This is P1 — explicitly called out as a gap. -->
+## Bayesian Nonparametrics
+
+When you don't want to fix the number of clusters, features, or model complexity in advance — let the data decide.
+
+**Dirichlet Process (DP)** — a distribution over distributions:
+
+```
+  G ~ DP(alpha, G_0)
+
+  G_0: base distribution (the "prior guess" for the distribution)
+  alpha: concentration parameter (controls how close G is to G_0)
+
+  KEY PROPERTY: For any partition (A_1,...,A_k) of the sample space:
+  (G(A_1), ..., G(A_k)) ~ Dirichlet(alpha G_0(A_1), ..., alpha G_0(A_k))
+
+  alpha → ∞: G → G_0 (prior dominates)
+  alpha → 0: G concentrates on a single atom (one cluster)
+```
+
+**Stick-breaking representation** (Sethuraman, 1994):
+
+```
+  G = Sum_{k=1}^{∞} pi_k delta_{theta_k}
+
+  theta_k ~ G_0        (cluster locations from base distribution)
+  V_k ~ Beta(1, alpha)  (break lengths)
+  pi_k = V_k * Product_{j<k} (1-V_j)  (remaining stick × break)
+
+  This is "break off a piece of a stick of length 1, repeatedly."
+  Infinitely many clusters, but weights decay geometrically.
+  Constructive: you can simulate draws from a DP.
+```
+
+**Chinese Restaurant Process (CRP)** — the sequential generative model:
+
+```
+  Customer n+1 sits at:
+  - Existing table k with probability n_k / (n + alpha)  (proportional to occupancy)
+  - New table with probability alpha / (n + alpha)  (proportional to concentration)
+
+  Rich-get-richer dynamics: popular clusters attract more members.
+  The number of clusters K grows as alpha * log(n).
+  CRP is exchangeable: the partition distribution doesn't depend on arrival order.
+```
+
+**Dirichlet Process Mixture Model (DPMM):**
+
+```
+  G ~ DP(alpha, G_0)
+  theta_i | G ~ G           (cluster assignment)
+  x_i | theta_i ~ F(theta_i) (observation from cluster)
+
+  Equivalent to: unknown number of clusters, each with parameter from G_0.
+  Inference: Gibbs sampling (Neal's algorithm) or variational methods.
+  Use: density estimation, clustering when K is unknown, topic models.
+```
+
+**GP regression as nonparametric Bayes**: Gaussian process regression (04-STOCHASTIC-PROCESSES) is Bayesian nonparametric regression — the prior is over the infinite-dimensional space of functions, not a finite parameter vector. The kernel encodes smoothness assumptions; the posterior is also a GP.
+
+**Connection to topic models**: Latent Dirichlet Allocation (LDA) uses a Dirichlet prior on topic proportions per document — the parametric version. The Hierarchical Dirichlet Process (HDP) extends this to learn the number of topics from data.
+
+---
 
 ## Bernstein-von Mises Theorem
 

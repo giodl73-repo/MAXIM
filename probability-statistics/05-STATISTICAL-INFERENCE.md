@@ -292,11 +292,65 @@ When testing m hypotheses simultaneously, the type I error rate inflates:
   BH is for: "I expect some false positives; I want the proportion bounded."
 ```
 
-<!-- @editor[content/P2]: Multiple testing section covers Bonferroni and BH but is missing: Holm-Bonferroni (uniformly more powerful than Bonferroni, always preferred), Storey's q-value (FDR estimation using empirical null distribution), and the modern resampling-based approaches (Westfall-Young permutation correction for dependent tests). Also missing the distinction between FWER and FDR for different scientific contexts (drug trials vs. genomics). Worth extending for a learner who will encounter multiple testing in ML model selection contexts. -->
+**Holm-Bonferroni** (uniformly more powerful than Bonferroni — always prefer it):
+
+```
+  Sort p-values: p_(1) <= ... <= p_(m).
+  Reject H_(k) if p_(k) <= alpha / (m - k + 1) for all k in sequence.
+  Stop at the first non-rejection. Reject all H_(j) with j < k.
+  Controls FWER at level alpha. Strictly more powerful than Bonferroni.
+```
+
+**When to use FWER vs. FDR**: Drug trials (each false positive = patient harm → FWER via Holm). Genomics (screening 20,000 genes, expect some false positives → FDR via BH). ML model selection (evaluating many hyperparameter configurations → FDR or no correction, using held-out validation instead).
+
+**Storey's q-value**: Estimates the proportion of true nulls π₀ from the distribution of p-values, then adjusts BH to be less conservative. If most nulls are false (π₀ small), BH is wastefully conservative; Storey corrects this.
 
 ---
 
-<!-- @editor[content/P1]: Bootstrap and resampling are completely absent — this is an explicit gap in the learner calibration ("DOES need: bootstrap and resampling"). The bootstrap (Efron 1979) is the dominant modern tool for confidence intervals without distributional assumptions, and connects directly to this learner's interest in non-parametric inference. Missing: nonparametric bootstrap, parametric bootstrap, block bootstrap for dependent data, bootstrap confidence intervals (percentile, BCa, studentized), and the theoretical justification (bootstrap consistency). This is P1 — it is explicitly called out as needed and is absent. -->
+## Bootstrap and Resampling Methods
+
+The bootstrap (Efron, 1979) estimates the sampling distribution of a statistic by resampling from the data itself — no distributional assumptions required.
+
+**Nonparametric bootstrap:**
+
+```
+  Given data x_1, ..., x_n and a statistic T(x_1,...,x_n):
+
+  For b = 1, ..., B:
+    Draw x*_1, ..., x*_n by sampling WITH REPLACEMENT from {x_1,...,x_n}
+    Compute T*_b = T(x*_1, ..., x*_n)
+
+  The distribution of {T*_1, ..., T*_B} estimates the sampling distribution of T.
+
+  BOOTSTRAP STANDARD ERROR: SE_boot = sd(T*_1, ..., T*_B)
+  BOOTSTRAP BIAS: bias_boot = mean(T*) - T(x)
+```
+
+**Bootstrap confidence intervals:**
+
+```
+  PERCENTILE INTERVAL (simplest):
+  [T*_(alpha/2), T*_(1-alpha/2)]  (alpha/2 and 1-alpha/2 quantiles of bootstrap distribution)
+  Simple but can have poor coverage for skewed statistics.
+
+  BCa (Bias-Corrected and Accelerated):
+  Adjusts for bias and skewness of the bootstrap distribution.
+  Two correction parameters: z_0 (bias), a (acceleration/skewness).
+  Generally recommended — better coverage than percentile.
+
+  STUDENTIZED (bootstrap-t):
+  Pivot: (T* - T) / SE* for each bootstrap sample.
+  Use quantiles of this pivoted distribution.
+  Most accurate (second-order correct) but requires SE estimate within each bootstrap.
+```
+
+**Parametric bootstrap:** Resample from the fitted model rather than from the data. Fit model → generate synthetic data from fitted model → refit → repeat. Useful when you trust the model family but not the specific parameters.
+
+**Block bootstrap (for dependent data):** For time series where i.i.d. resampling breaks the dependence structure, resample blocks of consecutive observations. Block length l controls the tradeoff: too small = breaks dependence; too large = few blocks, poor coverage. Moving block, circular block, and stationary block bootstrap variants exist.
+
+**Bootstrap consistency (theoretical justification):** Under regularity conditions (T is a smooth function of moments), the bootstrap distribution converges to the true sampling distribution at rate O(1/√n). For the mean, this is the same rate as the CLT — but the bootstrap works without knowing the distribution. For non-smooth statistics (e.g., median), bootstrap consistency can still hold but requires more care.
+
+---
 
 ## Efficiency, Robustness, and Misspecification
 

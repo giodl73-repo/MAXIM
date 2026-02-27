@@ -109,7 +109,36 @@ The measure-theoretic setup for processes:
   ||P^n - pi|| <= C |lambda_2|^n
 ```
 
-<!-- @editor[content/P2]: Mixing time section is thin for this learner's TCS background — spectral gap (1 - lambda_2) as the mixing rate is stated but the connection to conductance (Cheeger's inequality), coupling arguments, and the connection to random walks on expander graphs are all missing. This learner knows expander graphs from TCS and the spectral gap connection is the natural bridge. Also missing: the path coupling method and log-Sobolev inequalities which give tighter mixing time bounds. Add at least a note on conductance and the expander graph / MCMC mixing connection. -->
+**Mixing time and spectral gap — the TCS bridge:**
+
+```
+  MIXING TIME: t_mix(eps) = min{t : max_i ||P^t(i, .) - pi||_TV <= eps}
+  How many steps until the chain is eps-close to stationarity?
+
+  SPECTRAL GAP and mixing:
+  gap = 1 - lambda_2   (lambda_2 = second-largest eigenvalue magnitude)
+  t_mix(eps) = Theta(log(1/eps) / gap)   (for reversible chains)
+
+  CHEEGER'S INEQUALITY (conductance → spectral gap):
+  Conductance: Phi = min_{S: pi(S) <= 1/2} [Sum_{i in S, j not in S} pi_i P_ij] / pi(S)
+  Cheeger: Phi^2 / 2  <=  gap  <=  2 Phi
+  This links a combinatorial property (bottleneck structure) to mixing.
+
+  EXPANDER GRAPH CONNECTION (TCS bridge):
+  A regular graph is an eps-expander iff the spectral gap of its
+  random walk is >= eps. Expanders mix in O(log n) steps.
+  The Markov chain on an expander IS a rapidly mixing chain.
+  MCMC on a well-connected state space ≈ random walk on an expander.
+
+  COUPLING METHOD: To bound mixing time, construct a coupling
+  (X_t, Y_t) where X_t starts at worst case, Y_t starts at stationarity.
+  t_mix <= E[coupling time]. Path coupling (Bubley-Dyer) simplifies
+  this to checking contraction on neighboring states.
+
+  LOG-SOBOLEV INEQUALITIES: Give tighter bounds than spectral gap
+  for continuous-state chains (e.g., Langevin dynamics).
+  Modified log-Sobolev: t_mix = O(1/alpha_LS) (independent of state space size).
+```
 
 **Detailed balance** (reversibility):
 
@@ -342,7 +371,42 @@ HMMs appear in speech recognition (the original application), bioinformatics (ge
 
 ---
 
-<!-- @editor[content/P2]: Missing random matrix theory — for this learner (high-dimensional probability is an explicit need), the spectral properties of random matrices (Wigner semicircle law, Marchenko-Pastur distribution, Tracy-Widom law) are a significant omission. Random matrix theory connects directly to: PCA in high dimensions (spiked covariance model), MCMC mixing analysis, and compressed sensing. Add at least a subsection or a pointer to where this is covered. Also missing: renewal theory (useful for algorithm analysis of recurrent structures). -->
+## Random Matrix Theory (High-Dimensional Probability)
+
+Spectral properties of random matrices — essential for PCA in high dimensions and compressed sensing.
+
+```
+  WIGNER SEMICIRCLE LAW:
+  For n×n symmetric matrix W with W_ij ~ iid, mean 0, variance 1/n:
+  Empirical spectral distribution → semicircle on [-2, 2] as n → ∞.
+  Density: f(x) = (1/2π) sqrt(4 - x^2) for |x| <= 2.
+  Eigenvalues of random symmetric matrices are NOT Gaussian-distributed.
+
+  MARCHENKO-PASTUR LAW:
+  For n×p data matrix X with iid entries, S = X^T X / n (sample covariance):
+  As n, p → ∞ with p/n → γ ∈ (0, ∞):
+  Spectral distribution of S → Marchenko-Pastur with parameter γ.
+  Support: [(1-√γ)^2, (1+√γ)^2].
+
+  CONSEQUENCE FOR PCA:
+  If true covariance Σ = I (no signal): eigenvalues of S spread over [(1-√γ)^2, (1+√γ)^2].
+  A "signal" eigenvalue λ is detectable only if λ > 1 + √γ (BBP phase transition).
+  Below this threshold: noise eigenvalues dominate, PCA gives garbage.
+  This is why p/n matters: more features relative to samples = harder detection.
+
+  TRACY-WIDOM LAW:
+  The fluctuations of the largest eigenvalue around (1+√γ)^2 follow
+  the Tracy-Widom distribution (not Gaussian!). Governs hypothesis testing
+  for the number of significant principal components.
+
+  APPLICATIONS:
+  - PCA: spiked covariance model determines when eigenvalues are signal vs. noise
+  - Compressed sensing: RIP of random matrices follows from concentration of eigenvalues
+  - MCMC: spectral gap of random walk on random graph
+  - Wireless communications: capacity of MIMO channels = random matrix eigenvalue problem
+```
+
+---
 
 ## Decision Cheat Sheet
 

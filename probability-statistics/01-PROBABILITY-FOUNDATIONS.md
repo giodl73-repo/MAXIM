@@ -233,7 +233,39 @@ These appear constantly in proofs:
   Exponential tail bound. Foundation of PAC learning.
 ```
 
-<!-- @editor[content/P2]: Concentration inequalities section stops at Hoeffding — for this learner (TCS/algorithm analysis background) this is the entry point to a much richer family. Missing: Azuma-Hoeffding for martingales (needed for adaptive algorithms), McDiarmid's inequality (bounded differences, ubiquitous in learning theory), Bernstein inequality (variance-adaptive, tighter than Hoeffding), and sub-Gaussian / sub-exponential distributions as the modern unifying framework. Add at minimum a taxonomy diagram and Bernstein + McDiarmid. -->
+**Beyond Hoeffding — the concentration inequality family:**
+
+```
+  CONCENTRATION INEQUALITY HIERARCHY:
+  ──────────────────────────────────────────────────────────────────────
+  BERNSTEIN'S INEQUALITY (variance-adaptive, tighter than Hoeffding):
+  For independent X_i in [a_i, b_i] with Var(X_i) = sigma_i^2:
+  P(|S_n - E[S_n]| >= t) <= 2 exp(-t^2 / (2(Sum sigma_i^2 + ct/3)))
+  Tighter than Hoeffding when variance << range (common in practice).
+
+  AZUMA-HOEFFDING (for martingales):
+  If {M_k} is a martingale with |M_k - M_{k-1}| <= c_k:
+  P(|M_n - M_0| >= t) <= 2 exp(-t^2 / (2 Sum c_k^2))
+  Needed for adaptive algorithms where choices depend on past data.
+
+  McDIARMID'S INEQUALITY (bounded differences):
+  If f(X_1,...,X_n) changes by at most c_i when X_i varies:
+  P(|f - E[f]| >= t) <= 2 exp(-2t^2 / Sum c_i^2)
+  Ubiquitous in learning theory: apply to empirical risk, VC bounds.
+
+  SUB-GAUSSIAN / SUB-EXPONENTIAL (modern unifying framework):
+  X is sub-Gaussian(sigma) if E[exp(t(X-mu))] <= exp(sigma^2 t^2/2)
+  All bounded r.v.s are sub-Gaussian. Gaussian is sub-Gaussian.
+  Sub-Gaussian tails: P(|X - mu| >= t) <= 2 exp(-t^2/(2 sigma^2))
+
+  X is sub-exponential if E[exp(t|X-mu|)] < inf for small t.
+  Chi-squared, exponential r.v.s are sub-exponential (not sub-Gaussian).
+  Sub-exponential tails: Gaussian for small t, exponential for large t.
+
+  MATRIX CONCENTRATION (for random matrices):
+  Matrix Bernstein: ||Sum X_i - E[Sum X_i]|| <= O(sqrt(sigma^2 log d) + c log d)
+  Used in: compressed sensing, random graph theory, spectral methods.
+```
 
 ---
 

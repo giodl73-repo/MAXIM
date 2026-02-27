@@ -1,8 +1,8 @@
 # Probability & Statistics — Landscape Overview
 
-<!-- @editor[bridge/P2]: No bridge from TCS/algorithm-analysis framing — this learner thinks of probability as the tool for analyzing BPP, randomized algorithms, and average-case complexity; open with that angle to anchor the landscape immediately -->
-
 ## The Big Picture
+
+**TCS anchor**: For a reader from theoretical CS, probability is the tool behind BPP (bounded-error probabilistic polynomial time), randomized algorithm analysis (average-case complexity, tail bounds on runtime), PAC learning (sample complexity), and random graph theory. The LLN explains why Monte Carlo estimators converge; the CLT quantifies how fast; concentration inequalities (Hoeffding, McDiarmid) give the exponential tail bounds used in PAC learning and probability amplification. Stochastic processes underlie Markov chain analysis (mixing times, spectral gaps, MCMC). Information geometry connects Fisher information to optimal estimation rates (Cramér-Rao = the "uncertainty principle" of statistics).
 
 Two disciplines sharing notation but answering different questions:
 
@@ -102,7 +102,7 @@ Before 1933 (Kolmogorov's axiomatization), probability was informal. Kolmogorov 
 
 ## Module Map
 
-<!-- @editor[content/P2]: Module map is missing several topics this learner explicitly needs: high-dimensional probability (concentration inequalities beyond Hoeffding, random matrix theory), statistical learning theory (PAC learning, VC dimension, Rademacher complexity), bootstrap/resampling, and Bayesian nonparametrics. These are significant gaps for a TCS/Math reader building toward ML theory. Consider adding a 10-HIGH-DIMENSIONAL-PROBABILITY and noting PAC-learning coverage exists in 03-LIMIT-THEOREMS or create a dedicated file. -->
+Note: High-dimensional probability (concentration beyond Hoeffding, random matrix theory) is covered in 03-LIMIT-THEOREMS and 04-STOCHASTIC-PROCESSES. PAC learning and VC dimension are in 03-LIMIT-THEOREMS. Bootstrap is in 05-STATISTICAL-INFERENCE. Bayesian nonparametrics is in 06-BAYESIAN-STATISTICS.
 
 ```
   00-OVERVIEW (this file)
@@ -186,8 +186,6 @@ Before 1933 (Kolmogorov's axiomatization), probability was informal. Kolmogorov 
 
 ## This Directory vs. statistics-applied/
 
-<!-- @editor[content/P2]: Directory scope note mentions causal inference is in statistics-applied/ but this learner explicitly needs causal inference coverage — add a note that causal inference (do-calculus, potential outcomes) is a major modern topic and explain precisely what to expect from each location -->
-
 The library also contains `statistics-applied/` (Social Sciences section) which covers:
 - Experimental design and A/B testing
 - Survey sampling methods
@@ -198,6 +196,8 @@ The library also contains `statistics-applied/` (Social Sciences section) which 
 - Why probability spaces exist and what they formalize
 - Convergence theorems and their proofs
 - The geometry of the space of probability distributions
+
+**Causal inference** (Pearl's do-calculus, potential outcomes / Rubin framework) is a major modern topic that lives in `statistics-applied/`. It requires understanding the distinction between P(Y | X=x) (conditional, observational) and P(Y | do(X=x)) (interventional, causal). This directory provides the probability foundations (conditional distributions, Bayesian networks) needed to understand causal inference; `statistics-applied/` provides the causal machinery itself. See also 07-REGRESSION-MODELS.md for the distinction between predictive and causal regression.
 
 If you want to run an A/B test: `statistics-applied/`.
 If you want to understand why the CLT works: this directory.

@@ -179,7 +179,7 @@ Many distributions share a common structure — the exponential family:
 4. **MLE**: The MLE equation reduces to E_theta[T(X)] = T_bar (sample average of sufficient statistics)
 5. **GLMs**: Generalized linear models use exponential family distributions as response distributions
 
-<!-- @editor[bridge/P2]: No bridge from exponential family to the computational complexity of inference — this learner will immediately ask "what makes exponential families computationally tractable vs. not?" The answer (sufficient statistics have fixed dimension, conjugate Bayesian updates are O(1)) maps directly to their TCS background on efficient algorithms. Add a note on why breaking the exponential family assumption makes inference #P-hard (partition function = sum over exponentially many states). -->
+**Computational complexity of inference — the TCS angle.** Exponential families are computationally tractable because: (1) the sufficient statistic T(x) has fixed dimension k regardless of sample size n, so Bayesian updates are O(k) per observation; (2) the MLE reduces to solving E[T(X)] = T̄ (moment matching), a k-dimensional convex problem; (3) conjugate priors give closed-form posteriors. Breaking the exponential family assumption makes inference fundamentally harder: computing the partition function Z(θ) = ∫ h(x)exp(η^T T(x)) dx is #P-hard for general graphical models (e.g., Ising model on general graphs). This is why MCMC and variational inference exist — they approximate the intractable partition function. The exponential family / non-exponential boundary is essentially the tractable / intractable boundary for exact Bayesian inference.
 
 ---
 
@@ -244,7 +244,36 @@ Copulas matter in risk management and finance — the 2008 financial crisis part
 
 ---
 
-<!-- @editor[content/P2]: Missing high-dimensional distributions critical for this learner's needs — Wishart distribution (covered in the landscape diagram but not in the body), multivariate t, Dirichlet (important for Bayesian nonparametrics), and the chi distribution. Also missing: sub-Gaussian distributions as a distributional class (not just Normal), which is the modern lens for concentration inequalities and learning theory. -->
+## High-Dimensional and Multivariate Distributions
+
+```
+  WISHART DISTRIBUTION: W ~ Wishart(Sigma, n)
+  The multivariate generalization of chi-squared.
+  If X_i ~ Normal(0, Sigma) iid, then S = Sum X_i X_i^T ~ Wishart(Sigma, n).
+  Conjugate prior for the precision matrix (inverse covariance) in Bayesian inference.
+
+  MULTIVARIATE t-DISTRIBUTION: t_nu(mu, Sigma)
+  Heavier tails than multivariate Normal; approaches MVN as nu → ∞.
+  Arises in Bayesian posterior predictive distributions.
+  Marginals are univariate t.
+
+  DIRICHLET DISTRIBUTION: Dir(alpha_1, ..., alpha_K)
+  Conjugate prior for categorical/multinomial probabilities.
+  Support: simplex {p: p_i >= 0, Sum p_i = 1}.
+  alpha = (1,...,1): Uniform on simplex.
+  alpha = (0.1,...,0.1): Concentrated near vertices (sparse).
+  Foundation of topic models (LDA) and Bayesian nonparametrics (Dirichlet process).
+
+  SUB-GAUSSIAN DISTRIBUTIONS (distributional class, not a single distribution):
+  X is sub-Gaussian(sigma) if: E[exp(t(X-mu))] <= exp(sigma^2 t^2 / 2) for all t.
+  Includes: Gaussian, bounded r.v.s, Rademacher (±1).
+  Does NOT include: exponential, chi-squared, Cauchy.
+  Modern lens for concentration: sub-Gaussian tails give Hoeffding-type bounds;
+  sub-exponential tails give Bernstein-type bounds.
+  See 01-PROBABILITY-FOUNDATIONS for the full concentration hierarchy.
+```
+
+---
 
 ## Order Statistics and Extreme Values
 

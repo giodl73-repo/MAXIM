@@ -145,7 +145,34 @@ The KL divergence is not a metric (it is asymmetric, doesn't satisfy triangle in
 
 ---
 
-<!-- @editor[content/P2]: Missing Wasserstein geometry — the optimal transport / Wasserstein distance has become as important as the KL divergence in modern ML (GANs, distributional robustness, domain adaptation). The Fisher metric is the right geometry for exponential families; Wasserstein is the right geometry for distributions supported on a metric space (interpolating between distributions while respecting the ground metric). A brief contrast (KL geometry vs. Wasserstein geometry, when each is appropriate) would complete the picture for a learner who will encounter both in deep learning contexts. -->
+## Wasserstein Geometry vs. KL Geometry
+
+Two competing geometries on the space of distributions — each right for different problems:
+
+```
+  KL DIVERGENCE (Fisher geometry)           WASSERSTEIN DISTANCE (optimal transport)
+  ──────────────────────────────────────    ──────────────────────────────────────
+  D_KL(p||q) = ∫ p log(p/q)               W_p(mu, nu) = (inf_gamma ∫ d(x,y)^p d gamma)^{1/p}
+  Requires: p << q (absolute continuity)   Works for: any distributions on metric space
+  Ignores ground metric on X               Respects ground metric (geometry of X matters)
+  Not a true distance (asymmetric)         True distance (symmetric, triangle inequality)
+
+  WHEN TO USE KL:                          WHEN TO USE WASSERSTEIN:
+  Parametric families (exponential family)  Distributions with non-overlapping support
+  MLE (= forward KL minimization)           GANs (Wasserstein GAN avoids mode collapse)
+  Variational inference                     Domain adaptation (transport plan = alignment)
+  Information-theoretic problems            Distributional robustness (Wasserstein balls)
+  Fisher-Rao is natural metric              Generates useful interpolations (displacement)
+
+  KEY DIFFERENCE:
+  KL = ∞ when supports don't overlap.      Wasserstein is always finite on compact spaces.
+  This is why KL-based training (standard   Wasserstein GAN replaces KL with W_1,
+  GAN) suffers mode collapse: generator     giving gradients even when generator and
+  can't "see" the target when supports      data distributions don't overlap.
+  are disjoint.
+```
+
+---
 
 ## Alpha-Divergences
 
@@ -370,4 +397,25 @@ They are not. Forward KL (MLE) forces the model to cover all modes of the data. 
 **"The exponential family e-flat geometry is a curiosity."**
 It is the structural reason exponential families are so tractable. The MLE for any exponential family is a sufficient statistic match (no numerical optimization needed in principle). Conjugate Bayesian updating is e-flat projection. The EM algorithm's convergence guarantee is the dual projections theorem. The geometry explains all the tractability.
 
-<!-- @editor[content/P2]: Missing the connection between information geometry and statistical learning theory — specifically, the role of the Fisher information matrix in neural tangent kernel theory (NTK), and how the natural gradient / K-FAC connects to the geometry of the loss landscape in overparameterized networks. For a learner with TCS background who will read about NTK and double-descent, the information-geometric perspective on why flat directions in the Fisher matrix correspond to the implicit regularization of SGD would be a valuable addition. -->
+**Information geometry and neural network training.** The Fisher information matrix connects to the geometry of overparameterized networks:
+
+```
+  NEURAL TANGENT KERNEL (NTK):
+  At initialization, an overparameterized network f(x; theta) ≈ f(x; theta_0) + J(x)^T (theta - theta_0)
+  where J = gradient of f w.r.t. theta. The NTK is K(x, x') = J(x)^T J(x').
+  The Fisher information I(theta) = E[J J^T] is the kernel in parameter space.
+  Natural gradient descent with Fisher preconditioning = kernel regression in NTK space.
+
+  IMPLICIT REGULARIZATION OF SGD:
+  SGD in overparameterized networks finds the minimum-norm solution in function space.
+  This is the m-projection (moment matching) onto the solution manifold.
+  Flat directions in the Fisher matrix (small eigenvalues of I) correspond to
+  directions where the distribution changes slowly — these are the "implicit
+  regularization" directions where SGD is free to wander without affecting predictions.
+
+  DOUBLE DESCENT AND INTERPOLATION:
+  In overparameterized regime (p >> n), the interpolating solution (zero training error)
+  has low test error because it is the minimum-norm interpolator.
+  The Fisher geometry explains this: the minimum-norm solution is the e-projection
+  onto the interpolation manifold, which is the "simplest" distribution consistent with the data.
+```

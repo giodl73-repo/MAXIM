@@ -293,11 +293,98 @@ While LLN and CLT describe typical behavior, large deviations theory quantifies 
 
 **Connection to information theory**: The rate function I(x) is the KL divergence between the distribution "tilted" to have mean x and the original distribution. Large deviations and relative entropy are deeply related.
 
-<!-- @editor[content/P2]: Large deviations section is a clean introduction but misses the Gärtner-Ellis theorem (extends Cramér to dependent sequences via the log-moment generating function) and the connection to statistical physics / free energy. For this learner, the bridge to algorithm analysis is the real payoff: exponential tail bounds for randomized algorithms (failure probability ~ exp(-n eps^2)) map directly to the rate function formulation here. Worth a concrete example. -->
+**Gärtner-Ellis theorem**: Extends Cramér's theorem to dependent sequences. If Lambda(t) = lim (1/n) log E[exp(t S_n)] exists and is differentiable, then the large deviation principle holds with rate function I(x) = sup_t {tx − Lambda(t)} (the Legendre transform), even without independence.
+
+**Algorithm analysis payoff**: The rate function formulation directly gives failure probabilities for randomized algorithms. For a randomized algorithm with bounded random cost X_i ∈ [0,1]:
+
+```
+  P(average cost exceeds mu + eps) <= exp(-n I(mu + eps))
+  where I(mu + eps) = sup_t {t(mu+eps) - log E[e^{tX}]}
+
+  For Bernoulli (success/failure): I(p+eps) = (p+eps)log((p+eps)/p) + (1-p-eps)log((1-p-eps)/(1-p))
+  This is the KL divergence D_KL(Bernoulli(p+eps) || Bernoulli(p)).
+  Rate ~ 2 eps^2 for small eps (recovering Hoeffding).
+
+  Concrete: Randomized algorithm with E[cost] = 0.3, want P(avg > 0.5) < delta.
+  Need n >= log(1/delta) / I(0.5) where I(0.5) ≈ 0.087.
+  n >= log(1/delta) / 0.087 ≈ 11.5 log(1/delta).
+```
+
+**Statistical physics connection**: The rate function I(x) is the negative entropy (or free energy) of the tilted distribution. The Legendre transform relating Lambda and I is the thermodynamic Legendre transform between free energy and entropy.
 
 ---
 
-<!-- @editor[content/P1]: Missing PAC learning and VC dimension — this is the single most important bridge for this learner (TCS background + explicit "DOES need" in the learner calibration). The connection between Hoeffding/uniform convergence, VC dimension, and sample complexity is the core of statistical learning theory. The current section mentions "Hoeffding inequality: PAC learning sample complexity" in the table but gives no content. Add a section: PAC learning framework, uniform convergence, VC dimension as combinatorial complexity measure, fundamental theorem of statistical learning (VC dimension = sample complexity characterization). This is a P1 gap — the learner explicitly needs this content and it has deep TCS resonance. -->
+## PAC Learning and VC Dimension
+
+The connection between concentration inequalities and computational learning theory — the single most important bridge to TCS.
+
+**PAC (Probably Approximately Correct) framework** (Valiant, 1984):
+
+```
+  SETUP: Hypothesis class H, unknown distribution D over X × {0,1}.
+  GOAL: Find h ∈ H with low generalization error R(h) = P_{(x,y)~D}[h(x) ≠ y].
+  Given: n i.i.d. samples (x_1,y_1), ..., (x_n,y_n) ~ D.
+
+  DEFINITION: H is PAC-learnable if ∃ algorithm A such that:
+  For all eps > 0, delta > 0, for all distributions D:
+  Given n >= n_0(eps, delta) samples, with probability >= 1-delta:
+  R(A(S)) <= min_{h ∈ H} R(h) + eps
+
+  "Probably" = with probability 1-delta.
+  "Approximately correct" = within eps of optimal.
+```
+
+**Finite hypothesis class — via Hoeffding + union bound**:
+
+```
+  If |H| is finite, the empirical risk minimizer (ERM) satisfies:
+  P(sup_{h ∈ H} |R_n(h) - R(h)| > eps) <= 2|H| exp(-2n eps^2)
+
+  Setting RHS = delta: n >= (log(2|H|/delta)) / (2 eps^2)
+
+  Sample complexity for finite H: O(log|H| / eps^2)
+  This is the simplest sample complexity bound.
+```
+
+**VC dimension** — when H is infinite:
+
+```
+  VC DIMENSION d_VC(H):
+  The largest n such that H can shatter some set of n points.
+  "Shatter" = realize all 2^n labelings on those n points.
+
+  EXAMPLES:
+  Half-lines on R: d_VC = 1
+  Linear classifiers on R^d: d_VC = d + 1
+  k-nearest neighbors (all of {0,1}^X): d_VC = ∞
+  Decision stumps on R^d: d_VC = 2d
+
+  FUNDAMENTAL THEOREM OF STATISTICAL LEARNING:
+  For binary classification with 0-1 loss:
+  H is PAC-learnable ⟺ d_VC(H) < ∞
+
+  Sample complexity: n = O(d_VC / eps^2 + log(1/delta) / eps^2)
+  (Vapnik-Chervonenkis, 1971; sharpened by many since)
+
+  VC INEQUALITY (uniform convergence):
+  P(sup_{h ∈ H} |R_n(h) - R(h)| > eps) <= O(n^{d_VC}) exp(-n eps^2)
+  The n^{d_VC} factor is the growth function / Sauer-Shelah lemma.
+```
+
+**Rademacher complexity** — the modern refinement:
+
+```
+  Rad_n(H) = E_sigma[sup_{h ∈ H} (1/n) Sum sigma_i h(x_i)]
+  where sigma_i are i.i.d. Rademacher (±1 with equal probability).
+
+  Generalization bound:
+  R(h) <= R_n(h) + 2 Rad_n(H) + sqrt(log(1/delta) / (2n))
+
+  Rademacher complexity is data-dependent (adapts to the distribution)
+  and often much tighter than VC bounds.
+```
+
+---
 
 ## Connection to Algorithm Analysis
 
