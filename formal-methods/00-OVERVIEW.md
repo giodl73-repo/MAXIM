@@ -117,7 +117,6 @@ You already know the theory from MIT. Here is where the practical tooling came f
 2024  AlphaProof   DeepMind — RL-trained model solving IMO-level math in Lean 4.
                    (Milestone: formal methods + ML convergence, not just toy benchmarks)
 ```
-<!-- @editor[content/P3]: AlphaProof (DeepMind, 2024) missing from historical arc — first ML system to solve IMO-level problems using a formal proof assistant (Lean 4). Marks the start of ML-assisted formal proving at research-grade difficulty. Worth adding as the last timeline entry given its significance to the trajectory of the field. -->
 
 ---
 

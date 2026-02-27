@@ -517,7 +517,42 @@ For software verification (not pure mathematics):
 
 ---
 
-<!-- @editor[content/P2]: Dafny has no dedicated section despite being Microsoft-built and arguably the most accessible entry point to deductive verification for working engineers. It occupies a different tier than Coq/Lean/Isabelle: you write annotated code (pre/post conditions, loop invariants, decreases clauses) and Z3 discharges the proof obligations automatically. No tactic scripting. This is the tool this learner is most likely to actually use. Add a section covering: ghost variables, verification conditions, the auto-active verification model (no interactive tactic proof), and a concrete example. Compare to the Hoare triples already in the guide. -->
+## Auto-Active Verification: Dafny
+
+Dafny occupies a different tier from Coq/Lean/Isabelle: you write annotated code (pre/postconditions, loop invariants, decreases clauses) and Z3 discharges proof obligations automatically. No tactic scripting. This is the most accessible entry point to deductive verification for working engineers.
+
+```
+DAFNY MODEL:
+  Code + annotations → verification conditions (VCs) → Z3 solver
+
+  method Max(a: int, b: int) returns (r: int)
+    ensures r >= a && r >= b        // postcondition
+    ensures r == a || r == b        // result is one of the inputs
+  {
+    if a >= b { r := a; } else { r := b; }
+  }
+  // Z3 automatically proves both postconditions hold.
+
+  KEY CONCEPTS:
+  Ghost variables:  exist only for verification, erased at compile time
+  Loop invariants:  must hold before and after each iteration
+  Decreases clause: proves termination (well-founded ordering)
+  Preconditions:    what the caller must guarantee (requires)
+  Postconditions:   what the method guarantees (ensures)
+
+  COMPARISON TO HOARE TRIPLES:
+  {P} S {Q} — Dafny automates the proof of {P}S{Q} via VC generation + SMT.
+  The programmer writes P and Q; Dafny+Z3 verify S connects them.
+  vs. Coq/Lean: programmer writes both the code and the proof interactively.
+
+  PRACTICAL SCOPE:
+  Excellent for: algorithm correctness, data structure invariants, API contracts.
+  Not designed for: deep mathematical proofs (use Lean/Coq) or hardware (use HOL/Isabelle).
+  Microsoft-built (MSR); used in AWS (Zelkova), VMware, and academic verification courses.
+```
+
+---
+
 ## Decision Cheat Sheet
 
 | Situation | Tool |
