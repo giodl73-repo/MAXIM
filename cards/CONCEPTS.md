@@ -12,7 +12,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 |------|-------|---------------|
 | K♣ | The Architect | 3-tier system diagram: browser → API → database, with layer boundaries and data flow arrows — the bottom layer drawn first, still warm, the pencil line not yet lifted |
 | K♦ | The Craftsman | A terminal window — small elegant program, call chain visible, syntax implied by indentation |
-| K♥ | The Prover | A proof tree with `⊢` nodes, one branch marked UNDECIDABLE — Gödel's sentence at the root |
+| K♥ | The Prover | A proof tree with `⊢` nodes, one branch marked UNDECIDABLE — Gödel's sentence at the root — and beside the proof tree, a second notation — not Gödel numbers but element symbols, each letter of the undecidable sentence encoded as the atom at that position in the table: H for first, He for second, Li for third — the proof that what computation cannot break, the periodic table can hide |
 | K♠ | The Sentinel | Network topology with nodes, edges, a firewall perimeter, and threat vectors as dotted intrusion lines |
 
 ### Q — Arts & Culture
