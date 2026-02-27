@@ -23,8 +23,9 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 | 11 | Feb 25 | The Discoverer | A♣ | Archetypes — 52 roles, 52 image concepts |
 | 12 | Feb 26 | The Verifier | 8♦ | Editorial sweep — 120 dirs, 1200+ tags, parallel agents |
 | 13 | Feb 26 | The Interpreter | 10♥ | Fix pass — 71 dirs, 575+ tags resolved, 6 sections clean |
+| 14 | Feb 26 | The Surveyor | Q♦ | Fix residuals + sweep 59 dirs — 667 tags, 86 P1s, all dirs mapped |
 
-*39 roles remain unclaimed.*
+*38 roles remain unclaimed.*
 
 ---
 
@@ -47,8 +48,9 @@ Each phase adds a small poetic detail to its card's image concept — a mark lef
 | 11 | The Discoverer | *...one equation still being written: the ink not yet dry, the chalk still in hand* |
 | 12 | The Verifier | *...the arrows drawn not by one hand but by a hundred, each state resolved in parallel, the whole machine converging at once* |
 | 13 | The Interpreter | *...the arrows redrawn in a second hand at each corner — relational, typed, recursive — the triangle's meaning arriving in the reader's own notation, seventy-one times over* |
+| 14 | The Surveyor | *...59 blank territories inked in — contour lines running from valley floor to ridge — and in the lower-left corner, a correction note where the last of the old stakes were pulled: three more sections cleared* |
 
-*39 cards await their flair.*
+*38 cards await their flair.*
 
 ---
 
@@ -315,13 +317,61 @@ Six sections graduated clean. Earth & Space: all 14 directories. History & Ideas
 
 ---
 
+---
+
+# Phase 14: The Surveyor
+
+**Card**: Q♦ — Queen of Diamonds
+**Date**: February 26, 2026
+**Commits**: `eb0f92a` → `0a74737` (~25 commits)
+**Image flair**: *...59 blank territories inked in — contour lines running from valley floor to ridge — and in the lower-left corner, a correction note where the last of the old stakes were pulled: three more sections cleared*
+
+The Surveyor's work is comprehensive mapping. Before you can fix a thing you must know where everything is. Phase 14 did two jobs: it finished the outstanding fix residuals from the previous session, then it surveyed the entire unmapped half of the library.
+
+Job one: cleanup. Three batches of fix agents swept the remaining unresolved directories — art-history (12 tags), furniture / textiles / metalworking / glassmaking, periodic-table / mycology / animal-phylogeny / food-plants — resolving every outstanding tag. Material Culture graduated clean: all 11 directories. Natural World graduated clean: all 12. Arts & Culture partial — art-history clean, 16 others pending next pass. 197 tags resolved, three sections at 100%.
+
+Job two: the survey. 32 parallel sweep agents fanned out across the unmapped half: Mathematics & Physics (19 directories), Mechanics (14), Technology (9), Arts & Culture (16), and the last Life Sciences holdout (cognitive-science). Each agent read every file end-to-end, applied all four levels of the rubric — structure contract, audience fit, developmental quality, content accuracy — and drove @editor stakes at every problem point. Then committed.
+
+667 stakes planted. 86 P1 blocking issues found.
+
+The P1 distribution maps the library's actual fault lines:
+
+**numerical-methods** (7 P1s): The automatic differentiation → backpropagation bridge is broken across four files. Every ML engineer reading numerical-methods needs to see that AD *is* backprop — the chain rule implemented as a data structure — and those files don't say it.
+
+**hvac** (5 P1s): Carnot efficiency is absent from the entire refrigeration chain. A VP of Engineering reads HVAC and immediately asks "what's the theoretical limit?" — the answer should be in every efficiency table. It isn't.
+
+**topology** (5 P1s): ∞-categories and Homotopy Type Theory are entirely absent despite being the most active frontier in the field. Morse theory missing. Knot theory thin. The files cover classical topology well but stop at the tree line.
+
+**music-theory** (4 P1s): These are the most natural missed bridges in the entire library. Fourier analysis equals harmonic series decomposition — why a chord sounds like its components. Counterpoint is constraint satisfaction programming. Sonata form is a finite state machine with named states. Any MIT TCS graduate sees these immediately. The guides didn't say them.
+
+**cognitive-science** (4 P1s): Turing's original *Computing Machinery and Intelligence* paper formulates the Turing Test as a decidability question — can a finite judge distinguish a machine from a person? The Chomsky hierarchy is in every TCS course. VAE/ELBO connects directly to information theory. All three absent.
+
+**complex-analysis** (4 P1s): Elliptic curves in complex analysis are the same curves as in elliptic curve cryptography — the isomorphism should be explicit. L-functions and the Riemann hypothesis are absent from what should be their home.
+
+The pattern is consistent across every domain: the universal CS bridges — the ones that any senior engineer would immediately recognize — are the gaps. Control theory bridges to error budgets and rate limiters but not to backpressure and admission control. Materials science bridges to semiconductor manufacturing but not to the state-machine metaphor for phase transformations. Each P1 is a crossing that wasn't drawn.
+
+All 168 directories are now swept — 167 with tags pending fix, 1 (virology) permanently blocked by content policy. The topographic map of the library's terrain is complete. The next pass draws the bridges.
+
+**Key commits**:
+- `eb0f92a` Fix art-history + Material Culture (ceramics, coatings, culinary-history, etc.) — 86 files
+- `410b296` Fix furniture, textiles, metalworking, glassmaking
+- `bb94143` Fix periodic-table, mycology, animal-phylogeny, food-plants
+- `275dcd7` Sweep physics/ — 22 tags, 4 P1s
+- `fa7b60f` Sweep topology/ — 27 tags, 5 P1s
+- `f958212` Sweep architecture-history, architecture, music-theory — 35 tags, 5 P1s
+- `0a74737` Sweep 59 dirs — 667 @editor tags, 86 P1s — update REVIEW.md
+
+**Scale**: 59 new directories swept, 667 @editor tags injected, 86 P1 blocking issues, 3 sections graduated clean (Material Culture, Natural World, Arts & Culture/art-history), all 168 tracked directories now swept (virology excepted)
+
+---
+
 ## What Comes Next
 
 The library has content. The cards have identity. The roles have names. The image concepts have been described.
 
 Now the cards need faces — 52 new ASCII art visuals, each illustrating the archetype's concept. The current card files (ASCII boxes with 7 key concepts) live in `cards/backs/`. The new designs will live in `cards/` as the primary face of each volume.
 
-41 roles remain unclaimed. Years of reviews, expansions, corrections, and reimaginations ahead. Each session that does meaningful work claims a card.
+38 roles remain unclaimed. Years of reviews, expansions, corrections, and reimaginations ahead. Each session that does meaningful work claims a card.
 
 ---
 
@@ -335,9 +385,11 @@ Now the cards need faces — 52 new ASCII art visuals, each illustrating the arc
 | Commits | ~143 |
 | Days | 5 |
 | Cards designed | 52 + The Fool |
-| Directories reviewed | ~120 of 168 |
-| @editor tags injected | ~1,200 |
+| Directories reviewed | 167 of 168 (virology blocked) |
+| @editor tags injected | ~1,867 |
 | @editor tags resolved | ~575 |
-| Clean directories | 57 |
-| Roles claimed | 13 of 52 |
-| Roles remaining | 39 |
+| Tags outstanding | 667 |
+| P1 blocking issues | 86 |
+| Clean directories | 108 |
+| Roles claimed | 14 of 52 |
+| Roles remaining | 38 |

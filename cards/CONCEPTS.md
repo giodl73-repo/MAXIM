@@ -20,7 +20,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 | Card | Title | Image concept |
 |------|-------|---------------|
 | Q♣ | The Composer | Musical staff fragment — clef, time signature, notes — overlaid on a building elevation, and when you look again the building IS the score: every window a rest, every column a bar line |
-| Q♦ | The Surveyor | Topographic contour map with grid coordinates and compass rose |
+| Q♦ | The Surveyor | Topographic contour map with grid coordinates and compass rose — 59 blank territories inked in — contour lines running from valley floor to ridge — and in the lower-left corner, a correction note where the last of the old stakes were pulled: three more sections cleared |
 | Q♥ | The Performer | Stage cross-section: proscenium arch, curtains, single spotlight cone converging on center |
 | Q♠ | The Editor | Typographic layout grid — columns, gutters, text blocks mid-arrangement, one block being cut — and the serif of the new typeface just visible where the old sans-serif was scraped away |
 
