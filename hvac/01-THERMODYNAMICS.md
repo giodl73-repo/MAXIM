@@ -30,6 +30,7 @@ building envelope and what drives that movement.
 
 ## Section 1: Three Modes of Heat Transfer
 
+<!-- @editor[bridge/P1]: Carnot efficiency is entirely absent from this file. This is the foundational thermodynamic constraint for all HVAC systems: η_Carnot = 1 − T_cold/T_hot for heat engines; COP_max = T_cold/(T_hot − T_cold) for refrigeration; COP_max = T_hot/(T_hot − T_cold) for heat pumps (temperatures in Kelvin). These relationships explain why COP > 1 is physically possible (you're moving heat, not creating it), what limits how good HVAC equipment can theoretically be, and why warmer outdoor temperatures reduce AC efficiency (T_hot rises → COP_max falls). For a reader who knows thermodynamics from MIT, establishing the Carnot baseline here makes every subsequent efficiency discussion interpretable. The three heat transfer modes are known physics — the Carnot framework is the gap. -->
 ### Conduction
 
 Heat flows through a solid from high-temperature to low-temperature regions. Rate is

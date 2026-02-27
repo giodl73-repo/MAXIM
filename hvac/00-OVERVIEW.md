@@ -2,6 +2,8 @@
 
 ## The Big Picture
 
+<!-- @editor[audience/P2]: The opening sentence explains what HVAC does — this learner already knows what heating and cooling is. The overview should immediately establish the engineering depth: thermodynamic limits (Carnot COP bound), control hierarchy (BAS/PID), and for this learner specifically, datacenter cooling as a major application domain (economizers, liquid cooling, PUE). None of these appear in the overview. Start from the engineering challenges and performance bounds, not from "what HVAC does." -->
+<!-- @editor[bridge/P1]: The Carnot efficiency bound should be established in the overview as the framework for the entire section. COP_max for a refrigerator = T_cold/(T_hot − T_cold); COP_max for a heat pump = T_hot/(T_hot − T_cold) (temperatures in Kelvin). This is the theoretical ceiling every HVAC system operates below. A system cooling to 45°F (280K) rejecting heat at 95°F (308K) has COP_max = 280/(308−280) = 10.0. Real split-systems achieve COP 3–5. The gap is the engineering target. This bound is entirely absent from the section and is specifically called out in the learner calibration as a key need. -->
 HVAC is one integrated control problem: move heat where you want it, dilute contaminants
 to acceptable concentration, and maintain moisture in the human comfort band — all while
 spending as little energy as possible. Three subsystems, tightly coupled.
