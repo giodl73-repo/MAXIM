@@ -1,5 +1,8 @@
 # Biomedical Engineering — Landscape Overview
 
+<!-- @editor[bridge/P2]: No signal processing bridge — biomedical signals (ECG, EEG, EMG) are sampled time-series data processed with the same FIR/IIR filters, FFT, and Nyquist-sampling constraints any DSP engineer knows. Add a one-sentence bridge when signals first appear in the landscape diagram description. -->
+<!-- @editor[bridge/P2]: No control theory bridge — key physiological systems are feedback control loops (baroreceptor reflex ≈ proportional controller, glucose-insulin axis ≈ PI controller with dead time). Engineers with control systems background map this structure immediately; it belongs in the overview framing. -->
+<!-- @editor[bridge/P2]: Medical imaging never framed as inverse problems — CT reconstruction is Radon transform inversion; MRI k-space is Fourier reconstruction. This is one of the most powerful conceptual bridges for an engineer with signal processing or numerical methods background. At minimum, add a note in the landscape diagram. -->
 ## The Big Picture
 
 Biomedical engineering applies engineering principles to biology and medicine. Six subdisciplines

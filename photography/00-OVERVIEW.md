@@ -190,6 +190,8 @@ Why depth of field is deeper on smaller sensors:
 
 ## Bridges to Adjacent Fields
 
+<!-- @editor[bridge/P2]: The signal-processing row mentions "Fourier analysis of MTF" but the connection is not articulated: MTF is the magnitude of the optical transfer function (OTF), which is the Fourier transform of the point spread function (PSF). Any engineer from signal processing immediately maps this to LTI system frequency response. That bridge should be explicit in this overview, not just a row label. -->
+<!-- @editor[bridge/P2]: RAW processing as a signal processing pipeline is named in the Technical Domains Map but never framed as a pipeline for this learner: capture → demosaic (sampling reconstruction) → white balance (linear transform) → tone curve (nonlinear compression) → NR (spatial filtering) → output. This is the same pipeline structure any DSP engineer would recognize. Worth one paragraph in the overview. -->
 | Field | Connection |
 |-------|-----------|
 | `physics/` | Geometric optics, wave optics, quantum efficiency of photodetectors |
@@ -201,6 +203,7 @@ Why depth of field is deeper on smaller sensors:
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a module navigation index ("go to X"), not a decision tool. Needs "use X when Y" rows — e.g., "want to understand why your images are soft wide-open → Seidel aberrations / MTF", "shooting handheld in low light → multi-frame NR / Night Mode pipeline". Navigation table belongs in the Module Map section above. -->
 ## Decision Cheat Sheet
 
 | You want to understand | Go to |

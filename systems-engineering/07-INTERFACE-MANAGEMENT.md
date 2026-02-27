@@ -30,6 +30,7 @@ catastrophically expensive to fix late:
 
 ## Interface Control Documents (ICDs)
 
+<!-- @editor[bridge/P2]: ICD → API contract bridge is absent. An ICD is exactly an API contract for physical systems: it specifies what crosses the boundary, in what format, at what rate, with what error handling — agreed by both sides before implementation begins. The analogy: ICD = OpenAPI/Swagger spec for physical interfaces. ICD revision = breaking API change requiring version bump. ICWG change process = API deprecation policy. Change freeze after CDR = API stability guarantee in a versioned SDK. This bridge would instantly orient any software architect. -->
 The ICD is the formal contract between two systems or subsystems at an interface.
 
 ```

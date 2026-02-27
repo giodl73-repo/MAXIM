@@ -452,6 +452,7 @@ directly executes the mathematical state machine description.
   always scheduling the other process. Fairness rules this out.
 ```
 
+<!-- @editor[content/P3]: The DistLock TLA+ example is also used in 05-SPECIFICATION.md — consider differentiating. This file could use the distributed lock example to emphasize the model-checking workflow (running TLC, reading counterexamples), while 05-SPECIFICATION.md focuses on spec writing syntax. Currently they serve overlapping purposes. -->
 ### Practical TLA+ Example: Distributed Lock
 
 ```tla

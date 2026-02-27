@@ -152,6 +152,8 @@ IMAGE COLOR MANAGEMENT:
   Rendering intents: how to handle out-of-gamut colors
   → The cross-device consistency step
 
+<!-- @editor[bridge/P2]: Color spaces are vector spaces — RGB triplets are 3-vectors, and all color space conversions (sRGB → XYZ, XYZ → CIELAB linear part, camera matrix → working space) are linear transforms = 3×3 matrix multiplications. This is not mentioned anywhere in the overview. A senior engineer with MIT linear algebra background needs this framing to reason about color pipelines. The overview architecture diagram above is the right place to note that the XYZ step is a linear matrix and the CIELAB step adds a perceptual nonlinearity. -->
+<!-- @editor[bridge/P2]: Gamut mapping (rendering intents: how to handle out-of-gamut colors) is a constrained optimization problem — project source coordinates onto the destination gamut boundary while minimizing perceived distance. Perceptual intent uses a many-to-many compress mapping (shrinks the entire gamut); relative colorimetric clips at the boundary. This is not discussed. The rendering intents section should frame these as solutions to a constrained optimization problem with different objective functions. -->
 WHAT THIS MEANS IN PRACTICE:
   "Blue" on your monitor ≠ "blue" on a different monitor
   unless both are calibrated to a shared standard (e.g., sRGB, D65 white)

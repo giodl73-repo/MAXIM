@@ -32,6 +32,8 @@ Complex system:    Multiple disciplines, emergent behaviors,
 ```
 
 **Bridge to software**: Systems engineering is software architecture's ancestor. Architecture decision records (ADRs), interface specifications, requirements traceability, V-model testing — all have direct software equivalents. The tools differ but the intellectual framework is the same. SEI (Software Engineering Institute at Carnegie Mellon) explicitly derives software architecture from SE principles.
+<!-- @editor[bridge/P2]: Missing V-model → SDLC bridge in the overview. The V-model maps directly onto software development: requirements → design → implementation → unit test → integration test → system test → acceptance test. Any developer knows the test pyramid; the V-model is the same idea applied to multi-discipline systems with physical verification. A one-paragraph bridge here would orient the software engineer before the rest of the guide. -->
+<!-- @editor[bridge/P2]: Missing FMEA → distributed systems failure analysis bridge. FMEA (failure mode and effects analysis) is the physical-system equivalent of a fault tolerance analysis for distributed software: for each component, what happens if it fails? How does that cascade? Is there a SPOF? This bridge belongs in the taxonomy section where FMEA first appears (line 53), not just here. Add it at both points. -->
 
 ---
 

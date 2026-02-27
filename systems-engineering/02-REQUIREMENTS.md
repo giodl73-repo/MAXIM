@@ -81,6 +81,7 @@ DERIVED REQUIREMENTS
 
 ## Writing Good Requirements
 
+<!-- @editor[bridge/P2]: "Shall/should/will" requirement language (IEEE 830, MIL-STD-490) has a direct bridge to software acceptance criteria. "Shall" = mandatory requirement = acceptance criterion that must pass. "Should" = desired but optional = stretch goal. The Gherkin/BDD Given-When-Then format is the modern software equivalent: a structured, verifiable requirement statement. Worth a one-paragraph bridge — engineers from Agile backgrounds have already internalized this pattern under a different vocabulary. -->
 ### The SMART Criteria for Requirements
 
 ```
@@ -215,6 +216,7 @@ Tools: IBM DOORS (industry standard), Jama Connect,
 
 ## Requirements Management Tools
 
+<!-- @editor[bridge/P3]: DOORS/RTM has a direct bridge to Azure DevOps work item traceability that's missing. DOORS modules = Azure DevOps work item types (Epic → Feature → User Story → Task). DOORS links = work item parent-child relationships + test case links. DOORS baselines = Azure DevOps query snapshots or milestone tags. The learner built VSTS/Azure DevOps — they'll immediately map DOORS' concepts if told the parallel. Add 2-3 sentences. -->
 ### IBM DOORS (Telelogic DOORS)
 
 ```

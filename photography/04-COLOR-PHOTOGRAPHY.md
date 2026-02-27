@@ -175,6 +175,8 @@ Slide film metering rule: "expose for the highlights"
 
 ## Color Management: The ICC Profile System
 
+<!-- @editor[bridge/P2]: CIE XYZ and CIE Lab are mentioned as "the reference space" without grounding. This learner (MIT physics + math) should get the CIE 1931 color matching experiment framing: XYZ are linear combinations of cone responses designed so Y = luminance and all coordinates are non-negative. The transformation from camera RGB to XYZ is a 3×3 linear matrix — color space conversion is matrix multiplication, a framing this learner will immediately use. CIELAB adds a perceptual nonlinearity (cube-root compression) on top of XYZ. That structure (linear transform → nonlinear perceptual encoding) is the core of color management but is not explained here. See `colors/03-COLOR-SYSTEMS.md` for full treatment; add a bridging paragraph here since this is where the learner first needs it in the photography context. -->
+<!-- @editor[bridge/P2]: Color space conversions (sRGB → XYZ → Adobe RGB, camera matrix → working space) are all 3×3 matrix multiplications on the RGB triplet. There's no mention of this — color spaces appear as named containers rather than as coordinate systems related by linear transforms. A senior engineer with MIT linear algebra background needs this framing to reason about color science. -->
 ### The Problem: Device-Dependence
 
 ```

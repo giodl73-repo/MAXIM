@@ -1,5 +1,6 @@
 # Medical Devices — Regulatory Framework and Key Device Classes
 
+<!-- @editor[content/P2]: Significant content overlap with 00-OVERVIEW.md — both files cover the Class I/II/III classification, 510(k) substantial equivalence decision tree, PMA pathway, IDE, and ISO 14971 risk management in similar depth. This file should either be reorganized to cover device-class-specific content not in the overview (cardiovascular, neurological, orthopedic device specifics) while referencing the overview for regulatory pathway fundamentals, or the overlap should be clearly scoped so the two files are complementary not redundant. -->
 ## The Big Picture
 
 Medical devices span everything from tongue depressors to implantable cardiac defibrillators.

@@ -99,6 +99,7 @@ FUNCTIONAL FLOW BLOCK DIAGRAM (FFBD):
   Used in defense SE (MIL-HDBK-499)
 ```
 
+<!-- @editor[bridge/P2]: N² diagram → software dependency/coupling matrix bridge is absent. The N² diagram is exactly the Dependency Structure Matrix (DSM) used in software architecture analysis. Both map inter-module coupling in a square matrix; both identify circular dependencies (cycles in the matrix), high-fan-out modules (packed rows), and hidden coupling. The Design Structure Matrix is the software equivalent used by architects analyzing modular decomposition. Add a one-sentence bridge: "The N² diagram is the physical-systems counterpart of the Dependency Structure Matrix (DSM) in software architecture — both expose coupling density and circular dependencies." -->
 ### N² Diagram (N-squared)
 
 ```

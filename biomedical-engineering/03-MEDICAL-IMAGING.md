@@ -117,6 +117,7 @@ constitute most of the signal in biological tissue (water + fat).
 
 ### K-Space and Image Reconstruction
 
+<!-- @editor[bridge/P2]: K-space is the Fourier domain but the connection to signal processing fundamentals is never made explicit. The Nyquist sampling theorem governs k-space sampling density → field-of-view; undersampling → aliasing (wrap-around artifact) is exactly the temporal aliasing any DSP engineer knows. Add a one-sentence bridge: "k-space sampling obeys Nyquist: sampling interval Δk = 1/FOV; undersampling produces spatial aliasing identical to temporal aliasing in discrete time signals." -->
 ```
   K-SPACE FORMALISM
   =================
@@ -299,6 +300,7 @@ I = I0 * exp(-μ * x), where μ is the linear attenuation coefficient.
 
 ### Reconstruction Algorithms
 
+<!-- @editor[bridge/P2]: CT reconstruction is an inverse problem but this framing is implicit, not stated. Make it explicit: the sinogram is a set of line integrals (Radon transform) and reconstruction is Radon inversion. FBP is the analytical solution (ramp-filter then backproject); iterative methods minimize ||Ax - b||. Any engineer who knows linear algebra or numerical methods maps this immediately — this is the core intellectual structure of CT and PET/SPECT reconstruction. -->
 ```
   CT IMAGE RECONSTRUCTION
   =======================

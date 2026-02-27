@@ -43,6 +43,7 @@ SYSML DIAGRAM TAXONOMY
 
 ## SysML Diagram Types
 
+<!-- @editor[bridge/P2]: BDD looks syntactically identical to a UML class diagram (boxes with compartments, composition diamonds, generalization triangles) but the semantics are different. A software engineer will map to UML immediately. The bridge is: bdd ≈ UML class diagram in notation, but "block" ≠ "class" — a block represents a physical or logical element (a pump, a sensor, a subsystem), not a software type. The compartments (values, parts, operations) differ. Add a one-paragraph bridge immediately before or after the first bdd diagram: "If you know UML class diagrams, the bdd notation is familiar — but read blocks as physical/logical elements, not software types." The Common Confusion Points section warns about this but only at the end; the bridge should appear up front where the learner first encounters the notation. -->
 ### Block Definition Diagram (bdd) — Structure
 
 ```

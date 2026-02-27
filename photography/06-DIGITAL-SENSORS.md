@@ -149,6 +149,7 @@ BSI vs FSI SENSOR STRUCTURE:
 
 ## Bayer Color Filter Array
 
+<!-- @editor[bridge/P2]: The Bayer CFA is a spatial sampling problem — the sensor samples the color field at different spectral channels on a regular 2D grid, and demosaicing is signal reconstruction. The Nyquist connection is direct: the CFA pattern introduces a sampling frequency of N/2 for each color channel (where N = pixel pitch), so color information above that frequency aliases. Anti-aliasing filters exist to prevent moiré precisely because of this — they are optical low-pass filters. This bridge to sampling theory and signal reconstruction is not made, and a learner with signals background will immediately want it. -->
 ```
 BAYER CFA PATTERN (Bryce Bayer, Kodak, 1976):
 

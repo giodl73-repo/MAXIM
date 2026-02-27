@@ -242,6 +242,7 @@ stimulation safety.
 
 ## Signal Processing Pipeline
 
+<!-- @editor[bridge/P2]: The pipeline is described step by step but never connected to general DSP concepts the reader knows. Key bridges missing: (1) bandpass filtering = digital FIR/IIR filter design, same Nyquist constraints as any sampled system; (2) 30 kHz sampling rate is chosen so Nyquist frequency (15 kHz) is well above the spike bandwidth (6 kHz), exactly the oversampling principle from DSP; (3) the Kalman filter decoder is the same Kalman filter from control theory/signal processing — state-space model with process noise and observation noise. Adding these one-line bridges would make this section immediately structured for any engineer with DSP background. -->
 ```
   BCI SIGNAL PROCESSING PIPELINE
   ================================
