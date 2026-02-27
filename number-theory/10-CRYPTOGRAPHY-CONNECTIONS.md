@@ -30,9 +30,7 @@
 +====================================================================+
 ```
 
-<!-- @editor[content/P2]: Cross-reference uses a hardcoded absolute Windows path (`C:\src\reference\cryptography\`). Reference library cross-links should use a relative path or a consistent format that works across environments (e.g., `../cryptography/`). Absolute system paths will break in any non-Windows deployment or if the repo is moved. -->
-
-Cross-reference: `C:\src\reference\cryptography\` covers crypto implementation.
+Cross-reference: `../cryptography/` covers crypto implementation.
 This file covers the number-theoretic foundations and hardness reductions.
 
 ---

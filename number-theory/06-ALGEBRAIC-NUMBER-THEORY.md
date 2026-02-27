@@ -178,14 +178,11 @@ For other primes p, use Legendre symbol (-5/p) = (-1/p)(5/p):
   p=11: (-1/11)=1, (5/11): (5/11)(11/5) = (-1)^{5·2}=1, (11/5)=(1/5)=1, so (5/11)=1
     (-5/11) = 1·1 = 1 → 11 SPLITS
   p=13: (-5/13) = (-1/13)(5/13)
-    (-1/13) = (-1)^6 = 1
-    (5/13)(13/5) = (-1)^{6·2}=1, (13/5)=(3/5), (3/5)(5/3)=(-1)^{1·2}=1
-    (5/3) = (2/3) = -1, so (3/5) = -1/(−1) = 1... Let me recompute:
-    (5/13): 5^6 mod 13 = 5,25≡12,60≡8,40≡1 → 5^6 ≡ ... checking: 5²=25≡12,
-    5³≡60≡8,5^6≡64≡12≡-1 → (5/13)=-1.
-    (-5/13) = 1·(-1) = -1 → 13 IS INERT in Q(√-5).
-
-<!-- @editor[content/P1]: The p=13 splitting calculation contains draft working text ("Let me recompute:") that was left in the final content. This reads as an author's scratch note, not finished reference material. Clean up: remove the false start and present the final correct computation only. -->
+    (-1/13) = (-1)^{(13-1)/2} = (-1)^6 = 1
+    (5/13): compute 5^{(13-1)/2} = 5^6 mod 13.
+    5² ≡ 12, 5³ ≡ 60 ≡ 8, 5^6 ≡ 8² ≡ 64 ≡ 12 ≡ -1 mod 13.
+    So (5/13) = -1.
+    (-5/13) = 1 · (-1) = -1 → 13 IS INERT in Q(√-5).
 ```
 
 ---
@@ -268,7 +265,39 @@ UNIT RANK = r₁ + r₂ - 1:
 
 ---
 
-<!-- @editor[content/P2]: p-adic numbers and local fields are entirely absent from this guide. For a learner at this level, the local-global principle (Hasse-Minkowski for quadratic forms, Hasse principle for rational points) and the role of completions K_v at each place v are foundational to modern algebraic number theory — they underpin both the proof of quadratic reciprocity via the Hilbert symbol product formula and the adèlic formulation of class field theory mentioned below. One section or a subsection "Local Fields and Completions" with the key facts (Z_p, Q_p, ramification in terms of v_p, the Hilbert symbol) would substantially strengthen this guide for a reader going deeper. -->
+## Local Fields and the Local-Global Principle
+
+```
+p-ADIC COMPLETIONS:
+  Z_p = {Σ_{i=0}^∞ a_i p^i : 0 ≤ a_i < p}  (p-adic integers)
+  Q_p = Frac(Z_p)                              (p-adic numbers)
+
+  Every rational prime p gives a "place" v_p with valuation:
+  v_p(p^k · a/b) = k   (a,b not divisible by p)
+
+  Completions of Q:  Q_p for each prime p  +  R (the "infinite place")
+  Completions of K:  K_v for each prime ideal p of O_K  +  archimedean places
+
+LOCAL-GLOBAL PRINCIPLE (Hasse-Minkowski):
+  A quadratic form Q(x₁,...,x_n) = 0 has a rational solution
+  ⟺ it has a solution in R AND in Q_p for every prime p.
+
+  Works perfectly for: quadratic forms (n ≥ 3 variables)
+  FAILS for: cubic curves (e.g., Selmer's example 3x³+4y³+5z³=0
+    has solutions in R and all Q_p, but not in Q)
+
+HILBERT SYMBOL AND RECIPROCITY:
+  (a,b)_p = +1 if ax²+by²=z² has a nontrivial solution in Q_p
+           = -1 otherwise
+
+  PRODUCT FORMULA: ∏_v (a,b)_v = 1  (product over all places)
+  This is a modern proof of quadratic reciprocity — the
+  Legendre symbol emerges from the local Hilbert symbols.
+```
+
+The adelic viewpoint (A_K = restricted product of all K_v) unifies the local completions into a single object. Class field theory stated adelically: Gal(K^ab/K) ≅ K*\A_K*/connected component — the global Galois group is determined by the idele class group.
+
+---
 
 ## Class Field Theory — Overview
 
