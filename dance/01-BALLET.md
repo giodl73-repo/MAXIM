@@ -371,15 +371,15 @@ MOST COMMON SPECIFIC INJURIES:
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet contains facts ("Why turnout exists") not decisions ("use X when Y") — restructure as "you need turnout technique correction when X; you choose Vaganova training when Y" format so it functions as a decision tool, not a FAQ -->
 ## Decision Cheat Sheet
 
-| You need to know... | Key fact |
-|---------------------|----------|
-| Why turnout exists | Creates wider lateral movement range; enables 180-degree visual plane |
-| Why 5 positions | All possible foot orientations at rest on flat floor |
-| What "en dehors" / "en dedans" means | Turning outward (away from body) vs inward (toward body) |
-| Why male partnering is not just "lifting" | Supports woman's center of gravity through full range of motion |
+| Situation | Approach | Why |
+|-----------|----------|-----|
+| Student's turnout limited (<45 degrees hip ER) | Strengthen deep rotators; avoid forcing from feet | Forced turnout = knee/ankle injury; true turnout comes from hip joint |
+| Choosing between Vaganova and RAD training | Vaganova for expressive upper body (port de bras); RAD for structured examination system | Both produce professional dancers; emphasis differs |
+| Pointe readiness assessment | Minimum age ~12, sufficient ankle/calf strength, clean releve alignment | Premature pointe = metatarsal stress fracture risk |
+| Need to understand a ballet score/notation | Benesh Movement Notation (UK) or Stepanov (historical Russian) | Standard notation systems for ballet reconstruction |
+| Choreography requires extreme extensions | Develop active flexibility, not just passive ROM | Performance requires muscular control at end range, not just reaching the position |
 | What distinguishes Bolshoi from NYCB | Russian = dramatic/bravura; Balanchine = speed/musical/athletic |
 | Why pointe shoes wear out fast | Professional: 12-20 hours of use before box collapses |
 | What kills ballet technique | Sickling (foot turned in), rolling in arches, gripping toes |

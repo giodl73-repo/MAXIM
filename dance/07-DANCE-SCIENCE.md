@@ -431,7 +431,12 @@ LOAD MONITORING TOOLS:
 
 ---
 
-<!-- @editor[bridge/P2]: Missing action observation network / mirror neuron bridge — the learner has cognitive science depth. The finding that observing skilled movement activates the same motor cortex regions as executing it (Rizzolatti's mirror neuron system; Calvo-Merino's 2005 fMRI study showing ballet dancers have stronger activation watching ballet than watching capoeira, and vice versa) explains why expert observation is a training method, why apprenticeship in dance works, and why audiences physically respond to virtuosity. This is a direct bridge to cognitive science and motor learning theory. -->
+### Action Observation and Motor Learning
+
+Observing skilled movement activates the same premotor and motor cortex regions as executing it (Rizzolatti's mirror neuron system). Calvo-Merino et al. (2005, fMRI): ballet dancers show stronger premotor activation watching ballet than capoeira; capoeira practitioners show the reverse. This motor resonance effect explains why observation is a training method (marking/observation before execution improves motor learning), why apprenticeship works (watching the master teaches motor patterns), and why audiences physically respond to virtuosity (audiences recruit motor planning circuits during passive viewing).
+
+---
+
 ## Psychological Aspects
 
 ```

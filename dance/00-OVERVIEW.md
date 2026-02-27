@@ -173,10 +173,9 @@ NYCB aesthetic                        |
 
 ---
 
-<!-- @editor[bridge/P2]: Notation section treats each system descriptively but misses the bridge to formal language theory — Labanotation is a formal grammar with alphabet, syntax rules, and compositional closure; Eshkol-Wachman is essentially a coordinate-based formal specification language. Senior engineers coming from any typed language can map "notation system" to "formal language with defined semantics" immediately — name that explicitly. -->
 ## Dance Notation Systems
 
-Notation is to dance what musical score is to music -- a formal language encoding movement in two dimensions.
+Notation is to dance what musical score is to music -- a **formal language** encoding movement in two dimensions. Labanotation has an alphabet (symbols for body parts, directions, durations), syntax rules (symbol placement on the staff determines timing and body part), and compositional closure. Eshkol-Wachman notation is a coordinate-based formal specification language — body segments as vectors, movements as angular changes in a spherical coordinate frame. Any engineer from formal language theory maps "notation system" to "formal grammar with defined semantics" immediately.
 
 ```
 NOTATION SYSTEM COMPARISON
@@ -203,7 +202,8 @@ Full coverage of Labanotation grammar: see `04-LABAN-NOTATION.md`.
 
 ---
 
-<!-- @editor[bridge/P2]: Missing motor learning / mirror neuron bridge at overview level — the learner profile includes cognitive science depth; the mapping of "observing dance activates the same motor cortex regions as performing it" (action observation network) is a foundational bridge that explains why watching dance teaches technique and why audiences physically respond to virtuosity. This bridge is missing at the overview level and in 07-DANCE-SCIENCE.md. -->
+**Cognitive science bridge**: Observing skilled dance activates the same motor cortex regions as performing it (Rizzolatti's mirror neuron system; Calvo-Merino 2005 fMRI study: ballet dancers show stronger motor cortex activation watching ballet than capoeira, and vice versa). This explains why expert observation is a training method, why apprenticeship works, and why audiences physically respond to virtuosity.
+
 ## Dance Science: Physical Demands Summary
 
 | System | Demands | Key Metrics |
@@ -263,20 +263,16 @@ Silence            |  Movement without sound           |  Pilobolus; post-Cage w
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a module directory, not a "use X when Y" decision tool — convert to rows like "use Labanotation when you need to reconstruct a specific work; use LMA when you need to analyze movement quality" -->
 ## Decision Cheat Sheet
 
-| You want to understand... | Go to |
-|---------------------------|-------|
-| How movement is written down | `04-LABAN-NOTATION.md` |
-| Ballet technique + history | `01-BALLET.md` |
-| Modern to postmodern lineage | `02-MODERN-POSTMODERN.md` |
-| Bharatanatyam, West African, Butoh | `03-WORLD-FORMS.md` |
-| How phrases and forms are built | `05-CHOREOGRAPHIC-STRUCTURE.md` |
-| Dance and music relationships | `06-MUSIC-DANCE.md` |
-| VO2max, turnout, injury science | `07-DANCE-SCIENCE.md` |
-| Dance as political/cultural history | `08-CULTURAL-HISTORY.md` |
-| Motion capture, digital dance | `09-DIGITAL-DANCE.md` |
+| Situation | Approach | Why |
+|-----------|----------|-----|
+| Need to reconstruct a specific historical work | Labanotation score | Only notation system with sufficient precision for choreographic reconstruction |
+| Analyzing movement quality (effort, flow) | Laban Movement Analysis (LMA) | Systematic vocabulary for describing *how* movement is performed, not just what |
+| Training for classical ballet technique | Vaganova method (Russian) or RAD (British) | Most codified technique systems with clear syllabi and examination standards |
+| Understanding contemporary movement vocabulary | Study modern → postmodern lineage | Graham → Cunningham → release technique → contact improvisation is the development path |
+| Scientific study of movement biomechanics | Motion capture (MoCap) + force plates | Quantitative 3D kinematic data; enables computational analysis |
+| Cross-cultural study of dance forms | Ethnochoreology framework | Comparative method; avoids Western-centric analysis of non-Western forms |
 
 ---
 
