@@ -323,13 +323,12 @@ AZURE QUANTUM WORKSPACE:
   backend = workspace.get_backend("quantinuum.hqs-lt-s1")
   job = backend.run(qiskit_circuit, shots=100)
 
-<!-- @editor[audience/P3]: The "VP perspective" sentence is the only place in the entire directory where the guide directly addresses the learner's role. This framing is fine as flavor but should not be the only connection to operational concerns. A Google or AWS engineer reading this file gets equal value from the Azure integration section (it's factual), but calling out "VP perspective" breaks the peer-level tone the style contract requires. Drop the explicit persona call-out; the content stands on its own. -->
 INTEGRATION STORY (bridges to existing Azure):
   Azure Quantum Jobs → Azure Monitor (same metrics pipeline as App Insights)
   Quantum storage: results go to Azure Blob Storage / Azure Cosmos DB
   IAM: same RBAC as all Azure services
   Quantum Network Simulator: simulates quantum repeater networks on Azure
-  → From a VP perspective: same operational posture as any other Azure service
+  → Operationally: same posture as any other Azure service (billing, IAM, monitoring)
 ```
 
 ---
@@ -455,9 +454,7 @@ STIM (Google, Gidney 2021):
 
 **OpenQASM 2 vs OpenQASM 3 are almost different languages.** QASM 2 is a simple gate listing format (barely a language). QASM 3 adds a full classical type system, real-time feedback, loops, and subroutines. They look similar but have very different expressiveness. Most tutorials still use QASM 2; production code should target QASM 3.
 
-<!-- @editor[content/P2]: Qiskit versioning note is accurate for the 1.0 transition but may already be outdated — Qiskit 1.x has continued evolving (check current stable version), and IBM's deprecation/migration schedule for ibm_runtime vs qiskit_ibm_runtime has shifted. Verify the version boundary specifics and add current stable version number so the reader has a reference point. -->
-
-**Qiskit versioning is a nightmare.** Qiskit Terra/Aer/IBMQ merged and reorganized: pre-0.39 (old Terra/Aer split), 0.39-0.45 (transition), 1.0+ (new unified structure). The primitives API (Sampler/Estimator) replaced the old QuantumInstance API. Be aware which tutorial era code comes from.
+**Qiskit versioning is a nightmare.** Qiskit Terra/Aer/IBMQ merged and reorganized through several eras: pre-0.39 (old Terra/Aer/IBMQ provider split), 0.39–0.45 (transition — QuantumInstance deprecated), 1.0+ (unified package, Primitives API as primary interface). As of early 2025, Qiskit 1.x is the stable line. The old `qiskit.providers.ibmq` is fully deprecated; use `qiskit_ibm_runtime` for hardware access (Sampler/Estimator primitives). Be aware which tutorial era code comes from — pre-1.0 import paths will not work.
 
 **QIR vs OpenQASM 3 are complementary, not competing.** QIR is a binary LLVM IR (compiler target). OpenQASM 3 is a text format (developer-facing). A compiler might: read Q# → emit QIR → optimize → emit OpenQASM 3 → submit to hardware.
 

@@ -1,6 +1,29 @@
 # Quantum Computing — Field Map & Orientation
 
-<!-- @editor[bridge/P2]: No bridge from classical noise/channel models to quantum decoherence — learner has deep background in distributed systems reliability and classical error models; connecting T1/T2 to classical SNR and channel capacity concepts would anchor the hardware section. -->
+## Engineering Bridge: Quantum Decoherence as Classical Channel Noise
+
+```
+CLASSICAL CHANNEL MODEL              QUANTUM DECOHERENCE
+──────────────────────────────────────────────────────────────────────────
+SNR (signal-to-noise ratio)           Gate fidelity (1 - error rate)
+  signal degrades with channel use    → qubit state degrades with each gate
+
+Channel capacity C = B log₂(1+SNR)   Circuit depth limit ≈ T₂ / t_gate
+  max bits/sec through noisy channel  → max gates before noise dominates
+
+Bit error rate (BER)                  T₁ (amplitude damping) / T₂ (dephasing)
+  probability a bit flips in transit  → T₁: |1⟩ decays to |0⟩ (energy loss, like signal attenuation)
+                                      → T₂: phase randomizes (like jitter destroying signal phase)
+
+Error-correcting codes (Hamming,      Quantum error correction (surface code)
+  Reed-Solomon, LDPC)                 → same idea: redundancy buys reliability
+  overhead: r = k/n code rate         → overhead: ~1000 physical per logical qubit
+
+Shannon limit: code rate vs BER       Threshold theorem: below p*, logical error → 0
+  below capacity → reliable comms     → same structure: a noise floor you must beat
+```
+
+Quantum decoherence is the channel noise of quantum computing. T₁ and T₂ are the quantum analogs of a classical channel's attenuation and phase noise — they set the effective "bandwidth" of the quantum processor, measured in gates rather than bits per second.
 
 ## The Big Picture
 
@@ -202,14 +225,17 @@ Current NISQ machines are useful        For a few chemistry problems, maybe;
 
 ## Session Arc for This Directory
 
-<!-- @editor[content/P2]: Session Arc lists only 5 files but directory contains 10 — files 05-09 (Variational Algorithms, Quantum Communication, NISQ Applications, Quantum Software, Quantum ML) are absent from this navigation block. Update to reflect actual directory contents. -->
-
 ```
-00-OVERVIEW.md        ← You are here (field map, complexity, hardware, roadmap)
-01-QUBITS-CIRCUITS    ← Mathematical foundations: Dirac notation, gates, circuits
-02-ALGORITHMS         ← Shor, Grover, QFT, QPE, HHL, QAOA, VQE
-03-ERROR-CORRECTION   ← Decoherence, stabilizer codes, surface codes, thresholds
-04-HARDWARE-COMPLEXITY← Physical platforms, DiVincenzo criteria, BQP/QMA depth
+00-OVERVIEW.md          ← You are here (field map, complexity, hardware, roadmap)
+01-QUBITS-CIRCUITS      ← Mathematical foundations: Dirac notation, gates, circuits
+02-ALGORITHMS           ← Shor, Grover, QFT, QPE, HHL, QAOA, VQE
+03-ERROR-CORRECTION     ← Decoherence, stabilizer codes, surface codes, thresholds
+04-HARDWARE-COMPLEXITY  ← Physical platforms, DiVincenzo criteria, BQP/QMA depth
+05-VARIATIONAL-ALGORITHMS ← VQE, QAOA, barren plateaus, hybrid classical-quantum
+06-QUANTUM-COMMUNICATION  ← BB84, E91, QKD, quantum repeaters, quantum internet
+07-NISQ-APPLICATIONS    ← Near-term devices, error mitigation, benchmarking claims
+08-QUANTUM-SOFTWARE     ← Qiskit, Cirq, PennyLane, Q#, OpenQASM, QIR
+09-QUANTUM-ML           ← QML hype vs reality, kernels, QNNs, sampling, QRAM
 ```
 
 ---

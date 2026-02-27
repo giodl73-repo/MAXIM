@@ -1,6 +1,46 @@
 # Qubits, Quantum Gates & Circuits
 
-<!-- @editor[diagram/P1]: No opening landscape diagram — guide jumps directly into qubit math without mapping the full circuit model territory (qubits → gates → multi-qubit states → measurement → circuits → no-cloning → Clifford/Pauli groups). Learner needs a single diagram showing how these pieces fit before the drill-down begins. -->
+## The Landscape
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│             CIRCUIT MODEL — BUILDING BLOCKS                         │
+│                                                                     │
+│  QUBIT MATH          GATES                MULTI-QUBIT              │
+│  ┌────────────┐      ┌──────────────┐     ┌──────────────────┐    │
+│  │ ℂ² state   │      │ Single-qubit │     │ Tensor products  │    │
+│  │ Bloch sphere│─────►│ X,Y,Z,H,S,T │────►│ Entanglement     │    │
+│  │ Born rule   │      │ Rotations    │     │ Bell states      │    │
+│  └────────────┘      ├──────────────┤     └────────┬─────────┘    │
+│                      │ Two-qubit    │              │               │
+│                      │ CNOT,CZ,SWAP │              │               │
+│                      ├──────────────┤              │               │
+│                      │ Three-qubit  │              │               │
+│                      │ Toffoli,     │              ▼               │
+│                      │ Fredkin      │     ┌──────────────────┐    │
+│                      └──────────────┘     │ CIRCUITS         │    │
+│                                           │ Width, depth,    │    │
+│  UNIVERSALITY          MEASUREMENT        │ T-count metrics  │    │
+│  ┌──────────────┐     ┌──────────────┐    └────────┬─────────┘    │
+│  │ {H,T,CNOT}   │     │ Projective   │             │               │
+│  │ Solovay-      │     │ Born rule    │             ▼               │
+│  │ Kitaev       │     │ Syndrome     │    ┌──────────────────┐    │
+│  │              │     │ (for QEC)    │    │ DENSITY MATRICES │    │
+│  │ Clifford+T   │     └──────────────┘    │ Mixed states     │    │
+│  │ Gottesman-   │                         │ Lindblad eqn     │    │
+│  │ Knill thm    │     NO-CLONING          │ Decoherence      │    │
+│  └──────────────┘     ┌──────────────┐    └──────────────────┘    │
+│                       │ Can't copy   │                             │
+│  PAULI/CLIFFORD       │ unknown |ψ⟩  │                             │
+│  ┌──────────────┐     │ → QEC must   │                             │
+│  │ Pauli group  │     │   spread info│                             │
+│  │ Clifford grp │     │ → QKD secure │                             │
+│  │ Normalizer   │     └──────────────┘                             │
+│  └──────────────┘                                                   │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
 
 ## The Qubit — Mathematical Foundation
 
@@ -246,9 +286,9 @@ SYNDROME MEASUREMENT (for error correction):
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from classical Markov/stochastic processes to the Lindblad master equation — learner has strong probability background from MIT; the Lindblad equation is the quantum analog of a classical master equation (Fokker-Planck for density matrices), and the jump operators Lⱼ correspond directly to classical transition rate terms. A one-line bridge here would anchor the formalism immediately. -->
-
 ## Density Matrices (Mixed States)
+
+The Lindblad master equation below is the quantum analog of a classical Markov master equation (dP/dt = WP, where W is the transition rate matrix). The unitary term -i[H,ρ] is deterministic evolution (no classical analog in a Markov chain), while the jump operators Lⱼ correspond directly to classical transition rates — each Lⱼ represents one way the system can stochastically jump between states (bit-flip, phase-flip, amplitude damping). If you zero out the Hamiltonian, Lindblad reduces to a classical master equation on the diagonal of ρ.
 
 When the qubit is in a probabilistic mixture or entangled with an environment:
 

@@ -113,9 +113,15 @@ EXPERIMENTAL RESULT:
   Small dataset, few qubits, quantum kernel SVM matches classical SVM
   → Proof of concept, not evidence of advantage
 
-<!-- @editor[bridge/P2]: Tang's dequantization result (2018) came from recognizing that the quantum recommendation system algorithm's speedup relied on sampling from low-rank matrices — a task classical algorithms can do efficiently via Monte Carlo sampling if given sample access to the rows. The key insight is that "quantum speedup" often comes from efficient sampling, not from quantum superposition per se, and classical sample-access models can sometimes replicate the same asymptotic behavior. Bridging to the learner's background: this is analogous to realizing a distributed system's claimed advantage relied on a data structure the classical system could also use — the quantum hardware was doing the same logical operation. One sentence on this would make the dequantization concept much stickier. -->
-
 DEQUANTIZATION CONCERN (Tang 2018 style):
+  Tang's key insight: the quantum recommendation algorithm's speedup relied on
+  efficient sampling from low-rank matrices — but classical algorithms can do
+  this too via Monte Carlo row sampling given "sample access" to the input.
+  The quantum hardware was performing a logical operation (low-rank sampling)
+  that didn't actually require quantum mechanics — like discovering a
+  distributed system's claimed advantage depended on a data structure the
+  single-node system could also use.
+
   Classical "quantum-inspired" algorithms often match quantum kernel
   performance using random features / low-rank approximations
   → Classical SVMs with RBF / polynomial kernels often competitive
@@ -230,9 +236,9 @@ LEGITIMATE USE CASE:
   This is a hybrid pipeline, not "quantum ML"
 ```
 
-<!-- @editor[content/P2]: D-Wave quantum annealing is included under "Quantum Machine Learning" but it is not ML — it is a combinatorial optimization heuristic. The section belongs in 07-NISQ-APPLICATIONS.md under optimization, not here. If retained here, the framing needs to explicitly distinguish: (1) D-Wave is not doing ML, (2) it's not gate-based quantum computing, (3) the only ML connection is QUBO formulations of ML training problems (sparse models, binary neural nets). As written, a reader skimming the file would conflate D-Wave with QML approaches. -->
-
 ### Quantum Annealing for Combinatorial Subproblems (D-Wave)
+
+**Clarification:** D-Wave is not ML and not gate-based quantum computing. It appears here because QML literature often cites QUBO formulations of ML training problems (sparse feature selection, binary neural network weight optimization) as a quantum ML application. The only ML connection is that some ML training objectives can be cast as combinatorial optimization. For D-Wave's role in the broader NISQ landscape, see 07-NISQ-APPLICATIONS.
 
 ```
 D-WAVE ARCHITECTURE:

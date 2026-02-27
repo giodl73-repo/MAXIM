@@ -131,9 +131,9 @@ ISSUE: Classical algorithms (tensor networks) have since improved significantly
 
 ---
 
-<!-- @editor[content/P2]: Error mitigation techniques (ZNE, PEC, CDR) are covered in detail here AND in 05-VARIATIONAL-ALGORITHMS.md (Decision Cheat Sheet) and 08-QUANTUM-SOFTWARE.md (PennyLane transforms). This creates redundancy without cross-referencing. Either consolidate error mitigation into one file and cross-reference, or differentiate: 07 covers mitigation as a NISQ hardware concern, 05 covers it as a VQA training concern. As-is, a reader hitting both files sees repeated content without knowing which is authoritative. -->
-
 ## Error Mitigation (Not Correction)
+
+**Note:** This section is the authoritative treatment of error mitigation techniques. 05-VARIATIONAL-ALGORITHMS covers the optimizer-side interaction (how mitigation affects VQA convergence). 08-QUANTUM-SOFTWARE covers framework-level APIs (PennyLane transforms, Qiskit primitives). The theory and tradeoffs live here.
 
 ### Zero-Noise Extrapolation (ZNE)
 
@@ -367,10 +367,11 @@ LONG-TERM (2035+): Full fault-tolerant systems capable of RSA-2048, useful chemi
 │                               │ (strongly correlated systems —     │
 │                               │ best bet for genuine NISQ value)    │
 ├───────────────────────────────┼─────────────────────────────────────┤
-<!-- @editor[bridge/P3]: "Azure Quantum estimator" is a valid reference for this learner but the cheat sheet row works for any reader even without Azure context — could add "(e.g., Azure Quantum Resource Estimator, Q# estimates)" to signal this is a category of tool, not Azure-specific. -->
-│ Fault-tolerant planning       │ Resource estimation (Azure Quantum  │
-│                               │ estimator) before committing; plan  │
-│                               │ for millions of physical qubits     │
+│ Fault-tolerant planning       │ Resource estimation tools (e.g.,    │
+│                               │ Azure Quantum Resource Estimator,   │
+│                               │ Q# estimates, Qualtran) before      │
+│                               │ committing; plan for millions of    │
+│                               │ physical qubits                     │
 └──────────────────────────────┴──────────────────────────────────────┘
 ```
 

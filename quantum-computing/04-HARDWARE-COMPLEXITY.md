@@ -213,12 +213,18 @@ THEORY:
   Errors must physically move Majorana modes around each other to
   affect qubit state → topological protection.
 
-<!-- @editor[content/P2]: Microsoft announced a "topological qubit" milestone in early 2025 (Nature paper on InAs-Al heterostructure Majorana signatures), distinct from the 2022/2023 retracted results. Verify current status — the landscape may have shifted since this was written. Distinguish between: (a) the 2022 retraction, (b) any subsequent 2024-2025 claims, and (c) operational qubit demonstrations (none confirmed as of writing). -->
-
 STATUS (2025):
-  Microsoft: First demonstrated Majorana topological qubit (Qubit 2023 paper).
-  However: results retracted/questioned; science is difficult.
-  No operational quantum computation demonstrated.
+  2018: Initial Majorana evidence paper (Delft/Microsoft) — later retracted (2021)
+        due to data handling concerns. Significant credibility damage.
+  2023: New paper (Nature) reporting Majorana signatures in InAs-Al
+        heterostructures using improved measurement protocols.
+        Distinct from retracted work — different device, different team leadership.
+  2025: Microsoft announced "topological qubit" milestone (February 2025),
+        claiming first demonstration of a topological qubit based on
+        Majorana zero modes in an InAs-Al nanowire device.
+  Key distinction: evidence for topological gap signatures ≠ operational qubit.
+  No quantum gate operations or error correction demonstrated on topological qubits.
+  The field remains cautious given the 2018 retraction history.
 
 POTENTIAL ADVANTAGE:
   Physical error rate could be ~1% (vs 0.1% for SC) to reach threshold.
@@ -284,14 +290,16 @@ KEY IMPLICATION:
 
 ### Oracle Separations
 
-<!-- @editor[audience/P2]: Learner knows BQP and oracle separations from MIT TCS — this section is at the right level but doesn't push to the interesting edge. The Raz-Tal 2019 result (BQP ⊄ PH relative to an oracle) is significant because it's an *unconditional* separation (no unproven assumptions), unlike P vs NP. The framing "First unconditional quantum speedup result" needs qualification — it's an unconditional oracle separation, not an unconditional non-relativizing separation. This distinction matters to someone with TCS depth. -->
-
 ```
 Relative to oracles:
   ∃ oracle A: P^A ≠ BPP^A (oracles can separate)
-  ∃ oracle A: BQP^A ⊄ PH^A (Raz-Tal 2019 — important structural result)
-    → Quantum computers can be exponentially faster than polynomial hierarchy
-      relative to an oracle. First unconditional quantum speedup result.
+  ∃ oracle A: BQP^A ⊄ PH^A (Raz-Tal 2019 — strongest known structural result)
+    → Relative to an oracle, BQP contains problems outside the ENTIRE
+      polynomial hierarchy. This is an unconditional oracle separation —
+      no unproven complexity assumptions needed (unlike P vs NP barriers).
+    → Caveat: oracle separations don't directly imply non-relativizing
+      separations. BGS (1975) showed oracles can't resolve P vs NP.
+      Raz-Tal is evidence for BQP ⊄ PH, not a proof.
 
   Forrelation problem (Aaronson-Ambainis):
     BQP query complexity: 1
