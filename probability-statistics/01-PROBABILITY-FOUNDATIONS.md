@@ -233,6 +233,8 @@ These appear constantly in proofs:
   Exponential tail bound. Foundation of PAC learning.
 ```
 
+<!-- @editor[content/P2]: Concentration inequalities section stops at Hoeffding — for this learner (TCS/algorithm analysis background) this is the entry point to a much richer family. Missing: Azuma-Hoeffding for martingales (needed for adaptive algorithms), McDiarmid's inequality (bounded differences, ubiquitous in learning theory), Bernstein inequality (variance-adaptive, tighter than Hoeffding), and sub-Gaussian / sub-exponential distributions as the modern unifying framework. Add at minimum a taxonomy diagram and Bernstein + McDiarmid. -->
+
 ---
 
 ## Almost Sure vs. In Probability vs. In L^p

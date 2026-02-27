@@ -212,6 +212,8 @@ MCMC is exact but slow. Variational inference (VI) is approximate but fast.
   Foundation of VAEs (Variational Autoencoders).
 ```
 
+<!-- @editor[bridge/P2]: No bridge from variational inference to probabilistic programming — this learner needs: "Stan implements HMC/NUTS; Pyro/NumPyro implements VI with reparameterization trick; Edward2/TFP implement both." The reparameterization trick is the implementation-level insight that makes modern probabilistic programming work, and connecting to the probabilistic programming ecosystem (Stan, Pyro, Turing.jl) is an explicit bridge this learner needs per the calibration. -->
+
 ---
 
 ## Model Selection and Comparison
@@ -299,6 +301,8 @@ When you have groups of observations with shared structure:
 **Azure ML connection**: Hierarchical models appear in multi-task learning and federated learning — different clients share a prior distribution over model parameters, enabling knowledge transfer with partial pooling.
 
 ---
+
+<!-- @editor[content/P1]: Bayesian nonparametrics is completely absent — this is an explicit "DOES need" in the learner calibration. Bayesian nonparametrics (Dirichlet process, Gaussian process regression as nonparametric Bayes, Chinese restaurant process, Indian buffet process, Pitman-Yor process) is the modern bridge between Bayesian statistics and machine learning. Missing: Dirichlet process mixture models, stick-breaking representation, the CRP as a generative model, and connection to modern topics like topic models (LDA) and neural network priors. This is P1 — explicitly called out as a gap. -->
 
 ## Bernstein-von Mises Theorem
 

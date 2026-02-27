@@ -179,6 +179,8 @@ Many distributions share a common structure — the exponential family:
 4. **MLE**: The MLE equation reduces to E_theta[T(X)] = T_bar (sample average of sufficient statistics)
 5. **GLMs**: Generalized linear models use exponential family distributions as response distributions
 
+<!-- @editor[bridge/P2]: No bridge from exponential family to the computational complexity of inference — this learner will immediately ask "what makes exponential families computationally tractable vs. not?" The answer (sufficient statistics have fixed dimension, conjugate Bayesian updates are O(1)) maps directly to their TCS background on efficient algorithms. Add a note on why breaking the exponential family assumption makes inference #P-hard (partition function = sum over exponentially many states). -->
+
 ---
 
 ## Multivariate Distributions and Copulas
@@ -241,6 +243,8 @@ Copulas matter in risk management and finance — the 2008 financial crisis part
 ```
 
 ---
+
+<!-- @editor[content/P2]: Missing high-dimensional distributions critical for this learner's needs — Wishart distribution (covered in the landscape diagram but not in the body), multivariate t, Dirichlet (important for Bayesian nonparametrics), and the chi distribution. Also missing: sub-Gaussian distributions as a distributional class (not just Normal), which is the modern lens for concentration inequalities and learning theory. -->
 
 ## Order Statistics and Extreme Values
 
