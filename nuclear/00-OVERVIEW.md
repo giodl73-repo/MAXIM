@@ -92,22 +92,47 @@ Countries by share of electricity from nuclear:
 
 ---
 
-<!-- @editor[structure/P1]: Missing Decision Cheat Sheet — the "Decision Guide" below is a module routing flowchart, not a decision table. Needs a "use X when Y" table: e.g., "when studying reactor stability → reactivity coefficients in 02; when comparing reactor types → 04; when analyzing safety margins → DNBR in 03; when evaluating waste management → 05." The overview should close with a quick-reference table, not just navigation bullets. -->
-<!-- @editor[structure/P2]: Missing Common Confusion Points at the overview level. The cross-cutting gotchas (criticality ≠ danger, decay heat ≠ fission, containment ≠ reactor vessel, k_eff = 1 is normal operation) are distributed across the individual module files. A brief field-level confusion section here would orient the reader before they encounter the technical depth. -->
+## Decision Cheat Sheet
+
+| When you need to...                                    | Go to                       | Key concepts                                          |
+|--------------------------------------------------------|-----------------------------|-------------------------------------------------------|
+| Understand fission physics and cross sections          | 01-NUCLEAR-PHYSICS          | Binding energy curve, cross sections, decay chains    |
+| Analyze reactor stability and criticality              | 02-REACTOR-PHYSICS          | Six-factor formula, reactivity coefficients, xenon    |
+| Evaluate thermal safety margins                        | 03-THERMAL-HYDRAULICS       | DNBR, CHF correlations, hot channel factors           |
+| Compare reactor designs and their trade-offs           | 04-REACTOR-TYPES            | PWR vs BWR vs CANDU vs Gen IV; coolant/moderator matrix|
+| Analyze safety systems and accident scenarios          | 05-SAFETY-SYSTEMS           | Defense-in-depth, ECCS, PRA/CDF, TMI/Chernobyl/Fukushima |
+| Understand why k_eff must be held at exactly 1.000     | 02 (reactivity control)     | Delayed neutrons provide the ~100s response margin    |
+| Understand why decay heat persists after shutdown       | 01 (fission products)       | Fission products continue beta/gamma decay for years  |
+| Evaluate waste and fuel cycle options                  | 04 (fuel cycle section)     | Once-through vs reprocessing; geological disposal     |
+
+---
+
+## Common Confusion Points
+
+**Criticality does NOT mean danger.** A reactor at k_eff = 1.000 is "critical" — this is normal, steady-state operation. "Supercritical" (k_eff slightly > 1) is routine during a controlled power increase. "Prompt critical" (k_eff > 1 + beta_eff) is the dangerous threshold where the reactor period drops to milliseconds.
+
+**Decay heat is NOT fission.** After shutdown (k_eff < 1, chain reaction stops), fission products continue emitting beta and gamma radiation as they decay. This generates ~7% of rated power immediately after shutdown, declining to ~1% after 1 hour and ~0.1% after 1 week. This is why cooling must continue indefinitely — Fukushima was a decay heat removal failure, not a criticality event.
+
+**Containment is NOT the reactor vessel.** The reactor pressure vessel (RPV) contains the core and coolant at high pressure/temperature. The containment structure is a separate, much larger building surrounding the RPV, designed to confine radioactive material if the RPV fails. They serve different functions at different scales.
+
+**k_eff = 1 is the operating point, not a safety margin.** The safety margin is in the reactivity feedback coefficients (Doppler, moderator temperature coefficient) — both must be negative so that any temperature rise reduces reactivity, driving k_eff back below 1. This is inherent negative feedback, not active control.
+
+---
+
 ## Decision Guide
 
 ```
 WHAT NUCLEAR QUESTION?
-        │
-        ├─ What is the physics of the chain reaction?
-        │   └─► 01-NUCLEAR-PHYSICS + 02-REACTOR-PHYSICS
-        │
-        ├─ How is heat removed and what limits power?
-        │   └─► 03-THERMAL-HYDRAULICS
-        │
-        ├─ Which reactor design and why?
-        │   └─► 04-REACTOR-TYPES
-        │
-        └─ How are accidents prevented and what happened in past accidents?
-            └─► 05-SAFETY-SYSTEMS
+        |
+        +-- What is the physics of the chain reaction?
+        |   --> 01-NUCLEAR-PHYSICS + 02-REACTOR-PHYSICS
+        |
+        +-- How is heat removed and what limits power?
+        |   --> 03-THERMAL-HYDRAULICS
+        |
+        +-- Which reactor design and why?
+        |   --> 04-REACTOR-TYPES
+        |
+        +-- How are accidents prevented and what happened in past accidents?
+            --> 05-SAFETY-SYSTEMS
 ```

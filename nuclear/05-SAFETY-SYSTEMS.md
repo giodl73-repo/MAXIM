@@ -283,7 +283,8 @@ Control rod ejection:
 
 ## Probabilistic Risk Assessment (PRA)
 
-<!-- @editor[bridge/P2]: PRA (Probabilistic Risk Assessment) uses event trees and fault trees — the identical methodology as reliability engineering and FMEA in distributed systems. A fault tree is a boolean AND/OR logic tree starting from an undesired top event and decomposing to basic failure causes; an event tree starts from an initiating event and branches on system success/failure outcomes. The Fussell-Vesely importance measure (fractional contribution to CDF if component fails) is equivalent to blame proportioning in a distributed tracing system — it identifies which component's failure dominates total system risk. High RAW (Risk Achievement Worth) = the components you absolutely cannot take offline simultaneously. If you've built availability budgets in Azure or VSTS, you've done PRA reasoning. -->
+PRA uses event trees and fault trees — the identical methodology as reliability engineering in distributed systems. A fault tree is a boolean AND/OR logic tree decomposing an undesired top event to basic failure causes; an event tree starts from an initiating event and branches on system success/failure outcomes. The Fussell-Vesely importance measure (fractional contribution to CDF if component fails) is equivalent to blame proportioning in distributed tracing — it identifies which component's failure dominates total system risk. High RAW (Risk Achievement Worth) = components you absolutely cannot take offline simultaneously. If you have built availability budgets, you have done PRA reasoning under a different vocabulary.
+
 ### PRA Structure
 
 ```

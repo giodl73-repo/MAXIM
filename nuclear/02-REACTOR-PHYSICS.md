@@ -19,7 +19,35 @@ NEUTRON LIFE CYCLE IN A THERMAL REACTOR
                                          Add leakage: k_eff = k∞ · P_FNL · P_TNL
 ```
 
-<!-- @editor[bridge/P1]: Reactor criticality is a positive-feedback control problem — the canonical example of managing a system that is inherently unstable and must be held at a precise operating point by continuous active intervention. The parallel to distributed systems is direct: a system that scales horizontally under increasing load where each new instance can both serve and generate more load (thundering herd, retry storms, autocatalytic cascades) exhibits the same S-curve instability as a supercritical reactor. k_eff > 1 → runaway; k_eff < 1 → dies. The entire field of reactor control is about holding k_eff ≈ 1.000 within ±200 pcm using negative feedback coefficients (Doppler, MTC) — exactly the role of circuit breakers, backpressure, and load shedding in distributed services. The delayed neutron fraction β_eff (0.65%) deserves explicit framing: without it, the effective generation time is microseconds and no mechanical system can respond; with it, the effective period extends to ~100 seconds — the same reason software control loops need sufficient response margin above the process time constant. -->
+## Engineering Bridge: Reactor Control as Feedback-Stabilized Positive Feedback
+
+```
+REACTOR CONTROL                     DISTRIBUTED SYSTEMS EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+k_eff > 1 (supercritical)           Autocatalytic cascade (retry storm,
+  Each generation produces MORE       thundering herd) — each response
+  neutrons → exponential growth       generates MORE load → runaway
+
+k_eff = 1 (critical)               Steady-state throughput — load in = load out
+  Exact balance: production = loss    Sustainable equilibrium
+
+k_eff < 1 (subcritical)            Load shedding active — system draining
+  Exponential decay toward zero       Queue depth decreasing toward empty
+
+Negative feedback coefficients      Circuit breakers, backpressure
+  Doppler: fuel heats → σ_a rises    Load increases → circuit breaker opens
+  MTC: moderator heats → less mod.    Latency rises → backpressure signal
+  → k_eff drops automatically         → throughput drops automatically
+
+Delayed neutron fraction β_eff      Response margin above process time constant
+  β_eff = 0.65% of neutrons are      Without margin: control loop period < ms,
+  delayed by 0.2–55 seconds            no mechanical system can respond
+  → effective generation time ~100s   With margin: sufficient time for PID loop
+  → control rods can keep up            to adjust before instability
+```
+
+Reactor control is the canonical positive-feedback stabilization problem: the system is inherently autocatalytic (k_eff > 1 means exponential growth), held at the critical operating point (k_eff = 1.000 +/- 200 pcm) by engineered negative feedback. The delayed neutron fraction beta_eff is what makes this physically possible — without it, the neutron generation time is microseconds and no mechanical system can respond fast enough.
+
 Nuclear reactor design is the engineering of a self-sustaining neutron chain reaction.
 The challenge: balance neutron production against all loss mechanisms (absorption + leakage)
 to hold k_eff exactly at 1.000, then **control** it with small reactivity changes.

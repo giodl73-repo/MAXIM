@@ -2,12 +2,10 @@
 
 ## Binding Energy, Cross Sections, Decay, Fission
 
-<!-- @editor[audience/P2]: File opens by explaining "Nucleus: Z protons + N neutrons → mass number A = Z + N" — this learner has MIT physics and knows nuclear structure. The Building Blocks block can open directly at the scale/energy section without the nuclide primer. The nuclide notation is fine for reference; the explanatory framing isn't needed. -->
 ```
-NUCLEAR PHYSICS BUILDING BLOCKS
+NUCLEAR PHYSICS — KEY SCALES AND NOTATION
 
-Nucleus: Z protons + N neutrons → mass number A = Z + N
-         Nuclide notation: ᴬ_Z X  (e.g., ²³⁵₉₂U)
+Nuclide notation: ᴬ_Z X  (e.g., ²³⁵₉₂U — 92 protons, 143 neutrons)
 
 Key scales:
   Nuclear size:   r ≈ 1.2 A^(1/3) fm  (1 fm = 10⁻¹⁵ m)
@@ -167,7 +165,8 @@ Antineutrino energy:               ~12 MeV  (escapes, not recoverable)
 TOTAL recoverable:                ~188 MeV
 ```
 
-<!-- @editor[bridge/P2]: Fission product decay chains (¹³⁵Te → ¹³⁵I → ¹³⁵Xe → ¹³⁵Cs) are topological dependency trees — same data structure as package dependency graphs, build DAGs, and service dependency maps. The "xenon precluded restart" scenario (a downstream decay product blocks operation hours after its precursor was produced) maps directly to cascading dependency failures in service graphs: removing a service doesn't remove the downstream effects that already propagated. Worth naming: "decay chains are dependency trees, and the xenon poisoning problem is a deferred side-effect of a dependency you thought you removed." -->
+Fission product decay chains (e.g., Te-135 -> I-135 -> Xe-135 -> Cs-135) are topological dependency trees — the same data structure as package dependency graphs or build DAGs. The xenon poisoning problem is a deferred side-effect: even after shutdown, the Te-135 and I-135 already produced continue decaying into Xe-135 (a massive neutron absorber), peaking ~11 hours after shutdown and potentially precluding restart for 24-48 hours. This is the nuclear equivalent of a cascading dependency failure: removing the source (fission) does not remove the downstream effects already in the pipeline.
+
 **Fission products:** Bimodal mass distribution — light peak ~95 u (Kr, Rb, Sr, Y, Zr) and heavy peak ~140 u (Cs, Ba, La, Ce, Nd). Very neutron-rich → extensive β decay chains.
 
 **Prompt vs delayed neutrons:**
