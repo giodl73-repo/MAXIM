@@ -27,18 +27,28 @@
 
 ## Current State Summary
 
-**Red Joker "The Tour"** (Vol. 53)
-- 13 guided puzzles, one per section
-- Each invokes a card archetype, uses the encyclopedia as reference
-- Meta: crossword grid, card IDs determine slot placement
-- Answer words freed from ENLIGHTENMENT — best thematic word per section
+**Red Joker "The Elements"** (Vol. 53) — 26 puzzles, numbered by atomic number
+- 13 Tier 1 (★) feed the crossword meta; 13 Tier 2 are companion puzzles
+- Each invokes a card archetype; the Joker narrates
+- Hydrogen (Z=1) warm-up draws from Read This First
+- Puzzle numbers skip (1, 6, 7, 8, 11, 14...) — gaps ARE the first puzzle
+- 3 rounds of 9-12 expert reviews completed
 
-**Black Joker "The Expedition"** (Vol. 54)
-- Puzzle 0: The Grid — 52 blank cells, no instructions, solver must discover the archetype scavenger hunt
-- Puzzles 1–7: Cross-section synthesis using collected keywords
-- Boxed positions in The Grid extract to the Black meta answer
+**Black Joker "The Compounds"** (Vol. 54) — 26 puzzles, numbered by molecular weight
+- The Grid: 52 blank cells, no instructions. Deduction tools: Card Backs (fingerprints), Concept Index (connection map), BOM (floor plan)
+- 7 named synthesis puzzles (The Debate, The Chain, The Proof, The Spectrum, The Blueprint, Reading Map Path, Prerequisite DAG)
+- 15 Concept Index mechanism puzzles (numbers → section patterns → Index lookup)
+- 4 dedicated compound puzzles (Salt, Galena, Apatite, Garnet Meta)
+- Physical builds: Punch Card Overlay, Paper + Light
 
-**Answer Words (V3)**
-ALGORITHM, PERSPECTIVE, SYMMETRY, SYNTAX/INFLECTION, INCENTIVE, TRANSISTOR, TORQUE, PARADIGM, GENETIC, CASTING, EQUINOX, NICHE/SYMBIOSIS, POLYMATH
+**Framing:** Elements and Compounds. The periodic table is universal.
+26 + 26 = 52 = the deck. Atomic numbers + molecular weights.
 
-**Awaiting**: Round 2 panel rankings to finalize the 13 Red Joker puzzles from the 89-candidate pool.
+**Answer Words (13 Tier 1):**
+ALGORITHM · PERSPECTIVE · SYMMETRY · INFLECTION · INCENTIVE · TRANSISTOR · TORQUE · PARADIGM · GENETIC · CASTING · EQUINOX · NICHE · POLYMATH
+
+**Asset utilization:** 6.1/10 (up from 3.3 at session start). Key integrations: Card Backs as Grid manifest, Concept Index as compound mechanism, Reading Maps and Prerequisites as compound puzzles, Read This First for Hydrogen warm-up.
+
+**Panel:** 12 experts (9 puzzle hunt + 3 game designers). 3 review rounds + 1 blind asset review completed. Skills: `/puzzle-review`, `/puzzle-author`, `/puzzle-test`.
+
+**Blocking bugs fixed:** "The Witness" duplicate → The Revolutionary. Tool Steel MW 324 → Almandine Garnet MW 498.

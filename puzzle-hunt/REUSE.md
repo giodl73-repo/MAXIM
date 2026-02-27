@@ -175,9 +175,23 @@ Tracks which directories are complete, stubbed, or queued. Batch status.
 | TRACKER.md | 1 | 2 | Internal only | — |
 | SCORECARD.md | 1 | 5 | Scores as data | P3 |
 
-**Average current utilization: 3.3/10**
-**Average potential: 7.4/10**
-**Gap: 4.1 points**
+### Before asset integration (start of session):
+**Average utilization: 3.3/10** · Potential: 7.4/10 · Gap: 4.1
+
+### After asset integration (blind review applied):
+**Average utilization: 6.1/10** · Potential: 7.8/10 · Gap: 1.7
+
+| Asset | Before | After | What changed |
+|-------|--------|-------|-------------|
+| Concept Index | 8 | 8 | Already integrated earlier today |
+| Card Backs | 2 | **8** | Grid manifest, Obra Dinn crew portraits |
+| Reading Maps | 1 | **7** | Replaces MgO compound as path-following puzzle |
+| Prerequisite Graph | 1 | **7** | Replaces AlN compound as DAG puzzle |
+| Read This First | 3 | **7** | Hydrogen warm-up content |
+| Card Identity System | 3 | **7** | Discovered, never explained — enrichment layer |
+| HISTORY.md | 1 | **5** | Joker's identity and closing monologue fuel |
+| Archetype Epithets | 5 | **6** | Grid matching clues |
+| Bill of Materials | 2 | **5** | Grid floor plan (third deduction tool) |
 
 ---
 

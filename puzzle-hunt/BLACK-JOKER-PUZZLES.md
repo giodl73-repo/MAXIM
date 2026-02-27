@@ -83,6 +83,18 @@ The 52 keywords are the raw material for Puzzles 1–7. Each synthesis puzzle us
 
 The keywords contain hidden connections, themes, or encodings that the synthesis puzzles reveal.
 
+### The Solver's Deduction Toolkit
+
+The Grid is NOT a blind scavenger hunt. The library already contains three reference systems that function as deduction tools — the solver just has to find them:
+
+**Card Backs** (`cards/backs/*.md`): 52 ASCII card frames, each with 7 key concepts (specific formulas, terms, principles). These are FINGERPRINTS. A solver who finds "the Alchemist of [keyword]" in a chemistry file can check: does this file's content match the 7 concepts on card 7♦? If yes → confirmed. The card backs are the Obra Dinn crew portraits.
+
+**Concept Index** (`CONCEPT-INDEX.md`): 314 entries mapping which concepts span which sections. If an archetype from Earth & Space is hiding in a Life Sciences file, the Concept Index reveals which concepts bridge those two sections — narrowing the search from 2,178 files to a handful. The Index is the connection map.
+
+**Bill of Materials** (`BILL-OF-MATERIALS.md`): Master table of contents listing every file in every volume. Tells the solver what each volume contains without reading it. The BOM is the floor plan.
+
+Together: Card Backs tell you WHO to look for. The Concept Index tells you WHERE sections connect. The BOM tells you WHAT each volume contains. Three tools, 52 identifications. That's Obra Dinn.
+
 ### Difficulty and team dynamics
 
 - **Solo**: Months of deep reading. The ultimate slow puzzle.
