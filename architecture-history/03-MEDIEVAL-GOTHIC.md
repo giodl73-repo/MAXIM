@@ -208,7 +208,7 @@ The flying buttress is the key to understanding why Gothic cathedrals look the w
 they do from outside. The external stone armature is not decoration — it is a machine
 for redirecting vault thrust to the ground.
 
-<!-- @editor[bridge/P2]: The flying buttress system is a load-routing solution: vault thrust is a vector that must be conducted to a foundation without passing through the wall (which now holds glass). The system is essentially a network of force-carrying elements where each node has equilibrium constraints. This maps directly to a flow network or a directed graph where edges carry force magnitudes and node constraints are the equilibrium conditions (ΣF=0 at each joint). Naming this explicitly — Gothic structural engineering as a graph-theoretic flow problem — bridges the concept to CS/math background that the learner already has. Readers from operations research or network flow would also recognize it. -->
+The flying buttress system is a load-routing network: vault thrust is a force vector that must be conducted to a foundation without passing through the wall (which now holds glass). The structural system is a directed graph where edges carry force magnitudes and each node satisfies equilibrium constraints (sum of forces = 0 at each joint). This is the same structure as a network flow problem — the "flow" is force, the "capacity" is material strength, and the "routing" is the buttress geometry. Gothic master builders were solving graph-theoretic force-routing problems empirically, centuries before graphic statics (Cremona 1872) formalized the method.
 ```
 FLYING BUTTRESS FORCE PATH DIAGRAM
 ====================================
@@ -584,6 +584,3 @@ structural behavior through empirical observation and transmitted knowledge.
 No calculations — but a deeply sophisticated body of structural intuition. The
 failures (Beauvais) were how the system learned its limits. The analytical
 understanding came centuries later (19th–20th c. structural analysis of Gothic buildings).
-
-
-<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->

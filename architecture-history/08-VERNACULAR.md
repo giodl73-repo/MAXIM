@@ -67,7 +67,17 @@ THE LAG EFFECT:
   A 500mm adobe wall: lag ~12 hours
   Peak outside heat at noon → peak inside heat at midnight
   (when you want it, not when you're in the sun)
-<!-- @editor[bridge/P2]: Thermal mass behavior is exactly an RC circuit model: thermal resistance (R = wall thickness / conductivity) and thermal capacitance (C = mass × specific heat) create an RC time constant τ = R×C that governs the lag time. The "heat wave" penetrating the wall is the step-response of a low-pass RC filter — the wall acts as a thermal low-pass filter attenuating high-frequency temperature swings (daytime peak) and phase-shifting by τ. This analogy maps perfectly to electrical engineering (any EE background) and to signal processing. Architecture/03-ENVIRONMENTAL.md does name the thermal RC circuit explicitly; this file (which establishes the vernacular precedent) doesn't, which misses an opportunity to show that the vernacular builders were solving the same problem later formalized as thermal circuit theory. -->
+  Thermal RC circuit model: the wall is a low-pass filter.
+  R = wall thickness / thermal conductivity (K·m²/W)
+  C = wall mass × specific heat capacity (J/K)
+  Time constant τ = R × C governs the lag time.
+  The diurnal temperature swing is a ~24hr sinusoidal input;
+  the wall attenuates amplitude and phase-shifts by τ.
+  A 500mm adobe wall: τ ≈ 12 hours → peak heat at midnight.
+  This is the same RC filter model used in electrical
+  engineering and signal processing — the vernacular
+  builders discovered it empirically; thermal circuit
+  theory formalized it in the 20th century.
 
   OR: if designed correctly, the lag is 12 hours and the peak
   inside temperature occurs when you want the warmth (cool nights)
@@ -675,6 +685,3 @@ They are highly adaptive. The chattel house incorporated jalousie glass windows
 Traditional Japanese buildings adopted new joining technologies while maintaining
 the spatial principles. Vernacular traditions are not museums — they are living
 responses to constraints that update when better tools become available.
-
-
-<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->

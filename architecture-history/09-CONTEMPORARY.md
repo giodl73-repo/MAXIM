@@ -78,7 +78,7 @@ GRASSHOPPER (Rhino plug-in):
   No code required (but Python scripting available for complex logic)
   Output: Rhino geometry → fabrication / BIM import
 ```
-<!-- @editor[bridge/P3]: Grasshopper is a dataflow / visual programming environment — exactly the same paradigm as Azure Data Factory pipelines, LabVIEW, or any dataflow DAG where nodes are transformations and edges carry data. "Sliders = parameter inputs" is the same concept as a parameterized pipeline. "The design IS the parameter set" maps precisely to declarative configuration: the specification is the program, and execution produces the artifact. Worth naming the dataflow programming paradigm explicitly here — it makes the mental model click immediately for anyone who has built ETL pipelines. -->
+Grasshopper is a dataflow visual programming environment — the same paradigm as Azure Data Factory pipelines, LabVIEW, or any dataflow DAG where nodes are transformations and edges carry data. Sliders are parameter inputs; the design IS the parameter set. This maps to declarative configuration: the specification is the program, and execution produces the artifact. Anyone who has built ETL or CI/CD pipelines will recognize the mental model immediately.
 
 ### Topology Optimization
 
@@ -642,6 +642,3 @@ standard but doesn't cover all the social/transport/waste dimensions of LEED.
 For carbon targets, they measure different things. A Passivhaus building might not
 get LEED Platinum; a LEED Platinum building might not meet Passivhaus standards.
 Use the right tool for the right question.
-
-
-<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->

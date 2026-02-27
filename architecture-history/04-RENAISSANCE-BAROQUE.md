@@ -207,7 +207,44 @@ STRUCTURAL ACHIEVEMENT:
 
 ---
 
-<!-- @editor[bridge/P1]: Brunelleschi is credited with two revolutionary contributions: the dome construction method (covered well) AND the invention of mathematical linear perspective (1425, the peephole experiment). The file lists perspective in the key figures diagram but never develops it. This is a significant omission for a math-background reader: linear perspective is projective geometry — the geometrical study of properties invariant under projection from a point. Brunelleschi's perspective construction is exactly the construction of a projective transformation mapping 3D world coordinates to a 2D picture plane. Alberti's "De Pictura" (1435) formalized this as "costruzione legittima." Any mathematician immediately recognizes this as the theory of projective spaces and homogeneous coordinates, which underpins all modern computer graphics (the MVP matrix in every 3D rendering pipeline is a projective transformation). This is a P1 bridge — any senior engineer coming from graphics, computer vision, or applied math needs this connection to fully understand why linear perspective was a scientific revolution, not just an artistic technique. -->
+### Brunelleschi and Linear Perspective — Projective Geometry in Architecture
+
+Brunelleschi's second revolution (beyond the dome) was the invention of mathematical linear perspective (~1425). His peephole experiment at the Florence Baptistery demonstrated that a 2D painting could reproduce the visual experience of 3D space by constructing the image as a projective transformation — mapping 3D world coordinates to a 2D picture plane via projection from a single viewpoint.
+
+Alberti formalized this in *De Pictura* (1435) as the *costruzione legittima*: a systematic method for computing projected positions of points in 3D space onto a picture plane using vanishing points and a distance point. This is projective geometry — the study of properties invariant under projection from a point — discovered empirically 400 years before its formal mathematical treatment (Desargues 1639, Poncelet 1822).
+
+```
+LINEAR PERSPECTIVE = PROJECTIVE TRANSFORMATION
+════════════════════════════════════════════════
+
+3D world coordinates (X, Y, Z)
+        │
+        ▼
+  Projection from viewpoint E through picture plane P
+        │
+        ▼
+2D image coordinates (x, y) = (fX/Z, fY/Z)
+
+This is exactly the Model-View-Projection (MVP) matrix
+in every 3D rendering pipeline:
+
+  [x']   [fx  0  cx  0] [X]
+  [y'] = [0  fy  cy  0] [Y]
+  [z']   [0   0   a  b] [Z]
+  [w']   [0   0  -1  0] [1]
+
+  Screen coords = (x'/w', y'/w') — perspective division.
+
+Brunelleschi discovered this transform empirically.
+Alberti gave the construction algorithm.
+Desargues and Poncelet gave the mathematical theory.
+Computer graphics implemented it in hardware (GPU).
+```
+
+The key insight: perspective is not an artistic convention — it is a mathematical projection. Parallel lines converge at vanishing points because the projective transformation maps the point at infinity to a finite image point. This is why perspective "works" — it reproduces the geometry of light arriving at a single eye.
+
+---
+
 ## Bramante and the Classical Ideal: The Tempietto
 
 The Tempietto (1502) in the courtyard of San Pietro in Montorio, Rome is the first
@@ -357,7 +394,15 @@ PROPORTIONAL SYSTEM:
   Octave (1:2), Fifth (2:3), Fourth (3:4), Major Third (4:5)
   These same ratios govern room proportions, window heights,
   intercolumniation — the building is a frozen musical score.
-<!-- @editor[bridge/P2]: Palladio's proportional system derives from the same integer-ratio mathematics as Pythagorean musical tuning — and those ratios ARE the small-integer ratios of Just Intonation, which are also the ratios that appear in the harmonic series (see music-theory/). The connection is explicit: Zarlino's "Le Istitutioni Harmoniche" (1558) — which Palladio read — mapped musical consonances to room proportions directly. This is a genuine cross-domain bridge to the music-theory/ section and to the underlying number theory (rationals as musical intervals). Worth naming explicitly. -->
+
+  The connection is not metaphorical: Palladio read Zarlino's
+  "Le Istitutioni Harmoniche" (1558), which mapped musical
+  consonances to spatial proportions. The ratios are identical —
+  Pythagorean tuning / Just Intonation ratios (octave 1:2,
+  fifth 2:3, fourth 3:4) are the small-integer ratios of the
+  harmonic series. See music-theory/ for the number theory.
+  Architecture and music shared a common mathematical substrate
+  for 2,000 years, from Vitruvius through the 18th century.
 ```
 
 ---
@@ -612,6 +657,3 @@ He designed the dome's form and built the drum. But he died in 1564 before the d
 was built, and Giacomo della Porta changed the profile from hemispherical (Michelangelo's
 model) to more pointed (della Porta's version, 1588–1590). The dome you see is della
 Porta's, based on Michelangelo's structural concept with a different profile.
-
-
-<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->
