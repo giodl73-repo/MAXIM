@@ -29,7 +29,7 @@ Compactness is the most important single concept in point-set topology.
 It turns infinite arguments into finite ones. It's why continuous functions
 on closed bounded intervals achieve their maximum — a fact that requires proof.
 
-<!-- @editor[bridge/P2]: No bridge from topological compactness to the compactness theorem in logic (which is mentioned later, but the connection to TCS should come here). The learner's MIT TCS background means: first-order logic compactness ↔ Tychonoff for {0,1}^A is a landmark insight. Also missing: the algorithmic/complexity connection — compact = "finite in disguise," which is why compactness arguments in complexity theory (e.g., finite model theory, compactness of propositional proof systems) work. -->
+**TCS bridge — compactness in logic and complexity**: The compactness theorem of first-order logic (a set of sentences has a model iff every finite subset does) is Tychonoff's theorem applied to {0,1}^A (the product of 2-point spaces over the set A of atomic formulas). Each truth assignment is a point in {0,1}^A; satisfying a finite set of sentences is a closed condition; compactness of the product means the intersection of these closed sets is nonempty. This is why compactness arguments pervade complexity theory: in finite model theory, compactness *fails* (first-order logic on finite structures has no compactness theorem), and this failure is exactly what makes finite model theory harder than classical model theory. The absence of compactness in the finite forces different proof techniques (Ehrenfeucht-Fraisse games, locality arguments) — a fundamental structural difference for the TCS reader.
 
 ---
 

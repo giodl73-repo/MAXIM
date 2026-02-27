@@ -28,7 +28,6 @@
 
 ---
 
-<!-- @editor[audience/P3]: The axioms section restates d(x,y)=0 iff x=y and triangle inequality from scratch. Learner has MIT analysis — drop the definitional prose, lead with the interesting structure (ultrametric, Gromov-Hausdorff, metric geometry). -->
 ## Metric Axioms and Examples
 
 ```
@@ -41,7 +40,23 @@ STANDARD METRICS:
   Hamming: d(x,y) = |{i : xᵢ ≠ yᵢ}| on strings of length n.
   Hausdorff: on compact subsets of a metric space.
 
-<!-- @editor[content/P2]: Missing Gromov-Hausdorff distance — the metric on the space of metric spaces up to isometry. Critical for TDA and shape analysis (persistence diagrams use it implicitly); learner needs this bridge to understand why TDA stability theorems are stated the way they are. Also missing: ultrametric spaces (d(x,z)≤max(d(x,y),d(y,z))) — arise naturally in p-adic analysis (which is listed above) and in hierarchical clustering, which is a direct bridge to TDA. -->
+ULTRAMETRIC SPACES:
+  d(x,z) ≤ max(d(x,y), d(y,z))  (strong triangle inequality)
+  p-adic metric dₚ is an ultrametric: every triangle is isosceles.
+  Ultrametric spaces are always totally disconnected.
+  Bridge to TDA: hierarchical clustering produces an ultrametric
+    (distance between clusters = the scale at which they merge).
+  The H₀ persistence diagram of a point cloud IS the ultrametric
+    structure of single-linkage clustering.
+
+GROMOV-HAUSDORFF DISTANCE:
+  d_GH(X,Y) = inf{d_H^Z(f(X),g(Y))} over all metric spaces Z
+    and isometric embeddings f: X→Z, g: Y→Z.
+  This is a metric on the space of compact metric spaces (up to isometry).
+  TDA stability theorem: if d_GH(X,Y) ≤ ε, then the persistence
+    diagrams of X and Y differ by at most ε in bottleneck distance.
+  This is why TDA is robust to noise: small perturbations of data
+    (bounded in Hausdorff/GH distance) produce small changes in topology.
 
 Lᵖ SPACES:
   Lᵖ([0,1]) = {measurable f : ∫|f|ᵖ < ∞}, d(f,g) = (∫|f-g|ᵖ)^{1/p}.
@@ -160,7 +175,19 @@ BAIRE: In a complete metric space X, if X = ∪Aₙ (countable union), then
   at least one Aₙ has nonempty interior.
   Equivalently: intersection of countably many dense open sets is dense.
 
-<!-- @editor[bridge/P2]: No bridge from Baire category to computability/descriptive set theory. The learner has MIT TCS — Borel sets, analytic sets, and the Borel hierarchy are the TCS connection (decidable = Borel, semidecidable = Σ₁⁰, etc.). Baire category and meager sets appear in descriptive complexity. Worth a paragraph here. -->
+TCS CONNECTION — DESCRIPTIVE SET THEORY:
+  Baire category connects directly to the Borel hierarchy:
+  Open sets = Σ₁⁰, closed = Π₁⁰, Fσ = Σ₂⁰, Gδ = Π₂⁰, ...
+  In computability: decidable sets = clopen (Δ₁⁰),
+    semidecidable = open (Σ₁⁰), co-semidecidable = closed (Π₁⁰).
+  Baire category theorem → "generic" computations exist:
+    the meager/comeager distinction parallels "measure zero" in
+    algorithmic randomness. A comeager set of reals is "generic"
+    (contains a dense Gδ), just as a measure-1 set is "random."
+  Wadge hierarchy (refinement of Borel hierarchy) classifies
+    sets in Polish spaces by continuous reducibility — directly
+    analogous to many-one reducibility in computability theory.
+
 APPLICATIONS:
   Open mapping theorem: Continuous surjective linear map between Banach spaces is open.
     (Proof uses Baire → one term of the preimage has nonempty interior → expand.)

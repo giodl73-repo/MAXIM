@@ -3,30 +3,38 @@
 ## The Big Picture
 
 ```
-<!-- @editor[diagram/P2]: Diagram lists branches and their items but doesn't show how they feed into each other or into modern developments — rework to show the dependency flow: point-set → algebraic → differential → TDA/physics, and add a modern layer (∞-categories, HoTT, derived algebraic geometry) that the learner explicitly needs per calibration -->
+TOPOLOGY — DEPENDENCY FLOW AND MODERN DEVELOPMENTS
 +====================================================================+
-|              TOPOLOGY — THREE BRANCHES                             |
-+====================================================================+
-|                                                                    |
-|  POINT-SET TOPOLOGY       ALGEBRAIC TOPOLOGY    DIFFERENTIAL TOP.  |
-|  (General topology)                                               |
-|  +-----------------+     +------------------+  +---------------+  |
-|  |Topological      |     |Fundamental group |  |Smooth manifolds| |
-|  |spaces           |     |π₁(X)             |  |Tangent bundles | |
-|  |Continuous maps  |     |Homology H_n(X)   |  |De Rham cohom. | |
-|  |Compactness      |     |Cohomology H^n(X) |  |Differential   | |
-|  |Connectedness    |     |Exact sequences   |  |forms, Stokes  | |
-|  |Separation axioms|     |Van Kampen, Mayer-|  |Morse theory   | |
-|  |Metrization      |     |Vietoris, ATIYAH  |  |h-cobordism    | |
-|  +-----------------+     +------------------+  +---------------+  |
-|         |                       |                      |          |
-|         +----------+------------+----------+-----------+          |
-|                    |                       |                      |
-|            TOPOLOGICAL          GEOMETRIC/LOW-DIMENSIONAL          |
-|            DATA ANALYSIS        TOPOLOGY                          |
-|            Persistent homology  Knot theory                       |
-|            Mapper algorithm     3-manifolds, Thurston             |
-|            Shape analysis       Poincaré conjecture (proved!)     |
+|  LAYER 1: POINT-SET FOUNDATIONS                                    |
+|  ┌────────────────────────────────────────────────────────────┐    |
+|  │  Metric spaces → Topological spaces → Compactness          │    |
+|  │  Connectedness → Separation axioms → Metrization           │    |
+|  │  (01–05 in this guide)                                     │    |
+|  └─────────────────────────┬──────────────────────────────────┘    |
+|                            ▼                                       |
+|  LAYER 2: ALGEBRAIC TOPOLOGY                                      |
+|  ┌────────────────────────────────────────────────────────────┐    |
+|  │  π₁(X) fundamental group ─── Van Kampen ─── Covering spaces│    |
+|  │  Homology Hₙ(X) ─── Cohomology Hⁿ(X) ─── Exact sequences │    |
+|  │  Euler characteristic ─── Poincaré duality                 │    |
+|  │  (06–08 in this guide)                                     │    |
+|  └──────────┬─────────────────────────┬───────────────────────┘    |
+|             ▼                         ▼                            |
+|  LAYER 3: DIFFERENTIAL TOPOLOGY    LAYER 3: APPLICATIONS           |
+|  ┌──────────────────────────┐     ┌───────────────────────────┐   |
+|  │  Smooth manifolds (09)   │     │  TDA / persistent homology│   |
+|  │  Tangent bundles, forms  │     │  Topological phases (TKNN)│   |
+|  │  Morse theory, cobordism │     │  Robotics / config spaces │   |
+|  │  De Rham cohomology      │     │  Knot theory (DNA, QC)    │   |
+|  └──────────┬───────────────┘     └───────────────────────────┘   |
+|             ▼                                                      |
+|  LAYER 4: MODERN FOUNDATIONS                                       |
+|  ┌────────────────────────────────────────────────────────────┐    |
+|  │  ∞-categories: (∞,1)-category of spaces, ∞-topoi (Lurie)  │    |
+|  │  HoTT: types = spaces, paths = proofs, univalence axiom   │    |
+|  │  Derived algebraic geometry: derived ∞-categories, E∞-alg  │    |
+|  │  Cobordism hypothesis: classifies TQFTs via ∞-categories   │    |
+|  └────────────────────────────────────────────────────────────┘    |
 +====================================================================+
 ```
 
@@ -150,9 +158,15 @@ n-MANIFOLDS (n ≥ 5): Surgery theory, h-cobordism theorem.
 
 ---
 
-<!-- @editor[content/P1]: No mention of modern developments the learner explicitly needs: ∞-categories (∞-topoi, (∞,1)-categories in homotopy theory), homotopy type theory (HoTT / Univalent Foundations — topology as a foundation for math), and derived algebraic geometry. These are flagged as "DOES need" in the learner calibration. A single section here orienting the learner to where classical topology meets these modern frameworks would unblock 10-APPLICATIONS.md and set context for all files. -->
+## Modern Developments — Orienting the Landscape
 
-<!-- @editor[content/P2]: Knot theory connections to biology/physics (DNA topology, protein knotting, topological quantum computing via anyons) are listed in "DOES need" but get only a one-liner in the overview diagram. The overview should orient the learner to the depth available and point to 10-APPLICATIONS.md explicitly. -->
+Three modern frameworks sit atop the classical topology developed in files 01–09. All are covered in depth in 10-APPLICATIONS.md; the essential orientation:
+
+**Homotopy Type Theory (HoTT)**: Topology reimagined as a foundation for mathematics. Types are spaces, terms are points, the identity type Id_A(a,b) is the path space, and higher equalities are homotopies. The univalence axiom (Voevodsky): equivalent types are equal — a formalization of "spaces that are homotopy equivalent should be treated as the same." HoTT connects directly to type theory and programming language semantics (TCS connection), and gives a constructive approach to homotopy theory.
+
+**∞-Categories**: The (∞,1)-category of spaces (where objects are spaces, morphisms are maps, 2-morphisms are homotopies, and higher morphisms are homotopies-of-homotopies) replaces the classical category Top for modern homotopy theory. Lurie's "Higher Topos Theory" develops ∞-topoi as the correct framework for sheaf theory with homotopical information. The cobordism hypothesis (Lurie 2009) classifies fully extended TQFTs using ∞-categories.
+
+**Knot Theory and Biology/Physics**: Knot invariants (Alexander polynomial, Jones polynomial, knot Floer homology) classify embeddings of S^1 in S^3. Direct applications: DNA supercoiling (linking number, the Călugăreanu-White-Fuller theorem Lk = Tw + Wr), protein knotting, and topological quantum computing via anyonic braiding (Jones polynomial = Chern-Simons partition function). Full treatment in 10-APPLICATIONS.md.
 
 ## File-by-File Guide
 

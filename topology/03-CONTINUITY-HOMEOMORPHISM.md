@@ -220,7 +220,9 @@ DEFORMATION RETRACT: r: X → A ⊆ X with r|_A = id_A and r ≃ id_X.
 
 ---
 
-<!-- @editor[content/P2]: Missing homotopy type theory (HoTT) connection — directly relevant to the learner per calibration. In HoTT, types are ∞-groupoids; paths between points are identifications; homotopy equivalence becomes the fundamental notion of equality. The identity type Id_A(a,b) is exactly π₁-like structure. Since the learner needs "modern developments (∞-categories, HoTT)" this file — which defines homotopy equivalence and contractibility — is the natural place for a paragraph bridging classical homotopy to HoTT's reinterpretation. -->
+## Bridge: Homotopy Equivalence in HoTT
+
+In Homotopy Type Theory (HoTT / Univalent Foundations), the classical notions defined above are reinterpreted as primitive structure. Types are spaces; a term a : A is a point. The identity type Id_A(a,b) is the path space — a proof that a = b is a path from a to b. A homotopy between maps f, g : A → B is a term of type Π(x:A). Id_B(f(x), g(x)) — exactly a family of paths, one for each x. Contractibility of a type A means: there exists a center c : A such that every a : A has a path from a to c. Homotopy equivalence f : A ≃ B (the fundamental notion) means: f has a two-sided inverse up to homotopy. The univalence axiom (Voevodsky) then asserts: (A ≃ B) ≃ Id_U(A, B) — homotopy equivalent types are *equal* in the universe U. This collapses the distinction between "same up to homeomorphism" and "literally equal," making homotopy equivalence the correct notion of identity for types/spaces. For a TCS reader: this means the identity type in a dependent type theory already carries the homotopy-theoretic structure (π₁ lives in the identity type of the identity type, etc.).
 
 ## Common Confusion Points
 

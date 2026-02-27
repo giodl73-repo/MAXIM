@@ -217,9 +217,46 @@ CURVATURE:
     For S²: ∫_{S²} K dA = 4π = 2π · χ(S²) = 2π · 2. ✓
     For T²: ∫_{T²} K dA = 0 = 2π · 0. ✓
 
-<!-- @editor[content/P1]: Missing Morse theory — the single most important bridge between differential topology and the rest of the guide. Morse theory (Milnor's book is the reference) says: a smooth function f: M → R with isolated non-degenerate critical points completely determines H*(M). Each critical point of index k attaches a k-cell. The Morse inequalities: bₖ ≤ Cₖ (Betti number ≤ count of index-k critical points). The Morse complex gives an efficient chain complex computing H*. This is: (1) the bridge to differential geometry (critical points of the height function on a surface); (2) the foundation of TDA's sublevel-set persistence; (3) the tool used in Smale's h-cobordism proof; (4) the precursor to Floer homology. Its absence is a P1 gap given the learner's profile and the guide's stated scope ("differential topology bridge to differential geometry"). -->
+MORSE THEORY — TOPOLOGY FROM CRITICAL POINTS:
+  A Morse function f: M → R (smooth, non-degenerate critical points)
+  encodes the entire homology H*(M).
 
-<!-- @editor[bridge/P2]: Gauss-Bonnet is given but its generalization — the Chern-Gauss-Bonnet theorem for higher-dimensional manifolds (∫_M Pf(Ω) = χ(M), where Pf is the Pfaffian of the curvature form) — is missing. More importantly, the Atiyah-Singer index theorem (which generalizes Gauss-Bonnet, Hirzebruch-Riemann-Roch, and more) is not mentioned in this guide at all. For a learner who has seen the Chern-Weil material in 08-COHOMOLOGY.md, the index theorem is the apex of the differential topology → differential geometry bridge. -->
+  As c sweeps from min(f) to max(f), the sublevel set M_c = {f ≤ c}:
+    passes index-0 critical point → attach 0-cell (new component)
+    passes index-1 critical point → attach 1-cell (merge or create cycle)
+    passes index-k critical point → attach k-cell (k-handle)
+
+  MORSE INEQUALITIES:
+    bₖ(M) ≤ Cₖ   (Betti number ≤ count of index-k critical points)
+    Σ(-1)ᵏ Cₖ = χ(M)   (strong Morse inequality)
+
+  EXAMPLE — height function on T²:
+    1 minimum (index 0), 2 saddles (index 1), 1 maximum (index 2).
+    b₀ ≤ 1, b₁ ≤ 2, b₂ ≤ 1. Equality holds: b₀=1, b₁=2, b₂=1. ✓
+
+  KEY APPLICATIONS:
+  (1) Smale's h-cobordism theorem: canceling pairs of critical points
+      shows W ≅ M×[0,1] in dim ≥ 6 → proves Poincaré conjecture dim ≥ 5.
+  (2) TDA sublevel-set persistence = Morse theory on a filter function.
+  (3) Floer homology = infinite-dimensional Morse theory on loop spaces.
+
+CHERN-GAUSS-BONNET AND ATIYAH-SINGER:
+  Gauss-Bonnet generalizes to arbitrary even-dimensional manifolds:
+    ∫_M Pf(Ω/(2π)) = χ(M)   (Pf = Pfaffian of curvature 2-form matrix)
+
+  The ATIYAH-SINGER INDEX THEOREM (1963) subsumes this:
+    For an elliptic differential operator D on a compact manifold M:
+    index(D) = dim ker(D) − dim coker(D) = ∫_M ch(σ(D)) · Td(TM ⊗ C)
+
+  Special cases:
+    D = d + d*  (de Rham)  → index = χ(M)  (Gauss-Bonnet)
+    D = ∂̄ + ∂̄* (Dolbeault) → index = χ(O_M) (Hirzebruch-Riemann-Roch)
+    D = Dirac operator      → index = Â(M)  (Â-genus)
+
+  The index theorem connects analytical data (solutions of PDEs) to
+  topological data (characteristic classes) — the apex of the differential
+  topology → differential geometry → analysis bridge.
+  Physics: the chiral anomaly in QFT = index of the Dirac operator.
 ```
 
 ---
@@ -362,7 +399,25 @@ COBORDISM:
   Cobordism classes form a ring under disjoint union (addition) and product (multiplication).
   Thom's theorem: oriented cobordism ring ⊗Q = Q[CP², CP⁴, CP⁶, ...] (polynomial on CP^{2k}'s).
 
-<!-- @editor[content/P2]: Missing the connection between cobordism and TQFT — a key modern application. A TQFT is precisely a symmetric monoidal functor from the cobordism category Cob(n) to Vect. Atiyah's axioms define TQFT in these terms. The cobordism hypothesis (Lurie, 2009) classifies all fully extended TQFTs in terms of ∞-categories. This is the "modern development" connection the learner needs, and cobordism is exactly where it attaches. -->
+COBORDISM → TQFT (the modern development connection):
+  A TOPOLOGICAL QUANTUM FIELD THEORY (TQFT) is a symmetric monoidal functor:
+    Z: Cob(n) → Vect
+  Objects of Cob(n) = closed (n-1)-manifolds (boundaries).
+  Morphisms = n-dimensional cobordisms between them.
+  Z assigns a vector space to each boundary and a linear map to each cobordism.
+  Atiyah's axioms (1988) formalize this.
+
+  COBORDISM HYPOTHESIS (Lurie 2009):
+    Fully extended n-dimensional TQFTs (extending down to points) are
+    classified by fully dualizable objects in the target ∞-category.
+    This is stated and proved in the language of (∞,n)-categories.
+    It connects cobordism theory (the algebraic structure of manifold
+    surgery) to the modern ∞-categorical framework.
+
+  EXAMPLES:
+    2D TQFT ↔ commutative Frobenius algebra (complete classification).
+    3D Chern-Simons theory ↔ modular tensor category (Witten, Reshetikhin-Turaev).
+    4D Donaldson/Seiberg-Witten theory ↔ smooth 4-manifold invariants.
 
 EXOTICA IN HIGH DIMENSIONS:
   Kervaire-Milnor (1963): exotic n-spheres for n ≥ 7.
