@@ -181,8 +181,9 @@ Software: ASPEN Energy Analyzer, SuperTarget, PinchExpress
 
 ## Process Control
 
-<!-- @editor[bridge/P2]: PID control in process engineering is the exact same algorithm as software control loops (rate limiters, backpressure controllers, autoscalers). The learner built CI/CD pipelines that use proportional control (scale by error), integral control (eliminate steady-state offset = windup risk they know), and derivative control (predictive damping). Worth explicitly noting: "The integral windup problem in PID maps to queue accumulation under sustained overload — the exact problem anti-windup reset mechanisms and backpressure systems solve." -->
 ### PID Control Fundamentals
+
+The PID algorithm is identical to software control loops (autoscalers, rate limiters, backpressure controllers). P = scale by current error. I = accumulate past error to eliminate steady-state offset (but risks windup — the same queue accumulation problem under sustained overload that anti-windup resets and backpressure mechanisms solve). D = react to rate of change (predictive damping). See `control-theory/` for the full treatment.
 
 ```
 PID controller output:
@@ -262,8 +263,23 @@ Four strategies, in order of preference:
    (fewer connections, fewer isolation valves, simpler design)
 ```
 
-<!-- @editor[bridge/P1]: HAZOP guide words (NO/MORE/LESS/REVERSE/AS WELL AS/PART OF/OTHER THAN) applied to every process node are structurally identical to systematic fault injection testing — the learner built this at VSTS. Each guide word is a fault category: NO = null/zero, MORE = overload/overflow, LESS = timeout/underflow, REVERSE = backpressure/deadlock, AS WELL AS = contamination/mixed state, PART OF = partial failure, OTHER THAN = wrong type/format error. HAZOP is chaos engineering before chaos engineering existed. This bridge belongs immediately before the guide word list. -->
 ### HAZOP (Hazard and Operability Study)
+
+**Engineering bridge:** HAZOP is systematic fault injection testing — chaos engineering before chaos engineering existed. Each guide word below is a fault category applied to every process node:
+
+```
+HAZOP GUIDE WORD     FAULT INJECTION EQUIVALENT
+──────────────────────────────────────────────────────────────────────────
+NO / NOT             Null input, zero throughput, connection drop
+MORE                 Overload, buffer overflow, resource exhaustion
+LESS                 Timeout, underflow, degraded throughput
+REVERSE              Backpressure, deadlock, inverted dependency
+AS WELL AS           Contamination, mixed state, unexpected side-channel
+PART OF              Partial failure, incomplete write, split-brain
+OTHER THAN           Wrong type, format error, misrouted message
+```
+
+The structured per-node walkthrough — asking "what if MORE flow at this point?" for every stream — is the same systematic enumeration that FMEA and chaos experiments use. The difference: HAZOP is done on paper before the plant is built.
 
 Systematic team review of process by applying guide words to each node (stream or equipment):
 

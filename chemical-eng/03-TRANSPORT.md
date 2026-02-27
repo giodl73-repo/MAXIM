@@ -21,7 +21,7 @@ Same structure: flux = −(diffusivity) × d(concentration)/dy
 
 Transport phenomena (BSL after Bird, Stewart & Lightfoot) unifies the three transport modes.
 This reveals deep analogies that let you transfer correlations across domains.
-<!-- @editor[bridge/P2]: The BSL unification (momentum/heat/mass all governed by flux = -diffusivity × gradient) has a compelling parallel in distributed systems: throughput/latency/packet loss are also three coupled transport phenomena in a network, all governed by queue dynamics and driving forces. The Peclet number (advection vs diffusion) maps directly to bandwidth vs latency dominance in a system. This bridge would land well for a VP Eng who has spent years reasoning about service-to-service transport. Worth explicit mention here before diving into the constitutive laws. -->
+The BSL unification has a structural parallel in distributed systems: throughput, latency, and packet loss are three coupled transport phenomena in a network, all governed by queue dynamics and driving forces (demand gradients). The Peclet number (advection/diffusion ratio) maps to bandwidth-dominated vs latency-dominated regimes — high Pe means the bulk flow matters more than local mixing, just as high-bandwidth links mean propagation delay dominates over queuing delay.
 
 ---
 
