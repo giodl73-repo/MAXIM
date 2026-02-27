@@ -197,6 +197,7 @@ LONGBOW VS. CROSSBOW:
 
 ---
 
+<!-- @editor[bridge/P2]: Longbow rate-of-fire analysis (10-12/min vs crossbow 1-2/min) is correctly framed as the key tactical advantage, but no bridge to throughput/concurrency modeling: the longbow's edge is a parallelism advantage — 7,000 archers each issuing 10 shots/min = 70,000 rounds/min aggregate throughput vs. 6,000 crossbowmen at 1-2/min = 6,000-12,000/min. The learner with distributed systems background will immediately see this as a throughput vs. latency tradeoff and understand why training cost (years) was the bottleneck limiting replication. One sentence framing this would be high-value. -->
 ## Battle of Crécy (1346): Archery as Military Paradigm Shift
 
 ```
@@ -270,6 +271,7 @@ SURVIVING EXAMPLES:
   -- "Uppies" vs "Doonies"
 ```
 
+<!-- @editor[content/P2]: Section on Calcio Storico is one paragraph summarizing the modern event but gives no historical depth — when does it originate? What are its documented medieval rules? What is the evidence for continuity vs. 19th-century revival? The claim "direct descendant" needs support: is this continuous practice or romantic reconstruction? -->
 **Calcio Storico (Florence)**: Survives as a direct descendant of Renaissance mob football. Played in Piazza Santa Croce, Florence. Four teams representing historical city quarters: Azzurri (Santa Croce), Bianchi (Santo Spirito), Rossi (Santa Maria Novella), Verdi (San Giovanni). 27 players per side. 50-minute match. Combination of football and wrestling -- punching, choking, and kicking allowed. No substitutions, no stoppage time for injuries. Often described as the world's most violent sport still played. Annual festival (June, patron saint John the Baptist's feast).
 
 ---

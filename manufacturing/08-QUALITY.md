@@ -31,6 +31,8 @@ QUALITY SYSTEM HIERARCHY
 
 ---
 
+<!-- @editor[bridge/P2]: Missing bridge from software monitoring/observability to manufacturing SPC — learner calibration explicitly states "knows statistical process control from software." The bridge should go the other direction here: manufacturing SPC is the origin; software SRE metrics (P99 latency, error rate control charts, anomaly detection) are the derived version. The parallel is direct: control chart → time-series anomaly detection, UCL/LCL → alert thresholds, special cause → incident, common cause → baseline noise, Cpk → process capability as a service-level metric. A "if you know software monitoring, here's what maps to manufacturing SPC" table would immediately orient this learner. -->
+
 ## Statistical Process Control (SPC)
 
 ### The Core Concept

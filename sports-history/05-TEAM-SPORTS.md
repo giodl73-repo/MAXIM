@@ -166,6 +166,7 @@ AMERICAN PROFESSIONAL FOOTBALL TIMELINE:
 
 **The Super Bowl as American cultural event**: Super Bowl viewership (domestic): typically 100-115M in recent years (Super Bowl LVIII, 2024: 123M -- largest US TV audience ever). The halftime show budget exceeds many concert productions. Advertising: 30-second spot ~$7M (2024). Super Bowl Sunday is de facto American national holiday -- second highest food consumption day after Thanksgiving.
 
+<!-- @editor[bridge/P2]: CTE biomechanics are mentioned (tau protein tangles, repeated subconcussive hits) but the force physics are absent. The learner interest in biomechanics / force analysis is directly applicable: CTE causation is now understood as rotational acceleration of the brain within the skull (not linear deceleration), measured in radians/s². Modern helmet testing (NOCSAE standard) measures peak linear g-force, which is poorly correlated with rotational acceleration — this is why better helmets haven't solved CTE. The physics gap between what helmets are tested for vs. the injury mechanism they fail to prevent is a significant engineering story worth a sentence or two. -->
 **CTE (Chronic Traumatic Encephalopathy)**: The defining medical crisis of American football:
 ```
 CTE TIMELINE:
@@ -332,6 +333,7 @@ BASEBALL ANALYTICS EVOLUTION:
      story (film 2011: Brad Pitt as Beane)
   -- Every team subsequently adopted analytics
 
+<!-- @editor[content/P2]: Statcast system description is thin on the underlying technology. The learner's interest in officiating technology and computer vision means the implementation is relevant: Statcast uses Doppler radar (TrackMan) for ball tracking + stereoscopic cameras for player tracking, fusing two sensor modalities. The spin rate measurement (ball RPM) is from radar Doppler shift — the same principle as police speed guns applied to ball rotation axis. Pitch movement is then modeled from spin axis + spin rate + velocity using aerodynamic lift equations (Magnus effect). This is applied physics + signal processing, not just "a metric" — worth expanding. -->
   STATCAST ERA (2015-present):
   -- MLB installed Statcast (Trackman radar + camera
      system) in all 30 parks 2015-2016

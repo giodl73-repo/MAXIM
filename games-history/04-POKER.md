@@ -474,6 +474,8 @@ PLURIBUS (2019):
   Defeated professional players in 6-handed play.
   Most significant AI milestone for multi-player incomplete-
   information games.
+<!-- @editor[content/P2]: The "Nash-like solution" phrasing understates what Pluribus actually uses — Pluribus computes a "blueprint" strategy for the full game using a variant of MCCFR (Monte Carlo CFR), then uses real-time search (depth-limited solving) during actual play; the key technical insight is that in >2-player games there is no minimax theorem guaranteeing a unique value, so Pluribus targets a strategy that is unexploitable in a looser sense; this is a meaningful distinction for a TCS reader -->
+<!-- @editor[content/P2]: The convergence rate of CFR (O(1/√T)) is stated above but the improvement to CFR+ (linear convergence in practice, Tammelin 2014) is missing — CFR+ is what Libratus and modern solvers actually use, and it converges much faster in practice -->
 ```
 
 ---

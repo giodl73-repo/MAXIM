@@ -489,6 +489,7 @@ ID SOFTWARE TECHNICAL LINEAGE
   │   │  ALLOWS: non-orthogonal walls (still 2D map)        │
   │   │  STILL: no true 3D (map is 2D, rendered 2.5D)       │
   │   └─────────────────────────────────────────────────────┘
+  │   <!-- @editor[bridge/P2]: BSP trees are a direct application of space partitioning / computational geometry — the learner with MIT TCS background knows BSP trees from the computational geometry literature (de Berg et al.); a one-line note that BSP tree construction is O(n²) in worst case but empirically fast for architectural geometry, and that the same data structure appears in ray tracers (kd-trees are a BSP variant) and collision detection, would tie this to the learner's CS foundations -->
   ├── Multiplayer via IPX (LAN) and serial/modem
   ├── WAD file format → moddability → huge community
   │   WAD = "Where's All the Data" — separated engine from assets
@@ -703,6 +704,7 @@ MOBILE GAMING REVENUE FUNNEL (F2P MODEL)
   └── Power creep: old purchases made obsolete by new releases
 ```
 
+<!-- @editor[bridge/P2]: The F2P whale economics maps cleanly to network effects and price discrimination (first/second/third degree) — the learner's background in platform economics would recognize that F2P is perfect price discrimination (each player pays their reservation price via whale/dolphin/minnow segmentation) combined with a two-sided platform problem (more players → better match quality → more engagement → more spending); this bridge from platform economics to the ARPU funnel would resonate -->
 **App Store Price Compression:** When the App Store launched in 2008, Myst — the benchmark prestige game — cost $5.99. Within six months, $.99 was the ceiling for perceived "fair" pricing. The entire industry collapsed to $0.99 or free + IAP. The discovery algorithm rewarded new releases, creating a treadmill where sustainable revenue required IAP rather than unit sales.
 
 **Genshin Impact (2020)** as the inflection point: a console-quality open-world RPG, free to play, monetized through gacha character pulls. Made $2.8B in first year. Demonstrated that the quality ceiling of mobile games was no longer a constraint — the platform could deliver AAA experiences with F2P monetization.
@@ -753,6 +755,7 @@ ESPORTS INFRASTRUCTURE STACK
 
 ### StarCraft: Brood War in Korea (1998–2012)
 
+<!-- @editor[bridge/P2]: StarCraft as a partially observable stochastic game (POSG) deserves explicit framing for the TCS reader — unlike chess (perfect information) or poker (imperfect information, no real-time), SC:BW is a real-time game with fog of war, simultaneous moves, and continuous action space (unit positions, timing); this places it in a distinct complexity class from the games discussed in 00-OVERVIEW.md; AlphaStar's challenges compared to AlphaZero (chess) trace directly to these structural differences -->
 The anomaly that created professional esports: South Korea in 1998 had a perfect storm — post-Asian financial crisis, government investment in PC bang (internet cafe) infrastructure, cheap gigabit broadband, and StarCraft: Brood War as the game.
 
 **OGN (Ongamenet)** launched the first professional StarCraft league in 1999. **MBC Game** followed. The top players signed to teams backed by Korean chaebols (SK Telecom T1, KT Rolster, Samsung Khan). These were salaried athletes with coaches, practice schedules, and fan clubs.
@@ -930,6 +933,7 @@ Games are measurable, deterministic (or precisely probabilistic), and have centu
 **Why these matter for software engineers:**
 
 AlphaZero is architecturally the most important: it demonstrates that a self-improving system can surpass all human knowledge in a formally-specified domain given only the rules. The architecture (MCTS + residual CNN + self-play RL) is the direct predecessor of techniques used in modern LLM alignment (RLHF = RL from Human Feedback, which is RL from soft labels rather than self-play, but same algorithmic family).
+<!-- @editor[bridge/P2]: The connection between MCTS UCB1 selection and the multi-armed bandit problem is missing — MCTS's selection policy (UCB1: Upper Confidence Bound) is a direct solution to the exploration-exploitation tradeoff from the multi-armed bandit literature (Auer-Cesa-Bianchi-Fischer 2002); for a TCS learner who has seen bandit problems, naming UCB1 explicitly and noting it provides O(√(n log n)) regret would make the "why MCTS works" story complete -->
 
 The progression Chess → Go → StarCraft II represents increasing action space complexity, partial observability, and multi-agent dynamics. OpenAI Five solving Dota 2 is significant precisely because the game has continuous state, partial observability (fog of war), heterogeneous agents (5 different heroes per side), and extremely long time horizons (50-minute games with credit assignment across ~20,000 steps).
 

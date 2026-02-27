@@ -121,6 +121,8 @@ Implication: No computational system has genuine understanding — only *simulat
 
 ---
 
+<!-- @editor[bridge/P2]: Global Workspace Theory is presented as a cognitive architecture with a "broadcast" mechanism, but the connection to software architecture is not made. GWT is structurally identical to a message bus / publish-subscribe system: specialized modules are subscribers, the global workspace is the shared bus, and "ignition" is a broadcast event. The fronto-parietal network is the bus controller. For a software architect this is the immediately graspable framing — and it raises the right question: what's the routing/arbitration policy? (attention = priority queue). Make this explicit. -->
+
 ## Integrated Information Theory (IIT)
 
 **Tononi (2004, 2008, 2014)**:
@@ -158,6 +160,8 @@ Low phi:  Parts can be understood independently
 - IIT is unfalsifiable in practice
 - Scott Aaronson (CS): IIT leads to absurd conclusions about large grids of logic gates
 
+<!-- @editor[bridge/P2]: Aaronson's critique is mentioned but not given the weight it deserves for a CS reader. Aaronson showed that IIT implies a large 2D grid of XOR gates would have astronomical Φ and thus extremely high consciousness — which most people find absurd. His blog post "Why I Am Not An Integrated Information Theorist" (2014) is the canonical CS-person's dissection of IIT's problems. For this learner, this is the most credible external validity check on IIT and deserves more than a single bullet. Add 2-3 sentences on the computational complexity argument specifically. -->
+
 ---
 
 ## Higher-Order Theories (HOT)
@@ -183,6 +187,8 @@ FIRST-ORDER STATE:             HIGHER-ORDER THOUGHT:
 **HOT vs GWT**: Both require "higher-level" processing for consciousness. GWT says *broadcasting* = consciousness; HOT says *meta-representation* = consciousness. Empirically, these are hard to distinguish.
 
 ---
+
+<!-- @editor[bridge/P2]: The Predictive Processing / Free Energy section is the most important for this learner — it connects directly to variational inference in ML. Friston's free energy IS the negative ELBO from variational Bayes: F = -ELBO = KL[Q(θ)||P(θ)] - log P(data). Minimizing free energy = maximizing the evidence lower bound, the same objective used in VAEs (variational autoencoders). The brain as an approximate inference engine, using Q(θ) as the variational posterior, is a precise mapping this reader will recognize. Make this bridge explicit here and cross-reference 08-COMPUTATIONAL-MODELS. -->
 
 ## Predictive Processing and Active Inference
 

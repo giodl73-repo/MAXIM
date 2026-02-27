@@ -155,6 +155,7 @@ BINOCULAR CUES:
 +----------------------------------+
 ```
 
+<!-- @editor[bridge/P2]: MLE/inverse-variance weighting is stated but not connected to the Bayesian stats background. Add one sentence: this is the same precision-weighted combination known from Kalman filter sensor fusion — the optimal Bayesian estimate under Gaussian noise is a precision-weighted (inverse-variance) average of the priors and likelihoods. The bridge from sensor fusion makes the Bayesian brain hypothesis immediately concrete for this learner. -->
 **Bayesian cue combination** (Ernst & Banks 2002): depth cues are combined as weighted averages, with weights proportional to their reliability (inverse variance). This is Maximum Likelihood Estimation. Humans do this near-optimally — a major empirical confirmation of the Bayesian brain hypothesis.
 
 ---
@@ -238,6 +239,8 @@ COMMON MISCONCEPTION:
 **Transience and sparse representation**: Visual perception is not a photograph. It's a hypothesis generator that picks the most relevant features for the current task. Everything else is available for rapid sampling if needed, but is not maintained in detail.
 
 ---
+
+<!-- @editor[structure/P2]: Decision Cheat Sheet maps phenomena to Marr levels, which is useful, but doesn't answer the practical question a technical reader brings: "given a perception failure (illusion, blindness, misperception), what level of the system is responsible and what can be done about it?" The "where it arises" column doesn't guide decisions. Rework as "use-when" rows: e.g., designing a UI alert → exploit bottom-up salience (preattentive); designing a training simulation → account for top-down expectation effects. -->
 
 ## Decision Cheat Sheet
 

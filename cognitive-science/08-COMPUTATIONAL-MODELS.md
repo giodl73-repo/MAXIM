@@ -82,6 +82,8 @@ SOAR ARCHITECTURE:
 
 **Key property**: SOAR explains *learning* via chunking — the same process that explains chess expertise emerges from the architecture.
 
+<!-- @editor[bridge/P2]: SOAR's production rules (IF-THEN) and conflict resolution / decision cycle should be connected to production systems and rules engines that a software architect knows — Drools, RETE algorithm, forward/backward chaining. SOAR's conflict-resolution strategy (universal subgoaling) is an architectural choice equivalent to picking a conflict-resolution strategy in a rules engine. This is a natural bridge for the software systems background. -->
+
 ### ACT-R (Anderson 1983, 1993, 2007)
 
 The most empirically successful unified cognitive architecture. **Rational Analysis** foundation: cognitive mechanisms are near-optimal given brain's statistical environment.
@@ -205,6 +207,8 @@ Fodor & Pylyshyn's claim:
 
 The debate is not resolved. It has become the core of current NLP+AI research.
 
+<!-- @editor[content/P2]: The symbol vs sub-symbol debate section mentions that LLMs exhibit "productivity and systematicity in practice" without engaging with the specific failure modes that demonstrate this is illusory. The SCAN/COGS benchmarks, Marcus's systematicity critique of LLMs, and the "reversal curse" (LLMs don't learn "A is B" implies "B is A" reliably) are directly relevant and would give this AI-interested reader the current empirical picture. The 2025 date on the file makes this expectation reasonable. -->
+
 ---
 
 ## Bayesian Brain and Predictive Coding
@@ -252,6 +256,8 @@ HIERARCHY:
 - Surprise: large prediction error = salient, conscious, noticeable
 - Hallucination: top-down predictions dominate, errors suppressed (weak data weighting)
 - Psychedelics: disrupt precision weighting → errors flood consciousness → dissolved world model
+
+<!-- @editor[bridge/P1]: The free energy principle section names KL divergence and calls it "variational Bayes" but does not make the VAE/ELBO connection explicit. For this learner, the bridge is: Friston's free energy F = KL[Q(θ)||P(θ|data)] - log P(data) = -ELBO. The brain as a variational autoencoder: generative model P(data|θ) is the decoder, recognition model Q(θ|data) is the encoder, and learning = maximizing the ELBO by updating both. Active inference adds action: instead of just updating Q to match the world, the agent also changes the world to match its generative model (high-level predictions). This is P1 because it's the single most important technical bridge in the entire series for an AI practitioner — and it's currently absent. -->
 
 ### Free Energy Principle (Friston 2005+)
 
@@ -413,6 +419,8 @@ Otto's beliefs are partly constituted by the notebook's contents.
 **Bayesian brain ≠ brain does exact Bayesian inference**: Real Bayesian inference is computationally intractable for complex environments. The claim is that the brain *approximates* Bayesian inference, or implements it for specific restricted domains. The debate is whether the approximation is good enough to explain behavior.
 
 **Free energy ≠ thermodynamic free energy**: Friston's free energy is a mathematical quantity from variational Bayes (specifically the ELBO — evidence lower bound from variational inference). The name is analogous, not identical, to physical free energy.
+
+<!-- @editor[bridge/P2]: The "free energy ≠ thermodynamic free energy" confusion point correctly identifies the ELBO connection, but the Common Confusion Points section should include the transformer attention → cognitive attention bridge. The multi-head attention mechanism (Q, K, V matrices) is often described as inspired by cognitive attention research, but the actual connection is loose: cognitive attention is serial and capacity-limited (spotlight); transformer attention is parallel and globally computed. The confusion matters because LLM practitioners sometimes over-interpret the "attention" label as implying cognitive plausibility. This is a confusion point this reader will encounter in AI literature. -->
 
 **ACT-R ≠ brain mapping**: ACT-R's module-to-brain-region mapping (e.g., production system = basal ganglia) is a hypothesis that has been tested with fMRI — with reasonable but imperfect success. The mapping is informed by, not proved by, the fMRI data.
 

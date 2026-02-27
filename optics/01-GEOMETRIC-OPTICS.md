@@ -26,6 +26,8 @@ Geometric optics treats light as rays — directed lines that carry power, obey 
 
 ---
 
+<!-- @editor[audience/P2]: Snell's law derivation and TIR basics are covered in MIT undergrad physics — this learner explicitly does not need them. The Fermat's principle framing above is useful (conceptual foundation). The detailed Snell's law section through TIR could be condensed to a reference table (what matters: fiber optic TIR application, critical angle formula) and the depth shifted toward the ABCD matrix formalism and aberration content where the real value is. -->
+
 ## Snell's Law and Total Internal Reflection
 
 ### Snell's Law

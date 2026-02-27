@@ -139,6 +139,8 @@ Reveals: **conscious perception is gated**, not continuous. You can miss things 
 
 ---
 
+<!-- @editor[bridge/P2]: Working memory as a computational resource is the most direct hook for this learner. The transition from the bottleneck models to working memory should explicitly draw the cache analogy: phonological loop ≈ L1 cache (fast, small, serial access); visuospatial sketchpad ≈ separate memory-mapped region; central executive ≈ cache controller/scheduler. The ~3-4 chunk capacity = cache line count, with LTM as backing store. This is the bridge that makes WM limits immediately actionable for system designers. Currently missing entirely. -->
+
 ## Working Memory — Baddeley & Hitch
 
 The Atkinson-Shiffrin "modal model" (1968) had a simple short-term store. Baddeley & Hitch (1974) showed it was actually a multi-component system — the **working memory model**.
@@ -228,6 +230,8 @@ SHALLOW ────────────────────────
 - Elaborative: link to meaning, create associations → much better retention
 
 **Implication for software engineering**: Code review is elaborative rehearsal. Reading docs is maintenance rehearsal. Testing/writing code is elaborative. This is why teaching or writing documentation about something improves your own understanding.
+
+<!-- @editor[bridge/P3]: Natural bridge to the transformer attention mechanism is missing here. The feature integration theory (serial binding via attention spotlight) is structurally analogous to the query-key-value attention mechanism: the spotlight selects features at a location (query), binds them from feature maps (keys/values). This connection is a clean bridge from cognitive attention research to the ML attention mechanism that would resonate for an AI-interested reader. One paragraph would suffice. -->
 
 ---
 

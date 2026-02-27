@@ -411,6 +411,7 @@ BROADCAST:
 
 ## Section 6: Physics of Billiards
 
+<!-- @editor[content/P2]: Billiards as a dynamical systems / chaos example is absent — the reflection of rays off curved surfaces (in carom billiards, cushion angles) is a classic example of billiard dynamical systems studied in mathematical physics; a convex-table billiard is integrable (no chaos), while certain irregular table shapes are ergodic or chaotic; this connection would interest a mathematically-oriented learner and bridge to the mathematics/ section -->
 The physics of billiard ball collisions is interesting enough to be taught in physics courses:
 
 ```

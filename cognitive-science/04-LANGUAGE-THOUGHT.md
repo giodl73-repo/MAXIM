@@ -194,7 +194,11 @@ Most psychologists now accept that concepts involve multiple representations:
 
 ---
 
+<!-- @editor[bridge/P1]: The Chomsky hierarchy is completely absent from this file despite being the most obvious bridge for a TCS reader approaching language and cognition. Context-free grammars (CFG, pushdown automata), context-sensitive, recursively enumerable — this learner knows this cold. The empirical status of Chomsky's claims about natural language grammar (does English require context-sensitive power? Mildly context-sensitive — Joshi 1985? The GPSG/LFG/Minimalism succession) is exactly what they would want to know. The current file covers aphasia and Sapir-Whorf but skips the computational theory of syntax entirely. This is a P1 gap for this learner profile. -->
+
 ## Language of Thought — Mentalese (Fodor)
+
+<!-- @editor[bridge/P2]: The Language of Thought arguments (systematicity, productivity) are the same as the formal language theory arguments for recursive grammars: infinite sentences from finite rules = recursion = at minimum CFL power. Fodor's productivity argument is structurally identical to the argument that regular languages can't capture unbounded center embedding — which this learner knows from automata. Make the connection explicit: if you accept the productivity argument, you've already accepted that mental representations have at minimum pushdown-automaton-level structure. -->
 
 **The claim** (Jerry Fodor, "The Language of Thought," 1975):
 Thinking is computation over a **structured symbolic mental language** (Mentalese) that is distinct from any natural language.
@@ -291,5 +295,7 @@ UNDERSTANDING IS SEEING:
 **Sapir-Whorf is not "does language affect thought at all"**: The question is the *form* and *depth* of the influence. Nobody denies that learning a new word helps you think about the concept. The debate is about whether language *restructures* perceptual/spatial/numerical cognition and whether the effects operate online in non-linguistic tasks.
 
 **Conceptual metaphors ≠ linguistic metaphors**: Lakoff's claim is about the *underlying conceptual structure*, not the surface expression. The metaphors are in the thought, not just the language. "I see what you mean" is evidence of the UNDERSTANDING IS SEEING metaphor whether or not you consciously use it as a metaphor.
+
+<!-- @editor[content/P2]: The cross-reference to linguistics/03-SYNTAX.md for the Chomsky hierarchy is appropriate, but this file should not defer all computational syntax content to that reference. At minimum, a 1-paragraph summary of the hierarchy's empirical status for natural language (CFL insufficient → Shieber 1985 Swiss German; mildly context-sensitive is current consensus) belongs here, since it directly bears on the Sapir-Whorf and Language of Thought discussions in this very file. -->
 
 **Cross-reference**: For the formal linguistic treatment of syntax and semantics (Chomsky hierarchy, lambda calculus semantic composition), see `linguistics/03-SYNTAX.md` and `linguistics/04-SEMANTICS.md` (Session 12). For the neural implementation of language areas, see `neuroscience/02-SYSTEMS-CIRCUITS.md`.
