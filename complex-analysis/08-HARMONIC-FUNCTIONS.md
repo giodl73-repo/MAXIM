@@ -159,7 +159,9 @@ where ∂/∂n is the outward normal derivative on ∂Ω.
 
 ---
 
-<!-- @editor[bridge/P2]: The file covers 2D harmonic functions but does not bridge to 3D or n-dimensional harmonic analysis. The fundamental difference — in 2D, the Laplacian is connected to holomorphic functions via CR; in ℝⁿ for n≥3, that connection breaks — is significant for a learner who may encounter 3D PDE contexts. A one-paragraph note on "Why the complex analysis approach is special to 2D" would help locate this material in the broader landscape. -->
+**Why the complex analysis approach is special to 2D.** Everything in this file depends on the connection: harmonic function = real part of holomorphic function. This is fundamentally a 2D phenomenon. In ℝⁿ for n ≥ 3, Laplace's equation ∇²u = 0 still has solutions (harmonic functions), and the maximum principle, mean value property, and Harnack inequality all generalize. But the *holomorphic function machinery* does not: there is no notion of "holomorphic" in ℝ³ that links to ∇²u = 0 (the closest analogue, quaternionic analysis, does not have the same power). Conformal maps in ℝⁿ for n ≥ 3 are severely restricted — only Möbius transformations (Liouville's theorem in differential geometry), not the infinite-dimensional family of holomorphic maps in 2D. The fundamental solution also differs: log|z| in 2D vs. 1/|x|^{n−2} in ℝⁿ. For 3D PDEs, one uses Green's functions, spherical harmonics, and potential theory directly — without the conformal mapping shortcuts available here.
+
+---
 
 ## Subharmonic and Superharmonic Functions
 

@@ -202,8 +202,6 @@ The **Riemann-Roch theorem** counts linearly independent meromorphic functions a
 
 ---
 
-<!-- @editor[bridge/P1]: The Weierstrass ℘-function satisfies (℘')² = 4℘³ − g₂℘ − g₃ and this defines an elliptic curve. The file correctly states this. But the payoff — that this is the same curve used in elliptic curve cryptography (ECC) over finite fields, and the group law on the torus corresponds exactly to the chord-and-tangent group law on the cubic — is absent. This is the highest-value bridge for this learner: complex torus → Weierstrass equation → ECC group law. Even two sentences closing this loop would be P1-level content for the stated learner calibration. -->
-
 ## Elliptic Functions (Torus Surfaces)
 
 A torus ℂ/Λ (Λ = ℤω₁ + ℤω₂ a lattice) carries **doubly periodic meromorphic functions**: functions f with f(z + ω₁) = f(z) and f(z + ω₂) = f(z).
@@ -220,11 +218,28 @@ Properties:
 
 **Significance**: The map z ↦ (℘(z), ℘'(z)) embeds ℂ/Λ into ℙ² as an elliptic curve. The geometry of elliptic curves (central to number theory, cryptography) is the complex analysis of tori.
 
+**The cryptography bridge: torus → Weierstrass equation → ECC.** The equation (℘')² = 4℘³ − g₂℘ − g₃ is a Weierstrass cubic — the *same* form Y² = X³ + aX + b used in elliptic curve cryptography (ECC) over finite fields 𝔽ₚ. The group law is identical in both settings: on the complex torus ℂ/Λ, addition is z₁ + z₂ mod Λ; on the cubic curve, this corresponds exactly to the chord-and-tangent construction (draw a line through P₁, P₂; it hits the curve at a third point; reflect to get P₁ + P₂). Over ℂ the group is a torus (S¹ × S¹). Over 𝔽ₚ the group is finite, and the discrete logarithm problem in this group is the basis for ECDH and ECDSA. The complex-analytic structure (lattice, j-invariant, complex multiplication) directly informs which curves over 𝔽ₚ are cryptographically strong.
+
 ---
 
-<!-- @editor[content/P2]: The Riemann-Roch theorem is mentioned in one sentence ("Riemann-Roch counts linearly independent meromorphic functions...") but the statement is not given. For this learner, the statement l(D) − l(K−D) = deg(D) + 1 − g, and specifically its consequence that every genus-0 curve is ℙ¹ and every genus-1 curve is a cubic, is load-bearing for the algebraic geometry connection. A brief statement and corollary table would not be excessive here. -->
+**Riemann-Roch Theorem** — the central counting result for compact Riemann surfaces:
 
-<!-- @editor[bridge/P2]: The moduli space of Riemann surfaces — how different complex structures on a genus-g surface are parameterized (Teichmüller theory, dimension 3g−3) — is not mentioned. For a learner asking "how many distinct complex structures can a genus-2 surface have?", this is the answer and it bridges directly to algebraic geometry (moduli of curves Mg). A pointer sentence is sufficient. -->
+For a divisor D on a compact surface S of genus g, with K the canonical divisor:
+
+    l(D) − l(K − D) = deg(D) + 1 − g
+
+where l(D) = dim of space of meromorphic functions with poles bounded by D.
+
+| Consequence | Follows from |
+|------------|-------------|
+| Every genus-0 curve is ℙ¹ | l(p) = 2 for a point p → nonconstant meromorphic function of degree 1 → isomorphism to ℙ¹ |
+| Every genus-1 curve embeds as a cubic | l(3p) = 3 → embedding in ℙ² as degree-3 curve (Weierstrass form Y² = X³ + aX + b) |
+| Genus-2 curves are hyperelliptic | l(K) = 2 → canonical map is 2:1 to ℙ¹ |
+| g ≥ 2 curves embed in ℙ^{g-1} | l(K) = g → canonical embedding (for non-hyperelliptic) |
+
+**Moduli of Riemann surfaces.** Different complex structures on a genus-g topological surface are parametrized by the **moduli space M_g**, which has complex dimension 3g − 3 (for g ≥ 2). The construction uses Teichmüller theory: Teichmüller space T_g is a (3g−3)-dimensional complex manifold, and M_g = T_g / (mapping class group). For g = 1: M₁ = ℍ/SL(2,ℤ) (one complex parameter τ, the modular parameter of the torus). For g = 2: M₂ has dimension 3.
+
+---
 
 ## Connection to Topology (MIT Background)
 

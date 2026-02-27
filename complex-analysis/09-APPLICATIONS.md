@@ -205,9 +205,15 @@ This is the discrete-time counterpart of s-plane stability. The unit circle in t
 
 ---
 
-<!-- @editor[content/P2]: Computational complex analysis — numerical methods for conformal maps (the Schwarz-Christoffel toolbox, Zipper method, Schwarz-Christoffel MATLAB/Python packages), numerical evaluation of contour integrals, and the Cauchy interpolation formula — is absent from this applications file. For a learner who may use complex analysis computationally, this gap is significant. At minimum, a one-paragraph note on how the SC Toolbox works and where FFT-based contour integration lives. -->
+## Computational Complex Analysis
 
-<!-- @editor[content/P2]: Discrete analytic functions and the discrete Z-transform / DFT connection are not developed. The DFT is a contour integral on the unit circle evaluated at N equally-spaced points: X[k] = Σ x[n] e^{-2πink/N} = X(z) evaluated at z = e^{2πik/N} (the N-th roots of unity). The FFT algorithm computes these N residues in O(N log N). This bridge — from continuous contour integration to discrete FFT — is exactly the kind of concrete application that earns complex analysis its engineering street credibility. -->
+**Numerical conformal mapping.** The Schwarz-Christoffel formula (04-CONFORMAL-MAPS.md) is computable: the SC Toolbox (Driscoll, MATLAB/Python) numerically solves the parameter problem (finding pre-image points zⱼ for polygon vertices) by Newton iteration, then evaluates the integral via adaptive quadrature. For general (non-polygon) domains, the Zipper algorithm and circle-packing methods compute Riemann maps numerically. These tools make the "conformally map Ω to disk, solve, map back" recipe from 08-HARMONIC-FUNCTIONS.md a practical computational strategy, not just a theoretical existence result.
+
+**Numerical contour integration.** The trapezoid rule on periodic contours achieves spectral (exponential) convergence for analytic integrands — this is why FFT-based methods are so effective for contour integrals. For computing matrix functions f(A) (exponentials, square roots), the Cauchy integral representation f(A) = (1/2πi) ∮ f(z)(zI − A)^{−1} dz is evaluated numerically by quadrature on a contour encircling the spectrum — a technique used in production-grade scientific computing libraries.
+
+**DFT as contour integration on the unit circle.** The DFT X[k] = Σ_{n=0}^{N-1} x[n] e^{−2πink/N} is exactly the Z-transform X(z) evaluated at the N-th roots of unity z = e^{2πik/N}. The inverse DFT x[n] = (1/N) Σ_{k} X[k] e^{2πink/N} is the discrete version of the contour integral x[n] = (1/2πi) ∮ X(z) z^{n-1} dz evaluated by the trapezoid rule at N equally-spaced points on the unit circle. The FFT computes all N evaluations in O(N log N) — this is the most practically impactful application of contour integration in engineering.
+
+---
 
 ## Spectral Theory and Resolvent Operators
 
@@ -256,7 +262,9 @@ This "LDOS formula" connects complex analysis to the density of states, central 
 
 ---
 
-<!-- @editor[bridge/P2]: The file covers signal processing applications (Laplace, Z-transform) but does not explicitly connect the Z-transform's region of convergence (ROC) to the Laurent series annulus of convergence from 03-RESIDUES-POLES.md. The statement "Z-transform converges for |z| > R" is given, but the direct identification: ROC = annulus r < |z| < R in Laurent series language, and the causal/anti-causal decomposition corresponding to the two different Laurent expansions in the same annulus — this is the precise technical bridge that makes the connection concrete for DSP work. -->
+**Z-transform ROC = Laurent series annulus.** The Z-transform X(z) = Σ x[n] z^{−n} is a Laurent series in z^{−1}. Its region of convergence (ROC) is an annulus r < |z| < R in the z-plane — exactly the annulus of convergence from Laurent series theory (03-RESIDUES-POLES.md). The causal/anti-causal decomposition maps directly: a causal signal (x[n] = 0 for n < 0) has ROC |z| > R (exterior of a circle, converges for large |z|); an anti-causal signal (x[n] = 0 for n > 0) has ROC |z| < r (interior of a circle). A two-sided signal has an annular ROC. The stability condition (all poles inside unit circle) for a causal system is the statement that the ROC includes |z| = 1, so the DTFT (Z-transform on the unit circle) converges.
+
+---
 
 ## Contour Integrals in Practice — A Toolkit
 

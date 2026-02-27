@@ -213,7 +213,9 @@ POLYGON SHAPES AND THEIR SCHWARZ-CHRISTOFFEL MAPS:
 
 ---
 
-<!-- @editor[bridge/P2]: The upper half-plane ℍ is introduced as a conformal target domain, but its role as the modular parameter space is absent. The Cayley map ℍ → D is presented as a signal-processing tool (which it is), but the deeper application — automorphisms of ℍ form SL(2,ℝ), and the quotient ℍ/SL(2,ℤ) is the moduli space of elliptic curves — is omitted entirely. For a learner bridging to algebraic geometry and number theory, this is exactly the missing link. A one-paragraph pointer would suffice. -->
+**The upper half-plane as moduli space.** Beyond signal processing, ℍ plays a deeper role in number theory and algebraic geometry. The automorphisms of ℍ form SL(2, ℝ) acting by Möbius transformations τ ↦ (aτ+b)/(cτ+d). The discrete subgroup SL(2, ℤ) (integer entries, determinant 1) acts on ℍ, and the quotient ℍ/SL(2, ℤ) is the **moduli space of elliptic curves**: each point τ ∈ ℍ/SL(2, ℤ) parametrizes a conformally distinct torus ℂ/(ℤ + τℤ). The j-invariant j(τ) is the map ℍ/SL(2, ℤ) → ℂ that classifies tori. Modular forms — holomorphic functions on ℍ with prescribed transformation behavior under SL(2, ℤ) — are central to number theory (modularity theorem, Langlands program).
+
+---
 
 ## Riemann Mapping Theorem — Statement and Significance
 

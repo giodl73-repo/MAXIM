@@ -33,27 +33,9 @@ ANALYTIC FUNCTIONS — CONCEPTUAL MAP
 
 ---
 
-<!-- @editor[audience/P2]: The "Complex Number System" section covers rectangular form, polar form, modulus, argument, and conjugate — all material the learner has at reflex level from MIT math. The section exists to derive CR equations but can be cut to a single line: "Write z = x+iy = re^{iθ}; multiplication rotates and scales — geometry that makes CR equations natural." Save the page for content that actually advances understanding. -->
-
 ## The Complex Number System
 
-Before functions, the domain. Every complex number z = x + iy lives in the Argand plane, with:
-
-    Rectangular form:   z = x + iy,   x = Re(z),  y = Im(z)
-    Polar form:         z = r·e^{iθ} = r(cos θ + i sin θ)
-    Modulus:            |z| = √(x² + y²) = r
-    Argument:           arg(z) = θ (multi-valued; principal branch Arg(z) ∈ (−π, π])
-    Conjugate:          z̄ = x − iy
-
-Key arithmetic identities:
-```
-z · z̄ = |z|²                     zz̄ = x² + y²
-|z₁z₂| = |z₁||z₂|                arg(z₁z₂) = arg(z₁) + arg(z₂)
-|z₁ + z₂| ≤ |z₁| + |z₂|         (triangle inequality)
-e^{iπ} + 1 = 0                    (Euler's identity)
-```
-
-**Geometric view**: multiplication by z = r·e^{iθ} rotates by θ and scales by r. This geometry is why analytic functions are conformal (angle-preserving at non-critical points).
+Write z = x + iy = re^{iθ}; multiplication by z rotates by θ = arg(z) and scales by r = |z|. This rotation-and-scaling geometry is why holomorphic functions are conformal at non-critical points — the derivative f'(z₀) acts as a local rotation-scaling on tangent vectors.
 
 ---
 
@@ -278,7 +260,9 @@ At **critical points** (f'(z₀) = 0), angles are multiplied by the order of the
 
 ---
 
-<!-- @editor[content/P2]: The Wirtinger derivative formulation ∂f/∂z̄ = 0 is present but the payoff for SCV is not mentioned. This operator is exactly what generalizes: in ℂⁿ, the ∂̄ operator and the ∂̄-Poincaré lemma (Dolbeault cohomology) are the foundation of SCV. A one-sentence forward pointer here earns its place for this learner. -->
+The Wirtinger formulation is the gateway to several complex variables (SCV): in ℂⁿ, holomorphic means ∂f/∂z̄ⱼ = 0 for all j, and the ∂̄ operator (the Dolbeault complex) becomes the central tool. The ∂̄-Poincaré lemma and Dolbeault cohomology in SCV are direct generalizations of this single-variable formulation.
+
+---
 
 ## The Goursat Theorem
 
