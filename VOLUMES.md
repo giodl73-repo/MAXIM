@@ -28,59 +28,163 @@ ANNEX II — Tools & Platforms  1 volume     20 OS/tool/library reference guides
 
 | Card | Vol | Ray | Section | Epithet | Dirs | Files (deck) | Lines (deck) | Est. Pages | Note |
 |------|-----|-----|---------|---------|------|-------------|-------------|-----------|------|
-| 0 | — | — | Read This First | Before the journey, before knowing. | 1 | 13 | 5,608 | 108 | thin — intentional |
-| 2♣ | NW·I | 1 | Natural World | The immediate world: named, tasted, classified. | 4 | 46 | 18,071 | 348 | |
-| 2♦ | NW·II | 1 | Natural World | Fire, yeast, and salt — the first chemistry. | 4 | 40 | 14,478 | 278 | |
-| 2♥ | NW·III | 1 | Natural World | Six million insect species and a garden. | 4 | 40 | 15,072 | 290 | |
-| 2♠ | NW·IV | 1 | Natural World | Forest, stream, soil, reef — living systems at depth. | 4 | 40 | 12,934 | 249 | |
-| 3♣ | ES·I | 2 | Earth & Space | Stars above, strata below, deep time between. | 3 | 34 | 15,277 | 294 | |
-| 3♦ | ES·II | 2 | Earth & Space | The atmosphere moves; the ocean remembers. | 4 | 39 | 14,130 | 272 | |
-| 3♥ | ES·III | 2 | Earth & Space | Ground underfoot — from soil to planetary crust. | 4 | 38 | 13,897 | 267 | |
-| 3♠ | ES·IV | 2 | Earth & Space | From mantle isotopes to exoplanet atmospheres. | 4 | 40 | 13,442 | 259 | |
-| 4♣ | MC·I | 3 | Material Culture | Color made fast: pigment, coat, weave, dye. | 4 | 45 | 17,164 | 330 | |
-| 4♦ | MC·II | 3 | Material Culture | Fire transforms earth into vessel, lens, ring. | 4 | 43 | 16,028 | 308 | |
-| 4♥ | MC·III | 3 | Material Culture | From cellulose to carbon fiber — chain, sheet, joint. | 4 | 40 | 14,790 | 284 | |
-| 4♠ | MC·IV | 3 | Material Culture | Hand, tool, material — craft before industry. | 4 | 40 | 12,691 | 244 | |
-| 5♣ | LS·I | 4 | Life Sciences | Life: the chemistry that copies itself. | 4 | 46 | 17,332 | 333 | |
-| 5♦ | LS·II | 4 | Life Sciences | Brain, body, mind — the human instrument. | 4 | 37 | 14,908 | 287 | |
-| 5♥ | LS·III | 4 | Life Sciences | Reading the body: genome, microbe, immune defense. | 5 | 51 | 20,810 | 400 | |
-| 5♠ | LS·IV | 4 | Life Sciences | Four billion years of arms race, compressed. | 5 | 50 | 19,816 | 381 | |
-| 6♣ | HI·I | 5 | History & Ideas | How the world got its current shape. | 4 | 49 | 24,187 | 465 | thick — bindable |
-| 6♦ | HI·II | 5 | History & Ideas | Before the tool: the story, the question, the ritual. | 5 | 46 | 21,886 | 421 | thick — bindable |
-| 6♥ | HI·III | 5 | History & Ideas | Logic, ideas in motion, and how we write the past. | 4 | 40 | 13,937 | 268 | |
-| 6♠ | HI·IV | 5 | History & Ideas | Power, mind, morality, and scientific knowledge itself. | 4 | 40 | 15,219 | 293 | |
-| 7♣ | M·I | 6 | Mechanics | Lever, arch, wing — the first engineering. | 3 | 17 | 6,473 | 124 | thin |
-| 7♦ | M·II | 6 | Mechanics | Reaction, fission, and thermodynamic cycles. | 3 | 20 | 8,981 | 173 | thin |
-| 7♥ | M·III | 6 | Mechanics | Every comfortable room hides three invisible networks. | 4 | 40 | 18,326 | 352 | |
-| 7♠ | M·IV | 6 | Mechanics | Hear, see, move, make — wave and wheel at work. | 4 | 37 | 14,816 | 285 | |
-| 8♣ | T·I | 7 | Technology | Silicon, signal, and machine that moves itself. | 3 | 31 | 10,947 | 210 | |
-| 8♦ | T·II | 7 | Technology | Verified systems — from implant to formal proof. | 3 | 26 | 12,810 | 246 | |
-| 8♥ | T·III | 7 | Technology | Building on ground that moves beneath our feet. | 4 | 34 | 15,500 | 298 | |
-| 8♠ | T·IV | 7 | Technology | The smallest scale, the largest grid. | 3 | 30 | 11,288 | 217 | |
-| 9♣ | SS·I | 8 | Social Sciences | Price, incentive, game, and the numbers behind policy. | 5 | 33 | 13,314 | 256 | |
-| 9♦ | SS·II | 8 | Social Sciences | The ordered rewards of law and state. | 4 | 35 | 12,020 | 231 | |
-| 9♥ | SS·III | 8 | Social Sciences | Why people break rules, change minds, join groups, fall ill. | 4 | 35 | 13,179 | 253 | |
-| 9♠ | SS·IV | 8 | Social Sciences | Media frames reality; institutions frame nations. | 4 | 40 | 15,912 | 306 | |
-| 10♣ | LC·I | 9 | Language & Comm | Sound to glyph — the substrate of recorded thought. | 4 | 46 | 21,248 | 409 | |
-| 10♦ | LC·II | 9 | Language & Comm | Print, screen, broadcast — stories at scale. | 4 | 41 | 16,647 | 320 | |
-| 10♥ | LC·III | 9 | Language & Comm | Argument, meaning, sign, and the cost of translation. | 4 | 40 | 15,506 | 298 | |
-| 10♠ | LC·IV | 9 | Language & Comm | From clay tablet to algorithmic feed — same impulse. | 4 | 40 | 14,128 | 272 | |
-| J♣ | MP·I | 10 | Math & Physics | Maxwell, circuit, gate — the formal physical world. | 3 | 44 | 28,995 | 558 | thick — bindable |
-| J♦ | MP·II | 10 | Math & Physics | Shannon's channel, Feynman's qubit, Bode's loop. | 5 | 50 | 19,371 | 373 | |
-| J♥ | MP·III | 10 | Math & Physics | The deep structures that survive all transformation. | 6 | 63 | 22,926 | 441 | thick — bindable |
-| J♠ | MP·IV | 10 | Math & Physics | Mathematics at the limit of physical law. | 6 | 60 | 19,097 | 367 | |
-| Q♣ | AC·I | 11 | Arts & Culture | Column, chord, canvas — the built and composed world. | 4 | 40 | 20,339 | 391 | |
-| Q♦ | AC·II | 11 | Arts & Culture | Light, color, map, game — applied seeing. | 5 | 49 | 24,012 | 462 | thick — bindable |
-| Q♥ | AC·III | 11 | Arts & Culture | The art that must also work. | 4 | 40 | 16,742 | 322 | |
-| Q♠ | AC·IV | 11 | Arts & Culture | Design cuts to what matters. | 4 | 40 | 14,405 | 277 | |
-| K♣ | C·I | 12 | Computing & SW | Theory of computing — automata to agents. | 3 | ~29 | ~16,240 | ~312 | **rebalanced** |
-| K♦ | C·II | 12 | Computing & SW | The software ecosystem — architecture to overviews. | 4 | ~26 | ~20,009 | ~385 | **rebalanced** |
-| K♥ | C·III | 12 | Computing & SW | What computation cannot prove, cannot learn, cannot break. | 4 | 36 | 14,334 | 276 | |
-| K♠ | C·IV | 12 | Computing & SW | No single machine holds the truth. | 3 | 30 | 9,646 | 186 | thin |
-| A♣ | P·I | ● | People | The names behind every equation in the other 51 volumes. | 3 | 55 | 13,193 | 254 | |
-| A♦ | P·II | ● | People | Engineers, pioneers, explorers — applied human will. | 3 | 57 | 9,700 | 187 | thin |
-| A♥ | P·III | ● | People | The human record made permanent. | 3 | 54 | 10,275 | 198 | thin |
-| A♠ | P·IV | ● | People | The ones who changed what was possible. | 3 | 53 | 10,971 | 211 | |
+| 0 | — | — | Read This First | Before the journey, before knowing. | 1 | 13 | 5,608 | 108 | W0 ship |
+| 2♣ | NW·I | 1 | Natural World | The immediate world: named, tasted, classified. | 4 | 46 | 18,071 | 348 | W0 ship |
+| 2♦ | NW·II | 1 | Natural World | Fire, yeast, and salt — the first chemistry. | 4 | 40 | 14,478 | 278 | W0 ship |
+| 2♥ | NW·III | 1 | Natural World | Six million insect species and a garden. | 4 | 40 | 15,072 | 290 | W2 style |
+| 2♠ | NW·IV | 1 | Natural World | Forest, stream, soil, reef — living systems at depth. | 4 | 40 | 12,934 | 249 | W1 arch |
+| 3♣ | ES·I | 2 | Earth & Space | Stars above, strata below, deep time between. | 3 | 34 | 15,277 | 294 | W1 arch |
+| 3♦ | ES·II | 2 | Earth & Space | The atmosphere moves; the ocean remembers. | 4 | 39 | 14,130 | 272 | W0 ship |
+| 3♥ | ES·III | 2 | Earth & Space | Ground underfoot — from soil to planetary crust. | 4 | 38 | 13,897 | 267 | W1 arch |
+| 3♠ | ES·IV | 2 | Earth & Space | From mantle isotopes to exoplanet atmospheres. | 4 | 40 | 13,442 | 259 | W1+W2 arch+style |
+| 4♣ | MC·I | 3 | Material Culture | Color made fast: pigment, coat, weave, dye. | 4 | 45 | 17,164 | 330 | W0 ship |
+| 4♦ | MC·II | 3 | Material Culture | Fire transforms earth into vessel, lens, ring. | 4 | 43 | 16,028 | 308 | W0 ship |
+| 4♥ | MC·III | 3 | Material Culture | From cellulose to carbon fiber — chain, sheet, joint. | 4 | 40 | 14,790 | 284 | W0 ship |
+| 4♠ | MC·IV | 3 | Material Culture | Hand, tool, material — craft before industry. | 4 | 40 | 12,691 | 244 | W0 ship |
+| 5♣ | LS·I | 4 | Life Sciences | Life: the chemistry that copies itself. | 4 | 46 | 17,332 | 333 | W0 ship |
+| 5♦ | LS·II | 4 | Life Sciences | Brain, body, mind — the human instrument. | 4 | 37 | 14,908 | 287 | W0 ship |
+| 5♥ | LS·III | 4 | Life Sciences | Reading the body: genome, microbe, immune defense. | 5 | 51 | 20,810 | 400 | W0 ship |
+| 5♠ | LS·IV | 4 | Life Sciences | Four billion years of arms race, compressed. | 5 | 50 | 19,816 | 381 | W0 ship |
+| 6♣ | HI·I | 5 | History & Ideas | How the world got its current shape. | 4 | 49 | 24,187 | 465 | W0 ship |
+| 6♦ | HI·II | 5 | History & Ideas | Before the tool: the story, the question, the ritual. | 5 | 46 | 21,886 | 421 | W1 arch (sharpen) |
+| 6♥ | HI·III | 5 | History & Ideas | Logic, ideas in motion, and how we write the past. | 4 | 40 | 13,937 | 268 | W0 ship |
+| 6♠ | HI·IV | 5 | History & Ideas | Power, mind, morality, and scientific knowledge itself. | 4 | 40 | 15,219 | 293 | W0 ship |
+| 7♣ | M·I | 6 | Mechanics | Lever, arch, wing — the first engineering. | 3 | 17 | 6,473 | 124 | W0 ship (thin) |
+| 7♦ | M·II | 6 | Mechanics | Reaction, fission, and thermodynamic cycles. | 3 | 20 | 8,981 | 173 | W1+W3 arch+expand |
+| 7♥ | M·III | 6 | Mechanics | Every comfortable room hides three invisible networks. | 4 | 40 | 18,326 | 352 | W0 ship |
+| 7♠ | M·IV | 6 | Mechanics | Hear, see, move, make — wave and wheel at work. | 4 | 37 | 14,816 | 285 | W0 ship |
+| 8♣ | T·I | 7 | Technology | Silicon, signal, and machine that moves itself. | 3 | 31 | 10,947 | 210 | W0 ship |
+| 8♦ | T·II | 7 | Technology | Verified systems — from implant to formal proof. | 3 | 26 | 12,810 | 246 | W0 ship |
+| 8♥ | T·III | 7 | Technology | Building on ground that moves beneath our feet. | 4 | 34 | 15,500 | 298 | W0 ship |
+| 8♠ | T·IV | 7 | Technology | The smallest scale, the largest grid. | 3 | 30 | 11,288 | 217 | W1 arch |
+| 9♣ | SS·I | 8 | Social Sciences | Price, incentive, game, and the numbers behind policy. | 5 | 33 | 13,314 | 256 | W0 ship |
+| 9♦ | SS·II | 8 | Social Sciences | The ordered rewards of law and state. | 4 | 35 | 12,020 | 231 | W0 ship |
+| 9♥ | SS·III | 8 | Social Sciences | Why people break rules, change minds, join groups, fall ill. | 4 | 35 | 13,179 | 253 | W2 style |
+| 9♠ | SS·IV | 8 | Social Sciences | Media frames reality; institutions frame nations. | 4 | 40 | 15,912 | 306 | W0 ship |
+| 10♣ | LC·I | 9 | Language & Comm | Sound to glyph — the substrate of recorded thought. | 4 | 46 | 21,248 | 409 | W0 ship |
+| 10♦ | LC·II | 9 | Language & Comm | Print, screen, broadcast — stories at scale. | 4 | 41 | 16,647 | 320 | W0 ship |
+| 10♥ | LC·III | 9 | Language & Comm | Argument, meaning, sign, and the cost of translation. | 4 | 40 | 15,506 | 298 | W0 ship |
+| 10♠ | LC·IV | 9 | Language & Comm | From clay tablet to algorithmic feed — same impulse. | 4 | 40 | 14,128 | 272 | W2 style |
+| J♣ | MP·I | 10 | Math & Physics | Maxwell, circuit, gate — the formal physical world. | 3 | 44 | 28,995 | 558 | W3 expand (add overview) |
+| J♦ | MP·II | 10 | Math & Physics | Shannon's channel, Feynman's qubit, Bode's loop. | 5 | 50 | 19,371 | 373 | W0 ship |
+| J♥ | MP·III | 10 | Math & Physics | The deep structures that survive all transformation. | 6 | 63 | 22,926 | 441 | W0 ship |
+| J♠ | MP·IV | 10 | Math & Physics | Mathematics at the limit of physical law. | 6 | 60 | 19,097 | 367 | W0 ship |
+| Q♣ | AC·I | 11 | Arts & Culture | Column, chord, canvas — the built and composed world. | 4 | 40 | 20,339 | 391 | W0 ship |
+| Q♦ | AC·II | 11 | Arts & Culture | Light, color, map, game — applied seeing. | 5 | 49 | 24,012 | 462 | W4 structural |
+| Q♥ | AC·III | 11 | Arts & Culture | The art that must also work. | 4 | 40 | 16,742 | 322 | W0 ship |
+| Q♠ | AC·IV | 11 | Arts & Culture | Design cuts to what matters. | 4 | 40 | 14,405 | 277 | W1+W2+W3+W4 |
+| K♣ | C·I | 12 | Computing & SW | Theory of computing — automata to agents. | 3 | ~29 | ~16,240 | ~312 | W0 ship |
+| K♦ | C·II | 12 | Computing & SW | The software ecosystem — architecture to overviews. | 4 | ~26 | ~20,009 | ~385 | W0 ship |
+| K♥ | C·III | 12 | Computing & SW | What computation cannot prove, cannot learn, cannot break. | 4 | 36 | 14,334 | 276 | W0 ship |
+| K♠ | C·IV | 12 | Computing & SW | No single machine holds the truth. | 3 | 30 | 9,646 | 186 | W1+W2+W3 |
+| A♣ | P·I | ● | People | The names behind every equation in the other 51 volumes. | 3 | 55 | 13,193 | 254 | W0 ship |
+| A♦ | P·II | ● | People | Engineers, pioneers, explorers — applied human will. | 3 | 57 | 9,700 | 187 | W3 expand |
+| A♥ | P·III | ● | People | The human record made permanent. | 3 | 54 | 10,275 | 198 | W0 ship |
+| A♠ | P·IV | ● | People | The ones who changed what was possible. | 3 | 53 | 10,971 | 211 | W1 arch |
+
+---
+
+## Improvement Plan — All 52 Volumes
+
+*Grouped into 4 waves by work type. Each volume has one action. Ship-ready volumes (30/30) have no action.*
+*Waves are independent — can run in parallel. Within a wave, volumes are independent.*
+
+### Wave 0 — Ship As-Is (22 volumes, no changes needed)
+
+These volumes scored 27+ with no dimension below 4. Print-ready.
+
+| Card | Vol | Score | Status |
+|------|-----|-------|--------|
+| 2♣ | NW·I — The Taxonomist | 30 | Ship |
+| 2♦ | NW·II — The Brewer | 29 | Ship |
+| 4♣ | MC·I — The Colorist | 30 | Ship |
+| 4♦ | MC·II — The Forger | 30 | Ship |
+| 4♠ | MC·IV — The Joiner | 29 | Ship |
+| 5♣ | LS·I — The Naturalist | 29 | Ship |
+| 5♦ | LS·II — The Empiricist | 28 | Ship |
+| 5♥ | LS·III — The Healer | 27 | Ship |
+| 5♠ | LS·IV — The Selector | 29 | Ship |
+| 6♣ | HI·I — The Chronicler | 28 | Ship |
+| 6♥ | HI·III — The Dialectician | 29 | Ship |
+| 7♥ | M·III — The Provider | 30 | Ship |
+| 8♣ | T·I — The Fabricator | 27 | Ship |
+| 8♦ | T·II — The Verifier | 29 | Ship |
+| 8♥ | T·III — The Planner | 27 | Ship |
+| 9♣ | SS·I — The Strategist | 29 | Ship |
+| 10♣ | LC·I — The Scribe | 29 | Ship |
+| 10♦ | LC·II — The Broadcaster | 28 | Ship |
+| 10♥ | LC·III — The Interpreter | 28 | Ship |
+| J♦ | MP·II — The Analyst | 29 | Ship |
+| Q♣ | AC·I — The Composer | 30 | Ship |
+| K♣ | C·I — The Architect | 30 | Ship |
+| K♥ | C·III — The Prover | 29 | Ship |
+| A♣ | P·I — The Discoverer | 29 | Ship |
+| A♥ | P·III — The Visionary | 28 | Ship |
+
+### Wave 1 — Archetype Sharpening (10 volumes, overview rewrites)
+
+*Fastest improvement. Rewrite or add one OVERVIEW file per volume to make the archetype voice palpable. ~1 hour each.*
+
+| Card | Vol | Score | Arch | Action | What to Write |
+|------|-----|-------|------|--------|--------------|
+| K♠ | C·IV The Sentinel | 19 | 2 | **Add unifying overview** | New `computing/00-SENTINEL-THESIS.md`: Byzantine consensus as the load-bearing insight. FLP impossibility. Trust is distributed. Verify everything. Tie distributed-systems + security-engineering + cloud-architecture into one principle. |
+| Q♠ | AC·IV The Editor | 21 | 2 | **Reframe overview + swap proposal** | Rewrite `graphic-design/00-OVERVIEW` or volume-level intro to foreground "design as reduction." Propose: swap sports-science → AC·III (The Performer, performance optimization) and pull illustration/ or editorial-design/ in. If no swap: reframe sports-science as "editing the body's output." |
+| 2♠ | NW·IV The Ecologist | 25 | 3 | **Strengthen overview voice** | Rewrite volume-level framing to foreground systems ecology: trophic cascades, nutrient cycling, carrying capacity, keystone species. Make each directory a different scale of the same systems story (tree → stream → soil → reef). |
+| 3♣ | ES·I The Timekeeper | 25 | 3 | **Add astronomy OVERVIEW** | Create `astronomy/00-OVERVIEW.md` with deep-time framing: celestial clocks (precession, Milankovitch), geological clocks (radiometric, stratigraphy), paleontological clocks (biostratigraphy). The Timekeeper measures all of them. |
+| 3♥ | ES·III The Cultivator | 23 | 3 | **Reframe overview** | Rewrite volume-level framing: "cultivator" = understanding ground-level systems. Agriculture cultivates soil; geography cultivates spatial knowledge; mineralogy catalogs what's underfoot; planetary-science extends "ground" to other worlds. |
+| 7♦ | M·II The Alchemist | 23 | 3 | **Tie via exergy narrative** | Add or rewrite `energy-systems/00-OVERVIEW.md` centering on exergy destruction as the unifying theme. Chemical-eng transforms feedstock (exergy of mixing). Nuclear transforms fission energy (exergy of radiation). Energy-systems converts primary → useful work (exergy of fuel). The Alchemist's question: where does availability die? |
+| 8♠ | T·IV The Operator | 23 | 3 | **Add operational dynamics** | Rewrite volume overview to foreground real-time decision-making: nanotechnology fabrication control, battery management systems, grid load balancing. The Operator runs things, not just designs them. |
+| A♠ | P·IV The Witness | 22 | 3 | **Unify around leverage points** | Rewrite volume overview: all three directories are about people who found leverage points in systems (Meadows framework). Political reformers found institutional levers. Social reformers made invisible harm visible (data as lever). Visionaries identified leverage points before anyone else saw the system. |
+| 3♠ | ES·IV The Voyager | 25 | 4→sharpen | **Verify remote-sensing** | Check `remote-sensing/` content completeness. If thin, expand. The Voyager sees from afar — remote-sensing is the literal embodiment. |
+| 6♦ | HI·II The Sage | 25 | 4→sharpen | **Sharpen wisdom voice** | Add a paragraph to volume intro: "Before the tool came the story, the question, the ritual. The Sage asks: what did humans reach for before they could build?" Make philosophy, mythology, religious-studies, archaeology, anthropology feel like one person's integrated inquiry. |
+
+### Wave 2 — Style Tightening (6 volumes, add diagrams + cheat sheets)
+
+*Medium effort. Add missing ASCII diagrams, decision cheat sheets, or comparison tables. ~2 hours each.*
+
+| Card | Vol | Score | Style | Action | What to Fix |
+|------|-----|-------|-------|--------|-------------|
+| K♠ | C·IV | 19 | 3 | **Add integration diagram** | Create cross-volume diagram: consensus protocols → authority models → trust boundaries. Show how distributed-systems, security-engineering, and cloud-architecture interlock. |
+| Q♠ | AC·IV | 21 | 3 | **Add cheat sheets** | Add decision cheat sheet to fashion/ and sports-science/. Tighten fashion/ from market-analysis to design-method framing. |
+| 10♠ | LC·IV The Narrator | 26 | 3 | **Add ASCII diagrams** | Add landscape diagram to journalism/, oral-tradition/, epigraphy/. Add decision cheat sheets. Shift from essayistic to reference voice. |
+| 3♠ | ES·IV | 25 | 3 | **Complete remote-sensing** | If remote-sensing/ is thin, add landscape diagram, comparison table, cheat sheet. |
+| 9♥ | SS·III The Witness | 24 | 4→tighten | **Shift register** | Add systems-level diagram to psychology/00-OVERVIEW opening. Shift slightly from "teaching" register to "reference" register. Less explaining, more mapping. |
+| 2♥ | NW·III The Collector | 24 | 4→tighten | **Tighten layering** | Add more aggressive ASCII diagrams to entomology/ and ornithology/. Reduce expository text-heavy sections. Sharpen Collector voice from "competent" to "enthusiastic cataloguer." |
+
+### Wave 3 — Content Expansion (5 volumes, new or deeper content)
+
+*Highest effort. Write new material or deepen existing files. ~4-8 hours each.*
+
+| Card | Vol | Score | Issue | Action | What to Write |
+|------|-----|-------|-------|--------|--------------|
+| 7♦ | M·II The Alchemist | 23 | Len=2 (173pp), Arch=3 | **Expand energy-systems/** | Write or expand `energy-systems/` files: primary vs secondary vs final energy, Carnot limits, LCOE economics, capacity factor, decarbonization pathways, sector breakdown. Target: +100pp to bring volume to ~270pp. |
+| K♠ | C·IV The Sentinel | 19 | Depth=3, Len=2 (186pp) | **Deepen theoretical grounding** | Add Byzantine Fault Tolerance (3f+1), FLP impossibility, CAP theorem formal treatment to distributed-systems/. Add cryptographic primitive grounding to security-engineering/. Target: +80pp. |
+| Q♠ | AC·IV The Editor | 21 | Depth=3 | **Deepen fashion + sports-science** | Fashion: shift from industry structure to design principles (silhouette, proportion, drape, pattern grading). Sports-science: add engineering bridges (biomechanics as applied mechanics, VO2max as metabolic efficiency). |
+| A♦ | P·II The Inventor | 25 | Len=2 (187pp) | **Deepen explorer technical substrate** | Add navigation mechanics (celestial, dead reckoning, chronometer), ship design evolution, cartographic technique to explorer entries. Target: +40pp. |
+| J♣ | MP·I The Experimenter | 25 | Style=4, Arch=4 | **Add mathematics OVERVIEW** | Create `mathematics/00-OVERVIEW.md` — the missing landscape file. Map all 24 modules, show the dependency tree, frame mathematics as experimental discovery (not just formalism). |
+
+### Wave 4 — Structural Proposals (2 volumes, needs decision)
+
+*These may require directory reassignment. Decide before executing.*
+
+| Card | Vol | Score | Proposal | Trade-off |
+|------|-----|-------|----------|-----------|
+| Q♠ | AC·IV The Editor | 21 | **Swap sports-science → AC·III (The Performer)** and bring in a design-editing directory (illustration? editorial-design? book-design?) | Strengthens both Q♠ (Editor = pure design reduction) and Q♥ (Performer = performance optimization). Requires VOLUMES.md update + BOM regeneration. |
+| Q♦ | AC·II The Surveyor | 22 | **Consider splitting** games-history and sports-history into a "Recreation" sub-group, or rewrite the Surveyor overview to make "applied seeing" explicitly tie all 5 directories | Less disruptive: just rewrite the overview. More disruptive: restructure. |
+
+### Summary by Wave
+
+| Wave | Volumes | Work Type | Effort per Vol | Total Effort |
+|------|---------|-----------|---------------|-------------|
+| 0 | 25 | Ship as-is | 0 | 0 |
+| 1 | 10 | Overview rewrites | ~1 hr | ~10 hrs |
+| 2 | 6 | Diagram/cheat sheet adds | ~2 hrs | ~12 hrs |
+| 3 | 5 | New content | ~4–8 hrs | ~20–40 hrs |
+| 4 | 2 | Structural decision | Decision + ~2 hrs | ~4 hrs |
+| **Total** | **52** | | | **~46–66 hrs** |
+
+*Waves 1–4 are independent — can run in parallel. Within each wave, volumes are independent.*
+*Wave 1 gives the most improvement per hour. Start there.*
 
 ---
 
