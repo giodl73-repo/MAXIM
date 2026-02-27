@@ -318,8 +318,8 @@ SURFACE CODE (topological):
 | MDL / BIC | Kolmogorov complexity | Shortest description = best model |
 | IB principle | I(T;X), I(T;Y) | Compress X to keep Y |
 | GAN training | JS divergence | min max = minimizing JSD between distributions |
-<!-- @editor[content/P1]: "Diffusion models | Score matching | Reverse KL + denoising score" — score matching and reverse KL are distinct objectives. DDPM is framed as maximizing a variational lower bound (forward KL on data), not reverse KL. Score matching (Hyvärinen) minimizes E[‖∇log p_θ - ∇log p_data‖²] — a different criterion. The connection to KL exists but the table conflates the methods. Clarify or split into separate rows. -->
-| Diffusion models | Score matching | Reverse KL + denoising score |
+| DDPM (denoising diffusion) | Variational bound (forward KL) | ELBO on data log-likelihood; loss = weighted denoising MSE |
+| Score-based models (Song) | Score matching (Hyvärinen) | min E[‖∇log p_θ - ∇log p_data‖²]; equivalent to denoising at each noise level |
 
 | Crypto Concept | IT Foundation | Connection |
 |----------------|--------------|------------|
@@ -329,4 +329,14 @@ SURFACE CODE (topological):
 | AES MixColumns | Shannon diffusion | Linear diffusion across bytes |
 | QBER threshold | Fano inequality | Error rate bounds Eve's information |
 
-<!-- @editor[structure/P2]: Missing Common Confusion Points section — key gotchas for this file: (1) InfoNCE is a lower bound on MI, not MI itself — maximizing it may not maximize true MI; (2) IB "deep learning compresses" claim (Tishby 2017) is activation-function-dependent and contested — shouldn't be presented as settled; (3) perfect secrecy (IT) vs semantic security (computational) are not just relaxations — the notions are categorically different; (4) GAN "minimizes JSD" holds only for the discriminator at optimality, which never happens in practice. -->
+---
+
+## Common Confusion Points
+
+**InfoNCE is a lower bound on MI, not MI itself.** Maximizing InfoNCE does not guarantee maximizing true mutual information — the bound can be loose, especially in high dimensions. The gap depends on the critic architecture and batch size.
+
+**The IB "deep learning compresses" claim is contested.** Tishby (2017) proposed that deep learning implicitly performs information bottleneck compression during training. Subsequent work (Saxe et al. 2018) showed this is activation-function-dependent: networks with saturating activations (tanh) exhibit compression; ReLU networks generally do not. Do not treat this as settled theory.
+
+**Perfect secrecy (IT) vs semantic security (computational) are categorically different.** Perfect secrecy (I(M;C) = 0) holds against unbounded adversaries — no computational assumption. Semantic security holds against polynomial-time adversaries only. These are not just "relaxed" versions of each other; they are different frameworks with different threat models.
+
+**GAN "minimizes JSD" holds only at discriminator optimality.** The theoretical result (Goodfellow 2014) assumes the discriminator achieves its optimum at each training step. In practice, the discriminator is never optimal, and the actual training dynamics are a complex saddle-point game, not JSD minimization.

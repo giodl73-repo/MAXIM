@@ -142,9 +142,7 @@ Not always tight for single-channel use, but tight in the limit.
 survives the channel. Coherent information = S(output) - S(environment output) = S(output) - S(entanglement with reference). Positive coherent information means quantum info survives.
 
 **No-cloning from linearity**: If cloning |ψ⟩→|ψ⟩|ψ⟩ were possible, it would be a linear map
-only if |ψ⟩ is an eigenstate of the cloning operator — contradicts universality. Quantum capacity
-of any channel ≤ (classical capacity)/2 for this reason (rough intuition).
-<!-- @editor[content/P1]: Claim "Q ≤ C/2" is not a general theorem. The no-cloning argument provides intuition but Q ≤ C is the correct general bound (quantum channel can transmit classical bits at rate C, so Q cannot exceed C). Q ≤ C/2 holds for specific channels (erasure channel where Q = max(0, 1-2p) ≤ (1-p)/2 ≤ C/2) but not generally. The correct statement is Q ≤ C (entanglement-unassisted). Drop the "/2" claim or qualify it as channel-specific. -->
+only if |ψ⟩ is an eigenstate of the cloning operator — contradicts universality. The general bound is Q ≤ C (entanglement-unassisted): quantum capacity cannot exceed classical capacity since classical bits can always encode quantum states at some rate. For specific channels like the quantum erasure channel, a tighter relation Q ≤ C/2 holds (Q = max(0, 1-2p) vs C = 1-p), but this is not a general theorem.
 
 **Quantum erasure channel**: With probability p, qubit erased (receiver told which location).
 Q = max(0, 1 - 2p), C = 1 - p. Erasure of known location allows error correction up to p = ½.

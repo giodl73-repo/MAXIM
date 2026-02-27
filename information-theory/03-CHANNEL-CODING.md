@@ -4,7 +4,28 @@
 
 ## Big Picture
 
-<!-- @editor[diagram/P2]: Opening diagram is a timeline of codes, not a landscape diagram showing how code families relate structurally (block vs convolutional, algebraic vs probabilistic, short-block vs long-block regimes, tradeoffs between rate/distance/complexity). Rework to show the taxonomy and where each code family sits in the rate-vs-complexity space, then let the timeline be a secondary element. -->
+```
+CODE FAMILY TAXONOMY — STRUCTURE AND TRADEOFFS
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                         │
+│  BY STRUCTURE:         BY DESIGN PHILOSOPHY:      BY BLOCK LENGTH:      │
+│  ┌────────────────┐    ┌─────────────────────┐    ┌───────────────────┐│
+│  │ BLOCK CODES    │    │ ALGEBRAIC            │    │ SHORT (n<256)     ││
+│  │ (n,k,d) fixed  │    │ Hamming, BCH, RS,   │    │ Hamming, BCH      ││
+│  │ rate = k/n     │    │ Golay — exact math   │    │ Strong guarantees ││
+│  ├────────────────┤    ├─────────────────────┤    ├───────────────────┤│
+│  │ CONVOLUTIONAL  │    │ PROBABILISTIC        │    │ MEDIUM (256-10K)  ││
+│  │ sliding window │    │ Turbo, LDPC, Polar   │    │ LDPC, Polar       ││
+│  │ (n,k,K) memory │    │ — random-like graphs │    │ Near-Shannon      ││
+│  ├────────────────┤    │   + iterative decode │    ├───────────────────┤│
+│  │ RATELESS       │    └─────────────────────┘    │ LONG (10K+)       ││
+│  │ Fountain/LT/   │                               │ LDPC, Turbo       ││
+│  │ Raptor         │    Rate vs complexity:         │ Capacity-approach ││
+│  └────────────────┘    Algebraic: O(n log n) dec   └───────────────────┘│
+│                        Iterative: O(n) per iter                         │
+│                        Polar: O(n log n) exact                          │
+└─────────────────────────────────────────────────────────────────────────┘
+```
 
 ```
 NOISY CHANNEL CODING THEOREM (Shannon, 1948):
@@ -282,4 +303,16 @@ RANDOM LINEAR NETWORK CODING (RLNC):
 | Polar | Shannon-achieving | O(n log n) | O(n log n) | 5G NR control channels |
 | Fountain (LT, Raptor) | Rate-less, ≈ 1 | O(n log n) | O(n log n) | File broadcast, MBMS |
 
-<!-- @editor[structure/P2]: Missing Common Confusion Points section — standard gotchas belong here: (1) capacity is in bits/channel-use, not bits/second (Shannon-Hartley converts via bandwidth); (2) Shannon capacity is for DMC, AWGN uses continuous channel formula; (3) LDPC threshold phenomenon — below threshold P_e→0 but above it degrades fast; (4) polar code finite-length performance vs asymptotic capacity-achieving claim; (5) sphere-packing bound vs random coding exponent — both exist, different regimes. -->
+---
+
+## Common Confusion Points
+
+**Capacity is in bits per channel use, not bits per second.** Shannon's C = max I(X;Y) is bits/use. To get bits/second, multiply by uses/second. The Shannon-Hartley formula C = B log₂(1 + SNR) already incorporates bandwidth B, giving bits/second directly — but that's the AWGN continuous-channel result, not the general DMC formula.
+
+**Shannon capacity is for DMC; AWGN uses the continuous formula.** The discrete memoryless channel (DMC) has C = max_{p(x)} I(X;Y) over a finite alphabet. The AWGN channel uses C = ½ log(1 + P/N₀W) with continuous inputs. These are different theorems for different channel models.
+
+**LDPC threshold is sharp.** Below the threshold noise level, LDPC error probability drops to zero with block length (like a phase transition). Above threshold, performance degrades rapidly. This is the "waterfall" curve — the transition from P_e ≈ 1 to P_e ≈ 0 is abrupt, not gradual.
+
+**Polar codes are capacity-achieving asymptotically, not at finite length.** Arikan's 2009 result proves polar codes achieve capacity as n → ∞ with O(n log n) encoding/decoding. At practical block lengths (n = 256–2048), polar codes with CRC-aided list decoding are competitive but not dominant — LDPC often outperforms at medium blocks.
+
+**Sphere-packing bound and random coding exponent address different questions.** Sphere-packing (Hamming) gives a hard upper bound on rate for given distance. The random coding exponent gives the error exponent (how fast P_e → 0) at rates below capacity. Both are fundamental but measure different things.
