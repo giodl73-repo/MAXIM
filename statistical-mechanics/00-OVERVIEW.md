@@ -4,6 +4,8 @@
 
 Statistical mechanics is the bridge between microscopic laws (Newtonian or quantum mechanics of individual particles) and macroscopic observables (temperature, pressure, entropy, heat capacity). The central insight is that macroscopic behavior emerges from statistical properties of an astronomically large number (N ~ 10²³) of microscopic degrees of freedom. You don't need to know the trajectory of every molecule — only the probability distribution over microstates. The partition function is the key object: it encodes all thermodynamic information.
 
+<!-- @editor[content/P2]: Overview diagram is strong but the "Ten Files" table lacks conceptual grouping — would benefit from showing which files are foundations (01–04), which are the deep physics peaks (05–06), and which are bridges to CS/ML (07–09). A two-tier index (foundations vs. advanced clusters) would help this learner route through the material more efficiently. -->
+
 ```
 STATISTICAL MECHANICS — CONCEPTUAL STRUCTURE
 ═══════════════════════════════════════════════════════════════════════════════
@@ -164,6 +166,8 @@ This makes statistical mechanics a special case of Bayesian inference applied to
 
 The path integral in quantum field theory is formally identical to the partition function in statistical mechanics, with imaginary time τ = iℏ/kT. Wilson's renormalization group (originally developed for critical phenomena in stat mech) became the foundational tool for modern quantum field theory.
 
+<!-- @editor[content/P2]: This section names the QFT↔stat mech correspondence and the RG connection but does not mention the ML bridge at all — the overview's "Connections" section is incomplete given this learner's calibration. A brief pointer to stat mech → energy-based models → diffusion models as Langevin stochastic processes belongs here to complete the three-way overview. Covered deeply in 09-CONNECTIONS.md but should be surfaced at the landscape level. -->
+
 ---
 
 ## Scales and Orders of Magnitude
@@ -204,3 +208,5 @@ The path integral in quantum field theory is formally identical to the partition
 **The three ensembles give equivalent results in the thermodynamic limit**: For N → ∞, V → ∞ with N/V fixed, the microcanonical, canonical, and grand canonical ensembles give identical macroscopic predictions. They differ only for small systems or near phase transitions (where fluctuations are important).
 
 **Boltzmann's H-theorem does not fully prove the second law**: The H-theorem shows that the Boltzmann H-function decreases over time for classical gases, establishing irreversibility from apparently reversible microscopic dynamics. But this relies on the Stosszahlansatz (molecular chaos assumption) which introduces the time asymmetry. The full statistical mechanical derivation of the second law remains a deep foundational question.
+
+<!-- @editor[content/P2]: Missing confusion point: "Ensemble equivalence breaks near phase transitions" — the overview says ensembles give identical results for large N but doesn't flag the critical point exception, which is a key gotcha (microcanonical can show negative heat capacity in phase coexistence region; canonical cannot). This is covered in 02-MICROCANONICAL.md but should be flagged at overview level as a non-obvious trap. -->

@@ -249,6 +249,8 @@ where T_D = ℏω_D/k_B is the Debye temperature.
 
 ## Spin Statistics Theorem
 
+<!-- @editor[content/P2]: The spin-statistics theorem section states the result and the three requirements but doesn't mention that the proof is notoriously non-trivial — Feynman called it "one of the most important but least well-explained results" in his Lectures. The statement that violating it gives "negative probabilities or negative energy" is correct but the argument deserves one more sentence: the canonical commutation/anticommutation relations for fields of each type are *forced* by Lorentz invariance and locality, not chosen by hand. This context distinguishes this from a "postulate" to a student reading this. -->
+
 **Why bosons → +1 and fermions → −1 under exchange?** The spin-statistics theorem (Pauli 1940, proof via QFT): in any relativistic quantum field theory, integer-spin particles are bosons and half-integer-spin particles are fermions.
 
 The proof requires:
@@ -329,5 +331,9 @@ OCCUPATION vs ENERGY:
 **The Fermi energy is the chemical potential at T=0, not at finite T**: At finite T, the chemical potential μ(T) shifts slightly from E_F. For metals: μ(T) ≈ E_F[1 − (π²/12)(k_BT/E_F)² + ...]. The shift is tiny because T << T_F for metals.
 
 **BEC does not require interactions**: Ideal non-interacting bosons show BEC. In real systems (liquid ⁴He, cold atoms), interactions modify the transition temperature but BEC still occurs. The key physics is purely quantum statistical — macroscopic occupation of the ground state.
+
+<!-- @editor[content/P2]: Missing significant connection: BEC in a harmonic trap is the experimental realization, but the file does not mention the Gross-Pitaevskii equation (the mean-field equation for the condensate wavefunction). For a learner interested in the physics, the GP equation is where BEC connects to superfluidity (the phase of the condensate carries the current), and it's directly relevant to the ML connection (the condensate wavefunction is a classical field, the analog of a "mode collapse" in generative models). A two-line mention with the GP equation would complete this. -->
+
+<!-- @editor[bridge/P2]: The Fermi-Dirac sigmoid and its identity to logistic regression / neural network activation functions is not made explicit in this file. The file 09-CONNECTIONS.md notes "RBM unit activation P(h=1|v) = σ(W·v + c) ↔ Fermi-Dirac" but this is exactly the right place to plant that observation — when the Fermi function is first defined. A one-line note that f(ε) = σ(β(μ−ε)) where σ is the logistic sigmoid directly bridges to ML activation functions and would be immediately recognized by this learner. -->
 
 **The classical limit is NOT "high temperature" in general**: The classical limit requires nλ³ << 1 (low phase-space density). High T reduces λ ∝ T^{-1/2}, which helps, but also high T with high density can still be quantum. A neutron star at T = 10⁸ K is still deeply quantum (degenerate) because n is huge.

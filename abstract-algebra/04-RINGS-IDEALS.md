@@ -293,6 +293,10 @@ WHY LOCALIZATION MATTERS:
   at the corresponding point.
   Algebraic number theory: localize at a prime ideal p in O_K to study
   ramification at p.
+
+<!-- @editor[content/P2]: Localization section mentions Spec(R) only in passing — missing the key insight: Spec(R) (prime ideals with Zariski topology) IS the geometric object associated to a ring. The map R → Spec(R) is the functor Ring^op → Top that underlies all of algebraic geometry and scheme theory. A single diagram showing Spec(Z) = {(0), (2), (3), (5), (7), ...} (the "arithmetic line") would orient the learner to how ring theory and geometry are the same thing -->
+
+<!-- @editor[bridge/P2]: No mention of Dedekind domains and the ideal class group — the failure of unique factorization in rings like Z[√-5] is introduced, but the resolution (ideals factor uniquely in Dedekind domains; the class group measures how far from being a PID) is absent. This directly bridges to the post-quantum crypto material in 10-APPLICATIONS (Ring-LWE hardness depends on ideal lattice properties) -->
 ```
 
 ---

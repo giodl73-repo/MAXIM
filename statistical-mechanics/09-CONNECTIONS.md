@@ -240,6 +240,8 @@ The ELBO has a physics interpretation: − (energy of reconstruction) + (entropy
 
 ## Connections to Finance — Stochastic Processes
 
+<!-- @editor[content/P2]: The finance section (Black-Scholes = Fokker-Planck, GBM = Langevin) is correct but the risk-neutral measure / Girsanov theorem connection is missing. The change of measure from physical probability P to risk-neutral measure Q is a time-reversal symmetry / path-reweighting exactly analogous to the Crooks fluctuation theorem (reweighting trajectories by e^{β(W−ΔF)}). This connection between financial risk-neutral pricing and stochastic thermodynamics is non-obvious and genuinely illuminating for this learner. -->
+
 The mathematics of statistical mechanics and financial mathematics are largely identical.
 
 ```
@@ -355,3 +357,7 @@ SGD ↔ LANGEVIN EQUATION:
 **Variational free energy and Helmholtz free energy differ by a sign/normalization**: In physics, F is minimized. In variational inference, ELBO = −F is maximized. The KL divergence KL(q||P) is the gap between the ELBO bound and the true log-evidence. Setting KL = 0 (q = P) achieves equality — the same condition as minimizing the physical free energy achieves the Boltzmann distribution.
 
 **SGD is NOT Langevin dynamics unless noise is deliberately added**: Standard SGD minimizes L — it converges to a local minimum, not to a distribution. SGLD (Welling-Teh) adds explicit noise to sample from P(θ) ∝ e^{-U(θ)}. Without the added noise term, SGD is a gradient flow, not Langevin dynamics. The noise from mini-batches alone does not satisfy detailed balance.
+
+<!-- @editor[content/P2]: Missing: diffusion generative models as stat mech. DDPM and score-based models (Langevin sampling via score matching) are exactly the reverse Fokker-Planck dynamics — the model learns the score ∇_x log P(x) (the force driving the reverse diffusion), which is the same as learning the free energy landscape gradient. Anderson's reverse-time SDE (1982) is the theoretical foundation and it is purely non-equilibrium stat mech. This is in the learner calibration as an explicit target ("diffusion models as stochastic processes") and 09-CONNECTIONS.md is the right place for it. Currently absent. -->
+
+<!-- @editor[content/P2]: Missing: the connection between spin glasses and computational complexity. The learner calibration says "spin glasses → optimization landscapes" but this file focuses on ML connections without making the TCS bridge: random k-SAT, random MAX-CUT, the traveling salesman problem, and integer programming all have spin glass phases. The replica method (from spin glass theory) predicts the satisfiability threshold for random k-SAT — a result that would be directly interesting to an MIT TCS background. One table mapping CSP problems to their spin glass analogs would serve this learner's deepest interest. -->

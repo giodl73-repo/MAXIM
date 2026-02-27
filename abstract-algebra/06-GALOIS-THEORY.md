@@ -264,6 +264,10 @@ KNOWN:
 OPEN: The general inverse Galois problem.
   No known group G for which the answer is definitively NO.
   But also no proof that the answer is always YES.
+
+<!-- @editor[content/P2]: Missing absolute Galois group and Langlands program — the absolute Galois group Gal(Q̄/Q) is one of the central objects of modern mathematics, and its representations are the subject of the Langlands program. For a TCS/Math reader at this level, the statement "Gal(Q̄/Q) acts on ℓ-adic cohomology of varieties → Weil conjectures → Deligne's proof" is the natural next step after the inverse Galois problem. At minimum a forward pointer and a 3-line orientation to why Gal(Q̄/Q) is hard and important -->
+
+<!-- @editor[bridge/P2]: No connection between Galois theory and pairing-based cryptography — the learner calibration explicitly flags "Galois theory → algebraic cryptography" as a best bridge. Weil pairings on elliptic curves, the Tate pairing, and bilinear pairing groups (used in BLS signatures, SNARKs, identity-based encryption) all rely on Galois-theoretic structure of the field extensions. The file handles solvability/radicals well but doesn't connect Galois theory to the pairing-based crypto that defines modern post-SNARKs cryptography -->
 ```
 
 ---

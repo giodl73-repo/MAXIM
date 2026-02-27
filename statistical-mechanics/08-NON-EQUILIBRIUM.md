@@ -244,6 +244,8 @@ where P_F is the work distribution for forward process and P_R for the time-reve
 
 ## Stochastic Thermodynamics
 
+<!-- @editor[content/P2]: The stochastic thermodynamics section defines trajectory-level work, heat, and entropy production correctly but does not cover the Seifert integral fluctuation theorem (⟨e^{-σ}⟩ = 1, where σ is total entropy production). This is both the generalization of Jarzynski and the most general statement of the second law from stochastic thermodynamics. A one-equation statement with the physical interpretation (the ratio of forward to reverse trajectory probabilities is e^σ) would complete the section's logical arc. -->
+
 Stochastic thermodynamics extends classical thermodynamics to the level of individual trajectories.
 
 **For a single overdamped trajectory x(t)** between times 0 and t:
@@ -288,6 +290,8 @@ Entropy is produced at rate dS/dt = (k_B/2) Σ_{mn} J_{nm} ln(J_{nm}/J_{mn}) ≥
 
 ## Boltzmann Transport Equation
 
+<!-- @editor[content/P2]: The Boltzmann transport equation section correctly states the equation and the H-theorem but doesn't connect to the modern applications this learner would care about: the BTE is the starting point for drift-diffusion equations in semiconductor physics (the Drude model and its quantum corrections), and for the phonon Boltzmann equation that governs heat transport in nanostructures. More relevantly for this learner's calibration, the linearized BTE gives the kinetic theory expression for viscosity, conductivity, and diffusion — the Onsager reciprocal relations that relate these transport coefficients to each other. A sentence on the Onsager relations would close the loop between this section and the Kubo formula section above. -->
+
 For gases far from equilibrium, the Boltzmann transport equation governs the single-particle distribution function f(r, p, t):
 
     ∂f/∂t + v·∇_r f + F·∇_p f = (∂f/∂t)_collisions
@@ -329,3 +333,5 @@ satisfies dH/dt ≤ 0, approaching its minimum at equilibrium (Maxwell-Boltzmann
 **The Fokker-Planck and Langevin equations are equivalent descriptions**: Langevin gives individual trajectory realizations; FPE gives the ensemble probability density. Both encode the same physics. The FPE is an Itô stochastic PDE and requires care about the interpretation of the noise (Itô vs Stratonovich conventions matter when the diffusion coefficient depends on x).
 
 **Entropy production is defined for trajectories, not just equilibrium states**: Stochastic thermodynamics defines entropy production along individual trajectories. The ensemble average of trajectory entropy production equals the thermodynamic entropy production, but individual trajectories can violate the second law. The Crooks relation quantifies how probable such violations are.
+
+<!-- @editor[content/P2]: Missing: diffusion models as stochastic processes — the learner calibration explicitly lists "diffusion models as stochastic processes" as a target bridge. Score-based generative models (Song & Ermon) and DDPM (Ho et al.) are exactly forward/reverse stochastic differential equations: the forward process is Langevin diffusion (add noise, destroy signal), and the reverse process learns to reverse the Fokker-Planck flow. The Fokker-Planck and Langevin equations of this file are the exact mathematical foundation. A brief subsection connecting these would be the highest-value addition to this file for this learner. -->

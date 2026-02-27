@@ -256,6 +256,8 @@ HOPFIELD ↔ ISING CORRESPONDENCE:
 
 ## Spin Glasses
 
+<!-- @editor[content/P2]: The spin glass section names the SK model and replica symmetry breaking but is thin for a topic listed in the learner calibration as a target. Parisi's replica symmetry breaking and its physical meaning (an ultrametric hierarchy of pure states, each with its own order parameter q) is profound and warrants more than two sentences. The connection to optimization landscapes — why spin glasses are the canonical model for NP-hard problems (random k-SAT, MAX-CUT, number partitioning all have spin glass phases) — is exactly what "spin glasses → optimization landscapes" means in the calibration notes. This needs a dedicated ASCII diagram showing the energy landscape structure and the replica order parameter q(x). -->
+
 Beyond ferromagnets: **spin glasses** have random couplings Jᵢⱼ (positive AND negative), creating frustration.
 
 **Sherrington-Kirkpatrick model** (SK model, infinite-range spin glass):
@@ -322,5 +324,9 @@ GENERALIZATIONS:
 **Metropolis satisfies detailed balance, but detailed balance alone does not guarantee correctness**: You also need ergodicity — the chain must be able to reach any configuration from any other. For the Ising model, single-spin flips are ergodic. For some constrained models (conserved magnetization), you need different moves.
 
 **The Hopfield network "memories" are local energy minima, not global**: The energy landscape has many local minima (spurious states: mixtures of stored patterns, reversed patterns). Above ~14% capacity, the network fails to recall stored patterns reliably — too many spurious states compete. This is not a flaw in the model; it reflects the physics of spin glasses.
+
+<!-- @editor[content/P2]: Missing: the modern dense associative memory / modern Hopfield network (Ramsauer et al. 2020) which shows that using a higher-power energy function (instead of quadratic) exponentially increases storage capacity and that the attention mechanism in Transformers is the update rule for such a network. This is a current, direct bridge between Ising/Hopfield physics and modern ML architecture. Given the learner calibration explicitly names "Ising model → neural networks (Hopfield networks)" as a target bridge, the 2020 result is the punchline — and its absence is a significant gap. -->
+
+<!-- @editor[content/P2]: The BKT transition (2D XY model) is mentioned in the Lattice Models section but receives only 4 lines. The Berezinskii-Kosterlitz-Thouless transition is topological (vortex-antivortex unbinding), does not fit the Landau symmetry-breaking framework, and is the canonical example of a topological phase transition — a major qualitatively different category. For a learner coming from this calibration, the BKT transition deserves its own subsection explaining the vortex gas picture and the stiffness jump. Currently it is underdeveloped. -->
 
 **Mean-field theory overestimates T_c because it ignores fluctuations**: Mean-field gives T_c = zJ/k_B (z = coordination number). The actual T_c is lower because fluctuations reduce the effective coupling. In 2D with z = 4: mean-field gives T_c = 4J/k_B, but the exact answer is 2.269 J/k_B — 43% lower. The discrepancy grows as dimension decreases (more fluctuations in lower dimensions).

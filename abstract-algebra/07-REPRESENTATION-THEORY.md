@@ -75,6 +75,8 @@ Proof sketch: Given G-invariant W ≤ V, find G-invariant complement.
 NOTE: Over fields with char | |G|, this fails.
   Example: F_p[Z/p] — the trivial subrepresentation has no G-invariant complement.
   Modular representation theory (char = p) is much harder.
+
+<!-- @editor[content/P2]: Modular representation theory gets one dismissive sentence — for a graduate-level reader, Brauer characters, decomposition numbers, and the connection to p-local group theory (blocks, defect groups) are a major branch. The remark "much harder, active research area" is true but gives nothing to hold onto. Add: Brauer characters are characters in char 0 (lifted via Teichmüller), decomposition numbers relate ordinary to Brauer characters, Alperin's weight conjecture is the main open problem -->
 ```
 
 ---
@@ -261,6 +263,8 @@ NTT (Number Theoretic Transform):
   FFT over Z/pZ instead of C. Used in:
   Polynomial multiplication in polynomial-time algorithms.
   Lattice-based cryptography (Kyber uses NTT in Z_q[x]/(x^n+1)).
+
+<!-- @editor[bridge/P2]: Harmonic analysis on non-abelian groups (the non-abelian Fourier transform) is introduced in one paragraph but the applications are absent — graph neural networks that are equivariant to the symmetric group use exactly this machinery (Zaheer et al., DeepSets; Maron et al., invariant/equivariant networks). The non-abelian FFT on S_n is polynomial time and is used in computational group theory for efficient group product computations. The learner calibration calls out "representation theory → harmonic analysis on groups" as a best bridge; this section has the math but needs the application anchor -->
 ```
 
 ---

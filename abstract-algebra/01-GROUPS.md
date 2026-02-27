@@ -1,5 +1,7 @@
 # Groups
 
+<!-- @editor[diagram/P2]: Opening diagram is the four axioms — correct but the learner knows these cold from MIT. The "big picture" for this audience should map the landscape of group theory: finite vs. infinite, abelian vs. non-abelian, classification branches (Sylow/CFSG/solvable), and where computational group theory sits. The axioms belong in the first section, not as the landscape diagram -->
+
 ## The Big Picture
 
 ```
@@ -39,9 +41,7 @@
 
 ---
 
-## The Axioms — Minimal and Provable
-
-The four axioms are not independent. From "left identity" and "left inverses" alone,
+<!-- @editor[audience/P2]: "The Axioms — Minimal and Provable" section walks through closure, associativity, identity, inverses, then proves uniqueness of identity and cancellation from scratch. This learner has MIT graduate-level groups — skip the axiom derivations, pivot immediately to what's structurally interesting: the minimal axiom systems, one-sided axioms, and the connection to monoids/semigroups in the algebraic hierarchy -->
 you can prove right identity and right inverses. The standard 4-axiom list is
 pedagogically convenient.
 
@@ -221,6 +221,10 @@ APPLICATION — classify groups of order p² (p prime):
 ```
 
 ---
+
+<!-- @editor[bridge/P1]: Missing computational group theory section — the group isomorphism problem (GI), Babai's 2015 quasipolynomial-time algorithm, and the gap between GI and graph isomorphism are canonical TCS topics this learner will want. Also missing: Schreier-Sims algorithm for permutation groups, base/strong generating sets, and how group-theoretic algorithms underpin computer algebra systems (GAP, Magma). These are the tools that make group theory computable and directly connect to this learner's TCS background -->
+
+<!-- @editor[bridge/P2]: No connection between group actions and symmetry in ML/physics — the learner calibration explicitly flags "group actions → symmetry in ML/physics" as a best bridge. Equivariant neural networks (G-CNNs, E(n)-equivariant GNNs) use group actions as a core design primitive; this section covers group actions purely abstractly without the ML connection -->
 
 ## Decision Cheat Sheet
 

@@ -169,6 +169,8 @@ The gradient term |∇m|² penalizes spatial variations. Minimizing this functio
 
 ## Critical Exponents and Universality
 
+<!-- @editor[content/P2]: The universality table lists exponents for Ising, XY, and Heisenberg universality classes but is missing the mean-field row for d=3 comparison alongside exact 3D values, and is also missing a column for 2D Ising exact values for comparison (β=1/8 vs 0.326 illustrates how dramatically dimension changes exponents). Adding a "2D Ising (exact)" column would make this the reference table the learner reaches for, not just a static list. -->
+
 Near T_c, all physical quantities follow power laws:
 
 ```
@@ -283,3 +285,7 @@ ISING HAMILTONIAN:
 **Universality class depends on symmetry of the order parameter, not the Hamiltonian**: The 3D Ising universality class includes liquid-gas critical points, binary mixtures, and uniaxial ferromagnets — very different physical systems that all share the same Z₂ symmetry (order parameter can be ±m) in 3 dimensions.
 
 **Second-order transitions are not "less physical" than first-order**: Both are sharp transitions. Second-order transitions have divergent fluctuations and scale invariance — they are if anything richer physics. Superconductors and superfluids undergo second-order transitions; the phase is fundamentally different from a classical phase transition.
+
+<!-- @editor[content/P2]: Missing: the Ginzburg criterion — the condition for when mean-field theory actually fails and fluctuations take over. The file says "Below d_c, fluctuations dominate" but doesn't give the Ginzburg condition (ξ^d × (fluctuations) ~ (mean-field value)) that tells you *quantitatively* how close to T_c mean-field breaks down. This is the bridge between the Landau free energy section and the renormalization group — exactly what this learner would want to see. -->
+
+<!-- @editor[bridge/P2]: No connection to the ML "generalization transition" or "double descent" phenomenon. The universality framework (same critical exponents from very different microscopic systems) is exactly the insight needed to understand why neural network phase transitions (interpolation threshold, jamming) are universal across architectures. The 09-CONNECTIONS.md file covers this lightly but the core insight belongs here, at the point where universality is first explained in depth. -->

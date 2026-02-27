@@ -238,6 +238,8 @@ REPRESENTABLE FUNCTORS:
   F: C → Set is representable if F ≅ Hom(A,-) for some A.
   "A" represents F. Universal property = representation.
   Yoneda says: representation is unique up to isomorphism.
+
+<!-- @editor[bridge/P2]: No explicit connection between Yoneda and the "probes define objects" principle in database theory / knowledge representation — for a software engineering reader, the Yoneda lemma has a direct analogy in API design: an object is fully determined by its observable behavior (its "interface" — how other things can interact with it). This is the mathematical foundation of the behavioral/structural distinction in OOP and the "programming to interfaces" principle. Missing bridge that would resonate with this learner's engineering background -->
 ```
 
 ---
@@ -321,6 +323,8 @@ TYPE THEORY EXTENSIONS:
   Dependent types (Π-types, Σ-types) → locally Cartesian closed categories.
   Homotopy type theory (HoTT) → ∞-toposes (Voevodsky, Lurie).
   Universes in type theory → Grothendieck universes in set theory.
+
+<!-- @editor[content/P2]: HoTT and ∞-toposes get one line each — for a TCS/Math reader, this is the most exciting frontier: HoTT makes the Univalence Axiom (equivalent types are equal) into a foundational principle; cubical type theory makes it computationally tractable (implemented in Agda/Coq). The connection "∞-category = homotopy theory done algebraically" is a major research program. Add: what ∞-categories fix (composition only associative up to coherent homotopy), the Lurie ∞-topos program, and why this matters for proof assistants -->
 ```
 
 ---

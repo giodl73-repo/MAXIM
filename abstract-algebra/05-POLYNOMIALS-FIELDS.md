@@ -101,6 +101,8 @@ Over Q:
 
 Over F_p:
   Berlekamp or Cantor-Zassenhaus algorithms (polynomial time).
+
+<!-- @editor[bridge/P2]: Irreducibility/factoring over F_p is noted as polynomial time but no contrast with Z — factoring polynomials over Z is also polynomial time (LLL-based), but integer factoring is the basis of RSA hardness. The distinction "polynomial factoring (easy) vs. integer factoring (conjectured hard)" is a key conceptual point for the cryptography-aware reader. One sentence on why algebraic factoring doesn't help break RSA would anchor this for the audience -->
 ```
 
 ---
@@ -245,6 +247,8 @@ FACTORING x^n - 1 OVER F_p:
   x^{p^n} - x = product of all monic irreducibles of degree | n over F_p.
   x^{p^n-1} - 1 = product of all monic irreducibles of degree | n.
   This gives: # monic irreducibles of degree n over F_p = (1/n) Σ_{d|n} μ(n/d)p^d.
+
+<!-- @editor[content/P2]: Factoring x^n-1 over F_p is presented as a standalone fact — missing the connection to cyclotomic polynomials and the NTT (Number Theoretic Transform). For Kyber/ML-KEM (post-quantum), x^n+1 = product of two factors over Z_q when q ≡ 1 (mod 2n), enabling the NTT. The factorization structure of x^n±1 over F_p is the algebraic engine behind fast polynomial multiplication in lattice crypto; this section is where that connection belongs -->
 ```
 
 ---

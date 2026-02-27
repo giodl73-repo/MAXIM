@@ -206,6 +206,8 @@ SUPERSINGULAR ISOGENY-BASED (SIKE):
   Use isogenies between supersingular elliptic curves over F_{p²}.
   Broken in 2022 by Castryck-Decru using unexpected algebraic geometry.
   Teaches: even "hard-looking" problems can fall; new math can break crypto.
+
+<!-- @editor[content/P2]: Pairing-based cryptography is absent — the learner calibration explicitly flags "applications to cryptography (pairing-based)" as a DOES NEED. Weil and Tate pairings on elliptic curves enable: BLS aggregate signatures (used in Ethereum 2.0 consensus), identity-based encryption (Boneh-Franklin), and the core of zk-SNARK constructions (Groth16, PLONK use bilinear pairing groups). The algebraic structure — the pairing e: E[r] × E[r] → μ_r is a Galois-equivariant bilinear map between groups of r-torsion points — is exactly where Galois theory, elliptic curves, and cryptography converge. This section has DH/ECDH/LWE but not pairings, which is a significant gap for the stated audience -->
 ```
 
 ---
@@ -242,6 +244,8 @@ APPLICATIONS TO CODING THEORY:
 ```
 
 ---
+
+<!-- @editor[content/P2]: Quantum error correction is referenced in the summary table ("GF(4) / stabilizer codes — AA-10") but has no section in this file — the reference points to itself and delivers nothing. Stabilizer codes over GF(4) (Calderbank-Rains-Shor-Sloane formalism), the CSS construction (Calderbank-Shor-Steane), and the connection to classical linear codes over GF(2) and GF(4) are the algebraic core of quantum error correction and deserve their own subsection here -->
 
 ## Quantum Groups and Quantum Algebra
 
@@ -309,6 +313,8 @@ APPLICATIONS:
 | Need to protect data in storage? | RAID-6 (Reed-Solomon), or erasure codes |
 | Need quantum gates? | Topological QC (quantum group representations) |
 | Need to classify crystal? | X-ray diffraction + space group determination |
+
+<!-- @editor[content/P2]: Decision Cheat Sheet table uses inconsistent formatting — first column has no header label, and the rows mix "Need X?" format with "Need to X?" format. Also absent from the cheat sheet: pairing-based crypto (BLS/SNARKs), quantum error correction (stabilizer codes over GF(4)), and algebraic geometry codes (Goppa/AG codes that beat the GV bound). The summary table above is excellent; the cheat sheet should match its scope -->
 
 ---
 
