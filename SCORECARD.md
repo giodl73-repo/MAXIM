@@ -100,147 +100,147 @@ Each card has a named archetype (The Architect, The Taxonomist, The Healer, etc.
 
 ## The Scores
 
-*First scoring pass: 2026-02-26. Based on VOLUMES.md line counts + structural review.*
-*Rescored dimensions are marked with the date of last rescore.*
+*Full scoring: 2026-02-26. 13-agent content sweep + metadata analysis.*
 
-| Card | Vol | Role | Len | Suit | Coh | Style | Depth | Arch | Total | Grade |
-|------|-----|------|-----|------|-----|-------|-------|------|-------|-------|
-| 2♣ | NW·I | The Taxonomist | 5 | 5 | 5 | — | — | — | — | — |
-| 2♦ | NW·II | The Brewer | 4 | 5 | 5 | — | — | — | — | — |
-| 2♥ | NW·III | The Collector | 4 | 4 | 4 | — | — | — | — | — |
-| 2♠ | NW·IV | The Ecologist | 4 | 5 | 5 | — | — | — | — | — |
-| 3♣ | ES·I | The Timekeeper | 4 | 5 | 5 | — | — | — | — | — |
-| 3♦ | ES·II | The Forecaster | 4 | 5 | 5 | — | — | — | — | — |
-| 3♥ | ES·III | The Cultivator | 4 | 4 | 4 | — | — | — | — | — |
-| 3♠ | ES·IV | The Voyager | 4 | 5 | 4 | — | — | — | — | — |
-| 4♣ | MC·I | The Colorist | 5 | 5 | 5 | — | — | — | — | — |
-| 4♦ | MC·II | The Forger | 5 | 5 | 5 | — | — | — | — | — |
-| 4♥ | MC·III | The Binder | 4 | 4 | 4 | — | — | — | — | — |
-| 4♠ | MC·IV | The Joiner | 4 | 5 | 5 | — | — | — | — | — |
-| 5♣ | LS·I | The Naturalist | 5 | 5 | 5 | — | — | — | — | — |
-| 5♦ | LS·II | The Empiricist | 4 | 5 | 5 | — | — | — | — | — |
-| 5♥ | LS·III | The Healer | 5 | 5 | 5 | — | — | — | — | — |
-| 5♠ | LS·IV | The Selector | 5 | 5 | 4 | — | — | — | — | — |
-| 6♣ | HI·I | The Chronicler | 3 | 5 | 5 | — | — | — | — | — |
-| 6♦ | HI·II | The Sage | 3 | 5 | 4 | — | — | — | — | — |
-| 6♥ | HI·III | The Dialectician | 4 | 5 | 5 | — | — | — | — | — |
-| 6♠ | HI·IV | The Ethicist | 4 | 5 | 4 | — | — | — | — | — |
-| 7♣ | M·I | The Constructor | 1 | 5 | 5 | — | — | — | — | — |
-| 7♦ | M·II | The Alchemist | 2 | 5 | 5 | — | — | — | — | — |
-| 7♥ | M·III | The Provider | 5 | 5 | 5 | — | — | — | — | — |
-| 7♠ | M·IV | The Instrumentalist | 4 | 4 | 4 | — | — | — | — | — |
-| 8♣ | T·I | The Fabricator | 3 | 5 | 5 | — | — | — | — | — |
-| 8♦ | T·II | The Verifier | 4 | 5 | 5 | — | — | — | — | — |
-| 8♥ | T·III | The Planner | 4 | 5 | 4 | — | — | — | — | — |
-| 8♠ | T·IV | The Operator | 3 | 5 | 4 | — | — | — | — | — |
-| 9♣ | SS·I | The Strategist | 4 | 5 | 5 | — | — | — | — | — |
-| 9♦ | SS·II | The Governor | 3 | 5 | 4 | — | — | — | — | — |
-| 9♥ | SS·III | The Witness | 4 | 4 | 4 | — | — | — | — | — |
-| 9♠ | SS·IV | The Correspondent | 5 | 5 | 4 | — | — | — | — | — |
-| 10♣ | LC·I | The Scribe | 5 | 5 | 5 | — | — | — | — | — |
-| 10♦ | LC·II | The Broadcaster | 5 | 5 | 5 | — | — | — | — | — |
-| 10♥ | LC·III | The Interpreter | 4 | 5 | 5 | — | — | — | — | — |
-| 10♠ | LC·IV | The Narrator | 4 | 5 | 4 | — | — | — | — | — |
-| J♣ | MP·I | The Experimenter | 2 | 5 | 5 | — | — | — | — | — |
-| J♦ | MP·II | The Analyst | 5 | 5 | 4 | — | — | — | — | — |
-| J♥ | MP·III | The Formalist | 3 | 5 | 5 | — | — | — | — | — |
-| J♠ | MP·IV | The Theorist | 5 | 5 | 5 | — | — | — | — | — |
-| Q♣ | AC·I | The Composer | 5 | 5 | 5 | — | — | — | — | — |
-| Q♦ | AC·II | The Surveyor | 3 | 4 | 3 | — | — | — | — | — |
-| Q♥ | AC·III | The Performer | 5 | 5 | 4 | — | — | — | — | — |
-| Q♠ | AC·IV | The Editor | 4 | 5 | 4 | — | — | — | — | — |
-| K♣ | C·I | The Architect | 5 | 5 | 5 | — | — | — | — | — |
-| K♦ | C·II | The Craftsman | 4 | 5 | 4 | — | — | — | — | — |
-| K♥ | C·III | The Prover | 4 | 5 | 5 | — | — | — | — | — |
-| K♠ | C·IV | The Sentinel | 2 | 5 | 4 | — | — | — | — | — |
-| A♣ | P·I | The Discoverer | 4 | 5 | 5 | — | — | — | — | — |
-| A♦ | P·II | The Inventor | 2 | 5 | 5 | — | — | — | — | — |
-| A♥ | P·III | The Visionary | 3 | 5 | 5 | — | — | — | — | — |
-| A♠ | P·IV | The Witness | 3 | 4 | 4 | — | — | — | — | — |
-
----
-
-## Scoring Notes — First Pass (Length + Suit + Cohesion only)
-
-*Style, Depth, and Archetype require reading the actual content — scored as "—" until a review agent sweeps each volume. The first three dimensions can be scored from VOLUMES.md metadata alone.*
-
-### Length Scores Rationale
-
-| Score | Volumes | Reasoning |
-|-------|---------|-----------|
-| 5 (250–400) | NW·I, MC·I, MC·II, LS·I, LS·III, LS·IV, M·III, 9♠, 10♣, 10♦, J♦, J♠, Q♣, Q♥, K♣ | Sweet spot. Comfortable binding, good shelf presence. |
-| 4 (200–250 or 400–450) | NW·II, NW·III, NW·IV, ES·I–IV, MC·III, MC·IV, LS·II, HI·III, HI·IV, M·IV, 8♦, 8♥, 9♣, 9♥, 10♥, 10♠, Q♠, K♦, K♥, A♣, P·IV | Acceptable. Either slightly thin or slightly thick. |
-| 3 (150–200 or 450–500) | 6♣, 6♦, 8♣, 8♠, 9♦, J♥, Q♦, A♥, A♠ | HI·I/II are thick but bindable. T·I/IV and SS·II slightly thin. Q♦ and J♥ thick. People III/IV thin. |
-| 2 (100–150 or 500–560) | 7♦, J♣, K♠, A♦ | M·II at 173pp thin for a hardcover. J♣ at 558 near binding limit. K♠ and A♦ thin. |
-| 1 (<100 or >560) | 7♣ | M·I at 124pp. The thinnest real volume in the deck. |
-
-### Suit Fit Highlights
-
-- **Nearly all volumes score 4–5 on suit.** The original directory assignments were well-designed.
-- **Q♦ AC·II scores 4** — photography + colors + cartography + games + sports is a mixed bag for "Application." The connection is "applied seeing" which works but feels loose.
-- **A♠ P·IV scores 4** — political-reformers + social-reformers + visionaries. "Frontier" for People means "those who changed what was possible" — good but the label "Frontier" fits less naturally for biographical content than for technical content.
-- **9♥ SS·III scores 4** — criminology sits slightly oddly with psychology and org-behavior under "Depth."
-- **7♠ M·IV scores 4** — acoustics + optics + transportation + manufacturing as "Frontier" is a stretch; these are established fields. They're "frontier" of the Mechanics section only in the sense of broadest scope.
-
-### Cohesion Highlights
-
-- **Q♦ AC·II scores 3** — five directories that share "applied visual culture" but feel like five separate topics rather than a unified story. This is the weakest cohesion in the deck.
-- **Volumes scoring 5** have strong internal narratives: MC·I (pigments → coatings → textiles → dyes = the color story), HI·I (four angles on how the world got shaped), LS·I (chemistry → biology → ecology = life ascending).
+| Card | Vol | Role | Len | Suit | Coh | Style | Depth | Arch | **Total** | **Grade** |
+|------|-----|------|-----|------|-----|-------|-------|------|-----------|-----------|
+| 2♣ | NW·I | The Taxonomist | 5 | 5 | 5 | 5 | 5 | 5 | **30** | **A** |
+| 2♦ | NW·II | The Brewer | 4 | 5 | 5 | 5 | 5 | 5 | **29** | **A** |
+| 2♥ | NW·III | The Collector | 4 | 4 | 4 | 4 | 4 | 4 | **24** | **B** |
+| 2♠ | NW·IV | The Ecologist | 4 | 5 | 5 | 4 | 4 | 3 | **25** | **A** |
+| 3♣ | ES·I | The Timekeeper | 4 | 5 | 5 | 4 | 4 | 3 | **25** | **A** |
+| 3♦ | ES·II | The Forecaster | 4 | 5 | 5 | 5 | 5 | 4 | **28** | **A** |
+| 3♥ | ES·III | The Cultivator | 4 | 4 | 4 | 4 | 4 | 3 | **23** | **B** |
+| 3♠ | ES·IV | The Voyager | 4 | 5 | 4 | 3 | 5 | 4 | **25** | **A** |
+| 4♣ | MC·I | The Colorist | 5 | 5 | 5 | 5 | 5 | 5 | **30** | **A** |
+| 4♦ | MC·II | The Forger | 5 | 5 | 5 | 5 | 5 | 5 | **30** | **A** |
+| 4♥ | MC·III | The Binder | 4 | 4 | 4 | 5 | 5 | 4 | **26** | **A** |
+| 4♠ | MC·IV | The Joiner | 4 | 5 | 5 | 5 | 5 | 5 | **29** | **A** |
+| 5♣ | LS·I | The Naturalist | 5 | 5 | 5 | 5 | 5 | 4 | **29** | **A** |
+| 5♦ | LS·II | The Empiricist | 4 | 5 | 5 | 5 | 4 | 5 | **28** | **A** |
+| 5♥ | LS·III | The Healer | 5 | 5 | 5 | 4 | 4 | 4 | **27** | **A** |
+| 5♠ | LS·IV | The Selector | 5 | 5 | 4 | 5 | 5 | 5 | **29** | **A** |
+| 6♣ | HI·I | The Chronicler | 3 | 5 | 5 | 5 | 5 | 5 | **28** | **A** |
+| 6♦ | HI·II | The Sage | 3 | 5 | 4 | 4 | 5 | 4 | **25** | **A** |
+| 6♥ | HI·III | The Dialectician | 4 | 5 | 5 | 5 | 5 | 5 | **29** | **A** |
+| 6♠ | HI·IV | The Ethicist | 4 | 5 | 4 | 4 | 5 | 4 | **26** | **A** |
+| 7♣ | M·I | The Constructor | 1 | 5 | 5 | 5 | 5 | 5 | **26** | **A** |
+| 7♦ | M·II | The Alchemist | 2 | 5 | 5 | 4 | 4 | 3 | **23** | **B** |
+| 7♥ | M·III | The Provider | 5 | 5 | 5 | 5 | 5 | 5 | **30** | **A** |
+| 7♠ | M·IV | The Instrumentalist | 4 | 4 | 4 | 5 | 4 | 4 | **25** | **A** |
+| 8♣ | T·I | The Fabricator | 3 | 5 | 5 | 4 | 5 | 5 | **27** | **A** |
+| 8♦ | T·II | The Verifier | 4 | 5 | 5 | 5 | 5 | 5 | **29** | **A** |
+| 8♥ | T·III | The Planner | 4 | 5 | 4 | 5 | 5 | 4 | **27** | **A** |
+| 8♠ | T·IV | The Operator | 3 | 5 | 4 | 4 | 4 | 3 | **23** | **B** |
+| 9♣ | SS·I | The Strategist | 4 | 5 | 5 | 5 | 5 | 5 | **29** | **A** |
+| 9♦ | SS·II | The Governor | 3 | 5 | 4 | 4 | 5 | 5 | **26** | **A** |
+| 9♥ | SS·III | The Witness | 4 | 4 | 4 | 4 | 4 | 4 | **24** | **B** |
+| 9♠ | SS·IV | The Correspondent | 5 | 5 | 4 | 4 | 4 | 4 | **26** | **A** |
+| 10♣ | LC·I | The Scribe | 5 | 5 | 5 | 5 | 5 | 4 | **29** | **A** |
+| 10♦ | LC·II | The Broadcaster | 5 | 5 | 5 | 4 | 4 | 5 | **28** | **A** |
+| 10♥ | LC·III | The Interpreter | 4 | 5 | 5 | 4 | 5 | 5 | **28** | **A** |
+| 10♠ | LC·IV | The Narrator | 4 | 5 | 4 | 3 | 5 | 5 | **26** | **A** |
+| J♣ | MP·I | The Experimenter | 2 | 5 | 5 | 4 | 5 | 4 | **25** | **A** |
+| J♦ | MP·II | The Analyst | 5 | 5 | 4 | 5 | 5 | 5 | **29** | **A** |
+| J♥ | MP·III | The Formalist | 3 | 5 | 5 | 4 | 5 | 5 | **27** | **A** |
+| J♠ | MP·IV | The Theorist | 5 | 5 | 5 | 4 | 5 | 4 | **28** | **A** |
+| Q♣ | AC·I | The Composer | 5 | 5 | 5 | 5 | 5 | 5 | **30** | **A** |
+| Q♦ | AC·II | The Surveyor | 3 | 4 | 3 | 4 | 4 | 4 | **22** | **B** |
+| Q♥ | AC·III | The Performer | 5 | 5 | 4 | 4 | 4 | 4 | **26** | **A** |
+| Q♠ | AC·IV | The Editor | 4 | 5 | 4 | 3 | 3 | 2 | **21** | **B** |
+| K♣ | C·I | The Architect | 5 | 5 | 5 | 5 | 5 | 5 | **30** | **A** |
+| K♦ | C·II | The Craftsman | 4 | 5 | 4 | 4 | 4 | 4 | **25** | **A** |
+| K♥ | C·III | The Prover | 4 | 5 | 5 | 5 | 5 | 5 | **29** | **A** |
+| K♠ | C·IV | The Sentinel | 2 | 5 | 4 | 3 | 3 | 2 | **19** | **C** |
+| A♣ | P·I | The Discoverer | 4 | 5 | 5 | 5 | 5 | 5 | **29** | **A** |
+| A♦ | P·II | The Inventor | 2 | 5 | 5 | 4 | 4 | 5 | **25** | **A** |
+| A♥ | P·III | The Visionary | 3 | 5 | 5 | 5 | 5 | 5 | **28** | **A** |
+| A♠ | P·IV | The Witness | 3 | 4 | 4 | 4 | 4 | 3 | **22** | **B** |
 
 ---
 
-## Priority Improvement Targets
+## Grade Distribution
 
-*Sorted by lowest scored dimensions. Fix the worst first.*
+```
+ A (25-30)  ████████████████████████████████████████████  42 volumes
+ B (20-24)  █████████  9 volumes
+ C (15-19)  █  1 volume
 
-### Length Issues (structural — fix before print)
+ Perfect 30: 2♣ NW·I · 4♣ MC·I · 4♦ MC·II · 7♥ M·III · Q♣ AC·I · K♣ C·I
 
-| Priority | Volume | Score | Pages | Action |
-|----------|--------|-------|-------|--------|
-| 1 | 7♣ M·I | 1 | 124 | Accept as thin volume OR add content to mechanical/structural/aeronautics |
-| 2 | 7♦ M·II | 2 | 173 | Accept as thin OR expand chemical-eng/nuclear/energy-systems |
-| 3 | J♣ MP·I | 2 | 558 | Thick but bindable — confirm with binder. No action unless binding fails. |
-| 4 | K♠ C·IV | 2 | 186 | Frontier dirs will grow naturally. Accept for now. |
-| 5 | A♦ P·II | 2 | 187 | Biographical — depth is per-entry. Accept. |
-
-### Cohesion Issues (editorial — fix in content passes)
-
-| Priority | Volume | Score | Issue | Action |
-|----------|--------|-------|-------|--------|
-| 1 | Q♦ AC·II | 3 | Five unrelated "visual" topics | Consider whether the overview ties them together. Strengthen the "applied seeing" narrative. |
-
----
-
-## How to Score Style, Depth, and Archetype
-
-These three dimensions require reading each volume's actual content. Use the `/reference-review` skill or manually review:
-
-### Quick Scoring Process (per volume)
-
-```bash
-# 1. Pick a volume
-VOLUME="NW·I"  # Example
-
-# 2. Read the overview file for each directory in the volume
-#    Score STYLE: does it follow the style contract?
-#    Score DEPTH: is it peer-level?
-#    Score ARCHETYPE: does it feel like "The Taxonomist"?
-
-# 3. Spot-check 2–3 non-overview files per directory
-#    Confirm the scores hold across the volume
-
-# 4. Update this scorecard with the three new scores + total + grade
+ Mean: 26.5 / 30     Median: 27 / 30
 ```
 
-### Bulk Scoring (agent-assisted)
+**6 perfect scores.** 42 of 52 volumes grade A. One C (K♠). No D's or F's.
 
-Deploy a review agent per section (13 agents, one per ray). Each agent:
-1. Reads all files in the section's 4 volumes
-2. Scores Style (0–5), Depth (0–5), Archetype (0–5) per volume
-3. Writes rationale
-4. Returns scores to update this scorecard
+---
 
-*Target: complete scoring of all 52 volumes across all 6 dimensions before Stage 2 (PDF generation).*
+## Top 10 Volumes (by total score)
+
+| Rank | Card | Vol | Total | Perfect dimensions |
+|------|------|-----|-------|--------------------|
+| 1 | 2♣ | NW·I — The Taxonomist | **30** | All six |
+| 1 | 4♣ | MC·I — The Colorist | **30** | All six |
+| 1 | 4♦ | MC·II — The Forger | **30** | All six |
+| 1 | 7♥ | M·III — The Provider | **30** | All six |
+| 1 | Q♣ | AC·I — The Composer | **30** | All six |
+| 1 | K♣ | C·I — The Architect | **30** | All six |
+| 7 | 2♦ | NW·II — The Brewer | **29** | Style, Depth, Archetype |
+| 7 | 4♠ | MC·IV — The Joiner | **29** | Style, Depth, Archetype |
+| 7 | 5♣ | LS·I — The Naturalist | **29** | Style, Depth |
+| 7 | 5♠ | LS·IV — The Selector | **29** | Style, Depth, Archetype |
+
+---
+
+## Bottom 10 Volumes (priority improvement targets)
+
+| Rank | Card | Vol | Total | Weakest Dimensions | Key Issue |
+|------|------|-----|-------|-------------------|-----------|
+| 52 | K♠ | C·IV — The Sentinel | **19** | Arch=2, Style=3, Depth=3 | Reads as operational guides, not unified principle. Needs cross-domain integration + theoretical grounding. |
+| 51 | Q♠ | AC·IV — The Editor | **21** | Arch=2, Style=3, Depth=3 | Sports-science is thematic misfit for "The Editor." Graphics + comics excellent, rest uneven. |
+| 50 | Q♦ | AC·II — The Surveyor | **22** | Coh=3, Len=3 | Five loosely related "visual" topics. Weakest cohesion in deck. |
+| 49 | A♠ | P·IV — The Witness | **22** | Arch=3, Len=3 | Volume lacks thematic coherence. Three different kinds of change-makers. |
+| 48 | 3♥ | ES·III — The Cultivator | **23** | Arch=3 | "Cultivator" fits agriculture but not mineralogy/planetary-science. |
+| 48 | 7♦ | M·II — The Alchemist | **23** | Arch=3, Len=2 | Energy-systems orphaned; thermodynamic cycle center fragmented. |
+| 48 | 8♠ | T·IV — The Operator | **23** | Arch=3, Len=3 | Design-choice focus vs. operational-behavior epithet. Archetype drift. |
+| 46 | 2♥ | NW·III — The Collector | **24** | All dimensions=4 | Solid but uniform 4s. Style less aggressive, archetype more label than voice. |
+| 46 | 9♥ | SS·III — The Witness | **24** | All dimensions=4 | Slightly explanatory register. Teaching vs. reference voice. |
+| 44 | 2♠ | NW·IV — The Ecologist | **25** | Arch=3 | Ecologist voice thin — reads more "marine biologist explaining reefs" than systems ecologist. |
+
+---
+
+## Improvement Actions by Priority
+
+### Archetype Issues (voice — fix in editorial pass)
+
+| # | Volume | Arch Score | Issue | Action |
+|---|--------|-----------|-------|--------|
+| 1 | K♠ C·IV The Sentinel | **2** | Three operational domains, no unified "truth is distributed" principle | Add unifying overview: Byzantine consensus, trust models, verify-everything thesis |
+| 2 | Q♠ AC·IV The Editor | **2** | Sports-science doesn't fit "design cuts to what matters" | Consider swapping sports-science to AC·III (The Performer = performance optimization) |
+| 3 | 2♠ NW·IV The Ecologist | **3** | Systems-ecology voice muted | Strengthen OVERVIEW to foreground trophic dynamics, nutrient cycling, carrying capacity |
+| 4 | 3♣ ES·I The Timekeeper | **3** | Deep-time persona not felt in writing voice | Astronomy lacks OVERVIEW — adding one with temporal framing would fix this |
+| 5 | 3♥ ES·III The Cultivator | **3** | Only fits agriculture; mineralogy/planetary-science are discovery, not cultivation | Strengthen OVERVIEW to frame all four as "ground-level understanding" |
+| 6 | 7♦ M·II The Alchemist | **3** | Thermodynamic transformation center is fragmented | Strengthen energy-systems; tie chemical-eng + nuclear + energy via exergy narrative |
+| 7 | 8♠ T·IV The Operator | **3** | Design-selection focus, not operational dynamics | Add real-time decision-making content: grid response, load forecasting, nano fabrication control |
+| 8 | A♠ P·IV The Witness | **3** | Three kinds of change-makers, not unified | Strengthen OVERVIEW thesis: "leverage points in systems" as the unifying principle |
+
+### Style Issues (contract compliance — fix in content pass)
+
+| # | Volume | Style Score | Issue | Action |
+|---|--------|-----------|-------|--------|
+| 1 | K♠ C·IV | **3** | No cross-volume integration diagram | Add unified Sentinel diagram showing consensus → authority → trust |
+| 2 | Q♠ AC·IV | **3** | Fashion is market-analysis, not design-method; sports-science missing cheat sheet | Tighten to design principles |
+| 3 | 10♠ LC·IV | **3** | More essayistic/humanistic than chart-driven | Add decision cheat sheets; strengthen ASCII diagram density |
+| 4 | 3♠ ES·IV | **3** | Remote-sensing directory may be thin/missing | Verify remote-sensing content completeness |
+
+### Length Issues (structural — accept or expand)
+
+| # | Volume | Pages | Action |
+|---|--------|-------|--------|
+| 1 | 7♣ M·I | 124 | Accept as thin — content scored 5/5/5 on substance |
+| 2 | 7♦ M·II | 173 | Expand energy-systems to strengthen both length and archetype |
+| 3 | K♠ C·IV | 186 | Frontier dirs grow naturally; also needs depth/archetype work |
+| 4 | A♦ P·II | 187 | Biographical — accept; deepen explorer technical substrate |
 
 ---
 
@@ -248,7 +248,8 @@ Deploy a review agent per section (13 agents, one per ray). Each agent:
 
 | Date | Pass | Dimensions Scored | Notes |
 |------|------|------------------|-------|
-| 2026-02-26 | First | Length, Suit Fit, Cohesion | Metadata-only pass from VOLUMES.md. Style/Depth/Archetype pending content review. |
+| 2026-02-26 | First | Length, Suit Fit, Cohesion | Metadata-only pass from VOLUMES.md |
+| 2026-02-26 | Second | Style, Depth, Archetype | 13-agent content sweep. All 52 volumes fully scored. |
 
 ---
 
