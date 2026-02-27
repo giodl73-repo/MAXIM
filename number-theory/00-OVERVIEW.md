@@ -35,6 +35,8 @@ That gap between local definition and global behavior IS number theory.
 
 ## Branch Descriptions
 
+<!-- @editor[bridge/P2]: Overview describes four branches but never bridges to the learner's TCS background — the complexity classifications (P vs sub-exp vs NP-hard) that appear in the Complexity Landscape table deserve a forward pointer here, noting that number theory gave TCS some of its most important "intermediate" problems (factoring, DLP: not in P, not NP-complete). A two-sentence bridge from "you know complexity theory" to "number theory is where the interesting unresolved complexity lives" would frame the whole section for this reader. -->
+
 ### Elementary Number Theory
 
 The foundations: divisibility, GCD, unique factorization, congruences,
