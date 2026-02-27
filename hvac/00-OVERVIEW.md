@@ -2,11 +2,26 @@
 
 ## The Big Picture
 
-<!-- @editor[audience/P2]: The opening sentence explains what HVAC does — this learner already knows what heating and cooling is. The overview should immediately establish the engineering depth: thermodynamic limits (Carnot COP bound), control hierarchy (BAS/PID), and for this learner specifically, datacenter cooling as a major application domain (economizers, liquid cooling, PUE). None of these appear in the overview. Start from the engineering challenges and performance bounds, not from "what HVAC does." -->
-<!-- @editor[bridge/P1]: The Carnot efficiency bound should be established in the overview as the framework for the entire section. COP_max for a refrigerator = T_cold/(T_hot − T_cold); COP_max for a heat pump = T_hot/(T_hot − T_cold) (temperatures in Kelvin). This is the theoretical ceiling every HVAC system operates below. A system cooling to 45°F (280K) rejecting heat at 95°F (308K) has COP_max = 280/(308−280) = 10.0. Real split-systems achieve COP 3–5. The gap is the engineering target. This bound is entirely absent from the section and is specifically called out in the learner calibration as a key need. -->
 HVAC is one integrated control problem: move heat where you want it, dilute contaminants
 to acceptable concentration, and maintain moisture in the human comfort band — all while
-spending as little energy as possible. Three subsystems, tightly coupled.
+spending as little energy as possible. The thermodynamic ceiling is the Carnot bound:
+
+```
+CARNOT COP BOUNDS (temperatures in Kelvin):
+  Cooling:  COP_max = T_cold / (T_hot − T_cold)
+  Heating:  COP_max = T_hot / (T_hot − T_cold)
+
+  Example — residential AC:
+  Cooling to 45°F (280K), rejecting heat at 95°F (308K):
+  COP_max = 280 / (308 − 280) = 10.0
+  Real split-system AC: COP 3–5 → 30–50% of Carnot
+
+  Key insight: COP_max ∝ 1/ΔT — as outdoor T rises (hotter day),
+  ΔT increases, Carnot COP falls, equipment works harder for less effect.
+  This is why sizing and economizer strategies matter.
+```
+
+The engineering challenge spans three coupled subsystems: thermal (heat transfer, refrigeration cycles), fluid (airflow and duct network design), and control (BAS hierarchy, PID loops, economizer logic). Datacenter cooling is a major application domain — hyperscale facilities (Azure, AWS, Google) are designed around maximizing economizer hours and achieving PUE (Power Usage Effectiveness) of 1.1–1.2.
 
 ```
 +------------------------------------------------------------------+

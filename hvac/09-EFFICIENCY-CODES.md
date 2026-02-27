@@ -281,7 +281,36 @@ vary by zone.
 
 ---
 
-<!-- @editor[content/P2]: Datacenter-specific HVAC efficiency standards are entirely absent from this file. For this learner who manages Azure datacenters, the relevant standards are: ASHRAE TC 9.9 (Mission Critical Facilities, Data Centers, Web Hosting Facilities, and Telecommunications Facilities — defines allowable temperature/humidity envelopes for IT equipment, A1–A4 classes); ENERGY STAR for Data Centers (certifies facilities, not equipment); The Green Grid's PUE (Power Usage Effectiveness) metric — now ISO/IEC 30134-2 — as the dominant datacenter efficiency benchmark. Best-in-class hyperscale PUE: 1.1–1.2 (Microsoft, Google). US average datacenter PUE: ~1.5. AFUE, SEER2, and residential minimums are irrelevant to this learner's professional context; PUE and ASHRAE TC 9.9 are directly relevant. At minimum, a section connecting the residential/commercial efficiency framework to the datacenter domain would complete the coverage. -->
+## Datacenter Efficiency Standards
+
+The residential/commercial standards above (SEER2, AFUE, IECC) do not apply to datacenters. The datacenter domain has its own efficiency framework:
+
+```
+DATACENTER-SPECIFIC STANDARDS:
+  ASHRAE TC 9.9: Mission Critical Facilities thermal guidelines
+    Defines allowable temperature/humidity envelopes for IT equipment:
+    Class A1: 15-32°C (59-90°F), 20-80% RH — standard IT
+    Class A2: 10-35°C — extended, more economizer hours
+    Class A3: 5-40°C — hardened, significant economizer gains
+    Class A4: 5-45°C — maximum economizer envelope
+
+  PUE (Power Usage Effectiveness) — ISO/IEC 30134-2:
+    PUE = Total facility power / IT equipment power
+    PUE 2.0:  inefficient (half the power goes to cooling/overhead)
+    PUE 1.5:  US average datacenter
+    PUE 1.1-1.2: best-in-class hyperscale (Microsoft, Google)
+    PUE 1.0:  theoretical perfect — all power goes to compute
+
+  ENERGY STAR for Data Centers:
+    Certifies facilities (not equipment); PUE-based benchmark
+    Must score in top 25% of similar facilities
+
+  The Green Grid:
+    Industry consortium that developed PUE metric
+    Also defines WUE (Water Usage Effectiveness) = annual water use / IT energy
+    Water matters because evaporative cooling towers consume water
+```
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

@@ -30,7 +30,37 @@ building envelope and what drives that movement.
 
 ## Section 1: Three Modes of Heat Transfer
 
-<!-- @editor[bridge/P1]: Carnot efficiency is entirely absent from this file. This is the foundational thermodynamic constraint for all HVAC systems: η_Carnot = 1 − T_cold/T_hot for heat engines; COP_max = T_cold/(T_hot − T_cold) for refrigeration; COP_max = T_hot/(T_hot − T_cold) for heat pumps (temperatures in Kelvin). These relationships explain why COP > 1 is physically possible (you're moving heat, not creating it), what limits how good HVAC equipment can theoretically be, and why warmer outdoor temperatures reduce AC efficiency (T_hot rises → COP_max falls). For a reader who knows thermodynamics from MIT, establishing the Carnot baseline here makes every subsequent efficiency discussion interpretable. The three heat transfer modes are known physics — the Carnot framework is the gap. -->
+### Carnot Bounds — The Thermodynamic Ceiling
+
+Before heat transfer modes: the Carnot efficiency sets the theoretical maximum for any heat-moving device. All temperatures in Kelvin.
+
+```
+HEAT ENGINE (rare in HVAC — absorption chillers use this):
+  η_Carnot = 1 − T_cold/T_hot
+
+REFRIGERATION (AC, chillers):
+  COP_max = T_cold / (T_hot − T_cold)
+
+HEAT PUMP (heating mode):
+  COP_max = T_hot / (T_hot − T_cold)
+
+WHY COP > 1 IS PHYSICAL:
+  You are moving heat, not creating it. The work input moves Q_cold
+  from inside to outside. Total heat rejected Q_hot = Q_cold + W.
+  COP = Q_cold/W. Since Q_cold > 0 and W < Q_cold + Q_hot, COP > 1.
+
+PRACTICAL EXAMPLE:
+  AC cooling to 45°F (280K), outdoor 95°F (308K):
+  COP_max = 280/28 = 10.0    Real equipment: COP 3–5 (30–50% of Carnot)
+
+  Heat pump heating to 70°F (294K), outdoor 20°F (266K):
+  COP_max = 294/28 = 10.5    Real ASHP: COP 2–3 (20–30% of Carnot)
+
+  WHY PERFORMANCE DEGRADES:
+  COP_max ∝ 1/ΔT. As outdoor T rises (cooling) or falls (heating),
+  ΔT increases → COP_max drops → equipment works harder per BTU moved.
+```
+
 ### Conduction
 
 Heat flows through a solid from high-temperature to low-temperature regions. Rate is

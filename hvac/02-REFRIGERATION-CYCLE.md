@@ -243,7 +243,8 @@ most refrigerant charge and airflow problems.
 
 ## Section 4: Efficiency Metrics
 
-<!-- @editor[bridge/P1]: The Carnot-derived COP maximum is absent. This is the critical theoretical framework: COP_max (refrigeration) = T_cold / (T_hot − T_cold), where temperatures are in Kelvin. Example: cooling to 45°F (280K), rejecting at 95°F (308K) → COP_max = 280 / (308−280) = 10.0. Real equipment achieves COP 3–5, or 30–50% of Carnot. For a heat pump in heating mode: COP_max = T_hot / (T_hot − T_cold). Why this matters: COP drops as ΔT increases (hot summer day → T_hot rises → COP_max falls → equipment works harder for less effect). This is not "300% efficiency" as a magic claim — it has a thermodynamic ceiling the learner can derive. The Carnot framework belongs here alongside the COP definition. -->
+The theoretical ceiling for COP is the Carnot bound: COP_max = T_cold / (T_hot - T_cold) for cooling (temperatures in Kelvin). At 45F/95F conditions: COP_max = 280/28 = 10.0. Real equipment achieves COP 3-5, i.e., 30-50% of Carnot efficiency. The gap comes from compressor irreversibilities, heat exchanger temperature differences, and expansion losses. COP drops as delta-T increases: on a 110F day, COP_max falls to 280/(316-280) = 7.8, and real equipment drops proportionally. "COP = 3.0 means 300% efficiency" is physically meaningful — you are moving heat, not creating it — but it has a thermodynamic ceiling.
+
 ```
   METRIC     DEFINITION                              UNITS    TYPICAL
   ------     ----------                              -----    -------
