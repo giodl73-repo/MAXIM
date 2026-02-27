@@ -32,29 +32,34 @@ FOUNDATIONS STRUCTURE
 
 ## Microstates and Macrostates
 
-<!-- @editor[audience/P2]: The macrostate/microstate definitions are written at introductory level — this learner knows thermodynamics. The coin example (4 coins, 2 heads) is pedagogically correct but far below the calibration level. The learner needs the *combinatorial scaling* argument (why Ω grows as e^N) to understand why fluctuations vanish in the thermodynamic limit, not a 4-coin illustration. Consider replacing with the N-coin binomial / Stirling argument that shows the Gaussian sharpening. -->
-
 **Macrostate**: defined by macroscopic variables (N, V, T, P, ...) — what we measure.
 **Microstate**: complete specification of the state of every particle (positions and momenta in classical mechanics, quantum numbers in quantum mechanics).
 
-**Crucial asymmetry**: Many microstates correspond to the same macrostate.
+**Crucial asymmetry**: Many microstates correspond to the same macrostate, and this asymmetry grows exponentially with N.
 
 ```
-EXAMPLE: 4 coins, each H or T
-  Macrostate "2 heads":  microstates = {HHTT, HTHT, HTTH, THHT, THTH, TTHH}
-                         Ω = 6
-  Macrostate "4 heads":  microstates = {HHHH}
-                         Ω = 1
+COMBINATORIAL SCALING — WHY FLUCTUATIONS VANISH:
 
-  Entropy of "2 heads": S = k ln 6 ≈ 1.79k
-  Entropy of "4 heads": S = k ln 1 = 0
+  N two-state particles (e.g., spin-1/2 system), each ±1.
+  Macrostate: total magnetization m = (N↑ − N↓)/N.
 
-  The "2 heads" state is overwhelmingly more probable — for N = 4.
-  For N = 10²³, the asymmetry is so extreme that deviations from the
-  maximum-entropy state are never observed.
+  Ω(m) = C(N, N(1+m)/2) = N! / [(N(1+m)/2)! (N(1−m)/2)!]
+
+  Apply Stirling (ln N! ≈ N ln N − N):
+  S(m)/k_B = ln Ω ≈ N [−((1+m)/2)ln((1+m)/2) − ((1−m)/2)ln((1−m)/2)]
+            = N × H_binary(m)    (binary entropy per particle)
+
+  Entropy peaks at m = 0: S_max = Nk_B ln 2 (all microstates accessible).
+  Near the peak:  S(m) ≈ S_max − Nm²/4  (Gaussian in m).
+
+  So P(m) ∝ e^{S(m)/k_B} ∝ e^{-Nm²/4}:  Gaussian of width σ_m = √(2/N).
+
+  For N = 10²³:  σ_m ~ 10⁻¹¹·⁵.
+  The macrostate with maximum Ω dominates so completely that fluctuations
+  away from it are thermodynamically invisible.
 ```
 
-**The second law**: Systems evolve toward macrostates with higher Ω. Not by any force, but by pure combinatorics — there are more ways to be in the high-entropy state.
+**The second law**: Systems evolve toward macrostates with higher Ω. Not by any force, but by pure combinatorics — the number of microstates at the entropy peak grows as e^N, making deviations from the maximum-entropy state exponentially improbable.
 
 ---
 
@@ -120,7 +125,7 @@ So:
 
 ## Derivation via Maximum Entropy (Jaynes)
 
-<!-- @editor[bridge/P2]: The Jaynes MaxEnt derivation is present but doesn't land the connection this learner most needs: the Lagrange multiplier β here is exactly the dual variable in a convex optimization problem (Legendre-Fenchel duality). A learner with MIT math background will recognize that the exponential family distribution is the general solution to any MaxEnt problem with linear constraints — and that this is why logistic regression, Gaussian, Poisson, and exponential distributions all take the same e^{linear} form. One sentence bridging MaxEnt → exponential family → ML would pay off. -->
+The Lagrange multiplier β is the dual variable in a convex optimization problem: the Legendre-Fenchel conjugate of S(E) is F(β) = sup_E[βE − S(E)/k_B], and the Boltzmann distribution p_n ∝ e^{-βE_n} is the general solution to any MaxEnt problem with linear constraints. This is why every exponential family distribution — logistic regression, Gaussian, Poisson, multinomial — takes the same e^{η·T(x)} form: each is the MaxEnt distribution for its sufficient statistics, and β plays the same role in all of them.
 
 Alternatively: find the distribution {p_n} that **maximizes entropy** subject to:
 
@@ -260,6 +265,10 @@ For N₂ at room temperature (T = 300K, m = 28 amu): v_rms ≈ 517 m/s.
 
 **Equipartition fails at low T for quantum systems**: The classical equipartition theorem gives each quadratic mode k_BT/2 of energy. But if the quantum level spacing ℏω >> k_BT, the mode cannot be thermally excited — it contributes nearly zero. This explains why specific heats of solids decrease at low T (Einstein and Debye models).
 
-<!-- @editor[content/P2]: Missing: the Gibbs entropy formula S = −k Σ p_n ln p_n should be connected explicitly to Shannon entropy H = −Σ p_n log₂ p_n here at the foundations level, not deferred to 09-CONNECTIONS.md. This is where the identity is *derived* (both emerge from the same axiomatic constraints), and this learner already knows Shannon entropy. The connection at derivation time is more illuminating than a mapping table later. -->
+**Gibbs entropy is Shannon entropy**: The Gibbs formula S = −k_B Σ p_n ln p_n is mathematically identical to Shannon's H = −Σ p_n log₂ p_n, differing only by units (a factor of k_B ln 2). Both are uniquely determined by the same axiomatic requirements: continuity in p, maximized for uniform distributions, and additive for independent systems. This is not an analogy — it is the same functional, derived from the same constraints. The identification means that thermodynamic entropy is literally the missing information about the microstate, measured in J/K rather than bits. Full treatment of the implications in 09-CONNECTIONS.md.
 
-<!-- @editor[content/P2]: The Maxwell-Boltzmann speed distribution section derives the result but never states the practical use case: it sets the scale for when quantum statistics are required (nλ³ ~ 1 is the quantum crossover). The thermal de Broglie wavelength λ = h/√(2πmkT) should appear here with the quantum criterion, not only in 04-QUANTUM-STATS.md. -->
+**When does classical statistics break down?** The Maxwell-Boltzmann speed distribution sets the scale for the classical-to-quantum crossover. Define the thermal de Broglie wavelength:
+
+    λ = h / √(2πmk_BT)
+
+When the interparticle spacing is comparable to λ — i.e., when nλ³ ~ 1 where n = N/V is the number density — quantum statistics become essential. For nλ³ << 1 (high T, low density), Maxwell-Boltzmann applies. For nλ³ ~ 1, Fermi-Dirac or Bose-Einstein distributions take over (see 04-QUANTUM-STATS.md). Electrons in metals at room temperature have nλ³ >> 1: deeply quantum. Helium-4 at T_λ ≈ 2.17 K reaches nλ³ ~ 1: Bose-Einstein condensation onset.

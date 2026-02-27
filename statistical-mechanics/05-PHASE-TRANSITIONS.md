@@ -169,8 +169,6 @@ The gradient term |∇m|² penalizes spatial variations. Minimizing this functio
 
 ## Critical Exponents and Universality
 
-<!-- @editor[content/P2]: The universality table lists exponents for Ising, XY, and Heisenberg universality classes but is missing the mean-field row for d=3 comparison alongside exact 3D values, and is also missing a column for 2D Ising exact values for comparison (β=1/8 vs 0.326 illustrates how dramatically dimension changes exponents). Adding a "2D Ising (exact)" column would make this the reference table the learner reaches for, not just a static list. -->
-
 Near T_c, all physical quantities follow power laws:
 
 ```
@@ -193,22 +191,34 @@ CRITICAL EXPONENTS DEFINED:
 **Universality**: Systems with the same (d, symmetry of order parameter) have identical critical exponents, regardless of microscopic details.
 
 ```
-UNIVERSALITY CLASSES — CRITICAL EXPONENTS:
+UNIVERSALITY CLASSES — CRITICAL EXPONENTS REFERENCE TABLE:
 
-  Class              d=3 exponents          Examples
-  ──────────────────────────────────────────────────────────────────
-  Ising (n=1)        α=0.110, β=0.326,      Ferromagnet, liquid-gas,
-                     γ=1.237, ν=0.630       binary alloy, ⁴He
-  XY (n=2)           α=−0.007, β=0.348,     Superfluid transition
-                     γ=1.316, ν=0.671       (n=2 complex order param)
-  Heisenberg (n=3)   α=−0.115, β=0.366,     Isotropic ferromagnet
-                     γ=1.391, ν=0.707
-  Mean-field         α=0, β=1/2,            d ≥ 4, long-range interactions
-  (all classes, d≥d_c) γ=1, ν=1/2
+  Class             α       β       γ       ν       η      Examples
+  ─────────────────────────────────────────────────────────────────────────
+  Mean-field        0       1/2     1       1/2     0      d ≥ 4, any n
+  (d ≥ d_c)
 
-  Why same exponents? Near T_c, fluctuations on scale ξ dominate.
-  ξ → ∞ means the microscopic details (lattice spacing, etc.) don't matter.
-  Only d and symmetry of the order parameter determine the exponents.
+  2D Ising (exact)  0(log)  1/8     7/4     1       1/4    Square lattice
+                                                           (Onsager 1944)
+
+  3D Ising (n=1)    0.110   0.326   1.237   0.630   0.036  Ferromagnet,
+                                                           liquid-gas,
+                                                           binary alloy
+
+  3D XY (n=2)      −0.007   0.348   1.316   0.671   0.038  Superfluid ⁴He,
+                                                           easy-plane magnet
+
+  3D Heisenberg    −0.115   0.366   1.391   0.707   0.037  Isotropic
+  (n=3)                                                     ferromagnet
+
+  Note: 2D Ising β = 1/8 = 0.125 vs 3D Ising β = 0.326 — dimension
+  changes exponents dramatically. Mean-field β = 1/2 overestimates order
+  in both 2D and 3D. All rows satisfy the scaling relations
+  (α + 2β + γ = 2, dν = 2 − α for d < d_c).
+
+  Why same exponents within a class? Near T_c, fluctuations on scale ξ
+  dominate. ξ → ∞ means microscopic details (lattice spacing, etc.) are
+  irrelevant. Only d and symmetry of the order parameter determine exponents.
 ```
 
 ---
@@ -286,6 +296,10 @@ ISING HAMILTONIAN:
 
 **Second-order transitions are not "less physical" than first-order**: Both are sharp transitions. Second-order transitions have divergent fluctuations and scale invariance — they are if anything richer physics. Superconductors and superfluids undergo second-order transitions; the phase is fundamentally different from a classical phase transition.
 
-<!-- @editor[content/P2]: Missing: the Ginzburg criterion — the condition for when mean-field theory actually fails and fluctuations take over. The file says "Below d_c, fluctuations dominate" but doesn't give the Ginzburg condition (ξ^d × (fluctuations) ~ (mean-field value)) that tells you *quantitatively* how close to T_c mean-field breaks down. This is the bridge between the Landau free energy section and the renormalization group — exactly what this learner would want to see. -->
+**Ginzburg criterion — when does mean-field break down?** The Ginzburg criterion quantifies how close to T_c fluctuations overwhelm the mean-field order parameter. Compare the fluctuation in m within a correlation volume ξ^d to the mean-field value m_MF:
 
-<!-- @editor[bridge/P2]: No connection to the ML "generalization transition" or "double descent" phenomenon. The universality framework (same critical exponents from very different microscopic systems) is exactly the insight needed to understand why neural network phase transitions (interpolation threshold, jamming) are universal across architectures. The 09-CONNECTIONS.md file covers this lightly but the core insight belongs here, at the point where universality is first explained in depth. -->
+    Gi = (fluctuation / mean-field)² = (⟨δm²⟩_ξ / m_MF²) ~ (k_BT_c / |a₀|ξ^d) / (|a₀|t/b)
+
+where t = |T − T_c|/T_c. Using ξ ~ t^{-1/2} (mean-field) and m ~ t^{1/2}: Gi ~ t^{(d−4)/2}. Mean-field is self-consistent when Gi << 1, i.e., when t >> t_Gi where t_Gi ~ (b²k_BT_c / a₀² ξ₀^d)^{2/(4−d)}. For d > 4, Gi → 0 always: mean-field is exact. For d < 4, there is a Ginzburg window |t| < t_Gi near T_c where fluctuations dominate and mean-field exponents are wrong. This is the regime where the renormalization group (06-RENORMALIZATION.md) is essential.
+
+**Universality in neural network phase transitions**: The universality framework — same critical exponents from very different microscopic systems — applies beyond condensed matter. Neural networks exhibit sharp phase transitions at the interpolation threshold (where training error drops to zero), and the double descent phenomenon (test error peaks at the interpolation threshold, then decreases again) appears universally across architectures (fully-connected, convolutional, random features). The underlying mechanism is the same: at the critical point, the effective dimension of the model equals the number of constraints (training data), and the critical exponents governing generalization error depend on the universality class (e.g., random matrix ensemble), not on architectural details. The spin glass connection is developed in 09-CONNECTIONS.md.

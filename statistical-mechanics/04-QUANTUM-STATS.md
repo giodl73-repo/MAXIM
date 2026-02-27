@@ -249,8 +249,6 @@ where T_D = ℏω_D/k_B is the Debye temperature.
 
 ## Spin Statistics Theorem
 
-<!-- @editor[content/P2]: The spin-statistics theorem section states the result and the three requirements but doesn't mention that the proof is notoriously non-trivial — Feynman called it "one of the most important but least well-explained results" in his Lectures. The statement that violating it gives "negative probabilities or negative energy" is correct but the argument deserves one more sentence: the canonical commutation/anticommutation relations for fields of each type are *forced* by Lorentz invariance and locality, not chosen by hand. This context distinguishes this from a "postulate" to a student reading this. -->
-
 **Why bosons → +1 and fermions → −1 under exchange?** The spin-statistics theorem (Pauli 1940, proof via QFT): in any relativistic quantum field theory, integer-spin particles are bosons and half-integer-spin particles are fermions.
 
 The proof requires:
@@ -258,7 +256,7 @@ The proof requires:
 2. Causality (commutators vanish outside light cone)
 3. Positive-definite energy
 
-Assume the wrong statistics — bosonic electrons or fermionic photons — and you get negative probabilities or negative energy states.
+The proof is notoriously non-trivial — Feynman called it "one of the most important but least well-explained results" in physics. The key insight: the canonical commutation relations (bosons) and anticommutation relations (fermions) are not chosen by hand — they are forced by the joint requirements of Lorentz invariance and microcausality (fields at spacelike separation must commute or anticommute). Assuming the wrong statistics — bosonic electrons or fermionic photons — gives negative-norm states (negative probabilities) or an energy spectrum unbounded below.
 
 ```
 SPIN-STATISTICS THEOREM:
@@ -332,8 +330,8 @@ OCCUPATION vs ENERGY:
 
 **BEC does not require interactions**: Ideal non-interacting bosons show BEC. In real systems (liquid ⁴He, cold atoms), interactions modify the transition temperature but BEC still occurs. The key physics is purely quantum statistical — macroscopic occupation of the ground state.
 
-<!-- @editor[content/P2]: Missing significant connection: BEC in a harmonic trap is the experimental realization, but the file does not mention the Gross-Pitaevskii equation (the mean-field equation for the condensate wavefunction). For a learner interested in the physics, the GP equation is where BEC connects to superfluidity (the phase of the condensate carries the current), and it's directly relevant to the ML connection (the condensate wavefunction is a classical field, the analog of a "mode collapse" in generative models). A two-line mention with the GP equation would complete this. -->
+**The Gross-Pitaevskii equation connects BEC to superfluidity**: For a weakly interacting condensate, the macroscopic wavefunction Ψ(r,t) satisfies the Gross-Pitaevskii equation: iℏ ∂Ψ/∂t = [−ℏ²∇²/(2m) + V(r) + g|Ψ|² ] Ψ, where g = 4πℏ²a_s/m (a_s = s-wave scattering length). This is a nonlinear Schrödinger equation — the condensate is a classical field whose phase gradient carries the superfluid current: v_s = (ℏ/m)∇φ. The GP equation is where BEC connects to superfluidity, vortices, and soliton dynamics.
 
-<!-- @editor[bridge/P2]: The Fermi-Dirac sigmoid and its identity to logistic regression / neural network activation functions is not made explicit in this file. The file 09-CONNECTIONS.md notes "RBM unit activation P(h=1|v) = σ(W·v + c) ↔ Fermi-Dirac" but this is exactly the right place to plant that observation — when the Fermi function is first defined. A one-line note that f(ε) = σ(β(μ−ε)) where σ is the logistic sigmoid directly bridges to ML activation functions and would be immediately recognized by this learner. -->
+**The Fermi-Dirac function is the logistic sigmoid**: The Fermi function f(ε) = 1/(e^{β(ε−μ)}+1) is exactly σ(β(μ−ε)) where σ(x) = 1/(1+e^{-x}) is the logistic sigmoid used as the activation function in neural networks. In an RBM (restricted Boltzmann machine), the conditional probability P(h_j = 1 | v) = σ(W_j·v + c_j) is literally Fermi-Dirac occupancy with β = 1 and effective chemical potential μ = W_j·v + c_j. The correspondence is exact, not approximate.
 
 **The classical limit is NOT "high temperature" in general**: The classical limit requires nλ³ << 1 (low phase-space density). High T reduces λ ∝ T^{-1/2}, which helps, but also high T with high density can still be quantum. A neutron star at T = 10⁸ K is still deeply quantum (degenerate) because n is huge.

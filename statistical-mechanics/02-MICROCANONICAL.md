@@ -135,7 +135,7 @@ DENSITY OF STATES g(E) FOR DIFFERENT SYSTEMS:
 
 ## The Second Law from Counting
 
-<!-- @editor[bridge/P2]: The combinatorial derivation of the second law as Ω_total maximization is correct but misses a powerful bridge: this is the same argument as maximum likelihood estimation in statistics. Maximizing Ω = Ω_A × Ω_B over E_A is exactly maximizing a product of probabilities — the physics is maximum likelihood in disguise. This learner (MIT TCS) will find this connection illuminating and it directly connects to the Jaynes MaxEnt picture. -->
+The argument below is maximum likelihood estimation in disguise: maximizing Ω_total = Ω_A(E_A) × Ω_B(E − E_A) over E_A is maximizing a product of probabilities (a likelihood). Taking logarithms converts the product to a sum — the log-likelihood — and the optimality condition ∂ ln Ω_A/∂E_A = ∂ ln Ω_B/∂E_B is the score equation. Temperature equality at equilibrium is the MLE solution.
 
 **Setup**: Two systems A and B, initially isolated at energies E_A and E_B, then allowed to exchange energy (total E = E_A + E_B is fixed).
 
@@ -257,7 +257,7 @@ At low T (k_BT << ℏω): Ω ~ e^{-ℏω/k_BT} → quantum freeze-out → C_V �
 
 **The Debye model** improves on Einstein by using a spectrum of frequencies ω_k (phonons) up to a Debye cutoff ω_D. The density of states goes as g(ω) ∝ ω² for ω < ω_D. This gives C_V ∝ T³ at low T — observed in all crystalline solids.
 
-<!-- @editor[content/P2]: The quantum microcanonical section covers Einstein and Debye models but does not connect back to the density of states diagram above. The C_V ∝ T³ result should follow visibly from g(ω) ∝ ω² by a one-line argument (∫ ε g(ε) n_BE(ε) dε gives the energy, and the low-T integral scales as T^(d+1) for g(ε) ∝ ε^{d-1}). This would close the section's logic without requiring the reader to look it up elsewhere. -->
+**Why C_V ∝ T³ follows from g(ω) ∝ ω²**: The total energy U = ∫₀^{ω_D} ℏω × g(ω) × n_BE(ω) dω where n_BE = 1/(e^{βℏω}−1). At low T (βℏω_D >> 1), the upper limit extends to ∞ and the substitution x = βℏω gives U ∝ T^4 ∫₀^∞ x³/(e^x−1) dx, so C_V = ∂U/∂T ∝ T³. The exponent 3 = d+1−1 for d = 3 with g(ω) ∝ ω^{d-1}. The g(ω) ∝ ω² density of states from the table above directly determines the low-T power law.
 
 ---
 

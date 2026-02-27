@@ -244,8 +244,6 @@ where P_F is the work distribution for forward process and P_R for the time-reve
 
 ## Stochastic Thermodynamics
 
-<!-- @editor[content/P2]: The stochastic thermodynamics section defines trajectory-level work, heat, and entropy production correctly but does not cover the Seifert integral fluctuation theorem (⟨e^{-σ}⟩ = 1, where σ is total entropy production). This is both the generalization of Jarzynski and the most general statement of the second law from stochastic thermodynamics. A one-equation statement with the physical interpretation (the ratio of forward to reverse trajectory probabilities is e^σ) would complete the section's logical arc. -->
-
 Stochastic thermodynamics extends classical thermodynamics to the level of individual trajectories.
 
 **For a single overdamped trajectory x(t)** between times 0 and t:
@@ -261,6 +259,12 @@ These quantities are well-defined for individual trajectories — not just avera
     σ[x(t)] = ln(P_F[x(t)] / P_R[x̃(t)])
 
 where P_F is the probability of the forward trajectory and P_R of the time-reversed trajectory. This gives a microscopic definition of irreversibility.
+
+**Seifert's integral fluctuation theorem** (the most general second law): For total entropy production σ along a stochastic trajectory:
+
+    ⟨e^{-σ}⟩ = 1
+
+This is the master identity from which Jarzynski (⟨e^{-βW}⟩ = e^{-βΔF}) and Crooks follow as special cases. By Jensen's inequality, ⟨e^{-σ}⟩ = 1 immediately gives ⟨σ⟩ ≥ 0 (second law), but the equality contains more: it specifies the full probability distribution of entropy production, not just its mean. The physical interpretation is that the entropy production σ[x(t)] = ln(P_F[x(t)]/P_R[x̃(t)]) is the log-ratio of forward to reverse path probabilities — trajectories that decrease entropy are exponentially less likely than their time-reversed counterparts.
 
 ---
 
@@ -290,8 +294,6 @@ Entropy is produced at rate dS/dt = (k_B/2) Σ_{mn} J_{nm} ln(J_{nm}/J_{mn}) ≥
 
 ## Boltzmann Transport Equation
 
-<!-- @editor[content/P2]: The Boltzmann transport equation section correctly states the equation and the H-theorem but doesn't connect to the modern applications this learner would care about: the BTE is the starting point for drift-diffusion equations in semiconductor physics (the Drude model and its quantum corrections), and for the phonon Boltzmann equation that governs heat transport in nanostructures. More relevantly for this learner's calibration, the linearized BTE gives the kinetic theory expression for viscosity, conductivity, and diffusion — the Onsager reciprocal relations that relate these transport coefficients to each other. A sentence on the Onsager relations would close the loop between this section and the Kubo formula section above. -->
-
 For gases far from equilibrium, the Boltzmann transport equation governs the single-particle distribution function f(r, p, t):
 
     ∂f/∂t + v·∇_r f + F·∇_p f = (∂f/∂t)_collisions
@@ -305,6 +307,8 @@ The left side is free streaming; the right side is the collision integral:
     H = ∫ d³r d³p f ln f
 
 satisfies dH/dt ≤ 0, approaching its minimum at equilibrium (Maxwell-Boltzmann distribution). This established the microscopic basis for the second law (with the caveats about the molecular chaos assumption discussed in 01-FOUNDATIONS.md).
+
+**From BTE to transport coefficients and Onsager reciprocal relations**: Linearizing the BTE around the Maxwell-Boltzmann equilibrium (f = f₀ + δf, δf << f₀) gives the Chapman-Enskog expansion, from which kinetic expressions for viscosity η, thermal conductivity κ, and diffusion D emerge. The **Onsager reciprocal relations** (Nobel 1968) state that the matrix of transport coefficients L_{ij} (relating thermodynamic forces X_j to fluxes J_i: J_i = Σ_j L_{ij} X_j) is symmetric: L_{ij} = L_{ji}. This follows from time-reversal symmetry of the microscopic dynamics and connects directly to the Green-Kubo relations above: both the Kubo formula and the linearized BTE give the same transport coefficients, closing the loop between the equilibrium correlation function approach (Kubo) and the kinetic theory approach (Boltzmann). The BTE is also the starting point for the Drude model and drift-diffusion equations in semiconductor physics.
 
 ---
 
@@ -334,4 +338,38 @@ satisfies dH/dt ≤ 0, approaching its minimum at equilibrium (Maxwell-Boltzmann
 
 **Entropy production is defined for trajectories, not just equilibrium states**: Stochastic thermodynamics defines entropy production along individual trajectories. The ensemble average of trajectory entropy production equals the thermodynamic entropy production, but individual trajectories can violate the second law. The Crooks relation quantifies how probable such violations are.
 
-<!-- @editor[content/P2]: Missing: diffusion models as stochastic processes — the learner calibration explicitly lists "diffusion models as stochastic processes" as a target bridge. Score-based generative models (Song & Ermon) and DDPM (Ho et al.) are exactly forward/reverse stochastic differential equations: the forward process is Langevin diffusion (add noise, destroy signal), and the reverse process learns to reverse the Fokker-Planck flow. The Fokker-Planck and Langevin equations of this file are the exact mathematical foundation. A brief subsection connecting these would be the highest-value addition to this file for this learner. -->
+## Diffusion Generative Models as Non-Equilibrium Stat Mech
+
+Score-based generative models (Song & Ermon 2019) and denoising diffusion probabilistic models (DDPM, Ho et al. 2020) are exactly forward/reverse stochastic differential equations — the Langevin and Fokker-Planck equations of this chapter are their mathematical foundation.
+
+```
+DIFFUSION MODEL = FORWARD + REVERSE LANGEVIN:
+
+  FORWARD PROCESS (destroy signal → noise):
+  dx = f(x,t) dt + g(t) dW_t         (Itô SDE)
+  Corresponding FPE: ∂p/∂t = −∇·(fp) + (g²/2)∇²p
+  As t → ∞: p(x,t) → N(0, σ²I)     (pure noise)
+
+  REVERSE PROCESS (noise → signal):
+  dx = [f(x,t) − g(t)² ∇_x log p(x,t)] dt + g(t) dW̄_t
+  (Anderson 1982 reverse-time SDE)
+
+  KEY INSIGHT:
+  The reverse drift requires the SCORE FUNCTION ∇_x log p(x,t) —
+  the gradient of the log-density at each noise level.
+  This is exactly −∇U/(k_BT) — the force from the free energy landscape.
+
+  The neural network learns s_θ(x,t) ≈ ∇_x log p(x,t) by
+  score matching: minimize E[||s_θ(x,t) − ∇_x log p(x,t)||²].
+
+  Sampling = running the reverse Langevin dynamics with the learned score.
+
+  PHYSICS TRANSLATION:
+  Forward process    = heating the system (adding thermal noise, T → ∞)
+  Score function     = force field −∇F/kT from the free energy landscape
+  Reverse process    = cooling with learned force field (annealing)
+  Score matching     = learning the energy landscape gradient
+  Sampling quality   = accuracy of the reversed Fokker-Planck dynamics
+```
+
+The theoretical foundation — Anderson's reverse-time SDE (1982) — is purely non-equilibrium statistical mechanics. The practical innovation was learning the score function by denoising, making the reverse dynamics tractable without knowing the partition function.
