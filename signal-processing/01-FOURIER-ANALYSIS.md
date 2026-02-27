@@ -188,6 +188,10 @@ N         DFT (N²)   FFT (N·log₂N)   Speedup
 **Variants**: Radix-4 FFT, split-radix FFT, prime-factor FFT (for non-power-of-2 N),
 Bluestein FFT (arbitrary N via convolution). Libraries like FFTW auto-select.
 
+<!-- @editor[bridge/P2]: No bridge from FFT O(N log N) to algorithmic complexity context the learner knows cold — this is exactly the kind of bridge that lands. E.g.: Cooley-Tukey is a divide-and-conquer recurrence identical in structure to merge sort; the twiddle-factor cancellation is the "merge step." The learner will immediately map this to recurrence trees and master theorem. Also missing: FFTW's runtime algorithm auto-selection (measures cache/SIMD performance → chooses plan) is a practical implementation detail worth one paragraph. -->
+
+<!-- @editor[content/P2]: Fixed-point FFT implementation absent — butterfly overflow/scaling strategies (block floating point, static scaling, saturation), Q-format arithmetic, and rounding modes are practical DSP implementation content this learner does need (per calibration: "practical DSP implementation (fixed-point arithmetic, pipeline architectures, numerical precision)"). -->
+
 ---
 
 ## Spectral Leakage and Windowing

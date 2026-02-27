@@ -210,6 +210,8 @@ This is why radar waveforms are designed for good autocorrelation properties
 
 ---
 
+<!-- @editor[bridge/P2]: No CNN-as-filter-bank bridge despite this being the most direct connection to modern ML. A CNN convolutional layer IS a bank of learned FIR filters: the kernel weights are the filter coefficients, the forward pass is cross-correlation (note: ML libraries call it convolution but implement correlation without flipping), and backprop is gradient descent on filter coefficients. This bridge from classical DSP convolution → learned filter banks is explicitly in the learner's "does need" list. Add a short section here or in 09-APPLICATIONS. -->
+
 ## Decision Cheat Sheet
 
 | Task | Method |

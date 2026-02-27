@@ -243,3 +243,5 @@ brick-wall to gentle rolloff, and gets noise shaping for free.
 in theory, like a square wave), you're always aliasing. Square waves, sharp edges, anything with
 discontinuities has infinite bandwidth and can't be perfectly sampled. Real systems just
 pre-filter (which distorts the edges).
+
+<!-- @editor[content/P2]: Compressed sensing / sub-Nyquist sampling absent. Nyquist is the classical lower bound under the bandlimited assumption — compressed sensing (Candès, Romberg, Tao 2006; Donoho 2006) breaks it when the signal is sparse in some basis. The recovery condition (RIP, incoherence), L1 minimization (basis pursuit), and practical implications (MRI acceleration, single-pixel camera, spectrum sensing) are explicitly in the learner's "does need" list. This is a significant modern extension of sampling theory that belongs here. -->

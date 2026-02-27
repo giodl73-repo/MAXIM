@@ -280,6 +280,8 @@ Log-mel spectrogram: most common for deep learning (YAMNet, VGGish, AST)
 CQT (constant-Q transform): logarithmic frequency bins, good for music
 ```
 
+<!-- @editor[bridge/P2]: The ML section shows CNNs consuming spectrograms but never makes the explicit bridge from classical DSP to learned DSP — the central connection the learner calibration flags as needed. A CNN convolutional layer IS a bank of learned FIR filters: kernel weights = filter coefficients, stride = downsampling, depth = number of filter channels. Backprop is gradient descent on the filter bank. Pooling layers = downsampling (cf. DWT ↓2). The entire spatial-hierarchy of CNN features maps directly to multiresolution filter banks. Attention mechanisms (transformer) are dynamic, input-dependent filters: Q·Kᵀ softmax weighting = data-driven spectral shaping. This bridge from classical filter banks → learned filter banks → attention-as-filtering should appear explicitly here as a section (e.g., "DSP → Deep Learning Correspondence"). -->
+
 ### Signal Features in ML Pipelines
 
 ```

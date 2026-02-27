@@ -257,3 +257,5 @@ Pre-whiten the data (apply inverse filter) before MUSIC if noise is colored.
 **You must know the model order**: All parametric methods (AR, MUSIC, ESPRIT) require
 specifying the number of signal components p. Use Akaike Information Criterion (AIC) or
 Minimum Description Length (MDL) to estimate p from data. Wrong p → split peaks or missed peaks.
+
+<!-- @editor[content/P2]: Compressed sensing / atomic norm minimization for spectral estimation absent. MUSIC and ESPRIT are subspace methods but require knowing p and are sensitive to model mismatch. Modern alternatives: atomic norm minimization (Bhaskar et al. 2013) recovers a sparse line spectrum from compressed measurements via convex optimization — directly bridges to the learner's "sparse recovery" interest. Super-resolution via total variation / LASSO with a DFT dictionary is the same idea in discrete form. This connects spectral estimation to the convex optimization / sparse signal recovery thread that the calibration flags as needed. -->
