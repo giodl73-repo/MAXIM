@@ -67,6 +67,7 @@ THE LAG EFFECT:
   A 500mm adobe wall: lag ~12 hours
   Peak outside heat at noon → peak inside heat at midnight
   (when you want it, not when you're in the sun)
+<!-- @editor[bridge/P2]: Thermal mass behavior is exactly an RC circuit model: thermal resistance (R = wall thickness / conductivity) and thermal capacitance (C = mass × specific heat) create an RC time constant τ = R×C that governs the lag time. The "heat wave" penetrating the wall is the step-response of a low-pass RC filter — the wall acts as a thermal low-pass filter attenuating high-frequency temperature swings (daytime peak) and phase-shifting by τ. This analogy maps perfectly to electrical engineering (any EE background) and to signal processing. Architecture/03-ENVIRONMENTAL.md does name the thermal RC circuit explicitly; this file (which establishes the vernacular precedent) doesn't, which misses an opportunity to show that the vernacular builders were solving the same problem later formalized as thermal circuit theory. -->
 
   OR: if designed correctly, the lag is 12 hours and the peak
   inside temperature occurs when you want the warmth (cool nights)
@@ -676,4 +677,4 @@ the spatial principles. Vernacular traditions are not museums — they are livin
 responses to constraints that update when better tools become available.
 
 
-*Stub — content to be written.*
+<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->

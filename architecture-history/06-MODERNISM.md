@@ -9,6 +9,8 @@ innovation that enables it (reinforced concrete + steel skeleton) was already in
 from the Chicago School. Modernism is a philosophical decision about what to do with
 that structural freedom.
 
+<!-- @editor[bridge/P2]: The structural shift from load-bearing masonry to reinforced concrete frame is a platform shift: the new substrate (column + slab) removes constraints that had shaped architecture for millennia. Load-bearing walls no longer define the plan; the facade no longer needs to carry load. This is analogous to a new ISA or runtime enabling programming models that were previously impossible — when you remove the old constraints, a new design space opens up. Le Corbusier's Five Points (free plan, free facade, pilotis, roof garden, ribbon windows) are exactly the new design freedoms that the platform shift enables — not arbitrary preferences but logical consequences of what the new material permits. This framing makes the Five Points immediately coherent rather than seeming like a stylistic manifesto. -->
+
 ```
 MODERNISM: KEY FIGURES, DATES, WORKS
 ======================================
@@ -583,4 +585,4 @@ The Nazis had their own modernism (Albert Speer's neoclassicism was not gothic r
 International Style's abstraction).
 
 
-*Stub — content to be written.*
+<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->

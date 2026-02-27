@@ -6,6 +6,8 @@ Three civilizations, three structural strategies, three worldviews encoded in st
 The thread connecting them: how do you create an impressive interior space using
 materials that cannot take tension?
 
+<!-- @editor[bridge/P2]: Pre-steel architecture is a constraint-satisfaction problem: find a structural geometry such that every element stays in compression, given that stone's tensile strength is ~1/50th its compressive strength. Each civilization's structural evolution is the search space; each breakthrough (arch, ribbed vault, flying buttress) is a feasible solution found under tighter constraints. This framing — familiar to anyone who has thought about CSP or mathematical optimization — is not named, and it would immediately click for this reader. -->
+
 ```
 ANCIENT STRUCTURAL EVOLUTION
 =============================
@@ -571,4 +573,4 @@ without the viewer knowing why. This is deliberate: effects too subtle to consci
 identify but registered subconsciously were a Greek design strategy.
 
 
-*Stub — content to be written.*
+<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->

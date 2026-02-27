@@ -318,6 +318,7 @@ The software discipline borrowed the vocabulary because the cognitive challenge 
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a navigation index ("see file X for Y topic") rather than a decision tool. It should guide choices — e.g. "which structural system for X constraint → moment frame vs shear wall"; "passive design strategy for hot-dry vs hot-humid climate → thermal mass vs ventilation"; "which delivery method when speed matters vs quality matters." The current table maps questions to files, not to actionable answers. -->
 ## Decision Cheat Sheet
 
 | Question | Key concept | File |

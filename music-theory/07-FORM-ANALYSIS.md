@@ -1,5 +1,6 @@
 # Form Analysis
 
+<!-- @editor[bridge/P1]: Musical form is a formal grammar / state machine. The forms in this file — binary (AB), ternary (ABA'), rondo (ABACA), sonata (Exposition/Development/Recapitulation) — are all context-free grammars over section symbols with tonal constraints on the transitions. Sonata form can be described as a finite state machine where states are tonal centers (tonic, dominant, remote, returning dominant, tonic) and transitions are defined by thematic and harmonic events. The "retransition" (dominant pedal before recapitulation) is literally a state-machine transition: the system lingers in the "dominant" state until a threshold condition (arrival of P-theme material) fires the transition back to "tonic." Schenkerian analysis makes this hierarchy explicit: foreground (surface events) → middleground (prolongations) → background (fundamental structure = I → V → I). This is a parse tree with multiple levels of abstraction — exactly the distinction between abstract syntax tree and concrete syntax in a compiler. Any reader with formal languages background immediately recognizes this structure. -->
 ## The Big Picture: Music as Architecture
 
 ```

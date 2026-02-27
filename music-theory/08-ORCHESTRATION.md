@@ -35,6 +35,7 @@ SCORE READING ORDER (top to bottom in full score):
 
 ---
 
+<!-- @editor[bridge/P2]: Instrument timbre is determined by the spectral envelope of the harmonic series partials — which harmonics are present and at what relative amplitudes. Strings produce a rich harmonic series (many partials, relatively even distribution). Flute has a strong fundamental and weak overtones (nearly sinusoidal → pure, breathy tone). Oboe has strong odd harmonics (similar to a square wave → reedy, nasal). Clarinet overblows to the 3rd harmonic (not 2nd) due to its cylindrical bore, producing mainly odd harmonics — this is why clarinet has a "hollow" chalumeau register. These timbral descriptions are directly derived from Fourier analysis: each "timbre description" in this file (breathy, nasal, dark, brilliant) corresponds to a specific spectral envelope shape. Naming this connection once — "timbre = spectral envelope shape" — would give readers who know Fourier analysis an immediate framework for understanding every instrument description that follows. -->
 ## String Family
 
 The backbone of the orchestra — provide homogeneous, blending texture:
