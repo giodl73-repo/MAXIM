@@ -28,7 +28,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 
 | Card | Title | Image concept |
 |------|-------|---------------|
-| J♣ | The Experimenter | A circuit schematic — resistors, capacitors, op-amp — Maxwell's ∇×E = −∂B/∂t above it |
+| J♣ | The Experimenter | A circuit schematic — resistors, capacitors, op-amp — Maxwell's ∇×E = −∂B/∂t above it — and at the op-amp's output, twelve feedback loops — nine from the original circuit, three added later — each carrying a different frequency, each tightening the signal until the noise floor disappeared |
 | J♦ | The Analyst | Shannon channel diagram: Source → Encoder → Channel (with Noise arrow) → Decoder → Sink |
 | J♥ | The Formalist | A commutative diagram — objects A, B, C, D with morphisms f, g, h, k forming a square — and at every corner a different name — Sentinel, Ecologist, Alchemist, Witness — but the morphisms all compose: the diagram commutes, and the structure survives |
 | J♠ | The Theorist | A phase portrait — spiral sink, saddle point, limit cycle — trajectories as curved arrows |
