@@ -142,6 +142,7 @@ Both use the same scientific foundation. Engineering adds:
 
 ## The Fundamental Tool: Mass Balance
 
+<!-- @editor[bridge/P1]: The mass balance equation d(M_sys)/dt = Q_in·C_in − Q_out·C_out + r·V is the continuity equation from fluid mechanics / transport theory — the same conservation law appearing in heat transfer, electromagnetics, and control theory. This is the single most important TCS bridge in the entire domain: any physicist or applied mathematician recognizes this form immediately as a conservation PDE. Calling it "mass balance" without naming the isomorphism to fundamental conservation laws (continuity equation, Reynolds transport theorem) blocks any engineer from mapping their existing knowledge. The connection should be made explicitly here. -->
 Every environmental engineering calculation starts here.
 
 ```
@@ -184,6 +185,7 @@ The vessel configuration determines the removal equation:
 
   PFR (plug flow — ideal):
     C_out = C_in · exp(-k·τ)
+<!-- @editor[bridge/P2]: The CSTR/PFR reactor models map directly to queueing models: a CSTR is a memoryless (M/M/1-like) system where output depends only on current state; a PFR is a deterministic pipeline with fixed transit time. CSTR: C_out = C_in/(1+kτ) — first-order system with time constant τ. PFR: C_out = C_in·exp(−kτ) — plug flow is a pure delay. This queue-theory bridge is explicitly called out in the user calibration for this section and is absent. -->
 
   Real reactors: characterized by tracer tests (RTD — residence time
   distribution). Most treatment reactors behave between CSTR and PFR.

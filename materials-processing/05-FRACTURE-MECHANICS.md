@@ -199,6 +199,7 @@ Size effect:
 
 ### Paris Law (Fatigue Crack Growth)
 
+<!-- @editor[bridge/P2]: The Paris law integration (N = ∫ da / C(ΔK)^m from a_i to a_c) is a first-order ODE integration — crack size a(N) evolves according to da/dN = f(a), and we integrate numerically to find when a reaches the critical value a_c. Any numerical methods background immediately recognizes this as an IVP (initial value problem) for crack growth, solved by standard quadrature or Euler-like stepping. The life calculation is just integrating the ODE — naming this connection would help any CS reader who knows numerical integration but finds "integrate the Paris law" opaque. -->
 ```
 PARIS LAW: DA/DN = C × ΔK^m
 ──────────────────────────────────────────────────────────────────
@@ -229,6 +230,7 @@ FATIGUE CRACK GROWTH CURVE (da/dN vs ΔK):
 
 ### Damage Tolerance and Inspection Intervals
 
+<!-- @editor[bridge/P1]: Damage tolerance engineering IS reliability engineering applied to crack growth. The framework maps exactly: assume a worst-case initial defect (= assume worst-case initial condition), integrate the failure model forward (Paris law = crack growth rate equation), set maintenance interval = fraction of time-to-failure (= inspection interval = half the predicted life). This is probabilistic safety analysis — the same framework used in aerospace software certification (DO-178C reliability analysis), nuclear safety (fault tree analysis), and dependable systems design. Any software infrastructure engineer who thinks about MTBF and maintenance intervals maps this immediately. The connection is never named. -->
 ```
 DAMAGE TOLERANCE APPROACH (aircraft structures)
 ──────────────────────────────────────────────────────────────────

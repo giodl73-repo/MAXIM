@@ -44,6 +44,7 @@ and circular economy (how do we eliminate waste by design?).
 
 ## Life Cycle Assessment (LCA)
 
+<!-- @editor[bridge/P2]: LCA is total cost of ownership (TCO) analysis applied to environmental impacts instead of dollars. The structure is identical: define the scope (functional unit = the unit of service delivered), enumerate all costs/impacts across the full lifecycle (inventory = cost model), aggregate to impact scores (characterization = cost rollup), identify hotspots (sensitivity analysis = TCO decomposition). LCA just uses kg CO₂e and kg 1,4-DCB-eq instead of USD. Any enterprise software leader who builds TCO models for infrastructure decisions maps this immediately — but the analogy is never made. -->
 LCA is the gold standard for environmental impact quantification. ISO 14040 (principles)
 and ISO 14044 (requirements) define the methodology.
 

@@ -51,6 +51,7 @@ Polymer melt — Non-Newtonian pseudoplastic (shear-thinning):
     n < 1: shear-thinning (all common polymers)
     K = consistency index (material constant)
     γ̇ = shear rate (1/s)
+<!-- @editor[bridge/P2]: Shear-thinning (η = K·γ̇^(n-1), n<1) is a non-linear system where the system's own "throughput" (shear rate) reduces its resistance (viscosity) — positive feedback on flow rate that is rate-dependent. This is analogous to network congestion that decreases as traffic increases (unlike most congestion models). The Arrhenius temperature dependence (every 10°C drops viscosity 2×) is an exponential sensitivity that mirrors activation energy in other physical processes. For a systems engineer, framing this as "a non-linear transmission line where channel resistance decreases with flow rate" is the natural bridge. Absent. -->
 
   Typical viscosity:
     At rest (zero shear): η ≈ 10³–10⁵ Pa·s (10³–10⁵× water)
@@ -151,6 +152,7 @@ TWIN-SCREW EXTRUDER:
 
 ### Process Overview
 
+<!-- @editor[bridge/P2]: The injection molding cycle (clamp → inject → pack → cool → eject) is a state machine with five states and sequential transitions. Each state has a fixed entry condition (e.g., "clamp force reached"), a dwell action (inject melt, hold pressure, cool), and a transition trigger (gate freeze, ejection temperature reached). The cycle is a deterministic synchronous state machine — each part transitions through the same sequence with the same state invariants. For a TCS reader, naming this as a state machine with guards on transitions would be the natural framing. Absent. -->
 ```
 INJECTION MOLDING CYCLE
 ──────────────────────────────────────────────────────────────────

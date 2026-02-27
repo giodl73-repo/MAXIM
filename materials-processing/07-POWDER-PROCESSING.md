@@ -81,6 +81,7 @@ Neck growth equation (early stage, surface diffusion dominates):
 
 ### Sintering Stages
 
+<!-- @editor[bridge/P2]: The three sintering stages (neck formation → pore rounding → pore elimination) are a progressive densification sequence with distinct connectivity phase transitions: Stage 1 = isolated contacts (particles touch at points), Stage 2 = open pore network (connected porosity = percolating network, accessible to atmosphere), Stage 3 = isolated closed pores (network becomes disconnected, percolation threshold crossed). The transition from Stage 2 to Stage 3 is a percolation threshold — the pore network transitions from connected to disconnected. Any physicist or graph theorist recognizes this topology change. Not named despite being the key physics of the open-to-closed pore transition. -->
 ```
 THREE STAGES OF SINTERING
 ──────────────────────────────────────────────────────────────────
@@ -155,6 +156,7 @@ PM vs forging for same steel part:
 
 ## MIM (Metal Injection Molding)
 
+<!-- @editor[bridge/P2]: The MIM process (feedstock → green part → brown part → sintered part) is a compilation pipeline with intermediate representations: feedstock = source code (all information present but unoptimized), green part = parsed AST (structure formed but binder/scaffolding still in place), brown part = linked but unoptimized object (binder removed, structure retained by powder skeleton), sintered part = optimized binary (densified, final properties). Each stage is an irreversible transformation that removes scaffolding and consolidates structure. The predictable 15-20% linear shrinkage = linker relocation — compensated in the "mold" (= compile-time). This multi-stage compilation pipeline analogy is exact and absent. -->
 ```
 MIM PROCESS
 ──────────────────────────────────────────────────────────────────

@@ -164,6 +164,7 @@ Understanding subsurface contaminant behavior is the foundation of remediation d
 
 ### Groundwater Transport Equations
 
+<!-- @editor[bridge/P1]: The advection-dispersion equation ∂C/∂t = D_L(∂²C/∂x²) − v_x(∂C/∂x) − λC is the diffusion PDE (Fick's second law) with an advection term and a first-order decay term. The three terms are: diffusion (D_L∂²C/∂x² — Fickian spreading), advection (−v_x∂C/∂x — bulk transport at velocity v_x), and first-order reaction (−λC). Any engineer with MIT applied math background recognizes this as the parabolic PDE from heat/mass transfer. The user calibration explicitly lists "fate and transport → diffusion equations" as the primary bridge for this domain — yet the equation is presented with no mention of the underlying diffusion PDE. This is the load-bearing bridge for anyone with physics or applied math background. -->
 ```
   ADVECTION-DISPERSION EQUATION (1D):
 
@@ -200,6 +201,7 @@ Understanding subsurface contaminant behavior is the foundation of remediation d
 
 ## Risk Assessment
 
+<!-- @editor[bridge/P2]: Environmental risk assessment (cancer risk = ADD × CSF, target 10⁻⁶; HQ = ADD/RfD, target <1.0) is probabilistic safety analysis — the same framework used in aerospace, nuclear, and safety-critical software: estimate exposure (probability × severity), compare to acceptable risk threshold, and set cleanup standards accordingly. The "exposure pathway" framework maps directly to fault tree / event tree analysis — each pathway (soil ingestion, groundwater ingestion, vapor intrusion) is an independent risk contributor summed to a total risk estimate. This bridge is absent. -->
 Risk assessment drives cleanup standards. Not all contamination requires cleanup —
 the question is whether the contamination poses an unacceptable risk given actual
 exposure pathways.
