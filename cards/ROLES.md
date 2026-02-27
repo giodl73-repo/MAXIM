@@ -106,7 +106,7 @@ Each card carries a single-word archetype role: "The ___"
 | A♣ | The Discoverer | The names behind every equation in the other 51 volumes. |
 | A♦ | The Inventor | Engineers, pioneers, explorers — applied human will. |
 | A♥ | The Visionary | What comes next, what could be built. |
-| A♠ | The Witness | Standing at the edge of what we know. |
+| A♠ | The Revolutionary | Standing at the edge of what we know. |
 
 ### 0 — Read This First (The Fool)
 | Card | Role | Epithet |

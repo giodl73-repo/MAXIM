@@ -119,7 +119,7 @@ Ordered by molecular weight. Each combines 2-3 Red Joker element-sections.
 | 23 | 239 | PbS | **Galena** | Pb+S | Math + History | Lead ore. Heavy foundations from fiery earth. |
 | 24 | 267 | PbCO₃ | **Cerussite** | Pb+C+O | Math + Life Sci + Earth | White lead. Beauty and poison. Knowledge and danger. |
 | 25 | 310 | Ca₃(PO₄)₂ | **Apatite** | Ca+P+O | Earth + Life Sci | Bone mineral. What endures after everything else decays. |
-| 26 | 324 | — | **Tool Steel** | Fe+Mn+C+Si+O | Mech + Mech + Life + Comp + Earth | Everything combined. The final synthesis. **The Black Meta.** |
+| 26 | 498 | Fe₃Al₂Si₃O₁₂ | **Almandine Garnet** | Fe+Al+Si+O | Mech + Natural + Computing + Earth | A crystal forged under pressure. Four sections fused in one gemstone. **The Black Meta.** |
 
 ### Plus: The Grid and Physical Builds
 
@@ -144,7 +144,7 @@ A solver holding both books sees these puzzle numbers across 52 puzzles. The Red
 ### Black Joker sequence (molecular weights):
 ```
 17 · 18 · 40 · 41 · 44 · 58 · 60 · 80 · 88 · 96 · 97 · 98 ·
-100 · 101 · 106 · 120 · 136 · 143 · 151 · 160 · 198 · 224 · 239 · 267 · 310 · 324
+100 · 101 · 106 · 120 · 136 · 143 · 151 · 160 · 198 · 224 · 239 · 267 · 310 · 498
 ```
 
 ### Overlap: number 17
@@ -161,7 +161,7 @@ RED (Elements)              BLACK (Compounds)              Sections bridged
 
 H(1) ──────────────── H₂O(18), NH₃(17), H₂SO₄(98)      Math → Earth, Lang, Hist
 C(6) ──────────────── CO₂(44), CaCO₃(100), Na₂CO₃(106)  Life → Earth, Social
-                      PbCO₃(267), Tool Steel(324)         Math, Mech, Comp
+                      PbCO₃(267), Garnet(498)         Math, Mech, Comp
 N(7) ──────────────── NH₃(17), KNO₃(101), AlN(41)        Lang → Math, Social, Natural
 O(8) ──────────────── H₂O(18), MgO(40), CO₂(44),         Earth → [everywhere]
                       SiO₂(60), TiO₂(80), H₂SO₄(98),
@@ -169,13 +169,13 @@ O(8) ──────────────── H₂O(18), MgO(40), CO₂(
                       CaSO₄(136), SnO₂(151), Fe₂O₃(160),
                       As₂O₃(198), FeCr₂O₄(224),
                       PbCO₃(267), Ca₃(PO₄)₂(310),
-                      Tool Steel(324)
+                      Garnet(498)
 Na(11) ─────────────── NaCl(58), Na₂CO₃(106)              Social → Lang, Life
-Si(14) ─────────────── SiO₂(60), Tool Steel(324)          Comp → Earth, [all]
+Si(14) ─────────────── SiO₂(60), Garnet(498)          Comp → Earth, [all]
 S(16) ──────────────── FeS(88), CuS(96), ZnS(97),         Hist → Mech, Mat, Nat, Earth
                        H₂SO₄(98), CaSO₄(136)
 Fe(26) ─────────────── FeS(88), FeS₂(120), Fe₂O₃(160),   Mech → Hist, Earth, Arts
-                       FeCr₂O₄(224), Tool Steel(324)
+                       FeCr₂O₄(224), Garnet(498)
 Cu(29) ─────────────── CuS(96)                             Mat → Hist
 Ag(47) ─────────────── AgCl(143)                           Arts → Lang
 Pb(82) ─────────────── PbS(239), PbCO₃(267)               Math → Hist, Life
@@ -196,4 +196,4 @@ ALGORITHM · PERSPECTIVE · SYMMETRY · INFLECTION · INCENTIVE · TRANSISTOR ·
 ### Black Joker Meta
 26 compound puzzle answers + The Grid's 52 boxed letters combine into the final challenge. Requires both Red and Black Joker completion. The meta answer = the library's thesis.
 
-Tool Steel (MW 324) — the final compound — combines Iron + Manganese + Carbon + Silicon + Oxygen (Mechanics + Mechanics + Life Sci + Computing + Earth). Five sections in one alloy. Everything the library teaches, folded into one material. The tool that builds everything else.
+Almandine Garnet (MW 498) — the final compound — combines Iron + Manganese + Carbon + Silicon + Oxygen (Mechanics + Mechanics + Life Sci + Computing + Earth). Five sections in one alloy. Everything the library teaches, folded into one material. The tool that builds everything else.
