@@ -172,8 +172,7 @@ Achieves H(X) asymptotically (vs Huffman: H(X) + ε for arbitrary ε but only wi
     Example: binary source P(0)=0.8, P(1)=0.2. Encode "001"
     Symbol 0: L=0, H=0.8 (cumulative: P(0)=0.8)
     Symbol 0: L=0, H=0.64 (within [0,0.8), new interval is [0, 0.64))
-    Symbol 1: L=0.512, H=0.64 (within [0,0.64), new interval [0.8×L, 0.8×H) no wait: <!-- @editor[content/P2]: Draft artifact "no wait:" in worked example — clean up the arithmetic coding walkthrough; the calculation is correct but the inline correction is distracting in reference material. -->
-              L = 0 + 0.64×0.8 = 0.512, H = 0 + 0.64×1.0 = 0.64
+    Symbol 1: interval [0.64×0.8, 0.64×1.0) = [0.512, 0.64)
     Output: any number in [0.512, 0.64), e.g. 0.6 requires ~1 bit to specify
 
     Length: -log₂(0.64-0.512) = -log₂(0.128) = 2.97 bits for 3 symbols

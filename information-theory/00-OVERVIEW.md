@@ -2,11 +2,40 @@
 
 ## The Big Picture
 
-<!-- @editor[diagram/P2]: Diagram maps Shannon's 3 problems (1948) but doesn't show the field landscape — the 9 guide files (entropy measures, source coding, channel coding, rate-distortion, network IT, algorithmic IT, quantum IT, information geometry) and how they branch from Shannon's foundation. Rework as a layered tree: Shannon core → sub-fields → modern results. -->
-
 ```
-    INFORMATION THEORY LANDSCAPE
+    INFORMATION THEORY — FIELD LANDSCAPE
     ══════════════════════════════════════════════════════════
+
+    SHANNON'S CORE (1948)
+    ┌─────────────────────────────────────────────────────────┐
+    │  Entropy H(X), Mutual Info I(X;Y), Channel Capacity C   │
+    │  Three problems: compression, noisy transmission, R-D   │
+    └────────┬──────────────────────┬─────────────────────────┘
+             │                      │
+    ┌────────▼─────────┐  ┌────────▼─────────────────────────┐
+    │ 01-ENTROPY        │  │ 02-SOURCE-CODING                 │
+    │ Measures: H, KL,  │  │ Huffman, arithmetic, LZ,         │
+    │ MI, cross-entropy │  │ Shannon's source coding theorem   │
+    └──────────────────┘  └──────────────────────────────────┘
+    ┌──────────────────┐  ┌──────────────────────────────────┐
+    │ 03-CHANNEL-CODING │  │ 04-ML-CRYPTOGRAPHY-BRIDGE        │
+    │ Capacity theorem, │  │ Cross-entropy loss, VAE/ELBO,    │
+    │ LDPC, turbo, polar│  │ InfoNCE, perfect secrecy         │
+    └──────────────────┘  └──────────────────────────────────┘
+    ┌──────────────────┐  ┌──────────────────────────────────┐
+    │ 05-RATE-DISTORT.  │  │ 06-NETWORK-IT                    │
+    │ R(D) curve, lossy │  │ Slepian-Wolf, CEO, interference  │
+    │ compression limits│  │ channels, relay channels          │
+    └──────────────────┘  └──────────────────────────────────┘
+    ┌──────────────────┐  ┌──────────────────────────────────┐
+    │ 07-ALGORITHMIC-IT │  │ 08-QUANTUM-INFORMATION           │
+    │ Kolmogorov K(x),  │  │ Von Neumann entropy, Holevo,     │
+    │ MDL, randomness   │  │ quantum capacity, entanglement   │
+    └──────────────────┘  └──────────────────────────────────┘
+    ┌──────────────────────────────────────────────────────────┐
+    │ 09-INFORMATION-GEOMETRY                                   │
+    │ Fisher metric, exponential families, natural gradient     │
+    └──────────────────────────────────────────────────────────┘
 
     FUNDAMENTAL QUESTION: How much "information" is in a message?
     And what does that mean physically?
@@ -139,18 +168,9 @@ $$\boxed{E_{min} = k_B T \ln 2 \approx 2.87 \times 10^{-21} \text{ J at 300K}}$$
 
 ### Kolmogorov Complexity
 
-<!-- @editor[audience/P2]: Basic K(x) properties (upper bound, chain rule, uncomputability, Shannon ≥ H on average) are MIT TCS core curriculum — learner knows these. Compress to a one-line recall and pivot immediately to the MDL and circuit-complexity applications, which are the useful bridges here. -->
-
-K(x) = length of shortest program that outputs x and halts.
+K(x) = length of shortest program that outputs x and halts. Standard properties (upper bound K(x) ≤ |x| + O(1), chain rule, uncomputability, K(x) ≥ H(X) on average) assumed known.
 
 ```
-    PROPERTIES:
-    K(x) ≤ |x| + O(1) (can always just print x literally)
-    K(x) ≤ K(x|y) + K(y) + O(log K(y)) (chain rule)
-    K(x) uncomputable (via halting problem — decide if program halts outputting x)
-    K(x) ≥ H(X) on average (for typical strings from source)
-    K(x) and K(x|y) satisfy analog of chain rule
-
     MINIMUM DESCRIPTION LENGTH (MDL):
     Occam's razor formalized: best model = shortest program (theory + data)
     MDL model selection: choose model M that minimizes L(M) + L(data|M)

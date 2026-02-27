@@ -71,7 +71,7 @@ Key functions:
   A(θ) = log ∫ h(x) exp(θᵀ T(x)) dx     [convex in θ]
   η = ∇A(θ) = E[T(X)]                    [mean parameters / m-coordinates]
   A*(η) = sup_θ [θᵀη - A(θ)]             [Legendre conjugate, convex in η]
-<!-- @editor[bridge/P2]: A(θ) = log Z is the log-partition function from statistical mechanics — the bridge to stat mech free energy is direct: Z = partition function, A = free energy (up to sign and β). The Legendre structure A*(η) is precisely the thermodynamic entropy as a function of energy. Connecting these (Gibbs distribution, Boltzmann, free energy minimization) would anchor the dually flat geometry in a framework this learner likely encountered in probability or physics courses. -->
+**Statistical mechanics bridge:** A(θ) = log Z is the log-partition function — the same Z from statistical mechanics. The Legendre conjugate A*(η) is the thermodynamic entropy as a function of mean energy. The duality θ ↔ η is exactly the free-energy/entropy duality: natural parameters θ are intensive variables (like inverse temperature β), mean parameters η are extensive variables (like energy E). Gibbs distributions p ∝ exp(θᵀT(x)) ARE exponential families. Free energy minimization = maximum entropy under constraints = the variational principle that generates the e-flat geometry.
 
 Examples:
   Gaussian N(μ,σ²):   θ = (μ/σ², -1/2σ²),  T = (x, x²),   A = -θ₁²/4θ₂ - ½log(-2θ₂)

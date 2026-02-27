@@ -2,25 +2,31 @@
 
 ## The Full Entropy Toolbox
 
-<!-- @editor[diagram/P2]: The "MEASURES LANDSCAPE" diagram lists the measures but doesn't show their relationships as a layered structure — e.g., that I(X;Y) = KL(p(x,y)||p(x)p(y)) connecting mutual info to KL, or that cross-entropy H(P,Q) = H(P) + KL(P||Q) connecting all three. Rework as a relationship diagram showing how the measures derive from each other. -->
-
 ```
-    MEASURES LANDSCAPE
+    MEASURES LANDSCAPE — RELATIONSHIP DIAGRAM
     ══════════════════════════════════════════════════════════
 
-    H(X)        ← entropy of X
-    H(X|Y)      ← conditional entropy: uncertainty in X after knowing Y
-    H(X,Y)      ← joint entropy
-    I(X;Y)      ← mutual information: how much Y tells us about X
-    D_KL(P||Q)  ← relative entropy / KL divergence
-    H(P,Q)      ← cross-entropy
-    h(X)        ← differential entropy (continuous)
-    I(θ)        ← Fisher information
-
-    Chain rules connect everything:
-    H(X,Y) = H(X) + H(Y|X)
-    I(X;Y) = H(X) + H(Y) - H(X,Y) = H(X) - H(X|Y) = H(Y) - H(Y|X)
-    I(X;Y) = H(X,Y) - H(X|Y) - H(Y|X)
+    ENTROPY H(X) = -Σ p(x) log p(x)         ← base measure
+         │
+         ├──► H(X,Y) = H(X) + H(Y|X)        ← joint (chain rule)
+         │         │
+         │         └──► H(Y|X) = H(X,Y) - H(X)  ← conditional
+         │
+         ├──► I(X;Y) = H(X) - H(X|Y)        ← mutual information
+         │         = H(X) + H(Y) - H(X,Y)
+         │         = D_KL(p(x,y) || p(x)p(y))  ← MI IS the KL from joint to product
+         │
+         ├──► D_KL(P||Q) = Σ p(x) log(p/q)  ← KL divergence (always ≥ 0)
+         │         │
+         │         └──► H(P,Q) = H(P) + D_KL(P||Q)  ← cross-entropy = entropy + KL
+         │              = -Σ p(x) log q(x)
+         │              (minimizing cross-entropy = minimizing KL = MLE)
+         │
+         ├──► h(X) = -∫ p(x) log p(x) dx    ← differential entropy (continuous)
+         │         (can be negative; not a simple limit of discrete H)
+         │
+         └──► I(θ) = E[(∂log p/∂θ)²]        ← Fisher information (score variance)
+              Cramér-Rao: Var(θ̂) ≥ 1/I(θ)    (precision bound for estimators)
 ```
 
 ---
@@ -29,25 +35,11 @@
 
 ### Shannon's Uniqueness Theorem
 
-<!-- @editor[audience/P2]: The 5-axiom uniqueness theorem characterization and proof sketch are standard MIT probability/information theory curriculum — this learner knows that H = -Σ p log p is the unique function satisfying continuity + symmetry + expansibility + maximum + recursion. Trim the proof sketch; the key point to preserve is the axiomatic grounding and the Gibbs inequality interpretation, not rederiving the result. -->
-
-Shannon (1948) showed that H(X) = -Σ p_i log p_i is the UNIQUE function satisfying:
-
-1. **Continuity**: H is continuous in p_1,...,p_n
-2. **Symmetry**: H(p_1,...,p_n) = H(p_σ(1),...,p_σ(n)) for any permutation σ
-3. **Expansibility**: H(p_1,...,p_n, 0) = H(p_1,...,p_n) (adding zero-prob event changes nothing)
-4. **Maximum**: H(p_1,...,p_n) ≤ H(1/n,...,1/n) = log n (uniform is most uncertain)
-5. **Recursion / Additivity**: H(pq, p(1-q), (1-p)) = H(p, 1-p) + p·H(q, 1-q)
+Shannon (1948): H(X) = -Σ p_i log p_i is the UNIQUE function satisfying continuity, symmetry, expansibility, maximum at uniform, and recursion/additivity (five axioms). Choosing log base 2 gives bits; base e gives nats.
 
 ```
-    Result: Any H satisfying all 5 axioms must be H(X) = -c Σ p_i log p_i for c > 0.
-    Choosing c=1 and log base 2 → bits. Base e → nats. Base 10 → hartleys (Hartley units).
-
-    Proof sketch of maximum at uniform (Gibbs inequality method):
-    Want to show H(p₁,...,pₙ) ≤ log n for all distributions.
-    By log-sum inequality (or Jensen on concave -x log x):
-    -Σ p_i log p_i ≤ -Σ p_i log(1/n) = -Σ p_i(-log n) = log n
-    (use: p_i log(p_i/q_i) ≥ 0 for q_i = 1/n)
+    The key insight is not the axioms (which are natural) but the consequence:
+    H(p₁,...,pₙ) ≤ log n with equality iff uniform (Gibbs inequality: D_KL(p||u) ≥ 0).
 ```
 
 ### Key Properties
