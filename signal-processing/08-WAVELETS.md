@@ -153,6 +153,8 @@ Allows symmetric FIR filters (linear phase) at cost of non-orthogonality.
 
 The mathematical framework behind the discrete wavelet transform.
 
+<!-- @editor[bridge/P2]: MRA is presented correctly but misses the explicit bridge to functional analysis the learner knows from MIT. The Vⱼ chain is a tower of closed subspaces in L²(ℝ); the orthogonal projection onto each Vⱼ is the approximation operator; the wavelet subspace Wⱼ is the orthogonal complement. The learner will instantly recognize this as a decomposition of a Hilbert space into orthogonal subspaces (Wⱼ are mutually orthogonal: Wⱼ ⊥ Wₖ for j≠k, and ⊕ⱼWⱼ = L²). Naming the connection explicitly ("this is orthogonal projection in L²(ℝ)") takes one sentence and anchors the whole framework. -->
+
 ```
 MRA FRAMEWORK
 

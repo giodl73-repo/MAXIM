@@ -234,3 +234,5 @@ This is why amplifier noise specs are given in nV/√Hz — makes them bandwidth
 **WSS does not imply ergodic, and ergodic does not imply strict-sense stationary**:
 These are independent conditions. Most DSP textbooks assume both WSS and ergodic without
 being explicit about it.
+
+<!-- @editor[content/P2]: Kalman filter absent — this is the natural capstone for stochastic signals through LTI systems. Kalman = optimal linear estimator for state-space models with Gaussian noise, equivalent to Wiener filter in the recursive/causal case. The derivation (predict → update, Riccati equation) is the practical counterpart to Wiener-Hopf. For a learner who uses Azure IoT/telemetry or control systems this is directly applicable. At minimum, note the Wiener filter → Kalman filter relationship. -->

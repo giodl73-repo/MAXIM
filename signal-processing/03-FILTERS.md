@@ -268,3 +268,5 @@ at different times — that's dispersion/smearing.
 **"Order" means different things**: FIR order M = number of delay taps = M+1 coefficients.
 IIR order N = number of poles = N coefficients each in numerator and denominator.
 An N-th order IIR can match roughly a 10N to 20N-order FIR for the same spec.
+
+<!-- @editor[content/P2]: Adaptive filters absent — LMS (Least Mean Squares) and RLS (Recursive Least Squares) are a significant subtopic in digital filtering. Adaptive filters are used in echo cancellation, noise cancellation (active noise control), channel equalization, and system identification. The learner's background (practical DSP implementation, ML bridge) makes this a natural fit; LMS is gradient descent on a filter, which directly bridges to ML optimization. -->

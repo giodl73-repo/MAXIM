@@ -163,6 +163,8 @@ signal-processing/
         Audio; image processing; radar; medical; ML features
 ```
 
+<!-- @editor[content/P2]: Module map omits two significant modern topics the learner explicitly needs: (1) compressed sensing / sparse recovery (sub-Nyquist sampling, L1 minimization, RIP) — currently absent from all files; (2) the ML bridge (CNNs as learned filter banks, attention as dynamic filtering) — mentioned only partially in 09-APPLICATIONS. Consider adding notes here, or flagging that 02-SAMPLING-THEORY and 09-APPLICATIONS cover these angles. -->
+
 ---
 
 ## Key Quantities
@@ -195,6 +197,8 @@ signal-processing/
 | Probability distribution | Power spectral density (energy distribution in frequency) |
 | Azure pipeline stages | Signal processing chain (cascade of LTI systems) |
 | Poisson process | Shot noise, Poisson spectral statistics |
+
+<!-- @editor[bridge/P2]: Missing bridge: CNN learned weights → FIR filter coefficients (backprop optimizes the filter bank); attention mechanism → dynamic, input-dependent filter. These are explicitly in the learner's "does need" list and belong in this overview's bridges table. -->
 
 ---
 
