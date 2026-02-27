@@ -83,7 +83,7 @@ UPDATE (measurement update) — when measurement y[k] arrives:
 
 ### Interpretation
 
-<!-- @editor[bridge/P2]: The Kalman gain K as a weighted trust between model and measurement is the exact same reasoning behind Bayesian A/B test analysis and anomaly detection ensembles: when your sensor (metric) is noisy (high R), trust the prior model more; when the sensor is reliable, update aggressively. Azure Monitor's anomaly detection is a Kalman-type filter. The "software observability" connection here is concrete: the Kalman filter is the mathematically optimal answer to "how do I reconstruct system state from noisy telemetry?" — which is exactly what an observability platform does. -->
+The Kalman filter is the mathematically optimal answer to "how do I reconstruct system state from noisy telemetry?" — exactly what an observability platform does. The Kalman gain K implements the same trust-weighting logic used in Bayesian A/B testing and anomaly detection: when the sensor (metric) is noisy (high R), trust the model prediction; when the sensor is reliable (low R), update aggressively toward the measurement. Anomaly detectors in monitoring systems (including Azure Monitor) use Kalman-type filters for this reason.
 
 ```
 Kalman gain K mediates between model and measurement:
@@ -271,9 +271,9 @@ DISADVANTAGE: High computational cost; degeneracy in high dimensions
 
 ---
 
-<!-- @editor[bridge/P3]: SLAM's state management (growing state vector as new landmarks are added, O(L²) EKF-SLAM scaling) has a direct parallel in distributed tracing: as the number of tracked service instances grows, naive correlation of all spans becomes quadratic — the same scalability argument that drives Graph SLAM and sparse methods also drives sampling-based distributed trace strategies. Brief note would connect this well. -->
-
 ## SLAM (Simultaneous Localization and Mapping)
+
+**Scalability parallel:** EKF-SLAM's O(L^2) cost as landmarks grow mirrors the scaling challenge in distributed tracing: naive correlation of all spans across L services is quadratic. The same argument that drove robotics from EKF-SLAM to Graph SLAM (sparse factored representations) drives observability platforms toward sampling-based and indexed trace strategies.
 
 The flagship application combining Kalman filtering with robotics:
 

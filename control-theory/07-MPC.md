@@ -245,8 +245,6 @@ LIMITATIONS:
 
 ---
 
-<!-- @editor[bridge/P3]: The applications table omits cloud infrastructure scheduling — a natural entry for this learner. Kubernetes HPA/VPA is a form of MPC: it predicts future load (model), applies constraints (min/max replicas, cooldown periods), and optimizes a cost (resource utilization vs. SLA). Azure Autoscale uses a similar receding-horizon approach. Adding one row to the applications table would anchor MPC in familiar territory. -->
-
 ## Applications
 
 ```
@@ -271,12 +269,16 @@ LIMITATIONS:
 ├──────────────────────┼───────────────────┼───────────────────────────┤
 │ Aircraft GLA         │ Wing bending,     │ Control surface rates,    │
 │ (gust load alleviate)│ accelerations     │ structural load limits    │
+├──────────────────────┼───────────────────┼───────────────────────────┤
+│ Cloud autoscaling    │ Request rate,     │ Min/max replicas, cooldown│
+│ (K8s HPA/VPA, Azure │ queue depth, CPU  │ periods, budget caps,     │
+│  Autoscale)          │ utilization       │ SLA latency targets       │
 └──────────────────────┴───────────────────┴───────────────────────────┘
 ```
 
 ---
 
-<!-- @editor[bridge/P2]: The receding-horizon principle in MPC maps exactly to rolling deployment and staged rollout patterns in CI/CD. At each step, MPC solves an N-step plan but commits only to the first action — exactly like a deployment pipeline that plans a full rollout sequence but re-evaluates after each canary ring based on measured state. The constraint handling (u_min ≤ u ≤ u_max, rate limits) maps to deployment guardrails: max pods per minute, rollback triggers, traffic shift caps. This bridge belongs in the Big Picture section or as a dedicated subsection near the formulation. -->
+**Deployment bridge:** The receding-horizon principle — plan N steps ahead, commit only to the first action, re-plan after observing the result — is the same pattern as staged rollout in CI/CD. A deployment pipeline plans a full canary → ring → global sequence but re-evaluates after each ring based on measured telemetry. MPC's constraint handling (u_min ≤ u ≤ u_max, rate limits) maps to deployment guardrails: max pods per minute, rollback triggers, traffic shift caps.
 
 ## MPC as PID + Constraints + Preview
 

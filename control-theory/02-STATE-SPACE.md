@@ -193,7 +193,7 @@ rank(𝒞) = rank([B, AB]) = ... depends on current θ
 
 ## Observability
 
-<!-- @editor[bridge/P2]: "Observability" is used in both control theory and software engineering but means different things — and confusing them is a real trap for this learner. Control-theory observability is a structural property (rank condition on the observability matrix 𝒪): can the full internal state be reconstructed from outputs? Software observability is an operational property: do your logs/metrics/traces emit enough signal to diagnose production behavior? The mathematical connection is real — if rank(𝒪) < n, there are state dimensions that are invisible to any measurement strategy, no matter how good your logging. Worth a crisp contrast here. -->
+**Terminology note:** "Observability" in control theory is a structural property — a rank condition on the matrix O = [C; CA; ...; CA^(n-1)] that determines whether the full internal state *can* be reconstructed from outputs. In software engineering, "observability" is an operational property: do logs/metrics/traces emit enough signal to diagnose production behavior? The mathematical connection is real: if rank(O) < n, there are state dimensions invisible to any measurement strategy — no amount of improved logging can recover them. But control-theory observability is binary (full rank or not), while software observability is a spectrum (more telemetry = better reconstruction, but never complete for complex systems).
 
 A system is **observable** if the initial state x₀ can be uniquely determined from
 observations of y(t) over a finite time interval.
@@ -381,7 +381,7 @@ FOR LINEAR SYSTEMS (ẋ = Ax):
 
 ## Discrete-Time State-Space
 
-<!-- @editor[bridge/P2]: This section — discrete state-space for digital control — is where the bridge to software systems modeling is strongest. The pattern x[k+1] = A_d x[k] + B_d u[k] is structurally identical to a state machine or actor model: current state + input → next state. Every microservice with internal state (connection pool, circuit breaker, request queue) is a discrete-time state-space system. The A_d matrix captures how internal state propagates; B_d how external inputs (requests, events) perturb it. A VP of Eng modeling service dependencies daily is already doing informal state-space analysis — name that bridge explicitly. -->
+**Software systems bridge:** The discrete-time state equation x[k+1] = A_d x[k] + B_d u[k] is structurally identical to a state machine or actor model: current state + input yields next state. Every microservice with internal state (connection pool count, circuit breaker state, request queue depth) is a discrete-time state-space system. A_d captures how internal state propagates between time steps; B_d captures how external inputs (requests, events, configuration changes) perturb it. Modeling a service dependency graph as a coupled discrete state-space system is the formal version of what SREs do informally when reasoning about cascading failures.
 
 For digital control systems (what actually runs in software):
 
