@@ -43,3 +43,15 @@ See [TRACKER.md](TRACKER.md) for full status, session history, and coverage map.
 
 ### Technology & Industry
 [Semiconductors](semiconductor-manufacturing/00-OVERVIEW.md) · [Telecommunications](telecommunications/00-OVERVIEW.md) · [Acoustics](acoustics/00-OVERVIEW.md) · [Watchmaking](watchmaking/00-OVERVIEW.md)
+
+---
+
+## Atlas
+
+SVG hybrid maps with Natural Earth coastlines and PhyloPic organism silhouettes. 8 of 52 maps complete.
+
+[Overview](atlas/00-OVERVIEW.md) · [Tectonic Plates](atlas/01-TECTONIC-PLATES.md) · [Global Winds](atlas/02-GLOBAL-WINDS.md) · [World Soils](atlas/03-WORLD-SOILS.md) · [Celestial Navigation](atlas/04-CELESTIAL-NAVIGATION.md) · [Global Biomes](atlas/05-GLOBAL-BIOMES.md) · [Watersheds](atlas/06-WATERSHEDS-RIVERS.md) · [Grain & Fermentation](atlas/07-GRAIN-FERMENTATION-BELTS.md) · [Flyways](atlas/08-FLYWAYS-MIGRATION.md)
+
+## Companions
+
+[Naturalis](naturalis/00-OVERVIEW.md) — Visual companion to the Natural World (silhouettes, plates, specimen illustrations)
