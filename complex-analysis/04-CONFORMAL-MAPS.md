@@ -213,6 +213,8 @@ POLYGON SHAPES AND THEIR SCHWARZ-CHRISTOFFEL MAPS:
 
 ---
 
+<!-- @editor[bridge/P2]: The upper half-plane ℍ is introduced as a conformal target domain, but its role as the modular parameter space is absent. The Cayley map ℍ → D is presented as a signal-processing tool (which it is), but the deeper application — automorphisms of ℍ form SL(2,ℝ), and the quotient ℍ/SL(2,ℤ) is the moduli space of elliptic curves — is omitted entirely. For a learner bridging to algebraic geometry and number theory, this is exactly the missing link. A one-paragraph pointer would suffice. -->
+
 ## Riemann Mapping Theorem — Statement and Significance
 
 **Theorem**: Let Ω ⊂ ℂ be simply connected with Ω ≠ ℂ. Fix z₀ ∈ Ω. Then there is a unique biholomorphic map f: Ω → D (the unit disk) with f(z₀) = 0 and f'(z₀) > 0.

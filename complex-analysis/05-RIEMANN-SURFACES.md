@@ -202,6 +202,8 @@ The **Riemann-Roch theorem** counts linearly independent meromorphic functions a
 
 ---
 
+<!-- @editor[bridge/P1]: The Weierstrass ℘-function satisfies (℘')² = 4℘³ − g₂℘ − g₃ and this defines an elliptic curve. The file correctly states this. But the payoff — that this is the same curve used in elliptic curve cryptography (ECC) over finite fields, and the group law on the torus corresponds exactly to the chord-and-tangent group law on the cubic — is absent. This is the highest-value bridge for this learner: complex torus → Weierstrass equation → ECC group law. Even two sentences closing this loop would be P1-level content for the stated learner calibration. -->
+
 ## Elliptic Functions (Torus Surfaces)
 
 A torus ℂ/Λ (Λ = ℤω₁ + ℤω₂ a lattice) carries **doubly periodic meromorphic functions**: functions f with f(z + ω₁) = f(z) and f(z + ω₂) = f(z).
@@ -219,6 +221,10 @@ Properties:
 **Significance**: The map z ↦ (℘(z), ℘'(z)) embeds ℂ/Λ into ℙ² as an elliptic curve. The geometry of elliptic curves (central to number theory, cryptography) is the complex analysis of tori.
 
 ---
+
+<!-- @editor[content/P2]: The Riemann-Roch theorem is mentioned in one sentence ("Riemann-Roch counts linearly independent meromorphic functions...") but the statement is not given. For this learner, the statement l(D) − l(K−D) = deg(D) + 1 − g, and specifically its consequence that every genus-0 curve is ℙ¹ and every genus-1 curve is a cubic, is load-bearing for the algebraic geometry connection. A brief statement and corollary table would not be excessive here. -->
+
+<!-- @editor[bridge/P2]: The moduli space of Riemann surfaces — how different complex structures on a genus-g surface are parameterized (Teichmüller theory, dimension 3g−3) — is not mentioned. For a learner asking "how many distinct complex structures can a genus-2 surface have?", this is the answer and it bridges directly to algebraic geometry (moduli of curves Mg). A pointer sentence is sufficient. -->
 
 ## Connection to Topology (MIT Background)
 

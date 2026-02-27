@@ -191,6 +191,8 @@ From the derivative formula, C = {|z − z₀| = r}:
 
 ---
 
+<!-- @editor[bridge/P2]: The homology version of Cauchy's theorem ("∮_γ f dz = 0 iff n(γ,a)=0 for all a∉Ω") is stated but the connection to de Rham cohomology is not made. For the MIT topology background, this is the natural bridge: H¹(Ω,ℤ) measures the obstruction, and the winding number is the integral of the closed form dz/z against 1-cycles. A one-sentence note would close this for the learner. -->
+
 ## Simply Connected vs Multiply Connected
 
 ```

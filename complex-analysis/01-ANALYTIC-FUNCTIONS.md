@@ -33,6 +33,8 @@ ANALYTIC FUNCTIONS — CONCEPTUAL MAP
 
 ---
 
+<!-- @editor[audience/P2]: The "Complex Number System" section covers rectangular form, polar form, modulus, argument, and conjugate — all material the learner has at reflex level from MIT math. The section exists to derive CR equations but can be cut to a single line: "Write z = x+iy = re^{iθ}; multiplication rotates and scales — geometry that makes CR equations natural." Save the page for content that actually advances understanding. -->
+
 ## The Complex Number System
 
 Before functions, the domain. Every complex number z = x + iy lives in the Argand plane, with:
@@ -275,6 +277,8 @@ At **critical points** (f'(z₀) = 0), angles are multiplied by the order of the
     Entire function, f'(z) = e^z.
 
 ---
+
+<!-- @editor[content/P2]: The Wirtinger derivative formulation ∂f/∂z̄ = 0 is present but the payoff for SCV is not mentioned. This operator is exactly what generalizes: in ℂⁿ, the ∂̄ operator and the ∂̄-Poincaré lemma (Dolbeault cohomology) are the foundation of SCV. A one-sentence forward pointer here earns its place for this learner. -->
 
 ## The Goursat Theorem
 

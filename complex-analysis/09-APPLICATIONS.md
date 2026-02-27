@@ -205,6 +205,10 @@ This is the discrete-time counterpart of s-plane stability. The unit circle in t
 
 ---
 
+<!-- @editor[content/P2]: Computational complex analysis — numerical methods for conformal maps (the Schwarz-Christoffel toolbox, Zipper method, Schwarz-Christoffel MATLAB/Python packages), numerical evaluation of contour integrals, and the Cauchy interpolation formula — is absent from this applications file. For a learner who may use complex analysis computationally, this gap is significant. At minimum, a one-paragraph note on how the SC Toolbox works and where FFT-based contour integration lives. -->
+
+<!-- @editor[content/P2]: Discrete analytic functions and the discrete Z-transform / DFT connection are not developed. The DFT is a contour integral on the unit circle evaluated at N equally-spaced points: X[k] = Σ x[n] e^{-2πink/N} = X(z) evaluated at z = e^{2πik/N} (the N-th roots of unity). The FFT algorithm computes these N residues in O(N log N). This bridge — from continuous contour integration to discrete FFT — is exactly the kind of concrete application that earns complex analysis its engineering street credibility. -->
+
 ## Spectral Theory and Resolvent Operators
 
 In functional analysis and quantum mechanics, the **resolvent** of an operator A is:
@@ -251,6 +255,8 @@ This is the resolvent of the Hamiltonian H. Poles in the complex E-plane corresp
 This "LDOS formula" connects complex analysis to the density of states, central to condensed matter physics.
 
 ---
+
+<!-- @editor[bridge/P2]: The file covers signal processing applications (Laplace, Z-transform) but does not explicitly connect the Z-transform's region of convergence (ROC) to the Laurent series annulus of convergence from 03-RESIDUES-POLES.md. The statement "Z-transform converges for |z| > R" is given, but the direct identification: ROC = annulus r < |z| < R in Laurent series language, and the causal/anti-causal decomposition corresponding to the two different Laurent expansions in the same annulus — this is the precise technical bridge that makes the connection concrete for DSP work. -->
 
 ## Contour Integrals in Practice — A Toolkit
 

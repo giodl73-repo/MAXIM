@@ -168,6 +168,8 @@ Rearranged:
 
 ---
 
+<!-- @editor[content/P2]: Nevanlinna theory (value distribution theory, the quantitative extension of Picard's theorems) is absent. Nevanlinna's first and second main theorems measure *how often* a meromorphic function takes a given value, not just whether it does. This is the natural generalization of Picard for an advanced audience and underlies modern complex dynamics (Julia sets, Mandelbrot set). At minimum, a pointer sentence noting "Nevanlinna theory quantifies what Picard states qualitatively." -->
+
 ## Picard's Theorems
 
 **Little Picard**: If f is entire and not a polynomial, it takes every complex value except possibly one.
@@ -220,6 +222,8 @@ For holomorphic functions: ∏ₙ fₙ(z) converges uniformly on compact sets if
 is an infinite product over primes, converging for Re(s) > 1. It factors ζ as a "Weierstrass-like product" over prime-indexed factors, encoding the fundamental theorem of arithmetic in analytic form.
 
 ---
+
+<!-- @editor[bridge/P2]: The connection between the Hadamard product for ξ(s), the explicit formula for π(x) (the prime counting function via the sum over zeros), and the prime number theorem is not made. The file shows the Hadamard product but stops short of: ψ(x) = x − Σ_ρ x^ρ/ρ − log(2π) + ... where the sum is over non-trivial zeros. That explicit formula is the payoff of the entire Hadamard factorization program for number theory. A one-paragraph note would close this critical gap. -->
 
 ## The Riemann Zeta Function Preview
 

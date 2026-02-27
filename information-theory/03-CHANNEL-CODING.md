@@ -4,6 +4,8 @@
 
 ## Big Picture
 
+<!-- @editor[diagram/P2]: Opening diagram is a timeline of codes, not a landscape diagram showing how code families relate structurally (block vs convolutional, algebraic vs probabilistic, short-block vs long-block regimes, tradeoffs between rate/distance/complexity). Rework to show the taxonomy and where each code family sits in the rate-vs-complexity space, then let the timeline be a secondary element. -->
+
 ```
 NOISY CHANNEL CODING THEOREM (Shannon, 1948):
   For any channel with capacity C bits/use:
@@ -279,3 +281,5 @@ RANDOM LINEAR NETWORK CODING (RLNC):
 | Turbo | Near-Shannon | O(n) | O(n) iter. | LTE, 3G, deep-space |
 | Polar | Shannon-achieving | O(n log n) | O(n log n) | 5G NR control channels |
 | Fountain (LT, Raptor) | Rate-less, ≈ 1 | O(n log n) | O(n log n) | File broadcast, MBMS |
+
+<!-- @editor[structure/P2]: Missing Common Confusion Points section — standard gotchas belong here: (1) capacity is in bits/channel-use, not bits/second (Shannon-Hartley converts via bandwidth); (2) Shannon capacity is for DMC, AWGN uses continuous channel formula; (3) LDPC threshold phenomenon — below threshold P_e→0 but above it degrades fast; (4) polar code finite-length performance vs asymptotic capacity-achieving claim; (5) sphere-packing bound vs random coding exponent — both exist, different regimes. -->

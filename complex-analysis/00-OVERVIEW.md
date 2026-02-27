@@ -4,6 +4,10 @@
 
 Complex analysis is the study of functions of a complex variable. It is simultaneously one of the most elegant fields in pure mathematics and one of the most powerful tools in applied science. The surprise: imposing differentiability on complex functions is *far* more restrictive than on real functions. A once-differentiable complex function is automatically infinitely differentiable, equal to its own power series, and tightly constrained by its values on any curve.
 
+<!-- @editor[bridge/P1]: No bridge to several complex variables (SCV) or how ℂⁿ breaks the Riemann mapping theorem uniqueness — critical gap for a learner who will encounter SCV in algebraic geometry contexts. At minimum, a one-paragraph pointer: "In ℂⁿ (n≥2), the unit ball and polydisk are NOT biholomorphically equivalent — Riemann Mapping Theorem fails, and the richness of SCV begins there." -->
+
+<!-- @editor[bridge/P1]: No bridge to L-functions beyond ζ(s) — Dirichlet L-functions L(s,χ) and the generalized Riemann Hypothesis are the natural next step for a learner oriented toward number theory. The overview mentions ζ but doesn't acknowledge the broader L-function landscape at all. -->
+
 ```
 COMPLEX ANALYSIS — FULL LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
@@ -213,6 +217,10 @@ Euler product (connects to primes):
 The *distribution of zeros of ζ* controls the *error in the prime counting function* π(x) ≈ x/ln(x) (Prime Number Theorem). This is why complex analysis is at the heart of analytic number theory. See 07-ANALYTIC-CONTINUATION.md for the full story.
 
 ---
+
+<!-- @editor[content/P2]: No mention of the prime number theorem's proof structure via complex analysis (zero-free region of ζ, Perron's formula, contour integration to extract π(x) asymptotics). Given learner calibration, this is a target-rich gap: the overview gestures at number theory but doesn't commit to the analytic proof chain. -->
+
+<!-- @editor[bridge/P2]: Riemann surfaces → algebraic curves → elliptic curves in cryptography is listed as a "best bridge" in the learner calibration but absent from this overview. Even a one-line entry in the applications table ("Elliptic curve cryptography → Riemann surfaces of genus 1") would satisfy the bridge requirement. -->
 
 ## Decision Cheat Sheet
 
