@@ -288,6 +288,8 @@ Analogous to V for electrostatics, but A is a vector field, not scalar.
   can be affected by A even where B = 0 (no classical analog)
 - The full relativistic formulation of E&M unifies V and A into a 4-vector (Aᵘ)
 
+<!-- @editor[bridge/P1]: The Aharonov-Bohm effect mention is a throwaway line but deserves more. The vector potential A is the prototype for all gauge fields — the connection on a U(1) principal bundle in differential geometry. A reader with MIT Math background will have seen fiber bundles; making explicit that "gauge freedom A → A + ∇Λ" is literally the transition function of the bundle, and that B = ∇×A is the curvature 2-form, connects magnetostatics to the mathematical language that runs through all of modern physics (Yang-Mills, Standard Model, topological insulators). This is the most important bridge missing from this guide. -->
+
 **Gauge freedom**: B = ∇×A is unchanged if you replace A → A + ∇Λ for any
 scalar Λ (since ∇×(∇Λ) = 0). This is gauge freedom — physically equivalent
 descriptions with different A.
@@ -334,6 +336,7 @@ of two parallel wires 1 m apart that produces 2×10⁻⁷ N/m of force between t
 
 ---
 
+<!-- @editor[bridge/P2]: No condensed matter bridge — the Hall effect (v×B force → charge separation → transverse voltage) is a direct consequence of the Lorentz force on current-carrying electrons, and it is the measurement technique for carrier density and sign in semiconductors. The quantum Hall effect (integer and fractional) is where condensed matter physics gets topological. A reader connecting magnetostatics to modern physics needs this pointer; it also leads naturally to topological insulators and Chern numbers, which are relevant to the "gauge curvature" bridge in the vector potential section above. -->
 ## Magnetic Dipoles
 
 The simplest magnetic source — a current loop:

@@ -154,6 +154,7 @@ For continuous distributions, the sum becomes an integral:
 
 ## Gauss's Law — The Shortcut for Symmetric Problems
 
+<!-- @editor[content/P2]: "From module 02" — cross-reference is wrong, divergence theorem is from vector calculus prereqs (module 01 in mathematics/ or implicit). Fix the forward reference or remove it. -->
 From module 02: applying the divergence theorem to ∇·E = ρ/ε₀ gives:
 
 ```
@@ -314,6 +315,7 @@ this is how lightning rods work and why Van de Graaff generators spark at edges.
 
 ---
 
+<!-- @editor[bridge/P1]: Missing computational bridge — Poisson/Laplace equations are the core of boundary element methods, finite element E-field solvers, and graph Laplacians in spectral graph theory. A reader with MIT Math+TCS background will recognize ∇²V=0 as the continuous analog of the graph Laplacian L = D−A. The connection from electrostatics to numerical PDE solvers (FEM, BEM) and to discrete harmonic analysis on graphs belongs here. -->
 ## Poisson's and Laplace's Equations
 
 From E = -∇V and ∇·E = ρ/ε₀:
@@ -400,6 +402,7 @@ is physically real and carries energy.
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge to condensed matter / quantum — the electrostatic energy density u = ε₀E²/2 has a direct quantum analog in the zero-point energy of EM modes (½ℏω per mode, module 09). The connection from classical field energy to quantum vacuum energy density is a natural forward link here. Also missing: dielectrics and the microscopic origin of ε (polarizability → dielectric constant) is only mentioned in passing in module 03; a pointer would help this reader connect to semiconductor physics and optical materials. -->
 ## Common Confusion Points
 
 **V is defined up to a constant — only differences matter.**

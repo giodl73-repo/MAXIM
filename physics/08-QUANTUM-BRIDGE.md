@@ -456,6 +456,7 @@ Casimir effect reveals about it — that is module 09.
 
 ---
 
+<!-- @editor[bridge/P1]: Missing quantum computing hardware bridge — the guide ends with spin and field quantization but never connects to quantum computing, which is explicitly listed as a "DOES need" for this learner. Spin-1/2 qubits ARE the two-level system described in this module: |↑⟩ and |↓⟩ are |0⟩ and |1⟩. The Bloch sphere is the geometric representation of a qubit state (|ψ⟩ = α|0⟩ + β|1⟩ maps to a point on S²). The Pauli matrices ARE the qubit gate generators: X gate = σx (bit flip), Z gate = σz (phase flip), H gate = (σx + σz)/√2 (Hadamard). The "quantum advantage" discussion belongs here: superposition means a qubit can be in a continuous family of states, but measurement collapses to one of two outcomes — the tension that makes quantum algorithms subtle. This bridge is the most critical missing piece in the entire physics section for this learner. -->
 ## The 6.012 Gap — Semiconductor Physics Requires QM
 
 6.012 (MIT Microelectronic Devices and Circuits) is the course you didn't take.
@@ -504,6 +505,7 @@ This is the chain: Maxwell → QM → band theory → semiconductor devices → 
 
 ---
 
+<!-- @editor[bridge/P2]: No connection to quantum error correction / decoherence — the guide explains why quantum states are fragile (measurement collapses superposition) but doesn't connect to why quantum computing is hard in practice: decoherence (entanglement with environment destroys coherence on timescale T₂), and why error correction is exponentially expensive (you must correct errors faster than they accumulate, and measuring to check introduces more errors). The Hamming code → quantum error correction analogy (stabilizer codes as classical linear codes over GF(4)) would be natural for a TCS background. Even one paragraph on T₁/T₂ times and why current hardware has error rates of ~10⁻³ per gate would ground the theory in the engineering reality this reader is tracking. -->
 ## Decision Cheat Sheet
 
 | Concept | Key equation | Physical meaning |

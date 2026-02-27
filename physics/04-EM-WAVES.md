@@ -303,6 +303,7 @@ the reflected wave is completely polarized — polarized sunglasses exploit this
 
 ---
 
+<!-- @editor[bridge/P2]: No connection to coherence and quantum optics — the Fresnel/Snell treatment is classical geometrical optics. Missing: the concept of optical coherence (temporal and spatial), which connects to the Wiener-Khinchin theorem (power spectral density = Fourier transform of autocorrelation) — a direct bridge from signal processing. Coherence length and coherence time are the same concepts as correlation length in statistical mechanics and signal coherence in communications. This reader will immediately recognize the Fourier duality; the guide should make it explicit. -->
 ## EM Waves in Conductors — Skin Depth
 
 In a conductor with conductivity σ, free charges respond to E by flowing —
@@ -359,6 +360,7 @@ to the surface — completely different MHD dynamics.
 
 ---
 
+<!-- @editor[bridge/P2]: No photonic crystal / condensed matter bridge — standing waves in cavities are the continuum limit of the tight-binding model in condensed matter. Photonic crystals (periodic dielectric structures) create photonic bandgaps by the same mathematics as electron bandgaps in solids: Bloch's theorem, Brillouin zones, avoided crossings. This is a clean bridge from EM waves to solid-state physics and a natural connection to the band theory section in module 08. -->
 ## Standing Waves and Cavities
 
 Two counterpropagating waves superpose to form a standing wave:

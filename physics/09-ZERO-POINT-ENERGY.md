@@ -334,6 +334,7 @@ multiple times.
 
 ---
 
+<!-- @editor[bridge/P2]: No renormalization group / effective field theory bridge — the cosmological constant problem is presented as "theory predicts X, experiment sees Y, nobody knows why." Missing: the EFT framing that makes this precise. In EFT, you only integrate up to a cutoff Λ_UV, and all physics below Λ_UV is captured by renormalized couplings. The vacuum energy is a relevant operator (dimension-0, grows as Λ⁴) — it runs dramatically with the cutoff. The concept of naturalness (Wilson's sense: why would a relevant operator be fine-tuned to near-zero?) is the precise statement of the cosmological constant problem. A reader who knows about ML regularization (L1/L2 penalties control model complexity) has the intuition: why would nature choose a near-zero coefficient for the most relevant operator? This EFT framing is the right level for this reader and is currently absent. -->
 ## The Cosmological Constant Problem
 
 The worst theoretical prediction in the history of physics.
@@ -402,6 +403,7 @@ is not even in the same universe as the observed value.
 
 ---
 
+<!-- @editor[bridge/P2]: No condensed matter ZPE bridge — the guide covers Casimir between metal plates and quantum optics (spontaneous emission, cavity QED) but misses the condensed matter manifestations: (1) zero-point fluctuations in crystals cause zero-point entropy and set the Debye zero-point energy, directly measurable from the zero-temperature heat capacity; (2) in superfluids (He-4 below 2.17 K), zero-point motion prevents solidification and enables quantum flow without viscosity; (3) in quantum magnets, zero-point fluctuations of spins (quantum spin liquids) can destroy magnetic order even at T=0 — an active research area in condensed matter. These are the experimentally accessible faces of ZPE that a reader tracking modern physics should know about. -->
 ## Can Zero-Point Energy Be Tapped?
 
 This is the question that motivates most fringe interest. The answer requires

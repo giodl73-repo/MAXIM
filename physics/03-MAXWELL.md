@@ -390,6 +390,7 @@ different origin.
 
 ---
 
+<!-- @editor[bridge/P1]: Missing gauge theory bridge — Maxwell's equations are the equations of motion for a U(1) gauge field. The field strength tensor Fμν = ∂μAν − ∂νAμ is the curvature of a connection on a circle bundle over spacetime. This is NOT a detail; it is the mathematical structure that generalizes to SU(2) (weak force) and SU(3) (strong force) in the Standard Model. A reader with MIT Mathematics background who knows Lie groups and fiber bundles needs this bridge explicitly. The two tensor equations ∂νFμν = μ₀Jμ and ∂[λFμν] = 0 are better understood as "the gauge field equation of motion" and "Bianchi identity" respectively. -->
 ## Special Relativity Lives Here
 
 Maxwell's equations are already relativistically correct. They do not need
@@ -414,6 +415,7 @@ In the relativistic formulation:
 
 ---
 
+<!-- @editor[bridge/P2]: No connection to QED completion — the guide ends at the relativistic tensor formulation but doesn't note that Maxwell's equations break down at short distances/high fields and must be replaced by QED. The key phenomenological consequences (vacuum polarization, photon-photon scattering, Lamb shift) are previewed in module 08/09. A one-line forward pointer here would help the reader understand that "Maxwell complete ≠ EM complete." Also missing: the connection to information theory — EM waves carry information, and Shannon capacity of a channel is set by signal power and bandwidth, both concepts grounded in the wave physics here. -->
 ## Decision Cheat Sheet
 
 | Situation | Equation to use |
