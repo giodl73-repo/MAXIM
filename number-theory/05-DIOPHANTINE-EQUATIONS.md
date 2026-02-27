@@ -273,6 +273,8 @@ Cryptographic note: Over F_p, E(F_p) is an abelian group of order p ± O(√p)
   (Hasse's theorem). The discrete log problem in E(F_p) is the ECDLP.
 ```
 
+<!-- @editor[content/P2]: Elliptic curves section introduces E(Q) and the group law but stays at the algebraic-crypto level. The learner has algebraic geometry from MIT — the connection from the chord-tangent group law to the formal group / divisor class group (Pic⁰) picture is absent. This is the right depth here: why the group law is actually Pic⁰(E) and how that connects to the Jacobian, making elliptic curves the simplest non-trivial case of the full algebro-geometric story. One paragraph would close a real gap. -->
+
 ### Birch-Swinnerton-Dyer Conjecture
 
 ```
@@ -335,3 +337,7 @@ curves (elliptic) are mostly understood (Mordell-Weil). Degree ≥ 4 curves
 of genus ≥ 2 have only finitely many rational points (Faltings, 1983) —
 this is why FLT for high n follows from Faltings before Wiles (but Faltings
 doesn't give explicit bounds on n).
+
+<!-- @editor[bridge/P2]: The genus hierarchy (degree-2 = genus 0, elliptic = genus 1, degree ≥ 4 = genus ≥ 2) is mentioned implicitly but never stated. The learner has algebraic topology from MIT TCS — a one-line bridge "genus = topological handle count of the complex curve; over C an elliptic curve is a torus (genus 1), which is why it has a group structure" would make the Faltings/Wiles/degree landscape feel connected rather than a list of results. The genus column is load-bearing for understanding why degree matters. -->
+
+<!-- @editor[content/P2]: Wiles's proof strategy outline is present but the connection to the Langlands program is missing — the modularity theorem (every elliptic curve over Q is automorphic) is a special case of Langlands functoriality. For a reader who will encounter Langlands in 07-ANALYTIC-NUMBER-THEORY.md and 06-ALGEBRAIC-NUMBER-THEORY.md, one sentence noting "this was the first major instance of a non-abelian Langlands correspondence proved" would give FLT its proper place in the larger story. -->

@@ -184,6 +184,8 @@ For other primes p, use Legendre symbol (-5/p) = (-1/p)(5/p):
     (5/13): 5^6 mod 13 = 5,25≡12,60≡8,40≡1 → 5^6 ≡ ... checking: 5²=25≡12,
     5³≡60≡8,5^6≡64≡12≡-1 → (5/13)=-1.
     (-5/13) = 1·(-1) = -1 → 13 IS INERT in Q(√-5).
+
+<!-- @editor[content/P1]: The p=13 splitting calculation contains draft working text ("Let me recompute:") that was left in the final content. This reads as an author's scratch note, not finished reference material. Clean up: remove the false start and present the final correct computation only. -->
 ```
 
 ---
@@ -265,6 +267,8 @@ UNIT RANK = r₁ + r₂ - 1:
 ```
 
 ---
+
+<!-- @editor[content/P2]: p-adic numbers and local fields are entirely absent from this guide. For a learner at this level, the local-global principle (Hasse-Minkowski for quadratic forms, Hasse principle for rational points) and the role of completions K_v at each place v are foundational to modern algebraic number theory — they underpin both the proof of quadratic reciprocity via the Hilbert symbol product formula and the adèlic formulation of class field theory mentioned below. One section or a subsection "Local Fields and Completions" with the key facts (Z_p, Q_p, ramification in terms of v_p, the Hilbert symbol) would substantially strengthen this guide for a reader going deeper. -->
 
 ## Class Field Theory — Overview
 
