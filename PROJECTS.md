@@ -23,12 +23,12 @@ This file tracks everything else.
 ---
 
 ### 2. Concept Index
-**Status**: 🟡 Skill built, pilot complete, full build ready
+**Status**: ✅ Complete (v1)
 **Home**: `CONCEPT-INDEX.md`
 **Skill**: `/reference-index build` · `/reference-index update <dir>`
-**Scope**: Cross-cutting concept index — entries for terms discussed substantively in 2+ sections. Estimated 400-600 entries at full scale.
-**Pilot**: 10-directory pilot produced 89 entries. Format proven: `**Term** — [dir/NN](dir/NN-FILENAME.md)` with MkDocs links.
-**Next**: Fix pass complete — content is stable. Ready for full build.
+**Scope**: Cross-cutting concept index — entries for terms discussed substantively in 2+ sections.
+**Result**: 196 entries across 139 directories. 8 parallel extraction agents scanned all 205 directories (4,026 raw pairs). Fuzzy matching (synonym groups + parenthetical stripping + Jaccard token overlap ≥0.6) filtered to 2+ section threshold. Top entries: entropy (5 sections), Kalman filter (4), Bayesian inference (4).
+**Next**: Can be refreshed with `/reference-index build` as content evolves.
 
 ---
 
@@ -89,42 +89,106 @@ signal-processing/         mathematics/ (Fourier), electronics/
 
 ---
 
-### 6. Atlas — Survival Reference Maps
-**Status**: ❌ Not started
-**Home**: `atlas/` directory (proposed)
+### 6. Atlas — 52 Survival Reference Maps
+**Status**: 🟡 Plan complete, generation ready
+**Home**: `atlas/` directory
 **Skill**: None yet
-**Scope**: ASCII reference maps focused on survival-relevant natural features. NOT political maps. The features that matter when infrastructure is gone.
-
-**Proposed structure**:
-
-```
-atlas/
-├── 00-OVERVIEW.md          World overview — continents, oceans, major currents
-├── 01-NORTH-AMERICA.md     Mountain ranges, rivers, watersheds, passes, coasts
-├── 02-SOUTH-AMERICA.md     Andes, Amazon basin, Patagonia, altiplano
-├── 03-EUROPE.md            Alps, Pyrenees, Scandinavian range, Rhine/Danube
-├── 04-AFRICA.md            Rift Valley, Sahara, Congo basin, Great Lakes
-├── 05-ASIA.md              Himalayas, Steppes, Yangtze/Mekong, Siberia
-├── 06-OCEANIA.md           Great Dividing Range, NZ Alps, Pacific islands
-├── 07-ARCTIC-ANTARCTIC.md  Polar regions, ice sheets, passages
-├── 08-OCEANS-CURRENTS.md   Gulf Stream, thermohaline, gyres, trade winds
-├── 09-MOUNTAIN-RANGES.md   Global mountain systems — all major ranges compared
-├── 10-RIVERS-WATERSHEDS.md Global river systems — length, discharge, basins
-├── 11-CLIMATE-ZONES.md     Köppen zones, growing seasons, rainfall patterns
-├── 12-RESOURCES.md         Major mineral deposits, freshwater, arable land
-```
-
-**Content per regional file**:
-- ASCII map of the region showing terrain (mountains, rivers, coasts)
-- Key elevations and passes (traversable routes)
-- Watershed boundaries (which rivers drain where)
-- Climate and growing season notes
-- Resource locations (water, arable land, minerals)
-- Historical movement corridors (why people went where they went)
+**Scope**: 52 ASCII reference maps + overview — one map per card in the deck. Each map thematically echoes its card's archetype. Ordered for survivalist priority (orient → sustain → move → build → connect → understand), not card rank.
 
 **Design principle**: Ties to Read This First. If you have the survival guide and the atlas, you can orient yourself on the planet. The atlas answers "where am I and what's around me?" — the survival guide answers "now what do I do?"
 
-**Notes**: 12 files, ~same scale as a content directory. Could be a 53rd volume (The Joker?) or filed under Earth & Space.
+**Content per file**:
+- ASCII map or diagram of the subject (terrain, flows, distributions, networks)
+- Key data tables (elevations, coordinates, measurements, comparisons)
+- Survival/practical relevance notes
+- Cross-references to relevant library volumes
+
+**Structure**: 13 sections × 4 maps = 52 files, plus 00-OVERVIEW.
+
+```
+atlas/
+├── 00-OVERVIEW.md                        World physical overview (The Joker — ties to Card 0)
+│
+├── I. Earth & Space (3s) — Orient yourself
+│   ├── 01-TECTONIC-PLATES.md             3♣ Timekeeper — plates, seismic zones, stable ground
+│   ├── 02-GLOBAL-WINDS.md                3♦ Forecaster — trade winds, ITCZ, jet streams, pressure belts
+│   ├── 03-WORLD-SOILS.md                 3♥ Cultivator — soil types, arable land, growing seasons
+│   ├── 04-CELESTIAL-NAVIGATION.md        3♠ Voyager — pole stars, latitude by altitude, key constellations
+│
+├── II. Natural World (2s) — What's around you
+│   ├── 05-GLOBAL-BIOMES.md               2♣ Taxonomist — biome boundaries, ecoregions
+│   ├── 06-WATERSHEDS-RIVERS.md           2♠ Ecologist — major river basins, discharge, drainage divides
+│   ├── 07-GRAIN-FERMENTATION-BELTS.md    2♦ Brewer — wheat, rice, barley, grape, fermentation traditions
+│   ├── 08-FLYWAYS-MIGRATION.md           2♥ Collector — bird flyways, whale routes, butterfly corridors
+│
+├── III. Life Sciences (5s) — Stay alive
+│   ├── 09-MEDICINAL-PLANTS.md            5♥ Healer — traditional medicine regions, key species
+│   ├── 10-DISEASE-VECTORS.md             5♦ Empiricist — malaria, dengue, cholera endemic zones
+│   ├── 11-BIODIVERSITY-HOTSPOTS.md       5♣ Naturalist — 36 recognized hotspots, endemic concentrations
+│   ├── 12-HUMAN-MIGRATION.md             5♠ Selector — out-of-Africa routes, population genetics
+│
+├── IV. Material Culture (4s) — Resources & materials
+│   ├── 13-MINERAL-ORE-DEPOSITS.md        4♣ Colorist — iron, copper, tin, gold, rare pigment minerals
+│   ├── 14-VOLCANIC-GEOTHERMAL.md         4♦ Forger — volcanoes, hot springs, geothermal fields
+│   ├── 15-FOREST-TYPES-TIMBER.md         4♠ Joiner — boreal, temperate, tropical hardwood regions
+│   ├── 16-FIBER-TEXTILE-CROPS.md         4♥ Binder — cotton, silk, hemp, flax, wool growing zones
+│
+├── V. Mechanics (7s) — Move & build
+│   ├── 17-MOUNTAIN-PASSES.md             7♣ Constructor — traversable corridors, key elevations
+│   ├── 18-OCEAN-CURRENTS.md              7♠ Instrumentalist — currents, gyres, maritime routes
+│   ├── 19-ENERGY-RESOURCES.md            7♦ Alchemist — oil, coal, gas, uranium deposits
+│   ├── 20-WATER-INFRASTRUCTURE.md        7♥ Provider — aqueducts, dams, major water systems
+│
+├── VI. History & Ideas (6s) — Who came before
+│   ├── 21-ANCIENT-TRADE-ROUTES.md        6♣ Chronicler — Silk Road, Spice Route, Amber Road
+│   ├── 22-SPREAD-OF-AGRICULTURE.md       6♥ Dialectician — Fertile Crescent, rice, maize diffusion
+│   ├── 23-CENTERS-OF-LEARNING.md         6♦ Sage — Athens, Alexandria, Baghdad, Nalanda, Chang'an
+│   ├── 24-CONFLICT-CORRIDORS.md          6♠ Ethicist — chokepoints, invasion routes, fortification lines
+│
+├── VII. Social Sciences (9s) — Human geography
+│   ├── 25-POPULATION-DENSITY.md          9♥ Witness — where 8 billion people actually live
+│   ├── 26-ECONOMIC-CHOKEPOINTS.md        9♣ Strategist — Suez, Malacca, Panama, trade blocs
+│   ├── 27-POLITICAL-SYSTEMS.md           9♦ Governor — governance types, disputed territories
+│   ├── 28-TIME-ZONES.md                  9♠ Correspondent — UTC offsets, date line, coordination windows
+│
+├── VIII. Mathematics & Physics (Js) — Navigation tools
+│   ├── 29-MAGNETIC-DECLINATION.md        J♣ Experimenter — true north vs. magnetic north
+│   ├── 30-CLIMATE-CLASSIFICATION.md      J♠ Theorist — Köppen-Geiger zones, mathematical weather
+│   ├── 31-MAP-PROJECTIONS.md             J♥ Formalist — Mercator, Robinson, Peters — how spheres flatten
+│   ├── 32-RADIO-PROPAGATION.md           J♦ Analyst — ionospheric skip, HF bands, shortwave windows
+│
+├── IX. Language & Communication (10s) — Reach others
+│   ├── 33-WRITING-SYSTEMS.md             10♣ Scribe — script families mapped to homelands
+│   ├── 34-LANGUAGE-FAMILIES.md           10♥ Interpreter — Indo-European, Sino-Tibetan, 7,000 languages
+│   ├── 35-EMERGENCY-RADIO.md             10♦ Broadcaster — shortwave bands, emergency frequencies, propagation
+│   ├── 36-HISTORICAL-EMPIRES.md          10♠ Narrator — maximum extent of major empires, overlaid
+│
+├── X. Technology (8s) — Modern infrastructure
+│   ├── 37-CRITICAL-MINERALS.md           8♣ Fabricator — lithium, cobalt, silicon, rare earths
+│   ├── 38-POWER-GRIDS.md                 8♠ Operator — major power plants, transmission networks
+│   ├── 39-MEGACITIES.md                  8♥ Planner — 37 megacities, infrastructure, strategic importance
+│   ├── 40-SUBMARINE-CABLES.md            8♦ Verifier — internet backbone, landing stations
+│
+├── XI. Arts & Culture (Qs) — The human record
+│   ├── 41-EXPLORATION-ROUTES.md          Q♦ Surveyor — Cook, Humboldt, Lewis & Clark, Zheng He
+│   ├── 42-MUSICAL-TRADITIONS.md          Q♣ Composer — instrument origins, scale systems, folk regions
+│   ├── 43-SACRED-SITES.md               Q♥ Performer — pilgrimage routes, world heritage, gathering places
+│   ├── 44-PRINTING-CENTERS.md            Q♠ Editor — Mainz, Venice, London, New York — where words multiplied
+│
+├── XII. Computing & Software (Ks) — The digital layer
+│   ├── 45-INTERNET-INFRASTRUCTURE.md     K♣ Architect — IX points, cloud regions, data centers
+│   ├── 46-TECHNOLOGY-HUBS.md             K♦ Craftsman — Silicon Valley, Shenzhen, Bangalore, Tallinn
+│   ├── 47-RESEARCH-STATIONS.md           K♥ Prover — CERN, South Pole, Arecibo, deep-sea observatories
+│   ├── 48-MILITARY-INSTALLATIONS.md      K♠ Sentinel — radar rings, satellite ground stations, strategic bases
+│
+└── XIII. People (As) — Who changed everything
+    ├── 49-SCIENTIFIC-EXPEDITIONS.md      A♣ Discoverer — Beagle, Challenger, Apollo trajectories
+    ├── 50-INDUSTRIAL-SPREAD.md           A♦ Inventor — Manchester to the world, factory diffusion
+    ├── 51-GREAT-LIBRARIES.md             A♥ Humanist — Alexandria, Vatican, Bodleian, Library of Congress
+    └── 52-REVOLUTION-ORIGINS.md          A♠ Revolutionary — 1776, 1789, 1848, 1989 — contagion maps
+```
+
+**Survivalist ordering logic**: Orient (plates, weather, soil, stars) → Sustain (biomes, water, food, medicine) → Resources (minerals, forests, fuel) → Move (passes, currents, trade routes) → People (population, borders, languages) → Infrastructure (power, cables, radio) → History & culture (expeditions, libraries, revolutions). Start with what keeps you alive; end with what makes life worth living.
 
 ---
 
@@ -151,11 +215,11 @@ Reader-facing guide: how to navigate, what the card symbols mean, how bridges wo
 | # | Project | Status | Files | Blocking? |
 |---|---------|--------|-------|-----------|
 | 1 | Editorial Fix Pass | ✅ Complete | REVIEW.md | — |
-| 2 | Concept Index | 🟡 Pilot done | CONCEPT-INDEX.md | Unblocked — ready for full build |
+| 2 | Concept Index | ✅ Complete (v1) | CONCEPT-INDEX.md | — |
 | 3 | Bill of Materials | ✅ Complete | BILL-OF-MATERIALS.md | — |
 | 4 | Reading Maps | ✅ Complete | READING-MAPS.md | — |
 | 5 | Prerequisite Graph | ✅ Complete | PREREQUISITES.md | — |
-| 6 | Atlas | ❌ Not started | — | Independent |
+| 6 | Atlas (52 maps) | 🟡 Plan complete | atlas/ (53 files) | Independent |
 
-**Dependency chain**: Fix Pass ✅ → Concept Index (now unblocked — content is stable)
+**Dependency chain**: Fix Pass ✅ → Concept Index ✅ (chain complete)
 **Everything else is independent** — can be built in any order.
