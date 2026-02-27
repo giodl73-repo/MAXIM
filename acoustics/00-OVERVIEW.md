@@ -101,39 +101,39 @@ SPL(r₂) = SPL(r₁) - 20·log₁₀(r₂/r₁)  dB
 
 ---
 
-<!-- @editor[diagram/P2]: Module map is a directory listing, not a conceptual landscape diagram. It tells you what files exist, not how the concepts relate. A proper landscape diagram would show: wave physics (foundation) → room acoustics / psychoacoustics (two branches from physics) → electroacoustics (transduction layer) → architectural acoustics / underwater / ultrasound / noise-vibration (applications). Show the dependency relationships, not the directory tree. -->
-
-## Module Map
+## Conceptual Landscape
 
 ```
-acoustics/
-│
-├── 01-WAVE-PHYSICS           Foundation: wave equation, speed of sound, impedance
-│       Reflection/transmission, diffraction, standing waves, resonance
-│
-├── 02-PSYCHOACOUSTICS        Perception: how the brain interprets sound
-│       Equal-loudness contours, masking, pitch, binaural localization
-│
-├── 03-ROOM-ACOUSTICS         Enclosed spaces: reflection, reverberation
-│       RT60, Sabine, Eyring, Schroeder frequency, diffusion
-│
-├── 04-ARCHITECTURAL-ACOUSTICS  Design of spaces for sound
-│       Concert halls, speech intelligibility, recording studios, NC curves
-│
-├── 05-MUSICAL-ACOUSTICS      Instruments and voice as physics
-│       String modes, wind resonance, percussion, piano, voice
-│
-├── 06-ELECTROACOUSTICS       Transducing between acoustic and electrical
-│       Microphones (dynamic/condenser/ribbon), speakers, amplifiers
-│
-├── 07-UNDERWATER-ACOUSTICS   Sound in the ocean
-│       SOFAR channel, sonar, beamforming, marine noise
-│
-├── 08-ULTRASOUND             Above 20 kHz: imaging and processing
-│       Piezoelectric transducers, medical imaging, NDT
-│
-└── 09-NOISE-VIBRATION        Unwanted sound: isolation and control
-        Sources, transmission paths, isolation vs damping, NVH, standards
+ACOUSTICS — DEPENDENCY MAP
+═══════════════════════════════════════════════════════════════════
+
+    ┌─────────────────────────────────────────┐
+    │        01-WAVE-PHYSICS (Foundation)      │
+    │  Wave equation, impedance, reflection,  │
+    │  diffraction, standing waves, resonance │
+    └──────────┬──────────────┬───────────────┘
+               │              │
+       ┌───────▼───────┐  ┌──▼──────────────┐
+       │02-PSYCHO-     │  │06-ELECTRO-      │
+       │ACOUSTICS      │  │ACOUSTICS        │
+       │Perception:    │  │Transduction:    │
+       │ear → brain    │  │acoustic ↔ elec  │
+       └───┬───────┬───┘  └──┬──────────────┘
+           │       │         │
+    ┌──────▼──┐ ┌──▼────────▼──┐  ┌──────────────┐
+    │03-ROOM  │ │04-ARCHITEC-  │  │05-MUSICAL    │
+    │ACOUSTICS│ │TURAL ACOUST. │  │ACOUSTICS     │
+    │RT60,    │ │Concert halls,│  │Instruments,  │
+    │Sabine   │ │studios, NC   │  │string/wind   │
+    └─────────┘ └──────────────┘  └──────────────┘
+
+    ┌──────────────┐  ┌──────────┐  ┌──────────────┐
+    │07-UNDERWATER │  │08-ULTRA- │  │09-NOISE-     │
+    │ACOUSTICS     │  │SOUND     │  │VIBRATION     │
+    │SOFAR, sonar, │  │Medical,  │  │Isolation,    │
+    │beamforming   │  │NDT, >20k │  │damping, NVH  │
+    └──────────────┘  └──────────┘  └──────────────┘
+    ← Applied domains (all depend on wave physics + one or more branches) →
 ```
 
 ---
@@ -206,4 +206,4 @@ is well-behaved. Microphones should be in the far field of measured sources.
 Z = ρc, some reflects back. Air to glass, air to water, air to concrete — all have massive
 mismatches. This is why sound isolation requires mass (adding mass = adding impedance).
 
-<!-- @editor[content/P2]: Acoustic metamaterials absent from entire directory — locally resonant structures (Liu et al. 2000), phononic crystals, and negative effective mass/modulus materials represent a significant modern development. These achieve sub-wavelength sound blocking (breaking the mass law) and are directly analogous to photonic crystals and electromagnetic metamaterials the learner will encounter in optics. The 09-NOISE-VIBRATION file is the natural home; a brief mention and pointer in the overview would prevent a gap at the directory level. -->
+**Acoustic metamaterials** (locally resonant structures, Liu et al. 2000; phononic crystals): engineered structures that achieve sub-wavelength sound blocking by creating negative effective mass or modulus — breaking the mass law for sound isolation. Directly analogous to photonic crystals and electromagnetic metamaterials. See `09-NOISE-VIBRATION.md` for applications to NVH engineering.
