@@ -672,7 +672,7 @@ An FCC copper sample has σ_y = 200 MPa. G(Cu) = 48 GPa, b = 2.56 Å, α = 0.5.
 
 ---
 
-<!-- @editor[bridge/P2]: No crystallography → group theory bridge despite obvious parallel — MIT math major will immediately ask "where's the group?" Space groups are the 230 representations of the wallpaper/space group symmetries; the 32 point groups are the crystallographic restriction of the 10 infinite 2D/3D symmetry groups; Bravais lattices follow from quotient groups. A single sentence connecting space group # to group theory representation theory would orient this learner immediately and set up Bloch's theorem (representations of the translation group) in 02-BONDING-BANDS -->
+The mathematical backbone of crystallography is group theory: the 14 Bravais lattices are the 14 distinct translation groups in 3D; the 32 point groups are the finite subgroups of O(3) compatible with translational periodicity (the crystallographic restriction — only 1, 2, 3, 4, 6-fold rotations survive); the 230 space groups are the semidirect products of point groups with translation groups (including screw axes and glide planes). Bloch's theorem in band theory (02-BONDING-BANDS) follows directly: it says eigenstates of the Hamiltonian transform as irreducible representations of the translation group, labeled by wavevector k.
 
 ## Common Confusion Points
 

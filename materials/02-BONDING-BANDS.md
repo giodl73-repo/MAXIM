@@ -457,9 +457,7 @@ Wiedemann-Franz law: k_electron/σ_e T = L₀ = π²k_B²/(3e²) = 2.44×10⁻�
 
 ## Bridge to Quantum Mechanics (Learner's Background)
 
-<!-- @editor[audience/P3]: "You know the Schrödinger equation in atomic physics" — peer tone doesn't confirm what the reader knows; just state the materials application directly. Rephrase: "In atomic physics the potential is spherical → hydrogen-like eigenvalues. In a crystal the potential is periodic → Bloch solutions and energy bands." The bridge works, the setup sentence is mildly condescending -->
-
-You know the Schrödinger equation in atomic physics. Here's how materials science uses it:
+In atomic physics the potential is spherical -> hydrogen-like eigenvalues. In a crystal the potential is periodic -> Bloch solutions and energy bands:
 
 ```
     Atomic physics: spherical potential V(r)

@@ -241,16 +241,26 @@ diffusion of carbon → carbon trapped in BCT structure.
 **TTT = Time-Temperature-Transformation** (isothermal): austenitize then hold at fixed T.
 **CCT = Continuous-Cooling-Transformation**: austenitize then cool at constant rate.
 
-<!-- @editor[diagram/P2]: TTT diagram is a series of horizontal dashes with labels rather than a real C-curve shape — the defining visual feature of a TTT diagram is the "C" or nose shape where transformation rate peaks at an intermediate temperature. The current diagram doesn't convey this shape. Redraw to show the characteristic "C" curve (fast transformation at the nose ~550°C, slowing at both higher and lower temperatures), with start and finish lines for pearlite and bainite separately -->
 ```
     TTT diagram for eutectoid steel (0.76%C):
 
     T(°C)
-     800 │
-         │        ──────────────────────── A₁
-     700 │    Pearlite nose   ────────────────────────
-         │        ─────────────────────────────────
-     600 │    Bainite upper  ──────────────────
+     800 │─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ A₁ (727°C)
+         │
+     700 │           ╭─── Ps (pearlite start)
+         │          ╱
+     600 │     ╭───╯         ╭── Pf (pearlite finish)
+         │    ╱ NOSE ←──╮   ╱
+     550 │───╯ (fastest)│──╯      ← "C-curve" — transformation
+         │    ╲         │  ╲        rate peaks at the nose
+     500 │     ╰───╮    ╰── Bf (bainite finish)
+         │          ╲
+     400 │           ╰─── Bs (bainite start)
+         │
+     300 │─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ Ms (martensite start, ~220°C)
+     200 │─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ Mf (martensite finish)
+         └──────────────────────────────────────────────
+              0.1   1    10   100  1000  10000  time (s)
          │                 ──────────────────
      500 │    Bainite lower ────────────────
          │                   ────────────
@@ -456,7 +466,45 @@ where F = geometry factor ≈ 1 for large plate.
 
 ---
 
-<!-- @editor[content/P2]: Nickel superalloys are absent — the overview (00-OVERVIEW.md) lists Inconel 718, René N6, and CMSX-4 as key materials and DS/SC processing as a landmark development. Ni superalloys are the primary material for jet engine hot sections above 900°C, featuring γ/γ' precipitation strengthening, creep resistance, and oxidation coatings. A section at minimum covering γ' (L1₂ ordered precipitate), creep mechanisms, and directional solidification belongs here alongside the steel and Al content -->
+## Nickel Superalloys
+
+The primary structural material for jet engine hot sections (turbine blades, combustor liners) operating above 900C where steel and Ti alloys soften.
+
+```
+    STRENGTHENING: γ/γ' microstructure
+    γ  = FCC Ni-rich matrix (disordered solid solution)
+    γ' = Ni₃(Al,Ti) L1₂ ordered precipitate (coherent with matrix)
+
+    The γ' precipitates resist dislocation motion because cutting
+    them creates anti-phase boundaries (APB) — energetically costly.
+    γ' volume fraction: 40-70% in modern turbine blade alloys.
+
+    KEY ALLOYS:
+    Inconel 718:  Ni-19Cr-18Fe-5Nb-3Mo — workhorse wrought alloy
+                  σ_y ≈ 1100 MPa at 20°C; service to 650°C
+                  Strengthened by γ'' (Ni₃Nb, BCT D0₂₂) + γ'
+
+    René N6, CMSX-4: single-crystal turbine blade alloys
+                  No grain boundaries → no creep cavitation at GB
+                  Operate at 1050-1100°C (with TBC + film cooling)
+                  Yield by γ' raft formation under creep
+
+    DIRECTIONAL SOLIDIFICATION (DS) / SINGLE CRYSTAL (SC):
+    Bridgman process: controlled withdrawal from hot zone
+    DS: columnar grains aligned with blade axis → no transverse GB
+    SC: seed crystal → one grain, one orientation, no GB at all
+    Motivation: creep rupture life at high T limited by GB sliding
+               → eliminate GB → 10x improvement in creep life
+
+    COATINGS (thermal barrier system):
+    Bond coat: MCrAlY (M = Ni, Co) or Pt-modified aluminide
+      → forms protective Al₂O₃ oxide scale (thermally grown oxide, TGO)
+    Top coat: yttria-stabilized zirconia (YSZ), 100-300 μm
+      → low thermal conductivity (κ ≈ 2 W/m·K vs 30 for alloy)
+      → reduces metal temperature by 100-150°C
+```
+
+---
 
 ## Aluminum Alloys
 
