@@ -43,8 +43,8 @@ Examples:
   A₅  = 440 × 2^(12/12)  = 880.00 Hz  (one octave above)
 ```
 
-<!-- @editor[bridge/P2]: 12-TET is a rational approximation problem: we want log₂(3/2) = 0.58496... (the just fifth) to be a rational number p/q so that q steps in a p-octave system produces a pure fifth. The approximation 7/12 is excellent (error ~0.27%); this is why 12 was chosen over competing systems (31-TET, 53-TET, etc.). This is continued-fraction approximation: the convergents of log₂(3/2) = [0; 1, 1, 2, 2, 3, 1, 5, 2, ...] give 1/2, 1/1, 3/5, 7/12, 17/29, 24/41... — each a better rational approximation. 12 is the denominator of the 4th convergent, making it the smallest tuning system where fifths are well-approximated. This is number theory applied to acoustics, and any mathematician will find the continued-fraction derivation deeply satisfying. Worth at least naming the rational approximation framing explicitly.
--->
+**Why 12?** The choice of 12 divisions per octave is a rational approximation problem. We want log₂(3/2) = 0.58496... (the just fifth as a fraction of an octave) to be well approximated by p/q where q divisions produce a near-pure fifth at the p-th step. The continued-fraction convergents of 0.58496... = [0; 1, 1, 2, 2, 3, 1, 5, 2, ...] give denominators 1, 2, 5, **12**, 29, 41, 53... Each is the next-better equal temperament. 7/12 = 0.58333 (error 0.28%) — 12 is the smallest system where the fifth approximation is imperceptible. 53-TET is even better (31/53 = 0.58491, error 0.01%) but impractical for keyboard instruments.
+
 ### Cents
 
 A **cent** = 1/100 of a semitone. 1200 cents per octave. Useful for measuring deviation from 12-TET:

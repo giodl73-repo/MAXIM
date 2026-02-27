@@ -34,10 +34,27 @@ VOICE SPACING (standard):
 
 ---
 
-<!-- @editor[bridge/P1]: SATB counterpoint is a constraint satisfaction problem (CSP). The variables are the pitch choices for each voice at each time step. The constraints are: no parallel fifths/octaves (a constraint on pairs of adjacent time steps × pairs of voices), leading tone resolution (a constraint on specific pitch-classes at specific structural positions), chordal seventh resolution (another constraint), range constraints per voice, doubling constraints, etc. Writing a SATB harmonization is searching the assignment space subject to these constraints — propagation (e.g., if soprano = B (leading tone), then soprano at next beat ∈ {C}) prunes the search substantially. This maps directly to CSP algorithms (arc consistency, backtracking, propagation) that any MIT TCS student knows. Erno Laszlo's work and more recently neural network approaches (DeepBach) model this explicitly as a constraint-satisfaction / probabilistic inference problem. Naming the CSP framing would immediately illuminate why these "rules" have the structure they do. -->
 ## SATB Chorale Rules
 
 These rules codify 300+ years of common-practice voice leading. They're not arbitrary — each prevents a specific acoustic problem.
+
+SATB harmonization is a constraint satisfaction problem (CSP). The variables are the four voice pitches at each time step. The constraints map directly:
+
+```
+CSP VARIABLE                     MUSICAL CONSTRAINT
+──────────────────────────────────────────────────────────────────────────
+Domain per variable               Voice range (S: C₄–G₅, A: G₃–C₅, etc.)
+Binary constraint (adjacent       No parallel P5/P8 between any voice pair
+  time steps × voice pairs)
+Unary constraint on specific      Leading tone (7̂) must resolve up to 1̂
+  pitch-class assignments         Chordal 7th must resolve down by step
+Constraint on chord voicing       Double root (preferred), never double
+                                  leading tone
+Arc consistency / propagation     If soprano = B (leading tone), then
+                                  soprano at t+1 ∈ {C} — prunes the tree
+```
+
+The search space is enormous (each voice has ~20 feasible pitches × 4 voices × N time steps), but the constraints propagate aggressively. This is why DeepBach (Hadjeres et al., 2017) models SATB harmonization as probabilistic inference: given constraints, sample from the posterior distribution over valid voice assignments.
 
 ### Rules about Motion Type
 
@@ -261,8 +278,9 @@ CANON: strict imitation maintained throughout — the "follow" voice
 
 ---
 
-<!-- @editor[bridge/P2]: Fugue structure is a hierarchical, recursive compositional system. The subject is the atomic unit. The exposition introduces it through all voices with systematic transposition rules (tonic/dominant alternation). The development applies transformations (inversion, retrograde, augmentation, diminution, stretto) that are formal operations on the subject as a data structure. The countersubject is designed to be invertible — its relationship to the subject is a formal constraint (double counterpoint). This is literally a formal grammar generating music: the subject is the terminal symbol; the fugue structure is a context-free grammar with productions for Exposition → Subject+Answer+CS, Middle Entry → transposed(Subject), Episode → fragmentation(Subject), Stretto → overlapping(Subject). Bach's "Art of Fugue" explores every possible formal combination — it's an exhaustive study of the subject's generative potential. Any reader with formal languages / automata background will recognize this structure immediately. -->
 ## Fugue Anatomy
+
+The fugue is a formal grammar over a single data structure (the subject). The transformations applied — transposition, inversion, retrograde, augmentation, diminution, stretto — are operations on the subject as a sequence, and the compositional structure is a set of production rules: `Exposition → Subject + Answer + CS`, `MiddleEntry → transpose(Subject, key)`, `Episode → fragment(Subject) + sequence`, `Stretto → overlap(Subject, delay)`. The countersubject is constrained by double counterpoint (must be valid when swapped above/below the subject). Bach's "Art of Fugue" is an exhaustive exploration of the subject's generative potential under these operations — a systematic study of what a single input yields under all possible transformations.
 
 The fugue is the highest form of contrapuntal writing — a multi-voice composition based on systematic development of a single melodic idea.
 

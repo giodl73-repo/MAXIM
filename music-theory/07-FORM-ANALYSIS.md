@@ -1,6 +1,32 @@
 # Form Analysis
 
-<!-- @editor[bridge/P1]: Musical form is a formal grammar / state machine. The forms in this file — binary (AB), ternary (ABA'), rondo (ABACA), sonata (Exposition/Development/Recapitulation) — are all context-free grammars over section symbols with tonal constraints on the transitions. Sonata form can be described as a finite state machine where states are tonal centers (tonic, dominant, remote, returning dominant, tonic) and transitions are defined by thematic and harmonic events. The "retransition" (dominant pedal before recapitulation) is literally a state-machine transition: the system lingers in the "dominant" state until a threshold condition (arrival of P-theme material) fires the transition back to "tonic." Schenkerian analysis makes this hierarchy explicit: foreground (surface events) → middleground (prolongations) → background (fundamental structure = I → V → I). This is a parse tree with multiple levels of abstraction — exactly the distinction between abstract syntax tree and concrete syntax in a compiler. Any reader with formal languages background immediately recognizes this structure. -->
+## Engineering Bridge: Musical Form as Formal Grammar
+
+```
+MUSICAL FORM                     FORMAL LANGUAGE / CS EQUIVALENT
+──────────────────────────────────────────────────────────────────────────
+Section labels (A, B, C)         Terminal symbols in a grammar
+Form template (ABA', ABACA)      Production rules of a context-free grammar
+  Binary: S → A B                  where each rule constrains tonal state
+  Ternary: S → A B A'
+  Rondo: S → A B A C A (D A)*
+  Sonata: S → Expo Dev Recap
+
+Sonata form tonal plan            Finite state machine over tonal states
+  States: {Tonic, Dominant,         Exposition: Tonic → Dominant
+           Remote, RetransD}        Development: Dominant → Remote → RetransD
+  Retransition = dominant pedal     RetransD → Tonic (fires when P-theme arrives)
+  before recapitulation             Recapitulation: stay in Tonic state
+
+Schenkerian analysis              Parse tree / AST hierarchy
+  Background: I → V → I            Root of the tree (fundamental structure)
+  Middleground: prolongations       Interior nodes (transformations)
+  Foreground: surface events        Leaf nodes (concrete syntax)
+  Reduction = stripping ornament    AST ← concrete syntax tree
+```
+
+The parallel is structural, not metaphorical. Sonata form is a state machine with tonal states and thematic triggers; Schenkerian reduction is hierarchical decomposition from concrete surface to abstract structure — the same operation a parser performs on source code.
+
 ## The Big Picture: Music as Architecture
 
 ```
