@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[diagram/P2]: The opening "Big Picture" uses a text statistics block (FOSSIL FUEL ROLE IN GLOBAL ENERGY) but is not a landscape diagram — it's a table disguised as a code block. The style contract calls for an ASCII diagram showing the whole landscape. For this file, that means a transition timeline or sector-by-sector phase-out map: showing the sequence in which fossil uses get displaced (coal power first → gas power → oil road transport → industrial heat → aviation/shipping last). The current format answers "how much?" but not "in what order and why?" — which is the structural insight this overview should deliver. -->
 Fossil fuels still supply ~80% of global primary energy and will continue to for decades.
 The transition is not a switch — it's a multi-decade replacement of capital stock with
 50-year lifetimes. Understanding the transition requires understanding stranded assets,
@@ -116,6 +117,7 @@ FOSSIL FUEL ROLE IN GLOBAL ENERGY (2023)
 CCS is the technology that could allow some continued fossil use while meeting climate targets,
 or remove CO₂ from the atmosphere directly.
 
+<!-- @editor[bridge/P3]: Amine scrubbing (MEA absorber/stripper cycle for CO₂ capture) is a direct application of absorption/stripping from chemical-eng/04-SEPARATIONS.md. The absorber is a gas-liquid contactor; the stripper is a thermal desorber; the MEA regeneration cycle is the stripping operation. The 15-25% energy penalty is driven by the thermodynamics of MEA regeneration (steam at 110-120°C), identical to the reboiler duty in a distillation column. A reader who has studied 04-SEPARATIONS.md will recognize this immediately; naming the connection would help them apply the separation design framework directly to CCS process analysis. -->
 ### Point-Source Post-Combustion Capture
 
 ```

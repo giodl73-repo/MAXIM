@@ -183,7 +183,8 @@ Dew point calculation:
 α > 1.05: distillation feasible (more stages needed as α → 1)
 ```
 
-### Flash Calculation (Rachford-Rice Equation)
+#<!-- @editor[bridge/P3]: Rachford-Rice is explicitly a root-finding problem — worth noting that this is the same bisection/Brent method class they know from numerical methods context, not because they need the explanation, but because the domain framing ("flash drums are just root-finders") is a useful mental anchor for the engineer building intuition across fields. -->
+## Flash Calculation (Rachford-Rice Equation)
 
 Given z_i (feed), T, p — find V (vapor fraction) and y_i, x_i:
 

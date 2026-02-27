@@ -1,5 +1,7 @@
 # Chemical Engineering — Landscape & Field Taxonomy
 
+<!-- @editor[structure/P2]: Missing Common Confusion Points section — gotchas like "thermodynamic equilibrium ≠ kinetics", "space time ≠ residence time", "HAZOP is not a checklist" should live at the overview level to orient the reader before diving into modules -->
+
 ## The Big Picture
 
 Chemical engineering is the discipline of **transforming raw materials into useful products at scale**.
@@ -87,6 +89,7 @@ This lets you estimate heat transfer from mass transfer data (and vice versa) �
 
 ---
 
+<!-- @editor[bridge/P2]: The computing bridge table lists numerical algorithm parallels (Newton-Raphson, ODE integration) but misses the higher-level architectural bridges the learner would find more compelling: distillation → separation algorithms, CSTR vs PFR → batch vs streaming processing, PID control → software control loops (CI/CD rate gates), HAZOP → systematic fault injection testing. Add these to make the table peer-level rather than "here's the math you know." -->
 ## Connection to Computing / Data Systems
 
 | ChE Concept | Software/Data Analogy |
@@ -102,6 +105,7 @@ This lets you estimate heat transfer from mass transfer data (and vice versa) �
 
 ---
 
+<!-- @editor[structure/P1]: Missing Decision Cheat Sheet — the "Decision Guide" below is a navigation flowchart routing to modules, not a "use X when Y" decision table. Add a table: when to use CSTR vs PFR, when to use distillation vs extraction, when to use PFD vs P&ID, etc. -->
 ## Decision Guide
 
 ```

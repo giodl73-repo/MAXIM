@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P1]: Energy storage maps directly to the caching/buffering hierarchy in computing — and the mapping is structurally tight, not superficial. Flywheels (milliseconds, high cycles, expensive) = CPU L1/L2 cache (fast, small, expensive). Li-ion BESS (4-12 hours, moderate cycles) = RAM/SSD (medium-speed, medium-cost buffer). Pumped hydro (days, 100,000 cycles, geography-constrained) = distributed object storage (large, cheap, slow). Hydrogen seasonal storage (weeks/months, low round-trip efficiency) = tape/cold archive (very cheap per byte, massive latency, rarely accessed). The key insight that transfers: no single storage tier covers the full range; the optimal system layers multiple tiers with different cost/latency/capacity tradeoffs. The "4-hour BESS for duck curve" is exactly the L1 cache insertion between fast VRE generation and load — it handles temporal locality (solar peaks daily), not global temporal gaps (winter dark doldrums). This bridge belongs before the technology comparison sections. -->
 Storage is the linchpin technology for high-penetration renewable grids. The problem
 is that "storage" spans 9 orders of magnitude in duration (milliseconds to months)
 and the dominant technology changes completely depending on the application.

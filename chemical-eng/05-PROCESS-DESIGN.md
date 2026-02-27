@@ -181,6 +181,7 @@ Software: ASPEN Energy Analyzer, SuperTarget, PinchExpress
 
 ## Process Control
 
+<!-- @editor[bridge/P2]: PID control in process engineering is the exact same algorithm as software control loops (rate limiters, backpressure controllers, autoscalers). The learner built CI/CD pipelines that use proportional control (scale by error), integral control (eliminate steady-state offset = windup risk they know), and derivative control (predictive damping). Worth explicitly noting: "The integral windup problem in PID maps to queue accumulation under sustained overload — the exact problem anti-windup reset mechanisms and backpressure systems solve." -->
 ### PID Control Fundamentals
 
 ```
@@ -261,6 +262,7 @@ Four strategies, in order of preference:
    (fewer connections, fewer isolation valves, simpler design)
 ```
 
+<!-- @editor[bridge/P1]: HAZOP guide words (NO/MORE/LESS/REVERSE/AS WELL AS/PART OF/OTHER THAN) applied to every process node are structurally identical to systematic fault injection testing — the learner built this at VSTS. Each guide word is a fault category: NO = null/zero, MORE = overload/overflow, LESS = timeout/underflow, REVERSE = backpressure/deadlock, AS WELL AS = contamination/mixed state, PART OF = partial failure, OTHER THAN = wrong type/format error. HAZOP is chaos engineering before chaos engineering existed. This bridge belongs immediately before the guide word list. -->
 ### HAZOP (Hazard and Operability Study)
 
 Systematic team review of process by applying guide words to each node (stream or equipment):

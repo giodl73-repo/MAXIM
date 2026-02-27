@@ -69,6 +69,7 @@ E_a values: simple bond rotation ~10 kJ/mol; enzyme catalysis ~50 kJ/mol; combus
 
 ## Ideal Reactor Types
 
+<!-- @editor[bridge/P2]: Batch vs CSTR vs PFR reactor selection maps cleanly to batch vs streaming vs pipeline processing architectures. Batch reactor: process all data together (MapReduce-style). CSTR: perfectly mixed queue (all items see same conditions). PFR: pipeline/streaming (each item processed in sequence with no mixing). This bridge should appear before the reactor type comparison, not just implied by the structural parallel. -->
 ### Batch Reactor (BR)
 
 No flow in or out. All material reacts together.
@@ -158,6 +159,7 @@ Upper SS: stable (high T, high X) — desired operating point
 
 Bifurcation: as cooling increases, upper SS extinguishes → reactor "quenches"
 ```
+<!-- @editor[bridge/P1]: CSTR multiple steady states with S-curve heat generation is a textbook positive feedback loop — the exact class of instability this learner manages in distributed systems (thundering herd, cascading retry storms, positive feedback in autoscaling). The bridge should be explicit: "This is structurally identical to a distributed service where load increases latency → triggers retries → increases load. Upper stable state = overloaded; lower = healthy; middle = unreachable directly." This is the highest-value bridge in the entire module for this learner. -->
 
 ---
 

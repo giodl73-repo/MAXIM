@@ -2,6 +2,7 @@
 
 ## Binding Energy, Cross Sections, Decay, Fission
 
+<!-- @editor[audience/P2]: File opens by explaining "Nucleus: Z protons + N neutrons → mass number A = Z + N" — this learner has MIT physics and knows nuclear structure. The Building Blocks block can open directly at the scale/energy section without the nuclide primer. The nuclide notation is fine for reference; the explanatory framing isn't needed. -->
 ```
 NUCLEAR PHYSICS BUILDING BLOCKS
 
@@ -166,6 +167,7 @@ Antineutrino energy:               ~12 MeV  (escapes, not recoverable)
 TOTAL recoverable:                ~188 MeV
 ```
 
+<!-- @editor[bridge/P2]: Fission product decay chains (¹³⁵Te → ¹³⁵I → ¹³⁵Xe → ¹³⁵Cs) are topological dependency trees — same data structure as package dependency graphs, build DAGs, and service dependency maps. The "xenon precluded restart" scenario (a downstream decay product blocks operation hours after its precursor was produced) maps directly to cascading dependency failures in service graphs: removing a service doesn't remove the downstream effects that already propagated. Worth naming: "decay chains are dependency trees, and the xenon poisoning problem is a deferred side-effect of a dependency you thought you removed." -->
 **Fission products:** Bimodal mass distribution — light peak ~95 u (Kr, Rb, Sr, Y, Zr) and heavy peak ~140 u (Cs, Ba, La, Ce, Nd). Very neutron-rich → extensive β decay chains.
 
 **Prompt vs delayed neutrons:**

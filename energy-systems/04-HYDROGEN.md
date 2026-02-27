@@ -189,6 +189,7 @@ Three main technologies with different maturity, cost, and operational character
   Manufacturers: Haldor Topsøe (Electrofuel), Bloom Energy, Sunfire
 ```
 
+<!-- @editor[bridge/P2]: The LCOH sensitivity table (each $10/MWh electricity ≈ $0.50-0.60/kg H₂) is the hydrogen equivalent of a query cost model: the dominant cost driver is not the compute (electrolyzer capex) but the input data cost (electricity). Green H₂ economics are essentially a pass-through of electricity cost with a fixed efficiency multiplier — exactly like a data transformation pipeline where the biggest lever is source data cost, not processing cost. The 30% round-trip efficiency penalty for hydrogen-as-storage (vs 85% for Li-ion) maps directly to a 3× compute overhead for a compressed storage tier: sometimes acceptable when the alternative cost (1,000 Li-ion containers for seasonal storage) is prohibitive. -->
 ### Cost Structure and Green H₂ Economics
 
 ```
