@@ -159,6 +159,7 @@ FLUID TAXONOMY:
 
 ### Fluid Dynamics ↔ Engineering / Azure Analogy
 
+<!-- @editor[bridge/P2]: The network analogy is offered as a bridge but several mappings are loose to the point of misleading: "Reynolds number ↔ traffic load ratio" obscures that Re is a dimensionless ratio of inertial to viscous forces — not simply a load metric. "Bernoulli ↔ bandwidth conservation" conflates an energy conservation law with mass conservation (continuity). The stronger universal bridge for this learner is the dimensional analysis / similarity argument: Re similarity in fluid dynamics is structurally identical to the use of normalized load metrics and scale-free laws in distributed systems analysis (Little's Law, Amdahl's Law). That connection — "dimensionless numbers as similarity laws that let you transfer results between scales" — is the mathematical core and would serve any senior engineer, not just one with Azure context. The network analogy can stay as informal flavor but should not be the primary bridge. -->
 A useful analogy from distributed systems engineering: fluid flow is like network traffic flow.
 
 ```

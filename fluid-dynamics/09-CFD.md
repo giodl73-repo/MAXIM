@@ -4,6 +4,8 @@
 
 CFD is the numerical solution of the governing equations of fluid dynamics. It is the "third pillar" of fluid mechanics alongside theory and experiment. The field connects fluid physics to algorithm design: different equation types require different discretization strategies, and the nonlinearity of Navier-Stokes imposes unique stability constraints. From the MIT TCS background, CFD is applied numerical linear algebra + time-stepping algorithms + domain decomposition — running at petascale and beyond.
 
+<!-- @editor[content/P2]: The opening correctly frames CFD as "domain decomposition — running at petascale and beyond" but the file never delivers on this: no section on parallel CFD, MPI communication patterns, halo-cell exchange, or the parallel scaling challenges (communication vs compute, Amdahl's law on the Poisson solve). This is precisely the bridge the learner calibration calls out ("CFD → parallel computing patterns they know from Azure"). The intro promise is unmet. Add a section on parallel CFD: domain decomposition, halo exchange, why the pressure Poisson solve is the parallel bottleneck (global reduction), and how modern CFD codes (OpenFOAM, Nek5000) achieve near-linear scaling to 10⁴–10⁵ cores. -->
+
 ```
 CFD PIPELINE
 ═══════════════════════════════════════════════════════════════════════════════
@@ -151,6 +153,7 @@ The incompressibility constraint ∇·**v** = 0 is a constraint on velocity, not
 3. **Update**: u^{n+1} = u* − Δt∇p^{n+1}
 
 Step 2 is a Poisson solve — the computational bottleneck. Uses FFT (periodic), multigrid, or direct sparse solver.
+<!-- @editor[bridge/P3]: Mention of "multigrid, Krylov, direct sparse solver" is correct but left as a bare list. Learner has numerical methods background; a one-sentence bridge connecting multigrid to the algebraic multigrid (AMG) preconditioners used in production CFD (same as used in PETSc, Trilinos, Azure HPC workloads), and noting that the Poisson solve is why the pressure equation is the parallel bottleneck (requires global information vs local flux computation), would ground these references. -->
 
 ### SIMPLE Algorithm (Semi-Implicit Method for Pressure-Linked Equations)
 

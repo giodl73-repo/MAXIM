@@ -3,6 +3,7 @@
 ## The Big Picture
 
 Prandtl's 1904 boundary layer theory resolved the D'Alembert paradox and revolutionized fluid mechanics. The key idea: at high Reynolds number, viscosity matters only in a thin layer near solid surfaces. Outside this layer, the flow is well approximated by inviscid (potential flow) theory. Inside, the full Navier-Stokes equations simplify dramatically because the layer is thin. This matched asymptotics approach — separate the flow into an outer inviscid region and an inner viscous layer, then match them — is one of the most powerful techniques in applied mathematics.
+<!-- @editor[bridge/P2]: Matched asymptotics is identified as "one of the most powerful techniques in applied mathematics" but the connection to singular perturbation theory is never made. Learner has PDE background from MIT Math; the boundary layer is the canonical example of a singularly perturbed PDE (the μ∇²v term has a small coefficient but cannot be dropped — it changes the boundary condition structure). The regular perturbation (just set μ = 0) gives a wrong answer; the boundary layer rescaling (y → y/δ where δ ~ 1/√Re) is the matched asymptotic expansion. A brief note connecting this to singular perturbation theory / the method of matched asymptotic expansions as a formal PDE technique (not just physical intuition) would anchor the method for this learner. -->
 
 ```
 BOUNDARY LAYER STRUCTURE
