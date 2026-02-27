@@ -114,11 +114,19 @@ Each card has a one-sentence epithet: "Lever, arch, wing — the first engineeri
 
 ---
 
-### Card Image Concepts (`cards/CONCEPTS.md`)
+### Card Backs (`cards/backs/*.md`) — BUILT
 **Current score: 2/10**
-52 visual descriptions for card art. Each is a detailed image prompt. Currently have flairs from honored phases but no puzzle use.
-**Potential**: The image concepts ARE visual puzzles if drawn. "Here is an image: a circuit schematic with Maxwell's equation above it. Which card is this?" → J♣ The Experimenter. The concepts could be rebus-like clues for The Grid.
-**To reach 7**: Use image concepts as visual identification clues in The Grid or in Red Joker puzzle intros.
+52 ASCII card frames. Each has: card identity, tarot correspondence, 7 KEY CONCEPTS (specific formulas, terms, principles), directory list, epithet. These are FINGERPRINTS — each card's 7 concepts uniquely identify it.
+**Potential**: The 7 concepts per card are the Grid solver's MANIFEST. Like Obra Dinn's crew portraits. "This volume contains Carnot efficiency and Rankine cycles — that's 7♦ The Alchemist." The card backs could be printed as reference cards in the Black Joker book.
+**To reach 8**: Print card backs as reference material in Black Joker. Solver uses them to narrow Grid identifications.
+**To reach 10**: Card backs ARE the deduction tool. The solver matches in-encyclopedia content to card-back fingerprints to determine which archetype hides where.
+
+### Card Front Descriptions (`cards/CONCEPTS.md`) — NOT YET BUILT
+**Current score: 1/10**
+52 image prompts describing card art. Descriptions only — no actual artwork exists yet. Flairs added from honored phases.
+**Potential**: When card art IS built, it can be designed WITH the puzzle hunt in mind. Hidden visual elements, encoded details, subtle clues baked into the art. A casual reader sees beautiful illustrations. A Grid solver sees 52 clue-bearing images.
+**To reach 5**: Design art with dual purpose (beauty + puzzle) when the time comes.
+**To reach 10**: Each card front contains a visual clue that helps solve The Grid — the art IS part of the puzzle.
 
 ---
 
@@ -161,7 +169,8 @@ Tracks which directories are complete, stubbed, or queued. Batch status.
 | MkDocs Site | 2 | 5 | Search for Grid, medium-shift | P3 |
 | Style Contract | 4 | 7 | Structure-as-data puzzles | P3 |
 | Archetype Epithets | 5 | 8 | Grid clues, cipher keys | P2 |
-| Card Image Concepts | 2 | 7 | Visual identification | P2 |
+| Card Backs (7 concepts each) | 2 | 10 | Grid manifest — Obra Dinn crew portraits | **P1** |
+| Card Front Art (unbuilt) | 1 | 10 | Design art with hidden puzzle layer | P2 (when art is built) |
 | HISTORY.md | 1 | 5 | Meta-story reference | P3 |
 | TRACKER.md | 1 | 2 | Internal only | — |
 | SCORECARD.md | 1 | 5 | Scores as data | P3 |
