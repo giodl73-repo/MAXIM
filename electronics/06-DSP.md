@@ -95,6 +95,7 @@ DSP LANDSCAPE
   Output: h[n] coefficients
   Algorithm: iterative exchange of extremal frequencies.
 
+  <!-- @editor[content/P2]: "30% fewer taps than Kaiser" claim is a loose rule of thumb — the actual saving depends heavily on transition bandwidth and stopband spec; for wide transition bands the difference is small; for very narrow bands Parks-McClellan can save 50%+; better to state "typically fewer taps; gap widens as specs tighten" and point to the filter order formula comparison -->
   Roughly 30% fewer taps than Kaiser window for same spec.
   The standard choice for production FIR filter design.
   Implemented in MATLAB firpm(), Python scipy.signal.remez().
@@ -298,6 +299,7 @@ DSP LANDSCAPE
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from DSP to information theory — quantization noise, ENOB, and the Shannon limit are directly connected: quantization noise power ≈ Δ²/12 (where Δ is the LSB step), SNR ≈ 6.02N + 1.76 dB for an N-bit ADC, and then Shannon C = B log₂(1+SNR) closes the loop from physical sampling → DSP → information capacity; this learner has information theory background and this bridge would make the guide far more valuable -->
 ## 7. Adaptive Filters
 
 ```

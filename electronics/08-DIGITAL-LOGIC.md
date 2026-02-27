@@ -1,5 +1,6 @@
 # 08 — Digital Logic
 
+<!-- @editor[bridge/P2]: No explicit bridge from digital logic to the computing stack the learner knows — CMOS gates → Boolean algebra → FSMs → RTL is the exact fabrication substrate for the CPU/OS/runtime stack the learner has deep expertise in; a one-paragraph "why this matters for software engineers" framing at the top (NAND gates → ALU → pipeline → ISA → OS scheduler) would anchor the guide for a learner who has always worked above the hardware boundary -->
 ```
 DIGITAL LOGIC LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
@@ -546,6 +547,7 @@ NOR: series pMOS is slow (pMOS already slower than nMOS).
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from RTL synthesis flow to compiler toolchain analogy — the learner knows compilers deeply (MIT TCS); RTL synthesis is exactly: Verilog/VHDL = source language, synthesis tool = compiler (AST → technology-mapped netlist), P&R = linker (resolves physical addresses), STA = static analysis / verification, GDSII = binary; naming this parallel explicitly would make the entire VLSI section click for a software person -->
 ## 9. HDL Synthesis Concepts
 
 ### RTL (Register Transfer Level) Design Flow

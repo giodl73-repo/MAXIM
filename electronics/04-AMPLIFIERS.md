@@ -296,6 +296,7 @@ AMPLIFIER LANDSCAPE
   Noise: input-referred noise unchanged; output noise reduced.
 ```
 
+<!-- @editor[content/P2]: Stability analysis is compressed — phase margin is defined but there's no Bode plot example showing a real two-pole system, where the gain crossover and phase crossover frequencies are, and what PM < 45° looks like in the time domain (ringing); the learner has the math but needs the visual mapping of pole locations to Bode shape to phase margin numbers -->
 ### Stability and the Miller Effect
 
 ```
@@ -321,6 +322,7 @@ AMPLIFIER LANDSCAPE
 
 ---
 
+<!-- @editor[bridge/P1]: Missing noise analysis bridge — the guide covers gain, bandwidth, and stability but noise is absent; for this learner, the bridge is noise figure (NF) → Shannon capacity (C = B log₂(1 + SNR)) — amplifier noise directly sets the information-theoretic floor on what signals can be recovered; a section on Johnson-Nyquist noise, noise figure, and how noise referred-to-input limits ADC dynamic range would complete the signal chain story and bridge directly to information theory -->
 ## 6. Multi-Stage and Operational Amplifiers
 
 ### Op-Amp Internal Architecture
@@ -348,6 +350,7 @@ AMPLIFIER LANDSCAPE
   GBW = g_m1 / Cc
 ```
 
+<!-- @editor[content/P2]: Op-amp non-idealities table lists parameters but doesn't connect them to system design decisions — V_os of 5mV means what for a 12-bit ADC front end? I_B of 1µA through 10kΩ source impedance means 10mV error at output; practical rules (max R_source = V_os_budget / I_B) are missing and would make this actionable -->
 ### Op-Amp Non-Idealities
 
 | Parameter | Effect | Typical Value |

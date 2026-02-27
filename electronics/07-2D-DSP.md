@@ -27,6 +27,7 @@
 
   6.003 bridge: everything from 1D carries over with (m,n) indices.
   You took 2D DSP at MIT — this is a precision refresher.
+  <!-- @editor[audience/P3]: "You took 2D DSP at MIT" is direct learner address — breaks the style contract's peer-level voice; rephrase as a note about scope ("standard MIT 6.003/6.341 material — the value-add here is MRI/CT applications and compressed sensing") -->
 ```
 
 ---
@@ -300,6 +301,7 @@
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from 2D convolution / frequency-domain analysis to neural network convolution layers — the CNN convolution operation is exactly 2D DSP convolution (cross-correlation) on feature maps; learned filters in CNNs are learned kernels for the same operation; this is the direct computational bridge from image processing DSP to the ML acceleration context the learner will encounter in 09-EMBEDDED-VLSI (DSP48 slices, NPUs) -->
 ## 6. k-Space and MRI
 
 ### What Is k-Space?

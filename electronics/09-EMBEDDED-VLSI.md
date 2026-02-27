@@ -119,6 +119,7 @@ The embedded boot sequence — what happens before `main()`:
   main()
 ```
 
+<!-- @editor[bridge/P3]: No bridge from embedded linker script (LMA/VMA, .text/.data/.bss sections) to the PE/ELF format the learner knows from .NET — the embedded linker script is doing the same job as the PE section table: .text = code section (rx), .data = initialized data (initialized at load from Flash like PE loader copies initialized data), .bss = BSS segment (zeroed, not stored in binary); naming "this is the embedded equivalent of the PE section layout" would make it immediately concrete -->
 Linker script memory regions (what the `.ld` file controls):
 
 ```
@@ -318,6 +319,7 @@ overflows are silent corruption bugs in bare-metal contexts.
   Timing signoff: PrimeTime — corner analysis (worst-case: SS/0.9V/125°C)
          │
          ▼
+  <!-- @editor[content/P2]: Tapeout section doesn't convey the cost/risk context — DRC/LVS/STA failures caught before tapeout are free; a re-spin at advanced node costs $5M–$30M in new masks and 3–6 months; this economic reality is why the verification steps (RTL sim, gate-level sim, formal verification, STA corners) are so heavyweight; one line on "re-spin economics" would explain why the entire flow is as rigorous as it is -->
   TAPEOUT → GDS II file to foundry
          │
          ▼
@@ -431,6 +433,7 @@ overflows are silent corruption bugs in bare-metal contexts.
   Useful for: DSP kernels, control algorithms, ML accelerators
 ```
 
+<!-- @editor[bridge/P2]: No bridge from VLSI power grid / IR drop to the software-visible performance effects the learner knows — IR drop on the VDD grid means the core receives less than nominal voltage → slower transistors → timing margin shrinks → that's why CPUs throttle under load even when thermally OK; the learner has seen DVFS from the software side; connecting "IR drop → reduced gate overdrive → slower logic → STA violations → auto-throttle" closes the hardware→software loop -->
 ### Physical Design Details
 
 ```

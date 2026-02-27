@@ -1,5 +1,6 @@
 # 02 — Reactive Components: Capacitors, Inductors, RLC
 
+<!-- @editor[diagram/P2]: Opening diagram is a summary block, not a landscape — it lists C, L, and RLC properties side by side but doesn't show the progression from individual elements → series/parallel combinations → resonance → filter behavior that the sections then drill into; restructuring as a layered dependency would tie sections together -->
 ```
 REACTIVE LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
@@ -135,6 +136,7 @@ REACTIVE LANDSCAPE
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge from RLC poles (s = -ζω₀ ± jω_d) to the pole-zero framework in 05-SIGNALS-SYSTEMS — the characteristic equation roots ARE the s-domain poles; stating explicitly that overdamped/underdamped/critically-damped maps to poles on real axis / complex pair / repeated real pole would give the learner a direct hook into the transfer function analysis coming later -->
 ## 3. Series RLC Circuit
 
 ```
