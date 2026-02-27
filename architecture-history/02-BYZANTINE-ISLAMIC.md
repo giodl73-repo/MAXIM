@@ -449,7 +449,12 @@ MATHEMATICAL BASIS:
   used in Persian architecture by the 12th century,
   predating Western mathematical discovery by 700 years
   (Peter Lu and Paul Steinhardt, 2007 paper in Science)
-  <!-- @editor[bridge/P3]: The quasi-crystalline muqarnas content is a strong hook into aperiodic tiling theory (Penrose 1974, Wang tiles, decidability of tiling problems) and the broader question of what symmetry groups can tile a plane. A reader with MIT math background will recognize that 5-fold rotational symmetry is forbidden in periodic crystals — this is a provable group-theoretic result — making the empirical Islamic discovery even more remarkable. A sentence connecting this to crystallographic symmetry groups or the Wang tiling undecidability problem would reward this reader. -->
+  Mathematical note: 5-fold rotational symmetry is
+  forbidden in periodic crystals (a provable result from
+  the crystallographic restriction theorem). The Islamic
+  artisans achieved aperiodic 5-fold symmetric tilings
+  empirically — the same mathematical territory as Penrose
+  tiles (1974) and Wang's undecidability of tiling problems.
 
 VISUAL EFFECT:
   The undulating surface breaks up the wall/vault plane
@@ -601,6 +606,3 @@ The Selimiye Mosque's dome is structurally more efficient than Hagia Sophia's �
 achieved a slightly larger diameter with significantly thinner walls and more visible
 structural logic. The ornamental complexity sits on top of very sophisticated structural
 thinking.
-
-
-<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->

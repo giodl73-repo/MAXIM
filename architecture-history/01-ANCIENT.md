@@ -6,7 +6,7 @@ Three civilizations, three structural strategies, three worldviews encoded in st
 The thread connecting them: how do you create an impressive interior space using
 materials that cannot take tension?
 
-<!-- @editor[bridge/P2]: Pre-steel architecture is a constraint-satisfaction problem: find a structural geometry such that every element stays in compression, given that stone's tensile strength is ~1/50th its compressive strength. Each civilization's structural evolution is the search space; each breakthrough (arch, ribbed vault, flying buttress) is a feasible solution found under tighter constraints. This framing — familiar to anyone who has thought about CSP or mathematical optimization — is not named, and it would immediately click for this reader. -->
+The unifying principle: pre-steel architecture is a constraint-satisfaction problem. The constraint: every structural element must remain in compression (stone's tensile strength is ~1/50th its compressive strength). The search space: all possible geometries for spanning openings, enclosing volumes, and supporting loads. Each civilization's breakthrough — the Egyptian column forest, the Roman arch, the Gothic flying buttress — is a new feasible solution found under progressively tighter constraints (larger spans, thinner walls, more interior light). The CSP framing makes the historical progression legible as an optimization trajectory rather than a sequence of aesthetic preferences.
 
 ```
 ANCIENT STRUCTURAL EVOLUTION
@@ -571,6 +571,3 @@ At 1/48 of shaft height, entasis is barely measurable with instruments and essen
 invisible to casual inspection. Its effect is subliminal — the column appears more alive
 without the viewer knowing why. This is deliberate: effects too subtle to consciously
 identify but registered subconsciously were a Greek design strategy.
-
-
-<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->

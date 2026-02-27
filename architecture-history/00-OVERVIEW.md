@@ -92,7 +92,7 @@ compression. The flying buttress moves thrust outside the building so the wall c
 stop being a structural element. The steel frame introduces tension members for the
 first time at civilizational scale.
 
-<!-- @editor[bridge/P2]: The structural systems table presents material constraints but doesn't name the underlying pattern: all pre-steel structural evolution is a constraint-satisfaction problem — find a geometry that keeps every element in compression given stone's ~50:1 compression:tension strength ratio. This is the load-path optimization problem, and each era's "breakthrough" is a new feasible solution discovered under those constraints. Any engineer coming from optimization or operations research will recognize this framing immediately. -->
+The underlying pattern: all pre-steel structural evolution is a constraint-satisfaction problem — find a geometry that keeps every element in compression given stone's ~50:1 compression-to-tension strength ratio. Each era's "breakthrough" (arch, ribbed vault, flying buttress) is a new feasible solution discovered under those constraints. The search space is all possible load-path geometries; the constraint is that no element may enter tension. Engineers from optimization or operations research will recognize this immediately as a constrained geometric programming problem — and the historical progression as a sequence of heuristic solutions found empirically before the mathematics existed to describe them.
 
 ---
 
@@ -327,23 +327,35 @@ Contemporary       + CNC + BIM                    replaces tradition.
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a navigation index pointing to other files — not a decision tool. Needs "use/choose X when Y" rows, e.g. "Which structural system for 40m+ span in pre-steel era → arch/vault; for lightweight envelope → steel frame" etc. -->
 ## Decision Cheat Sheet
 
-| Question | File |
-|----------|------|
-| Why do Greek temples have so many columns? | `01-ANCIENT.md` — post-and-lintel span limit |
-| How did Rome build large interior volumes? | `01-ANCIENT.md` — arch + concrete |
-| Why does Hagia Sophia's dome seem to float? | `02-BYZANTINE-ISLAMIC.md` — pendentive + windows |
-| Why are Gothic windows so large? | `03-MEDIEVAL-GOTHIC.md` — flying buttress logic |
-| How did Brunelleschi build Florence dome? | `04-RENAISSANCE-BAROQUE.md` — herringbone brick |
-| What made the Crystal Palace revolutionary? | `05-INDUSTRIAL-AGE.md` — modular prefab |
-| Le Corbusier's Five Points? | `06-MODERNISM.md` |
-| What is the "Bilbao effect"? | `07-POSTMODERNISM.md` — Gehry + CATIA |
-| How does a wind catcher work? | `08-VERNACULAR.md` — hot-dry climate |
-| Passivhaus vs LEED? | `09-CONTEMPORARY.md` |
-| What is a diagrid structure? | `09-CONTEMPORARY.md` — high-rise systems |
-| What is embodied carbon? | `09-CONTEMPORARY.md` — adaptive reuse |
+| You need to... | Use this structural system | Because | Era |
+|----------------|---------------------------|---------|-----|
+| Span 5m with stone | Post-and-lintel (trabeated) | Stone beams fail in bending beyond ~5m | Egyptian/Greek |
+| Span 10–40m with stone/brick | Arch, barrel vault, cross vault | Arch converts bending to compression — all stone stays compressed | Roman |
+| Span 30m+ and want interior light | Pointed arch + ribbed vault + flying buttress | Buttress carries thrust outside, freeing wall for glass | Gothic |
+| Cover a circular plan with a dome | Pendentive or squinch to transition square→circle, then dome | Pendentives distribute dome thrust to 4 piers | Byzantine |
+| Build a dome with no centering | Double-shell herringbone brick (Brunelleschi method) | Each ring is self-supporting during construction | Renaissance |
+| Enclose very large volumes cheaply | Cast iron frame + glass infill (Crystal Palace model) | Prefabricated modular components, no masonry needed | Industrial |
+| Build tall (10+ stories) | Steel or RC frame — curtain wall envelope | Frame carries all load; wall is weather seal only | 1890s–present |
+| Maximum floor plan flexibility | RC column-slab (Le Corbusier's Dom-ino) | No load-bearing walls — partition freely | Modernism |
+| Build a supertall (300m+) | Tube structure, diagrid, or outrigger system | Lateral (wind) loads dominate above ~40 stories | Contemporary |
+| Minimize operational energy | Passivhaus envelope (superinsulation + MVHR) | Eliminates ~90% heating/cooling energy | Contemporary |
+| Passive cooling without electricity | Thermal mass + night ventilation or wind catcher (badgir) | Phase-shifts diurnal heat wave by ~12 hours | Vernacular |
+
+**Navigation index** (for deeper dives into each era):
+
+| Topic | File |
+|-------|------|
+| Egyptian, Greek, Roman | `01-ANCIENT.md` |
+| Byzantine domes, Islamic geometry | `02-BYZANTINE-ISLAMIC.md` |
+| Gothic structural logic | `03-MEDIEVAL-GOTHIC.md` |
+| Renaissance, perspective, Baroque | `04-RENAISSANCE-BAROQUE.md` |
+| Iron, steel, Crystal Palace, skyscrapers | `05-INDUSTRIAL-AGE.md` |
+| Modernism, Corbusier, Mies, Brutalism | `06-MODERNISM.md` |
+| Postmodernism, Deconstructivism, Gehry | `07-POSTMODERNISM.md` |
+| Climate-responsive vernacular | `08-VERNACULAR.md` |
+| BIM, parametric, Passivhaus, tall buildings | `09-CONTEMPORARY.md` |
 
 ---
 
@@ -384,6 +396,3 @@ This is a modernist value projection. The Pantheon conceals its structure behind
 classical decoration. Wren's St. Paul's has three domes — the outer is theatrical
 fiction covering a structural brick cone. Gothic tracery is partly ornamental.
 Structural expression is a style choice, not a moral obligation.
-
-
-<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive; this line is a leftover from scaffolding. -->
