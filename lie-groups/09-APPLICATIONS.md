@@ -281,7 +281,21 @@ This is optimization on the Lie group SO(m) with an analytic solution.
 
 ---
 
-<!-- @editor[content/P2]: Geometric Deep Learning (GDL) as a unifying theoretical framework is absent. The equivariant network architectures described (TFN, SE(3)-Transformers, MACE, Equiformer) are instances of the broader framework developed by Bronstein, Bruna, LeCun, Szlam, Vandergheynst (2021 "Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges"). GDL provides the theoretical unification: CNNs = equivariant to translation (T^n), GNNs = equivariant to permutation (S_n), SE(3)-GNNs = equivariant to SE(3), gauge-equivariant networks on manifolds = equivariant to gauge transformations. The blueprint is: pick your symmetry group G, build G-equivariant layers via the representation theory of G, and you get the appropriate inductive bias for your geometric domain. This missing context means a reader learns about specific architectures without understanding the unifying principle that makes them all instances of the same construction. -->
+### Geometric Deep Learning: The Unifying Framework
+
+The architectures above (TFN, SE(3)-Transformers, MACE, Equiformer) are all instances of the **Geometric Deep Learning** (GDL) blueprint (Bronstein, Bruna, LeCun, Szlam, Vandergheynst, 2021): pick your symmetry group G, build G-equivariant layers via the representation theory of G, and you get the appropriate inductive bias for your geometric domain.
+
+| Architecture | Symmetry Group G | Equivariance |
+|-------------|------------------|-------------|
+| CNN | Translation T^n | Shift-equivariant feature maps |
+| GNN | Permutation S_n | Node/edge permutation invariant |
+| SE(3)-GNN (TFN, MACE) | SE(3) | Rotation + translation equivariant |
+| Gauge-equivariant CNN | Gauge group on manifold | Coordinate-free processing on curved surfaces |
+| Transformer (with position) | Permutation (+ learned position) | Set function with positional encoding |
+
+The unifying principle: the choice of symmetry group determines the architecture. All of deep learning's major architecture families are instances of this single construction.
+
+---
 
 ## Decision Cheat Sheet
 
