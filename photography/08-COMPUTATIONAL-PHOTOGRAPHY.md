@@ -322,7 +322,37 @@ TIME-OF-FLIGHT LIDAR (iPhone 12 Pro+, iPad Pro):
     LiDAR + camera → point cloud + texture → 3D models
     Apps: Scaniverse, Polycam → scan rooms, objects for 3D printing or AR
     Industrial: LIDAR point clouds replace manual measurement for as-built documentation
-<!-- @editor[content/P2]: Photogrammetry and Structure-from-Motion (SfM) deserve their own section — this is the computational photography technique with the most direct ML/CV connections. SfM pipeline: feature detection (SIFT/ORB/SuperPoint) → feature matching → RANSAC → bundle adjustment → dense reconstruction (MVS). The relationship to panorama stitching (both use RANSAC + bundle adjustment) and to the iOS/Android photogrammetry apps (PolyCam, KIRI Engine, RealityCapture) should be made explicit. NeRF (Neural Radiance Fields) and Gaussian Splatting are the 2023+ ML extensions. This is a significant gap given the calibration calls out "photogrammetry — direct ML connections." -->
+```
+
+### Structure-from-Motion and Photogrammetry
+
+SfM reconstructs 3D geometry from multiple 2D images — the computational photography technique with the most direct ML/CV connections.
+
+```
+SfM PIPELINE:
+  Images → Feature detection (SIFT/ORB/SuperPoint)
+       → Feature matching across image pairs
+       → RANSAC (outlier rejection for geometric consistency)
+       → Bundle adjustment (jointly optimize camera poses + 3D points)
+       → Dense reconstruction (Multi-View Stereo / MVS)
+       → Textured mesh or point cloud output
+
+  Same core as panorama stitching: both use RANSAC + bundle adjustment.
+  Panorama stitches 2D; SfM recovers full 3D structure.
+
+ML EXTENSIONS (2020+):
+  NeRF (Neural Radiance Fields, Mildenhall et al. 2020):
+    Represent scene as MLP: (x,y,z,θ,φ) → (color, density)
+    Train on posed images; render novel views via volume rendering.
+    Slow training (~hours), slow rendering, but photorealistic.
+
+  3D Gaussian Splatting (Kerbl et al. 2023):
+    Represent scene as millions of oriented 3D Gaussians.
+    Differentiable rasterization → real-time rendering at 100+ fps.
+    Trains in minutes, renders in real-time. Rapidly displacing NeRF
+    for many applications (AR, VR, gaming, digital twins).
+
+  Consumer apps: Polycam, Scaniverse, KIRI Engine, RealityCapture.
 ```
 
 ---
