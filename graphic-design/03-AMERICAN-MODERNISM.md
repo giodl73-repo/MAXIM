@@ -374,15 +374,14 @@ are moving design -- time-based graphic design before anyone called it that.
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a reference directory ("I want to understand…") not a decision tool — restructure as "use single-solution presentation when the brief is open-ended and a confident designer owns the answer; use corporate identity program when visual consistency across hundreds of touchpoints is the problem" -->
 ## Decision Cheat Sheet
 
-| I want to understand...                        | Key reference                      |
-|------------------------------------------------|------------------------------------|
-| Why Rand presented only one logo option        | His "Design, Form, and Chaos"      |
-| How corporate identity programs work           | Any of the 1960s standards manuals |
-| Bass's film title method                       | "The Man with the Golden Arm" 1955 |
-| Glaser's "I Love NY" design process            | Behind-the-story; taxi, envelope   |
+| Situation | Approach | Why |
+|-----------|----------|-----|
+| Open-ended brief, confident designer owns answer | Rand's single-solution presentation | Present one definitive option with conviction; don't dilute with alternatives |
+| Visual consistency across 100+ touchpoints | Corporate identity standards manual (Chermayeff, Bass) | Define every application so non-designers can execute consistently |
+| Time-based / motion design needed | Bass's title sequence approach (reductive, symbolic) | Distill narrative to essential graphic forms; movement carries meaning |
+| Populist appeal, broad cultural resonance | Glaser's illustrative approach (expressive, warm) | Accessible emotional design; art-level ambition for commercial context |
 | How American design differed from Swiss        | Personality + pragmatism vs pure   |
 |                                                | objectivity                        |
 | The Rand-Jobs relationship                     | NeXT identity story                |

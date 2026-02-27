@@ -338,15 +338,15 @@ Critics (including later Swiss designers) noted that "universal" often meant
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet format uses "I want to..." framing rather than "use X when Y" — restructure as decision rows: "use modular grid when designing multi-column editorial for maximum clarity; use single typeface / multiple weights when audience spans multiple languages" -->
+The Swiss grid is a **constraint satisfaction system**: given column count, gutter width, margin, and type size, the layout is a constrained lattice where all spatial decisions follow deterministically from the initial parameters. The grid unit derives from type metrics (baseline grid = leading; column width = characters per line), and every element snaps to this lattice. Constraint propagation, not aesthetic preference.
 
-<!-- @editor[bridge/P2]: Grid construction presented as historical/aesthetic choice rather than constraint algorithm — the grid is a spatial constraint satisfaction system: given column count, gutter width, margin, and type size, the layout space is a constrained lattice. For a learner with MIT TCS background, framing this as constraint propagation (grid unit derived from type metrics → all spatial decisions follow deterministically) is a stronger bridge than "Swiss designers preferred grids." -->
 ## Decision Cheat Sheet
 
-| I want to...                                    | Swiss Style approach            |
-|-------------------------------------------------|---------------------------------|
-| Structure a multi-column document               | Build a modular grid first      |
-| Choose a type hierarchy                         | One typeface, multiple weights  |
+| Situation | Swiss Style approach | Why |
+|-----------|---------------------|-----|
+| Multi-column editorial, maximum clarity | Build a modular grid first; all elements align to grid | Grid = constraint system; consistency emerges from the lattice |
+| Type hierarchy for international audience | One typeface, multiple weights/sizes | Neutral sans-serif (Helvetica, Univers) reads across languages |
+| Photographic integration with text | Full-bleed photos; asymmetric text/image grid | Photo bleeds to edge; text in defined column with clear margins |
 | Design for international audience               | Photography > illustration      |
 | Make type feel "neutral" (no era association)   | Helvetica / Neue Haas Grotesk   |
 | Create visual hierarchy without decoration      | Scale + weight + placement      |
