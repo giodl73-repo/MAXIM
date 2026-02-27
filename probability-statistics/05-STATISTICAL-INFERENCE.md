@@ -292,7 +292,11 @@ When testing m hypotheses simultaneously, the type I error rate inflates:
   BH is for: "I expect some false positives; I want the proportion bounded."
 ```
 
+<!-- @editor[content/P2]: Multiple testing section covers Bonferroni and BH but is missing: Holm-Bonferroni (uniformly more powerful than Bonferroni, always preferred), Storey's q-value (FDR estimation using empirical null distribution), and the modern resampling-based approaches (Westfall-Young permutation correction for dependent tests). Also missing the distinction between FWER and FDR for different scientific contexts (drug trials vs. genomics). Worth extending for a learner who will encounter multiple testing in ML model selection contexts. -->
+
 ---
+
+<!-- @editor[content/P1]: Bootstrap and resampling are completely absent — this is an explicit gap in the learner calibration ("DOES need: bootstrap and resampling"). The bootstrap (Efron 1979) is the dominant modern tool for confidence intervals without distributional assumptions, and connects directly to this learner's interest in non-parametric inference. Missing: nonparametric bootstrap, parametric bootstrap, block bootstrap for dependent data, bootstrap confidence intervals (percentile, BCa, studentized), and the theoretical justification (bootstrap consistency). This is P1 — it is explicitly called out as needed and is absent. -->
 
 ## Efficiency, Robustness, and Misspecification
 

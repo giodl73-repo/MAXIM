@@ -145,6 +145,8 @@ The KL divergence is not a metric (it is asymmetric, doesn't satisfy triangle in
 
 ---
 
+<!-- @editor[content/P2]: Missing Wasserstein geometry — the optimal transport / Wasserstein distance has become as important as the KL divergence in modern ML (GANs, distributional robustness, domain adaptation). The Fisher metric is the right geometry for exponential families; Wasserstein is the right geometry for distributions supported on a metric space (interpolating between distributions while respecting the ground metric). A brief contrast (KL geometry vs. Wasserstein geometry, when each is appropriate) would complete the picture for a learner who will encounter both in deep learning contexts. -->
+
 ## Alpha-Divergences
 
 A one-parameter family generalizing KL divergence:
@@ -367,3 +369,5 @@ They are not. Forward KL (MLE) forces the model to cover all modes of the data. 
 
 **"The exponential family e-flat geometry is a curiosity."**
 It is the structural reason exponential families are so tractable. The MLE for any exponential family is a sufficient statistic match (no numerical optimization needed in principle). Conjugate Bayesian updating is e-flat projection. The EM algorithm's convergence guarantee is the dual projections theorem. The geometry explains all the tractability.
+
+<!-- @editor[content/P2]: Missing the connection between information geometry and statistical learning theory — specifically, the role of the Fisher information matrix in neural tangent kernel theory (NTK), and how the natural gradient / K-FAC connects to the geometry of the loss landscape in overparameterized networks. For a learner with TCS background who will read about NTK and double-descent, the information-geometric perspective on why flat directions in the Fisher matrix correspond to the implicit regularization of SGD would be a valuable addition. -->

@@ -313,6 +313,8 @@ When p >> n (more predictors than observations):
 
 **Compressed sensing connection**: These are the same results — if a signal is sparse in some basis and you take random measurements, Lasso recovery is exact (up to noise). LASSO = L1 relaxation of the NP-hard subset selection problem (L0 penalty).
 
+<!-- @editor[content/P2]: High-dimensional regression section omits restricted isometry property (RIP) and the role of random matrix theory in compressed sensing guarantees — specifically, why Gaussian random matrices satisfy RIP with high probability. This learner (TCS + explicit need for random matrix theory) will want to know: what structural property of the measurement matrix makes sparse recovery possible, and why random matrices are near-optimal. Also missing: knockoffs (modern variable selection with FDR control) and debiased Lasso for post-selection inference. -->
+
 ---
 
 ## Decision Cheat Sheet
@@ -345,3 +347,5 @@ It is partly philosophical (are groups a sample from a population?) but also pra
 
 **"Ridge regression shrinks coefficients to zero."**
 Ridge shrinks toward zero but never reaches it (for finite lambda). Lasso does reach exactly zero (inducing sparsity). This is the fundamental difference between L2 and L1 penalties.
+
+<!-- @editor[content/P2]: No coverage of causal inference in regression — this learner explicitly needs causal inference (do-calculus, potential outcomes). While causal inference is noted as being in statistics-applied/, the regression guide should at minimum flag the distinction between predictive regression (OLS goal: minimize prediction error) and causal regression (goal: estimate interventional effect), and the assumptions (no unmeasured confounders) that make OLS coefficient = causal effect. Omitting this leaves the guide silent on a critical usage distinction. -->

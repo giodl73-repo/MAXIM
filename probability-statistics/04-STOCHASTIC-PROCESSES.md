@@ -109,6 +109,8 @@ The measure-theoretic setup for processes:
   ||P^n - pi|| <= C |lambda_2|^n
 ```
 
+<!-- @editor[content/P2]: Mixing time section is thin for this learner's TCS background — spectral gap (1 - lambda_2) as the mixing rate is stated but the connection to conductance (Cheeger's inequality), coupling arguments, and the connection to random walks on expander graphs are all missing. This learner knows expander graphs from TCS and the spectral gap connection is the natural bridge. Also missing: the path coupling method and log-Sobolev inequalities which give tighter mixing time bounds. Add at least a note on conductance and the expander graph / MCMC mixing connection. -->
+
 **Detailed balance** (reversibility):
 
 ```
@@ -339,6 +341,8 @@ Latent Markov chain {Z_t} with observed process {X_t} where X_t | Z_t has distri
 HMMs appear in speech recognition (the original application), bioinformatics (gene finding), and NLP.
 
 ---
+
+<!-- @editor[content/P2]: Missing random matrix theory — for this learner (high-dimensional probability is an explicit need), the spectral properties of random matrices (Wigner semicircle law, Marchenko-Pastur distribution, Tracy-Widom law) are a significant omission. Random matrix theory connects directly to: PCA in high dimensions (spiked covariance model), MCMC mixing analysis, and compressed sensing. Add at least a subsection or a pointer to where this is covered. Also missing: renewal theory (useful for algorithm analysis of recurrent structures). -->
 
 ## Decision Cheat Sheet
 

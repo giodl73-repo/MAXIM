@@ -293,7 +293,11 @@ While LLN and CLT describe typical behavior, large deviations theory quantifies 
 
 **Connection to information theory**: The rate function I(x) is the KL divergence between the distribution "tilted" to have mean x and the original distribution. Large deviations and relative entropy are deeply related.
 
+<!-- @editor[content/P2]: Large deviations section is a clean introduction but misses the Gärtner-Ellis theorem (extends Cramér to dependent sequences via the log-moment generating function) and the connection to statistical physics / free energy. For this learner, the bridge to algorithm analysis is the real payoff: exponential tail bounds for randomized algorithms (failure probability ~ exp(-n eps^2)) map directly to the rate function formulation here. Worth a concrete example. -->
+
 ---
+
+<!-- @editor[content/P1]: Missing PAC learning and VC dimension — this is the single most important bridge for this learner (TCS background + explicit "DOES need" in the learner calibration). The connection between Hoeffding/uniform convergence, VC dimension, and sample complexity is the core of statistical learning theory. The current section mentions "Hoeffding inequality: PAC learning sample complexity" in the table but gives no content. Add a section: PAC learning framework, uniform convergence, VC dimension as combinatorial complexity measure, fundamental theorem of statistical learning (VC dimension = sample complexity characterization). This is a P1 gap — the learner explicitly needs this content and it has deep TCS resonance. -->
 
 ## Connection to Algorithm Analysis
 

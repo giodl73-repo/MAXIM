@@ -1,5 +1,7 @@
 # Probability & Statistics — Landscape Overview
 
+<!-- @editor[bridge/P2]: No bridge from TCS/algorithm-analysis framing — this learner thinks of probability as the tool for analyzing BPP, randomized algorithms, and average-case complexity; open with that angle to anchor the landscape immediately -->
+
 ## The Big Picture
 
 Two disciplines sharing notation but answering different questions:
@@ -100,6 +102,8 @@ Before 1933 (Kolmogorov's axiomatization), probability was informal. Kolmogorov 
 
 ## Module Map
 
+<!-- @editor[content/P2]: Module map is missing several topics this learner explicitly needs: high-dimensional probability (concentration inequalities beyond Hoeffding, random matrix theory), statistical learning theory (PAC learning, VC dimension, Rademacher complexity), bootstrap/resampling, and Bayesian nonparametrics. These are significant gaps for a TCS/Math reader building toward ML theory. Consider adding a 10-HIGH-DIMENSIONAL-PROBABILITY and noting PAC-learning coverage exists in 03-LIMIT-THEOREMS or create a dedicated file. -->
+
 ```
   00-OVERVIEW (this file)
   |
@@ -181,6 +185,8 @@ Before 1933 (Kolmogorov's axiomatization), probability was informal. Kolmogorov 
 ---
 
 ## This Directory vs. statistics-applied/
+
+<!-- @editor[content/P2]: Directory scope note mentions causal inference is in statistics-applied/ but this learner explicitly needs causal inference coverage — add a note that causal inference (do-calculus, potential outcomes) is a major modern topic and explain precisely what to expect from each location -->
 
 The library also contains `statistics-applied/` (Social Sciences section) which covers:
 - Experimental design and A/B testing

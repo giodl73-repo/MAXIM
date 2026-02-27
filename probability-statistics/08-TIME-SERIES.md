@@ -271,6 +271,8 @@ State space models (SSMs) are general and subsume ARIMA, structural time series,
 - Extension to structural models (trend + seasonal + irregular)
 - Extension to multivariate models
 
+<!-- @editor[bridge/P2]: Azure Data Factory connection is a P3 stack-specific bridge that has been elevated to a prominent position — per bridge hierarchy, universal CS concept bridges should come first. The real bridge here is: Kalman filter = optimal Bayesian filter for linear-Gaussian state space (connecting to 06-BAYESIAN-STATISTICS), and Kalman = recursive least squares (connecting to 07-REGRESSION-MODELS). The Azure note is useful flavor but shouldn't be the primary anchor. -->
+
 **Connection to Azure Data Factory**: Time series state space models appear in data pipeline monitoring — anomaly detection in telemetry is often a Kalman filter / LSTM hybrid. The innovation sequence v_t is the anomaly signal.
 
 ---
@@ -339,6 +341,8 @@ For financial time series: variance clustering (periods of high/low volatility).
 | Volatility clustering (finance) | GARCH(1,1) | Financial returns |
 | Latent structure | State space model | Flexible, subsumes ARIMA |
 | Long-range dependence | ARFIMA | Fractional differencing |
+
+<!-- @editor[content/P2]: Decision cheat sheet row for ARFIMA (long-range dependence / fractional differencing) points to a topic not covered in the body — the guide mentions ARFIMA in the cheat sheet but provides no explanation of what fractional integration means, how the Hurst exponent relates to long memory, or when you'd prefer ARFIMA over ARIMA. Either add a section or remove the row. Also missing from the body: cointegration and VECM (for multivariate non-stationary series), and changepoint detection models which are increasingly important in practice. -->
 
 ---
 
