@@ -168,7 +168,9 @@ Rearranged:
 
 ---
 
-<!-- @editor[content/P2]: Nevanlinna theory (value distribution theory, the quantitative extension of Picard's theorems) is absent. Nevanlinna's first and second main theorems measure *how often* a meromorphic function takes a given value, not just whether it does. This is the natural generalization of Picard for an advanced audience and underlies modern complex dynamics (Julia sets, Mandelbrot set). At minimum, a pointer sentence noting "Nevanlinna theory quantifies what Picard states qualitatively." -->
+**Nevanlinna theory** quantifies what Picard states qualitatively. Where Picard says "f takes every value except possibly one," Nevanlinna's first and second main theorems measure *how often*: the counting function N(r, a) (number of times f = a in |z| < r) and the proximity function m(r, a) combine into the Nevanlinna characteristic T(r) = N(r, a) + m(r, a), which is independent of a up to O(1). The Second Main Theorem bounds the "deficiency" δ(a) = 1 − limsup N(r,a)/T(r) by Σ δ(aⱼ) ≤ 2 — at most two values can be taken less often than average (the Picard exceptional values). This theory underlies modern complex dynamics: the Julia set of a rational map R: ℙ¹ → ℙ¹ is the set where iterates Rⁿ are not equicontinuous, and Nevanlinna theory controls the distribution of preimages.
+
+---
 
 ## Picard's Theorems
 
@@ -223,7 +225,9 @@ is an infinite product over primes, converging for Re(s) > 1. It factors ζ as a
 
 ---
 
-<!-- @editor[bridge/P2]: The connection between the Hadamard product for ξ(s), the explicit formula for π(x) (the prime counting function via the sum over zeros), and the prime number theorem is not made. The file shows the Hadamard product but stops short of: ψ(x) = x − Σ_ρ x^ρ/ρ − log(2π) + ... where the sum is over non-trivial zeros. That explicit formula is the payoff of the entire Hadamard factorization program for number theory. A one-paragraph note would close this critical gap. -->
+**From Hadamard product to prime distribution.** The Hadamard factorization of ξ(s) is not merely a structural result — it is the engine of the explicit formula for primes. Taking logarithmic derivatives of the product gives −ζ'/ζ(s) = ... + Σ_ρ [1/(s−ρ) + 1/ρ] + ..., where the sum runs over non-trivial zeros. Feeding this into Perron's formula (contour integration, see 07-ANALYTIC-CONTINUATION.md) yields the von Mangoldt explicit formula: ψ(x) = x − Σ_ρ x^ρ/ρ − log(2π) − (1/2)log(1 − x^{−2}). Each zero ρ contributes an oscillatory correction x^ρ/ρ to the prime counting function. The PNT follows because the zero-free region forces Re(ρ) < 1, making the sum o(x). RH (all Re(ρ) = 1/2) would give the optimal error O(√x log x).
+
+---
 
 ## The Riemann Zeta Function Preview
 

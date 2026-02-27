@@ -134,9 +134,44 @@ CONDITION: f real on I  ↔  f takes ℝ to ℝ  ↔  f satisfies the "reflectio
 
 ---
 
-<!-- @editor[bridge/P1]: The file describes Riemann's analytic continuation of ζ(s) via the theta function but does not connect this to the prime number theorem proof. The key missing step: the zero-free region of ζ (there are no zeros on Re(s)=1, proved via ζ(1+it)≠0) combined with Perron's formula gives the PNT. For a learner calibrated at this level, the proof chain "continuation → functional equation → zero-free region → PNT via Perron" should at least appear in outline. Currently the file stops at the functional equation without explaining why it matters for primes. -->
+## From Continuation to the Prime Number Theorem
 
-<!-- @editor[content/P2]: Dirichlet L-functions L(s,χ) = Σ χ(n)n^{-s} and their analytic continuation are absent. These are the direct generalization of ζ(s), continue to entire functions (for non-trivial characters), and give Dirichlet's theorem on primes in arithmetic progressions via the same complex-analytic machinery. The special functions table at the end of the file lists L(s,χ) but gives no context for why it's entire or what its zeros control. -->
+The analytic continuation of ζ(s) is not an end in itself — it is the first step in a proof chain that yields the Prime Number Theorem (PNT): π(x) ~ x/ln(x).
+
+```
+PROOF CHAIN:  CONTINUATION → FUNCTIONAL EQN → ZERO-FREE REGION → PNT
+═══════════════════════════════════════════════════════════════════════
+
+1. ANALYTIC CONTINUATION (this section):
+   ζ(s) extends to all ℂ, meromorphic with pole at s=1.
+
+2. FUNCTIONAL EQUATION:
+   ξ(s) = ξ(1−s) confines non-trivial zeros to the critical strip 0 ≤ Re(s) ≤ 1.
+
+3. ZERO-FREE REGION (de la Vallée-Poussin, 1896):
+   ζ(1 + it) ≠ 0 for all t ∈ ℝ.
+   Proof uses: Re(3 + 4cos θ + cos 2θ) ≥ 0 applied to log ζ.
+   Strengthened: ζ(σ + it) ≠ 0 for σ > 1 − c/log|t| (classical zero-free region).
+
+4. PERRON'S FORMULA (contour integration extracts π(x)):
+   ψ(x) = Σ_{n≤x} Λ(n) = (1/2πi) ∫_{c-i∞}^{c+i∞} [-ζ'(s)/ζ(s)] x^s/s ds
+
+   Shift contour left, picking up residues at:
+   - s = 1 (pole of ζ): contributes x  (the main term)
+   - s = ρ (non-trivial zeros): contribute -Σ_ρ x^ρ/ρ  (oscillatory corrections)
+
+5. EXPLICIT FORMULA (von Mangoldt):
+   ψ(x) = x − Σ_ρ x^ρ/ρ − log(2π) − (1/2)log(1 − x^{-2})
+
+   The zero-free region forces |x^ρ| = x^{Re(ρ)} ≤ x^{1−c/log x} = x/e^c.
+   So the sum over zeros is o(x), giving ψ(x) ~ x, which is the PNT.
+```
+
+The deeper the zero-free region (larger c), the better the error term. RH (Re(ρ) = 1/2 for all ρ) would give π(x) = Li(x) + O(√x log x) — the best possible error.
+
+**Dirichlet L-functions and primes in progressions.** L(s, χ) = Σ χ(n) n^{−s} generalizes ζ to arithmetic progressions. For non-trivial characters χ, L(s, χ) continues to an *entire* function (no pole at s = 1 — the character orthogonality annihilates the divergence). The key step for Dirichlet's theorem: L(1, χ) ≠ 0 for all non-trivial χ mod q. This non-vanishing, proved via the same complex-analytic machinery (functional equation + zero-free region), gives: every arithmetic progression {a, a+q, a+2q, ...} with gcd(a,q) = 1 contains infinitely many primes.
+
+---
 
 ## Analytic Continuation in Practice — The Riemann Zeta Function
 

@@ -4,9 +4,9 @@
 
 Complex analysis is the study of functions of a complex variable. It is simultaneously one of the most elegant fields in pure mathematics and one of the most powerful tools in applied science. The surprise: imposing differentiability on complex functions is *far* more restrictive than on real functions. A once-differentiable complex function is automatically infinitely differentiable, equal to its own power series, and tightly constrained by its values on any curve.
 
-<!-- @editor[bridge/P1]: No bridge to several complex variables (SCV) or how ℂⁿ breaks the Riemann mapping theorem uniqueness — critical gap for a learner who will encounter SCV in algebraic geometry contexts. At minimum, a one-paragraph pointer: "In ℂⁿ (n≥2), the unit ball and polydisk are NOT biholomorphically equivalent — Riemann Mapping Theorem fails, and the richness of SCV begins there." -->
+**Beyond one variable: several complex variables (SCV).** In ℂⁿ for n ≥ 2, the theory is drastically richer. The Riemann Mapping Theorem *fails*: the unit ball B = {|z|² < 1} and the polydisk D² = {|z₁| < 1, |z₂| < 1} in ℂ² are NOT biholomorphically equivalent (Poincaré, 1907). Domains of holomorphy become nontrivial (Hartogs phenomena: a function holomorphic on the boundary of a domain in ℂ² extends holomorphically to the interior — no analogue in ℂ¹). The ∂̄ operator (Wirtinger derivative from 01-ANALYTIC-FUNCTIONS) generalizes directly: holomorphic in ℂⁿ means ∂̄f = 0, and the Dolbeault cohomology (∂̄-Poincaré lemma) becomes the central tool.
 
-<!-- @editor[bridge/P1]: No bridge to L-functions beyond ζ(s) — Dirichlet L-functions L(s,χ) and the generalized Riemann Hypothesis are the natural next step for a learner oriented toward number theory. The overview mentions ζ but doesn't acknowledge the broader L-function landscape at all. -->
+**Beyond ζ(s): the L-function landscape.** The Riemann zeta function is the first member of a vast family. Dirichlet L-functions L(s, χ) = Σ χ(n) n^{−s} generalize ζ to arithmetic progressions (χ is a Dirichlet character mod q). For non-trivial χ, L(s, χ) extends to an *entire* function (no pole at s = 1). The **Generalized Riemann Hypothesis** (GRH) asserts that all non-trivial zeros of every L(s, χ) lie on Re(s) = 1/2. Beyond Dirichlet L-functions: Hecke L-functions, automorphic L-functions, and the Langlands program organize these into a unified framework. The tools of this section — analytic continuation, functional equations, zero-free regions — apply uniformly across the entire L-function landscape.
 
 ```
 COMPLEX ANALYSIS — FULL LANDSCAPE
@@ -218,9 +218,11 @@ The *distribution of zeros of ζ* controls the *error in the prime counting func
 
 ---
 
-<!-- @editor[content/P2]: No mention of the prime number theorem's proof structure via complex analysis (zero-free region of ζ, Perron's formula, contour integration to extract π(x) asymptotics). Given learner calibration, this is a target-rich gap: the overview gestures at number theory but doesn't commit to the analytic proof chain. -->
+**The PNT proof chain** — the payoff of analytic continuation for number theory — runs: continuation of ζ → functional equation → zero-free region on Re(s) = 1 → Perron's formula (contour integral extracting π(x)) → explicit formula ψ(x) = x − Σ_ρ x^ρ/ρ − ... → PNT. Full details in 07-ANALYTIC-CONTINUATION.md.
 
-<!-- @editor[bridge/P2]: Riemann surfaces → algebraic curves → elliptic curves in cryptography is listed as a "best bridge" in the learner calibration but absent from this overview. Even a one-line entry in the applications table ("Elliptic curve cryptography → Riemann surfaces of genus 1") would satisfy the bridge requirement. -->
+**Riemann surfaces → elliptic curves → cryptography**: A genus-1 Riemann surface (complex torus ℂ/Λ) is exactly an elliptic curve via the Weierstrass ℘-function embedding. The group law on the torus (z₁ + z₂ mod Λ) is the chord-and-tangent group law on the cubic Y² = X³ + aX + b — the same group law used in ECC (ECDH, ECDSA) over finite fields. See 05-RIEMANN-SURFACES.md.
+
+---
 
 ## Decision Cheat Sheet
 

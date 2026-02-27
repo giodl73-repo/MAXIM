@@ -256,7 +256,9 @@ By Rouché, p(z) has the same number of zeros inside |z|=R as zⁿ, which has n 
 
 ---
 
-<!-- @editor[bridge/P2]: The Mellin-type integral (keyhole contour for ∫₀^∞ x^{α-1}f(x)dx) is introduced but the connection to the Mellin transform itself is not made. The Mellin transform is the bridge between Dirichlet series and multiplicative number theory — for a learner targeting the prime number theorem, the Perron formula (inverting a Dirichlet series via a vertical contour integral, which is a Mellin inversion) belongs here or in a dedicated pointer. -->
+**The Mellin transform and its number-theoretic payoff.** The keyhole integral above is a special case of the Mellin transform: M{f}(s) = ∫₀^∞ x^{s−1} f(x) dx. The Mellin transform is the *multiplicative* Fourier transform (substituting x = e^t converts it to a Fourier transform). Its inversion formula is a vertical contour integral — exactly the Bromwich integral from signal processing. For number theory, the critical application is **Perron's formula**: the sum Σ_{n≤x} aₙ can be extracted from its Dirichlet series F(s) = Σ aₙ n^{−s} via the contour integral (1/2πi) ∫_{c−i∞}^{c+i∞} F(s) x^s/s ds. This is Mellin inversion applied to the counting problem, and it is the mechanism by which the analytic properties of ζ(s) (zeros, poles, growth) translate into the distribution of primes. See 07-ANALYTIC-CONTINUATION.md for the full PNT proof chain.
+
+---
 
 ## Connection to Signal Processing (Z-transform Bridge)
 
