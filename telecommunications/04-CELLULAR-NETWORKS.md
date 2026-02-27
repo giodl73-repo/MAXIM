@@ -63,6 +63,8 @@ Coverage: macro (R=1-35 km) → micro (100m-1km) → pico (10-200m) → femto (i
 
 ---
 
+<!-- @editor[audience/P2]: 2G GSM section explains FDMA+TDMA structure, time slot assignments, SIM authentication, A5/1 cipher from first principles — calibration says learner does NOT need "what a phone network is"; 1G/2G/3G sections should be compressed to a brief evolutionary context table (each generation = one architectural shift), with substantive depth starting at 4G LTE and full treatment at 5G NR which is the direct Azure networking integration relevance -->
+
 ## 2G: GSM
 
 GSM introduced global roaming and digital voice. Still operational in many regions.
@@ -228,6 +230,7 @@ Network Slicing:
   Each slice has dedicated QoS, security, capacity
   NSI (Network Slice Instance): separate for eMBB, uRLLC, mMTC
   This is why 5G is critical for industry 4.0 applications
+<!-- @editor[bridge/P2]: Network slicing description stops at the definition — missing explicit bridge to the distributed virtualization pattern the learner manages in Azure: a network slice is precisely a VNet + NSG + dedicated bandwidth policy + QoS tier, enforced at the RAN level via RAN slicing and at the core via SBA microservices; Kubernetes namespace → VNet → 5G network slice is a direct analogy (isolated resource pool with policy boundary and QoS SLA); this connection is the highest-value insight for a VP managing Azure infrastructure who needs to understand why 5G matters to enterprise cloud networking -->
 ```
 
 ---

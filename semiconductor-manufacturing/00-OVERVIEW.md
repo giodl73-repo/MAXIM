@@ -47,6 +47,8 @@ LEVEL 0: RAW MATERIAL
 
 ---
 
+<!-- @editor[audience/P2]: "Moore's Law: History and Slowdown" section restates Moore's Law from 1965→2025 with full transistor count table and Dennard scaling derivation — calibration explicitly says learner does NOT need "Moore's Law stated"; compress to the slowdown mechanics (Dennard break ~2005, power wall, architectural pivot to multi-core and chiplets) and cut the historical table; the learner already owns this history -->
+
 ## Moore's Law: History and Slowdown
 
 ```
@@ -124,6 +126,10 @@ REVENUE BREAKDOWN (2024):
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: Missing photolithography → information encoding bridge — spatial frequency content of circuit patterns (k₁·λ/NA) is directly analogous to Nyquist sampling: the diffraction limit is the spatial Nyquist limit, and multi-patterning is spatial oversampling; an MIT math/TCS reader maps this immediately, and the analogy explains why each successive resolution doubling requires exponentially more litho steps -->
+
+<!-- @editor[bridge/P2]: Missing yield curve → reliability engineering bridge — Murphy's model (infant-mortality defect clustering → binomial yield distribution) is the manufacturing analog of the software reliability bathtub curve (burn-in failures + steady-state + wear-out); die yield binning by speed/power grade is also directly analogous to SLA-tier provisioning; learner has the MTTF/SLA modeling background from VSTS/Azure infrastructure -->
 
 ## Fab Process Flow at a Glance
 

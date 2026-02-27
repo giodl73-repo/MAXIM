@@ -170,6 +170,8 @@ telecommunications/
 
 ## Bridges to Prior Knowledge
 
+<!-- @editor[bridge/P2]: Bridges table maps exclusively to Azure/Microsoft context — per SKILL.md bridge hierarchy, universal CS bridges must come first; missing entries: Shannon capacity C = B·log₂(1+SNR) is directly analogous to a complexity bound (hard upper limit no algorithm/code can beat, provably), physical layer → hardware abstraction layer (any OS developer maps the OSI physical layer to the HAL), spectrum scarcity → resource contention scheduling (spectrum allocation = CPU/memory scheduling under scarcity); these are the load-bearing bridges for any systems engineer, not just Azure users -->
+
 | Microsoft/Azure Background | Telecom Equivalent |
 |---------------------------|-------------------|
 | Azure networking (VNets, gateways) | Physical layer that carries IP packets |
