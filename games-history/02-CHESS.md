@@ -438,7 +438,13 @@ Architecture:
 vs Stockfish 8 (100 games, 1 minute/move):
   AlphaZero: 28W 0L 72D (from white: 25W 0L 25D)
              (from black: 3W 0L 47D)
-<!-- @editor[content/P2]: The Stockfish 8 match conditions are contested — Stockfish was not given its opening book or tablebases in this match, which significantly disadvantaged it; the DeepMind paper's methodology drew criticism from the chess engine community; mention this caveat so the reader has an accurate picture of what the result actually showed -->
+  Caveat: Stockfish 8 was not given its opening book or
+  endgame tablebases in this match, and used 1 min/move
+  without access to the pondering mode it normally uses.
+  The chess engine community criticized the methodology —
+  a properly configured Stockfish would have been stronger.
+  A later 2019 paper with fairer conditions still showed
+  AlphaZero winning, but the margin was narrower.
 
 WHAT IT REVEALED ABOUT HUMAN CHESS THEORY:
   - AlphaZero favored King's Indian and Sicilian aggressively
@@ -674,9 +680,9 @@ HANS NIEMANN CHEATING SCANDAL (2022):
 
 **"Deep Blue won the 1996 match"**: Deep Blue won Game 1 of the 1996 match but Kasparov won the overall 1996 match 4-2. Deep Blue won the 1997 REMATCH 3.5-2.5. The distinction matters.
 
-**"AlphaZero solved chess"**: No. AlphaZero achieved superhuman play via neural evaluation + MCTS but did not solve chess. Chess has ~10^47 legal positions — it cannot be solved by enumeration. Even the question "is the starting position a win for White, Black, or a draw?" remains unanswered. The working assumption of experts is that perfect play results in a draw.
-<!-- @editor[content/P2]: Tablebases could be explained more precisely — retrograde analysis (backward induction from terminal positions) has solved all chess positions with 7 or fewer pieces (Syzygy tablebases, 2012); this is a clean TCS story: Bellman's backward induction / DP over a DAG, and the resulting "perfect play from N pieces" databases are directly usable in engine play. One sentence connecting tablebases to retrograde analysis / backward DP would serve the learner well -->
-<!-- @editor[bridge/P2]: No bridge from the Elo formula to the Bradley-Terry model from statistics — Elo's formula is a special case of Bradley-Terry paired comparison, which the learner from MIT statistics background would recognize; this is a natural cross-reference to probability-statistics/ in the library -->
+**"AlphaZero solved chess"**: No. AlphaZero achieved superhuman play via neural evaluation + MCTS but did not solve chess. Chess has ~10^47 legal positions — it cannot be solved by enumeration. Even the question "is the starting position a win for White, Black, or a draw?" remains unanswered. The working assumption of experts is that perfect play results in a draw. What *is* solved: all positions with 7 or fewer pieces, via Syzygy tablebases (Lomonosov 2012). The method is retrograde analysis — backward induction (DP) from all terminal positions over the endgame DAG, exactly Bellman's principle applied to the exhaustive state space. These databases provide provably perfect play from any 7-piece position and are integrated into all modern engines.
+
+**"The Elo system is a chess-specific invention"**: Elo's expected score formula E_A = 1/(1 + 10^((R_B - R_A)/400)) is a special case of the Bradley-Terry paired comparison model from statistics (1952). Bradley-Terry assigns each item a "strength" parameter and models pairwise comparison probabilities as logistic functions of strength differences — exactly what Elo does. The model extends naturally to any domain requiring pairwise skill estimation (sports, recommendation systems, LLM evaluation via Chatbot Arena).
 
 **"The Elo system is fair"**: It's a good approximation but has known biases: rating inflation over time, K-factor arbitrariness, doesn't account for opponent selection bias, doesn't measure playing strength per se but performance relative to opposition.
 

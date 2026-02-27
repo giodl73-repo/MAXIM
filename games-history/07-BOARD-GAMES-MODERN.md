@@ -235,9 +235,9 @@ AVALON HILL (founded 1952, Baltimore):
 WHY HEX GRIDS:
   Square grids create diagonal movement asymmetry
   (diagonal = 1.414× distance, creating unrealistic movement).
-  Hexagonal grids: 6 equal adjacent cells, uniform distance.
-  Each cell has 6 neighbors at equal distance.
-<!-- @editor[audience/P3]: Diagonal distance explanation (sqrt(2)) is below peer level — this learner knows Euclidean distance; rephrase as a design consequence ("hex grids are the unique regular tiling with isotropic adjacency") rather than explaining why sqrt(2) ≠ 1 -->
+  Hexagonal grids: the unique regular tiling with isotropic
+  adjacency — all 6 neighbors equidistant, eliminating the
+  diagonal asymmetry inherent in square grids.
   Combat resolution: compare attack/defense factors + die roll.
 
 AVALON HILL CATALOG:
@@ -460,7 +460,12 @@ THE GAME-THEORETIC STRUCTURE:
   Bayesian reasoning: villagers update beliefs about Mafia
     membership based on behavior, accusations, voting patterns.
   Mafia: must coordinate silently, create false narratives.
-<!-- @editor[bridge/P2]: The Mafia/Werewolf game is a canonical example of a Bayesian persuasion / cheap talk game — Mafia members send costless signals (accusations, defenses) that are not verifiable; the strategic structure maps to cheap talk equilibria (Crawford-Sobel 1982) and adversarial Bayesian updating; for the TCS/game-theory learner this is a natural bridge to the formal mechanisms literature -->
+  Formal structure: a cheap talk game (Crawford-Sobel 1982) —
+    Mafia members send costless, unverifiable signals
+    (accusations, defenses). Equilibria exist where some
+    information is transmitted despite incentive to deceive,
+    but full revelation is impossible (strategic misalignment).
+    This is adversarial Bayesian persuasion in its purest form.
 
 SPREAD:
   From Moscow → Novosibirsk → US (via Princeton, early 1990s)

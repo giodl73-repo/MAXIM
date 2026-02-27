@@ -293,8 +293,7 @@ AlphaZero (2017): trained only against itself with no human game data, learned c
 
 ### Mathematical Connections
 
-- **Combinatorial game theory** (Berlekamp, Conway, Guy, *Winning Ways*, 1982): Go endgames decompose into sums of independent combinatorial games, each with a surreal number value. You can literally add game positions as surreal numbers and the sum determines optimal play.
-<!-- @editor[content/P2]: The surreal number claim needs precision for a TCS reader — CGT values for Go endgames are not always surreal numbers in the strict sense; they can be "hot games" with temperature, represented as {L|R} game trees, which form a broader class than surreals (surreals are the "cold" special case with L < R); Berlekamp-Conway-Guy's Winning Ways covers this distinction; worth clarifying "surreal or game value" to avoid a technically incorrect statement -->
+- **Combinatorial game theory** (Berlekamp, Conway, Guy, *Winning Ways*, 1982): Go endgames decompose into sums of independent combinatorial games, each with a game value in Conway's {L|R} notation. Cold games (where L < R) have surreal number values and add like ordinary numbers. Hot games — where both players want to move because the position has positive "temperature" — form a broader class. Most active Go endgame positions are hot games; only fully settled positions reduce to surreal numbers. The sum of independent positions is still computed via {L|R} arithmetic, and optimal play means always choosing the highest-temperature position.
 - **Temperature**: In CGT, each Go position has a "temperature" (the value of the next move there). As the game progresses, temperature drops. Optimal play: always play the highest-temperature position.
 - **Computational hardness**: Determining if a Go position is alive or dead is PSPACE-complete. Generalized n×n Go is EXPTIME-complete.
 
@@ -371,8 +370,7 @@ GRAND SLAM (usually forbidden):
 The 2×6 board with 4 seeds each (48 total) is the standard form. Despite the simple appearance:
 
 - **State space**: approximately 2 × C(48+11, 11) ≈ large but finite
-- **Complexity class**: Generalized mancala is PSPACE-hard (proven)
-<!-- @editor[content/P2]: The Sprague-Grundy connection is missing here — mancala-family games are impartial games (same moves available to both players) in certain configurations, making them natural candidates for Grundy analysis; a single sentence noting where Sprague-Grundy applies vs. where it breaks down (partisan/non-impartial variants) would be valuable for this TCS reader -->
+- **Complexity class**: Generalized mancala is PSPACE-hard (proven). Sprague-Grundy theory applies to simplified impartial variants (where both players have the same moves), but standard Oware is partisan (each player sows from their own side), so Grundy analysis does not directly apply — the game falls under the broader Conway {L|R} framework rather than pure Nim equivalence.
 - **Optimal play**: Human champions can play near-optimally but not perfectly on a fixed board; computer solvers have largely mapped 2×6 Oware
 - **Draw possibility**: Both players can cycle if the opponent has very few seeds — games have maximum move limits to prevent infinite games
 
