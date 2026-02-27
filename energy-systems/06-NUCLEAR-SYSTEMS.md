@@ -251,9 +251,8 @@ for potential commercialization by 2030-2040. Status varies widely.
 
 ## Small Modular Reactors (SMRs)
 
-<!-- @editor[bridge/P3]: The SMR factory-learning thesis is exactly the Azure/cloud economics argument applied to nuclear: large bespoke on-premises data centers (Gen III+ like EPR) → standardized commodity units at scale (SMRs). The "FOAK problem" (first-of-a-kind cost penalizes early adopters) is the same as the Azure reserved capacity pricing: the discount only materializes at committed volume, and someone has to pay for the first N units before the learning curve kicks in. Microsoft's hyperscaler experience — paying above-spot for early-generation server hardware to drive learning curve for next-generation — is directly analogous to the DOE ARDP funding model. -->
 The economic thesis for SMRs: factory-built, serial-manufactured reactors should achieve
-lower costs than unique large projects. Like commercial aviation (Boeing assembly line) vs
+lower costs than unique large projects. The transition from bespoke Gen III+ plants to standardized SMRs mirrors the shift from custom on-premises infrastructure to commodity cloud instances — the learning curve discount only materializes at committed volume, and the "FOAK problem" (first-of-a-kind cost penalty) means someone must fund the first N units before economies of scale kick in. Like commercial aviation (Boeing assembly line) vs
 custom ships. The thesis is credible but unproven at commercial scale.
 
 ```
