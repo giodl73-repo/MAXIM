@@ -45,7 +45,7 @@ APPLIED LOADS
 | `03-STRUCTURAL-ANALYSIS` | Matrix methods, FEM, dynamics | [K]{d}={F} | Computer analysis |
 | `04-GEOTECHNICAL` | Soil, foundations, slopes | τ=c+σ'tanφ | Foundation design |
 
-<!-- @editor[content/P2]: Module map lists 4 modules but the overview's decision tree references "Structural Design" (RC, AISC, timber) and the landscape diagram shows it as a fifth layer — yet there's no 05-STRUCTURAL-DESIGN.md. The modern structural design layer (LSD vs ASD, performance-based design, LRFD load combinations) is partially covered in 00-OVERVIEW.md but deserves its own module. This is a significant content gap for a field whose practice is dominated by design codes. -->
+**Note:** The landscape diagram shows Structural Design (RC, Steel, Timber, Masonry) as a fifth layer. Design code application — LRFD load combinations, ACI 318 for reinforced concrete, AISC 360 for steel, NDS for timber — is distributed across the modules where it applies: material limits in `02-MECHANICS-OF-MATERIALS`, load combinations in the overview above, and foundation design in `04-GEOTECHNICAL`. A standalone design-codes module would consolidate the code-specific workflows (phi-factors, capacity tables, detailing rules) into one reference.
 
 ---
 
@@ -116,7 +116,29 @@ Allowable stress = S_y / Factor of safety (typically n = 1.5–3)
 
 ---
 
-<!-- @editor[bridge/P2]: The Connection to Computing table maps [K]{d}={F} to "sparse linear system solve" but doesn't explain why this is the same as FEA in every domain — the structural stiffness matrix IS the discrete Laplacian operator on the mesh, same as in finite difference heat transfer or electrostatics. This connection to the learner's numerical methods context (PDE discretization → sparse matrix → iterative solve) is the most important bridge in this guide. It's mentioned in the module map but not developed. -->
+## Engineering Bridge: Structural Analysis as Numerical PDE Solve
+
+```
+STRUCTURAL CONCEPT              CS / NUMERICAL METHODS EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+[K]{d} = {F}                    Sparse linear system  Ax = b
+  K is symmetric positive       → Sparse Cholesky (direct: PARDISO/MUMPS)
+  definite after BCs applied    → Conjugate gradient with ILU preconditioner
+
+K sparsity pattern              Adjacency structure of the mesh graph
+  K_ij ≠ 0 only if nodes       → K is the graph Laplacian of the FE mesh
+  i,j share an element          → Bandwidth depends on node numbering (RCM reordering)
+
+Modal analysis [K]φ = ω²[M]φ   Generalized eigenvalue decomposition
+  Natural frequencies = ω_n     → Shift-invert Lanczos (ARPACK) for lowest modes
+  Mode shapes = eigenvectors    → Same algorithm as Google PageRank (power iteration variant)
+
+Mesh refinement convergence     Richardson extrapolation / grid convergence study
+  h-refinement, p-refinement    → Same convergence theory as finite differences for PDEs
+```
+
+The structural stiffness matrix K is the discrete form of the elliptic PDE operator (the weak-form Laplacian on the mesh). The sparsity structure of K mirrors the mesh connectivity graph — exactly the adjacency matrix any graph algorithm operates on. Solving [K]{d}={F} is the same sparse-symmetric-positive-definite linear solve that appears in heat transfer, electrostatics, and fluid flow discretizations: the physics changes, the linear algebra is identical.
+
 ## Connection to Computing/Software
 
 | Structural Concept | Software Analog |

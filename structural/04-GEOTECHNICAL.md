@@ -158,7 +158,8 @@ ALL shear strength and consolidation behavior governed by σ', not σ
 
 ### Terzaghi's 1D Consolidation Theory
 
-<!-- @editor[bridge/P2]: Terzaghi's consolidation equation ∂u/∂t = c_v ∂²u/∂z² is the heat/diffusion equation — exactly the parabolic PDE this learner knows from PDEs and numerical methods. The solution by separation of variables (Fourier series in space × exponential decay in time) is the same technique as the transient heat conduction problem. The time factor T_v = c_vt/H² is the Fourier number for consolidation. Noting this analogy would collapse weeks of "new" material into a single recognition. -->
+This is the 1D heat/diffusion equation with u (excess pore pressure) playing the role of temperature, and c_v as the thermal diffusivity. The solution is the standard Fourier series (separation of variables: sine modes in z, exponential decay in t), and T_v = c_v t / H_dr^2 is the Fourier number. The entire consolidation time-history follows from the same mathematics as transient heat conduction in a slab with fixed-temperature boundaries.
+
 ```
 ∂u/∂t = c_v ∂²u/∂z²   (diffusion equation for excess pore pressure)
 
@@ -318,8 +319,7 @@ where:
 
 ### Bishop's Simplified Method (general)
 
-<!-- @editor[bridge/P3]: Bishop's method is iterative — FS appears on both sides of the equation (m_α depends on FS). This is a fixed-point iteration that converges because the function is well-behaved (monotone in FS). This learner would immediately recognize this as a standard fixed-point/Newton-Raphson convergence problem and understand why it converges in 3–5 iterations. Worth noting the iteration structure explicitly. -->
-More accurate for c-ϕ soils. Considers vertical interslice forces only:
+More accurate for c-phi soils. Considers vertical interslice forces only. Note the iteration structure: FS appears on both sides (m_alpha depends on FS), making this a fixed-point iteration FS_{k+1} = g(FS_k). The function g is monotone and contractive for physically reasonable parameters, so convergence is guaranteed and typically requires 3-5 iterations from any reasonable initial guess (FS_0 = 1.0 works fine).
 ```
 FS = [Σ((c' b + (W − u b) tan φ') / m_α)] / Σ(W sin α)
 

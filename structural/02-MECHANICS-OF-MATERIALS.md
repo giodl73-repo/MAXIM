@@ -50,7 +50,8 @@ Concrete:          E = 30 GPa,  ν ≈ 0.2 (elastic range only)
 
 ### Generalized Hooke's Law (3D)
 
-<!-- @editor[bridge/P2]: Generalized Hooke's Law appears as a set of equations without the connection to continuum mechanics (the constitutive relation σ = C:ε where C is the 4th-order elasticity tensor). For this learner, the insight is that the full 3D Hooke's law is an isotropic linear map from a symmetric 3×3 strain tensor to a symmetric 3×3 stress tensor — exactly the matrix equation it is. Isotropy reduces 81 coefficients to 2 (E and ν). This is the bridge from linear algebra to continuum mechanics. -->
+The full 3D constitutive relation is sigma = C : epsilon, where C is a 4th-order elasticity tensor (3x3x3x3 = 81 components). Symmetry of stress and strain tensors reduces independent components to 36. Material isotropy collapses 36 to just 2 independent constants (E and nu, or equivalently lambda and mu). This is a linear map from the 6-component Voigt stress vector to the 6-component Voigt strain vector — a 6x6 matrix with only 2 free parameters:
+
 ```
 ε_x = (σ_x − ν(σ_y + σ_z)) / E
 ε_y = (σ_y − ν(σ_x + σ_z)) / E
@@ -232,7 +233,8 @@ Superposition: δ_total = Σδ_i for each load acting alone (valid only in linea
 
 ## Column Buckling
 
-<!-- @editor[bridge/P2]: Column buckling (P_cr = π²EI/L²) is presented without connecting to the eigenvalue problem it is: the buckling mode is the eigenmode of the beam differential operator, and P_cr is the smallest eigenvalue. This learner would immediately recognize the solution — deflection shape is the first eigenfunction of EId²y/dx² = -Py, giving sinusoidal modes with eigenvalue P_cr = n²π²EI/L². The connection to the eigenvalue decomposition of the stiffness matrix in FEM (buckling = solve [K]φ = λ[Kg]φ) is the modern form of the same idea. -->
+Buckling is an eigenvalue problem: the ODE EI d^2y/dx^2 = -P y with boundary conditions y(0)=y(L)=0 has nontrivial solutions y_n = sin(n pi x/L) at eigenvalues P_n = n^2 pi^2 EI/L^2. The critical load is the smallest eigenvalue (n=1). In FEM, the same problem becomes [K]phi = lambda[K_g]phi, where K_g is the geometric stiffness matrix — a generalized eigenvalue problem solved by the same Lanczos algorithms used for modal analysis.
+
 **Euler critical load (long column, pin-pin):**
 ```
 P_cr = π²EI / L_e²
