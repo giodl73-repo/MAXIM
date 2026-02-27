@@ -189,6 +189,17 @@ Black Joker examples:
 
 ---
 
+## Answer Security
+
+- NEVER create a plaintext answer key file in the repo
+- Puzzle scaffolds may have `**Answer:**` lines during authoring — strip during final assembly
+- Master encoded answers live in `.claude/` project memory (`k53.md`)
+- Encoding: A1Z26 → periodic table (A=H, B=He, C=Li... Z=Fe)
+- When a new answer is finalized, update k53.md with the encoded version
+- The test sanitization protocol (in `/puzzle-test`) strips answer lines before testers see the puzzle
+
+---
+
 ## Quality Bar
 
 A puzzle is ready for `/puzzle-test` when it passes the design principles in `puzzle-hunt/PRINCIPLES.md`. Key checks before saving:

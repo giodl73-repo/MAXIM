@@ -10,36 +10,46 @@
 
 ## The Puzzle
 
-Five classical constructions, performed with compass and straightedge on the workspaces below. Each construction produces a figure. Each figure has a shape. Five shapes. One word.
+**Type:** Geometric Construction -- compass & straightedge, drawn shapes form letters
+**Answer:** --- (T2)
+**References:** mathematics/03-TRIG.md, mathematics/05-GROUPS-SETS-ALGEBRA.md, mathematics/06-LINEAR-ALGEBRA.md
 
-Work in order. Some constructions depend on lengths or points established earlier.
+Five constructions. Compass and straightedge only.
+
+Each construction produces a figure in its workspace. Look at the figure you drew. It has a shape you will recognize. Five figures. Five shapes. One word.
+
+Work in order. Constructions 3, 4, and 5 require measurements you establish in Construction 2.
 
 ---
 
 ### Construction 1
 
-In the workspace below, point **P** is given at center-bottom.
+Point **P** is marked at the bottom center of Workspace 1.
 
-**Task:** Construct two line segments of equal length, both starting at **P**, such that one rises to the upper-left at 60 degrees from horizontal and the other rises to the upper-right at 60 degrees from horizontal. Each segment should be approximately 5 cm long.
+Construct two straight segments of equal length from **P** -- one rising to the upper-left at 60&deg; from horizontal, one rising to the upper-right at 60&deg; from horizontal. Each segment should be about 5 cm.
 
-*Hint: An equilateral triangle built on a horizontal segment through **P** provides the 60-degree angles. Use the apex for one side, then mirror it.*
+To find the 60&deg; angle, recall that every interior angle of an equilateral triangle is 60&deg;. The trigonometry module derives this from the unit circle. Euclid proved it with compass alone.
+
+Label the upper-left endpoint **E** and the upper-right endpoint **F**.
+
+#### Workspace 1
 
 ```
-┌─────────────────────────────────────────┐
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                    ●                    │
-│                    P                    │
-└─────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────┐
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                           ●                           │
+│                           P                           │
+└───────────────────────────────────────────────────────┘
 ```
-
-Mark the upper-left endpoint as **E** and the upper-right endpoint as **F**. Record the segment length **PE** (= **PF**). You will need this length later.
 
 **Shape:** ___
 
@@ -47,28 +57,36 @@ Mark the upper-left endpoint as **E** and the upper-right endpoint as **F**. Rec
 
 ### Construction 2
 
-A horizontal segment **AB** is given below, 6 cm long.
+Segment **AB** is given, approximately 6 cm.
 
-**Task:** Construct an equilateral triangle on **AB** (above the segment). Then construct the perpendicular bisector of **AB**, which passes through the apex and meets **AB** at its midpoint. Draw the altitude from the apex to the midpoint. Label the apex **C** and the midpoint **M**.
+Construct an equilateral triangle on **AB** with the apex above the line. Label the apex **C**. Then construct the perpendicular bisector of **AB**. It passes through **C** and meets **AB** at its midpoint **M**. Draw the altitude **CM**.
 
-*The perpendicular bisector of a segment is the foundational construction of Euclidean geometry -- two arcs from the endpoints, same radius (more than half the segment), crossing above and below.*
+The perpendicular bisector is the locus of all points equidistant from **A** and **B** -- a concept that appears across the mathematics section from metric spaces in topology to orthogonal projection in linear algebra.
+
+#### Workspace 2
 
 ```
-┌─────────────────────────────────────────┐
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│    ●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●     │
-│    A                              B     │
-└─────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────┐
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│       ●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●               │
+│       A                               B               │
+└───────────────────────────────────────────────────────┘
 ```
 
-Record the altitude length **CM**. You will need it in Construction 5.
+Before moving on, record two lengths with your compass:
+- **AB** -- the base of the triangle
+- **CM** -- the altitude from apex to base
+
+You will transfer these measurements into the workspaces that follow.
 
 **Shape:** ___
 
@@ -76,26 +94,30 @@ Record the altitude length **CM**. You will need it in Construction 5.
 
 ### Construction 3
 
-A horizontal segment **GH** is given below, 8 cm long.
+Transfer the length **AB** from Construction 2 to mark a horizontal segment **GH** at the top of Workspace 3.
 
-**Task:** At point **G** (the left endpoint), construct a perpendicular line rising vertically. Make the perpendicular segment **GK** approximately 8 cm long (equal to **GH**). Draw both **GH** and **GK**.
+Find the midpoint **N** of **GH** by constructing its perpendicular bisector. Set your compass to the distance **GN** (half of **GH**). Place the compass on **N** and draw a semicircular arc from **G**, sweeping below the line, to **H**.
 
-*To construct a perpendicular at the endpoint of a segment: extend the segment slightly past **G**, then use the standard perpendicular bisector method on a small segment centered at **G**.*
+#### Workspace 3
 
 ```
-┌─────────────────────────────────────────┐
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│    ●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━●   │
-│    G                                H   │
-└─────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────┐
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+└───────────────────────────────────────────────────────┘
 ```
+
+Place **GH** along the top edge of the workspace.
 
 **Shape:** ___
 
@@ -103,37 +125,32 @@ A horizontal segment **GH** is given below, 8 cm long.
 
 ### Construction 4
 
-A vertical segment **RS** is given below, 7 cm long, with **R** at the top and **S** at the bottom.
+Transfer the altitude length **CM** from Construction 2 to mark a vertical segment **RS** in Workspace 4. **R** is at the top, **S** at the bottom.
 
-**Task:** Using the segment length **PE** you recorded in Construction 1, set your compass to that length. Place the compass on **R** and mark a point **T** on **RS** at distance **PE** below **R**. Then place the compass on **S** and mark a point **U** on **RS** at distance **PE** above **S**.
+At point **S**, construct a line perpendicular to **RS**, extending to the right. Transfer the base length **AB** from Construction 2 for this horizontal segment. Label its right endpoint **T**.
 
-Now construct short horizontal tick marks at **R**, **T**, **U**, and **S** -- four small perpendicular segments, each extending about 1 cm on both sides of the vertical line. Use the perpendicular-at-a-point construction for each.
+To construct a perpendicular at the endpoint of a segment, you will need to extend the segment past **S** temporarily in order to place arcs on both sides. The technique is described in the mathematics section's treatment of orthogonal projection.
 
-*The four ticks are evenly spaced only if PE happens to equal one-third of RS. They are NOT necessarily evenly spaced -- their positions depend on the measurement you carried from Construction 1.*
-
-Wait -- this is getting complicated and doesn't produce a clean letter. Let me simplify.
-
-**Task (revised):** Construct the perpendicular bisector of **RS**. This gives a horizontal line crossing **RS** at its midpoint. Make the horizontal crossing short -- roughly 2 cm total, extending 1 cm on each side.
-
-Then erase or ignore the horizontal line. Now add short horizontal tick marks (about 1 cm, extending right only) at the top endpoint **R** and at the bottom endpoint **S**.
+#### Workspace 4
 
 ```
-┌─────────────────────────────────────────┐
-│                                         │
-│              ●                          │
-│              R                          │
-│              │                          │
-│              │                          │
-│              │                          │
-│              │                          │
-│              │                          │
-│              │                          │
-│              ●                          │
-│              S                          │
-└─────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────┐
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+└───────────────────────────────────────────────────────┘
 ```
 
-*The perpendicular bisector locates the midpoint. The tick marks at the endpoints are perpendiculars-at-a-point.*
+Place **RS** along the left edge of the workspace, with **R** near the top.
 
 **Shape:** ___
 
@@ -141,32 +158,36 @@ Then erase or ignore the horizontal line. Now add short horizontal tick marks (a
 
 ### Construction 5
 
-Point **J** is given below, center of the workspace. Using the altitude length **CM** you recorded in Construction 2, set your compass to that length as the radius.
+Transfer the length **AB** from Construction 2 to mark a horizontal segment **JK** at the top of Workspace 5.
 
-**Task:** Place your compass on **J** and draw a semicircle -- an arc of exactly 180 degrees. Begin the arc directly above **J**, sweep it to the right and down, ending directly below **J**. Then connect the top and bottom of the arc with a straight vertical line (the diameter, passing through **J**).
+Construct the perpendicular bisector of **JK**. It crosses **JK** at its midpoint. Extend the bisector below **JK** to a length equal to the altitude **CM** from Construction 2. Do not extend it above **JK**.
+
+#### Workspace 5
 
 ```
-┌─────────────────────────────────────────┐
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-│                    ●                    │
-│                    J                    │
-│                                         │
-│                                         │
-│                                         │
-│                                         │
-└─────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────┐
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+│                                                       │
+└───────────────────────────────────────────────────────┘
 ```
+
+Place **JK** along the top edge of the workspace.
 
 **Shape:** ___
 
 ---
 
 ## Worksheet
-
-Write the shape you identified in each construction.
 
 ```
 Construction 1:   ___
@@ -180,7 +201,7 @@ Construction 4:   ___
 Construction 5:   ___
 ```
 
-Read them in order.
+Read them in order, 1 through 5.
 
 ---
 
