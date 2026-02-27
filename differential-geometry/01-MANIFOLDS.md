@@ -33,15 +33,9 @@ A smooth manifold is a topological space that locally looks like R^n, with compa
 
 ---
 
-<!-- @editor[audience/P2]: The learner profile explicitly states "does NOT need: what a manifold is, smooth maps" — the full formal definition from topological manifold up, atlas construction, and smooth maps from scratch are below the pitch level. The learner knows this cold from MIT. Replace with: the key subtleties that matter for the applications (exotic smooth structures, manifolds that aren't subsets of R^n, why the definition is set up the way it is) rather than restating the definition. -->
-## Formal Definition
+## Formal Definition (Quick Reference)
 
-**Topological manifold**: A Hausdorff, second-countable topological space M such that every point p in M has an open neighborhood U homeomorphic to an open set V in R^n.
-
-- (U, phi: U -> V) is called a **chart** or **local coordinate system**
-- n is the **dimension** of M
-
-**Smooth (C^inf) manifold**: A topological manifold with an **atlas** (maximal collection of compatible charts):
+The standard construction (Hausdorff + second-countable + smooth atlas with C^inf transition maps). The key subtleties worth flagging:
 
 ```
   Atlas A = {(U_alpha, phi_alpha)}  covering M, where:
@@ -99,35 +93,16 @@ A smooth manifold is a topological space that locally looks like R^n, with compa
 
 ---
 
-<!-- @editor[audience/P2]: "Smooth maps" section defines immersion/submersion/embedding from scratch — learner has differential topology at this level from MIT. Condense to a quick reference table (keep the Whitney embedding theorem result and its implication for intrinsic vs. extrinsic geometry). The section should focus on what's surprising or non-obvious, not the vocabulary. -->
-## Smooth Maps
+## Smooth Maps — Quick Reference
 
-A function f: M -> N between smooth manifolds is **smooth** if in any charts (U, phi) on M and (V, psi) on N:
+| Map type | Condition | Intuition |
+|---|---|---|
+| Diffeomorphism | Smooth bijection, smooth inverse | Isomorphism of smooth manifolds |
+| Immersion | df_p injective at all p | Locally embeds M in N |
+| Submersion | df_p surjective at all p | Level sets are submanifolds |
+| Embedding | Injective immersion + homeomorphism onto image | Global embedding |
 
-```
-  psi o f o phi^{-1}: R^m -> R^n  is C^inf
-
-  This must hold for ALL chart pairs where it is defined.
-  Independence of chart choice is guaranteed by smooth compatibility.
-```
-
-**Special smooth maps**:
-
-```
-  Diffeomorphism: smooth bijection with smooth inverse.
-  The isomorphism of smooth manifolds — "same manifold up to smooth rearrangement."
-
-  Immersion: df_p is injective for all p in M.
-  (M "locally embeds" in N)
-
-  Submersion: df_p is surjective for all p in M.
-  (Fiber map — level sets are submanifolds)
-
-  Embedding: injective immersion that is a homeomorphism onto its image.
-  (Global embedding — M sits inside N)
-```
-
-**Whitney embedding theorem**: Every smooth n-manifold can be smoothly embedded in R^{2n+1} (in fact R^{2n} suffices for compact manifolds). So abstract manifolds can always be thought of as subsets of Euclidean space — but working intrinsically is cleaner.
+**Whitney embedding theorem**: Every smooth n-manifold embeds smoothly in R^{2n} (compact case). Abstract manifolds always realize as subsets of Euclidean space — but the intrinsic viewpoint avoids coordinate dependence on the ambient space.
 
 ---
 
@@ -255,7 +230,7 @@ Exotic smooth structures: A topological manifold can admit multiple non-diffeomo
   the topological category in dimension 4. This is related to why
   4-dimensional spacetime is special in physics.
 ```
-<!-- @editor[bridge/P2]: Exotic R^4 and its physics implication is mentioned but not developed — this is the most important point in this section for a sophisticated reader. The connection: Donaldson's theorem (from Yang-Mills gauge theory on 4-manifolds) was what revealed the exotic smooth structures. The smooth Poincaré conjecture in dim 4 being open is directly connected to the difficulty of 4D spacetime topology. Expand this bridge: Yang-Mills instantons on 4-manifolds (08-FIBER-BUNDLES) provided the first tools to distinguish smooth structures, connecting gauge physics to 4-manifold topology. -->
+**Why dimension 4 is special — the gauge theory connection**: Exotic R^4 was discovered through Donaldson's theorem (1983): the moduli space of anti-self-dual Yang-Mills instantons (solutions to the gauge field equations on a 4-manifold) gives polynomial invariants that can distinguish smooth structures. Specifically, Donaldson showed that if a simply-connected smooth 4-manifold has a definite intersection form, the form must be diagonalizable — a constraint that does NOT hold for topological 4-manifolds (Freedman 1982). The gap between Freedman's topological classification and Donaldson's smooth constraints produces exotic structures: topological 4-manifolds that cannot support any smooth structure, and smooth 4-manifolds (like exotic R^4) that are homeomorphic but not diffeomorphic to the standard one. This is why dimension 4 spacetime is geometrically richer than any other: gauge physics (instantons) is the tool that probes smooth structure, and smooth structure is most complex in exactly dimension 4. See 08-FIBER-BUNDLES for the gauge theory side.
 
 ---
 
@@ -286,4 +261,31 @@ Very different. There are continuous everywhere but nowhere differentiable funct
 **"The dimension of a manifold is obvious from looking at it."**
 Dimension is defined locally (dimension of R^n in charts). For embedded manifolds in R^k, the dimension equals the dimension of the tangent plane. But the invariance of dimension under homeomorphism (let alone diffeomorphism) requires proof — it follows from invariance of domain, which requires algebraic topology.
 
-<!-- @editor[content/P2]: Missing ML/applications bridge — the guide defines manifolds rigorously but never connects to why a practitioner working with Riemannian optimization, geometric deep learning, or information geometry cares about the smooth structure specifically (as opposed to just the metric structure). Add a short "Manifolds in Practice" section: parameter spaces of neural networks are smooth manifolds (implicitly or explicitly), configuration spaces in robotics are manifolds, the space of probability distributions with Fisher metric is a statistical manifold. The smooth structure (not just topology) is what makes gradient-based optimization well-defined. -->
+## Manifolds in Practice — Why Smooth Structure Matters
+
+The smooth structure (not just the topology or the metric) is what makes gradient-based optimization well-defined on a manifold. Without smooth charts, you cannot take derivatives; without smooth transition maps, derivatives are chart-dependent.
+
+```
+WHERE MANIFOLDS APPEAR IN ML / ENGINEERING:
+
+  PARAMETER SPACES:
+    Neural network weights with orthogonality constraint → Stiefel manifold St(k,n)
+    Rotation matrices → SO(3)   (6D → 3D manifold, smooth, compact)
+    Positive definite matrices → SPD(n) = Sym+(n)   (open cone, non-compact)
+    Probability simplices → open simplex Δⁿ  (or with Fisher metric: stat. manifold)
+
+  CONFIGURATION SPACES:
+    n-joint robot arm → T^n (n-torus, one angle per joint)
+    Rigid body in 3D → SE(3) = SO(3) ⋉ R³  (Lie group)
+    Camera pose → SE(3)
+
+  DATA MANIFOLDS:
+    High-dimensional data often lies near a low-dimensional manifold
+    Manifold hypothesis in ML: learn the intrinsic coordinates
+
+  WHY SMOOTH STRUCTURE IS NEEDED:
+    Gradient descent requires ∂f/∂θ → need smooth charts.
+    Riemannian SGD: θ_{t+1} = Exp_{θ_t}(-η grad_g f) → need exp map (smooth).
+    Natural gradient: F^{-1} ∇f → Fisher metric F is a smooth (0,2) tensor.
+    Without smooth structure, none of these are well-defined.
+```

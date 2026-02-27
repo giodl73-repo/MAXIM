@@ -4,45 +4,45 @@
 
 Differential geometry extends calculus from flat Euclidean spaces to curved spaces (manifolds). The central insight: local coordinates exist everywhere, but the global space need not be flat.
 
-<!-- @editor[diagram/P2]: Landscape diagram lists the 9 modules in boxes but doesn't show the dependency arrows — which modules build on which, and which structures branch off the core (smooth manifold → tangent bundle → {metric branch, forms branch, connection branch}). Also missing: symplectic geometry and information geometry as named structures in the landscape, even though they are first-class applications. Rework to show layered dependency: smooth structure → tangent/cotangent bundles → {Riemannian (metric), symplectic (2-form), principal bundles (gauge)} → curvature → applications. -->
 ```
-+------------------------------------------------------------------+
-|              DIFFERENTIAL GEOMETRY LANDSCAPE                     |
-+------------------------------------------------------------------+
-|                                                                  |
-|  SMOOTH MANIFOLDS (01)           TANGENT BUNDLES (02)           |
-|  +-------------------+           +-------------------+          |
-|  | Coordinate charts |           | Tangent spaces    |          |
-|  | Smooth maps       |           | Vector fields     |          |
-|  | Submanifolds      |           | Differential forms|          |
-|  | Partition of unity|           | Tensor fields     |          |
-|  +-------------------+           +-------------------+          |
-|          |                                |                      |
-|          v                                v                      |
-|  DIFFERENTIAL FORMS (03)        RIEMANNIAN GEOMETRY (04)        |
-|  +-------------------+           +-------------------+          |
-|  | k-forms           |           | Metric tensor     |          |
-|  | Exterior algebra  |           | Geodesics         |          |
-|  | Stokes' theorem   |           | Exponential map   |          |
-|  | de Rham cohomology|           | Completeness      |          |
-|  +-------------------+           +-------------------+          |
-|                                           |                      |
-|  CONNECTIONS (05)               CURVATURE (06)                  |
-|  +-------------------+           +-------------------+          |
-|  | Covariant deriv.  |           | Riemann tensor    |          |
-|  | Parallel transport|           | Ricci tensor      |          |
-|  | Levi-Civita       |           | Scalar curvature  |          |
-|  +-------------------+           +-------------------+          |
-|                                                                  |
-|  LIE GROUPS (07)                FIBER BUNDLES (08)              |
-|  +-------------------+           +-------------------+          |
-|  | Manifold + group  |           | E -> M -> B       |          |
-|  | Lie algebra       |           | Gauge theories    |          |
-|  | SO(3), SE(3)      |           | Principal bundles |          |
-|  +-------------------+           +-------------------+          |
-|                                                                  |
-|  APPLICATIONS (09): GR, gauge theories, robotics, ML            |
-+------------------------------------------------------------------+
+DIFFERENTIAL GEOMETRY — DEPENDENCY STRUCTURE
++====================================================================+
+|  LAYER 1: SMOOTH FOUNDATIONS                                       |
+|  ┌──────────────────────┐                                          |
+|  │ SMOOTH MANIFOLDS (01)│ charts, atlases, smooth maps             |
+|  └──────────┬───────────┘                                          |
+|             ▼                                                      |
+|  LAYER 2: TANGENT MACHINERY                                        |
+|  ┌──────────────────────┐                                          |
+|  │ TANGENT BUNDLES (02) │ TM, T*M, vector fields, tensor fields   |
+|  └──┬─────────┬─────────┘                                         |
+|     │         │                                                    |
+|     ▼         ▼                                                    |
+|  LAYER 3: THREE BRANCHES (additional structures on M)              |
+|  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────────┐ |
+|  │ FORMS (03)   │  │ METRIC (04)  │  │ PRINCIPAL BUNDLES (08)   │ |
+|  │ k-forms, d   │  │ g_ij, geod.  │  │ P → M, gauge theories   │ |
+|  │ Stokes, de   │  │ exp map      │  │ Yang-Mills, holonomy     │ |
+|  │ Rham cohom.  │  │              │  │                          │ |
+|  └──────────────┘  └──────┬───────┘  └──────────┬───────────────┘ |
+|                           ▼                      ▼                 |
+|  LAYER 4: CURVATURE AND STRUCTURE                                  |
+|  ┌────────────────────────────────────────────────────────────┐    |
+|  │ CONNECTIONS (05): covariant derivative, parallel transport │    |
+|  │ CURVATURE (06): Riemann tensor, Ricci, sectional, Gauss-B │    |
+|  │ LIE GROUPS (07): SO(n), SE(3), Lie algebra, exp map       │    |
+|  └──────────────────────────┬─────────────────────────────────┘    |
+|                             ▼                                      |
+|  LAYER 5: APPLICATIONS (09)                                        |
+|  ┌────────────────────────────────────────────────────────────┐    |
+|  │ General Relativity: Lorentzian manifolds, Einstein eqs.    │    |
+|  │ Gauge Theories: Yang-Mills, Standard Model                 │    |
+|  │ Symplectic Geometry: Hamiltonian mechanics, integrators     │    |
+|  │ Information Geometry: Fisher metric, natural gradient       │    |
+|  │ Geometric Deep Learning: equivariant networks, Riem. optim │    |
+|  │ Robotics: configuration spaces, SE(3), kinematics          │    |
+|  └────────────────────────────────────────────────────────────┘    |
++====================================================================+
 ```
 
 ---
@@ -149,7 +149,14 @@ Classical multivariate calculus ties everything to R^n coordinates. Differential
     ML on manifolds: optimization on S^n, SO(n), positive definite matrices
     Riemannian SGD, natural gradient (= natural gradient of Fisher metric)
     Geometric deep learning (gauge equivariance in ML)
-<!-- @editor[content/P2]: Information geometry is listed here in a subordinate bullet but deserves its own cross-reference entry — statistical manifolds with the Fisher information metric are a major application domain (natural gradient descent, amortized inference, exponential families as curved submanifolds). The Fisher metric is a Riemannian metric on the space of probability distributions; this bridge from DG to ML is the most direct and should be elevated. -->
+  information-geometry/ (→ 09-APPLICATIONS)
+    Statistical manifolds: parametric family {p(x; θ)} is a manifold.
+    Fisher information metric: g_ij(θ) = E[∂_i log p · ∂_j log p]
+      is a canonical Riemannian metric on the parameter space.
+    Natural gradient descent = Riemannian SGD with the Fisher metric.
+    Exponential families are flat (zero curvature) under the e-connection.
+    This is the most direct DG → ML bridge: the Fisher metric IS
+      a Riemannian metric, and natural gradient IS Riemannian optimization.
 ```
 
 ---
@@ -187,20 +194,19 @@ Classical multivariate calculus ties everything to R^n coordinates. Differential
 
 ---
 
-<!-- @editor[structure/P2]: Cheat sheet is a navigation index, not a decision tool — rows should be "use X when Y" (e.g., "Need to optimize a loss on rotation matrices → 04-RIEMANNIAN-GEOMETRY + 09-APPLICATIONS §ML; need to formulate a gauge theory → 08-FIBER-BUNDLES + 05-CONNECTIONS"). Redirect pointers alone don't guide decisions. -->
 ## Decision Cheat Sheet
 
-| I need to... | See |
-|---|---|
-| Understand what a manifold is rigorously | 01-MANIFOLDS |
-| Work with vectors, covectors, tensors on manifolds | 02-TANGENT-BUNDLES |
-| Generalize Stokes'/Green's/divergence theorem | 03-DIFFERENTIAL-FORMS |
-| Measure lengths, angles, geodesics | 04-RIEMANNIAN-GEOMETRY |
-| Define derivatives of vector fields on curved spaces | 05-CONNECTIONS |
-| Compute and interpret curvature | 06-CURVATURE |
-| Understand rotation groups, rigid body motion | 07-LIE-GROUPS |
-| Understand gauge theories, connections on bundles | 08-FIBER-BUNDLES |
-| See how this connects to GR / ML / robotics | 09-APPLICATIONS |
+| When you need to... | Use | Because |
+|---|---|---|
+| Optimize a loss function on SO(3) or SPD matrices | 04-RIEMANNIAN + 09-APPLICATIONS §ML | Riemannian gradient descent respects manifold constraints |
+| Formulate electromagnetism or Yang-Mills covariantly | 08-FIBER-BUNDLES + 05-CONNECTIONS | F = dA is curvature of a principal bundle connection |
+| Understand why gravity curves spacetime | 06-CURVATURE + 09-APPLICATIONS §GR | Einstein eqs.: Ricci curvature = stress-energy |
+| Build an equivariant neural network | 07-LIE-GROUPS + 08-FIBER-BUNDLES + 09 §ML | Features are bundle sections; equivariance = gauge symmetry |
+| Plan robot motion through SE(3) | 07-LIE-GROUPS + 09-APPLICATIONS §Robotics | Robot configurations live on Lie groups |
+| Use natural gradient for ML training | 04-RIEMANNIAN + 09-APPLICATIONS §Info. Geom. | Natural gradient = Riemannian gradient with Fisher metric |
+| Prove a topological identity via integration | 03-DIFFERENTIAL-FORMS | Stokes' theorem unifies all classical integral theorems |
+| Understand parallel transport and holonomy | 05-CONNECTIONS | Connection defines "constant" along a path; holonomy = path dependence |
+| Simulate Hamiltonian dynamics preserving energy | 09-APPLICATIONS §Symplectic | Symplectic integrators preserve the symplectic 2-form |
 
 ---
 

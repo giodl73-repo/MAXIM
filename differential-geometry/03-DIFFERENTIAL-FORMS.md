@@ -117,7 +117,7 @@ The **exterior derivative** d: Lambda^k(M) -> Lambda^{k+1}(M) is the unique line
 
 **d^2 = 0**: This is the algebraic engine behind de Rham cohomology and gauge theories. For vector calculus: curl(grad f) = 0 and div(curl F) = 0 are special cases.
 
-<!-- @editor[bridge/P2]: The gauge theory bridge from d^2=0 should be more explicit here, not deferred to 08-FIBER-BUNDLES. The key fact: in electromagnetism, the vector potential A is a 1-form, the field strength F = dA is a 2-form, and dF = d^2 A = 0 (Bianchi identity / homogeneous Maxwell equations) follows immediately from d^2=0. This is not a coincidence — the whole formalism of gauge theories (Yang-Mills, gravity) relies on d^2=0 via the curvature form. A concrete equation here (F = dA, dF = 0 means div B = 0 and curl E = -dB/dt) would anchor this. -->
+**Gauge theory bridge: d^2 = 0 gives Maxwell's homogeneous equations**. In electromagnetism, the vector potential A is a 1-form on spacetime, the field strength F = dA is a 2-form, and dF = d^2A = 0 immediately. This single equation dF = 0 encodes both ∇·B = 0 (no magnetic monopoles) and ∇×E = −∂B/∂t (Faraday's law) — the homogeneous Maxwell equations. The inhomogeneous equations (∇·E = ρ, ∇×B = J + ∂E/∂t) become d*F = J where * is the Hodge star. The entire formalism of gauge theories (Yang-Mills for non-abelian gauge groups, gravity as a connection on the frame bundle) rests on this: curvature F = dA + A∧A, Bianchi identity dF + [A,F] = 0 generalizing d^2 = 0.
 
 ---
 
@@ -283,7 +283,9 @@ On a Riemannian manifold (M, g), the Hodge star operator provides an isomorphism
 
 This connects topology (cohomology) to analysis (harmonic functions). Harmonic forms on compact manifolds are the topologically "essential" directions in the space of forms.
 
-<!-- @editor[content/P2]: Hodge theory section is correct but missing the Atiyah-Singer index theorem as the capstone — it generalizes Hodge decomposition to arbitrary elliptic operators and connects the analytical index (kernel - cokernel dimensions) to the topological index (characteristic classes integrated over M). This is the result that explains why the Dirac equation on a curved manifold "knows" about the topology. Also missing: Chern-Weil theory — characteristic classes (Chern classes, Pontryagin classes) can be represented by closed differential forms built from curvature, making them computable by integration. This is the bridge from 03-DIFFERENTIAL-FORMS to 08-FIBER-BUNDLES that the learner needs. -->
+**Atiyah-Singer index theorem** (capstone of Hodge theory): For an elliptic differential operator D on a compact manifold M, index(D) = dim ker(D) − dim coker(D) = ∫_M ch(σ(D)) · Td(TM_C), where ch is the Chern character and Td is the Todd class. This connects analytical data (solutions of PDEs) to topological data (characteristic classes). Special case: D = d + d* gives index = χ(M) (Hodge theory). D = Dirac gives index = Â-genus. The theorem explains why the Dirac equation on a curved manifold "knows" about topology.
+
+**Chern-Weil theory** bridges differential forms to fiber bundles (08-FIBER-BUNDLES): characteristic classes (Chern, Pontryagin) can be represented by closed differential forms built from the curvature 2-form Ω of a connection: c_k(E) = [Tr(iΩ/2π)^k / k!] ∈ H^{2k}_dR(M). These are computable by integration — the Chern number ∫_M c_1(E) is an integer (topological invariant) computed from the curvature (geometric data). This is why "topology = obstructions" becomes "topology = integrals of curvature" in differential geometry.
 
 ---
 

@@ -4,7 +4,34 @@
 
 Differential geometry is the language of fundamental physics, modern robotics, and increasingly, machine learning. The concepts from 01-08 connect directly to real systems.
 
-<!-- @editor[diagram/P2]: The landscape diagram shows 4 application domains (GR, Gauge, Robotics, ML) but omits two first-class applications: symplectic geometry / Hamiltonian mechanics (which has its own section in the file), and information geometry / Fisher metric (which is the most direct DG → ML bridge). The diagram also doesn't show how the application domains relate to the source modules — it should show arrows from the DG machinery to the applications. Expand to a 6-domain diagram and add dependency arrows (e.g., Riemannian geometry → ML optimization; principal bundles + connections → gauge theories + equivariant networks; symplectic manifolds → Hamiltonian mechanics + integrators). -->
+```
+DG APPLICATIONS — 6 DOMAINS WITH SOURCE MODULES
++====================================================================+
+|  04-RIEMANNIAN ──→ ML OPTIMIZATION ON MANIFOLDS                    |
+|    Metric, geodesics,   Riem. SGD on SO(n), Sym+(n), Stiefel      |
+|    exp/log maps         Natural gradient (Fisher metric)            |
+|                                                                    |
+|  04-RIEMANNIAN ──→ INFORMATION GEOMETRY                            |
+|    Fisher metric        Statistical manifolds, exponential families |
+|    Riem. gradient       Natural gradient, K-FAC, Shampoo           |
+|                                                                    |
+|  08-BUNDLES + 05-CONNECTIONS ──→ GAUGE THEORIES                    |
+|    Principal bundles,   Electromagnetism (U(1)), Yang-Mills (SU(3))|
+|    curvature F = dA     Standard Model, gravity as gauge theory    |
+|                                                                    |
+|  08-BUNDLES + 07-LIE ──→ EQUIVARIANT NEURAL NETWORKS              |
+|    Assoc. bundles,      Gauge-equiv. CNNs, e3nn, NequIP            |
+|    representations      SO(3)/SE(3) irreps as feature types        |
+|                                                                    |
+|  02-TANGENT + 03-FORMS ──→ SYMPLECTIC GEOMETRY                     |
+|    Cotangent bundle,    Hamiltonian mechanics, symplectic integr.   |
+|    canonical 2-form     HMC sampling, Hamiltonian neural nets      |
+|                                                                    |
+|  06-CURVATURE + 04-RIEM ──→ GENERAL RELATIVITY                    |
+|    Ricci tensor,        Einstein equations, black holes, grav.     |
+|    Lorentzian metric    waves, cosmological models                 |
++====================================================================+
+```
 ```
 +------------------------------------------------------------------+
 |              APPLICATIONS OF DIFFERENTIAL GEOMETRY               |
@@ -285,7 +312,9 @@ As ML models work with data having inherent geometric structure, Riemannian geom
   compact Lie groups into irreducibles. For SO(3): spherical harmonics basis.
   Clebsch-Gordan coefficients: how tensor products of irreps decompose.
 ```
-<!-- @editor[content/P2]: Geometric deep learning section covers equivariant networks well but omits the parallel transport → attention bridge explicitly flagged in the sweep calibration. The connection: transformer self-attention computes a weighted combination of value vectors using query-key scores; this is a learnable parallel transport operator on a sequence. Non-trivial attention patterns (where context at position i affects representation at position j differently depending on the path of attention) have the structure of a connection with non-zero curvature. Papers on "geometric attention" (e.g., Hutchinson et al. 2021, equivariant attention) make this explicit. Even informally, the "attention head = connection coefficient" framing is the most intuitive bridge from DG machinery to transformer architecture for a mathematically sophisticated reader. Also missing: information geometry perspective on neural network training — the Fisher information matrix as the metric tensor on the parameter manifold, natural gradient as Riemannian gradient, and K-FAC/Shampoo as approximate natural gradient methods. -->
+**Parallel transport → transformer attention**: Self-attention Attention(Q,K,V) = softmax(QK^T/√d)V computes a weighted combination of value vectors — a learnable transport of information from position j to position i. The attention weights are connection coefficients: they define how to transport features along the sequence. Non-trivial attention patterns (where context at position i affects position j differently depending on intermediate tokens) have the structure of a connection with non-zero curvature. Geometric attention (Hutchinson et al. 2021) makes this explicit by constraining attention to respect geometric symmetries.
+
+**Information geometry of neural network training**: The parameter space Θ of a neural network with loss L(θ) = −E[log p(x;θ)] is a statistical manifold with Fisher metric g_{ij}(θ) = E[∂_i log p · ∂_j log p]. Natural gradient descent θ_{t+1} = θ_t − η g^{-1}∇L is Riemannian SGD on this manifold. Practical approximations: K-FAC (Kronecker-factored Fisher for feedforward/convolutional networks), Shampoo (sketched Newton with Kronecker structure), and Adam (diagonal approximation, not truly natural gradient but captures some curvature). The Fisher metric is singular at saddle points of the loss landscape, connecting information geometry to the theory of phase transitions in training.
 
 **Hyperbolic Neural Networks**:
 
@@ -331,11 +360,50 @@ The phase space of classical mechanics is a symplectic manifold:
   Encodes conserved quantities for G-symmetric Hamiltonians.
   Angular momentum = moment map for SO(3) action on T*R^3.
 ```
-<!-- @editor[content/P2]: Symplectic geometry section is thin relative to its importance. Missing: (1) Symplectic integrators — numerical methods that preserve the symplectic structure (Leapfrog/Störmer-Verlet, Ruth-Forest symplectic RK methods), used in molecular dynamics, N-body simulation, and Hamiltonian Monte Carlo (HMC). HMC is the standard algorithm for Bayesian posterior sampling in probabilistic ML (Stan, PyMC, NumPyro). (2) Poisson manifolds as a generalization (non-degenerate → degenerate; allows Dirac's constrained mechanics). (3) Hamiltonian neural networks (Greydanus et al. 2019) — learn the Hamiltonian H from trajectory data and integrate using a symplectic integrator to get energy-conserving predictions. (4) Symplectic topology: Arnold's conjecture (minimum number of fixed points of a Hamiltonian symplectomorphism), proved via Floer homology — a major modern development. -->
+**Symplectic integrators**: Numerical methods that exactly preserve the symplectic form ω = dp ∧ dq. Leapfrog/Störmer-Verlet: q_{n+1/2} = q_n + (h/2)p_n/m, p_{n+1} = p_n − h∇V(q_{n+1/2}), q_{n+1} = q_{n+1/2} + (h/2)p_{n+1}/m. Symplectic Runge-Kutta methods (Ruth-Forest) give higher-order preservation. Key property: energy is bounded (oscillates but does not drift) for exponentially long times — unlike non-symplectic methods which accumulate energy error. Used in: molecular dynamics (all modern MD codes), N-body simulation (planetary orbits for Gyr), and Hamiltonian Monte Carlo (HMC). HMC = Hamiltonian dynamics + Metropolis accept/reject, the standard algorithm for Bayesian posterior sampling in Stan, PyMC, NumPyro.
+
+**Hamiltonian neural networks** (Greydanus et al. 2019): learn the Hamiltonian H(q,p) from trajectory data, then integrate using a symplectic integrator. The network learns energy-conserving dynamics by construction — the learned H is a conserved quantity. Extensions: Lagrangian neural networks (learn L, compute H via Legendre transform), symplectic neural networks (learn the symplectomorphism directly).
+
+**Symplectic topology**: Arnold's conjecture (1965): a Hamiltonian diffeomorphism of a compact symplectic manifold has at least as many fixed points as the sum of Betti numbers. Proved (in many cases) by Floer homology — an infinite-dimensional Morse theory on the loop space, one of the most important developments in modern geometry. Floer homology connects symplectic topology to low-dimensional topology, gauge theory, and string theory.
 
 ---
 
-<!-- @editor[content/P2]: Missing information geometry section — the space of probability distributions as a Riemannian manifold with the Fisher information metric is the most direct DG → ML application and is explicitly flagged in the sweep calibration. Key content: (1) Statistical manifold: parametric family {p(x; theta)} with Fisher metric g_{ij} = E_{p}[partial_i log p * partial_j log p]. (2) Amari's alpha-connections: a one-parameter family of affine connections on the statistical manifold; the (+1)-connection (exponential family) and (-1)-connection (mixture family) are not metric-compatible and give non-zero curvature even for exponential families. (3) Natural gradient descent = Riemannian gradient descent with the Fisher metric; used in NGD, K-FAC, Shampoo optimizers. (4) Exponential families are flat (zero curvature) under the e-connection, explaining why Newton's method on exponential families converges in one step. This section belongs between "Machine Learning on Manifolds" and "Symplectic Geometry." -->
+## Information Geometry — Statistical Manifolds
+
+The space of probability distributions is a Riemannian manifold. This is the most direct DG → ML bridge.
+
+```
+INFORMATION GEOMETRY STRUCTURE:
+
+  STATISTICAL MANIFOLD: parametric family S = {p(x; θ) : θ ∈ Θ ⊂ R^n}
+  FISHER METRIC: g_{ij}(θ) = E_p[∂_i log p(x;θ) · ∂_j log p(x;θ)]
+    = -E_p[∂_i ∂_j log p(x;θ)]  (equivalent under regularity)
+
+  AMARI'S α-CONNECTIONS:
+  A one-parameter family ∇^(α) of affine connections on S:
+    ∇^(1) = e-connection (exponential connection)
+    ∇^(-1) = m-connection (mixture connection)
+    ∇^(0) = Levi-Civita connection of the Fisher metric
+
+  KEY RESULT: exponential families are DUALLY FLAT.
+    Under natural parameters η: ∇^(1)-flat (zero e-curvature).
+    Under expectation parameters μ: ∇^(-1)-flat (zero m-curvature).
+    The Bregman divergence D_A(η||η') = KL(p_η || p_{η'})
+      is the canonical divergence of the dually flat structure.
+
+  NATURAL GRADIENT DESCENT = Riemannian SGD with Fisher metric:
+    θ_{t+1} = θ_t - η F(θ_t)^{-1} ∇L(θ_t)
+    F^{-1} accounts for the geometry of the parameter space.
+    Invariant under reparametrization (unlike vanilla SGD).
+
+  PRACTICAL APPROXIMATIONS:
+    K-FAC: Kronecker-factored Fisher (per-layer block diagonal)
+    Shampoo: sketched Kronecker preconditioner
+    Adam: diagonal approximation (not truly natural gradient)
+    TONGA/KFRA: extensions for RNNs and attention layers
+```
+
+For exponential families, natural gradient converges in one step (because the e-connection is flat and the loss is a Bregman divergence). For general models, natural gradient is the "correct" steepest descent — it measures parameter change in KL divergence, not Euclidean distance.
 ## Decision Cheat Sheet
 
 | Application | Geometric Object | Key Operation |
