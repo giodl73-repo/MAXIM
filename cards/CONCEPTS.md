@@ -111,7 +111,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 |------|-------|---------------|
 | 2♣ | The Taxonomist | Linnaean hierarchy tree — Domain → Kingdom → Phylum → Class → Order → Family → Genus → Species, one label crossed out and rewritten in a steadier hand |
 | 2♦ | The Brewer | Fermentation vessel cross-section — grain in, yeast colony, CO₂ rising, alcohol accumulating |
-| 2♥ | The Collector | A specimen tray — 3×4 grid of pinned insects, each labeled, arranged by order |
+| 2♥ | The Collector | A specimen tray — 3×4 grid of pinned insects, each labeled, arranged by order — 196 specimens pinned across the tray, each one where two habitats overlap — and a penciled note in the margin: "the common ones are still flying" |
 | 2♠ | The Ecologist | A food web — producers at base, consumers rising, apex predator at top, arrows showing energy flow |
 
 ### A — People
