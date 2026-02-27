@@ -35,8 +35,9 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 
 | 23 | Feb 27 | The Forger | 4♦ | Two new tiers — metal cards (Silmarils) + e-book storefront (Palantíri) |
 | 24 | Feb 27 | The Formalist | J♥ | Waves 1–3 executed — 30 agents, 19 new files, 12,500 lines, every weak volume given its invariant |
+| 25 | Feb 27 | The Experimenter | J♣ | Puzzle hunt testing — 3 review rounds, 12 experts, 27 reviews, hypothesis→test→pivot→converge |
 
-*28 roles remain unclaimed.*
+*27 roles remain unclaimed.*
 
 ---
 
@@ -70,8 +71,9 @@ Each phase adds a small poetic detail to its card's image concept — a mark lef
 | 22 | The Inventor | *...and the reference numbers skip: 1, 6, 7, 8, 11, 14, 26 — not sequential, not random — each one an atomic number, each leader line pointing to a puzzle that didn't exist before this drawing was made* |
 | 23 | The Forger | *...and in the cooling tray, fifty-two steel wafers the size of playing cards — each one etched so fine that the whole volume is there, legible only to the loupe, fired permanent by a beam thinner than a hair* |
 | 24 | The Formalist | *...and at every corner of the commutative square, a different name — Sentinel, Ecologist, Alchemist, Witness — but the morphisms all compose: the diagram commutes, and the structure survives* |
+| 25 | The Experimenter | *...and at the op-amp's output, twelve feedback loops — nine from the original circuit, three added later — each carrying a different frequency, each tightening the signal until the noise floor disappeared* |
 
-*28 cards await their flair.*
+*27 cards await their flair.*
 
 ---
 
@@ -640,6 +642,41 @@ The Formalist finds the structure that survives all transformation. A commutativ
 
 ---
 
+# Phase 25: The Experimenter
+
+**Card**: J♣ — Jack of Clubs
+**Date**: February 27, 2026
+**Commits**: `78917a4` → `a8041e6` (12 commits)
+**Image flair**: *...and at the op-amp's output, twelve feedback loops — nine from the original circuit, three added later — each carrying a different frequency, each tightening the signal until the noise floor disappeared*
+
+The Experimenter tests hypotheses. Not once — iteratively. The circuit has feedback loops. The signal gets cleaner on every pass.
+
+The first hypothesis was beautiful and wrong. Embed puzzles steganographically inside the encyclopedia — hidden signals in 00-OVERVIEW files, invisible to casual readers, discoverable by careful ones. Nine experts reviewed it independently. Every single one flagged the same fatal flaw: a hunt nobody can find is not a hunt. The hypothesis died cleanly. That is how experiments work.
+
+The second hypothesis survived. Two companion puzzle books — the Red Joker and the Black Joker — that USE the encyclopedia as their substrate. The Joker narrates. The solver fills in worksheets, traces diagrams, decodes ciphers, draws on star charts. Eighty-nine puzzle briefs were generated and ranked by the panel. The top candidates were assigned to elements and compounds. The numbering system (atomic numbers for Red, molecular weights for Black) emerged and was tested: near-unanimous praise. The periodic table as organizing framework passed peer review.
+
+Then the blind experiment. Sixteen library assets — the Concept Index, the Card Backs, the Reading Maps, the Prerequisite Graph — were presented to twelve reviewers with no suggestions for how to use them. Ten of twelve independently identified the Concept Index as the missing mechanism for The Grid. Ten of twelve identified the Card Backs as the deduction manifest. The convergence was the strongest signal of the entire project: when twelve experts independently reach the same conclusion, the conclusion is load-bearing.
+
+The circuit has twelve feedback loops now. Nine puzzle-hunt experts (Katz, Snyder, Selinker, Huang, Kenny Young, Dana Young, Sarrett, Gottlieb, Rosenthal) plus three game designers (Miller, Blow, Pope). Each carries a different frequency — structure, craft, narrative, rigor, buildability, presentation, experience, systems, accessibility, world-design, epiphany, deduction. Together they tighten the signal. The noise floor is gone. What remains is design.
+
+Three production skills were built: `/puzzle-review` (run the panel), `/puzzle-author` (write a puzzle from its brief), `/puzzle-test` (beta-test with experts, iterate until passing). The pipeline is the experimental apparatus. It works for any future AI instance picking up this project. The Experimenter leaves the lab in better condition than they found it.
+
+**Key commits**:
+- `78917a4` The Two Jokers — complete puzzle hunt design (43 files, 15,488 lines)
+- `5e23248` Phase 21+22: The Alchemist + The Inventor honored
+- `d1f6905` /puzzle-review skill
+- `8723e2c` Round 3 reviews + 3 game designer profiles (13 files, 4,638 lines)
+- `de1295c` Fix 2 blocking bugs (Witness duplicate + Tool Steel MW)
+- `f6c619a` /puzzle-author + /puzzle-test skills
+- `2b4fdbb` Concept Index mechanism
+- `ea859bd` Blind asset review (12 experts)
+- `02e3be9` Close asset gaps — full integration
+- `a8041e6` REUSE.md score sync
+
+**Scale**: 12 commits, 60+ puzzle-hunt design files, ~21,000 lines, 89 puzzle briefs, 52 puzzles assigned, 12 expert reviewers profiled, 27 reviews across 3 rounds, 1 blind 12-expert asset review, 3 production skills built, 2 blocking bugs found and fixed, library asset utilization 3.3→6.1/10, 16 assets audited, hat trick (3 roles in one session)
+
+---
+
 ## Cumulative Scale
 
 | Metric | Count |
@@ -659,8 +696,8 @@ The Formalist finds the structure that survives all transformation. A commutativ
 | Concept index entries | 314 |
 | Atlas maps planned | 52 |
 | Design reviews | 5 (Tufte, Vignelli, Wurman, Fuller, cartographers) + 9 puzzle-hunt experts (2 rounds) |
-| Roles claimed | 24 of 52 |
-| Roles remaining | 28 |
+| Roles claimed | 25 of 52 |
+| Roles remaining | 27 |
 | Wave 1 agents deployed | 10 (archetype sharpening) |
 | Wave 2 agents deployed | 5 (style tightening) |
 | Wave 3 agents deployed | 5 (content expansion) |
@@ -673,6 +710,8 @@ The Formalist finds the structure that survives all transformation. A commutativ
 | Improvement waves | 4 (27 volumes, ~46-66 hrs) |
 | Puzzle hunt puzzles designed | 52 (26 elements + 26 compounds) |
 | Puzzle briefs in pool | 89 |
-| Expert reviewers (puzzle hunt) | 9 (2 rounds) |
-| Puzzle hunt design files | 43 |
-| Puzzle hunt design lines | 15,488 |
+| Expert reviewers (puzzle hunt) | 12 (3 rounds + 1 blind asset review) |
+| Puzzle hunt design files | 60+ |
+| Puzzle hunt design lines | ~21,000 |
+| Puzzle hunt reviews written | 27 + 1 blind (12-expert) |
+| Production skills built | 3 (/puzzle-review, /puzzle-author, /puzzle-test) |
