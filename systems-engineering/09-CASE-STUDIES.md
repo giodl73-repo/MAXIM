@@ -25,7 +25,85 @@ SOFTWARE-SE INTERSECTIONS:
   Healthcare.gov launch (2013)     Requirements + integration failure
   Knight Capital (2012)            Change management, deployment risk
 ```
-<!-- @editor[content/P2]: Knight Capital (2012) and Healthcare.gov (2013) are listed in the case study map but never developed. Both are directly relevant to software engineers: Knight Capital = $440M loss in 45 minutes from a deployment change management failure (dead code path reactivated); Healthcare.gov = requirements/integration failure at unprecedented scale. These are the two cases most likely to resonate with this learner's background. Add sections for both, similar in structure to the Denver Baggage section. -->
+---
+
+## Knight Capital (2012) — Change Management Failure
+
+### What Happened
+
+```
+TIMELINE
+  2012-08-01: Knight Capital deploys new market-making code to 8 servers
+  One server NOT updated — still running old code with dormant "Power Peg" function
+  Power Peg: dead code path from 2003, repurposed flag reactivated by new deployment
+  09:30: Market opens. Old code activates, places millions of errant orders
+  09:31-10:15: $440M loss in 45 minutes. Knight Capital effectively bankrupt.
+
+ROOT CAUSE CHAIN:
+  Deployment to 8 servers manually — 1 server missed          ← no automated deployment
+  Code reused a deployment flag for new purpose               ← dead code not removed
+  No rollback mechanism once errant trading started           ← no kill switch
+  No monitoring detected the anomaly for 45 minutes           ← no observability
+```
+
+### SE Lessons
+
+```
+SE FAILURE PATTERN                    LESSON
+──────────────────────────────────────────────────────────────────
+Manual deployment across fleet        Automated deployment (CI/CD) with
+                                      verified rollout to all nodes
+Dead code left in codebase            Configuration management: remove
+                                      dead code paths; don't reuse flags
+No real-time monitoring               Observability: anomaly detection on
+                                      critical financial metrics
+No automated rollback                 Kill switches and circuit breakers
+                                      for safety-critical deployments
+```
+
+---
+
+## Healthcare.gov Launch (2013) — Requirements and Integration Failure
+
+### What Happened
+
+```
+TIMELINE
+  2010: ACA signed into law. Healthcare.gov required by Oct 2013.
+  2011-2013: 55+ contractors, no single systems integrator assigned
+  CGI Federal as lead web contractor; QSSI for data hub
+  NO end-to-end integration testing before launch
+  2013-10-01: Launch. Site crashes immediately.
+    6 users successfully enrolled on Day 1 (out of millions attempting)
+    Peak error rate: >70% of sessions failed
+  2013-10-20: "Tech surge" — new team brought in
+  2013-12-01: Site functional after 2-month emergency remediation
+
+ROOT CAUSE CHAIN:
+  No systems integrator to own cross-contractor interfaces      ← no SE authority
+  Requirements changed continuously without impact analysis     ← no requirements baseline
+  No end-to-end integration test environment                    ← no integration plan
+  Each contractor tested in isolation                           ← interface mismatches
+  Late decision to require account creation before browsing     ← requirements change at T-2 weeks
+  Capacity planning: estimated 50K concurrent, got 250K+       ← load requirements wrong
+```
+
+### SE Lessons
+
+```
+SE FAILURE PATTERN                    LESSON
+──────────────────────────────────────────────────────────────────
+No systems integrator                 SoS requires a single authority
+                                      owning cross-boundary interfaces
+No integration test environment       Integration must be planned and
+                                      resourced from project start
+Late requirements changes             Change control with impact analysis;
+                                      freeze interfaces before build
+Multi-vendor with no ICD baseline     ICDs between contractors must be
+                                      baselined and enforced like API contracts
+Capacity requirements wrong           Performance requirements need load
+                                      testing against realistic demand models
+```
 
 ---
 
@@ -442,6 +520,10 @@ Ongoing challenges:
 | Safety classification understated | FMEA severity based on worst-case effect, not nominal | 737 MAX |
 | Integration not planned | Integration must be designed, not assumed | Denver Baggage |
 | Requirements undefined for novel system | Novel systems require more rigorous requirements, not less | Denver Baggage |
+| Manual deployment misses a node | Automated deployment with verified rollout to all targets | Knight Capital |
+| Dead code reactivated by flag reuse | Remove dead code; never reuse deployment flags | Knight Capital |
+| No systems integrator across vendors | SoS requires single authority owning cross-boundary interfaces | Healthcare.gov |
+| No end-to-end integration test | Integration test environment from project start, not afterthought | Healthcare.gov |
 
 ---
 

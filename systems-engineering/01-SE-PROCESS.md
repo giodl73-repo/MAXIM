@@ -189,7 +189,8 @@ Key: requirements that define INTERFACES must be stable early.
 
 ## Design Reviews (Technical Reviews and Audits)
 
-<!-- @editor[bridge/P3]: SE design review gates (SRR/PDR/CDR/TRR/ORR) map directly to CI/CD pipeline gates the learner built at VSTS. SRR = requirements review gate (no code merged without approved requirements). CDR = architecture review gate (no build starts without approved design). TRR = test-ready gate (CI pipeline won't deploy to staging without passing test suite). ORR = deployment gate (production release gate). The vocabulary differs but the pattern — mandatory quality gates with defined entry/exit criteria — is identical. Add a one-sentence bridge. -->
+These review gates map directly to CI/CD pipeline gates: SRR = requirements approval gate, CDR = architecture review gate (no build without approved design), TRR = test-ready gate (won't deploy to staging without passing test suite), ORR = production release gate. The vocabulary differs but the pattern — mandatory quality gates with defined entry/exit criteria — is identical.
+
 ```
 STANDARD SE REVIEW SEQUENCE
 ──────────────────────────────────────────────────────────────────
