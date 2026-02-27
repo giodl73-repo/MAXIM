@@ -372,7 +372,21 @@ difficult to do well.
 
 ---
 
-<!-- @editor[bridge/P1]: McCloud's six panel transitions are never bridged to state machine transition types — yet this is the most powerful formal framing available. Each transition type maps directly to a transition semantics class: moment-to-moment (adjacent-state δ with minimal guard condition), action-to-action (causal state transition with outcome visible), subject-to-subject (entity-change transition within same scene), scene-to-scene (context transition — new state space), aspect-to-aspect (attribute transition without state change — exploring the current state), non-sequitur (non-deterministic / labelled but unconstrained transition). The learner has MIT automata theory — this bridge is both immediately legible and reframes the six transitions from arbitrary taxonomy into a principled classification. This is a P1 issue because the bridge is load-bearing for understanding the formal structure of sequential art. -->
+### Engineering Bridge: Transition Types as Formal Semantics
+
+McCloud's six transitions are not arbitrary — they form a principled classification of transition semantics, mappable to automata theory:
+
+- **Moment-to-moment**: minimal state delta (adjacent state, same entity, infinitesimal time advance)
+- **Action-to-action**: causal transition (input -> output visible; the reader sees cause and effect)
+- **Subject-to-subject**: entity switch within scene (same context, different active entity)
+- **Scene-to-scene**: context transition (entirely new state space; reader must infer the mapping)
+- **Aspect-to-aspect**: no state advance — attribute query on the current state (exploring without transitioning)
+- **Non-sequitur**: non-deterministic transition (no explicit guard condition; reader must construct connection)
+
+The taxonomy is ordered by increasing reader effort (closure demand): moment-to-moment requires almost none; non-sequitur requires the reader to construct the entire connection. This maps directly to the information-theoretic content of each gutter — how many bits the reader must supply.
+
+---
+
 ## Decision Cheat Sheet
 
 | McCloud concept                           | Application in practice                 |

@@ -366,15 +366,16 @@ direction) shaped digital comics differently than McCloud expected.
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is "I want to understand…" reference, not a decision tool — restructure as "use Patreon direct model when creator has niche audience that values parasocial relationship; use vertical-scroll Webtoon format when primary audience is mobile-first; use print-on-demand backend when audience demonstrates purchase willingness through readership" -->
 ## Decision Cheat Sheet
 
-| I want to understand...                          | Key reference                    |
-|--------------------------------------------------|----------------------------------|
-| When webcomics started                           | 1993-1996 (User Friendly; Dr. Fun)|
-| The most ambitious early webcomic experiment     | Homestuck (2009-2016)            |
-| How webcomic creators make money                 | Patreon + merchandise + print    |
-| The infinite canvas concept and why it's limited | McCloud "Reinventing Comics" (2000)|
+| Situation | Approach | Why |
+|-----------|----------|-----|
+| Primary audience is mobile-first | Vertical-scroll Webtoon format | Natural phone orientation; one panel per screen width; Webtoon/Tapas platforms |
+| Niche audience that values creator relationship | Patreon direct model + merchandise | Parasocial monetization; creator retains IP and pricing control |
+| Audience demonstrates purchase willingness | Print-on-demand backend (Kickstarter / TopatoCo) | Physical product = premium revenue; validates demand before inventory risk |
+| Maximizing reach on existing platform | Webtoon Originals / Tapas contract | Platform provides audience but takes revenue share and may own adaptation rights |
+| Experimental form / non-linear narrative | Infinite canvas or interactive format | McCloud's vision; limited commercial viability but high artistic potential |
+| Building audience from zero | Free weekly schedule + social media + archive | Consistency and backlog are the growth engine; monetize after audience exists |
 | The dominant digital comics format today         | Webtoon vertical scroll          |
 | Largest webtoon platform                         | Naver Webtoon (100M+ users)      |
 | What happened to comiXology                      | Amazon acquired; merged to Kindle|

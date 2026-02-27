@@ -238,19 +238,45 @@ romance, sports, history, literary -- the full range of fiction genres exists.
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a module directory, not a "use X when Y" decision tool — convert to decisions: "use manga aspect-to-aspect transition when atmosphere matters more than plot advancement; use splash page when single image needs to carry maximum emotional weight" -->
+### Engineering Bridge: Panel Transitions as State Machine Transitions
 
-<!-- @editor[bridge/P1]: No bridge from panel transitions to state machine transitions — McCloud's six panel types (moment-to-moment, action-to-action, subject-to-subject, scene-to-scene, aspect-to-aspect, non-sequitur) are exactly a taxonomy of state transitions with different transition semantics. This bridge is the single most valuable computational framing for this entire directory and it is absent from both the overview and from 02-MCCLOUD-THEORY.md. Any reader coming from formal language theory or automata can map panel transitions to transition types in an FSM immediately — this is a P1 bridge gap because it reframes the formal theory of sequential art for a TCS reader. -->
+McCloud's six panel transition types are a taxonomy of state transitions with different transition semantics — immediately legible through an automata theory lens:
+
+```
+McCLOUD TRANSITION TYPE         STATE MACHINE ANALOG
+──────────────────────────────────────────────────────────────────────
+Moment-to-moment               Adjacent-state transition (minimal δ)
+  Tiny time increment            → same entity, same scene, incremental change
+
+Action-to-action               Causal state transition
+  Single subject, outcome shown  → cause → effect, output visible
+
+Subject-to-subject              Entity-change within same scene
+  Same scene, different actor    → switch active entity, preserve context
+
+Scene-to-scene                  Context transition (new state space)
+  Jump in time/space              → full context switch, reader infers gap
+
+Aspect-to-aspect                Attribute query (no state change)
+  Same scene, different property  → exploring current state without advancing
+
+Non-sequitur                    Non-deterministic / unconstrained transition
+  No logical link                → reader must construct the connection
+```
+
+Western comics heavily favor action-to-action (causal, plot-advancing). Manga uses aspect-to-aspect extensively to build atmosphere without advancing plot — lingering in a state rather than transitioning through it.
+
+---
+
 ## Decision Cheat Sheet
 
-| I want to understand...                   | Module                          |
-|-------------------------------------------|---------------------------------|
-| Comics as a form: its theory and history  | 01-HISTORY-FORM.md              |
-| McCloud's closure theory in depth         | 02-MCCLOUD-THEORY.md            |
-| Panel layout, gutters, time, space        | 03-PANEL-GRAMMAR.md             |
-| Superheroes: golden to modern age         | 04-SUPERHERO-TRADITION.md       |
-| Underground, alternative, literary comix  | 05-ALTERNATIVE-COMICS.md        |
-| Maus and the literary legitimation moment | 06-MAUS-LITERARY.md             |
-| Japanese manga as global cultural form    | 07-MANGA.md                     |
-| The graphic novel as format and concept   | 08-GRAPHIC-NOVEL.md             |
-| Digital comics and webcomics              | 09-DIGITAL-WEBCOMICS.md         |
+| Situation | Approach | Why |
+|-----------|----------|-----|
+| Atmosphere matters more than plot advancement | Manga-style aspect-to-aspect transitions | Lingers in current state; builds mood without causal progression |
+| Single image needs maximum emotional weight | Splash page or full bleed | Entire page = one moment; scale signals importance |
+| Rapid time passage needed | Scene-to-scene transition; few panels | Reader infers the gap; compression = speed |
+| Readers should participate in creating meaning | Rely on closure (imply, don't show) | The gutter is where the reader's imagination works |
+| Information-dense sequential narrative | 9-panel grid (Watchmen model) | Grid = constraint that forces clarity within fixed units |
+| Mobile-first digital audience | Vertical-scroll Webtoon format | Natural phone orientation; one panel per screen width |
+| Niche audience with high creator engagement | Patreon direct model + merchandise | Parasocial relationship monetization |
+| Literary ambition; bookshelf permanence | Graphic novel format (bound, complete) | Prestige format; reviewed and shelved alongside prose fiction |
