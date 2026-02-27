@@ -383,7 +383,12 @@ TONE MAPPING FOR RENDERS:
 
 ---
 
-<!-- @editor[content/P2]: CIECAM02 appears in the colors/00-OVERVIEW.md module architecture diagram as "COLOR APPEARANCE MODELS: CIECAM02 and successors" but never appears in any guide in this section. 09-DIGITAL-COLOR.md covers ICC profiles and rendering intents, which are the direct application context for CIECAM02 (it is the foundation for the iCAM and CAM02 rendering intents in high-end ICC workflows). A brief section on color appearance models — what CIECAM02 adds over CIELAB (viewing conditions: luminance adaptation, surround, background contrast), why it matters for cross-media matching (print at 2000 lux vs screen at 200 lux), and the OKLab lineage (OKLab was designed as a practical approximation of CIECAM16/ZCAM JMh space) — would close this gap and tie together the entire module map. -->
+## Color Appearance Models in Digital Workflows
+
+ICC rendering intents (perceptual, relative colorimetric, absolute colorimetric, saturation) are the practical application of color appearance models. High-end ICC profiles use CIECAM02-based transforms to account for viewing conditions when converting between media (print at 2000 lux, screen at 200 lux). The full treatment of CIECAM02 (J/C/h dimensions, chromatic adaptation, Hunt and Stevens effects) is in `03-COLOR-SYSTEMS.md`. In digital workflows, the practical impact is: OKLab/OKLCh (a perceptually uniform approximation of CIECAM16/ZCAM) is now the recommended space for color manipulation in CSS, design tools, and rendering — it preserves hue linearity under lightness changes, which sRGB HSL does not.
+
+---
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

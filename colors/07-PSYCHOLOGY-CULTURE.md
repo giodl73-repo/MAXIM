@@ -336,7 +336,35 @@ THEORY (Palmer & Schloss, 2010):
 
 ---
 
-<!-- @editor[content/P2]: WCAG (Web Content Accessibility Guidelines) contrast ratios are completely absent. This is a direct practical application of color perception for this learner: WCAG 2.1 AA requires 4.5:1 contrast ratio for normal text, 3:1 for large text. The contrast ratio formula uses relative luminance (computed from sRGB values via the gamma-linearization formula). WCAG 3.0 is moving to APCA (Advanced Perceptual Contrast Algorithm) which uses a more accurate lightness model. Given the calibration explicitly lists "color psychology/accessibility (WCAG)" as needed content, this is a significant gap. Should be its own subsection adjacent to the colorblind/accessibility material already in the file. -->
+## WCAG Color Contrast and Accessibility
+
+```
+WCAG 2.1 CONTRAST REQUIREMENTS:
+  AA (minimum): 4.5:1 for normal text, 3:1 for large text (≥18pt or 14pt bold)
+  AAA (enhanced): 7:1 for normal text, 4.5:1 for large text
+
+  CONTRAST RATIO FORMULA:
+  CR = (L_lighter + 0.05) / (L_darker + 0.05)
+
+  where L = relative luminance, computed from sRGB values:
+  L = 0.2126 × R_lin + 0.7152 × G_lin + 0.0722 × B_lin
+  R_lin = (R_sRGB/255 ≤ 0.04045) ? R_sRGB/3294.6 : ((R_sRGB/255 + 0.055)/1.055)^2.4
+
+  EXAMPLES:
+  black #000000 on white #FFFFFF:  CR = 21:1  (maximum possible)
+  gray #767676 on white #FFFFFF:   CR ≈ 4.54:1 (just passes AA)
+  light gray #959595 on white:     CR ≈ 2.91:1 (fails AA)
+
+WCAG 3.0 / APCA (Advanced Perceptual Contrast Algorithm):
+  Replaces simple luminance ratio with a perceptual lightness model.
+  Key improvement: accounts for font weight and size — thin text needs
+  more contrast than bold text. Polarity-aware: dark-on-light vs.
+  light-on-dark have different threshold curves.
+  Status: Working Draft as of 2024; expected to replace WCAG 2.x contrast.
+```
+
+---
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

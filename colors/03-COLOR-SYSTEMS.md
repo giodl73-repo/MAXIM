@@ -385,8 +385,38 @@ NCS (Natural Color System):
 
 ---
 
-<!-- @editor[content/P2]: CIECAM02 (Color Appearance Model 2002) is listed in the overview module map for this file but is entirely absent. CIECAM02 extends CIELAB by modeling viewing-condition effects: luminance adaptation (Hunt effect), background contrast (Stevens effect), and colorfulness. It is required for any serious cross-media color matching (comparing a print viewed in 2000 lux to a screen in 200 lux). Without it, this file stops at metric color science but skips appearance modeling. Add a CIECAM02 section after the CIELAB section covering: motivation (CIELAB ΔE depends on viewing conditions), the input parameters (Xw/Yw/Zw, LA, Yb, surround), and the J/C/h output dimensions. Also note CIECAM16 (2016 revision). -->
-<!-- @editor[bridge/P2]: The XYZ → linear RGB and RGB → XYZ transformations are 3×3 matrix multiplications, but this is never stated. The color matching functions define the XYZ to RGB transform for a given set of primaries. For sRGB, the matrix is defined in the spec. This framing (color space conversion = linear algebra) is essential for anyone reasoning about color pipelines or implementing color transforms. The CIELAB nonlinearity (cube root) is the only non-matrix step in the XYZ → Lab path; everything else is linear. -->
+## Color Appearance Models: CIECAM02 and Successors
+
+CIELAB assumes fixed viewing conditions. Real cross-media matching (print at 2000 lux vs. screen at 200 lux) requires modeling how the visual system adapts:
+
+```
+CIECAM02 (CIE Color Appearance Model, 2002):
+  Inputs: XYZ of stimulus, XYZ of white point (Xw,Yw,Zw),
+          adapting luminance (LA), background relative luminance (Yb),
+          surround condition (average/dim/dark)
+
+  Outputs: J (lightness), C (chroma), h (hue angle), Q (brightness),
+           M (colorfulness), s (saturation)
+
+  Key effects modeled:
+  • Hunt effect: colorfulness increases with luminance
+  • Stevens effect: contrast increases with luminance
+  • Chromatic adaptation: von Kries-style, CAT02 transform
+
+CIECAM16: 2016 revision fixing known issues with CAT02 matrix.
+ZCAM (2021): Further refinements, used in some HDR workflows.
+
+OKLab (Ottosson 2020): A practical approximation of CIECAM16/ZCAM JMh space
+  designed for computational efficiency. Perceptually uniform, good hue linearity.
+  Used in CSS Color Level 4 (oklch), Figma, modern design tools.
+```
+
+### Color Space Conversion as Linear Algebra
+
+All XYZ-to-RGB and RGB-to-XYZ transformations are 3x3 matrix multiplications — the color matching functions define the transform for a given set of primaries. For sRGB, the matrix is defined in IEC 61966-2-1. The CIELAB cube-root nonlinearity is the only non-matrix step in the XYZ-to-Lab path; everything else in the color pipeline is linear algebra.
+
+---
+
 ## Decision Cheat Sheet
 
 | Question | Answer |
