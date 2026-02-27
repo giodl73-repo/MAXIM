@@ -34,7 +34,7 @@ Residential plumbing is three independent pipe systems sharing the same walls:
 ```
 
 **Key principle**: Supply is pressure-driven (municipal pump). DWV is gravity-driven (1/4" per foot minimum slope). They never interconnect — that's a cross-connection, a health code violation, and a public health hazard.
-<!-- @editor[bridge/P2]: The hydraulic engineering framework is absent from the overview. For a reader with fluid dynamics background, the key mental model is: supply system = pressurized network where pressure drop follows Darcy-Weisbach (ΔP = f(L/D)(ρv²/2), i.e., ΔP ∝ Q²); PRV = pressure regulator analogous to a voltage regulator; pump curves (head vs flow rate) intersect system curves (required head vs flow) to determine operating point. DWV = open-channel / gravity flow, governed by Manning's equation for partially-filled pipes, designed for self-scouring velocity. These frameworks (which appear in 04-SUPPLY-SYSTEMS and 05-DWV) should be previewed in the overview to establish that this is a physics-based engineering domain, not just a trade craft. -->
+**Hydraulic engineering framing**: Supply is a pressurized pipe network governed by Darcy-Weisbach (ΔP = f(L/D)(ρv²/2) — pressure drop proportional to Q²). PRVs are pressure regulators (voltage regulator analog). Pump curves (head vs. flow) intersect system curves (required head vs. flow) to determine the operating point. DWV is open-channel gravity flow governed by Manning's equation for partially-filled pipes, designed for self-scouring velocity (>2 fps). Code sizing tables are precomputed solutions to these underlying physics equations.
 
 
 ---

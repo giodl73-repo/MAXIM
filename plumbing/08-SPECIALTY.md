@@ -355,7 +355,13 @@ SPECIALTY SYSTEMS: BEYOND BASIC SUPPLY AND DRAIN
     → For water-sensitive spaces: libraries, computer rooms,
       art collections (avoids accidental discharge)
       More complex; higher cost; less common
-<!-- @editor[bridge/P2]: Pre-action systems are the standard for datacenter computer rooms and server halls — any accidental discharge from a wet-pipe system in a datacenter causes catastrophic IT equipment loss. Modern hyperscale datacenters typically use either pre-action (double-interlock is the strictest variant: requires both a detection event AND a sprinkler head to activate before water enters pipes) or clean agent systems (FM-200, Novec 1230, inert gas) that suppress without water. For a VP managing Azure datacenters, this is operationally relevant — datacenter fire suppression is a quarterly inspection item and design decision in every new facility. The "computer rooms" mention is too brief to be useful for this learner. -->
+    Datacenter application: hyperscale facilities use either pre-action
+    (double-interlock = strictest: detection event AND head activation
+    required before water enters pipes) or clean agent systems (FM-200,
+    Novec 1230, inert gas) that suppress without water. Accidental wet-pipe
+    discharge in a server hall = catastrophic IT equipment loss.
+    Fire suppression design is a quarterly inspection item in every
+    datacenter facility and a key decision in new facility design.
 
 
   WATER SUPPLY:

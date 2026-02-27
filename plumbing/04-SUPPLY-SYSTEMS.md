@@ -66,7 +66,21 @@ RESIDENTIAL SUPPLY SYSTEM OVERVIEW
       Total developed length (pipe run)
       Total fixture units demanding simultaneously
       Available pressure at source
-<!-- @editor[bridge/P1]: The underlying physics is Darcy-Weisbach: ΔP = f × (L/D) × (ρv²/2), where f is the Moody friction factor (function of Reynolds number and relative roughness). For fully turbulent flow in rough pipes, f is approximately constant (Moody chart flat region). This means ΔP ∝ v² ∝ Q² — doubling flow rate quadruples pressure drop. This is the same relationship as congestion in network links: doubling traffic → quadrupling latency increase in many queueing models. The IRC sizing tables are just precomputed Darcy-Weisbach solutions. For this learner, naming the governing equation makes the "rule of thumb" interpretable as physics, not plumber lore. The pump curve interaction (system curve = ΔP vs Q parabola, pump curve = head vs Q, operating point = intersection) is also absent and specifically called for in the calibration. -->
+
+  UNDERLYING PHYSICS — DARCY-WEISBACH:
+    ΔP = f × (L/D) × (ρv²/2)
+    f = Moody friction factor (f(Re, ε/D)); ~constant for fully turbulent flow.
+    ΔP ∝ v² ∝ Q² — doubling flow rate quadruples pressure drop.
+    (Same nonlinear congestion relationship as network queueing: 2× traffic → 4× delay.)
+    IRC/IPC sizing tables = precomputed Darcy-Weisbach solutions.
+    The 8 ft/s velocity limit = erosion + noise bound, not arbitrary code number.
+
+  PUMP CURVE ANALYSIS:
+    System curve: ΔP vs Q (parabola, ΔP = k·Q²)
+    Pump curve: head vs Q (manufacturer data, curves downward)
+    Operating point: intersection of the two curves.
+    Municipal supply: the "pump curve" is the available static pressure minus
+    the system curve losses.
 ```
 
 ### Pressure Reducing Valve (PRV)
