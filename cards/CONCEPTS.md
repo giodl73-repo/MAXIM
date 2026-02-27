@@ -102,7 +102,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 |------|-------|---------------|
 | 3♣ | The Timekeeper | A geological time spiral — Hadean → Archean → Proterozoic → Phanerozoic — mass extinctions marked |
 | 3♦ | The Forecaster | Atmosphere cross-section: troposphere/stratosphere/mesosphere layers + Hadley cell circulation arrows |
-| 3♥ | The Cultivator | Soil horizon profile — O / A / B / C / R layers labeled, root system penetrating down |
+| 3♥ | The Cultivator | Soil horizon profile — O / A / B / C / R layers labeled, root system penetrating down — and in the O horizon, 118 root tips — water, iron, carbon — each one reaching down through every layer, the common substrate that feeds all thirteen fields above |
 | 3♠ | The Voyager | A gravity-assist trajectory — planet, spacecraft arc bending around it, velocity vectors before/after |
 
 ### 2 — Natural World
