@@ -60,6 +60,8 @@ Harmonic   Frequency ratio   Interval above fundamental
 
 This harmonic series is the **physical origin** of why a perfect fifth (3:2) and major third (5:4) sound consonant — they lock onto low-numbered partials.
 
+<!-- @editor[bridge/P1]: The harmonic series is a Fourier decomposition. Any periodic sound is a sum of sinusoids at integer multiples of the fundamental — this is the Fourier series representation of a periodic waveform. Timbre is determined by the relative amplitudes and phases of these partials, which is exactly the magnitude spectrum of the Fourier transform. Consonance and dissonance correlate directly with the degree to which shared partials reinforce vs create beating (closely-spaced frequencies produce amplitude modulation at their difference frequency). This connection — harmonic series = Fourier decomposition, musical timbre = spectral envelope, consonance = shared spectral components, dissonance = beating = AM modulation — is foundational for understanding psychoacoustics, and it's the most natural bridge for an MIT math/TCS background. Helmholtz's "On the Sensations of Tone" (1863) explicitly derives these connections. The current file mentions "Fourier partials" in the opening diagram but never develops the connection. -->
+
 ### Just Intonation vs. 12-TET: The Comma Problem
 
 **Just intonation** tunes intervals to pure integer ratios:
@@ -295,6 +297,8 @@ SESSION 13 — MUSIC THEORY
 ```
 
 **Bridge to notation basics:** `codes/07-MUSICAL-NOTATION.md` covers staff, clefs, note values, key signatures, and time signatures — read that first if notation is unfamiliar.
+
+<!-- @editor[content/P2]: The module map covers the core tonal/classical theory stack well, but is missing two areas flagged as important for this learner: (1) Computational music theory and Music Information Retrieval (MIR) — chord recognition, beat tracking, automatic transcription, and the signal processing foundations (STFT, chromagrams, onset detection). These are well-developed fields bridging signal processing and ML. (2) Schenkerian analysis as hierarchical structure — the idea that tonal pieces have a foreground (surface events), middleground (prolongations), and background (fundamental structure) is a hierarchical decomposition that maps directly to parse trees / multi-level structure in formal languages. Neither is covered in the current module map; a brief conceptual treatment in this overview or a pointer to planned coverage would help calibrate expectations. -->
 
 ---
 

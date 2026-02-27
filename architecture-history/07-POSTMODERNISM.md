@@ -293,6 +293,7 @@ CATIA (Computer Aided Three-dimensional Interactive Application):
   Without it, Bilbao is impossible.
   With it, any surface describable as a continuous geometry is buildable.
 ```
+<!-- @editor[bridge/P3]: CATIA originated in aerospace (F-16 surface modeling at Dassault Systèmes) and crossed into architecture because it solved the general problem of representing and fabricating arbitrary 3D surfaces. This is a recurring pattern: a tool built for one domain's constraints becomes the enabling technology for a different domain that shares the underlying problem. The modern successor is Grasshopper/Rhino (architecture/06-CONTEMPORARY-MOVEMENTS.md) — CATIA was the first-generation enabler; parametric design tools democratized it a decade later. -->
 
 **Guggenheim Museum Bilbao (1997)**
 
@@ -581,4 +582,4 @@ every movement. Whether that is opportunism or genuine pluralism is a debate tha
 continues.
 
 
-*Stub — content to be written.*
+<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->

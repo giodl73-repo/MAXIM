@@ -207,6 +207,7 @@ STRUCTURAL ACHIEVEMENT:
 
 ---
 
+<!-- @editor[bridge/P1]: Brunelleschi is credited with two revolutionary contributions: the dome construction method (covered well) AND the invention of mathematical linear perspective (1425, the peephole experiment). The file lists perspective in the key figures diagram but never develops it. This is a significant omission for a math-background reader: linear perspective is projective geometry — the geometrical study of properties invariant under projection from a point. Brunelleschi's perspective construction is exactly the construction of a projective transformation mapping 3D world coordinates to a 2D picture plane. Alberti's "De Pictura" (1435) formalized this as "costruzione legittima." Any mathematician immediately recognizes this as the theory of projective spaces and homogeneous coordinates, which underpins all modern computer graphics (the MVP matrix in every 3D rendering pipeline is a projective transformation). This is a P1 bridge — any senior engineer coming from graphics, computer vision, or applied math needs this connection to fully understand why linear perspective was a scientific revolution, not just an artistic technique. -->
 ## Bramante and the Classical Ideal: The Tempietto
 
 The Tempietto (1502) in the courtyard of San Pietro in Montorio, Rome is the first
@@ -356,6 +357,7 @@ PROPORTIONAL SYSTEM:
   Octave (1:2), Fifth (2:3), Fourth (3:4), Major Third (4:5)
   These same ratios govern room proportions, window heights,
   intercolumniation — the building is a frozen musical score.
+<!-- @editor[bridge/P2]: Palladio's proportional system derives from the same integer-ratio mathematics as Pythagorean musical tuning — and those ratios ARE the small-integer ratios of Just Intonation, which are also the ratios that appear in the harmonic series (see music-theory/). The connection is explicit: Zarlino's "Le Istitutioni Harmoniche" (1558) — which Palladio read — mapped musical consonances to room proportions directly. This is a genuine cross-domain bridge to the music-theory/ section and to the underlying number theory (rationals as musical intervals). Worth naming explicitly. -->
 ```
 
 ---
@@ -612,4 +614,4 @@ model) to more pointed (della Porta's version, 1588–1590). The dome you see is
 Porta's, based on Michelangelo's structural concept with a different profile.
 
 
-*Stub — content to be written.*
+<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->

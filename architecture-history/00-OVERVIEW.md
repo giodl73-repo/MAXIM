@@ -92,6 +92,8 @@ compression. The flying buttress moves thrust outside the building so the wall c
 stop being a structural element. The steel frame introduces tension members for the
 first time at civilizational scale.
 
+<!-- @editor[bridge/P2]: The structural systems table presents material constraints but doesn't name the underlying pattern: all pre-steel structural evolution is a constraint-satisfaction problem — find a geometry that keeps every element in compression given stone's ~50:1 compression:tension strength ratio. This is the load-path optimization problem, and each era's "breakthrough" is a new feasible solution discovered under those constraints. Any engineer coming from optimization or operations research will recognize this framing immediately. -->
+
 ---
 
 ## The 4 Constraints That Drive Architectural Form
@@ -325,6 +327,7 @@ Contemporary       + CNC + BIM                    replaces tradition.
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a navigation index pointing to other files — not a decision tool. Needs "use/choose X when Y" rows, e.g. "Which structural system for 40m+ span in pre-steel era → arch/vault; for lightweight envelope → steel frame" etc. -->
 ## Decision Cheat Sheet
 
 | Question | File |
@@ -383,4 +386,4 @@ fiction covering a structural brick cone. Gothic tracery is partly ornamental.
 Structural expression is a style choice, not a moral obligation.
 
 
-*Stub — content to be written.*
+<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive; this line is a leftover from scaffolding. -->

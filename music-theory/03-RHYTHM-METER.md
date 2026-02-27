@@ -340,6 +340,7 @@ COMMON RHYTHMIC NOTATIONS:
 
 ---
 
+<!-- @editor[content/P2]: The file covers the classical and jazz rhythm frameworks well but is missing computational/digital dimensions that are directly relevant: (1) MIDI timing — MIDI uses ticks per quarter note (PPQ/TPQB, typically 480 or 960) as an integer subdivision grid, making meter and subdivisions explicit as integer arithmetic; compound meters and tuplets require LCM-based quantization; (2) DAW quantization — "quantizing to a grid" is snapping note timestamps to the nearest tick, with "swing" quantization implemented as a systematic offset to odd-numbered subdivisions; (3) tempo maps — storing BPM as a function of time (not constant) which is standard for orchestral recording sync. These connections between rhythm theory and its computational representation would benefit a reader who thinks in terms of data representations. -->
 ## Common Confusion Points
 
 **6/8 vs 3/4:** Both have 6 eighth notes per measure, but they feel completely different. 6/8 groups as 2×3 (compound duple), 3/4 groups as 3×2 (simple triple). At the same BPM: 3/4 has 3 beats, 6/8 has 2. A famous ambiguous passage: Bernstein's "America" from West Side Story alternates between 6/8 and 3/4.

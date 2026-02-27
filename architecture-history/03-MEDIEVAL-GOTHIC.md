@@ -208,6 +208,7 @@ The flying buttress is the key to understanding why Gothic cathedrals look the w
 they do from outside. The external stone armature is not decoration — it is a machine
 for redirecting vault thrust to the ground.
 
+<!-- @editor[bridge/P2]: The flying buttress system is a load-routing solution: vault thrust is a vector that must be conducted to a foundation without passing through the wall (which now holds glass). The system is essentially a network of force-carrying elements where each node has equilibrium constraints. This maps directly to a flow network or a directed graph where edges carry force magnitudes and node constraints are the equilibrium conditions (ΣF=0 at each joint). Naming this explicitly — Gothic structural engineering as a graph-theoretic flow problem — bridges the concept to CS/math background that the learner already has. Readers from operations research or network flow would also recognize it. -->
 ```
 FLYING BUTTRESS FORCE PATH DIAGRAM
 ====================================
@@ -585,4 +586,4 @@ failures (Beauvais) were how the system learned its limits. The analytical
 understanding came centuries later (19th–20th c. structural analysis of Gothic buildings).
 
 
-*Stub — content to be written.*
+<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->

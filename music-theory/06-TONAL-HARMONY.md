@@ -90,6 +90,7 @@ Third-relation modulation (Schubert's specialty):
 Two chords that SOUND identical but are spelled differently,
 used to pivot between otherwise distantly related keys:
 
+<!-- @editor[bridge/P2]: The "only 3 distinct diminished 7th chords" result is a direct consequence of Z₁₂ group structure. A fully diminished 7th chord = 4 equally-spaced pitch classes (spacing = 3 semitones). The set {0, 3, 6, 9} in Z₁₂ divides the 12 pitch classes into exactly 3 equivalence classes (cosets of the subgroup {0, 3, 6, 9} under addition mod 12 — the subgroup has order 4, so 12/4 = 3 distinct cosets). Similarly: only 4 distinct augmented triads (3 equally-spaced = spacing 4, 12/3=4), only 6 tritone pairs (spacing 6, 12/2=6), only 2 whole-tone scales (spacing 2, 12/6=2). These counts all fall out immediately from Lagrange's theorem applied to subgroups of Z₁₂. The file presents the facts without naming the algebraic structure. Any mathematician will want to know why, and the why is elementary group theory. -->
 DIMINISHED 7TH as pivot:
   Fully diminished 7th (°7) = four minor thirds stacked
   Symmetry: only 3 distinct diminished 7th chords (then cycle repeats)

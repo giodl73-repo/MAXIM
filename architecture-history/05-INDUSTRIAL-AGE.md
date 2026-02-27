@@ -126,6 +126,7 @@ at a railway meeting — 8 days before the deadline.
 CRYSTAL PALACE: STRUCTURAL AND PRODUCTION INNOVATION
 ======================================================
 
+<!-- @editor[bridge/P2]: The Crystal Palace module system is essentially a parameterized design: Paxton defined a single module (7.32m) and derived every component dimension from it. All columns, beams, glazing bars, and glass panes are instances of a small set of types, each with dimensions fixed by the module parameter. This is the same principle as parameterized software components or stamped API contracts — "define the interface once, instantiate at scale." Crystal Palace was the first building where the design was a parameter set rather than a specific geometry. This bridge connects directly to modern parametric design (architecture/06) and to modular software architecture, and it's not named here. -->
 MODULE: 7.32m × 7.32m (24 feet × 24 feet) — Paxton's standard
   Every column: 7.32m center-to-center
   Every beam: spans 7.32m or multiples thereof
@@ -511,4 +512,4 @@ supposed to be temporary (demolished after 20 years) but was saved by its utilit
 as a radio transmitter (1898). It became beloved only after it proved its utility.
 
 
-*Stub — content to be written.*
+<!-- @editor[content/P2]: Trailing stub artifact — remove this line. File content is substantive. -->
