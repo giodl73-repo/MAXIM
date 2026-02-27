@@ -73,7 +73,8 @@ EARLY GRAND PRIX ERA:
 
 ## Formula One: The Regulatory Engineering Laboratory
 
-<!-- @editor[bridge/P1]: The "regulatory cycle: innovation → dominance → ban → new innovation" pattern is stated but not explicitly bridged to the API versioning / adversarial protocol design frame the learner brings. This is exactly the cat-and-mouse of spec design: the FIA publishes a technical regulation (an API contract), teams find loopholes (undocumented behavior the spec doesn't prohibit), the FIA patches the spec (rule change), teams find new exploits. Ground effect: venturi tunnels not prohibited → banned by flat-bottom rule. Active suspension: not prohibited → banned 1994. Double diffuser: legal under 2009 rules → closed 2011. This is the most sophisticated real-world example of "emergent strategies forcing rule evolution" in the entire section. The bridge belongs here, not just in the overview. -->
+F1 technical regulations are the most sophisticated real-world example of adversarial spec design. The FIA publishes a technical regulation (an API contract specifying permitted behavior). Teams interpret the spec to find undocumented behavior the rules don't explicitly prohibit (exploits). The FIA patches the spec (rule change). New exploits emerge. Examples: venturi ground effect tunnels (not prohibited pre-1983, banned by flat-bottom rule), active suspension (not prohibited, banned 1994), double diffuser (legal under ambiguous 2009 wording, closed 2011), DAS steering (Mercedes 2020 — legal for one season, banned 2021). Each cycle compresses: modern F1 teams have legal departments that read new regulations specifically to find the gray areas.
+
 **F1 as engineering system**: The FIA (Federation Internationale de l'Automobile) sets technical regulations. Teams interpret and exploit them. The history of F1 is a history of regulatory cycles: innovation -> dominance -> ban -> new innovation.
 
 ```
@@ -479,9 +480,15 @@ MOTORSPORT -> PRODUCTION CAR TECHNOLOGY:
                Ferrari LaFerrari, McLaren P1 hybrid
                technology share with F1 heritage
   Traction control: F1 late 1980s -> ABS/TC in road cars
-<!-- @editor[content/P2]: F1 data telemetry is mentioned in one line but the scale and sophistication is understated — modern F1 cars generate ~1,500 channels of sensor data at sample rates of 10-100Hz, transmitting ~100GB of data per race weekend via encrypted point-to-point microwave link to the pit wall and then via satellite to the factory. This is a real-time distributed systems problem: sensor fusion across 300+ sensors, live processing by engineers at trackside and remote, latency constraints for pit call decisions. For a VP Engineering at Microsoft who built data pipelines, the F1 telemetry architecture is a compelling production-scale edge computing case. Worth a short diagram. -->
   Data telemetry: F1 real-time monitoring -> predictive
                   maintenance systems in commercial vehicles
+  F1 telemetry scale: ~1,500 sensor channels at 10-100Hz
+  sample rate, ~100GB per race weekend. Data transmitted
+  via encrypted microwave link to pit wall, then satellite
+  to factory for remote engineers. 300+ sensors fused in
+  real-time for pit strategy calls. This is a production-
+  scale edge computing + stream processing system with
+  hard latency constraints on decision-making.
 
   RALLY ORIGINS:
   Turbocharging: Saab Sonett III, group rally cars
@@ -526,8 +533,7 @@ MOTORSPORT -> PRODUCTION CAR TECHNOLOGY:
 
 **"NASCAR restrictor plates make racing safer"** -- They reduce top speed but create pack racing where 30+ cars run 0.5 seconds apart at 300 km/h. The 2019 Daytona 500 featured a terrifying 21-car pileup. Pack racing creates highly dangerous chain-reaction accidents. Restrictor plates are a compromise, not a safety solution.
 
-<!-- @editor[content/P2]: The Bernoulli/ground effect explanation invokes Bernoulli principle but this is technically incomplete — ground effect in racing cars is primarily a venturi effect (accelerated flow through a converging duct reduces static pressure), which is Bernoulli applied to a specific geometry, not just "low pressure under a vehicle." The distinction matters: the sensitivity issue (car rides 5mm from ground, any bump = downforce loss) is because the venturi ratio is extremely sensitive to ride height — small changes in gap dimension produce large changes in flow velocity and thus pressure differential. This is why the ground effect cars were dangerous: the nonlinear sensitivity of downforce to ride height meant that minor track irregularities could cause sudden catastrophic loss of downforce. The Bernoulli-only framing undersells this. -->
-**"Ground effect was a Colin Chapman invention"** -- Chapman's Lotus 78/79 was the first to systematically exploit ground effect through sidepod venturi tunnels. The concept of low pressure under a vehicle (Bernoulli principle) was understood in aerodynamics before this. Chapman's insight was applying it in the specific packaging of a racing car at practical speeds. Other designers (including Murray at Brabham) were exploring similar ideas simultaneously.
+**"Ground effect was a Colin Chapman invention"** -- Chapman's Lotus 78/79 was the first to systematically exploit ground effect through sidepod venturi tunnels. Technically: ground effect is a venturi effect — accelerated airflow through a converging duct (the gap between car underbody and track surface) reduces static pressure (Bernoulli applied to a specific geometry). The critical engineering problem is nonlinear sensitivity: the venturi flow ratio is extremely sensitive to ride height. At 5mm ground clearance, a minor track irregularity changes gap dimension by a significant fraction, causing a sudden large change in flow velocity and pressure differential. This is why ground effect cars were dangerous — a bump could cause instantaneous catastrophic loss of downforce. The 1983 flat-bottom regulation was a safety ban, not just a performance equalization. Other designers (including Murray at Brabham) were exploring similar ideas simultaneously.
 
 **"The Halo device is cosmetically ugly but works"** -- The initial reaction to the Halo (2018 onwards) from fans and some drivers was aesthetic rejection. The device's performance in incidents has been definitive: Grosjean Bahrain 2020 (survived 28-second car fire), Charles Leclerc Belgium 2018 (wheel strike from Fernando Alonso -- simulation shows head strike without Halo was near-certain), multiple other incidents. The engineering evidence for its effectiveness is unambiguous.
 

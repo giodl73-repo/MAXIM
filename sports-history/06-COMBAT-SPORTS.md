@@ -196,7 +196,8 @@ WRESTLING STYLES:
 
 ## Judo: Kano's System
 
-<!-- @editor[bridge/P2]: Kano's systematic analysis and codification process is well described, but no bridge to the software engineering parallel: Kano's approach is a refactoring project. He had a codebase (jujutsu schools) with incompatible interfaces, dangerous edge cases (techniques causing permanent injury = security vulnerabilities), no test suite (no randori = no live feedback), and multiple forks (Tenjin Shinyo-ryu, Kito-ryu) that couldn't interoperate. His solution: extract the safe, effective techniques (keep what works, remove what's dangerous), define a standard interface (kata + randori), add a test harness (live sparring against resisting opponents), create a deployment model (dan/kyu belt ranking = versioned certification). The learner who built VSTS will immediately recognize this pattern. -->
+Kano's approach maps to a large-scale refactoring project: he had a codebase (jujutsu schools) with incompatible interfaces, dangerous edge cases (techniques causing permanent injury — security vulnerabilities), no test suite (no randori — no live feedback loop), and multiple forks (Tenjin Shinyo-ryu, Kito-ryu) that couldn't interoperate. His solution: extract the safe, effective techniques (keep what works, deprecate what's dangerous), define a standard interface (kata + randori), add a test harness (live sparring against resisting opponents = integration testing), and create a deployment model (dan/kyu belt ranking = versioned certification with backward compatibility).
+
 **Jigoro Kano (1860-1938)**: Japanese educator and administrator who founded judo in 1882 -- one of the most significant figures in sport history, not because judo became popular (though it did) but because his approach to creating a sport was methodologically remarkable.
 
 ```
@@ -456,7 +457,13 @@ WEIGHT CUTTING PHYSIOLOGY:
   in 2023 for some divisions
 ```
 
-<!-- @editor[content/P2]: No discussion of officiating technology in combat sports — a significant gap given the learner's stated interest. Electronic scoring in Olympic boxing (introduced 1992 Barcelona, immediately controversial) and taekwondo (optical sensors in body protectors, 2012 London) represent early sensor-based adjudication attempts. Olympic boxing electronic scoring was removed after Atlanta 1996 due to corruption; taekwondo body sensors have materially changed competitive strategy (rewarded high-frequency light contact over powerful technique). This is a direct case study of how measurement systems change the game — teaching to the test applied to sport. -->
+### Officiating Technology in Combat Sports
+
+Electronic scoring in combat sports is a case study of how measurement systems change the game:
+
+- **Olympic boxing (1992 Barcelona)**: Electronic scoring introduced — judges pressed buttons for valid punches, requiring 3 of 5 judges to register within 1 second. Immediately controversial: skilled body shots were missed, flashy head snaps rewarded. System removed after Atlanta 1996 amid corruption allegations. Boxing returned to manual scoring (10-point must system).
+- **Taekwondo (2012 London)**: Piezoelectric sensors in body protectors register impact above a force threshold. Result: competitive strategy shifted from powerful techniques to high-frequency light contact that triggers the sensor. The scoring system taught athletes to optimize for the measurement, not the martial art. This is "teaching to the test" applied to sport.
+- **Fencing**: Electronic scoring dates to 1936 (epee) and is the most mature sensor-based combat sport adjudication. Foil and sabre added priority circuits. Modern fencing is effectively impossible to officiate without electronics.
 
 ---
 

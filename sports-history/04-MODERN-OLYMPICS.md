@@ -141,7 +141,37 @@ AMATEURISM AS CLASS MECHANISM:
 
 ---
 
-<!-- @editor[content/P2]: Officiating technology is entirely absent from this file. The Olympics are where Hawk-Eye, photo-finish cameras, touch-pad timing, and video review systems were developed and first deployed at scale. The learner profile explicitly calls out "officiating technology (Hawk-Eye as computer vision)" as a bridge interest. At minimum: photo-finish cameras (introduced 1948 London), electronic timing to 1/1000s (vs stopwatch ±0.1s), Omega's role as official Olympic timekeeper, and the transition from human-eye to sensor-based adjudication belong here. This is not a minor omission — it's a key technology-sport intersection absent from the most natural home. -->
+## Olympic Timing and Officiating Technology
+
+The Olympics drove the evolution from human-eye to sensor-based adjudication:
+
+```
+OLYMPIC TIMING EVOLUTION
+══════════════════════════
+
+1896 Athens:      Hand-held stopwatch (±0.2s accuracy)
+1912 Stockholm:   Semi-automatic electrical timing
+1932 Los Angeles: First photo-finish camera (Kirby camera)
+                  Resolved a dead heat in 100m
+1948 London:      Omega becomes official Olympic timekeeper
+                  Photo-finish standard, timing to 1/10s
+1964 Tokyo:       Electronic timing to 1/100s
+                  Touch pads in swimming (Omega swim)
+1972 Munich:      Timing to 1/1000s (displayed to 1/100s)
+                  9.95 vs 9.96: Borzov 100m
+2008 Beijing:     Starting blocks with force sensors
+                  False start = reaction time < 0.100s
+2012 London:      Hawk-Eye deployed for tennis
+                  Goal-line technology approved by FIFA
+                  (used at 2014 World Cup, not Olympics)
+2020 Tokyo:       3D athlete tracking (Intel/Alibaba)
+                  Pose estimation via multi-camera CV
+```
+
+Omega's timing infrastructure at a modern Olympics: ~450 tons of equipment, 350 trained timekeepers, sensors on every track lane, pool wall, and finish line. The transition from stopwatch to sensor eliminated an entire class of adjudication disputes — but introduced new ones (false start threshold of 0.100s is a convention, not a physiological constant; some athletes react faster).
+
+---
+
 ## The Political Olympics: Flash Points
 
 ### 1936 Berlin
@@ -394,8 +424,15 @@ DOPING TIMELINE:
 2000 Sydney:   First EPO blood test (indirect markers)
                Gene doping concerns begin
 
-<!-- @editor[bridge/P2]: Biological passport is described operationally but the statistical method is not named. It is anomaly detection via Bayesian longitudinal modeling: establish per-athlete baseline distribution of blood values, flag deviations beyond credible interval. This is statistical process control applied to biomarkers — the "normal range" is athlete-specific, not population-level. The learner's MIT statistics background makes this immediately accessible; naming the method turns "tracking blood values" into a recognizable algorithmic pattern. -->
 2008 Beijing:  Biological Passport introduced
+               Method: Bayesian longitudinal anomaly detection —
+               establish per-athlete baseline distribution of
+               blood values, flag deviations beyond credible
+               interval. This is statistical process control
+               applied to biomarkers: the "normal range" is
+               athlete-specific (individual prior), not
+               population-level. Detects doping by profile
+               change, not by identifying the substance.
                (hematological module -- tracks blood values)
                Steroidal module added 2014
 
