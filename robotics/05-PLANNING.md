@@ -124,7 +124,7 @@ D* LITE (Koenig & Likhachev, 2002):
 
 ## Sampling-Based Planners
 
-<!-- @editor[bridge/P2]: Missing explicit graph-search bridge — calibration specifically requests "motion planning = search algorithms on continuous spaces"; RRT is A* on a lazily-constructed graph in R^n: instead of enumerating graph nodes upfront (infeasible in 6D+), RRT builds the graph incrementally by sampling random configurations and extending toward them; PRM is the precomputed-index version (offline: build the roadmap graph; online: query shortest path on the prebuilt graph = same precomputation-vs-query tradeoff as a database index); any TCS graduate immediately maps these to known graph algorithms once the connection is explicit — without it, they look like unfamiliar DSP primitives -->
+Motion planning in continuous spaces maps directly to graph search: **RRT** is A* on a lazily-constructed graph in R^n — instead of enumerating nodes upfront (infeasible in 6+ DOF), the tree is built incrementally by sampling random configurations and extending toward them. **PRM** is the precomputed-index version: build the roadmap graph offline, then query shortest paths on the prebuilt graph at runtime — the same precomputation-vs-query tradeoff as a database index. Both reduce continuous planning to graph search on an implicitly defined graph.
 
 For high-dimensional C-spaces (6+ DOF arms), grid-based search is infeasible.
 Sampling-based planners explore C_free by sampling random configurations.

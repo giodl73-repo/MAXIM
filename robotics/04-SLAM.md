@@ -40,7 +40,7 @@ pose to build a map. SLAM solves both simultaneously.
 
 ## The SLAM Problem Formulation
 
-<!-- @editor[bridge/P2]: Missing explicit dead-reckoning + map-updating bridge — calibration specifically requests this framing; SLAM = GPS-denied localization = two coupled subproblems: (1) dead reckoning: propagate pose estimate forward using IMU/odometry, drift accumulates unboundedly without correction; (2) map updating + loop closure: when the robot revisits a known location, the loop closure constraint acts as a distributed transaction that retroactively corrects accumulated drift across the entire trajectory; this is directly analogous to distributed systems reconciliation: local operations proceed optimistically, a global consistency check corrects all prior state; any engineer who has debugged vector clock drift or optimistic concurrency control maps this immediately -->
+SLAM decomposes into two coupled subproblems: (1) **dead reckoning** — propagate pose forward using IMU/odometry, with drift accumulating unboundedly without correction; (2) **map updating + loop closure** — when the robot revisits a known location, the loop closure constraint retroactively corrects accumulated drift across the entire trajectory. This is the **optimistic concurrency + reconciliation** pattern: local operations proceed without global coordination (dead reckoning), and periodic global consistency checks (loop closure) correct all accumulated state divergence. Any engineer who has debugged vector clock drift or designed checkpoint/restore systems maps this immediately.
 
 ### Probabilistic State Estimation
 
