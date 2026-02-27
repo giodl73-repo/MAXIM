@@ -2,20 +2,42 @@
 
 ## Distillation, Absorption, Extraction, Membranes, Adsorption
 
-<!-- @editor[diagram/P2]: The "Separation Selection Framework" is a text list, not a landscape diagram. The file needs an ASCII diagram showing the separation process hierarchy — feed composition → driving force selection → equipment type → column/stage design. The current text block lists items but doesn't show how they relate to one another (e.g., which driving forces work for which feed phases, how equilibrium stages vs differential contact differ architecturally). Rework as a layered selection tree or process flow. -->
 ```
-SEPARATION SELECTION FRAMEWORK
-
-Driving force:
-  Volatility difference → DISTILLATION (most common)
-  Solubility difference → LIQUID-LIQUID EXTRACTION
-  Size/charge difference → MEMBRANES, CHROMATOGRAPHY
-  Adsorption affinity → ADSORPTION, PSA
-  Crystallization → CRYSTALLIZATION (solid-liquid)
-
-Phase contacting method:
-  Equilibrium stages (trays, mixer-settlers) vs
-  Differential contact (packed columns, membranes)
+SEPARATION SELECTION — FROM FEED TO EQUIPMENT
+┌─────────────────────────────────────────────────────────────────────────┐
+│ FEED MIXTURE                                                             │
+│   What phases?  What property differs between components?                │
+└────────┬────────────────────────────────────────────────────────────────┘
+         │
+         ├─ Boiling point differs (α > 1.05)?
+         │   └─► DISTILLATION
+         │       ├─ Tray column (equilibrium stages, high throughput)
+         │       └─ Packed column (low pressure drop, smaller scale)
+         │
+         ├─ Solubility differs in a solvent?
+         │   └─► LIQUID-LIQUID EXTRACTION
+         │       ├─ Mixer-settler (equilibrium stages)
+         │       └─ Packed/spray column (differential contact)
+         │
+         ├─ Size or charge differs?
+         │   └─► MEMBRANES
+         │       ├─ MF/UF (size, particles/macromolecules)
+         │       ├─ NF/RO (size + charge, dissolved solutes)
+         │       └─ Gas separation (permeability difference)
+         │
+         ├─ Surface affinity differs?
+         │   └─► ADSORPTION
+         │       ├─ PSA (pressure swing — gas separation)
+         │       ├─ TSA (thermal swing — solvent recovery)
+         │       └─ Chromatography (analytical or prep-scale)
+         │
+         └─ Solid-liquid phase boundary?
+             └─► CRYSTALLIZATION (cooling, evaporative, antisolvent)
+┌─────────────────────────────────────────────────────────────────────────┐
+│ CONTACTING METHOD:                                                       │
+│   Equilibrium stages: each stage reaches VLE/LLE → step-off design      │
+│   Differential contact: continuous gradient → NTU/HTU design             │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
 Separations typically account for 40–80% of capital and operating cost in chemical plants.
@@ -41,8 +63,9 @@ y_A = α x_A / (1 + (α−1) x_A)    (binary, for constant α)
 
 ## Distillation
 
-<!-- @editor[bridge/P1]: Distillation is the canonical separation algorithm — exploiting a property difference (volatility) to partition a mixture using a staged cascade. The bridge to software: merge sort and radix sort are also staged separation algorithms that exploit a property (key ordering) to partition data. The reflux ratio is analogous to re-examination passes in sorting. The McCabe-Thiele step-off method is a graphical fixed-point iteration — the learner knows fixed-point iteration. This bridge should appear before the graphical method explanation. -->
 The workhorse of chemical engineering separations. Based on volatility differences.
+
+**Engineering bridge:** Distillation is a staged separation algorithm — each tray is a comparison/partition step exploiting a property difference (volatility), analogous to how merge sort exploits key ordering at each comparison. Reflux (returning product to the column) corresponds to re-examination passes: it increases purity at the cost of throughput, the same tradeoff as increasing comparison passes in a sorting network. The McCabe-Thiele step-off method below is graphical fixed-point iteration: alternately evaluating the equilibrium curve and operating line until convergence, identical in structure to iterating x_{n+1} = g(x_n) between two curves.
 
 ### McCabe-Thiele Graphical Method (Binary Distillation)
 

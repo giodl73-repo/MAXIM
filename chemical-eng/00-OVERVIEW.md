@@ -1,7 +1,5 @@
 # Chemical Engineering — Landscape & Field Taxonomy
 
-<!-- @editor[structure/P2]: Missing Common Confusion Points section — gotchas like "thermodynamic equilibrium ≠ kinetics", "space time ≠ residence time", "HAZOP is not a checklist" should live at the overview level to orient the reader before diving into modules -->
-
 ## The Big Picture
 
 Chemical engineering is the discipline of **transforming raw materials into useful products at scale**.
@@ -89,23 +87,43 @@ This lets you estimate heat transfer from mass transfer data (and vice versa) �
 
 ---
 
-<!-- @editor[bridge/P2]: The computing bridge table lists numerical algorithm parallels (Newton-Raphson, ODE integration) but misses the higher-level architectural bridges the learner would find more compelling: distillation → separation algorithms, CSTR vs PFR → batch vs streaming processing, PID control → software control loops (CI/CD rate gates), HAZOP → systematic fault injection testing. Add these to make the table peer-level rather than "here's the math you know." -->
 ## Connection to Computing / Data Systems
 
-| ChE Concept | Software/Data Analogy |
-|------------|----------------------|
+| ChE Concept | Software/Architecture Analogy |
+|------------|-------------------------------|
+| Batch reactor | MapReduce / batch processing: all data processed together, then output |
+| CSTR (continuous stirred) | Perfectly mixed message queue: every item sees the same processing state |
+| PFR (plug flow) | Streaming pipeline: each item processed in sequence, no mixing |
+| Distillation (staged separation) | Staged sorting algorithm: each tray is a comparison/partition step |
+| Reflux ratio | Re-examination passes: more passes = higher purity, lower throughput |
+| PID control loop | Software rate limiter / autoscaler: P=proportional, I=cumulative, D=predictive |
+| Integral windup in PID | Queue accumulation under sustained overload — same anti-windup logic |
+| HAZOP guide words | Chaos engineering fault categories: NO=drop, MORE=overload, REVERSE=deadlock |
 | Material balance (recycle) | Graph with feedback loops (same convergence challenges) |
 | Process simulation (ASPEN) | ODE/algebraic system solving: same sparse Newton methods |
-| Reactor design (PFR) | Integration of ODE: same as scipy.integrate.solve_ivp |
-| CSTR steady state | Nonlinear algebraic equation: same as Newton-Raphson |
-| Flash calculation (Rachford-Rice) | Root-finding problem: same bisection/Brent |
 | Pinch analysis | Optimization under linear constraints |
-| HAZOP | Systematic failure mode analysis (like FMEA) |
-| Process control (PID) | See control-theory/ |
 
 ---
 
-<!-- @editor[structure/P1]: Missing Decision Cheat Sheet — the "Decision Guide" below is a navigation flowchart routing to modules, not a "use X when Y" decision table. Add a table: when to use CSTR vs PFR, when to use distillation vs extraction, when to use PFD vs P&ID, etc. -->
+## Decision Cheat Sheet
+
+| Design question | Use this | Because |
+|----------------|----------|---------|
+| Reactor: liquid-phase, flexible, small batch | Batch reactor | Easy cleanup between products; handles variable demand |
+| Reactor: continuous, well-mixed, liquid | CSTR | Simple control; good for autocatalytic or highly exothermic (heat removal easier) |
+| Reactor: continuous, gas-phase, high conversion | PFR (tubular) | Higher conversion per volume for positive-order kinetics |
+| Separation: components differ in boiling point | Distillation | Workhorse; α > 1.05 required; most mature technology |
+| Separation: components form azeotrope | Extractive distillation or liquid-liquid extraction | Azeotrope breaks the volatility-based approach |
+| Separation: heat-sensitive products (pharma, food) | Membrane or vacuum distillation | Avoids thermal degradation |
+| Separation: dilute solute from large volume | Adsorption (PSA, TSA) or absorption | Efficient at low concentrations |
+| Flowsheet documentation: early design | PFD (Process Flow Diagram) | Shows major equipment, streams, mass/energy balances |
+| Flowsheet documentation: construction/ops | P&ID (Piping & Instrumentation Diagram) | Shows every valve, instrument, interlock — the construction blueprint |
+| Control: fast process variable (flow) | PI controller (tight tuning) | Fast dynamics; D-action unnecessary |
+| Control: slow process variable (composition) | Cascade: fast inner + slow outer loop | Compensates for analyzer delay |
+| Safety review: systematic hazard identification | HAZOP with full team | Structured, auditable, covers all failure modes per guide word |
+
+---
+
 ## Decision Guide
 
 ```
@@ -126,3 +144,17 @@ WHAT'S YOUR ChE QUESTION?
         └─ How do we design/operate/control the whole plant safely?
             └─► 05-PROCESS-DESIGN
 ```
+
+---
+
+## Common Confusion Points
+
+**Thermodynamic equilibrium ≠ kinetics.** Equilibrium (K_eq) tells you the maximum possible conversion at given T and P. Kinetics tells you how fast you get there. A catalyst changes the rate (kinetics) but never the equilibrium position. You cannot beat equilibrium by adding more catalyst — only by changing conditions (T, P) or removing products.
+
+**Space time ≠ residence time.** Space time τ = V/v₀ uses the inlet volumetric flow. Mean residence time t̄ = V/v uses the actual volumetric flow at reactor conditions. They are equal only for constant-density systems (most liquids). For gas-phase reactions where moles change, τ ≠ t̄.
+
+**HAZOP is not a checklist.** It is a structured, team-based, node-by-node deviation analysis. The guide words (NO, MORE, LESS, REVERSE...) are applied systematically to every process variable at every node. A pre-filled checklist misses the whole point: the value comes from the team discussion, not the form.
+
+**Separation costs dominate.** In most chemical plants, 40-80% of capital and operating cost is in separations, not reactions. Choosing the right separation method (distillation vs extraction vs membrane) is often the most consequential design decision.
+
+**Steady state ≠ equilibrium.** A CSTR at steady state has constant concentrations, but the reaction is continuously running — it is NOT at chemical equilibrium (except at complete conversion). Equilibrium is a thermodynamic concept; steady state is a mass-balance concept.
