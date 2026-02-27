@@ -13,22 +13,22 @@ This file tracks everything else.
 ## Active Projects
 
 ### 1. Editorial Fix Pass
-**Status**: 🔄 In progress
+**Status**: ✅ Complete
 **Home**: `REVIEW.md`
 **Skill**: `/reference-review fix <dir>` · `/reference-review fix-batch <section>`
-**Scope**: ~695 @editor tags across 58 directories. 95 P1s, 541 P2s, 57 P3s.
+**Scope**: ~1,945 @editor tags across 167 directories. All resolved.
 **Goal**: Zero outstanding tags → all 168 directories at "polished" status.
-**Notes**: Fix skill added to `/reference-review`. First batch of 8 parallel agents launched 2026-02-26. Manufacturing test fix verified quality before scale-up.
+**Result**: Zero tags remaining. 167 of 168 directories clean (virology blocked by content policy). Completed 2026-02-26 across Phases 12–15.
 
 ---
 
 ### 2. Concept Index
-**Status**: 🟡 Skill built, pilot complete, full build pending
+**Status**: 🟡 Skill built, pilot complete, full build ready
 **Home**: `CONCEPT-INDEX.md`
 **Skill**: `/reference-index build` · `/reference-index update <dir>`
 **Scope**: Cross-cutting concept index — entries for terms discussed substantively in 2+ sections. Estimated 400-600 entries at full scale.
 **Pilot**: 10-directory pilot produced 89 entries. Format proven: `**Term** — [dir/NN](dir/NN-FILENAME.md)` with MkDocs links.
-**Next**: Full build after fix pass completes (content needs to be stable before indexing).
+**Next**: Fix pass complete — content is stable. Ready for full build.
 
 ---
 
@@ -49,7 +49,7 @@ This file tracks everything else.
 ---
 
 ### 4. Reading Maps
-**Status**: ❌ Not started
+**Status**: ✅ Complete
 **Home**: `READING-MAPS.md` (proposed)
 **Skill**: None yet
 **Scope**: 5-7 curated learning paths through the 52 volumes. Each path is a sequence of 8-12 volumes with one sentence per stop explaining why it's next.
@@ -71,7 +71,7 @@ This file tracks everything else.
 ---
 
 ### 5. Prerequisite Graph
-**Status**: ❌ Not started
+**Status**: ✅ Complete
 **Home**: `PREREQUISITES.md` (proposed)
 **Skill**: None yet
 **Scope**: Dependency table showing which volumes assume knowledge from which other volumes. Not a full DAG (most volumes are self-contained) — just the real dependencies.
@@ -151,12 +151,12 @@ Reader-facing guide: how to navigate, what the card symbols mean, how bridges wo
 
 | # | Project | Status | Files | Blocking? |
 |---|---------|--------|-------|-----------|
-| 1 | Editorial Fix Pass | 🔄 In progress | REVIEW.md | Blocks Index build |
-| 2 | Concept Index | 🟡 Pilot done | CONCEPT-INDEX.md | Blocked by #1 |
+| 1 | Editorial Fix Pass | ✅ Complete | REVIEW.md | — |
+| 2 | Concept Index | 🟡 Pilot done | CONCEPT-INDEX.md | Unblocked — ready for full build |
 | 3 | Bill of Materials | ❌ Not started | — | Independent |
-| 4 | Reading Maps | ❌ Not started | — | Benefits from #5 |
-| 5 | Prerequisite Graph | ❌ Not started | — | Independent |
+| 4 | Reading Maps | ✅ Complete | READING-MAPS.md | — |
+| 5 | Prerequisite Graph | ✅ Complete | PREREQUISITES.md | — |
 | 6 | Atlas | ❌ Not started | — | Independent |
 
-**Dependency chain**: Fix Pass → Concept Index (content must stabilize before indexing)
+**Dependency chain**: Fix Pass ✅ → Concept Index (now unblocked — content is stable)
 **Everything else is independent** — can be built in any order.
