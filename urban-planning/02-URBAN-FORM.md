@@ -266,7 +266,8 @@ SPACE SYNTAX MEASURES:
   On how many shortest paths between
   all pairs of spaces does this street
   appear?
-<!-- @editor[bridge/P2]: "Choice (Betweenness Centrality)" IS graph-theoretic betweenness centrality — the same metric from network analysis (Brandes algorithm, O(VE) time). The file names the term but never makes this explicit. For a TCS reader, calling out that Space Syntax applies standard graph betweenness centrality to urban street networks is the key conceptual bridge — it converts an opaque urban planning term into a known CS primitive. -->
+  (This IS graph-theoretic betweenness centrality — Brandes algorithm, O(VE) —
+   applied to the street network graph. Standard CS network analysis metric.)
   High choice = "through movement"
   High integration = "to movement"
 

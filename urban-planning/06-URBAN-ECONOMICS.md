@@ -79,7 +79,8 @@ MARSHALL'S THREE MECHANISMS:
    |  inputs at lower cost.                  |
    +-----------------------------------------+
 
-<!-- @editor[bridge/P2]: Knowledge spillovers and agglomeration economies have a direct analog to platform network effects and Metcalfe's law (value scales superlinearly with connected participants). Both involve positive externalities that scale with density/size, creating self-reinforcing feedback loops — the same mechanism behind why Azure or GitHub becomes more valuable the more teams use it. The guide discusses these dynamics extensively but never names the network-effects bridge that is the obvious entry point for this learner. Zipf's law (rank × size ≈ constant) also appears in network degree distributions and information theory — not called out. -->
+Agglomeration economies are **platform network effects** applied to physical space: value scales superlinearly with density (Metcalfe's law), creating self-reinforcing feedback loops. Zipf's law for city sizes (rank x size = constant) also appears in network degree distributions and word frequency in information theory.
+
 3. KNOWLEDGE SPILLOVERS (Face-to-Face)
    +-----------------------------------------+
    |                                         |

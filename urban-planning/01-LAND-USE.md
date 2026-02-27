@@ -180,7 +180,8 @@ BULK REGULATION SYSTEM:
   FAR is the fundamental density control lever.
 ```
 
-<!-- @editor[bridge/P2]: The bulk regulation system is constraint satisfaction expressed geometrically: permitted uses = feasible set, FAR = capacity constraint (Σ floor area / lot area ≤ FAR_max), setbacks = spatial exclusion constraints, height limit = upper bound. A building permit is a feasibility check. Any engineer with LP or optimization background maps this immediately. The connection to constraint satisfaction is natural and absent despite being the strongest TCS bridge into land-use law. -->
+Bulk regulations are **constraint satisfaction expressed geometrically**: permitted uses define the feasible set, FAR is a capacity constraint (sum(floor_area) / lot_area <= FAR_max), setbacks are spatial exclusion constraints, and height limits are upper bounds. A building permit is a feasibility check — does this proposed configuration satisfy all constraints simultaneously?
+
 ### FAR as a Density Dial
 
 ```
