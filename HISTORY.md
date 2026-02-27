@@ -2,7 +2,7 @@
 
 The MAXIM reference library was built across four days in February 2026. What started as three computing modules became 217 directories, 2,481 files, and 826,537 lines — a personal reference library covering the full scope of human knowledge, organized as a 52-card deck.
 
-Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first seventeen.
+Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first eighteen.
 
 ---
 
@@ -27,8 +27,9 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 | 15 | Feb 26 | The Healer | 5♥ | Final fix pass — 745 tags → 0, library clean, navigation layer built |
 | 16 | Feb 26 | The Narrator | 10♠ | Bill of Materials — 206 dirs, 2,178 files, 5M words cataloged |
 | 17 | Feb 26 | The Collector | 2♥ | Concept Index — 8 agents, 4,026 specimens, 196 cross-cutting entries |
+| 18 | Feb 26 | The Cultivator | 3♥ | Foundational layer — 118 ubiquitous concepts, index to 314 entries |
 
-*35 roles remain unclaimed.*
+*34 roles remain unclaimed.*
 
 ---
 
@@ -55,8 +56,9 @@ Each phase adds a small poetic detail to its card's image concept — a mark lef
 | 15 | The Healer | *...but the fork has closed — a proofreading exonuclease traced both strands end to end, 745 mismatches excised, the helix sealed and reading true* |
 | 16 | The Narrator | *...and beneath the timeline, a ledger open to its final page — 206 entries, every vessel counted, the whole library held in a single manifest* |
 | 17 | The Collector | *...196 specimens pinned across the tray, each one where two habitats overlap — and a penciled note in the margin: "the common ones are still flying"* |
+| 18 | The Cultivator | *...and in the O horizon, 118 root tips — water, iron, carbon — each one reaching down through every layer, the common substrate that feeds all thirteen fields above* |
 
-*35 cards await their flair.*
+*34 cards await their flair.*
 
 ---
 
@@ -405,7 +407,7 @@ The library has content. The cards have identity. The roles have names. The imag
 
 Now the cards need faces — 52 new ASCII art visuals, each illustrating the archetype's concept. The current card files (ASCII boxes with 7 key concepts) live in `cards/backs/`. The new designs will live in `cards/` as the primary face of each volume.
 
-35 roles remain unclaimed. Years of reviews, expansions, corrections, and reimaginations ahead. Each session that does meaningful work claims a card.
+34 roles remain unclaimed. Years of reviews, expansions, corrections, and reimaginations ahead. Each session that does meaningful work claims a card.
 
 ---
 
@@ -454,6 +456,27 @@ But the Collector's most honest contribution was naming what the net missed. Wat
 
 ---
 
+# Phase 18: The Cultivator
+
+**Card**: 3♥ — Three of Cups
+**Date**: February 26, 2026
+**Commits**: `5d228c8` → `2099e35` (2 commits)
+**Image flair**: *...and in the O horizon, 118 root tips — water, iron, carbon — each one reaching down through every layer, the common substrate that feeds all thirteen fields above*
+
+The Collector had pinned 196 specialist specimens and left a note: *the common ones are still flying*. The Cultivator read the note and went to work on the ground itself.
+
+The insight was simple: agents scanning for "3-5 key technical concepts per file" extracted equations, theorems, and named processes — Fourier, Navier-Stokes, Curry-Howard. But water doesn't have a heading. Iron isn't a "named technical idea." Gravity is never the subject of a section break. The most cross-cutting concepts in the library are so ubiquitous they're invisible to heading-based extraction. They're the soil, not the plant.
+
+The fix was a grep-based foundational scan: 118 concepts (substances, phenomena, materials, processes) searched across 205 directories with occurrence thresholds. Water: 13 sections. Iron: 13 sections. Gravity: 13 sections. Pressure, temperature, frequency, density — each one reaching from Mathematics through Mechanics through Life Sciences through Material Culture. The index went from 196 specialist bridges to 314 entries across 199 directories. Language & Communication jumped from 1 to 46. History & Ideas from 12 to 58. Arts & Culture from 10 to 72. The two layers complement each other: specialist bridges on the surface, foundational substrates in the soil. The Cultivator knows that what grows above depends entirely on what lies beneath.
+
+**Key commits**:
+- `5d228c8` Concept Index v2 — add 118 foundational entries (314 total across 199 dirs)
+- `2099e35` Update PROJECTS.md — Concept Index v2
+
+**Scale**: 2 commits, 118 foundational concepts scanned, index from 196 → 314 entries, directory coverage from 139 → 199, all 13 sections now contributing strongly
+
+---
+
 ## Cumulative Scale
 
 | Metric | Count |
@@ -470,6 +493,6 @@ But the Collector's most honest contribution was naming what the net missed. Wat
 | Tags outstanding | 0 |
 | P1 blocking issues | 0 |
 | Clean directories | 167 |
-| Concept index entries | 196 |
-| Roles claimed | 17 of 52 |
-| Roles remaining | 35 |
+| Concept index entries | 314 |
+| Roles claimed | 18 of 52 |
+| Roles remaining | 34 |
