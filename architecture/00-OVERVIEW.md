@@ -318,19 +318,18 @@ The software discipline borrowed the vocabulary because the cognitive challenge 
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a navigation index ("see file X for Y topic") rather than a decision tool. It should guide choices — e.g. "which structural system for X constraint → moment frame vs shear wall"; "passive design strategy for hot-dry vs hot-humid climate → thermal mass vs ventilation"; "which delivery method when speed matters vs quality matters." The current table maps questions to files, not to actionable answers. -->
 ## Decision Cheat Sheet
 
-| Question | Key concept | File |
-|----------|-------------|------|
-| What does an architect actually do? | Integrating discipline — art + eng + social science | 00-OVERVIEW |
-| How do I read a building plan? | Circulation, program, adjacency matrix | 01-SPATIAL |
-| Why does that structure look like that? | Load path, spanning system, lateral system | 02-STRUCTURAL |
-| How does a building stay comfortable without HVAC running full blast? | Passive design, thermal mass, orientation | 03-ENVIRONMENTAL |
-| What is in the ceiling plenum? | MEP coordination, structural grid, BIM clash detection | 04-BUILDING-SYSTEMS |
-| How does a $500M project get designed? | AIA phases, CDs as specification, BIM | 05-DESIGN-PROCESS |
-| What is driving contemporary architecture? | Mass timber, parametric, biophilic, adaptive reuse | 06-CONTEMPORARY |
-| How does this building relate to its city? | Urban typology, ground activation, TOD | 07-URBAN |
+| Situation | Approach | Why |
+|-----------|----------|-----|
+| Long-span open floor plan (>12m) | Steel moment frame or composite | Steel spans longest; concrete needs post-tensioning for >12m |
+| Lateral resistance in seismic zone | Moment frame or braced frame (steel); shear wall (concrete) | Ductility requirements drive system choice; shear walls are stiffest |
+| Hot-dry climate, minimize HVAC | Thermal mass + night ventilation + small windows | Mass stores coolth overnight; re-radiates during day; reduces solar gain |
+| Hot-humid climate, minimize HVAC | Cross ventilation + shading + elevated floors | Airflow and shade are primary; mass doesn't help when nights are warm |
+| Speed of delivery paramount | Design-build or CM-at-risk | Overlapping design and construction phases; single point of responsibility |
+| Quality / design control paramount | Design-bid-build (traditional) | Full design documentation before construction begins; competitive bidding |
+| Sustainability certification needed | LEED / Passivhaus / BREEAM framework from schematic design | Integrated early; retroactive certification is expensive and limited |
+| Adaptive reuse of existing structure | Structural assessment first; code compliance survey | Existing structure constrains everything; understand before designing |
 
 ---
 

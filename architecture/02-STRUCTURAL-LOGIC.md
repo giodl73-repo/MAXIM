@@ -551,8 +551,7 @@ A core architectural design decision: is the structure an aesthetic element or a
 
 ## Data Center Structural Context
 
-<!-- @editor[audience/P3]: "As a VP running data center projects at Microsoft" — this address is too specific to one reader's role. The data center structural context section is genuinely valuable but would be equally relevant to any engineer building large compute facilities. Rephrase as "For large-scale compute facilities (data centers, HPC centers)..." to make the bridge universal while retaining the specificity. The CLAUDE.md bridge hierarchy puts stack-specific bridges (Azure/Microsoft) at P3 — supplementary, not load-bearing. -->
-As a VP running data center projects at Microsoft, these structural specifics are directly applicable:
+For large-scale compute facilities (data centers, HPC centers), these structural specifics are directly applicable:
 
 ```
   DATA CENTER STRUCTURAL REQUIREMENTS
