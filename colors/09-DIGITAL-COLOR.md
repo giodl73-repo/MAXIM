@@ -383,6 +383,7 @@ TONE MAPPING FOR RENDERS:
 
 ---
 
+<!-- @editor[content/P2]: CIECAM02 appears in the colors/00-OVERVIEW.md module architecture diagram as "COLOR APPEARANCE MODELS: CIECAM02 and successors" but never appears in any guide in this section. 09-DIGITAL-COLOR.md covers ICC profiles and rendering intents, which are the direct application context for CIECAM02 (it is the foundation for the iCAM and CAM02 rendering intents in high-end ICC workflows). A brief section on color appearance models — what CIECAM02 adds over CIELAB (viewing conditions: luminance adaptation, surround, background contrast), why it matters for cross-media matching (print at 2000 lux vs screen at 200 lux), and the OKLab lineage (OKLab was designed as a practical approximation of CIECAM16/ZCAM JMh space) — would close this gap and tie together the entire module map. -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

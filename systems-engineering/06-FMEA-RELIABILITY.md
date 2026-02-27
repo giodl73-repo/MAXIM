@@ -24,6 +24,7 @@ QUANTITATIVE RELIABILITY:
 
 ---
 
+<!-- @editor[bridge/P2]: FMEA → distributed systems failure analysis bridge is missing. FMEA is the physical-systems equivalent of what distributed systems engineers do when analyzing failure modes of services: for each component (service/node/network link), what happens if it fails? How does that cascade? Is there a SPOF? The concepts of "local effect → next-higher effect → end effect" map directly to "service failure → dependency cascade → user-visible impact." The RPN (Severity × Occurrence × Detection) has direct analogs in SLO/error budget thinking. Add a bridge sentence here. -->
 ## FMEA (Failure Mode and Effects Analysis)
 
 ### FMEA Process

@@ -517,6 +517,7 @@ For software verification (not pure mathematics):
 
 ---
 
+<!-- @editor[content/P2]: Dafny has no dedicated section despite being Microsoft-built and arguably the most accessible entry point to deductive verification for working engineers. It occupies a different tier than Coq/Lean/Isabelle: you write annotated code (pre/post conditions, loop invariants, decreases clauses) and Z3 discharges the proof obligations automatically. No tactic scripting. This is the tool this learner is most likely to actually use. Add a section covering: ghost variables, verification conditions, the auto-active verification model (no interactive tactic proof), and a concrete example. Compare to the Hoare triples already in the guide. -->
 ## Decision Cheat Sheet
 
 | Situation | Tool |

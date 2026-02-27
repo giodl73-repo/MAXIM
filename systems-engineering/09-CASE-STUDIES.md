@@ -25,6 +25,7 @@ SOFTWARE-SE INTERSECTIONS:
   Healthcare.gov launch (2013)     Requirements + integration failure
   Knight Capital (2012)            Change management, deployment risk
 ```
+<!-- @editor[content/P2]: Knight Capital (2012) and Healthcare.gov (2013) are listed in the case study map but never developed. Both are directly relevant to software engineers: Knight Capital = $440M loss in 45 minutes from a deployment change management failure (dead code path reactivated); Healthcare.gov = requirements/integration failure at unprecedented scale. These are the two cases most likely to resonate with this learner's background. Add sections for both, similar in structure to the Denver Baggage section. -->
 
 ---
 

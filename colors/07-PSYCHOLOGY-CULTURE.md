@@ -336,6 +336,7 @@ THEORY (Palmer & Schloss, 2010):
 
 ---
 
+<!-- @editor[content/P2]: WCAG (Web Content Accessibility Guidelines) contrast ratios are completely absent. This is a direct practical application of color perception for this learner: WCAG 2.1 AA requires 4.5:1 contrast ratio for normal text, 3:1 for large text. The contrast ratio formula uses relative luminance (computed from sRGB values via the gamma-linearization formula). WCAG 3.0 is moving to APCA (Advanced Perceptual Contrast Algorithm) which uses a more accurate lightness model. Given the calibration explicitly lists "color psychology/accessibility (WCAG)" as needed content, this is a significant gap. Should be its own subsection adjacent to the colorblind/accessibility material already in the file. -->
 ## Decision Cheat Sheet
 
 | Question | Answer |

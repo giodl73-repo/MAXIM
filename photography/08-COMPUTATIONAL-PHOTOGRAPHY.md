@@ -322,6 +322,7 @@ TIME-OF-FLIGHT LIDAR (iPhone 12 Pro+, iPad Pro):
     LiDAR + camera → point cloud + texture → 3D models
     Apps: Scaniverse, Polycam → scan rooms, objects for 3D printing or AR
     Industrial: LIDAR point clouds replace manual measurement for as-built documentation
+<!-- @editor[content/P2]: Photogrammetry and Structure-from-Motion (SfM) deserve their own section — this is the computational photography technique with the most direct ML/CV connections. SfM pipeline: feature detection (SIFT/ORB/SuperPoint) → feature matching → RANSAC → bundle adjustment → dense reconstruction (MVS). The relationship to panorama stitching (both use RANSAC + bundle adjustment) and to the iOS/Android photogrammetry apps (PolyCam, KIRI Engine, RealityCapture) should be made explicit. NeRF (Neural Radiance Fields) and Gaussian Splatting are the 2023+ ML extensions. This is a significant gap given the calibration calls out "photogrammetry — direct ML connections." -->
 ```
 
 ---
