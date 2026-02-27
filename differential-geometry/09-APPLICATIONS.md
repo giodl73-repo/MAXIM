@@ -4,6 +4,7 @@
 
 Differential geometry is the language of fundamental physics, modern robotics, and increasingly, machine learning. The concepts from 01-08 connect directly to real systems.
 
+<!-- @editor[diagram/P2]: The landscape diagram shows 4 application domains (GR, Gauge, Robotics, ML) but omits two first-class applications: symplectic geometry / Hamiltonian mechanics (which has its own section in the file), and information geometry / Fisher metric (which is the most direct DG → ML bridge). The diagram also doesn't show how the application domains relate to the source modules — it should show arrows from the DG machinery to the applications. Expand to a 6-domain diagram and add dependency arrows (e.g., Riemannian geometry → ML optimization; principal bundles + connections → gauge theories + equivariant networks; symplectic manifolds → Hamiltonian mechanics + integrators). -->
 ```
 +------------------------------------------------------------------+
 |              APPLICATIONS OF DIFFERENTIAL GEOMETRY               |
@@ -284,6 +285,7 @@ As ML models work with data having inherent geometric structure, Riemannian geom
   compact Lie groups into irreducibles. For SO(3): spherical harmonics basis.
   Clebsch-Gordan coefficients: how tensor products of irreps decompose.
 ```
+<!-- @editor[content/P2]: Geometric deep learning section covers equivariant networks well but omits the parallel transport → attention bridge explicitly flagged in the sweep calibration. The connection: transformer self-attention computes a weighted combination of value vectors using query-key scores; this is a learnable parallel transport operator on a sequence. Non-trivial attention patterns (where context at position i affects representation at position j differently depending on the path of attention) have the structure of a connection with non-zero curvature. Papers on "geometric attention" (e.g., Hutchinson et al. 2021, equivariant attention) make this explicit. Even informally, the "attention head = connection coefficient" framing is the most intuitive bridge from DG machinery to transformer architecture for a mathematically sophisticated reader. Also missing: information geometry perspective on neural network training — the Fisher information matrix as the metric tensor on the parameter manifold, natural gradient as Riemannian gradient, and K-FAC/Shampoo as approximate natural gradient methods. -->
 
 **Hyperbolic Neural Networks**:
 
@@ -329,9 +331,11 @@ The phase space of classical mechanics is a symplectic manifold:
   Encodes conserved quantities for G-symmetric Hamiltonians.
   Angular momentum = moment map for SO(3) action on T*R^3.
 ```
+<!-- @editor[content/P2]: Symplectic geometry section is thin relative to its importance. Missing: (1) Symplectic integrators — numerical methods that preserve the symplectic structure (Leapfrog/Störmer-Verlet, Ruth-Forest symplectic RK methods), used in molecular dynamics, N-body simulation, and Hamiltonian Monte Carlo (HMC). HMC is the standard algorithm for Bayesian posterior sampling in probabilistic ML (Stan, PyMC, NumPyro). (2) Poisson manifolds as a generalization (non-degenerate → degenerate; allows Dirac's constrained mechanics). (3) Hamiltonian neural networks (Greydanus et al. 2019) — learn the Hamiltonian H from trajectory data and integrate using a symplectic integrator to get energy-conserving predictions. (4) Symplectic topology: Arnold's conjecture (minimum number of fixed points of a Hamiltonian symplectomorphism), proved via Floer homology — a major modern development. -->
 
 ---
 
+<!-- @editor[content/P2]: Missing information geometry section — the space of probability distributions as a Riemannian manifold with the Fisher information metric is the most direct DG → ML application and is explicitly flagged in the sweep calibration. Key content: (1) Statistical manifold: parametric family {p(x; theta)} with Fisher metric g_{ij} = E_{p}[partial_i log p * partial_j log p]. (2) Amari's alpha-connections: a one-parameter family of affine connections on the statistical manifold; the (+1)-connection (exponential family) and (-1)-connection (mixture family) are not metric-compatible and give non-zero curvature even for exponential families. (3) Natural gradient descent = Riemannian gradient descent with the Fisher metric; used in NGD, K-FAC, Shampoo optimizers. (4) Exponential families are flat (zero curvature) under the e-connection, explaining why Newton's method on exponential families converges in one step. This section belongs between "Machine Learning on Manifolds" and "Symplectic Geometry." -->
 ## Decision Cheat Sheet
 
 | Application | Geometric Object | Key Operation |

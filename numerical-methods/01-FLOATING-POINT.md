@@ -101,6 +101,7 @@ IEEE 754 specifies five rounding modes:
   Math.Round(x, MidpointRounding.AwayFromZero) uses round-half-up.
   This difference breaks naive financial rounding if not handled carefully.
 ```
+<!-- @editor[bridge/P3]: Stack-specific .NET bridge here is fine as additive flavor, but a universal bridge is missing: the rounding mode discussion should first mention that directed rounding (toward ±∞) is the formal mechanism behind interval arithmetic — connecting forward to the Interval Arithmetic section below. Any developer coming from any stack needs this logical link. -->
 
 ---
 
@@ -297,6 +298,8 @@ Interval arithmetic replaces real numbers with intervals [a, b] that are guarant
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No automatic differentiation connection here. The floating-point precision discussion (float16/bfloat16/TF32) is exactly where the learner needs a bridge: loss scaling in mixed-precision training exists precisely because float16 underflows gradients — this is a floating-point stability problem in the context of reverse-mode AD. A sentence connecting floating-point precision → gradient underflow → loss scaling → AD would anchor the "why does mixed precision training need loss scaling" question that any serious ML practitioner has. -->
 
 ## Mixed Precision Computing
 

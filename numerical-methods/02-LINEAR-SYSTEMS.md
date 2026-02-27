@@ -175,6 +175,8 @@ Exploit structure for significant speedups:
 
 ---
 
+<!-- @editor[bridge/P1]: No graph algorithm → iterative solver bridge. Power iteration / CG / GMRES operating on sparse matrices is identical in structure to graph propagation algorithms (PageRank = power iteration on the web graph, label propagation = iterative solve). A learner with MIT TCS background immediately maps this: the sparse matrix IS the adjacency/Laplacian matrix, and CG is just structured iterative refinement of a flow problem. This bridge is mentioned in 03-EIGENVALUE-METHODS (PageRank) but belongs here too — the linear solver perspective on sparse graph systems. -->
+
 ## Iterative Methods for Large Sparse Systems
 
 For n > 10^4 sparse systems, direct methods become impractical. Iterative methods generate a sequence x^{(0)}, x^{(1)}, ... converging to x*.
@@ -245,6 +247,8 @@ Preconditioning transforms the system to improve convergence:
   AMG (Algebraic Multigrid): optimal for elliptic PDEs. O(n) per iteration.
   Sparse approximate inverse (SPAI): M^{-1} ≈ A^{-1} in sparse form.
 ```
+
+<!-- @editor[bridge/P2]: No GPU-accelerated iterative solver callout. The learner needs cuSPARSE patterns (explicitly listed in calibration). CG and GMRES loop on sparse matrix-vector products (SpMV) — on GPU this is cuSPARSE::csrmv. A box showing "CG inner loop → SpMV → on GPU: cuSPARSE SpMV, 10-50x speedup for large sparse systems" would connect the algorithm to the hardware pattern the learner needs. -->
 
 **Multigrid**: The optimal method for elliptic PDEs (e.g., -nabla^2 u = f):
 

@@ -294,6 +294,8 @@ The natural basis for ∇²u = 0 on spherical domains:
 
 ## Regularity Theory
 
+<!-- @editor[content/P2]: The regularity section is too thin for a learner who needs elliptic regularity. Four lines covering the Sobolev shift-by-2 and a one-line mention of Schauder estimates is insufficient. This section should cover: (1) the Lp elliptic regularity (Calderón-Zygmund: if f ∈ Lp then D²u ∈ Lp for 1 < p < ∞), (2) what fails at p=1 and p=∞ (not L¹ or L∞ — use BMO instead), (3) the distinction between interior and boundary regularity and what smoothness of ∂Ω is required, (4) why regularity is non-trivial (the boundary regularity requires ∂Ω ∈ C^{k+2} or C^{k,α}) and what breaks for Lipschitz or polyhedral domains (crack-tip singularities). The learner explicitly needs elliptic regularity for understanding FEM error analysis and PINN limitations. -->
+
 ```
   INTERIOR REGULARITY:
 

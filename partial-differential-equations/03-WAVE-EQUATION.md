@@ -309,6 +309,10 @@ Not all waves travel at the same speed. Dispersive waves have frequency-dependen
 
 ---
 
+<!-- @editor[content/P2]: No coverage of quantum field theory wave equations. The Klein-Gordon equation (∂²φ/∂t² − c²∇²φ + (mc/ℏ)²φ = 0) and the Dirac equation are relativistic wave equations central to QFT and directly in scope for this learner. Gravitational waves (linearized GR: □h_μν = 0 in the transverse-traceless gauge) are also absent. These are the equations that make the wave equation significant in modern physics, not just acoustics and strings. -->
+
+<!-- @editor[content/P2]: No numerical methods coverage for hyperbolic equations in this file. The wave equation file covers only analytical solutions (d'Alembert, Kirchhoff, separation of variables). Leapfrog time integration, dispersion analysis of numerical wave equations, and the CFL condition for explicit hyperbolic schemes belong here or as a forward reference to 09-NUMERICAL-PDES.md. The learner needs this connection to see how the mathematical properties (finite speed, energy conservation) constrain numerical choices. -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

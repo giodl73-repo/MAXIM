@@ -1,5 +1,7 @@
 # Euler-Lagrange Equations
 
+<!-- @editor[audience/P2]: The file derives the Euler-Lagrange equation from scratch via the standard integration-by-parts proof, then spends most of its length on basic examples (arc length, brachistochrone, minimal surface) and the computational procedure. The learner calibration explicitly states "Does NOT need: Euler-Lagrange defined from scratch." For this learner, E-L is a known tool — what they need is: the connection between E-L and the PDEs it generates (Laplace, wave, Schrödinger as E-L equations of their action functionals), Noether's theorem at greater depth, and how E-L generalizes to field theory (which is briefly present but thin). The derivation and introductory examples should be reduced to a brief proof-sketch table, and the file should lead with "E-L as the source of all fundamental PDE physics" and the Noether correspondence at appropriate depth for someone with MIT physics background. -->
+
 ## The Central Result
 
 The Euler-Lagrange equation is the necessary condition for a function to extremize a

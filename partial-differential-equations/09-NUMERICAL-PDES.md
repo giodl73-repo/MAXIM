@@ -363,6 +363,8 @@ The systematic method for checking stability of FD schemes:
 
 ---
 
+<!-- @editor[content/P1]: ML-based numerical methods for PDEs are entirely absent despite being explicitly required by the learner calibration. Four major approaches have zero coverage: (1) Physics-Informed Neural Networks (PINNs) — minimize the PDE residual + boundary conditions as a loss; mesh-free; handle forward and inverse problems; known failure modes (spectral bias, optimization difficulty for high-frequency solutions); (2) Fourier Neural Operator (FNO, Li et al. 2020) — learns the solution operator G: f → u in Fourier space; O(N log N); SOTA on Navier-Stokes and climate prediction; (3) DeepONet (Lu et al. 2021) — learns branch/trunk decomposition of solution operator; handles variable domains; (4) Deep Galerkin Method (DGM) — approximates u(x,t) with a neural network trained on PDE residuals in the weak sense. This is not a niche topic: FNO models underlie much of current scientific ML and climate modeling, and understanding why classical methods (FEM, FD) and learned operators are complementary requires seeing them side-by-side. This is a P1 gap — the file is the numerical methods reference and these are now major numerical approaches. -->
+
 ## Decision Cheat Sheet
 
 | Problem | Recommended Method |

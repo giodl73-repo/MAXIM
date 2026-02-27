@@ -171,6 +171,8 @@ Instead of one high-degree polynomial, use many low-degree polynomials joined at
   Better than linear interpolation (O(h^2)) and quadratic (O(h^3)).
 ```
 
+<!-- @editor[bridge/P1]: B-splines are the basis functions of the finite element method — this connection is entirely absent. The learner calibration explicitly lists FEM as needed. Cubic B-splines on a mesh ARE the hat functions of a cubic FEM space; the stiffness matrix K_{ij} = integral(phi_i' phi_j' dx) uses exactly these basis functions. A box saying "B-splines here → FEM basis functions in 07-PDEs" would anchor the two modules and avoid the reader treating interpolation and FEM as unrelated topics. -->
+
 **B-splines**: A basis for spline spaces that is computationally superior:
 
 ```
@@ -237,6 +239,7 @@ When data points are not on a regular grid:
   Connection to probability-statistics/: see 04-STOCHASTIC-PROCESSES (GPs)
   and 06-BAYESIAN-STATISTICS (GP regression is Bayesian non-parametric regression).
 ```
+<!-- @editor[content/P2]: Cross-reference "06-BAYESIAN-STATISTICS" points to a file path that doesn't exist in the numerical-methods/ directory — this is a cross-directory reference to probability-statistics/ that should be written as probability-statistics/06-BAYESIAN-STATISTICS or similar. Verify the actual filename. -->
 
 ---
 
@@ -268,6 +271,7 @@ Interpolation passes through the data. Approximation finds the "best" polynomial
   Coefficients computed via orthogonality.
 ```
 
+<!-- @editor[bridge/P2]: No automatic differentiation bridge. Neural network training uses gradient-based optimization on a loss that involves evaluating the approximator — automatic differentiation through the interpolant or neural network is exactly reverse-mode AD applied to an approximation problem. Barron's theorem is mentioned but the practical bridge "how do we actually optimize these approximators?" (answer: AD/backprop through the composition) is missing. -->
 **Approximation theory and ML**: Neural networks are universal approximators (Stone-Weierstrass). The rate at which they approximate functions depends on smoothness (Barron's theorem: functions with bounded first moment of Fourier transform can be approximated by O(1/sqrt(n)) networks with n hidden units). This connects approximation theory to ML generalization.
 
 ---

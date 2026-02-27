@@ -210,6 +210,8 @@ is compact. Spacetime symmetry groups (Poincaré, Lorentz) are not.
 
 ---
 
+<!-- @editor[structure/P1]: Missing Decision Cheat Sheet — style contract violation. The overview is the entry point to the directory and the file most likely to be consulted when a reader needs to know "which Lie group / which tool applies to my problem." Every other file in this directory has a Decision Cheat Sheet. A "when to use which" table here might include: compact vs non-compact groups, which context calls for representation theory vs differential geometry vs gauge theory vs ML equivariance, and a high-level "reach for this when..." guide keyed to the directory map. -->
+
 ## Common Confusion Points
 
 **"Lie group vs Lie algebra" confusion:** The group G is the geometric object (curved). The algebra

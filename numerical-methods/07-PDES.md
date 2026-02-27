@@ -142,6 +142,8 @@ For parabolic PDEs: average the spatial operator between n and n+1 time levels.
 
 ---
 
+<!-- @editor[bridge/P1]: No FEM → distributed computation on grids bridge. The learner calibration explicitly lists "FEM → distributed computation on grids" as a bridge to provide. The stiffness matrix K from FEM on a 3D mesh is a sparse matrix distributed across MPI ranks in any large-scale FEM code (PETSc, FEniCS, DUNE). A box showing "FEM mesh → local stiffness assembly per element → global assembly via MPI scatter/gather → distributed sparse solve (PETSc/ScaLAPACK)" would provide this bridge. Currently the FEM section ends at the math without touching the distributed implementation reality. -->
+
 ## Finite Element Method
 
 FEM is the dominant method for engineering applications with complex geometry and heterogeneous materials.
@@ -189,6 +191,8 @@ FEM is the dominant method for engineering applications with complex geometry an
   Automatic mesh generation: Delaunay triangulation, advancing front.
 ```
 
+<!-- @editor[content/P2]: FEM section covers 2D Poisson thoroughly but does not mention hp-FEM (high-order elements, p-refinement) or DG (Discontinuous Galerkin), which are the modern high-performance variants. For the learner who needs FEM, knowing that P1 elements give O(h) in H^1 while P_k elements give O(h^k) — and that DG methods handle discontinuities and unstructured meshes with local conservation — closes a significant gap in the landscape. -->
+
 **Error estimate**: For piecewise linear elements (P1) on a shape-regular mesh:
 
 ```
@@ -200,6 +204,8 @@ FEM is the dominant method for engineering applications with complex geometry an
 ```
 
 ---
+
+<!-- @editor[bridge/P2]: No GPU-accelerated PDE solver callout. The learner needs cuBLAS/cuSPARSE patterns for numerical linear algebra on GPU. For PDEs: spectral methods use FFT (cuFFT on GPU), FD/FV use SpMV (cuSPARSE), FEM uses batched dense GEMM for element assembly (cuBLAS). A brief table mapping PDE method → GPU library → practical speedup range would directly serve the stated learner need. -->
 
 ## Spectral Methods
 

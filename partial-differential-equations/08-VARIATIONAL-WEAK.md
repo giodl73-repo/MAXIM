@@ -280,6 +280,8 @@ FEM is the numerical method that directly discretizes the weak formulation.
 
 ---
 
+<!-- @editor[content/P2]: Physics-Informed Neural Networks (PINNs) and neural operators are entirely absent from the file that is their theoretical foundation. A PINN minimizes the PDE residual: loss = ‖−∇²u_θ − f‖² over collocation points — this IS the strong-form residual. The variational/weak form version (Deep Ritz Method, Deep Galerkin Method) minimizes a(u_θ, v) − F(v) or uses the variational energy directly. Neural operators (FNO, DeepONet) learn the solution operator G: L²(Ω) → L²(Ω) mapping right-hand side f to solution u. These belong here because (1) FEM and PINNs are complementary approaches to the same weak formulation, (2) understanding why PINNs can fail requires understanding Céa's lemma and coercivity, (3) the learner explicitly needs "ML connections (physics-informed neural networks, neural operators)." A brief section at the end connecting weak formulation → PINN → neural operators would complete the file. -->
+
 ## Decision Cheat Sheet
 
 | Question | Answer |

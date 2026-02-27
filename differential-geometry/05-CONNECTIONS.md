@@ -100,6 +100,7 @@ Given a curve gamma: [0,1] -> M and a vector v_0 at gamma(0), the **parallel tra
   - Berger's classification of holonomy groups for irreducible, simply-connected
     Riemannian manifolds: O(n), U(n), SU(n), Sp(n), G2, Spin(7), + rank-1 symmetric spaces.
 ```
+<!-- @editor[bridge/P2]: Berger's classification lists the holonomy groups but misses the physics/geometry payoff: Hol = SU(n) → Calabi-Yau manifold (Ricci-flat, relevant to string theory compactification); Hol = Sp(n) → hyper-Kähler manifold (supersymmetric field theories); Hol = G2 → exceptional geometry in M-theory. Also missing: the parallel transport ↔ transformer attention analogy is the specific ML bridge called out in the learner calibration. Parallel transport of a vector along a path is path-dependent; attention weights in transformers implement a learnable (path-dependent) transport of key-value pairs. The connection curvature measures how much this transport depends on the path taken — non-zero curvature means different contexts give different results. This bridge belongs here and is explicitly flagged as a priority in the sweep calibration. -->
 
 ---
 
@@ -237,6 +238,7 @@ The connection concept extends beyond TM to any vector bundle E over M:
 ```
 
 This is the bridge to physics: gauge fields ARE connections on principal bundles, and their curvature is the field strength.
+<!-- @editor[content/P2]: The "Connections on Vector Bundles" section makes the physics bridge explicit (excellent) but misses the ML counterpart: a connection on a vector bundle over a graph is exactly what message-passing GNNs compute — aggregating neighbor features is parallel transport on the graph, and the "features" are sections of a bundle. Gauge equivariant CNNs (Cohen & Welling 2019) make this literal: feature maps are sections of a G-equivariant vector bundle, convolution kernels are parallel transporters, and gauge symmetry = freedom to choose local trivializations. This is the direct ML application of the abstract machinery defined in this section. -->
 
 ---
 

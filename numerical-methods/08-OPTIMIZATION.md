@@ -288,6 +288,8 @@ For ML training where f(x) = (1/N) Sum_{i=1}^N f_i(x) (sum over training example
 
 ---
 
+<!-- @editor[content/P2]: Manifold / Riemannian optimization is absent. The 00-OVERVIEW module map explicitly lists "Manifold optimization (Riemannian SGD)" under 08-OPTIMIZATION. This is a significant gap: optimization on manifolds (Stiefel manifold for orthogonal constraints, positive-definite cone for covariance matrices, hyperbolic space for embeddings) is increasingly important in ML and physics. The section is not stubbed — it simply does not exist. -->
+
 ## Connection to ML Training
 
 The gradient descent machinery above is exactly what trains neural networks:
@@ -303,6 +305,7 @@ The gradient descent machinery above is exactly what trains neural networks:
   The optimizer step is gradient descent, momentum, or Adam.
   g_k is computed by BACKPROPAGATION (reverse-mode automatic differentiation).
   Loss surface is non-convex; we find local (hopefully good) minima.
+<!-- @editor[bridge/P1]: Backpropagation is mentioned but there is no AD → backpropagation bridge. The learner explicitly needs automatic differentiation. The statement "g_k is computed by BACKPROPAGATION (reverse-mode automatic differentiation)" is a one-liner where a bridge belongs: forward mode vs. reverse mode, why reverse mode is O(cost of f) regardless of parameter count, and how this means the cost of computing the full gradient of a billion-parameter model is just ~3x a single forward pass. This is the key insight that makes deep learning computationally tractable — it deserves a paragraph, not a parenthetical. -->
 
   LEARNING RATE SCHEDULES:
   Constant: works if tuned. Sensitive.

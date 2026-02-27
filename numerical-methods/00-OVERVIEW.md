@@ -4,6 +4,7 @@
 
 Numerical methods are algorithms for approximating the solutions of mathematical problems that cannot be solved analytically. The fundamental challenge: computers work with floating-point approximations to real numbers, and the errors accumulate.
 
+<!-- @editor[diagram/P2]: Landscape lists four isolated boxes but doesn't show the dependency flow — the FOUNDATION box should visually feed upward into the four problem boxes, and arrows should show how linear systems feed eigenvalue methods (via Cholesky reduction) and how all four feed into the scientific computing stack. Rework as layered system view showing data flow between problem classes. -->
 ```
 +------------------------------------------------------------------+
 |              NUMERICAL METHODS LANDSCAPE                         |
@@ -202,6 +203,10 @@ A fundamental challenge distinct from (but related to) the ML concept:
 ```
 
 ---
+
+<!-- @editor[bridge/P1]: No automatic differentiation → backpropagation bridge anywhere in the overview. The learner explicitly needs AD, and the connection "reverse-mode AD = backprop = gradient computation for all of module 08" is the single most important bridge in this section for someone coming from an ML-aware CS background. Should appear here in the connections map. -->
+
+<!-- @editor[bridge/P2]: No GPU-accelerated numerical linear algebra bridge in the overview. The learner needs cuBLAS/cuSPARSE patterns (explicitly listed in calibration). The module map notes 09-SCIENTIFIC-COMPUTING covers GPU but the overview itself gives no orientation to where GPU enters the picture — a reader scanning the overview wouldn't know this is covered. -->
 
 ## Key Connections to Other Library Directories
 
