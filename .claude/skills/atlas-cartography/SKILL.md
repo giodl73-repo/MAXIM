@@ -78,6 +78,53 @@ Before drawing anything, define three things (Vignelli):
 
 ASCII frame borders (`═══`) are NOT used — the code block fence is the frame.
 
+### 1b. Scale Selection Rubric
+
+Every map should ask: **world, continent, or both?** The answer depends on what the map is trying to show.
+
+| Scale | viewBox | Use when | Examples |
+|-------|---------|----------|---------|
+| **World** (equirectangular) | `-185 -90 370 180` | The thesis IS the global pattern. Latitude bands, planet-wide distributions. | Plate boundaries, desert belts, biome bands, flyway overview |
+| **Continent** (regional crop) | Per continent (see table) | Features need individual labels. >15 items compete for space at world scale. | Rivers with tributaries, cities, trade routes, mineral deposits |
+| **World + Continent** (multi-SVG) | 1 world overview + 2-6 continent details | Both the global pattern AND the regional detail matter. | Rivers (world overview + per-continent detail), trade routes, disease vectors |
+| **Regional** (sub-continent) | Custom crop | Single-country or sub-region focus. | Mediterranean, Caribbean, Middle East, Southeast Asia |
+
+**Decision test**: If you need to label more than ~12 features on a world map, split to continents. If the thesis requires seeing all continents at once, keep the world map as an overview and add continent maps below.
+
+**Standard continent bounding boxes** (available via `build_continent_svg.py`):
+
+| Continent | Lon range | Lat range | Width | Use |
+|-----------|-----------|-----------|-------|-----|
+| North America | -170 to -50 | 7 to 84 | 900px | Rivers, biomes, mineral deposits |
+| South America | -82 to -34 | -56 to 13 | 700px | Andes, Amazon, grain belts |
+| Europe | -12 to 45 | 34 to 72 | 800px | Trade routes, rivers, industry |
+| Africa | -20 to 52 | -36 to 38 | 750px | Rivers, resources, disease zones |
+| Asia | 25 to 180 | -10 to 78 | 960px | Monsoon, trade, Silk Road |
+| Oceania | 110 to 180 | -48 to -8 | 800px | Reefs, Pacific routes |
+| Middle East | 24 to 64 | 12 to 42 | 800px | Oil, water, conflict |
+| Southeast Asia | 90 to 155 | -12 to 30 | 900px | Spice routes, rice, straits |
+| Caribbean | -90 to -58 | 10 to 28 | 800px | Hurricane corridor, trade |
+| Mediterranean | -6 to 42 | 28 to 48 | 900px | Classical trade, wine, olives |
+
+**Extraction command**:
+```bash
+python build_continent_svg.py --continent africa --mode full --precision 1
+```
+
+**Multi-SVG layout pattern** (world + continents):
+```markdown
+## Overview — World Distribution
+<svg viewBox="-185 -90 370 180" ...>  <!-- world coastlines + thematic overview -->
+
+## Africa — Regional Detail
+<svg viewBox="-20 -38 72 74" ...>     <!-- continent coastlines + dense labels -->
+
+## Asia — Regional Detail
+<svg viewBox="25 -78 155 88" ...>     <!-- continent coastlines + dense labels -->
+```
+
+The world map shows the pattern. The continent maps show the detail. The reader zooms in mentally.
+
 ### 2. Master Glyph Legend
 
 One symbol vocabulary, enforced across all 52 maps. Published once in `00-OVERVIEW.md`.
@@ -100,7 +147,17 @@ One symbol vocabulary, enforced across all 52 maps. Published once in `00-OVERVI
 
 ### 3. Coordinate Protocol
 
-**SVG maps**: Use real geographic coordinates directly. `cx="-longitude"`, `cy="-latitude"`. No conversion math needed — the SVG viewBox handles projection and aspect ratio.
+**Regional SVG maps** (single hemisphere, e.g., Florida): Use `cx="-longitude"`, `cy="-latitude"`. Western longitudes are already negative, so `cx = -80` for 80°W. The viewBox handles projection.
+
+**World SVG maps** (both hemispheres): Use the standard cartographic convention: `x = longitude` (positive east, negative west), `y = -latitude` (negative north, positive south). This is equivalent to the regional convention for the Western hemisphere but differs for the Eastern hemisphere — `x = 40` means 40°E, not -40°W.
+
+**Pacific-centered maps** (Ring of Fire, ocean currents): The Pacific straddles ±180°. Use real longitudes for the Americas (negative values), and `longitude - 360` for East Asian/Oceanian features (e.g., Japan at 140°E → `x = -220`). Set the viewBox to span the shifted range (e.g., `"-260 -75 280 150"`).
+
+| Map scope | x convention | y convention | Example: Tokyo (139.7°E, 35.7°N) |
+|-----------|-------------|-------------|----------------------------------|
+| Regional (W hemisphere) | `cx = -longitude` | `cy = -latitude` | n/a (E hemisphere) |
+| World | `x = longitude` | `y = -latitude` | `x=139.7, y=-35.7` |
+| Pacific-centered | `x = longitude - 360` (E hem) | `y = -latitude` | `x=-220.3, y=-35.7` |
 
 **ASCII diagrams**: For latitude-band diagrams, use consistent latitude axis (90N at top, 90S at bottom) across all files so readers can visually cross-reference wind belts → desert belts → soil orders.
 
@@ -248,6 +305,55 @@ Full plan with all 52 card-to-map assignments is in `PROJECTS.md` § Atlas.
 
 ---
 
+## Coastline Data Pipeline — Natural Earth
+
+**Never hand-draw continent outlines.** Use the Natural Earth extraction pipeline instead.
+
+### Source Data
+
+[Natural Earth](https://www.naturalearthdata.com/) 110m land polygons (public domain). Downloaded to `atlas/_geodata/ne_110m_land.shp`.
+
+### Extraction Script
+
+`atlas/_geodata/build_world_svg.py` converts shapefiles to inline SVG `<path>` elements:
+
+```bash
+cd atlas/_geodata
+
+# Full coastlines — for geographic reference maps (plate boundaries, seismic zones)
+python build_world_svg.py --mode full --min-area 1 --precision 0 > world_full.svg
+# → 92 polygons, ~49KB, all recognizable land
+
+# Context coastlines — for thematic overlays (deserts, breadbaskets, biomes)
+python build_world_svg.py --mode context --min-area 5 --precision 0 > world_context.svg
+# → 47 polygons, ~41KB, all continents + major islands
+
+# Light coastlines — minimal context for concept maps (star visibility, radio propagation)
+python build_world_svg.py --mode context --min-area 20 --precision 0 > world_light.svg
+# → 19 polygons, ~33KB, continents only
+```
+
+### How to Use
+
+1. Run the extraction script for your map type
+2. Paste the generated `<path>` elements into your SVG block
+3. Add your thematic layer on top (boundaries, labels, data overlays)
+4. The paths already use atlas styling (`fill="#e8e4dc"` for full, `fill="none"` for context)
+
+### Three Tiers
+
+| Tier | min_area | Polygons | Size | Use for |
+|------|----------|----------|------|---------|
+| **Full** | 1 | 92 | ~49KB | Geographic reference maps — plate boundaries, mountain passes, biomes |
+| **Context** | 5 | 47 | ~41KB | Thematic overlays — deserts, breadbaskets, migration routes |
+| **Light** | 20 | 19 | ~33KB | Concept maps — star visibility, radio propagation, projections |
+
+### Requirements
+
+Python with `geopandas` and `shapely` (both installed). Natural Earth 110m shapefile in `atlas/_geodata/`.
+
+---
+
 ## Generation Workflow
 
 When generating a new atlas map:
@@ -257,11 +363,13 @@ When generating a new atlas map:
    - Geographic/spatial content → SVG (coastlines, distributions, feature positions)
    - Mechanism/process content → ASCII code block (cross-sections, circulation models, profiles)
    - Most maps are a MIX of both
-3. **Draft SVG maps**: Use real coordinates (`cx="-lon" cy="-lat"`). Light/warm style. 25-50 coastline control points per region. Include grid lines, labels, scale bar.
-4. **Draft ASCII diagrams**: 80-column width. No `═══` borders. Focus on WHY patterns exist.
-5. **Draft tables**: Dense reference data. Every map gets at least one comparison table.
-6. **Draft cheat sheet**: The decision cheat sheet is mandatory.
-7. **Add cross-references**: Link to related atlas maps and library volumes. Mark unwritten targets as *(planned)*.
+3. **Generate coastlines**: Run `build_world_svg.py` with the appropriate tier (full/context/light). Paste the output into your SVG block.
+4. **Add thematic layers**: Plate boundaries, desert ellipses, data markers, labels, etc. on top of the coastline base layer.
+5. **Add grid, labels, scale bar, legend**: Every SVG geographic map must have these.
+6. **Draft ASCII diagrams**: 80-column width. No `═══` borders. Focus on WHY patterns exist.
+7. **Draft tables**: Dense reference data. Every map gets at least one comparison table.
+8. **Draft cheat sheet**: The decision cheat sheet is mandatory.
+9. **Add cross-references**: Link to related atlas maps and library volumes. Mark unwritten targets as *(planned)*.
 8. **Preview check**: SVG renders in MkDocs Material and browsers. Test with `start <file>.html` if needed.
 
 **Important**: The 52 content volumes (computing/, mathematics/, etc.) keep ASCII art unchanged. Only the atlas directory uses SVG for geographic maps.
