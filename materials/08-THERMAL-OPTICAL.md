@@ -2,14 +2,38 @@
 
 ## The Big Picture
 
-<!-- @editor[diagram/P2]: Landscape diagram lists thermal and optical properties side by side but doesn't show how they relate to each other or to device applications — "layered drill-down" requires the diagram to map out which sections will drill into which nodes. Missing: (1) the thermal → optical coupling via emissivity/Planck radiation (hot surfaces emit photons — Kirchhoff's law), (2) how phonons appear in BOTH thermal conductivity AND optical absorption (IR phonon absorption), (3) the device application layer (CPU cooling, telecom fiber, photovoltaics) as output nodes. The current diagram is two parallel lists, not a relationship diagram -->
 ```
 THERMAL & OPTICAL PROPERTIES LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
 
-  THERMAL                                 OPTICAL
-  ─────────────────────────────────────   ─────────────────────────────────────
-  How materials store and transport heat  How materials interact with light
+  ATOMIC CARRIERS
+  ┌─────────────────────┐    ┌────────────────────────┐
+  │  PHONONS             │    │  ELECTRONS              │
+  │  (lattice vibrations)│    │  (electronic excitations)│
+  └────────┬──────┬──────┘    └──────┬──────┬───────────┘
+           │      │                  │      │
+    ┌──────▼──┐ ┌─▼──────────┐ ┌────▼───┐ ┌▼─────────────┐
+    │ THERMAL │ │ IR PHONON   │ │THERMAL │ │ OPTICAL       │
+    │ CONDUCT.│ │ ABSORPTION  │ │CONDUCT.│ │ ABSORPTION    │
+    │ κ_ph    │ │ (Reststrahl)│ │ κ_el   │ │ (interband)   │
+    └────┬────┘ └──────┬──────┘ └───┬────┘ └──────┬────────┘
+         │             │            │              │
+         └──────┬──────┘            └──────┬───────┘
+                │                          │
+    ┌───────────▼──────────┐   ┌───────────▼──────────────┐
+    │ EMISSIVITY / PLANCK  │   │ REFRACTIVE INDEX          │
+    │ (Kirchhoff: ε = α)  │   │ ñ = n + iκ               │
+    │ Hot surfaces emit    │   │ Controls reflection,      │
+    │ photons via phonon   │   │ refraction, absorption    │
+    │ + electron coupling  │   │ Kramers-Kronig links n,κ  │
+    └──────────┬───────────┘   └───────────┬──────────────┘
+               │                           │
+    ┌──────────▼───────────────────────────▼──────────────┐
+    │  DEVICE APPLICATIONS                                 │
+    │  CPU cooling (κ_th) · Telecom fiber (low α at 1550nm)│
+    │  Photovoltaics (bandgap absorption) · TBC coatings   │
+    │  Thermal imaging (emissivity) · LED phosphors        │
+    └─────────────────────────────────────────────────────┘
 
   Heat capacity: C_v = ∂U/∂T            Refractive index: ñ = n + iκ
   Thermal conductivity: κ = J·L/ΔT      Absorption: α = 4πκ/λ
