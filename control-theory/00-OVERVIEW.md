@@ -174,7 +174,11 @@ Model Predictive Control     Receding-horizon planning in logistics optimization
 State observer               Log-based state reconstruction (observability pillar
                              in 15-OBSERVABILITY.md — same mathematical concept)
 
-<!-- @editor[bridge/P2]: The observability bridge is named but not developed. Kalman-sense observability (can internal state be inferred from outputs?) is structurally identical to distributed systems observability (can service internal state be inferred from traces/metrics?). The rank condition on the observability matrix maps directly to whether logs emit enough signal to reconstruct system state. Worth one concrete sentence here and expansion in 04-KALMAN-FILTER.md. -->
+
+                             The mathematical connection to software observability
+                             is direct: if rank(O) < n, there are internal states
+                             invisible to any output strategy — no amount of logging
+                             can reconstruct them. See 04-KALMAN-FILTER.md.
 
 Stability margin             "How much can deployment parameters vary before
                              the system goes unstable" — same Bode margin idea
@@ -190,9 +194,12 @@ Stability margin             "How much can deployment parameters vary before
 02-STATE-SPACE       ← State-space representation, controllability, pole placement
 03-OPTIMAL-CONTROL   ← LQR/LQG, Pontryagin, HJB equation, dynamic programming
 04-KALMAN-FILTER     ← Kalman filter, EKF/UKF, sensor fusion, SLAM
+05-ROBUST-CONTROL    ← H∞, μ-synthesis, structured uncertainty, small gain theorem
+06-NONLINEAR-CONTROL ← Lyapunov stability, feedback linearization, sliding mode
+07-MPC               ← Model Predictive Control, receding horizon, constraints
+08-ADAPTIVE-CONTROL  ← MRAC, RLS, gain scheduling, self-tuning regulators
+09-LEARNING-BASED    ← RL for control, policy gradient, sim-to-real, imitation
 ```
-
-<!-- @editor[content/P2]: Session Arc lists only 5 files but the directory contains 10. Files 05-09 (Robust Control, Nonlinear Control, MPC, Adaptive Control, Learning-Based Control) are missing from this navigation map — a reader will not know they exist from the overview. Extend the arc table. -->
 
 ---
 

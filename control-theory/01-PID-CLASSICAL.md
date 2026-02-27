@@ -87,7 +87,27 @@ WINDUP (actuator saturates):      Add anti-windup: clamp integrator when saturat
 
 ## Anti-Windup
 
-<!-- @editor[bridge/P2]: Anti-windup is the exact control-theory analog of backpressure and rate limiting in distributed systems. When an actuator saturates (downstream can't absorb more), clamping the integrator is structurally identical to a token bucket or leaky bucket: stop accumulating "debt" when the downstream queue is full, otherwise you get a burst surge when saturation ends. This bridge is highly concrete for a VP of Eng who has designed rate limiters — make it explicit. -->
+## Engineering Bridge: Anti-Windup as Backpressure
+
+```
+CONTROL THEORY                    DISTRIBUTED SYSTEMS EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Actuator saturation               Downstream at capacity (queue full, CPU 100%)
+  motor hits max voltage            service returns 429/503
+
+Integrator windup                 Accumulated retry debt / queued requests
+  ∫e dt grows unboundedly           retry queue grows during outage
+
+Burst on recovery                 Thundering herd on recovery
+  integrator discharges → huge      all queued requests dispatch simultaneously
+  overshoot                         → re-saturates downstream
+
+Anti-windup (clamp integrator)    Backpressure / rate limiting
+  stop accumulating when saturated   token bucket: stop admitting when full
+  back-calculation: actively drain   leaky bucket: drain at fixed rate
+  integrator during saturation       circuit breaker: stop entirely
+──────────────────────────────────────────────────────────────────────────────
+```
 
 When the actuator saturates (e.g., motor hits max voltage), the integrator keeps
 accumulating ("winding up"), causing large overshoot when saturation ends:
@@ -277,7 +297,7 @@ EXAMPLE:
 
 ## Nyquist Stability Criterion
 
-<!-- @editor[bridge/P2]: Nyquist's encirclement criterion has a striking analog in distributed consensus: a network of agents (or microservices) is stable when the open-loop gain product around any feedback cycle stays below 1. A positive feedback cycle (N encirclements of -1) is exactly what happens in a distributed thundering herd or feedback amplification failure — one node's overload signal causes all other nodes to retry harder, driving the system unstable. This is a high-value bridge for this learner given the CI/CD and Azure DevOps background. -->
+The encirclement criterion generalizes Bode analysis: a feedback loop is unstable when the loop gain winds around the critical point (-1, 0) in the complex plane. In distributed systems, a positive feedback cycle — one service's overload signal causes upstream retries, which increase load further — is the same encirclement: the loop gain product around the retry cycle exceeds 1, and the system "oscillates" into cascading failure.
 
 More powerful than Bode — handles unstable open-loop plants and non-minimum-phase systems.
 

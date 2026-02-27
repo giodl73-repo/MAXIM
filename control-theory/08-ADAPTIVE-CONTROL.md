@@ -161,7 +161,7 @@ P(t) INTERPRETATION: Proportional to parameter estimation covariance
 
 ### Covariance Windup
 
-<!-- @editor[bridge/P2]: RLS forgetting factor λ is the control-theory formalization of exponential moving averages and sliding window metrics in monitoring systems. λ = 0.95 means 95% weight on the recent window — the effective memory is 1/(1-0.95) = 20 samples, exactly like a 20-point moving average. The covariance windup problem maps to a well-known monitoring failure mode: when a metric goes constant (no new signal), the monitoring system's "confidence" in its model grows artificially, causing it to overreact when the signal resumes. The directional forgetting fix maps to dead-band detection in anomaly systems. This bridge is immediately useful for someone who has designed or reviewed monitoring infrastructure. -->
+**Monitoring bridge:** The forgetting factor λ is the control-theory formalization of exponential moving averages in monitoring systems. λ = 0.95 means 95% weight on the recent window — effective memory of 1/(1-0.95) = 20 samples, exactly like a 20-point EMA. Covariance windup is a well-known monitoring failure mode: when a metric goes constant (no new signal), the system's confidence grows artificially, causing it to overreact when the signal resumes. The directional forgetting fix below maps to dead-band detection in anomaly alerting systems.
 
 ```
 COVARIANCE WINDUP (directional forgetting problem):
@@ -182,9 +182,9 @@ FIXES:
 
 ---
 
-<!-- @editor[bridge/P2]: Gain scheduling — a family of linear controllers indexed by operating point, no true adaptation — is the exact mental model behind canary deployments and A/B testing in infrastructure. You design a "controller" (traffic routing policy, autoscaler config) for each operating region (traffic pattern, region, tier), then interpolate. The scheduling variable ρ(t) maps to a feature flag value or a traffic segment tag. The stability caveat (fast scheduling can destabilize) maps directly to the danger of rapid feature flag toggling — each individual configuration is safe, but rapid switching can create transient instability. This bridge is unusually concrete and worth making explicit. -->
-
 ## Gain Scheduling
+
+**Infrastructure bridge:** Gain scheduling — a family of controllers indexed by operating point, no true adaptation — is the exact model behind environment-specific configurations in deployment. You design a controller (autoscaler config, traffic routing policy) for each operating region (traffic pattern, region, tier), then interpolate between them. The scheduling variable ρ(t) maps to a feature flag value or traffic segment tag. The stability caveat is worth noting: each individual configuration may be safe, but rapid switching between them can create transient instability — the same risk as rapid feature flag toggling in production.
 
 ```
 CONCEPT: Not truly adaptive — a family of linear controllers, one per operating point

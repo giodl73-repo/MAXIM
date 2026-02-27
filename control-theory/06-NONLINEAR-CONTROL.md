@@ -68,7 +68,7 @@ CLASSIFICATION from eigenvalues λ₁, λ₂ of A:
 
 ### Limit Cycles and Poincaré-Bendixson
 
-<!-- @editor[bridge/P2]: Limit cycles in control theory have a direct analog in distributed systems: resource contention oscillations. A service pool that oscillates between "all threads busy, requests queuing" and "threads freed, burst of queued requests dispatches" is a self-sustained limit cycle. The Van der Pol oscillator's energy balance (negative damping at small x, positive at large x) maps exactly to queue dynamics: when load is low, the service "pulls" more work (negative damping); when overloaded, it sheds or fails work (positive damping), creating oscillation. This is a high-recognition bridge for a distributed systems engineer. -->
+**Distributed systems analog:** Limit cycles are the mathematical name for resource contention oscillations. A service pool that oscillates between "all threads busy, requests queuing" and "threads freed, burst dispatches" is a self-sustained limit cycle — the Van der Pol energy balance (negative damping at low load pulls in more work; positive damping at high load sheds work) maps directly to this queue oscillation pattern.
 
 ```
 VAN DER POL OSCILLATOR:
@@ -201,7 +201,7 @@ STATE TRANSFORMATION:
 
 ### Zero Dynamics and Stability Condition
 
-<!-- @editor[bridge/P2]: Zero dynamics and minimum phase have a precise software analog that this learner will recognize. A non-minimum-phase system is one where canceling the visible output error (y = 0) causes the internal state to grow unboundedly — you fix the symptom, the root cause worsens. This is exactly the pattern of treating P99 latency by adding aggressive timeouts: the surface metric improves, but the underlying queue depth (internal state) grows until cascading failure. "Minimum phase" in software terms: interventions that fix observed metrics also fix the underlying state, not just mask it. -->
+**Minimum phase in software terms:** A non-minimum-phase system is one where forcing the observable output to zero causes internal state to grow unboundedly — you fix the symptom, the root cause worsens. The canonical software example: adding aggressive timeouts to improve P99 latency (output y → 0), while the underlying queue depth (internal state) grows until cascading failure. A system is "minimum phase" when interventions that fix observed metrics also fix the underlying state, not merely mask it.
 
 ```
 ZERO DYNAMICS: Internal dynamics when output is held to zero (y ≡ 0)

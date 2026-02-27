@@ -219,7 +219,7 @@ SAC (Soft Actor-Critic):
 
 ### Behavior Cloning
 
-<!-- @editor[bridge/P2]: Behavior cloning's covariate shift problem maps precisely to a failure mode in CI/CD pipeline automation: a trained "auto-merge bot" trained on expert engineer decisions fails when it encounters states the expert never generated during training. The DAgger fix (let the learner generate states, have the expert label them) is the same as shadow mode + human review: run the automated system in shadow, collect cases where it diverges, have humans label those specific cases, retrain. This concrete analogy makes the theoretical distinction between BC and DAgger immediately actionable for this learner. -->
+**Automation bridge:** Behavior cloning's covariate shift problem is the formal version of a well-known failure in CI/CD automation: a trained "auto-merge bot" fails when it encounters states the expert never generated during training. DAgger's fix — let the learned policy generate states, have the expert label them — is shadow mode with human review: run the automated system in shadow, collect cases where it diverges, have humans label those specific cases, retrain.
 
 ```
   Given: Expert demonstrations D = {(x_t, u_t*)}
@@ -263,14 +263,20 @@ SAC (Soft Actor-Critic):
     IQL (Implicit Q-Learning): avoids OOD queries entirely
     Use case: robotics (expensive real-world data), healthcare, finance
 
-<!-- @editor[bridge/P2]: Offline RL from a fixed dataset is exactly the situation when optimizing from historical telemetry logs without the ability to run new A/B experiments — a common constraint in regulated industries or when experiments are too costly. The OOD action problem (the learned policy may recommend actions that never appeared in training data, where Q-values are unreliable) maps to recommendation systems that confidently recommend items with no historical engagement data. CQL's conservatism maps to epsilon-greedy or UCB exploration bounds in bandit systems. This is worth a direct note: offline RL is the control-theory formalization of learning from production logs. -->
+  Offline RL is the control-theory formalization of learning from production
+  logs without the ability to run new experiments — common in regulated
+  industries or when A/B tests are too costly. The OOD action problem (policy
+  recommends actions absent from training data, where Q-values are unreliable)
+  is the same failure mode as recommendation systems confidently suggesting
+  items with no engagement history. CQL's conservatism serves the same role
+  as UCB exploration bounds in bandit systems: stay close to what you know.
 ```
 
 ---
 
-<!-- @editor[bridge/P2]: Sim-to-real transfer is the robotics framing of a problem this learner knows as the staging-to-production gap. The strategies map directly: domain randomization (randomize sim parameters) = chaos engineering + environment parity testing; domain adaptation (train discriminator to match sim to real) = A/B testing with traffic shaping; residual RL (classical model + RL correction) = conventional autoscaler + learned anomaly correction layer. The "gap" framing (contact dynamics, friction, sensor noise in robotics = network latency variance, instance heterogeneity, cache warming in cloud) is worth making explicit — the mathematical problem structure is identical. -->
-
 ## 6. Sim-to-Real Transfer
+
+**Staging-to-production bridge:** Sim-to-real is the robotics name for the staging-to-production gap. The strategies map directly: domain randomization (randomize simulator parameters) parallels chaos engineering and environment parity testing; domain adaptation (train discriminator to match sim to real) parallels A/B testing with traffic shaping; residual RL (classical controller + learned correction) parallels conventional autoscaler + anomaly correction layer. The "gap" sources map too: contact dynamics and sensor noise in robotics correspond to network latency variance, instance heterogeneity, and cache warming effects in cloud infrastructure.
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
