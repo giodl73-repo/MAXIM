@@ -253,7 +253,8 @@ AUTO SACRAMENTAL:
 
 While England and Spain built thrust stages, Italy developed a different theatrical architecture that would eventually dominate European theater:
 
-<!-- @editor[bridge/P2]: The perspective scenery section describes single-point perspective as an artistic choice but misses the coordinate geometry underlying it — this is a projective transformation with a defined vanishing point, and the "correct" seat is the fixed center of projection. Any senior engineer immediately recognizes this as a rendering pipeline concept: the stage picture is a 2D projection of a 3D scene, computed manually via perspective geometry. Serlio's three set types are three scene configurations parameterized for the same projection. Naming the projective geometry explicitly would make this section much richer for this learner without adding more than two sentences. -->
+The underlying mathematics: perspective scenery is a projective transformation with a defined vanishing point. The "correct" seat (punto di vista) is the fixed center of projection — the rendering viewpoint. The stage picture is a 2D projection of a 3D scene, computed manually via perspective geometry. Serlio's three set types are three scene configurations parameterized for the same projection model. Seats away from the punto di vista see the illusion break — the same distortion visible when viewing a perspective rendering from an off-axis position.
+
 ```
 ITALIAN PERSPECTIVE SCENERY
 -----------------------------

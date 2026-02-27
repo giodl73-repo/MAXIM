@@ -4,8 +4,6 @@
 
 Stagecraft is the technical art of making theater happen: scene design, lighting, sound, costume, and the organizational structure (production management, dramaturgy) that integrates them. It is simultaneously art (vision), engineering (execution), and project management (coordination).
 
-<!-- @editor[diagram/P2]: The landscape diagram lists subsystems but doesn't show the coordination model — how the subsystems interact during a live performance. For this learner's calibration (lighting/sound/rigging as coordinated subsystems, live production as no-rollback system engineering) the missing layer is the integration architecture: the stage manager as the runtime coordinator calling all cues, DMX as the lighting control bus, the fly system as a load-bearing mechanical subsystem with its own rigging state. The diagram reads as a feature list, not a system diagram. -->
-<!-- @editor[content/P1]: Rigging and fly systems are entirely absent from this guide. For a learner mapping stagecraft to systems engineering, the counterweight fly system is the most mechanically interesting subsystem: a fixed-capacity load-balancing system (counterweights matched to load), operated by line sets, with hard constraints on load distribution and timing. Hemp houses, counterweight linesets, motor-driven automation, and the grid/gallery/fly tower as the vertical infrastructure are all missing. This is a significant gap given the learner calibration explicitly names "rigging" as a target domain. -->
 ```
 +------------------------------------------------------------------+
 |              STAGECRAFT — LANDSCAPE                              |
@@ -166,7 +164,16 @@ CONTEMPORARY:
   form onto which any environment is projected.
   LEDs as set elements (not just lighting instruments).
   Immersive: the entire building as set.
-<!-- @editor[content/P2]: Projection mapping as a scene design technology deserves more than two sentences given the learner calibration explicitly names it as a target. The technical architecture: a media server (e.g., disguise/d3, Resolume) renders video in real-time; the output is warped/blended to correct for the non-planar surface geometry (mesh calibration); the result is projected via high-lumen projectors. Timecode sync (SMPTE or MIDI) locks the media server to the lighting console and audio playback, making the full production a synchronized multi-stream system. The computational geometry of mapping to arbitrary surfaces — calibration, warping, edge-blending — is directly in this reader's domain. -->
+  Technical architecture: a media server (disguise/d3,
+  Resolume) renders video in real-time; output is warped
+  and edge-blended to correct for non-planar surface
+  geometry (mesh calibration — computational geometry
+  of mapping 2D video to arbitrary 3D surfaces). SMPTE
+  timecode sync locks the media server to lighting console
+  and audio playback, making the full production a
+  synchronized multi-stream system. High-lumen projectors
+  (20,000+ ANSI lumens) required to compete with stage
+  lighting on scenic surfaces.
 ```
 
 ---
@@ -230,7 +237,15 @@ CONTEMPORARY:
   a software application. The designer programs cues
   (states, transitions, timing) in advance; the stage
   manager executes them in performance.
-<!-- @editor[bridge/P2]: DMX512 is a serial lighting control protocol — 512 channels per universe, 0-255 values, 44 Hz refresh rate. The lighting console is literally a real-time control plane: it holds the desired state (cue stack), and the stage manager calling "go" is a state transition trigger with no rollback. This is a compelling systems engineering parallel that the guide leaves implicit. The analogy: DMX universe = control bus; moving light = intelligent actuator; console = state machine with programmed transitions; the show = a sequence of pre-validated state transitions executed live with no ability to pause. One paragraph would make this section substantially more valuable for this reader. -->
+  DMX512: serial control protocol, 512 channels per universe,
+  0-255 values per channel, ~44 Hz refresh rate.
+  Systems parallel: DMX universe = control bus;
+  moving light = intelligent actuator with address;
+  console = state machine with programmed cue stack;
+  "go" = state transition trigger with no rollback.
+  The show is a sequence of pre-validated state transitions
+  executed live. Modern: sACN (streaming ACN) replaces DMX
+  for large installations — Ethernet-based, unlimited universes.
 ```
 
 ### Lighting Functions
@@ -271,8 +286,36 @@ WHAT LIGHTING DOES
 
 ---
 
-<!-- @editor[content/P1]: The sound design section covers functions and categories but omits the signal chain architecture entirely — and for a systems-engineering-minded reader, the signal chain IS the sound design infrastructure: microphones → preamps → mixing console → DSP/processing → amplifiers → speaker arrays → monitoring. Spatial audio (described in the learner calibration as a target topic) gets one sentence at the end ("surround sound systems"). The signal chain, matrix routing, and the distinction between FOH (front of house) and monitor mixing are the engineering substance here. This section is thin relative to the lighting section which covered technology history in depth. -->
 ## Layer 4: Sound Design
+
+### Signal Chain Architecture
+
+```
+THEATER SOUND SIGNAL CHAIN
+----------------------------
+SOURCES                  PROCESSING              OUTPUT
+Microphones ──┐          ┌── EQ/dynamics ──┐     ┌── Main L/R speakers
+  (wireless   │          │   per channel   │     │   (FOH PA system)
+  body mics,  ├──→ PREAMPS → MIXING CONSOLE → DSP → Center cluster
+  area mics,  │          │   (digital:     │     │   Subwoofers
+  floor mics) ┘          │   Yamaha CL/QL, │     │   Delay speakers
+                         │   DiGiCo, Midas)│     │   Surround speakers
+Playback ─────┐          │                 │     │   Monitor wedges
+  (QLab,      ├──→ LINE IN │   Matrix routing:│  └── (stage monitors)
+  SFX server) ┘          │   any input to   │
+                         │   any output     │     FOH = Front of House
+Live music ───┐          │   at any level   │     (audience hears this)
+  (orchestra  ├──→ PREAMPS │                 │
+  pit, band)  ┘          └──────────────────┘     MONITOR MIX = separate
+                                                  mix for performers
+                                                  (what actors hear)
+
+FOH engineer: mixes for the audience
+Monitor engineer: mixes for the performers
+(In smaller productions, one person does both)
+```
+
+The distinction between FOH (front of house) and monitor mixing is critical: performers need to hear themselves and their cue sources; the audience needs to hear the designed sound world. These are often different mixes running from the same console via matrix routing.
 
 Sound design was the last of the main design elements to be systematized (only recognized as a professional credit in major theater from the 1960s–70s):
 
@@ -318,6 +361,49 @@ SPATIAL SOUND:
 
 ---
 
+## Layer 4b: Rigging and Fly Systems
+
+The fly system is the vertical infrastructure of a theater — the mechanism for moving scenery, lighting, and drapery above the stage.
+
+```
+FLY SYSTEM TYPES
+-----------------
+HEMP HOUSE (oldest):
+  Manila rope through pulleys at the grid level.
+  Operator hauls lines by hand, cleats rope to the pin rail.
+  Weight of scenery balanced by sandbags on the opposite end.
+  Skill: fly crew must coordinate line speeds by feel.
+
+COUNTERWEIGHT SYSTEM (standard since ~1900):
+  Arbor (metal frame) holds steel counterweights.
+  Line set: steel cables run from batten through loft blocks
+  to headblock, down to arbor, creating a closed loop.
+  Load batten with scenery, then add matching counterweights
+  to arbor. System balanced = operator can move with one hand.
+  Single-purchase: arbor travels same distance as batten.
+  Double-purchase: arbor travels half the distance (2:1 ratio),
+  requires twice the counterweight. Used in short fly towers.
+
+  CRITICAL CONSTRAINT: counterweight must match load.
+  Unbalanced system = runaway (dangerous).
+  Loading gallery: where weights are added, typically 15-20m up.
+  Pin rail: where lines are locked off after movement.
+
+MOTORIZED/AUTOMATED (modern):
+  Computer-controlled variable-speed electric winches.
+  Each line set independently driven.
+  Programmable movement profiles: acceleration, speed, decel.
+  Position accuracy: ±1mm (modern automation systems).
+  Safety: load cells monitor weight continuously, emergency
+  stops if parameters exceeded.
+  Control: integrated with lighting/sound via network
+  (ETC, Tait, Stage Technologies automation systems).
+```
+
+The fly tower above the stage is typically 2.5× the proscenium height — enough to fly scenery completely out of sight. The grid (steel lattice at the top) supports all loft blocks. The loading gallery (typically at grid level or intermediate) is where counterweights are added. The pin rail (stage level or fly gallery) is where line sets are locked.
+
+---
+
 ## Layer 5: Production Organization
 
 ### The Production Team
@@ -352,7 +438,17 @@ DIRECTOR (production)
     - Calls cues in performance
     - The point of communication between all departments
     - The production's institutional memory
-<!-- @editor[bridge/P1]: The stage manager role is described correctly but the no-rollback systems engineering parallel is never made explicit — and it's the sharpest bridge in this entire guide for the learner calibration. The stage manager calling cues is the runtime coordinator of a distributed system with no ability to pause, rewind, or retry: lighting, sound, fly, automation, and performance subsystems all execute on verbal "go" signals with no compensating transactions. The prompt copy is the execution plan; tech rehearsals are the integration testing phase; the production run is the deployment. A missed cue cannot be un-called; a fly cue that moves at the wrong moment has physical consequences. This is the operational model of a no-rollback system under SLA. Making this bridge explicit here — even two sentences — is the single highest-value edit in this file. -->
+
+  SYSTEMS ENGINEERING PARALLEL:
+    The SM calling cues is the runtime coordinator of a
+    distributed system with no rollback capability: lighting,
+    sound, fly, automation, and performance subsystems all
+    execute on verbal "go" signals with no compensating
+    transactions. The prompt copy = execution plan. Tech
+    rehearsals = integration testing. Production run =
+    deployment under SLA. A missed cue cannot be un-called;
+    a fly cue at wrong timing has physical consequences.
+    This is the operational model of a no-rollback system.
 
 DRAMATURGY:
   The dramaturg provides research support, text analysis,

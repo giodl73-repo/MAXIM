@@ -195,8 +195,9 @@ RELATION TO PSYCHOLOGY:
   Freud's analytic territory.
 ```
 
-<!-- @editor[bridge/P2]: Pirandello's Six Characters raises the question of which layer of a system has authority over a representation — the author (schema designer), the character (the data), the actor (the runtime), or the director (the orchestrator). This is a direct parallel to any layered system with competing authoritative sources: who owns the canonical state? The metalepsis point is already made, but the connection to systems-level authority/versioning conflicts is an obvious bridge for this learner that would take one sentence. -->
 ### Pirandello: Identity and Illusion
+
+*Six Characters* raises a systems-level authority question: who owns the canonical representation? The author (schema designer), the character (the data), the actor (the runtime), or the director (the orchestrator)? This is the same conflict as competing authoritative sources in a layered system — and Pirandello's answer is that no layer has final authority, only competing claims.
 
 Luigi Pirandello (1867–1936) occupies a unique position — neither naturalist nor expressionist, but a theorist of the theater's own nature:
 

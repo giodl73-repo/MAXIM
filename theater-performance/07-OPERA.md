@@ -415,7 +415,7 @@ JOHN ADAMS: Nixon in China (1987), Doctor Atomic (2005)
   Oppenheimer's aria "Batter my heart" (Donne's sonnet)
   before the bomb test is one of the great contemporary
   operatic moments.
-<!-- @editor[bridge/P3]: Philip Glass and John Adams as minimalist composers have a direct connection to computational systems that's worth a sentence — minimalism's procedural generation of music (small patterns, transformation rules, additive process) is structurally analogous to cellular automata or recursive process music. Glass explicitly compared his compositional method to programming. This is a minor enhancement for a near-polished section; the Leitmotif-as-metadata analogy earlier in the file is already excellent. -->
+Minimalist opera has a computational structure: small patterns, transformation rules, additive process — structurally analogous to cellular automata or recursive process generation. Glass explicitly compared his compositional method to programming: define a pattern, specify transformation rules, let the process generate the output.
 ```
 
 ---
