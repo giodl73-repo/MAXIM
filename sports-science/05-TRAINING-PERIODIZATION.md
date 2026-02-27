@@ -418,6 +418,7 @@ INDIVIDUALIZATION CHALLENGE:
 
 ---
 
+<!-- @editor[bridge/P3]: Periodization models (macrocycle → mesocycle → microcycle) have a direct structural parallel to software development iteration hierarchies (roadmap → sprint cycle → daily standup; or release train → sprint → daily build) that isn't drawn. The block periodization model (accumulation → transmutation → realization) maps to diverge → converge → release. For a reader who has shipped software on iterative development cycles, this parallel would reinforce the periodization concept. Currently the periodization models are well explained but treated as sports-specific knowledge rather than an instance of a general systematic iterative improvement pattern. -->
 ## Decision Cheat Sheet
 
 | Situation | Periodization Approach | Key Parameter |

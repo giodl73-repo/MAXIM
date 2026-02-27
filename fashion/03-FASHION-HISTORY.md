@@ -343,6 +343,7 @@ seam or an off-grain cut. The simplest clothes demand the most skill.
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is "I want to understand…" / era reference, not a decision tool — restructure as "use historical analogy to X when evaluating whether current trend cycle represents structural shift vs. pendulum swing; use Simmel's imitation-differentiation model when explaining why luxury trickles down and street style percolates up" -->
 ## Decision Cheat Sheet
 
 | I want to understand...                          | Era / Designer                  |

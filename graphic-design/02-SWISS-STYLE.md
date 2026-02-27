@@ -338,6 +338,9 @@ Critics (including later Swiss designers) noted that "universal" often meant
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet format uses "I want to..." framing rather than "use X when Y" — restructure as decision rows: "use modular grid when designing multi-column editorial for maximum clarity; use single typeface / multiple weights when audience spans multiple languages" -->
+
+<!-- @editor[bridge/P2]: Grid construction presented as historical/aesthetic choice rather than constraint algorithm — the grid is a spatial constraint satisfaction system: given column count, gutter width, margin, and type size, the layout space is a constrained lattice. For a learner with MIT TCS background, framing this as constraint propagation (grid unit derived from type metrics → all spatial decisions follow deterministically) is a stronger bridge than "Swiss designers preferred grids." -->
 ## Decision Cheat Sheet
 
 | I want to...                                    | Swiss Style approach            |

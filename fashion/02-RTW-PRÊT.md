@@ -276,6 +276,9 @@ The consumer has to learn to see it.
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a reference FAQ ("I want to understand…"), not a decision tool — restructure as "choose accessory-heavy product mix when brand targets luxury signaling with maximum margin; choose made-to-order production when demand forecasting risk is high" -->
+
+<!-- @editor[bridge/P3]: RTW size standardization problem is described historically but not bridged to engineering standards — size standardization is the same problem as any domain standardization: incompatible local conventions, coordination failure, network effects favoring whoever establishes the standard first. The USDA 1930s anthropometric study is the ANSI/ISO equivalent for apparel. For a reader who has lived through API versioning and protocol wars, naming this parallel would click immediately. -->
 ## Decision Cheat Sheet
 
 | I want to understand...                      | Key point                          |

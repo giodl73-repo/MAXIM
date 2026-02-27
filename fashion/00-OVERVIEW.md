@@ -252,6 +252,9 @@ it offloads costs to garment workers, ecosystems, and the future.
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a module directory, not a "use X when Y" decision tool — restructure as decisions, e.g. "use Veblen pricing logic when you want scarcity to amplify demand; use fast-fashion inventory model when short cycle time and test-and-chase is the strategy" -->
+
+<!-- @editor[bridge/P2]: Fashion forecasting is mentioned (AI in trend forecasting) but not bridged to time-series analysis / demand prediction — fashion forecasting is literally a time-series prediction problem (trend cycles, adoption curves, S-curves for new styles). For a learner who understands statistical models, naming this explicitly — "trend forecasting = seasonal decomposition + lagged adoption signal" — would be a useful bridge. Currently the field is named but the analytical framing is absent. -->
 ## Decision Cheat Sheet
 
 | I want to understand...                   | Module                      |

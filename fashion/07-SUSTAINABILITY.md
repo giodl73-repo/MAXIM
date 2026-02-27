@@ -347,6 +347,7 @@ total production also grows? The latter is marketing, not transformation.
 
 ---
 
+<!-- @editor[bridge/P3]: Life Cycle Assessment (LCA) framework is implicitly present (fiber impact data, dyeing emissions, end-of-life) but never named as LCA or bridged to engineering lifecycle assessment — LCA is the standard engineering tool for comparing total environmental impact across product lifetime phases (raw material extraction → manufacturing → use → end-of-life). Any engineer familiar with reliability engineering or SDLC lifecycles would immediately understand "lifecycle assessment" framing. The data is all here; just needs the explicit bridge label. -->
 ## Decision Cheat Sheet
 
 | I want to understand...                        | Key point                         |

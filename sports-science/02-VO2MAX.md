@@ -294,6 +294,7 @@ ATHLETE'S HEART vs. HYPERTROPHIC CARDIOMYOPATHY (HCM):
 
 ---
 
+<!-- @editor[bridge/P2]: VO2max is presented as a performance ceiling but not explicitly bridged to "rate-limiting resource / bottleneck" framing — the Fick equation (VO2 = Q × CaO2-CvO2) is a throughput equation: oxygen delivery = cardiac throughput × extraction efficiency. VO2max is the maximum throughput of the O2 delivery pipeline. The reader knows throughput analysis (Little's Law, Amdahl's Law, pipeline bottlenecks) from distributed systems work — naming VO2max as "the system's O2 throughput ceiling, constrained by either the pump (cardiac output) or the processor (muscle extraction)" would frame it as a pipeline analysis problem. Currently the Fick equation is presented correctly but without this framing. -->
 ## Decision Cheat Sheet
 
 | Variable | What It Measures | How to Improve | Primary Sport Relevance |

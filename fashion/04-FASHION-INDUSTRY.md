@@ -310,6 +310,9 @@ returned, and reshipped may have higher carbon cost than a single wholesale pall
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is "I want to understand…" reference, not a "use X when Y" decision tool — restructure as decisions: "choose vertical integration when time-to-market and quality control outweigh cost; choose Tier 1 audit program when regulatory compliance is the minimum bar but recognize it cannot audit Tier 2/3" -->
+
+<!-- @editor[bridge/P2]: Supply chain tier structure is described in detail but never explicitly bridged to software dependency management — the Tier 1/2/3 structure is the same as direct/transitive/fourth-party dependencies in software supply chain security. Brands can audit Tier 1 (direct suppliers) but have limited visibility into Tier 2/3, exactly like organizations that can audit their direct vendors but can't see into their vendors' vendors (Log4Shell pattern). This parallel would be immediately legible to any engineering-background reader. -->
 ## Decision Cheat Sheet
 
 | I want to understand...                       | Key concept                        |

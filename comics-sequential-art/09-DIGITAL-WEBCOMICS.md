@@ -366,6 +366,7 @@ direction) shaped digital comics differently than McCloud expected.
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is "I want to understand…" reference, not a decision tool — restructure as "use Patreon direct model when creator has niche audience that values parasocial relationship; use vertical-scroll Webtoon format when primary audience is mobile-first; use print-on-demand backend when audience demonstrates purchase willingness through readership" -->
 ## Decision Cheat Sheet
 
 | I want to understand...                          | Key reference                    |

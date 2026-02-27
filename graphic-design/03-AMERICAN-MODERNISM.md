@@ -374,6 +374,7 @@ are moving design -- time-based graphic design before anyone called it that.
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a reference directory ("I want to understand…") not a decision tool — restructure as "use single-solution presentation when the brief is open-ended and a confident designer owns the answer; use corporate identity program when visual consistency across hundreds of touchpoints is the problem" -->
 ## Decision Cheat Sheet
 
 | I want to understand...                        | Key reference                      |

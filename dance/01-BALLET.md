@@ -371,6 +371,7 @@ MOST COMMON SPECIFIC INJURIES:
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet contains facts ("Why turnout exists") not decisions ("use X when Y") — restructure as "you need turnout technique correction when X; you choose Vaganova training when Y" format so it functions as a decision tool, not a FAQ -->
 ## Decision Cheat Sheet
 
 | You need to know... | Key fact |

@@ -238,6 +238,9 @@ romance, sports, history, literary -- the full range of fiction genres exists.
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet is a module directory, not a "use X when Y" decision tool — convert to decisions: "use manga aspect-to-aspect transition when atmosphere matters more than plot advancement; use splash page when single image needs to carry maximum emotional weight" -->
+
+<!-- @editor[bridge/P1]: No bridge from panel transitions to state machine transitions — McCloud's six panel types (moment-to-moment, action-to-action, subject-to-subject, scene-to-scene, aspect-to-aspect, non-sequitur) are exactly a taxonomy of state transitions with different transition semantics. This bridge is the single most valuable computational framing for this entire directory and it is absent from both the overview and from 02-MCCLOUD-THEORY.md. Any reader coming from formal language theory or automata can map panel transitions to transition types in an FSM immediately — this is a P1 bridge gap because it reframes the formal theory of sequential art for a TCS reader. -->
 ## Decision Cheat Sheet
 
 | I want to understand...                   | Module                          |

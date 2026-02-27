@@ -331,6 +331,9 @@ spending on in-game cosmetics spans from children to adults in their 40s.
 
 ---
 
+<!-- @editor[structure/P2]: Decision Cheat Sheet uses "I want to understand…" reference format rather than decision tool — restructure as "use CLO/3D sampling when you want to reduce physical sample iterations; invest in gaming cosmetics partnerships when brand wants Gen Z reach at lower unit economics than physical product" -->
+
+<!-- @editor[bridge/P3]: CLO 3D / Browzwear not explicitly bridged to digital twin concept — 3D sampling is exactly "digital twin of garment before manufacturing": simulate drape physics, check fit on avatar before cutting physical fabric, iterate in software. For a learner who works in Azure with IoT digital twins, naming this framing explicitly ("3D sampling = digital twin pipeline for fashion production") would connect immediately. -->
 ## Decision Cheat Sheet
 
 | I want to understand...                          | Key point                         |

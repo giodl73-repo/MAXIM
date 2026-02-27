@@ -372,6 +372,7 @@ difficult to do well.
 
 ---
 
+<!-- @editor[bridge/P1]: McCloud's six panel transitions are never bridged to state machine transition types — yet this is the most powerful formal framing available. Each transition type maps directly to a transition semantics class: moment-to-moment (adjacent-state δ with minimal guard condition), action-to-action (causal state transition with outcome visible), subject-to-subject (entity-change transition within same scene), scene-to-scene (context transition — new state space), aspect-to-aspect (attribute transition without state change — exploring the current state), non-sequitur (non-deterministic / labelled but unconstrained transition). The learner has MIT automata theory — this bridge is both immediately legible and reframes the six transitions from arbitrary taxonomy into a principled classification. This is a P1 issue because the bridge is load-bearing for understanding the formal structure of sequential art. -->
 ## Decision Cheat Sheet
 
 | McCloud concept                           | Application in practice                 |
