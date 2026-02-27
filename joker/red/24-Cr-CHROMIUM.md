@@ -27,77 +27,83 @@ Pay attention. The clef changes partway through.
 ### The Score
 
 ```
-KEY SIGNATURE: One flat (B♭)                    TIME: 4/4
-CLEF: Treble (measures 1-3), then Bass (measures 4-6)
+KEY SIGNATURE: One flat (B♭)          TIME SIGNATURE: 4/4
+CLEF: Treble (measures 1–3), then Bass (measures 4–6)
+```
 
+Each measure below shows one sustained whole note (●) and, in some measures, a small grace note (♪). The staff position of each note is given by its vertical placement. Lines are labeled on the left. Read the staff position, look up the note name in the encyclopedia, and extract the letter.
 
-Measure 1         Measure 2         Measure 3
-(Treble clef)     (Treble clef)     (Treble clef)
+---
 
-                  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
-Line 5 (F5)  ════════════════════════════════════════════════════════════
-                                                      ♮
-             ────────────────────────────────────────(B4)────────────────
-Line 4 (D5)  ════════════════════════════════════════════════════════════
+#### Measures 1–3: Treble Clef
 
-             ────────────────────────────────────────────────────────────
-Line 3 (B4)  ════════════════════════════════════════════════════════════
-                               ●
-             ──────────────(A4)─────────────────────────────────────────
-Line 2 (G4)  ════════════════════════════════════════════════════════════
-                         ♯
-             ────────(G4)───────────────────────────────────────────────
-Line 1 (E4)  ════════════════════════════════════════════════════════════
-      ●
- ─(F4)──────────────────────────────────────────────────────────────────
-             ────────────────────────────────────────────────────────────
-Ledger line  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─●─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
-(C4)                                         (C4)
-             ────────────────────────────────────────────────────────────
+```
+                    ┃  Meas. 1   ┃  Meas. 2   ┃  Meas. 3   ┃
+                    ┃            ┃            ┃            ┃
+  ─── Line 5 ───   ┃────────────┃────────────┃────────────┃
+                    ┃            ┃            ┃            ┃
+  ─── Line 4 ───   ┃────────────┃────────────┃────────────┃
+                    ┃            ┃            ┃            ┃
+  ─── Line 3 ───   ┃────────────┃────────────┃──────♪♮────┃
+                    ┃            ┃   ●        ┃            ┃
+  ─── Line 2 ───   ┃──────♪♯───┃────────────┃────────────┃
+                    ┃   ●        ┃            ┃            ┃
+  ─── Line 1 ───   ┃────────────┃────────────┃────────────┃
+                    ┃            ┃            ┃            ┃
+  (below Line 1)   ┃            ┃            ┃            ┃
+                    ┃            ┃            ┃            ┃
+  ═ Ledger line ═   ┃            ┃            ┃   ●        ┃
+                    ┃            ┃            ┃            ┃
 
-             │              │                 │
-             │  ● = whole   │  ● = whole      │  ● = whole note (C4)
-             │  note (F4)   │  note (A4)      │  on ledger line below
-             │              │                 │  staff
-             │  (G♯4) =     │                 │
-             │  grace note  │                 │  (B♮4) = grace note
-             │  (do NOT     │                 │  (natural cancels key
-             │  extract)    │                 │  sig flat -- do NOT
-             │              │                 │  extract)
+LEGEND:
+  ● = whole note (sustained — EXTRACT this note's letter name)
+  ♪ = grace note (chromatic ornament — do NOT extract)
+  ♯ = sharp accidental on the grace note
+  ♮ = natural accidental on the grace note (cancels the B♭ key signature)
+
+POSITIONS OF THE NOTES:
+  Meas. 1:  ● sits in the SPACE between Lines 1 and 2
+            ♪♯ sits ON Line 2
+
+  Meas. 2:  ● sits in the SPACE between Lines 2 and 3
+
+  Meas. 3:  ● sits ON the first LEDGER LINE below the staff
+            ♪♮ sits ON Line 3
 ```
 
 ---
 
 ```
-  ═══════ CLEF CHANGE: Treble → Bass ═══════
+  ═══════════════════════════════════════════
+          CLEF CHANGE: Treble clef → Bass clef
+  ═══════════════════════════════════════════
+```
 
-Measure 4         Measure 5         Measure 6
-(Bass clef)       (Bass clef)       (Bass clef)
+---
 
-             ────────────────────────────────────────────────────────────
-Line 5 (A3)  ════════════════════════════════════════════════════════════
-                                                            ●
-             ──────────────────────────────────────────(E3)─────────────
-Line 4 (F3)  ════════════════════════════════════════════════════════════
-                               ●
-             ──────────────(D3)─────────────────────────────────────────
-Line 3 (D3)  ════════════════════════════════════════════════════════════
-                                         ♯
-             ──────────────────────(C3)─────────────────────────────────
-Line 2 (B2)  ════════════════════════════════════════════════════════════
-                  ●
-             ─(A2)──────────────────────────────────────────────────────
-Line 1 (G2)  ════════════════════════════════════════════════════════════
-             ────────────────────────────────────────────────────────────
+#### Measures 4–6: Bass Clef
 
-             │              │                 │
-             │  ● = whole   │  ● = whole      │  ● = whole note (E3)
-             │  note (A2)   │  note (D3)      │
-             │              │                 │
-             │              │  (C♯3) =        │
-             │              │  grace note     │
-             │              │  (do NOT        │
-             │              │  extract)       │
+```
+                    ┃  Meas. 4   ┃  Meas. 5   ┃  Meas. 6   ┃
+                    ┃            ┃            ┃            ┃
+  ─── Line 5 ───   ┃────────────┃────────────┃────────────┃
+                    ┃            ┃            ┃            ┃
+  ─── Line 4 ───   ┃────────────┃────────────┃────────────┃
+                    ┃            ┃            ┃   ●        ┃
+  ─── Line 3 ───   ┃────────────┃───●────────┃────────────┃
+                    ┃            ┃   ♪♯       ┃            ┃
+  ─── Line 2 ───   ┃────────────┃────────────┃────────────┃
+                    ┃   ●        ┃            ┃            ┃
+  ─── Line 1 ───   ┃────────────┃────────────┃────────────┃
+                    ┃            ┃            ┃            ┃
+
+POSITIONS OF THE NOTES:
+  Meas. 4:  ● sits in the SPACE between Lines 1 and 2
+
+  Meas. 5:  ● sits ON Line 3
+            ♪♯ sits in the SPACE between Lines 2 and 3
+
+  Meas. 6:  ● sits in the SPACE between Lines 3 and 4
 ```
 
 ---
@@ -133,29 +139,26 @@ For each measure, identify the sustained whole note. Write its letter name (A th
 ```
 TREBLE CLEF (measures 1-3)
 ─────────────────────────────────────────────────────────
-Treble clef lines (bottom to top):  E  G  B  D  F
-Treble clef spaces (bottom to top): F  A  C  E
-First ledger line below treble:     C (middle C)
+  Look up treble clef line and space names in the
+  Musical Notation reference (codes section).
 
-Measure    Staff position         Note name
-───────    ──────────────         ─────────
-  1        Space 1 (1st space)    _____
-  2        Space 2 (2nd space)    _____
-  3        Ledger line below      _____
+Measure    Staff position              Note name
+───────    ──────────────              ─────────
+  1        Space between Lines 1-2     _____
+  2        Space between Lines 2-3     _____
+  3        First ledger line below     _____
 
 
 BASS CLEF (measures 4-6)
 ─────────────────────────────────────────────────────────
-Bass clef lines (bottom to top):  G  B  D  F  A
-Bass clef spaces (bottom to top): A  C  E  G
-                                  ↑
-                              NOTE: these are DIFFERENT from treble clef
+  Look up bass clef line and space names in the same
+  reference. The names are DIFFERENT from treble clef.
 
-Measure    Staff position         Note name
-───────    ──────────────         ─────────
-  4        Space 1 (1st space)    _____
-  5        Line 3 (middle line)   _____
-  6        Space 3 (3rd space)    _____
+Measure    Staff position              Note name
+───────    ──────────────              ─────────
+  4        Space between Lines 1-2     _____
+  5        Line 3                      _____
+  6        Space between Lines 3-4     _____
 ```
 
 ### Grace Note Verification (optional -- confirms you understand accidentals)
@@ -163,14 +166,14 @@ Measure    Staff position         Note name
 The three grace notes are NOT extracted, but identifying them confirms your reading:
 
 ```
-Grace note    Measure    Accidental    Letter name
-──────────    ───────    ──────────    ───────────
-   1st           1       ♯ (sharp)     _____
-   2nd           3       ♮ (natural)   _____
-   3rd           5       ♯ (sharp)     _____
+Grace note    Measure    Staff position (clef)    Accidental    Letter name
+──────────    ───────    ─────────────────────    ──────────    ───────────
+   1st           1       Line 2 (treble)          ♯ (sharp)     _____
+   2nd           3       Line 3 (treble)          ♮ (natural)   _____
+   3rd           5       Space 2 (bass)           ♯ (sharp)     _____
 ```
 
-The grace notes are chromatic neighbors to the whole notes near them -- half-step embellishments that a musician would recognize as ornamental. If you can name all three, you understand how accidentals modify staff position. None of these letters contribute to the answer.
+The grace notes are chromatic embellishments -- the Composer's "chrome." Each carries an accidental (sharp or natural) that alters it from the default key signature. If you can name all three letter names, you understand how staff positions, clefs, and accidentals work together. The grace notes are not extracted -- only the six whole notes spell the answer.
 
 ### Extraction
 
