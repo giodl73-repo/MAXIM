@@ -142,7 +142,38 @@ For parabolic PDEs: average the spatial operator between n and n+1 time levels.
 
 ---
 
-<!-- @editor[bridge/P1]: No FEM → distributed computation on grids bridge. The learner calibration explicitly lists "FEM → distributed computation on grids" as a bridge to provide. The stiffness matrix K from FEM on a 3D mesh is a sparse matrix distributed across MPI ranks in any large-scale FEM code (PETSc, FEniCS, DUNE). A box showing "FEM mesh → local stiffness assembly per element → global assembly via MPI scatter/gather → distributed sparse solve (PETSc/ScaLAPACK)" would provide this bridge. Currently the FEM section ends at the math without touching the distributed implementation reality. -->
+## Engineering Bridge: FEM as Distributed Computation on Grids
+
+```
+FEM CONCEPT                      DISTRIBUTED SYSTEMS PARALLEL
+──────────────────────────────────────────────────────────────────────
+Mesh: divide domain into         Partition: divide data across
+  triangles/tets                   MPI ranks / compute nodes
+Element stiffness k_e:           Local computation: each rank
+  computed independently           processes its partition
+  per element (embarrassingly      (no communication needed
+  parallel)                        during assembly)
+Global assembly K = Σ k_e:       MPI scatter/gather: ranks
+  scatter local k_e into           contribute to shared rows/cols
+  global K via connectivity        at partition boundaries
+Solve K u = F:                   Distributed sparse solve:
+  PETSc / MUMPS / Trilinos        PETSc distributes rows of K
+  distribute K across ranks        across MPI ranks, each owns
+                                   a contiguous block of rows
+
+FEM PIPELINE ON A CLUSTER (PETSc / FEniCS / DUNE):
+┌──────────┐   ┌──────────────┐   ┌───────────────┐   ┌──────────┐
+│ Mesh     │──▶│ Local element │──▶│ Global assembly│──▶│ Distributed
+│ partition│   │ assembly     │   │ (MPI comm)    │   │ solve     │
+│ (METIS)  │   │ (no comm)    │   │               │   │ (PETSc KSP)
+└──────────┘   └──────────────┘   └───────────────┘   └──────────┘
+  O(N/P)         O(N/P)             O(N^{2/3}/P)        O(N/P) per iter
+  per rank       per rank           surface comm         with AMG precond
+```
+
+For a 10^7-DOF 3D FEM problem: METIS partitions the mesh into P subdomains, each rank assembles its local stiffness matrices (purely local, no communication), MPI scatter/gather handles shared DOFs at partition boundaries, and PETSc's KSP (Krylov Subspace) solvers run the distributed CG/GMRES with AMG preconditioning. This is the standard industrial pattern (ANSYS, Abaqus, OpenFOAM all use it). Azure HBv3 VMs with InfiniBand provide the MPI fabric.
+
+---
 
 ## Finite Element Method
 
@@ -191,7 +222,39 @@ FEM is the dominant method for engineering applications with complex geometry an
   Automatic mesh generation: Delaunay triangulation, advancing front.
 ```
 
-<!-- @editor[content/P2]: FEM section covers 2D Poisson thoroughly but does not mention hp-FEM (high-order elements, p-refinement) or DG (Discontinuous Galerkin), which are the modern high-performance variants. For the learner who needs FEM, knowing that P1 elements give O(h) in H^1 while P_k elements give O(h^k) — and that DG methods handle discontinuities and unstructured meshes with local conservation — closes a significant gap in the landscape. -->
+**hp-FEM and Discontinuous Galerkin (DG)** — the modern high-performance variants:
+
+```
+  h-REFINEMENT: decrease element size h, fixed polynomial degree p.
+    Convergence: ||u - u_h||_{H^1} = O(h^p) for P_p elements.
+    P1 (linear): O(h). P2 (quadratic): O(h^2). P3 (cubic): O(h^3).
+    Limits: fine meshes → huge DOF count, condition number O(h^{-2}).
+
+  p-REFINEMENT: increase polynomial degree p, fixed mesh h.
+    Convergence: exponential for smooth solutions!
+    ||u - u_h||_{H^1} = O(e^{-c p}) when u is analytic.
+    Same mesh, dramatic accuracy gain by raising element order.
+
+  hp-REFINEMENT (best of both):
+    Small elements (h) near singularities, high order (p) where smooth.
+    Exponential convergence even for problems with corner singularities.
+    Implemented in: deal.II, Nektar++, hp2D.
+
+  DISCONTINUOUS GALERKIN (DG):
+    Allow basis functions to be discontinuous across element boundaries.
+    Communication between elements via numerical fluxes at interfaces.
+
+    ADVANTAGES:
+    - Local conservation (each element conserves mass/momentum exactly)
+    - Handles discontinuities naturally (no Gibbs oscillations)
+    - Easy mesh adaptation (hanging nodes, non-conforming meshes OK)
+    - Embarrassingly parallel: element-local operations dominate
+    - hp-adaptivity is straightforward (different p per element)
+
+    COST: More DOFs than continuous FEM (duplicate unknowns at interfaces).
+    For order p in d dimensions: DG has ~(p+1)^d DOFs per element vs. ~1 for CG-FEM.
+    Used in: CFD (compressible flow), acoustics, electromagnetics (Maxwell).
+```
 
 **Error estimate**: For piecewise linear elements (P1) on a shape-regular mesh:
 
@@ -205,7 +268,22 @@ FEM is the dominant method for engineering applications with complex geometry an
 
 ---
 
-<!-- @editor[bridge/P2]: No GPU-accelerated PDE solver callout. The learner needs cuBLAS/cuSPARSE patterns for numerical linear algebra on GPU. For PDEs: spectral methods use FFT (cuFFT on GPU), FD/FV use SpMV (cuSPARSE), FEM uses batched dense GEMM for element assembly (cuBLAS). A brief table mapping PDE method → GPU library → practical speedup range would directly serve the stated learner need. -->
+**GPU acceleration of PDE solvers:**
+
+```
+  PDE METHOD        DOMINANT OPERATION     GPU LIBRARY     TYPICAL SPEEDUP
+  ──────────────────────────────────────────────────────────────────────────
+  Spectral (Fourier) FFT                   cuFFT           5-20× (large N)
+  Finite Differences SpMV (stencil apply)  cuSPARSE        10-50× (HBM BW)
+  Finite Volume      SpMV + flux compute   cuSPARSE        10-30×
+  FEM (assembly)     Batched small GEMM    cuBLAS batched  20-100× (many elements)
+  FEM (solve)        SpMV (CG/GMRES)      cuSPARSE        10-50×
+  DG methods         Element-local GEMM    cuBLAS batched  50-200× (high arithmetic intensity)
+```
+
+DG methods are especially GPU-friendly: each element's computation is an independent dense matrix-vector product, making the work embarrassingly parallel with high arithmetic intensity. Libraries: OCCA, libParanumal (GPU-native DG), MFEM (GPU-accelerated FEM).
+
+---
 
 ## Spectral Methods
 

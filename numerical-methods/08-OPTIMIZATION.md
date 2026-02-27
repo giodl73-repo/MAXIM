@@ -288,7 +288,49 @@ For ML training where f(x) = (1/N) Sum_{i=1}^N f_i(x) (sum over training example
 
 ---
 
-<!-- @editor[content/P2]: Manifold / Riemannian optimization is absent. The 00-OVERVIEW module map explicitly lists "Manifold optimization (Riemannian SGD)" under 08-OPTIMIZATION. This is a significant gap: optimization on manifolds (Stiefel manifold for orthogonal constraints, positive-definite cone for covariance matrices, hyperbolic space for embeddings) is increasingly important in ML and physics. The section is not stubbed — it simply does not exist. -->
+## Manifold Optimization (Riemannian SGD)
+
+When the feasible set is a smooth manifold — not a convex subset of R^n — Euclidean gradient descent leaves the manifold. Riemannian optimization stays on it.
+
+```
+  RIEMANNIAN GRADIENT DESCENT:
+  1. Compute Euclidean gradient ∇f(x) in ambient space
+  2. Project to tangent space: grad_M f(x) = Proj_{T_x M}(∇f(x))
+  3. Move along geodesic: x_{k+1} = Retr_x(-α grad_M f(x))
+     (Retraction: cheap approximation to the exponential map)
+
+  KEY MANIFOLDS IN PRACTICE:
+  ──────────────────────────────────────────────────────────────────
+  MANIFOLD             CONSTRAINT              APPLICATION
+  ──────────────────────────────────────────────────────────────────
+  Stiefel St(n,p)      V^T V = I_p             Orthogonal constraints
+                        (p columns orthonormal)  PCA, subspace tracking
+  Grassmann Gr(n,p)    Subspace (equiv. class   Subspace learning,
+                        of orthonormal frames)   robust PCA
+  SPD(n)               X ≻ 0                    Covariance estimation,
+                        (symmetric pos. def.)    kernel learning
+  Hyperbolic H^n       -x_0^2 + x_1^2+...=−1   Hierarchical embeddings
+                        (Lorentz model)          (Poincaré embeddings)
+  Sphere S^{n-1}       ||x|| = 1                Normalized embeddings,
+                                                 directional statistics
+  Fixed-rank M(m,n,r)  rank(X) = r              Matrix completion,
+                                                 low-rank optimization
+  ──────────────────────────────────────────────────────────────────
+
+  RIEMANNIAN SGD for the Stiefel manifold:
+  G = ∇f(V)                           (Euclidean gradient)
+  grad = G - V(V^T G + G^T V)/2       (projection to tangent space)
+  V_{k+1} = qr(V_k - α grad)          (retraction via QR)
+
+  LIBRARIES:
+  Manopt (MATLAB), Pymanopt (Python), Manopt.jl (Julia),
+  Geoopt (PyTorch — Riemannian optimizers compatible with autograd),
+  McTorch (PyTorch fork with manifold layers).
+```
+
+The connection to Euclidean optimization: Riemannian optimization reduces to standard gradient descent when the manifold is R^n (flat space, retraction = identity). The overhead per step is the projection + retraction — typically O(np^2) for Stiefel, negligible compared to gradient computation for neural networks.
+
+---
 
 ## Connection to ML Training
 
@@ -303,9 +345,27 @@ The gradient descent machinery above is exactly what trains neural networks:
     Update: theta_{k+1} = optimizer_step(theta_k, g_k)
 
   The optimizer step is gradient descent, momentum, or Adam.
-  g_k is computed by BACKPROPAGATION (reverse-mode automatic differentiation).
+  g_k is computed by BACKPROPAGATION — which is reverse-mode automatic differentiation (AD).
+
+  WHY REVERSE-MODE AD MAKES DEEP LEARNING POSSIBLE:
+  Forward-mode AD: computes one directional derivative per pass.
+    For n parameters: need n forward passes to get full gradient. Cost: O(n × cost(f)).
+  Reverse-mode AD: records a computation graph (tape) on the forward pass,
+    then propagates sensitivities backward from loss to all parameters in ONE pass.
+    Cost: O(cost(f)) — independent of parameter count n.
+
+  For a model with n = 10^9 parameters (modern LLM):
+    Forward-mode gradient: 10^9 forward passes. Completely infeasible.
+    Reverse-mode gradient: ~3× one forward pass (tape memory + backward compute).
+    This single asymptotic fact is why deep learning is computationally tractable.
+
+  The "3×" overhead: forward pass computes activations + records tape;
+  backward pass traverses tape in reverse, applying the chain rule at each node.
+  Memory cost: O(depth × width) for storing intermediate activations (the tape).
+  Gradient checkpointing trades memory for compute: recompute activations
+  during backward pass instead of storing them (sqrt(depth) memory, 2× compute).
+
   Loss surface is non-convex; we find local (hopefully good) minima.
-<!-- @editor[bridge/P1]: Backpropagation is mentioned but there is no AD → backpropagation bridge. The learner explicitly needs automatic differentiation. The statement "g_k is computed by BACKPROPAGATION (reverse-mode automatic differentiation)" is a one-liner where a bridge belongs: forward mode vs. reverse mode, why reverse mode is O(cost of f) regardless of parameter count, and how this means the cost of computing the full gradient of a billion-parameter model is just ~3x a single forward pass. This is the key insight that makes deep learning computationally tractable — it deserves a paragraph, not a parenthetical. -->
 
   LEARNING RATE SCHEDULES:
   Constant: works if tuned. Sensitive.

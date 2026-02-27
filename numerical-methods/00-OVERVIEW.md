@@ -4,46 +4,45 @@
 
 Numerical methods are algorithms for approximating the solutions of mathematical problems that cannot be solved analytically. The fundamental challenge: computers work with floating-point approximations to real numbers, and the errors accumulate.
 
-<!-- @editor[diagram/P2]: Landscape lists four isolated boxes but doesn't show the dependency flow — the FOUNDATION box should visually feed upward into the four problem boxes, and arrows should show how linear systems feed eigenvalue methods (via Cholesky reduction) and how all four feed into the scientific computing stack. Rework as layered system view showing data flow between problem classes. -->
 ```
-+------------------------------------------------------------------+
-|              NUMERICAL METHODS LANDSCAPE                         |
-+------------------------------------------------------------------+
-|                                                                  |
-|  THE FOUR CORE PROBLEMS:                                        |
-|                                                                  |
-|  1. SOLVE LINEAR SYSTEMS    Ax = b                              |
-|     +-------------------+                                        |
-|     | Direct: LU, QR    |                                        |
-|     | Iterative: CG,    |                                        |
-|     | GMRES, multigrid  |                                        |
-|     +-------------------+                                        |
-|                                                                  |
-|  2. EIGENVALUE PROBLEMS     Av = lambda v                       |
-|     +-------------------+                                        |
-|     | Power iteration   |                                        |
-|     | QR algorithm      |                                        |
-|     | Lanczos, SVD      |                                        |
-|     +-------------------+                                        |
-|                                                                  |
-|  3. INTEGRATION             Int_a^b f(x) dx                     |
-|     +-------------------+                                        |
-|     | Newton-Cotes      |                                        |
-|     | Gaussian quad.    |                                        |
-|     | Monte Carlo       |                                        |
-|     +-------------------+                                        |
-|                                                                  |
-|  4. DIFFERENTIAL EQUATIONS  y' = f(t,y), Lu = f                 |
-|     +-------------------+                                        |
-|     | ODE: RK4, BDF     |                                        |
-|     | PDE: FD, FEM,     |                                        |
-|     | spectral methods  |                                        |
-|     +-------------------+                                        |
-|                                                                  |
-|  FOUNDATION:                                                     |
-|  Floating-point arithmetic, error analysis,                     |
-|  conditioning, stability                                        |
-+------------------------------------------------------------------+
++===================================================================+
+|              NUMERICAL METHODS LANDSCAPE                          |
++===================================================================+
+|                                                                   |
+|  SCIENTIFIC COMPUTING STACK (09)                                  |
+|  NumPy/SciPy/Julia/MATLAB → LAPACK/BLAS → cuBLAS/cuSPARSE → HW  |
+|       ▲              ▲             ▲              ▲               |
+|       |              |             |              |               |
+|  +----------+  +----------+  +-----------+  +-------------+      |
+|  | LINEAR   |  | EIGEN /  |  | INTEGRA-  |  | DIFF. EQUNS |      |
+|  | SYSTEMS  |  | SVD      |  | TION      |  | ODE + PDE   |      |
+|  | Ax = b   |  | Av=λv    |  | ∫f dx     |  | y'=f, Lu=f  |      |
+|  | (02)     |  | (03)     |  | (05)      |  | (06, 07)    |      |
+|  +----------+  +----------+  +-----------+  +-------------+      |
+|    LU, QR,    Power iter,   Newton-Cotes,   RK4, BDF,            |
+|    Cholesky   QR algo,      Gauss quad,     FD, FEM,             |
+|    CG, GMRES  Lanczos, SVD  Monte Carlo     spectral             |
+|       ▲           ▲                ▲              ▲              |
+|       |     Cholesky               |         inner solves        |
+|       +---- reduction ----+       MC for       use (02)          |
+|       |                   |      high-d         + (03)           |
+|  +----+----------------------------------------------+           |
+|  | INTERPOLATION / APPROXIMATION (04)                |           |
+|  | Splines, Chebyshev, RBF, GP / Kriging             |           |
+|  +---------------------------------------------------+           |
+|       ▲                                                          |
+|  +---------------------------------------------------+           |
+|  | OPTIMIZATION (08)                                 |           |
+|  | GD, L-BFGS, SGD/Adam, convex, Bayesian opt       |           |
+|  | ← AD (reverse-mode = backprop) computes gradients |           |
+|  +---------------------------------------------------+           |
+|       ▲                                                          |
+|  +===================================================+           |
+|  | FOUNDATION (01)                                   |           |
+|  | IEEE 754, rounding, cancellation, conditioning,   |           |
+|  | backward stability, interval arithmetic           |           |
+|  +===================================================+           |
++===================================================================+
 ```
 
 ---
@@ -204,9 +203,38 @@ A fundamental challenge distinct from (but related to) the ML concept:
 
 ---
 
-<!-- @editor[bridge/P1]: No automatic differentiation → backpropagation bridge anywhere in the overview. The learner explicitly needs AD, and the connection "reverse-mode AD = backprop = gradient computation for all of module 08" is the single most important bridge in this section for someone coming from an ML-aware CS background. Should appear here in the connections map. -->
+## Cross-Cutting Themes
 
-<!-- @editor[bridge/P2]: No GPU-accelerated numerical linear algebra bridge in the overview. The learner needs cuBLAS/cuSPARSE patterns (explicitly listed in calibration). The module map notes 09-SCIENTIFIC-COMPUTING covers GPU but the overview itself gives no orientation to where GPU enters the picture — a reader scanning the overview wouldn't know this is covered. -->
+Two ideas cut across every module in this section:
+
+**Automatic Differentiation (AD) — the gradient engine.** Reverse-mode AD is backpropagation generalized: given any computation `f: R^n → R`, reverse-mode AD computes the full gradient `∇f` in `O(cost of f)` — independent of `n`. This single fact makes deep learning computationally tractable (billion-parameter models, one backward pass ≈ 3× one forward pass). Forward-mode AD computes one directional derivative per pass — optimal for `f: R → R^m`. AD appears throughout:
+
+```
+  MODULE        AD CONNECTION
+  ──────────────────────────────────────────────────────────────────────
+  06-ODEs       Jacobian df/dy for implicit solvers (forward-mode AD)
+                Adjoint method = reverse-mode AD through ODE solve
+  07-PDEs       Adjoint-based sensitivity: dJ/dp via reverse-mode through PDE solver
+  08-OPTIM      Backpropagation = reverse-mode AD of loss w.r.t. parameters
+                Hessian-vector products via forward-over-reverse AD
+  09-SCI-COMP   JAX/PyTorch/Zygote implement AD; Enzyme does LLVM-level AD
+```
+
+**GPU acceleration — where it enters the picture.** The core numerical kernels map to GPU libraries, and the crossover point depends on operation type:
+
+```
+  OPERATION               GPU LIBRARY      WHEN GPU WINS
+  ──────────────────────────────────────────────────────────────────────
+  Dense GEMM (02,03)      cuBLAS           n > ~1000
+  Sparse SpMV (02,06,07)  cuSPARSE         HBM bandwidth dominates even at moderate n
+  FFT (07 spectral)       cuFFT            Large transforms
+  Dense factorizations    cuSOLVER         n > ~2000
+  Batched small GEMMs     cuBLAS batched   High parallelism over many small matrices
+```
+
+CG/GMRES loops (module 02) are dominated by SpMV — on GPU, that is `cuSPARSE::csrmv`, with 10–50× speedup for large sparse systems. Randomized SVD (module 03) is dominated by dense GEMM (`Y = A × Ω`) — pure cuBLAS. Spectral PDE methods (module 07) are dominated by FFT — cuFFT. The decision: if the inner loop is BLAS Level 3 or SpMV on large data, GPU wins.
+
+---
 
 ## Key Connections to Other Library Directories
 

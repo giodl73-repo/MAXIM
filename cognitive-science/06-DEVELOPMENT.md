@@ -321,9 +321,45 @@ LEVEL III — POSTCONVENTIONAL (principled ethics)
 
 ---
 
-<!-- @editor[audience/P2]: The development module covers Piaget, Vygotsky, and ToM in solid depth, but the content that would most interest this learner — the nativist/core-knowledge debate as it bears on AI (is there an analog of "innate priors" in neural networks? Spelke's core knowledge systems vs learned representations) — is only gestured at in the Baillargeon section. A VP of Engineering with AI interest will immediately ask: does the nativist/empiricist debate in developmental psychology map onto inductive biases in deep learning? Framing this explicitly would be the highest-value addition for this profile. -->
+## Engineering Bridge: Developmental Psychology Meets Machine Learning
 
-<!-- @editor[content/P2]: The Vygotsky ZPD section is good but missing the connection to scaffolding in AI/ML systems (few-shot prompting as scaffolding within the ZPD; chain-of-thought prompting as externalized private speech). This connection is productive for this learner and not made anywhere in the module. -->
+```
+DEVELOPMENTAL CONCEPT               ML / AI EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Spelke's core knowledge systems     Inductive biases / architectural priors
+  Object permanence, number,          CNNs have translation invariance built in
+  agency, space — innate modules      GNNs have relational structure built in
+  Present before any learning         These are not learned — they constrain
+                                      what the network CAN learn
+
+Nativist position (Chomsky)         Strong architectural priors
+  Universal Grammar is innate         Transformer's attention mechanism is
+  Experience tunes, doesn't create    a structural prior — not learned from
+                                      data but shapes what data can teach
+
+Empiricist position (Elman)         Minimal priors + lots of data
+  General learning mechanism +        GPT-style: generic architecture + massive
+  structured input is sufficient      data — "innate" structure is minimal
+
+Vygotsky's ZPD                      Curriculum learning / scaffolding
+  Learn in the zone where you need    Train on easy examples first, increase
+  support, not where you can do       difficulty — Bengio et al. (2009)
+  it alone or can't do it at all      showed this accelerates convergence
+
+Scaffolding                         Few-shot prompting / in-context learning
+  More capable other provides         Demonstrations in the prompt scaffold
+  temporary structure, then fades     the model's performance on a task it
+                                      couldn't solve zero-shot
+
+Private speech (Vygotsky)           Chain-of-thought prompting
+  Children talk through problems      LLMs produce intermediate reasoning
+  aloud before internalizing          steps — externalized "thinking" that
+  → becomes inner speech              improves performance on complex tasks
+                                      Structurally identical to Vygotsky's
+                                      external → internal speech trajectory
+```
+
+The nativist/empiricist debate maps directly onto the inductive bias debate in deep learning. How much structure should be built into the architecture (nativist) vs. learned from data (empiricist)? Spelke's core knowledge systems are the developmental equivalent of hard-coded architectural priors — and the same tensions apply. Too much built-in structure limits generality; too little requires impractical amounts of data.
 
 ## Common Confusion Points
 

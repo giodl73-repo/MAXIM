@@ -121,7 +121,39 @@ Implication: No computational system has genuine understanding — only *simulat
 
 ---
 
-<!-- @editor[bridge/P2]: Global Workspace Theory is presented as a cognitive architecture with a "broadcast" mechanism, but the connection to software architecture is not made. GWT is structurally identical to a message bus / publish-subscribe system: specialized modules are subscribers, the global workspace is the shared bus, and "ignition" is a broadcast event. The fronto-parietal network is the bus controller. For a software architect this is the immediately graspable framing — and it raises the right question: what's the routing/arbitration policy? (attention = priority queue). Make this explicit. -->
+## Engineering Bridge: GWT as Publish-Subscribe Architecture
+
+```
+GWT COMPONENT                       SOFTWARE ARCHITECTURE EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Specialized modules                 Microservices / subscribers
+  Vision, auditory, motor, memory     Each processes independently, emits
+  Each runs in parallel               events to the bus
+
+Global workspace                    Message bus / event broker
+  Shared broadcast medium             Kafka topic, service bus, pub-sub
+  One "winner" at a time              Single active broadcast channel
+  Content available to all modules    All subscribers receive the event
+
+"Ignition" (Dehaene)                Broadcast event with global fanout
+  Late, large-amplitude cortical      Message crosses a threshold and is
+  activation (~300ms P3b wave)        published to all subscribers
+  Fronto-parietal network             The bus controller decides what
+                                      gets broadcast
+
+Attention                           Priority queue / arbitration policy
+  Determines which module gets        Routing algorithm that selects which
+  access to the workspace             producer's message gets broadcast
+  Bottleneck = bus bandwidth          Backpressure when too many events
+                                      compete for limited bus capacity
+
+Unconscious processing              Local processing without publish
+  Modules run but don't broadcast     Service handles request internally
+  Fast, specialized, no global        No event emitted to the bus
+  availability                        Other services unaware
+```
+
+The architectural question GWT raises is the one a systems architect asks first: what is the arbitration policy? Attention is the answer — it's the priority queue that determines which module's output gets promoted to the global bus. The hard problem of consciousness, in this framing, is: why does publishing to the bus produce subjective experience? The architecture explains *access* (what gets broadcast is reportable, controllable, available for reasoning) but not *phenomenal* experience.
 
 ## Integrated Information Theory (IIT)
 
@@ -160,7 +192,7 @@ Low phi:  Parts can be understood independently
 - IIT is unfalsifiable in practice
 - Scott Aaronson (CS): IIT leads to absurd conclusions about large grids of logic gates
 
-<!-- @editor[bridge/P2]: Aaronson's critique is mentioned but not given the weight it deserves for a CS reader. Aaronson showed that IIT implies a large 2D grid of XOR gates would have astronomical Φ and thus extremely high consciousness — which most people find absurd. His blog post "Why I Am Not An Integrated Information Theorist" (2014) is the canonical CS-person's dissection of IIT's problems. For this learner, this is the most credible external validity check on IIT and deserves more than a single bullet. Add 2-3 sentences on the computational complexity argument specifically. -->
+**Aaronson's critique in detail** ("Why I Am Not An Integrated Information Theorist," 2014): Scott Aaronson showed that a 2D grid of XOR gates — a trivially simple digital circuit — would have astronomical phi under IIT's definition, because every partition loses significant information (XOR is maximally sensitive to all inputs). A sufficiently large grid would have higher phi than the human brain. IIT's proponents responded by refining the theory (IIT 3.0 adds "intrinsic cause-effect power" constraints), but the core computational objection stands: phi is NP-hard to compute exactly, the approximations are untested on real neural data, and the measure still assigns high consciousness to systems that intuitively have none. For a CS reader, this is the strongest reason to treat IIT as a *research program* rather than an established theory — the mathematical framework doesn't yet produce the right answers on simple test cases.
 
 ---
 
@@ -188,7 +220,7 @@ FIRST-ORDER STATE:             HIGHER-ORDER THOUGHT:
 
 ---
 
-<!-- @editor[bridge/P2]: The Predictive Processing / Free Energy section is the most important for this learner — it connects directly to variational inference in ML. Friston's free energy IS the negative ELBO from variational Bayes: F = -ELBO = KL[Q(θ)||P(θ)] - log P(data). Minimizing free energy = maximizing the evidence lower bound, the same objective used in VAEs (variational autoencoders). The brain as an approximate inference engine, using Q(θ) as the variational posterior, is a precise mapping this reader will recognize. Make this bridge explicit here and cross-reference 08-COMPUTATIONAL-MODELS. -->
+**Variational inference connection**: Friston's free energy is the negative ELBO from variational Bayes: F = -ELBO = KL[Q(theta) || P(theta|data)] + const. Minimizing free energy = maximizing the evidence lower bound — the same objective used in VAEs. The brain's generative model P(data|theta) is the decoder; the recognition model Q(theta|data) is the encoder; perception is the E-step (update Q); learning is the M-step (update P). See `08-COMPUTATIONAL-MODELS.md` for the full formal treatment and the bridge table mapping each Friston concept to its ML equivalent.
 
 ## Predictive Processing and Active Inference
 

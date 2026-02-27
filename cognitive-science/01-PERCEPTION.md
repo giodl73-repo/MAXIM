@@ -155,8 +155,7 @@ BINOCULAR CUES:
 +----------------------------------+
 ```
 
-<!-- @editor[bridge/P2]: MLE/inverse-variance weighting is stated but not connected to the Bayesian stats background. Add one sentence: this is the same precision-weighted combination known from Kalman filter sensor fusion — the optimal Bayesian estimate under Gaussian noise is a precision-weighted (inverse-variance) average of the priors and likelihoods. The bridge from sensor fusion makes the Bayesian brain hypothesis immediately concrete for this learner. -->
-**Bayesian cue combination** (Ernst & Banks 2002): depth cues are combined as weighted averages, with weights proportional to their reliability (inverse variance). This is Maximum Likelihood Estimation. Humans do this near-optimally — a major empirical confirmation of the Bayesian brain hypothesis.
+**Bayesian cue combination** (Ernst & Banks 2002): depth cues are combined as weighted averages, with weights proportional to their reliability (inverse variance). This is Maximum Likelihood Estimation — the same precision-weighted fusion used in Kalman filters for sensor fusion. Under Gaussian noise, the optimal Bayesian estimate is a precision-weighted (1/sigma^2) average of the individual cue estimates: x_combined = (x1/sigma1^2 + x2/sigma2^2) / (1/sigma1^2 + 1/sigma2^2). The fact that human depth perception matches this formula quantitatively is one of the strongest pieces of evidence for the Bayesian brain hypothesis.
 
 ---
 
@@ -240,21 +239,18 @@ COMMON MISCONCEPTION:
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet maps phenomena to Marr levels, which is useful, but doesn't answer the practical question a technical reader brings: "given a perception failure (illusion, blindness, misperception), what level of the system is responsible and what can be done about it?" The "where it arises" column doesn't guide decisions. Rework as "use-when" rows: e.g., designing a UI alert → exploit bottom-up salience (preattentive); designing a training simulation → account for top-down expectation effects. -->
-
 ## Decision Cheat Sheet
 
-| Perceptual Phenomenon | Level (Marr) | Where it arises |
-|----------------------|-------------|-----------------|
-| Edge detection | Algorithmic | V1 orientation columns |
-| Object recognition | Computational+Algorithmic | Ventral stream / IT cortex |
-| Depth from disparity | Computational | Stereopsis in V1/V2 |
-| Color constancy | Computational | V4 + lightness computation |
-| Gestalt grouping | Algorithmic | Early visual cortex + beyond |
-| Auditory streaming | Algorithmic | Auditory cortex + brainstem |
-| McGurk effect | Algorithmic | Multisensory integration areas (STS) |
-| Change blindness | Computational | Attentional gating of representation |
-| Inattentional blindness | Algorithmic | Attention + working memory |
+| Design Problem | Perceptual Mechanism | What to Do |
+|---------------|---------------------|------------|
+| Alert must be noticed instantly | Bottom-up salience (preattentive pop-out) | Use color, motion, or onset — features that bypass attention bottleneck |
+| User misreads a display under stress | Top-down expectation override | Design for violated expectations — make critical state changes break the expected pattern |
+| Users miss a critical change on screen | Change blindness | Don't rely on change alone — add a transient signal (flash, motion) at the change location |
+| Training sim produces wrong depth judgments | Monocular cue conflict | Ensure texture gradient, occlusion, and motion parallax are consistent — binocular disparity alone is insufficient |
+| Color-coded status is misread | Opponent-process + constancy failure | Don't rely on color alone (accessibility); use redundant coding (shape, position, label) |
+| Audio alert masked by environment | Auditory streaming failure | Use frequency/timbre distinct from ambient noise; exploit onset synchrony to bind alert components |
+| Multimodal display produces confusion | Cross-modal conflict (McGurk/ventriloquist) | Ensure spatial and temporal alignment of visual + auditory signals; vision will capture spatial, audio will capture temporal |
+| Users fail to detect rare events | Inattentional blindness under high load | Reduce perceptual load on primary task during critical monitoring, or use automated detection with salient alerting |
 
 ---
 

@@ -139,7 +139,37 @@ Reveals: **conscious perception is gated**, not continuous. You can miss things 
 
 ---
 
-<!-- @editor[bridge/P2]: Working memory as a computational resource is the most direct hook for this learner. The transition from the bottleneck models to working memory should explicitly draw the cache analogy: phonological loop ≈ L1 cache (fast, small, serial access); visuospatial sketchpad ≈ separate memory-mapped region; central executive ≈ cache controller/scheduler. The ~3-4 chunk capacity = cache line count, with LTM as backing store. This is the bridge that makes WM limits immediately actionable for system designers. Currently missing entirely. -->
+## Engineering Bridge: Working Memory as Cache Architecture
+
+```
+BADDELEY'S WM COMPONENT            CACHE ARCHITECTURE EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Phonological loop                   L1 cache (instruction-side)
+  ~2 sec of speech, serial access     Small, fast, serial access
+  Articulatory rehearsal = refresh    Write-back loop to keep lines hot
+  Decay if not refreshed (~2s)        Eviction on timeout / LRU
+
+Visuospatial sketchpad              L1 cache (data-side) / GPU VRAM
+  Separate address space from         Separate memory-mapped region
+  verbal; spatial + visual            Different bus, different format
+  ~4 items                            Limited line count
+
+Central executive                   Cache controller / scheduler
+  Allocates attention, coordinates    Arbitrates bus access, handles
+  Does NOT store — it schedules       coherence protocol, prioritizes
+  Frontal cortex                      requests between subsystems
+
+Episodic buffer                     L2 cache / TLB
+  Integrates across subsystems        Unified, slightly slower
+  Binds WM content with LTM           Bridges fast local + slow backing
+  Added in 2000 revision              store
+
+Long-term memory                    Main memory (DRAM) / disk
+  Vast, persistent, slow retrieval    High capacity, high latency
+  Retrieval = cache miss penalty      Access time >> cache hit time
+```
+
+The capacity limit (~3-4 chunks without rehearsal) maps to cache line count. Chunking is compression — an expert's chunk packs more information per cache line by exploiting LTM-resident codebooks (like a dictionary-based compression scheme). This is why expertise doesn't expand WM capacity; it increases information density per slot.
 
 ## Working Memory — Baddeley & Hitch
 
@@ -231,7 +261,7 @@ SHALLOW ────────────────────────
 
 **Implication for software engineering**: Code review is elaborative rehearsal. Reading docs is maintenance rehearsal. Testing/writing code is elaborative. This is why teaching or writing documentation about something improves your own understanding.
 
-<!-- @editor[bridge/P3]: Natural bridge to the transformer attention mechanism is missing here. The feature integration theory (serial binding via attention spotlight) is structurally analogous to the query-key-value attention mechanism: the spotlight selects features at a location (query), binds them from feature maps (keys/values). This connection is a clean bridge from cognitive attention research to the ML attention mechanism that would resonate for an AI-interested reader. One paragraph would suffice. -->
+**Transformer attention parallel**: Treisman's feature integration — a serial spotlight that binds features at an attended location — bears a loose structural resemblance to the query-key-value attention mechanism: the query selects relevant locations, keys index the feature maps, and values provide the content to be bound. But the resemblance is shallow. Cognitive attention is serial, capacity-limited, and produces binding errors (illusory conjunctions) under divided attention. Transformer self-attention is globally parallel, computes soft weights over *all* positions simultaneously, and has no capacity bottleneck. The naming is historical; the mechanisms are fundamentally different. See `08-COMPUTATIONAL-MODELS.md` for the detailed disambiguation.
 
 ---
 

@@ -101,7 +101,7 @@ IEEE 754 specifies five rounding modes:
   Math.Round(x, MidpointRounding.AwayFromZero) uses round-half-up.
   This difference breaks naive financial rounding if not handled carefully.
 ```
-<!-- @editor[bridge/P3]: Stack-specific .NET bridge here is fine as additive flavor, but a universal bridge is missing: the rounding mode discussion should first mention that directed rounding (toward ±∞) is the formal mechanism behind interval arithmetic — connecting forward to the Interval Arithmetic section below. Any developer coming from any stack needs this logical link. -->
+Note: Directed rounding (toward +∞ and −∞) is precisely the mechanism that makes interval arithmetic work — computing the lower bound with round-toward-−∞ and the upper bound with round-toward-+∞ guarantees enclosure of the true result. This connection is developed in the Interval Arithmetic section below.
 
 ---
 
@@ -299,9 +299,9 @@ Interval arithmetic replaces real numbers with intervals [a, b] that are guarant
 
 ---
 
-<!-- @editor[bridge/P2]: No automatic differentiation connection here. The floating-point precision discussion (float16/bfloat16/TF32) is exactly where the learner needs a bridge: loss scaling in mixed-precision training exists precisely because float16 underflows gradients — this is a floating-point stability problem in the context of reverse-mode AD. A sentence connecting floating-point precision → gradient underflow → loss scaling → AD would anchor the "why does mixed precision training need loss scaling" question that any serious ML practitioner has. -->
-
 ## Mixed Precision Computing
+
+**Why mixed precision needs loss scaling — a floating-point stability problem.** During backpropagation (reverse-mode AD), gradients of early layers can be orders of magnitude smaller than the loss itself. In float16 (exponent range ~10^{−4} to 10^4), these small gradients underflow to zero — catastrophic cancellation's cousin, but on the small end. Loss scaling multiplies the loss by a large constant (e.g., 2^16) before the backward pass, shifting all gradients into float16's representable range, then divides after the weight update. This is not a trick — it is the direct consequence of float16's narrow exponent range meeting the dynamic range of gradient magnitudes in deep networks. Bfloat16 avoids the problem by keeping float32's exponent range (8 bits → ~10^{−38} to 10^{38}), trading mantissa precision instead.
 
 Modern ML drives a new era of deliberate precision reduction:
 
