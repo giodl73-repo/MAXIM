@@ -108,7 +108,8 @@ Martensite hardness: primarily controlled by %C
 
 ## TTT Diagrams (Time-Temperature-Transformation)
 
-<!-- @editor[bridge/P1]: A TTT diagram IS a finite state machine diagram. States: austenite (initial), pearlite, bainite, martensite (terminal states). Transitions: governed by (temperature, time) coordinates crossing transformation start/finish boundaries. Reading a TTT diagram is reading a state transition map — given current state (austenite) at temperature T, the curves tell you what state becomes reachable at what time. The "nose" of the TTT is the most accessible transition region. Making this explicit — "this is a state machine where temperature selects the active transition" — is the key TCS bridge. Not mentioned anywhere in this guide. -->
+**State machine bridge:** A TTT diagram is a finite state machine where temperature selects the active transition. States: austenite (initial), pearlite, bainite, martensite (terminal). The transformation start and finish curves are the state transition boundaries — given austenite at temperature T, the curves tell you which states become reachable and at what holding time. The "nose" of the TTT is where the transition is fastest (maximum nucleation + diffusion rate). Cooling fast enough to bypass the nose prevents the diffusional transitions entirely, reaching martensite by a diffusionless (athermal) path.
+
 ### Isothermal TTT Diagram Structure
 
 ```
@@ -267,7 +268,8 @@ Effect of temperature:
 
 ### Precipitation Hardening Mechanism
 
-<!-- @editor[bridge/P2]: The precipitation sequence (SSSS → GP zones → θ'' → θ' → θ) is a state machine with irreversible transitions under aging, and reversible on re-solution-treating. T6 (peak-aged) and T73 (overaged) are stable states. Overaging is a state transition that cannot be undone without re-solution treating — analogous to a one-way state transition in a workflow. The "peak aging" target is a time-temperature setpoint in a control sense: too short → under-aged (GP zone state), too long → overaged (coarse precipitate state). Not called out as a sequential state progression. -->
+The precipitation sequence is a state machine with largely irreversible transitions under aging — SSSS → GP zones → theta'' → theta' → theta (equilibrium). Overaging (theta' → theta) cannot be undone without re-solution treating, which resets to SSSS. Peak aging (T6) targets the theta'' / theta' boundary, where coherency strain hardening is maximum. Too short = under-aged (GP zone state, insufficient strengthening), too long = overaged (coarse incoherent precipitates, reduced strength).
+
 ```
 PRECIPITATION SEQUENCE (Al-Cu example, 2XXX series)
 ──────────────────────────────────────────────────────────────────

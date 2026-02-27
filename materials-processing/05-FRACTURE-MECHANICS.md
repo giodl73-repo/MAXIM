@@ -199,7 +199,8 @@ Size effect:
 
 ### Paris Law (Fatigue Crack Growth)
 
-<!-- @editor[bridge/P2]: The Paris law integration (N = ∫ da / C(ΔK)^m from a_i to a_c) is a first-order ODE integration — crack size a(N) evolves according to da/dN = f(a), and we integrate numerically to find when a reaches the critical value a_c. Any numerical methods background immediately recognizes this as an IVP (initial value problem) for crack growth, solved by standard quadrature or Euler-like stepping. The life calculation is just integrating the ODE — naming this connection would help any CS reader who knows numerical integration but finds "integrate the Paris law" opaque. -->
+**Numerical methods bridge:** Integrating Paris law to get fatigue life is solving an initial value problem: da/dN = C(ΔK)^m with a(0) = a_initial. Since ΔK = Y × Δσ × √(πa) depends on a, this is a nonlinear ODE in a(N), solved by standard quadrature (trapezoidal, Simpson's) or forward Euler stepping from a_initial to a_critical. The number of cycles N at which a = a_critical is the predicted fatigue life.
+
 ```
 PARIS LAW: DA/DN = C × ΔK^m
 ──────────────────────────────────────────────────────────────────
@@ -230,7 +231,8 @@ FATIGUE CRACK GROWTH CURVE (da/dN vs ΔK):
 
 ### Damage Tolerance and Inspection Intervals
 
-<!-- @editor[bridge/P1]: Damage tolerance engineering IS reliability engineering applied to crack growth. The framework maps exactly: assume a worst-case initial defect (= assume worst-case initial condition), integrate the failure model forward (Paris law = crack growth rate equation), set maintenance interval = fraction of time-to-failure (= inspection interval = half the predicted life). This is probabilistic safety analysis — the same framework used in aerospace software certification (DO-178C reliability analysis), nuclear safety (fault tree analysis), and dependable systems design. Any software infrastructure engineer who thinks about MTBF and maintenance intervals maps this immediately. The connection is never named. -->
+**Reliability engineering bridge:** Damage tolerance IS reliability engineering applied to crack growth. The framework maps directly: assume worst-case initial defect (= worst-case initial condition), integrate the failure model forward (Paris law = da/dN rate equation), set inspection interval = fraction of predicted life (safety factor of 2 is standard). This is the same probabilistic safety analysis used in aerospace software certification (DO-178C), nuclear safety (fault tree analysis), and dependable systems design — assume the worst, model the degradation, set maintenance before failure.
+
 ```
 DAMAGE TOLERANCE APPROACH (aircraft structures)
 ──────────────────────────────────────────────────────────────────
