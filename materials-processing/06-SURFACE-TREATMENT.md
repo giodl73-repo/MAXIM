@@ -33,7 +33,8 @@ SURFACE TREATMENT TAXONOMY
 
 ## PVD (Physical Vapor Deposition)
 
-<!-- @editor[bridge/P2]: PVD (physical vapor deposition — sputtering, evaporation) is the exact same process used in semiconductor fab for metallization layers, gate electrode deposition, and interconnect barrier layers. Any engineer who knows that TSMC sputter-deposits tungsten or TiN diffusion barriers onto wafers already knows PVD physics. The tools differ in scale and purity requirements, but the physics is identical. For a TCS reader with semiconductor awareness, naming this connection — "same process as semiconductor thin-film deposition, here applied to hard coatings on cutting tools" — is the key bridge. Absent. -->
+PVD is the same physical process used in semiconductor fabrication for metallization layers, gate electrode deposition (TiN), and interconnect barrier layers. The physics is identical — sputtering or evaporation in vacuum, vapor transport, condensation on substrate. Tools differ in scale and purity requirements, but any engineer who knows TSMC sputter-deposits tungsten or TiN already understands PVD physics. Here it is applied to hard coatings on cutting tools and wear surfaces.
+
 ### PVD Process Overview
 
 ```
@@ -194,7 +195,8 @@ Purpose: insulate Ni superalloy substrate from hot gas (>1000°C)
          → allows higher turbine inlet temperature
          → increases engine efficiency
 
-<!-- @editor[bridge/P3]: The TBC layer stack (ceramic top coat / TGO / bond coat / substrate) is a software stack where each layer is optimized for a different function: thermal insulation (top coat), oxidation resistance (bond coat + TGO), structural integrity (substrate). Each layer has a defined interface contract. The failure mode (TGO growth → spallation) is an interface contract violation under thermal cycling — analogous to a versioning incompatibility that accumulates over many deployment cycles. A "layered architecture with interface failure modes" framing would resonate. -->
+The TBC system is a layered architecture where each layer optimizes for a different function (thermal insulation, oxidation resistance, structural integrity), and the failure mode — TGO growth causing spallation — is an interface contract violation that accumulates over thermal cycling, analogous to an interface incompatibility that worsens with each deployment cycle.
+
 TBC system layers:
   ┌────────────────────────────────────────────┐
   │ Ceramic top coat: 7% YSZ (yttria-stabilized│

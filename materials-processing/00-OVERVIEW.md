@@ -174,7 +174,13 @@ TTT and CCT diagrams map this:
   Time-Temperature-Transformation (isothermal hold)
   Continuous Cooling Transformation (constant cooling rate)
   Both show: start/finish curves for each transformation
-<!-- @editor[bridge/P1]: A TTT diagram IS a finite state machine. States: austenite, pearlite, bainite, martensite, ferrite+carbide. Transitions: triggered by (temperature, time) pairs crossing transformation boundaries. The TTT diagram maps the feasible state transitions — given current state (austenite at T), which states are reachable and at what time? This is the most direct TCS bridge in the entire materials section — calling it a state machine would make the entire heat treatment section immediately graspable for a CS reader. Absent here and throughout the section. -->
+
+A TTT diagram is a finite state machine. States: austenite (initial), pearlite,
+bainite, martensite (terminal states). Transitions: triggered by (temperature,
+time) pairs crossing transformation start/finish boundaries. Reading a TTT
+diagram = reading a state transition map: given current state (austenite at T),
+which states are reachable and at what holding time? The "nose" is the
+fastest transition path. Temperature selects which transition is active.
 ```
 
 ### Diffusion and Its Implications
