@@ -40,7 +40,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 | 10♣ | The Scribe | A letterform anatomy diagram: serif, stem, counter, ascender, baseline — one large glyph dissected, and beside it twenty-seven more waiting in a row, each one a different hand |
 | 10♦ | The Broadcaster | A film strip — 4 sequential frames — with a broadcast tower radiating concentric signal waves, the outermost ring fading past the edge of the card |
 | 10♥ | The Interpreter | The semiotic triangle: SIGN at top, SIGNIFIER and SIGNIFIED at base corners, arrows between all three — the arrows redrawn in a second hand at each corner — relational, typed, recursive — the triangle's meaning arriving in the reader's own notation, seventy-one times over |
-| 10♠ | The Narrator | A horizontal timeline: clay tablet → scroll → codex → press → screen → stream — same impulse, new vessel |
+| 10♠ | The Narrator | A horizontal timeline: clay tablet → scroll → codex → press → screen → stream — same impulse, new vessel — and beneath the timeline, a ledger open to its final page — 206 entries, every vessel counted, the whole library held in a single manifest |
 
 ### 9 — Social Sciences
 

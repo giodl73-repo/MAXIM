@@ -25,8 +25,9 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 | 13 | Feb 26 | The Interpreter | 10♥ | Fix pass — 71 dirs, 575+ tags resolved, 6 sections clean |
 | 14 | Feb 26 | The Surveyor | Q♦ | Fix residuals + sweep 59 dirs — 667 tags, 86 P1s, all dirs mapped |
 | 15 | Feb 26 | The Healer | 5♥ | Final fix pass — 745 tags → 0, library clean, navigation layer built |
+| 16 | Feb 26 | The Narrator | 10♠ | Bill of Materials — 206 dirs, 2,178 files, 5M words cataloged |
 
-*37 roles remain unclaimed.*
+*36 roles remain unclaimed.*
 
 ---
 
@@ -51,8 +52,9 @@ Each phase adds a small poetic detail to its card's image concept — a mark lef
 | 13 | The Interpreter | *...the arrows redrawn in a second hand at each corner — relational, typed, recursive — the triangle's meaning arriving in the reader's own notation, seventy-one times over* |
 | 14 | The Surveyor | *...59 blank territories inked in — contour lines running from valley floor to ridge — and in the lower-left corner, a correction note where the last of the old stakes were pulled: three more sections cleared* |
 | 15 | The Healer | *...but the fork has closed — a proofreading exonuclease traced both strands end to end, 745 mismatches excised, the helix sealed and reading true* |
+| 16 | The Narrator | *...and beneath the timeline, a ledger open to its final page — 206 entries, every vessel counted, the whole library held in a single manifest* |
 
-*37 cards await their flair.*
+*36 cards await their flair.*
 
 ---
 
@@ -401,7 +403,28 @@ The library has content. The cards have identity. The roles have names. The imag
 
 Now the cards need faces — 52 new ASCII art visuals, each illustrating the archetype's concept. The current card files (ASCII boxes with 7 key concepts) live in `cards/backs/`. The new designs will live in `cards/` as the primary face of each volume.
 
-37 roles remain unclaimed. Years of reviews, expansions, corrections, and reimaginations ahead. Each session that does meaningful work claims a card.
+36 roles remain unclaimed. Years of reviews, expansions, corrections, and reimaginations ahead. Each session that does meaningful work claims a card.
+
+---
+
+# Phase 16: The Narrator
+
+**Card**: 10♠ — Ten of Swords
+**Date**: February 26, 2026
+**Commits**: (follows Phase 15)
+**Image flair**: *...and beneath the timeline, a ledger open to its final page — 206 entries, every vessel counted, the whole library held in a single manifest*
+
+The library existed. Five million words, 206 directories, 52 volumes. But there was no single document that said what was inside — no manifest, no inventory, no back of the box.
+
+The Narrator's work is not to write new content but to account for all the content that exists. A Python scanner walked every directory, read the first heading of every markdown file, counted every line and every word. The result: `BILL-OF-MATERIALS.md` — a master table of contents organized by card identity. Card 0 (The Fool) through A♠ (The Revolutionary), every file linked, every volume measured.
+
+This is the document you hand to someone who asks: *what is this library?* The summary table gives the shape — 52 rows, one per volume, with epithet, file count, word count. The detail section gives the substance — every chapter title in every directory in every volume. From clay tablet to algorithmic feed — the same impulse to catalog what we've made.
+
+**Key artifacts**:
+- `BILL-OF-MATERIALS.md` — master TOC, 3,300+ lines, every file in the library cataloged
+- `PROJECTS.md` — Project #3 marked complete
+
+**Scale**: 206 directories scanned, 2,178 files cataloged, 5,063,843 words tallied
 
 ---
 
@@ -421,5 +444,5 @@ Now the cards need faces — 52 new ASCII art visuals, each illustrating the arc
 | Tags outstanding | 0 |
 | P1 blocking issues | 0 |
 | Clean directories | 167 |
-| Roles claimed | 15 of 52 |
-| Roles remaining | 37 |
+| Roles claimed | 16 of 52 |
+| Roles remaining | 36 |
