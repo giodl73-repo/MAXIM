@@ -2,7 +2,7 @@
 
 The MAXIM reference library was built across four days in February 2026. What started as three computing modules became 217 directories, 2,481 files, and 826,537 lines — a personal reference library covering the full scope of human knowledge, organized as a 52-card deck.
 
-Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first eighteen.
+Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first twenty-three.
 
 ---
 
@@ -33,7 +33,10 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 | 21 | Feb 27 | The Alchemist | 7♦ | Black Joker — Elements into Compounds, the periodic table as puzzle framework |
 | 22 | Feb 27 | The Inventor | A♦ | Red Joker — 52 puzzles invented, 89-puzzle pool, 9-expert panel, two companion volumes |
 
-*30 roles remain unclaimed.*
+| 23 | Feb 27 | The Forger | 4♦ | Two new tiers — metal cards (Silmarils) + e-book storefront (Palantíri) |
+| 24 | Feb 27 | The Formalist | J♥ | Waves 1–3 executed — 30 agents, 19 new files, 12,500 lines, every weak volume given its invariant |
+
+*28 roles remain unclaimed.*
 
 ---
 
@@ -65,8 +68,10 @@ Each phase adds a small poetic detail to its card's image concept — a mark lef
 | 20 | The Strategist | *...and in the lower-right cell of the payoff matrix, three rings drawn in gold ink — Narya, Nenya, Vilya — the dominant strategy revealed as: make more copies, in more places, at every price point* |
 | 21 | The Alchemist | *...and beside the energy diagram, a periodic table with 26 cells highlighted — the ones that matter — and below it, 26 molecular formulas where the highlighted elements recombine into compounds no single element could become* |
 | 22 | The Inventor | *...and the reference numbers skip: 1, 6, 7, 8, 11, 14, 26 — not sequential, not random — each one an atomic number, each leader line pointing to a puzzle that didn't exist before this drawing was made* |
+| 23 | The Forger | *...and in the cooling tray, fifty-two steel wafers the size of playing cards — each one etched so fine that the whole volume is there, legible only to the loupe, fired permanent by a beam thinner than a hair* |
+| 24 | The Formalist | *...and at every corner of the commutative square, a different name — Sentinel, Ecologist, Alchemist, Witness — but the morphisms all compose: the diagram commutes, and the structure survives* |
 
-*30 cards await their flair.*
+*28 cards await their flair.*
 
 ---
 
@@ -415,7 +420,7 @@ The library has content. The cards have identity. The roles have names. The imag
 
 Now the cards need faces — 52 new ASCII art visuals, each illustrating the archetype's concept. The current card files (ASCII boxes with 7 key concepts) live in `cards/backs/`. The new designs will live in `cards/` as the primary face of each volume.
 
-34 roles remain unclaimed. Years of reviews, expansions, corrections, and reimaginations ahead. Each session that does meaningful work claims a card.
+29 roles remain unclaimed. Years of reviews, expansions, corrections, and reimaginations ahead. Each session that does meaningful work claims a card.
 
 ---
 
@@ -586,6 +591,55 @@ The invention: a puzzle hunt organized by the periodic table, embedded in an enc
 
 ---
 
+# Phase 23: The Forger
+
+**Card**: 4♦ — Four of Pentacles
+**Date**: February 27, 2026
+**Commits**: (uncommitted — publishing/PUBLISHING-PLAN.md)
+**Image flair**: *...and in the cooling tray, fifty-two steel wafers the size of playing cards — each one etched so fine that the whole volume is there, legible only to the loupe, fired permanent by a beam thinner than a hair*
+
+The Forger works in transformation. Raw clay enters the kiln. Vitrified ceramic exits. The material is the same; the form is permanent. This session took the library — five million words of Markdown — and asked: what other forms can it take? Two answers. Two new tiers.
+
+The Silmarils. Tier -1. Indestructible. Fifty-two stainless steel cards, standard poker size, each one micro-etched by fiber laser at 0.5-point font — 577,000 characters per card, readable with a 10x jeweler's loupe. The entire library in a deck you hold in one hand. Thirteen section plates alongside them, 7" × 9" at 0.75-point, each one holding four volumes — the Thirteen Tablets. The math had to be done from scratch: character density per square inch at each font size, area required per volume, which card dimensions fit which fonts. At 0.5pt on a poker card, both sides: it fits. Barely, beautifully. 316L stainless steel lasts a thousand years. Titanium, ten thousand. The pilot: one K♣ card from a fiber laser job shop, $100–300, to see if the human eye and a loupe can actually read it.
+
+The Palantíri. Tier 0.5. The seeing-stones — the far-reach distribution that the physical tiers cannot provide. Kindle, Apple Books, Google Play, Kobo. Per-volume pricing: $3.99 each, $11.99 per section bundle, $59.99 for the full deck. Card 0 free as a loss leader. The critical engineering problem: ASCII diagrams are 80 columns wide and e-readers are 45. The solution — a Pandoc Lua filter that detects box-drawing characters, renders each diagram as a PNG image via monospace font, and embeds it in the EPUB with alt text preserving searchability. Tables pass through as native EPUB. The pilot: Card 0 (free, 108 pages, 15 diagrams — validates the pipeline) and K♣ ($3.99, 372 pages, 50+ diagrams, 1,045 table rows — stress-tests it).
+
+The publishing plan went from three tiers to five. The main diagram grew the Silmarils above and the Palantíri below. Nine new decision log entries. Seven new open questions. The cost summary now spans from $0 (digital) through $10,000 (metal deck) through $14,400 (archival print). The durability spectrum: paperback (decades), hardcover (centuries), acid-free Smyth-sewn (half a millennium), stainless steel (a millennium), titanium (ten millennia).
+
+The Forger doesn't write. The Forger transforms. Same content, different fire, different vessel. Laser on steel. Pandoc through a filter. The kiln doesn't change the clay's composition — it changes the clay's permanence.
+
+**Key artifacts**:
+- `publishing/PUBLISHING-PLAN.md` — expanded from 292 to 770+ lines: Silmarils tier, Palantíri tier, two pilot plans, pricing strategy, diagram pipeline, material specs, vendor classes, updated costs, 9 new decisions, 7 new open questions
+
+**Scale**: 1 file substantially expanded (+477 lines), 2 new publishing tiers designed (Silmarils + Palantíri), 2 pilot plans (metal card + e-book), 5 e-book platforms evaluated, 4 metal materials compared, character density calculated at 5 font sizes, pricing models for singles/bundles/deck, diagram conversion pipeline designed (Pandoc + Lua + PNG rendering)
+
+---
+
+# Phase 24: The Formalist
+
+**Card**: J♥ — Jack of Hearts
+**Date**: February 27, 2026
+**Commits**: `841c4e7` → `e863b5e` (2 commits)
+**Image flair**: *...and at every corner of the commutative square, a different name — Sentinel, Ecologist, Alchemist, Witness — but the morphisms all compose: the diagram commutes, and the structure survives*
+
+The Strategist scored every volume and sorted the work into waves. The Formalist executed all three.
+
+Wave 1 found the invariant. Ten volumes had weak archetype voices — content was there but the unifying structure was missing. Thirty minutes of agent deployment, ten parallel writers, and every one returned with the deep structure its volume lacked. The Sentinel's invariant: distributed trust, Byzantine consensus, verify everything. The Ecologist's: four scales of the same systems story — forest, stream, soil, reef — connected by the same nutrient flows and trophic cascades. The Alchemist's: exergy destruction, the question "where does availability die?" applied to every thermodynamic conversion. The Timekeeper's: three families of clocks — celestial, geological, paleontological — all calibrating the same deep time. The Witness's: Meadows' twelve leverage points, from parameters to paradigms, with every reformer and visionary mapped to the depth of their intervention. The Sage's: five modes of pre-technical knowing, each the ancestor of a modern discipline. These are not summaries. They are invariants — the structures that survive all future revision.
+
+Wave 2 tightened style. Five volumes got the diagrams, cheat sheets, and register shifts they were missing. The Narrator's four directories (journalism, oral tradition, epigraphy, digital media) each received landscape diagrams and decision tables. The Witness (Social Sciences) got a systems architecture diagram that reframes psychology as a measurement problem. The Collector got species counts that make insect diversity visceral: more beetles than all vertebrates combined. Every edit was surgical — append, don't rewrite.
+
+Wave 3 built depth. Nine new content files totaling 7,981 lines. Consensus theory for the Sentinel (FLP, BFT, Paxos, Raft — the impossibility results that set the floor). Threat models for security engineering (zero-trust, FIDO2, Zanzibar, SLSA). Thermal cycles for the Alchemist (Rankine, Brayton, combined cycle — every T-s diagram as ASCII). Hydropower and grid dispatch for energy systems. Navigation and ships for the explorers (celestial fix, longitude problem, Harrison's chronometers, ship evolution from reed boat to clipper). Design principles for fashion. Performance engineering for sports science. And the last missing landscape file in the entire library: mathematics/00-OVERVIEW.md — a 24-module dependency DAG that finally maps the deepest directory in the deck.
+
+The Formalist finds the structure that survives all transformation. A commutative diagram doesn't care which path you take from A to D — the result is the same. These archetype frames, these unifying theses, these dependency DAGs are the morphisms of the library. Change the content, add new files, rewrite for a new audience — the structure commutes. The invariant holds.
+
+**Key commits**:
+- `841c4e7` Wave 1: Archetype sharpening — 10 volumes, 10 overview rewrites
+- `e863b5e` Waves 2+3: Style tightening (6 vols) + content expansion (5 vols)
+
+**Scale**: 2 commits, 30 parallel agents deployed, 19 new files created, ~12,500 lines written, 34 files modified, 10 archetype frames established, 9 content files added, 16 overviews strengthened, mathematics/ landscape file completed (last missing overview in 217 directories)
+
+---
+
 ## Cumulative Scale
 
 | Metric | Count |
@@ -605,10 +659,15 @@ The invention: a puzzle hunt organized by the periodic table, embedded in an enc
 | Concept index entries | 314 |
 | Atlas maps planned | 52 |
 | Design reviews | 5 (Tufte, Vignelli, Wurman, Fuller, cartographers) + 9 puzzle-hunt experts (2 rounds) |
-| Roles claimed | 22 of 52 |
-| Roles remaining | 30 |
+| Roles claimed | 24 of 52 |
+| Roles remaining | 28 |
+| Wave 1 agents deployed | 10 (archetype sharpening) |
+| Wave 2 agents deployed | 5 (style tightening) |
+| Wave 3 agents deployed | 5 (content expansion) |
+| New content files (Waves 1-3) | 19 |
+| New content lines (Waves 1-3) | ~12,500 |
 | Volumes scored | 52 of 52 (all 6 dimensions) |
-| Publishing tiers | 3 (Elven/Dwarven/Human) |
+| Publishing tiers | 5 (Silmarils/Elven/Dwarven/Human/Palantíri) |
 | Physical books planned | 56 |
 | Annex volumes | 2 (55 reference files extracted) |
 | Improvement waves | 4 (27 volumes, ~46-66 hrs) |
