@@ -456,7 +456,38 @@ Casimir effect reveals about it — that is module 09.
 
 ---
 
-<!-- @editor[bridge/P1]: Missing quantum computing hardware bridge — the guide ends with spin and field quantization but never connects to quantum computing, which is explicitly listed as a "DOES need" for this learner. Spin-1/2 qubits ARE the two-level system described in this module: |↑⟩ and |↓⟩ are |0⟩ and |1⟩. The Bloch sphere is the geometric representation of a qubit state (|ψ⟩ = α|0⟩ + β|1⟩ maps to a point on S²). The Pauli matrices ARE the qubit gate generators: X gate = σx (bit flip), Z gate = σz (phase flip), H gate = (σx + σz)/√2 (Hadamard). The "quantum advantage" discussion belongs here: superposition means a qubit can be in a continuous family of states, but measurement collapses to one of two outcomes — the tension that makes quantum algorithms subtle. This bridge is the most critical missing piece in the entire physics section for this learner. -->
+## Engineering Bridge: From Spin-1/2 to Quantum Computing
+
+```
+QUANTUM MECHANICS CONCEPT           QUANTUM COMPUTING EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Spin-1/2 system (|↑⟩, |↓⟩)         Qubit (|0⟩, |1⟩)
+  Two-level quantum system             The fundamental unit of quantum info
+  State: α|↑⟩ + β|↓⟩, |α|²+|β|²=1   State: α|0⟩ + β|1⟩ on the Bloch sphere
+
+Pauli matrices σx, σy, σz          Single-qubit gates
+  σx: |↑⟩ ↔ |↓⟩ (spin flip)          X gate (NOT): |0⟩ ↔ |1⟩ (bit flip)
+  σz: |↑⟩ → |↑⟩, |↓⟩ → -|↓⟩         Z gate: |0⟩ → |0⟩, |1⟩ → -|1⟩ (phase flip)
+  (σx + σz)/√2                        H gate (Hadamard): creates superposition
+
+Bloch sphere (S²)                   Qubit state space
+  Pure state = point on sphere         |ψ⟩ = cos(θ/2)|0⟩ + e^{iφ}sin(θ/2)|1⟩
+  North pole = |0⟩, south = |1⟩       θ, φ are the spherical coordinates
+  Equator = equal superpositions       Gates = rotations on the Bloch sphere
+
+Measurement (Born rule)             Readout (projective measurement)
+  Collapses to eigenstate              Get |0⟩ with prob |α|², |1⟩ with |β|²
+  Irreversible, probabilistic          The tension: superposition is rich but
+                                       measurement extracts only 1 classical bit
+
+Entanglement (Bell states)          Two-qubit gates (CNOT, CZ)
+  |Φ+⟩ = (|00⟩+|11⟩)/√2              CNOT: if control=1, flip target
+  Non-local correlations               Entanglement is the resource that enables
+  Violates Bell inequalities           quantum speedup (no classical analog)
+```
+
+**Why quantum computing is hard**: Decoherence. A qubit interacting with its environment entangles with it, destroying the coherent superposition on timescale T2 (dephasing time). Current hardware: superconducting qubits (IBM, Google) have T2 ~ 100 microseconds; gate time ~ 20 ns; error rate ~ 10^-3 per gate. You need error rates below ~10^-4 for practical error correction with surface codes. The gap between T2 and gate time gives ~5,000 operations before decoherence — enough for small circuits, not for Shor's algorithm on useful key sizes.
+
 ## The 6.012 Gap — Semiconductor Physics Requires QM
 
 6.012 (MIT Microelectronic Devices and Circuits) is the course you didn't take.
@@ -505,7 +536,8 @@ This is the chain: Maxwell → QM → band theory → semiconductor devices → 
 
 ---
 
-<!-- @editor[bridge/P2]: No connection to quantum error correction / decoherence — the guide explains why quantum states are fragile (measurement collapses superposition) but doesn't connect to why quantum computing is hard in practice: decoherence (entanglement with environment destroys coherence on timescale T₂), and why error correction is exponentially expensive (you must correct errors faster than they accumulate, and measuring to check introduces more errors). The Hamming code → quantum error correction analogy (stabilizer codes as classical linear codes over GF(4)) would be natural for a TCS background. Even one paragraph on T₁/T₂ times and why current hardware has error rates of ~10⁻³ per gate would ground the theory in the engineering reality this reader is tracking. -->
+**Quantum error correction bridge**: The fragility of quantum states (decoherence on timescale T2) requires error correction, but quantum error correction is fundamentally harder than classical: you cannot copy quantum states (no-cloning theorem), and measuring to check for errors collapses the state. The solution: stabilizer codes measure *syndromes* (products of Pauli operators) that detect errors without revealing the encoded information. Stabilizer codes are mathematically equivalent to self-orthogonal classical codes over GF(4) — the Hamming code generalizes to the Steane [[7,1,3]] quantum code via the CSS construction (see `abstract-algebra/10-APPLICATIONS.md`). The practical constraint: surface codes with threshold error rate ~1% require physical error rates below ~10^-3, which is the current frontier for superconducting and trapped-ion hardware.
+
 ## Decision Cheat Sheet
 
 | Concept | Key equation | Physical meaning |

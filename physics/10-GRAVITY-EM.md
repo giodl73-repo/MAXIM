@@ -1,6 +1,6 @@
 # 10 — Gravity and Electromagnetism: GEM, Levitation, and the Anti-Gravity Question
 
-<!-- @editor[structure/P2]: No "## The Big Picture" section header — this guide opens directly with a raw ASCII block with no heading, unlike every other module in the set (01–09 all use "## The Big Picture" before their landscape diagram). The landscape diagram is good but the missing section header breaks the structural contract and makes the guide feel like a draft. Add the section header to match the rest of the series. -->
+## The Big Picture
 
 ```
 THE LANDSCAPE
@@ -485,7 +485,8 @@ GENUINE PHYSICS AT THE EM-GRAVITY INTERFACE
 
 ---
 
-<!-- @editor[bridge/P2]: No differential geometry bridge — this guide is the natural place to connect to the mathematics/ module on differential geometry. GR is geometry: spacetime is a pseudo-Riemannian 4-manifold, the metric gμν is the fundamental object, the Einstein field equations say Ricci curvature = stress-energy. A reader with MIT Mathematics background who knows about manifolds and curvature tensors (Riemann tensor, Ricci contraction) should see that GEM is linearized GR = weak-field perturbation theory on flat Minkowski space. The "GEM as Maxwell analogy" is precise: both arise from a linearized gauge theory, one U(1) and one diff(M) (diffeomorphism group). This bridge is the single most valuable addition for this reader's background and is completely absent. -->
+**Differential geometry bridge**: General relativity IS differential geometry. Spacetime is a pseudo-Riemannian 4-manifold (M, g_mu_nu), where the metric g_mu_nu is the fundamental dynamical field. The Einstein field equations G_mu_nu = 8 pi G / c^4 T_mu_nu say that Ricci curvature (contracted from the Riemann tensor) equals stress-energy. GEM (gravitoelectromagnetism) is linearized GR: write g_mu_nu = eta_mu_nu + h_mu_nu (flat Minkowski + small perturbation), and the linearized Einstein equations look exactly like Maxwell's equations with h_mu_nu playing the role of the gauge potential. The precise analogy: both EM and linearized GR are gauge theories — EM is U(1), GR is diff(M) (the diffeomorphism group). The GEM fields (gravitoelectric E_g and gravitomagnetic B_g) are components of the linearized Riemann tensor, just as E and B are components of the field strength tensor F_mu_nu. See `differential-geometry/` for the full mathematical treatment of curvature, connections, and the Riemann tensor.
+
 ## 9. Unification Status — Honest Picture
 
 ```
@@ -518,7 +519,7 @@ THE UNIFICATION LANDSCAPE (2026)
   If it existed at lab-accessible energies, we'd have seen it
   in precision tests of the Standard Model.
 ```
-<!-- @editor[content/P2]: Quantum gravity candidates (string theory, loop quantum gravity, asymptotic safety) are listed but with "None tested, none produce predictions yet" — this undersells LQG. Loop quantum gravity does produce predictions: (1) discrete spectra for area and volume operators at the Planck scale, (2) a Planck-scale suppression of Lorentz invariance that gamma-ray telescope observations (Fermi-LAT) are beginning to constrain, (3) the Barbero-Immirzi parameter as an observable (if Hawking radiation is ever measured). String theory's most accessible prediction is a landscape of vacua and the swampland conjectures (constraints on which EFTs can be UV-completed). These aren't "no predictions" — they're predictions that require extreme precision or cosmic-scale tests. A more accurate framing for this reader. -->
+**More precise framing**: Both LQG and string theory DO make predictions — but they require extreme precision or cosmic-scale tests. LQG predicts: (1) discrete area/volume spectra at the Planck scale (A = 8 pi l_P^2 gamma sum sqrt(j(j+1)), where gamma is the Barbero-Immirzi parameter); (2) Planck-scale suppression of Lorentz invariance — Fermi-LAT gamma-ray observations constrain this and have NOT seen the effect, pushing bounds beyond the Planck scale; (3) bounce cosmology (the Big Bounce instead of Big Bang singularity). String theory predicts: (1) a landscape of ~10^500 vacua, with swampland conjectures constraining which effective field theories can be UV-completed; (2) extra dimensions compactified at scales too small to probe directly; (3) string-theoretic black hole entropy counting (Strominger-Vafa 1996, matching Bekenstein-Hawking S = A/4) — the most quantitative success of any quantum gravity approach. Neither framework is testable with current technology at the required energy scales.
 
 ---
 

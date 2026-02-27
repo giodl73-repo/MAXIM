@@ -390,7 +390,31 @@ different origin.
 
 ---
 
-<!-- @editor[bridge/P1]: Missing gauge theory bridge — Maxwell's equations are the equations of motion for a U(1) gauge field. The field strength tensor Fμν = ∂μAν − ∂νAμ is the curvature of a connection on a circle bundle over spacetime. This is NOT a detail; it is the mathematical structure that generalizes to SU(2) (weak force) and SU(3) (strong force) in the Standard Model. A reader with MIT Mathematics background who knows Lie groups and fiber bundles needs this bridge explicitly. The two tensor equations ∂νFμν = μ₀Jμ and ∂[λFμν] = 0 are better understood as "the gauge field equation of motion" and "Bianchi identity" respectively. -->
+## Engineering Bridge: Maxwell as U(1) Gauge Theory
+
+```
+MAXWELL'S EQUATIONS                 GAUGE THEORY LANGUAGE
+──────────────────────────────────────────────────────────────────────────────
+4-potential Aμ = (V/c, A)          Connection on U(1) principal bundle
+  Gauge: Aμ → Aμ + ∂μΛ              Gauge transformation (change of section)
+
+Field strength Fμν = ∂μAν - ∂νAμ   Curvature 2-form F = dA
+  F₀ᵢ = Eᵢ/c, Fᵢⱼ = εᵢⱼₖBₖ        Encodes both E and B in one object
+
+∂νFμν = μ₀Jμ                       Equations of motion (Yang-Mills for U(1))
+  Source equation: charges/currents    Extremize the action S = ∫(-1/4)FμνFμν
+
+∂[λFμν] = 0                        Bianchi identity (automatic from F = dA)
+  Homogeneous equations               No magnetic monopoles = dF = d²A = 0
+  (∇·B=0 and Faraday's law)           A topological identity, not dynamics
+
+U(1) → SU(2): weak force           Yang-Mills: Fμν = ∂μAν - ∂νAμ + g[Aμ,Aν]
+U(1) → SU(3): strong force         Non-abelian: gauge fields self-interact
+U(1) × SU(2) × SU(3)              The Standard Model of particle physics
+```
+
+Maxwell's equations are the simplest Yang-Mills theory: the gauge group U(1) is abelian, so the commutator [A,A] vanishes and the equations are linear. All the complexity of the Standard Model (asymptotic freedom, confinement, spontaneous symmetry breaking) comes from replacing U(1) with non-abelian groups where [A,A] is nonzero.
+
 ## Special Relativity Lives Here
 
 Maxwell's equations are already relativistically correct. They do not need
@@ -415,7 +439,8 @@ In the relativistic formulation:
 
 ---
 
-<!-- @editor[bridge/P2]: No connection to QED completion — the guide ends at the relativistic tensor formulation but doesn't note that Maxwell's equations break down at short distances/high fields and must be replaced by QED. The key phenomenological consequences (vacuum polarization, photon-photon scattering, Lamb shift) are previewed in module 08/09. A one-line forward pointer here would help the reader understand that "Maxwell complete ≠ EM complete." Also missing: the connection to information theory — EM waves carry information, and Shannon capacity of a channel is set by signal power and bandwidth, both concepts grounded in the wave physics here. -->
+**Beyond Maxwell**: Classical E&M breaks down at quantum scales and extreme field strengths. QED (quantum electrodynamics) replaces Maxwell at short distances — key phenomena include vacuum polarization (virtual e+e- pairs screen charges), photon-photon scattering (light-by-light, first observed at LHC 2017), and the Lamb shift (radiative correction to hydrogen energy levels, confirmed to 12 decimal places). See `08-QUANTUM-BRIDGE.md` and `09-ZERO-POINT-ENERGY.md`. Separately, EM waves carry information: Shannon channel capacity C = B log2(1 + S/N) is set by bandwidth B and signal-to-noise ratio S/N, both grounded in the wave physics of this module.
+
 ## Decision Cheat Sheet
 
 | Situation | Equation to use |

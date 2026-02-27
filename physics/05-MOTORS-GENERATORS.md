@@ -317,7 +317,7 @@ matched exactly, no relative motion → no changing flux → no induced current
 robust, cheap, easy to maintain. Virtually every industrial motor is AC induction.
 Variable frequency drives (VFDs) control speed by varying the frequency f.
 
-<!-- @editor[content/P2]: VFDs are mentioned but the guide stops at "varying frequency f." A reader doing modern motor control needs to know that VFDs are inverters: DC bus (rectified AC) → PWM switching of IGBTs at ~10 kHz → synthesized variable-frequency AC. Field-oriented control (FOC) / vector control decouples torque and flux control in induction motors, making them behave like DC motors in the control loop. Permanent magnet synchronous motors (PMSM / brushless DC) have replaced induction motors in EVs and precision drives. These are significant omissions for a reader connecting physics to modern engineering. -->
+**Modern motor control**: VFDs are DC-link inverters: rectify AC to DC bus, then PWM-switch IGBTs at ~10-20 kHz to synthesize variable-frequency AC. Field-oriented control (FOC/vector control) decomposes the stator current into torque-producing (Iq) and flux-producing (Id) components, allowing independent control of each — making an induction motor behave like a separately excited DC motor in the control loop. Permanent magnet synchronous motors (PMSM / brushless DC) have largely replaced induction motors in EVs (Tesla Model 3 rear motor is a PMSM) and precision drives because higher power density and efficiency at lower speeds. The control is similar (FOC with position encoder for commutation) but the physics differs: no slip, no rotor current, torque = k * Iq directly.
 
 ---
 
@@ -454,7 +454,8 @@ limit, not an engineering failure. The remaining 60% is waste heat.
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge to control theory — the back-EMF feedback loop diagram is the best piece of this guide, but it's presented as a physics curiosity rather than connected to formal control theory. The back-EMF loop is a first-order lag with integrating action; it exhibits the same transfer function structure as a PI controller. A reader who knows Laplace transforms (from 6.003 / signals) will recognize the motor as a control plant — speed = integral of torque, back-EMF is a tachometer feedback, and the mechanical load is a disturbance. The connection to the control systems module (if it exists in this reference) or at minimum to block diagram notation belongs here. -->
+**Control theory connection**: The DC motor is a canonical control plant. In Laplace domain: V(s) = (Ls + R)I(s) + K_e * omega(s), and tau(s) = K_t * I(s) = (Js + B) * omega(s). The transfer function omega(s)/V(s) is a second-order system (electrical pole + mechanical pole). Back-EMF K_e * omega is tachometer feedback — a velocity proportional signal. The motor naturally implements a first-order lag on speed. Adding a PI controller closes the loop: P provides fast response, I eliminates steady-state error. This is covered formally in `control-theory/01-PID-CLASSICAL.md`; the motor is the motivating example for classical PID control.
+
 ## Decision Cheat Sheet
 
 | Device | Principle | Key equation |

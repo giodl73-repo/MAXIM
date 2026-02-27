@@ -288,7 +288,26 @@ Analogous to V for electrostatics, but A is a vector field, not scalar.
   can be affected by A even where B = 0 (no classical analog)
 - The full relativistic formulation of E&M unifies V and A into a 4-vector (Aᵘ)
 
-<!-- @editor[bridge/P1]: The Aharonov-Bohm effect mention is a throwaway line but deserves more. The vector potential A is the prototype for all gauge fields — the connection on a U(1) principal bundle in differential geometry. A reader with MIT Math background will have seen fiber bundles; making explicit that "gauge freedom A → A + ∇Λ" is literally the transition function of the bundle, and that B = ∇×A is the curvature 2-form, connects magnetostatics to the mathematical language that runs through all of modern physics (Yang-Mills, Standard Model, topological insulators). This is the most important bridge missing from this guide. -->
+## Engineering Bridge: The Vector Potential as Gauge Connection
+
+```
+MAGNETOSTATICS CONCEPT              DIFFERENTIAL GEOMETRY EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Vector potential A                  Connection 1-form on a U(1) principal bundle
+  B = ∇×A                            Curvature F = dA (the field strength 2-form)
+  Gauge freedom A → A + ∇Λ           Gauge transformation: change of trivialization
+  B unchanged (∇×∇Λ = 0)             Curvature is gauge-invariant
+
+Aharonov-Bohm phase                Holonomy of the connection
+  ∮A·dl = Φ (enclosed flux)          Phase = exp(i e/ℏ ∮A·dl)
+  Measurable even where B = 0        Observable = holonomy, not connection itself
+
+Magnetic flux quantization          Chern number (first Chern class)
+  Φ₀ = h/2e in superconductors       Topological invariant of the bundle
+                                      Integer-valued → quantized
+```
+
+This is the prototype for all gauge theories in modern physics. Replace U(1) with SU(2) → the weak force; with SU(3) → the strong force. The vector potential A is not a computational convenience — it is the fundamental dynamical variable (the connection), and B is the derived quantity (the curvature). The Aharonov-Bohm effect proves this: electrons detect A even where B = 0, because the phase they accumulate is the holonomy of the connection around a closed loop.
 
 **Gauge freedom**: B = ∇×A is unchanged if you replace A → A + ∇Λ for any
 scalar Λ (since ∇×(∇Λ) = 0). This is gauge freedom — physically equivalent
@@ -336,7 +355,8 @@ of two parallel wires 1 m apart that produces 2×10⁻⁷ N/m of force between t
 
 ---
 
-<!-- @editor[bridge/P2]: No condensed matter bridge — the Hall effect (v×B force → charge separation → transverse voltage) is a direct consequence of the Lorentz force on current-carrying electrons, and it is the measurement technique for carrier density and sign in semiconductors. The quantum Hall effect (integer and fractional) is where condensed matter physics gets topological. A reader connecting magnetostatics to modern physics needs this pointer; it also leads naturally to topological insulators and Chern numbers, which are relevant to the "gauge curvature" bridge in the vector potential section above. -->
+**Condensed matter connection**: The classical Hall effect (Lorentz force v x B causes charge separation, producing a transverse voltage V_H = IB/nqt) is the standard method for measuring carrier density n and sign in semiconductors. The quantum Hall effect (integer: von Klitzing 1980, Nobel 1985; fractional: Tsui-Stormer 1982, Nobel 1998) reveals that Hall conductance is quantized in units of e^2/h — a topological invariant (Chern number) of the electron band structure. This connects directly to the gauge theory bridge above: the quantized Hall conductance IS the first Chern number of the Berry connection on the magnetic Brillouin zone.
+
 ## Magnetic Dipoles
 
 The simplest magnetic source — a current loop:
