@@ -166,7 +166,8 @@ AMERICAN PROFESSIONAL FOOTBALL TIMELINE:
 
 **The Super Bowl as American cultural event**: Super Bowl viewership (domestic): typically 100-115M in recent years (Super Bowl LVIII, 2024: 123M -- largest US TV audience ever). The halftime show budget exceeds many concert productions. Advertising: 30-second spot ~$7M (2024). Super Bowl Sunday is de facto American national holiday -- second highest food consumption day after Thanksgiving.
 
-<!-- @editor[bridge/P2]: CTE biomechanics are mentioned (tau protein tangles, repeated subconcussive hits) but the force physics are absent. The learner interest in biomechanics / force analysis is directly applicable: CTE causation is now understood as rotational acceleration of the brain within the skull (not linear deceleration), measured in radians/s². Modern helmet testing (NOCSAE standard) measures peak linear g-force, which is poorly correlated with rotational acceleration — this is why better helmets haven't solved CTE. The physics gap between what helmets are tested for vs. the injury mechanism they fail to prevent is a significant engineering story worth a sentence or two. -->
+The key biomechanics insight: CTE causation is rotational acceleration of the brain within the skull (measured in rad/s²), not linear deceleration (measured in g). Modern helmet testing (NOCSAE standard) measures peak linear g-force, which correlates poorly with rotational acceleration. This is why progressively better helmets have not solved CTE — they are optimized for the wrong metric. The physics gap between what is tested (linear impact) and what causes injury (rotational shear on brain tissue) is a significant engineering failure that remains only partially addressed by newer designs (VICIS, MIPS-style rotational damping layers).
+
 **CTE (Chronic Traumatic Encephalopathy)**: The defining medical crisis of American football:
 ```
 CTE TIMELINE:
@@ -333,8 +334,16 @@ BASEBALL ANALYTICS EVOLUTION:
      story (film 2011: Brad Pitt as Beane)
   -- Every team subsequently adopted analytics
 
-<!-- @editor[content/P2]: Statcast system description is thin on the underlying technology. The learner's interest in officiating technology and computer vision means the implementation is relevant: Statcast uses Doppler radar (TrackMan) for ball tracking + stereoscopic cameras for player tracking, fusing two sensor modalities. The spin rate measurement (ball RPM) is from radar Doppler shift — the same principle as police speed guns applied to ball rotation axis. Pitch movement is then modeled from spin axis + spin rate + velocity using aerodynamic lift equations (Magnus effect). This is applied physics + signal processing, not just "a metric" — worth expanding. -->
   STATCAST ERA (2015-present):
+  Technology: Doppler radar (TrackMan) for ball tracking +
+  stereoscopic cameras (Hawk-Eye) for player tracking —
+  two sensor modalities fused. Spin rate = radar Doppler
+  shift on ball rotation axis (same principle as police
+  speed guns). Pitch movement modeled from spin axis +
+  spin rate + velocity via Magnus effect aerodynamics.
+  This is applied physics + signal processing, not just
+  "a metric" — the raw sensor data enables entirely new
+  categories of analysis.
   -- MLB installed Statcast (Trackman radar + camera
      system) in all 30 parks 2015-2016
   -- Metrics available:

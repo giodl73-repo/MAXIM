@@ -119,9 +119,15 @@ PENTATHLON EVENTS:
      -- Accuracy component (target marks) in some versions
 
   3. Long Jump (halma)
-     -- Halteres (stone/metal weights) used as momentum aids
-     -- Swing forward for landing, back for extension
-     -- Distance significantly greater than modern (5-jump compound?)
+     -- Halteres (stone/metal weights, 1-4kg) held in each hand
+     -- Biomechanics: forward swing of weights during takeoff adds
+        momentum; backward swing during landing transfers angular
+        momentum, allowing legs to extend further forward
+     -- Recorded distances (~16m) exceed modern long jump (~9m),
+        strongly suggesting a multi-jump compound event (triple
+        or quintuple jump) rather than a single standing/running jump
+     -- The exact format is debated; scholarly consensus favors
+        a multiple-jump interpretation
 
   4. Stadion (192m sprint)
      -- Fastest of all runners in the pentathlon
@@ -163,8 +169,7 @@ PANKRATION COMPARISON TO MODERN MMA:
   ancient MMA. Rules simply fewer.
 ```
 
-<!-- @editor[bridge/P3]: Progressive overload is introduced and correctly named, but no bridge to the underlying physiology: mechanical stress → muscle protein synthesis → hypertrophy via mTOR pathway; the key insight is that Milo's protocol is an empirical discovery of dose-response adaptation, the same principle behind modern periodization models. The learner interested in sports science / biomechanics would benefit from one sentence making this explicit. -->
-**Milo of Croton**: 6-time Olympic wrestling champion (540-516 BCE), also multiple victories at Pythian, Isthmian, Nemean games. Ancient celebrity athlete. Training methods recorded: carried a growing calf daily until it was a bull (progressive overload principle -- exactly what modern resistance training theory articulates). Died according to legend trying to split a tree, arms caught in the trunk, devoured by wolves.
+**Milo of Croton**: 6-time Olympic wrestling champion (540-516 BCE), also multiple victories at Pythian, Isthmian, Nemean games. Ancient celebrity athlete. Training methods recorded: carried a growing calf daily until it was a bull (progressive overload principle -- exactly what modern resistance training theory articulates). The underlying physiology: mechanical stress triggers muscle protein synthesis via the mTOR pathway, producing dose-response adaptation. Milo's calf protocol is an empirical discovery of the same principle formalized in modern periodization models. Died according to legend trying to split a tree, arms caught in the trunk, devoured by wolves.
 
 ---
 
@@ -374,7 +379,6 @@ BALL COURT (juego de pelota):
 - Ring goal: passing ball through stone ring = instant win (extremely rare)
 - Protective equipment: yokes (stone/wood/leather belts), knee/thigh pads, helmets in some variants
 
-<!-- @editor[content/P2]: The long jump "halteres" mechanics are underdeveloped — current claim is "distance significantly greater than modern (5-jump compound?)" which is both speculative and confusing. The halteres biomechanics are well-studied: forward swing of weights extends arm leverage during landing phase, changing angular momentum to allow further extension. The "(5-jump compound?)" parenthetical should either be explained or dropped; as written it will confuse the reader. -->
 **The ball**: Made from Castilla elastica (rubber tree) latex. Mesoamericans knew rubber chemistry centuries before Goodyear vulcanization. The ball's bouncing properties were central to the game's mechanics.
 
 **Scale of courts:**

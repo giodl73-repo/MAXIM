@@ -916,8 +916,9 @@ mid-range shots entirely, maximize layups and threes. The 2018 Rockets led the
 league in 3PA and nearly beat the Golden State Warriors. The system hit a
 structural ceiling (defenders adapt) but the league average followed the logic.
 
-<!-- @editor[content/P2]: xG section lists the input features but doesn't describe the model class or the underlying statistical approach. xG is a logistic regression / gradient boosting classifier trained on historical shot outcomes — the output is a probability in [0,1] of a given shot resulting in a goal. The "defensive pressure" feature is computed from optical tracking (player position vectors relative to shot trajectory). More importantly: xG assumes shot outcomes are i.i.d., which is a significant modeling assumption that breaks down for elite players (Messi's xG-overperformance is consistent across seasons, suggesting individual skill is a real signal, not noise). This is a direct statistical modeling question the learner's MIT background would ask immediately. -->
 ### Expected Goals (xG) in Football
+
+**Model class**: xG is a logistic regression or gradient boosting classifier trained on historical shot outcomes — output is P(goal) in [0,1] for a given shot context. "Defensive pressure" features are computed from optical tracking (player position vectors relative to shot trajectory). The model assumes shot outcomes are approximately i.i.d., which is a significant assumption: elite players like Messi consistently outperform their xG across seasons, suggesting individual finishing skill is a real systematic signal, not noise. This means xG is a population-level model that underweights individual ability — a known limitation that more sophisticated player-specific models attempt to correct.
 
 The expected goals model assigns each shot a probability of scoring based on:
 - Distance from goal
@@ -952,7 +953,16 @@ analytics tells you where to look; film tells you why. The best organizations
 integrate both. The pure-quant teams (Houston) and pure-scout teams (late-career
 Spurs under Pop) both had ceilings.
 
-<!-- @editor[content/P2]: Missing a section on officiating technology / computer vision in sport — the learner profile explicitly calls out "officiating technology (Hawk-Eye as computer vision)" as a bridge interest. This file covers analytics broadly but has no treatment of sensor-based adjudication systems: Hawk-Eye (tennis/cricket) uses multi-camera triangulation + ball physics model to predict trajectory; VAR (football) uses video review with calibrated cameras to determine offside to sub-centimeter precision; Hawkeye ball-tracking in cricket (DRS) models ball bounce and continuation. These are commercial computer vision deployments that changed game outcomes and competitive strategy — directly in the analytics revolution narrative of this file. -->
+### Officiating Technology: Computer Vision in Sport
+
+The analytics revolution extends beyond strategy to adjudication. Key deployments:
+
+- **Hawk-Eye (tennis, cricket)**: Multi-camera triangulation (10+ synchronized high-speed cameras) + ball physics model predicts trajectory to ±2.6mm. Tennis challenge system (2006+) changed serve strategy — players target lines more aggressively knowing the downside of close calls is eliminated by challenge.
+- **VAR (football)**: Calibrated camera array + semi-automated offside detection. Limb-tracking computer vision determines offside to sub-centimeter precision. Controversy: creates a precision beyond what the rule was designed for (offside was a judgment call for 100+ years).
+- **DRS (cricket)**: Three-sensor fusion — Hawk-Eye ball trajectory, HotSpot thermal imaging (detects bat contact), UltraEdge audio analysis (microphone detects edge). The DRS "umpire's call" margin preserves a band of human judgment within the sensor system — a design choice about how much precision to impose.
+
+These are commercial computer vision deployments at scale, running in real-time under adversarial conditions (fast-moving objects, variable lighting, crowds). They changed competitive strategy because measurement systems reshape the games they measure.
+
 ### Sloan Conference as Cultural Marker
 
 The MIT Sloan Sports Analytics Conference, launched 2006, is the annual crossing

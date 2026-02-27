@@ -33,7 +33,34 @@
 
 ---
 
-<!-- @editor[bridge/P1]: Missing the "rules as API versioning" bridge that the learner's profile explicitly calls out. The codification era is the exact moment when informal protocols became formal specs. The mechanism is identical to software versioning: (1) incompatible implementations coexist (school A rules vs school B rules), (2) interoperability forces negotiation (Cambridge meeting 1848), (3) canonical spec published (FA Laws 1863), (4) spec forks when stakeholders can't agree on backward compatibility (rugby split — handling was a breaking change), (5) new implementations find exploits, triggering patch cycles (forward pass legalized 1906 after injury crisis). This framing belongs at the top of this file as a structural lens and is absent entirely. -->
+The codification era is the moment informal protocols became formal specs. The mechanism is identical to software API versioning:
+
+```
+SPORT CODIFICATION              SOFTWARE VERSIONING
+──────────────────────────────────────────────────────────────────────────────
+Incompatible implementations    Multiple forks with incompatible interfaces
+  (Eton rules vs Rugby rules)     (vendor-specific HTTP extensions)
+
+Interoperability forces         Standardization body convenes
+  negotiation (Cambridge 1848)    (IETF, W3C working groups)
+
+Canonical spec published        Spec ratified and published
+  (FA Laws of the Game, 1863)     (RFC, W3 Recommendation)
+
+Stakeholders fork on breaking   Spec forks when backward compat fails
+  change (rugby split 1863:       (HTTP/2 vs SPDY; ES6 vs CoffeeScript)
+  handling = breaking change)
+
+Exploit found in spec           Exploit found in spec
+  (stalling, mass play deaths)    (security vulnerability, edge case)
+
+Patch cycle (rule amendment)    Patch version (spec errata, minor version)
+  (forward pass 1906,              (HTTP/1.1 errata, TLS 1.3)
+  shot clock 1954)
+```
+
+---
+
 ## The Enabling Conditions: Why 1800s England
 
 Three independent factors converged to make systematic codification possible:
@@ -266,8 +293,7 @@ STILL NOT PRESENT IN 1845:
 - American League (1901): Ban Johnson's league; challenge to NL
 - World Series (first "modern" 1903): AL champion Boston Americans beat NL champion Pittsburgh Pirates
 
-<!-- @editor[bridge/P2]: Reserve clause is correctly identified as a monopsony but the economic analysis stops there. No bridge to: (1) why monopsony persists in labor markets with non-substitutable skills (there is exactly one MLB, so no competitive bidding for talent); (2) the antitrust exemption as a regulatory moat equivalent to a network effect monopoly — Federal Baseball Club v. National League (1922) gave MLB an exemption other sports don't have; (3) why the fix came via CBA arbitration not courts — the mechanism matters for understanding how labor power works in sport vs. other industries. This content appears in 08-PROFESSIONALISM-MEDIA.md; a forward reference here would help the reader sequence. -->
-**The reserve clause**: Established in NL contracts ~1879. Bound players to their team perpetually -- even after contract expiry, the team "reserved" rights to the player. Created effective player indenturement. Not challenged successfully until 1975 (Messersmith arbitration).
+**The reserve clause**: Established in NL contracts ~1879. Bound players to their team perpetually -- even after contract expiry, the team "reserved" rights to the player. Created effective player indenturement. Economically: a monopsony — one buyer (MLB, via the reserve clause) for non-substitutable labor (there is no competing major league). Federal Baseball Club v. National League (1922) gave MLB a unique antitrust exemption that functions as a regulatory moat. The fix came via CBA arbitration (Messersmith 1975), not courts — collective bargaining rather than antitrust litigation became the mechanism for labor market reform in sports. See `08-PROFESSIONALISM-MEDIA.md` for the full free agency story.
 
 ### American Football: Walter Camp's System
 

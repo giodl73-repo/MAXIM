@@ -233,8 +233,9 @@ ELITE / OLYMPIC
 
 ---
 
-<!-- @editor[bridge/P2]: No bridge from "performance metrics evolution" to signal processing / applied statistics: sabermetrics is Bayesian inference + regression applied to event data; Statcast is computer vision + radar fusion; the progression from box scores to tracking data is exactly the learner's analytics background applied to sport — worth one paragraph framing it that way -->
 ## Performance Metrics Evolution
+
+The progression from eye test to analytics is a signal processing pipeline: raw signal (athletic performance) is compressed into features (box score statistics), then modeled (regression, Bayesian inference), then improved by higher-fidelity sensing (Statcast = Doppler radar + stereoscopic camera fusion). Sabermetrics is applied statistics — OPS is a weighted sum of features, WAR is a regression-based composite, xG is logistic regression on shot context. The sensor revolution (2015+) added raw signal where before only compressed features existed.
 
 ```
 EYE TEST ERA (pre-1950s)
@@ -452,7 +453,23 @@ Sport has been a proxy for national competition since the modern Olympic revival
 
 ---
 
-<!-- @editor[content/P2]: Missing a section on officiating technology — Hawk-Eye (tennis/cricket), goal-line technology (football), TMO (rugby), VAR (football), HawkEye ball-tracking in cricket: this is computer vision + probabilistic ball trajectory modeling, directly in the learner's interest area (stated: "officiating technology (Hawk-Eye as computer vision)") and absent from the overview entirely -->
+## Officiating Technology: Sensor-Based Adjudication
+
+The transition from human-eye to sensor-based officiating is one of the most significant technology-sport intersections:
+
+| System | Sport | Method | Deployed |
+|--------|-------|--------|----------|
+| Photo-finish camera | Track & field | High-speed slit photography, 1/1000s resolution | 1948 Olympics |
+| Hawk-Eye | Tennis, cricket | Multi-camera triangulation (10+ cameras) + ball physics model → trajectory prediction to ±2.6mm | 2001 (cricket), 2006 (tennis) |
+| Goal-line technology | Football | 14 high-speed cameras (GoalControl) or magnetic field (GoalRef) → binary in/out decision within 1 second | 2012 (FIFA approved) |
+| VAR (Video Assistant Referee) | Football | Calibrated camera array → semi-automated offside detection using limb-tracking computer vision | 2018 World Cup |
+| DRS (Decision Review System) | Cricket | Hawk-Eye ball-tracking + Hotspot thermal imaging + Snickometer audio analysis | 2009 (ICC) |
+| Electronic body protector | Taekwondo | Piezoelectric/optical sensors in chest protector → force threshold triggers automatic score | 2012 Olympics |
+
+These systems changed competitive strategy: tennis players now target lines more aggressively (challenge system removes downside risk of close calls), cricket bowlers bowl to exploit the DRS umpire's call margin, and taekwondo shifted from power techniques to high-frequency light contact after sensor scoring. Measurement systems reshape the games they measure.
+
+---
+
 ## History Arc Timeline
 
 ```
@@ -528,7 +545,32 @@ Sport has been a proxy for national competition since the modern Olympic revival
 
 ---
 
-<!-- @editor[bridge/P1]: Missing the "rules as API versioning" bridge — the learner's stated framing is "how rules evolved as a response to emergent strategies (like an API versioning problem)." The overview taxonomy and timeline present rules as facts but never model the meta-pattern: sport governance bodies publish a spec (rules), practitioners find exploits (emergent strategies), the spec is patched (rule change), new exploits emerge. This bridge belongs in the overview as a structural lens for the whole section, not buried in individual files. Examples: shot clock (exploit: stalling), Fosbury Flop (exploit: rule says "clear bar," not how), forward pass (exploit enabled by rule change), ground effect in F1 (exploit: flat-bottom rule then closed it). -->
+## Engineering Bridge: Rules as API Versioning
+
+```
+SPORT GOVERNANCE CYCLE          SOFTWARE SPEC CYCLE
+──────────────────────────────────────────────────────────────────────────────
+Governing body publishes rules  Standards body publishes spec (API contract)
+  (FA Laws 1863, FIDE rules)      (HTTP/1.1, USB 3.0, OAuth 2.0)
+
+Practitioners find exploits     Developers find undocumented behavior
+  (stalling → shot clock needed)   (spec says X but doesn't prohibit Y)
+
+Exploit becomes dominant        Exploit becomes widespread
+  (Fosbury Flop: "clear bar"      (browser fingerprinting: not prohibited
+   doesn't specify HOW)             by cookie spec)
+
+Spec is patched (rule change)   Spec is versioned (breaking change)
+  (NBA shot clock 1954)            (HTTP/2, OAuth 2.1)
+
+New exploits emerge under       New exploits emerge under new spec
+  patched rules                    (same cycle continues)
+```
+
+The pattern is universal: any formal specification that constrains behavior will be optimized against by agents who benefit from finding edge cases. The more competitive the domain (elite sport, adversarial security, financial regulation), the faster the exploit cycle. F1 technical regulations are the most sophisticated real-world example — see `07-MOTORSPORT-TECHNOLOGY.md` for the full regulatory cat-and-mouse.
+
+---
+
 ## Decision Cheat Sheet
 
 | Question | Answer |
