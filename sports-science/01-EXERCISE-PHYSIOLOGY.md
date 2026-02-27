@@ -295,7 +295,8 @@ EPOC (Excess Post-Exercise Oxygen Consumption):
 
 ---
 
-<!-- @editor[bridge/P2]: Training adaptation mechanism (AMPK → PGC-1α → mitochondrial biogenesis; mTOR → myofibrillar synthesis) is described accurately but never bridged to supervised learning / gradient descent framing — training is a search through the fitness function's parameter space: each training stimulus is a data point that signals which direction to update the system's parameters (mitochondrial density, myofibrillar protein, neural connection strength). The adaptation table at the end gives the "parameter update" view implicitly, but framing it explicitly as "exercise is a form of supervised signal that drives biological gradient descent on the fitness landscape" would click for a reader who understands ML training loops. -->
+Training adaptation is a **biological parameter update driven by supervised signals**: each exercise bout provides a signal (AMPK for endurance, mTOR for strength) that drives parameter updates (mitochondrial density, myofibrillar protein, neural connection weights). The adaptation table below is the "gradient update rule" — the training stimulus determines which parameters move and in which direction. Overtraining = too many updates without recovery (divergence). Detraining = parameter decay without stimulus (weight decay). The fitness landscape has local optima (training plateaus) that periodization is designed to escape.
+
 ## Decision Cheat Sheet
 
 | Energy System | Dominant Time Domain | Sport Example | Training Method |
