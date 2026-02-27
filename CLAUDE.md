@@ -8,11 +8,11 @@ A **self-authored reference library** organized by field. Each field is a subdir
 
 ## Library Structure
 
-The library is organized into 13 MkDocs sections. Section landing pages live in `sections/`. Full status in `TRACKER.md`. Expansion process in `EXPANSION.md`.
+The library is organized into 13 MkDocs sections. Section landing pages live in `sections/`. Full status in `TRACKER.md`. Expansion process in `EXPANSION.md`. Library-level projects (atlas, concept index, reading maps, etc.) in `PROJECTS.md`.
 
-**Target: 192 directories · 13 sections · ~1,800 content files · ~13,800 pages · 52 bound volumes**
+**Complete: 217 directories · 13 sections · ~2,170 content files · ~14,070 pages · 52 bound volumes**
 *13 sections × 4 volumes = 52 volumes. A deck of cards.*
-Batches 1–6 complete (120 directories). Batches 7–10 scaffolded (48 dirs). Batch 11 scaffolded (12 dirs — People section). Batch 12 planned (~16 dirs for thin sections).
+All batches 1–13 complete. Full library written, reviewed, and clean.
 
 ```
 reference/
@@ -103,12 +103,13 @@ reference/
 |-------|-------------|--------|
 | 1–5 | 60 directories | ✅ Complete |
 | 6 | 12 directories (probability-statistics, differential-geometry, numerical-methods, genomics, immunology, microbiology, literature, theater-performance, rhetoric, mineralogy, archaeology, mycology) | ✅ Complete |
-| 7 | 12 directories (complex-analysis, fluid-dynamics, statistical-mechanics, partial-differential-equations, variational-calculus, lie-groups, evolutionary-biology, virology, biophysics, dance, industrial-design, marine-biology) | 🔜 Stubs scaffolded |
-| 8 | 12 directories (logic, intellectual-history, social-history, manufacturing, systems-engineering, materials-processing, criminology, media-studies, education, philosophy-of-language, semiotics, computer-architecture) | 🔜 Stubs scaffolded |
-| 9 | 12 directories (entomology, ornithology, zoology, planetary-science, geochemistry, space-exploration, plastics-polymers, papermaking, composite-materials, graphic-design, fashion, comics-sequential-art) | 🔜 Stubs scaffolded |
-| 10 | 12 directories (machine-learning-theory, pharmacology, developmental-biology, political-history, translation, international-relations, furniture, horticulture, sports-science, astrobiology, philosophy-of-mind, ethics) | 🔜 Stubs scaffolded |
-| 11 | 12 directories (mathematicians-logicians, physicists-astronomers, chemists-naturalists, engineers-inventors, computing-pioneers, explorers, philosophers-thinkers, artists-architects, writers-poets, political-reformers, social-reformers, visionaries) — **People section** | 🔜 Stubs scaffolded |
-| 12 | ~16 directories planned for thin sections — NW: dendrology, freshwater-biology, soil-science, coral-reefs; MC: woodworking, leatherworking, masonry, rope-cordage; LC: journalism, oral-tradition, epigraphy, digital-media; Technology: nanotechnology, energy-storage, infrastructure-systems; Computing: distributed-systems, security-engineering, cloud-architecture | 📋 Planned |
+| 7 | 12 directories (complex-analysis, fluid-dynamics, statistical-mechanics, partial-differential-equations, variational-calculus, lie-groups, evolutionary-biology, virology, biophysics, dance, industrial-design, marine-biology) | ✅ Complete |
+| 8 | 12 directories (logic, intellectual-history, social-history, manufacturing, systems-engineering, materials-processing, criminology, media-studies, education, philosophy-of-language, semiotics, computer-architecture) | ✅ Complete |
+| 9 | 12 directories (entomology, ornithology, zoology, planetary-science, geochemistry, space-exploration, plastics-polymers, papermaking, composite-materials, graphic-design, fashion, comics-sequential-art) | ✅ Complete |
+| 10 | 12 directories (machine-learning-theory, pharmacology, developmental-biology, political-history, translation, international-relations, furniture, horticulture, sports-science, astrobiology, philosophy-of-mind, ethics) | ✅ Complete |
+| 11 | 12 directories (mathematicians-logicians, physicists-astronomers, chemists-naturalists, engineers-inventors, computing-pioneers, explorers, philosophers-thinkers, artists-architects, writers-poets, political-reformers, social-reformers, visionaries) — **People section** | ✅ Complete |
+| 12 | 18 directories — NW: dendrology, freshwater-biology, soil-science, coral-reefs; MC: woodworking, leatherworking, masonry, rope-cordage; LC: journalism, oral-tradition, epigraphy, digital-media; Technology: nanotechnology, energy-storage, infrastructure-systems; Computing: distributed-systems, security-engineering, cloud-architecture | ✅ Complete |
+| 13 | 7 directories (remote-sensing, dyeing-fiber, historiography, philosophy-of-science, geotechnical-engineering, development-studies, programming-language-theory) | ✅ Complete |
 
 ---
 
