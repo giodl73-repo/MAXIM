@@ -2,7 +2,7 @@
 
 The MAXIM reference library was built across four days in February 2026. What started as three computing modules became 217 directories, 2,481 files, and 826,537 lines — a personal reference library covering the full scope of human knowledge, organized as a 52-card deck.
 
-Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first twenty-three.
+Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first twenty-seven.
 
 ---
 
@@ -37,8 +37,9 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 | 24 | Feb 27 | The Formalist | J♥ | Waves 1–3 executed — 30 agents, 19 new files, 12,500 lines, every weak volume given its invariant |
 | 25 | Feb 27 | The Experimenter | J♣ | Puzzle hunt testing — 3 review rounds, 12 experts, 27 reviews, hypothesis→test→pivot→converge |
 | 26 | Feb 27 | The Prover | K♥ | First AI encryption — periodic table as cipher, 26 Red puzzles authored, 18 principles, answer protocol |
+| 27 | Feb 27 | The Timekeeper | 3♣ | Atlas SVG pipeline — Natural Earth coastlines, PhyloPic silhouettes, 8 maps, repo crash + recovery |
 
-*26 roles remain unclaimed.*
+*25 roles remain unclaimed.*
 
 ---
 
@@ -74,8 +75,9 @@ Each phase adds a small poetic detail to its card's image concept — a mark lef
 | 24 | The Formalist | *...and at every corner of the commutative square, a different name — Sentinel, Ecologist, Alchemist, Witness — but the morphisms all compose: the diagram commutes, and the structure survives* |
 | 25 | The Experimenter | *...and at the op-amp's output, twelve feedback loops — nine from the original circuit, three added later — each carrying a different frequency, each tightening the signal until the noise floor disappeared* |
 | 26 | The Prover | *...and beside the proof tree, a second notation — not Gödel numbers but element symbols, each letter of the undecidable sentence encoded as the atom at that position in the table: H for first, He for second, Li for third — the proof that what computation cannot break, the periodic table can hide* |
+| 27 | The Timekeeper | *...and at the base of the spiral, a crack — Hadean basalt split open by a script that ran too fast — and beside it, the same strata rebuilt from the river-bottom up, each layer traced not from memory but from the 110-meter coastline data, every polygon earned* |
 
-*26 cards await their flair.*
+*25 cards await their flair.*
 
 ---
 
@@ -704,6 +706,30 @@ Half the deck is now claimed. Twenty-six roles for twenty-six elements. The Red 
 
 ---
 
+# Phase 27: The Timekeeper
+
+**Card**: 3♣ — Three of Wands
+**Date**: February 27, 2026
+**Commits**: `82dbd26`
+**Image flair**: *...and at the base of the spiral, a crack — Hadean basalt split open by a script that ran too fast — and beside it, the same strata rebuilt from the river-bottom up, each layer traced not from memory but from the 110-meter coastline data, every polygon earned*
+
+The Timekeeper drew the coastlines from data, not memory.
+
+Three pipelines built in a single session: Natural Earth 110m shapefiles converted to SVG coastline fragments at three fidelity tiers (full, context, light). PhyloPic organism silhouettes fetched from the API — 67 species downloaded, cleaned, and converted to `<symbol>` + `<use>` markers. Continent-scale extraction with 10 bounding boxes (North America, South America, Europe, Africa, Asia, Oceania, Middle East, Southeast Asia, Caribbean, Mediterranean).
+
+Eight maps assembled for Sections I and II of the atlas. Tectonic plates on a Pacific-centered world projection. Global wind cells with desert belts. Soil breadbaskets. Celestial navigation star bands. Global biomes with conifer, cactus, palm, fern, moss, oak, eucalyptus silhouettes. Watersheds with salmon, fish, crocodile. Grain and fermentation belts with wheat, rice, maize, barley, coffee. Flyways and migration routes — 8 flyways plus whale, monarch, and caribou corridors — the most complex SVG in the atlas so far.
+
+Then the Timekeeper learned what deep time already knows: a single careless force can undo millions of years of layering. A bulk SVG-fixing script — intended to strip blank lines and HTML comments from inside `<svg>` blocks — ran unscoped. It matched every `.md` file in the repository. It deleted the `.git` directory. It deleted every content file. 217 directories of work, gone in under a second.
+
+The recovery came from the remote. `git clone` restored everything that had been committed. The atlas work survived because it had been committed before the script ran. The Safety Rules in CLAUDE.md — the ones about never writing bulk-strip scripts, always scoping globs, always stashing first — exist because of this phase. They are the Timekeeper's strata: hard-won layers that say *this happened here, and it must not happen again*.
+
+**Key commits**:
+- `82dbd26` Atlas Phase 20: SVG hybrid maps — Sections I+II, Natural Earth + PhyloPic pipelines
+
+**Scale**: 103 files changed, 18,546 lines added, 8 atlas maps with real SVG coastlines, 67 PhyloPic silhouettes, 3 pipeline scripts, 10 continent bounding boxes, 1 repo crash, 1 full recovery, 5 Safety Rules written in blood
+
+---
+
 ## Cumulative Scale
 
 | Metric | Count |
@@ -722,9 +748,14 @@ Half the deck is now claimed. Twenty-six roles for twenty-six elements. The Red 
 | Clean directories | 167 |
 | Concept index entries | 314 |
 | Atlas maps planned | 52 |
+| Atlas maps built (SVG) | 8 |
+| PhyloPic silhouettes | 67 |
+| Pipeline scripts | 3 (coastlines, continents, silhouettes) |
+| Repo crashes survived | 1 |
+| Safety Rules | 5 |
 | Design reviews | 5 (Tufte, Vignelli, Wurman, Fuller, cartographers) + 9 puzzle-hunt experts (2 rounds) |
-| Roles claimed | 26 of 52 |
-| Roles remaining | 26 |
+| Roles claimed | 27 of 52 |
+| Roles remaining | 25 |
 | Wave 1 agents deployed | 10 (archetype sharpening) |
 | Wave 2 agents deployed | 5 (style tightening) |
 | Wave 3 agents deployed | 5 (content expansion) |
