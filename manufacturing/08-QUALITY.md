@@ -31,7 +31,44 @@ QUALITY SYSTEM HIERARCHY
 
 ---
 
-<!-- @editor[bridge/P2]: Missing bridge from software monitoring/observability to manufacturing SPC — learner calibration explicitly states "knows statistical process control from software." The bridge should go the other direction here: manufacturing SPC is the origin; software SRE metrics (P99 latency, error rate control charts, anomaly detection) are the derived version. The parallel is direct: control chart → time-series anomaly detection, UCL/LCL → alert thresholds, special cause → incident, common cause → baseline noise, Cpk → process capability as a service-level metric. A "if you know software monitoring, here's what maps to manufacturing SPC" table would immediately orient this learner. -->
+## Engineering Bridge: SPC as the Origin of Software Observability
+
+```
+MANUFACTURING SPC (1920s–)            SOFTWARE MONITORING (2000s–)
+──────────────────────────────────────────────────────────────────────────────
+Control chart                         Time-series dashboard (Grafana, Datadog)
+  plot measurement vs time              → plot metric vs time
+  UCL / LCL (μ ± 3σ)                   → alert thresholds (static or dynamic)
+  centerline (process mean)             → baseline / SLO target
+
+Common cause variation                Baseline noise
+  random, inherent to the process       → normal latency jitter, GC pauses
+  reduce by redesigning the process     → reduce by architectural change
+
+Special cause variation               Incident / anomaly
+  assignable root cause                 → deploy gone bad, upstream failure
+  investigate immediately               → page on-call, start incident review
+
+Western Electric rules                Anomaly detection algorithms
+  8 consecutive points same side        → sustained shift detector
+  trending 6 points up/down             → slope-based alerting
+  point beyond 3σ                       → static threshold breach
+
+Cpk (process capability index)        Service-level capability
+  (USL − μ) / 3σ                       → (SLO − P99) / σ  [conceptual analog]
+  Cpk < 1.0 = defects inevitable        → error budget exhausted before period ends
+  Cpk ≥ 1.67 = automotive standard      → "four nines" as an equivalent capability bar
+
+Gage R&R (measurement validity)       Instrumentation validation
+  is the gauge precise enough?          → is the metric pipeline dropping samples?
+  %GRR > 30% = chart plots noise        → 10% sampling + aggregation lag = noisy dashboard
+
+FMEA (failure mode analysis)          Pre-mortem / failure injection
+  enumerate failure modes, score RPN    → chaos engineering, game days
+  update after each escape              → update runbooks after each incident
+```
+
+Software monitoring borrowed the entire SPC framework and renamed it. Shewhart's 1920s control chart *is* a Grafana time-series panel with alert rules. The key difference: manufacturing SPC operates on physical processes with genuine Gaussian variation, while software metrics often follow heavy-tailed distributions (P99 latency spikes), which means the ±3σ rules need adaptation — percentile-based thresholds replace Gaussian assumptions, but the detect-diagnose-correct loop is identical.
 
 ## Statistical Process Control (SPC)
 
