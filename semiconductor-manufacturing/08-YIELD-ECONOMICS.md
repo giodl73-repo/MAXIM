@@ -38,6 +38,8 @@ TYPICAL NUMBERS (3 nm node, 1 cm² die, 2024):
 
 ---
 
+<!-- @editor[bridge/P2]: Missing yield curve → software reliability engineering bridge — Murphy's model produces a yield-vs-die-area curve with the same shape as a software reliability bathtub curve: high early failure rate (new process, D₀ high), rapid improvement on the learning curve, eventual steady-state; die yield binning (speed/power grades sorted by measured performance) is directly analogous to A/B testing by latent quality metric, and the yield ramp learning curve (Brice's law: yield doubles per doubling of cumulative volume) mirrors software cost curves; this is territory the learner owns from VSTS/Azure infrastructure SLA modeling -->
+
 ## Yield Models
 
 ```

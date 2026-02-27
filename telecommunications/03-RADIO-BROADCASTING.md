@@ -104,6 +104,8 @@ Phase-array (steerable):        20-40+ dBi Radar, 5G massive MIMO, AESA
 
 ---
 
+<!-- @editor[audience/P2]: AM/FM Broadcasting section explains DSB-AM modulation, stereo multiplex encoding (L+R/L-R, pilot tone, 19/38/57 kHz structure), HD Radio IBOC, and DAB channel spacings from first principles — the learner's calibration does not list broadcast mechanics in the DOES need list; the signal engineering content (link budgets, antenna gain, Okumura-Hata propagation models) is the valuable material here; the specific AM/FM broadcast parameters (channel spacings, clear channel rules, stereo multiplex structure) are below the pitch floor for a VP of Engineering who needs telecom for 5G/optical/internet infrastructure context -->
+
 ## AM/FM/Shortwave Broadcasting
 
 ```

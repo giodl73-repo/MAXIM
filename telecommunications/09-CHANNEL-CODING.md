@@ -162,6 +162,8 @@ APPLICATIONS: 3G UMTS/CDMA2000, 4G LTE (data), deep space (CCSDS)
 
 ---
 
+<!-- @editor[bridge/P2]: LDPC Codes section is strong on the math but missing the storage erasure coding bridge — LDPC codes are used in NAND flash (NVMe SSDs), HDDs, and optical communications; the same code family (sparse parity-check matrices, belief propagation decoding) appears in Azure storage as Reed-Solomon erasure coding for geo-redundant durability; the learner's Azure infrastructure runs on these codes in every storage tier; framing LDPC as "the FEC that protects your Azure SSDs and object storage, not just wireless channels" makes this immediately practical rather than theoretical -->
+
 ## LDPC Codes (1960 / 1996)
 
 ```

@@ -39,6 +39,8 @@ control frameworks.
 
 ## Reinforcement Learning for Robotics
 
+<!-- @editor[bridge/P2]: RL for robotics section presents the MDP formulation without bridging to RL for cloud infrastructure optimization — the learner's Azure infrastructure uses RL for exactly this: VM placement (S: cluster resource state, A: where to place workload, R: cost + SLA satisfaction), autoscale policy optimization, and Azure Automanage; the MDP (S: robot state, A: joint torques, R: task completion) is structurally identical; framing "the same MDP your autoscale policies run on is what teaches a robot to walk" makes the abstraction concrete for this reader and connects two domains they already understand -->
+
 ### MDP Formulation
 
 ```
