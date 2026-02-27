@@ -144,7 +144,31 @@ VERGE ACCURACY — ERROR TREE
     - Contact angles vary through the beat cycle
 ```
 
-<!-- @editor[bridge/P1]: Missing control theory / stability bridge. "No restoring force" is the mechanical statement; the equivalent for this reader is: the foliot is an undamped integrator — marginally stable at best, with no eigenvalue structure that enforces a natural frequency. A pendulum has a pair of purely imaginary eigenvalues at ±j√(g/L); a foliot has eigenvalues at 0. Any engineer who has worked with control systems immediately recognizes why the foliot is hopeless: you can't regulate a system with a pole at the origin using only open-loop drive. This bridge pays off again in 03 (isochronism = limit cycle), 07 (quartz Q factor = filter bandwidth), and 08 (atomic transition linewidth = Q factor). -->
+## Engineering Bridge: Foliot as Control System Failure
+
+```
+OSCILLATOR TYPE           EIGENVALUES           STABILITY
+──────────────────────────────────────────────────────────────────────────────
+Foliot (no restoring       λ = 0 (pole at        Marginally stable: no
+  force, inertia only)     origin)               natural frequency. Rate is
+                                                 entirely determined by
+                                                 driving force. Open-loop.
+
+Pendulum (gravity          λ = ±j√(g/L)          Stable oscillation at
+  restoring force)         (purely imaginary)     natural frequency ω₀.
+                                                  Period independent of drive.
+
+Balance wheel (spring      λ = ±j√(k/I)          Same structure as pendulum
+  restoring force)         (purely imaginary)     but portable: spring
+                                                  replaces gravity.
+
+Quartz crystal (piezo      λ near ±jω with       High Q ≈ 10⁵ = extremely
+  resonance, high Q)       very small real part    narrow bandwidth. Frequency
+                                                  locked to crystal geometry.
+```
+
+The foliot's failure is that you cannot regulate a system with a pole at the origin using open-loop drive alone. A pendulum self-corrects because its eigenvalues enforce a natural frequency. This eigenvalue picture unifies the entire watchmaking progression: from Q ≈ 1 (foliot) through Q ≈ 10⁴ (pendulum) to Q ≈ 10⁵ (quartz) to Q ≈ 10¹⁷ (optical atomic clock). Higher Q means sharper spectral peak means more stable frequency.
+
 **Comparison to a pendulum (previewing 03):** A pendulum has a restoring force (gravity acting on the displaced mass), which creates a natural frequency: T = 2π√(L/g). This period is independent of driving force and amplitude (for small amplitudes). The verge-and-foliot has no restoring force — the foliot just has inertia. Remove the drive force and it stops immediately; push it harder and it oscillates faster. This is the fundamental reason it's inaccurate.
 
 ---

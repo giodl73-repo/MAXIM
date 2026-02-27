@@ -364,7 +364,24 @@ Current best accuracy: ~2×10⁻¹⁸ (JILA Sr2, 2017)
   = 1 second in ~15 billion years (longer than the age of the universe)
 ```
 
-<!-- @editor[bridge/P2]: The Q-factor unification bridge is missing from this file. The strontium lattice Q ≈ 4×10^17 is the capstone of the Q-factor progression running through the entire series (foliot Q≈1, pendulum Q≈10^4, quartz Q≈10^5, atomic microwave Q≈10^10, optical Q≈10^17). This reader has signal processing background; the Q factor as the unifying concept — from mechanical resonance through electronic oscillators to quantum transitions — is the single most elegant thread in the series. A short paragraph connecting Δf/f = 1/Q back through all previous chapters would crystallize the whole arc. Without it, the optical lattice section reads as "very accurate" without explaining *why* higher frequency + narrower linewidth = better fractional accuracy. -->
+### The Q-Factor Arc: From Foliot to Optical Lattice
+
+The strontium lattice Q of ~4 x 10^17 is the capstone of a progression running through the entire watchmaking series:
+
+```
+Q-FACTOR PROGRESSION
+──────────────────────────────────────────────────
+Oscillator              Q factor    Δf/f (stability)
+Foliot (1300s)          ~1          ~10⁻²
+Balance wheel (1500s)   ~300        ~10⁻⁴
+Pendulum (1657)         ~10⁴        ~10⁻⁷
+Quartz crystal (1927)   ~10⁵        ~10⁻⁹
+Cesium microwave (1955) ~10¹⁰       ~10⁻¹⁶
+Strontium optical (2017)~4×10¹⁷     ~2×10⁻¹⁸
+```
+
+Why optical lattice clocks are better: fractional frequency stability scales as Δf/f ~ 1/(Q × sqrt(N)), where N is measurement cycles. Higher Q means sharper spectral peak means better frequency discrimination. But also: optical transitions operate at ~10^14 Hz vs microwave at ~10^10 Hz. Higher frequency with the same linewidth means better *fractional* stability by the ratio of frequencies — a factor of ~10^4 improvement from microwave to optical, for free.
+
 ### What To Do With 10⁻¹⁸ Accuracy?
 
 At 10⁻¹⁸ accuracy, you can measure things that seem unrelated to timekeeping:

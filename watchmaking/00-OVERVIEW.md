@@ -217,7 +217,10 @@ Each GPS satellite carries 4 atomic clocks (2 cesium, 2 rubidium). The fundament
 
 ---
 
-<!-- @editor[bridge/P2]: No oscillator-stability → control theory bridge here. The balance wheel / pendulum as a limit-cycle oscillator with a restoring force is a direct parallel to a 2nd-order LTI system's eigenvalue structure — this reader has the math to follow it and it would reframe the entire "why the foliot failed" story in terms they already own. Bridge: foliot = no restoring force = marginally stable system; pendulum = restoring force = stable poles; quartz = high-Q resonator = narrow-band filter. -->
+The unifying concept across the entire series is the Q factor (quality factor) of the oscillator — the ratio of energy stored to energy dissipated per cycle. Higher Q means narrower spectral peak means more stable frequency: foliot Q ~ 1 (no restoring force, pole at origin), pendulum Q ~ 10^4 (gravity restoring force, stable imaginary eigenvalues), balance wheel Q ~ 300 (spring restoring force, portable), quartz Q ~ 10^5 (piezoelectric resonance, narrow bandwidth), atomic microwave Q ~ 10^10, optical lattice Q ~ 10^17. The entire progression from medieval tower clocks to optical lattice clocks is one story about increasing Q: from open-loop marginally stable systems to ultra-high-Q resonators with fractional frequency stability of 10^-18.
+
+---
+
 ## Bridge: Watchmaking → Distributed Computing
 
 This is where horology connects directly to your world:

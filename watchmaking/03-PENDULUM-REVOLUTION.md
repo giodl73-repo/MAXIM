@@ -50,7 +50,8 @@ PENDULUM CLOCK — ACCURACY PROGRESSION
 3. **Period independent of mass:** A heavy bob and a light bob on the same length pendulum have the same period.
 4. **Dependence on gravity:** Period varies with local g (though Galileo didn't have the full quantitative understanding; that came with Newton).
 
-<!-- @editor[bridge/P1]: Missing 2nd-order oscillator / control theory bridge. The pendulum is a textbook 2nd-order LTI system: θ̈ + (g/L)θ = 0, with eigenvalues at ±j√(g/L). Isochronism = the period is determined by the system's natural frequency ω₀ = √(g/L), independent of initial conditions (for small amplitudes). This is identical to saying the oscillator is linear and time-invariant in the small-signal regime. The "limit cycle" framing (for large amplitudes it becomes nonlinear — amplitude-dependent period) directly maps to why cycloidal cheeks were needed. This reader has the math; give them the eigenvalue picture. The entire history from foliot (no eigenvalues → rate = f(drive)) to pendulum (stable imaginary eigenvalues → rate = f(L,g) only) to quartz (high-Q resonator → narrow bandwidth → stable rate) is one story about pole placement. -->
+The pendulum is a textbook 2nd-order LTI system: the equation of motion is theta-double-dot + (g/L) * theta = 0, with eigenvalues at +/- j*sqrt(g/L). Isochronism means the period is determined by the natural frequency omega_0 = sqrt(g/L), independent of initial conditions (for small amplitudes). This is identical to saying the oscillator is linear and time-invariant in the small-signal regime. At large amplitudes, the sin(theta) nonlinearity makes the period amplitude-dependent — which is exactly why Huygens needed cycloidal cheeks (to restore exact isochronism by modifying the effective restoring force geometry).
+
 The simple pendulum period formula (from Newton's laws + small-angle approximation):
 
 ```
@@ -329,8 +330,29 @@ By the 1720s, precision pendulum clocks in observatories were achieving accuraci
 
 The pendulum was the primary precision time standard until the advent of the quartz clock in the 1930s and atomic clocks in the 1950s.
 
-<!-- @editor[content/P2]: Shortt free-pendulum clock (1921) is mentioned in the opening accuracy table but gets no dedicated treatment. For this reader, the Shortt is the fascinating part: a master pendulum that runs in near-vacuum, nearly undisturbed, and a slave pendulum that does all the mechanical work (driving the gear train, triggering the impulse to the master). This is a physical implementation of the observer-controller separation principle — the master is the reference oscillator; the slave is the actuator. Worth 3–5 sentences plus a diagram stub. Riefler is similarly thin. -->
+### The Shortt Free-Pendulum Clock (1921)
 
+The Shortt clock achieved ±1 ms/day — the best pendulum accuracy ever. Its architecture is a physical implementation of observer-controller separation:
+
+```
+SHORTT FREE-PENDULUM ARCHITECTURE
+───────────────────────────────────
+MASTER PENDULUM (reference oscillator):
+  Sealed in near-vacuum (minimizes air resistance)
+  No gear train attached (minimizes mechanical coupling)
+  Receives impulse every 30 seconds from slave
+  Runs as freely as possible — the reference standard
+
+SLAVE PENDULUM (actuator/controller):
+  Drives the gear train and dial (does all mechanical work)
+  Receives synchronization signal from master
+  Adjusts its phase to track master via electromagnetic hit
+  Absorbs all the perturbation so master doesn't have to
+
+The master is the high-Q oscillator; the slave is the
+low-Q workhorse. Separating them improved accuracy by
+~10× over the best single-pendulum Riefler clocks.
+```
 
 ---
 
