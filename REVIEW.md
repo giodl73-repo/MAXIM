@@ -79,7 +79,7 @@ Only ✅ complete directories are listed. Stub directories (Batches 11–13) are
 | `acoustics/` | 11 | 2026-02 | — | 5 tags, 0 P1s |
 | `optics/` | 8 | 2026-02 | — | 1 tag, 0 P1s |
 | `transportation/` | 9 | 2026-02 | — | 1 tag, 0 P1s |
-| `manufacturing/` | 10 | 2026-02 | — | 1 tag, 0 P1s |
+| `manufacturing/` | 10 | 2026-02 | 2026-02 | 1 tag → 0 |
 
 ---
 
