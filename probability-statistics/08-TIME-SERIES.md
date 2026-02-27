@@ -271,7 +271,23 @@ State space models (SSMs) are general and subsume ARIMA, structural time series,
 - Extension to structural models (trend + seasonal + irregular)
 - Extension to multivariate models
 
-<!-- @editor[bridge/P2]: Azure Data Factory connection is a P3 stack-specific bridge that has been elevated to a prominent position — per bridge hierarchy, universal CS concept bridges should come first. The real bridge here is: Kalman filter = optimal Bayesian filter for linear-Gaussian state space (connecting to 06-BAYESIAN-STATISTICS), and Kalman = recursive least squares (connecting to 07-REGRESSION-MODELS). The Azure note is useful flavor but shouldn't be the primary anchor. -->
+**Universal bridges for the Kalman filter:**
+
+```
+  KALMAN = OPTIMAL BAYESIAN FILTER for linear-Gaussian state space:
+  Prior: p(alpha_t | y_{1:t-1}) = Normal(a_{t|t-1}, P_{t|t-1})
+  Likelihood: p(y_t | alpha_t) = Normal(Z_t alpha_t, H_t)
+  Posterior: p(alpha_t | y_{1:t}) = Normal(a_t, P_t)
+  The prediction/update steps are Bayes' theorem for conjugate Normal.
+  Connection: 06-BAYESIAN-STATISTICS (conjugate Normal updating).
+
+  KALMAN = RECURSIVE LEAST SQUARES (RLS):
+  For a static regression Y = X beta + epsilon with streaming data:
+  The Kalman filter with T = I, R = 0 reduces to RLS.
+  beta_t = beta_{t-1} + K_t (y_t - z_t^T beta_{t-1})
+  K_t = P_{t-1} z_t / (z_t^T P_{t-1} z_t + sigma^2)
+  Connection: 07-REGRESSION-MODELS (OLS as a special case of Kalman).
+```
 
 **Connection to Azure Data Factory**: Time series state space models appear in data pipeline monitoring — anomaly detection in telemetry is often a Kalman filter / LSTM hybrid. The innovation sequence v_t is the anomaly signal.
 
@@ -342,7 +358,9 @@ For financial time series: variance clustering (periods of high/low volatility).
 | Latent structure | State space model | Flexible, subsumes ARIMA |
 | Long-range dependence | ARFIMA | Fractional differencing |
 
-<!-- @editor[content/P2]: Decision cheat sheet row for ARFIMA (long-range dependence / fractional differencing) points to a topic not covered in the body — the guide mentions ARFIMA in the cheat sheet but provides no explanation of what fractional integration means, how the Hurst exponent relates to long memory, or when you'd prefer ARFIMA over ARIMA. Either add a section or remove the row. Also missing from the body: cointegration and VECM (for multivariate non-stationary series), and changepoint detection models which are increasingly important in practice. -->
+**Long memory and ARFIMA**: Fractional integration (1−B)^d with d ∈ (0, 0.5) produces long-range dependence — autocorrelations that decay as a power law γ(h) ~ h^{2d−1} rather than exponentially. The Hurst exponent H = d + 0.5 characterizes the memory: H = 0.5 for short memory, H > 0.5 for long memory (persistent), H < 0.5 for anti-persistent. ARFIMA(p,d,q) fits when ACF decays hyperbolically — common in internet traffic, volatility, and hydrology. Use ARFIMA over ARIMA when the ACF decays too slowly for any ARMA and the series is not unit-root non-stationary.
+
+**Cointegration and VECM**: When multiple I(1) series share a common stochastic trend, their linear combination may be stationary — this is cointegration. The Vector Error Correction Model (VECM) captures both the short-run dynamics and the long-run equilibrium relationship. Test for cointegration via Johansen's trace test. Application: exchange rates, interest rate spreads, pairs trading.
 
 ---
 
