@@ -193,8 +193,7 @@ The Prandtl-Meyer function ν(M) gives the angle through which a sonic flow must
 
 ## Characteristic Methods
 
-<!-- @editor[bridge/P2]: Method of Characteristics is described as a practical tool (nozzle design) but misses the natural bridge to hyperbolic PDE theory — Mach lines ARE the characteristic curves of the compressible Euler equations. Learner has PDE background from MIT Math; connect M-o-C to the characteristic curve theory of first-order hyperbolic systems (domain of dependence, finite signal speed). This is the correct mathematical framing, not just a design trick. -->
-For supersonic flow, information propagates along **Mach lines** (characteristics).
+For supersonic flow, information propagates along **Mach lines** — these are the **characteristic curves** of the compressible Euler equations, which form a hyperbolic system. The Mach angle mu = arcsin(1/M) defines the cone of influence (domain of dependence) for each point: only the region inside the upstream Mach cone can affect conditions at a point. This is exactly the characteristic curve theory of first-order hyperbolic PDEs — finite signal speed, domains of dependence, and the consequence that supersonic flow "doesn't know what's ahead" because information cannot propagate upstream faster than the flow carries it downstream.
 
 **Mach angle**: μ = arcsin(1/M) (angle between Mach line and flow direction)
 

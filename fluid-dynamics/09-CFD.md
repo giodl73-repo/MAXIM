@@ -4,7 +4,6 @@
 
 CFD is the numerical solution of the governing equations of fluid dynamics. It is the "third pillar" of fluid mechanics alongside theory and experiment. The field connects fluid physics to algorithm design: different equation types require different discretization strategies, and the nonlinearity of Navier-Stokes imposes unique stability constraints. From the MIT TCS background, CFD is applied numerical linear algebra + time-stepping algorithms + domain decomposition — running at petascale and beyond.
 
-<!-- @editor[content/P2]: The opening correctly frames CFD as "domain decomposition — running at petascale and beyond" but the file never delivers on this: no section on parallel CFD, MPI communication patterns, halo-cell exchange, or the parallel scaling challenges (communication vs compute, Amdahl's law on the Poisson solve). This is precisely the bridge the learner calibration calls out ("CFD → parallel computing patterns they know from Azure"). The intro promise is unmet. Add a section on parallel CFD: domain decomposition, halo exchange, why the pressure Poisson solve is the parallel bottleneck (global reduction), and how modern CFD codes (OpenFOAM, Nek5000) achieve near-linear scaling to 10⁴–10⁵ cores. -->
 
 ```
 CFD PIPELINE
@@ -142,6 +141,35 @@ ACCURACY COMPARISON:
 
 ---
 
+## Parallel CFD and Scaling
+
+Production CFD runs on 10^3 to 10^5 cores. The parallelization follows domain decomposition: partition the mesh into subdomains, assign each to a process, and exchange boundary data (halo cells) via MPI at each timestep.
+
+```
+DOMAIN DECOMPOSITION IN PARALLEL CFD:
+
+  Process 0          Process 1          Process 2
+  ┌──────────┐      ┌──────────┐      ┌──────────┐
+  │          ←halo→→│          ←halo→→│          │
+  │  subdomain 0    │  subdomain 1    │  subdomain 2
+  │          │      │          │      │          │
+  └──────────┘      └──────────┘      └──────────┘
+
+  Each timestep:
+  1. Compute local fluxes (embarrassingly parallel)
+  2. Exchange halo cells with neighbors (point-to-point MPI)
+  3. Solve pressure Poisson: ∇²p = RHS  (GLOBAL operation — bottleneck)
+     → requires all-reduce or global sparse solve
+     → communication scales as O(N^{2/3}) for 3D domain of N cells
+  4. Update velocities (local)
+```
+
+The pressure Poisson equation is the parallel bottleneck because it requires global information (pressure at one point depends on velocity divergence everywhere). Explicit flux computation is purely local. This is why algebraic multigrid (AMG) preconditioners and domain-decomposed Krylov solvers (PETSc, Trilinos, HYPRE) dominate production CFD — they achieve near-linear parallel scaling by limiting global communication to the coarsest multigrid levels.
+
+Modern codes (OpenFOAM, Nek5000, AMReX) achieve >80% parallel efficiency to 10^4-10^5 cores. GPU porting (via CUDA, HIP, SYCL) is the current frontier — the memory-bandwidth-bound nature of CFD stencil operations maps well to GPU architectures.
+
+---
+
 ## Pressure-Velocity Coupling (Incompressible)
 
 The incompressibility constraint ∇·**v** = 0 is a constraint on velocity, not directly an equation for pressure. This creates the pressure-velocity coupling problem.
@@ -153,7 +181,7 @@ The incompressibility constraint ∇·**v** = 0 is a constraint on velocity, not
 3. **Update**: u^{n+1} = u* − Δt∇p^{n+1}
 
 Step 2 is a Poisson solve — the computational bottleneck. Uses FFT (periodic), multigrid, or direct sparse solver.
-<!-- @editor[bridge/P3]: Mention of "multigrid, Krylov, direct sparse solver" is correct but left as a bare list. Learner has numerical methods background; a one-sentence bridge connecting multigrid to the algebraic multigrid (AMG) preconditioners used in production CFD (same as used in PETSc, Trilinos, Azure HPC workloads), and noting that the Poisson solve is why the pressure equation is the parallel bottleneck (requires global information vs local flux computation), would ground these references. -->
+The Poisson solve is the parallel bottleneck in CFD — it requires global information (pressure depends on divergence everywhere), unlike the local flux computation. Production codes use algebraic multigrid (AMG) preconditioners (HYPRE BoomerAMG, PETSc GAMG) that limit global communication to the coarsest grid levels, achieving near-linear scaling on 10^4+ cores.
 
 ### SIMPLE Algorithm (Semi-Implicit Method for Pressure-Linked Equations)
 
