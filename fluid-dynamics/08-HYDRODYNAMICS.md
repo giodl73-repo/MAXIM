@@ -156,6 +156,7 @@ N characterizes the oscillation frequency of a displaced fluid parcel:
 
 At the interface between two fluids moving at different speeds, or two layers of different density:
 
+<!-- @editor[bridge/P3]: Kelvin-Helmholtz instability is stated as a criterion but not connected to linear stability analysis as an eigenvalue problem. Learner has linear algebra and ODE/PDE background from MIT Math; a note that instability criteria like this are derived by assuming perturbations of the form e^{σt+ikx} (normal modes), substituting into the linearized equations, and asking when Re(σ) > 0 — the same eigenvalue-problem framing used throughout applied mathematics — would connect this to the broader stability theory they already know. -->
 **Kelvin-Helmholtz instability**: Small perturbations grow when:
 
     (ρ₁ + ρ₂)(U₁ − U₂)² > 4gk(ρ₁ − ρ₂) × tanh(kh₁) × tanh(kh₂)

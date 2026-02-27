@@ -78,6 +78,7 @@ The D/Dt form is the natural "Lagrangian" form; ∂/∂t + **v**·∇ is the "Eu
 
 ## Kinematics: Strain Rate and Vorticity
 
+<!-- @editor[bridge/P3]: The velocity gradient tensor decomposition into symmetric (strain rate) + antisymmetric (rotation) parts is exactly the standard decomposition of any linear operator in linear algebra — Hermitian + skew-Hermitian. Learner has deep linear algebra from MIT Math; a single-sentence bridge ("this is the symmetric/antisymmetric decomposition of any linear operator — the fluid dynamics version of Hermitian + skew-Hermitian splitting") would make the result feel like a natural consequence of linear algebra rather than a domain-specific definition. -->
 Decompose the velocity gradient tensor ∂vᵢ/∂xⱼ into symmetric and antisymmetric parts:
 
     ∂vᵢ/∂xⱼ = eᵢⱼ + ωᵢⱼ

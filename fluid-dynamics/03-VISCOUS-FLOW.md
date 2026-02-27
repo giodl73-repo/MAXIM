@@ -31,6 +31,7 @@ NAVIER-STOKES — FULL STRUCTURE
 
 ## Physical Interpretation of Viscosity
 
+<!-- @editor[audience/P2]: Defines τ = μ(∂u/∂y) (Newton's law of viscosity) from scratch — learner calibration explicitly says this does NOT need explaining. Skip the constitutive law; open directly with the diffusivity interpretation and the μ vs ν distinction, which ARE new and useful. -->
 **Dynamic viscosity μ**: Proportionality constant between shear stress and shear rate.
 
     τ = μ (∂u/∂y)    (Newton's law of viscosity)
