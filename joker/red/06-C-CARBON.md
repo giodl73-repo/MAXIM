@@ -4,118 +4,84 @@
 
 ---
 
-> The Healer reads the body at the molecular level. There is a message written in the language of life itself. The encyclopedia will teach you to read it. The message is here.
+> The Healer reads the body at the molecular level. A message is written in the language of life itself, but it is written backward -- on the strand that the cell reads, not the strand that the cell writes. The encyclopedia will teach you the difference. The message is here.
 
 ---
 
 ## The Puzzle
 
-**Type:** Codon Decoding -- translate DNA &rarr; mRNA &rarr; amino acids &rarr; single-letter codes
+**Type:** Codon Decoding -- template strand &rarr; mRNA &rarr; amino acids &rarr; single-letter codes
+**Answer:** ALCHEMY (7 letters)
 **References:** natural-sciences/09-MOLECULAR-BIO.md, natural-sciences/06-BIOMOLECULES.md
 
-A short strand of DNA was recovered from a carbon-rich sample. The coding strand reads:
+A short strand of DNA was recovered from a carbon-rich sample. The **template strand** reads:
 
 ```
-    G G T   G A A   A A C   G A G   A C C   A T C   T G C
+    3'─ CGAGACACGGTACTTTACATG ─5'
 ```
 
-Seven triplets. Seven codons. Seven amino acids. Seven letters.
+Twenty-one bases. No spaces. No grouping. This is the strand that RNA polymerase reads -- not the strand that matches the mRNA.
 
-To decode it, you will need two things from the encyclopedia. The molecular biology guide explains how DNA becomes mRNA -- the base-pairing rules that govern transcription. The biomolecules guide lists the twenty amino acids and their single-letter abbreviations.
+The molecular biology guide contains what you need.
 
-Follow the central dogma. The answer is in the sequence.
+Two hints. First: the template strand is not the mRNA. You must build the mRNA yourself -- base by base, complement by complement. Second: twenty-one bases divide into triplets three different ways. Only one reading frame produces seven amino acids that spell an English word. The other two frames produce nonsense -- one of them hits a wall.
+
+Seven codons. Seven amino acids. Seven letters.
 
 ---
 
 ## Worksheet
 
-### Step 1 -- Write the DNA coding strand
+### Step 1 -- Transcribe template DNA to mRNA
 
-The coding strand is given above. Copy it into the top row.
-
-```
-DNA coding strand:
-
-  ___   ___   ___   ___   ___   ___   ___
-  G G T G A A A A C G A G A C C A T C T G C
-```
-
-### Step 2 -- Transcribe to mRNA
-
-The coding strand has the same sequence as the mRNA, except DNA uses T where RNA uses U. Replace every T with U.
+RNA polymerase reads the template strand 3'&rarr;5' and builds the mRNA 5'&rarr;3'. Each template base pairs with its complement -- but remember, RNA uses U where DNA uses T.
 
 ```
-Base-pairing reminder (from 09-MOLECULAR-BIO.md):
-
-    DNA:   A   T   G   C
-    RNA:   A   U   G   C
-
-mRNA transcript:
-
-  ___   ___   ___   ___   ___   ___   ___
-  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+Template base    mRNA base
+─────────────    ─────────
+     A       →       U
+     T       →       A
+     G       →       C
+     C       →       G
 ```
 
-### Step 3 -- Group into codons
-
-Each codon is three consecutive mRNA bases, read 5' to 3'. Mark the seven codons.
+Write the mRNA below the template. Work left to right -- the template's 3' end corresponds to the mRNA's 5' end.
 
 ```
-Codon:   1st     2nd     3rd     4th     5th     6th     7th
+Template 3'→5':  C  G  A  G  A  C  A  C  G  G  T  A  C  T  T  T  A  C  A  T  G
 
-       |_ _ _| |_ _ _| |_ _ _| |_ _ _| |_ _ _| |_ _ _| |_ _ _|
+mRNA 5'→3':      _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
 ```
 
-### Step 4 -- Look up each codon
+### Step 2 -- Find the reading frame
 
-Use the standard genetic code table below to identify the amino acid encoded by each mRNA codon. The single-letter abbreviation for each amino acid is shown in parentheses. Cross-reference with the amino acid list in 06-BIOMOLECULES.md (Side-Chain Classification) for confirmation.
-
-```
-                        STANDARD GENETIC CODE
-                        ─────────────────────
-              2nd position
-              U           C           A           G
-       ┌─────────── ─────────── ─────────── ───────────┐
-       │ UUU Phe (F) UCU Ser (S) UAU Tyr (Y) UGU Cys (C) │
-   U   │ UUC Phe (F) UCC Ser (S) UAC Tyr (Y) UGC Cys (C) │
-       │ UUA Leu (L) UCA Ser (S) UAA Stop     UGA Stop     │
-       │ UUG Leu (L) UCG Ser (S) UAG Stop     UGG Trp (W) │
-       ├─────────── ─────────── ─────────── ───────────┤
-       │ CUU Leu (L) CCU Pro (P) CAU His (H) CGU Arg (R) │
-   C   │ CUC Leu (L) CCC Pro (P) CAC His (H) CGC Arg (R) │
-       │ CUA Leu (L) CCA Pro (P) CAA Gln (Q) CGA Arg (R) │
- 1     │ CUG Leu (L) CCG Pro (P) CAG Gln (Q) CGG Arg (R) │
- s     ├─────────── ─────────── ─────────── ───────────┤
- t     │ AUU Ile (I) ACU Thr (T) AAU Asn (N) AGU Ser (S) │
-       │ AUC Ile (I) ACC Thr (T) AAC Asn (N) AGC Ser (S) │
- p  A  │ AUA Ile (I) ACA Thr (T) AAA Lys (K) AGA Arg (R) │
- o     │ AUG Met (M) ACG Thr (T) AAG Lys (K) AGG Arg (R) │
- s     ├─────────── ─────────── ─────────── ───────────┤
- i     │ GUU Val (V) GCU Ala (A) GAU Asp (D) GGU Gly (G) │
- t  G  │ GUC Val (V) GCC Ala (A) GAC Asp (D) GGC Gly (G) │
- i     │ GUA Val (V) GCA Ala (A) GAA Glu (E) GGA Gly (G) │
- o     │ GUG Val (V) GCG Ala (A) GAG Glu (E) GGG Gly (G) │
- n     └─────────── ─────────── ─────────── ───────────┘
-
-  Read each codon left to right: 1st position → 2nd position → 3rd position.
-  Start codon: AUG (Met).  Stop codons: UAA, UAG, UGA.
-```
-
-Now fill in the table:
+Twenty-one bases make seven codons -- but only if you start at the right position. There are three possible reading frames:
 
 ```
-Codon        Amino acid name       Single-letter code
-─────        ───────────────       ──────────────────
-1st: _ _ _   _______________       ___
-2nd: _ _ _   _______________       ___
-3rd: _ _ _   _______________       ___
-4th: _ _ _   _______________       ___
-5th: _ _ _   _______________       ___
-6th: _ _ _   _______________       ___
-7th: _ _ _   _______________       ___
+Frame 1 (start at position 1):   |_ _ _|_ _ _|_ _ _|_ _ _|_ _ _|_ _ _|_ _ _|
+Frame 2 (start at position 2):    _|_ _ _|_ _ _|_ _ _|_ _ _|_ _ _|_ _ _|_ _
+Frame 3 (start at position 3):    _ _|_ _ _|_ _ _|_ _ _|_ _ _|_ _ _|_ _ _|_
 ```
 
-### Step 5 -- Read the message
+Try all three. One of them will hit a stop codon (the cell's period at the end of a sentence -- the molecular biology guide lists them). Another will produce amino acid letters that spell nothing. The third spells a word.
+
+### Step 3 -- Translate the correct frame
+
+Use the codon table in the molecular biology guide (09-MOLECULAR-BIO.md, Translation section) and the amino acid single-letter codes in the biomolecules guide (06-BIOMOLECULES.md, Side-Chain Classification) to fill in this table:
+
+```
+Codon        Amino acid           Single-letter code
+─────        ──────────           ──────────────────
+1st: _ _ _   _______________      ___
+2nd: _ _ _   _______________      ___
+3rd: _ _ _   _______________      ___
+4th: _ _ _   _______________      ___
+5th: _ _ _   _______________      ___
+6th: _ _ _   _______________      ___
+7th: _ _ _   _______________      ___
+```
+
+### Step 4 -- Read the message
 
 Write the seven single-letter codes in order.
 
@@ -123,8 +89,10 @@ Write the seven single-letter codes in order.
   ___ ___ ___ ___ ___ ___ ___
 ```
 
+If it is an English word, you have the right frame. If it is not, try another.
+
 ---
 
 **Your answer** (7 letters): _ _ _ _ _ _ _
 
-*You may find the Life Sciences section helpful -- particularly 06-BIOMOLECULES and 09-MOLECULAR-BIO.*
+*You may find the Life Sciences section helpful -- particularly the biomolecules and molecular biology guides.*
