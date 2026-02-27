@@ -291,7 +291,13 @@ energy dep.)   or wire         wire melted by
                                laser/arc
 ```
 
-<!-- @editor[content/P2]: Additive manufacturing section is accurate but missing the current state of metal AM post-processing: hot isostatic pressing (HIP) for closing internal porosity in DMLS/SLM parts, heat treatment requirements for residual stress relief, and surface finishing options. These are the practical barriers between "print a part" and "flight-certified part" — the gap matters. Also absent: topology optimization as the algorithmic driver of DfAM (optimize shape for stiffness/weight subject to manufacturing constraints — essentially convex optimization on a voxel mesh). -->
+**Post-processing (the gap between "printed" and "certified"):**
+- **HIP (Hot Isostatic Pressing):** 100 MPa Ar at 1000-1200°C closes internal porosity in DMLS/SLM parts — often mandatory for flight-critical components. Improves fatigue life by 2-5x.
+- **Heat treatment:** Residual stress relief essential (SLM builds have ~500 MPa residual stress). Solution treatment + aging for Ti-6Al-4V, stress relief for Inconel 718.
+- **Surface finishing:** As-built Ra = 5-20 μm; machining, grinding, or electrochemical polishing to reach Ra < 1 μm for fatigue-critical or sealing surfaces.
+
+**Topology optimization** is the algorithmic driver of DfAM: optimize material distribution for stiffness/weight subject to manufacturing constraints (overhang angle, minimum feature size). This is convex optimization on a voxel mesh — penalize intermediate densities (SIMP method) or use level-set methods. Software: Altair OptiStruct, nTopology, Autodesk Generative Design.
+
 **Design for AM (DfAM):**
 - Lattice structures for lightweight stiffness
 - Organic topology-optimized shapes impossible by subtractive methods
@@ -325,7 +331,8 @@ Common fits:
   H7/s6: Force fit (heavy press, or shrink fit)
 ```
 
-<!-- @editor[bridge/P3]: GD&T and the ISO tolerance system are well covered, but there's no bridge to statistical process control (SPC) and process capability indices (Cpk, Cp). For this learner who managed CI/CD pipelines, the analogy is direct: tolerance stack-up is a root-sum-square calculation equivalent to error budgeting in distributed systems; Cpk is the process equivalent of a service-level agreement. Six Sigma (3.4 defects per million) has an obvious software quality parallel. A short "Manufacturing Quality → SPC" note would complete this section for the learner. -->
+**SPC bridge:** Tolerance stack-up is a root-sum-square calculation equivalent to error budgeting in distributed systems. Process capability index Cpk = min((USL-mu), (mu-LSL)) / (3*sigma) is the manufacturing equivalent of a service-level agreement: Cpk >= 1.33 means the process fits within tolerance with margin. Six Sigma (Cpk = 2.0, 3.4 DPMO) has a direct software quality parallel — it is a statistical guarantee on defect rate, not a process methodology despite the branding.
+
 ### GD&T (Geometric Dimensioning and Tolerancing)
 
 ```

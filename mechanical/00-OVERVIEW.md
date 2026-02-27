@@ -1,7 +1,6 @@
 # Mechanical Engineering — Landscape & Field Taxonomy
 
-<!-- @editor[bridge/P2]: No bridge from machine elements as design patterns — gears as reduction contracts, bearings as friction interfaces. This learner sees mechanism design through an API/abstraction lens; the "contract" framing would be a natural entry. -->
-<!-- @editor[content/P2]: Overview lacks tribology and mechanism synthesis — two of the highest-value topics for this learner. Tribology (friction, wear, lubrication) is the practical science behind bearings and gear life; mechanism synthesis (designing linkages for required motion) connects to state machine design. Neither appears in module map. -->
+Machine elements are design contracts: gears are speed/torque transformers (gear ratio i = omega_1/omega_2 = T_2/T_1, with defined input/output contracts like an API), bearings are friction-reduction interfaces (replacing sliding friction mu~0.3 with rolling friction mu~0.001), and springs are energy storage contracts (F = kx with defined stiffness and fatigue life). Two topics not covered in the current module map but central to the field: **tribology** (friction, wear, lubrication — the practical science behind bearing and gear life, organized around the Stribeck curve from boundary to hydrodynamic regimes) and **mechanism synthesis** (designing linkages for prescribed motion paths, connected to state machine design through the Grashof condition).
 
 ## The Big Picture
 
@@ -121,18 +120,18 @@ Valid when Knudsen number Kn = λ/L ≪ 1, where λ = mean free path.
 
 ---
 
-<!-- @editor[bridge/P2]: "Connections to Computing" table maps FEA → sparse linear system but misses the richer structural bridges for this learner: vibration modes → eigenvalue decomposition (which they know from MIT linear algebra), gear ratio as a type-safe transformation (torque in / speed out), PID control → transfer functions (connects to their control-theory familiarity). The existing table reads like a side note rather than a conceptual bridge. -->
 ## Connections to Computing
 
-| ME Concept | CS/Software Analog |
-|-----------|-------------------|
-| Finite Element Analysis (FEA) | Sparse linear system solve (Kx = F) |
-| Computational Fluid Dynamics (CFD) | PDE discretization on mesh → same numerics as PDEs in 19-NUMERICAL-METHODS.md |
-| Control systems (PID) | Feedback loops in software → see control-theory/ |
-| Thermal management of data centers | HVAC + heat transfer: same equations |
-| Manufacturing tolerances | Floating-point rounding analogies |
-| Fatigue life prediction | Reliability models, survival analysis |
-| Turbulence modeling | Chaos → same mathematics as chaotic ODEs |
+| ME Concept | CS/Math Analog | Why It Matters |
+|-----------|-------------------|----------------|
+| Finite Element Analysis (FEA) | Sparse linear system Kx = F (Cholesky, CG solvers) | Same numerical linear algebra from MIT |
+| Vibration mode analysis | Eigenvalue decomposition of stiffness/mass matrices | Natural frequencies = eigenvalues; mode shapes = eigenvectors |
+| CFD (Navier-Stokes) | PDE discretization on mesh → same numerics as 19-NUMERICAL-METHODS.md | N-S is the canonical nonlinear PDE |
+| Gear ratio | Type-safe transformation: torque in / speed out, power conserved | Functional contract with defined I/O |
+| PID control | Transfer function H(s) in Laplace domain → see control-theory/ | Feedback loops identical to software control |
+| Tolerance stack-up | RSS error budgeting in distributed systems | Statistical composition of independent errors |
+| Fatigue life prediction | Reliability models, survival analysis, MTBF | Same probabilistic failure framework |
+| Turbulence closure models | Regularization of ill-posed systems (more unknowns than equations) | k-epsilon is a regularization strategy |
 
 ---
 

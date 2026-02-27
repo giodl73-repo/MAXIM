@@ -1,7 +1,8 @@
 # 01 — Thermodynamics
 
-<!-- @editor[audience/P2]: Opening section re-derives the Four Laws from scratch — this learner has MIT physics including thermodynamics. The laws section is at the right depth (includes Clausius inequality, entropy generation) but the conceptual framing "how much work can you extract" could be sharpened to exergy analysis immediately. The Zeroth Law paragraph is unnecessary for this reader. -->
 ## Laws, Cycles, Entropy, Exergy
+
+The central question in engineering thermodynamics is not "what are the laws" but "what is the maximum useful work extractable from a given energy source, and what destroys availability?" The answer is exergy analysis — the Second Law applied quantitatively. The laws below are the foundation; cycles and exergy analysis (later sections) are the engineering payoff.
 
 ```
 ENERGY IN ──► [THERMODYNAMIC SYSTEM] ──► USEFUL WORK OUT
@@ -37,11 +38,9 @@ Notation: δQ and δW (inexact differentials) vs dU (exact differential)
 
 ## The Four Laws
 
-<!-- @editor[audience/P3]: Zeroth law explanation is undergraduate-level background. This learner knows temperature is a state property. Cut or compress to one sentence. -->
 ### Zeroth Law — Temperature
 
-If system A is in thermal equilibrium with B, and B with C, then A with C.
-→ Temperature is a well-defined intensive property. Thermometry is consistent.
+Transitivity of thermal equilibrium: A~B and B~C implies A~C. This equivalence relation defines temperature as a well-defined intensive state property.
 
 ### First Law — Energy Conservation
 
