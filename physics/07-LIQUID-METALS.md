@@ -277,6 +277,7 @@ Target: grid-scale storage at <$100/kWh to enable 24/7 renewable power.
 
 ---
 
+<!-- @editor[content/P2]: Liquid metal batteries section (Sadoway/Ambri) is thin on the electrochemistry — the guide describes the physical structure but skips the electrode potential / Nernst equation physics that determines voltage and efficiency. For a reader who wants to understand WHY voltage is ~0.5V (electrode potential difference, activity coefficients in the molten salt), and why self-discharge occurs (finite solubility of the top-electrode metal in the electrolyte), a sentence or two with the Nernst equation context would make this section stand on its own. Also: Ambri's commercial status as of 2023-2025 (first commercial deployments) could be noted. -->
 ## Gallium-Based Soft Robotics
 
 Gallium and its alloys (galinstan: Ga-In-Sn, liquid at -19°C) have enabled
@@ -313,6 +314,7 @@ the same induction and Lorentz force physics, just in microchannel geometry.
 
 ---
 
+<!-- @editor[bridge/P3]: The soft robotics section describes gallium EM actuation accurately but misses the connection to microfluidics / lab-on-chip systems where liquid metal channels serve as reconfigurable electrodes and interconnects in microfluidic chips. The intersection of liquid metal + microfluidics + EM actuation is an active research area (Dickey group at NC State, Rogers group at Northwestern). For a reader tracking modern applied physics, a pointer to this application cluster would complete the picture. -->
 ## The Fringe Claims — Evaluated
 
 This section examines specific claims about liquid metals and E&M that appear

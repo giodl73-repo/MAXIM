@@ -1,5 +1,7 @@
 # 10 — Gravity and Electromagnetism: GEM, Levitation, and the Anti-Gravity Question
 
+<!-- @editor[structure/P2]: No "## The Big Picture" section header — this guide opens directly with a raw ASCII block with no heading, unlike every other module in the set (01–09 all use "## The Big Picture" before their landscape diagram). The landscape diagram is good but the missing section header breaks the structural contract and makes the guide feel like a draft. Add the section header to match the rest of the series. -->
+
 ```
 THE LANDSCAPE
 ═══════════════════════════════════════════════════════════════════════════════
@@ -483,6 +485,7 @@ GENUINE PHYSICS AT THE EM-GRAVITY INTERFACE
 
 ---
 
+<!-- @editor[bridge/P2]: No differential geometry bridge — this guide is the natural place to connect to the mathematics/ module on differential geometry. GR is geometry: spacetime is a pseudo-Riemannian 4-manifold, the metric gμν is the fundamental object, the Einstein field equations say Ricci curvature = stress-energy. A reader with MIT Mathematics background who knows about manifolds and curvature tensors (Riemann tensor, Ricci contraction) should see that GEM is linearized GR = weak-field perturbation theory on flat Minkowski space. The "GEM as Maxwell analogy" is precise: both arise from a linearized gauge theory, one U(1) and one diff(M) (diffeomorphism group). This bridge is the single most valuable addition for this reader's background and is completely absent. -->
 ## 9. Unification Status — Honest Picture
 
 ```
@@ -515,6 +518,7 @@ THE UNIFICATION LANDSCAPE (2026)
   If it existed at lab-accessible energies, we'd have seen it
   in precision tests of the Standard Model.
 ```
+<!-- @editor[content/P2]: Quantum gravity candidates (string theory, loop quantum gravity, asymptotic safety) are listed but with "None tested, none produce predictions yet" — this undersells LQG. Loop quantum gravity does produce predictions: (1) discrete spectra for area and volume operators at the Planck scale, (2) a Planck-scale suppression of Lorentz invariance that gamma-ray telescope observations (Fermi-LAT) are beginning to constrain, (3) the Barbero-Immirzi parameter as an observable (if Hawking radiation is ever measured). String theory's most accessible prediction is a landscape of vacua and the swampland conjectures (constraints on which EFTs can be UV-completed). These aren't "no predictions" — they're predictions that require extreme precision or cosmic-scale tests. A more accurate framing for this reader. -->
 
 ---
 

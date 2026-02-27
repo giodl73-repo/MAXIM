@@ -317,6 +317,8 @@ matched exactly, no relative motion → no changing flux → no induced current
 robust, cheap, easy to maintain. Virtually every industrial motor is AC induction.
 Variable frequency drives (VFDs) control speed by varying the frequency f.
 
+<!-- @editor[content/P2]: VFDs are mentioned but the guide stops at "varying frequency f." A reader doing modern motor control needs to know that VFDs are inverters: DC bus (rectified AC) → PWM switching of IGBTs at ~10 kHz → synthesized variable-frequency AC. Field-oriented control (FOC) / vector control decouples torque and flux control in induction motors, making them behave like DC motors in the control loop. Permanent magnet synchronous motors (PMSM / brushless DC) have replaced induction motors in EVs and precision drives. These are significant omissions for a reader connecting physics to modern engineering. -->
+
 ---
 
 ## Three-Phase Power
@@ -452,6 +454,7 @@ limit, not an engineering failure. The remaining 60% is waste heat.
 
 ---
 
+<!-- @editor[bridge/P2]: No bridge to control theory — the back-EMF feedback loop diagram is the best piece of this guide, but it's presented as a physics curiosity rather than connected to formal control theory. The back-EMF loop is a first-order lag with integrating action; it exhibits the same transfer function structure as a PI controller. A reader who knows Laplace transforms (from 6.003 / signals) will recognize the motor as a control plant — speed = integral of torque, back-EMF is a tachometer feedback, and the mechanical load is a disturbance. The connection to the control systems module (if it exists in this reference) or at minimum to block diagram notation belongs here. -->
 ## Decision Cheat Sheet
 
 | Device | Principle | Key equation |
