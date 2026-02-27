@@ -1,5 +1,17 @@
 # C:\src\reference — Reference Library
 
+## Safety Rules — NEVER VIOLATE
+
+1. **NEVER write scripts that strip/remove/delete lines from files based on content matching.** No regex-based line removal across files. No `sed -i` deletion patterns. No Python scripts that read+filter+rewrite files. If content needs changing, use targeted Edit tool replacements on specific files.
+2. **NEVER glob-process files outside the target directory.** If working on `atlas/`, do not glob `C:/src/reference/*.md`. Scope all file operations to the exact directory being modified.
+3. **NEVER remove or modify `.git/`, `index.md`, `CLAUDE.md`, `VOLUMES.md`, `PROJECTS.md`, or `FOREWORD.md`** — these are structural files. Treat them as read-only unless explicitly asked to edit them.
+4. **Always `git stash` or `git commit` before running any bulk file transformation.** If a script goes wrong, we can recover.
+5. **Test file-modifying scripts on ONE file first**, verify the output, then run on the batch.
+
+*These rules exist because a bulk SVG-fixing script destroyed the entire repository on 2026-02-27. The `.git` directory, all `.md` files, and all content were lost. Recovery required re-cloning from GitHub.*
+
+---
+
 ## Project Purpose
 
 A **self-authored reference library** organized by field. Each field is a subdirectory containing numbered guides. Every guide follows the same format: layered ASCII diagrams, mental models, practical comparisons, and decision cheat sheets. Never dumbed down.
