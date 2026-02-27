@@ -76,7 +76,21 @@ NOTE: Over fields with char | |G|, this fails.
   Example: F_p[Z/p] — the trivial subrepresentation has no G-invariant complement.
   Modular representation theory (char = p) is much harder.
 
-<!-- @editor[content/P2]: Modular representation theory gets one dismissive sentence — for a graduate-level reader, Brauer characters, decomposition numbers, and the connection to p-local group theory (blocks, defect groups) are a major branch. The remark "much harder, active research area" is true but gives nothing to hold onto. Add: Brauer characters are characters in char 0 (lifted via Teichmüller), decomposition numbers relate ordinary to Brauer characters, Alperin's weight conjecture is the main open problem -->
+MODULAR REPRESENTATION THEORY (char = p divides |G|):
+  When Maschke fails, representations are no longer fully reducible.
+  Key concepts:
+  - BRAUER CHARACTERS: characters defined on p-regular elements (g with order coprime to p).
+    Lift eigenvalues to characteristic 0 via Teichmuller representatives.
+    Number of irreducible Brauer characters = number of p-regular conjugacy classes.
+  - DECOMPOSITION MATRIX D: relates ordinary characters (char 0) to Brauer characters (char p).
+    If χᵢ = Σⱼ dᵢⱼ φⱼ (ordinary char = sum of Brauer chars), D = (dᵢⱼ).
+    Cartan matrix C = D^T D: gives composition multiplicities.
+  - BLOCKS: the group algebra kG decomposes into block algebras B₁ ⊕ ... ⊕ Bₘ.
+    Each block has a DEFECT GROUP (a p-subgroup controlling the block's complexity).
+    Blocks with trivial defect group are simple matrix algebras.
+  - ALPERIN'S WEIGHT CONJECTURE (1986): the number of irreducible Brauer characters
+    in a block = the number of "weights" (pairs of p-subgroup and projective character).
+    Still open in general; proved for symmetric groups and many Lie-type groups.
 ```
 
 ---
@@ -264,7 +278,26 @@ NTT (Number Theoretic Transform):
   Polynomial multiplication in polynomial-time algorithms.
   Lattice-based cryptography (Kyber uses NTT in Z_q[x]/(x^n+1)).
 
-<!-- @editor[bridge/P2]: Harmonic analysis on non-abelian groups (the non-abelian Fourier transform) is introduced in one paragraph but the applications are absent — graph neural networks that are equivariant to the symmetric group use exactly this machinery (Zaheer et al., DeepSets; Maron et al., invariant/equivariant networks). The non-abelian FFT on S_n is polynomial time and is used in computational group theory for efficient group product computations. The learner calibration calls out "representation theory → harmonic analysis on groups" as a best bridge; this section has the math but needs the application anchor -->
+APPLICATIONS OF NON-ABELIAN FOURIER ANALYSIS:
+  The non-abelian FFT on S_n: O(n² n!) — polynomial per group element.
+  Used in computational group theory for efficient convolution on S_n.
+
+  ML connection: functions on permutations arise in ranking, matching, and
+  preference learning. The Fourier transform on S_n decomposes a ranking function
+  into irreducible components (Specht modules), each capturing a different "order"
+  of interaction between ranked items.
+
+  Equivariant networks on S_n (Maron et al. 2019):
+    Invariant: f(σ·x) = f(x) for all σ ∈ S_n → DeepSets (Zaheer et al.)
+    Equivariant: f(σ·x) = σ·f(x) → higher-order equivariant message passing
+    The representation theory of S_n (Specht modules, Young tableaux) determines
+    the space of equivariant linear maps between tensor spaces — the "equivariant
+    layers" in the network are parameterized by the intertwiner spaces Hom_G(V,W).
+
+  Spectral methods on graphs: the graph Fourier transform uses eigenfunctions
+  of the graph Laplacian, which is the analog of harmonic analysis on the
+  symmetry group of the graph. Spectral GNNs (Bruna et al., Defferrard et al.)
+  compute in this Fourier basis.
 ```
 
 ---

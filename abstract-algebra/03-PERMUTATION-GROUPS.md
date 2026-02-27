@@ -175,7 +175,17 @@ BETTER BOUNDS: G embeds in S_{n/d} where d = |largest subgroup in G| (by coset a
   Example: A_5 (order 60) embeds in S_5 (order 120) — far smaller than S_60.
   The action on cosets of a subgroup H gives G → S_{[G:H]}.
 
-<!-- @editor[bridge/P1]: Missing computational permutation group theory — Schreier-Sims gives polynomial-time algorithms for |G|, membership testing, generating sets for permutation groups given by generators. This is the algorithmic side of Cayley's theorem and the foundation of GAP/Magma group computation. For a TCS-background reader, "every group embeds in S_n" immediately raises the question of what you can compute efficiently about permutation groups — this is the answer -->
+COMPUTATIONAL CONSEQUENCE:
+  Cayley says every G embeds in S_n — but what can you COMPUTE in S_n?
+  Schreier-Sims algorithm: given generators {σ₁,...,σₖ} for G ≤ S_n:
+    - Compute |G| in O(n² log³|G|) time
+    - Test membership (is τ ∈ G?) in O(n log|G|) time
+    - Find a base and strong generating set (SGS)
+  The base β = (β₁,...,βₘ) gives stabilizer chain:
+    G > G_{β₁} > G_{β₁,β₂} > ... > {e}
+  |G| = ∏ |orbit of βᵢ under G_{β₁,...,βᵢ₋₁}|
+  This is how GAP, Magma, and SageMath compute with groups — all permutation
+  group computation reduces to Schreier-Sims.
 ```
 
 ---

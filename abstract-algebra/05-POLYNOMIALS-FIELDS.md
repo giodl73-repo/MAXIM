@@ -102,7 +102,7 @@ Over Q:
 Over F_p:
   Berlekamp or Cantor-Zassenhaus algorithms (polynomial time).
 
-<!-- @editor[bridge/P2]: Irreducibility/factoring over F_p is noted as polynomial time but no contrast with Z — factoring polynomials over Z is also polynomial time (LLL-based), but integer factoring is the basis of RSA hardness. The distinction "polynomial factoring (easy) vs. integer factoring (conjectured hard)" is a key conceptual point for the cryptography-aware reader. One sentence on why algebraic factoring doesn't help break RSA would anchor this for the audience -->
+**Key distinction for cryptography**: Factoring *polynomials* over any field (including Z via LLL) is polynomial time. Factoring *integers* is conjectured hard (basis of RSA). These are fundamentally different problems — polynomial factoring reduces to linear algebra over the coefficient field (Berlekamp) or lattice reduction (LLL for Z[x]); integer factoring has no known polynomial-time algorithm on classical computers. The existence of efficient polynomial factoring does NOT help break RSA; the algebraic structure is different.
 ```
 
 ---
@@ -248,7 +248,22 @@ FACTORING x^n - 1 OVER F_p:
   x^{p^n-1} - 1 = product of all monic irreducibles of degree | n.
   This gives: # monic irreducibles of degree n over F_p = (1/n) Σ_{d|n} μ(n/d)p^d.
 
-<!-- @editor[content/P2]: Factoring x^n-1 over F_p is presented as a standalone fact — missing the connection to cyclotomic polynomials and the NTT (Number Theoretic Transform). For Kyber/ML-KEM (post-quantum), x^n+1 = product of two factors over Z_q when q ≡ 1 (mod 2n), enabling the NTT. The factorization structure of x^n±1 over F_p is the algebraic engine behind fast polynomial multiplication in lattice crypto; this section is where that connection belongs -->
+CONNECTION TO NTT AND LATTICE CRYPTO:
+  The factorization of x^n ± 1 over F_p drives fast polynomial multiplication.
+
+  x^n - 1 = ∏_{d|n} Φ_d(x)  (product of cyclotomic polynomials)
+  Over F_p: Φ_d(x) splits into φ(d)/ord_d(p) irreducible factors of degree ord_d(p).
+
+  For Kyber/ML-KEM (NIST post-quantum standard):
+    Ring: R_q = Z_q[x]/(x^n + 1), n = 256, q = 3329.
+    x^n + 1 = Φ_{2n}(x) (the 2n-th cyclotomic polynomial when n is a power of 2).
+    Since q ≡ 1 (mod 2n): x^n + 1 splits completely into n linear factors over F_q.
+    → NTT (Number Theoretic Transform) works: evaluate polynomials at all n roots.
+    → Polynomial multiplication in R_q is O(n log n) via NTT (not O(n²)).
+
+  This algebraic fact — that x^n + 1 splits over F_q when q ≡ 1 (mod 2n) — is
+  why Kyber's parameters are chosen as they are. The NTT is the FFT over F_q,
+  and the factorization structure is the algebraic engine that makes it work.
 ```
 
 ---

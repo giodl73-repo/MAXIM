@@ -272,9 +272,41 @@ CLASSIFICATION OF FINITE SIMPLE GROUPS (CFSG):
   Completed 2004, 10,000+ pages.
   Categories: cyclic Z/p, alternating A_n (n≥5), groups of Lie type, 26 sporadic.
 
-<!-- @editor[content/P2]: CFSG entry is a 2-line stub for a result requiring 10,000+ pages — at minimum add: the count and names of the 26 sporadic groups, the Monster's order (~8×10^53), why Lie-type groups are the bulk of the classification, and what "completed 2004" means (the second-generation proof project). The learner can handle the full structure of the classification -->
+THE FOUR FAMILIES OF FINITE SIMPLE GROUPS (CFSG):
+  1. CYCLIC: Z/pZ for prime p (the only abelian simples)
+  2. ALTERNATING: A_n for n ≥ 5 (order n!/2)
+  3. GROUPS OF LIE TYPE: 16 infinite families — the bulk of the classification
+     PSL(n,q), PSU(n,q), PSp(2n,q), PΩ(n,q), exceptional types (G₂, F₄, E₆, E₇, E₈)
+     These are matrix groups over finite fields, modulo center.
+     Analogy: the same Lie algebra classification (Dynkin diagrams) over finite fields.
+  4. 26 SPORADIC GROUPS: one-offs that fit no infinite family
+     Mathieu groups: M₁₁, M₁₂, M₂₂, M₂₃, M₂₄ (found 1861-1873; first sporadics)
+     Janko groups: J₁, J₂, J₃, J₄
+     Conway groups: Co₁, Co₂, Co₃ (from Leech lattice symmetry)
+     Fischer groups: Fi₂₂, Fi₂₃, Fi₂₄'
+     The MONSTER M: |M| ≈ 8.08 × 10⁵³ — the largest sporadic
+       196,883-dimensional smallest faithful representation
+       "Monstrous Moonshine" (Conway, Norton; proved by Borcherds 1992):
+       j-function coefficients = dimensions of Monster representations
+     Baby Monster, Held, Harada-Norton, Thompson, Rudvalis, Suzuki, O'Nan,
+     Higman-Sims, McLaughlin, Lyons, Tits group
 
-<!-- @editor[bridge/P2]: No category-theoretic lens on quotients — in Grp (groups), normal subgroups are exactly what's needed for quotients to work because Grp is not an abelian category; in Ab (abelian groups), every subgroup is normal and every subgroup gives a quotient. The contrast Grp vs. Ab is the exact reason abelian categories were invented (Buchsbaum, Grothendieck). A TCS/category-theory reader needs this connection spelled out -->
+  "COMPLETED 2004": The second-generation proof project (Gorenstein, Lyons, Solomon)
+  is a systematic 12-volume rewrite of the original scattered 10,000+ page proof.
+  Still in progress (volumes still being published), but the mathematical community
+  accepts the classification as proven.
+
+CATEGORY-THEORETIC PERSPECTIVE ON QUOTIENTS:
+  In Grp: normal subgroups are EXACTLY the kernels of homomorphisms.
+    Not every subgroup is normal → not every subgroup gives a quotient.
+    Grp is not an abelian category.
+  In Ab: EVERY subgroup is normal (abelian → gHg⁻¹ = H always).
+    Every subgroup gives a quotient. Ab IS an abelian category.
+  This contrast — "in Ab, quotients are free; in Grp, quotients need normality" —
+  is precisely why abelian categories were invented (Buchsbaum 1955, Grothendieck
+  "Tôhoku" 1957). The axioms of an abelian category guarantee that kernels, cokernels,
+  and exact sequences behave like they do in Ab. Homological algebra works because
+  R-Mod is abelian; it fails for Grp because Grp is not.
 ```
 
 ---

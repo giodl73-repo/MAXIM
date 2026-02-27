@@ -207,7 +207,32 @@ SUPERSINGULAR ISOGENY-BASED (SIKE):
   Broken in 2022 by Castryck-Decru using unexpected algebraic geometry.
   Teaches: even "hard-looking" problems can fall; new math can break crypto.
 
-<!-- @editor[content/P2]: Pairing-based cryptography is absent — the learner calibration explicitly flags "applications to cryptography (pairing-based)" as a DOES NEED. Weil and Tate pairings on elliptic curves enable: BLS aggregate signatures (used in Ethereum 2.0 consensus), identity-based encryption (Boneh-Franklin), and the core of zk-SNARK constructions (Groth16, PLONK use bilinear pairing groups). The algebraic structure — the pairing e: E[r] × E[r] → μ_r is a Galois-equivariant bilinear map between groups of r-torsion points — is exactly where Galois theory, elliptic curves, and cryptography converge. This section has DH/ECDH/LWE but not pairings, which is a significant gap for the stated audience -->
+PAIRING-BASED CRYPTOGRAPHY:
+  Weil and Tate pairings on elliptic curves:
+    e: E[r] × E[r] → μ_r ⊂ F*_{p^k}
+  Bilinear: e(aP, bQ) = e(P,Q)^{ab}. Non-degenerate. Galois-equivariant.
+  Embedding degree k: smallest k with r | p^k - 1 (Galois theory determines this).
+
+  BN curves (Barreto-Naehrig): pairing-friendly curves with k=12.
+    Used in Ethereum 2.0 BLS signatures: aggregate many signatures into one.
+    BLS signature: σ = sH(m) where s is secret key, H maps to curve point.
+    Verification: e(σ, G) = e(H(m), Pub) — one pairing check verifies.
+    Aggregation: σ_agg = Σσᵢ verifies against all signers with one pairing equation.
+
+  Identity-Based Encryption (Boneh-Franklin 2001):
+    Public key = your email address (any string). No certificate infrastructure needed.
+    Construction: e(H₁(ID), s·G) = e(H₁(ID), G)^s — pairing enables.
+
+  zk-SNARKs (Groth16, PLONK):
+    Bilinear pairing groups enable polynomial commitment schemes.
+    Prove knowledge of a satisfying assignment to an R1CS system in O(1) proof size.
+    Verifier: check e(A, B) = e(C, D) — one pairing equation.
+    Used in: Zcash (privacy), Ethereum rollups (scaling), verifiable computation.
+
+  The algebraic core: the pairing maps E[r] × E[r] into the r-th roots of unity
+  in the extension field F_{p^k}. The embedding degree k is the order of p in
+  (Z/rZ)* — this is Galois theory (the Frobenius of Gal(F_{p^k}/F_p) acting on
+  r-torsion) meeting elliptic curve arithmetic.
 ```
 
 ---
@@ -245,7 +270,40 @@ APPLICATIONS TO CODING THEORY:
 
 ---
 
-<!-- @editor[content/P2]: Quantum error correction is referenced in the summary table ("GF(4) / stabilizer codes — AA-10") but has no section in this file — the reference points to itself and delivers nothing. Stabilizer codes over GF(4) (Calderbank-Rains-Shor-Sloane formalism), the CSS construction (Calderbank-Shor-Steane), and the connection to classical linear codes over GF(2) and GF(4) are the algebraic core of quantum error correction and deserve their own subsection here -->
+## Quantum Error Correction — Algebraic Foundations
+
+```
+STABILIZER FORMALISM (Calderbank-Rains-Shor-Sloane):
+  A quantum error-correcting code on n qubits is a subspace of (C²)^⊗n.
+  The STABILIZER GROUP S ⊂ Pauli group P_n determines the code space:
+    Code space = {|ψ⟩ : g|ψ⟩ = |ψ⟩ for all g ∈ S}
+
+  Pauli group P_n = ⟨{I,X,Y,Z}^⊗n, phases {±1,±i}⟩
+  Stabilizer S ⊂ P_n: abelian subgroup, -I ∉ S.
+  [[n, k, d]] code: n physical qubits, k logical qubits, distance d.
+    k = n - log₂|S|  (each independent stabilizer halves the code space)
+
+CONNECTION TO CLASSICAL CODES OVER GF(4):
+  The Pauli group modulo phases maps to GF(4)^n via:
+    I ↦ 0, X ↦ 1, Z ↦ ω, Y ↦ ω̄  (where GF(4) = {0,1,ω,ω̄}, ω²+ω+1=0)
+  A stabilizer code ↔ a self-orthogonal classical code over GF(4)
+  under the Hermitian inner product.
+  This reduces quantum code construction to classical coding theory over GF(4).
+
+CSS CONSTRUCTION (Calderbank-Shor-Steane):
+  Start with two classical binary codes C₁, C₂ with C₂^⊥ ⊆ C₁.
+  CSS(C₁, C₂): X-errors corrected by C₁, Z-errors corrected by C₂^⊥.
+  Parameters: [[n, k₁+k₂-n, min(d(C₁), d(C₂^⊥))]].
+  Example: Steane [[7,1,3]] code from the [7,4,3] Hamming code.
+
+SURFACE CODES:
+  Qubits on edges of a planar lattice. X-stabilizers on faces, Z on vertices.
+  Distance d = lattice size. Threshold error rate ~1% (highest known).
+  The leading candidate for practical quantum computing.
+  Algebraic structure: homology of the lattice → code parameters.
+```
+
+---
 
 ## Quantum Groups and Quantum Algebra
 
@@ -314,7 +372,19 @@ APPLICATIONS:
 | Need quantum gates? | Topological QC (quantum group representations) |
 | Need to classify crystal? | X-ray diffraction + space group determination |
 
-<!-- @editor[content/P2]: Decision Cheat Sheet table uses inconsistent formatting — first column has no header label, and the rows mix "Need X?" format with "Need to X?" format. Also absent from the cheat sheet: pairing-based crypto (BLS/SNARKs), quantum error correction (stabilizer codes over GF(4)), and algebraic geometry codes (Goppa/AG codes that beat the GV bound). The summary table above is excellent; the cheat sheet should match its scope -->
+| Problem Domain | Algebraic Tool | Key Result |
+|----------------|---------------|------------|
+| Reliable data storage/transmission | Reed-Solomon codes (F_q[x] evaluation) | MDS: achieves Singleton bound |
+| Crystal structure determination | Space group classification (230 groups) | Diffraction ↔ Fourier of atom positions |
+| Efficient key exchange | Elliptic curve groups E(F_p) | 256-bit ECC ≈ 3072-bit DH |
+| Post-quantum encryption | Module-LWE over Z_q[x]/(x^n+1) | Kyber/ML-KEM (NIST standard) |
+| Aggregate signatures | Pairing-based (BLS on BN curves) | One verification for N signatures |
+| Zero-knowledge proofs | Bilinear pairing groups (Groth16, PLONK) | O(1) proof size, one pairing check |
+| Identity-based encryption | Weil/Tate pairings | Public key = any string |
+| Quantum error correction | Stabilizer codes over GF(4) | Classical GF(4) codes → quantum codes |
+| Codes beating GV bound | Algebraic geometry codes (Goppa/AG) | Rate + distance ≥ 1 - 1/√q for q ≥ 49 |
+| Quantum gates | Topological QC (quantum group reps) | Braiding of anyons = fault-tolerant gates |
+| Data in RAID-6 / cloud | Erasure codes (systematic RS, LRC) | Survive 2+ disk failures |
 
 ---
 

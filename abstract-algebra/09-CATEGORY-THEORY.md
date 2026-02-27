@@ -239,7 +239,20 @@ REPRESENTABLE FUNCTORS:
   "A" represents F. Universal property = representation.
   Yoneda says: representation is unique up to isomorphism.
 
-<!-- @editor[bridge/P2]: No explicit connection between Yoneda and the "probes define objects" principle in database theory / knowledge representation — for a software engineering reader, the Yoneda lemma has a direct analogy in API design: an object is fully determined by its observable behavior (its "interface" — how other things can interact with it). This is the mathematical foundation of the behavioral/structural distinction in OOP and the "programming to interfaces" principle. Missing bridge that would resonate with this learner's engineering background -->
+ENGINEERING CONNECTION:
+  The Yoneda lemma is the mathematical foundation of "programming to interfaces."
+  An object A is fully determined by Hom(-, A) — i.e., by how every other object
+  maps into it. In software terms: an object is fully determined by its observable
+  behavior (its API / interface), not its internal implementation.
+
+  This is exactly the behavioral/structural equivalence:
+    Two objects with the same interface (same Hom(-, A) functor) are isomorphic.
+    Two classes implementing the same interface with identical behavior are
+    interchangeable — regardless of internal state representation.
+
+  In database theory: a schema is characterized by its queries (the morphisms
+  into it). The Yoneda embedding is the "lossless representation" theorem:
+  you can reconstruct the object from its probe responses without losing information.
 ```
 
 ---
@@ -324,7 +337,25 @@ TYPE THEORY EXTENSIONS:
   Homotopy type theory (HoTT) → ∞-toposes (Voevodsky, Lurie).
   Universes in type theory → Grothendieck universes in set theory.
 
-<!-- @editor[content/P2]: HoTT and ∞-toposes get one line each — for a TCS/Math reader, this is the most exciting frontier: HoTT makes the Univalence Axiom (equivalent types are equal) into a foundational principle; cubical type theory makes it computationally tractable (implemented in Agda/Coq). The connection "∞-category = homotopy theory done algebraically" is a major research program. Add: what ∞-categories fix (composition only associative up to coherent homotopy), the Lurie ∞-topos program, and why this matters for proof assistants -->
+HOMOTOPY TYPE THEORY (HoTT) AND ∞-CATEGORIES:
+  Classical category theory: composition is strictly associative ((h∘g)∘f = h∘(g∘f)).
+  ∞-categories: composition is associative only up to coherent homotopy.
+    A composition g∘f is defined, but (h∘g)∘f and h∘(g∘f) are only EQUIVALENT,
+    not equal — and the equivalences themselves are coherent.
+
+  Why this matters:
+  - SPACES AS ∞-GROUPOIDS (Grothendieck's hypothesis): a topological space IS
+    an ∞-groupoid where points are objects, paths are morphisms, homotopies between
+    paths are 2-morphisms, etc. ∞-categories = homotopy theory done algebraically.
+  - LURIE'S ∞-TOPOS PROGRAM: "Higher Topos Theory" (2009) + "Higher Algebra" (2017)
+    rebuild algebraic geometry, algebraic topology, and representation theory in the
+    ∞-categorical setting. This is the dominant framework in modern algebraic topology.
+  - UNIVALENCE AXIOM (Voevodsky): "equivalent types are equal." In HoTT, the identity
+    type A = B is equivalent to the type of equivalences A ≃ B. This makes isomorphism-
+    invariance a theorem, not a convention.
+  - CUBICAL TYPE THEORY: makes HoTT computationally tractable. Implemented in
+    Cubical Agda and Cubical Coq. Enables formalized proofs that are automatically
+    invariant under equivalences — a significant advance for proof assistants.
 ```
 
 ---

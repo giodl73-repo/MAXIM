@@ -266,9 +266,36 @@ LONG EXACT SEQUENCE IN Ext:
   0 → Hom(C,A) → Hom(B,A) → Hom(A,A) → Ext¹(C,A) → Ext¹(B,A) → ...
   The Ext groups measure obstructions to extending homomorphisms.
 
-<!-- @editor[content/P2]: Chain complexes and Ext/Tor section is thin — introduces the concepts but stops short of the derived category, which is where this machinery lives. The derived category D(A) of an abelian category A is the natural setting for Ext^n (as Hom in D(A) shifted by n). For a TCS/Math reader: derived categories appear in mirror symmetry, algebraic K-theory, and persistent homology. The "so what" is completely missing from this section -->
+DERIVED CATEGORIES — WHERE THIS MACHINERY LIVES:
+  The derived category D(A) of an abelian category A:
+    Objects: chain complexes (up to quasi-isomorphism)
+    Morphisms: "rooftop" diagrams A ← C → B where C→A is a quasi-isomorphism
+    Ext^n(M,N) = Hom_{D(A)}(M, N[n])  (Hom in D(A) with shift by n)
 
-<!-- @editor[bridge/P2]: No connection between module theory and persistent homology / topological data analysis — persistent homology is module theory over the polynomial ring k[t] (persistence modules), and the structure theorem for finitely generated modules over k[t] (a PID) gives the barcode decomposition. This is one of the most compelling modern applications of the structure theorem and directly relevant to ML/data science work -->
+  Why this matters:
+  - MIRROR SYMMETRY (Kontsevich 1994): D^b(Coh(X)) ≅ D(Fuk(X̃))
+    Derived category of coherent sheaves on X ≅ Fukaya category of mirror X̃
+    Connects algebraic geometry to symplectic geometry
+  - ALGEBRAIC K-THEORY: K₀(A) = Grothendieck group of D^b(A)
+    Higher K-groups from the derived category's structure
+  - TILTING THEORY: derived equivalences between seemingly unrelated algebras
+    Two algebras can have equivalent derived categories without being isomorphic
+
+PERSISTENT HOMOLOGY — THE STRUCTURE THEOREM IN DATA SCIENCE:
+  A persistence module over k[t] is a family of vector spaces {V_t} with linear
+  maps V_s → V_t for s ≤ t, compatible with composition.
+
+  By the structure theorem for finitely generated modules over k[t] (a PID):
+    Persistence module ≅ ⊕ k[t]/(t^{dᵢ}) ⊕ k[t]^r
+  Each summand k[t]/(t^d) is a "bar" — a feature that appears and persists for
+  duration d. The collection of bars is the BARCODE DECOMPOSITION.
+
+  Application: given a point cloud (e.g., from protein structure or sensor data),
+  build a filtration of simplicial complexes, compute homology at each scale →
+  get a persistence module → decompose into bars → read off topological features
+  (connected components, loops, voids) and their persistence across scales.
+  Long bars = real topological features; short bars = noise.
+  This is one of the most compelling modern applications of the structure theorem.
 ```
 
 ---

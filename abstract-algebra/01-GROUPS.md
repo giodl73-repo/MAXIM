@@ -1,8 +1,32 @@
 # Groups
 
-<!-- @editor[diagram/P2]: Opening diagram is the four axioms — correct but the learner knows these cold from MIT. The "big picture" for this audience should map the landscape of group theory: finite vs. infinite, abelian vs. non-abelian, classification branches (Sylow/CFSG/solvable), and where computational group theory sits. The axioms belong in the first section, not as the landscape diagram -->
-
 ## The Big Picture
+
+```
++====================================================================+
+|                GROUP THEORY LANDSCAPE                                |
++====================================================================+
+|                                                                      |
+|  FINITE GROUPS                      INFINITE GROUPS                  |
+|  ─────────────                      ───────────────                  |
+|  Sylow theorems → structure         Lie groups (SO(n), SU(n), GL(n)) |
+|  CFSG → complete classification     Finitely generated (free, surface)|
+|  Solvable → radical extensions      Arithmetic (SL(2,Z), etc.)       |
+|  Simple → atoms (A_n, Lie, sporadic)                                |
+|                                                                      |
+|  ABELIAN                            NON-ABELIAN                      |
+|  ───────                            ──────────                       |
+|  Structure theorem over Z           Sylow analysis                   |
+|  (invariant factors / primary)      Semidirect products              |
+|  Finitely generated: Z^r ⊕ torsion  Presentation (generators+rels)  |
+|                                                                      |
+|  COMPUTATIONAL                      APPLICATIONS                     |
+|  ─────────────                      ────────────                     |
+|  Schreier-Sims (perm groups)        Cryptography (cyclic, elliptic)  |
+|  Graph isomorphism (Babai)          Physics (Noether, representations)|
+|  Word problem (undecidable general) ML (equivariant networks)        |
++====================================================================+
+```
 
 ```
 +====================================================================+
@@ -41,9 +65,7 @@
 
 ---
 
-<!-- @editor[audience/P2]: "The Axioms — Minimal and Provable" section walks through closure, associativity, identity, inverses, then proves uniqueness of identity and cancellation from scratch. This learner has MIT graduate-level groups — skip the axiom derivations, pivot immediately to what's structurally interesting: the minimal axiom systems, one-sided axioms, and the connection to monoids/semigroups in the algebraic hierarchy -->
-you can prove right identity and right inverses. The standard 4-axiom list is
-pedagogically convenient.
+**Axiom minimality note**: The 4-axiom definition is overdetermined. You only need closure, associativity, left identity, and left inverses — right identity and right inverses follow. Alternatively: closure, associativity, and the property that for all a,b the equations ax=b and ya=b have solutions. The connection to the algebraic hierarchy: drop inverses → monoid; drop identity → semigroup; drop associativity → magma. The algebraic ladder is the axiom-stripping hierarchy.
 
 **Uniqueness of identity:**
 ```
@@ -222,9 +244,67 @@ APPLICATION — classify groups of order p² (p prime):
 
 ---
 
-<!-- @editor[bridge/P1]: Missing computational group theory section — the group isomorphism problem (GI), Babai's 2015 quasipolynomial-time algorithm, and the gap between GI and graph isomorphism are canonical TCS topics this learner will want. Also missing: Schreier-Sims algorithm for permutation groups, base/strong generating sets, and how group-theoretic algorithms underpin computer algebra systems (GAP, Magma). These are the tools that make group theory computable and directly connect to this learner's TCS background -->
+## Computational Group Theory
 
-<!-- @editor[bridge/P2]: No connection between group actions and symmetry in ML/physics — the learner calibration explicitly flags "group actions → symmetry in ML/physics" as a best bridge. Equivariant neural networks (G-CNNs, E(n)-equivariant GNNs) use group actions as a core design primitive; this section covers group actions purely abstractly without the ML connection -->
+```
+ALGORITHMIC PROBLEMS ON GROUPS:
+  Input: group G given by generators (permutations, matrices, or presentation)
+
+  GROUP ORDER:     |G| from generators — Schreier-Sims: O(n² log³|G|) for perm groups
+  MEMBERSHIP:      Is g ∈ ⟨S⟩?  Schreier-Sims: polytime via base/SGS
+  GENERATORS:      Find strong generating set (SGS) for ⟨S⟩
+  ISOMORPHISM:     G ≅ H? — NP ∩ coAM; Babai (2015) quasipoly for graphs
+
+SCHREIER-SIMS ALGORITHM:
+  Core idea: build a "base" β₁,...,βₖ and "strong generating sets" S⁽ⁱ⁾
+  such that the stabilizer chain G > G_{β₁} > G_{β₁,β₂} > ... > {e}
+  allows membership testing by "sifting" — test g against each level.
+
+  |G| = ∏ |orbit of βᵢ under G_{β₁,...,βᵢ₋₁}|  (telescoping product)
+
+  Complexity: polynomial in n (degree of permutation group) and log|G|.
+  Foundation of GAP, Magma, SageMath group computation.
+
+GRAPH ISOMORPHISM (Babai 2015):
+  GI reduces to a group-theoretic problem (string isomorphism in Sₙ).
+  Babai's algorithm: quasipolynomial time exp((log n)^O(1)).
+  Uses: Luks's group-theoretic framework + "split-or-Johnson" structure theorem.
+  Status: strongest connection between group theory and complexity theory.
+```
+
+## Engineering Bridge: Group Actions in Machine Learning
+
+```
+GROUP ACTION CONCEPT               ML / PHYSICS APPLICATION
+──────────────────────────────────────────────────────────────────────────────
+G acts on X by symmetry             Equivariant neural networks
+  φ: G → Aut(X)                     Network f satisfies f(g·x) = g·f(x)
+  Invariant: f(g·x) = f(x)         Invariant networks: f(g·x) = f(x)
+
+Translation group (Z², R²)          CNNs: convolution = translation equivariance
+  Images are translation-equivalent   Weight sharing across spatial positions
+  → same features everywhere          IS equivariance under translations
+
+Rotation group SO(2), SO(3)         E(n)-equivariant GNNs (EGNN, PaiNN)
+  Molecular conformations rotated     Network outputs rotate WITH the molecule
+  → same physics regardless of        Used in: protein structure, drug design,
+  orientation                          molecular dynamics
+
+Symmetric group Sₙ                  Set functions / DeepSets (Zaheer et al.)
+  Permutation of input elements       f({x₁,...,xₙ}) = f({xσ(1),...,xσ(n)})
+  → output unchanged                  Architecture: Σᵢ φ(xᵢ) enforces this
+
+SE(3) = SO(3) ⋉ R³                 Geometric deep learning (Bronstein et al.)
+  Rigid motions in 3D                  Tensor field networks, spherical harmonics
+  → physical systems                   as basis for equivariant features
+
+Noether's theorem                    Conservation laws from continuous symmetry
+  Continuous symmetry of Lagrangian    Time invariance → energy conservation
+  → conserved quantity                  Space invariance → momentum conservation
+                                       Gauge invariance → charge conservation
+```
+
+The key insight: building symmetry into the network architecture (via group equivariance) is more data-efficient than learning it from examples. A CNN doesn't need to learn translation invariance — it gets it for free from weight sharing. Equivariant networks generalize this principle to any group action.
 
 ## Decision Cheat Sheet
 
