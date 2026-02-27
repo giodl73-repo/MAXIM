@@ -84,7 +84,7 @@ The rule: **show what the archetype produces, not who they are.** A diagram, a s
 |------|-------|---------------|
 | 5♣ | The Naturalist | Tree of life — LUCA at root, three domains branching (Bacteria / Archaea / Eukarya) |
 | 5♦ | The Empiricist | A neuron — cell body, axon, dendrites, synaptic terminal — with signal direction arrows |
-| 5♥ | The Healer | DNA double helix — two strands, base pairs labeled A-T / G-C, replication fork opening |
+| 5♥ | The Healer | DNA double helix — two strands, base pairs labeled A-T / G-C, replication fork opening — but the fork has closed — a proofreading exonuclease traced both strands end to end, 745 mismatches excised, the helix sealed and reading true |
 | 5♠ | The Selector | Phylogenetic tree with fitness landscape peaks — two lineages in arms race, arrows chasing each other |
 
 ### 4 — Material Culture
