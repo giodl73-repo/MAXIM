@@ -2,7 +2,38 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P1]: The electrical grid is the largest real-time distributed consensus system in existence, and grid stability is a consensus problem: every generator and load must continuously agree on a shared state (frequency = 60.00 Hz) without a central coordinator. Grid frequency is the implicit consensus signal — deviations are the equivalent of a split-brain or clock skew event in a distributed system. The hierarchical response layers (inertial → primary regulation → AGC → economic dispatch → capacity planning) map directly to the failure response hierarchy in distributed systems: local retry (inertial response) → circuit breaker (primary frequency regulation) → load shedder (under-frequency load shedding) → operator intervention (AGC) → capacity planning (day-ahead/capacity markets). The transition from synchronous generator inertia to inverter-based resources is precisely the distributed systems problem of replacing implicit physics-based coordination with explicit software-based coordination — the same shift from hardware-enforced ordering (physical bus locking) to software-enforced ordering (distributed locks, Paxos). Grid-forming inverters that synthesize virtual inertia are implementing a software replica of a physical invariant — like implementing logical clocks to replace hardware TSC synchronization. -->
+The electrical grid is the largest real-time distributed consensus system in existence. Grid frequency (60.00 Hz / 50.00 Hz) is the implicit consensus signal — every generator and load must agree on this shared state without a central coordinator, and deviations are the equivalent of clock skew or split-brain events in distributed systems.
+
+```
+ENGINEERING BRIDGE: GRID STABILITY AS DISTRIBUTED CONSENSUS
+══════════════════════════════════════════════════════════════════════
+
+GRID RESPONSE LAYER             DISTRIBUTED SYSTEMS ANALOG
+──────────────────────────────────────────────────────────────────────
+Inertial response (0–5 s)      Local retry / hardware fault tolerance
+  Spinning mass resists Δf       → physics-based, automatic, no software
+
+Primary freq regulation (5–30s) Circuit breaker pattern
+  Governor droop response         → local node adjusts autonomously
+
+AGC / secondary (30s–15min)     Orchestrator intervention
+  Centralized dispatch signal     → consensus coordinator rebalances
+
+Economic dispatch (15min–1hr)   Load balancer / autoscaler
+  Optimal generator scheduling    → minimize cost subject to constraints
+
+Capacity markets (months–years) Capacity planning / reserved instances
+  Ensure enough future capacity   → long-term provisioning
+
+TRANSITION INSIGHT:
+Synchronous generators → inverter-based resources =
+Hardware-enforced ordering → software-enforced ordering.
+Grid-forming inverters synthesize virtual inertia in firmware:
+a software replica of a physical invariant — like implementing
+logical clocks to replace hardware timestamp counters.
+══════════════════════════════════════════════════════════════════════
+```
+
 The electrical grid must balance supply and demand instantaneously — unlike any other
 commodity. When wind and solar were <5% of generation, their variability was a rounding
 error managed by existing reserves. At 30-80% penetration, variability becomes the

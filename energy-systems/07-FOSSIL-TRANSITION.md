@@ -2,12 +2,44 @@
 
 ## The Big Picture
 
-<!-- @editor[diagram/P2]: The opening "Big Picture" uses a text statistics block (FOSSIL FUEL ROLE IN GLOBAL ENERGY) but is not a landscape diagram — it's a table disguised as a code block. The style contract calls for an ASCII diagram showing the whole landscape. For this file, that means a transition timeline or sector-by-sector phase-out map: showing the sequence in which fossil uses get displaced (coal power first → gas power → oil road transport → industrial heat → aviation/shipping last). The current format answers "how much?" but not "in what order and why?" — which is the structural insight this overview should deliver. -->
 Fossil fuels still supply ~80% of global primary energy and will continue to for decades.
 The transition is not a switch — it's a multi-decade replacement of capital stock with
 50-year lifetimes. Understanding the transition requires understanding stranded assets,
 carbon capture as bridge technology, methane leakage as the sleeper problem, and the
 political economy of communities whose economies depend on what must go away.
+
+```
+FOSSIL FUEL TRANSITION — SECTOR-BY-SECTOR PHASE-OUT SEQUENCE
+══════════════════════════════════════════════════════════════════════
+
+EASE OF          SECTOR                REPLACEMENT            TIMELINE
+DISPLACEMENT                          TECHNOLOGY
+──────────────────────────────────────────────────────────────────────
+Easiest    ┌── Coal power            Wind/solar + storage    2020s–2030s
+           │   (already uneconomic    (LCOE crossover done)
+           │    vs new renewables)
+           │
+           ├── Gas peaking           BESS 4-hr + demand      2025–2035
+           │   (load-following)      response
+           │
+           ├── Light road transport  EVs (BEV, battery cost  2025–2040
+           │   (passenger cars)      at parity now)
+           │
+           ├── Gas baseload power    Nuclear + long-duration  2030–2045
+           │   (firm capacity role)  storage + VRE overbuild
+           │
+           ├── Industrial heat       Green H₂, electric arc,  2030–2050
+           │   (steel, cement,       heat pumps (>150°C hard)
+           │    chemicals)
+           │
+           ├── Heavy road freight    BEV trucks + H₂ FCEV    2035–2050
+           │   (long-haul trucking)  (range-dependent)
+           │
+Hardest    └── Aviation + shipping   SAF, e-fuels, ammonia,   2040–2060+
+               (energy density       green methanol
+                constraints)          (no battery solution)
+══════════════════════════════════════════════════════════════════════
+```
 
 ```
 FOSSIL FUEL ROLE IN GLOBAL ENERGY (2023)
@@ -117,7 +149,8 @@ FOSSIL FUEL ROLE IN GLOBAL ENERGY (2023)
 CCS is the technology that could allow some continued fossil use while meeting climate targets,
 or remove CO₂ from the atmosphere directly.
 
-<!-- @editor[bridge/P3]: Amine scrubbing (MEA absorber/stripper cycle for CO₂ capture) is a direct application of absorption/stripping from chemical-eng/04-SEPARATIONS.md. The absorber is a gas-liquid contactor; the stripper is a thermal desorber; the MEA regeneration cycle is the stripping operation. The 15-25% energy penalty is driven by the thermodynamics of MEA regeneration (steam at 110-120°C), identical to the reboiler duty in a distillation column. A reader who has studied 04-SEPARATIONS.md will recognize this immediately; naming the connection would help them apply the separation design framework directly to CCS process analysis. -->
+Amine scrubbing is a direct application of gas-liquid absorption/stripping (see `chemical-eng/04-SEPARATIONS.md`). The absorber is a packed column gas-liquid contactor; the stripper is a thermal desorber; the MEA regeneration cycle is the classic stripping operation. The 15-25% energy penalty is dominated by reboiler duty for MEA regeneration at 110-120 C — the same thermodynamic constraint governing distillation column energy costs.
+
 ### Point-Source Post-Combustion Capture
 
 ```

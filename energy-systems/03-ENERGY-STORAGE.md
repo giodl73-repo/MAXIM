@@ -2,11 +2,39 @@
 
 ## The Big Picture
 
-<!-- @editor[bridge/P1]: Energy storage maps directly to the caching/buffering hierarchy in computing — and the mapping is structurally tight, not superficial. Flywheels (milliseconds, high cycles, expensive) = CPU L1/L2 cache (fast, small, expensive). Li-ion BESS (4-12 hours, moderate cycles) = RAM/SSD (medium-speed, medium-cost buffer). Pumped hydro (days, 100,000 cycles, geography-constrained) = distributed object storage (large, cheap, slow). Hydrogen seasonal storage (weeks/months, low round-trip efficiency) = tape/cold archive (very cheap per byte, massive latency, rarely accessed). The key insight that transfers: no single storage tier covers the full range; the optimal system layers multiple tiers with different cost/latency/capacity tradeoffs. The "4-hour BESS for duck curve" is exactly the L1 cache insertion between fast VRE generation and load — it handles temporal locality (solar peaks daily), not global temporal gaps (winter dark doldrums). This bridge belongs before the technology comparison sections. -->
 Storage is the linchpin technology for high-penetration renewable grids. The problem
 is that "storage" spans 9 orders of magnitude in duration (milliseconds to months)
 and the dominant technology changes completely depending on the application.
 No single technology covers the full range.
+
+```
+ENGINEERING BRIDGE: ENERGY STORAGE ≡ MEMORY/CACHE HIERARCHY
+══════════════════════════════════════════════════════════════════════
+
+ENERGY TIER                     COMPUTING ANALOG
+──────────────────────────────────────────────────────────────────────
+Flywheels / supercapacitors     CPU L1/L2 cache
+  ms–seconds, expensive/W       → fast, small, expensive/byte
+  Power quality, freq response  → register/cache for hot-path data
+
+Li-ion BESS (4–12 hours)        RAM / SSD buffer
+  Daily cycling, moderate cost   → medium-speed, medium-cost
+  Duck curve peak shifting       → temporal locality (daily patterns)
+
+Pumped hydro (days–weeks)       Distributed object storage
+  Geography-constrained, cheap   → large, slow, geo-distributed
+  100,000+ cycle lifetime        → durable, low-cost per unit
+
+Hydrogen seasonal (weeks–months) Tape / cold archive
+  30% round-trip efficiency       → high latency, low cost per TB
+  Only justified for bulk/season  → only justified for bulk archival
+
+KEY INSIGHT: No single tier covers the full range. Optimal systems
+layer multiple tiers — the same lesson as the memory hierarchy.
+A 4-hour BESS handles temporal locality (solar peaks daily);
+seasonal hydrogen handles global temporal gaps (winter dark doldrums).
+══════════════════════════════════════════════════════════════════════
+```
 
 ```
 STORAGE APPLICATION LANDSCAPE (duration vs power)

@@ -5,7 +5,8 @@
 Global primary energy consumption: ~600 EJ/year (~167,000 TWh). Most of it is wasted as heat
 before it reaches the end user. The conversion chain is the central fact of energy systems.
 
-<!-- @editor[bridge/P2]: The energy conversion chain (primary → secondary → final → useful, with ~65% lost as waste) is structurally identical to a distributed system's request processing chain: each tier introduces latency and loss. The Carnot-limited thermal plants are the synchronous I/O bottleneck; electrification + heat pumps are the async optimization. The "35% of primary energy becomes useful work" number maps directly to the "useful throughput vs total I/O ops" metric. The transition from centralized thermal generation to distributed VRE is the energy equivalent of moving from mainframe to cloud: both shift from "one big box" to "many commodity units + orchestration layer." The overview already hints at this but doesn't name it directly. -->
+The conversion chain is structurally identical to a multi-tier request processing pipeline: each tier introduces latency and loss. Only ~35% of primary energy reaches end users as useful work — the rest dissipates as waste heat at each conversion stage. Carnot-limited thermal plants are the synchronous I/O bottleneck (efficiency capped by T_hot/T_cold); electrification with heat pumps is the async optimization (COP > 1 means useful energy exceeds input electricity). The broader transition from centralized thermal generation to distributed variable renewables mirrors the mainframe-to-cloud shift: "one big box with high per-unit efficiency" gives way to "many commodity units + orchestration layer" with different failure modes and scaling characteristics.
+
 ```
 PRIMARY ENERGY (~600 EJ/yr)
         |
