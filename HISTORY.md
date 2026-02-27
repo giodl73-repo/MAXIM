@@ -28,8 +28,9 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 | 16 | Feb 26 | The Narrator | 10♠ | Bill of Materials — 206 dirs, 2,178 files, 5M words cataloged |
 | 17 | Feb 26 | The Collector | 2♥ | Concept Index — 8 agents, 4,026 specimens, 196 cross-cutting entries |
 | 18 | Feb 26 | The Cultivator | 3♥ | Foundational layer — 118 ubiquitous concepts, index to 314 entries |
+| 19 | Feb 26 | The Voyager | 3♠ | Atlas — 52 maps planned, design panel, ASCII→SVG pivot |
 
-*34 roles remain unclaimed.*
+*33 roles remain unclaimed.*
 
 ---
 
@@ -57,8 +58,9 @@ Each phase adds a small poetic detail to its card's image concept — a mark lef
 | 16 | The Narrator | *...and beneath the timeline, a ledger open to its final page — 206 entries, every vessel counted, the whole library held in a single manifest* |
 | 17 | The Collector | *...196 specimens pinned across the tray, each one where two habitats overlap — and a penciled note in the margin: "the common ones are still flying"* |
 | 18 | The Cultivator | *...and in the O horizon, 118 root tips — water, iron, carbon — each one reaching down through every layer, the common substrate that feeds all thirteen fields above* |
+| 19 | The Voyager | *...and at the midcourse correction, a small notation on the trajectory arc: cx equals negative longitude, cy equals negative latitude — the navigator who stopped guessing and started measuring* |
 
-*34 cards await their flair.*
+*33 cards await their flair.*
 
 ---
 
@@ -477,6 +479,28 @@ The fix was a grep-based foundational scan: 118 concepts (substances, phenomena,
 
 ---
 
+# Phase 19: The Voyager
+
+**Card**: 3♠ — Three of Swords
+**Date**: February 26, 2026
+**Commits**: `fc01080` (1 commit)
+**Image flair**: *...and at the midcourse correction, a small notation on the trajectory arc: cx equals negative longitude, cy equals negative latitude — the navigator who stopped guessing and started measuring*
+
+The atlas began as twelve ASCII files — regional maps, terrain diagrams, "where am I and what's around me?" It ended the session as fifty-two inline SVGs using real geographic coordinates, after a journey through three failed projections and one design review panel.
+
+The Voyager's work was navigation itself: charting the course, correcting when the course was wrong, and correcting again. First attempt: ASCII continent maps at 65 characters wide. Too cramped — features collided. Second attempt: 140 characters wide with a coordinate grid. Unit-tested every labeled feature against real coordinates. Eighteen of twenty-eight failed — systematic westward drift of 5-9 degrees. The medium couldn't hold the data. Third attempt: 200 characters wide, aspect ratio bakeoff with four font ratios. Florida became a needle. The monospace character cell — twice as tall as it is wide — distorts every shape it touches.
+
+The pivot came from the simplest insight: SVG viewBox uses real coordinates natively. Write `cx="-80.19" cy="-25.76"` and Miami is where Miami is. No conversion math. No aspect ratio correction. No grid arithmetic. The y-axis inversion (`cy = -latitude`) was the only trick. Five design critics — Tufte, Vignelli, Wurman, Fuller, and a cartographer composite — reviewed the ASCII work and independently reached the same verdict: the cross-sections are the strength, the geographic maps need a better medium. The Voyager found that medium.
+
+The atlas now has a hybrid format: SVG for geography (where accuracy matters), ASCII for mechanisms (where monospace shines), Markdown tables for data. Light/warm style: cream land on off-white, serif labels, subtle grid. The 52 content volumes keep their ASCII art unchanged. Only the atlas — the navigator's own work — makes the jump.
+
+**Key commits**:
+- `fc01080` Atlas project: Section I + design review + SVG pivot
+
+**Scale**: 1 commit, 13 files, 52-map plan, 5 design reviews, 3 ASCII iterations tested and abandoned, 1 SVG prototype approved, atlas skill created
+
+---
+
 ## Cumulative Scale
 
 | Metric | Count |
@@ -494,5 +518,7 @@ The fix was a grep-based foundational scan: 118 concepts (substances, phenomena,
 | P1 blocking issues | 0 |
 | Clean directories | 167 |
 | Concept index entries | 314 |
-| Roles claimed | 18 of 52 |
-| Roles remaining | 34 |
+| Atlas maps planned | 52 |
+| Design reviews | 5 (Tufte, Vignelli, Wurman, Fuller, cartographers) |
+| Roles claimed | 19 of 52 |
+| Roles remaining | 33 |
