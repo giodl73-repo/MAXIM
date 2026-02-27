@@ -2,7 +2,7 @@
 
 The MAXIM reference library was built across four days in February 2026. What started as three computing modules became 217 directories, 2,481 files, and 826,537 lines — a personal reference library covering the full scope of human knowledge, organized as a 52-card deck.
 
-Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first fifteen.
+Each phase of AI-assisted work claims one of the 52 archetype roles from the card deck. Over years of reviews, expansions, and refinements, all 52 will eventually be spoken for. These are the first seventeen.
 
 ---
 
@@ -26,8 +26,9 @@ Each phase of AI-assisted work claims one of the 52 archetype roles from the car
 | 14 | Feb 26 | The Surveyor | Q♦ | Fix residuals + sweep 59 dirs — 667 tags, 86 P1s, all dirs mapped |
 | 15 | Feb 26 | The Healer | 5♥ | Final fix pass — 745 tags → 0, library clean, navigation layer built |
 | 16 | Feb 26 | The Narrator | 10♠ | Bill of Materials — 206 dirs, 2,178 files, 5M words cataloged |
+| 17 | Feb 26 | The Collector | 2♥ | Concept Index — 8 agents, 4,026 specimens, 196 cross-cutting entries |
 
-*36 roles remain unclaimed.*
+*35 roles remain unclaimed.*
 
 ---
 
@@ -53,8 +54,9 @@ Each phase adds a small poetic detail to its card's image concept — a mark lef
 | 14 | The Surveyor | *...59 blank territories inked in — contour lines running from valley floor to ridge — and in the lower-left corner, a correction note where the last of the old stakes were pulled: three more sections cleared* |
 | 15 | The Healer | *...but the fork has closed — a proofreading exonuclease traced both strands end to end, 745 mismatches excised, the helix sealed and reading true* |
 | 16 | The Narrator | *...and beneath the timeline, a ledger open to its final page — 206 entries, every vessel counted, the whole library held in a single manifest* |
+| 17 | The Collector | *...196 specimens pinned across the tray, each one where two habitats overlap — and a penciled note in the margin: "the common ones are still flying"* |
 
-*36 cards await their flair.*
+*35 cards await their flair.*
 
 ---
 
@@ -403,7 +405,7 @@ The library has content. The cards have identity. The roles have names. The imag
 
 Now the cards need faces — 52 new ASCII art visuals, each illustrating the archetype's concept. The current card files (ASCII boxes with 7 key concepts) live in `cards/backs/`. The new designs will live in `cards/` as the primary face of each volume.
 
-36 roles remain unclaimed. Years of reviews, expansions, corrections, and reimaginations ahead. Each session that does meaningful work claims a card.
+35 roles remain unclaimed. Years of reviews, expansions, corrections, and reimaginations ahead. Each session that does meaningful work claims a card.
 
 ---
 
@@ -428,6 +430,30 @@ This is the document you hand to someone who asks: *what is this library?* The s
 
 ---
 
+# Phase 17: The Collector
+
+**Card**: 2♥ — Two of Cups
+**Date**: February 26, 2026
+**Commits**: `05d6e5d` → `d8be6a1` (3 commits)
+**Image flair**: *...196 specimens pinned across the tray, each one where two habitats overlap — and a penciled note in the margin: "the common ones are still flying"*
+
+Eight agents fanned out across the library — one per section group, 205 directories between them — and came back with 4,026 specimens. Every file read for its headings and key terms. Every concept tagged with its section of origin. The collection phase took hours, the agents working in parallel like field researchers dispatched to different biomes.
+
+Then the merge. A Python pipeline with three layers of matching: synonym groups (200+ curated mappings), parenthetical stripping ("Fourier transform (spectral analysis)" → "Fourier transform"), and Jaccard token overlap (≥0.6 similarity threshold) for fuzzy cross-agent matching. The 4,026 raw specimens collapsed to 3,598 unique concepts after canonicalization, then 43 fuzzy merges brought it to 3,555, and the 2-section filter kept 196 — the concepts that genuinely cross domain boundaries.
+
+Entropy spans five sections: Computing, Mathematics, Mechanics, Life Sciences, People. Kalman filter spans four. Bayesian inference reaches from data science through probability into philosophy. The index reveals connections the table of contents never could: "hydration" links React component rendering to cement chemistry; "containerization" links Docker to shipping TEUs; "defense in depth" links cybersecurity to nuclear safety systems.
+
+But the Collector's most honest contribution was naming what the net missed. Water. Iron. Gravity. Light. The concepts so ubiquitous they don't appear as headings in any single file — they're the medium, not the specimen. The penciled note in the margin: *the common ones are still flying*. A v2 pass with a curated foundational layer will catch them. The Collector knows that the best collection is never finished on the first expedition.
+
+**Key commits**:
+- `05d6e5d` Phase 15: The Healer — honored the previous session
+- `aad721e` Build CONCEPT-INDEX.md — 196 cross-cutting entries across 139 directories
+- `d8be6a1` Update PROJECTS.md — Concept Index complete (v1)
+
+**Scale**: 3 commits, 8 parallel extraction agents, 205 directories scanned, 4,026 raw concept-directory pairs, 196 qualifying entries (2+ sections), 139 directories referenced, CONCEPT-INDEX.md created
+
+---
+
 ## Cumulative Scale
 
 | Metric | Count |
@@ -444,5 +470,6 @@ This is the document you hand to someone who asks: *what is this library?* The s
 | Tags outstanding | 0 |
 | P1 blocking issues | 0 |
 | Clean directories | 167 |
-| Roles claimed | 16 of 52 |
-| Roles remaining | 36 |
+| Concept index entries | 196 |
+| Roles claimed | 17 of 52 |
+| Roles remaining | 35 |
