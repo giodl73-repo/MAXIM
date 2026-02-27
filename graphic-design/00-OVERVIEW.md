@@ -1,5 +1,115 @@
 # Graphic Design — Landscape and Taxonomy
 
+## The Editor's Principle
+
+> Design is the discipline of leaving out. The Editor removes until only what matters remains.
+
+This volume collects four fields that appear unrelated until you see the shared
+operation: reduction. A graphic designer eliminates visual noise until hierarchy
+emerges. A comics artist eliminates drawn moments until the reader's imagination
+fills the gap. A fashion editor eliminates garments from a collection until a
+silhouette thesis crystallizes. A sports scientist eliminates wasted motion until
+performance converges on signal.
+
+The verb is always the same: *cut*.
+
+```
+THE EDITOR'S SPECTRUM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  VISUAL              NARRATIVE            MATERIAL             PHYSICAL
+  REDUCTION           REDUCTION            REDUCTION            REDUCTION
+  ┌───────────┐       ┌───────────┐        ┌───────────┐        ┌───────────┐
+  │ GRAPHIC   │       │ COMICS &  │        │ FASHION   │        │ SPORTS    │
+  │ DESIGN    │       │ SEQUENTIAL│        │           │        │ SCIENCE   │
+  │           │       │ ART       │        │           │        │           │
+  │ Remove    │       │ Remove    │        │ Remove    │        │ Remove    │
+  │ visual    │       │ drawn     │        │ garments  │        │ wasted    │
+  │ noise     │       │ moments   │        │ from the  │        │ motion    │
+  │           │       │           │        │ collection│        │           │
+  │ UNTIL:    │       │ UNTIL:    │        │ UNTIL:    │        │ UNTIL:    │
+  │ Hierarchy │       │ Closure   │        │ Silhouette│        │ Signal    │
+  │ emerges   │       │ activates │        │ thesis    │        │ dominates │
+  │           │       │           │        │ holds     │        │ noise     │
+  └─────┬─────┘       └─────┬─────┘        └─────┬─────┘        └─────┬─────┘
+        │                   │                    │                    │
+        v                   v                    v                    v
+   White space          The gutter          The edit             Economy of
+   does the work        does the work       does the work        movement
+                                                                 does the work
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  What you leave out is the design.
+```
+
+### The Four Cuts
+
+**Graphic Design — Visual Reduction.**
+The grid is a constraint machine. Typography establishes hierarchy by making
+most text subordinate so a few elements dominate. White space is not absence;
+it is the structural force that separates signal from noise. Muller-Brockmann's
+Swiss grid, Rand's single-mark logos, Vignelli's restrained palette — every
+canonical move in the field is a subtraction. The designer's job is not to fill
+the canvas. It is to empty it until only the message remains.
+
+**Comics & Sequential Art — Narrative Reduction.**
+McCloud's closure theory is the formal account: the reader's imagination does
+more work than the artist's pen. The gutter between panels is where time,
+motion, and causation happen — none of it drawn. A splash page earns its impact
+by the panels that *were not* splash pages. Manga's aspect-to-aspect transitions
+linger in a scene without advancing plot — editing the narrative to exclude
+forward motion, forcing the reader to inhabit a moment. The best sequential
+artists know that what they choose not to draw is the story.
+
+**Fashion — Collection Editing.**
+A runway show is 30-40 looks. A designer may sketch 300. The creative director's
+role is editorial: cut until the collection has a thesis. Silhouette, proportion,
+fabric — these are the signal. Everything else is noise. Haute couture exists as
+the extreme case: each piece is so reduced in production volume (dozens per season)
+that every stitch must earn its place. Fast fashion inverts the principle — it
+adds everything, edits nothing, and drowns in volume. The quality gap between
+tiers is not craftsmanship alone; it is editorial discipline.
+
+**Sports Science — Performance Editing.**
+An elite sprinter eliminates wasted lateral motion until every joule transfers
+to forward velocity. A cyclist's power curve is a signal extraction problem: strip
+away junk miles, accumulate load at specific thresholds, taper before competition.
+Periodization is temporal editing — cut training phases that don't serve the peak.
+The acute-to-chronic workload ratio is a noise filter: separate the injury-risk
+signal from the background of daily load variation. The body is the medium; the
+edit is in what training you *don't* do.
+
+### The Engineering Bridge: Editing Code
+
+Refactoring is editing. You do not add features when you refactor; you remove
+until the structure clarifies. Dead code elimination, extracting a function,
+collapsing a class hierarchy — each operation reduces surface area so the
+remaining code carries more meaning per line.
+
+```
+THE EDITING OPERATION ACROSS DOMAINS
+─────────────────────────────────────────────────────────────────────
+  Domain          Raw material      The cut             What remains
+─────────────────────────────────────────────────────────────────────
+  Graphic design  Canvas + elements Remove clutter      Hierarchy
+  Comics          Drawn moments     The gutter          Closure
+  Fashion         Sketched looks    Collection edit     Silhouette thesis
+  Sports science  Training volume   Periodization       Peak performance
+  Software        Working code      Refactoring         Clean abstraction
+─────────────────────────────────────────────────────────────────────
+  Every domain:   Excess            Disciplined removal Signal
+```
+
+The compiler does it too. Dead code elimination, constant folding, inlining —
+the optimizer's entire job is to remove instructions until only the necessary
+computation remains. `gcc -O2` is The Editor applied to machine code.
+
+A design system and a software architecture share the same quality metric:
+how much can you remove before it breaks? The answer reveals how much was
+structural and how much was noise. In both disciplines, the residue after
+reduction is the design.
+
+---
+
 ## The Big Picture
 
 ```
