@@ -271,15 +271,16 @@ The Bauhaus was modernist but very much included color, craft, and playfulness.
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet is a module directory ("I want to understand…") not a "use X when Y" decision tool — convert to rows like "use Swiss grid system when designing for information clarity under space constraints; use American-modernist single-solution approach when brand identity work requires confident singular vision" -->
 ## Decision Cheat Sheet
 
-| I want to understand...                 | Start with                    |
-|-----------------------------------------|-------------------------------|
-| The foundational philosophy of design   | 01-BAUHAUS.md                 |
-| Why everything looks like Helvetica     | 02-SWISS-STYLE.md             |
-| American corporate identity tradition   | 03-AMERICAN-MODERNISM.md      |
-| How layouts are structured              | 04-GRID-SYSTEMS.md            |
+| Situation | Approach | Why |
+|-----------|----------|-----|
+| Information clarity under space constraints | Swiss grid system (modular grid + single typeface) | Constraint-driven layout maximizes legibility and consistency |
+| Brand identity needing confident singular vision | American-modernist single-solution approach (Rand model) | One definitive mark, presented with conviction; scales across all touchpoints |
+| Multi-language or international audience | Swiss style (Akzidenz-Grotesk/Helvetica, asymmetric grid) | Neutral typography; visual hierarchy doesn't depend on reading the language |
+| Expressive, cultural, or editorial design | Post-Swiss (Weingart, Carson, Brody) or historical reference | Break the grid when the content demands emotional response over clarity |
+| Systematic corporate identity program | Standards manual approach (1960s tradition) | Define every application so consistency survives delegation to non-designers |
+| Digital/interactive design system | Component-based design system (Atomic Design model) | Reusable components compose like software modules; consistency at scale |
 | How type works in a design context      | 05-TYPOGRAPHY-DESIGN.md       |
 | Color theory applied to brand           | 06-COLOR-IN-DESIGN.md         |
 | How brand identity systems work         | 07-BRAND-IDENTITY.md          |
