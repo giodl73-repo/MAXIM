@@ -4,15 +4,17 @@
 
 ---
 
-> The Fabricator builds chains of components, each one transforming what the last one made. Follow the signal. Don't lose it.
+> The Fabricator builds chains of components, each one transforming what the last one made. But some parts fell off the bench. Figure out what they were. Follow the signal. Don't lose it.
 
 ---
 
 ## The Puzzle
 
-Ten circuits. Each one takes a handful of binary inputs and routes them through logic gates. Your job is to evaluate every gate -- by hand, in order, tracing the signal through each wire -- until you have five output bits.
+Ten circuits. Each one takes binary inputs, routes them through logic gates, and produces five output bits. Five bits make a number. A number makes a letter.
 
-Five bits make a number. A number makes a letter.
+But the Fabricator's parts bin is incomplete. Some gates are missing their labels -- shown as **?** marks. You must deduce which gate type belongs at each **?** by reasoning about what output the circuit needs to produce a valid letter (A--Z, decimal 1--26).
+
+Four of the missing gates are **shared parts** -- marked with symbols (**&#9651;**, **&#9671;**, **&#9633;**, **&#9734;**). Each symbol represents the same gate type everywhere it appears. Solving a shared part in one circuit tells you what it is in every other circuit that uses it.
 
 Here are the gates you will encounter:
 
@@ -29,44 +31,46 @@ GATE REFERENCE
           B ──┘             1 OR 0 = 1
                             1 OR 1 = 1
 
-  NOT     A ── NOT ──── Y   NOT 0 = 1
-                            NOT 1 = 0
-
   XOR     A ──┐             0 XOR 0 = 0
               ├── XOR ── Y  0 XOR 1 = 1
           B ──┘             1 XOR 0 = 1
                             1 XOR 1 = 0
+
+  NOT     A ── NOT ──── Y   NOT 0 = 1
+                            NOT 1 = 0
 ──────────────────────────────────────────────────────
+
+Every ? is one of: AND, OR, or XOR.
+(NOT gates are always labeled. They are never missing.)
 ```
 
-Each circuit gives you its input values. Evaluate every gate left to right, top to bottom. Collect the five output bits b4 b3 b2 b1 b0 (most significant first). Convert each 5-bit binary number to a letter using A=1, B=2, ... Z=26.
+Collect the five output bits b4 b3 b2 b1 b0 (most significant first). Convert each 5-bit binary number to a letter: A=1, B=2, ... Z=26.
 
 ---
 
 ### Circuit 1
 
 ```
-Inputs:  A = 1,  B = 1,  C = 0
+Inputs:  A = 1,  B = 0,  C = 1
 
          A ──┐
              ├── AND ── G1 ─────────────────────── b4
-         B ──┘
-
-         B ──┐
-             ├── AND ── G2 ─────────────────────── b3
          C ──┘
 
          A ──┐
-             ├── XOR ── G3 ── NOT ── G4 ────────── b2
-         B ──┘
+             ├── (△) ── G2 ──┐
+         B ──┘               ├── AND ── G3 ─────── b3
+         B ──────────────────┘
 
-         A ──┐
+         B ── NOT ── G4 ──────────────────────────── b2
+
+         B ──┐
              ├── AND ── G5 ─────────────────────── b1
          C ──┘
 
-         C ──┐
+         A ──┐
              ├── AND ── G6 ─────────────────────── b0
-         A ──┘
+         B ──┘
 ```
 
 ---
@@ -78,23 +82,22 @@ Inputs:  A = 1,  B = 1,  C = 0,  D = 1
 
          A ──┐
              ├── AND ── G1 ─────────────────────── b4
-         B ──┘
-
-         C ──┐
-             ├── OR ─── G2 ── NOT ── G3 ────────── b3
          D ──┘
 
          C ──┐
-             ├── AND ── G4 ─────────────────────── b2
-         D ──┘
+             ├── (◇) ── G2 ──┐
+         D ──┘               ├── AND ── G3 ─────── b3
+         C ──────────────────┘
 
          A ──┐
-             ├── XOR ── G5 ── NOT ── G6 ────────── b1
-         B ──┘
+             ├── AND ── G4 ─────────────────────── b2
+         C ──┘
 
-         C ──┐
-             ├── AND ── G7 ─────────────────────── b0
-         A ──┘
+         C ── NOT ── G5 ──────────────────────────── b1
+
+         B ──┐
+             ├── AND ── G6 ─────────────────────── b0
+         C ──┘
 ```
 
 ---
@@ -104,7 +107,7 @@ Inputs:  A = 1,  B = 1,  C = 0,  D = 1
 ```
 Inputs:  A = 1,  B = 0,  C = 1
 
-         A ── NOT ── G1 ───────────────────────── b4
+         A ── NOT ── G1 ──────────────────────────── b4
 
          A ──┐
              ├── AND ── G2 ─────────────────────── b3
@@ -115,11 +118,11 @@ Inputs:  A = 1,  B = 0,  C = 1
          C ──┘
 
          B ──┐
-             ├── OR ─── G4 ── NOT ── G5 ────────── b1
+             ├── (?) ── G4 ─────────────────────── b1
          C ──┘
 
          A ──┐
-             ├── AND ── G6 ─────────────────────── b0
+             ├── AND ── G5 ─────────────────────── b0
          C ──┘
 ```
 
@@ -131,18 +134,19 @@ Inputs:  A = 1,  B = 0,  C = 1
 Inputs:  A = 0,  B = 1,  C = 1,  D = 0
 
          A ──┐
-             ├── OR ─── G1 ── NOT ── G2 ────────── b4
+             ├── AND ── G1 ─────────────────────── b4
          B ──┘
 
+         D ── NOT ── G2 ──────────────────────────── b3
+
          B ──┐
-             ├── AND ── G3 ─────────────────────── b3
+             ├── (☐) ── G3 ──┐
+         C ──┘               ├── OR ─── G4 ─────── b2
+         B ──────────────────┘
+
+         B ──┐
+             ├── AND ── G5 ─────────────────────── b1
          C ──┘
-
-         C ──┐
-             ├── XOR ── G4 ─────────────────────── b2
-         D ──┘
-
-         D ── NOT ── G5 ───────────────────────── b1
 
          A ──┐
              ├── AND ── G6 ─────────────────────── b0
@@ -156,23 +160,24 @@ Inputs:  A = 0,  B = 1,  C = 1,  D = 0
 ```
 Inputs:  A = 1,  B = 0,  C = 1,  D = 1
 
-         A ──┐
+         C ──┐
              ├── AND ── G1 ─────────────────────── b4
-         C ──┘
-
-         B ──┐
-             ├── OR ─── G2 ── NOT ── G3 ────────── b3
          D ──┘
+
+         A ──┐
+             ├── (☆) ── G2 ──┐
+         B ──┘               ├── AND ── G3 ─────── b3
+         B ──────────────────┘
 
          A ──┐
              ├── XOR ── G4 ─────────────────────── b2
          C ──┘
 
-         C ──┐
-             ├── AND ── G5 ─────────────────────── b1
-         D ──┘
+         B ── NOT ── G5 ──────────────────────────── b1
 
-         B ── NOT ── G6 ───────────────────────── b0
+         A ──┐
+             ├── AND ── G6 ─────────────────────── b0
+         D ──┘
 ```
 
 ---
@@ -180,26 +185,24 @@ Inputs:  A = 1,  B = 0,  C = 1,  D = 1
 ### Circuit 6
 
 ```
-Inputs:  A = 1,  B = 0,  C = 0,  D = 1
+Inputs:  A = 1,  B = 0,  C = 1,  D = 1
 
          A ──┐
-             ├── XOR ── G1 ─────────────────────── b4
-         D ──┘
-
-         C ── NOT ── G2 ──┐
-                          ├── AND ── G3 ────────── b3
-         D ───────────────┘
-
-         B ──┐
-             ├── OR ─── G4 ─────────────────────── b2
-         C ──┘
-
-         A ──┐
-             ├── AND ── G5 ─────────────────────── b1
+             ├── AND ── G1 ─────────────────────── b4
          B ──┘
 
+         B ── NOT ── G2 ──────────────────────────── b3
+
          A ──┐
-             ├── AND ── G6 ─────────────────────── b0
+             ├── (△) ── G3 ─────────────────────── b2
+         C ──┘
+
+         B ──┐
+             ├── AND ── G4 ─────────────────────── b1
+         D ──┘
+
+         C ──┐
+             ├── AND ── G5 ─────────────────────── b0
          D ──┘
 ```
 
@@ -214,21 +217,19 @@ Inputs:  A = 1,  B = 1,  C = 0
              ├── XOR ── G1 ─────────────────────── b4
          C ──┘
 
-         A ── NOT ── G2 ──┐
-                          ├── OR ─── G3 ────────── b3
-         C ───────────────┘
-
          B ──┐
-             ├── AND ── G4 ─────────────────────── b2
+             ├── (◇) ── G2 ─────────────────────── b3
          C ──┘
 
          A ──┐
-             ├── AND ── G5 ─────────────────────── b1
-         B ──┘
+             ├── AND ── G3 ─────────────────────── b2
+         C ──┘
 
          A ──┐
-             ├── XOR ── G6 ── NOT ── G7 ────────── b0
+             ├── AND ── G4 ─────────────────────── b1
          B ──┘
+
+         C ── NOT ── G5 ──────────────────────────── b0
 ```
 
 ---
@@ -236,26 +237,24 @@ Inputs:  A = 1,  B = 1,  C = 0
 ### Circuit 8
 
 ```
-Inputs:  A = 0,  B = 1,  C = 1,  D = 0
-
-         A ── NOT ── G1 ──┐
-                          ├── AND ── G2 ────────── b4
-         C ───────────────┘
+Inputs:  A = 1,  B = 1,  C = 0,  D = 1
 
          A ──┐
-             ├── AND ── G3 ─────────────────────── b3
+             ├── AND ── G1 ─────────────────────── b4
          D ──┘
+
+         A ──┐
+             ├── (☐) ── G2 ─────────────────────── b3
+         B ──┘
+
+         C ── NOT ── G3 ──────────────────────────── b2
 
          B ──┐
-             ├── XOR ── G4 ─────────────────────── b2
-         D ──┘
-
-         A ──┐
-             ├── OR ─── G5 ─────────────────────── b1
-         D ──┘
+             ├── AND ── G4 ─────────────────────── b1
+         C ──┘
 
          C ──┐
-             ├── AND ── G6 ─────────────────────── b0
+             ├── AND ── G5 ─────────────────────── b0
          D ──┘
 ```
 
@@ -266,23 +265,23 @@ Inputs:  A = 0,  B = 1,  C = 1,  D = 0
 ```
 Inputs:  A = 1,  B = 1,  C = 0,  D = 1
 
-         A ── NOT ── G1 ──┐
-                          ├── OR ─── G2 ────────── b4
-         C ───────────────┘
-
          A ──┐
-             ├── AND ── G3 ─────────────────────── b3
+             ├── (?) ── G1 ─────────────────────── b4
          B ──┘
 
-         B ──┐
-             ├── XOR ── G4 ─────────────────────── b2
-         C ──┘
-
          A ──┐
-             ├── OR ─── G5 ─────────────────────── b1
+             ├── AND ── G2 ─────────────────────── b3
          D ──┘
 
-         C ── NOT ── G6 ───────────────────────── b0
+         C ── NOT ── G3 ──────────────────────────── b2
+
+         B ──┐
+             ├── AND ── G4 ─────────────────────── b1
+         D ──┘
+
+         A ──┐
+             ├── OR ─── G5 ─────────────────────── b0
+         C ──┘
 ```
 
 ---
@@ -293,172 +292,42 @@ Inputs:  A = 1,  B = 1,  C = 0,  D = 1
 Inputs:  A = 1,  B = 0,  C = 1
 
          A ──┐
-             ├── OR ─── G1 ──┐
-         B ──┘               ├── AND ── G2 ─────── b4
-         C ──────────────────┘
-
-         A ── NOT ── G3 ──┐
-                          ├── OR ─── G4 ────────── b3
-         B ───────────────┘
-
-         A ──┐
-             ├── XOR ── G5 ─────────────────────── b2
+             ├── AND ── G1 ─────────────────────── b4
          C ──┘
 
-         B ── NOT ── G6 ───────────────────────── b1
+         B ──┐
+             ├── (☆) ── G2 ─────────────────────── b3
+         A ──┘
+
+         A ──┐
+             ├── XOR ── G3 ─────────────────────── b2
+         C ──┘
+
+         B ── NOT ── G4 ──────────────────────────── b1
 
          B ──┐
-             ├── AND ── G7 ─────────────────────── b0
+             ├── AND ── G5 ─────────────────────── b0
          C ──┘
 ```
 
 ---
 
-## Worksheet
-
-Evaluate each gate. Write the result in the blank. Then collect the five output bits.
-
-### Circuit 1 &ensp; (A=1, B=1, C=0)
+### Parts Bin
 
 ```
-  G1 = A AND B  = ___ AND ___ = ___   → b4 = ___
-  G2 = B AND C  = ___ AND ___ = ___   → b3 = ___
-  G3 = A XOR B  = ___ XOR ___ = ___
-  G4 = NOT G3   = NOT ___     = ___   → b2 = ___
-  G5 = A AND C  = ___ AND ___ = ___   → b1 = ___
-  G6 = C AND A  = ___ AND ___ = ___   → b0 = ___
+SHARED PARTS — same gate type wherever the symbol appears
+──────────────────────────────────────────────────────
+  △  triangle    appears in Circuits 1 and 6
+  ◇  diamond     appears in Circuits 2 and 7
+  ☐  square      appears in Circuits 4 and 8
+  ☆  star        appears in Circuits 5 and 10
+──────────────────────────────────────────────────────
 
-  Binary:  b4 b3 b2 b1 b0 = ___ ___ ___ ___ ___
-  Decimal: ___    Letter: ___
-```
-
-### Circuit 2 &ensp; (A=1, B=1, C=0, D=1)
-
-```
-  G1 = A AND B  = ___ AND ___ = ___   → b4 = ___
-  G2 = C OR D   = ___ OR  ___ = ___
-  G3 = NOT G2   = NOT ___     = ___   → b3 = ___
-  G4 = C AND D  = ___ AND ___ = ___   → b2 = ___
-  G5 = A XOR B  = ___ XOR ___ = ___
-  G6 = NOT G5   = NOT ___     = ___   → b1 = ___
-  G7 = C AND A  = ___ AND ___ = ___   → b0 = ___
-
-  Binary:  b4 b3 b2 b1 b0 = ___ ___ ___ ___ ___
-  Decimal: ___    Letter: ___
-```
-
-### Circuit 3 &ensp; (A=1, B=0, C=1)
-
-```
-  G1 = NOT A    = NOT ___     = ___   → b4 = ___
-  G2 = A AND B  = ___ AND ___ = ___   → b3 = ___
-  G3 = B AND C  = ___ AND ___ = ___   → b2 = ___
-  G4 = B OR C   = ___ OR  ___ = ___
-  G5 = NOT G4   = NOT ___     = ___   → b1 = ___
-  G6 = A AND C  = ___ AND ___ = ___   → b0 = ___
-
-  Binary:  b4 b3 b2 b1 b0 = ___ ___ ___ ___ ___
-  Decimal: ___    Letter: ___
-```
-
-### Circuit 4 &ensp; (A=0, B=1, C=1, D=0)
-
-```
-  G1 = A OR B   = ___ OR  ___ = ___
-  G2 = NOT G1   = NOT ___     = ___   → b4 = ___
-  G3 = B AND C  = ___ AND ___ = ___   → b3 = ___
-  G4 = C XOR D  = ___ XOR ___ = ___   → b2 = ___
-  G5 = NOT D    = NOT ___     = ___   → b1 = ___
-  G6 = A AND D  = ___ AND ___ = ___   → b0 = ___
-
-  Binary:  b4 b3 b2 b1 b0 = ___ ___ ___ ___ ___
-  Decimal: ___    Letter: ___
-```
-
-### Circuit 5 &ensp; (A=1, B=0, C=1, D=1)
-
-```
-  G1 = A AND C  = ___ AND ___ = ___   → b4 = ___
-  G2 = B OR D   = ___ OR  ___ = ___
-  G3 = NOT G2   = NOT ___     = ___   → b3 = ___
-  G4 = A XOR C  = ___ XOR ___ = ___   → b2 = ___
-  G5 = C AND D  = ___ AND ___ = ___   → b1 = ___
-  G6 = NOT B    = NOT ___     = ___   → b0 = ___
-
-  Binary:  b4 b3 b2 b1 b0 = ___ ___ ___ ___ ___
-  Decimal: ___    Letter: ___
-```
-
-### Circuit 6 &ensp; (A=1, B=0, C=0, D=1)
-
-```
-  G1 = A XOR D  = ___ XOR ___ = ___   → b4 = ___
-  G2 = NOT C    = NOT ___     = ___
-  G3 = G2 AND D = ___ AND ___ = ___   → b3 = ___
-  G4 = B OR C   = ___ OR  ___ = ___   → b2 = ___
-  G5 = A AND B  = ___ AND ___ = ___   → b1 = ___
-  G6 = A AND D  = ___ AND ___ = ___   → b0 = ___
-
-  Binary:  b4 b3 b2 b1 b0 = ___ ___ ___ ___ ___
-  Decimal: ___    Letter: ___
-```
-
-### Circuit 7 &ensp; (A=1, B=1, C=0)
-
-```
-  G1 = A XOR C  = ___ XOR ___ = ___   → b4 = ___
-  G2 = NOT A    = NOT ___     = ___
-  G3 = G2 OR C  = ___ OR  ___ = ___   → b3 = ___
-  G4 = B AND C  = ___ AND ___ = ___   → b2 = ___
-  G5 = A AND B  = ___ AND ___ = ___   → b1 = ___
-  G6 = A XOR B  = ___ XOR ___ = ___
-  G7 = NOT G6   = NOT ___     = ___   → b0 = ___
-
-  Binary:  b4 b3 b2 b1 b0 = ___ ___ ___ ___ ___
-  Decimal: ___    Letter: ___
-```
-
-### Circuit 8 &ensp; (A=0, B=1, C=1, D=0)
-
-```
-  G1 = NOT A    = NOT ___     = ___
-  G2 = G1 AND C = ___ AND ___ = ___   → b4 = ___
-  G3 = A AND D  = ___ AND ___ = ___   → b3 = ___
-  G4 = B XOR D  = ___ XOR ___ = ___   → b2 = ___
-  G5 = A OR D   = ___ OR  ___ = ___   → b1 = ___
-  G6 = C AND D  = ___ AND ___ = ___   → b0 = ___
-
-  Binary:  b4 b3 b2 b1 b0 = ___ ___ ___ ___ ___
-  Decimal: ___    Letter: ___
-```
-
-### Circuit 9 &ensp; (A=1, B=1, C=0, D=1)
-
-```
-  G1 = NOT A    = NOT ___     = ___
-  G2 = G1 OR C  = ___ OR  ___ = ___   → b4 = ___
-  G3 = A AND B  = ___ AND ___ = ___   → b3 = ___
-  G4 = B XOR C  = ___ XOR ___ = ___   → b2 = ___
-  G5 = A OR D   = ___ OR  ___ = ___   → b1 = ___
-  G6 = NOT C    = NOT ___     = ___   → b0 = ___
-
-  Binary:  b4 b3 b2 b1 b0 = ___ ___ ___ ___ ___
-  Decimal: ___    Letter: ___
-```
-
-### Circuit 10 &ensp; (A=1, B=0, C=1)
-
-```
-  G1 = A OR B   = ___ OR  ___ = ___
-  G2 = G1 AND C = ___ AND ___ = ___   → b4 = ___
-  G3 = NOT A    = NOT ___     = ___
-  G4 = G3 OR B  = ___ OR  ___ = ___   → b3 = ___
-  G5 = A XOR C  = ___ XOR ___ = ___   → b2 = ___
-  G6 = NOT B    = NOT ___     = ___   → b1 = ___
-  G7 = B AND C  = ___ AND ___ = ___   → b0 = ___
-
-  Binary:  b4 b3 b2 b1 b0 = ___ ___ ___ ___ ___
-  Decimal: ___    Letter: ___
+LOCAL UNKNOWNS — appear in only one circuit
+──────────────────────────────────────────────────────
+  ?  Circuit 3   (one unknown gate)
+  ?  Circuit 9   (one unknown gate)
+──────────────────────────────────────────────────────
 ```
 
 ---
@@ -484,6 +353,16 @@ Binary quick reference:
 ### Extraction
 
 ```
+PART DEDUCTIONS
+──────────────────────────────────────────────────────
+  △  triangle  =  ___________
+  ◇  diamond   =  ___________
+  ☐  square    =  ___________
+  ☆  star      =  ___________
+  ?  Circuit 3 =  ___________
+  ?  Circuit 9 =  ___________
+──────────────────────────────────────────────────────
+
 Circuit:    1     2     3     4     5     6     7     8     9     10
 
 Binary:   _____  _____  _____  _____  _____  _____  _____  _____  _____  _____
