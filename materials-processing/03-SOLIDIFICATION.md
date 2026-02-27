@@ -67,6 +67,7 @@ INOCULATION (grain refinement):
 
 ### Dendritic Structure
 
+<!-- @editor[bridge/P2]: A dendrite IS a tree data structure — primary arm = root, secondary arms = children, tertiary arms = grandchildren. SDAS (secondary dendrite arm spacing) is the characteristic inter-node distance. The dendritic growth algorithm (preferential growth along crystallographically fast directions, branching where curvature maximizes undercooling) is a physically instantiated recursive tree growth process. For a TCS reader, "dendrite = crystal tree; SDAS = branch spacing; coarser dendrites = shallower tree" is the immediate mental model. This bridge is absent despite the file explicitly calling it "tree-like." -->
 ```
 DENDRITIC GROWTH MECHANISM
 ──────────────────────────────────────────────────────────────────
@@ -333,6 +334,7 @@ A380 (Al-8.5Si-3.5Cu): die casting alloy
 
 ## Casting Simulation
 
+<!-- @editor[content/P2]: CALPHAD (CALculation of PHAse Diagrams) — the computational thermodynamics approach for calculating multi-component phase diagrams and transformation kinetics from assessed thermodynamic databases — is absent. For a TCS reader who will encounter terms like "CALPHAD-informed alloy design" in modern materials literature, this is a meaningful gap. CALPHAD is the equivalent of database-driven computation replacing manual lookup: instead of reading a binary phase diagram, you compute equilibrium phases for a 10-component alloy using thermodynamic software (Thermo-Calc, Pandat). Worth a brief mention in the simulation section. -->
 ```
 SOLIDIFICATION SIMULATION
 ──────────────────────────────────────────────────────────────────

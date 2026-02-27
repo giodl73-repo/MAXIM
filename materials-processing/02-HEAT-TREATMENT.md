@@ -2,6 +2,7 @@
 
 ## The Big Picture
 
+<!-- @editor[bridge/P1]: Heat treatment is a parameterized procedure — a function with inputs (temperature profile T(t), atmosphere, quench medium) that produces a deterministic microstructure output. Each named process (normalize, full anneal, Q&T, carburize+quench+temper) is a specific parameterization of the procedure. This is directly analogous to a build pipeline with configurable stages: the same "compile" step (austenitize) followed by different "link" parameters (quench vs. furnace cool) produces entirely different outputs. The programmatic framing — treating heat treatment as a typed procedure with pre/post-conditions — is the key TCS bridge and is absent entirely. -->
 Heat treatment is the application of controlled thermal cycles to solid metal to achieve target microstructure and properties. It is the primary tool for controlling hardness, strength, ductility, and toughness in steel and aluminum alloys. Every cycle involves three controllable parameters: temperature, time, and cooling rate.
 
 ```
@@ -443,6 +444,7 @@ CONTINUOUS (BELT/MESH BELT) FURNACE:
   Multiple zones (heat up, soak, cool)
   High production rate, low per-piece cost
   Typical: brazing, annealing, sintering
+<!-- @editor[bridge/P2]: The continuous furnace (heat-up zone → soak zone → cool zone) is a pipeline processor: each zone is a stateless transformation stage, parts are the data, throughput is the production rate. Zone temperature profiles are the stage parameters. This is the physical instantiation of a processing pipeline where parts move through staged transformations — exactly the mental model a systems engineer uses for staged processing architectures. Not named as a pipeline, though the diagram literally shows it. -->
 
 VACUUM FURNACE:
   <10⁻³ torr atmosphere → no oxidation

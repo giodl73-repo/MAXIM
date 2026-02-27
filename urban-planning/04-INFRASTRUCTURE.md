@@ -217,6 +217,7 @@ PAVEMENT CONDITION INDEX (PCI):
 
 ## Life-Cycle Cost Analysis (LCCA)
 
+<!-- @editor[bridge/P2]: LCCA (Total LCC = Initial Cost + PV(O&M) + PV(Rehab) + PV(Replace) − PV(Residual)) is total cost of ownership analysis — "TCO" is the direct bridge for any enterprise software or infrastructure decision-maker. The file already uses "technical debt in concrete" as a bridge analogy elsewhere but never names TCO here, where the quantitative framework appears. This guide is for someone who ran VSTS infrastructure and absolutely thinks in TCO when evaluating build vs. buy. -->
 LCCA evaluates the total cost of an asset over its design life, accounting for time value of money.
 
 ```

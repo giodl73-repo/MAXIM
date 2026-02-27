@@ -108,6 +108,7 @@ Martensite hardness: primarily controlled by %C
 
 ## TTT Diagrams (Time-Temperature-Transformation)
 
+<!-- @editor[bridge/P1]: A TTT diagram IS a finite state machine diagram. States: austenite (initial), pearlite, bainite, martensite (terminal states). Transitions: governed by (temperature, time) coordinates crossing transformation start/finish boundaries. Reading a TTT diagram is reading a state transition map — given current state (austenite) at temperature T, the curves tell you what state becomes reachable at what time. The "nose" of the TTT is the most accessible transition region. Making this explicit — "this is a state machine where temperature selects the active transition" — is the key TCS bridge. Not mentioned anywhere in this guide. -->
 ### Isothermal TTT Diagram Structure
 
 ```
@@ -266,6 +267,7 @@ Effect of temperature:
 
 ### Precipitation Hardening Mechanism
 
+<!-- @editor[bridge/P2]: The precipitation sequence (SSSS → GP zones → θ'' → θ' → θ) is a state machine with irreversible transitions under aging, and reversible on re-solution-treating. T6 (peak-aged) and T73 (overaged) are stable states. Overaging is a state transition that cannot be undone without re-solution treating — analogous to a one-way state transition in a workflow. The "peak aging" target is a time-temperature setpoint in a control sense: too short → under-aged (GP zone state), too long → overaged (coarse precipitate state). Not called out as a sequential state progression. -->
 ```
 PRECIPITATION SEQUENCE (Al-Cu example, 2XXX series)
 ──────────────────────────────────────────────────────────────────

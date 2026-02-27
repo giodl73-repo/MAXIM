@@ -112,6 +112,7 @@ or evaluating permits.
 
 ## Atmospheric Dispersion
 
+<!-- @editor[bridge/P2]: The Gaussian plume equation is a Green's function solution to the advection-diffusion PDE (∂C/∂t = D∇²C − u·∂C/∂x) for a point source under steady-state conditions. The Gaussian form follows directly from the fundamental solution to the diffusion equation. Any physicist or applied mathematician with MIT background will recognize this form immediately — but it's presented here as an empirical formula without naming its derivation from the diffusion PDE. The user calibration explicitly calls out "fate and transport → diffusion equations" as the key bridge. It should be named. -->
 After emission, how does the pollutant spread? Gaussian plume modeling is the standard.
 
 ```

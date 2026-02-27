@@ -33,6 +33,7 @@ SURFACE TREATMENT TAXONOMY
 
 ## PVD (Physical Vapor Deposition)
 
+<!-- @editor[bridge/P2]: PVD (physical vapor deposition — sputtering, evaporation) is the exact same process used in semiconductor fab for metallization layers, gate electrode deposition, and interconnect barrier layers. Any engineer who knows that TSMC sputter-deposits tungsten or TiN diffusion barriers onto wafers already knows PVD physics. The tools differ in scale and purity requirements, but the physics is identical. For a TCS reader with semiconductor awareness, naming this connection — "same process as semiconductor thin-film deposition, here applied to hard coatings on cutting tools" — is the key bridge. Absent. -->
 ### PVD Process Overview
 
 ```
@@ -193,6 +194,7 @@ Purpose: insulate Ni superalloy substrate from hot gas (>1000°C)
          → allows higher turbine inlet temperature
          → increases engine efficiency
 
+<!-- @editor[bridge/P3]: The TBC layer stack (ceramic top coat / TGO / bond coat / substrate) is a software stack where each layer is optimized for a different function: thermal insulation (top coat), oxidation resistance (bond coat + TGO), structural integrity (substrate). Each layer has a defined interface contract. The failure mode (TGO growth → spallation) is an interface contract violation under thermal cycling — analogous to a versioning incompatibility that accumulates over many deployment cycles. A "layered architecture with interface failure modes" framing would resonate. -->
 TBC system layers:
   ┌────────────────────────────────────────────┐
   │ Ceramic top coat: 7% YSZ (yttria-stabilized│
