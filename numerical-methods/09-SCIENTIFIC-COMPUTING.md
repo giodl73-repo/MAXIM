@@ -370,7 +370,42 @@ PYTHON-GPU WORKFLOW:
   JAX:     NumPy-compatible, supports CPU/GPU/TPU with same code.
            jnp.linalg.solve(A, b)  -> XLA-compiled (GPU or TPU)
   RAPIDS cuML: SciPy equivalent for GPU (scikit-learn API, GPU backend).
-<!-- @editor[content/P2]: cuSPARSE patterns for iterative solvers on GPU are not covered. The learner explicitly needs cuSPARSE patterns. The GPU section covers cuBLAS (dense GEMM) and cuSOLVER (factorizations) but not cuSPARSE — which is the critical library for CG/GMRES on GPU. The pattern is: CSR matrix stays on device, cuSPARSE::csrmv computes SpMV each iteration, cuBLAS handles the vector operations (dot, axpy). A code-pattern box showing the CG loop in terms of cuSPARSE/cuBLAS calls would directly serve the stated learner need. -->
+cuSPARSE — SPARSE MATRIX OPERATIONS ON GPU:
+  cuSPARSE handles the sparse half of GPU numerical computing, complementing cuBLAS (dense).
+  Critical for CG/GMRES iterative solvers on GPU (module 02).
+
+  CG LOOP ON GPU (cuSPARSE + cuBLAS pattern):
+  ┌────────────────────────────────────────────────────────────────┐
+  │  // Setup: CSR matrix A on device (cusparseCreate, csrmv desc) │
+  │  // Vectors r, p, x, w all on device (cudaMalloc)              │
+  │                                                                 │
+  │  while (residual > tol):                                        │
+  │    cusparseSpMV(A, p, w)           // w = A*p   (cuSPARSE)     │
+  │    cublasDdot(p, w, &alpha_denom)  // p^T w     (cuBLAS)       │
+  │    alpha = rtr / alpha_denom                                    │
+  │    cublasDaxpy(alpha, p, x)        // x += α*p  (cuBLAS)       │
+  │    cublasDaxpy(-alpha, w, r)       // r -= α*w  (cuBLAS)       │
+  │    cublasDdot(r, r, &rtr_new)      // r^T r     (cuBLAS)       │
+  │    beta = rtr_new / rtr                                         │
+  │    cublasDscal(beta, p)            // p = β*p   (cuBLAS)       │
+  │    cublasDaxpy(1.0, r, p)          // p += r    (cuBLAS)       │
+  │    rtr = rtr_new                                                │
+  │  // No CPU-GPU transfer in the loop — all data stays on device  │
+  └────────────────────────────────────────────────────────────────┘
+
+  KEY cuSPARSE FUNCTIONS:
+  cusparseSpMV:   y = α*A*x + β*y    (sparse mat-vec, the CG/GMRES kernel)
+  cusparseSpMM:   C = α*A*B + β*C    (sparse mat-dense mat, for block solvers)
+  cusparseSpSV:   solve L*x = b      (sparse triangular solve, for ILU precond)
+  cusparseSpGEMM: C = A*B            (sparse-sparse multiply, for AMG setup)
+
+  FORMATS: cuSPARSE supports CSR, CSC, COO, BSR.
+  CSR is standard for SpMV; BSR for block-structured FEM systems.
+
+  LIBRARIES THAT WRAP cuSPARSE:
+  NVIDIA AmgX:  Full AMG-preconditioned CG/GMRES on GPU
+  PETSc:        --with-cuda flag enables cuSPARSE backend
+  CuPy:         cupyx.scipy.sparse.linalg.cg / gmres
 
 MEMORY MANAGEMENT:
   Transfer bottleneck: always minimize CPU-GPU transfers.
@@ -657,7 +692,40 @@ REVERSE MODE AD (backpropagation):
 
   This is why backpropagation in neural networks uses reverse mode:
   Loss is scalar, parameters are millions -> reverse mode essential.
-<!-- @editor[bridge/P1]: The AD section here is the primary place in the library where AD is fully explained, but it lacks the bridge to the ODE/PDE adjoint method. Reverse-mode AD through an ODE solve (neural ODEs, sensitivity analysis) uses exactly the same adjoint principle: the adjoint equations are the "backward pass" of the ODE solver, directly analogous to backpropagation through time. The connection "reverse-mode AD → adjoint method for ODEs → adjoint-based sensitivity analysis for PDEs" is the key bridge connecting modules 06, 07, 08, and 09 for the learner. Currently these sections exist in isolation. -->
+
+REVERSE-MODE AD → ADJOINT METHOD (the cross-module bridge):
+  The adjoint method in ODE/PDE sensitivity analysis IS reverse-mode AD
+  applied to the numerical solver. The connection:
+
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  ML BACKPROP              ODE/PDE ADJOINT                      │
+  │  ─────────────            ──────────────────                   │
+  │  Forward pass:            Forward solve:                        │
+  │    compute activations      y' = f(t,y,p), y(0)=y_0           │
+  │    through layers           integrate t=0 → T                  │
+  │                                                                 │
+  │  Loss: L(output)          Objective: J(y(T), p)                │
+  │                                                                 │
+  │  Backward pass:           Adjoint solve:                        │
+  │    ∂L/∂weights via          λ' = -(∂f/∂y)^T λ, λ(T)=∂J/∂y(T) │
+  │    chain rule backward      integrate t=T → 0 (backward!)     │
+  │                                                                 │
+  │  Gradient: ∂L/∂θ         Gradient: dJ/dp = ∫₀ᵀ λ^T ∂f/∂p dt  │
+  │  Cost: O(forward pass)   Cost: O(forward solve + adjoint solve)│
+  └─────────────────────────────────────────────────────────────────┘
+
+  Neural ODEs (Chen et al. 2018) make this explicit:
+  define a neural network as y' = NN(t, y; θ), integrate with an adaptive
+  ODE solver, and compute dL/dθ via the adjoint method — all at O(forward)
+  cost, regardless of the number of ODE time steps.
+
+  For PDE-constrained optimization (shape optimization, inverse problems):
+  same principle. The adjoint PDE is the "backward pass" of the forward PDE.
+  One forward solve + one adjoint solve → gradient w.r.t. all parameters.
+
+  JAX: jax.experimental.ode.odeint supports adjoint-mode gradients natively.
+  DiffEqFlux.jl (Julia): neural ODEs + adjoint sensitivity, production-grade.
+  torchdiffeq (PyTorch): adaptive ODE solvers with adjoint backprop.
 
 PYTHON AD LIBRARIES:
   PyTorch (torch.autograd): reverse mode, dynamic computation graph.

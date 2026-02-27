@@ -131,7 +131,11 @@ Visual and verbal systems are separate but can be linked. Information encoded in
 
 **Application**: Combine text with relevant diagrams (not decorative images). The diagram creates a visual code; the text creates a verbal code; both activated together = better encoding.
 
-<!-- @editor[audience/P2]: The Fitts' Law and Hick's Law sections are pitched at a level appropriate for a junior UX designer, not a VP of Engineering. The math is already shown, which is good, but the framing ("make buttons bigger") is too basic. For this learner, the value is in understanding these as information-theoretic laws (Hick's Law is literally Shannon channel capacity), and in knowing the limits: Fitts' Law breaks for gesture/touch inputs differently than mouse, and for voice interfaces the distance metaphor changes. The applications section should lead with the quantitative design tradeoff, not the "corner of screen" observation. -->
+**The deeper point**: Both Fitts' Law and Hick's Law are information-theoretic results, not just empirical regularities. Fitts' Law is Shannon's Theorem 17 applied to the human motor channel — the index of difficulty ID = log2(2D/W) is literally the channel capacity in bits required to hit a target of width W at distance D. Hick's Law is Shannon's channel capacity applied to choice reaction time — each choice is one bit of information, and RT grows linearly with bits. The log2 in both formulas is not a coincidence; it reflects the human motor and decision systems operating near their information-theoretic capacity limits.
+
+**Where these laws break**: Fitts' Law was derived for stylus/mouse pointing. On touchscreens, the "width" W must account for the finger's contact area and the fat-finger problem — effective W is reduced by motor variability that differs from mouse pointing. For gesture interfaces, the distance metric becomes 3D and the "target" may be a pose region, not a spatial target. For voice interfaces, Hick's Law still applies to the *decision* component, but Fitts' motor component drops out entirely — replaced by articulatory complexity.
+
+**The quantitative design tradeoff**: At the system level, you're trading Fitts' cost (movement time to reach controls) against Hick's cost (decision time among options at the current level). Deeply nested menus minimize Hick's cost per level but maximize Fitts' cost (more traversals). Flat layouts minimize Fitts' cost but increase Hick's cost. The KLM (keystroke-level model) lets you compute the total task time quantitatively for both designs and choose the optimum.
 
 ### GOMS (Card, Moran, Newell 1983)
 
@@ -235,7 +239,7 @@ Status: No credible evidence learning styles affect outcomes.
 
 ## Cognitive Ergonomics
 
-<!-- @editor[bridge/P3]: Hick's Law: RT = a + b × log₂(n+1) is Shannon's theorem applied to human choice reaction time — each choice is one bit of information, and RT grows linearly with bits. The "log₂" is not a coincidence; Hick himself cited information theory. For a learner with information theory background, this bridge (Hick's Law = information-theoretic bound on human choice RT) is worth one sentence. Currently the information-theoretic grounding is implicit at best. -->
+**Historical note**: Hick himself cited Shannon in the original 1952 paper — the law is explicitly derived from information theory. The human choice-reaction system operates as a noisy channel with capacity approximately 2-3 bits/second for simple choices. This is why adding choices increases RT logarithmically: each additional bit of information in the stimulus requires a fixed increment of processing time.
 
 ### Endsley's Situation Awareness (SA)
 
@@ -331,7 +335,58 @@ RPD MODEL:
 
 ---
 
-<!-- @editor[content/P2]: The Cognitive Biases in Engineering table is the highest-value section for the target learner and it's also the thinnest. "Automation bias" gets one sentence; "hindsight bias in post-mortems" gets one. For an engineering leader, each row deserves a concrete intervention that works — not just "adversarial testing" but the specific pre-mortem format, the reference class forecasting procedure, and the blameless post-mortem structure. Currently the Mitigation column is too brief to be actionable. -->
+### Detailed Mitigations for the Three Most Damaging Engineering Biases
+
+**Planning fallacy — Reference Class Forecasting (Flyvbjerg)**:
+```
+PROCEDURE:
+1. Define the reference class: "projects of type X at this org"
+   (not "all projects" — too broad; not "this exact project" — too narrow)
+2. Collect the distribution: actual durations for 10-20 past projects in the class
+3. Use the distribution's median (not mean — skewed data) as the base estimate
+4. Adjust from the base only for specific, articulable reasons why THIS project
+   differs from the reference class
+5. Cap the adjustment: never adjust by more than 20-30% from the reference class
+   unless you can name the specific mechanism
+
+WHY IT WORKS: Forces the outside view. The inside view (imagining your specific
+timeline) is optimistic by ~30-70%. The outside view (base rates) is calibrated.
+```
+
+**Confirmation bias — Pre-Mortem (Klein)**:
+```
+PROCEDURE:
+1. Before the decision/project launch: "Imagine it is 6 months from now.
+   The project has FAILED. Write down why it failed."
+2. Each team member writes independently (no groupthink contamination)
+3. Collect and cluster the failure modes
+4. For each cluster: "What would we do NOW to prevent this?"
+5. Add the top 3-5 preventive actions to the project plan
+
+WHY IT WORKS: Legitimizes dissent. In a normal planning meeting, raising
+concerns = being negative. In a pre-mortem, raising concerns = being
+thorough. Prospective hindsight (imagining the failure as already happened)
+increases identification of potential problems by ~30% (Mitchell et al. 1989).
+```
+
+**Hindsight bias — Blameless Post-Mortem structure**:
+```
+PROCEDURE:
+1. TIMELINE FIRST: Reconstruct the sequence of events and decisions
+   with timestamps. What was known at each decision point?
+2. INFORMATION AVAILABLE: For each decision, document ONLY what the
+   decision-maker knew at the time — not what was learned afterward
+3. REASONABLE ALTERNATIVES: Given what was known, what alternatives
+   existed? Were they reasonable given the information available?
+4. SYSTEMIC FACTORS: What system/process/tooling gaps made the
+   failure mode possible? (Not: who failed to catch it)
+5. ACTION ITEMS: Changes to systems/processes, not changes to people
+
+WHY IT WORKS: Hindsight bias makes past failures look "obvious" — but they
+weren't obvious with the information available. The timeline reconstruction
+forces the team to evaluate decisions against the information set at the
+time, not the full-knowledge retrospective view.
+```
 
 ## The Replication Crisis — What Survived
 

@@ -194,11 +194,51 @@ Most psychologists now accept that concepts involve multiple representations:
 
 ---
 
-<!-- @editor[bridge/P1]: The Chomsky hierarchy is completely absent from this file despite being the most obvious bridge for a TCS reader approaching language and cognition. Context-free grammars (CFG, pushdown automata), context-sensitive, recursively enumerable — this learner knows this cold. The empirical status of Chomsky's claims about natural language grammar (does English require context-sensitive power? Mildly context-sensitive — Joshi 1985? The GPSG/LFG/Minimalism succession) is exactly what they would want to know. The current file covers aphasia and Sapir-Whorf but skips the computational theory of syntax entirely. This is a P1 gap for this learner profile. -->
+## The Chomsky Hierarchy and Natural Language
+
+The formal language hierarchy is the backbone of computational linguistics. The empirical question: **where does natural language sit?**
+
+```
+CHOMSKY HIERARCHY                    NATURAL LANGUAGE STATUS
+──────────────────────────────────────────────────────────────────────────────
+Type 3: Regular (FSA)                INSUFFICIENT
+  Finite-state grammars               Cannot handle center-embedding:
+  Right-linear rules                  "The cat [the dog [the rat bit] chased] fled"
+  Chomsky (1956) proved this          Requires unbounded nesting → needs stack
+
+Type 2: Context-Free (PDA)           ALMOST — but not quite
+  Phrase-structure grammars           English: mostly CFG-parseable
+  Pushdown automaton                  Swiss German: cross-serial dependencies
+                                      (Shieber 1985) — provably not CF
+                                      a^n b^m c^n d^m requires > CF power
+
+Type 1: Context-Sensitive (LBA)      OVERSHOOT
+  Too powerful — predicts structures
+  natural languages don't exhibit
+
+MILDLY CONTEXT-SENSITIVE             CURRENT CONSENSUS (Joshi 1985)
+  Tree-Adjoining Grammars (TAG)       Captures cross-serial dependencies
+  Combinatory Categorial Grammar      Polynomial parsing (not NP-hard)
+  (CCG — Steedman)                    Slightly beyond CFG, well below CSG
+  Linear Context-Free Rewriting       Most natural language constructions
+  Systems (LCFRS)                     fit within this class
+```
+
+**The succession of formal grammar theories:**
+- **Transformational Grammar** (Chomsky 1957–65): Deep structure → surface structure via transformations. Turing-complete if unconstrained.
+- **GPSG** (Gazdar 1985): Context-free, no transformations. Handles most English but can't do Swiss German cross-serial.
+- **LFG** (Bresnan): Functional structures + CFG c-structure. Mildly context-sensitive.
+- **Minimalism** (Chomsky 1993+): Merge as the single combinatory operation. Computational status debated.
+
+**The empirical bottom line**: Natural languages require slightly more than context-free power (Shieber's 1985 proof for Swiss German is definitive) but far less than context-sensitive. The "mildly context-sensitive" class — parseable in polynomial time, capturing limited cross-serial dependencies — is the current best formal characterization.
+
+This directly constrains the Language of Thought debate below: if mental representations must support natural language productivity, they need at minimum mildly context-sensitive generative capacity — more than a finite-state machine, less than a Turing machine.
+
+---
 
 ## Language of Thought — Mentalese (Fodor)
 
-<!-- @editor[bridge/P2]: The Language of Thought arguments (systematicity, productivity) are the same as the formal language theory arguments for recursive grammars: infinite sentences from finite rules = recursion = at minimum CFL power. Fodor's productivity argument is structurally identical to the argument that regular languages can't capture unbounded center embedding — which this learner knows from automata. Make the connection explicit: if you accept the productivity argument, you've already accepted that mental representations have at minimum pushdown-automaton-level structure. -->
+**Formal language theory connection**: Fodor's productivity argument — infinite thoughts from finite resources via recursive combination — is structurally identical to the argument that regular languages (FSA) cannot capture unbounded center-embedding. If you accept that thought exhibits productivity (unbounded recursive structure), you've already accepted that mental representations require at minimum pushdown-automaton-level (CFL) generative power. The systematicity argument (if you can think "A loves B" then you can think "B loves A") further requires that the combinatory operations preserve structural roles — this is compositionality, the same property that makes CFGs useful for parsing.
 
 **The claim** (Jerry Fodor, "The Language of Thought," 1975):
 Thinking is computation over a **structured symbolic mental language** (Mentalese) that is distinct from any natural language.
@@ -296,6 +336,6 @@ UNDERSTANDING IS SEEING:
 
 **Conceptual metaphors ≠ linguistic metaphors**: Lakoff's claim is about the *underlying conceptual structure*, not the surface expression. The metaphors are in the thought, not just the language. "I see what you mean" is evidence of the UNDERSTANDING IS SEEING metaphor whether or not you consciously use it as a metaphor.
 
-<!-- @editor[content/P2]: The cross-reference to linguistics/03-SYNTAX.md for the Chomsky hierarchy is appropriate, but this file should not defer all computational syntax content to that reference. At minimum, a 1-paragraph summary of the hierarchy's empirical status for natural language (CFL insufficient → Shieber 1985 Swiss German; mildly context-sensitive is current consensus) belongs here, since it directly bears on the Sapir-Whorf and Language of Thought discussions in this very file. -->
+**The Chomsky hierarchy's empirical status for natural language** (see the full treatment in the Chomsky Hierarchy section above): Natural language is provably not context-free (Shieber 1985, Swiss German cross-serial dependencies) but sits within the mildly context-sensitive class (TAGs, CCG). This directly bears on both the Sapir-Whorf and LoT discussions: if the computational complexity of a language's grammar varies (some constructions require more than CF power), does that affect the cognitive resources required to process those constructions? The evidence suggests yes — processing garden-path sentences with center-embedding is measurably harder than processing right-branching equivalents, consistent with the stack depth required by a pushdown automaton.
 
 **Cross-reference**: For the formal linguistic treatment of syntax and semantics (Chomsky hierarchy, lambda calculus semantic composition), see `linguistics/03-SYNTAX.md` and `linguistics/04-SEMANTICS.md` (Session 12). For the neural implementation of language areas, see `neuroscience/02-SYSTEMS-CIRCUITS.md`.

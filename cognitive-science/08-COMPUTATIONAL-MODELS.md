@@ -82,7 +82,7 @@ SOAR ARCHITECTURE:
 
 **Key property**: SOAR explains *learning* via chunking — the same process that explains chess expertise emerges from the architecture.
 
-<!-- @editor[bridge/P2]: SOAR's production rules (IF-THEN) and conflict resolution / decision cycle should be connected to production systems and rules engines that a software architect knows — Drools, RETE algorithm, forward/backward chaining. SOAR's conflict-resolution strategy (universal subgoaling) is an architectural choice equivalent to picking a conflict-resolution strategy in a rules engine. This is a natural bridge for the software systems background. -->
+**Rules engine connection**: SOAR's production rules are structurally identical to rules engines used in enterprise software (Drools, CLIPS, OPS5). The RETE algorithm that optimizes rule matching in these systems was designed for exactly this kind of production system. SOAR's decision cycle — elaborate (fire all matching rules) → decide (select operator or create subgoal) → apply — maps to the forward-chaining match-resolve-act cycle in any rules engine. The architectural choice unique to SOAR is *universal subgoaling*: when no operator can be selected (an impasse), SOAR automatically creates a subgoal to resolve the impasse. This is equivalent to choosing a conflict-resolution strategy — but SOAR's strategy is recursive (subgoals can spawn sub-subgoals), making it more expressive than the priority-based conflict resolution typical in enterprise rules engines.
 
 ### ACT-R (Anderson 1983, 1993, 2007)
 
@@ -207,7 +207,16 @@ Fodor & Pylyshyn's claim:
 
 The debate is not resolved. It has become the core of current NLP+AI research.
 
-<!-- @editor[content/P2]: The symbol vs sub-symbol debate section mentions that LLMs exhibit "productivity and systematicity in practice" without engaging with the specific failure modes that demonstrate this is illusory. The SCAN/COGS benchmarks, Marcus's systematicity critique of LLMs, and the "reversal curse" (LLMs don't learn "A is B" implies "B is A" reliably) are directly relevant and would give this AI-interested reader the current empirical picture. The 2025 date on the file makes this expectation reasonable. -->
+**Where LLMs fail on systematicity (2023-2025 evidence)**:
+
+| Benchmark / Finding | What It Tests | LLM Performance |
+|---------------------|---------------|-----------------|
+| **SCAN** (Lake & Baroni 2018) | Compositional generalization to novel command combinations | Standard seq2seq fails catastrophically on held-out compositions; meta-learning helps somewhat |
+| **COGS** (Kim & Linzen 2020) | Systematic structural generalization in semantic parsing | Transformers fail on novel PP-attachment and role-binding combinations |
+| **Reversal curse** (Berglund et al. 2023) | If trained on "A is B," can the model infer "B is A"? | GPT-4 and others fail — training on "Olaf Scholz is Chancellor of Germany" does NOT produce "The Chancellor of Germany is Olaf Scholz" reliably |
+| **Marcus's critique** (2020+) | Systematic variable binding: "every A that R's a B, S's a C" | LLMs approximate via distributional statistics but fail on novel variable-binding patterns outside training distribution |
+
+The pattern: LLMs handle distributional semantics and in-distribution generalization brilliantly, but systematic compositional generalization — the core of Fodor & Pylyshyn's argument — remains a genuine weakness. The debate is whether this will yield to scale (more data, larger models) or requires architectural change (hybrid neuro-symbolic systems, structured attention).
 
 ---
 
@@ -257,7 +266,38 @@ HIERARCHY:
 - Hallucination: top-down predictions dominate, errors suppressed (weak data weighting)
 - Psychedelics: disrupt precision weighting → errors flood consciousness → dissolved world model
 
-<!-- @editor[bridge/P1]: The free energy principle section names KL divergence and calls it "variational Bayes" but does not make the VAE/ELBO connection explicit. For this learner, the bridge is: Friston's free energy F = KL[Q(θ)||P(θ|data)] - log P(data) = -ELBO. The brain as a variational autoencoder: generative model P(data|θ) is the decoder, recognition model Q(θ|data) is the encoder, and learning = maximizing the ELBO by updating both. Active inference adds action: instead of just updating Q to match the world, the agent also changes the world to match its generative model (high-level predictions). This is P1 because it's the single most important technical bridge in the entire series for an AI practitioner — and it's currently absent. -->
+## Engineering Bridge: Free Energy as the ELBO
+
+```
+FRISTON'S FREE ENERGY              ML / VARIATIONAL INFERENCE EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Free energy F                       Negative ELBO: F = -ELBO
+  F = KL[Q(θ) || P(θ|data)]        KL divergence between approximate
+      - log P(data)                 posterior Q and true posterior P
+                                    Plus the negative log-evidence
+
+Generative model P(data|θ)          VAE decoder
+  Brain's model of how hidden       Maps latent variables to predicted
+  causes θ produce sensory data     observations
+
+Recognition model Q(θ|data)         VAE encoder
+  Brain's approximate posterior     Maps observations to approximate
+  over hidden causes                posterior over latents
+
+Minimizing F by updating Q          Training the encoder
+  = perceptual inference            = amortized variational inference
+
+Minimizing F by updating P          Training the decoder
+  = learning (synaptic plasticity)  = improving the generative model
+
+Minimizing F by changing data       NO DIRECT ML ANALOG (this is new)
+  = active inference (action)       Agent changes the world to make
+                                    observations match predictions
+                                    — this is what distinguishes
+                                    Friston from standard VI
+```
+
+The key insight: the ELBO from variational autoencoders is *exactly* Friston's free energy with opposite sign. Maximizing ELBO = minimizing free energy. The brain runs approximate variational inference where perception is the E-step (update Q), learning is the M-step (update generative model parameters), and active inference is the genuinely novel addition — the agent acts on the world to reduce prediction error rather than only updating internal beliefs. This is why predictive processing is simultaneously a theory of perception (updating Q), learning (updating P), and action (changing data).
 
 ### Free Energy Principle (Friston 2005+)
 
@@ -420,7 +460,7 @@ Otto's beliefs are partly constituted by the notebook's contents.
 
 **Free energy ≠ thermodynamic free energy**: Friston's free energy is a mathematical quantity from variational Bayes (specifically the ELBO — evidence lower bound from variational inference). The name is analogous, not identical, to physical free energy.
 
-<!-- @editor[bridge/P2]: The "free energy ≠ thermodynamic free energy" confusion point correctly identifies the ELBO connection, but the Common Confusion Points section should include the transformer attention → cognitive attention bridge. The multi-head attention mechanism (Q, K, V matrices) is often described as inspired by cognitive attention research, but the actual connection is loose: cognitive attention is serial and capacity-limited (spotlight); transformer attention is parallel and globally computed. The confusion matters because LLM practitioners sometimes over-interpret the "attention" label as implying cognitive plausibility. This is a confusion point this reader will encounter in AI literature. -->
+**"Attention" in transformers ≠ attention in cognitive science**: Transformer self-attention (Q, K, V matrices) computes a globally parallel, soft-weighted sum over all positions. Cognitive attention (Treisman, Posner) is serial, capacity-limited, and spotlight-like — it selects a subset of inputs and suppresses the rest. The shared name is historical accident. Transformer attention is closer to *content-addressable memory lookup* than to cognitive attention. The practical confusion: LLM practitioners sometimes claim their models "attend" to inputs in a psychologically plausible way. They don't — transformer attention has no capacity bottleneck, no serial scanning, and no attentional blink. The cognitive bottleneck is *why* working memory is limited; transformer attention has no such constraint.
 
 **ACT-R ≠ brain mapping**: ACT-R's module-to-brain-region mapping (e.g., production system = basal ganglia) is a hypothesis that has been tested with fMRI — with reasonable but imperfect success. The mapping is informed by, not proved by, the fMRI data.
 

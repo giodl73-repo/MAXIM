@@ -240,9 +240,59 @@ Starting ~1990s, a cluster of critiques:
 
 ---
 
-<!-- @editor[bridge/P1]: Missing Turing Test → computability bridge for this learner. The overview introduces the "computer metaphor for mind" without noting that the Turing Test is a decidability question in disguise: behavioral indistinguishability = membership in a language. A reader from MIT TCS sees this immediately and it earns credibility. Add 2-3 sentences connecting the Church-Turing thesis to functionalism, and note where this breaks down (Searle's Chinese Room, Penrose). -->
+## Engineering Bridge: The Computer Metaphor as Computability Theory
 
-<!-- @editor[bridge/P1]: The four-waves table (Symbolic → Connectionist → Embodied → Predictive) maps directly onto the GOFAI vs connectionism debate this learner knows cold. No bridge is drawn. Add a row or note explicitly linking Wave 1 = GOFAI/production systems, Wave 2 = connectionist resurgence (this learner likely remembers the 1986 PDP books), and note that Wave 4 (predictive processing / Friston) is variational inference — the same ELBO they've seen in VAEs. This bridge is load-bearing for 08-COMPUTATIONAL-MODELS. -->
+```
+COGNITIVE SCIENCE CLAIM             CS / TCS EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+Functionalism                       Church-Turing thesis (weak form)
+  Mind is substrate-independent     → Any sufficiently powerful substrate
+  — same computation, different       can compute the same functions
+  hardware
+
+Turing Test (Turing 1950)           Language membership / decidability
+  Behavioral indistinguishability   → Can an observer distinguish machine
+  between human and machine           output from the language L_human?
+                                      This is a decision problem
+
+Searle's Chinese Room (1980)        Syntax ≠ semantics
+  Symbol manipulation without       → A TM can recognize L without
+  understanding                       "understanding" it — the room
+                                      implements the function but the
+                                      person inside doesn't
+
+Penrose (1989)                      Gödel's incompleteness as weapon
+  Human mathematical insight        → Claims human cognition is non-
+  transcends computation              computable (not Turing-equivalent)
+                                      — most CS theorists reject this
+```
+
+The functionalist position is exactly the Church-Turing thesis applied to minds: if you accept that the computational-level description (Marr level 1) is what matters, substrate independence follows. Searle's Chinese Room is the strongest counterargument — it accepts the Turing-equivalence of the room's I/O behavior but denies that syntactic equivalence implies semantic equivalence. This maps directly to the formal language theory distinction between recognizing a language and "meaning" it.
+
+## Engineering Bridge: Four Waves as the GOFAI-to-Inference Arc
+
+```
+WAVE   COGNITIVE PARADIGM          CS / ML EQUIVALENT
+──────────────────────────────────────────────────────────────────────────────
+1      Symbolic / GOFAI (1956)      Production systems, LISP, expert systems
+         Newell & Simon, GPS          Rule-based inference, forward chaining
+         Chomsky's grammars           CFG/CSG/RE — the Chomsky hierarchy
+
+2      Connectionism (1986)         Backprop, PDP, distributed representations
+         Rumelhart & McClelland        The 1986 PDP books — the origin of
+         "Neural networks learn"       everything that became deep learning
+
+3      Embodied / Dynamic (1990)    Behavior-based robotics (Brooks' subsumption)
+         Varela, Brooks, Thelen        Dynamical systems theory, no explicit
+                                       representations — reactive architectures
+
+4      Predictive / Bayesian (2010) Variational inference, the ELBO
+         Friston, Clark                Free energy F = -ELBO = KL[Q||P] - log P(D)
+         Active inference              Same objective as VAEs — brain as
+                                       approximate variational inference engine
+```
+
+Wave 1 is literally GOFAI — the same production systems and search algorithms from your AI textbook. Wave 2 is the PDP revolution that spawned modern deep learning. Wave 4's free energy principle is the variational Bayes objective (ELBO maximization) applied to biological agents — the brain as a variational autoencoder where perception updates the encoder Q(z|x), learning updates the decoder P(x|z), and action changes x to reduce surprise. See `08-COMPUTATIONAL-MODELS.md` for the full formalism.
 
 ## Decision Cheat Sheet — Which Framework for Which Question?
 
@@ -260,7 +310,16 @@ Starting ~1990s, a cluster of critiques:
 
 ---
 
-<!-- @editor[structure/P2]: Decision Cheat Sheet guides to specific sub-modules but doesn't help the learner decide *which computational framework* to use for a given modeling question (GPS/SOAR vs connectionist vs Bayesian vs active inference). This is the most likely question a VP-Engineering-turned-AI-enthusiast brings to the overview. Add a "choose your modeling framework" row or a separate mini-table. -->
+**Choosing a Computational Framework** — the question most likely to bring a technical reader to this overview:
+
+| Modeling Question | Best Framework | Why | Weakness |
+|-------------------|---------------|-----|----------|
+| How does an expert make fast decisions? | ACT-R / SOAR (production systems) | Chunking + retrieval captures expertise | Doesn't scale to perception or embodiment |
+| How does perception fuse noisy cues? | Bayesian / predictive coding | Optimal cue integration is empirically confirmed | Computationally intractable for large models |
+| How does a child learn language from sparse data? | Nativist + connectionist hybrid | Neither pure UG nor pure statistics fits alone | No consensus model yet |
+| How does an agent balance exploration and exploitation? | RL / TD learning | Dopamine = prediction error is the cleanest neuro-computational bridge | Model-free RL doesn't explain planning |
+| How does context shape meaning in real time? | Connectionist (LLM-era) | Distributional semantics handles context well | Systematic generalization and compositionality remain weak |
+| What is the single unifying framework? | Active inference (Friston) | Subsumes perception, action, learning under one objective (ELBO) | Empirically undertested; unfalsifiably broad |
 
 ## Common Confusion Points
 

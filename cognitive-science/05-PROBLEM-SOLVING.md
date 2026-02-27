@@ -50,7 +50,7 @@ The **General Problem Solver** (GPS, 1957) established the framework. A problem 
   PROBLEM = navigate from initial to goal state
 ```
 
-<!-- @editor[bridge/P2]: The problem space formalism and search strategies are presented without connecting to the CS algorithms background. BFS, DFS, hill-climbing, and means-ends analysis are all in this learner's toolkit from algorithms courses. The bridge worth making explicit: GPS/SOAR's means-ends analysis is a heuristic search (like A*) where the "difference" function is the heuristic h(n). The interesting cognitive science question is: how do humans select/define that heuristic? This frames the cognitive problem sharply for a CS reader and distinguishes the psychological question from the algorithmic one they already know. -->
+**The CS connection**: These search strategies are the same ones from algorithms courses — BFS, DFS, hill-climbing, A*. GPS's means-ends analysis is heuristic search where the "difference function" (distance between current state and goal) serves as the heuristic h(n). The cognitive science question is *not* which search algorithm is optimal (you already know that) — it is: **how do humans construct and select the heuristic function?** In A*, h(n) is given by the designer. In human cognition, the heuristic is learned from experience (chunking), shaped by problem representation (Gestalt restructuring), and often wrong (functional fixedness = a bad heuristic that prunes the correct path). This is the gap between algorithmic problem-solving and psychological problem-solving.
 
 **Search strategies**:
 

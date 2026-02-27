@@ -228,7 +228,37 @@ For very large matrices (n, m > 10^5) where even O(mn) work is expensive:
 
 ---
 
-<!-- @editor[content/P2]: Randomized SVD section mentions power iteration variant but does not cover the sketching framework (Johnson-Lindenstrauss, CountSketch, leverage score sampling) that underlies randomized linear algebra more broadly. The learner calibration explicitly calls out "sketching" as a needed topic. A paragraph connecting RandSVD's random projection Omega to the JL lemma and to streaming/one-pass sketching algorithms would fill this gap. -->
+**Sketching and the randomized linear algebra framework.** The random matrix Ω in RandSVD is an instance of a *sketch* — a dimensionality-reducing linear map that approximately preserves geometric structure:
+
+```
+  SKETCHING FRAMEWORK:
+  ──────────────────────────────────────────────────────────
+  Johnson-Lindenstrauss lemma: a random projection R^n → R^k
+  (k = O(log(m) / eps^2)) preserves all pairwise distances
+  among m points to within factor (1 ± eps).
+
+  RandSVD's Ω IS a JL sketch: Y = AΩ maps n-dimensional columns
+  into k-dimensional space while preserving the column geometry
+  (distances, angles, rank structure).
+
+  SKETCH TYPES:
+  Gaussian Ω          Dense, strong guarantees, O(nk) to apply
+  SRHT (subsampled     Structured, O(n log k) to apply via FFT
+    randomized Hadamard)
+  CountSketch          Sparse (one nonzero per column), O(nnz) to apply
+  Leverage score       Sample rows proportional to statistical leverage
+    sampling             (rows that matter most for the column space)
+
+  STREAMING / ONE-PASS SKETCHING:
+  For data arriving in a stream (rows of A seen once):
+  Maintain sketch S = AΩ by updating S += a_i ω_i^T per row.
+  Final SVD of S gives approximate SVD of full A.
+  Memory: O(nk) instead of O(mn). Enables SVD of data too large for RAM.
+```
+
+The JL lemma is the theoretical backbone: it guarantees that random projection preserves the essential geometry, which is why RandSVD works with high probability. CountSketch and SRHT trade guarantee quality for computational speed.
+
+---
 
 ## Generalized Eigenvalue Problems
 
@@ -273,7 +303,24 @@ Many physical problems lead to generalized eigenvalue problems:
 
 ---
 
-<!-- @editor[bridge/P2]: No GPU-accelerated eigenvalue/SVD callout. cuSOLVER has cusolverDn*gesvd for dense SVD and cusolverSp* for sparse eigenvalue problems. For the randomized SVD, the random projection Y = A*Omega is a dense matrix multiply — pure cuBLAS DGEMM — making it naturally GPU-accelerated. A table showing "Algorithm → GPU library → when GPU wins" would be the practical bridge the learner needs. -->
+**GPU acceleration of eigenvalue/SVD algorithms:**
+
+```
+  ALGORITHM              GPU LIBRARY             WHEN GPU WINS
+  ──────────────────────────────────────────────────────────────────────
+  Dense SVD              cuSOLVER cusolverDn*gesvd   n > ~2000
+  Dense eigenvalues      cuSOLVER cusolverDn*syevd   n > ~2000
+  Sparse eigenvalues     cuSOLVER cusolverSp*        Large sparse with few target eigenvalues
+  Randomized SVD:
+    Y = A Ω (projection) cuBLAS DGEMM               Always (pure GEMM, naturally parallel)
+    QR of Y              cuSOLVER cusolverDn*geqrf   k > ~500
+    Small SVD of B       cuSOLVER cusolverDn*gesvd   Usually on CPU (B is small)
+  Batched small SVD      cuSOLVER batched routines   Many small matrices (e.g., per-element in FEM)
+```
+
+RandSVD is especially GPU-friendly: the dominant cost (Y = AΩ) is a dense GEMM — the operation GPUs are purpose-built to accelerate. The small SVD of B (step 5) is typically done on CPU since B is (k+p) × n with small k.
+
+---
 
 ## Singular Value Decomposition in ML Context
 

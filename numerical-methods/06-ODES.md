@@ -180,7 +180,21 @@ BDF methods are implicit linear multistep methods, standard for stiff problems:
   MATLAB: ode15s (variable-order BDF), ode23s (Rosenbrock), ode23t (trapezoidal).
 ```
 
-<!-- @editor[bridge/P2]: No automatic differentiation bridge for Jacobian computation. BDF and Rosenbrock methods require the Jacobian df/dy at each step. In practice this is either computed by finite differences (slow, inaccurate) or by AD. Forward-mode AD is ideal for this: df/dy for a vector-valued f: R^n → R^n is O(n) forward passes — same as finite differences but machine-precision accurate. The learner explicitly needs AD; this is the most direct practical application of it in the ODE module. -->
+**Jacobian computation via automatic differentiation.** BDF and Rosenbrock methods need the Jacobian J = df/dy at each step. Three approaches:
+
+```
+  METHOD                  COST              ACCURACY
+  ──────────────────────────────────────────────────────────────────────
+  Finite differences      O(n) evaluations  O(√eps_mach) — truncation vs. roundoff
+  Forward-mode AD         O(n) forward      Machine-precision exact
+    (dual numbers)          passes           One pass per column of J
+  Reverse-mode AD         O(n) backward     Machine-precision exact
+    (backprop)              passes           One pass per row of J
+  Sparse Jacobian +       O(p) passes       Exact, where p = graph coloring number
+    coloring (AD)           (p << n)          of the sparsity pattern
+```
+
+For stiff ODE systems from PDE semi-discretization (n = 10^4–10^6), J is sparse with known sparsity pattern. Graph coloring of the sparsity pattern reduces the cost from O(n) AD passes to O(p) where p is the chromatic number of the column intersection graph — typically p = 5–10 for structured meshes. This is what DifferentialEquations.jl (SparseDiffTools.jl) and SUNDIALS use in practice. Forward-mode AD via dual numbers (ForwardDiff.jl, `jax.jacfwd`) is the standard choice because J is square and typically has more rows than needed output dimensions per pass.
 
 **Newton's method for the implicit solve** (at each BDF step):
 
@@ -270,7 +284,44 @@ DAEs mix differential equations and algebraic constraints:
 
 ---
 
-<!-- @editor[content/P2]: Cheat sheet row "Conservative system (Hamiltonian) | Symplectic integrator (Verlet, Leapfrog) | Preserves energy long-term" has no corresponding section in the guide. Symplectic integrators are mentioned only in the table — there is no explanation of why they preserve energy (symplecticity = area-preserving in phase space), no Störmer-Verlet algorithm, and no discussion of when this matters vs. standard RK methods. Stub row in the cheat sheet — needs a section or removal. -->
+## Symplectic Integrators (Hamiltonian Systems)
+
+For Hamiltonian systems (energy-conserving dynamics), standard Runge-Kutta methods drift in energy over long integrations. Symplectic integrators preserve the geometric structure of phase space.
+
+```
+  HAMILTONIAN SYSTEM:
+  q' = ∂H/∂p    (position evolution)
+  p' = -∂H/∂q   (momentum evolution)
+  H(q, p) = T(p) + V(q)   (kinetic + potential energy)
+
+  STÖRMER-VERLET (LEAPFROG) — the standard symplectic method:
+  p_{n+1/2} = p_n - (h/2) ∂V/∂q(q_n)            (half-step momentum)
+  q_{n+1}   = q_n + h ∂T/∂p(p_{n+1/2})           (full-step position)
+  p_{n+1}   = p_{n+1/2} - (h/2) ∂V/∂q(q_{n+1})   (half-step momentum)
+
+  ORDER: 2nd (local error O(h^3), global error O(h^2))
+  COST: 1 force evaluation per step (same as explicit Euler!)
+
+  WHY SYMPLECTIC?
+  Symplecticity = area-preserving map in (q,p) phase space.
+  Consequence: energy oscillates but does NOT drift. Over 10^9 steps:
+    RK4:     energy drift grows linearly (error accumulates)
+    Verlet:  energy bounded within O(h^2) of true energy (no drift)
+
+  This is NOT conservation of energy — it is conservation of a
+  "shadow Hamiltonian" H_tilde = H + O(h^2), which stays close to H.
+  For solar system simulations, molecular dynamics, and any long-time
+  integration where energy drift is catastrophic, symplectic wins.
+
+  HIGHER-ORDER SYMPLECTIC:
+  Yoshida composition: combine Verlet steps with different dt to get
+  4th, 6th, 8th order symplectic integrators.
+  Cost: 3 force evaluations for 4th order (vs. 4 for RK4).
+```
+
+When to use symplectic vs. standard RK: if the system is Hamiltonian and the integration is long-time (10^3+ periods), symplectic integrators are essential. For short-time or dissipative systems, standard RK45 is fine — energy conservation is not the constraint.
+
+---
 
 ## Decision Cheat Sheet
 

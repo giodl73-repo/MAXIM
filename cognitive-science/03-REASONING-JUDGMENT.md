@@ -235,7 +235,7 @@ Result:
 
 ---
 
-<!-- @editor[bridge/P2]: Prospect theory's probability weighting function is discussed but not connected to the learner's probability/statistics background. The overweighting of small probabilities and underweighting of moderate ones is a systematic distortion of a proper probability measure — it violates expected utility axioms in a predictable way. For a TCS/math reader, the precise claim is that humans use a distorted probability weighting function π(p) rather than p itself. Add a note that CPT (Cumulative Prospect Theory) uses rank-dependent integration to avoid stochastic dominance violations — this connects to measure theory they know. -->
+**Formal note for the mathematically inclined**: The probability weighting function pi(p) is a nonlinear distortion of the objective probability measure. The precise claim is that humans evaluate gambles using V = sum[pi(p_i) * v(x_i)] rather than E[u(x)] = sum[p_i * u(x_i)]. The weighting function pi is an inverted-S: concave near 0 (overweight small p), convex near 1 (underweight near-certainties), with a fixed point around p ~ 0.35. This violates the independence axiom of expected utility theory. Cumulative Prospect Theory (Tversky & Kahneman 1992) fixes a technical problem: original PT can violate stochastic dominance. CPT uses rank-dependent integration — weights are applied to cumulative probabilities rather than individual outcomes, preserving monotonicity of the preference ordering while retaining the empirical predictions.
 
 ## Bounded Rationality (Simon 1955)
 
@@ -255,7 +255,30 @@ Herbert Simon's alternative to classical economic rationality:
 
 ---
 
-<!-- @editor[content/P2]: The dual-process section lacks the most important recent development: the debate about whether System 2 "corrects" System 1 or merely endorses it. Stanovich's "cognitive miser" framing and the "bat and ball" problem (1+0.10=1.10, so bat costs $1.00 — 80% of high-SAT students get this wrong) demonstrate that System 2 often rationalizes rather than overrides. This is the key empirical point that distinguishes the lazy-controller view from the serial-correction view. Currently understated as a parenthetical. -->
+### The Lazy Controller Problem — Does System 2 Actually Correct?
+
+The textbook story is that S2 monitors S1 and intervenes when S1's output is wrong. The empirical picture is worse.
+
+**The bat-and-ball problem** (Frederick 2005):
+```
+A bat and a ball cost $1.10 in total.
+The bat costs $1.00 more than the ball.
+How much does the ball cost?
+
+Intuitive (S1) answer: $0.10
+Correct (S2) answer:   $0.05  (ball=0.05, bat=1.05, total=1.10)
+
+Result: ~80% of students at top universities (MIT, Princeton)
+give the wrong answer. Even among those who get it right,
+many report the intuitive answer "felt right" first.
+```
+
+**Stanovich's "cognitive miser" framework**: S2 is not a vigilant monitor — it is a lazy endorser. The default is to accept S1's output. S2 intervenes only when:
+1. The problem is explicitly flagged as requiring calculation
+2. The S1 output produces an obvious contradiction
+3. The person has high "need for cognition" (trait-level disposition to think carefully)
+
+**Why this matters**: The dual-process model is not S1-makes-errors / S2-corrects-them. It is S1-makes-judgments / S2-usually-rubber-stamps-them. The engineering implication is that checklists, pre-mortems, and structured decision protocols work *because they force S2 engagement* — not because people naturally exercise S2 oversight. Without procedural forcing functions, S2 rationalizes rather than overrides.
 
 ## Decision Cheat Sheet
 

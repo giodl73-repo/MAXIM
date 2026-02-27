@@ -295,24 +295,43 @@ For d >> 5, Monte Carlo is often the only practical method:
   In statistics: normalizing constants for Gaussian posteriors.
 ```
 
-<!-- @editor[content/P2]: Path integrals section is thin — two sentences and a comma-separated list of techniques. For a learner with MIT physics/math background who "needs numerical PDEs", the connection between Feynman path integrals (which reduce quantum field theory to a high-dimensional integration problem), lattice QCD Monte Carlo, and the Monte Carlo methods in this module is substantial and worth a real paragraph. Currently reads as a dropped reference rather than usable content. -->
-
-**Path integrals (physics)**:
+**Path integrals (physics)** — the ultimate high-dimensional integration problem:
 
 ```
-  Feynman path integral: Integral [Dx(t)] exp(iS[x]/hbar)
-  An integral over ALL paths from initial to final state.
-  Evaluated by: Wick rotation (imaginary time), Monte Carlo methods (lattice QCD),
-  or stationary phase approximation (saddle point / steepest descent).
+  Feynman path integral: Z = Integral [Dx(t)] exp(iS[x]/hbar)
+  An integral over ALL PATHS from initial to final state.
+  The "space" is infinite-dimensional: each path x(t) is a point in function space.
 
-  Monte Carlo QCD: evaluate expectation values over gauge field configurations.
-  Each "sample" is a full field configuration on a 4D lattice.
-  This is the most computationally expensive application of Monte Carlo.
+  THE NUMERICAL CHALLENGE:
+  Direct integration is impossible (infinite-dimensional). Three escape routes:
+
+  1. WICK ROTATION (imaginary time):
+     Replace t → -iτ, turning oscillatory exp(iS) into decaying exp(-S_E).
+     The Euclidean action S_E makes the integrand a proper probability density.
+     NOW it is a well-defined Monte Carlo problem: sample field configurations
+     from P(config) ∝ exp(-S_E), compute observables as MC averages.
+
+  2. LATTICE QCD — the flagship application:
+     Discretize spacetime on a 4D hypercubic lattice (e.g., 64^3 × 128 sites).
+     Each "sample" = full gauge field configuration (SU(3) matrix per link).
+     Sampling: Hybrid Monte Carlo (HMC) — molecular dynamics + Metropolis accept/reject.
+     Cost: O(10^{18}) FLOPs per configuration. Top-500 supercomputer scale.
+     This is the most computationally expensive Monte Carlo application in science,
+     and the only first-principles method for computing hadron masses, strong coupling α_s, etc.
+
+  3. STATIONARY PHASE / SADDLE POINT:
+     Approximate by expanding around the classical path (extremum of S).
+     Gaussian integral around the saddle → determinant of the fluctuation operator.
+     This connects to complex analysis (contour deformation, steepest descent).
 ```
+
+The connection to this module: lattice QCD IS Monte Carlo integration (section above) applied to a ~10^7-dimensional integral. Importance sampling, Markov chain sampling (HMC), and variance reduction all apply directly. The Metropolis algorithm from the MC section is the accept/reject step in HMC.
 
 ---
 
-<!-- @editor[bridge/P2]: No connection to automatic differentiation. Integration and differentiation are dual operations; in AD, the integral of a function can itself be differentiated through (ODE-constrained optimization, neural ODEs). A note connecting "integrating a differential equation → ODE solver → can be differentiated through via adjoint method → AD" would bridge this module to the 08-OPTIMIZATION and 09-SCIENTIFIC-COMPUTING AD sections. -->
+**Differentiating through integrals — the AD connection.** Integration and differentiation are dual operations, and AD can differentiate through numerical integration. If a loss function involves an integral (or an ODE solve, which is an integral in disguise), reverse-mode AD computes dL/dp by running the ODE solver backward via the adjoint method (see 06-ODES and 09-SCIENTIFIC-COMPUTING). This is the foundation of neural ODEs: define a model as an ODE, integrate forward with an adaptive solver, and differentiate the loss through the entire integration via the adjoint — all at O(cost of forward solve) regardless of the number of ODE time steps.
+
+---
 
 ## Decision Cheat Sheet
 
