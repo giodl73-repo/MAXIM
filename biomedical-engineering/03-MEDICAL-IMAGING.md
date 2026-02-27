@@ -117,7 +117,8 @@ constitute most of the signal in biological tissue (water + fat).
 
 ### K-Space and Image Reconstruction
 
-<!-- @editor[bridge/P2]: K-space is the Fourier domain but the connection to signal processing fundamentals is never made explicit. The Nyquist sampling theorem governs k-space sampling density → field-of-view; undersampling → aliasing (wrap-around artifact) is exactly the temporal aliasing any DSP engineer knows. Add a one-sentence bridge: "k-space sampling obeys Nyquist: sampling interval Δk = 1/FOV; undersampling produces spatial aliasing identical to temporal aliasing in discrete time signals." -->
+K-space sampling obeys Nyquist: the sampling interval Delta_k = 1/FOV determines the field of view, and undersampling produces spatial aliasing (wrap-around artifacts) identical to temporal aliasing in discrete-time signals. Compressed sensing MRI (Lustig et al. 2007) exploits sparsity to reconstruct from fewer k-space samples than Nyquist requires — the same compressed sensing theory from signal processing.
+
 ```
   K-SPACE FORMALISM
   =================
@@ -300,7 +301,8 @@ I = I0 * exp(-μ * x), where μ is the linear attenuation coefficient.
 
 ### Reconstruction Algorithms
 
-<!-- @editor[bridge/P2]: CT reconstruction is an inverse problem but this framing is implicit, not stated. Make it explicit: the sinogram is a set of line integrals (Radon transform) and reconstruction is Radon inversion. FBP is the analytical solution (ramp-filter then backproject); iterative methods minimize ||Ax - b||. Any engineer who knows linear algebra or numerical methods maps this immediately — this is the core intellectual structure of CT and PET/SPECT reconstruction. -->
+CT reconstruction is an **inverse problem**: the sinogram is a set of line integrals through the object (the Radon transform), and reconstruction is Radon inversion. FBP (filtered backprojection) is the analytical inversion — apply a ramp filter in frequency domain, then backproject. Iterative methods frame it as minimizing ||Ax - b||^2 where A is the system matrix (forward projector) and b is measured data. This is the same linear algebra / numerical methods framework used in any inverse problem — and it extends to PET/SPECT (emission tomography) where A includes photon attenuation and detector response.
+
 ```
   CT IMAGE RECONSTRUCTION
   =======================
