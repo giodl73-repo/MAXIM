@@ -363,7 +363,113 @@ The systematic method for checking stability of FD schemes:
 
 ---
 
-<!-- @editor[content/P1]: ML-based numerical methods for PDEs are entirely absent despite being explicitly required by the learner calibration. Four major approaches have zero coverage: (1) Physics-Informed Neural Networks (PINNs) — minimize the PDE residual + boundary conditions as a loss; mesh-free; handle forward and inverse problems; known failure modes (spectral bias, optimization difficulty for high-frequency solutions); (2) Fourier Neural Operator (FNO, Li et al. 2020) — learns the solution operator G: f → u in Fourier space; O(N log N); SOTA on Navier-Stokes and climate prediction; (3) DeepONet (Lu et al. 2021) — learns branch/trunk decomposition of solution operator; handles variable domains; (4) Deep Galerkin Method (DGM) — approximates u(x,t) with a neural network trained on PDE residuals in the weak sense. This is not a niche topic: FNO models underlie much of current scientific ML and climate modeling, and understanding why classical methods (FEM, FD) and learned operators are complementary requires seeing them side-by-side. This is a P1 gap — the file is the numerical methods reference and these are now major numerical approaches. -->
+## ML-Based Numerical Methods
+
+Neural network approaches to PDE solving are now a major numerical methodology alongside FD, FEM, and FV. They occupy a distinct niche: mesh-free, differentiable, and capable of learning solution operators that generalize across parameter families.
+
+```
+ML-BASED PDE SOLVERS — LANDSCAPE
+═══════════════════════════════════════════════════════════════════════
+
+             CLASSICAL METHODS              ML-BASED METHODS
+             ─────────────────              ────────────────
+             Discretize domain first        Parameterize solution first
+             (mesh → matrix → solve)        (network → optimize loss)
+
+  ┌─────────────────────────┐     ┌──────────────────────────────┐
+  │  FD / FV / FEM          │     │  PINNs (Physics-Informed NN) │
+  │  Fixed grid/mesh        │     │  Mesh-free, point-sampled    │
+  │  Sparse linear system   │     │  Minimize PDE residual       │
+  │  Proven error bounds    │     │  No mesh generation needed   │
+  │  Cost: O(N^α), α=1..3  │     │  Cost: training iterations   │
+  └─────────────────────────┘     └──────────────────────────────┘
+                                  ┌──────────────────────────────┐
+                                  │  Neural Operators (FNO, etc.)│
+                                  │  Learn G: f ↦ u (operator)   │
+                                  │  Amortized: one training,    │
+                                  │  many evaluations at O(N)    │
+                                  │  Generalize across params    │
+                                  └──────────────────────────────┘
+```
+
+### Physics-Informed Neural Networks (PINNs)
+
+Parameterize the solution as a neural network u_θ(x,t) and train by minimizing the PDE residual at collocation points:
+
+```
+  PINN LOSS FUNCTION:
+  L(θ) = λ_r · L_residual + λ_b · L_boundary + λ_i · L_initial
+
+  where:
+  L_residual = (1/N_r) Σ |F[u_θ](x_i, t_i)|²    (PDE residual at interior points)
+  L_boundary = (1/N_b) Σ |u_θ(x_j) − g(x_j)|²   (boundary condition)
+  L_initial  = (1/N_i) Σ |u_θ(x_k,0) − u₀(x_k)|² (initial condition)
+
+  For Poisson −∇²u = f:
+  L_residual = Σ |∇²u_θ(x_i) + f(x_i)|²
+  Gradients computed by automatic differentiation (backprop through the PDE).
+```
+
+**Strengths**: mesh-free; handles irregular domains and inverse problems naturally; forward and inverse problems use the same framework (inverse: add parameters to the loss). **Known failure modes**: spectral bias (networks learn low-frequency components first, struggle with high-frequency solutions); training instability for stiff PDEs; no rigorous error bounds comparable to FEM a priori estimates; loss landscape is non-convex.
+
+### Fourier Neural Operator (FNO)
+
+Learns the solution **operator** G: f → u in Fourier space (Li et al. 2020). Key insight: convolution in physical space = multiplication in Fourier space, so parameterize each layer as a Fourier-space linear transform + nonlinearity.
+
+```
+  FNO ARCHITECTURE:
+  Input: f(x) on grid  →  lift to high-dim channel space
+       ↓
+  ┌────────────────────────────────────┐
+  │  FOURIER LAYER (repeat L times):   │
+  │  v_{l+1}(x) = σ( W·v_l(x)        │  ← local linear transform
+  │              + F⁻¹[R_l · F[v_l]] ) │  ← global: FFT → multiply R_l → IFFT
+  └────────────────────────────────────┘
+       ↓
+  Project to output space  →  u(x)
+
+  Cost per forward pass: O(N log N) per Fourier layer (FFT-dominated).
+  Training: pairs {f_i, u_i} from classical solvers or experimental data.
+  Inference: O(N log N) — orders of magnitude faster than re-solving.
+```
+
+FNO models underlie current scientific ML for climate modeling, weather prediction (FourCastNet/Pangu-Weather), and turbulence simulation. The operator learns a family of solutions, amortizing the cost of classical solvers.
+
+### DeepONet
+
+Branch/trunk architecture (Lu et al. 2021): the branch network encodes the input function f, the trunk network encodes the evaluation point x, and the output is their inner product.
+
+```
+  DeepONet:  G(f)(x) ≈ Σ_k b_k(f) · t_k(x)
+
+  Branch network: f(x₁), f(x₂), ..., f(x_m) → [b₁, b₂, ..., b_p]
+  Trunk network:  x → [t₁(x), t₂(x), ..., t_p(x)]
+  Output: dot product of branch and trunk vectors.
+```
+
+**Advantage over FNO**: handles variable domains and non-uniform grids naturally (trunk evaluates at arbitrary x). **Trade-off**: requires more training data; less spectral structure to exploit.
+
+### Classical vs. ML: When to Use What
+
+```
+┌────────────────────┬──────────────────────┬──────────────────────┐
+│ Criterion          │ Classical (FD/FEM/FV)│ ML (PINN/FNO)        │
+├────────────────────┼──────────────────────┼──────────────────────┤
+│ Error guarantees   │ Rigorous a priori    │ Empirical only        │
+│ Single solve       │ Efficient            │ Training overhead     │
+│ Many-query (param  │ Must re-solve each   │ Amortized: one train, │
+│   sweep, UQ, opt.) │                      │ instant evaluation    │
+│ Inverse problems   │ Adjoint methods      │ Natural (add to loss) │
+│ Irregular geometry │ Meshing required     │ Mesh-free (PINNs)     │
+│ High-dimensional   │ Curse of dimension   │ Scalable (no grid)    │
+│ Stiff / multiscale │ Well-understood      │ Spectral bias issues  │
+│ Safety-critical    │ Preferred (provable) │ Not yet trustworthy   │
+└────────────────────┴──────────────────────┴──────────────────────┘
+```
+
+The practical sweet spot: use classical solvers to generate training data, train neural operators for real-time inference. FEM for certification, FNO for exploration.
+
+---
 
 ## Decision Cheat Sheet
 

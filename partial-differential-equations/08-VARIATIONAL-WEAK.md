@@ -280,7 +280,50 @@ FEM is the numerical method that directly discretizes the weak formulation.
 
 ---
 
-<!-- @editor[content/P2]: Physics-Informed Neural Networks (PINNs) and neural operators are entirely absent from the file that is their theoretical foundation. A PINN minimizes the PDE residual: loss = ‖−∇²u_θ − f‖² over collocation points — this IS the strong-form residual. The variational/weak form version (Deep Ritz Method, Deep Galerkin Method) minimizes a(u_θ, v) − F(v) or uses the variational energy directly. Neural operators (FNO, DeepONet) learn the solution operator G: L²(Ω) → L²(Ω) mapping right-hand side f to solution u. These belong here because (1) FEM and PINNs are complementary approaches to the same weak formulation, (2) understanding why PINNs can fail requires understanding Céa's lemma and coercivity, (3) the learner explicitly needs "ML connections (physics-informed neural networks, neural operators)." A brief section at the end connecting weak formulation → PINN → neural operators would complete the file. -->
+## Neural Methods as Variational Approaches
+
+PINNs and neural operators are direct descendants of the variational framework. Understanding their connection to weak formulations explains both their power and their failure modes.
+
+```
+VARIATIONAL / WEAK FORM → NEURAL METHODS
+═════════════════════════════════════════════════════════════════════
+
+FEM (classical):
+  V_h = span{φ₁,...,φ_N}   (piecewise polynomial basis)
+  Find u_h ∈ V_h:  a(u_h, v_h) = F(v_h)  ∀v_h ∈ V_h
+  → Stiffness matrix A·c = b;  solve linear system.
+  Céa's lemma: ‖u−u_h‖ ≤ (M/α) inf_{v∈V_h} ‖u−v‖
+
+PINN (strong-form residual):
+  V_θ = {u_θ(x) : θ ∈ ℝᵖ}  (neural network parameterization)
+  Loss: L(θ) = Σ_i |−∇²u_θ(x_i) − f(x_i)|²  + λ · BC penalty
+  Gradients: ∂L/∂θ via automatic differentiation through PDE operator.
+  No mesh. No linear system. Just gradient descent on the residual.
+
+DEEP RITZ METHOD (variational/energy form):
+  Minimize the energy functional directly:
+  J[u_θ] = ½ a(u_θ, u_θ) − F(u_θ)
+         = ½ ∫|∇u_θ|² dx − ∫ f·u_θ dx
+  This IS the Ritz method with a neural network as the trial function.
+  Same energy minimization as FEM, different function class.
+
+DEEP GALERKIN METHOD (weak form):
+  Test against random test functions v_k:
+  Loss = E_v[ |a(u_θ, v) − F(v)|² ]
+  Stochastic: sample test functions randomly at each iteration.
+
+WHY PINNs CAN FAIL — VARIATIONAL PERSPECTIVE:
+  Céa's lemma requires coercivity: a(u,u) ≥ α‖u‖²
+  PINN loss landscape is NON-CONVEX (nonlinear parameterization).
+  No analogue of Céa's lemma → no guaranteed approximation quality.
+  Spectral bias: networks learn low-frequency modes first (related
+  to the eigenvalue spectrum of the NTK — neural tangent kernel).
+  Stiff PDEs (large condition number of A) → optimization difficulty.
+```
+
+The key insight: FEM trades expressiveness for guarantees (piecewise polynomials are limited but analyzable). Neural methods trade guarantees for expressiveness (universal approximation but non-convex optimization). Understanding the variational framework — coercivity, Céa's lemma, energy minimization — is what explains when each approach is appropriate. See `09-NUMERICAL-PDES.md` for the full comparison table.
+
+---
 
 ## Decision Cheat Sheet
 

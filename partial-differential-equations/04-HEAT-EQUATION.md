@@ -273,7 +273,55 @@ The long-time asymptotics are controlled by the lowest eigenvalue:
 
 ---
 
-<!-- @editor[content/P1]: The connection between the heat/diffusion equation and modern generative AI is entirely absent. The forward process of score-based diffusion models (DDPM, Song & Ermon 2019, Ho et al. 2020) IS the heat equation: dX_t = dW_t (Brownian motion, ∂ₜρ = ½∇²ρ). The reverse process is a reverse-time SDE driven by the score function ∇log p_t(x). The neural network learns ∇log p_t — the score — and then runs the SDE backward. This is not tangential: understanding that "denoising diffusion = solving the heat equation backward approximately using a learned score" is the correct mental model for why diffusion models work. The heat equation's smoothing/forward process and the ill-posedness of the backward heat equation both have direct counterparts in generative model behavior. This is a P1 gap for this learner. -->
+## Diffusion Models: The Heat Equation in Generative AI
+
+The forward process of score-based diffusion models (DDPM, Song & Ermon 2019, Ho et al. 2020) **is** the heat equation applied to probability distributions.
+
+```
+DIFFUSION MODELS AS HEAT EQUATION
+══════════════════════════════════════════════════════════════════════
+
+FORWARD PROCESS (noising):
+  dX_t = √(2β(t)) dW_t        (SDE: Brownian motion with schedule β(t))
+
+  Density evolves by Fokker-Planck:
+  ∂ₜρ(x,t) = β(t) ∇²ρ(x,t)   ← THIS IS THE HEAT EQUATION on ρ
+
+  t=0: ρ₀ = data distribution (structured)
+  t=T: ρ_T ≈ N(0, I)           (Gaussian — all structure diffused away)
+
+  The heat equation smooths: high-frequency detail → low-frequency blur → noise.
+
+REVERSE PROCESS (denoising = generation):
+  dX_t = [−β(t) ∇ log p_t(X_t)] dt + √(2β(t)) dW̄_t
+
+  The score function ∇ log p_t(x) is the gradient of the log-density.
+  A neural network s_θ(x,t) ≈ ∇ log p_t(x) is trained to approximate it.
+
+  Running the reverse SDE from noise → structured data = GENERATION.
+
+WHY THE HEAT EQUATION MATTERS HERE:
+  Forward direction:  well-posed, smoothing, information-destroying
+  Backward direction: ILL-POSED (high-frequency modes explode as e^{αk²T})
+  ─────────────────────────────────────────────────────────────────────
+  The neural network regularizes the ill-posed backward heat equation.
+  It learns which modes to amplify and which to suppress.
+  Without the score, backward heat = noise amplification (Section above).
+  With the learned score, backward heat ≈ structured generation.
+
+TRAINING LOSS:
+  L(θ) = E_{t,x₀,ε}[ ‖s_θ(x_t, t) − ∇ log p(x_t | x₀)‖² ]
+  where x_t = √(ᾱ_t) x₀ + √(1−ᾱ_t) ε,  ε ~ N(0,I)
+  ─────────────────────────────────────────────────────────────────────
+  Equivalent: predict the noise ε (DDPM) or predict x₀ directly.
+  All three parameterizations are mathematically equivalent.
+```
+
+The key insight: **denoising diffusion = solving the heat equation backward using a learned score function**. The forward heat equation destroys structure (well-posed, smoothing). Reversing it amplifies noise (ill-posed). The neural network provides exactly the regularization needed to make the backward direction tractable — it learns which structures to reconstruct from the noise.
+
+This is why backward heat ill-posedness (mode explosion) directly predicts diffusion model failure modes: high-frequency details are hardest to generate because they correspond to the most unstable modes of the reversed heat equation.
+
+---
 
 ## Decision Cheat Sheet
 

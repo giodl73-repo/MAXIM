@@ -309,9 +309,66 @@ Not all waves travel at the same speed. Dispersive waves have frequency-dependen
 
 ---
 
-<!-- @editor[content/P2]: No coverage of quantum field theory wave equations. The Klein-Gordon equation (∂²φ/∂t² − c²∇²φ + (mc/ℏ)²φ = 0) and the Dirac equation are relativistic wave equations central to QFT and directly in scope for this learner. Gravitational waves (linearized GR: □h_μν = 0 in the transverse-traceless gauge) are also absent. These are the equations that make the wave equation significant in modern physics, not just acoustics and strings. -->
+## Relativistic and Gravitational Wave Equations
 
-<!-- @editor[content/P2]: No numerical methods coverage for hyperbolic equations in this file. The wave equation file covers only analytical solutions (d'Alembert, Kirchhoff, separation of variables). Leapfrog time integration, dispersion analysis of numerical wave equations, and the CFL condition for explicit hyperbolic schemes belong here or as a forward reference to 09-NUMERICAL-PDES.md. The learner needs this connection to see how the mathematical properties (finite speed, energy conservation) constrain numerical choices. -->
+The wave equation extends to relativistic physics and general relativity, where it produces the foundational equations of quantum field theory and gravitational wave astronomy.
+
+```
+RELATIVISTIC WAVE EQUATIONS
+═══════════════════════════════════════════════════════════════════════
+
+KLEIN-GORDON EQUATION (spin-0, massive relativistic particles):
+  ∂²φ/∂t² − c²∇²φ + (mc²/ℏ)² φ = 0
+
+  Covariant form: (□ + m²c²/ℏ²) φ = 0   where □ = ∂²/∂t² − c²∇²
+
+  Dispersion: ω² = c²k² + (mc²/ℏ)²   ← massive → dispersive
+  Massless limit (m=0): reduces to standard wave equation ω = c|k|
+
+  Physical: scalar mesons (pions), Higgs field
+
+DIRAC EQUATION (spin-1/2, electrons):
+  (iγ^μ ∂_μ − mc/ℏ) ψ = 0     (ψ is a 4-component spinor)
+
+  First-order in both space and time (contrast Klein-Gordon: 2nd order).
+  Dirac constructed it to be Lorentz-covariant AND first-order in ∂_t.
+  Predicts: antimatter (positron), spin, magnetic moment.
+
+GRAVITATIONAL WAVES (linearized GR):
+  □ h_μν = 0   (in transverse-traceless gauge, vacuum)
+
+  Metric perturbation: g_μν = η_μν + h_μν,  |h_μν| << 1
+  Same wave equation as EM, but tensor (spin-2) rather than vector.
+  LIGO detection (2015): strain h ~ 10⁻²¹, frequency 35–250 Hz.
+```
+
+## Numerical Methods for Hyperbolic PDEs
+
+The wave equation's finite propagation speed and energy conservation impose strict constraints on numerical discretization. Full treatment in `09-NUMERICAL-PDES.md`; the key ideas specific to hyperbolic equations:
+
+```
+CFL CONDITION (Courant-Friedrichs-Lewy, 1928):
+  Δt ≤ Δx / c     (1D);   Δt ≤ 1/(c·√(1/Δx² + 1/Δy²))   (2D)
+
+  Physical meaning: the numerical domain of dependence must contain
+  the physical domain of dependence. If the time step is too large,
+  information travels faster numerically than physically → instability.
+
+LEAPFROG (STÖRMER-VERLET) TIME INTEGRATION:
+  u^{n+1}_j = 2u^n_j − u^{n−1}_j + (cΔt/Δx)²(u^n_{j+1} − 2u^n_j + u^n_{j−1})
+
+  Second-order in both space and time. Symplectic: conserves a discrete
+  energy exactly → no artificial damping. Explicit → CFL-limited.
+
+NUMERICAL DISPERSION:
+  Continuous: ω = c|k|  (non-dispersive)
+  Discrete:   ω_h = (2/Δt) arcsin[(cΔt/Δx) sin(kΔx/2)]
+  Short waves (kΔx ~ π) travel too slowly on the grid → numerical
+  dispersion error. Remedy: ≥ 10 points per wavelength, or high-order
+  schemes (4th-order FD, spectral elements, DG-FEM).
+```
+
+---
 
 ## Decision Cheat Sheet
 
