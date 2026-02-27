@@ -151,7 +151,8 @@ GRID-FORMING INVERTER (emerging standard):
   2016 after the statewide blackout when all wind farms tripped.
 ```
 
-<!-- @editor[bridge/P2]: When voltage collapsed in South Australia, all grid-following inverters tripped simultaneously because they lost the voltage reference they needed. This is structurally identical to a thundering herd / correlated failure: all nodes that depend on the same shared state (grid voltage reference) fail at exactly the same moment, reinforcing the collapse. A grid-forming inverter is the equivalent of a node that can hold state independently (no external reference required). The distributed systems parallel is exact and this learner would immediately recognize it — worth one sentence. -->
+The South Australia 2016 blackout illustrates a **correlated failure / thundering herd**: all grid-following inverters depended on the same shared state (grid voltage reference), so when voltage collapsed, every inverter tripped simultaneously — reinforcing the collapse. Grid-forming inverters eliminate this single dependency by holding state independently (no external voltage reference required), analogous to moving from shared-state to self-contained nodes in a distributed system.
+
 **Virtual inertia:** A grid-forming inverter with a battery can simulate inertial response by measuring the rate of change of frequency (ROCOF) and immediately injecting or absorbing power — like a flywheel, but controlled by software. The response can be faster than real synchronous inertia (milliseconds vs seconds). The limit is stored energy in the battery.
 
 ---

@@ -107,7 +107,8 @@ Different voltages around the world, with trade-offs:
 
 ## Feeder Design: Radial, Loop, and Network
 
-<!-- @editor[bridge/P3]: The feeder topology progression (radial → loop → network) mirrors datacenter power path redundancy design (N → N+1 → 2N). Radial = single path to load, any fault = outage. Loop = alternate path available (N+1). Network = fully meshed, multiple simultaneous paths (2N or better). For a VP managing Azure datacenters this is the same reliability trade-off they make for PDUs and UPS configurations. A one-line connection would make the distribution redundancy design immediately intuitive. -->
+The feeder topology progression — radial (N), loop (N+1), network (2N) — mirrors datacenter power path redundancy: radial = single path, any fault = outage; loop = alternate path available; network = fully meshed with multiple simultaneous paths. The same reliability vs. cost trade-off applies.
+
 ```
 1. RADIAL FEEDER (most common US suburban/rural):
 
