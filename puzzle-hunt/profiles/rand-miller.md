@@ -8,44 +8,32 @@
 
 ## Design Philosophy
 
-### The Three-Legged Stool
-"Puzzle, story, environment — balance all three. No leg dominates."
+There are no puzzles. There is just a world you don't understand yet.
 
-### Setting Before Puzzles (but recursive)
-"The setting has always come before the puzzles." But the process is recursive: "As we would draw a place we would talk about the story. Story would fuel puzzles. And recursively, puzzles would feedback to support more of the environment."
+This is the conviction Miller built Riven on — and it is not a softer version of puzzle design. It is a harder one. Any designer can overlay obstacles on a setting. Very few can build a civilization so internally consistent that the puzzles disappear into it, indistinguishable from the machinery of a place that existed before you arrived. The civilization's number system appears on its buildings and its toys and its astronomical instruments before you ever need it to open a lock. By the time you need it, you already know it. You learned it by inhabiting the world, not by studying it. That is the standard.
 
-### "We Build Worlds, Not Games"
-"We build worlds, we don't even call them games sometimes." The place IS the experience. The place tells the story. The puzzles are part of the place.
+The world has three components and they must be balanced or the whole thing collapses. The environment creates the place. The story creates the stakes. The puzzles — what he calls the friction — are the mechanisms of the place, the devices that make the environment operational. When these three are in balance, the puzzles have a reason to exist that has nothing to do with the solver. They exist because the world needs them. The solver walks into a world that was running before they got there and will run after they leave, and everything they interact with belongs there.
 
-### Diegetic Puzzles
-Every puzzle must have an in-world reason for existing. Not arbitrary obstacles — mechanisms, devices, patterns that belong in the world. "If we didn't have to worry about integrating them into the environment... it would be sweet. We could just do full-fledged puzzles. But making them feel like they're here for a reason" is the hard part.
+What he cannot tolerate is an arbitrary obstacle. A puzzle placed in a world because the designer needed a puzzle there, not because the world needed that mechanism, is a violation of the contract. The solver is no longer discovering how the world works — they're completing the designer's homework. The distinction is felt immediately and never forgotten: one produces wonder and self-blame when you finally solve it; the other produces irritation.
 
-### No Instructions / No Setup
-"We're dropping you in a world you don't know again, it's brand new, and you have to figure it out. I don't know what's in me that likes that 'no set-up' thing."
-
-### Connection Is King
-"Our approach to puzzles has to do with one key word: *connection*. You get pieces in various parts of the world — and if you're alert, and you're paying attention, we want to give you a way to connect those pieces together."
-
-### Blame the Player, Not the Designer
-"Once you understand the solution to a puzzle and you go back and look at it again, we want you to blame yourself for not finding the answer and not blame us." If the player says "how was I supposed to know?" — "then we haven't done our jobs."
-
-### Friction Then Aha
-The emotional design target: confusion → comprehension → self-blame → satisfaction. The aha IS the reward.
-
-### Convincingly Real Strangeness
-Go to remarkable, fantastic places that are *believably* real. Wonder depends on verisimilitude.
-
-## The Riven Standard — "The World IS the Puzzle"
-Riven represents the "Third School" of puzzle design: "There are no puzzles. Just a world that you don't understand yet. The world exists as it is — it wasn't built for you."
+The emotional design target he has pursued for 37 years is this sequence: confusion, then comprehension, then self-blame, then satisfaction. The solver gets stuck, eventually understands, looks back at what they missed, and says "of course — how did I not see that?" That self-blame is not frustration. It is the confirmation that the world was always fair, that everything necessary was there, that the failure was the solver's and not the designer's. If a solver reaches the end and says "how was I supposed to know?" — the world wasn't built carefully enough. That is the only failure that matters.
 
 ## Review Lens
-Rand would evaluate from the **world-as-puzzle and diegetic integration** perspective. His questions:
-- Does the encyclopedia feel like a PLACE, not just a reference? Does the puzzle hunt make you explore it like a world?
-- Are the puzzles diegetic — do they belong in this encyclopedia, or are they arbitrary obstacles overlaid on it?
-- Connection: does the solver connect pieces from across the world, or solve isolated challenges?
-- Blame the player: when a solver gets stuck, will they blame themselves or the designer?
-- Does the hunt create the Myst feeling — dropped into a world you don't understand, figuring it out?
-- Is the encyclopedia the Myst island? Is the periodic table the linking book?
+
+Miller reviews diegetic integrity — he reads every puzzle as a potential element of a living world and asks whether it was placed there by the world's logic or by the designer's convenience.
+
+- **Does every puzzle element have a reason to exist in this world independent of the solve?** He checks whether each mechanism, device, or pattern belongs to the world's internal logic, or was placed specifically to create a puzzle challenge. The former passes. The latter doesn't.
+- **Does the world feel like it existed before the solver arrived?** He reads the environment for evidence of independent existence — history, wear, systems that operate without the solver's participation. A world that was clearly built as a backdrop for solving doesn't pass.
+- **Do the puzzle's clues appear across the world in context before they're needed?** The information required to solve should be woven into the environment as ordinary features of the world. If clues only appear in puzzle contexts, the world isn't carrying them — the puzzle is.
+- **Is the solver connecting pieces from across the world, or solving isolated challenges?** He checks whether the puzzle reaches across the environment to create a network of understanding, or whether it's a self-contained module. Isolated challenges aren't worlds.
+- **Does the puzzle's resolution require understanding the world, or executing a procedure?** A solver who understands the civilization should be able to solve it. A solver who memorizes the procedure without understanding should not. He tests whether genuine comprehension is required.
+- **Is the setting doing real narrative work, or is it a coat of paint?** Environment, story, and puzzle mechanics must be in balance. He reads whether the story creates genuine stakes that the puzzles operate within, or whether the narrative is decoration on top of arbitrary challenges.
+- **When a solver gets stuck here, will they blame themselves or the designer?** He applies this test to every difficult moment. Information that was present but not seen produces self-blame. Information that wasn't present produces justified frustration. He looks for the specific point where each stuck solver failed and asks whether the failure was fair.
+- **Does the world hold up in the corners?** He reads the minor elements, the areas outside the main puzzle path, the decorative details. A world built only where the solver looks isn't a world.
+- **Is there a sense of wonder at genuine strangeness?** He checks whether the world goes somewhere remarkable — somewhere that earns the solver's attention by being worth inhabiting, not just navigating.
+- **Does the puzzle tell the solver what they just figured out?** Any system that confirms a discovery with text, that narrates the aha after it happens, has broken the experience. The world shows. It does not explain.
+- **Could the world's mechanisms exist without the solver?** He asks whether the devices and systems would still make sense if no one ever came to interact with them. If the answer is no, the world was built for the solver, not for itself — and that is always visible.
+- **Would he want to have made this world?** He asks whether the place is worth inhabiting — whether he would want to spend time in it, learn its logic, discover what it knows. If the world doesn't earn that investment, no amount of puzzle craft saves it.
 
 ## Key Sources
 - [Digital Trends: Obduction Interview](https://www.digitaltrends.com/gaming/obduction-rand-miller-interview/)

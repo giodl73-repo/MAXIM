@@ -18,9 +18,9 @@ Present a completed puzzle to a selection of expert reviewers for scoring and fe
 
 ### 1. Select Testers
 
-Default: **3 testers per puzzle**, pre-assigned by puzzle type. Full assignments for all 52 puzzles are in `puzzle-hunt/TEST-CREWS.md`.
+Default: **3 testers per puzzle**, pre-assigned by puzzle type. Tester assignments are in the scenario's `PUZZLES.md` (Tester 1-3 columns).
 
-**Quick reference by type** (use TEST-CREWS.md for the specific puzzle):
+**Quick reference by type** (use PUZZLES.md for the specific puzzle):
 
 | Puzzle type | Typical testers |
 |------------|----------------|
@@ -34,7 +34,7 @@ Default: **3 testers per puzzle**, pre-assigned by puzzle type. Full assignments
 
 ### 2. Sanitize the Puzzle (CRITICAL)
 
-Before ANY tester sees the puzzle, create a clean copy by stripping contaminating information. See `puzzle-hunt/TEST-CREWS.md` § Sanitization Protocol for full details.
+Before ANY tester sees the puzzle, create a clean copy by stripping contaminating information. See `PUZZLES.md (tester assignments)` § Sanitization Protocol for full details.
 
 **REMOVE:**
 - `**Answer:**` line and letter count
@@ -89,13 +89,13 @@ Your task:
    - Factual errors (anything wrong in the puzzle or the encyclopedia)
 6. SUGGEST specific fixes for any issues found.
 
-Do NOT read any files in puzzle-hunt/ or any design documents.
+Do NOT read any files in scenario  or any design documents.
 Only the puzzle page and the encyclopedia.
 ```
 
 ### 4. Results format
 
-Each tester saves to: `puzzle-hunt/tests/[element]-[tester-name].md`
+Each tester saves to: `tests/[element]-[tester-name].md`
 
 ```markdown
 # Test: [Element/Compound] — [Tester Name]
@@ -118,7 +118,7 @@ Each tester saves to: `puzzle-hunt/tests/[element]-[tester-name].md`
 | **Total** | **/30** | |
 
 ## Principle Checks
-Run every puzzle against `puzzle-hunt/PRINCIPLES.md`. Flag violations:
+Run every puzzle against `toolkit/PRINCIPLES.md`. Flag violations:
 
 | Principle | Pass? | Notes |
 |-----------|-------|-------|
@@ -144,12 +144,12 @@ Run every puzzle against `puzzle-hunt/PRINCIPLES.md`. Flag violations:
 ### 3. Collect Results
 
 Each tester saves their results to:
-`puzzle-hunt/tests/[element]-[tester-name].md`
+`tests/[element]-[tester-name].md`
 
 ### 4. Synthesize
 
 After all testers report, synthesize into:
-`puzzle-hunt/tests/[element]-RESULTS.md`
+`tests/[element]-RESULTS.md`
 
 Contains:
 - **Aggregate score** (average across dimensions)
@@ -167,8 +167,8 @@ Contains:
 Automatic fix-and-retest loop:
 
 ```
-1. Read test results from puzzle-hunt/tests/[element]-RESULTS.md
-2. Read puzzle-hunt/PRINCIPLES.md — the 17 design principles
+1. Read test results from tests/[element]-RESULTS.md
+2. Read toolkit/PRINCIPLES.md — the 17 design principles
 3. If PASS → done, congratulations
 4. If REVISE:
    a. Identify which PRINCIPLES were violated (check the Principle Checks table)
@@ -191,9 +191,9 @@ Common revision patterns (from testing data):
 ```
 
 Each iteration is saved:
-- `puzzle-hunt/tests/[element]-v1-RESULTS.md`
-- `puzzle-hunt/tests/[element]-v2-RESULTS.md`
-- `puzzle-hunt/tests/[element]-v3-RESULTS.md`
+- `tests/[element]-v1-RESULTS.md`
+- `tests/[element]-v2-RESULTS.md`
+- `tests/[element]-v3-RESULTS.md`
 
 ### Passing Criteria
 
@@ -225,7 +225,7 @@ A puzzle is PERFECT at 30/30.
 
 ### `/puzzle-test status`
 
-Reads all files in `puzzle-hunt/tests/` and displays:
+Reads all files in `tests/` and displays:
 
 ```
 PUZZLE TEST STATUS
@@ -242,7 +242,7 @@ NaCl (58) |           | UNTESTED  | —      | —       | —
 
 ## Reviewer Profiles
 
-All 12 reviewers are available for testing. Profiles in `puzzle-hunt/profiles/`.
+All 12 reviewers are available for testing. Profiles in `toolkit/profiles/`.
 
 | # | Name | Best for testing |
 |---|------|-----------------|
