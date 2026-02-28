@@ -24,7 +24,7 @@ For each of the 52 puzzle files in `joker/red/` and `joker/black/`:
 - List authored puzzles with their answer words (decode from `memory/k53.md` if needed — A1Z26 → periodic table encoding).
 
 ### 2. Test Status
-For each file in `puzzle-hunt/tests/*-RESULTS.md`:
+For each file in `tests/*-RESULTS.md`:
 - Extract the verdict (PASS / REVISE / REDESIGN)
 - Extract the score (N/30)
 - Flag any REVISE puzzles that have been revised (check file modification dates or version markers)
@@ -85,9 +85,9 @@ For each action, show: the puzzle identifier, what needs doing, and which skill 
 
 This skill reads files, it does not write them. It uses:
 - `joker/red/*.md` and `joker/black/*.md` (line counts)
-- `puzzle-hunt/tests/*-RESULTS.md` (verdicts and scores)
-- `puzzle-hunt/FINAL-52.md` (the assignment table)
-- `puzzle-hunt/TEST-CREWS.md` (tester assignments)
+- `tests/*-RESULTS.md` (verdicts and scores)
+- `PUZZLES.md (scenario registry)` (the assignment table)
+- `PUZZLES.md (tester assignments)` (tester assignments)
 - `.claude/` project memory `k53.md` (encoded answers — decode for display)
 
 Display the dashboard in a clean table format. Color-code if terminal supports it: green for PASS, red for REVISE, yellow for untested, grey for scaffold.

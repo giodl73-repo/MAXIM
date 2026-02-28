@@ -210,7 +210,31 @@ A puzzle where the solver applies known rules to given inputs — with no ambigu
 
 ---
 
-## The Voice Rules (Joker)
+## Verify the Last Mile
+
+*Source: Boardgames Scenario 2 — 3 of 5 puzzles had broken extractions. "Mechanisms are strong; extraction is where it breaks."*
+
+> "The puzzle mechanism and the extraction to the answer word are two separate skills. Verify them separately."
+
+3 of 5 multi-author puzzles in Scenario 2 had correct mechanisms but broken extractions — wrong letter indices, transposed positions, impossible resource math. The pattern: authors design great puzzles but fumble the final step (mechanism → answer word). Extraction must be verified character-by-character as a separate checklist item.
+
+**Test:** Can you trace, letter by letter, from the solved puzzle to the answer word? Write it out. If any letter doesn't match, the extraction is broken.
+
+---
+
+## Coordinate Answer Words Early
+
+*Source: Boardgames Scenario 2 Goal G5 — "uncoordinated answer words constrain meta design severely."*
+
+> "If 5 authors independently choose answer words, the meta designer has almost no room to work."
+
+In Scenario 2, five uncoordinated words (CASTLE, TRADE, BORDER, SPREAD, CIPHER) produced a barely-workable meta after testing 15+ target words. In Scenario 1, pre-coordinated words (CASTLE, ONAGER, LOOM, TOWER, PATROL) fit the WOLOLO crossword cleanly. Lesson: either coordinate answer words during assignment (Stage 5) or give the meta designer veto power over answer words.
+
+**Test:** Can the meta designer build a working meta from the current answer words? If not, which word needs to change?
+
+---
+
+## The Voice Rules
 
 *Source: JOKER-VOICE.md*
 
@@ -246,4 +270,6 @@ When principles conflict, higher beats lower:
 15. **No Computation Without Deduction** — 4/4 pure-computation puzzles failed testing
 16. **Interlock, Not Independence** — clues should cross-reference, not isolate
 17. **Snyder's Computer Test** — if a script can solve it, add a deduction layer
-18. **The Voice Rules** — the Joker is consistent
+18. **Verify the Last Mile** — extraction is a separate skill, verify character by character
+19. **Coordinate Answer Words Early** — uncoordinated words strangle the meta
+20. **The Voice Rules** — narrator consistency

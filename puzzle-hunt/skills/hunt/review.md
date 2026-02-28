@@ -16,19 +16,19 @@ Run a 9-expert review panel against any puzzle hunt design document. Each review
 
 ## The Panel
 
-9 expert reviewers. Profiles stored in `puzzle-hunt/profiles/`. Each brings a distinct, non-overlapping lens.
+9 expert reviewers. Profiles stored in `toolkit/profiles/`. Each brings a distinct, non-overlapping lens.
 
 | # | Name | Lens | Profile |
 |---|------|------|---------|
-| 1 | **Dan Katz** | Structure & pacing | `puzzle-hunt/profiles/dan-katz.md` |
-| 2 | **Thomas Snyder** | Individual puzzle craftsmanship | `puzzle-hunt/profiles/thomas-snyder.md` |
-| 3 | **Mike Selinker** | Narrative & experience architecture | `puzzle-hunt/profiles/mike-selinker.md` |
-| 4 | **Wei-Hwa Huang** | Deductive rigor & solve-path quality | `puzzle-hunt/profiles/wei-hwa-huang.md` |
-| 5 | **Kenny Young** | Infrastructure & buildability | `puzzle-hunt/profiles/kenny-young.md` |
-| 6 | **Dana Young** | Craft, presentation & accessibility | `puzzle-hunt/profiles/dana-young.md` |
-| 7 | **Peter Sarrett** | Experience design & physicality | `puzzle-hunt/profiles/peter-sarrett.md` |
-| 8 | **Mark Gottlieb** | Systems engineering & academic rigor | `puzzle-hunt/profiles/mark-gottlieb.md` |
-| 9 | **Alex Rosenthal** | Accessibility & wonder | `puzzle-hunt/profiles/alex-rosenthal.md` |
+| 1 | **Dan Katz** | Structure & pacing | `toolkit/profiles/dan-katz.md` |
+| 2 | **Thomas Snyder** | Individual puzzle craftsmanship | `toolkit/profiles/thomas-snyder.md` |
+| 3 | **Mike Selinker** | Narrative & experience architecture | `toolkit/profiles/mike-selinker.md` |
+| 4 | **Wei-Hwa Huang** | Deductive rigor & solve-path quality | `toolkit/profiles/wei-hwa-huang.md` |
+| 5 | **Kenny Young** | Infrastructure & buildability | `toolkit/profiles/kenny-young.md` |
+| 6 | **Dana Young** | Craft, presentation & accessibility | `toolkit/profiles/dana-young.md` |
+| 7 | **Peter Sarrett** | Experience design & physicality | `toolkit/profiles/peter-sarrett.md` |
+| 8 | **Mark Gottlieb** | Systems engineering & academic rigor | `toolkit/profiles/mark-gottlieb.md` |
+| 9 | **Alex Rosenthal** | Accessibility & wonder | `toolkit/profiles/alex-rosenthal.md` |
 
 ### Coverage Matrix
 
@@ -55,14 +55,14 @@ Full panel review. All 9 reviewers read the target file (plus supporting context
 
 **Process:**
 1. Read the target design document
-2. Read all 9 profiles from `puzzle-hunt/profiles/`
-3. Read supporting context: `puzzle-hunt/TWO-JOKERS.md`, `cards/ROLES.md`, `cards/CONCEPTS.md`
+2. Read all 9 profiles from `toolkit/profiles/`
+3. Read supporting context: `[scenario CLAUDE.md — read for hunt structure]`, `cards/ROLES.md`, `cards/CONCEPTS.md`
 4. Launch 9 parallel agents (one per reviewer), each with:
    - The reviewer's profile
    - The design document
    - The supporting context
    - Instructions to review FROM THAT REVIEWER'S PERSPECTIVE using their documented philosophy
-5. Each agent saves its review to `puzzle-hunt/reviews/[round]-[name].md`
+5. Each agent saves its review to `reviews/[round]-[name].md`
 6. After all 9 complete, run synthesis (see `/puzzle-review synthesize`)
 
 **Agent prompt template for each reviewer:**
@@ -72,7 +72,7 @@ You are simulating a review from [NAME] — [CREDENTIALS].
 Read these files:
 1. [TARGET DOCUMENT]
 2. [PROFILE PATH] — [Name]'s profile and philosophy
-3. puzzle-hunt/TWO-JOKERS.md — the two-book structure
+3. [scenario CLAUDE.md — read for hunt structure] — the two-book structure
 4. cards/ROLES.md — the card/archetype structure
 
 Write a thorough review FROM [NAME]'S PERSPECTIVE using their documented
@@ -82,7 +82,7 @@ Key [NAME] concerns: [LIST FROM PROFILE]
 
 [MODE-SPECIFIC INSTRUCTIONS]
 
-Save to: puzzle-hunt/reviews/[round]-[name].md
+Save to: reviews/[round]-[name].md
 ```
 
 **Agent settings:**
@@ -110,22 +110,22 @@ Run a single reviewer. Useful for quick feedback or testing changes.
 **Name → profile mapping:**
 | Short name | Full name | Profile path |
 |-----------|-----------|-------------|
-| katz | Dan Katz | puzzle-hunt/profiles/dan-katz.md |
-| snyder | Thomas Snyder | puzzle-hunt/profiles/thomas-snyder.md |
-| selinker | Mike Selinker | puzzle-hunt/profiles/mike-selinker.md |
-| huang | Wei-Hwa Huang | puzzle-hunt/profiles/wei-hwa-huang.md |
-| kenny | Kenny Young | puzzle-hunt/profiles/kenny-young.md |
-| dana | Dana Young | puzzle-hunt/profiles/dana-young.md |
-| sarrett | Peter Sarrett | puzzle-hunt/profiles/peter-sarrett.md |
-| gottlieb | Mark Gottlieb | puzzle-hunt/profiles/mark-gottlieb.md |
-| rosenthal | Alex Rosenthal | puzzle-hunt/profiles/alex-rosenthal.md |
+| katz | Dan Katz | toolkit/profiles/dan-katz.md |
+| snyder | Thomas Snyder | toolkit/profiles/thomas-snyder.md |
+| selinker | Mike Selinker | toolkit/profiles/mike-selinker.md |
+| huang | Wei-Hwa Huang | toolkit/profiles/wei-hwa-huang.md |
+| kenny | Kenny Young | toolkit/profiles/kenny-young.md |
+| dana | Dana Young | toolkit/profiles/dana-young.md |
+| sarrett | Peter Sarrett | toolkit/profiles/peter-sarrett.md |
+| gottlieb | Mark Gottlieb | toolkit/profiles/mark-gottlieb.md |
+| rosenthal | Alex Rosenthal | toolkit/profiles/alex-rosenthal.md |
 
 ### `/puzzle-review synthesize`
 
 Synthesize the most recent round of reviews into a consensus document.
 
 **Process:**
-1. Find the most recent round of reviews in `puzzle-hunt/reviews/` (by filename prefix)
+1. Find the most recent round of reviews in `reviews/` (by filename prefix)
 2. Read all reviews from that round
 3. Produce a synthesis document with:
    - **Consensus findings** (5+ reviewers agree)
@@ -134,17 +134,17 @@ Synthesize the most recent round of reviews into a consensus document.
    - **Structural recommendations**
    - **Priority action items** (P0-P3)
    - **Disagreements** (where reviewers contradict each other)
-4. Save to `puzzle-hunt/[ROUND]-SYNTHESIS.md`
+4. Save to `reviews/[ROUND]-SYNTHESIS.md`
 
 ### `/puzzle-review panel`
 
-Display the panel roster, credentials summary, and coverage matrix. No agents launched — just reads and displays `puzzle-hunt/PANEL.md`.
+Display the panel roster, credentials summary, and coverage matrix. No agents launched — just reads and displays `toolkit/profiles/ (list all .md files)`.
 
 ---
 
 ## Review Naming Convention
 
-Reviews are named: `puzzle-hunt/reviews/[round]-[name].md`
+Reviews are named: `reviews/[round]-[name].md`
 
 | Round prefix | Meaning |
 |-------------|---------|
@@ -153,7 +153,7 @@ Reviews are named: `puzzle-hunt/reviews/[round]-[name].md`
 | round3- | Round 3 (next review cycle) |
 | roundN- | Round N |
 
-The synthesis file is named: `puzzle-hunt/ROUNDN-SYNTHESIS.md`
+The synthesis file is named: `reviews/ROUNDN-SYNTHESIS.md`
 
 ---
 
@@ -187,11 +187,11 @@ These files should be provided to reviewers as supporting context (in addition t
 
 | File | Purpose |
 |------|---------|
-| `puzzle-hunt/TWO-JOKERS.md` | Two-book structure, Elements vs Compounds framing |
-| `puzzle-hunt/FINAL-52.md` | Complete 52-puzzle assignment |
-| `puzzle-hunt/ELEMENTS-AND-COMPOUNDS.md` | Periodic table framing, numerology |
-| `puzzle-hunt/JOKER-VOICE.md` | Narrative voice guide |
-| `puzzle-hunt/BLACK-JOKER-PUZZLES.md` | Black Joker: The Grid + synthesis puzzles |
+| `[scenario CLAUDE.md — read for hunt structure]` | Two-book structure, Elements vs Compounds framing |
+| `PUZZLES.md (scenario's master registry)` | Complete 52-puzzle assignment |
+| `ROUNDS.md (scenario's structure)` | Periodic table framing, numerology |
+| `CLAUDE.md (scenario's voice guide)` | Narrative voice guide |
+| `meta/META-DESIGN.md (scenario's meta design)` | Black Joker: The Grid + synthesis puzzles |
 | `cards/ROLES.md` | 52 archetype roles |
 | `cards/CONCEPTS.md` | 52 card image concepts |
 
@@ -206,12 +206,12 @@ Not all context files are needed for every review. Use judgment:
 
 To add a new reviewer to the panel:
 
-1. Create a profile at `puzzle-hunt/profiles/[name].md` following the existing format:
+1. Create a profile at `toolkit/profiles/[name].md` following the existing format:
    - Identity (role, affiliation, credentials)
    - Puzzle hunt credentials (specific hunts, wins, innovations)
    - Design philosophy (documented positions, published writing)
    - Review lens (what they evaluate, their key questions)
    - Key sources (links to their work)
-2. Add them to `puzzle-hunt/PANEL.md`
+2. Add them to `toolkit/profiles/ (list all .md files)`
 3. Update the panel table and coverage matrix in this skill file
 4. The skill supports up to 12 reviewers (a full puzzle hunt team)
