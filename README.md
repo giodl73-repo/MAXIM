@@ -1,149 +1,101 @@
-# Reference Library
+# MAXIM — A Reference Library
 
-> Self-authored technical reference. Every guide: layered ASCII diagrams, mental models, decision cheat sheets.
-> Peer-level. No handholding. MIT Math + TCS background assumed throughout.
+> A personal encyclopedia of what humans know, organized as a deck of cards.
+> 13 sections · 4 volumes each · 52 volumes total · ~2,170 guides · ~14,070 pages.
 
-**~2,170 files complete across 217 directories. All batches 1–13 complete. Library done.**
-Full status: [`TRACKER.md`](TRACKER.md) | Per-directory detail: each directory's `STATUS.md`
-
----
-
-## Computing & Software Engineering
-
-| Directory | Files | Contents |
-|-----------|-------|----------|
-| [`computing/`](computing/STATUS.md) | 28 ✅ | Package mgmt, Git, JS/TS, build tools, frontend, rendering, state, backend, DB, auth, Docker, K8s, CI/CD, IaC, observability, monorepo, cloud-native, testing (×2), Azure, automata, compilers, PL theory, networking, security, algorithms, distributed systems, concurrency |
-| [`ai-engineering/`](ai-engineering/STATUS.md) | 5 ✅ | LLM concepts, evals, orchestration, agents, safety |
-| [`data-science/`](data-science/STATUS.md) | 17 ✅ | NumPy, Pandas, sklearn, PyTorch, MLOps, Azure ML, statistical learning, probabilistic ML, information theory, optimization, deep learning theory, RL, causal inference, time series, CV, NLP, graph ML |
+Every guide follows the same shape: **landscape diagram first, then layers downward, decision cheat sheet at the end.** ASCII throughout, no pictures that can't be reproduced with a typewriter. Written for a capable reader — enough structure to navigate a field you haven't studied, enough depth to stay useful after you have.
 
 ---
 
-## Programming & Query Languages
+## Start Here
 
-| Directory | Files | Contents |
-|-----------|-------|----------|
-| [`languages/`](languages/STATUS.md) | 19 ✅ | Overview + cheatsheet (16 languages × 10 topics) + C, C++, Java, C#, Python, JS, TS, Rust, Go, Haskell, F#, Kotlin, Swift, Scala, Ruby, SQL |
-| [`query-languages/`](query-languages/STATUS.md) | 13 ✅ | Overview + SQL core, PostgreSQL, T-SQL, MySQL, SQLite, KQL, analytical, Spark SQL, DuckDB, MongoDB, Redis, GraphQL |
-| [`scripting/`](scripting/STATUS.md) | 10 ✅ | Overview + cheatsheet + Batch, PowerShell, Bash, Zsh, Fish, AWK, sed, Perl |
-| [`os/`](os/STATUS.md) | 8 ✅ | Overview + cheatsheet + Windows, Linux, macOS, iOS, Android, cross-platform |
-
----
-
-## Mathematics & Physics
-
-| Directory | Files | Contents |
-|-----------|-------|----------|
-| [`mathematics/`](mathematics/STATUS.md) | 24 ✅ | Vector calc, integral theorems, trig, power series, abstract algebra, linear algebra, ODEs/PDEs, topology, manifolds, differential geometry, probability, Fourier, Laplace, complex analysis, optimization, information theory, combinatorics, number theory, numerical methods, statistics, measure theory, category theory, functional analysis, representation theory |
-| [`physics/`](physics/STATUS.md) | 10 ✅ | Electrostatics, magnetostatics, Maxwell's equations, EM waves, motors/generators, MHD, liquid metals, quantum bridge, zero-point energy, gravity/EM |
-| [`electronics/`](electronics/STATUS.md) | 8 ✅ | Circuits, reactive components, filters, amplifiers, signals/systems, DSP, 2D DSP, digital logic |
-| [`materials/`](materials/STATUS.md) | 7 ✅ | Overview, crystal structure, bonding/bands, semiconductors, metals/alloys, polymers, nanomaterials |
-| [`quantum-computing/`](quantum-computing/STATUS.md) | 5 ✅ | Overview, qubits/circuits, algorithms, error correction, hardware/complexity |
-| [`control-theory/`](control-theory/STATUS.md) | 5 ✅ | Overview, PID/classical, state space, optimal control, Kalman filter |
-| [`finance/`](finance/STATUS.md) | 5 ✅ | Overview, portfolio theory, derivatives, fixed income, risk models |
-| [`cryptography/`](cryptography/STATUS.md) | 6 ✅ | Overview, symmetric (AES-GCM/ChaCha20), asymmetric (RSA/ECDH/pairings), protocols (TLS 1.3/Signal), ZK proofs + MPC (SNARKs/garbled circuits), post-quantum (Kyber/Dilithium FIPS 203/204) |
-| [`statistics-applied/`](statistics-applied/STATUS.md) | 6 ✅ | Overview, experimental design, A/B testing (CUPED/SRM/sequential/bandits), quasi-experimental (DiD/RDD/synthetic control/IV), Bayesian practice, reliability/SPC |
+| If you're... | Go to |
+|---|---|
+| New to the library | [`FOREWORD.md`](FOREWORD.md) — why it exists, how to use it |
+| Looking for a specific topic | [`index.md`](index.md) — linked entry points for every section |
+| Wondering what's covered | [`TRACKER.md`](TRACKER.md) — full status, 217 directories |
+| Looking for a reading path | [`READING-MAPS.md`](READING-MAPS.md) — 13 curated routes through the library |
+| Curious about cross-connections | [`CONCEPT-INDEX.md`](CONCEPT-INDEX.md) — ideas that recur across sections |
+| Building physical volumes | [`BILL-OF-MATERIALS.md`](BILL-OF-MATERIALS.md) · [`VOLUMES.md`](VOLUMES.md) · [`COLOPHON.md`](COLOPHON.md) |
 
 ---
 
-## Natural Sciences & Life Sciences
+## The 13 Sections
 
-| Directory | Files | Contents |
-|-----------|-------|----------|
-| [`natural-sciences/`](natural-sciences/STATUS.md) | 18 ✅ | Overview + chemistry (atomic, bonding, thermochem, kinetics, electrochemistry) + biochemistry (biomolecules, enzymes, metabolism, molecular bio) + biology (cell, evolution/genetics, systems/synthetic) + earth (geophysics, atmosphere/climate) + plasma (fundamentals, dynamics) + organic chemistry + ecology |
-| [`biology/`](biology/STATUS.md) | 7 ✅ | Overview, molecular machinery, cell biology, genetics, evolution, ecology, physiology |
-| [`neuroscience/`](neuroscience/STATUS.md) | 5 ✅ | Overview, neurons/signals (Hodgkin-Huxley), systems/circuits, cognition/computation, AI bridge |
-| [`astronomy/`](astronomy/STATUS.md) | 12 ✅ | Earth motions, Milankovitch, celestial mechanics, stellar physics, cosmology, galactic structure, solar system formation, planetary interiors, atmospheres, exoplanets, small bodies, astrobiology |
-| [`human-biology/`](human-biology/STATUS.md) | 11 ✅ | Overview + 10 body systems (musculoskeletal, cardiovascular, respiratory, nervous, endocrine, immune, digestive, renal, reproductive, integumentary) |
-| [`disease/`](disease/STATUS.md) | 11 ✅ | Overview + bacterial, viral, fungal/parasitic/prion, cancer, cardiovascular disease, metabolic/endocrine, autoimmune, neurological/psychiatric, genetic/developmental, epidemiology |
-| [`medicine/`](medicine/STATUS.md) | 11 ✅ | Overview + antibiotics, antivirals/vaccines, cardiovascular drugs, CNS drugs, endocrine/metabolic, cancer drugs, immunomodulators, respiratory/GI, anesthesia, diagnostics/imaging |
-| [`climate-science/`](climate-science/STATUS.md) | 7 ✅ | Overview, carbon cycle, GCMs (CMIP6/model hierarchy), feedbacks + tipping points (AMOC/GIS/WAIS/Amazon/permafrost), emissions pathways (SSPs), impacts by sector, mitigation + geoengineering (SAI) |
+Each section has its own landing page with a landscape diagram, directory map, and curated entry points. For per-directory file counts and coverage detail, see [`TRACKER.md`](TRACKER.md).
 
----
+| # | Section | Landing Page |
+|---|---|---|
+| 1 | Computing & Software | [`sections/computing-software.md`](sections/computing-software.md) |
+| 2 | Mathematics & Physics | [`sections/mathematics-physics.md`](sections/mathematics-physics.md) |
+| 3 | Mechanics *(classical engineering, antiquity → ~1900)* | [`sections/mechanics.md`](sections/mechanics.md) |
+| 4 | Technology *(modern engineering, 1900 →)* | [`sections/technology.md`](sections/technology.md) |
+| 5 | Life Sciences | [`sections/life-sciences.md`](sections/life-sciences.md) |
+| 6 | Earth & Space | [`sections/earth-space.md`](sections/earth-space.md) |
+| 7 | History & Ideas | [`sections/history-ideas.md`](sections/history-ideas.md) |
+| 8 | Social Sciences | [`sections/social-sciences.md`](sections/social-sciences.md) |
+| 9 | Language & Communication | [`sections/language-communication.md`](sections/language-communication.md) |
+| 10 | Arts & Culture | [`sections/arts-culture.md`](sections/arts-culture.md) |
+| 11 | Material Culture | [`sections/material-culture.md`](sections/material-culture.md) |
+| 12 | Natural World | [`sections/natural-world.md`](sections/natural-world.md) |
+| 13 | People *(the Ace — origin and culmination)* | [`sections/people.md`](sections/people.md) |
 
-## Engineering Sciences
-
-| Directory | Files | Contents |
-|-----------|-------|----------|
-| [`mechanical/`](mechanical/STATUS.md) | 6 ✅ | Overview, thermodynamics, fluid mechanics, heat transfer, machine design, manufacturing |
-| [`structural/`](structural/STATUS.md) | 5 ✅ | Overview, statics, mechanics of materials, structural analysis, geotechnical |
-| [`chemical-eng/`](chemical-eng/STATUS.md) | 6 ✅ | Overview, thermo, reaction engineering, transport, separations, process design |
-| [`nuclear/`](nuclear/STATUS.md) | 6 ✅ | Overview, nuclear physics, reactor physics, thermal hydraulics, reactor types, safety systems |
-| [`aeronautics/`](aeronautics/STATUS.md) | 6 ✅ | Overview + aerodynamics, propulsion, flight mechanics, avionics, structures |
+All 13 sections are **complete**. Batches 1–13 done; full library reviewed and clean.
 
 ---
 
-## Humanities, Languages & Culture
+## Companions & Projects
 
-| Directory | Files | Contents |
-|-----------|-------|----------|
-| [`world-languages/`](world-languages/STATUS.md) | 15 ✅ | Overview + cheatsheet (35 languages) + Spanish, Portuguese, French, German, Russian, Arabic, Hindi/Urdu, Mandarin, Japanese, Korean, Other Asian, Turkic/Swahili/Other, Latin/Constructed |
-| [`historical-geography/`](historical-geography/STATUS.md) | 18 ✅ | Feudal mechanics, title glossary, Western Europe, HRE, Scandinavia, Silesia/borderlands, Eastern Europe, Byzantium, Islamic caliphates, Russia, Mongols, Crusades, Africa, South Asia, East Asia, Americas, Ottoman rise |
-| [`linguistics/`](linguistics/STATUS.md) | 10 ✅ | Overview, phonetics/phonology (IPA), morphology, syntax (CFG bridge), semantics (lambda calc bridge), pragmatics, historical linguistics, acquisition, sociolinguistics, computational NLP |
-| [`mythology/`](mythology/STATUS.md) | 12 ✅ | Comparative overview + Greek/Roman, Norse (with Futhark runes), Celtic/Arthurian, Slavic, Egyptian, Mesopotamian, Hindu, East Asian, Mesoamerican, African/Oceanian, Abrahamic comparative |
-| [`cognitive-science/`](cognitive-science/STATUS.md) | 10 ✅ | Overview (Marr levels), perception, attention/memory, reasoning/judgment, language/thought, problem-solving, development, consciousness, computational models, applied bridge |
-| [`music-theory/`](music-theory/STATUS.md) | 10 ✅ | Overview, pitch/scales, modes/pentatonic, rhythm/meter, harmony/chords, voice leading/counterpoint, tonal harmony, form analysis, orchestration, 20th century/jazz |
-| [`philosophy/`](philosophy/STATUS.md) | 7 ✅ | Overview + logic (Gödel), epistemology, metaphysics, philosophy of mind, ethics, philosophy of science |
+Standalone works that extend the core library.
 
----
+| Project | What it is |
+|---|---|
+| [`atlas/`](atlas/00-OVERVIEW.md) | **Atlas** — SVG hybrid maps with Natural Earth coastlines. 52 maps planned, one per volume. |
+| [`naturalis/`](naturalis/00-OVERVIEW.md) | **Naturalis** — visual companion to the Natural World section (silhouettes, plates, specimens). |
+| [`puzzle-hunt/`](puzzle-hunt/) | **Puzzle Hunt** — layered cryptographic puzzle embedded across the library. |
+| [`joker/`](joker/) | **Joker** — the 53rd card. Hidden companion to the deck. |
+| [`cards/`](cards/) | **Cards** — one-page summaries, one per volume. |
+| [`read-this-first/`](read-this-first/) | **Volume 0** — water, fire, shelter, food, healing, and how to copy these books by hand. |
 
-## Social Sciences
-
-| Directory | Files | Contents |
-|-----------|-------|----------|
-| [`law/`](law/STATUS.md) | 8 ✅ | Overview, contracts (formation/breach/UCC), IP + patents (Alice Corp, FOSS licensing spectrum MIT→GPL), privacy/data (GDPR/CCPA), antitrust (Sherman §1/§2, live tech cases), corporate law, employment, international trade |
-| [`organizational-behavior/`](organizational-behavior/STATUS.md) | 7 ✅ | Overview, motivation (SDT/expectancy/equity), leadership (servant/transformational/situational), teams + group dynamics, org design (Mintzberg/Conway's Law/team topologies), strategy (Porter/RBV/OKRs/platform network effects), change management |
-| [`political-science/`](political-science/STATUS.md) | 7 ✅ | Overview, IR theory (Waltz/Wendt/Mearsheimer), nuclear deterrence (MAD/credibility problem/arms control treaties), geopolitics (Mackinder/Mahan/BRI/Indo-Pacific/Quad/AUKUS), comparative politics (regime types/state capacity), institutions (Acemoglu/North), political economy |
-| [`psychology/`](psychology/STATUS.md) | 7 ✅ | Overview, social (conformity/attribution/bystander/in-group bias), personality (Big Five factor structure/dark triad/MBTI critique), clinical (DSM-5/CBT/psychodynamic), organizational psychology, persuasion + influence (Cialdini/ELM/inoculation/dark patterns), health + stress |
-| [`geography/`](geography/STATUS.md) | 8 ✅ | Overview, physical (plate tectonics/erosion/soils/karst), climate zones (Köppen/biome map), ocean-atmosphere (thermohaline/AMOC/ENSO/monsoons/teleconnections), biogeography (Wallace line/island bio/range shifts), population + urban (DTM/Zipf's law/megacities/migration), geopolitics + resources (chokepoints/rare earths/water stress/Arctic), economic geography (GVCs/smile curve/ports/SEZs) |
-
----
-
-## Reference Systems
-
-| Directory | Files | Contents |
-|-----------|-------|----------|
-| [`codes/`](codes/STATUS.md) | 10 ✅ | Overview + Morse, Braille, semaphore, signal flags, NATO phonetic, ASL fingerspelling, musical notation, historical ciphers, modern codes |
-| [`periodic-table/`](periodic-table/STATUS.md) | 12 ✅ | Overview + hydrogen, noble gases, alkali metals, alkaline earth, halogens, life nonmetals (CHNOPS), p-block, 3d transition metals, 4d/5d transition metals, lanthanides, actinides |
-| [`animal-phylogeny/`](animal-phylogeny/STATUS.md) | 13 ✅ | Tree of life overview + single-cell origins, early animals, lophotrochozoa worms, nematoda/ecdysozoa, mollusca, arthropoda, deuterostomes/echinoderms, chordata origins, fish, amphibia, reptilia/birds, mammalia |
-| [`economics/`](economics/STATUS.md) | 5 ✅ | Overview, microeconomics, game theory, mechanism design, macroeconomics |
-| [`information-theory/`](information-theory/STATUS.md) | 5 ✅ | Overview, entropy/information, source coding, channel coding, ML/cryptography bridge |
-
----
-
-## Built Environment
-
-| Directory | Files | Contents |
-|-----------|-------|----------|
-| [`plumbing/`](plumbing/STATUS.md) | 10 ✅ | Overview (supply/DWV/gas trees), history (Roman plumbum → cholera reform → PVC → PEX), pipe materials (copper K/L/M, PEX-a/b/c, PVC/CPVC/ABS/cast iron/CSST), fittings (sweat/press-fit/push-fit/SharkBite/solvent-weld), supply systems (PRV/expansion/water hammer/tankless vs tank/recirculation), DWV (gravity drainage/P-traps/venting/AAV/cleanouts), fixtures (toilet anatomy/faucet cartridge types/pressure-balance shower valves), water quality (hardness/softeners/RO/UV/lead pipe crisis), specialty (CSST/hydronic/radiant floor/fire suppression/medical gas), codes (IRC/IPC/UPC/AHJ/permits) |
-| [`hvac/`](hvac/STATUS.md) | 10 ✅ | Overview (load vs capacity/psychrometrics), thermodynamics (Manual J/R-value/BTU/sensible vs latent), refrigeration cycle (P-H diagram/superheat/subcooling/variable-speed compressors), refrigerants (R-12→R-22→R-410A→R-454B, ODP/GWP, Kigali Amendment/A2L safety class), heating (gas furnace/AFUE/condensing/mod-con boilers/electric), heat pumps (COP>1/cold-climate ASHP to -22°F/GSHP/mini-splits/heat pump water heaters), ventilation (ERV/HRV/ASHRAE 62.2/MERV ratings/IAQ/CO₂ monitoring), ductwork (Manual D/static pressure/flex duct compression problems/mastic sealing/Aeroseal), controls (24V wiring/smart thermostats/BAS/BACnet/defrost logic), efficiency/codes (SEER2/AFUE/HSPF2/IECC climate zones/IRA tax credits/Manual J-D-S triad) |
-| [`coatings/`](coatings/STATUS.md) | 10 ✅ | Overview (film formation mechanisms: evaporation/oxidative/coalescence/crosslinking), paint history (cave → lead paint → latex revolution → VOC regulations), paint composition (binder/pigment/solvent/additives, sheen levels, PVC/CPVC), wood stains (penetrating vs film-forming, gel stains, deck stains), varnish/lacquer/polyurethane (oil/alkyd/shellac-BIN/nitrocellulose/catalyzed), industrial coatings (powder coating/anodizing/electroplating/hot-dip galvanizing/PVD), adhesives (CA/epoxy/contact cement/hot melt/anaerobic/UV-cure), sealants/caulks (silicone acetoxy vs neutral/polyurethane/hybrid SMP), primers (shellac-BIN stain blocking/oil-based/bonding/etching), surface prep (SSPC standards/anchor profile/failure analysis) |
-
----
-
-## Material & Cultural History
-
-| Directory | Files | Contents |
-|-----------|-------|----------|
-| [`colors/`](colors/STATUS.md) | 10 ✅ | Overview (color is perception not physics), color physics (light/absorption/structural/Rayleigh scattering), vision (L/M/S cones/opponent process/metamerism/color constancy/color blindness), color systems (Munsell/CIE 1931/CIELAB ΔE/sRGB/Display P3/Pantone/RAL/NCS), color naming (Berlin-Kay universal sequence/Homer's wine-dark sea/Sapir-Whorf/Himba perception), historical shades (mauve 1856/puce/chartreuse/gamboge/vermilion named histories), mixing theory (additive RGB vs subtractive CMY/CMYK halftone/artist RYB wheel/pointillist partitive mixing), psychology/culture (white mourning vs purity/red luck vs danger/blue trust/synesthesia/Baker-Miller pink), color in nature (structural color morpho butterfly/thin-film/bioluminescence GFP/camouflage/autumn leaves), digital color (gamma encoding/ICC profiles/rendering intents/HDR PQ/CSS color spaces) |
-| [`spices/`](spices/STATUS.md) | 11 ✅ | Overview (spice trade eras, VOC/Columbian Exchange), pepper + salt, cinnamon/cassia (Ceylon vs cassia, coumarin), turmeric/ginger/galangal (Zingiberaceae, curcumin, gingerols), saffron + vanilla (most expensive by weight, hand-pollination), nutmeg/cloves/mace (Banda Islands massacre, Run Island for Manhattan), capsicum/chili (TRPV1, Scoville, global spread in 50 years), cumin/coriander/fennel (Apiaceae, anethole chemistry), cardamom + star anise (shikimic acid → Tamiflu), aromatics/herbs (Lamiaceae, volatile oils), spice chemistry (capsaicin/piperine/terpenes/phenylpropanoids) |
-| [`pigments/`](pigments/STATUS.md) | 11 ✅ | Overview (pigment vs dye, chromophore mechanisms: d-d/charge-transfer/π→π*/band gap), prehistoric/earth (ochre, Blombos Cave 75kya, Lascaux), ancient synthetic (Egyptian blue 3100 BCE, Han blue, cinnabar, orpiment), purple/red luxury (Tyrian purple from Murex, cochineal Aztec monopoly, madder lake), blue rarity (lapis lazuli/Badakhshan, synthetic ultramarine 1826), lead pigments (stack process, Naples yellow, degradation), organic dyes/mordants (indigo — woad vs Indigofera, madder/alizarin, mordant chemistry), Prussian blue era (1704, chrome yellow, emerald green arsenic toxicity), Impressionist revolution (tube paint 1841, cadmium series, plein air), modern synthetic (titanium white 1916, phthalocyanine, quinacridone, quantum dots), conservation/authentication (lightfastness, XRF/Raman, pigment anachronism in forgery detection) |
-| [`textiles/`](textiles/STATUS.md) | 14 ✅ | Overview (fiber→yarn→fabric→garment supply chain, craft trade hierarchy), natural fibers plant (cotton/linen/hemp — gin, slavery, Dhaka muslin, retting/scutching/heckling), natural fibers animal (wool α-keratin/merino/worsted vs woolen, silk sericulture/Bombyx mori/Justinian monks smuggling eggs, cashmere/vicuña), synthetic fibers (rayon 1892→nylon 1938→polyester 1941→spandex 1958, microplastics crisis), yarn spinning (drop spindle→Saxony wheel→jenny/water frame/mule→ring→rotor, S/Z twist, denier/tex/Ne/Nm count systems), fabric construction (weaving/weft-warp knitting/felting/nonwovens/bias cut Vionnet), weave structures (plain/twill/satin/pile/Jacquard→Babbage→IBM punch card connection, thread count fraud), dyeing/finishing (acid/reactive/vat/disperse dye classes, mordanting, Perkin 1856, ikat, mercerization 1844, sanforizing 1930, DWR PFAS phaseout), historical trade (Silk Road/Von Richthofen coinage, Indian cotton destruction, slave cotton Lancashire famine, Flemish wool guilds), leatherworking (vegetable/chrome/aldehyde tanning, full-grain→bonded leather grades, cordwainer/currier/saddler/cobbler trades), pattern making (flat drafting/draping/dart manipulation/CAD CLO3D/grading/vanity sizing), clothesmaking (cutter/tailor/seamstress/couturier hierarchy, hand stitches, pressing, canvas construction, Rana Plaza context), technical fabrics (Gore-Tex ePTFE membrane, Kevlar/Nomex para/meta-aramid, UHMWPE Dyneema, carbon fiber composites, geotextiles, smart e-textiles), fashion industry (haute couture to fast fashion economics, Zara vs Shein models, labor exploitation, sustainability crisis/microplastics/10% global carbon) |
-| [`jewelry/`](jewelry/STATUS.md) | 11 ✅ | Overview (supply chain, karat vs carat etymology, gold as noble metal), precious metals (Au/Ag/Pt alloys, 24K→9K karat system, white/rose/green gold alloys, rhodium plating, vermeil), gemstones (crystal systems and cleavage, 4Cs, ruby/sapphire corundum+Cr/Fe, alexandrite color change, tanzanite Kilimanjaro, opal amorphous silica), cutting/faceting (TIR physics, round brilliant 58-facet geometry, fire vs brilliance, lapidary sequence, cabochon/step cuts), metalworking techniques (lost wax 5000yr history, fabrication, soldering, chasing/repoussé, filigree/granulation Etruscan, enameling cloisonné/champlevé/plique-à-jour), settings (prong/Tiffany 1886/bezel/pavé/channel/tension/gypsy), hallmarks/standards (English Goldsmiths 1300/UK four marks/Kimberley Process conflict diamonds), historical traditions (Egyptian gold+lapis/Mughal kundan+meenakari/Byzantine cloisonné enamel/Art Deco platinum geometry), pearls (nacre aragonite layers, Mikimoto 1893/nucleus bead, akoya/Tahitian/South Sea varieties, grading luster/orient), synthetic/simulants (CVD/HPHT lab-grown diamonds identical chemistry, CZ simulant, moissanite fails thermal test), trades (goldsmith/silversmith/lapidary/GIA Graduate Gemologist/bench jeweler/engraver/pearl stringer) |
-| [`ceramics/`](ceramics/STATUS.md) | 11 ✅ | Overview (silicate network, three families earthenware/stoneware/porcelain, fired = irreversible), clay types (kaolinite phyllosilicate/plasticity/ball clay/fire clay/porcelain body formula/bone china phosphate), forming (pinch/coil/slab/wheel throwing history 3500BCE/slip casting deflocculation/jiggering/leatherhard stage), drying/firing (quartz inversion 573°C/dehydroxylation/Orton cone system/electric vs gas vs wood vs raku kilns/reduction atmosphere), glazes (Seger unity molecular formula/flux oxides CaO-MgO-KNaO/colorant oxides/crystalline glazes/luster), decoration (underglaze blue-and-white Yuan dynasty/majolica on tin glaze/transfer printing Willow Pattern/Islamic luster/raku carbon), porcelain history (Jingdezhen/Song five great wares Ru ware <100 pieces/Yuan blue-and-white cobalt/Böttger Meissen 1708/hard vs soft paste), earthenware traditions (Greek red/black figure 3-phase firing/Roman terra sigillata/Islamic faience/Italian maiolica/Delftware/Wedgwood), industrial ceramics (alumina hip joints/zirconia YSZ dental crowns+oxygen sensors+TBC/SiC power electronics/bioceramics HA osseointegration/MLCCs in electronics), studio ceramics (Leach+Hamada Mingei/Japanese raku Chōjirō/Lucie Rie/Peter Voulkos Abstract Expressionist breakthrough), trades (potter/kiln master/glaze chemist/porcelain painter Meissen/tile maker dust pressing) |
-| [`glassmaking/`](glassmaking/STATUS.md) | 11 ✅ | Overview (amorphous solid/supercooled liquid myth debunked/glass transition/three families), glass science (Zachariasen random network/network formers SiO₂-B₂O₃/modifiers Na₂O-CaO/viscosity working-annealing-strain points/thermal expansion/devitrification), raw materials (silica sand iron spec/soda ash Solvay/cullet 50-90% recycling/colorants cobalt-copper-gold ruby/decolorizers), forming techniques (blowing Roman 50BCE revolution/IS machine 250-600 btl/min/casting/rolling/kiln fusing/slumping/lampworking), float glass (Pilkington 1959 £7M development/tin bath physics/tin side UV fluorescence/low-E silver layers/IGU argon-filled), specialty glass (borosilicate Pyrex 1915/fused silica EUV optics/lead crystal Ravenscroft 1676/glass-ceramics Zerodur near-zero CTE/Corning Gorilla Glass ion-exchange), safety glass (tempered granule fracture/laminated PVB autoclave/SGP stiffness/automotive windshield laminated vs side tempered), optical fiber (TIR critical angle/SMF 8μm vs MMF 50μm/Rayleigh scattering λ⁻⁴/1,550nm attenuation minimum/DWDM EDFA/draw tower/Corning 1970/Kao Nobel 2009), historical glassmaking (Egyptian core-formed/Roman blown glass revolution/Portland Vase cameo/Murano exile monopoly/Böttger Bohemian engraving), art glass (medieval Chartres blue cobalt/Tiffany copper foil lamps/Gallé acid-etched cameo/Harvey Littleton studio movement 1962), glass trades (gaffer/glazier/optical fabricator/scientific glassblower) |
+Full list of library-level initiatives: [`PROJECTS.md`](PROJECTS.md). Expansion process: [`EXPANSION.md`](EXPANSION.md).
 
 ---
 
 ## Style Contract
 
-Every file follows `computing/01-PACKAGE.md` format:
-1. Big picture diagram first
-2. Layer downward — each section drills one piece
-3. ASCII boxes for system diagrams and decision trees
-4. Tables for comparisons and cheat sheets
-5. "Old world → new world" bridges (VSTS/.NET/Azure)
-6. Decision Cheat Sheet at the end
-7. Common Confusion Points
+Every file follows the format established in [`computing/01-PACKAGE.md`](computing/01-PACKAGE.md):
 
-Learner: VP of Software Engineering, Microsoft. MIT double major Math + TCS. ~10yr leadership gap.
-Deep background: .NET / Azure / VSTS. Peer-level writing throughout.
+1. **Landscape diagram first** — one picture of the whole territory.
+2. **Layer downward** — each section drills into one piece.
+3. **ASCII boxes** for system diagrams, flow charts, decision trees.
+4. **Tables** for comparisons and cheat sheets.
+5. **Old-world → new-world bridges** where prior art exists (universal CS concepts first, widely-known tools second, stack-specific last).
+6. **Decision Cheat Sheet** at the end — the "what do I use when" table.
+7. **Common Confusion Points** — gotchas called out explicitly.
+
+No guide assumes you're a beginner. No guide assumes you already know the topic. Details in [`CLAUDE.md`](CLAUDE.md).
+
+---
+
+## Review System
+
+Guides are reviewed with inline `@editor` HTML comments that are grep-able as a live dashboard:
+
+```bash
+grep -rn "@editor"         # all outstanding issues
+grep -rn "@editor\[.*P1"   # blocking issues only
+```
+
+Types: `stub` · `structure` · `audience` · `diagram` · `bridge` · `content`. Priorities: `P1` (blocking) · `P2` (degrades) · `P3` (polish). Workflow and examples in [`CLAUDE.md`](CLAUDE.md).
+
+---
+
+## How This Was Made
+
+Written in February 2026 with AI assistance. The author directed structure, style, audience, and scope. The AI did the heavy lifting of composition across 217 directories and ~2,170 files. Every guide was then reviewed, tagged for issues, and revised until clean. See [`HISTORY.md`](HISTORY.md) for session history and [`FOREWORD.md`](FOREWORD.md) for the philosophy.
+
+---
+
+## License
+
+Content is licensed under [CC BY-SA 4.0](LICENSE.md) — copy, translate, and redistribute freely. The most durable backup is the number of copies in the number of hands in the number of places. Make more.
