@@ -63,15 +63,15 @@ The word became a department name when the disciplines it covered were too new f
 
 | Directory | Focus | Entry Point | Bridges to |
 |-----------|-------|-------------|------------|
-| [`semiconductor-manufacturing/`](../semiconductor-manufacturing/00-OVERVIEW.md) | Fab process flow, photolithography/EUV, CMOS device physics, advanced packaging (chiplets/HBM), Moore's Law economics | `01-FAB-PROCESS.md` | `electronics/` · `computing/` |
-| [`telecommunications/`](../telecommunications/00-OVERVIEW.md) | OSI as engineering substrate, modulation (QAM/OFDM), fiber optics (WDM), wireless (MIMO), 4G/5G, network slicing | `01-OSI-ENGINEERING.md` | `signal-processing/` · `electrical-grid/` |
-| [`robotics/`](../robotics/00-OVERVIEW.md) | Kinematics (DH parameters), rigid body dynamics, sensors/actuators, control (PID→MPC), ROS, manipulation, autonomous systems | `01-KINEMATICS.md` | `control-theory/` · `signal-processing/` |
-| [`biomedical-engineering/`](../biomedical-engineering/00-OVERVIEW.md) | Biomechanics, medical device design (regulatory/biocompatibility), medical imaging (X-ray/CT/MRI/US), biosignals, tissue engineering | `01-BIOMECHANICS.md` | `mechanical/` · `electronics/` · `medicine/` |
-| [`formal-methods/`](../formal-methods/00-OVERVIEW.md) | Propositional/predicate logic, temporal logic (LTL/CTL), model checking, SAT/SMT, Hoare logic, proof assistants (Coq/Lean) | `01-LOGIC.md` | `mathematics/` · `languages/` · `computing/` |
-| [`systems-engineering/`](../systems-engineering/00-OVERVIEW.md) | SE process/lifecycle, requirements engineering, system architecture/trade studies, V-model, SysML, FMEA, MBSE | `01-SE-PROCESS.md` | `formal-methods/` · `robotics/` |
-| [`urban-planning/`](../urban-planning/00-OVERVIEW.md) | Land use/zoning (Euclidean→form-based), transportation planning (LOS/VMT), housing policy, urban design | `01-LAND-USE.md` | `transportation/` · `environmental-engineering/` |
-| [`environmental-engineering/`](../environmental-engineering/00-OVERVIEW.md) | Water/wastewater treatment, air pollution control, site remediation, lifecycle assessment (LCA), sustainability metrics | `01-WATER-TREATMENT.md` | `chemical-eng/` · `urban-planning/` |
-| [`materials-processing/`](../materials-processing/00-OVERVIEW.md) | TTT/CCT diagrams, heat treatment, solidification, fracture mechanics, fatigue, deformation processing, surface treatments, characterization | `01-PHASE-TRANSFORMATIONS.md` | `materials/` · `manufacturing/` |
+| [`semiconductor-manufacturing/`](../semiconductor-manufacturing/00-OVERVIEW.md) | Fab process flow, photolithography/EUV, CMOS device physics, advanced packaging (chiplets/HBM), Moore's Law economics | [`01-SILICON-SUBSTRATE.md`](../semiconductor-manufacturing/01-SILICON-SUBSTRATE.md) | [`electronics/`](../electronics/00-OVERVIEW.md) · [`computing/`](../computing/01-PACKAGE.md) |
+| [`telecommunications/`](../telecommunications/00-OVERVIEW.md) | OSI as engineering substrate, modulation (QAM/OFDM), fiber optics (WDM), wireless (MIMO), 4G/5G, network slicing | [`01-ELECTROMAGNETIC-SPECTRUM.md`](../telecommunications/01-ELECTROMAGNETIC-SPECTRUM.md) | [`signal-processing/`](../signal-processing/00-OVERVIEW.md) · [`electrical-grid/`](../electrical-grid/00-OVERVIEW.md) |
+| [`robotics/`](../robotics/00-OVERVIEW.md) | Kinematics (DH parameters), rigid body dynamics, sensors/actuators, control (PID→MPC), ROS, manipulation, autonomous systems | [`01-KINEMATICS.md`](../robotics/01-KINEMATICS.md) | [`control-theory/`](../control-theory/00-OVERVIEW.md) · [`signal-processing/`](../signal-processing/00-OVERVIEW.md) |
+| [`biomedical-engineering/`](../biomedical-engineering/00-OVERVIEW.md) | Biomechanics, medical device design (regulatory/biocompatibility), medical imaging (X-ray/CT/MRI/US), biosignals, tissue engineering | [`01-BIOMECHANICS.md`](../biomedical-engineering/01-BIOMECHANICS.md) | [`mechanical/`](../mechanical/00-OVERVIEW.md) · [`electronics/`](../electronics/00-OVERVIEW.md) · [`medicine/`](../medicine/00-OVERVIEW.md) |
+| [`formal-methods/`](../formal-methods/00-OVERVIEW.md) | Propositional/predicate logic, temporal logic (LTL/CTL), model checking, SAT/SMT, Hoare logic, proof assistants (Coq/Lean) | [`01-LOGIC-FOUNDATIONS.md`](../formal-methods/01-LOGIC-FOUNDATIONS.md) | [`mathematics/`](../mathematics/00-OVERVIEW.md) · [`languages/`](../languages/00-OVERVIEW.md) · [`computing/`](../computing/01-PACKAGE.md) |
+| [`systems-engineering/`](../systems-engineering/00-OVERVIEW.md) | SE process/lifecycle, requirements engineering, system architecture/trade studies, V-model, SysML, FMEA, MBSE | [`01-SE-PROCESS.md`](../systems-engineering/01-SE-PROCESS.md) | [`formal-methods/`](../formal-methods/00-OVERVIEW.md) · [`robotics/`](../robotics/00-OVERVIEW.md) |
+| [`urban-planning/`](../urban-planning/00-OVERVIEW.md) | Land use/zoning (Euclidean→form-based), transportation planning (LOS/VMT), housing policy, urban design | [`01-LAND-USE.md`](../urban-planning/01-LAND-USE.md) | [`transportation/`](../transportation/00-OVERVIEW.md) · [`environmental-engineering/`](../environmental-engineering/00-OVERVIEW.md) |
+| [`environmental-engineering/`](../environmental-engineering/00-OVERVIEW.md) | Water/wastewater treatment, air pollution control, site remediation, lifecycle assessment (LCA), sustainability metrics | [`01-WATER-TREATMENT.md`](../environmental-engineering/01-WATER-TREATMENT.md) | [`chemical-eng/`](../chemical-eng/00-OVERVIEW.md) · [`urban-planning/`](../urban-planning/00-OVERVIEW.md) |
+| [`materials-processing/`](../materials-processing/00-OVERVIEW.md) | TTT/CCT diagrams, heat treatment, solidification, fracture mechanics, fatigue, deformation processing, surface treatments, characterization | [`01-PHASE-TRANSFORMATIONS.md`](../materials-processing/01-PHASE-TRANSFORMATIONS.md) | [`materials/`](../materials/00-OVERVIEW.md) · [`manufacturing/`](../manufacturing/00-OVERVIEW.md) |
 
 ---
 
@@ -89,15 +89,15 @@ The word became a department name when the disciplines it covered were too new f
 ## Paths
 
 ### Silicon to systems
-`semiconductor-manufacturing/` → `telecommunications/` → `robotics/` → `systems-engineering/`
+[`semiconductor-manufacturing/`](../semiconductor-manufacturing/00-OVERVIEW.md) → [`telecommunications/`](../telecommunications/00-OVERVIEW.md) → [`robotics/`](../robotics/00-OVERVIEW.md) → [`systems-engineering/`](../systems-engineering/00-OVERVIEW.md)
 *The transistor enables the wireless protocol enables the autonomous robot — and systems engineering is what keeps the whole stack coherent as complexity scales.*
 
 ### Formal correctness track
-`formal-methods/` → `systems-engineering/` → `robotics/`
+[`formal-methods/`](../formal-methods/00-OVERVIEW.md) → [`systems-engineering/`](../systems-engineering/00-OVERVIEW.md) → [`robotics/`](../robotics/00-OVERVIEW.md)
 *Logic and proof theory applied to system verification, then to the design of complex engineered systems, then to autonomous robots where correctness is safety-critical.*
 
 ### Built-environment sustainability
-`urban-planning/` → `environmental-engineering/` → `materials-processing/`
+[`urban-planning/`](../urban-planning/00-OVERVIEW.md) → [`environmental-engineering/`](../environmental-engineering/00-OVERVIEW.md) → [`materials-processing/`](../materials-processing/00-OVERVIEW.md)
 *Planning cities requires designing their environmental infrastructure; building that infrastructure requires understanding how materials behave under processing and service conditions.*
 
 ---
@@ -106,6 +106,6 @@ The word became a department name when the disciplines it covered were too new f
 
 | Section | The bridge |
 |---------|------------|
-| Mechanics | Technology picks up where Mechanics ends. `semiconductor-manufacturing/` is downstream of `electrical-grid/`. `robotics/` builds on `mechanical/` dynamics and `transportation/` AV context. `materials-processing/` extends `construction-materials/` into metallurgical depth. |
-| Mathematics & Physics | `control-theory/` is the mathematical engine inside `robotics/` and process control. `signal-processing/` underlies `telecommunications/` and sensor fusion in `robotics/`. `formal-methods/` connects directly to mathematical logic. |
-| Computing & Software | `semiconductor-manufacturing/` is the physical layer `computing/` runs on. `formal-methods/` connects to type theory in `languages/` and software verification in `computing/`. `robotics/` consumes the software stack (ROS, real-time OS, sensor fusion). |
+| Mechanics | Technology picks up where Mechanics ends. [`semiconductor-manufacturing/`](../semiconductor-manufacturing/00-OVERVIEW.md) is downstream of [`electrical-grid/`](../electrical-grid/00-OVERVIEW.md). [`robotics/`](../robotics/00-OVERVIEW.md) builds on [`mechanical/`](../mechanical/00-OVERVIEW.md) dynamics and [`transportation/`](../transportation/00-OVERVIEW.md) AV context. [`materials-processing/`](../materials-processing/00-OVERVIEW.md) extends [`construction-materials/`](../construction-materials/00-OVERVIEW.md) into metallurgical depth. |
+| Mathematics & Physics | [`control-theory/`](../control-theory/00-OVERVIEW.md) is the mathematical engine inside [`robotics/`](../robotics/00-OVERVIEW.md) and process control. [`signal-processing/`](../signal-processing/00-OVERVIEW.md) underlies [`telecommunications/`](../telecommunications/00-OVERVIEW.md) and sensor fusion in [`robotics/`](../robotics/00-OVERVIEW.md). [`formal-methods/`](../formal-methods/00-OVERVIEW.md) connects directly to mathematical logic. |
+| Computing & Software | [`semiconductor-manufacturing/`](../semiconductor-manufacturing/00-OVERVIEW.md) is the physical layer [`computing/`](../computing/01-PACKAGE.md) runs on. [`formal-methods/`](../formal-methods/00-OVERVIEW.md) connects to type theory in [`languages/`](../languages/00-OVERVIEW.md) and software verification in [`computing/`](../computing/01-PACKAGE.md). [`robotics/`](../robotics/00-OVERVIEW.md) consumes the software stack (ROS, real-time OS, sensor fusion). |
