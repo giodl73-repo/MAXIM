@@ -28,8 +28,8 @@ SOURCE                 COMPILATION              RUNTIME
                          CPython)
                                           ──►  CPython VM (interpreter)
                                                ┌─────────────────────┐
-                                               │  Bytecode evaluator  │
-                                               │  ┌───────────────┐   │
+                                               │  Bytecode evaluator │
+                                               │  ┌───────────────┐  │
                                                │  │  GIL          │   │
                                                │  │ (one thread   │   │
                                                │  │  runs Python  │   │

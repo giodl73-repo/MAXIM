@@ -501,7 +501,7 @@ let result = result {
 | Error handling | try/catch | Result + computation expr |
 | Async | async Task<T> | async { let! x = ... } |
 | Polymorphism | Interface/virtual | Typeclass via interface |
-| Data pipeline | LINQ method chain | |> pipeline |
+| Data pipeline | LINQ method chain | | > pipeline |
 
 ---
 

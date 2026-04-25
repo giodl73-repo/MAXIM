@@ -22,29 +22,29 @@
 ```
 SWIFT'S THREE MEMORY MODELS
 ┌─────────────────────────────────────────────────────────────────────┐
-│  struct / enum / tuple — VALUE SEMANTICS                           │
+│  struct / enum / tuple — VALUE SEMANTICS                            │
 │                                                                     │
-│  let a = Point(x: 1, y: 2)                                         │
-│  var b = a         ← COPY on assignment (independent value)        │
-│  b.x = 99          ← a.x is still 1                                │
+│  let a = Point(x: 1, y: 2)                                          │
+│  var b = a         ← COPY on assignment (independent value)         │
+│  b.x = 99          ← a.x is still 1                                 │
 │                                                                     │
 │  Storage: stack or inline in containing type                        │
 │  Lifetime: deterministic — freed when binding goes out of scope     │
-│  Collections (Array, Dict, String): copy-on-write (COW)            │
+│  Collections (Array, Dict, String): copy-on-write (COW)             │
 │    var c = a  ← shares buffer until either mutates                  │
-│    c.append(x) ← NOW a copy is made (O(n) at mutation, not assign) │
+│    c.append(x) ← NOW a copy is made (O(n) at mutation, not assign)  │
 │                                                                     │
 │  C# comparison: like C# struct, but ALL collections are value types │
 └─────────────────────────────────────────────────────────────────────┘
 ┌─────────────────────────────────────────────────────────────────────┐
-│  class — REFERENCE SEMANTICS + ARC                                 │
+│  class — REFERENCE SEMANTICS + ARC                                  │
 │                                                                     │
-│  let a = Node(val: 1)   refcount=1                                 │
-│  let b = a              refcount=2  ← b and a point to same object │
-│  b.val = 99             ← a.val is now 99!                         │
+│  let a = Node(val: 1)   refcount=1                                  │
+│  let b = a              refcount=2  ← b and a point to same object  │
+│  b.val = 99             ← a.val is now 99!                          │
 │                                                                     │
 │  ARC lifecycle (compiler-inserted):                                 │
-│  ┌──────────┐  assign   ┌──────────────────┐  last ref gone        │
+│  ┌──────────┐  assign   ┌──────────────────┐  last ref gone         │
 │  │  object  │──────────►│  retain (rc++)   │                       │
 │  │  on heap │  release  │  release (rc--)  │──────►  deinit()      │
 │  └──────────┘◄──────────│  rc==0 → dealloc │         deallocate    │
@@ -80,17 +80,17 @@ DECISION FLOWCHART — which memory model?
 │                                                                     │
 │  Does it need to be shared across multiple owners?                  │
 │         │                                                           │
-│        YES ──────────────────────────────────────────────────────► │
+│        YES ──────────────────────────────────────────────────────►  │
 │         │                        Does it need thread-safe           │
-│         │                        isolated mutable state?           │
+│         │                        isolated mutable state?            │
 │         │                              │                            │
-│         │                             YES ──────────► actor        │
+│         │                             YES ──────────► actor         │
 │         │                              │                            │
-│         │                              NO ───────────► class       │
+│         │                              NO ───────────► class        │
 │         │                                                           │
 │        NO                                                           │
 │         │                                                           │
-│         └──────────────────────────────────────────────► struct    │
+│         └──────────────────────────────────────────────► struct     │
 │                                                          (default)  │
 └─────────────────────────────────────────────────────────────────────┘
 ```

@@ -25,7 +25,7 @@
   │  .cs source files                                                   │
   │         │                                                           │
   │         ▼                                                           │
-  │  ┌─────────────────────────────────────────────────────┐           │
+  │  ┌─────────────────────────────────────────────────────┐            │
   │  │  Roslyn Compiler (Microsoft.CodeAnalysis)           │           │
   │  │  ├── Syntax tree (parse)                            │           │
   │  │  ├── Semantic model (bind, type-check)              │           │
@@ -40,9 +40,9 @@
 
   RUNTIME (CLR)
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  Class Loader  →  JIT Compiler (RyuJIT)  →  Native code (x64/ARM)  │
+  │  Class Loader  →  JIT Compiler (RyuJIT)  →  Native code (x64/ARM)   │
   │                       │                                             │
-  │  ┌────────────────────┼────────────────────────────────────────┐   │
+  │  ┌────────────────────┼────────────────────────────────────────┐    │
   │  │  Runtime Services  │                                        │   │
   │  │  ├── GC       Gen0 (short-lived) → Gen1 → Gen2 + LOH        │   │
   │  │  ├── Thread Pool   (I/O completion ports + worker threads)  │   │
@@ -62,14 +62,14 @@
   │       │         ├── Nullable<T>     (T? — boxing on heap if needed) │
   │       │         └── record struct   (C# 10 — value type + =with=)   │
   │       │                                                             │
-  │       └── Reference types  (heap-allocated, GC-tracked)            │
+  │       └── Reference types  (heap-allocated, GC-tracked)             │
   │                 ├── class           (single inheritance)            │
   │                 ├── record class    (C# 9 — structural equality)    │
   │                 ├── interface       (multiple; default members C#8) │
   │                 ├── delegate        (type-safe function pointer)    │
   │                 └── array           (T[] — covariant, SZArray IL)   │
   │                                                                     │
-  │  Managed pointers (not in hierarchy — compiler-only types)         │
+  │  Managed pointers (not in hierarchy — compiler-only types)          │
   │       ├── ref T            (byref — alias to variable)              │
   │       ├── in T             (readonly ref — no copy, no write)       │
   │       ├── out T            (write-before-read byref)                │

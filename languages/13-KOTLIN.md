@@ -28,7 +28,7 @@ KOTLIN SOURCE → COMPILER MAGIC → JVM BYTECODE → SAME RUNTIME AS JAVA
        │
        ▼
   ┌─────────────────────────────────────────────────────────┐
-  │               Kotlin Compiler (kotlinc)                  │
+  │               Kotlin Compiler (kotlinc)                 │
   │                                                         │
   │  Null safety checks ──────────────────┐                 │
   │  (T vs T? enforced at compile time)   │                 │

@@ -76,23 +76,23 @@ AXIS 4 — VALUE CATEGORIES (move semantics)
 
   lvalue — has a persistent address; can appear on left of =
   ┌─────────────────────────────────────┐
-  │  int x = 5;    x is an lvalue      │
-  │  std::string s = "hello";          │
-  │  s is an lvalue (has address &s)   │
+  │  int x = 5;    x is an lvalue       │
+  │  std::string s = "hello";           │
+  │  s is an lvalue (has address &s)    │
   └─────────────────────────────────────┘
 
   rvalue — temporary; no persistent address; right side of =
   ┌─────────────────────────────────────┐
-  │  5           — integer literal     │
-  │  std::string("hello") — temporary  │
-  │  getStr()    — return value        │
+  │  5           — integer literal      │
+  │  std::string("hello") — temporary   │
+  │  getStr()    — return value         │
   └─────────────────────────────────────┘
 
   move — transfer ownership of rvalue resource (no copy)
   ┌──────────────────────────────────────────────────────┐
-  │  std::vector<int> a = {1,2,3};                      │
-  │  std::vector<int> b = std::move(a);  // a now empty │
-  │  // O(1) — no element copy; just pointer swap       │
+  │  std::vector<int> a = {1,2,3};                       │
+  │  std::vector<int> b = std::move(a);  // a now empty  │
+  │  // O(1) — no element copy; just pointer swap        │
   └──────────────────────────────────────────────────────┘
 
   T&    — lvalue reference (alias to existing object)

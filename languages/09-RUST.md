@@ -44,7 +44,7 @@ BORROW RULES (enforced at compile time by the borrow checker)
 ┌─────────────────────────────────────────────────────────────────────┐
 │                                                                     │
 │   &T  shared borrow (immutable)     &mut T  exclusive borrow        │
-│  ┌──────────────────────┐          ┌──────────────────────┐        │
+│  ┌──────────────────────┐          ┌──────────────────────┐         │
 │  │  &s  &s  &s  ... &s  │          │       &mut s          │        │
 │  │  many readers OK     │          │  ONE writer, no       │        │
 │  │  (read-only)         │          │  readers allowed      │        │

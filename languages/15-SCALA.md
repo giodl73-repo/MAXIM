@@ -27,53 +27,53 @@ Two things about Scala that bite everyone without a diagram: the unified type hi
 │                                                                         │
 │                              Any                                        │
 │                             /    \                                      │
-│                        AnyVal   AnyRef  (≈ java.lang.Object)           │
-│                       /  | | \     |  \  \  \                          │
+│                        AnyVal   AnyRef  (≈ java.lang.Object)            │
+│                       /  | | \     |  \  \  \                           │
 │                    Int Double  \  String List  custom classes           │
 │                   Boolean Char  \                                       │
-│                   Long Float  Unit  (≈ void — the one-value type)      │
+│                   Long Float  Unit  (≈ void — the one-value type)       │
 │                                 |                                       │
-│                               Null  (subtype of all AnyRef only)       │
+│                               Null  (subtype of all AnyRef only)        │
 │                                 |    null literal has this type         │
 │                                 |                                       │
-│                             Nothing  (BOTTOM — subtype of everything)  │
+│                             Nothing  (BOTTOM — subtype of everything)   │
 │                                                                         │
 │  Nothing enables:                                                       │
-│    throw new Exception("msg")  :: Nothing  — fits anywhere             │
+│    throw new Exception("msg")  :: Nothing  — fits anywhere              │
 │    ???                         :: Nothing  — unimplemented stub         │
 │    def loop: Nothing = loop    — diverging computation                  │
 │                                                                         │
-│  Why this matters: List[Nothing] <: List[Int] (if List is covariant)   │
-│  Nil (the empty list) has type List[Nothing] — it fits any List[T]     │
+│  Why this matters: List[Nothing] <: List[Int] (if List is covariant)    │
+│  Nil (the empty list) has type List[Nothing] — it fits any List[T]      │
 └─────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                    IMPLICIT / GIVEN RESOLUTION ORDER                    │
 │                                                                         │
-│  Call site: def sort[T](list: List[T])(using ord: Ordering[T])         │
-│  You write: sort(points)   — compiler must find Ordering[Point]        │
+│  Call site: def sort[T](list: List[T])(using ord: Ordering[T])          │
+│  You write: sort(points)   — compiler must find Ordering[Point]         │
 │                                                                         │
 │  Search order (first match wins):                                       │
 │                                                                         │
 │  1. Local scope                                                         │
-│     given myOrd: Ordering[Point] = ...  // in current block/method     │
+│     given myOrd: Ordering[Point] = ...  // in current block/method      │
 │         ↓ not found                                                     │
 │  2. Imported scope                                                      │
 │     import MyOrderings.given            // explicit import              │
 │         ↓ not found                                                     │
-│  3. Companion object of the type argument (Point)                      │
-│     object Point { given Ordering[Point] = ... }  // idiomatic home    │
+│  3. Companion object of the type argument (Point)                       │
+│     object Point { given Ordering[Point] = ... }  // idiomatic home     │
 │         ↓ not found                                                     │
-│  4. Companion object of the typeclass (Ordering)                       │
-│     object Ordering { given Ordering[Int] = ... } // stdlib instances  │
+│  4. Companion object of the typeclass (Ordering)                        │
+│     object Ordering { given Ordering[Int] = ... } // stdlib instances   │
 │         ↓ not found → COMPILE ERROR                                     │
 │                                                                         │
-│  Scala 2 syntax:  implicit val myOrd: Ordering[Point] = ...            │
-│  Scala 3 syntax:  given Ordering[Point] with { def compare(...) }      │
+│  Scala 2 syntax:  implicit val myOrd: Ordering[Point] = ...             │
+│  Scala 3 syntax:  given Ordering[Point] with { def compare(...) }       │
 │                                                                         │
-│  Derived instances: compiler can synthesize Ordering[List[T]]          │
-│  from Ordering[T] via implicit/given functions — this is how           │
-│  scalaz/cats/magnolia generate instances for case classes.             │
+│  Derived instances: compiler can synthesize Ordering[List[T]]           │
+│  from Ordering[T] via implicit/given functions — this is how            │
+│  scalaz/cats/magnolia generate instances for case classes.              │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 

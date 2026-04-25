@@ -44,7 +44,7 @@ QUERY EXECUTION PIPELINE
    │  • Index selection: can we seek instead of scan?               │
    │  • Join reordering: smaller table on the outer loop            │
    │  • Predicate pushdown: filter early to reduce row count        │
-   │  • Join algorithm: nested loop vs hash join vs merge join       │
+   │  • Join algorithm: nested loop vs hash join vs merge join      │
    │  • Materialization: should a CTE be computed once or inlined?  │
    └────────────────────────────────────────────────────────────────┘
        │

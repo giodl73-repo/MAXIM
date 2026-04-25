@@ -25,7 +25,7 @@ JavaScript is single-threaded. All concurrency is achieved by the event loop han
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                        JAVASCRIPT RUNTIME (V8 + Platform)                   │
 │                                                                             │
-│  ┌──────────────────┐       ┌──────────────────────────────────────────┐   │
+│  ┌──────────────────┐       ┌──────────────────────────────────────────┐    │
 │  │   CALL STACK     │       │   WEB APIs (browser) / Node.js C++ APIs  │   │
 │  │  (synchronous)   │ ───── │                                          │   │
 │  │                  │ offld │  setTimeout(cb, t)   ──────────────────┐ │   │
@@ -41,7 +41,7 @@ JavaScript is single-threaded. All concurrency is achieved by the event loop han
 │           │          ┌────────────────────────────────────────────┐         │
 │           │          │           QUEUES                           │         │
 │           │          │                                            │         │
-│           │          │  ┌─────────────────────────────────────┐  │         │
+│           │          │  ┌─────────────────────────────────────┐  │          │
 │           │          │  │  MICROTASK QUEUE  (higher priority)  │  │         │
 │           │          │  │  • Promise .then() / .catch()        │  │         │
 │           │          │  │  • async/await continuations         │  │         │
@@ -49,10 +49,10 @@ JavaScript is single-threaded. All concurrency is achieved by the event loop han
 │           │          │  └─────────────────────────────────────┘  │         │
 │           │          │                                            │         │
 │           │          │  ┌─────────────────────────────────────┐  │         │
-│           │          │  │  MACROTASK QUEUE (lower priority)    │  │         │
-│           │          │  │  • setTimeout / setInterval cbs      │  │         │
-│           │          │  │  • I/O callbacks (Node)              │  │         │
-│           │          │  │  • UI rendering events (browser)     │  │         │
+│           │          │  │  MACROTASK QUEUE (lower priority)    │  │        │
+│           │          │  │  • setTimeout / setInterval cbs      │  │        │
+│           │          │  │  • I/O callbacks (Node)              │  │        │
+│           │          │  │  • UI rendering events (browser)     │  │        │
 │           │          │  └─────────────────────────────────────┘  │         │
 │           │          └────────────────────────────────────────────┘         │
 │           │                               │                                 │
