@@ -26,44 +26,44 @@ JavaScript is single-threaded. All concurrency is achieved by the event loop han
 │                        JAVASCRIPT RUNTIME (V8 + Platform)                   │
 │                                                                             │
 │  ┌──────────────────┐       ┌──────────────────────────────────────────┐    │
-│  │   CALL STACK     │       │   WEB APIs (browser) / Node.js C++ APIs  │   │
-│  │  (synchronous)   │ ───── │                                          │   │
-│  │                  │ offld │  setTimeout(cb, t)   ──────────────────┐ │   │
+│  │   CALL STACK     │       │   WEB APIs (browser) / Node.js C++ APIs  │    │
+│  │  (synchronous)   │ ───── │                                          │    │
+│  │                  │ offld │  setTimeout(cb, t)   ──────────────────┐ │    │
 │  │  main()          │       │  fetch(url)           HTTP/network      │ │   │
 │  │  ├─ foo()        │       │  readFile(path, cb)   libuv I/O         │ │   │
 │  │  │   └─ bar()    │       │  addEventListener()   DOM events        │ │   │
 │  │  │       ...     │       │                                         │ │   │
 │  │  └─ [returns]    │       │  When work completes, push cb ──────────┘ │   │
 │  │                  │       │  to the appropriate queue                 │   │
-│  └──────────────────┘       └──────────────────────────────────────────┘   │
+│  └──────────────────┘       └──────────────────────────────────────────┘    │
 │           ▲                               │                                 │
 │           │                               ▼                                 │
 │           │          ┌────────────────────────────────────────────┐         │
 │           │          │           QUEUES                           │         │
 │           │          │                                            │         │
-│           │          │  ┌─────────────────────────────────────┐  │          │
+│           │          │  ┌──────────────────────────────────────┐  │         │
 │           │          │  │  MICROTASK QUEUE  (higher priority)  │  │         │
 │           │          │  │  • Promise .then() / .catch()        │  │         │
 │           │          │  │  • async/await continuations         │  │         │
 │           │          │  │  • queueMicrotask()                  │  │         │
-│           │          │  └─────────────────────────────────────┘  │         │
+│           │          │  └──────────────────────────────────────┘  │         │
 │           │          │                                            │         │
-│           │          │  ┌─────────────────────────────────────┐  │         │
-│           │          │  │  MACROTASK QUEUE (lower priority)   │  │        │
-│           │          │  │  • setTimeout / setInterval cbs     │  │        │
-│           │          │  │  • I/O callbacks (Node)             │  │        │
-│           │          │  │  • UI rendering events (browser)    │  │        │
-│           │          │  └─────────────────────────────────────┘  │         │
+│           │          │  ┌──────────────────────────────────────┐  │         │
+│           │          │  │  MACROTASK QUEUE (lower priority)    │  │         │
+│           │          │  │  • setTimeout / setInterval cbs      │  │         │
+│           │          │  │  • I/O callbacks (Node)              │  │         │
+│           │          │  │  • UI rendering events (browser)     │  │         │
+│           │          │  └──────────────────────────────────────┘  │         │
 │           │          └────────────────────────────────────────────┘         │
 │           │                               │                                 │
-│           │          ┌────────────────────┴──────────────────────┐          │
+│           │          ┌───────────────────────────────────────────┐          │
 │           └──────────│           EVENT LOOP TICK                 │          │
-│                      │                                            │          │
+│                      │                                           │          │
 │                      │  1. Is call stack empty?  (if not, wait)  │          │
-│                      │  2. Drain ALL microtasks (loop until empty)│          │
-│                      │  3. Pick ONE macrotask → push to stack     │          │
-│                      │  4. Repeat                                 │          │
-│                      └────────────────────────────────────────────┘          │
+│                      │  2. Drain ALL microtasks (until empty)    │          │
+│                      │  3. Pick ONE macrotask → push to stack    │          │
+│                      │  4. Repeat                                │          │
+│                      └───────────────────────────────────────────┘          │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

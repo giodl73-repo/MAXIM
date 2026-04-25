@@ -45,9 +45,9 @@ SWIFT'S THREE MEMORY MODELS
 │                                                                     │
 │  ARC lifecycle (compiler-inserted):                                 │
 │  ┌──────────┐  assign   ┌──────────────────┐  last ref gone         │
-│  │  object  │──────────►│  retain (rc++)   │                       │
-│  │  on heap │  release  │  release (rc--)  │──────►  deinit()      │
-│  └──────────┘◄──────────│  rc==0 → dealloc │         deallocate    │
+│  │  object  │──────────►│  retain (rc++)   │                        │
+│  │  on heap │  release  │  release (rc--)  │ ──────►  deinit()      │
+│  └──────────┘ ◄──────────│  rc==0 → dealloc │         deallocate    │
 │                          └──────────────────┘                       │
 │                                                                     │
 │  Retain cycles: A → B → A  neither rc ever reaches 0               │
@@ -56,23 +56,23 @@ SWIFT'S THREE MEMORY MODELS
 │  C# comparison: like C# class (GC handles cycles; ARC does not)    │
 └─────────────────────────────────────────────────────────────────────┘
 ┌─────────────────────────────────────────────────────────────────────┐
-│  actor — ARC + SERIAL EXECUTOR ISOLATION                           │
+│  actor — ARC + SERIAL EXECUTOR ISOLATION                            │
 │                                                                     │
-│  actor Counter { var value = 0 }                                   │
+│  actor Counter { var value = 0 }                                    │
 │                                                                     │
-│  External access must go through actor's serial queue:             │
+│  External access must go through actor's serial queue:              │
 │                                                                     │
-│  Task 1 ──► await counter.increment() ─┐                           │
-│  Task 2 ──► await counter.get()       ─┼─► serial executor        │
-│  Task 3 ──► await counter.increment() ─┘   (one at a time)        │
+│  Task 1 ──► await counter.increment() ─┐                            │
+│  Task 2 ──► await counter.get()       ─┼─► serial executor          │
+│  Task 3 ──► await counter.increment() ─┘   (one at a time)          │
 │                                              ↓                      │
-│                                         counter.value (safe)       │
+│                                         counter.value (safe)        │
 │                                                                     │
 │  ARC manages lifetime (same as class)                               │
-│  Serial executor prevents data races (no locks needed!)            │
+│  Serial executor prevents data races (no locks needed!)             │
 │                                                                     │
-│  C# comparison: like a class protected by a SemaphoreSlim(1),      │
-│  but enforced by the compiler via async/await protocol             │
+│  C# comparison: like a class protected by a SemaphoreSlim(1),       │
+│  but enforced by the compiler via async/await protocol              │
 └─────────────────────────────────────────────────────────────────────┘
 
 DECISION FLOWCHART — which memory model?
@@ -305,7 +305,7 @@ s.isEmpty
 // Character — extended grapheme cluster (NOT a UTF-16 code unit)
 let c: Character = "A"
 let c: Character = "é"          // ONE character (e + combining acute = 1 grapheme)
-let c: Character = "😊"         // ONE character
+let c: Character = "\u{1F60A}"  // ONE character (U+1F60A = face emoji)
 
 // Unicode scalars
 for scalar in s.unicodeScalars { scalar.value }
