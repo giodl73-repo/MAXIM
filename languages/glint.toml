@@ -1,0 +1,58 @@
+# glint.toml — languages/ section schema
+# Inherits: root glint.toml (Decision Cheat Sheet, ASCII art checks, code block required)
+# Adds: language-guide-specific structural requirements + table schemas
+
+[markdown]
+enabled = true
+
+# ─────────────────────────────────────────────────────────
+# Language guides (02-C.md through 17-SQL.md)
+# ─────────────────────────────────────────────────────────
+
+[[section_schemas]]
+paths = ["*.md"]
+paths_exclude = ["00-OVERVIEW.md", "01-CHEATSHEET.md", "STATUS.md"]
+required_h2_all = [
+    "Type System Snapshot",
+    "Syntax Reference Card",
+    "What Makes It Distinct",
+]
+
+# ─────────────────────────────────────────────────────────
+# Overview (00-OVERVIEW.md) — taxonomy and genealogy file
+# ─────────────────────────────────────────────────────────
+
+[[section_schemas]]
+paths = ["00-OVERVIEW.md"]
+required_h2_all = ["Language Genealogy"]
+
+# ─────────────────────────────────────────────────────────
+# Table schemas — required tables with specific structure
+# Applies to all language guides (paths_exclude controls what's checked)
+# ─────────────────────────────────────────────────────────
+
+[markdown_table]
+enabled = true
+required_tables = 1          # every language guide must have at least one table
+
+# Type System Snapshot — fixed 6-row schema across all language guides
+# Columns: Axis (key), <language-specific value column>
+# Required rows: the 6 standard type system axes
+[[markdown_table.table_schemas]]
+heading = "Type System Snapshot"
+required_columns = ["Axis"]
+required_row_keys = [
+    "Binding",
+    "Typing",
+    "Strength",
+    "Type system",
+    "Type inference",
+    "Memory model",
+]
+min_body_rows = 4
+
+# Decision Cheat Sheet — must exist and have content
+# Column naming varies by guide, so we just require min body rows
+[[markdown_table.table_schemas]]
+heading = "Decision Cheat Sheet"
+min_body_rows = 2
