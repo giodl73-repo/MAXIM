@@ -18,7 +18,7 @@ connections and honest identification of where biology and AI diverge.
 ## Directory Structure
 
 ```
-C:\src\reference\neuroscience\
+reference\neuroscience\
 ├── 00-OVERVIEW.md            ← Anatomy hierarchy, NT systems, measurement methods, evolution
 ├── 01-NEURONS-SIGNALS.md     ← Hodgkin-Huxley model, Nernst/GHK, cable theory, synaptic transmission
 ├── 02-SYSTEMS-CIRCUITS.md    ← Visual system, motor, cerebellum, basal ganglia, hippocampus, LTP

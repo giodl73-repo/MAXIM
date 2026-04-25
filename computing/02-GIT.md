@@ -727,9 +727,9 @@ Tags mark specific commits — typically release points.
 Multiple working trees from one repository. Useful when you need to work on two branches simultaneously without stashing/switching.
 
 ```
-  C:\src\craftworks\          (main repo, on main branch)
-  C:\src\craftworks-feat-x\   (worktree, on feat-x branch)
-  C:\src\craftworks-hotfix\   (worktree, on hotfix branch)
+  craftworks\          (main repo, on main branch)
+  craftworks-feat-x\   (worktree, on feat-x branch)
+  craftworks-hotfix\   (worktree, on hotfix branch)
 
   git worktree add ../craftworks-feat-x -b feature/new-ui
   git worktree add ../craftworks-hotfix hotfix/critical-fix

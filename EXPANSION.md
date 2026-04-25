@@ -90,11 +90,11 @@ scanning the directory, even before content is written.
 Use this template when launching each writing agent. Customize the bracketed fields.
 
 ```
-You are writing Group {NA} of Batch {N} of the reference library at C:\src\reference.
+You are writing Group {NA} of Batch {N} of the reference library at reference.
 
 DIRECTORIES: {dir1}/ ({N1} files), {dir2}/ ({N2} files), {dir3}/ ({N3} files)
 
-LEARNER PROFILE (from C:\src\reference\CLAUDE.md):
+LEARNER PROFILE (from reference\CLAUDE.md):
 - VP of Software Engineering, Microsoft, age 52
 - MIT double major: Mathematics + Theoretical Computer Science
 - Deep background: .NET, Azure, VSTS, ADO.NET, ADF, Power Query
@@ -111,7 +111,7 @@ STYLE CONTRACT (follow computing/01-PACKAGE.md format exactly):
 6. End each file with Decision Cheat Sheet + Common Confusion Points sections
 
 INSTRUCTIONS:
-1. Read C:\src\reference\CLAUDE.md for full learner profile
+1. Read reference\CLAUDE.md for full learner profile
 2. Read each directory's STATUS.md for planned file list and coverage notes
 3. Write every file listed in each STATUS.md — full content, not stubs
 4. Follow the format of computing/01-PACKAGE.md exactly
@@ -146,13 +146,13 @@ Run these before the final commit:
 
 ```bash
 # Count total files
-find C:/src/reference -name "*.md" | wc -l
+find reference -name "*.md" | wc -l
 
 # Check for unfinished stubs
-grep -r "^> Stub" C:/src/reference --include="*.md" -l
+grep -r "^> Stub" reference --include="*.md" -l
 
 # Verify STATUS.md completions
-grep -r "🔜" C:/src/reference --include="STATUS.md" -l
+grep -r "🔜" reference --include="STATUS.md" -l
 ```
 
 All three should return clean results before declaring a batch done.
@@ -165,10 +165,10 @@ All three should return clean results before declaring a batch done.
 
 ```bash
 # Stage everything in the new directories
-git add C:/src/reference/<dir1>/ C:/src/reference/<dir2>/ ...
+git add reference/<dir1>/ reference/<dir2>/ ...
 
 # Stage TRACKER.md and EXPANSION.md
-git add C:/src/reference/TRACKER.md C:/src/reference/EXPANSION.md
+git add reference/TRACKER.md reference/EXPANSION.md
 
 # Commit
 git commit -m "Add Batch N: 12 new reference directories, NNN files"

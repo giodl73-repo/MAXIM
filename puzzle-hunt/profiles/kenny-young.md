@@ -124,4 +124,4 @@ Kenny reviews constraint systems the way an expert engineer debugs architecture 
 - [Pavel's Puzzle Blog — Intern Puzzleday](http://www.pavelspuzzles.com/microsoft_intern_puzzleday/)
 - [Puzzlers for Harris](https://www.puzzlersforharris.org/)
 - [List of MS Puzzlehunts — Puzzle Wiki](https://www.puzzles.wiki/wiki/List_of_Microsoft_Puzzlehunts)
-- `C:\src\puzzlehunt\evidence\ms-hunt-puzzles-detail.md` — full puzzle mechanics reference
+- `puzzlehunt\evidence\ms-hunt-puzzles-detail.md` — full puzzle mechanics reference

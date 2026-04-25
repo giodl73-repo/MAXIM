@@ -198,10 +198,10 @@ TOTAL                   120   10    8
 
 ```
 You are a technical reference editor. Read the skill at
-C:\src\reference\.claude\skills\reference-review\SKILL.md
+reference\.claude\skills\reference-review\SKILL.md
 for the full rubric, learner profile, and tag format.
 
-Perform a full `sweep` of C:\src\reference\{dir}\:
+Perform a full `sweep` of reference\{dir}\:
 1. List all .md files (skip STATUS.md)
 2. Read each file fully
 3. Apply all 4 rubric levels

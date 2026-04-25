@@ -562,7 +562,7 @@ The Strong Programme's claim — that scientific consensus is partly a social ac
 
 ## Links to Other Modules
 
-- Philosophy of science: `C:\src\reference\philosophy\06-PHILOSOPHY-OF-SCIENCE.md` — connects to these same frameworks
+- Philosophy of science: `reference\philosophy\06-PHILOSOPHY-OF-SCIENCE.md` — connects to these same frameworks
 - Replication crisis and p-hacking: `09-CONTEMPORARY-SCIENCE.md` — these are practical failures of Mertonian norms
 - Manhattan Project and Big Science: `08-BIG-SCIENCE.md` — government funding vs Mertonian disinterestedness
 - Kuhnian case studies in detail: `03-SCIENTIFIC-REVOLUTION.md` through `07-BIOLOGY-REVOLUTION.md`

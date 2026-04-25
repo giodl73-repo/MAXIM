@@ -144,8 +144,8 @@ Full build from scratch. This is the most expensive operation — reads every co
 
 ```
 You are building a concept index for the MAXIM reference library.
-Read C:\src\reference\.claude\skills\reference-index\SKILL.md for the full specification.
-Read C:\src\reference\CLAUDE.md for the library structure and learner profile.
+Read reference\.claude\skills\reference-index\SKILL.md for the full specification.
+Read reference\CLAUDE.md for the library structure and learner profile.
 
 Extract concepts from these directories:
 [list of directories for this agent]

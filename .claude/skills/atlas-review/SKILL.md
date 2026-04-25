@@ -31,9 +31,9 @@ The panel derives from a prior design review (full text in `atlas/REVIEWS.md`):
 
 Before reviewing, the agent MUST read:
 
-1. **Design spec**: `C:\src\reference\.claude\skills\atlas-cartography\SKILL.md` — the full SVG style guide, coordinate protocol, glyph legend, and generation workflow
-2. **Approved prototype**: `C:\src\reference\atlas\_test_florida.html` — the gold-standard Florida SVG (light/warm style, `cy="-lat"` coordinate fix)
-3. **Project plan**: `C:\src\reference\PROJECTS.md` § Atlas — all 52 card-to-map assignments
+1. **Design spec**: `reference\.claude\skills\atlas-cartography\SKILL.md` — the full SVG style guide, coordinate protocol, glyph legend, and generation workflow
+2. **Approved prototype**: `reference\atlas\_test_florida.html` — the gold-standard Florida SVG (light/warm style, `cy="-lat"` coordinate fix)
+3. **Project plan**: `reference\PROJECTS.md` § Atlas — all 52 card-to-map assignments
 4. **The map file(s)** being reviewed
 
 ---

@@ -113,4 +113,4 @@ Dana reviews visually — she debugs the visual language the way an engineer tra
 - [3rd Bravo Awards — Puzzle Wiki](https://www.puzzles.wiki/wiki/3rd_Bravo_Awards)
 - [Puzzlers for Harris](https://www.puzzlersforharris.org/)
 - [PuzzleJS](https://tabascq.github.io/PuzzleJS/)
-- `C:\src\puzzlehunt\evidence\ms-hunt-puzzles-detail.md` — full puzzle mechanics reference
+- `puzzlehunt\evidence\ms-hunt-puzzles-detail.md` — full puzzle mechanics reference
