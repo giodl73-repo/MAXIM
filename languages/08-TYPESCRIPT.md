@@ -34,23 +34,23 @@
 │             │                                                               │
 │             ▼                                                               │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
-│  │                    tsc  (TypeScript Compiler)                        │   │
+│  │                    tsc  (TypeScript Compiler)                       │   │
 │  │                                                                     │   │
-│  │   Parse → Build symbol table → Type check → Emit                   │   │
+│  │   Parse → Build symbol table → Type check → Emit                    │   │
 │  └──────────────────────┬──────────────────────┬────────────────────────┘  │
 │                         │                      │                            │
 │              ┌──────────▼──────────┐  ┌────────▼────────────────────────┐  │
 │              │  TYPE CHECK ERRORS  │  │  JS OUTPUT  (.js)               │  │
 │              │  (compile-time only)│  │  (types fully erased)           │  │
 │              │                     │  │                                 │  │
-│              │  error TS2345:      │  │  function add(a, b) {          │  │
-│              │  Argument of type   │  │    return a + b;               │  │
-│              │  'string' is not    │  │  }                             │  │
+│              │  error TS2345:      │  │  function add(a, b) {           │  │
+│              │  Argument of type   │  │    return a + b;                │  │
+│              │  'string' is not    │  │  }                              │  │
 │              │  assignable to      │  │                                 │  │
-│              │  parameter of type  │  │  No type annotations.          │  │
-│              │  'number'           │  │  No interfaces.                │  │
-│              │                     │  │  No generics.                  │  │
-│              │  These errors do    │  │  Identical to hand-written JS. │  │
+│              │  parameter of type  │  │  No type annotations.           │  │
+│              │  'number'           │  │  No interfaces.                 │  │
+│              │                     │  │  No generics.                   │  │
+│              │  These errors do    │  │  Identical to hand-written JS.  │  │
 │              │  NOT stop emit      │  │                                 │  │
 │              │  by default.        │  └────────────────┬────────────────┘  │
 │              └─────────────────────┘                   │                   │

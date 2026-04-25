@@ -33,7 +33,7 @@ MOVE vs COPY
 │  Heap types → MOVE semantics     │  Stack types → COPY semantics    │
 │                                  │                                  │
 │  let s1 = String::from("hi");    │  let x: i32 = 5;                 │
-│  let s2 = s1;   // s1 is DEAD   │  let y = x;   // x still alive  │
+│  let s2 = s1;   // s1 is DEAD    │  let y = x;   // x still alive   │
 │  // use s1 → compile error       │  // use x → OK                   │
 │                                  │                                  │
 │  s1.clone() → explicit deep copy │  Copy types: i32, f64, bool,     │
@@ -58,17 +58,17 @@ LIFETIMES — a borrow cannot outlive its owner
 ┌─────────────────────────────────────────────────────────────────────┐
 │                                                                     │
 │  fn main() {                                                        │
-│      let owner = String::from("hello");   ← owner created          │
+│      let owner = String::from("hello");   ← owner created           │
 │      {                                                              │
-│          let r = &owner;   ← borrow begins                         │
-│          println!("{r}");  ← use borrow                            │
-│      }                     ← borrow ends                           │
-│      drop(owner);          ← owner dropped AFTER last borrow use   │
+│          let r = &owner;   ← borrow begins                          │
+│          println!("{r}");  ← use borrow                             │
+│      }                     ← borrow ends                            │
+│      drop(owner);          ← owner dropped AFTER last borrow use    │
 │  }                                                                  │
 │                                                                     │
 │  Lifetime annotations <'a> appear when compiler can't infer         │
 │  which input ref determines how long the output ref lives:          │
-│  fn longest<'a>(s1: &'a str, s2: &'a str) -> &'a str              │
+│  fn longest<'a>(s1: &'a str, s2: &'a str) -> &'a str                │
 │  = "output lives no longer than the shorter input"                  │
 └─────────────────────────────────────────────────────────────────────┘
 
@@ -346,7 +346,7 @@ let raw = r##"can contain #"# inside"##;
 
 // char (not u8! — Unicode scalar value, 4 bytes)
 let c: char = 'A';
-let emoji: char = '😊';    // single emoji = one char
+let emoji: char = '\u{1F60A}';  // single emoji = one char (U+1F60A)
 c as u32                    // Unicode code point
 char::from(65u8)            // ASCII only
 

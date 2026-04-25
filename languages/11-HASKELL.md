@@ -50,7 +50,7 @@ The three core abstractions form a strict inclusion chain. Every Monad is an App
 │                                                                             │
 │  Laws:                                                                      │
 │    fmap id       = id                    -- identity                        │
-│    fmap (f . g)  = fmap f . fmap g       -- composition                    │
+│    fmap (f . g)  = fmap f . fmap g       -- composition                     │
 │                                                                             │
 │  Instances: Maybe, [], Either e, IO, ((->) r)                               │
 │    fmap (+1) (Just 5)     = Just 6                                          │
@@ -80,34 +80,34 @@ The three core abstractions form a strict inclusion chain. Every Monad is an App
 │  │  ┌────────────────────────────────────────────────────────────────┐  │   │
 │  │  │                          MONAD                                 │  │   │
 │  │  │                                                                │  │   │
-│  │  │  class Applicative m => Monad m where                         │  │   │
+│  │  │  class Applicative m => Monad m where                          │  │   │
 │  │  │    return :: a -> m a          -- same as pure                 │  │   │
-│  │  │    (>>=)  :: m a -> (a -> m b) -> m b                         │  │   │
+│  │  │    (>>=)  :: m a -> (a -> m b) -> m b                          │  │   │
 │  │  │                                                                │  │   │
 │  │  │  Laws:                                                         │  │   │
 │  │  │    return a >>= f     = f a         -- left identity           │  │   │
 │  │  │    m >>= return       = m           -- right identity          │  │   │
-│  │  │    (m >>= f) >>= g    = m >>= (\x -> f x >>= g)  -- assoc.    │  │   │
+│  │  │    (m >>= f) >>= g    = m >>= (\x -> f x >>= g)  -- assoc.     │  │   │
 │  │  │                                                                │  │   │
-│  │  │  Instances and their computational meaning:                   │  │   │
+│  │  │  Instances and their computational meaning:                    │  │   │
 │  │  │                                                                │  │   │
-│  │  │  Maybe    — short-circuit on Nothing (absent value)           │  │   │
-│  │  │    Just 5 >>= \x -> Just (x+1)  = Just 6                      │  │   │
-│  │  │    Nothing >>= \x -> Just (x+1) = Nothing                     │  │   │
+│  │  │  Maybe    — short-circuit on Nothing (absent value)            │  │   │
+│  │  │    Just 5 >>= \x -> Just (x+1)  = Just 6                       │  │   │
+│  │  │    Nothing >>= \x -> Just (x+1) = Nothing                      │  │   │
 │  │  │                                                                │  │   │
-│  │  │  []       — non-determinism (all combinations)                │  │   │
-│  │  │    [1,2] >>= \x -> [x, x*10]   = [1,10,2,20]                 │  │   │
+│  │  │  []       — non-determinism (all combinations)                 │  │   │
+│  │  │    [1,2] >>= \x -> [x, x*10]   = [1,10,2,20]                   │  │   │
 │  │  │                                                                │  │   │
 │  │  │  IO       — sequencing real-world effects                      │  │   │
 │  │  │    getLine >>= putStrLn                                        │  │   │
 │  │  │                                                                │  │   │
-│  │  │  Either e — error propagation, Left short-circuits            │  │   │
-│  │  │    Right 5 >>= \x -> Right (x+1)  = Right 6                   │  │   │
-│  │  │    Left "err" >>= \x -> Right x   = Left "err"                │  │   │
+│  │  │  Either e — error propagation, Left short-circuits             │  │   │
+│  │  │    Right 5 >>= \x -> Right (x+1)  = Right 6                    │  │   │
+│  │  │    Left "err" >>= \x -> Right x   = Left "err"                 │  │   │
 │  │  │                                                                │  │   │
-│  │  │  State s  — threading state through a computation             │  │   │
-│  │  │    runState (do { put 5; x <- get; return (x+1) }) 0          │  │   │
-│  │  │            = (6, 5)    -- (result, final state)               │  │   │
+│  │  │  State s  — threading state through a computation              │  │   │
+│  │  │    runState (do { put 5; x <- get; return (x+1) }) 0           │  │   │
+│  │  │            = (6, 5)    -- (result, final state)                │  │   │
 │  │  └────────────────────────────────────────────────────────────────┘  │   │
 │  └──────────────────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────────────┘
