@@ -1,9 +1,10 @@
 # MAXIM — A Reference Library
 
-> A personal encyclopedia of what humans know, organized as a deck of cards.
-> 13 sections · 4 volumes each · 52 volumes total · ~2,170 guides · ~14,070 pages.
+**Skills built MAXIM; skills keep it honest.** A self-authored peer-level reference spanning computing, mathematics, physics, life sciences, history, the arts, material culture, and the natural world — every page produced through a review pipeline (`@editor` tags as live dashboard, a style contract as gate, a graduation check before a guide leaves review). The same skills that write each guide hold it to the bar.
 
-Every guide follows the same shape: **landscape diagram first, then layers downward, decision cheat sheet at the end.** ASCII throughout, no pictures that can't be reproduced with a typewriter. Written for a capable reader — enough structure to navigate a field you haven't studied, enough depth to stay useful after you have.
+**13 sections · 217 directories · ~2,170 guides · ~14,070 pages · 52 bound volumes.** Organized as a deck of cards — 13 sections × 4 volumes — so the whole library fits a single shelf. Every guide opens with a **landscape diagram**, layers downward into the territory, and ends with a **decision cheat sheet** for "what do I use when." ASCII throughout, no pictures that can't be reproduced with a typewriter.
+
+Built for the reader who wants enough structure to navigate a field they didn't study, and enough depth to stay useful after they have.
 
 ---
 
