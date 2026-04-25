@@ -96,8 +96,8 @@ void Greet(IAnimal a) { }
 Greet(new Cat());  // ERROR            // Cat has the right shape.
                                        // This compiles fine:
                                        function greet(a: Animal) { }
-                                       greet(new Cat());  // OK ✅
-                                       greet({ name: "Rex" }); // OK ✅
+                                       greet(new Cat());  // OK [OK]
+                                       greet({ name: "Rex" }); // OK [OK]
 ```
 
 Any object that has the required properties — regardless of where it was defined or what it declared — satisfies the type. This is duck typing promoted to the type system level.
@@ -121,7 +121,7 @@ const p: Point = { x: 1, y: 2, z: 3 };  // ERROR: 'z' not in Point
 
 // Via intermediate variable — structural check only, passes:
 const obj = { x: 1, y: 2, z: 3 };
-const p: Point = obj;  // OK ✅ — shape is compatible
+const p: Point = obj;  // OK [OK] — shape is compatible
 
 // Via function argument — excess property check fires again:
 function move(p: Point) { }
@@ -129,7 +129,7 @@ move({ x: 1, y: 2, z: 3 });  // ERROR at call site
 
 // But not if the object comes from elsewhere:
 const config = getConfig();     // returns { x, y, z }
-move(config);                   // OK ✅
+move(config);                   // OK [OK]
 ```
 
 The rule: excess property checks apply when you write an object literal **directly** into a typed position. Intermediate variables bypass it. This is intentional — object literals are assumed to be "fresh" with no intended extras; variables might be wider types being narrowed.
@@ -315,14 +315,14 @@ const msg = `Hello, ${name}!`;  // template literal
 
 // Template literal TYPES (type system only)
 type Greeting = `Hello, ${string}!`;
-// "Hello, Alice!" satisfies Greeting ✅
-// "Hi, Alice!" does NOT ✅
+// "Hello, Alice!" satisfies Greeting [OK]
+// "Hi, Alice!" does NOT [OK]
 
 // String narrowing
 type Color = "red" | "green" | "blue";
 function setColor(c: Color) { }
-setColor("red")         // ✅
-setColor("purple")      // TypeScript error ✅
+setColor("red")         // [OK]
+setColor("purple")      // TypeScript error [OK]
 
 // char: same as JS — no char type
 ```
@@ -331,7 +331,7 @@ setColor("purple")      // TypeScript error ✅
 ```typescript
 // TypeScript strict null checks (tsconfig: "strictNullChecks": true)
 let s: string = null;       // ERROR with strict null checks
-let s: string | null = null; // ✅
+let s: string | null = null; // [OK]
 
 // Optional property
 interface User {

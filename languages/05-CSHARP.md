@@ -121,7 +121,7 @@ object.Equals(a, b)             // null-safe
 
 // Records get structural == automatically (C# 9+)
 record Point(int X, int Y);
-new Point(1, 2) == new Point(1, 2)  // true ✅
+new Point(1, 2) == new Point(1, 2)  // true [OK]
 
 // Pattern matching
 x is int n                          // type check + extract

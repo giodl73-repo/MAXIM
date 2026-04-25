@@ -267,22 +267,22 @@ fn print_all(items: &[&dyn Display]) { ... }
 
 | Language | Static? | Strong? | Nominal? | Inference | Memory | Binding default |
 |----------|---------|---------|----------|-----------|--------|-----------------|
-| C        | ✅ | ❌ weak | ✅ | ❌ none | manual | early |
-| C++      | ✅ | ❌ weak | ✅ | partial (auto) | RAII/manual | early + vtable |
-| Java     | ✅ | ✅ | ✅ | partial (var) | GC | late (virtual default) |
-| **C#**   | **✅** | **✅** | **✅** | **partial (var)** | **GC** | **early (non-virtual default)** |
-| Python   | ❌ | ✅ | duck | ❌ none | RC+GC | late (always) |
-| JS       | ❌ | ❌ weak | duck | ❌ none | GC | late (always) |
-| TS       | gradual | ❌ | structural | partial | GC | late (always) |
-| Rust     | ✅ | ✅ | ✅ | partial/local | ownership | early (+ dyn for late) |
-| Go       | ✅ | ✅ | structural (iface) | partial (:=) | GC | late (via interface) |
-| Haskell  | ✅ | ✅ | ✅ | full HM | GC | early (+ class dispatch) |
-| F#       | ✅ | ✅ | ✅ | full HM | GC | early |
-| Kotlin   | ✅ | ✅ | ✅ | partial | GC | late (virtual default) |
-| Swift    | ✅ | ✅ | ✅ | partial | ARC | early + protocol dispatch |
-| Scala    | ✅ | ✅ | ✅ | partial | GC | late (virtual default) |
-| Ruby     | ❌ | ✅ | duck | ❌ none | GC | late (always) |
-| SQL      | varies | ✅ | N/A | N/A | server | N/A |
+| C        | [OK] | [NO] weak | [OK] | [NO] none | manual | early |
+| C++      | [OK] | [NO] weak | [OK] | partial (auto) | RAII/manual | early + vtable |
+| Java     | [OK] | [OK] | [OK] | partial (var) | GC | late (virtual default) |
+| **C#**   | **[OK]** | **[OK]** | **[OK]** | **partial (var)** | **GC** | **early (non-virtual default)** |
+| Python   | [NO] | [OK] | duck | [NO] none | RC+GC | late (always) |
+| JS       | [NO] | [NO] weak | duck | [NO] none | GC | late (always) |
+| TS       | gradual | [NO] | structural | partial | GC | late (always) |
+| Rust     | [OK] | [OK] | [OK] | partial/local | ownership | early (+ dyn for late) |
+| Go       | [OK] | [OK] | structural (iface) | partial (:=) | GC | late (via interface) |
+| Haskell  | [OK] | [OK] | [OK] | full HM | GC | early (+ class dispatch) |
+| F#       | [OK] | [OK] | [OK] | full HM | GC | early |
+| Kotlin   | [OK] | [OK] | [OK] | partial | GC | late (virtual default) |
+| Swift    | [OK] | [OK] | [OK] | partial | ARC | early + protocol dispatch |
+| Scala    | [OK] | [OK] | [OK] | partial | GC | late (virtual default) |
+| Ruby     | [NO] | [OK] | duck | [NO] none | GC | late (always) |
+| SQL      | varies | [OK] | N/A | N/A | server | N/A |
 
 C# row is bolded as the reference baseline. Read every other row as a delta from that row.
 
@@ -305,8 +305,8 @@ interface IFoo { name: string; }
 interface IBar { name: string; }
 
 const dog = { name: "Rex" };
-const foo: IFoo = dog;  // ✅ — compatible
-const bar: IBar = dog;  // ✅ — compatible — TypeScript doesn't care about name
+const foo: IFoo = dog;  // [OK] — compatible
+const bar: IBar = dog;  // [OK] — compatible — TypeScript doesn't care about name
 ```
 
 ```go
@@ -329,11 +329,11 @@ A language design tension: can you add both new **types** and new **operations**
                      without touching       without touching
                      existing code?         existing code?
 
-OOP (Java/C#):           ✅ (new class)          ❌ (modify interface/base)
-FP (Haskell pattern):    ❌ (modify match)        ✅ (new function)
-Typeclasses (Haskell):   ✅                       ✅ (but requires care)
-Traits (Rust):           ✅ (orphan rules)        ✅ (impl Trait for Type)
-Open classes (Ruby):     ✅ (monkey-patch)        ✅ (monkey-patch)
+OOP (Java/C#):           [OK] (new class)          [NO] (modify interface/base)
+FP (Haskell pattern):    [NO] (modify match)        [OK] (new function)
+Typeclasses (Haskell):   [OK]                       [OK] (but requires care)
+Traits (Rust):           [OK] (orphan rules)        [OK] (impl Trait for Type)
+Open classes (Ruby):     [OK] (monkey-patch)        [OK] (monkey-patch)
 ```
 
 This is why Haskell typeclasses, Rust traits, and Scala's typeclass pattern matter:

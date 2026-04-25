@@ -1,0 +1,69 @@
+# glint.toml — MAXIM Reference Library root schema
+# Applies to all content guides. Per-directory glint.toml files inherit and extend.
+
+[meta]
+name = "MAXIM Reference Library"
+description = "Universal rules for all 2,170 reference guides"
+
+[files]
+include = ["**/*.md"]
+exclude = [
+    # Library management (not content guides)
+    "TRACKER.md", "BILL-OF-MATERIALS.md", "VOLUMES.md", "EXPANSION.md",
+    "REVIEW.md", "SCORECARD.md", "HISTORY.md", "CONCEPT-INDEX.md",
+    "READING-MAPS.md", "PREREQUISITES.md", "PROJECTS.md", "COLOPHON.md",
+    "FOREWORD.md", "DEDICATION.md", "PUZZLE-HUNT.md", "TO-SIGNAL.md",
+    "CLAUDE.md", "LICENSE.md", "book.md", "index.md",
+    # Generated / archive
+    "_archive/**",
+    # Special structure — not content guides
+    "sections/**",
+    "atlas/**", "naturalis/**", "joker/**", "cards/**",
+    "puzzle-hunt/**", "read-this-first/**",
+    # Directory metadata files
+    "*/00-OVERVIEW.md", "*/STATUS.md",
+    # Root-level scripts
+    "*.py",
+]
+root = true
+
+# ─────────────────────────────────────────────────────────
+# ASCII Art — applies to all guides
+# ─────────────────────────────────────────────────────────
+
+[ascii_box]
+enabled = true
+tolerance = 0
+code_blocks_only = true
+check_unicode = true
+
+[ascii_flow]
+enabled = true
+check_arrow_alignment = true
+check_cell_padding = true
+min_cell_padding = 1
+
+# ─────────────────────────────────────────────────────────
+# Markdown — universal structure rules
+# ─────────────────────────────────────────────────────────
+
+[markdown]
+enabled = true
+max_h1 = 1
+required_h2_all = ["Decision Cheat Sheet"]
+
+[[markdown.required_patterns]]
+pattern = "```"
+description = "must contain at least one code block (landscape diagram)"
+severity = "warning"
+
+# ─────────────────────────────────────────────────────────
+# Custom rules
+# ─────────────────────────────────────────────────────────
+
+[[custom_rules]]
+name = "no_editor_tags"
+description = "@editor review tags should be resolved before a guide is considered complete"
+pattern = "@editor\\["
+negate = true
+severity = "warning"

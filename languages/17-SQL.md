@@ -13,7 +13,7 @@
 | Strength | Strong within types; casting required across types |
 | Type system | Nominal (by column definition) |
 | Type inference | Minimal — expressions infer from operands |
-| "Memory model" | Server-managed (MVCC, buffer pool, WAL) |
+| Memory model | Server-managed (MVCC, buffer pool, WAL) |
 
 ---
 
@@ -513,7 +513,7 @@ SET STATISTICS TIME ON;
 -- Key patterns for performance
 -- 1. Avoid functions on indexed columns in WHERE:
 WHERE UPPER(email) = 'ALICE@EXAMPLE.COM'    -- can't use index on email!
-WHERE email = LOWER('ALICE@EXAMPLE.COM')    -- CAN use index ✅
+WHERE email = LOWER('ALICE@EXAMPLE.COM')    -- CAN use index [OK]
 
 -- 2. N+1 problem — use JOINs not loops
 -- 3. SELECT only needed columns — avoid SELECT *

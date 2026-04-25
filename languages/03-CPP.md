@@ -29,19 +29,19 @@ C++ is best understood as four orthogonal complexity axes that interact but can 
 AXIS 1 — OOP LAYER (runtime polymorphism)
 ─────────────────────────────────────────
   Base class                   Derived class
-  ┌──────────────────┐         ┌──────────────────────┐
-  │ class Shape {    │◄────────│ class Circle : Shape {│
-  │   virtual draw();│         │   void draw() override│
-  │   virtual ~Shape │         │ };                    │
-  │ }                │         └──────────────────────┘
+  ┌──────────────────┐         ┌────────────────────────┐
+  │ class Shape {    │◄────────│ class Circle : Shape { │
+  │   virtual draw();│         │   void draw() override │
+  │   virtual ~Shape │         │ };                     │
+  │ }                │         └────────────────────────┘
   └────────┬─────────┘
            │ vtable pointer (one per object instance)
            ▼
-  ┌──────────────────────────────┐
-  │  vtable for Circle           │  ← one per concrete type, not per instance
-  │  [0] → Circle::draw()        │    ~8 bytes added to every polymorphic object
-  │  [1] → Circle::~Circle()     │    virtual call = pointer chase (cache miss risk)
-  └──────────────────────────────┘
+  ┌────────────────────────────────────────────────────┐
+  │  vtable for Circle — one per concrete type         │
+  │  [0] → Circle::draw()     ~8 bytes per object      │
+  │  [1] → Circle::~Circle()  virtual call = ptr chase │
+  └────────────────────────────────────────────────────┘
 
 AXIS 2 — TEMPLATE LAYER (compile-time polymorphism)
 ────────────────────────────────────────────────────

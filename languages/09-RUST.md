@@ -133,7 +133,7 @@ let s2 = s1.clone();    // deep copy — s1 still valid
 // Copy types (stack-only: integers, floats, bool, char, tuples of Copy)
 let x = 5;
 let y = x;          // COPIED — x is still valid
-println!("{x}");    // ✅
+println!("{x}");    // [OK]
 
 // References (borrowing)
 let s = String::from("hello");

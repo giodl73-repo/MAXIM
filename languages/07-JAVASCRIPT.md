@@ -49,10 +49,10 @@ JavaScript is single-threaded. All concurrency is achieved by the event loop han
 │           │          │  └─────────────────────────────────────┘  │         │
 │           │          │                                            │         │
 │           │          │  ┌─────────────────────────────────────┐  │         │
-│           │          │  │  MACROTASK QUEUE (lower priority)    │  │        │
-│           │          │  │  • setTimeout / setInterval cbs      │  │        │
-│           │          │  │  • I/O callbacks (Node)              │  │        │
-│           │          │  │  • UI rendering events (browser)     │  │        │
+│           │          │  │  MACROTASK QUEUE (lower priority)   │  │        │
+│           │          │  │  • setTimeout / setInterval cbs     │  │        │
+│           │          │  │  • I/O callbacks (Node)             │  │        │
+│           │          │  │  • UI rendering events (browser)    │  │        │
 │           │          │  └─────────────────────────────────────┘  │         │
 │           │          └────────────────────────────────────────────┘         │
 │           │                               │                                 │
@@ -351,8 +351,8 @@ function* gen() {
 // this context — arrow functions capture lexical this
 class Timer {
     start() {
-        setTimeout(() => this.tick(), 1000);  // ✅ arrow captures this
-        setTimeout(function() { this.tick(); }, 1000);  // ❌ this is undefined
+        setTimeout(() => this.tick(), 1000);  // [OK] arrow captures this
+        setTimeout(function() { this.tick(); }, 1000);  // [NO] this is undefined
     }
 }
 ```

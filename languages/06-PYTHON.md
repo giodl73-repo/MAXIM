@@ -111,12 +111,12 @@ NoneType: None               # the null
 [1,2,3] == [1,2,3]          # True (different objects, same content)
 
 # is checks identity (same object)
-a is None                    # ✅ use is for None/True/False
+a is None                    # [OK] use is for None/True/False
 a is not None
 
 # !! Never use == None
 x == None                    # works but wrong style (mypy warns)
-x is None                    # correct ✅
+x is None                    # correct [OK]
 
 # Comparison chaining — Python unique feature!
 1 < x < 10                  # True if 1 < x AND x < 10 (short-circuit)
@@ -279,7 +279,7 @@ f"{'left':<10}"             # "left      " (left-aligned)
 ### Null / None
 ```python
 None                        # the null object (NoneType)
-x is None                   # correct null check ✅
+x is None                   # correct null check [OK]
 x is not None
 
 # Optional in type hints (3.9+ style)

@@ -28,7 +28,7 @@ SOURCE → COMPILER → BYTECODE → RUNTIME
        │
        ▼
   ┌─────────┐
-  │  javac  │  ← Java compiler (produces platform-neutral bytecode)
+  │  javac  │
   └─────────┘
        │
        ▼
@@ -104,13 +104,13 @@ p.x()   // accessor method (not field)
 ### Equality & Comparison
 ```java
 // THE classic Java trap:
-// == for primitives: value equality ✅
-// == for objects:    REFERENCE equality ❌ (almost never what you want)
+// == for primitives: value equality [OK]
+// == for objects:    REFERENCE equality [NO] (almost never what you want)
 
 String a = "hello";
 String b = new String("hello");
 a == b          // false (different objects) ← TRAP
-a.equals(b)     // true (same content) ✅
+a.equals(b)     // true (same content) [OK]
 
 // Null-safe equality
 Objects.equals(a, b)    // null-safe; returns false if either is null, true if both null
@@ -120,7 +120,7 @@ Objects.equals(a, b)    // null-safe; returns false if either is null, true if b
 Integer.compare(1, 2)  // -1
 
 // Records get equals() automatically
-new Point(1,2).equals(new Point(1,2))   // true ✅
+new Point(1,2).equals(new Point(1,2))   // true [OK]
 ```
 
 ### Logical Operators
@@ -334,12 +334,12 @@ METHOD DISPATCH — THE DEFAULT FLIP
   │ }                       │         │ }                       │
   │                         │         │                         │
   │ class Dog extends Animal│         │ class Dog : Animal {    │
-  │   void speak() { ... }  │  ←OK    │   void Speak() { ... } │ ←HIDES
-  │ }                       │         │ }                       │  (no poly)
+  │   void speak() { ... }  │         │   void Speak() { ... }  │
+  │ }                       │         │ }                       │
   └─────────────────────────┘         └─────────────────────────┘
 
   Animal a = new Dog();               Animal a = new Dog();
-  a.speak()  →  Dog.speak()  ✅       a.Speak()  →  Animal.Speak() ⚠️
+  a.speak()  →  Dog.speak()  [OK]       a.Speak()  →  Animal.Speak() [!]
   (virtual dispatch works)            (non-virtual — Dog hides, not overrides)
 ```
 

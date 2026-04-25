@@ -168,7 +168,7 @@ compare 1 2             // -1 (LT)
 
 // Records have structural equality by default
 type Point = { X: int; Y: int }
-{ X=1; Y=2 } = { X=1; Y=2 }    // true ✅ (unlike C# classes)
+{ X=1; Y=2 } = { X=1; Y=2 }    // true [OK] (unlike C# classes)
 ```
 
 ### Logical Operators
@@ -319,7 +319,7 @@ type Person = {
     Age: int
 }
 let alice = { Name = "Alice"; Age = 30 }
-let older = { alice with Age = 31 }   // non-destructive update ✅
+let older = { alice with Age = 31 }   // non-destructive update [OK]
 
 // Anonymous records (F# 4.6+)
 let point = {| X = 1; Y = 2 |}

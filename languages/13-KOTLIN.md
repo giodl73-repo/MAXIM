@@ -45,8 +45,8 @@ KOTLIN SOURCE → COMPILER MAGIC → JVM BYTECODE → SAME RUNTIME AS JAVA
        │
        ▼
   ┌───────────────────────────────────┐
-  │           JVM Runtime             │  ← same JVM as Java
-  │  Class Loader → JIT → GC → Exec  │
+  │           JVM Runtime             │
+  │  Class Loader → JIT → GC → Exec   │
   └───────────────────────────────────┘
 
   Kotlin also compiles to: Kotlin/JS (browser) · Kotlin/Native (LLVM, no JVM)
