@@ -38,8 +38,8 @@
 
  SECURITY CROSS-CUT  (applies to all layers above)
  ┌─────────────────────────────────────────────────────────────────────────────┐
- │  cryptography/  ·  symmetric · asymmetric · TLS 1.3 · Signal protocol      │
- │                 ·  zero-knowledge proofs · post-quantum (ML-KEM/SLH-DSA)   │
+ │  cryptography/  ·  symmetric · asymmetric · TLS 1.3 · Signal protocol       │
+ │                 ·  zero-knowledge proofs · post-quantum (ML-KEM/SLH-DSA)    │
  └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

@@ -56,7 +56,7 @@
  QUANTUM LAYER
  ┌──────────────────────────────────────────────────────────┐
  │  quantum-computing/                                      │
- │  qubits · gates · Shor/Grover · error correction        │
+ │  qubits · gates · Shor/Grover · error correction         │
  │  hardware platforms (superconducting/photonic/ion trap)  │
  └──────────────────────────────────────────────────────────┘
 ```

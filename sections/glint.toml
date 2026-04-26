@@ -1,0 +1,19 @@
+# glint.toml — sections/ directory schema
+# Section landing pages have a Directories table with required navigation links.
+
+[markdown_table]
+enabled = true
+
+# Every section landing page must have a Directories table where
+# Directory and Entry Point columns contain clickable markdown links.
+# This enforces the navigation links added in the repo cleanup.
+[[markdown_table.table_schemas]]
+heading = "Directories"
+required_columns = ["Directory", "Entry Point"]
+min_body_rows = 3
+
+# Directory column: each cell must be [dirname/](../dirname/00-OVERVIEW.md)
+# Entry Point column: each cell must be [filename.md](../dirname/filename.md)
+link_columns = ["Directory", "Entry Point"]
+link_auto_fix = "directory"   # auto-fix bare dirname/ cells
+verify_link_targets = true    # verify the linked files actually exist

@@ -45,8 +45,8 @@ The word became a department name when the disciplines it covered were too new f
  └────────────────────────┘
  ┌────────────────────────────────────────────────────────────────────────────┐
  │                         materials-processing/                              │
- │  TTT/CCT diagrams · heat treatment · solidification · fracture mechanics  │
- │  fatigue · deformation processing · surface treatments · characterization │
+ │  TTT/CCT diagrams · heat treatment · solidification · fracture mechanics   │
+ │  fatigue · deformation processing · surface treatments · characterization  │
  └────────────────────────────────────────────────────────────────────────────┘
 
  BATCH 12 (planned)
