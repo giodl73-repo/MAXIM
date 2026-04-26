@@ -142,19 +142,19 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
   NOT METAPHOR — Bidirectional anatomical and biochemical connections:
 
   ┌────────────────────────────────────────────────────────────────┐
-  │                                                                 │
-  │   BRAIN                                                         │
-  │     ↑↓                                                          │
-  │   VAGUS NERVE (80% afferent — gut → brain)                    │
-  │     ↑↓                                                          │
-  │   ENTERIC NERVOUS SYSTEM (gut's own nervous system)           │
-  │   ~500 million neurons — more than spinal cord                │
-  │   Serotonin: ~95% of body's serotonin made in gut (EC cells)  │
-  │     ↑↓                                                          │
+  │                                                                │
+  │   BRAIN                                                        │
+  │     ↑↓                                                         │
+  │   VAGUS NERVE (80% afferent — gut → brain)                     │
+  │     ↑↓                                                         │
+  │   ENTERIC NERVOUS SYSTEM (gut's own nervous system)            │
+  │   ~500 million neurons — more than spinal cord                 │
+  │   Serotonin: ~95% of body's serotonin made in gut (EC cells)   │
+  │     ↑↓                                                         │
   │   GUT EPITHELIUM + IMMUNE CELLS                                │
-  │     ↑↓                                                          │
-  │   GUT MICROBIOME                                                │
-  │                                                                 │
+  │     ↑↓                                                         │
+  │   GUT MICROBIOME                                               │
+  │                                                                │
   └────────────────────────────────────────────────────────────────┘
 
   MECHANISMS:
@@ -211,14 +211,14 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
   ┌────────────────────────────────────────────────────────────────┐
   │ VAGINAL BIRTH                  CESAREAN BIRTH                  │
   │ Inoculated with:               Inoculated with:                │
-  │ Lactobacillus, Prevotella,    Skin bacteria, hospital env.    │
+  │ Lactobacillus, Prevotella,    Skin bacteria, hospital env.     │
   │ Sneathia (vaginal flora)       Staphylococcus, Cutibacterium   │
-  │                                                                 │
+  │                                                                │
   │ C-section microbiome:                                          │
-  │ → Higher rates of asthma, obesity, T1D in population studies  │
-  │ → Confounded by indication bias (C-sections for high-risk)    │
+  │ → Higher rates of asthma, obesity, T1D in population studies   │
+  │ → Confounded by indication bias (C-sections for high-risk)     │
   │ → Vaginal seeding trials: painting C-section babies with       │
-  │   maternal vaginal fluid → partially transfers microbiome     │
+  │   maternal vaginal fluid → partially transfers microbiome      │
   └────────────────────────────────────────────────────────────────┘
 
   INFANT PERIOD:
@@ -282,18 +282,18 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
   ┌────────────────────────────────────────────────────────────────┐
   │ RATIONALE: Restore colonization resistance by restoring        │
   │            the diverse microbiome from a healthy donor         │
-  │                                                                 │
+  │                                                                │
   │ EFFICACY: ~90% cure rate for recurrent CDI                     │
-  │ (vs. ~50% for antibiotics in recurrent disease)               │
-  │                                                                 │
-  │ MECHANISM: Donor microbiome outcompetes C. diff               │
+  │ (vs. ~50% for antibiotics in recurrent disease)                │
+  │                                                                │
+  │ MECHANISM: Donor microbiome outcompetes C. diff                │
   │ Route: Colonoscopy, nasojejunal tube, or oral capsules         │
-  │                                                                 │
+  │                                                                │
   │ FDA STATUS: Vowst (oral, 2023) and Rebyota (enema, 2022)       │
   │             — first FDA-approved microbiome-based drugs        │
-  │                                                                 │
+  │                                                                │
   │ RISKS: Serious adverse events from unscreened donors (cases    │
-  │        of drug-resistant organism transfer, COVID-19 in 2020) │
+  │        of drug-resistant organism transfer, COVID-19 in 2020)  │
   │ Screening: Stool donors screened for pathogens, parasites,     │
   │            genetic markers of disease                          │
   └────────────────────────────────────────────────────────────────┘
@@ -335,11 +335,11 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
   ─ Unique: LOWER diversity = HEALTHY (opposite of gut rule)
   ─ Lactobacillus-dominated community types (Community State Types, CSTs):
   ┌────────────────────────────────────────────────────────────────┐
-  │ CST I:   L. crispatus dominant  → most protective             │
-  │ CST II:  L. gasseri dominant    → protective                  │
-  │ CST III: L. iners dominant      → transitional, less stable   │
-  │ CST IV:  Low Lactobacillus, diverse → Bacterial Vaginosis     │
-  │ CST V:   L. jensenii dominant   → protective                  │
+  │ CST I:   L. crispatus dominant  → most protective              │
+  │ CST II:  L. gasseri dominant    → protective                   │
+  │ CST III: L. iners dominant      → transitional, less stable    │
+  │ CST IV:  Low Lactobacillus, diverse → Bacterial Vaginosis      │
+  │ CST V:   L. jensenii dominant   → protective                   │
   └────────────────────────────────────────────────────────────────┘
   ─ Lactobacillus produces lactic acid → pH ~3.5–4.5 → protection
   ─ Bacterial Vaginosis (BV): CST IV, Gardnerella vaginalis bloom
@@ -417,41 +417,41 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
   TWO MAIN APPROACHES:
   ┌────────────────────────────────────────────────────────────────┐
   │ 16S rRNA AMPLICON SEQUENCING                                   │
-  │                                                                 │
-  │ Target: The 16S ribosomal RNA gene (present in ALL bacteria)  │
-  │ Method: PCR amplify variable regions (V1-V2, V3-V4, V4)       │
-  │ Cost: ~$10–30/sample (cheap, scalable)                        │
-  │                                                                 │
-  │ Analysis:                                                       │
+  │                                                                │
+  │ Target: The 16S ribosomal RNA gene (present in ALL bacteria)   │
+  │ Method: PCR amplify variable regions (V1-V2, V3-V4, V4)        │
+  │ Cost: ~$10–30/sample (cheap, scalable)                         │
+  │                                                                │
+  │ Analysis:                                                      │
   │   QIIME2 / DADA2: ASV (amplicon sequence variants) calling     │
-  │   ASVs > OTUs: 100% identical sequences, not 97% clustering   │
+  │   ASVs > OTUs: 100% identical sequences, not 97% clustering    │
   │   Alpha diversity: Within-sample diversity (Shannon, Faith PD) │
   │   Beta diversity: Between-sample (Bray-Curtis, UniFrac)        │
   │   PCoA: Principal coordinates analysis for visualization       │
-  │                                                                 │
-  │ LIMITATION: Can't identify most species below genus level     │
+  │                                                                │
+  │ LIMITATION: Can't identify most species below genus level      │
   │             No functional information                          │
   │             Primer bias: Archaea/fungi not amplified           │
   └────────────────────────────────────────────────────────────────┘
 
   ┌────────────────────────────────────────────────────────────────┐
   │ SHOTGUN METAGENOMICS                                           │
-  │                                                                 │
-  │ Sequence ALL DNA in sample → reconstruct genomes + function   │
-  │ Cost: ~$100–500/sample                                        │
-  │                                                                 │
-  │ Analysis:                                                       │
-  │   MetaPhlAn4: Species-level profiling from marker genes       │
-  │   HUMAnN3: Functional annotation (MetaCyc pathways)           │
-  │   MAG assembly: MetaSPAdes + binning (MaxBin2, MetaBAT2)      │
-  │   CheckM: MAG completeness + contamination assessment         │
-  │                                                                 │
-  │ ADVANTAGES:                                                     │
-  │   Species-level resolution, strain-level with care            │
+  │                                                                │
+  │ Sequence ALL DNA in sample → reconstruct genomes + function    │
+  │ Cost: ~$100–500/sample                                         │
+  │                                                                │
+  │ Analysis:                                                      │
+  │   MetaPhlAn4: Species-level profiling from marker genes        │
+  │   HUMAnN3: Functional annotation (MetaCyc pathways)            │
+  │   MAG assembly: MetaSPAdes + binning (MaxBin2, MetaBAT2)       │
+  │   CheckM: MAG completeness + contamination assessment          │
+  │                                                                │
+  │ ADVANTAGES:                                                    │
+  │   Species-level resolution, strain-level with care             │
   │   Functional pathways, resistance genes, virulence genes       │
   │   Viruses, fungi, eukaryotes in same run                       │
-  │                                                                 │
-  │ LIMITATION: Host DNA contamination (human reads dominate)     │
+  │                                                                │
+  │ LIMITATION: Host DNA contamination (human reads dominate)      │
   │             Requires host read removal (BMTagger, Kraken2)     │
   └────────────────────────────────────────────────────────────────┘
 

@@ -9,21 +9,21 @@ THE MICROBIAL WORLD
   THREE DOMAINS OF LIFE:
   ┌──────────────────────────────────────────────────────────────────┐
   │                         LUCA                                     │
-  │              (Last Universal Common Ancestor)                     │
-  │                    /           \                                  │
-  │            BACTERIA          ARCHAEA ─── EUKARYA                │
-  │                                                                   │
-  │  BACTERIA             ARCHAEA              EUKARYA (microbes)   │
-  │  Prokaryote           Prokaryote           Eukaryote            │
-  │  No nucleus           No nucleus           Nucleus + organelles │
-  │  Peptidoglycan wall   No peptidoglycan     Fungi, protozoa, etc.│
-  │  All environments     Extreme environments All environments     │
-  │  ~30,000 sp. described ~500 sp. described  Vast diversity       │
-  │  E. coli, Staph,      Methanobacterium,    Saccharomyces,       │
-  │  Streptococcus        Thermus, Haloarcula  Plasmodium, Candida  │
-  │                                                                   │
-  │  VIRUSES: Not alive (no metabolism); obligate intracellular     │
-  │           ~10⁷ virus genomes per mL of ocean water              │
+  │              (Last Universal Common Ancestor)                    │
+  │                    /           \                                 │
+  │            BACTERIA          ARCHAEA ─── EUKARYA                 │
+  │                                                                  │
+  │  BACTERIA             ARCHAEA              EUKARYA (microbes)    │
+  │  Prokaryote           Prokaryote           Eukaryote             │
+  │  No nucleus           No nucleus           Nucleus + organelles  │
+  │  Peptidoglycan wall   No peptidoglycan     Fungi, protozoa, etc. │
+  │  All environments     Extreme environments All environments      │
+  │  ~30,000 sp. described ~500 sp. described  Vast diversity        │
+  │  E. coli, Staph,      Methanobacterium,    Saccharomyces,        │
+  │  Streptococcus        Thermus, Haloarcula  Plasmodium, Candida   │
+  │                                                                  │
+  │  VIRUSES: Not alive (no metabolism); obligate intracellular      │
+  │           ~10⁷ virus genomes per mL of ocean water               │
   └──────────────────────────────────────────────────────────────────┘
 
   SCALE:

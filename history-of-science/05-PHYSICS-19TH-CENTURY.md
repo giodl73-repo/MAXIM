@@ -6,7 +6,7 @@ The 19th century produced two complete, successful physical theories — thermod
 
 ```
 +------------------------------------------------------------------+
-|         19TH-CENTURY PHYSICS -- CONCEPTUAL MAP                  |
+|         19TH-CENTURY PHYSICS -- CONCEPTUAL MAP                   |
 +------------------------------------------------------------------+
 |                                                                   |
 |  THERMODYNAMICS (1824-1905)                                       |

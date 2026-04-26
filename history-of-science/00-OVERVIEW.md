@@ -128,7 +128,7 @@ Kuhn's **paradigm** = the constellation of shared beliefs, values, exemplary pro
 
 ```
 +--------------------------------------------------+
-|              NORMAL SCIENCE                       |
+|              NORMAL SCIENCE                      |
 |  Paradigm defines:                               |
 |  - What counts as a legitimate problem           |
 |  - What counts as a legitimate solution          |
@@ -147,7 +147,7 @@ Kuhn's **paradigm** = the constellation of shared beliefs, values, exemplary pro
           | explained away — CRISIS
           v
 +--------------------------------------------------+
-|              CRISIS                               |
+|              CRISIS                              |
 |  Proliferation of competing theories             |
 |  Foundational assumptions questioned             |
 |  Older scientists cling to paradigm              |
@@ -158,11 +158,11 @@ Kuhn's **paradigm** = the constellation of shared beliefs, values, exemplary pro
           | A new paradigm emerges — REVOLUTION
           v
 +--------------------------------------------------+
-|              PARADIGM SHIFT                       |
+|              PARADIGM SHIFT                      |
 |  New paradigm incommensurable with old           |
 |  Scientists convert (Gestalt-switch)             |
-|  History rewritten in light of new paradigm     |
-|  Back to normal science under new paradigm      |
+|  History rewritten in light of new paradigm      |
+|  Back to normal science under new paradigm       |
 +--------------------------------------------------+
 ```
 
@@ -203,24 +203,24 @@ Lakatos distinguishes what Kuhn collapses. A **scientific research programme** h
 
 ```
 +--------------------------------------------------+
-|          RESEARCH PROGRAMME STRUCTURE             |
+|          RESEARCH PROGRAMME STRUCTURE            |
 +--------------------------------------------------+
 |                                                  |
 |  HARD CORE                                       |
 |  +-----------------------------------------+    |
-|  | Central theoretical assumptions          |    |
-|  | Protected by convention — NOT abandoned  |    |
-|  | Example (Newtonian): F=ma, inverse       |    |
-|  | square gravity, absolute space/time      |    |
+|  | Central theoretical assumptions          |   |
+|  | Protected by convention — NOT abandoned  |   |
+|  | Example (Newtonian): F=ma, inverse       |   |
+|  | square gravity, absolute space/time      |   |
 |  +-----------------------------------------+    |
 |                                                  |
 |  PROTECTIVE BELT                                 |
 |  +-----------------------------------------+    |
-|  | Auxiliary hypotheses                     |    |
-|  | Modified to absorb anomalies             |    |
-|  | Where actual science happens             |    |
-|  | Example: initial conditions, instrument  |    |
-|  | error theories, existence of new planets |    |
+|  | Auxiliary hypotheses                     |   |
+|  | Modified to absorb anomalies             |   |
+|  | Where actual science happens             |   |
+|  | Example: initial conditions, instrument  |   |
+|  | error theories, existence of new planets |   |
 |  +-----------------------------------------+    |
 |                                                  |
 |  HEURISTICS                                      |
@@ -287,7 +287,7 @@ Robert Merton: science is a social institution maintained by norms. Scientists a
 
 ```
 +------------------------------------------------------------------+
-|                    MERTONIAN NORMS (CUDOS)                        |
+|                    MERTONIAN NORMS (CUDOS)                       |
 +------------------------------------------------------------------+
 |                                                                   |
 |  C — COMMUNALISM                                                  |
@@ -336,7 +336,7 @@ David Bloor's Edinburgh School moved sociology of science from studying *institu
 
 ```
 +--------------------------------------------------+
-|          THE STRONG PROGRAMME                     |
+|          THE STRONG PROGRAMME                    |
 +--------------------------------------------------+
 |                                                  |
 |  1. CAUSALITY                                    |
@@ -403,7 +403,7 @@ What distinguishes science from pseudo-science? Every proposed criterion has bee
 
 ```
 +------------------------------------------------------------------+
-|                  DEMARCATION CRITERIA                             |
+|                  DEMARCATION CRITERIA                            |
 +------------------------------------------------------------------+
 |                                                                   |
 |  VERIFICATIONISM (Logical Positivists)                            |
@@ -452,7 +452,7 @@ This practical demarcation is imperfect but workable.
 
 ```
 +-----------------------------------------------------------------+
-|                    PARADIGM SHIFT CYCLE                          |
+|                    PARADIGM SHIFT CYCLE                         |
 +-----------------------------------------------------------------+
 |                                                                  |
 |  [1] NORMAL SCIENCE PHASE                                        |

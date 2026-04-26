@@ -96,19 +96,19 @@ BACTERIAL CELL: A SIMPLE BUT SOPHISTICATED AGENT
 
   GROWTH CURVE:
   ┌───────────────────────────────────────────────────────────────┐
-  │       Log N│                                                   │
+  │       Log N│                                                  │
   │            │              ╔══════╗                            │
-  │            │          ╔═══╝      ╚═══╗                       │
-  │            │      ╔═══╝               ╚══╗                   │
-  │            │  ╔═══╝                       ╚═══               │
+  │            │          ╔═══╝      ╚═══╗                        │
+  │            │      ╔═══╝               ╚══╗                    │
+  │            │  ╔═══╝                       ╚═══                │
   │            │══╝                                               │
-  │            └─────────────────────────────────────────────────│
-  │                Lag   Exponential  Stationary   Death         │
+  │            └───────────────────────────────────────────────── │
+  │                Lag   Exponential  Stationary   Death          │
   │                                                               │
   │ LAG PHASE:     Adaptation, enzyme synthesis, DNA repair       │
   │ EXPONENTIAL:   Maximum growth rate; most antibiotic-sensitive │
   │ STATIONARY:    Nutrient limitation; stress responses          │
-  │ DEATH PHASE:   Toxic products, nutrient depletion            │
+  │ DEATH PHASE:   Toxic products, nutrient depletion             │
   └───────────────────────────────────────────────────────────────┘
 
   MINIMUM INHIBITORY CONCENTRATION (MIC):
@@ -191,28 +191,28 @@ BACTERIAL CELL: A SIMPLE BUT SOPHISTICATED AGENT
 
   THREE MECHANISMS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │                                                                   │
-  │  TRANSFORMATION                                                   │
+  │                                                                  │
+  │  TRANSFORMATION                                                  │
   │  ─────────────                                                   │
   │  Cell takes up naked DNA from environment                        │
   │  "Competent cells": Express DNA uptake machinery                 │
-  │  Natural: Streptococcus pneumoniae (Griffith's experiment 1928) │
+  │  Natural: Streptococcus pneumoniae (Griffith's experiment 1928)  │
   │  Artificial: Heat shock or electroporation for lab transformation│
-  │                                                                   │
+  │                                                                  │
   │  TRANSDUCTION                                                    │
   │  ──────────────                                                  │
   │  Bacteriophage accidentally packages bacterial DNA               │
   │  → Infects new bacterium → delivers packaged bacterial DNA       │
   │  Generalized: Random bacterial DNA packaged (Pac site error)     │
   │  Specialized: Lambda phage → only flanking genes transferred     │
-  │                                                                   │
+  │                                                                  │
   │  CONJUGATION                                                     │
   │  ─────────────                                                   │
   │  Direct cell-to-cell contact via pilus + mating bridge           │
-  │  Plasmid with tra (transfer) genes: F-plasmid in E. coli        │
+  │  Plasmid with tra (transfer) genes: F-plasmid in E. coli         │
   │  Transfers plasmid DNA unidirectionally                          │
   │  Most clinically important for resistance spread                 │
-  │  Resistance plasmids can transfer between species: E. coli →    │
+  │  Resistance plasmids can transfer between species: E. coli →     │
   │  Klebsiella → Acinetobacter                                      │
   └──────────────────────────────────────────────────────────────────┘
 

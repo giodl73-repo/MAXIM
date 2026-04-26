@@ -135,13 +135,13 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
 
   CLASSIFICATION:
   ┌────────────────────────────────────────────────────────────────┐
-  │ EXOTOXINS: Secreted proteins; highly specific; often binary   │
+  │ EXOTOXINS: Secreted proteins; highly specific; often binary    │
   │   Heat-labile; neutralized by antibodies (toxoids for vaccines)│
-  │                                                                 │
-  │ ENDOTOXIN: LPS from Gram-negative cell wall                   │
-  │   Heat-stable; not protein; not neutralized by antibodies     │
-  │   TLR4 agonist → endotoxic shock at systemic concentrations   │
-  │   (See 01-BACTERIAL-BIOLOGY.md)                               │
+  │                                                                │
+  │ ENDOTOXIN: LPS from Gram-negative cell wall                    │
+  │   Heat-stable; not protein; not neutralized by antibodies      │
+  │   TLR4 agonist → endotoxic shock at systemic concentrations    │
+  │   (See 01-BACTERIAL-BIOLOGY.md)                                │
   └────────────────────────────────────────────────────────────────┘
 
   A-B TOXIN STRUCTURE (most classical toxins):
@@ -319,15 +319,15 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
 
   1. CAPSULE — ANTI-PHAGOCYTIC COATING:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Streptococcus pneumoniae: 100+ capsule serotypes (polysacch.) │
-  │ → Blocks phagocytosis (no complement receptor engagement)     │
-  │ → Vaccines target capsule: PCV13, PCV20, PPSV23               │
-  │                                                                 │
-  │ Cryptococcus neoformans: GXM (glucuronoxylomannan) capsule    │
-  │ → Anti-phagocytic; also anti-inflammatory (anti-complement)   │
-  │                                                                 │
-  │ Klebsiella pneumoniae: Hypermucoviscous capsule (hvKP strains)│
-  │ → String test positive; liver abscess; emerging pathogen      │
+  │ Streptococcus pneumoniae: 100+ capsule serotypes (polysacch.)  │
+  │ → Blocks phagocytosis (no complement receptor engagement)      │
+  │ → Vaccines target capsule: PCV13, PCV20, PPSV23                │
+  │                                                                │
+  │ Cryptococcus neoformans: GXM (glucuronoxylomannan) capsule     │
+  │ → Anti-phagocytic; also anti-inflammatory (anti-complement)    │
+  │                                                                │
+  │ Klebsiella pneumoniae: Hypermucoviscous capsule (hvKP strains) │
+  │ → String test positive; liver abscess; emerging pathogen       │
   └────────────────────────────────────────────────────────────────┘
 
   2. ANTIGENIC VARIATION:

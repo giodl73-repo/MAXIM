@@ -255,15 +255,15 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   Resistance does not respect these boundaries.
 
   ┌────────────────────────────────────────────────────────────────┐
-  │                                                                 │
+  │                                                                │
   │   HUMANS                    ANIMALS                            │
-  │   (clinical use)            (veterinary + agriculture)        │
+  │   (clinical use)            (veterinary + agriculture)         │
   │        ↕                          ↕                            │
   │            ENVIRONMENT                                         │
   │       (soil, water, food chain)                                │
-  │                                                                 │
+  │                                                                │
   │   Resistance genes circulate through all three sectors         │
-  │                                                                 │
+  │                                                                │
   └────────────────────────────────────────────────────────────────┘
 
   AGRICULTURAL ANTIBIOTIC USE:
@@ -311,18 +311,18 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
 
   ECONOMIC MODEL FAILURE:
   ┌────────────────────────────────────────────────────────────────┐
-  │ DEVELOPMENT COST:  $1–2 billion per approved antibiotic       │
+  │ DEVELOPMENT COST:  $1–2 billion per approved antibiotic        │
   │ REVENUE PROBLEM:                                               │
-  │   1. Usage should be MINIMAL (stewardship) → low sales volume │
-  │   2. New antibiotics are "last resort" → <5 years first line  │
+  │   1. Usage should be MINIMAL (stewardship) → low sales volume  │
+  │   2. New antibiotics are "last resort" → <5 years first line   │
   │   3. Short treatment courses (days, not lifetime like statins) │
   │   4. Rapidly developing resistance → short commercial life     │
   │   → RESULT: Economics don't work; no market incentive to invest│
-  │                                                                 │
-  │ COMPARISON:                                                     │
-  │   Statins (cholesterol): Daily, lifetime, $5/pill × millions  │
-  │   Antibiotics: 7 days, once in 5 years, $10/course            │
-  │   → No pharmaceutical incentive to develop new antibiotics    │
+  │                                                                │
+  │ COMPARISON:                                                    │
+  │   Statins (cholesterol): Daily, lifetime, $5/pill × millions   │
+  │   Antibiotics: 7 days, once in 5 years, $10/course             │
+  │   → No pharmaceutical incentive to develop new antibiotics     │
   └────────────────────────────────────────────────────────────────┘
 
   SCIENTIFIC CHALLENGES:

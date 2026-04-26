@@ -167,9 +167,9 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
 
   CANONICAL ARCHITECTURE:
   ┌────────────────────────────────────────────────────────────────┐
-  │                                                                 │
+  │                                                                │
   │  SENSOR HISTIDINE KINASE (HK):                                 │
-  │  ┌────────────────────────────────────────────────────────┐   │
+  │  ┌────────────────────────────────────────────────────────┐    │
   │  │ SENSOR DOMAIN (periplasmic/membrane)                   │   │
   │  │ Detects: pH, osmolarity, nutrients, peptides, etc.     │   │
   │  │                ↓ Signal detected                        │   │
@@ -289,32 +289,32 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
 
   MECHANISM — THREE STAGES:
   ┌────────────────────────────────────────────────────────────────┐
-  │                                                                 │
+  │                                                                │
   │  STAGE 1: ADAPTATION (memory acquisition)                      │
   │  ─────────────────────────────────────────                     │
   │  Phage infects cell → some cells survive                       │
   │  Cas1-Cas2 complex: Captures short DNA from invader (~30 bp)   │
   │  → Inserts as new SPACER at leader end of CRISPR array         │
-  │  CRISPR array: [Leader][Repeat-Spacer][Repeat-Spacer]...      │
+  │  CRISPR array: [Leader][Repeat-Spacer][Repeat-Spacer]...       │
   │  Leader proximal = most recent memory; leader distal = oldest  │
   │  Each spacer = record of past infection                        │
-  │  PAM recognition: Cas1 recognizes PAM adjacent to protospacer │
+  │  PAM recognition: Cas1 recognizes PAM adjacent to protospacer  │
   │  → Prevents self-targeting (host genome lacks PAM context)     │
-  │                                                                 │
+  │                                                                │
   │  STAGE 2: BIOGENESIS (crRNA production)                        │
   │  ─────────────────────────────────────                         │
   │  CRISPR array transcribed as long pre-crRNA                    │
-  │  Processing: RNase III (Type II) or Cas6 (Types I/III)        │
+  │  Processing: RNase III (Type II) or Cas6 (Types I/III)         │
   │  → Mature crRNA: One spacer + partial repeats                  │
   │  crRNA guides Cas effector to target                           │
-  │                                                                 │
+  │                                                                │
   │  STAGE 3: INTERFERENCE (target destruction)                    │
   │  ─────────────────────────────────────────                     │
   │  crRNA + Cas effector complex scans for complementary sequence │
-  │  PAM verification (safety check vs. self)                     │
-  │  Target DNA/RNA bound → cleaved                               │
+  │  PAM verification (safety check vs. self)                      │
+  │  Target DNA/RNA bound → cleaved                                │
   │  Phage genome destroyed → cell survives → immunity hereditary  │
-  │                                                                 │
+  │                                                                │
   └────────────────────────────────────────────────────────────────┘
 
   CRISPR TYPES:
@@ -392,29 +392,29 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
   LENSKI LONG-TERM EVOLUTION EXPERIMENT (LTEE):
   ┌────────────────────────────────────────────────────────────────┐
   │ Started: 1988 (Richard Lenski, Michigan State)                 │
-  │ Organism: E. coli B (REL606)                                  │
-  │ Conditions: 12 replicate populations; minimal glucose medium  │
-  │ Duration: >75,000 generations (as of 2024 — ongoing!)         │
-  │                                                                 │
-  │ KEY FINDINGS:                                                   │
-  │ 1. Fitness increases rapidly then decelerates (hyperbolic)    │
-  │    →30% fitness gain over 50,000 gen; still slowly increasing │
-  │                                                                 │
-  │ 2. CITRATE UTILIZATION (Cit+) phenotype:                      │
+  │ Organism: E. coli B (REL606)                                   │
+  │ Conditions: 12 replicate populations; minimal glucose medium   │
+  │ Duration: >75,000 generations (as of 2024 — ongoing!)          │
+  │                                                                │
+  │ KEY FINDINGS:                                                  │
+  │ 1. Fitness increases rapidly then decelerates (hyperbolic)     │
+  │    →30% fitness gain over 50,000 gen; still slowly increasing  │
+  │                                                                │
+  │ 2. CITRATE UTILIZATION (Cit+) phenotype:                       │
   │    E. coli normally cannot use citrate in aerobic conditions   │
-  │    At ~31,500 generations: ONE population evolved Cit+        │
-  │    Mechanism: Tandem gene duplication of rnk-citT region      │
-  │    → citT (citrate transporter) under aerobic promoter        │
-  │    → "Evolutionary leap" requires multiple mutations (rare)   │
-  │    Demonstrates: Epistasis, historical contingency            │
-  │                                                                 │
-  │ 3. Hypermutator clones: 6/12 populations evolved mutator      │
-  │    phenotype (mutL, mutS inactivation — mismatch repair loss) │
-  │    → Higher mutation rate → faster adaptation initially       │
-  │    → Then fitness cost as deleterious mutations accumulate    │
-  │                                                                 │
-  │ 4. Parallel evolution: Same genes mutated in multiple lineages│
-  │    (topA, nadR, spoT — convergent adaptation to condition)    │
+  │    At ~31,500 generations: ONE population evolved Cit+         │
+  │    Mechanism: Tandem gene duplication of rnk-citT region       │
+  │    → citT (citrate transporter) under aerobic promoter         │
+  │    → "Evolutionary leap" requires multiple mutations (rare)    │
+  │    Demonstrates: Epistasis, historical contingency             │
+  │                                                                │
+  │ 3. Hypermutator clones: 6/12 populations evolved mutator       │
+  │    phenotype (mutL, mutS inactivation — mismatch repair loss)  │
+  │    → Higher mutation rate → faster adaptation initially        │
+  │    → Then fitness cost as deleterious mutations accumulate     │
+  │                                                                │
+  │ 4. Parallel evolution: Same genes mutated in multiple lineages │
+  │    (topA, nadR, spoT — convergent adaptation to condition)     │
   └────────────────────────────────────────────────────────────────┘
 
   DIRECTED EVOLUTION:

@@ -48,36 +48,36 @@ MICROBIAL ECOLOGY: MICROBES AS ECOSYSTEM ENGINEERS
 
   BIOFILM FORMATION STAGES:
   ┌────────────────────────────────────────────────────────────────┐
-  │                                                                 │
+  │                                                                │
   │  1. INITIAL ATTACHMENT                                         │
   │     Reversible adhesion → surface sensing                      │
   │     c-di-GMP (bis-(3'-5')-cyclic dimeric GMP):                 │
-  │     Key second messenger; HIGH c-di-GMP → biofilm mode        │
-  │     LOW c-di-GMP → planktonic/motile mode                     │
-  │     Synthesized by DGCs (diguanylate cyclases)                │
-  │     Degraded by PDEs (phosphodiesterases)                     │
-  │                                                                 │
+  │     Key second messenger; HIGH c-di-GMP → biofilm mode         │
+  │     LOW c-di-GMP → planktonic/motile mode                      │
+  │     Synthesized by DGCs (diguanylate cyclases)                 │
+  │     Degraded by PDEs (phosphodiesterases)                      │
+  │                                                                │
   │  2. IRREVERSIBLE ATTACHMENT                                    │
-  │     Pili, adhesins anchor cell to surface                     │
-  │     Flagella: Assists initial surface contact                 │
-  │     curli fimbriae (E. coli): Amyloid-like; strong adherence  │
-  │                                                                 │
+  │     Pili, adhesins anchor cell to surface                      │
+  │     Flagella: Assists initial surface contact                  │
+  │     curli fimbriae (E. coli): Amyloid-like; strong adherence   │
+  │                                                                │
   │  3. MICROCOLONY FORMATION                                      │
-  │     Division → mushroom-shaped towers                         │
-  │     Water channels form between towers (nutrient delivery)    │
+  │     Division → mushroom-shaped towers                          │
+  │     Water channels form between towers (nutrient delivery)     │
   │     Gene expression program shifts: different from planktonic  │
-  │                                                                 │
-  │  4. MATURATION                                                  │
-  │     EPS matrix: Polysaccharides, proteins, eDNA               │
-  │     Alginate (P. aeruginosa): Viscous capsule                 │
-  │     Pel, Psl (P. aeruginosa): Structural scaffold             │
+  │                                                                │
+  │  4. MATURATION                                                 │
+  │     EPS matrix: Polysaccharides, proteins, eDNA                │
+  │     Alginate (P. aeruginosa): Viscous capsule                  │
+  │     Pel, Psl (P. aeruginosa): Structural scaffold              │
   │     eDNA (extracellular DNA): Structural, also gene reservoir  │
-  │                                                                 │
-  │  5. DISPERSAL                                                   │
-  │     Subpopulation releases planktonic cells                   │
-  │     Triggered by: nutrient limitation, low O₂, c-di-GMP fall  │
+  │                                                                │
+  │  5. DISPERSAL                                                  │
+  │     Subpopulation releases planktonic cells                    │
+  │     Triggered by: nutrient limitation, low O₂, c-di-GMP fall   │
   │     Dispersal: Spreads infection to new sites                  │
-  │                                                                 │
+  │                                                                │
   └────────────────────────────────────────────────────────────────┘
 
   ANTIBIOTIC RESISTANCE IN BIOFILMS:
@@ -112,19 +112,19 @@ MICROBIAL ECOLOGY: MICROBES AS ECOSYSTEM ENGINEERS
   EXAMPLE: Vibrio fischeri (bioluminescence)
   ┌────────────────────────────────────────────────────────────────┐
   │  V. fischeri lives in light organ of bobtail squid (symbiosis) │
-  │                                                                 │
+  │                                                                │
   │  Low density (in seawater):                                    │
-  │  LuxI → low [AHL] (N-acyl homoserine lactone autoinducer)     │
+  │  LuxI → low [AHL] (N-acyl homoserine lactone autoinducer)      │
   │  LuxR (receptor) not activated → no luciferase genes expressed │
-  │  → No bioluminescence (no point — won't be visible)           │
-  │                                                                 │
+  │  → No bioluminescence (no point — won't be visible)            │
+  │                                                                │
   │  High density (inside squid light organ):                      │
-  │  [AHL] accumulates → binds LuxR → LuxR activates luxICDABE    │
-  │  → Luciferase expressed → bioluminescence                     │
-  │  → Squid uses light for counter-illumination (camouflage)     │
-  │                                                                 │
-  │  Cost: Produces AHL constantly at low density (waste)         │
-  │  Payoff: Coordinates behavior for mutualistic function        │
+  │  [AHL] accumulates → binds LuxR → LuxR activates luxICDABE     │
+  │  → Luciferase expressed → bioluminescence                      │
+  │  → Squid uses light for counter-illumination (camouflage)      │
+  │                                                                │
+  │  Cost: Produces AHL constantly at low density (waste)          │
+  │  Payoff: Coordinates behavior for mutualistic function         │
   └────────────────────────────────────────────────────────────────┘
 
   SIGNALING MOLECULES BY CLASS:
@@ -166,23 +166,23 @@ MICROBIAL ECOLOGY: MICROBES AS ECOSYSTEM ENGINEERS
   SOIL MICROBIOME ZONES:
   ┌────────────────────────────────────────────────────────────────┐
   │ RHIZOSPHERE: Root-associated zone                              │
-  │   Root exudates (sugars, amino acids, organic acids) —        │
-  │   up to 40% of photosynthetically fixed carbon released here  │
-  │   Microbial density 10–100x higher than bulk soil             │
+  │   Root exudates (sugars, amino acids, organic acids) —         │
+  │   up to 40% of photosynthetically fixed carbon released here   │
+  │   Microbial density 10–100x higher than bulk soil              │
   │   Recruited community: More Proteobacteria/Actinobacteria      │
-  │                                                                 │
+  │                                                                │
   │ RHIZOPLANE: Root surface itself                                │
-  │   Tight adherence; biofilm-like communities                   │
-  │   Nitrogen fixers (Rhizobium in legume root nodules)          │
-  │                                                                 │
+  │   Tight adherence; biofilm-like communities                    │
+  │   Nitrogen fixers (Rhizobium in legume root nodules)           │
+  │                                                                │
   │ BULK SOIL: Away from roots                                     │
-  │   Oligotrophic conditions → Acidobacteria dominate            │
-  │   Low nutrient → slow-growing specialists                     │
-  │                                                                 │
+  │   Oligotrophic conditions → Acidobacteria dominate             │
+  │   Low nutrient → slow-growing specialists                      │
+  │                                                                │
   │ MYCORRHIZAL ZONE:                                              │
-  │   Fungi colonize roots → massive hyphal networks              │
+  │   Fungi colonize roots → massive hyphal networks               │
   │   Mycorrhizal network: "Wood wide web" — connects trees        │
-  │   Transfer: C from tree → fungus; P/N from fungus → tree      │
+  │   Transfer: C from tree → fungus; P/N from fungus → tree       │
   └────────────────────────────────────────────────────────────────┘
 
   SOIL ECOLOGY KEY ORGANISMS:

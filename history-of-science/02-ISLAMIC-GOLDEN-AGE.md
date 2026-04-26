@@ -353,7 +353,7 @@ The Gregorian calendar was adopted in the West 500 years after Khayyam, and is l
 
 ```
 +------------------------------------------------------------------+
-|              THEORIES OF DECLINE                                  |
+|              THEORIES OF DECLINE                                 |
 +------------------------------------------------------------------+
 |                                                                   |
 |  1. MONGOL DESTRUCTION (1258)                                     |

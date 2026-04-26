@@ -19,20 +19,20 @@ BALTIMORE CLASSIFICATION: THE FORMAL VIRAL TAXONOMY
   │        │             │ (like eukaryotes)      │ Pox, HPV          │
   ├────────┼─────────────┼───────────────────────┼───────────────────┤
   │  II    │ ssDNA (+)   │ ssDNA → dsDNA → mRNA  │ Parvovirus, AAV,  │
-  │        │             │                        │ Circovirus        │
+  │        │             │                        │ Circovirus       │
   ├────────┼─────────────┼───────────────────────┼───────────────────┤
   │  III   │ dsRNA       │ Segmented genome;      │ Rotavirus,        │
   │        │             │ virion RdRp makes mRNA │ Reovirus          │
   ├────────┼─────────────┼───────────────────────┼───────────────────┤
-  │  IV    │ ssRNA (+)   │ Genome = mRNA          │ SARS-CoV-2,       │
-  │        │             │ (directly translated)  │ Poliovirus, HCV,  │
-  │        │             │                        │ Dengue, Zika      │
+  │  IV    │ ssRNA (+)   │ Genome = mRNA          │ SARS-CoV-2,      │
+  │        │             │ (directly translated)  │ Poliovirus, HCV, │
+  │        │             │                        │ Dengue, Zika     │
   ├────────┼─────────────┼───────────────────────┼───────────────────┤
   │  V     │ ssRNA (−)   │ Virion RdRp makes      │ Influenza, Ebola, │
   │        │             │ (+) strand first       │ Measles, Rabies,  │
   │        │             │                        │ RSV               │
   ├────────┼─────────────┼───────────────────────┼───────────────────┤
-  │  VI    │ ssRNA (+)   │ Reverse transcription  │ HIV-1, HIV-2,     │
+  │  VI    │ ssRNA (+)   │ Reverse transcription  │ HIV-1, HIV-2,    │
   │        │ retroviruses│ RNA→DNA → integrates  │ HTLV              │
   ├────────┼─────────────┼───────────────────────┼───────────────────┤
   │  VII   │ dsDNA       │ RNA intermediate       │ Hepatitis B,      │
@@ -110,14 +110,14 @@ BALTIMORE CLASSIFICATION: THE FORMAL VIRAL TAXONOMY
   LYTIC CYCLE:
   ┌────────────────────────────────────────────────────────────────┐
   │ 1. Adsorption: Phage tail fibers bind specific bacterial       │
-  │    surface receptor (LPS, pili, outer membrane protein)       │
-  │ 2. Injection: DNA (sometimes RNA) injected into bacterium     │
-  │ 3. Early gene expression: Phage takes over host machinery     │
-  │ 4. DNA replication: Phage genome amplified                    │
-  │ 5. Late gene expression: Capsid proteins, tail fibers         │
+  │    surface receptor (LPS, pili, outer membrane protein)        │
+  │ 2. Injection: DNA (sometimes RNA) injected into bacterium      │
+  │ 3. Early gene expression: Phage takes over host machinery      │
+  │ 4. DNA replication: Phage genome amplified                     │
+  │ 5. Late gene expression: Capsid proteins, tail fibers          │
   │ 6. Assembly: Phage particles assembled                         │
-  │ 7. Lysis: Holins + lysins burst bacterial cell wall           │
-  │    Release: 50–200 new phage particles                        │
+  │ 7. Lysis: Holins + lysins burst bacterial cell wall            │
+  │    Release: 50–200 new phage particles                         │
   │    Time: ~30–60 minutes                                        │
   └────────────────────────────────────────────────────────────────┘
 

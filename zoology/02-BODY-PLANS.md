@@ -260,8 +260,8 @@ ARTHROPOD TAGMOSIS (examples):
   |  ANCESTRAL:  uniform segments            |
   |  [S1][S2][S3][S4][S5][S6]...             |
   |                                          |
-  |  TAGMOSIS:   specialized regions        |
-  |  [HEAD: S1-6][THORAX: S7-13][ABD: S14+] |
+  |  TAGMOSIS:   specialized regions         |
+  |  [HEAD: S1-6][THORAX: S7-13][ABD: S14+]  |
   +------------------------------------------+
 
 VERTEBRATE TAGMOSIS (analogous):

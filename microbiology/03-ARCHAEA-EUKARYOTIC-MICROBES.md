@@ -15,16 +15,16 @@ THE FORGOTTEN DOMAINS: ARCHAEA AND MICROBIAL EUKARYOTES
   │                        LUCA                                     │
   │              (Last Universal Common Ancestor)                   │
   │                 /                    \                          │
-  │         BACTERIA              ARCHAEA/EUKARYA                  │
+  │         BACTERIA              ARCHAEA/EUKARYA                   │
   │                                    /       \                    │
   │                              ARCHAEA      EUKARYA               │
-  │                                                                  │
+  │                                                                 │
   │  Key evidence: Archaea share:                                   │
-  │  - Similar histone-like proteins (H3/H4 relatives)             │
+  │  - Similar histone-like proteins (H3/H4 relatives)              │
   │  - Introns and similar RNA processing                           │
-  │  - Eukaryotic-like initiation factors for translation          │
-  │  - Similar DNA replication enzymes                             │
-  │  BUT: Prokaryotic-like cell organization (no nucleus)          │
+  │  - Eukaryotic-like initiation factors for translation           │
+  │  - Similar DNA replication enzymes                              │
+  │  BUT: Prokaryotic-like cell organization (no nucleus)           │
   └─────────────────────────────────────────────────────────────────┘
 
   ARCHAEA: KEY DIFFERENCES FROM BACTERIA
@@ -35,12 +35,12 @@ THE FORGOTTEN DOMAINS: ARCHAEA AND MICROBIAL EUKARYOTES
   │ Membrane lipids  Ester-linked        Ether-linked + isoprenoid │
   │                  fatty acids         side chains               │
   │ Transcription    Bacterial σ factor  TATA-box, TBP, TFB        │
-  │                  (σ70 etc.)          (eukaryote-like!)          │
+  │                  (σ70 etc.)          (eukaryote-like!)         │
   │ Ribosome         70S (5S,16S,23S)    70S size but eukaryotic   │
-  │                                      sequence                   │
+  │                                      sequence                  │
   │ Histone          None                YES (HMfA/B in Mth)       │
-  │ Antibiotics      Many targets        Resistant to most          │
-  │                                      (different targets)        │
+  │ Antibiotics      Many targets        Resistant to most         │
+  │                                      (different targets)       │
   └────────────────────────────────────────────────────────────────┘
 ```
 
