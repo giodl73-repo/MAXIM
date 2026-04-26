@@ -223,19 +223,32 @@ add(1, 2);
 The callee is resolved at **runtime**. Requires an indirection.
 
 ```
-C++ VIRTUAL DISPATCH          JAVA/C# INTERFACE DISPATCH
-──────────────────────────    ──────────────────────────
-object ptr                    object ref
-    │                             │
-    ▼                             ▼
-┌─────────┐                  ┌─────────┐
-│ vptr    │──► vtable[]      │ typeptr │──► method table
-│ field1  │     [0] dtor          │
-│ field2  │     [1] speak()  ┌────────────────┐
-└─────────┘     [2] move()   │ interface slot │──► concrete method
-                             └────────────────┘
+C++ VIRTUAL DISPATCH:
 
-Cost: 1 pointer load + 1 indirect call + possible branch misprediction
+  object ptr
+      │
+      ▼
+  ┌──────────────────────────────────────┐
+  │ vptr ──► vtable: [0]dtor [1]speak()  │
+  │ field1                               │
+  │ field2                               │
+  └──────────────────────────────────────┘
+  1 pointer load + 1 indirect call
+
+JAVA/C# INTERFACE DISPATCH:
+
+  object ref
+      │
+      ▼
+  ┌──────────────────────────────────────┐
+  │ typeptr ──► method table             │
+  │ field1                               │
+  └──────────────────────────────────────┘
+      │
+      ▼
+  ┌──────────────────────────────────────┐
+  │ interface slot ──► concrete method   │
+  └──────────────────────────────────────┘
 ```
 
 **Where you get late binding:**
