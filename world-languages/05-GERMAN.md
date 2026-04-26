@@ -95,7 +95,7 @@ The article is doing the work that prepositions do in English:
 
 ```
 DEFINITE ARTICLES (the):
-+----------+-----------+---------+-----------+
++----------+-----------+---------+-----------+--------+
 | Case     | MASC      | FEM     | NEUT      | PLURAL |
 +----------+-----------+---------+-----------+--------+
 | NOM      | der       | die     | das       | die    |
@@ -105,14 +105,14 @@ DEFINITE ARTICLES (the):
 +----------+-----------+---------+-----------+--------+
 
 INDEFINITE ARTICLES (a/an):
-+----------+-----------+---------+-----------+
-| Case     | MASC      | FEM     | NEUT      |
-+----------+-----------+---------+-----------+
-| NOM      | ein       | eine    | ein       |
-| ACC      | einen     | eine    | ein       |
-| DAT      | einem     | einer   | einem     |
-| GEN      | eines     | einer   | eines     |
-+----------+-----------+---------+-----------+
++----------+-----------+---------+-----------+--------+
+| Case     | MASC      | FEM     | NEUT      | PLURAL |
++----------+-----------+---------+-----------+--------+
+| NOM      | ein       | eine    | ein       | (none) |
+| ACC      | einen     | eine    | ein       | (none) |
+| DAT      | einem     | einer   | einem     | (none) |
+| GEN      | eines     | einer   | eines     | (none) |
++----------+-----------+---------+-----------+--------+
 
 USAGE:
   NOM — subject:         Der Mann schläft. (The man sleeps.)

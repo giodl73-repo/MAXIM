@@ -143,7 +143,7 @@ Identified by infinitive ending: -āre / -ēre / -ere / -īre
 
 PRESENT ACTIVE INDICATIVE:
 +---------+-----------+----------+-----------+----------+
-| Person  | I: amāre  | II: monēre| III: dūcere| IV: audīre|
+| Person  | I: amāre  | II: monēr| III: dūcer| IV: audīr|
 +---------+-----------+----------+-----------+----------+
 | 1sg     | amō       | moneō    | dūcō      | audiō    |
 | 2sg     | amās      | monēs    | dūcis     | audīs    |

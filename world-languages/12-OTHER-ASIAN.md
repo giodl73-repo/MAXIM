@@ -179,7 +179,7 @@ Bệnh viện / Sân bay / Khách sạn — Hospital/Airport/Hotel
 5 TONES OF THAI
 ================
 +--------+--------+-----------+------------------+
-| Tone   | Mark   | Pitch     | Example (khai family)|
+| Tone   | Mark   | Pitch     | Example          |
 +--------+--------+-----------+------------------+
 | MID    | none   | Level mid | ไข่ (khai) egg   |
 | LOW    | ่ (mai ek)| Low fall| ไข้ (khai) fever |

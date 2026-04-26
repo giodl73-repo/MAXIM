@@ -110,29 +110,31 @@ RUSSIAN CASES
 | ACCUSATIVE (ACC) | Direct object; motion toward             |
 | DATIVE (DAT)     | Indirect object; beneficiary             |
 | GENITIVE (GEN)   | Possession; absence; partitive; numbers  |
-| INSTRUMENTAL (INS)| Instrument; means; after some preps    |
-| PREPOSITIONAL(PREP)| Location (в, на); about (о)           |
+| INSTRUMNTL (INS) | Instrument; means; after some preps      |
+| PREPOSITNL (PREP)| Location (в, на); about (о)              |
 +------------------+------------------------------------------+
+```
 
+```
 MASCULINE NOUN ENDINGS by case (стол = table):
-+------+--------+--------+
-| NOM  | стол   | столы  |
-| ACC  | стол   | столы  |
-| GEN  | стола  | столов |
-| DAT  | столу  | столам |
-| INS  | столом | столами|
-| PREP | столе  | столах |
-+------+--------+--------+
++------+--------+---------+
+| NOM  | стол   | столы   |
+| ACC  | стол   | столы   |
+| GEN  | стола  | столов  |
+| DAT  | столу  | столам  |
+| INS  | столом | столами |
+| PREP | столе  | столах  |
++------+--------+---------+
 
 FEMININE NOUN ENDINGS (книга = book):
-+------+--------+--------+
-| NOM  | книга  | книги  |
-| ACC  | книгу  | книги  |
-| GEN  | книги  | книг   |
-| DAT  | книге  | книгам |
-| INS  | книгой | книгами|
-| PREP | книге  | книгах |
-+------+--------+--------+
++------+--------+---------+
+| NOM  | книга  | книги   |
+| ACC  | книгу  | книги   |
+| GEN  | книги  | книг    |
+| DAT  | книге  | книгам  |
+| INS  | книгой | книгами |
+| PREP | книге  | книгах  |
++------+--------+---------+
 
 NEUTER NOUN ENDINGS (слово = word):
 +------+--------+---------+

@@ -43,8 +43,8 @@ ARABIC LANDSCAPE
   |Arabic     |              | speakers | /Jordan    | UAE/Iraq | Algeria/ |
   |           |              | Most     | /Palestine | Oil      | Tunisia  |
   |Formal,    |              | widely   |            | states   |          |
-  |Literary,  |              | understood            |          |          |
-  |Quran-     |              | in media              |          |          |
+  |Literary,  |              |understood|            |          |          |
+  |Quran-     |              |in media  |            |          |          |
   |adjacent   |              +----------+------------+----------+----------+
   +-----------+
 
@@ -81,7 +81,7 @@ ARABIC WRITING SYSTEM
 
 THE 28 LETTERS:
 +------+--------+--------+-------+------+
-| Form | Name   | Sound  | Initial|Final|
+| Form | Name   | Sound  | Initl |Final |
 +------+--------+--------+-------+------+
 | ا    | alif   | [a/ā]  |  ا   | ـا  |
 | ب    | ba     | [b]    |  بـ  | ـب  |

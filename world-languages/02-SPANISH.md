@@ -155,13 +155,13 @@ PRETERITE (completed past):
 +-----------+-----------+----------+-----------+
 
 IMPERFECT (ongoing/habitual past):
-+-----------+-----------+----------+
-| yo        | habl-aba  | com-ía   |
-| tú        | habl-abas | com-ías  |
-| él/ella   | habl-aba  | com-ía   |
-| nosotros  | habl-ábamos| com-íamos|
-| ellos     | habl-aban | com-ían  |
-+-----------+-----------+----------+
++-----------+-----------+----------+-----------+
+| yo        | habl-aba  | com-ía   | viv-ía    |
+| tú        | habl-abas | com-ías  | viv-ías   |
+| él/ella   | habl-aba  | com-ía   | viv-ía    |
+| nosotros  | habl-ábms | com-ímos | viv-ímos  |
+| ellos     | habl-aban | com-ían  | viv-ían   |
++-----------+-----------+----------+-----------+
 
 FUTURE (formed from infinitive + endings):
   hablar + é = hablaré, hablarás, hablará, hablaremos, hablaréis, hablarán

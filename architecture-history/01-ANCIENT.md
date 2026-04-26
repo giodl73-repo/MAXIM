@@ -191,7 +191,7 @@ DORIC ENTABLATURE DIAGRAM
 ==========================
 
    +---------+---------+---------+---------+---------+
-   | TRIG.   |  METOPE |  TRIG.  |  METOPE |  TRIG.  |  FRIEZE
+   | TRIG.   |  METOPE |  TRIG.  |  METOPE |  TRIG.  |
    |  |||    |         |   |||   | (sculpt)|   |||   |
    +---------+---------+---------+---------+---------+
    |         TAENIA          |      REGULA + GUTTAE  |  ARCHITRAVE
@@ -423,21 +423,26 @@ Plan: Ellipse 188m × 156m, 4 stories, 80 bays
 
 EXTERIOR ELEVATION (one bay, 4 stories):
   +---------------------------+
-  |   ATTIC (pilasters +      |  Story 4: Corinthian pilasters
-  |   windows alternating)    |  (supports velarium mast sockets)
+  |   ATTIC (pilasters +      |
+  |   windows alternating)    |
   +---------------------------+
-  |                           |  Story 3: Corinthian engaged
-  |   [  ARCH  ]  [ARCH]      |  columns (half-round)
+  |                           |
+  |   [  ARCH  ]  [ARCH]      |
   |                           |
   +---------------------------+
-  |                           |  Story 2: Ionic engaged
-  |   [  ARCH  ]  [ARCH]      |  columns
+  |                           |
+  |   [  ARCH  ]  [ARCH]      |
   |                           |
   +---------------------------+
-  |                           |  Story 1: Doric engaged
-  |   [  ARCH  ]  [ARCH]      |  columns
+  |                           |
+  |   [  ARCH  ]  [ARCH]      |
   |                           |
   +---------------------------+
+
+  Story 1: Doric engaged columns
+  Story 2: Ionic engaged columns
+  Story 3: Corinthian engaged columns (half-round)
+  Story 4: Corinthian pilasters (supports velarium mast sockets)
 
 ORDER SEQUENCE: Doric (1) → Ionic (2) → Corinthian (3) → Composite (attic)
 = hierarchical authority encoded vertically (heavier/simpler = base)

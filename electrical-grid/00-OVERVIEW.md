@@ -11,7 +11,7 @@ GENERATION              STEP-UP TX    HV TRANSMISSION           DISTRIBUTION    
 
 ┌─────────────┐  GSU      ┌──────────────────────────────┐  Substation  ┌─────────┐  Service TX  ┌────────────────┐
 │  Coal/Gas   │  13.8kV   │                              │  230→12.4kV  │ Primary │  12.4kV→240V │ 120/240V       │
-│  Nuclear    │───────────▶  HV Transmission Backbone    │──────────────▶ Feeder  │──────────────▶ Residential    │
+│  Nuclear    │──────────▶│  HV Transmission Backbone    │─────────────▶│ Feeder  │─────────────▶│ Residential    │
 │  Hydro      │  →500 kV  │  (hundreds of miles)         │              │ (miles) │              │                │
 │  Wind/Solar │           │                              │              │         │              │ 480V/208V      │
 └─────────────┘           └──────────────────────────────┘              └─────────┘              │ Commercial     │

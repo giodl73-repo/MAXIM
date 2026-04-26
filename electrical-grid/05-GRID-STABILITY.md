@@ -177,7 +177,7 @@ AGC ARCHITECTURE:
 │                    ENERGY MANAGEMENT SYSTEM (EMS)               │
 │                                                                 │
 │  State Estimation  →  ACE (Area Control Error)  →  Dispatch     │
-│  (every 4 seconds)     = ΔFrequency × 10B + ΔPtie              │     │
+│  (every 4 seconds)     = ΔFrequency × 10B + ΔPtie               │
 │                         (frequency deviation     (tie-line power│
 │                          × frequency bias)        deviation)    │
 │                              ↓                                  │

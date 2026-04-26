@@ -41,12 +41,26 @@ BLOCK STRUCTURE:
   Each syllable = one block, composed of consonant + vowel (+ optional final consonant)
 
   Basic patterns:
-  ┌──┐    ┌──┐    ┌────┐
-  │C │    │C │    │ C  │
-  │V │    ├──┤    │ V  │
-  └──┘    │V │    ├────┤
-          └──┘    │ C  │
-  CV     CVV     CVC
+
+    CV pattern (consonant + vowel):
+    ┌──┐
+    │C │
+    │V │
+    └──┘
+
+    CVV pattern (consonant + diphthong):
+    ┌──┐
+    │C │
+    │V1│
+    │V2│
+    └──┘
+
+    CVC pattern (consonant + vowel + final consonant):
+    ┌────┐
+    │ C  │
+    │ V  │
+    │ C  │
+    └────┘
   Example: 한 = ㅎ+ㅏ+ㄴ (h+a+n) — one block, one syllable
            국 = ㄱ+ㅜ+ㄱ (g+u+k)
            어 = ㅇ+ㅓ (silent initial + eo vowel) — ㅇ is placeholder

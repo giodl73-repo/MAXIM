@@ -32,7 +32,7 @@ Three scripts interleave in every sentence:
 
   +------------------+------------------+------------------+
   | HIRAGANA         | KATAKANA         | KANJI            |
-  | (ひらがな)        | (カタカナ)        | (漢字)         |
+  | (ひらがな)       | (カタカナ)       | (漢字)           |
   +------------------+------------------+------------------+
   | 46 syllables     | 46 syllables     | ~2136 jōyō       |
   | (+ diacritics)   | (+ diacritics)   | (required chars) |
@@ -310,10 +310,10 @@ ACCESS CONTROL TABLE — KEIGO:
 |           | 言う→おっしゃる    |                 |                             |
 |           | 食べる→召し上がる  |                 |                             |
 +-----------+--------------------+-----------------+-----------------------------+
-| KENJŌGO   | Humble verbs for   | Lowers YOUR OWN | Describing your own actions|
+| KENJŌGO   | Humble verbs for   | Lowers YOUR OWN | Describing your own actions |
 | (謙譲語)  | the speaker's own  | actions         | to a superior or customer.  |
 |           | actions            | (requests lower | Humbling yourself =         |
-|           |                    | access for self) | elevating the other.       |
+|           |                    | access for self)| elevating the other.        |
 |           | 行く→参る          |                 |                             |
 |           | 言う→申す          |                 |                             |
 |           | 食べる→いただく    |                 |                             |
@@ -325,7 +325,7 @@ ACCESS CONTROL TABLE — KEIGO:
 |           |                    |                 | rank.                       |
 +-----------+--------------------+-----------------+-----------------------------+
 | Plain     | Dictionary forms   | No access token | Close friends, family,      |
-| (常体)    |                    | asserted         | internal monologue, writing.|
+| (常体)    |                    | asserted        | internal monologue, writing.|
 |           |                    |                 | Using this to a superior    |
 |           |                    |                 | = dropped connection.       |
 +-----------+--------------------+-----------------+-----------------------------+
@@ -413,11 +413,11 @@ COMMON COUNTERS:
 | 匹 hiki|       | Small animals: cats, dogs, fish           |
 | 頭 tou |       | Large animals: horses, cows, elephants    |
 | 羽 wa  |       | Birds + rabbits                           |
-| 冊 satsu|      | Bound books, notebooks                    |
+| 冊 sats|       | Bound books, notebooks                    |
 | 杯 hai |       | Cups, glasses, bowls of liquid/food       |
 | 足 soku|       | Pairs of footwear                         |
-| 着 chaku|      | Clothing items                            |
-| 人 nin | people| (ひとり hitōri=1, ふたり futari=2 — irregular)|
+| 着 chak|       | Clothing items                            |
+| 人 nin | people| (ひとり=1, ふたり=2 — irregular)          |
 | 個 ko  |       | General small objects (default)           |
 | 回 kai | times | Number of times/occurrences               |
 | 番 ban |       | Order/rank (first, second...)             |

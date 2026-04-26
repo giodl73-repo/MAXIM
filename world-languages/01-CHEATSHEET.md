@@ -75,21 +75,23 @@ For tonal languages: tones omitted in tables; see per-language files for tone ma
 | 10     | ten    | diez    | dez     | dix     | zehn    | десять  | عشرة    |
 +--------+--------+---------+---------+---------+---------+---------+---------+
 
-+--------+---------+---------+---------+---------+---------+---------+
-| #      | ZH      | JA      | KO      | HI      | TR      | ID      |
-+--------+---------+---------+---------+---------+---------+---------+
-| 0      | 零 líng | ゼロ    | 영      | शून्य   | sıfır   | nol       |
-| 1      | 一 yī   | 一 ichi | 일/하나 | एक      | bir     | satu    |
-| 2      | 二 èr   | 二 ni   | 이/둘   | दो      | iki     | dua     |
-| 3      | 三 sān  | 三 san  | 삼/셋   | तीन     | üç      | tiga    |
-| 4      | 四 sì   | 四 shi  | 사/넷   | चार     | dört    | empat   |
-| 5      | 五 wǔ   | 五 go   | 오/다섯 | पाँच     | beş     | lima    |
-| 6      | 六 liù  | 六 roku | 육/여섯 | छह      | altı    | enam    |
-| 7      | 七 qī   | 七 nana | 칠/일곱 | सात     | yedi    | tujuh   |
-| 8      | 八 bā   | 八 hachi| 팔/여덟 | आठ      | sekiz   | delapan |
-| 9      | 九 jiǔ  | 九 kyuu | 구/아홉 | नौ      | dokuz   | sembilan|
-| 10     | 十 shí  | 十 juu  | 십/열   | दस      | on      | sepuluh |
-+--------+---------+---------+---------+---------+---------+---------+
+```
+
+| #  | ZH (Mandarin) | JA (Japanese) | KO (Korean) | HI (Hindi) | TR (Turkish) | ID (Indonesian) |
+|----|---------------|---------------|-------------|------------|--------------|-----------------|
+| 0  | 零 líng       | ゼロ          | 영          | शून्य      | sıfır        | nol             |
+| 1  | 一 yī         | 一 ichi       | 일/하나     | एक         | bir          | satu            |
+| 2  | 二 èr         | 二 ni         | 이/둘       | दो         | iki          | dua             |
+| 3  | 三 sān        | 三 san        | 삼/셋       | तीन        | üç           | tiga            |
+| 4  | 四 sì         | 四 shi        | 사/넷       | चार        | dört         | empat           |
+| 5  | 五 wǔ         | 五 go         | 오/다섯     | पाँच       | beş          | lima            |
+| 6  | 六 liù        | 六 roku       | 육/여섯     | छह         | altı         | enam            |
+| 7  | 七 qī         | 七 nana       | 칠/일곱     | सात        | yedi         | tujuh           |
+| 8  | 八 bā         | 八 hachi      | 팔/여덟     | आठ         | sekiz        | delapan         |
+| 9  | 九 jiǔ        | 九 kyuu       | 구/아홉     | नौ         | dokuz        | sembilan        |
+| 10 | 十 shí        | 十 juu        | 십/열       | दस         | on           | sepuluh         |
+
+```
 
 +--------+---------+---------+---------+---------+---------+
 | #      | VI      | TH      | SW      | FA      | PL      |
@@ -154,17 +156,19 @@ Note: Romance languages name days after planets (Roman gods):
   lunes=Luna(Moon), martes=Mars, miércoles=Mercury, jueves=Jupiter,
   viernes=Venus, sábado=Sabbath, domingo=Lord's Day
 
-+-----+---------+---------+---------+--------+---------+
-| Day | ZH      | JA      | KO      | HI     | TR      |
-+-----+---------+---------+---------+--------+---------+
-| Mon | 星期一  | 月曜日  | 월요일  | सोमवार | Pazartesi|
-| Tue | 星期二  | 火曜日  | 화요일  | मंगलवार| Salı     |
-| Wed | 星期三  | 水曜日  | 수요일  | बुधवार | Çarşamba|
-| Thu | 星期四  | 木曜日  | 목요일  | गुरुवार| Perşembe|
-| Fri | 星期五  | 金曜日  | 금요일  | शुक्रवार|Cuma      |
-| Sat | 星期六  | 土曜日  | 토요일  | शनिवार | Cumartesi|
-| Sun | 星期天  | 日曜日  | 일요일  | रविवार | Pazar   |
-+-----+---------+---------+---------+--------+---------+
+```
+
+| Day | ZH (Mandarin) | JA (Japanese) | KO (Korean) | HI (Hindi) | TR (Turkish) |
+|-----|---------------|---------------|-------------|------------|--------------|
+| Mon | 星期一        | 月曜日        | 월요일      | सोमवार     | Pazartesi    |
+| Tue | 星期二        | 火曜日        | 화요일      | मंगलवार    | Salı         |
+| Wed | 星期三        | 水曜日        | 수요일      | बुधवार     | Çarşamba     |
+| Thu | 星期四        | 木曜日        | 목요일      | गुरुवार    | Perşembe     |
+| Fri | 星期五        | 金曜日        | 금요일      | शुक्रवार    | Cuma         |
+| Sat | 星期六        | 土曜日        | 토요일      | शनिवार     | Cumartesi    |
+| Sun | 星期天        | 日曜日        | 일요일      | रविवार     | Pazar        |
+
+```
 
 Chinese + Japanese use the same 7 characters (Moon/Fire/Water/Wood/Gold/Earth/Sun)
 Korean borrowed the same system (한자/hanja origin).
@@ -191,7 +195,9 @@ Korean borrowed the same system (한자/hanja origin).
 | Nov   | November | noviembre|novembre|Nov   | ноябрь    | novembre|
 | Dec   | December | diciembre|décembre|Dez   | декабрь   | dicembre|
 +-------+----------+--------+---------+-------+-----------+---------+
+```
 
+```
 +-------+-------+-------+--------+--------+--------+-------+
 | Month | ZH    | JA    | KO     | HI     | AR     | TR    |
 +-------+-------+-------+--------+--------+--------+-------+
@@ -236,7 +242,9 @@ Turkish months derive from Latin/Roman roots (not Ottoman Arabic).
 | Excuse me        | Excuse me| Perdón     | Com licença|Excusez | Entschul |
 | Sorry            | Sorry    | Lo siento  | Desculpe | Désolé  | Entschuld|
 +------------------+----------+------------+----------+---------+----------+
+```
 
+```
 +------------------+---------+---------+--------+--------+---------+---------+
 | Phrase           | RU      | AR      | ZH     | JA     | KO      | HI      |
 +------------------+---------+---------+--------+--------+---------+---------+
@@ -255,7 +263,9 @@ Turkish months derive from Latin/Roman roots (not Ottoman Arabic).
 | Sorry            | Извините| آسف     | 对不起 | すみま | 죄송합  | माफ़     |
 |                  |         | (aasif) |        | せん   | 니다    | करना    |
 +------------------+---------+---------+--------+--------+---------+---------+
+```
 
+```
 +------------------+---------+---------+---------+--------+---------+---------+
 | Phrase           | TR      | ID      | VI      | TH     | SW      | FA      |
 +------------------+---------+---------+---------+--------+---------+---------+
@@ -300,7 +310,9 @@ Turkish months derive from Latin/Roman roots (not Ottoman Arabic).
 |                             | un médico| d'un médecin| brauche | нужен   |
 |                             |          |            | einen Arzt|врач    |
 +-----------------------------+----------+------------+----------+---------+
+```
 
+```
 +-----------------------------+--------+--------+--------+--------+---------+
 | Phrase                      | ZH     | JA     | KO     | AR     | HI      |
 +-----------------------------+--------+--------+--------+--------+---------+
@@ -323,7 +335,9 @@ Turkish months derive from Latin/Roman roots (not Ottoman Arabic).
 | Airport                     | 机场   | 空港   | 공항   | مطار   | हवाई    |
 |                             |        |        |        |        | अड्डा    |
 +-----------------------------+--------+--------+--------+--------+---------+
+```
 
+```
 +-----------------------------+--------+--------+--------+--------+--------+
 | Phrase                      | TR     | ID     | VI     | SW     | FA     |
 +-----------------------------+--------+--------+--------+--------+--------+
@@ -557,7 +571,9 @@ Blocks:  한 = ㅎ+ㅏ+ㄴ (h+a+n)
 |                  | es?      | heure    | ist es?  | час?     |          |
 |                  |          | est-il?  |          |          |          |
 +------------------+----------+----------+----------+----------+----------+
+```
 
+```
 +------------------+--------+--------+-------+--------+--------+
 | Expression       | JA     | KO     | AR    | TR     | HI     |
 +------------------+--------+--------+-------+--------+--------+

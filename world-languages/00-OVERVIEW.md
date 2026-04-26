@@ -16,38 +16,48 @@ SINO-TIBETAN (~1.4B)          INDO-EUROPEAN (~3.2B)
 | Wu/Shangh  ~80M   |         | Port    232M Ger   95M Pol  45M Bengali234M|
 | Min        ~74M   |         | French   77M Dutch 24M Ukr  32M Urdu    92M|
 | Tibetan    ~7M    |         | Italian  65M Swed  10M Czch 10M Punjabi 92M|
-+-------------------+         | Romanian 24M Norw   5M Serb 10M Marathi 83M|
-                              +--------------------------------------------+
-AFRO-ASIATIC (~570M)           | IRANIAN: Persian 57M, Pashto 40M, Kurdish 20M|
-+-------------------+          +--------------------------------------------+
+|                   |         | Romanian 24M Norw   5M Serb 10M Marathi 83M|
++-------------------+         +--------------------------------------------+
+
+AFRO-ASIATIC (~570M)
++-------------------+
 | Arabic    ~274M   |
-| Hausa      ~50M   |         JAPONIC (~125M)     KOREANIC (~77M)
-| Amharic    ~25M   |         +-------------+     +-----------+
-| Somali     ~22M   |         | Japanese    |     | Korean    |
-| Hebrew      ~5M   |         +-------------+     +-----------+
+| Hausa      ~50M   |
+| Amharic    ~25M   |
+| Somali     ~22M   |
+| Hebrew      ~5M   |
 +-------------------+
-                               DRAVIDIAN (~230M)
-AUSTRONESIAN (~380M)           +-------------------+
-+-------------------+          | Telugu     ~82M   |
-| Indonesian~199M   |          | Tamil      ~78M   |
-| Javanese   ~82M   |          | Kannada    ~44M   |
-| Malay      ~20M   |          | Malayalam  ~38M   |
-| Filipino   ~28M   |          +-------------------+
-+-------------------+
-                               TURKIC (~185M)
-NIGER-CONGO (~440M)            +-------------------+
-+-------------------+          | Turkish    ~79M   |
-| Swahili    ~16M   |          | Uzbek      ~34M   |
-| Yoruba     ~44M   |          | Kazakh     ~13M   |
-| Igbo       ~31M   |          | Azerbaijani~10M   |
-| Zulu       ~12M   |          +-------------------+
-+-------------------+
-                               TAI-KADAI (~95M)
-AUSTROASIATIC (~105M)          +-------------------+
-+-------------------+          | Thai       ~36M   |
-| Vietnamese ~76M   |          | Zhuang     ~16M   |
-| Khmer      ~16M   |          +-------------------+
-+-------------------+
+
+IRANIAN BRANCH (Indo-European)
++--------------------------------------------+
+| Persian 57M  Pashto 40M  Kurdish 20M       |
++--------------------------------------------+
+
+JAPONIC (~125M)               KOREANIC (~77M)
++-------------------+         +-------------------+
+| Japanese          |         | Korean            |
++-------------------+         +-------------------+
+
+AUSTRONESIAN (~380M)          DRAVIDIAN (~230M)
++-------------------+         +-------------------+
+| Indonesian~199M   |         | Telugu     ~82M   |
+| Javanese   ~82M   |         | Tamil      ~78M   |
+| Malay      ~20M   |         | Kannada    ~44M   |
+| Filipino   ~28M   |         | Malayalam  ~38M   |
++-------------------+         +-------------------+
+
+NIGER-CONGO (~440M)           TURKIC (~185M)
++-------------------+         +-------------------+
+| Swahili    ~16M   |         | Turkish    ~79M   |
+| Yoruba     ~44M   |         | Uzbek      ~34M   |
+| Igbo       ~31M   |         | Kazakh     ~13M   |
+| Zulu       ~12M   |         | Azerbaijani~10M   |
++-------------------+         +-------------------+
+AUSTROASIATIC (~105M)         TAI-KADAI (~95M)
++-------------------+         +-------------------+
+| Vietnamese ~76M   |         | Thai       ~36M   |
+| Khmer      ~16M   |         | Zhuang     ~16M   |
++-------------------+         +-------------------+
 
 LANGUAGE ISOLATES (no known relatives):
   Japanese (some argue Japonic family), Korean (Koreanic family — both debated as isolates)

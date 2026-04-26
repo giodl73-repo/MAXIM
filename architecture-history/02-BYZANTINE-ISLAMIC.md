@@ -63,12 +63,12 @@ OPTION 2 — SQUINCH
   Used in: Persia, Central Asia, Norman Sicily
 
      +-------+           +-------+
-     |       |           |  /\   |
-     |   O   |  becomes  | /  \  |
-     |   R   |           |/sqch\ |
-     |   I   |           +------+
-     |   G   |
-     +-------+
+     |       |           |       |
+     |   O   |  becomes  |  /\   |
+     |   R   |           | /  \  |
+     |   I   |           |/sqch\ |
+     |   G   |           |       |
+     +-------+           +-------+
 
   Advantage: Simple to build
   Disadvantage: Octagonal base, discontinuous transition
@@ -80,17 +80,27 @@ OPTION 3 — PENDENTIVE (Byzantine solution)
   arches (one on each side of the square) are the pendentives.
   Each pendentive is a curved triangle pointing downward.
 
-       TOP VIEW:                   SECTION:
-       +---------+                     O (dome)
-       |  /   \  |                    / \
-       | / dome\ |                   /   \
-       |/ (circ)\|                  / drum\
-       +---------+            ____ /       \
-       |pend pend|           |    |        |
-       |  \   /  |    arch   |    |pendentive
-       +---------+           |    |        |
-                             |____|_________|
-                              square room
+       TOP VIEW:
+       +---------+
+       |  /   \  |
+       | / dome\ |
+       |/ (circ)\|
+       +---------+
+       |pend pend|
+       |  \   /  |
+       +---------+
+
+       SECTION:
+              O (dome)
+             / \
+            /   \
+           / drum\
+      ____ /       \
+     |    |        |
+     |    |pendentv|
+     |    |        |
+     |____|________|
+      square room
 
   The pendentive IS the transition surface.
   It is part of a large sphere (larger than the dome).
@@ -129,16 +139,25 @@ Plan (simplified):
   |      |HALF  |      |
   | side | DOME |side  |
   |aisle |      |aisle |
-  +------+------+------+    WEST-EAST SECTION:
+  +------+------+------+
   |      |MAIN  |      |
-  | pier | DOME | pier |    half-dome    dome    half-dome
-  |      |      |      |      _          _O_         _
-  +------+------+------+     ( )        / | \       ( )
-  |      |HALF  |      |     exed      /  |  \      exed
-  | side | DOME |side  |           ---+---+---+---
-  |aisle |      |aisle |           pendentives here
-  +------+------+------+           4 massive piers
-                                   |||         |||
+  | pier | DOME | pier |
+  |      |      |      |
+  +------+------+------+
+  |      |HALF  |      |
+  | side | DOME |side  |
+  |aisle |      |aisle |
+  +------+------+------+
+
+WEST-EAST SECTION:
+  half-dome    dome    half-dome
+    _          _O_         _
+   ( )        / | \       ( )
+   exed      /  |  \      exed
+         ---+---+---+---
+         pendentives here
+         4 massive piers
+         |||         |||
 
 KEY DIMENSIONS:
   Central dome: 31.9m diameter (interior), 55.6m to floor
