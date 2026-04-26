@@ -131,7 +131,7 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
   │                                        Lipolysis → flavor      │
   │                                                                │
   │ Smear/wash     Brevibacterium linens   Limburger, Munster      │
-  │ rind           Arthrobacter spp.       Orange rind; methanethiol│
+  │ rind           Arthrobacter spp.       Orange rind; methanethio│
   │                                                                │
   │ Aging (long)   Propionibacterium       Swiss/Emmental eyes     │
   │                freudenreichii          Propionic acid + CO₂    │
@@ -178,7 +178,7 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
   │ AEROBIC DEGRADATION:                                           │
   │   Initial attack: Oxygenases (monooxygenase or dioxygenase)    │
   │   → Introduce -OH groups → activate for β-oxidation pathway    │
-  │   Key organisms: Pseudomonas putida (toluene, xylene, naphthalene)│
+  │   Key organisms: Pseudomonas putida (toluene, xylene, naphth.)│
   │                  Rhodococcus (aromatic + aliphatic)            │
   │                  Marinobacter (marine hydrocarbons)            │
   │                                                                │
@@ -237,7 +237,7 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
   KEY CHASSIS ORGANISMS:
   ┌────────────────────────────────────────────────────────────────┐
   │ Escherichia coli K-12 (MG1655, BL21, DH5α):                    │
-  │   Advantages: Fast growth, well-characterized, extensive tools│
+  │   Advantages: Fast growth, well-characterized, extensive tools │
   │   Genetic tools: >5,000 characterized promoters, ribosome      │
   │   binding sites, terminators in registries                     │
   │   Insulin production: 1982, first recombinant biologic         │
@@ -349,7 +349,7 @@ APPLIED MICROBIOLOGY: MICROBES AS INDUSTRIAL ASSETS
   │   → Only approved probiotic for a specific GI condition        │
   │                                                                │
   │ MODERATE EVIDENCE:                                             │
-  │   IBS: Multi-strain products; symptom reduction in some trials│
+  │   IBS: Multi-strain products; symptom reduction in some trials │
   │   Infantile colic: L. reuteri DSM17938 → reduced crying time   │
   │   Necrotizing enterocolitis prevention (premature infants):    │
   │   → Multiple Cochrane analyses favor probiotic use             │

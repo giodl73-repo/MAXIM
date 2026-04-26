@@ -195,7 +195,7 @@ ADAPTIVE IMMUNITY: LEARNED, SPECIFIC, REMEMBERED
   │ RESULT: MHC I:peptide on surface says:                         │
   │   "This is what I'm making inside. Is it foreign?"             │
   │                                                                │
-  │ RECOGNIZED BY: CD8+ cytotoxic T cells (via TCR + CD8 co-recep)│
+  │ RECOGNIZED BY: CD8+ cytotoxic T cells (via TCR + CD8 co-recep) │
   │ PRESENT ON: All nucleated cells (ubiquitous)                   │
   │                                                                │
   │ Virally infected cell: Viral peptides on MHC I → CD8 kills it  │

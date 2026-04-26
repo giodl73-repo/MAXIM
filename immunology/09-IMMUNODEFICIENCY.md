@@ -234,7 +234,7 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
   │   Viral suppression <50 copies/mL                              │
   │   CD4 recovery (>500/μL in most)                               │
   │   Near-normal life expectancy                                  │
-  │   Undetectable = Untransmittable (U=U): no sexual transmission│
+  │   Undetectable = Untransmittable (U=U): no sexual transmission │
   └────────────────────────────────────────────────────────────────┘
 
   WHY HIV IS NOT CURABLE (yet):
@@ -260,7 +260,7 @@ IMMUNODEFICIENCY: WHEN IMMUNITY IS INSUFFICIENT
   │   Pre-formed antibodies against donor HLA or ABO               │
   │   → Complement activation → vessel occlusion → organ death     │
   │   Prevention: ABO matching + crossmatch test (donor cells +    │
-  │               recipient serum → no complement activation = OK)│
+  │               recipient serum → no complement activation = OK) │
   │                                                                │
   │ ACUTE REJECTION (days–weeks):                                  │
   │   T cell-mediated: Donor DCs present alloantigens to host T    │

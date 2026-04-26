@@ -28,13 +28,13 @@ THE MICROBIAL WORLD
 
   SCALE:
   ┌────────────────────────────────────────────────────────────────┐
-  │  Virus:        20–300 nm      (smaller than wavelength of light)│
+  │  Virus:        20–300 nm      (smaller than visible light)     │
   │  Bacterium:    0.5–5 μm       (smallest visible in microscope) │
   │  Yeast cell:   5–10 μm        (eukaryote, ~cell size)          │
   │  Red blood cell: 6–8 μm       (comparison)                     │
   │  Amoeba:       200–500 μm     (single-cell eukaryote)          │
   │  Human cell:   ~10–20 μm      (comparison)                     │
-  │                                                                  │
+  │                                                                │
   │  Earth biomass distribution (by carbon):                       │
   │  Plants:    82%    Bacteria:  13%    Archaea: 1.3%             │
   │  Fungi:     2.2%   Protists:  0.7%   Animals: 0.47%            │
@@ -112,7 +112,7 @@ THE MICROBIAL WORLD
   │   Reconstruct genomes: metagenome-assembled genomes (MAGs)   │
   │   Identifies: Who's there + What they can do (function)      │
   │   Expensive: ~$100–500/sample                                │
-  │   Tools: Kraken2/Bracken (classification), MetaSPAdes (assembly)│
+  │   Tools: Kraken2/Bracken (classify), MetaSPAdes (assembly)   │
   │           MetaPhlAn4 (species profiling), HUMAnN3 (function) │
   └──────────────────────────────────────────────────────────────┘
 

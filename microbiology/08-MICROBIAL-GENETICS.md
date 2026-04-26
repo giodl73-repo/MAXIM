@@ -69,7 +69,7 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
 
   THE trp OPERON (feedback repression):
   ┌────────────────────────────────────────────────────────────────┐
-  │  OPPOSITE LOGIC: Active when Trp absent; silent when Trp present│
+  │  OPPOSITE LOGIC: Active when Trp absent; silent when Trp presnt│
   │                                                                │
   │  TrpR (apo-repressor) alone: Inactive → operon ON              │
   │  TrpR + tryptophan (corepressor): Active repressor             │
@@ -104,7 +104,7 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
   │ RseA: Anti-σ²⁴; degraded by DegS protease on envelope stress   │
   │                                                                │
   │ SPORULATION (B. subtilis): σ cascade orchestrates development  │
-  │ σᴴ → initiates sporulation → σᶠ (forespore) + σᴱ (mother cell)│
+  │ σᴴ → initiates sporulation → σᶠ (forespore) + σᴱ (mother cell) │
   │ → σᴳ + σᴷ: Late sporulation programs                           │
   │ Each σ activates next tier + previous tier genes turned off    │
   └────────────────────────────────────────────────────────────────┘
@@ -149,7 +149,7 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
   │ FNR REGULON (anaerobic response):                              │
   │   FNR: O₂-sensing transcription factor                         │
   │   Active under anaerobiosis (4Fe-4S cluster lost in O₂)        │
-  │   → Activates: anaerobic respiratory genes (nitrate, fumarate)│
+  │   → Activates: anaerobic respiratory genes (nitrate, fumarate) │
   │   → Represses: aerobic respiratory genes                       │
   └────────────────────────────────────────────────────────────────┘
 ```
@@ -196,8 +196,8 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
   │ PhoP/PhoQ  PhoQ   PhoP    Low Mg²⁺, AMPs   Virulence genes     │
   │ PhoR/PhoB  PhoR   PhoB    Phosphate limit  Pho regulon         │
   │ VncS/VncR  VncS   VncR    Vancomycin       Resistance genes    │
-  │ NtrB/NtrC  NRII   NtrC    Nitrogen limit   σ⁵⁴-activated genes│
-  │ KinA/Spo0A KinA   Spo0A   Starvation/crowd Sporulation in Bacillus│
+  │ NtrB/NtrC  NRII   NtrC    Nitrogen limit   σ⁵⁴-activated genes │
+  │ KinA/Spo0A KinA   Spo0A   Starvation/crowd Sporulation Bacillus│
   └────────────────────────────────────────────────────────────────┘
 
   COMPLEXITY: PHOSPHORELAYS

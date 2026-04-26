@@ -63,7 +63,7 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │                                                                │
   │ CPE (Carbapenemase-Producing Enterobacteriaceae):              │
   │   KPC (Klebsiella pneumoniae carbapenemase): Class A           │
-  │   NDM-1 (New Delhi Metallo-β-lactamase): Class B; emerged 2009│
+  │   NDM-1 (New Delhi Metallo-β-lactamase): Class B; emerged 2009 │
   │   OXA-48: Class D; Mediterranean region + spreading globally   │
   │   Treatment: Ceftazidime-avibactam, meropenem-vaborbactam      │
   │   (avibactam: non-β-lactam β-lactamase inhibitor)              │
@@ -86,7 +86,7 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │                                                                │
   │ VRE (Vancomycin-Resistant Enterococcus):                       │
   │   vanA/vanB genes: Modify peptidoglycan terminus               │
-  │   Normal: D-Ala-D-Ala (vancomycin binds this with high affinity)│
+  │   Normal: D-Ala-D-Ala (vancomycin binds with high affinity)    │
   │   VanA: D-Ala-D-Lac (depsipeptide) → 1,000x reduced affinity   │
   │   VanB: D-Ala-D-Ser → ~7x reduced affinity (moderate level)    │
   │   Treatment: Linezolid, daptomycin, tigecycline                │
@@ -94,7 +94,7 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │ RIFAMPICIN RESISTANCE (M. tuberculosis):                       │
   │   rpoB mutations: 81 bp core region of RNA polymerase β-sub.   │
   │   S531L most common → ~3x larger Km for rifampicin             │
-  │   Rifampicin resistance = MDR-TB marker (implies INH res. too)│
+  │   Rifampicin resistance = MDR-TB marker (implies INH res. too) │
   │                                                                │
   │ FLUOROQUINOLONE RESISTANCE:                                    │
   │   QRDR mutations: gyrA (DNA gyrase), parC (topoisomerase IV)   │
@@ -116,7 +116,7 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │                                                                │
   │ KEY EXAMPLES:                                                  │
   │ MexAB-OprM (P. aeruginosa): RND pump; broad spectrum           │
-  │   Export: β-lactams, fluoroquinolones, aminoglycosides, biocides│
+  │   Export: β-lactams, fluoroquinolones, aminoglycosides, biocide│
   │   Overexpressed in clinical isolates → multidrug resistance    │
   │                                                                │
   │ AcrAB-TolC (E. coli): Primary intrinsic MDR pump               │
@@ -160,7 +160,7 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │  PLASMIDS:           Carry transposons; transfer by conjugation│
   │  Resistance plasmids: IncF, IncI, IncL/M, IncN types           │
   │  Conjugative plasmids: Self-transmissible (pKPN3, pOXA-48)     │
-  │  Non-conjugative: Transfer via co-resident conjugative plasmid│
+  │  Non-conjugative: Transfer via co-resident conjugative plasmid │
   │                      ↓                                         │
   │  CONJUGATION:        Plasmid → new bacterial cell              │
   │  Inter-species: E. coli → Klebsiella → Acinetobacter           │
@@ -237,7 +237,7 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │                      rRNA methylase               cfr            │
   │                                                                  │
   │ Colistin/Polymyxins  LPS modification (add        mcr-1 (2015)   │
-  │ (last resort)        phosphoethanolamine to        plasmid-mediated│
+  │ (last resort)        phosphoethanolamine to        plasmid-medi  │
   │                      lipid A)                     historic: PmrA │
   │                      mcr-1: First mobile colistin resistance     │
   └──────────────────────────────────────────────────────────────────┘
@@ -348,7 +348,7 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │   individual infection; FDA Expanded Access used in crisis     │
   │   Phase 1/2 trials ongoing                                     │
   │   Anti-virulence: Target virulence factors not growth          │
-  │   → Less selective pressure (bacteria survive without virulence)│
+  │   → Less selective pressure (bacteria survive w/o virulence)   │
   │   CRISPR-based killing: Sequence-specific; antimicrobial use   │
   │   (see genomics/07-CRISPR.md for CRISPR technology)            │
   │   Antimicrobial peptides: Host defense peptides; synthetic     │

@@ -64,7 +64,7 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
   │                         Tropheryma whipplei (Whipple's disease)│
   │                         Discovered via PCR only                │
   │                                                                │
-  │ Healthy carriers        H. pylori: ~50% of world asymp. carriers│
+  │ Healthy carriers        H. pylori: ~50% of world asymp. carrier│
   │ (Postulate 1 violated) V. cholerae: Present without disease    │
   │                                                                │
   │ Animal model failure    H. pylori: Only infects humans/monkeys │
@@ -114,7 +114,7 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
   │                                                                │
   │ HEMAGGLUTININS                                                 │
   │   Influenza HA: Binds sialic acid (N-acetylneuraminic acid)    │
-  │   HA with α2-3 linkage: Avian tropism (respiratory epithelium)│
+  │   HA with α2-3 linkage: Avian tropism (respiratory epithelium) │
   │   HA with α2-6 linkage: Human tropism (upper respiratory)      │
   │   → Pandemic risk: Virus switching receptor binding            │
   └────────────────────────────────────────────────────────────────┘
@@ -186,7 +186,7 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
   │                                    → Spastic paralysis           │
   │                                    (opposite of botulinum)       │
   │                                                                  │
-  │ Shiga toxin        STEC (E. coli)  Phage-encoded (like diphtheria)│
+  │ Shiga toxin        STEC (E. coli)  Phage-encoded (like diphther)│
   │ (Stx1, Stx2)       S. dysenteriae  B5: Gb3 glycolipid binding    │
   │                                    A: Cleaves 28S rRNA (N-glycos)│
   │                                    → Halts ribosomes → cell death│

@@ -10,7 +10,7 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   ┌────────────────────────────────────────────────────────────────┐
   │  NORMAL                         CANCER                         │
   │  MHC I displays self-peptides   MHC I downregulated            │
-  │  No co-stimulation → T cell     PD-L1 upregulated → T exhaustion│
+  │  No co-stimulation → T cell     PD-L1 upregulated → T exhaust│
   │   ignored                        Tregs recruited to tumor      │
   │  No "eat me" signal             MDSCs suppress T cells         │
   │                                  IDO: Trp depletion → anergy   │
@@ -89,7 +89,7 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   │ CTLA-4 mechanism:                                              │
   │   CTLA-4 expressed on activated T cells + Tregs                │
   │   Higher affinity for B7 than CD28 → competes                  │
-  │   CTLA-4:B7 → removes B7 from APC surface (trans-endocytosis)│
+  │   CTLA-4:B7 → removes B7 from APC surface (trans-endocytosis)  │
   │   → other T cells can't get CD28 signal → dampened response    │
   │                                                                │
   │ Ipilimumab (Yervoy): First checkpoint inhibitor (2011)         │
@@ -218,7 +218,7 @@ CANCER IMMUNOTHERAPY: USING THE IMMUNE SYSTEM TO FIGHT CANCER
   ┌────────────────────────────────────────────────────────────┐
   │  Bispecific antibody physically bridges:                   │
   │                                                            │
-  │  T cell ─── [CD3 arm] ─── Bispecific ─── [TAA arm] ─── Tumor│
+  │  T cell ──── [CD3 arm] ──── Bispecific ──── [TAA arm] ──── Tumor│
   │                                                            │
   │  Creates "immunological synapse" between T cell and tumor  │
   │  TCR not involved → bypasses MHC restriction               │

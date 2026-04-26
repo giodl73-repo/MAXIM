@@ -51,7 +51,7 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
   MAJOR PHYLA (healthy Western adult approximation):
   ┌───────────────────────────────────────────────────────────────┐
   │ FIRMICUTES (50–65% of sequences)                              │
-  │   Class Clostridia: Clostridium, Ruminococcus, Faecalibacterium│
+  │   Class Clostridia: Clostridium, Ruminococcus, Faecalibacteriu│
   │   Class Bacilli: Lactobacillus, Enterococcus, Streptococcus   │
   │   Key species: Faecalibacterium prausnitzii (most abundant)   │
   │   → Major butyrate producer → colonocyte fuel                 │
@@ -74,7 +74,7 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
   │ VERRUCOMICROBIA (<1%)                                         │
   │   Akkermansia muciniphila: Mucus layer inhabitant             │
   │   → Correlates with metabolic health, diabetes protection     │
-  │   → Pasteurized (heat-killed) A. muciniphila: clinical trials│
+  │   → Pasteurized (heat-killed) A. muciniphila: clinical trials │
   └───────────────────────────────────────────────────────────────┘
 
   FIRMICUTES/BACTEROIDETES (F/B) RATIO:

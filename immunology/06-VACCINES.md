@@ -57,7 +57,7 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
   │                  Moderna), Influenza   programmable platform     │
   │                                                                  │
   │ Adenoviral       COVID-19 (AZ, J&J),  Strong T cell response     │
-  │ vector           Ebola, HIV trials     Pre-existing immunity risk │
+  │ vector           Ebola, HIV trials     Pre-existing immunity risk│
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -140,7 +140,7 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
   │   → Innate immune activation → ADJUVANT EFFECT                 │
   │                                                                │
   │ m1Ψ modification: Reduces TLR7/8 sensing → less innate alarm   │
-  │ BUT: LNP itself (ionizable lipid + PEG) still acts as adjuvant│
+  │ BUT: LNP itself (ionizable lipid + PEG) still acts as adjuvant │
   │   → IL-6, TNF at injection site → local reaction (arm pain)    │
   │                                                                │
   │ NET RESULT: Controlled innate activation → DC maturation       │

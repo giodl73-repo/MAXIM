@@ -23,7 +23,7 @@ MICROBIAL ECOLOGY: MICROBES AS ECOSYSTEM ENGINEERS
   │                  Iron reducers, manganese oxidizers             │
   │                                                                 │
   │  ENGINEERS:      Biofilm formers alter substrate chemistry      │
-  │                  Stromatolites: First complex ecosystems (3.5 Ga)│
+  │                  Stromatolites: First complex ecosystems (3.5Ga)│
   │                  Coral reefs: Built on coral + Symbiodinium     │
   │                                                                 │
   │  SCALE:                                                         │

@@ -212,7 +212,7 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
   │   Siponimod/ozanimod/ponesimod: S1P receptor modulators        │
   │                                                                │
   │ High efficacy (IV/SC biologics):                               │
-  │   Natalizumab: Anti-α4 integrin → prevents CNS traffic (risk: PML)│
+  │   Natalizumab: Anti-α4 integrin → CNS-traffic blocker (PMLrisk)│
   │   Alemtuzumab: Anti-CD52 → lymphocyte depletion (potent)       │
   │   Ocrelizumab/ofatumumab: Anti-CD20 → B cell depletion         │
   │   Approved for PPMS: Ocrelizumab only                          │
@@ -249,7 +249,7 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
   │                                                                │
   │ 2nd LINE: Biologic DMARDs                                      │
   │   Anti-TNF (adalimumab, etanercept): Most established          │
-  │   Anti-IL-6R (tocilizumab, sarilumab): Alternative to anti-TNF│
+  │   Anti-IL-6R (tocilizumab, sarilumab): Alternative to anti-TNF │
   │   Anti-CD20 (rituximab): B cell depletion; seropositive RA     │
   │   CTLA-4-Ig (abatacept): Blocks T cell co-stimulation          │
   │                                                                │

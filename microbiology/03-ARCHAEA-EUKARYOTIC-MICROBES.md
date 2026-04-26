@@ -149,7 +149,7 @@ THE FORGOTTEN DOMAINS: ARCHAEA AND MICROBIAL EUKARYOTES
   │   Diplomonad: Two nuclei; no mitochondria (reduced to mitosome)  │
   │   Cyst: Environmental resistance; infectious dose: ~10 cysts     │
   │   Trophozoite: Attaches to intestinal epithelium → malabsorption│
-  │   Transmission: Fecal-oral, contaminated water (hikers, "beaver fever")│
+  │   Transmission: Fecal-oral, contaminated water ("beaver fever")│
   │                                                                  │
   │ TRYPANOSOMA brucei (kinetoplastid)                               │
   │   African sleeping sickness; transmitted by tsetse fly           │
