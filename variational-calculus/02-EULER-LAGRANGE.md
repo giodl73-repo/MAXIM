@@ -11,7 +11,7 @@ functional. It is the single most important equation in variational calculus.
 +-----------------------------------------------------------------------+
 |              EULER-LAGRANGE EQUATION                                  |
 |                                                                       |
-|  FUNCTIONAL:  J[u] = ∫ₐᵇ F(x, u, u') dx                             |
+|  FUNCTIONAL:  J[u] = ∫ₐᵇ F(x, u, u') dx                               |
 |                                                                       |
 |  EULER-LAGRANGE EQUATION:                                             |
 |  ┌────────────────────────────────────────────────────────────────┐   |
@@ -165,11 +165,11 @@ For functionals with functions of several variables:
 
   EXAMPLES:
   ┌─────────────────────────────────────────────────────────────────┐
-  │ J = ½∫|∇u|²dx:  −∇²u = 0        (Laplace equation)           │
-  │ J = ½∫[|∇u|²−2fu]dx: −∇²u = f   (Poisson equation)          │
+  │ J = ½∫|∇u|²dx:  −∇²u = 0        (Laplace equation)              │
+  │ J = ½∫[|∇u|²−2fu]dx: −∇²u = f   (Poisson equation)              │
   │ J = ∫√(1+|∇u|²)dx: −∇·(∇u/√(1+|∇u|²)) = 0 (minimal surface)│
   │ J = ½∫[|∇u|²+V(x)u²]dx: −∇²u+V(x)u = 0  (Schrödinger type) │
-  │ J = ½∫[u_tt²−c²u_xx²]dt dx: u_tt − c²u_xx = 0  (wave!)      │
+  │ J = ½∫[u_tt²−c²u_xx²]dt dx: u_tt − c²u_xx = 0  (wave!)          │
   └─────────────────────────────────────────────────────────────────┘
 
   KEY INSIGHT: Every major linear PDE of physics is the E-L equation
@@ -219,8 +219,8 @@ For multiple dependent variables u = (u₁,...,u_m):
 
   ┌────────────────────────────────────────────────────────────┐
   │ SYMMETRY               CONSERVED QUANTITY                  │
-  │ q → q + a (translation)  → pᵢ = ∂L/∂q̇ᵢ  (momentum)     │
-  │ t → t + s (time shift)   → H = Σpq̇ − L   (energy)       │
+  │ q → q + a (translation)  → pᵢ = ∂L/∂q̇ᵢ  (momentum)         │
+  │ t → t + s (time shift)   → H = Σpq̇ − L   (energy)          │
   │ q → R(s)q (rotation)     → L = q × p       (ang. moment)   │
   │ φ → φ + s (U(1) phase)   → Q (electric charge)             │
   └────────────────────────────────────────────────────────────┘

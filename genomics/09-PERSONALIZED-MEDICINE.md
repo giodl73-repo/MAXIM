@@ -60,20 +60,20 @@ PERSONALIZED MEDICINE: GENOMICS IN THE CLINIC
   │ CYP2D6  Most polymorphic CYP gene                                │
   │         Metabolizes: codeine, tamoxifen, tramadol,               │
   │                      antidepressants (fluoxetine, paroxetine)    │
-  │         Poor metabolizer (PM): toxic accumulation of prodrug   │
-  │         Ultrarapid metabolizer (UM): no effect from prodrug    │
+  │         Poor metabolizer (PM): toxic accumulation of prodrug     │
+  │         Ultrarapid metabolizer (UM): no effect from prodrug      │
   │                                                                  │
-  │ CYP2C19 Metabolizes: clopidogrel (Plavix), PPIs, SSRIs         │
+  │ CYP2C19 Metabolizes: clopidogrel (Plavix), PPIs, SSRIs           │
   │         *2 allele: loss-of-function (28% of East Asians)         │
-  │         PM + clopidogrel → no antiplatelet effect → stent clot │
+  │         PM + clopidogrel → no antiplatelet effect → stent clot   │
   │         FDA Black Box Warning: test before prescribing           │
   │                                                                  │
   │ CYP2C9  Metabolizes: warfarin, NSAIDs                            │
   │         *2, *3 alleles → reduced metabolism → bleeding risk      │
-  │         Dosing algorithm: warfarin dose = f(CYP2C9, VKORC1)    │
+  │         Dosing algorithm: warfarin dose = f(CYP2C9, VKORC1)      │
   │                                                                  │
-  │ CYP3A4/5 Metabolizes: ~50% of all drugs (statin, tacrolimus)   │
-  │          Less polymorphic; inducible (rifampin, carbamazepine) │
+  │ CYP3A4/5 Metabolizes: ~50% of all drugs (statin, tacrolimus)     │
+  │          Less polymorphic; inducible (rifampin, carbamazepine)   │
   └──────────────────────────────────────────────────────────────────┘
 
   METABOLIZER PHENOTYPE CLASSIFICATION:
@@ -244,7 +244,7 @@ PERSONALIZED MEDICINE: GENOMICS IN THE CLINIC
   │ EARLY DETECTION (GRAIL Galleri):                             │
   │   Methylation + fragment pattern across 50+ cancer types     │
   │   Tissue-of-origin signal → localize tumor                   │
-  │   Sensitivity varies: ~50–90% for stage 3–4, ~20% stage 1  │
+  │   Sensitivity varies: ~50–90% for stage 3–4, ~20% stage 1    │
   └──────────────────────────────────────────────────────────────┘
 ```
 

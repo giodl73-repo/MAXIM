@@ -52,7 +52,7 @@
 │  Kohn-Sham (1965): replace interacting electrons with               │
 │  non-interacting electrons in an effective potential                │
 │                                                                     │
-│  [-ℏ²/2m ∇² + V_eff(r)] φᵢ(r) = εᵢ φᵢ(r)                         │
+│  [-ℏ²/2m ∇² + V_eff(r)] φᵢ(r) = εᵢ φᵢ(r)                            │
 │                                                                     │
 │  V_eff = V_ext + V_Hartree + V_xc                                   │
 │    V_ext:     external (nuclear) potential                          │
@@ -130,13 +130,13 @@ SCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Ander
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│  NEWTON'S EQUATIONS: mᵢ r̈ᵢ = Fᵢ = -∂U/∂rᵢ                        │
+│  NEWTON'S EQUATIONS: mᵢ r̈ᵢ = Fᵢ = -∂U/∂rᵢ                           │
 │                                                                     │
 │  Integrate: Verlet algorithm (symplectic, time-reversible)          │
-│    r(t+Δt) = 2r(t) - r(t-Δt) + Δt² F(t)/m   (2nd order)          │
+│    r(t+Δt) = 2r(t) - r(t-Δt) + Δt² F(t)/m   (2nd order)             │
 │    Velocity Verlet:                                                 │
-│      r(t+Δt) = r(t) + v(t)Δt + Δt² F(t)/2m                        │
-│      v(t+Δt) = v(t) + Δt[F(t) + F(t+Δt)]/2m                       │
+│      r(t+Δt) = r(t) + v(t)Δt + Δt² F(t)/2m                          │
+│      v(t+Δt) = v(t) + Δt[F(t) + F(t+Δt)]/2m                         │
 │                                                                     │
 │  Timestep: Δt ~ T_vib/20 → 1 fs (atomic), 2–4 fs with constraints   │
 │  Trajectory length: MD can reach ns–μs (fast bond vibrations limit) │
@@ -211,7 +211,7 @@ SCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Ander
 │  ORDER PARAMETER: φ = 0 (phase A), φ = 1 (phase B), 0<φ<1 (boundary)│
 │                                                                     │
 │  FREE ENERGY FUNCTIONAL (Landau-Ginzburg):                          │
-│    F[φ] = ∫ [f(φ) + κ/2 |∇φ|²] d³r                               │
+│    F[φ] = ∫ [f(φ) + κ/2 |∇φ|²] d³r                                  │
 │    f(φ) = bulk free energy (double-well shape for two-phase)        │
 │    κ/2 |∇φ|²: interfacial energy (penalizes sharp gradients)        │
 └─────────────────────────────────────────────────────────────────────┘
@@ -267,7 +267,7 @@ SCF convergence is a fixed-point iteration (rho -> F(rho) -> fixed point). Ander
   │                                                                 │
   │  Message-Passing NN (SchNet, DimeNet, PaiNN):                   │
   │  Atoms = nodes, bonds = edges                                   │
-  │  Aggregate: vᵢ ← Σⱼ f(vⱼ, vᵢ, rᵢⱼ)  (message passing)       │
+  │  Aggregate: vᵢ ← Σⱼ f(vⱼ, vᵢ, rᵢⱼ)  (message passing)           │
   │  Equivariant: NequIP, MACE (respect 3D rotational symmetry)     │
   │  ~10× better data efficiency than symmetry functions            │
   │                                                                 │

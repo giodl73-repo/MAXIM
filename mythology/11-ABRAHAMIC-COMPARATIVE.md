@@ -31,7 +31,7 @@ The Abrahamic traditions (Judaism, Christianity, Islam) are not usually framed a
 │  — Ethical monotheism: God is both creator and moral authority   │
 │  — Angelology and demonology elaborated extensively              │
 │  — Apocalypticism: a final end-point to history                  │
-│  — Rich interpretive traditions (Talmud, theology, tafsir)     │
+│  — Rich interpretive traditions (Talmud, theology, tafsir)       │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -200,7 +200,7 @@ THE CANAANITE CONNECTIONS:
 │    Lower triad: Principalities → Archangels → Angels             │
 │  — Satan transformed: the adversary becomes the cosmic enemy     │
 │    — Conflation of multiple texts: Isaiah 14 ("How you have      │
-│      fallen from heaven, morning star, son of the dawn!") +     │
+│      fallen from heaven, morning star, son of the dawn!") +      │
 │      Ezekiel 28 (king of Tyre as fallen celestial being) +       │
 │      Revelation's dragon = Satan/Lucifer as fallen archangel     │
 │    — This composite is not present in the Tanakh itself          │
@@ -293,8 +293,8 @@ THE NIGHT JOURNEY (Isra and Mi'raj):
 │  ORIGIN:                                                         │
 │  — Jewish mystical tradition; systematic form from ~12th c. CE   │
 │  — Zohar (Book of Radiance): compiled ~1280 CE by Moses de León  │
-│    in Spain, attributed to 2nd-century sage Shimon bar Yochai  │
-│  — Lurianic Kabbalah (16th c.): Isaac Luria in Safed, Israel   │
+│    in Spain, attributed to 2nd-century sage Shimon bar Yochai    │
+│  — Lurianic Kabbalah (16th c.): Isaac Luria in Safed, Israel     │
 │                                                                  │
 │  THE TEN SEFIROT — Emanations of the Divine:                     │
 │                                                                  │
@@ -321,18 +321,18 @@ THE NIGHT JOURNEY (Isra and Mi'raj):
 │  — Three columns: Right (expansive/male), Left (contractive/     │
 │    female), Middle (balancing)                                   │
 │  — Three triads + Malkhut at the bottom                          │
-│  — The "Tree of Life" is a map of both divine emanation and    │
+│  — The "Tree of Life" is a map of both divine emanation and      │
 │    human spiritual structure                                     │
-│  — Reading downward: God's light/being flows from Keter to     │
-│    Malkhut (from Ein Sof — "without end" — into the world)     │
+│  — Reading downward: God's light/being flows from Keter to       │
+│    Malkhut (from Ein Sof — "without end" — into the world)       │
 │  — Reading upward: spiritual ascent from materiality to the      │
-│    divine source                                               │
+│    divine source                                                 │
 │                                                                  │
 │  LURIANIC ADDITIONS:                                             │
 │  TZIMTZUM: "Contraction" — God contracted/withdrew into himself  │
 │  to make room for creation; the space left is where the world is│
-│  SHEVIRAT HA-KELIM: "Breaking of the Vessels" — divine light   │
-│  was too intense; the vessels (Sefirot) shattered; sparks of   │
+│  SHEVIRAT HA-KELIM: "Breaking of the Vessels" — divine light     │
+│  was too intense; the vessels (Sefirot) shattered; sparks of     │
 │  divine light fell into the material world; imprisoned in kelipot│
 │  (husks/shells)                                                  │
 │  TIKKUN OLAM: "Repair of the World" — human ethical and          │

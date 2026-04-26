@@ -317,7 +317,7 @@ LOCAL IPC MECHANISMS — CROSS-PLATFORM COMPARISON
   │                         ▲                                                   │
   │  ONE CODEBASE ───────────┘ (aspiration)                                     │
   │                                                                             │
-  │  ┌─────────────┬──────────────┬─────────────┬────────────┬───────────┐    │
+  │  ┌─────────────┬──────────────┬─────────────┬────────────┬───────────┐      │
   │  │  .NET MAUI  │ React Native │   Flutter   │  Electron  │   Tauri   │    │
   │  │  C# / XAML  │  JS / TS     │    Dart     │  JS + Node │  JS + Rust│    │
   │  │  iOS/And/   │  iOS/Android │  iOS/And/   │  Windows/  │  Win/Mac/ │    │

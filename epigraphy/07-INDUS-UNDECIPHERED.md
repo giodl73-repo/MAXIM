@@ -19,7 +19,7 @@ UNDECIPHERED SCRIPTS: PROBLEM CLASSIFICATION
 |  (pre-1864)      very                             (uncertain)    |
 |                  short                                           |
 |  Voynich         ~240 pgs  ~25 chars  No          Unknown        |
-|  (c.1404-1438)                                   (or cipher)   |
+|  (c.1404-1438)                                   (or cipher)     |
 +------------------------------------------------------------------+
 
 COMMON BARRIER: No bilingual text for any of these.

@@ -5,16 +5,16 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │              RATIONAL CHOICE THEORY — LANDSCAPE AND CRITIQUE                │
-│                                                                               │
+│                                                                             │
 │  LAYER 1: THE FORMAL BASELINE                                               │
 │  ─────────────────────────────────────────────────────────────────────────  │
 │  Expected Utility Theory (vNM 1944):                                        │
 │  EU(L) = Σᵢ pᵢ × U(xᵢ)    [axioms: completeness, transitivity,              │
-│                              continuity, independence]                        │
+│                              continuity, independence]                      │
 │  Representation theorem: axioms ⟺ exists U s.t. agent maximizes EU          │
 │  This is the formal spec. Behavioral critique = finding where               │
 │  actual human choices violate the axioms.                                   │
-│                                                                               │
+│                                                                             │
 │  LAYER 2: SYSTEMATIC VIOLATIONS (empirical falsification of the axioms)     │
 │  ─────────────────────────────────────────────────────────────────────────  │
 │  Allais Paradox (1953):       Violates INDEPENDENCE axiom                   │
@@ -25,7 +25,7 @@
 │    Price vs choice reversal — preferences are context-dependent             │
 │  WTA ≫ WTP:                   Violates WEALTH EQUIVALENCE assumption        │
 │    Endowment effect — owning something changes its subjective value         │
-│                                                                               │
+│                                                                             │
 │  LAYER 3: THEORETICAL ALTERNATIVES                                          │
 │  ─────────────────────────────────────────────────────────────────────────  │
 │  Savage (1954):   Subjective EU — handle uncertainty via subjective probs   │
@@ -33,10 +33,10 @@
 │  Simon (1955):    Bounded rationality — optimization infeasible; satisficing │
 │  Maximin EU:      Handle ambiguity by maximizing worst-case EU              │
 │  Robust opt.:     Uncertainty set instead of single distribution            │
-│                                                                               │
+│                                                                             │
 │  LAYER 4: PROSPECT THEORY PREVIEW (full treatment in 02-PROSPECT-THEORY)    │
 │  ─────────────────────────────────────────────────────────────────────────  │
-│  Loss aversion: U(−x) ≈ −2 × U(x)   (losses feel ~2× as bad as gains)     │
+│  Loss aversion: U(−x) ≈ −2 × U(x)   (losses feel ~2× as bad as gains)       │
 │  Probability weighting: π(p) ≠ p     (overweight small; underweight large)  │
 │  Reference dependence: utility = f(Δ from reference, not absolute wealth)   │
 │  Diminishing sensitivity: concave in gains, convex in losses                │
@@ -48,23 +48,23 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    EXPECTED UTILITY THEORY (vNM 1944)                       │
-│                                                                               │
+│                                                                             │
 │  A rational agent facing a lottery L = {(x₁, p₁), (x₂, p₂), ..., (xₙ, pₙ)}  │
-│  selects the option maximizing expected utility:                              │
-│                                                                               │
+│  selects the option maximizing expected utility:                            │
+│                                                                             │
 │  EU(L) = Σᵢ pᵢ × U(xᵢ)                                                      │
-│                                                                               │
+│                                                                             │
 │  AXIOMS (vNM):                                                              │
 │  1. Completeness:     ∀A,B: A ≽ B or B ≽ A (always comparable)              │
 │  2. Transitivity:     A ≽ B and B ≽ C → A ≽ C                               │
 │  3. Continuity:       ∃p s.t. A ~ pB + (1-p)C (no lexicographic pref)       │
 │  4. Independence:     If A ≽ B, then pA+(1-p)C ≽ pB+(1-p)C for all C, p     │
-│                       (mixtures preserve preference order)                    │
-│                                                                               │
+│                       (mixtures preserve preference order)                  │
+│                                                                             │
 │  THEOREM: Preferences satisfy these axioms iff they can be represented      │
 │  by a utility function U: outcomes → ℝ such that lotteries are ranked       │
-│  by expected utility.                                                         │
-│                                                                               │
+│  by expected utility.                                                       │
+│                                                                             │
 │  The representation theorem is the formal justification for EU theory.      │
 │  Behavioral economics asks: do people's preferences satisfy these axioms?   │
 └─────────────────────────────────────────────────────────────────────────────┘

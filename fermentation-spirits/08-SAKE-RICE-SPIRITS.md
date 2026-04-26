@@ -5,13 +5,13 @@
 ```
 +------------------------------------------------------------------+
 |               ASIAN RICE/GRAIN FERMENTATION SPECTRUM             |
-|                                                                    |
+|                                                                  |
 |  UNDISTILLED                          DISTILLED                  |
 |  -----------                          ---------                  |
 |  Sake (Japan)                         Shochu (Japan)             |
 |  Rice wine analog; koji parallel      25-40% ABV; single         |
 |  fermentation; up to 20% ABV         distillation; versatile     |
-|                                                                    |
+|                                                                  |
 |  Tapai (SEA)                          Soju (Korea)               |
 |  Wild fermented rice; sweet           ~25% ABV; #1 world spirit  |
 |                                       by volume                  |

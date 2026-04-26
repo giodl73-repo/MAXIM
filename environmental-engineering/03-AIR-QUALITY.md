@@ -34,8 +34,8 @@ pollutants with ambient standards based on human health) and hazardous air pollu
   │    → BACT (best available control technology), increment analysis │
   │  NSR (New Source Review): nonattainment areas                    │
   │    → LAER (lowest achievable emission rate) + offsets            │
-  │  Title V operating permit: major sources (≥100 tpy criteria,   │
-  │    ≥10 tpy single HAP, ≥25 tpy total HAPs)                     │
+  │  Title V operating permit: major sources (≥100 tpy criteria,     │
+  │    ≥10 tpy single HAP, ≥25 tpy total HAPs)                       │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

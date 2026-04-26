@@ -18,10 +18,10 @@ FACADE SYSTEM TAXONOMY
 │                                                                              │
 │  GLASS TYPES                    IGU (INSULATED GLAZING UNIT)                │
 │  ┌───────────────────────────┐   ┌──────────────────────────────────┐        │
-│  │ Float (annealed)          │   │  ┌─────┐gap┌─────┐             │        │
-│  │ Tempered (toughened)      │   │  │Glass│   │Glass│             │        │
-│  │ Heat-strengthened         │   │  └─────┘   └─────┘             │        │
-│  │ Laminated (PVB/SGP/EVA)   │   │  spacer bar + desiccant        │        │
+│  │ Float (annealed)          │   │  ┌─────┐gap┌─────┐             │          │
+│  │ Tempered (toughened)      │   │  │Glass│   │Glass│             │          │
+│  │ Heat-strengthened         │   │  └─────┘   └─────┘             │          │
+│  │ Laminated (PVB/SGP/EVA)   │   │  spacer bar + desiccant        │          │
 │  │ Borosilicate              │   │  gas fill: Ar / Kr               │        │
 │  └───────────────────────────┘   └──────────────────────────────────┘        │
 │                                                                              │
@@ -150,10 +150,10 @@ LAMINATED GLASS INTERLAYERS
 │  → THIS is why laminated is required for overhead, structural, fall hazard   │
 │                                                                              │
 │  BUILDING USES:                                                              │
-│  Overhead glazing:  must be laminated (HSG + PVB or T + PVB, or T + SGP)   │
+│  Overhead glazing:  must be laminated (HSG + PVB or T + PVB, or T + SGP)     │
 │  Balustrade glass:  must be laminated (structural; post-fracture integral)   │
-│  Safety glass (BS EN 12600): impact performance Class 1B1 (BS 6206)        │
-│  Bulletproof glass: multiple laminates (polycarbonate + glass; 25–50 mm)   │
+│  Safety glass (BS EN 12600): impact performance Class 1B1 (BS 6206)          │
+│  Bulletproof glass: multiple laminates (polycarbonate + glass; 25–50 mm)     │
 │  Blast glazing:     laminated with thicker PVB or SGP; stiff frame critical  │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -254,9 +254,9 @@ LOW-E COATING COMPARISON
 │  SOFT COAT (sputtered, offline):                                             │
 │    Applied after float production in separate magnetron sputtering machine   │
 │    Multiple thin metallic/oxide layers deposited by sputtering               │
-│    Typical stack: SiO₂ / Ag / NiCr / SiO₂ (silver is the active layer)    │
+│    Typical stack: SiO₂ / Ag / NiCr / SiO₂ (silver is the active layer)       │
 │    Silver layer: IR-reflective; very thin (~10 nm)                           │
-│    Chemically delicate: must be protected in IGU cavity (Face 3 or Face 2) │
+│    Chemically delicate: must be protected in IGU cavity (Face 3 or Face 2)   │
 │    Cannot be exposed to atmosphere → SEALED in IGU                           │
 │    Emissivity: ε ~ 0.02–0.05 (high performance; much better than hard coat)  │
 │    Best U-value improvement → used in all Passivhaus-grade glazing           │
@@ -271,7 +271,7 @@ LOW-E COATING COMPARISON
 │                                                                              │
 │  SHGC (Solar Heat Gain Coefficient):                                         │
 │    Fraction of solar radiation transmitted through window (0–1)              │
-│    High SHGC (0.4–0.7): cold climates → welcome solar gain                 │
+│    High SHGC (0.4–0.7): cold climates → welcome solar gain                   │
 │    Low SHGC (0.2–0.35): hot climates / south-facing offices → reject solar   │
 │    Can control SHGC independently of U-value with appropriate coatings       │
 │    "Solar control" glass: absorbs or reflects near-IR spectrum selectively   │
@@ -279,9 +279,9 @@ LOW-E COATING COMPARISON
 │  VISIBLE TRANSMITTANCE (VT or T_vis):                                        │
 │    Fraction of visible light transmitted (0–1)                               │
 │    Clear: T_vis ~ 0.80–0.88                                                  │
-│    Tinted: T_vis ~ 0.35–0.60 (but also blocks daylight)                    │
-│    High-performance low-e: T_vis ~ 0.60–0.70 (light in; IR out)            │
-│    → "selective" coatings: high VT + low SHGC = best of both worlds        │
+│    Tinted: T_vis ~ 0.35–0.60 (but also blocks daylight)                      │
+│    High-performance low-e: T_vis ~ 0.60–0.70 (light in; IR out)              │
+│    → "selective" coatings: high VT + low SHGC = best of both worlds          │
 │    Light-to-solar-gain ratio (LSG = VT/SHGC): > 1.25 = good selective glass│
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -305,7 +305,7 @@ CURTAIN WALL SYSTEM COMPARISON
 │  SECTION ELEVATION:                                                          │
 │  ─────────────────────────────── structural floor slab edge                  │
 │  │          │          │                                                     │
-│  │  glass   │  glass   │  ← glass units held by pressure plate + gaskets   │
+│  │  glass   │  glass   │  ← glass units held by pressure plate + gaskets     │
 │  │          │          │                                                     │
 │  │──────────│──────────│ ← transom (horizontal; spans mullion to mullion)    │
 │  │          │          │                                                     │
@@ -320,12 +320,12 @@ CURTAIN WALL SYSTEM COMPARISON
 │                                                                              │
 │  UNITIZED:                                                                   │
 │  ─────────────────────────────────────────────────────────────────────────   │
-│  Factory-assembled panels (typically one floor height × one bay width)     │
-│  Delivered to site; hoisted by tower crane; hook-on to edge of slab        │
-│  Stack-joint at top/bottom of each panel: vertical drainage path           │
+│  Factory-assembled panels (typically one floor height × one bay width)       │
+│  Delivered to site; hoisted by tower crane; hook-on to edge of slab          │
+│  Stack-joint at top/bottom of each panel: vertical drainage path             │
 │                                                                              │
-│  Advantages: factory quality; speed (1 bay/day/crane); parallel production │
-│  Disadvantages: high tooling cost; inflexible (changes → whole panel);     │
+│  Advantages: factory quality; speed (1 bay/day/crane); parallel production   │
+│  Disadvantages: high tooling cost; inflexible (changes → whole panel);       │
 │    shipping volume; crane-dependent installation                             │
 │                                                                              │
 │  STACK JOINT DETAIL (critical for weather tightness):                        │
@@ -339,7 +339,7 @@ CURTAIN WALL SYSTEM COMPARISON
 │  │ ╚══════════╝ │                                                            │
 │  └──────────────┘  ← lower panel (sill frame)                                │
 │  Rainwater enters joint → drained to exterior via weep holes                 │
-│  Two-stage sealing: outer barrier (rain screen) + inner air seal           │
+│  Two-stage sealing: outer barrier (rain screen) + inner air seal             │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -471,7 +471,7 @@ DOUBLE-SKIN FACADE TYPES
 │  MULTI-STORY:  buffer zone full height of building                           │
 │  ──────────────────────────────────────────────────────────────────────────  │
 │  Outer skin: single glass (usually toughened laminated)                      │
-│  Cavity: 300mm–2m+; automated blinds; sometimes walkable                   │
+│  Cavity: 300mm–2m+; automated blinds; sometimes walkable                     │
 │  Inner skin: thermal IGU; operable vents                                     │
 │  Stack effect: warm air rises in cavity → draws fresh air from base          │
 │  Result: inner skin sheltered from wind → vent inner skin without draft      │
@@ -480,7 +480,7 @@ DOUBLE-SKIN FACADE TYPES
 │  CORRIDOR (SHAFT BOX) TYPE:  each floor is self-contained cavity bay         │
 │  ──────────────────────────────────────────────────────────────────────────  │
 │  Cavity divided horizontally at each floor level                             │
-│  Ventilated by openings in outer skin at each bay                          │
+│  Ventilated by openings in outer skin at each bay                            │
 │  → better fire containment; no stack effect                                  │
 │  → most common in UK/EU commercial buildings                                 │
 │                                                                              │
@@ -488,7 +488,7 @@ DOUBLE-SKIN FACADE TYPES
 │  Winter: cavity acts as thermal buffer → reduces heat loss from inner skin   │
 │  Summer: cavity can overheat → automated vents + blinds critical             │
 │  Net energy performance depends heavily on control system sophistication     │
-│  Energy modelling essential (EnergyPlus, IES-VE, TRNSYS)                   │
+│  Energy modelling essential (EnergyPlus, IES-VE, TRNSYS)                     │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```

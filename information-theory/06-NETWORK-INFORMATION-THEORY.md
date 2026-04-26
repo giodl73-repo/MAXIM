@@ -146,7 +146,7 @@ Relay strategies:
   │  Compress-and-Forward (CF):                             │
   │    Relay compresses Y_R, forwards compressed version    │
   │    Applies Wyner-Ziv coding (Y at destination is SI)    │
-  │    Rate ≤ I(X; Y, Y̌_R) - I(Y_R; Y̌_R | X, Y)          │
+  │    Rate ≤ I(X; Y, Y̌_R) - I(Y_R; Y̌_R | X, Y)             │
   │    Best when: relay closer to destination               │
   │                                                         │
   │  Amplify-and-Forward (AF):                              │

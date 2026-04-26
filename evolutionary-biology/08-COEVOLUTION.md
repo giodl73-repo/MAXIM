@@ -9,23 +9,23 @@ in biology — and some of the most rapid evolutionary change.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                   COEVOLUTION LANDSCAPE                          │
-│                                                                    │
+│                                                                  │
 │  TYPE              INTERACTION      EXAMPLE                      │
 │  ────              ───────────      ───────                      │
 │  Arms race         Antagonistic     Predator-prey                │
 │  (+ / -)           parasite-host    Toxin-resistance             │
 │                    pathogen-host    Parasite virulence           │
-│                                                                    │
+│                                                                  │
 │  Mutualism         Cooperative      Plant-pollinator             │
 │  (+ / +)                            Fig-fig wasp                 │
 │                                    Mycorrhizal fungi             │
-│                                                                    │
+│                                                                  │
 │  Red Queen         Parasites drive  Sexual reproduction          │
 │                    host diversity   MHC diversity                │
-│                                                                    │
+│                                                                  │
 │  Cospeciation      Parallel clade   Figs & fig wasps             │
 │                    divergence       Pocket gopher lice           │
-│                                                                    │
+│                                                                  │
 │  KEY TENSION: coevolution happens at population level            │
 │  Geographic mosaic: different outcomes in different locations    │
 └──────────────────────────────────────────────────────────────────┘

@@ -82,7 +82,7 @@ THE FIVE VERTICAL LINES
    (X-height ≈ 40–55% of the em square, higher = more legible)
 
 
-   |a b c d e f g h i j k l m n o p q r s t u v w x y z|
+   |a b c d e f g h i j k l m n o p q r s t u v w x y z |
                                          ← BASELINE
    The reference line everything sits on
    The coordinate origin
@@ -112,7 +112,7 @@ PROPORTIONAL RELATIONSHIPS:
   │                            │  │                                    │
   │         H K                │  │            H K                     │
   │                            │  │                                    │
-  │  x   x   x   x   x        │  │  x   x   x   x   x   x   x        │
+  │  x   x   x   x   x        │  │  x   x   x   x   x   x   x          │
   │  ─────────────────         │  │  ─────────────────────────         │
   │  g   g                     │  │  g   g                             │
   └────────────────────────────┘  └────────────────────────────────────┘
@@ -137,10 +137,10 @@ Visual problem:
   Optical illusion: rounded forms "float" inside the bounding box.
 
   ┌────────────────────────────────────────────────────────────┐
-  │  H  H  H  ← three H's at exact cap height                │
+  │  H  H  H  ← three H's at exact cap height                  │
   │              H appears to reach the cap height line        │
   │                                                            │
-  │  O  O  O  ← O's drawn to EXACT cap height                │
+  │  O  O  O  ← O's drawn to EXACT cap height                  │
   │              O APPEARS smaller than H — optical illusion   │
   │                                                            │
   │  O  O  O  ← O's drawn SLIGHTLY above cap height (overshoot)│

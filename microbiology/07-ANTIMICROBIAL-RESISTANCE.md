@@ -12,7 +12,7 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │  Deaths associated with AMR:  4.95 million/year (2019)          │
   │  Projected (if unaddressed):  10 million/year by 2050 (O'Neill) │
   │  Economic cost:               ~$100 trillion cumulative by 2050 │
-  │                                                                   │
+  │                                                                 │
   │  NEW ANTIBIOTICS APPROVED (US FDA):                             │
   │  1980s: ~20 new approvals per decade                            │
   │  1990s: ~8 new approvals                                        │
@@ -20,7 +20,7 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │  2010s: ~8 new approvals (mostly variations of existing classes)│
   │  Since 1990: No new class with novel mechanism widely deployed  │
   │  → Discovery void of ~30+ years for truly novel classes         │
-  │                                                                   │
+  │                                                                 │
   │  WHO PRIORITY PATHOGENS (ESKAPE organisms):                     │
   │  E - Enterococcus faecium (VRE)                                 │
   │  S - Staphylococcus aureus (MRSA)                               │
@@ -49,29 +49,29 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   ┌────────────────────────────────────────────────────────────────┐
   │ β-LACTAMASES (most important class):                           │
   │   Cleave the β-lactam ring → inactivates all β-lactams         │
-  │   Class A (serine-based): TEM-1, SHV, CTX-M (ESBL)           │
+  │   Class A (serine-based): TEM-1, SHV, CTX-M (ESBL)             │
   │   Class B (metalloβ-lactamases): NDM-1, VIM, IMP               │
-  │   → Use Zn²⁺; cleave carbapenems → pan-β-lactam resistance   │
+  │   → Use Zn²⁺; cleave carbapenems → pan-β-lactam resistance     │
   │   Class C (cephalosporinases): AmpC (inducible in Enterobacter)│
   │   Class D (OXA-type): OXA-48; carbapenem-hydrolyzing           │
   │                                                                │
   │ ESBLs (Extended-Spectrum β-Lactamases):                        │
-  │   Mutant TEM/SHV or acquired CTX-M enzymes                   │
+  │   Mutant TEM/SHV or acquired CTX-M enzymes                     │
   │   → Cleave cephalosporins (not just penicillins)               │
-  │   CTX-M-15: Most common ESBL globally; plasmid-borne         │
+  │   CTX-M-15: Most common ESBL globally; plasmid-borne           │
   │   Treatment: Carbapenems (if carbapenemase-negative)           │
   │                                                                │
   │ CPE (Carbapenemase-Producing Enterobacteriaceae):              │
   │   KPC (Klebsiella pneumoniae carbapenemase): Class A           │
   │   NDM-1 (New Delhi Metallo-β-lactamase): Class B; emerged 2009│
   │   OXA-48: Class D; Mediterranean region + spreading globally   │
-  │   Treatment: Ceftazidime-avibactam, meropenem-vaborbactam    │
-  │   (avibactam: non-β-lactam β-lactamase inhibitor)            │
+  │   Treatment: Ceftazidime-avibactam, meropenem-vaborbactam      │
+  │   (avibactam: non-β-lactam β-lactamase inhibitor)              │
   │                                                                │
   │ AMINOGLYCOSIDE-MODIFYING ENZYMES:                              │
   │   APH (phosphotransferases), AAC (acetyltransferases),         │
   │   ANT (nucleotidyltransferases)                                │
-  │   → Modify -OH or -NH₂ groups → disrupts ribosome binding    │
+  │   → Modify -OH or -NH₂ groups → disrupts ribosome binding      │
   └────────────────────────────────────────────────────────────────┘
 
   2. TARGET SITE MODIFICATION
@@ -87,18 +87,18 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │ VRE (Vancomycin-Resistant Enterococcus):                       │
   │   vanA/vanB genes: Modify peptidoglycan terminus               │
   │   Normal: D-Ala-D-Ala (vancomycin binds this with high affinity)│
-  │   VanA: D-Ala-D-Lac (depsipeptide) → 1,000x reduced affinity │
-  │   VanB: D-Ala-D-Ser → ~7x reduced affinity (moderate level)  │
+  │   VanA: D-Ala-D-Lac (depsipeptide) → 1,000x reduced affinity   │
+  │   VanB: D-Ala-D-Ser → ~7x reduced affinity (moderate level)    │
   │   Treatment: Linezolid, daptomycin, tigecycline                │
   │                                                                │
   │ RIFAMPICIN RESISTANCE (M. tuberculosis):                       │
   │   rpoB mutations: 81 bp core region of RNA polymerase β-sub.   │
-  │   S531L most common → ~3x larger Km for rifampicin           │
+  │   S531L most common → ~3x larger Km for rifampicin             │
   │   Rifampicin resistance = MDR-TB marker (implies INH res. too)│
   │                                                                │
   │ FLUOROQUINOLONE RESISTANCE:                                    │
   │   QRDR mutations: gyrA (DNA gyrase), parC (topoisomerase IV)   │
-  │   S83L in GyrA most common in E. coli                        │
+  │   S83L in GyrA most common in E. coli                          │
   │   QNRB (plasmid-mediated): Protects quinolone targets from     │
   │   quinolone binding                                            │
   └────────────────────────────────────────────────────────────────┘
@@ -154,16 +154,16 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │  → Can accumulate multiple resistance genes in tandem          │
   │                      ↓                                         │
   │  TRANSPOSONS:        Move integrons (+ other genes)            │
-  │  Tn3 family, Tn10, Tn916: Cut-and-paste or copy-and-paste    │
-  │  → Can relocate between plasmid ↔ chromosome                 │
+  │  Tn3 family, Tn10, Tn916: Cut-and-paste or copy-and-paste      │
+  │  → Can relocate between plasmid ↔ chromosome                   │
   │                      ↓                                         │
   │  PLASMIDS:           Carry transposons; transfer by conjugation│
-  │  Resistance plasmids: IncF, IncI, IncL/M, IncN types         │
-  │  Conjugative plasmids: Self-transmissible (pKPN3, pOXA-48)   │
+  │  Resistance plasmids: IncF, IncI, IncL/M, IncN types           │
+  │  Conjugative plasmids: Self-transmissible (pKPN3, pOXA-48)     │
   │  Non-conjugative: Transfer via co-resident conjugative plasmid│
   │                      ↓                                         │
   │  CONJUGATION:        Plasmid → new bacterial cell              │
-  │  Inter-species: E. coli → Klebsiella → Acinetobacter         │
+  │  Inter-species: E. coli → Klebsiella → Acinetobacter           │
   │  Rate: Can be minutes; faster than cell division               │
   │  Single conjugation event can make new host fully resistant    │
   └────────────────────────────────────────────────────────────────┘
@@ -352,12 +352,12 @@ ANTIMICROBIAL RESISTANCE: THE EVOLUTION CRISIS
   │   CRISPR-based killing: Sequence-specific; antimicrobial use   │
   │   (see genomics/07-CRISPR.md for CRISPR technology)            │
   │   Antimicrobial peptides: Host defense peptides; synthetic     │
-  │   Biofilm-specific: Quorum quenching (QQ) enzymes            │
+  │   Biofilm-specific: Quorum quenching (QQ) enzymes              │
   │                                                                │
   │ CURRENT PIPELINE:                                              │
   │   ~40 antibiotics in clinical development (2024)               │
   │   Most: Derivatives of existing classes                        │
-  │   Truly novel mechanisms: Zoliflodacin (topoisomerase II     │
+  │   Truly novel mechanisms: Zoliflodacin (topoisomerase II       │
   │   inhibitor, different binding site from quinolones),          │
   │   Gepotidacin (similar); ALS-4                                 │
   └────────────────────────────────────────────────────────────────┘

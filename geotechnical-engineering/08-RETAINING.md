@@ -6,7 +6,7 @@ Retaining structures hold back a mass of soil (or other material) against gravit
 
 ```
 +------------------------------------------------------------------+
-|               LATERAL EARTH PRESSURE — MASTER CONCEPT          |
+|               LATERAL EARTH PRESSURE — MASTER CONCEPT            |
 +------------------------------------------------------------------+
 |                                                                  |
 |  AT-REST (K0): No wall movement                                 |
@@ -34,9 +34,9 @@ Retaining structures hold back a mass of soil (or other material) against gravit
 |  triangular        triangular        triangular                |
 |  (increases        (larger)                                    |
 |  with depth)                                                   |
-|                                                                  |
-|  Ka << Ko << Kp (typically Ka ≈ 0.3, Ko ≈ 0.5, Kp ≈ 3.0)     |
-|                                                                  |
+|                                                                |
+|  Ka << Ko << Kp (typically Ka ≈ 0.3, Ko ≈ 0.5, Kp ≈ 3.0)       |
+|                                                                |
 +------------------------------------------------------------------+
 ```
 

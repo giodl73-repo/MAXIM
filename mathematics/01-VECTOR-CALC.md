@@ -9,10 +9,10 @@
 |   COORDINATE EXPRESSION (R³)          COORDINATE-FREE                  |
 |   ─────────────────────────────        (Exterior Calculus)             |
 |                                                                        |
-|   f: R³→R   ──── ∇  (gradient) ──>  F: R³→R³   ≡  d on 0-forms       |
-|   F: R³→R³  ──── ∇· (divergence) → f: R³→R     ≡  ★d★ on 2-forms     |
-|   F: R³→R³  ──── ∇× (curl) ──────> F: R³→R³   ≡  ★d on 1-forms       |
-|   f: R³→R   ──── ∇² (Laplacian) → f: R³→R     ≡  ★d★d on 0-forms     |
+|   f: R³→R   ──── ∇  (gradient) ──>  F: R³→R³   ≡  d on 0-forms         |
+|   F: R³→R³  ──── ∇· (divergence) → f: R³→R     ≡  ★d★ on 2-forms       |
+|   F: R³→R³  ──── ∇× (curl) ──────> F: R³→R³   ≡  ★d on 1-forms         |
+|   f: R³→R   ──── ∇² (Laplacian) → f: R³→R     ≡  ★d★d on 0-forms       |
 |                                                                        |
 |   INPUT TYPE        OPERATOR          OUTPUT TYPE     PHYSICAL MEANING |
 |   scalar field      gradient          vector field    steepest ascent  |
@@ -21,7 +21,7 @@
 |   scalar field      Laplacian         scalar field    vs. neighbors    |
 |                                                                        |
 |   COORDINATE-FREE LAYER: exterior calculus (differential forms)        |
-|   d²=0 is ONE identity that encodes ∇×(∇f)=0 and ∇·(∇×F)=0          |
+|   d²=0 is ONE identity that encodes ∇×(∇f)=0 and ∇·(∇×F)=0             |
 +------------------------------------------------------------------------+
 ```
 
@@ -324,7 +324,7 @@ Generalization of Laplace's equation. Shows up constantly in E&M.
 |        │                                                          |
 |        │ ∇· (divergence of gradient)                              |
 |        ▼                                                          |
-|   SCALAR FIELD ∇²f = ∇·(∇f)   ← Laplacian                       |
+|   SCALAR FIELD ∇²f = ∇·(∇f)   ← Laplacian                         |
 |                                                                   |
 |   VECTOR FIELD F                                                  |
 |        │ ∇× (curl)                                                |

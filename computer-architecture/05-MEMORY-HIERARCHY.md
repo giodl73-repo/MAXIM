@@ -26,8 +26,8 @@ These principles hold for most real programs (loops, arrays, structs). They are 
 |            (~50K cycles)                                              |
 |   HDD      1–20 TB      ~5–10ms    ~100–200 MB/s magnetic             |
 |                                                                       |
-|  DRAM latency numbers: DDR5-6400, typical desktop system            |
-|  Apple M2: L2 per-cluster 12 MB; "System cache" 8–24 MB before DRAM |
+|  DRAM latency numbers: DDR5-6400, typical desktop system              |
+|  Apple M2: L2 per-cluster 12 MB; "System cache" 8–24 MB before DRAM   |
 +-----------------------------------------------------------------------+
 ```
 

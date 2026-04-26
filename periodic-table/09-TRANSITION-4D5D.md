@@ -54,10 +54,10 @@ THE RELATIVISTIC EFFECT:
   ┌─────────────────────────────────────────────────────────────────┐
   │  1. s and p orbitals contract and stabilize (direct effect)     │
   │     → 6s orbital in Au/Hg/Tl contracts significantly            │
-  │                                                                   │
+  │                                                                 │
   │  2. d and f orbitals expand (indirect effect — s/p better       │
   │     screen nucleus → d/f feel less nuclear charge)              │
-  │                                                                   │
+  │                                                                 │
   │  3. Spin-orbit coupling increases dramatically with Z           │
   └─────────────────────────────────────────────────────────────────┘
 
@@ -219,11 +219,11 @@ PALLADIUM-CATALYZED CROSS-COUPLING:
 
   GENERAL MECHANISM (oxidative addition / transmetalation / reductive elimination):
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Pd⁰ (catalyst, 14e⁻) ──oxidative addition──→ Pd²⁺-RX complex      │
+  │  Pd⁰ (catalyst, 14e⁻) ──oxidative addition──→ Pd²⁺-RX complex        │
   │                                                                      │
-  │  Pd²⁺-RX + R'M ──transmetalation──→ Pd²⁺-R-R'  (M = B, Zn, Sn...) │
+  │  Pd²⁺-RX + R'M ──transmetalation──→ Pd²⁺-R-R'  (M = B, Zn, Sn...)    │
   │                                                                      │
-  │  Pd²⁺-R-R' ──reductive elimination──→ R-R' + Pd⁰ (regenerated)     │
+  │  Pd²⁺-R-R' ──reductive elimination──→ R-R' + Pd⁰ (regenerated)       │
   └──────────────────────────────────────────────────────────────────────┘
 
   SUZUKI COUPLING:  Ar-X + Ar'-B(OH)₂ → Ar-Ar'  (X = Br, I, OTf; Pd/base)

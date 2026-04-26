@@ -9,12 +9,12 @@
 |  Method         Useful range     Material        Precision       |
 |  ─────────────────────────────────────────────────────────────   |
 |  Radiocarbon    0–50,000 BP      Organic matter  ±20–200 yr      |
-|  Dendrochronology 0–13,000 BP   Tree rings      ±1 year        |
-|  OSL/IRSL       100–500,000 BP  Sediments       ±5–15%         |
-|  TL             100–500,000 BP  Heated minerals ±5–15%         |
-|  K-Ar / Ar-Ar   >100,000 BP     Volcanic rock   varies         |
-|  U-series       1,000–500,000 BP Carbonate/bone ±1–2%          |
-|  Archaeomagnetic 0–10,000 BP    Fired contexts  ±25–100 yr     |
+|  Dendrochronology 0–13,000 BP   Tree rings      ±1 year          |
+|  OSL/IRSL       100–500,000 BP  Sediments       ±5–15%           |
+|  TL             100–500,000 BP  Heated minerals ±5–15%           |
+|  K-Ar / Ar-Ar   >100,000 BP     Volcanic rock   varies           |
+|  U-series       1,000–500,000 BP Carbonate/bone ±1–2%            |
+|  Archaeomagnetic 0–10,000 BP    Fired contexts  ±25–100 yr       |
 |  Dendro+C14     0–14,000 BP     Charcoal/grain  very high        |
 |  Typology/seriation Relative     Artifact form  comparative      |
 +------------------------------------------------------------------+

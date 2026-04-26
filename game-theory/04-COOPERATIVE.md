@@ -25,7 +25,7 @@ can guarantee itself.
 |  (money can flow freely)         case excess; unique; in core    |
 |                                                                  |
 |  BARGAINING (2-player):         NASH BARGAINING:                 |
-|  Disagreement point d           Maximizes (u₁-d₁)(u₂-d₂)       |
+|  Disagreement point d           Maximizes (u₁-d₁)(u₂-d₂)         |
 |  Feasible set U ⊆ ℝ²           (4 axioms → unique)               |
 |                                                                  |
 |  NON-COOPERATIVE FOUNDATION:    RUBINSTEIN ALTERNATING OFFERS:   |

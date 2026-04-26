@@ -275,8 +275,8 @@ the distributional framework:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Proof sketch via Dirac comb:                                    │
   │  Sampling = multiply by Σ δ(t-nT)                                │
-  │  Fourier of Dirac comb = (ωₛ)·Σ δ(ω - kωₛ)                     │
-  │  Sampled spectrum = (1/T) Σₖ F(ω - kωₛ)  (periodic replicas)   │
+  │  Fourier of Dirac comb = (ωₛ)·Σ δ(ω - kωₛ)                       │
+  │  Sampled spectrum = (1/T) Σₖ F(ω - kωₛ)  (periodic replicas)     │
   │  If B < fₛ/2: replicas don't overlap → recoverable by LPF        │
   │  If B ≥ fₛ/2: replicas overlap = aliasing = information loss     │
   └──────────────────────────────────────────────────────────────────┘

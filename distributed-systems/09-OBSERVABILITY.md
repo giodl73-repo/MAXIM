@@ -19,7 +19,7 @@ THE THREE PILLARS OF OBSERVABILITY
 |   | structured |    | Prometheus |       | Jaeger, Zipkin   |        |
 |   | JSON       |    | model      |       | OpenTelemetry    |        |
 |   +------------+    +------------+       +------------------+        |
-|         |                 |                       |                  |
+    |         |                 |                       |              |
 |         +─────────────────+───────────────────────+                  |
 |                           |                                           |
 |                  CORRELATION ID threads through all three            |

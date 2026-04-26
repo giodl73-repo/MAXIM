@@ -125,7 +125,7 @@ ZOOXANTHELLAE IN TISSUE
   │  ~1–2 million cells per cm² of coral tissue    │
   │                                                │
   │  Photosynthesis:                               │
-  │  CO₂ + H₂O + light → glucose + O₂            │
+  │  CO₂ + H₂O + light → glucose + O₂              │
   │                          │                     │
   │                          ▼                     │
   │              Translocates 90-99% of            │
@@ -174,7 +174,7 @@ THERMAL STRESS (primary cause)
   │       ▼                                             │
   │  Excess excitation energy → reactive oxygen         │
   │  species (ROS) production                           │
-  │  (O₂⁻, H₂O₂, ·OH)                                │
+  │  (O₂⁻, H₂O₂, ·OH)                                   │
   │       │                                             │
   │       ▼                                             │
   │  ROS damages both zooxanthellae and coral tissue    │

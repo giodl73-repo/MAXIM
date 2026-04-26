@@ -175,7 +175,7 @@ The dominant form factor for cold-climate heat pumps and zone additions:
   │         │ ("air  │     concealed ducted air handler               │
   │         │ handler│  Each indoor unit = independent zone           │
   │         └────────┘  with its own remote/app control               │
-  │             │                                                     │
+  │         │                                                         │
   │         ┌───┴────┐                                                │
   │         │ Indoor │  Multi-zone: one outdoor, multiple indoors     │
   │         │ unit 2 │  (capacity shared — each indoor sized          │

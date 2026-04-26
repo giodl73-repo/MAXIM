@@ -5,20 +5,20 @@
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                 MOLECULAR MOTORS LANDSCAPE                               │
-│                                                                            │
+│                                                                          │
 │  SHARED MECHANOCHEMICAL CYCLE (all P-loop NTPases):                      │
 │  ATP bind → conformational change (power stroke) → force/torque →        │
 │  ATP hydrolysis → product release (ADP, Pi) → reset                      │
 │  Linear motors: conformational change → linear translation on track      │
 │  Rotary motors: conformational change → rotation of c-ring or γ shaft    │
-│                                                                            │
+│                                                                          │
 │  LINEAR MOTORS                   ROTARY MOTORS                           │
 │  ─────────────                   ─────────────                           │
 │  Kinesin: + end directed         ATP synthase (F₀F₁)                     │
 │  Dynein: - end directed          Bacterial flagellar motor               │
 │  Myosin II: muscle contraction   DNA polymerase (rotary on helical track) │
 │  Myosin V: vesicle transport                                             │
-│                                                                            │
+│                                                                          │
 │  TRACK               MOTOR           FUNCTION                            │
 │  ──────────────────────────────────────────────────────────────────────  │
 │  Microtubule (+ end)  Kinesin-1      Anterograde axonal transport        │
@@ -28,9 +28,9 @@
 │  Actin filament       Myosin VI       Endocytosis (- end directed)       │
 │  None                 ATP synthase    Proton gradient → ATP              │
 │  Flagellar basal body Flagellar motor Bacterial motility                 │
-│                                                                            │
-│  ENERGY SCALE:                                                             │
-│  Kinesin stall force × step: 7 pN × 8 nm = 56 pN·nm ≈ 14 k_BT per step │
+│                                                                          │
+│  ENERGY SCALE:                                                           │
+│  Kinesin stall force × step: 7 pN × 8 nm = 56 pN·nm ≈ 14 k_BT per step   │
 │  ATP hydrolysis in vivo: ~50 pN·nm ≈ 12 k_BT → efficiency ~25-50%        │
 │  Stall force:  kinesin ~7 pN, myosin II ~3-5 pN per head                 │
 │  ATP synthase: 120° rotation per ATP, ~25 k_BT free energy per ATP       │
@@ -184,7 +184,7 @@ Cytoplasmic dynein is the largest motor protein (~1.4 MDa dimer):
 ```
   ┌──────────────────────────────────────────────────────────────────┐
   │  PROPERTY         │  KINESIN-1          │  DYNEIN (cytoplasmic)  │
-  │  ─────────────── │  ─────────────────  │  ──────────────────── │
+  │  ─────────────── │  ─────────────────  │  ────────────────────   │
   │  Direction        │  + end              │  - end                 │
   │  Step size        │  8 nm (constant)    │  8-32 nm (variable)    │
   │  Stall force      │  ~7 pN              │  ~1 pN (solo)          │
@@ -283,7 +283,7 @@ It can run in both directions: synthesis (using proton gradient) or hydrolysis
                          ┌─────────────────────────────┐
   Matrix                 │  F₁: soluble, catalytic head │
                          │  α₃β₃γδε: γ subunit rotates │
-                         │  inside α₃β₃ hexamer          │
+                         │  inside α₃β₃ hexamer        │
                          └──────────────┬──────────────┘
                                         │  central stalk (γε)
   Inner                  ┌─────────────┴──────────────┐
@@ -378,7 +378,7 @@ Force-velocity curves and stall forces measured with optical tweezers (see also
   │  MOTOR         │  STALL FORCE  │  SPEED (no load) │  STEP SIZE   │
   │  ─────────────  │  ───────────  │  ────────────────  │  ─────────  │
   │  Kinesin-1      │  ~7 pN        │  800 nm/s         │  8 nm      │
-  │  Cytoplasmic    │  ~1 pN solo   │  variably          │  8-32 nm    │
+  │  Cytoplasmic    │  ~1 pN solo   │  variably          │  8-32 nm  │
   │  dynein         │  ~7 pN w/dyn  │  variable         │  variable  │
   │  Myosin II      │  ~3-5 pN/head │  ~800 nm/s (max)  │  5 nm      │
   │  Myosin V       │  ~2-3 pN      │  400-600 nm/s     │  36 nm     │

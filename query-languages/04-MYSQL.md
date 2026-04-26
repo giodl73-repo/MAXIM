@@ -15,7 +15,7 @@ MySQL is the most widely deployed RDBMS on the planet by install count (LAMP sta
 │  Authentication · SSL/TLS · Connection cache                                │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  SQL LAYER                                                                  │
-│  ┌──────────────┐  ┌─────────────────────────┐  ┌─────────────────────┐   │
+│  ┌──────────────┐  ┌─────────────────────────┐  ┌─────────────────────┐     │
 │  │   Parser      │  │   Query Optimizer        │  │  Query Cache        │   │
 │  │  ─────────── │  │  ───────────────────────│  │  ─────────────────  │   │
 │  │  Lexer+parser│  │  Cost-based (index dives │  │  REMOVED in 8.0     │   │
@@ -138,8 +138,8 @@ InnoDB B-Tree Layout vs SQL Server Index Structures
   └─────────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────────┐
   │  Secondary Index on email                                           │
-  │  Leaf pages: 'a@b.com' → PK=1    ← PK value, NOT a row pointer    │
-  │              'c@d.com' → PK=3    ← must go back to PK tree        │
+  │  Leaf pages: 'a@b.com' → PK=1    ← PK value, NOT a row pointer      │
+  │              'c@d.com' → PK=3    ← must go back to PK tree          │
   └─────────────────────────────────────────────────────────────────────┘
   Query: SELECT name FROM users WHERE email = 'a@b.com'
   Step 1: secondary index seek on 'a@b.com' → returns PK=1
@@ -154,7 +154,7 @@ InnoDB B-Tree Layout vs SQL Server Index Structures
   └─────────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────────┐
   │  Nonclustered Index on email                                        │
-  │  Leaf pages: 'a@b.com' → RID=(1,73,4)  ← 8-byte physical pointer  │
+  │  Leaf pages: 'a@b.com' → RID=(1,73,4)  ← 8-byte physical pointer    │
   │              'c@d.com' → RID=(1,73,5)  ← direct fetch, no 2nd seek│
   └─────────────────────────────────────────────────────────────────────┘
   Query: SELECT name FROM users WHERE email = 'a@b.com'
@@ -163,7 +163,7 @@ InnoDB B-Tree Layout vs SQL Server Index Structures
 
   SQL Server — clustered index table (CI on id)
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  NCI on email: 'a@b.com' → CI key (id=1)  ← CI key, not RID       │
+  │  NCI on email: 'a@b.com' → CI key (id=1)  ← CI key, not RID         │
   └─────────────────────────────────────────────────────────────────────┘
   → same 2-lookup pattern as InnoDB secondary: NCI seek + CI seek
 

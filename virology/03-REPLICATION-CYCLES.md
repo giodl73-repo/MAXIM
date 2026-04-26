@@ -9,22 +9,22 @@ dramatically by Baltimore class and host cell compartment.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                UNIVERSAL REPLICATION CYCLE                       │
-│                                                                    │
+│                                                                  │
 │  1. ATTACHMENT  ────→  Viral surface protein binds host receptor │
-│                                                                    │
+│                                                                  │
 │  2. ENTRY       ────→  Membrane fusion or endocytosis            │
-│                                                                    │
+│                                                                  │
 │  3. UNCOATING   ────→  Genome released into cytoplasm/nucleus    │
-│                                                                    │
+│                                                                  │
 │  4. GENE        ────→  Early genes: replication enzymes,         │
 │     EXPRESSION          immune evasion                           │
 │                         Late genes: structural proteins          │
-│                                                                    │
+│                                                                  │
 │  5. GENOME      ────→  Replication using viral enzymes + host    │
 │     REPLICATION         (location depends on Baltimore class)    │
-│                                                                    │
+│                                                                  │
 │  6. ASSEMBLY    ────→  Capsid + genome packaging                 │
-│                                                                    │
+│                                                                  │
 │  7. RELEASE     ────→  Lysis (non-enveloped) or budding          │
 │                         (enveloped)                              │
 └──────────────────────────────────────────────────────────────────┘

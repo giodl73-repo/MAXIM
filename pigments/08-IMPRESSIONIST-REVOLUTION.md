@@ -194,11 +194,11 @@ ZINC WHITE: ZnO (zinc oxide)
   +---------------------+  +---------------------+
   | Zinc white (ZnO)    |  | Lead white          |
   | RI: 2.0             |  | RI: 2.0             |
-  | Slightly cool/blue  |  | Slightly warm         |
-  | Slower drying oil   |  | Fast drying           |
-  | Brittle film        |  | Flexible film         |
+  | Slightly cool/blue  |  | Slightly warm       |
+  | Slower drying oil   |  | Fast drying         |
+  | Brittle film        |  | Flexible film       |
   | Permanent + stable  |  | Darkens with H₂S    |
-  | Non-toxic           |  | Toxic                 |
+  | Non-toxic           |  | Toxic               |
   +---------------------+  +---------------------+
 
   BRITTLE FILM PROBLEM:

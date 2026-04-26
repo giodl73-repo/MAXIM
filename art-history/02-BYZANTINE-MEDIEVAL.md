@@ -102,7 +102,7 @@ LINEAR PERSPECTIVE vs INVERSE PERSPECTIVE
   ┌──────────────────┐        ┌──────────────────────────┐
   │  Vanishing point │        │  No single VP            │
   │  recedes INTO    │        │                          │
-  │  the picture     │        │  Lines of recession        │
+  │  the picture     │        │  Lines of recession      │
   │                  │        │  converge TOWARD viewer  │
   │  Viewer is       │        │                          │
   │  outside looking │        │  The space expands as    │

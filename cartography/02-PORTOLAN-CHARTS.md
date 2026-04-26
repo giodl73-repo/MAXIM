@@ -49,7 +49,7 @@ PORTOLAN CHART STRUCTURE — SCHEMATIC
   │         ✶         ✶          ✶                                  │
   │                                                                 │
   │    Rhumb lines radiating from each rose:                        │
-  │    ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─                          │
+  │    ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─                            │
   │                                                                 │
   │    Coastline (very detailed, accurate)                          │
   │    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                 │

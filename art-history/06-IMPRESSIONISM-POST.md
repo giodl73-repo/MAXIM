@@ -53,7 +53,7 @@ ACADEMIC PAINTING vs IMPRESSIONIST APPROACH
 
   ACADEMIC:                         IMPRESSIONIST:
   ┌───────────────────────────────┐  ┌───────────────────────────────┐
-  │ Object has a LOCAL COLOR       │  │ Light modifies every surface   │
+  │ Object has a LOCAL COLOR       │  │ Light modifies every surface │
   │ (grass is green, sky is blue) │  │ Local color + light quality   │
   │                               │  │ + reflections from other      │
   │ Blend smooth transitions      │  │ surfaces + atmospheric haze   │
@@ -257,7 +257,7 @@ CÉZANNE'S FORMAL INNOVATIONS
   MULTIPLE VIEWPOINTS IN A SINGLE IMAGE:
   ┌───────────────────────────────────────────────────────┐
   │ A Cézanne still life: the table is seen slightly      │
-  │ from above. The far edge of the table tilts up to   │
+  │ from above. The far edge of the table tilts up to     │
   │ show the tabletop. The fruit may be seen from a       │
   │ different angle than the plate. The objects are       │
   │ shown from their most informative angles combined.    │

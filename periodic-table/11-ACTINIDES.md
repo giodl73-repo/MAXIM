@@ -231,11 +231,11 @@ TWO BOMB DESIGNS:
 
 GUN-TYPE (Little Boy):
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Propellant → target ring ← projectile slug (²³⁵U + ²³⁵U)    │
+  │  Propellant → target ring ← projectile slug (²³⁵U + ²³⁵U)       │
   │  Assembly rate: ~300 m/s → supercritical in microseconds        │
   │  Never tested before use (confidence in design was high)        │
   │  Inefficient: only ~1.3% of U fissioned                         │
-  │  Cannot work with Pu (²⁴⁰Pu pre-detonation would occur)       │
+  │  Cannot work with Pu (²⁴⁰Pu pre-detonation would occur)         │
   └─────────────────────────────────────────────────────────────────┘
 
 IMPLOSION (Fat Man / Trinity):

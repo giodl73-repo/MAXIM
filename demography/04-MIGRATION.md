@@ -5,7 +5,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    MIGRATION TAXONOMY                                       │
-│                                                                               │
+│                                                                             │
 │  BY GEOGRAPHY:         BY DURATION:          BY MOTIVATION:                 │
 │  International         Temporary/circular    Economic (labor)               │
 │  Internal/domestic     Seasonal              Forced/humanitarian            │
@@ -18,7 +18,7 @@
 │  Undocumented/irregular Immigration (arriving)                              │
 │  Asylum seekers        Return migration                                     │
 │  Refugees              Transit migration                                    │
-│                                                                               │
+│                                                                             │
 │  SCALE (2020):                                                              │
 │  ~281M international migrants = 3.6% of world population                    │
 │  ~1B+ internal migrants (domestic rural-urban)                              │

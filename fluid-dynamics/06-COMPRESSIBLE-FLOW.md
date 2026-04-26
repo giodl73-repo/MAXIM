@@ -31,7 +31,7 @@ COMPRESSIBLE FLOW — REGIMES BY MACH NUMBER
   ┌────────────────────────────────────────────────────────────────┐
   │  KEY FACT: At M > 1, disturbances cannot propagate upstream    │
   │  (they are swept downstream at U > c).                         │
-  │  ⟹  Supersonic flow "doesn't know" what's coming next.       │
+  │  ⟹  Supersonic flow "doesn't know" what's coming next.         │
   │  ⟹  Shocks form suddenly when flow must adjust to boundaries.  │
   └────────────────────────────────────────────────────────────────┘
 ```

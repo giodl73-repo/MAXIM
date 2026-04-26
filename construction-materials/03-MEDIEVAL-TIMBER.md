@@ -55,7 +55,7 @@ CRUCK FRAME STRUCTURE
 │             /       │       \                                                │
 │  ─ tie ───╱─────────┼─────────╲── tie beam at wall head height               │
 │           │  ←space→│←space→  │                                              │
-│           └─────────┴─────────┘  ← groundsill or stone pad                 │
+│           └─────────┴─────────┘  ← groundsill or stone pad                   │
 │             ← bay spacing →                                                  │
 │                                                                              │
 │  KEY FEATURE: blades carry BOTH roof and wall loads in one curved element    │
@@ -92,7 +92,7 @@ BOX FRAME STRUCTURE
 │    │                              │                                         │
 │  plate ────────────────────────── plate    ← wall top plate                 │
 │    │                              │                                         │
-│  │ studs/infill panels          │          ← wall frame                     │
+│    │ studs/infill panels          │          ← wall frame                   │
 │    │                              │                                         │
 │  sill ────────────────────────── sill      ← bottom of wall frame           │
 │    │                              │                                         │
@@ -132,9 +132,9 @@ HALF-TIMBER INFILL COMPARISON
 │  insulation       panel in historic frames  retrofit; vapour control needed  │
 │                                                                              │
 │  THERMAL COMPARISON (U-value, W/m²K):                                        │
-│    Wattle-and-daub 50 mm:    U ~ 1.8 W/m²K  (poor insulation)              │
-│    Brick nogging 100 mm:     U ~ 1.4 W/m²K  (still poor)                   │
-│    Modern PIR retrofit:      U ~ 0.3 W/m²K  (but vapour issues)            │
+│    Wattle-and-daub 50 mm:    U ~ 1.8 W/m²K  (poor insulation)                │
+│    Brick nogging 100 mm:     U ~ 1.4 W/m²K  (still poor)                     │
+│    Modern PIR retrofit:      U ~ 0.3 W/m²K  (but vapour issues)              │
 │    → half-timber wall relied on fabric gains (solar, fire) not insulation    │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘

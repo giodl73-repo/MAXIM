@@ -11,17 +11,17 @@ the **Pontryagin Maximum Principle** (PMP) replaces it.
 |              OPTIMAL CONTROL LANDSCAPE                                |
 |                                                                       |
 |  VARIATIONAL CALCULUS:        OPTIMAL CONTROL:                        |
-|  u(t) unconstrained           control u(t) ∈ U (constrained set)    |
+|  u(t) unconstrained           control u(t) ∈ U (constrained set)      |
 |  Euler-Lagrange sufficient    Pontryagin MP necessary                 |
 |  Smooth solutions             Possibly bang-bang solutions            |
 |  No state constraints         State constraints allowed               |
 |                                                                       |
-|  PROBLEM: minimize J = ∫₀ᵀ L(x,u,t) dt + Ψ(x(T))                   |
-|           subject to: ẋ = f(x, u, t)  (dynamics)                    |
+|  PROBLEM: minimize J = ∫₀ᵀ L(x,u,t) dt + Ψ(x(T))                      |
+|           subject to: ẋ = f(x, u, t)  (dynamics)                      |
 |                        x(0) = x₀       (initial state)                |
 |                        u(t) ∈ U         (control constraint)          |
 |                                                                       |
-|  x = state,  u = control,  L = running cost,  Ψ = terminal cost     |
+|  x = state,  u = control,  L = running cost,  Ψ = terminal cost       |
 |                                                                       |
 |  APPLICATIONS:                                                        |
 |  Aerospace: minimum fuel / time trajectories                          |
@@ -74,9 +74,9 @@ Lev Pontryagin (1956) — one of the major results of 20th-century mathematics.
   ┌──────────────────────────────────────────────────────────────────┐
   │ If u*(t) is optimal, then there exists costate p(t) such that:   │
   │                                                                  │
-  │ 1. STATE EQUATION:  ẋ* = ∂H/∂p = f(x*, u*, t)                 │
+  │ 1. STATE EQUATION:  ẋ* = ∂H/∂p = f(x*, u*, t)                    │
   │                                                                  │
-  │ 2. COSTATE EQUATION: ṗ = −∂H/∂x = ∂L/∂x − p·∂f/∂x            │
+  │ 2. COSTATE EQUATION: ṗ = −∂H/∂x = ∂L/∂x − p·∂f/∂x                │
   │    (backward ODE! — integrated from T to 0)                      │
   │    Transversality: p(T) = −∂Ψ/∂x(T) (terminal condition for p)│
   │                                                                  │
@@ -141,9 +141,9 @@ An alternative approach: dynamic programming.
 
   HAMILTON-JACOBI-BELLMAN (HJB) EQUATION:
   ┌────────────────────────────────────────────────────────────────┐
-  │  −∂V/∂t = min_{u ∈ U} [L(x,u,t) + ∇V · f(x,u,t)]           │
-  │  = min_{u ∈ U} [L(x,u,t) + ∇_x V · f(x,u,t)]               │
-  │  Terminal condition: V(x,T) = Ψ(x)                           │
+  │  −∂V/∂t = min_{u ∈ U} [L(x,u,t) + ∇V · f(x,u,t)]               │
+  │  = min_{u ∈ U} [L(x,u,t) + ∇_x V · f(x,u,t)]                   │
+  │  Terminal condition: V(x,T) = Ψ(x)                             │
   └────────────────────────────────────────────────────────────────┘
 
   HJB is a NONLINEAR PDE for V(x,t) (Hamilton-Jacobi type).

@@ -100,7 +100,7 @@ to economic and political geography.
 
   REGIONAL DIVERGENCE:
   ┌────────────────────────────────────────────────────────────────┐
-  │ Sub-Saharan Africa: 1.2B → ~3.9B by 2100 (medium)            │
+  │ Sub-Saharan Africa: 1.2B → ~3.9B by 2100 (medium)              │
   │ South Asia: peaked; India already = China ~1.4B                │
   │ E Asia: China declining; Japan already shrinking               │
   │ Europe: stable/declining without immigration                   │

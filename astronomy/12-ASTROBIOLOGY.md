@@ -14,19 +14,19 @@
 │   How did life start?  Prebiotic chemistry    Active debate (RNA/vent)    │
 │   What does life need? Biochemistry           Liquid water + CHNOPS       │
 │   Where else in SS?    Planetary science      Europa, Enceladus priority  │
-│   Life signatures?     Biosignature science   O₂+CH₄; JWST active       │
+│   Life signatures?     Biosignature science   O₂+CH₄; JWST active         │
 │   Other intelligences? SETI / Fermi paradox   No confirmed signal         │
 │                                                                           │
 │   LIFE-AS-WE-KNOW-IT requirements:                                        │
 │   ① Liquid water (solvent, 0–374°C, 0–218 atm range)                      │
 │   ② Energy gradient (chemical, radiant, tidal, radioactive)               │
-│   ③ CHNOPS + metals (Fe, Mg, S, P, Mn, Mo, Co, Zn, Ni)                  │
+│   ③ CHNOPS + metals (Fe, Mg, S, P, Mn, Mo, Co, Zn, Ni)                    │
 │   ④ Carbon-based organic chemistry (4 bonds, chain diversity)             │
 │   ⑤ Thermodynamic disequilibrium (maintained by energy input)             │
 │                                                                           │
 │   LIFE-AS-WE-DON'T-KNOW-IT possibilities:                                 │
-│   Silicon chemistry (Si-Si bonds weaker; SiO₂ solid vs CO₂ gas)         │
-│   Ammonia solvent (liquid −78°C to −33°C at 1 atm; H-bonds)             │
+│   Silicon chemistry (Si-Si bonds weaker; SiO₂ solid vs CO₂ gas)           │
+│   Ammonia solvent (liquid −78°C to −33°C at 1 atm; H-bonds)               │
 │   Liquid methane solvent (Titan; lower energy availability)               │
 │   Subsurface nuclear-driven life (radiolithotrophic)                      │
 └───────────────────────────────────────────────────────────────────────────┘

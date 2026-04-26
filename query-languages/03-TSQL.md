@@ -46,7 +46,7 @@ T-SQL is your home base. This file isn't a tutorial — it's a bridge from the S
 │  └─────────────────────────────────────────────────────────────────────┘   │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │  STORAGE ENGINE                                                             │
-│  ┌────────────────┐  ┌─────────────────┐  ┌───────────────────────────┐   │
+│  ┌────────────────┐  ┌─────────────────┐  ┌───────────────────────────┐     │
 │  │  Buffer Manager│  │  Lock Manager    │  │  Transaction Log Manager  │   │
 │  │  ─────────────│  │  ───────────────│  │  ────────────────────────  │   │
 │  │  Buffer pool   │  │  Lock/latch      │  │  WAL protocol (write log   │   │
@@ -58,7 +58,7 @@ T-SQL is your home base. This file isn't a tutorial — it's a bridge from the S
 │  ┌────────────────┐  ┌─────────────────┐  ┌───────────────────────────┐   │
 │  │  Access Methods│  │  Version Store  │  │  Plan Cache               │   │
 │  │  ─────────────│  │  ───────────────│  │  ────────────────────────  │   │
-│  │  B-tree index  │  │  tempdb (SI/     │  │  Parameterized plan reuse  │   │
+│  │  B-tree index  │  │  tempdb (SI/     │  │  Parameterized plan reuse  │ │
 │  │  Heap (RID)    │  │  RCSI) or PVS   │  │  Query Store (2016+)      │   │
 │  │  Columnstore   │  │  (ADR, user DB) │  │  Plan forcing             │   │
 │  │  In-mem OLTP   │  │  Row versioning │  │  PSP optimization (2022+) │   │
@@ -1175,8 +1175,8 @@ Azure SQL Hyperscale — Disaggregated Architecture
   ┌───────▼──────────────────────────────────────────────────────────────┐
   │  NAMED READ REPLICAS (0–4)                                           │
   │  Each replica has its own compute node + buffer pool                 │
-  │  Subscribes to Log Service — lag is typically <1 second            │
-  │  Reads pages from page servers (same as primary)                   │
+  │  Subscribes to Log Service — lag is typically <1 second              │
+  │  Reads pages from page servers (same as primary)                     │
   │  ApplicationIntent=ReadOnly connection string routes here            │
   └─────────────────────────────────────────────────────────────────────┘
 ```

@@ -32,9 +32,9 @@
 |  | CASTILE   |   | LEON       |   | PORTUGAL  |                 |
 |  |           |   |            |   | (emerging)|                 |
 |  +-----------+   +------------+   +-----------+                 |
-|                                                                 |
-|  [TAIFA KINGDOMS / AL-ANDALUS — Muslim south of Iberia]         |
-|                                                                 |
+   |                                                              |
+   |  [TAIFA KINGDOMS / AL-ANDALUS — Muslim south of Iberia]      |
+   |                                                              |
 |  +------------------------+   +----------------------------+    |
 |  | PAPAL STATES (central) |   | KINGDOM OF SICILY (south)  |   |
 |  +------------------------+   | Norman / then Hohenstaufen |   |

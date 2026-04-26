@@ -71,11 +71,11 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
 
   DESIGN SEQUENCE (from antigen sequence to vaccine):
   ┌────────────────────────────────────────────────────────────────┐
-  │ 1. Pathogen genome sequenced (SARS-CoV-2: Jan 10, 2020)      │
+  │ 1. Pathogen genome sequenced (SARS-CoV-2: Jan 10, 2020)        │
   │ 2. Select target antigen (spike protein)                       │
   │ 3. Codon-optimize for human expression                         │
-  │ 4. Stability modifications (proline substitutions in S2P)    │
-  │ 5. In vitro transcription: DNA template → mRNA (IVT)         │
+  │ 4. Stability modifications (proline substitutions in S2P)      │
+  │ 5. In vitro transcription: DNA template → mRNA (IVT)           │
   │ 6. Encapsulate in LNP                                          │
   │ 7. First human dose: Day 66 after sequence release             │
   │    (Moderna Phase I: March 16, 2020)                           │
@@ -90,7 +90,7 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
   │                                                                │
   │ CODING SEQUENCE:                                               │
   │   Codon optimized for high human expression                    │
-  │   Proline substitutions (K986P/V987P for BNT162b2):          │
+  │   Proline substitutions (K986P/V987P for BNT162b2):            │
   │   Locks spike in prefusion conformation (more immunogenic)     │
   │                                                                │
   │ 3' UTR: Stability elements (human beta-globin); multiple)      │
@@ -109,7 +109,7 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
   │ COMPOSITION (BNT162b2 example):                                │
   │   ALC-0315: Ionizable lipid (≈50 mol%)                         │
   │     - Neutral at pH 7.4 (blood) — reduces toxicity             │
-  │     - Cationic at pH 4 (endosome) — helps endosomal escape   │
+  │     - Cationic at pH 4 (endosome) — helps endosomal escape     │
   │   DSPC: Phospholipid stabilizer (≈10 mol%)                     │
   │   Cholesterol: Membrane stability (≈38 mol%)                   │
   │   PEG-DMG: Steric stabilization, prevents aggregation (≈2%)    │
@@ -121,8 +121,8 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
   │   In endosome (pH drops): ionizable lipid protonated           │
   │   → disrupts endosomal membrane → mRNA released to cytoplasm   │
   │   mRNA translated by ribosomes → spike protein produced        │
-  │   Spike protein: Displayed on cell surface (MHC I + surface) │
-  │   → CD8 T cell recognition + antibody production             │
+  │   Spike protein: Displayed on cell surface (MHC I + surface)   │
+  │   → CD8 T cell recognition + antibody production               │
   └────────────────────────────────────────────────────────────────┘
 
   INNATE IMMUNE SENSING OF mRNA:
@@ -130,18 +130,18 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
   │ This is both the challenge AND part of why mRNA works:         │
   │                                                                │
   │ SENSING RECEPTORS:                                             │
-  │   TLR7 (endosomal): ssRNA → detect mRNA in endosome          │
-  │   TLR8 (endosomal): ssRNA → similar to TLR7                  │
-  │   RIG-I (cytoplasmic): Detects dsRNA contaminants            │
-  │   MDA5 (cytoplasmic): Long dsRNA (IVT byproducts)            │
+  │   TLR7 (endosomal): ssRNA → detect mRNA in endosome            │
+  │   TLR8 (endosomal): ssRNA → similar to TLR7                    │
+  │   RIG-I (cytoplasmic): Detects dsRNA contaminants              │
+  │   MDA5 (cytoplasmic): Long dsRNA (IVT byproducts)              │
   │                                                                │
   │ RESPONSE: Type I IFN + proinflammatory cytokines               │
   │   → Activation of DCs at injection site                        │
-  │   → Innate immune activation → ADJUVANT EFFECT               │
+  │   → Innate immune activation → ADJUVANT EFFECT                 │
   │                                                                │
-  │ m1Ψ modification: Reduces TLR7/8 sensing → less innate alarm │
+  │ m1Ψ modification: Reduces TLR7/8 sensing → less innate alarm   │
   │ BUT: LNP itself (ionizable lipid + PEG) still acts as adjuvant│
-  │   → IL-6, TNF at injection site → local reaction (arm pain)  │
+  │   → IL-6, TNF at injection site → local reaction (arm pain)    │
   │                                                                │
   │ NET RESULT: Controlled innate activation → DC maturation       │
   │   → T cell priming WITHOUT overwhelming inflammation           │
@@ -170,37 +170,37 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
   │   → prolonged antigen availability to APCs                   │
   │                                                              │
   │ DIRECT INNATE ACTIVATION:                                    │
-  │   Alum: Activates NLRP3 inflammasome → IL-1β               │
+  │   Alum: Activates NLRP3 inflammasome → IL-1β                 │
   │   MPLA (Monophosphoryl lipid A): TLR4 agonist (non-toxic LPS)│
-  │   CpG ODN: TLR9 agonist → Th1 response                     │
-  │   QS-21 (saponin): Unknown mechanism → strong CD8 T cells  │
+  │   CpG ODN: TLR9 agonist → Th1 response                       │
+  │   QS-21 (saponin): Unknown mechanism → strong CD8 T cells    │
   │                                                              │
   │ FORMULATION EFFECTS:                                         │
   │   Oil emulsions (MF59, AS03): Activates NLRP3, recruits      │
-  │   monocytes/DCs → stronger than alum for flu               │
+  │   monocytes/DCs → stronger than alum for flu                 │
   └──────────────────────────────────────────────────────────────┘
 
   MAJOR ADJUVANT SYSTEMS:
   ┌────────────────────────────────────────────────────────────────┐
-  │ ALUM (aluminum salts):  Most widely used; safe; Th2 bias     │
-  │   Used in: HBV, Hep A, HPV (Gardasil), DTP                  │
+  │ ALUM (aluminum salts):  Most widely used; safe; Th2 bias       │
+  │   Used in: HBV, Hep A, HPV (Gardasil), DTP                     │
   │                                                                │
-  │ AS01B (GSK):           MPL (TLR4) + QS-21 (saponin)         │
-  │   Used in: RTS,S (malaria), SHINGRIX (VZV subunit)           │
-  │   Very strong T cell + antibody response                     │
+  │ AS01B (GSK):           MPL (TLR4) + QS-21 (saponin)            │
+  │   Used in: RTS,S (malaria), SHINGRIX (VZV subunit)             │
+  │   Very strong T cell + antibody response                       │
   │                                                                │
-  │ AS04 (GSK):            Alum + MPL                            │
-  │   Used in: Cervarix (HPV), HBsAg (hepatitis B)               │
+  │ AS04 (GSK):            Alum + MPL                              │
+  │   Used in: Cervarix (HPV), HBsAg (hepatitis B)                 │
   │                                                                │
-  │ MF59 (Seqirus):        Squalene emulsion                     │
-  │   Used in: Fluad (elderly flu vaccine)                       │
-  │   Stronger immune response than alum                         │
+  │ MF59 (Seqirus):        Squalene emulsion                       │
+  │   Used in: Fluad (elderly flu vaccine)                         │
+  │   Stronger immune response than alum                           │
   │                                                                │
-  │ AS03 (GSK):            Squalene + α-tocopherol               │
-  │   Used in: Pandemic flu vaccines (H1N1 2009); COVID-19       │
+  │ AS03 (GSK):            Squalene + α-tocopherol                 │
+  │   Used in: Pandemic flu vaccines (H1N1 2009); COVID-19         │
   │                                                                │
-  │ LNP (lipid nanoparticle): mRNA vaccines — LNP acts as adjuv. │
-  │   Ionizable lipid → IL-6 at injection site → DC activation  │
+  │ LNP (lipid nanoparticle): mRNA vaccines — LNP acts as adjuv.   │
+  │   Ionizable lipid → IL-6 at injection site → DC activation     │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -235,9 +235,9 @@ VACCINE TYPES: AN EVOLUTIONARY TAXONOMY
   CORRELATES OF PROTECTION:
   Not all vaccines have well-defined correlates.
   ┌────────────────────────────────────────────────────────────┐
-  │ Measles: IgG >200 mIU/mL → protected                     │
-  │ HBV: Anti-HBsAg >10 mIU/mL → protected                   │
-  │ Flu: Hemagglutination inhibition (HI) titer >1:40 → 50%  │
+  │ Measles: IgG >200 mIU/mL → protected                       │
+  │ HBV: Anti-HBsAg >10 mIU/mL → protected                     │
+  │ Flu: Hemagglutination inhibition (HI) titer >1:40 → 50%    │
   │ COVID: No single threshold; neutralization titers proxy    │
   │ Pertussis: Unclear; cellular immunity may matter more      │
   └────────────────────────────────────────────────────────────┘

@@ -14,7 +14,7 @@
   │  Convolution (2D)          Multiplication (pointwise)              │
   │  y[m,n] = x[m,n] ** h[m,n]  Y = X · H                              │
   │                                                                    │
-  │  Separable systems:        H(ω₁,ω₂) = H₁(ω₁) · H₂(ω₂)          │
+  │  Separable systems:        H(ω₁,ω₂) = H₁(ω₁) · H₂(ω₂)              │
   │  → row-by-row 1D then column-by-column 1D                          │
   └────────────────────────────────────────────────────────────────────┘
 

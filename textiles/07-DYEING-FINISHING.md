@@ -186,7 +186,7 @@ Wet processing is the most chemistry-intensive part of textile manufacturing and
 
   ┌──────────────────────────────────────────────────────────────┐
   │  COMMON MORDANTS                                             │
-  │  Alum (KAl(SO₄)₂·12H₂O):  Most common; bright colors;      │
+  │  Alum (KAl(SO₄)₂·12H₂O):  Most common; bright colors;        │
   │                             safe; "mineral alum"             │
   │  Iron (FeSO₄, copperas):   Darkens, saddens colors;          │
   │                             "iron mordanting" shifts hue     │

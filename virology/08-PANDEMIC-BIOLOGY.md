@@ -10,7 +10,7 @@ dynamics, herd immunity thresholds, and intervention effects.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                   PANDEMIC BIOLOGY LANDSCAPE                     │
-│                                                                    │
+│                                                                  │
 │  EMERGENCE                SPREAD                  CONTROL        │
 │  ────────                 ─────────               ───────        │
 │  Spillover from animals   R₀ determines           Herd immunity  │
@@ -18,10 +18,10 @@ dynamics, herd immunity thresholds, and intervention effects.
 │  Reassortment             Serial interval         NPIs           │
 │  Genetic adaptation       Generation time         Antivirals     │
 │  Zoonosis                 Superspreading          Quarantine     │
-│                                                                    │
+│                                                                  │
 │  KEY EQUATION:                                                   │
-│  R_eff = R₀ × (1 - p_immune) × (1 - p_NPI)                     │
-│                                                                    │
+│  R_eff = R₀ × (1 - p_immune) × (1 - p_NPI)                       │
+│                                                                  │
 │  R_eff < 1:  epidemic declines                                   │
 │  R_eff = 1:  endemic equilibrium                                 │
 │  R_eff > 1:  epidemic grows                                      │

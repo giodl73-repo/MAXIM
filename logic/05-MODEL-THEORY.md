@@ -19,10 +19,10 @@ ultraproducts — that have applications across mathematics.
 |  | Satisfiability     |                                           |
 |  | Elementary equiv.  |  ← same theory (same FOL sentences)      |
 |  +--------------------+                                           |
-|           |                                                       |
-|           | (core machinery feeds)                                |
-|           v                                                       |
-|  FUNDAMENTAL THEOREMS                                             |
+   |           |                                                    |
+   |           | (core machinery feeds)                             |
+   |           v                                                    |
+   |  FUNDAMENTAL THEOREMS                                          |
 |  +------------------------------------------------------------+   |
 |  | Completeness (Godel 1929): T consistent → T has a model   |   |
 |  |   ↓ immediate consequence                                  |   |

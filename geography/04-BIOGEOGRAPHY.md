@@ -83,7 +83,7 @@ Climate change is now rewriting species distributions in real time.
 
   ┌────────────────────────────────────────────────────────────────┐
   │  ORIENTAL (Indomalayan) side     │  AUSTRALASIAN side          │
-  │  (Bali, Borneo, Java, Sumatra)   │  (Lombok, Sulawesi, etc.) │
+  │  (Bali, Borneo, Java, Sumatra)   │  (Lombok, Sulawesi, etc.)   │
   │                                  │                             │
   │  Tigers, rhinos, elephants       │  Marsupials                 │
   │  Deer, pigs, monkeys             │  Cockatoos, megapodes       │

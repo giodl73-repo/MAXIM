@@ -287,16 +287,16 @@ Embedding models convert text (or images) into dense vectors. The geometry of th
   └──────────────┴───────────────────────────────────────────────────────┘
   ┌──────────────┬───────────────────────────────────────────────────────┐
   │  Milvus      │  Open-source, distributed, enterprise                 │
-  │              │  Multiple index types (HNSW, IVF, PQ, GPU indexes)  │
+  │              │  Multiple index types (HNSW, IVF, PQ, GPU indexes)    │
   │              │  Scale: billions of vectors across cluster            │
-  │              │  Zilliz Cloud: managed Milvus                       │
+  │              │  Zilliz Cloud: managed Milvus                         │
   │              │  Best for: massive scale; on-prem enterprise          │
   └──────────────┴───────────────────────────────────────────────────────┘
   ┌──────────────┬───────────────────────────────────────────────────────┐
   │  Chroma      │  Open-source, embedded (in-process) or server mode    │
   │              │  Simple Python API                                    │
   │              │  No persistence tuning needed                         │
-  │              │  Best for: local prototyping, small-scale RAG POC   │
+  │              │  Best for: local prototyping, small-scale RAG POC     │
   └──────────────┴───────────────────────────────────────────────────────┘
 ```
 

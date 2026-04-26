@@ -8,11 +8,11 @@ The Green Revolution (roughly 1960–1990) was the deliberate application of gen
 +------------------------------------------------------------------+
 |              GREEN REVOLUTION YIELD IMPACTS                      |
 |                                                                  |
-|  WHEAT (global):   1960: ~1.1 t/ha  →  1990: ~2.6 t/ha         |
-|  RICE (Asia):      1960: ~1.7 t/ha  →  1990: ~3.5 t/ha         |
-|  MAIZE (global):   1960: ~1.9 t/ha  →  1990: ~3.6 t/ha         |
+|  WHEAT (global):   1960: ~1.1 t/ha  →  1990: ~2.6 t/ha           |
+|  RICE (Asia):      1960: ~1.7 t/ha  →  1990: ~3.5 t/ha           |
+|  MAIZE (global):   1960: ~1.9 t/ha  →  1990: ~3.6 t/ha           |
 |                                                                  |
-|  INDIA (wheat):    1965: 10 MT/yr   →  1978: 19 MT/yr (famine  |
+|  INDIA (wheat):    1965: 10 MT/yr   →  1978: 19 MT/yr (famine    |
 |                                          averted; net exporter)  |
 |                                                                  |
 |  KEY INPUTS REQUIRED:                                            |

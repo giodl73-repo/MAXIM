@@ -39,23 +39,23 @@ FIXTURE SELECTION MATRIX:
   │                    TANK                                      │
   │                                                              │
   │  FILL VALVE ──────────────────────────────────────────────   │
-  │  (float-cup type)    Float rises as tank fills → valve     │
-  │                      closes. Float drops when flushed →    │
-  │                      valve opens → tank refills.           │
+  │  (float-cup type)    Float rises as tank fills → valve       │
+  │                      closes. Float drops when flushed →      │
+  │                      valve opens → tank refills.             │
   │                                                              │
   │  OVERFLOW TUBE ───────────────────────────────────────────   │
-  │  (vertical tube)     Water level must stay BELOW top.      │
-  │                      If fill valve fails open: water runs  │
+  │  (vertical tube)     Water level must stay BELOW top.        │
+  │                      If fill valve fails open: water runs    │
   │                      into overflow tube → into bowl → drain  │
-  │                      (prevents tank overflow to floor)     │
+  │                      (prevents tank overflow to floor)       │
   │                                                              │
   │  FLAPPER ─────────────────────────────────────────────────   │
-  │  (rubber seal at    Lifts via chain when handle pulled.    │
-  │   flush valve)       Water rushes from tank to bowl.       │
-  │                      Drops when tank empties → seals.      │
-  │                      Failure mode: hardens, warps, or      │
-  │                      deposits prevent sealing → running    │
-  │                      water (30,000+ gallons/year wasted)   │
+  │  (rubber seal at    Lifts via chain when handle pulled.      │
+  │   flush valve)       Water rushes from tank to bowl.         │
+  │                      Drops when tank empties → seals.        │
+  │                      Failure mode: hardens, warps, or        │
+  │                      deposits prevent sealing → running      │
+  │                      water (30,000+ gallons/year wasted)     │
   └──────────────────────────────────────────────────────────────┘
 
   THE FLUSH SIPHON:
@@ -176,32 +176,32 @@ FIXTURE SELECTION MATRIX:
   │    Turn handle → shaft threads down → washer compresses      │
   │    Drip = seat wear or washer wear                           │
   │    Repair: replace washer OR replace seat                    │
-  │    Serviceable; still found in 50+ year old homes; dated   │
+  │    Serviceable; still found in 50+ year old homes; dated     │
   │                                                              │
-  │  BALL (single handle, ball-type by Delta/Price Pfister):   │
-  │    Rotating stainless ball with three holes (hot, cold,    │
+  │  BALL (single handle, ball-type by Delta/Price Pfister):     │
+  │    Rotating stainless ball with three holes (hot, cold,      │
   │    outlet) in spring-loaded rubber seats                     │
-  │    Handle moves ball → aligns holes → mixes temperature    │
-  │    Failure: worn springs, seats, O-rings                   │
-  │    Repair: replacement ball + springs + seats kit (~$20)   │
-  │    Characteristic: single-handle on circular base          │
+  │    Handle moves ball → aligns holes → mixes temperature      │
+  │    Failure: worn springs, seats, O-rings                     │
+  │    Repair: replacement ball + springs + seats kit (~$20)     │
+  │    Characteristic: single-handle on circular base            │
   │                                                              │
   │  CARTRIDGE (single or double handle):                        │
   │    Plastic or brass cartridge with rubber seals              │
-  │    Cartridge slides in/out of faucet body                  │
-  │    Repair: replace entire cartridge as one unit            │
-  │    Most repairable single-cartridge in US:                 │
-  │    Moen 1225/1222 cartridge (pull handle style)            │
-  │    → available everywhere; $20-30; 30-minute repair        │
+  │    Cartridge slides in/out of faucet body                    │
+  │    Repair: replace entire cartridge as one unit              │
+  │    Most repairable single-cartridge in US:                   │
+  │    Moen 1225/1222 cartridge (pull handle style)              │
+  │    → available everywhere; $20-30; 30-minute repair          │
   │    Delta, Kohler have own cartridge families                 │
   │                                                              │
   │  CERAMIC DISC (quarter-turn):                                │
-  │    Two machined ceramic discs — flat to <0.001" tolerance  │
-  │    Discs rotate relative to each other (1/4 turn on/off)  │
+  │    Two machined ceramic discs — flat to <0.001" tolerance    │
+  │    Discs rotate relative to each other (1/4 turn on/off)     │
   │    Extremely durable: essentially no moving seal to wear     │
-  │    Failure mode: grit/debris scratches lapped faces        │
-  │    No lubrication needed; no drip expected for 10+ years   │
-  │    Used by: Kohler, Hans Grohe, most European brands       │
+  │    Failure mode: grit/debris scratches lapped faces          │
+  │    No lubrication needed; no drip expected for 10+ years     │
+  │    Used by: Kohler, Hans Grohe, most European brands         │
   └──────────────────────────────────────────────────────────────┘
 ```
 

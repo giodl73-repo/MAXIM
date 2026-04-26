@@ -13,20 +13,20 @@ Rail is the oldest large-scale transportation technology still dominant in its n
 |  | Track   |  | Signals |  | Stations|  | Power   |             |
 |  | Geometry|  | & Safety|  | & Yards |  | Supply  |             |
 |  +---------+  +---------+  +---------+  +---------+             |
-|                                                                 |
-|  VEHICLE (rolling stock)                                        |
+   |                                                              |
+   |  VEHICLE (rolling stock)                                     |
 |  +---------+  +---------+  +---------+  +---------+             |
 |  | Traction|  | Bogies  |  | Braking |  | Cab /   |             |
 |  | (motor) |  | (trucks)|  | system  |  | ETCS OBU|             |
 |  +---------+  +---------+  +---------+  +---------+             |
-|                                                                 |
-|  OPERATIONS                                                     |
+   |                                                              |
+   |  OPERATIONS                                                  |
 |  +---------+  +---------+  +---------+  +---------+             |
 |  | Timetable  | Train   |  | Control |  | Incident|             |
 |  | planning|  | dispatch|  | Centre  |  | mgmt    |             |
 |  +---------+  +---------+  +---------+  +---------+             |
-|                                                                 |
-|  APPLICATION SEGMENTS                                           |
+   |                                                              |
+   |  APPLICATION SEGMENTS                                        |
 |  +----------+  +--------+  +---------+  +----------+            |
 |  | High-    |  | Inter- |  | Urban   |  | Heavy    |            |
 |  | Speed    |  | city   |  | Metro/  |  | Freight  |            |

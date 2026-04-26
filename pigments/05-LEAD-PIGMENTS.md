@@ -7,7 +7,7 @@
 |              LEAD'S 2,000-YEAR MONOPOLY ON WHITE + YELLOW        |
 |                                                                  |
 |  LEAD WHITE: The dominant white for ~2,000 years                 |
-|  (Basic lead carbonate: 2PbCO₃·Pb(OH)₂)                        |
+|  (Basic lead carbonate: 2PbCO₃·Pb(OH)₂)                          |
 |  Unmatched optical + handling properties                         |
 |  In oil: dense, warm, fast-drying, excellent film former         |
 |  Replaced by titanium white (1916) — 100 years ago               |

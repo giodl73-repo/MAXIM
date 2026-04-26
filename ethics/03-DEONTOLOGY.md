@@ -241,7 +241,7 @@ PRIMA FACIE DUTIES (selected):
   | FIDELITY          | Keep promises; be truthful               |
   | REPARATION        | Make amends for past wrongs              |
   | GRATITUDE         | Reciprocate benefits received            |
-  | NON-MALEFICENCE   | Don't harm others                      |
+  | NON-MALEFICENCE   | Don't harm others                        |
   | BENEFICENCE       | Help others where possible               |
   | SELF-IMPROVEMENT  | Improve your own virtue and intelligence |
   | JUSTICE           | Distribute goods according to merit      |

@@ -18,7 +18,7 @@
 │       ↑                                ↓                            │
 │  CARBON BUDGET MATH         POLICY MECHANISMS                       │
 │  ───────────────────        ─────────────────                       │
-│  TCRE ≈ 0.45°C/1000 GtCO₂  Carbon tax (price → quantity)          │
+│  TCRE ≈ 0.45°C/1000 GtCO₂  Carbon tax (price → quantity)            │
 │  1.5°C (50%): ~380 GtCO₂   Cap-and-trade (quantity → price)         │
 │  2.0°C (50%): ~1230 GtCO₂  Regulations / standards                  │
 │  at current ~40 GtCO₂/yr:  Technology mandates (BEV, RE %)          │
@@ -26,7 +26,7 @@
 │       ↓                    NET-ZERO MATH                            │
 │  IMPLEMENTATION GAP         ──────────────                          │
 │  Current policy: ~2.5-3°C  Gross residual + CDR = net zero          │
-│  Full NDCs:      ~2.0-2.4°C Hard sectors need ~5-10 GtCO₂/yr CDR  │
+│  Full NDCs:      ~2.0-2.4°C Hard sectors need ~5-10 GtCO₂/yr CDR    │
 │  Net-zero pledges: ~1.7°C   DAC / BECCS / natural CDR portfolio     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -163,7 +163,7 @@ EMISSIONS → TEMPERATURE: THE CAUSAL CHAIN
   │                                                               │
   │  INDUSTRY                                       ~24%          │
   │    Steel: ~8% (iron ore reduction with coking coal)           │
-  │    Cement: ~4% (CaCO₃ → CaO + CO₂ — process emissions)      │
+  │    Cement: ~4% (CaCO₃ → CaO + CO₂ — process emissions)        │
   │    Chemicals, petrochemicals, aluminum                        │
   │    Hard to decarbonize: process emissions, high-temp heat     │
   │                                                               │
@@ -218,12 +218,12 @@ EMISSIONS → TEMPERATURE: THE CAUSAL CHAIN
   ┌───────────────────────────────────────────────────────────────┐
   │  NET ZERO 2050 (example pathway):                             │
   │                                                               │
-  │  2050 Gross emissions:  ~5-10 GtCO₂/year residual           │
+  │  2050 Gross emissions:  ~5-10 GtCO₂/year residual             │
   │  (from: aviation, shipping, agriculture, some industry)       │
-  │  CDR required:          ~5-10 GtCO₂/year removal            │
+  │  CDR required:          ~5-10 GtCO₂/year removal              │
   │  NET:                   ≈ 0                                   │
   │                                                               │
-  │  For 1.5°C: this must be NET NEGATIVE after 2050:           │
+  │  For 1.5°C: this must be NET NEGATIVE after 2050:             │
   │  CDR > gross emissions (withdrawing past cumulative)          │
   └───────────────────────────────────────────────────────────────┘
 

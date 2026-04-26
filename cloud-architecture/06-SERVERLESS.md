@@ -9,7 +9,7 @@ AZURE SERVERLESS SPECTRUM
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  STATELESS COMPUTE       STATEFUL WORKFLOWS        INTEGRATION        |
-|  +-------------------+  +--------------------+  +----------------+  |
+|  +-------------------+  +--------------------+  +----------------+    |
 |  | Azure Functions   |  | Durable Functions  |  | Logic Apps     |  |
 |  | (code-first)      |  | (orchestrator +    |  | (low-code,     |  |
 |  |                   |  |  activities)       |  |  200+ connectors|  |
@@ -19,12 +19,12 @@ AZURE SERVERLESS SPECTRUM
 |  | Event Hub,        |  | Fan-out/fan-in     |  | canvas         |  |
 |  | Cosmos, etc.      |  | Async HTTP API     |  |                |  |
 |  +-------------------+  | Monitor            |  +----------------+  |
-|                          | Human interaction  |                       |
-|  HOSTING PLANS:          +--------------------+  Container Apps       |
-|  Consumption             Storage: Azure         (KEDA-based           |
-|  Elastic Premium         Storage queues +       scale-to-zero         |
-|  Dedicated (ASP)         Table (Durable task    containers)           |
-|                          framework)                                    |
+|                          | Human interaction  |                     |
+|  HOSTING PLANS:          +--------------------+  Container Apps     |
+|  Consumption             Storage: Azure         (KEDA-based         |
+|  Elastic Premium         Storage queues +       scale-to-zero       |
+|  Dedicated (ASP)         Table (Durable task    containers)         |
+|                          framework)                                 |
 +-----------------------------------------------------------------------+
 ```
 

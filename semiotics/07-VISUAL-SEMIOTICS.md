@@ -9,7 +9,7 @@ Verbal language is linear and arbitrary. Visual signs are spatial, simultaneous,
 |                    VISUAL SEMIOTICS MAP                               |
 |                                                                       |
 |  FILM SEMIOTICS              VISUAL COMMUNICATION                     |
-|  (Christian Metz, 1960s)     (Kress & van Leeuwen, 1996)            |
+|  (Christian Metz, 1960s)     (Kress & van Leeuwen, 1996)              |
 |                                                                       |
 |  Is film a language?         Grammar of Visual Design                 |
 |  Grande Syntagmatique        Representational meaning                 |

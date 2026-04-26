@@ -13,21 +13,21 @@ MODERN MASONRY WALL SYSTEMS
   │  REINFORCED CMU (most common structural)                         │
   │  Rebar in grouted cores + horizontal bond beams                  │
   │  Used for: warehouses, parking structures, schools, retail       │
-  │  Thickness: 8" most common, 12" for high loads or seismic      │
+  │  Thickness: 8" most common, 12" for high loads or seismic        │
   │                                                                  │
   │  POST-TENSIONED MASONRY                                          │
   │  PT rods in CMU cores; slender walls possible                    │
-  │  Used for: high-wind single-wythe panels, URM retrofit         │
+  │  Used for: high-wind single-wythe panels, URM retrofit           │
   └──────────────────────────────────────────────────────────────────┘
 
   ENCLOSURE SYSTEMS (non-structural):
   ┌──────────────────────────────────────────────────────────────────┐
   │  CAVITY WALL                                                     │
-  │  Traditional (structural outer + inner wythe + cavity)         │
-  │  Modern (frame + CMU/brick outer wythe + insulation + air gap) │
+  │  Traditional (structural outer + inner wythe + cavity)           │
+  │  Modern (frame + CMU/brick outer wythe + insulation + air gap)   │
   │                                                                  │
   │  THIN-BRICK VENEER                                               │
-  │  3/4" to 1-5/8" thick brick slices adhered to substrate       │
+  │  3/4" to 1-5/8" thick brick slices adhered to substrate          │
   │                                                                  │
   │  BRICK VENEER ON FRAME                                           │
   │  4" brick + ties on steel/wood/CMU backup (most US residential)│
@@ -57,7 +57,7 @@ CAVITY WALL ASSEMBLY (inside to outside)
   │  STRUCTURAL BACKUP (CMU, metal stud, or concrete)                │
   │  │                                                               │
   │  CONTINUOUS INSULATION (rigid foam, mineral wool board)          │
-  │  │   R-value: R-13 to R-21 typical per IRC requirements        │
+  │  │   R-value: R-13 to R-21 typical per IRC requirements          │
   │  │                                                               │
   │  AIR BARRIER (fluid-applied or sheet membrane)                   │
   │  │   Continuous — laps over window/door frames                   │
@@ -90,7 +90,7 @@ FLASHING LOCATIONS (critical — every horizontal mortar interruption):
 │  ② Top of window and door openings (at head)                     │
 │  ③ Above lintels                                                 │
 │  ④ At roof / wall intersections                                  │
-│  ⑤ At horizontal offsets (corbels, shelf angles)               │
+│  ⑤ At horizontal offsets (corbels, shelf angles)                 │
 │                                                                  │
 │  FLASHING MATERIAL:                                              │
 │  Through-wall: 20-mil EPDM or rubberized asphalt membrane        │
@@ -98,7 +98,7 @@ FLASHING LOCATIONS (critical — every horizontal mortar interruption):
 │  End dams: upturned flashing ends prevent lateral water runout   │
 │                                                                  │
 │  WEEP HOLES: every other head joint at flashing level (16" O.C.)│
-│  Clear weep = 3/8" × 3/4" opening (do not mortar closed)       │
+│  Clear weep = 3/8" × 3/4" opening (do not mortar closed)         │
 │  Alternative: through-brick open head joint tube weeps           │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -115,34 +115,34 @@ THIN-BRICK VENEER TYPES
 
   ADHERED THIN BRICK:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  SUBSTRATE → scratch coat → mortar bed → thin brick face       │
+  │  SUBSTRATE → scratch coat → mortar bed → thin brick face         │
   │                                                                  │
   │  Substrate options: concrete masonry, concrete, cement board     │
   │  Mortar: polymer-modified Portland tile-setting mortar           │
   │  Back-butter required: press mortar on back of each unit         │
-  │  Joint: 3/8" grouted after setting (thin-set grout)            │
+  │  Joint: 3/8" grouted after setting (thin-set grout)              │
   │                                                                  │
   │  LIMITATIONS:                                                    │
-  │  • Not suitable for below grade or always-wet locations        │
-  │  • Substrate must be rigid and crack-free (cracks telegraph)   │
-  │  • Cannot use outdoors where substrate deflects > L/600        │
-  │  • No drainage plane — moisture management = critical          │
+  │  • Not suitable for below grade or always-wet locations          │
+  │  • Substrate must be rigid and crack-free (cracks telegraph)     │
+  │  • Cannot use outdoors where substrate deflects > L/600          │
+  │  • No drainage plane — moisture management = critical            │
   └──────────────────────────────────────────────────────────────────┘
 
   MECHANICAL THIN BRICK (panel system):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Thin brick units set into pre-formed panel track system         │
   │  Panel anchored to structural frame                              │
-  │  Used on: taller buildings where adhered system cannot span    │
-  │  Advantage: factory-controlled quality; field-installed panel  │
+  │  Used on: taller buildings where adhered system cannot span      │
+  │  Advantage: factory-controlled quality; field-installed panel    │
   └──────────────────────────────────────────────────────────────────┘
 
   BRICK FORM LINER (for concrete):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Plastic form liner with brick profile placed inside formwork  │
+  │  Plastic form liner with brick profile placed inside formwork    │
   │  Cast concrete picks up the pattern                              │
   │  Result: concrete wall with brick-pattern surface                │
-  │  Note: not actual masonry; fire-rated as concrete              │
+  │  Note: not actual masonry; fire-rated as concrete                │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -165,8 +165,8 @@ GLASS BLOCK LIMITATIONS
   │                                                                  │
   │  Panel expansion joints required:                                │
   │  • Panel perimeter isolation from structural frame               │
-  │  • 3/8" expansion joint (foam backer + sealant) at jambs/head  │
-  │  • Allows frame movement without cracking glass units          │
+  │  • 3/8" expansion joint (foam backer + sealant) at jambs/head    │
+  │  • Allows frame movement without cracking glass units            │
   │                                                                  │
   │  MORTAR: White Portland + fine silica sand + glass block mortar  │
   │    mix (ASTM C270 Type S proportion)                             │
@@ -186,20 +186,20 @@ INSULATED CMU TYPES
 
   TYPE A: FOAM-CORE CMU
   ┌──────────────────────────────────────────────────────────────────┐
-  │  CMU with polystyrene foam inserts in hollow cores             │
-  │  Foam R-value: R-8 to R-14 per 8" wall                        │
-  │  Limits: foam cores cannot be grouted (eliminates insulation)  │
-  │           rebar in perimeter and bond beam cores only          │
-  │  Use: low-seismic, non-high-rise applications                  │
+  │  CMU with polystyrene foam inserts in hollow cores               │
+  │  Foam R-value: R-8 to R-14 per 8" wall                           │
+  │  Limits: foam cores cannot be grouted (eliminates insulation)    │
+  │           rebar in perimeter and bond beam cores only            │
+  │  Use: low-seismic, non-high-rise applications                    │
   └──────────────────────────────────────────────────────────────────┘
 
   TYPE B: PARTIALLY GROUTED WITH EXTERIOR INSULATION
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Standard CMU, grouted at reinforced cores only                │
-  │  Continuous insulation on exterior face (rigid foam)           │
+  │  Standard CMU, grouted at reinforced cores only                  │
+  │  Continuous insulation on exterior face (rigid foam)             │
   │  Air barrier over insulation                                     │
-  │  Cladding or stucco on exterior                                │
-  │  R-value: CMU alone R-2; add R-15 exterior = R-17 total        │
+  │  Cladding or stucco on exterior                                  │
+  │  R-value: CMU alone R-2; add R-15 exterior = R-17 total          │
   └──────────────────────────────────────────────────────────────────┘
 
   TYPE C: INTERLOCKING INSULATED CMU (proprietary)
@@ -207,7 +207,7 @@ INSULATED CMU TYPES
   │  Units with integral foam core and tongue-and-groove interlocking│
   │  No mortar required (dry-stack with surface-applied mortar)      │
   │  Use: residential, light commercial                              │
-  │  Examples: Sparton Block, Azar Block systems                   │
+  │  Examples: Sparton Block, Azar Block systems                     │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -236,7 +236,7 @@ SEISMIC MASONRY REQUIREMENTS SUMMARY (SDC D/E/F)
 
   SPECIAL REINFORCED MASONRY (TMS 402 §7.4.6):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Minimum vertical reinforcement:   #4 @ 48" max vertical O.C.  │
+  │  Minimum vertical reinforcement:   #4 @ 48" max vertical O.C.    │
   │  Minimum horizontal reinforcement: #4 @ 48" max horizontal O.C.│
   │  Min reinforcement ratio (ρ):      0.0007 in each direction      │
   │  Max reinforcement ratio (ρ_max):  governed by ductility calc    │
@@ -250,9 +250,9 @@ SEISMIC MASONRY REQUIREMENTS SUMMARY (SDC D/E/F)
   DIAPHRAGM CONNECTIONS:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Ledger bolts or embedded anchors at floor/roof connections      │
-  │  Anchor bolt spacing: ≤ 4 ft O.C. (IBC Table 1905.1.1)        │
+  │  Anchor bolt spacing: ≤ 4 ft O.C. (IBC Table 1905.1.1)           │
   │  Bond beam at top of wall: continuous horizontal reinforcement   │
-  │  Chord reinforcement at diaphragm edges                        │
+  │  Chord reinforcement at diaphragm edges                          │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

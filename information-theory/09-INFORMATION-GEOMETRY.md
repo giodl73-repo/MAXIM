@@ -9,11 +9,11 @@ The natural "straight lines" are exponential families.
 The natural notion of distance is KL divergence.
 
 ┌───────────────────────────────────────────────────────────────────┐
-│  Statistical manifold M = {p(x;θ) : θ ∈ Θ ⊆ ℝᵈ}                │
+│  Statistical manifold M = {p(x;θ) : θ ∈ Θ ⊆ ℝᵈ}                   │
 │                                                                   │
 │  Tangent vector at θ = score function ∂_i log p(x;θ)              │
 │                                                                   │
-│  Riemannian metric = Fisher information: g_{ij}(θ) = I(θ)_{ij}  │
+│  Riemannian metric = Fisher information: g_{ij}(θ) = I(θ)_{ij}    │
 │                                                                   │
 │  Two natural connections (not the Levi-Civita connection):        │
 │    e-connection (exponential):  α = +1                            │

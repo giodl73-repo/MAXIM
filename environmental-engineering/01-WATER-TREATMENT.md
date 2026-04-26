@@ -407,7 +407,7 @@ at parts-per-trillion levels, transforming treatment design.
   │                  │ used where low TDS is also needed         │
   ├──────────────────┼────────────────────────────────────────────┤
   │ PFAS destruction │ EMERGING: electrochemical oxidation,       │
-  │ (emerging)       │ supercritical water oxidation (SCWO),    │
+  │ (emerging)       │ supercritical water oxidation (SCWO),      │
   │                  │ sonochemical, thermal desorption +         │
   │                  │ high-temp incineration (>1100°C)           │
   └──────────────────┴────────────────────────────────────────────┘

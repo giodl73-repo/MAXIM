@@ -20,8 +20,8 @@ underlie knowledge graphs and OWL ontologies.
 |  | Concurrency        |      |  - BitVectors             |        |
 |  | Total correctness  |      |  - Arrays                 |        |
 |  +--------------------+      |  - Strings                |        |
-|                              | Tools: Z3, CVC5, Yices    |        |
-|  TYPE THEORY / PROOF ASSISTANTS                                   |
+   |                              | Tools: Z3, CVC5, Yices    |     |
+   |  TYPE THEORY / PROOF ASSISTANTS                                |
 |  +--------------------+      +---------------------------+        |
 |  | Curry-Howard       |      | AI REASONING              |        |
 |  | Martin-Lof TT      |      | +-----------------------+ |        |

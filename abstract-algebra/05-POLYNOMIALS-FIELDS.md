@@ -21,7 +21,7 @@
 |  [K:F] = degree of extension = dim_F K as F-vector space          |
 |                                                                    |
 |  K algebraic over F: every α ∈ K satisfies f(α)=0 for f ∈ F[x]  |
-|  K transcendental extension: exists α ∈ K satisfying no poly over F|
+|  K transcendental extension: exists α ∈ K satisfying no poly over F |
 +====================================================================+
 ```
 

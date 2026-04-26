@@ -8,14 +8,14 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
 
   ATOMIC CARRIERS
   ┌─────────────────────┐    ┌────────────────────────┐
-  │  PHONONS             │    │  ELECTRONS              │
+  │  PHONONS             │    │  ELECTRONS            │
   │  (lattice vibrations)│    │  (electronic excitations)│
   └────────┬──────┬──────┘    └──────┬──────┬───────────┘
            │      │                  │      │
     ┌──────▼──┐ ┌─▼──────────┐ ┌────▼───┐ ┌▼─────────────┐
-    │ THERMAL │ │ IR PHONON   │ │THERMAL │ │ OPTICAL       │
-    │ CONDUCT.│ │ ABSORPTION  │ │CONDUCT.│ │ ABSORPTION    │
-    │ κ_ph    │ │ (Reststrahl)│ │ κ_el   │ │ (interband)   │
+    │ THERMAL │ │ IR PHONON   │ │THERMAL │ │ OPTICAL     │
+    │ CONDUCT.│ │ ABSORPTION  │ │CONDUCT.│ │ ABSORPTION  │
+    │ κ_ph    │ │ (Reststrahl)│ │ κ_el   │ │ (interband) │
     └────┬────┘ └──────┬──────┘ └───┬────┘ └──────┬────────┘
          │             │            │              │
          └──────┬──────┘            └──────┬───────┘
@@ -102,12 +102,12 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
   PHONON SCATTERING MECHANISMS (limit λ and thus κ):
   ┌──────────────────────────────────────────────────────────────────────────┐
   │  Umklapp (U) processes:    phonon-phonon; dominant at high T             │
-  │    κ_phonon ∝ 1/T at high T  (Umklapp increases with T)                │
+  │    κ_phonon ∝ 1/T at high T  (Umklapp increases with T)                  │
   │  Impurity/alloy scattering: κ drops with alloying (stainless < pure Fe)  │
   │  Grain boundary scattering: significant in nanostructures (κ of bulk     │
-  │    Si = 150 W/mK; nanowire Si = 5 W/mK)                                │
+  │    Si = 150 W/mK; nanowire Si = 5 W/mK)                                  │
   │  Isotope scattering:       natural Si has 3 isotopes; isotopically pure  │
-  │    Si-28: κ ≈ 11,000 W/mK at low T (current record)                    │
+  │    Si-28: κ ≈ 11,000 W/mK at low T (current record)                      │
   └──────────────────────────────────────────────────────────────────────────┘
 
   ELECTRON CONTRIBUTION IN METALS — Wiedemann-Franz Law:
@@ -357,11 +357,11 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
   │  Minority carriers diffuse to junction → separated by E_bi              │
   │  → photocurrent I_ph flows opposite to diode forward current            │
   │                                                                         │
-  │  I-V under illumination:  I = I_0·(e^(qV/nkT) - 1) - I_ph             │
+  │  I-V under illumination:  I = I_0·(e^(qV/nkT) - 1) - I_ph               │
   │                                                                         │
   │  Short-circuit current: I_sc = I_ph  (at V=0)                           │
-  │  Open-circuit voltage:   V_oc = (nkT/q)·ln(I_ph/I_0 + 1)             │
-  │  Fill factor:            FF = P_max / (V_oc · I_sc) ≈ 0.7–0.85        │
+  │  Open-circuit voltage:   V_oc = (nkT/q)·ln(I_ph/I_0 + 1)                │
+  │  Fill factor:            FF = P_max / (V_oc · I_sc) ≈ 0.7–0.85          │
   │  Efficiency:             η = FF · V_oc · I_sc / P_incident              │
   └─────────────────────────────────────────────────────────────────────────┘
 
@@ -423,12 +423,12 @@ THERMAL & OPTICAL PROPERTIES LANDSCAPE
   ┌──────────────────────────────────────────────────────────────────────────┐
   │  Multimode (MM):  core 50–62.5 µm; many modes travel different paths     │
   │    → modal dispersion limits bandwidth-distance product                  │
-  │    → 10 GbE: max 300m at 850 nm on OM4 fiber                           │
+  │    → 10 GbE: max 300m at 850 nm on OM4 fiber                             │
   │    → cheap (LED source); data center campus backbones                    │
   │                                                                          │
-  │  Single-mode (SM): core 8–10 µm; only HE₁₁ mode propagates            │
+  │  Single-mode (SM): core 8–10 µm; only HE₁₁ mode propagates               │
   │    → no modal dispersion; bandwidth limit from chromatic dispersion only │
-  │    → 100+ km without amplification (EDFA every 80 km in long-haul)     │
+  │    → 100+ km without amplification (EDFA every 80 km in long-haul)       │
   │    → requires laser source; all metro/long-haul fiber                    │
   └──────────────────────────────────────────────────────────────────────────┘
 

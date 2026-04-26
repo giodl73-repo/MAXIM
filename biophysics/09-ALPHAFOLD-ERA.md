@@ -5,8 +5,8 @@
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                   THE ALPHAFOLD ERA LANDSCAPE                            │
-│                                                                            │
-│  TIMELINE:                                                                 │
+│                                                                          │
+│  TIMELINE:                                                               │
 │  1951: Pauling: α-helix and β-sheet from H-bond geometry                 │
 │  1957: First protein structure (myoglobin, Kendrew) by X-ray             │
 │  1969: Levinthal's paradox — folding cannot be exhaustive search         │
@@ -16,12 +16,12 @@
 │  2021: AlphaFold2 paper + code released; 200M+ structure database        │
 │  2022: ESMFold (Meta), RoseTTAFold; RFdiffusion (de novo design)         │
 │  2023-24: AlphaFold3 (DNA/RNA/small molecules); RF2/Boltz-1              │
-│                                                                            │
+│                                                                          │
 │  WHAT ALPHAFOLD2 SOLVED:                                                 │
 │  Static 3D structure of most single-chain soluble proteins               │
 │  → Near-experimental quality (TM-score ≈ 0.9 on CASP14)                  │
-│                                                                            │
-│  WHAT REMAINS UNSOLVED:                                                    │
+│                                                                          │
+│  WHAT REMAINS UNSOLVED:                                                  │
 │  Protein dynamics / conformational ensembles                             │
 │  Intrinsically disordered proteins (IDPs)                                │
 │  Protein-protein interaction prediction at atomic resolution             │
@@ -64,7 +64,7 @@ distance information.
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │  ALPHAFOLD2 ARCHITECTURE                                                 │
-│                                                                            │
+│                                                                          │
 │  ┌────────────────────────────────────────────────────────┐              │
 │  │  MSA representation: [N_seq × L × c_m]                │              │
 │  │  Pair representation: [L × L × c_z]                    │              │

@@ -25,7 +25,7 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
   │  PROCESSES                │ zinc arc spray; plasma spray      │
   ├────────────────────────────────────────────────────────────────┤
   │  VAPOR DEPOSITION         │ PVD (sputtering/evaporation);      │
-  │  (vacuum processes)       │ CVD; DLC                         │
+  │  (vacuum processes)       │ CVD; DLC                           │
   └────────────────────────────────────────────────────────────────┘
 
   KEY DIFFERENTIATOR: "Is it applied TO the surface or
@@ -64,7 +64,7 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
 
   POWDER CHEMISTRY:
   ┌─────────────────────────────────────────────────────────────────┐
-  │  TYPE           │ CURE CHEMISTRY    │ PROPERTIES              │
+  │  TYPE           │ CURE CHEMISTRY    │ PROPERTIES                │
   ├─────────────────────────────────────────────────────────────────┤
   │  Epoxy          │ Amine crosslink   │ Interior; excellent      │
   │                 │                   │ adhesion/hardness;       │
@@ -108,23 +108,23 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
 
   ELECTROCHEMICAL PROCESS:
   ┌──────────────────────────────────────────────────────────────┐
-  │  Electrolyte: sulfuric acid (Type II) or chromic acid (I)  │
-  │  DC current: part = ANODE (+); tank = cathode (-)          │
+  │  Electrolyte: sulfuric acid (Type II) or chromic acid (I)    │
+  │  DC current: part = ANODE (+); tank = cathode (-)            │
   │                                                              │
-  │  At anode surface: Al → Al³⁺ + 3e⁻                        │
-  │  With water: Al³⁺ + 3OH⁻ → Al(OH)₃ → Al₂O₃               │
+  │  At anode surface: Al → Al³⁺ + 3e⁻                           │
+  │  With water: Al³⁺ + 3OH⁻ → Al(OH)₃ → Al₂O₃                   │
   │                                                              │
-  │  Oxide grows BOTH outward from surface AND inward          │
-  │  (roughly 50% penetrates into metal, 50% builds outward)  │
+  │  Oxide grows BOTH outward from surface AND inward            │
+  │  (roughly 50% penetrates into metal, 50% builds outward)     │
   │                                                              │
-  │  Porous hexagonal structure with channels perpendicular    │
-  │  to surface → open for dyeing before sealing               │
+  │  Porous hexagonal structure with channels perpendicular      │
+  │  to surface → open for dyeing before sealing                 │
   └──────────────────────────────────────────────────────────────┘
 
   THREE TYPES:
   ┌────────────────────────────────────────────────────────────┐
   │  TYPE I: Chromic Acid Anodize                              │
-  │    Thinnest: 0.0002"-0.0003" (0.5-0.8 μm)                │
+  │    Thinnest: 0.0002"-0.0003" (0.5-0.8 μm)                  │
   │    Minimal dimensional change                              │
   │    AEROSPACE: fatigue-sensitive parts (thinnest → minimal  │
   │    stress concentration); MIL-A-8625                       │
@@ -136,7 +136,7 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
   │    Architectural aluminum (AAMA 611 standards)             │
   ├────────────────────────────────────────────────────────────┤
   │  TYPE III: Hard Anodize (hardcoat)                         │
-  │    Thickness: 0.001"-0.002" (25-50 μm, up to 100 μm)     │
+  │    Thickness: 0.001"-0.002" (25-50 μm, up to 100 μm)       │
   │    Very hard: 60-70 Rockwell C equivalent                  │
   │    Very abrasion resistant                                 │
   │    Requires cold electrolyte (near freezing) + higher current│
@@ -170,11 +170,11 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
   │  Metal ion solution (electrolyte)                            │
   │  DC current: work part = CATHODE (-); anode = plating metal  │
   │                                                              │
-  │  At cathode: M^n+ + ne⁻ → M (metal deposits on part)       │
-  │  At anode: M → M^n+ + ne⁻ (or inert anode: O₂ evolution)  │
+  │  At cathode: M^n+ + ne⁻ → M (metal deposits on part)         │
+  │  At anode: M → M^n+ + ne⁻ (or inert anode: O₂ evolution)     │
   │                                                              │
-  │  Plating thickness proportional to current × time          │
-  │  (Faraday's laws of electrolysis)                          │
+  │  Plating thickness proportional to current × time            │
+  │  (Faraday's laws of electrolysis)                            │
   └──────────────────────────────────────────────────────────────┘
 
   COMMON PLATING METALS:
@@ -265,7 +265,7 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
   │  At steel/zinc interface: intermetallic layers form          │
   │                                                              │
   │  From steel outward:                                         │
-  │  Steel → Gamma (FeZn₃) → Delta (FeZn₇) → Zeta (FeZn₁₃)    │
+  │  Steel → Gamma (FeZn₃) → Delta (FeZn₇) → Zeta (FeZn₁₃)       │
   │         → Eta (pure zinc outer layer)                        │
   │                                                              │
   │  These are actual iron-zinc alloy phases, NOT just zinc      │
@@ -368,24 +368,24 @@ INDUSTRIAL SURFACE TREATMENT HIERARCHY:
 
   THERMAL SPRAY PROCESSES:
   ┌──────────────────────────────────────────────────────────────┐
-  │  FLAME SPRAY: Combustion of fuel gas + oxygen              │
-  │    Moderate velocity; moderate cost; metals + ceramics     │
+  │  FLAME SPRAY: Combustion of fuel gas + oxygen                │
+  │    Moderate velocity; moderate cost; metals + ceramics       │
   │                                                              │
-  │  ARC SPRAY: Electric arc between two wire electrodes       │
-  │    High productivity; zinc, aluminum, steel wire           │
+  │  ARC SPRAY: Electric arc between two wire electrodes         │
+  │    High productivity; zinc, aluminum, steel wire             │
   │    Corrosion protection on large structures                  │
   │    (bridges, offshore, storage tanks)                        │
   │                                                              │
-  │  PLASMA SPRAY: Plasma torch (Ar/He/H₂ at ~15,000°C)       │
-  │    Highest temperatures → ceramics, refractory materials   │
-  │    Thermal barrier coatings (TBC) on turbine blades:       │
-  │    YSZ (yttria-stabilized zirconia) — low thermal          │
+  │  PLASMA SPRAY: Plasma torch (Ar/He/H₂ at ~15,000°C)          │
+  │    Highest temperatures → ceramics, refractory materials     │
+  │    Thermal barrier coatings (TBC) on turbine blades:         │
+  │    YSZ (yttria-stabilized zirconia) — low thermal            │
   │    conductivity at high temperature                          │
   │                                                              │
-  │  HVOF (High Velocity Oxy-Fuel):                            │
-  │    Supersonic particle velocity; dense, hard deposit       │
+  │  HVOF (High Velocity Oxy-Fuel):                              │
+  │    Supersonic particle velocity; dense, hard deposit         │
   │    WC-Co (tungsten carbide-cobalt): extreme wear resistance  │
-  │    Replacing hard chrome plating for wear applications     │
+  │    Replacing hard chrome plating for wear applications       │
   └──────────────────────────────────────────────────────────────┘
 
   TURBINE BLADE TBC (Thermal Barrier Coating):

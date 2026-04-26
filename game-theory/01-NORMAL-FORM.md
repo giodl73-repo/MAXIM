@@ -13,9 +13,9 @@ the full joint strategy profile.
 |  PRIMITIVES                  DERIVED OBJECTS                     |
 |  ----------                  ---------------                     |
 |                                                                  |
-|  N = {1,...,n}  players      Δ(Sᵢ) = mixed strategy space      |
-|  Sᵢ  finite pure strats      uᵢ: Δ(S₁)×...×Δ(Sₙ) → ℝ          |
-|  uᵢ: S₁×...×Sₙ → ℝ payoff   (extended multilinearly)           |
+|  N = {1,...,n}  players      Δ(Sᵢ) = mixed strategy space        |
+|  Sᵢ  finite pure strats      uᵢ: Δ(S₁)×...×Δ(Sₙ) → ℝ             |
+|  uᵢ: S₁×...×Sₙ → ℝ payoff   (extended multilinearly)             |
 |                                                                  |
 |  SOLUTION LADDER (most selective → least)                        |
 |  ----------------------------------------                        |
@@ -27,7 +27,7 @@ the full joint strategy profile.
 |          |  (iterated elimination of strictly dominated strats)  |
 |          v                                                       |
 |  Nash Equilibrium (pure)                                         |
-|          |  (σᵢ* ∈ BR(σ*₋ᵢ) for all i)                        |
+|          |  (σᵢ* ∈ BR(σ*₋ᵢ) for all i)                           |
 |          v                                                       |
 |  Nash Equilibrium (mixed)   <-- always exists (Kakutani)         |
 |          |                                                       |

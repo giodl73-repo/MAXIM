@@ -703,7 +703,7 @@ jobs:
 │                                                                     │
 │  ✅ Gate hard:   any deterministic assert fails (regex, schema)     │
 │  ✅ Gate hard:   LLM score drops > 5% from baseline                 │
-│  ⚠️  Warn only:  LLM score drops 1-5% (subjective judgment call)   │
+│  ⚠️  Warn only:  LLM score drops 1-5% (subjective judgment call)     │
 │  ✅ Gate hard:   red-team pass rate drops (security regression)     │
 │  ℹ️  Log only:   cost increase (alert but don't block)               │
 └─────────────────────────────────────────────────────────────────────┘

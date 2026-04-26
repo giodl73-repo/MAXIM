@@ -13,7 +13,7 @@ Russell is also responsible for discovering the paradox in Frege's system and fo
 |  LOGIC/FOUNDATIONS          PHILOSOPHY OF LANGUAGE                    |
 |  ------------------         -------------------------                 |
 |  Russell's Paradox (1902)   Theory of Descriptions (1905)             |
-|  {x : x ∉ x} → contradiction  "On Denoting"                         |
+|  {x : x ∉ x} → contradiction  "On Denoting"                           |
 |                             - Definite descriptions analyzed          |
 |  Principia Mathematica      - Names vs descriptions distinguished     |
 |  (with Whitehead, 1910-13)  - Eliminates Meinong's "objects"          |

@@ -21,8 +21,8 @@ Maritime shipping moves ~80% of global trade by volume and ~70% by value. It is 
 |  | (Cb, Cp) | | (GM, GZ) | | (wave/   | | (diesel/ |           |
 |  |          | |          | | friction)| | propeller)|           |
 |  +----------+ +----------+ +----------+ +----------+            |
-|                                                                 |
-|  PORT OPERATIONS                                                |
+   |                                                              |
+   |  PORT OPERATIONS                                             |
 |  +----------+ +----------+ +----------+ +----------+            |
 |  | Berths   | | Cranes   | | Yard     | | Inland   |            |
 |  | (draft   | | (STS     | | (RTG/ASC)| | Connectivity|         |

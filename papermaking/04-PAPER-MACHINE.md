@@ -10,11 +10,11 @@
 |              |          |       |          |                     |
 |         Consistency  Water   Water      Calendering              |
 |         0.3–1.0%    removal removal    Reeling                   |
-|         1.0%→0.20%  20→45%  45→93%    Slitting                 |
+|         1.0%→0.20%  20→45%  45→93%    Slitting                   |
 |                                                                  |
 |  STOCK PREP → fan pump → headbox → machine → finished roll       |
 |                                                                  |
-|  WIRE SECTION:   0.3–1.0% consistency → ~20% solids            |
+|  WIRE SECTION:   0.3–1.0% consistency → ~20% solids              |
 |  PRESS SECTION:  20% solids → ~40–45% solids                     |
 |  DRY END:        45% solids → 92–95% solids                      |
 +------------------------------------------------------------------+

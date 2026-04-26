@@ -5,12 +5,12 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                     EPIDEMIOLOGY LANDSCAPE                                  │
-│                                                                               │
+│                                                                             │
 │   EXPOSURE ──────────────→ OUTCOME                                          │
 │   (risk factor, treatment)   (disease, death, health event)                 │
-│                                                                               │
-│   The core question: Is the association causal?                               │
-│                                                                               │
+│                                                                             │
+│   The core question: Is the association causal?                             │
+│                                                                             │
 │   ┌───────────────────────────────────────────────────────────────────────┐ │
 │   │              STUDY DESIGN HIERARCHY (internal validity)               │  │
 │   │                                                                       │  │

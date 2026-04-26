@@ -10,7 +10,7 @@ PORTLAND CEMENT TO CONCRETE TO STRUCTURE
 │  ──────────────────────    ────────────────────────────    ───────────────   │
 │  Limestone (CaCO₃) 75%     → rotary kiln 1450°C           → grind clinker    │
 │  Clay / shale 20%            CaCO₃ → CaO + CO₂             + gypsum (CaSO₄)  │
-│  Iron ore / silica  5%       CaO + SiO₂+Al₂O₃ → clinker   → Portland OPC   │
+│  Iron ore / silica  5%       CaO + SiO₂+Al₂O₃ → clinker   → Portland OPC     │
 │                                                                              │
 │  CLINKER PHASES (Bogue equations):                                           │
 │  C₃S  (alite)    50–70%  → fast strength; main phase                         │
@@ -20,7 +20,7 @@ PORTLAND CEMENT TO CONCRETE TO STRUCTURE
 │                                                                              │
 │  CEMENT + SCMs + WATER + ADMIXTURES + AGGREGATE = CONCRETE                   │
 │                                                                              │
-│  HYDRATION → C-S-H GEL (strength) + Ca(OH)₂ (portlandite)                  │
+│  HYDRATION → C-S-H GEL (strength) + Ca(OH)₂ (portlandite)                    │
 │                                                                              │
 │  CONCRETE IN STRUCTURE:                                                      │
 │  Plain → columns/walls in compression                                        │
@@ -144,7 +144,7 @@ SCM COMPARISON
 │                                  Slower early; better                        │
 │                                  long-term; low heat                         │
 │                                                                              │
-│  Silica fume Ferrochrome smelter Ultra-fine SiO₂ 5–15%     ~10–15%         │
+│  Silica fume Ferrochrome smelter Ultra-fine SiO₂ 5–15%     ~10–15%           │
 │  (CSF)       industry            Highly reactive                             │
 │  (≈ 150,000  off-gas             pozzolanic                                  │
 │   m²/kg BET)                     Fills capillary pores                       │
@@ -225,25 +225,25 @@ RC BEAM: CRACKED SECTION ANALYSIS
 │                                                                              │
 │  UNCRACKED (elastic, before cracking):                                       │
 │  ─────────────────────────────────── compression (top)                       │
-│  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ neutral axis                           │
+│  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ neutral axis                              │
 │  ─────────────────────────────────── tension (bottom — concrete can carry)   │
 │                                                                              │
 │  AT CRACKING: concrete tensile strength ~3 MPa reached                       │
 │  Cracks form at bottom fiber where tension is maximum                        │
 │                                                                              │
 │  CRACKED SECTION (in service):                                               │
-│  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─    compression block (concrete)          │
+│  ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─    compression block (concrete)             │
 │  N.A. moves up (concrete below N.A. cracked; only steel works)               │
 │  ═════════════════════════════════    steel rebar (in tension)               │
 │                                                                              │
 │  FORCE COUPLE (simplified):                                                  │
-│  C = 0.85 f'c × b × a   (compression in concrete block)                    │
+│  C = 0.85 f'c × b × a   (compression in concrete block)                      │
 │  T = As × fy             (tension in steel)                                  │
 │  C = T  →  solve for a (depth of compression block)                          │
 │  M_n = T × (d - a/2)    (nominal moment capacity)                            │
 │                                                                              │
 │  DUCTILITY REQUIREMENT (ACI 318 / EN 1992):                                  │
-│  Maximum reinforcement ratio ρ < 0.75 ρ_bal (ACI) or ε_s > 0.0025 (EC2)   │
+│  Maximum reinforcement ratio ρ < 0.75 ρ_bal (ACI) or ε_s > 0.0025 (EC2)      │
 │  → ensures steel yields before concrete crushes → ductile failure            │
 │  → wide cracks give warning before collapse                                  │
 │  → seismic: ρ further limited to ensure large ductility                      │
@@ -322,7 +322,7 @@ PRE-TENSIONING vs POST-TENSIONING
 │  PRE-TENSIONING (factory, precast):                                          │
 │  ─────────────────────────────────                                           │
 │  1. Stress high-tensile steel strands between abutments                      │
-│     f_pi = 0.75 f_pu = 0.75 × 1860 = 1395 MPa (typ. strand f_pu)          │
+│     f_pi = 0.75 f_pu = 0.75 × 1860 = 1395 MPa (typ. strand f_pu)             │
 │  2. Pour concrete around strands; cure                                       │
 │  3. Release strand → strand tries to shorten → bond transfers                │
 │     compression to concrete → concrete pre-compressed (f_pe ≈ 1100–1200 MPa)│
@@ -331,7 +331,7 @@ PRE-TENSIONING vs POST-TENSIONING
 │  POST-TENSIONING (in situ or precast):                                       │
 │  ──────────────────────────────────                                          │
 │  1. Cast concrete with plastic ducts embedded (no strand yet)                │
-│  2. Cure to target strength (usually f_ck ≥ 20 MPa before stressing)       │
+│  2. Cure to target strength (usually f_ck ≥ 20 MPa before stressing)         │
 │  3. Thread strands (tendons) through ducts                                   │
 │  4. Jack against anchors cast into concrete ends → elongate tendons          │
 │  5. Lock off jack → tendon force transferred via anchor plates               │
@@ -344,16 +344,16 @@ PRE-TENSIONING vs POST-TENSIONING
 │  Without prestress:  bottom fiber in tension → CRACK                         │
 │  With prestress:     prestress adds compression → net stress ≥ 0 → NO CRACK│
 │                                                                              │
-│  f_bottom = -P/A - P×e×c/I + M_applied×c/I                                 │
+│  f_bottom = -P/A - P×e×c/I + M_applied×c/I                                   │
 │    P = prestress force; e = eccentricity; A,I = section properties           │
-│    → choose P and e so f_bottom ≥ -0.5√f_ck (tension limit under service)  │
+│    → choose P and e so f_bottom ≥ -0.5√f_ck (tension limit under service)    │
 │                                                                              │
 │  LOSSES (significant; must account for):                                     │
 │  Elastic shortening:    concrete shortens as force applied → strand follows  │
 │  Friction (PT only):    duct wall friction reduces force along tendon        │
 │  Anchorage draw-in:     strand slips slightly on locking off jack            │
-│  Relaxation:            steel creeps under sustained tension → Δf_p = 2–5% │
-│  Creep:                 concrete creeps → shortens → strand loses tension  │
+│  Relaxation:            steel creeps under sustained tension → Δf_p = 2–5%   │
+│  Creep:                 concrete creeps → shortens → strand loses tension    │
 │  Shrinkage:             drying shrinkage → shortening → tension loss         │
 │  Total long-term losses: typically 15–25% of initial jacking force           │
 │                                                                              │

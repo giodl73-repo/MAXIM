@@ -63,7 +63,7 @@ THE DECISIVE MOMENT
   │  MAGNUM PHOTOS (co-founded by HCB, 1947):                        │
   │  Photographer-owned cooperative                                  │
   │  Maintains narrative control vs. magazine assignments            │
-  │  Members: HCB, Robert Capa, David Seymour, George Rodger       │
+  │  Members: HCB, Robert Capa, David Seymour, George Rodger         │
   │  Model: photographer owns copyright, licenses to publications    │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -77,7 +77,7 @@ THE DECISIVE MOMENT
   │  STAGING (not legitimate):                                       │
   │  Photographer directs subject action                             │
   │  "Can you stand over there and look sad?"                        │
-  │  "Could you move the body closer to the weapon?"               │
+  │  "Could you move the body closer to the weapon?"                 │
   │  Staging violates the claim that photo = documentary record      │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -256,13 +256,13 @@ WAR PHOTOGRAPHY: HARM vs. PUBLIC INTEREST
   │  Capa's own rule: "If your pictures aren't good enough, you      │
   │   aren't close enough." Killed by landmine, 1954.                │
   │                                                                  │
-  │  KEVIN CARTER / VULTURE AND CHILD (Sudan, 1993):               │
+  │  KEVIN CARTER / VULTURE AND CHILD (Sudan, 1993):                 │
   │  Pulitzer 1994; Carter photographed starving child and waiting   │
   │   vulture; waited for child to move before leaving               │
   │  Intense criticism: Why didn't he help? Psychological burden     │
   │  Carter died by suicide three months after Pulitzer              │
   │                                                                  │
-  │  NICK UT / NAPALM GIRL — KIM PHUC (Vietnam, 1972):             │
+  │  NICK UT / NAPALM GIRL — KIM PHUC (Vietnam, 1972):               │
   │  Girl running from napalm attack, naked, burned                  │
   │  AP initially refused to distribute (nudity policy)              │
   │  Overruled by photo editors — public interest outweighed policy  │
@@ -278,10 +278,10 @@ WAR PHOTOGRAPHY: HARM vs. PUBLIC INTEREST
   │                                                                  │
   │  FACTORS IN PUBLICATION DECISION:                                │
   │  ① Deceased: family notified? national security?                 │
-  │  ② Identifiability: can subject or family be harmed by I.D.?   │
+  │  ② Identifiability: can subject or family be harmed by I.D.?     │
   │  ③ Dignity: does image dehumanize or record reality?             │
   │  ④ Public interest: does publication change anything meaningful?│
-  │  ⑤ Proportionality: is the harm commensurate with the value?   │
+  │  ⑤ Proportionality: is the harm commensurate with the value?     │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -371,7 +371,7 @@ THE NO-PIXEL-EDITING PRINCIPLE
   │   Records camera model, settings, edit history in tamper-        │
   │   evident container                                              │
   │  Camera manufacturers implementing C2PA at sensor level          │
-  │   (Leica M11-P, Nikon Z9 with firmware)                        │
+  │   (Leica M11-P, Nikon Z9 with firmware)                          │
   │                                                                  │
   │  DETECTION TOOLS:                                                │
   │  Content credentials verification                                │

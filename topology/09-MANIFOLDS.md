@@ -4,7 +4,7 @@
 
 ```
 +====================================================================+
-|           MANIFOLDS — SPACES THAT LOCALLY LOOK LIKE Rⁿ           |
+|           MANIFOLDS — SPACES THAT LOCALLY LOOK LIKE Rⁿ             |
 +====================================================================+
 |                                                                    |
 |  TOPOLOGICAL MANIFOLD M of dimension n:                           |

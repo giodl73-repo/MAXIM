@@ -13,14 +13,14 @@ theory to the questions of strategic interaction.
 |  EVOLUTIONARY GAME THEORY        ALGORITHMIC GAME THEORY         |
 |  -------------------------        -------------------------      |
 |  Maynard Smith / Price (1973)     Papadimitriou, Roughgarden,    |
-|  Rational agents → populations    Tardos (2000s)               |
+|  Rational agents → populations    Tardos (2000s)                 |
 |  Strategies evolve by selection   Efficiency of equilibria       |
 |                                                                  |
 |  Key concepts:                    Key concepts:                  |
-|  ESS — invasion resistance        Price of Anarchy (PoA)       |
-|  Replicator dynamics              Price of Stability (PoS)     |
-|  Hawk-Dove game                   Potential games              |
-|  Kin selection / cooperation      Congestion games             |
+|  ESS — invasion resistance        Price of Anarchy (PoA)         |
+|  Replicator dynamics              Price of Stability (PoS)       |
+|  Hawk-Dove game                   Potential games                |
+|  Kin selection / cooperation      Congestion games               |
 |                                   PPAD-completeness of Nash      |
 |                                                                  |
 |  CONNECTION: No-regret learning   ←→  CE as stable state         |
@@ -581,7 +581,7 @@ frequency of opponents' play.
   │ Mean-field games: N → ∞ agents; each interacts      │
   │ with population mean; reduces to single-agent RL    │
   │                                                     │
-  │ No-regret + MARL: use EXP3/Hedge in each round;   │
+  │ No-regret + MARL: use EXP3/Hedge in each round;     │
   │ convergence to CE (not NE) — computationally valid  │
   └─────────────────────────────────────────────────────┘
 ```

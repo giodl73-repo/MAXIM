@@ -8,7 +8,7 @@ You know lambda calculus from MIT — this builds that directly into modern PL p
 ```
 +--------------------------------------------------------------------------+
 |                          TYPE THEORY HIERARCHY                           |
-|                                                                            |
+|                                                                          |
 |  SIMPLY TYPED LAMBDA CALCULUS (STLC)                                     |
 |  Base types + function types. Strong normalization. No self-application. |
 |  No polymorphism. Every term has exactly one type.                       |

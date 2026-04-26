@@ -10,26 +10,26 @@ unifying essentially all static analysis. The tools range from fast approximate 
 ```
 +--------------------------------------------------------------------------+
 |                       PROGRAM ANALYSIS LANDSCAPE                         |
-|                                                                            |
+|                                                                          |
 |  TECHNIQUE           TOOLS              PROPERTIES         SCALE         |
 |  ─────────           ─────              ──────────         ─────         |
 |  Abstract            Astrée, Frama-C    Absence of         Safety-crit.  |
 |  interpretation      (value analysis)   runtime errors     C (avionics)  |
-|                                                                            |
+|                                                                          |
 |  Dataflow analysis   Clang SA, Infer    Null deref,        Any codebase  |
 |  (flow-sensitive)    (flow-insens.)     resource leaks,    (scales well) |
-|                                         uninitialized vars                 |
-|                                                                            |
+|                                         uninitialized vars               |
+|                                                                          |
 |  Symbolic execution  KLEE, angr,        Reachability,      C/binary      |
 |                      S2E, Manticore     crashes, asserts   (moderate)    |
-|                                                                            |
+|                                                                          |
 |  Separation logic    Infer (biabduct.)  Memory safety,     Java/C/ObjC   |
 |                                         null deref,        (Facebook-    |
 |                                         resource leaks     scale CI)     |
-|                                                                            |
+|                                                                          |
 |  Taint analysis      CodeQL, FlowDagger Security info-     Java/Python/  |
 |  (IFDS framework)    Semgrep            flow, SQL inject.  JS (CI)       |
-|                                                                            |
+|                                                                          |
 |  Deductive           Frama-C WP,        Full functional    Safety-crit.  |
 |  verification        Dafny, VeriFast    correctness        C (nuclear,   |
 |                                                            aerospace)    |
@@ -605,24 +605,24 @@ Putting it all together — what does each analysis technique guarantee?
   | Abs. interpret. | Yes      | No         | Yes        | Yes (tunable)    |
   | (Astrée)        |          |            |            |                  |
   ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤
-  | Infer           | Yes *    | No         | Yes        | Yes (low rate)   |
-  | (bi-abduction)  | (* for   |            |            |                  |
-  |                 |  analyzed|            |            |                  |
-  |                 |  paths)  |            |            |                  |
+  | Infer           | Yes *    | No         | Yes        | Yes (low rate) |
+  | (bi-abduction)  | (* for   |            |            |                |
+  |                 |  analyzed|            |            |                |
+  |                 |  paths)  |            |            |                |
   ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤
   | Symbolic exec.  | Yes      | No         | No **      | No               |
   | (KLEE)          |          |            | (path expl)|                  |
   ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤
-  | BMC (CBMC)      | Yes      | Yes ***    | Yes        | No               |
-  |                 |          | (within    |            |                  |
-  |                 |          |  bound)    |            |                  |
+  | BMC (CBMC)      | Yes      | Yes ***    | Yes        | No             |
+  |                 |          | (within    |            |                |
+  |                 |          |  bound)    |            |                |
   ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤
   | Taint (CodeQL)  | No       | No         | Yes        | Low              |
   |                 | (heurist.)|           |            |                  |
   ├────────────────┼──────────┼────────────┼───────────┼──────────────────┤
-  | Deductive verif.| Yes      | Yes        | Yes        | No               |
-  | (Frama-C WP)    |          | (requires  |            | (but requires    |
-  |                 |          |  annots.)  |            |  annotations)    |
+  | Deductive verif.| Yes      | Yes        | Yes        | No             |
+  | (Frama-C WP)    |          | (requires  |            | (but requires  |
+  |                 |          |  annots.)  |            |  annotations)  |
   └────────────────┴──────────┴────────────┴───────────┴──────────────────┘
 ```
 

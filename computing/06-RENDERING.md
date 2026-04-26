@@ -11,7 +11,7 @@ One question drives all rendering strategy decisions: **where and when is HTML g
 |  ←— more server work                      more client work —→    |
 |                                                                  |
 |  Traditional   SSG        ISR        SSR        SPA/CSR          |
-|  MVC/Razor   (build)  (build+bg)  (request)   (browser)        |
+|  MVC/Razor   (build)  (build+bg)  (request)   (browser)          |
 |    |            |         |           |            |             |
 |    v            v         v           v            v             |
 |  HTML on      HTML at   HTML at    HTML per     Empty HTML +     |
@@ -78,7 +78,7 @@ RSC        Server (component-   Full HTML (server       Only "use client"  Fast
 |                                                                    |
 | Mode  | TTFB      | FCP   | TTI   | Fresh data | SEO | Hosting     |
 |-------|-----------|-------|-------|------------|-----|------------|
-| CSR   | Fast(CDN) | Slow  | Slow  | Always     | ⚠️  | CDN only   |
+| CSR   | Fast(CDN) | Slow  | Slow  | Always     | ⚠️  | CDN only     |
 | SSR   | Med-slow  | Fast  | Med   | Always     | ✅  | Server req  |
 | SSG   | Fast(CDN) | Fast  | Med   | Build-time | ✅  | CDN only    |
 | ISR   | Fast(CDN) | Fast  | Med   | ~Window    | ✅  | Server+CDN  |

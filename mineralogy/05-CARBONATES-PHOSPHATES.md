@@ -6,17 +6,17 @@
 +------------------------------------------------------------------+
 |           CARBONATES AND PHOSPHATES: EARTH'S CHEMICAL RECORDS    |
 |                                                                  |
-|  CARBONATES (CO₃²⁻)                                            |
+|  CARBONATES (CO₃²⁻)                                              |
 |  Earth's long-term carbon reservoir — more carbon in limestone   |
 |  than in all organic matter and the atmosphere combined          |
 |  Biogenic: shells, coral, chalk → sedimentary carbonates         |
 |  Abiogenic: hydrothermal veins, cave deposits (speleothems)      |
 |                                                                  |
-|  PHOSPHATES (PO₄³⁻)                                            |
+|  PHOSPHATES (PO₄³⁻)                                              |
 |  Bones and teeth: biological apatite                             |
 |  Fertilizer feedstock: sedimentary phosphorite                   |
-|  Geochronology: monazite U-Th-Pb dating                        |
-|  Rare earth ores: bastnasite, monazite, xenotime               |
+|  Geochronology: monazite U-Th-Pb dating                          |
+|  Rare earth ores: bastnasite, monazite, xenotime                 |
 +------------------------------------------------------------------+
 ```
 
@@ -118,7 +118,7 @@ CERUSSITE: PbCO₃
 ```
 EARTH'S CARBON RESERVOIRS (approximate, in Gt C)
 +------------------------------------------------------------------+
-|  Marine carbonates (CaCO₃)          60,000,000  ← dominant     |
+|  Marine carbonates (CaCO₃)          60,000,000  ← dominant       |
 |  Kerogen + coal (sedimentary organic)  15,000,000                |
 |  Mantle                              ~100,000,000 (poorly known) |
 |  Terrestrial biomass                      550                    |
@@ -259,12 +259,12 @@ WAVELLITE: Al₃(PO₄)₂(OH)₃·5H₂O
 BIOMINERALIZATION: organisms precipitate minerals
 +------------------------------------------------------------------+
 |  Foraminifera: CaCO₃ (calcite) shells → chalk, limestone         |
-|  Coccolithophores: CaCO₃ plates → pelagic chalk               |
-|  Corals: CaCO₃ (aragonite) skeletons → reef limestone          |
-|  Bivalves: CaCO₃ (calcite + aragonite) shells                  |
+|  Coccolithophores: CaCO₃ plates → pelagic chalk                  |
+|  Corals: CaCO₃ (aragonite) skeletons → reef limestone            |
+|  Bivalves: CaCO₃ (calcite + aragonite) shells                    |
 |  Echinoderms: single calcite crystals → crinoidal limestone      |
-|  Siliceous organisms: SiO₂ (amorphous) → chert, diatomite      |
-|  Phosphatic organisms: Ca₅(PO₄)₃(OH) in bones and teeth        |
+|  Siliceous organisms: SiO₂ (amorphous) → chert, diatomite        |
+|  Phosphatic organisms: Ca₅(PO₄)₃(OH) in bones and teeth          |
 +------------------------------------------------------------------+
 
 SHELL CHEMISTRY AS PROXY:

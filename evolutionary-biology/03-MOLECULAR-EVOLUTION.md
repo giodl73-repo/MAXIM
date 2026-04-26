@@ -9,7 +9,7 @@ evolution is selectively neutral, driven by drift rather than selection.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │              MOLECULAR EVOLUTION LANDSCAPE                       │
-│                                                                    │
+│                                                                  │
 │  INPUT                  FORCES                OUTPUT             │
 │  ─────                  ──────                ──────             │
 │  Mutation               Purifying selection   Sequence divergence │
@@ -17,13 +17,13 @@ evolution is selectively neutral, driven by drift rather than selection.
 │  Gene duplication       Neutral drift         Gene family size   │
 │  Horizontal transfer    Codon usage bias      GC content         │
 │                         Methylation           Substitution rate  │
-│                                                                    │
+│                                                                  │
 │  KEY TOOL: dN/dS ratio (ω = Ka/Ks)                               │
 │  ─────────────────────────────────                               │
 │  ω < 1:  purifying selection (most genes)                        │
 │  ω = 1:  neutral (pseudogenes, some introns)                     │
 │  ω > 1:  positive selection (immune, reproductive genes)         │
-│                                                                    │
+│                                                                  │
 │  MOLECULAR CLOCK: neutral substitution rate ≈ μ (mutation rate)  │
 │  Calendar time → sequence divergence → divergence dates          │
 └──────────────────────────────────────────────────────────────────┘

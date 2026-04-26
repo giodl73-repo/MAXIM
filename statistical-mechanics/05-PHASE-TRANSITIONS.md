@@ -18,7 +18,7 @@ PHASE TRANSITION TAXONOMY
 
   FIRST ORDER (Ehrenfest: first derivative discontinuous):
   ┌─────────────────────────────────────────────────────────────────┐
-  │  ∂F/∂T = −S  discontinuous  →  LATENT HEAT Q = T ΔS           │
+  │  ∂F/∂T = −S  discontinuous  →  LATENT HEAT Q = T ΔS             │
   │  ∂F/∂P = V   discontinuous  →  DENSITY JUMP Δρ                  │
   │  Order parameter jumps discontinuously at transition            │
   │  Examples: melting, boiling, liquid-gas below critical point    │
@@ -27,7 +27,7 @@ PHASE TRANSITION TAXONOMY
   SECOND ORDER (continuous order parameter, divergent response):
   ┌─────────────────────────────────────────────────────────────────┐
   │  ∂F/∂T = −S  continuous                                         │
-  │  ∂²F/∂T² = −C_V/T  diverges or has cusp                       │
+  │  ∂²F/∂T² = −C_V/T  diverges or has cusp                         │
   │  Order parameter → 0 continuously at T_c                        │
   │  Correlation length ξ → ∞ at T_c                                │
   │  Examples: ferromagnet (T_c = Curie), superfluid, superconductor│

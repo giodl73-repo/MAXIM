@@ -93,7 +93,7 @@ MID-OCEAN RIDGE HYDROTHERMAL SYSTEM
   │   Heated by magma chamber below                       │
   │   Chemical reactions with basalt:                     │
   │     SO₄²⁻ removed, Mg²⁺ removed                       │
-  │     H₂S, CH₄, CO₂, metals (Fe, Mn, Cu, Zn) added    │
+  │     H₂S, CH₄, CO₂, metals (Fe, Mn, Cu, Zn) added      │
   └──────────────────┬────────────────────────────────────┘
                      │ Hot acidic fluid rises
                      ▼

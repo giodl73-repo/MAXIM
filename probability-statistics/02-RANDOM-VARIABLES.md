@@ -26,9 +26,9 @@
 |  | F-distribution: ratio of chi-squareds                       |
 |  | Wishart: multivariate chi-squared (for covariances)         |
 |  +-----------------------------+                                 |
-|                                                                  |
-|  EXPONENTIAL FAMILY (unified framework)                          |
-|  Normal, Poisson, Exponential, Binomial, Gamma, Beta, ...        |
+   |                                                               |
+   |  EXPONENTIAL FAMILY (unified framework)                       |
+   |  Normal, Poisson, Exponential, Binomial, Gamma, Beta, ...     |
 +------------------------------------------------------------------+
 ```
 

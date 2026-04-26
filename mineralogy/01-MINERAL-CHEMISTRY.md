@@ -14,12 +14,12 @@
 |                                   or amorphous (opal)            |
 |                                                                  |
 |  Solid solution ————————————————→ Same structure, variable X     |
-|   e.g., (Mg,Fe)₂SiO₄ olivine     Fe-Mg swap continuously       |
+|   e.g., (Mg,Fe)₂SiO₄ olivine     Fe-Mg swap continuously         |
 |                                                                  |
 |  Same composition —— POLYMORPHS → Different structures           |
 |   C       → diamond (cubic) or graphite (hexagonal)              |
-|   CaCO₃   → calcite (trigonal) or aragonite (orthorhombic)     |
-|   SiO₂    → quartz / tridymite / cristobalite / coesite / ...  |
+|   CaCO₃   → calcite (trigonal) or aragonite (orthorhombic)       |
+|   SiO₂    → quartz / tridymite / cristobalite / coesite / ...    |
 +------------------------------------------------------------------+
 ```
 
@@ -37,26 +37,26 @@ BONDING TYPES AND THEIR MINERAL CONSEQUENCES
 |  Electrons fully transferred between atoms                       |
 |  Electrostatic attraction between +/- ions                       |
 |  → Moderately hard, brittle, good cleavage, dissolves in water   |
-|  Examples: Halite (NaCl), fluorite (CaF₂), calcite (CaCO₃)    |
+|  Examples: Halite (NaCl), fluorite (CaF₂), calcite (CaCO₃)       |
 |                                                                  |
 |  COVALENT BONDING                                                |
 |  Electrons shared between atoms                                  |
 |  → Very hard, poor cleavage, insoluble                           |
-|  Examples: Diamond (C-C in 3D), quartz (Si-O), corundum (Al-O) |
+|  Examples: Diamond (C-C in 3D), quartz (Si-O), corundum (Al-O)   |
 |  Note: Diamond is the hardest mineral → purely covalent 3D net   |
 |                                                                  |
 |  METALLIC BONDING                                                |
 |  Delocalized electron sea                                        |
-|  → Soft to moderate, ductile, malleable, opaque, shiny         |
+|  → Soft to moderate, ductile, malleable, opaque, shiny           |
 |  Examples: Native gold, copper, silver, platinum                 |
 |                                                                  |
 |  VAN DER WAALS (molecular) BONDING                               |
 |  Weak intermolecular forces between layers                       |
-|  → Very soft, perfect basal cleavage, greasy feel              |
+|  → Very soft, perfect basal cleavage, greasy feel                |
 |  Examples: Graphite (C layers), talc (Mg silicate sheets)        |
 |                                                                  |
 |  MIXED BONDING (most minerals)                                   |
-|  Silicates: covalent Si-O + ionic Ca²⁺, Mg²⁺, etc.            |
+|  Silicates: covalent Si-O + ionic Ca²⁺, Mg²⁺, etc.               |
 |  Sulfides: largely covalent with metallic character              |
 +------------------------------------------------------------------+
 ```
@@ -108,20 +108,20 @@ Minerals can substitute chemically similar ions within the same crystal structur
 ```
 KEY SOLID SOLUTION SERIES
 +------------------------------------------------------------------+
-|  OLIVINE SERIES: (Mg,Fe)₂SiO₄                                  |
-|  Forsterite ————————————————————→ Fayalite                     |
-|  Mg₂SiO₄           continuous         Fe₂SiO₄                  |
+|  OLIVINE SERIES: (Mg,Fe)₂SiO₄                                    |
+|  Forsterite ————————————————————→ Fayalite                       |
+|  Mg₂SiO₄           continuous         Fe₂SiO₄                    |
 |  (pale green)                          (black)                   |
-|  Mg²⁺ and Fe²⁺ have nearly identical radii (0.72 vs 0.78 Å)    |
+|  Mg²⁺ and Fe²⁺ have nearly identical radii (0.72 vs 0.78 Å)      |
 |                                                                  |
 |  FELDSPAR SERIES: Two distinct series                            |
-|  Albite ————————————————————→ Anorthite   (Plagioclase)        |
-|  NaAlSi₃O₈                    CaAl₂Si₂O₈                      |
-|  Na⁺ + Si⁴⁺ ↔ Ca²⁺ + Al³⁺  (charge-coupled substitution)     |
+|  Albite ————————————————————→ Anorthite   (Plagioclase)          |
+|  NaAlSi₃O₈                    CaAl₂Si₂O₈                         |
+|  Na⁺ + Si⁴⁺ ↔ Ca²⁺ + Al³⁺  (charge-coupled substitution)         |
 |                                                                  |
 |  GARNET GROUP: Many end-members                                  |
-|  Pyrope (Mg) ↔ Almandine (Fe) ↔ Spessartine (Mn)              |
-|  Grossular (Ca-Al) ↔ Andradite (Ca-Fe) ↔ Uvarovite (Ca-Cr)    |
+|  Pyrope (Mg) ↔ Almandine (Fe) ↔ Spessartine (Mn)                 |
+|  Grossular (Ca-Al) ↔ Andradite (Ca-Fe) ↔ Uvarovite (Ca-Cr)       |
 |                                                                  |
 |  TOURMALINE: Most complex solid solution in common minerals      |
 |  X Y₃ Z₆ (BO₃)₃ Si₆O₁₈ (OH,F)₄   where X,Y,Z have many sub. |
@@ -142,7 +142,7 @@ POLYMORPHIC PAIRS AND TRIPLETS
 |  CARBON (C)                                                      |
 |  Diamond: cubic, each C bonded to 4 others in 3D tetrahedral     |
 |    → Hardest natural substance (Mohs 10), electrically insulating|
-|  Graphite: hexagonal layers, each C bonded to 3 in plane       |
+|  Graphite: hexagonal layers, each C bonded to 3 in plane         |
 |    → Softest sheet structure (Mohs 1–2), electrically conducting |
 |  Lonsdaleite: hexagonal diamond — meteorite impacts only         |
 |  Fullerene/nanotube: non-mineral but same element                |
@@ -157,16 +157,16 @@ POLYMORPHIC PAIRS AND TRIPLETS
 |                                                                  |
 |  SILICON DIOXIDE (SiO₂)                                          |
 |  Quartz: stable below 573°C, hexagonal; common everywhere        |
-|  Tridymite: 573°C–870°C, hexagonal with different topology     |
-|  Cristobalite: 870°C–1723°C (melting point)                    |
-|  Coesite: very high pressure (>3 GPa); marker of meteor impact |
-|  Stishovite: >10 GPa; Si in 6-fold coordination (not 4-fold)   |
-|  Opal: amorphous (non-crystalline) — technically a mineraloid  |
+|  Tridymite: 573°C–870°C, hexagonal with different topology       |
+|  Cristobalite: 870°C–1723°C (melting point)                      |
+|  Coesite: very high pressure (>3 GPa); marker of meteor impact   |
+|  Stishovite: >10 GPa; Si in 6-fold coordination (not 4-fold)     |
+|  Opal: amorphous (non-crystalline) — technically a mineraloid    |
 |                                                                  |
 |  ALUMINUM SILICATE (Al₂SiO₅)                                     |
-|  Kyanite: high P/low T → bladed blue crystals                  |
-|  Sillimanite: high P/high T → fibrous needles                  |
-|  Andalusite: low P/low T → blocky prismatic crystals           |
+|  Kyanite: high P/low T → bladed blue crystals                    |
+|  Sillimanite: high P/high T → fibrous needles                    |
+|  Andalusite: low P/low T → blocky prismatic crystals             |
 |  Stability fields map directly to metamorphic P-T conditions     |
 +------------------------------------------------------------------+
 ```
@@ -212,7 +212,7 @@ The size/charge matching logic is the same physics underlying semiconductor dopi
 |  ISOMORPHISM: same structure, different  |
 |  chemical composition                    |
 |                                          |
-|  Mg₂SiO₄ and Fe₂SiO₄                   |
+|  Mg₂SiO₄ and Fe₂SiO₄                     |
 |  Both olivine structure — solid solution |
 +------------------------------------------+
 

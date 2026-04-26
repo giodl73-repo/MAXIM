@@ -11,18 +11,18 @@
 |  Default Mode Network (DMN) disruption                           |
 |  Subjective effects: altered perception, ego dissolution         |
 |                                                                  |
-|  CLINICAL STATUS (updated 2026):                               |
-|  Schedule I (US), Class A (UK), Schedule III (Canada, some)    |
-|  Decriminalized: Oregon, Colorado, and 20+ US cities           |
-|  Oregon Measure 109: licensed psilocybin service centers open  |
-|    2023+; therapist-supervised sessions legal in Oregon        |
+|  CLINICAL STATUS (updated 2026):                                 |
+|  Schedule I (US), Class A (UK), Schedule III (Canada, some)      |
+|  Decriminalized: Oregon, Colorado, and 20+ US cities             |
+|  Oregon Measure 109: licensed psilocybin service centers open    |
+|    2023+; therapist-supervised sessions legal in Oregon          |
 |  Legal therapeutic: Australia (2023, TGA approved for TRD/PTSD)|
-|  Phase 3 clinical trials: COMPASS Phase 3 (COMP360) underway  |
-|    as of 2025; USONA MDD Phase 3 ongoing                       |
-|  No FDA approval as of early 2026; BLA not yet filed           |
+|  Phase 3 clinical trials: COMPASS Phase 3 (COMP360) underway     |
+|    as of 2025; USONA MDD Phase 3 ongoing                         |
+|  No FDA approval as of early 2026; BLA not yet filed             |
 |                                                                  |
 |  FDA Breakthrough Therapy Designation:                           |
-|  Psilocybin for MDD (2018) and TRD (treatment-resistant, 2019) |
+|  Psilocybin for MDD (2018) and TRD (treatment-resistant, 2019)   |
 +------------------------------------------------------------------+
 ```
 

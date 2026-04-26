@@ -47,7 +47,7 @@ Sunlight (photons)
 │  (~0.5 μm)                        │
 ├ ─ ─ ─ ─ p-n junction ─ ─ ─ ─ ─ ─┤
 │  p-type silicon layer             │ (boron doped, hole-rich)
-│  (~200 μm)                        │
+│  (~200 μm)                      │
 ├───────────────────────────────────┤
 │  Metal contact (back)             │
 └───────────────────────────────────┘

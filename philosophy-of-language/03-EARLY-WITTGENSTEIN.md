@@ -20,7 +20,7 @@ The central claim: language can express what is the case (facts about the world)
 |  Objects in determinate        Names concatenated                     |
 |  combination                   "Picture" of possible atomic fact      |
 |            ↓                              ↓                           |
-|  STATES OF AFFAIRS (Tatsachen) PROPOSITIONS                         |
+|  STATES OF AFFAIRS (Tatsachen) PROPOSITIONS                           |
 |  Existing atomic facts         Truth-functions of elementary propns   |
 |            ↓                              ↓                           |
 |  THE WORLD                     THE TOTALITY OF TRUE PROPOSITIONS      |

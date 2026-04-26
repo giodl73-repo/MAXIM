@@ -14,7 +14,7 @@
 │                                                                     │
 │  MHD EQUILIBRIUM                                                    │
 │  ─────────────────                                                  │
-│  J × B = ∇p (force balance)    β = p / (B²/2µ₀)                   │
+│  J × B = ∇p (force balance)    β = p / (B²/2µ₀)                     │
 │  Grad-Shafranov equation        Flux surfaces, q safety factor      │
 │          │                                                          │
 │          ▼                                                          │

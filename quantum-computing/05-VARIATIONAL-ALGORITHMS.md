@@ -20,7 +20,7 @@
 │  │   θ_new = θ - η ∇C(θ)    (gradient-based)                    │   │
 │  │   θ_new = COBYLA/SPSA    (gradient-free)                     │   │
 │  │                                                              │   │
-│  │   ∂C/∂θⱼ = [C(θ + π/2 eⱼ) - C(θ - π/2 eⱼ)] / 2           │   │
+│  │   ∂C/∂θⱼ = [C(θ + π/2 eⱼ) - C(θ - π/2 eⱼ)] / 2           │       │
 │  │            └──────────── parameter-shift rule ──────────┘   │    │
 │  └───────────────────────────┬──────────────────────────────────┘   │
 │                              │ new parameters θ                    │
@@ -294,7 +294,7 @@ HONEST ASSESSMENT:
 │ Gradient evaluation          │ Parameter-shift rule on hardware;    │
 │ on noisy hardware            │ SPSA when noise dominates            │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ p-depth for QAOA             │ p = 1 for benchmarking; p ≥ 5 for   │
+│ p-depth for QAOA             │ p = 1 for benchmarking; p ≥ 5 for     │
 │                              │ meaningful approximation ratio        │
 └──────────────────────────────┴───────────────────────────────────────┘
 ```

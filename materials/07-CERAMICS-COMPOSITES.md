@@ -45,7 +45,7 @@ CERAMICS & COMPOSITES LANDSCAPE
   │    → high melting point, electrically insulating, cleavage along        │
   │    crystallographic planes (charge neutrality must be maintained)       │
   │                                                                         │
-  │  Covalent bonding (SiC, Si₃N₄, diamond): shared electron pairs        │
+  │  Covalent bonding (SiC, Si₃N₄, diamond): shared electron pairs          │
   │    → extremely strong, directional; highest hardness and T_melt         │
   │    → even more brittle than ionic ceramics                              │
   │                                                                         │
@@ -130,8 +130,8 @@ CERAMICS & COMPOSITES LANDSCAPE
   When stress intensity exceeds surface energy cost to extend crack → fracture.
 
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  STRESS INTENSITY FACTOR:  K_I = σ√(πa) · Y  (Y = geometry factor)    │
-  │  Fracture when: K_I ≥ K_Ic  (fracture toughness, material property)   │
+  │  STRESS INTENSITY FACTOR:  K_I = σ√(πa) · Y  (Y = geometry factor)      │
+  │  Fracture when: K_I ≥ K_Ic  (fracture toughness, material property)     │
   │                                                                         │
   │  Material    K_Ic (MPa√m)   Implication                                 │
   │  Glass           0.7        Shatters at any crack                       │
@@ -322,7 +322,7 @@ CERAMICS & COMPOSITES LANDSCAPE
 
   CERAMIC MATRIX COMPOSITES (CMC)
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  SiC/SiC: SiC fibers in SiC matrix; T_use to 1400°C                    │
+  │  SiC/SiC: SiC fibers in SiC matrix; T_use to 1400°C                      │
   │  C/SiC, C/C: carbon fibers in SiC or carbon matrix; >1600°C (inert atm)│
   │  Application: GE LEAP engine fan blades, turbine stage 1 shrouds         │
   │  Benefit: 25% lower density than Ni-superalloy → higher bypass ratio     │

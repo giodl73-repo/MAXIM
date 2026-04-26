@@ -5,9 +5,9 @@
 ```
 +------------------------------------------------------------------+
 |                    WHISKEY FAMILY TREE                           |
-|                                                                    |
+|                                                                  |
 |  COMMON THREAD: Grain fermentation -> Distillation -> Oak aging  |
-|                                                                    |
+|                                                                  |
 |  SCOTCH          IRISH          BOURBON/RYE     JAPANESE         |
 |  ------          -----          -----------     --------         |
 |  Scotland        Ireland        USA             Japan            |
@@ -19,7 +19,7 @@
 |   sherry cask    Oak 3yr min    New charred oak  Sherry/bourbon  |
 |  3yr min         No req.        No req. (2yr     3yr min         |
 |                               "straight")                        |
-|                                                                    |
+|                                                                  |
 |  CANADIAN        RYES           TAIWAN/INDIA    OTHER            |
 |  Blended, light  51%+ rye       Kaoliang,       Global boom      |
 |  Less regulated  Spicy char     tropical aging  since 2000s      |
@@ -85,22 +85,22 @@ SENSORY: Peat smoke, iodine, medicinal, campfire, seaweed, ash
 SCOTCH WHISKY REGIONS
 
 +------------------------------------------------------------------+
-|                          SCOTLAND                                  |
-|                                                                    |
+|                          SCOTLAND                                |
+|                                                                  |
 |  HIGHLANDS                    SPEYSIDE (within Highlands)        |
 |  Large, diverse region        Highest concentration of distilleries|
 |  Wide style range             River Spey valley                  |
 |  Glenmorangie, Dalmore,       Fruity, floral, light peat         |
 |  Old Pulteney, Balblair       Glenfiddich, Macallan, Glenlivet,  |
 |                               GlenGrant, Balvenie, Glenfarclas   |
-|                                                                    |
+|                                                                  |
 |  ISLAY (island)               LOWLANDS                           |
-|  Peated maritime style        South Scotland                       |
+|  Peated maritime style        South Scotland                     |
 |  Seaweed, iodine, smoke       Triple-distilled, light            |
 |  Ardbeg, Laphroaig,           Auchentoshan, Glenkinchie          |
 |  Lagavulin, Bowmore           Often good aperitif whisky         |
 |  Bruichladdich, Bunnahabhain                                     |
-|                                                                    |
+|                                                                  |
 |  CAMPBELTOWN                  OTHER ISLANDS                      |
 |  Once Scotland's whisky       Orkney (Highland Park,Scapa)       |
 |  capital; now 3 distilleries  Jura, Mull (Tobermory)             |

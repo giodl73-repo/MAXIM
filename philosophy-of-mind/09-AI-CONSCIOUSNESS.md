@@ -161,7 +161,7 @@ IIT AND LLMS
 FEED-FORWARD TRANSFORMER:
   +-------+    +-------+    +-------+    +-------+
   | Input |-->| Layer  |-->| Layer  |-->| Output|
-  | tokens|    | 1      |    | N      |    |       |
+  | tokens|    | 1      |    | N      |    |     |
   +-------+    +-------+    +-------+    +-------+
 
   Strict feed-forward: phi = ~0.

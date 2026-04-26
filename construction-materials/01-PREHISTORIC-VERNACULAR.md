@@ -142,8 +142,8 @@ RAMMED EARTH CONSTRUCTION SEQUENCE
 │  Typical compressive strength: 2–5 MPa (unstabilized)          │
 │                                5–12 MPa (cement-stabilized)    │
 │                                                                │
-│  Thermal mass: ρ × c_p ≈ 2,100 × 840 = 1,764 kJ/m³K          │
-│  vs concrete: 2,400 × 880 = 2,112 kJ/m³K  → comparable       │
+│  Thermal mass: ρ × c_p ≈ 2,100 × 840 = 1,764 kJ/m³K            │
+│  vs concrete: 2,400 × 880 = 2,112 kJ/m³K  → comparable         │
 │                                                                │
 └────────────────────────────────────────────────────────────────┘
 ```
@@ -255,7 +255,7 @@ POST-AND-BEAM STRUCTURAL ELEMENTS
 │                                                                      │
 │  Purlin  ──────────────────────────────────────────────────          │
 │               │                   │                   │              │
-│  Rafter ─────┤───────────────────┤───────────────────┤─────        │
+│  Rafter ─────┤───────────────────┤───────────────────┤─────          │
 │               │                   │                   │             │
 │  Plate  ──────┴───────────────────┴───────────────────┴──── (top   │
 │               │                   │                   │     of wall)│
@@ -289,7 +289,7 @@ MORTISE-AND-TENON JOINT
          │  Cut in post/receiver               │
          │  Dimensions: tenon width × depth    │
          │                                     │
-         │  ┌─ ─ ─ ─ ─ ─ ─ ─ ─┐              │
+         │  ┌─ ─ ─ ─ ─ ─ ─ ─ ─┐                │
          │  │                  │              │
          │  │   TENON          │              │
          │  │   (the tongue)   │  → beam end  │
@@ -351,11 +351,11 @@ DRY-STONE WALL ANATOMY
 │                                                                  │
 │     ← batter (inward lean) →                                     │
 │                                                                  │
-│   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ← top stone / coping              │
+│   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ← top stone / coping                 │
 │   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                                      │
-│   ▓▓▓▓▓▓▓▓▓▓ ▒▒▒▒▒ ▓▓▓▓▓▓▓▓ ← throughstones (full width spans) │
-│   ▓▓▓▓ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ ▓▓▓▓ ← hearting (small stones, core)   │
-│   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ← face stones (outer course)       │
+│   ▓▓▓▓▓▓▓▓▓▓ ▒▒▒▒▒ ▓▓▓▓▓▓▓▓ ← throughstones (full width spans)   │
+│   ▓▓▓▓ ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ ▓▓▓▓ ← hearting (small stones, core)      │
+│   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ← face stones (outer course)         │
 │   ─────────────────────────── ← foundation course (widest, flat) │
 │                                                                  │
 │  Face stones:    irregular but flat face; largest stones low     │
@@ -366,7 +366,7 @@ DRY-STONE WALL ANATOMY
 │                                                                  │
 │  TYPICAL DIMENSIONS:                                             │
 │  Retaining wall: base = 50–60% height; batter 1:4 to 1:6         │
-│  Field wall: 1.0–1.5 m high; 0.6–0.8 m base; 0.45 m top        │
+│  Field wall: 1.0–1.5 m high; 0.6–0.8 m base; 0.45 m top          │
 │                                                                  │
 │  STABILITY MECHANISM:                                            │
 │  Gravity: mass × g × moment arm > overturning moment             │

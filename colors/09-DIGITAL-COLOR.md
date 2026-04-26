@@ -6,7 +6,7 @@
 +------------------------------------------------------------------+
 |           THE DIGITAL COLOR MANAGEMENT PIPELINE                  |
 |                                                                  |
-|  CAPTURE → ENCODE → STORE → PROCESS → DELIVER → DISPLAY        |
+|  CAPTURE → ENCODE → STORE → PROCESS → DELIVER → DISPLAY          |
 |                                                                  |
 |  Camera sensor                                                   |
 |    ↓ RAW (device-specific spectral sensitivities)                |

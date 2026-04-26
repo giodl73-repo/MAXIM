@@ -45,7 +45,7 @@ The simplest cipher: shift every letter by a fixed amount.
 │  D(y) = (y - n) mod 26    (decryption, shift left by n)          │
 │                                                                  │
 │  Example (ROT-3): "HELLO" → "KHOOR"                              │
-│  H(7)+3=10=K, E(4)+3=7=H, L(11)+3=14=O, O(14)+3=17=R           │
+│  H(7)+3=10=K, E(4)+3=7=H, L(11)+3=14=O, O(14)+3=17=R             │
 │                                                                  │
 │  ROT-13: special case n=13; applying twice decodes (symmetric)   │
 │  Still used: USENET spoiler hiding, obfuscated puzzle hints      │
@@ -91,10 +91,10 @@ The breakthrough: using multiple alphabets (shifts) in rotation, keyed by a keyw
 │                    VIGENÈRE CIPHER                               │
 │                                                                  │
 │  Key: LEMON   (repeated for length of message)                   │
-│  Plaintext:   A  T  T  A  C  K  A  T  D  A  W  N               │
-│  Key:         L  E  M  O  N  L  E  M  O  N  L  E               │
+│  Plaintext:   A  T  T  A  C  K  A  T  D  A  W  N                 │
+│  Key:         L  E  M  O  N  L  E  M  O  N  L  E                 │
 │  Key (0-idx): 11  4 12 14 13 11  4 12 14 13 11  4                │
-│  Ciphertext:  L  X  F  O  P  V  E  F  R  N  H  R               │
+│  Ciphertext:  L  X  F  O  P  V  E  F  R  N  H  R                 │
 │                                                                  │
 │  Rule: C_i = (P_i + K_i) mod 26                                  │
 │  Decryption: P_i = (C_i - K_i) mod 26                            │
@@ -252,7 +252,7 @@ The **only provably secure cipher**. Gilbert Vernam's 1917 patent; Claude Shanno
 │  3. Key must never be reused (hence "one-time")              │
 │  4. Key must be kept secret                                  │
 │                                                              │
-│  Encryption: C_i = (P_i + K_i) mod 26 (or XOR for binary)  │
+│  Encryption: C_i = (P_i + K_i) mod 26 (or XOR for binary)    │
 │  Decryption: P_i = (C_i - K_i) mod 26                        │
 │  (Same formula as Vigenère, but key length = message length  │
 │   and key is random — this is what makes it unbreakable)     │

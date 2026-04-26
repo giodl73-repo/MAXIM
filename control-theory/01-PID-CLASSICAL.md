@@ -11,7 +11,7 @@ C(s) makes the closed-loop system stable, fast, and accurate?**
 |             CLOSED-LOOP CONTROL SYSTEM                           |
 |                                                                  |
 |            e(t)          u(t)              y(t)                  |
-|  r(t) → Σ ──→ [C(s)] ──→ [G(s)] ──────────→                   |
+|  r(t) → Σ ──→ [C(s)] ──→ [G(s)] ──────────→                      |
 |          ↑                  PLANT           |                    |
 |          │                                  |                    |
 |          └──────────────────────────────────┘ feedback           |
@@ -36,7 +36,7 @@ The **Proportional-Integral-Derivative** controller is the workhorse of industri
 
 ```
              ┌─────────────────────────────────────────────────┐
-             │  u(t) = Kp·e(t) + Ki·∫e(τ)dτ + Kd·(de/dt)    │
+             │  u(t) = Kp·e(t) + Ki·∫e(τ)dτ + Kd·(de/dt)       │
              │                                                 │
              │       Kp    = proportional gain                 │
              │       Ki    = integral gain = Kp/Ti             │

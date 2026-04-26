@@ -26,7 +26,7 @@ Norse mythology is the pre-Christian religion of the Germanic peoples of Scandin
 │               HELHEIM (realm of ordinary dead)                   │
 │               ruled by Hel (Loki's daughter)                     │
 │                                                                  │
-│  YGGDRASIL: enormous ash tree, roots in 3 wells:               │
+│  YGGDRASIL: enormous ash tree, roots in 3 wells:                 │
 │  Urðarbrunnr (Well of Urð) — fate; Norns weave here              │
 │  Mímisbrunnr (Mimir's Well) — wisdom; Odin sacrificed eye here   │
 │  Hvergelmir — in Niflheim; primordial spring                     │
@@ -105,7 +105,7 @@ CREATION OF HUMANS:
 │               │ After Baldr's death: bound until Ragnarok        │
 │               │ At Ragnarok: steers Naglfar (ship of nails)     │
 ├───────────────┼─────────────────────────────────────────────────┤
-│ FREYR         │ Fertility, sunshine, rain, sex, prosperity        │
+│ FREYR         │ Fertility, sunshine, rain, sex, prosperity      │
 │               │ Vanir god, lives in Asgard (Aesir-Vanir exchange)│
 │               │ Magic sword that fights on its own              │
 │               │ Gave sword away for love of Gerðr → at Ragnarok │
@@ -116,7 +116,7 @@ CREATION OF HUMANS:
 │               │ Necklace Brísingamen; cat-drawn chariot; falcon cloak│
 │               │ Sister of Freyr; sometimes conflated with Frigg  │
 ├───────────────┼─────────────────────────────────────────────────┤
-│ TYR           │ Justice, law, war, single combat                  │
+│ TYR           │ Justice, law, war, single combat                │
 │               │ Lost hand binding Fenrir (tricked wolf)         │
 │               │ Cognate with Zeus/Jupiter (PIE Dyēus)           │
 │               │ Tuesday = Tyr's day                             │
@@ -126,7 +126,7 @@ CREATION OF HUMANS:
 │               │ Needs little sleep; can hear grass growing       │
 │               │ Father of humanity's social classes (in Rígsþula)│
 ├───────────────┼─────────────────────────────────────────────────┤
-│ BALDUR        │ Light, beauty, purity; universally beloved        │
+│ BALDUR        │ Light, beauty, purity; universally beloved      │
 │               │ Made invulnerable by Frigg (all things swore)   │
 │               │ except mistletoe (too young to swear)           │
 │               │ Loki guides blind Höðr to throw mistletoe dart  │

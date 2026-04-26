@@ -272,7 +272,7 @@ This is a crucial distinction:
 INFLECTION                           DERIVATION
 +-------------------------------+   +-------------------------------+
 | Grammatically required        |   | Lexically creative            |
-| Stays same lexeme/lexical class|   | Typically creates new lexeme   |
+| Stays same lexeme/lexical class|   | Typically creates new lexeme |
 | Not listed separately in dict |   | Listed as separate entry      |
 | Highly regular, few exceptions|   | Less regular, more idiosyncratic|
 | Outer position in word        |   | Inner position (closer to root)|

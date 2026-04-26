@@ -412,7 +412,7 @@ KEY INSTITUTIONS:
   |                     | Prosecutes genocide, war crimes,         |
   |                     | crimes against humanity.                 |
   |                     | Limited jurisdiction (states must join).|
-  |                     | US, Russia, China not members.         |
+  |                     | US, Russia, China not members.           |
   +---------------------+------------------------------------------+
 
 DEMOCRACY DEFICIT IN GLOBAL GOVERNANCE:

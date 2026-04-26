@@ -52,8 +52,8 @@ STRENGTH TERMINOLOGY
   │  Application              SF         WLL = MBS/SF                │
   │  ─────────────────────────────────────────────────────────────── │
   │  Life safety (NFPA 1983) 10:1        WLL = MBS/10                │
-  │  Lifting (ASME B30.9)     5:1–8:1    WLL = MBS/5 to MBS/8      │
-  │  Marine (ISO 4565)        5:1–6:1    WLL = MBS/5 or MBS/6      │
+  │  Lifting (ASME B30.9)     5:1–8:1    WLL = MBS/5 to MBS/8        │
+  │  Marine (ISO 4565)        5:1–6:1    WLL = MBS/5 or MBS/6        │
   │  Arborist (ANSI Z133)     10:1       WLL = MBS/10                │
   │  Rigging (general)        5:1        WLL = MBS/5                 │
   └──────────────────────────────────────────────────────────────────┘
@@ -110,7 +110,7 @@ ELONGATION CATEGORIES
 
   HIGH ELONGATION ROPES (energy-absorbing applications):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Nylon 3-strand/braid: 20–30% at break; 8–12% at 10% MBS      │
+  │  Nylon 3-strand/braid: 20–30% at break; 8–12% at 10% MBS         │
   │  Uses: Anchor rodes, mooring lines, climbing rope                │
   │  Physics: Energy = ∫F·dx = area under F-elongation curve         │
   │           Higher elongation → larger area → more energy stored   │
@@ -119,22 +119,22 @@ ELONGATION CATEGORIES
 
   MEDIUM ELONGATION ROPES (balance of use):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Polyester double braid: 10–15% at break; 3–6% at 10% MBS     │
+  │  Polyester double braid: 10–15% at break; 3–6% at 10% MBS        │
   │  Uses: General marine, sheets, halyards, static rigging          │
-  │  Balance: Enough stretch to absorb normal loads; not so much   │
+  │  Balance: Enough stretch to absorb normal loads; not so much     │
   │           that positioning control is lost                       │
   └──────────────────────────────────────────────────────────────────┘
 
   LOW ELONGATION ROPES (position-critical applications):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  UHMWPE:    3–4% at break; <1% at 10% MBS                     │
-  │  Vectran:   3.3% at break; <1% at 10% MBS                      │
-  │  Aramid:    3.6% at break; ~1% at 10% MBS                      │
+  │  UHMWPE:    3–4% at break; <1% at 10% MBS                        │
+  │  Vectran:   3.3% at break; <1% at 10% MBS                        │
+  │  Aramid:    3.6% at break; ~1% at 10% MBS                        │
   │  Uses: Racing sails, offshore mooring, precise positioning,      │
   │         structural stays where length control critical           │
   │  Note: Low elongation = poor energy absorption = cannot arrest   │
   │         dynamic falls (Dyneema is NOT suitable for dynamic       │
-  │         climbing rope — no energy absorption, breaks anchor)   │
+  │         climbing rope — no energy absorption, breaks anchor)     │
   └──────────────────────────────────────────────────────────────────┘
 
   ELONGATION TEST (ASTM D4268):
@@ -171,7 +171,7 @@ ABRASION RESISTANCE RANKING (rope-level, approximate)
   PRACTICAL ABRASION MANAGEMENT:
   ┌──────────────────────────────────────────────────────────────────┐
   │  • Chafe gear: rubber, leather, or plastic sleeve at chafe point│
-  │  • Chafe guard hose: split garden hose over running line       │
+  │  • Chafe guard hose: split garden hose over running line         │
   │  • Fairleads: smooth-surfaced rollers or blocks to guide line    │
   │  • Inspection: check sheath regularly; replace when core shows   │
   │  • Running rope is better than static (distributes wear)         │
@@ -199,21 +199,21 @@ UV DEGRADATION RATES
   │                                                                  │
   │  Nylon:        Good; better than PP; some UV stabilizer helps    │
   │                                                                  │
-  │  Manila/Hemp:  Moderate; surface degrades but core protected   │
+  │  Manila/Hemp:  Moderate; surface degrades but core protected     │
   │                by compacted construction                         │
   │                                                                  │
-  │  UHMWPE:       Moderate; absorbs UV at surface; sheath         │
+  │  UHMWPE:       Moderate; absorbs UV at surface; sheath           │
   │                protection recommended for long-term use          │
   │                                                                  │
-  │  Polypropylene:POOR — brittle and weak in 1–2 seasons          │
-  │                without UV stabilizer (carbon black additive    │
+  │  Polypropylene:POOR — brittle and weak in 1–2 seasons            │
+  │                without UV stabilizer (carbon black additive      │
   │                extends life significantly — black PP is better)  │
   │                                                                  │
-  │  Aramid (Kevlar): VERY POOR — must be sheathed for outdoor use │
+  │  Aramid (Kevlar): VERY POOR — must be sheathed for outdoor use   │
   │                   UV destroys fiber within months of exposure    │
   │                                                                  │
-  │  PBO (Zylon):  EXTREMELY POOR — must be sheathed at all times  │
-  │                6 months of UV exposure causes 40%+ loss        │
+  │  PBO (Zylon):  EXTREMELY POOR — must be sheathed at all times    │
+  │                6 months of UV exposure causes 40%+ loss          │
   └──────────────────────────────────────────────────────────────────┘
 
   INSPECTION INDICATORS:
@@ -235,8 +235,8 @@ CREEP BEHAVIOR BY MATERIAL
 
   HIGH CREEP (problematic under sustained load):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Nylon:    Significant creep at loads >10% MBS                 │
-  │  UHMWPE:   Creep at room temperature is low; but at >70°C     │
+  │  Nylon:    Significant creep at loads >10% MBS                   │
+  │  UHMWPE:   Creep at room temperature is low; but at >70°C        │
   │            and loads >20% MBS, creep becomes significant         │
   │  Polyester: Moderate creep; less than nylon                      │
   └──────────────────────────────────────────────────────────────────┘
@@ -273,29 +273,29 @@ ROPE RETIREMENT CRITERIA
   GENERAL INSPECTION (before each use):
   ┌──────────────────────────────────────────────────────────────────┐
   │  VISIBLE DAMAGE:                                                 │
-  │  • Core visible through sheath (discard immediately)           │
-  │  • Cuts, glazing, severe abrasion on sheath (evaluate)         │
-  │  • Hard spots or soft spots (internal damage — discard)        │
-  │  • Diameter reduction (tension damage, core failure)           │
-  │  • Discoloration from chemical exposure (test or discard)      │
+  │  • Core visible through sheath (discard immediately)             │
+  │  • Cuts, glazing, severe abrasion on sheath (evaluate)           │
+  │  • Hard spots or soft spots (internal damage — discard)          │
+  │  • Diameter reduction (tension damage, core failure)             │
+  │  • Discoloration from chemical exposure (test or discard)        │
   │                                                                  │
-  │  LIFE SAFETY ROPE (NFPA 1983 compliant):                       │
+  │  LIFE SAFETY ROPE (NFPA 1983 compliant):                         │
   │  Discard after:                                                  │
   │  • Any life-safety load event                                    │
   │  • Visible damage of any type                                    │
   │  • Contamination (chemicals, sharp particles)                    │
-  │  • 10 years from manufacture date (NFPA recommendation)        │
-  │  • When inspection reveals any doubt                           │
+  │  • 10 years from manufacture date (NFPA recommendation)          │
+  │  • When inspection reveals any doubt                             │
   └──────────────────────────────────────────────────────────────────┘
 
   WIRE ROPE DISCARD CRITERIA (ASME B30.9):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  • 6 randomly distributed broken wires in one rope lay         │
-  │  • 3 broken wires in one strand per lay                        │
-  │  • 10% diameter reduction from original                        │
-  │  • Evidence of kinking, bird-caging, crushing                  │
-  │  • Corrosion inside or on exterior                             │
-  │  • Evidence of heat damage                                     │
+  │  • 6 randomly distributed broken wires in one rope lay           │
+  │  • 3 broken wires in one strand per lay                          │
+  │  • 10% diameter reduction from original                          │
+  │  • Evidence of kinking, bird-caging, crushing                    │
+  │  • Corrosion inside or on exterior                               │
+  │  • Evidence of heat damage                                       │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

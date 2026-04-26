@@ -100,20 +100,20 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
   ┌────────────────────────────────────────────────────────────┐
   │ NLRP3 inflammasome (most studied):                         │
   │                                                            │
-  │ SIGNAL 1 (priming): LPS → NF-κB → NLRP3 + IL-1β mRNA    │
+  │ SIGNAL 1 (priming): LPS → NF-κB → NLRP3 + IL-1β mRNA       │
   │ SIGNAL 2 (activation): ATP, uric acid crystals,            │
   │   silica crystals, bacterial toxins, mitochondrial ROS     │
   │                                                            │
-  │ NLRP3 + ASC + Caspase-1 → INFLAMMASOME complex           │
+  │ NLRP3 + ASC + Caspase-1 → INFLAMMASOME complex             │
   │                                                            │
   │ Caspase-1 cleaves:                                         │
   │   Pro-IL-1β → mature IL-1β (potent inflammatory cytokine)  │
-  │   Pro-IL-18 → mature IL-18 (IFN-γ inducer)               │
+  │   Pro-IL-18 → mature IL-18 (IFN-γ inducer)                 │
   │   Gasdermin D → pore in membrane → PYROPTOSIS              │
   │   (inflammatory cell death — releases all contents)        │
   │                                                            │
   │ DISEASE CONNECTIONS:                                       │
-  │ Gout: Uric acid crystals activate NLRP3 → IL-1β → pain   │
+  │ Gout: Uric acid crystals activate NLRP3 → IL-1β → pain     │
   │ Cryopyrinopathies: Gain-of-function NLRP3 mutations        │
   │ COVID-19: Hyperactive inflammasome → cytokine storm        │
   └────────────────────────────────────────────────────────────┘
@@ -308,7 +308,7 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
   │ INHIBITORY: KIRs (Killer Immunoglobulin-like Receptors)  │
   │   Bind MHC I → "Cell is normal, don't kill"              │
   │                                                          │
-  │ ACTIVATING: NKG2D, NCRs (NKp30, NKp44, NKp46)          │
+  │ ACTIVATING: NKG2D, NCRs (NKp30, NKp44, NKp46)            │
   │   Bind stress ligands → "Kill this cell"                 │
   │                                                          │
   │ Kill happens when: Activating > Inhibitory               │
@@ -344,7 +344,7 @@ INNATE IMMUNITY: THE ALWAYS-ON FIREWALL
   │                                                              │
   │ 3. Leukocyte extravasation (rolling → adhesion → diapedesis)│
   │    Chemokines (IL-8/CXCL8) → leukocyte rolling on selectins│
-  │    → integrin activation → firm adhesion (ICAM-1:LFA-1)    │
+  │    → integrin activation → firm adhesion (ICAM-1:LFA-1)      │
   │    → diapedesis through vessel wall → chemokine gradient     │
   └──────────────────────────────────────────────────────────────┘
 

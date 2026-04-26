@@ -9,7 +9,7 @@ STORAGE TYPE TAXONOMY
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  OBJECT / BLOB         BLOCK               FILE                       |
-|  +-----------------+  +----------------+  +--------------------+    |
+|  +-----------------+  +----------------+  +--------------------+      |
 |  | Azure Blob      |  | Managed Disk   |  | Azure Files        |    |
 |  | (S3, GCS equiv) |  | (EBS equiv)    |  | (EFS equiv)        |    |
 |  | Unstructured    |  | Raw block dev  |  | NFS / SMB share    |    |
@@ -17,9 +17,9 @@ STORAGE TYPE TAXONOMY
 |  | Cheap at scale  |  | High IOPS/BW   |  | Shared file access |    |
 |  | Eventual consist|  | Consistent     |  | AD auth (SMB)      |    |
 |  +--+-----------+--+  +----------------+  +--------------------+    |
-|     |           |                                                     |
-|   Database                                                            |
-|   services                                                            |
+|     |           |                                                   |
+   |   Database                                                       |
+   |   services                                                       |
 |  +-----------------------+  +------------------+  +--------------+  |
 |  | Azure SQL Database    |  | Azure Cosmos DB  |  | Redis Cache  |   |
 |  | Structured, ACID      |  | NoSQL, global    |  | In-memory    |   |
@@ -149,7 +149,7 @@ MANAGED DISK TYPES (Azure)
 |   Max throughput: 1,200 MB/s                             |
 |   Configurable IOPS/throughput independently             |
 |   Use: production databases, SAP, SQL Server             |
-|   SLA: 99.9% on single VM                              |
+|   SLA: 99.9% on single VM                                |
 +----------------------------------------------------------+
 | Ultra Disk                                               |
 |   Max IOPS: 160,000 per disk                           |
@@ -226,7 +226,7 @@ RELATIONAL (SQL)
 | Azure SQL Database                                       |
 |   SQL Server compatible (T-SQL, ADO.NET, EF Core)        |
 |   vCore: General Purpose (standard), Business Critical   |
-|   (in-memory OLTP, local SSD), Hyperscale (100TB)      |
+|   (in-memory OLTP, local SSD), Hyperscale (100TB)        |
 |   Elastic Pool: shared resources for multi-tenant SaaS   |
 +----------------------------------------------------------+
 | Azure SQL Managed Instance                               |
@@ -253,7 +253,7 @@ NoSQL
 CACHE / KEY-VALUE
 +----------------------------------------------------------+
 | Azure Cache for Redis                                    |
-|   In-memory, sub-millisecond latency                   |
+|   In-memory, sub-millisecond latency                     |
 |   Clustering (C6/P5 tiers), persistence, geo-replication|
 |   Use: session cache, result cache, pub/sub, rate limit  |
 +----------------------------------------------------------+

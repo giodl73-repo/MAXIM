@@ -95,7 +95,7 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │    lower search costs; workers take career risks (can find     │
   │    new jobs nearby)                                            │
   │ 2. Specialized suppliers: upstream industries co-locate;       │
-  │    parts/services available; lower inventory costs           │
+  │    parts/services available; lower inventory costs             │
   │ 3. Knowledge spillovers: ideas spread across firms; informal   │
   │    conversations at coffee shops; tacit knowledge diffuses     │
   └────────────────────────────────────────────────────────────────┘
@@ -222,12 +222,12 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │ SEMI-PERIPHERY: transitional; both exploit and are exploited;  │
   │   mix of core and periphery production                         │
   │   Brazil, China, India, Mexico, Turkey, E Europe               │
-  │   (China's rapid ascent from periphery → semi → approaching  │
+  │   (China's rapid ascent from periphery → semi → approaching    │
   │   core challenges Wallerstein's static framework)              │
   │                                                                │
   │ PERIPHERY: labor-intensive production; raw material extraction │
   │   low wages; weak state; subject to core terms of trade        │
-  │   Sub-Saharan Africa, much of SE Asia historically,          │
+  │   Sub-Saharan Africa, much of SE Asia historically,            │
   │   parts of Latin America                                       │
   └────────────────────────────────────────────────────────────────┘
 
@@ -280,14 +280,14 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │           ↑                                                    │
   │    High ──│─────────────────────────────────────────────────   │
   │           │ \                                           /      │
-  │           │  \   R&D/                       Branding  /      │
-  │           │   \  Design                     Marketing/       │
-  │           │    \                            Services/        │
+  │           │  \   R&D/                       Branding  /        │
+  │           │   \  Design                     Marketing/         │
+  │           │    \                            Services/          │
   │    Low  ──│─────────────────────────────────────────────────   │
   │           │         \                      /                   │
   │           │          \  Manufacturing     /                    │
   │           │           ────────────────────                     │
-  │           +──────────────────────────────────→               │
+  │           +──────────────────────────────────→                 │
   │                    Stage in value chain                        │
   └────────────────────────────────────────────────────────────────┘
 
@@ -428,15 +428,15 @@ vulnerabilities exposed by COVID and Suez are now reshaping the map.
   │ Countries at high BRI debt distress risk (AidData + IMF):    │
   │ Pakistan: ~$27B to Chinese state entities; IMF bailouts;     │
   │   CPEC debt service ~40% of export earnings in some years    │
-  │ Zambia: first African sovereign default 2020; Chinese          │
+  │ Zambia: first African sovereign default 2020; Chinese        │
   │   creditors ~30–40% of external debt; protracted restructuring│
   │ Sri Lanka: Hambantota port lease (2017); forced by inability │
   │   to service $1.4B Hambantota loan; politically contested    │
   │ Ecuador: oil-for-loans; ~$18B to China; debt restructured    │
   │ Ethiopia: Addis-Djibouti railway + industrial parks; debt    │
   │   burden significant relative to export base                 │
-  │                                                                │
-  │ COUNTER-NARRATIVE: Many BRI loans are commercial terms,        │
+  │                                                              │
+  │ COUNTER-NARRATIVE: Many BRI loans are commercial terms,      │
   │ not concessional; some are refinanceable; debt-trap narrative  │
   │ overstates Chinese leverage (Deborah Brautigam, SAIS research) │
   └──────────────────────────────────────────────────────────────┘

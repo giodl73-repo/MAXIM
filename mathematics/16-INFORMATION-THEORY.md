@@ -121,7 +121,7 @@ Independent variables have maximum joint entropy. Dependence reduces it.
        H(X)              H(Y)
   ┌──────────────────────────────┐
   │       │           │          │
-  │  H(X|Y) │  I(X;Y) │ H(Y|X) │
+  │  H(X|Y) │  I(X;Y) │ H(Y|X)   │
   │       │           │          │
   └──────────────────────────────┘
          H(X,Y) = H(X|Y) + I(X;Y) + H(Y|X)

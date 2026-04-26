@@ -11,32 +11,32 @@ PRESS FREEDOM SPECTRUM
   FULL CONSTITUTIONAL PROTECTION (strong)
   ┌──────────────────────────────────────────────────────────────────┐
   │  US (First Amendment): Near-absolute; prior restraint very hard  │
-  │  Key protections: Actual malice standard; no licensing         │
+  │  Key protections: Actual malice standard; no licensing           │
   └──────────────────────────────────────────────────────────────────┘
   │
   ▼
   CONSTITUTIONAL + STATUTORY (moderate-strong)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Most EU democracies: Constitutional protection + defamation   │
-  │   laws, hate speech laws, national security restrictions       │
-  │  UK: No formal constitution; common law + Human Rights Act     │
-  │   + Official Secrets Act limitations                           │
+  │  Most EU democracies: Constitutional protection + defamation     │
+  │   laws, hate speech laws, national security restrictions         │
+  │  UK: No formal constitution; common law + Human Rights Act       │
+  │   + Official Secrets Act limitations                             │
   └──────────────────────────────────────────────────────────────────┘
   │
   ▼
   LEGAL FRAMEWORK WITH SIGNIFICANT RESTRICTIONS
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Sedition, criminal defamation, blasphemy laws used to        │
-  │   suppress reporting in nominally democratic states            │
-  │  Concentrated media ownership limits effective pluralism      │
+  │  Sedition, criminal defamation, blasphemy laws used to           │
+  │   suppress reporting in nominally democratic states              │
+  │  Concentrated media ownership limits effective pluralism         │
   └──────────────────────────────────────────────────────────────────┘
   │
   ▼
   SYSTEMATIC SUPPRESSION (weak/absent)
   ┌──────────────────────────────────────────────────────────────────┐
   │  Russia: Independent outlets shut, journalists imprisoned/killed│
-  │  China: State-controlled media; foreign outlets blocked        │
-  │  Iran, Saudi Arabia, North Korea: Comprehensive control        │
+  │  China: State-controlled media; foreign outlets blocked          │
+  │  Iran, Saudi Arabia, North Korea: Comprehensive control          │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -190,14 +190,14 @@ SLAPP ANALYSIS
 
   ANTI-SLAPP LAWS:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  31 states have anti-SLAPP statutes                            │
-  │  Mechanism: Special motion to strike SLAPP suits early         │
-  │   (before costly discovery)                                    │
-  │  If motion succeeds: Suit dismissed; attorney fees awarded     │
-  │   to defendant (journalist)                                    │
-  │  Federal: No federal anti-SLAPP law; bipartisan bills          │
-  │   introduced but not enacted                                   │
-  │  Strong anti-SLAPP states: California, Texas, Oregon           │
+  │  31 states have anti-SLAPP statutes                              │
+  │  Mechanism: Special motion to strike SLAPP suits early           │
+  │   (before costly discovery)                                      │
+  │  If motion succeeds: Suit dismissed; attorney fees awarded       │
+  │   to defendant (journalist)                                      │
+  │  Federal: No federal anti-SLAPP law; bipartisan bills            │
+  │   introduced but not enacted                                     │
+  │  Strong anti-SLAPP states: California, Texas, Oregon             │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -255,47 +255,47 @@ HOW AUTHORITARIAN STATES SUPPRESS PRESS
 
   LICENSING AND REGISTRATION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Require journalists to register with government               │
-  │  Deny/revoke licenses for critical reporting                   │
-  │  No license = cannot work legally = prosecutable               │
+  │  Require journalists to register with government                 │
+  │  Deny/revoke licenses for critical reporting                     │
+  │  No license = cannot work legally = prosecutable                 │
   └──────────────────────────────────────────────────────────────────┘
 
   CRIMINAL DEFAMATION AND SEDITION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Make defamation of state or officials a criminal offense      │
-  │  Truth is not always a defense in criminal defamation systems  │
-  │  Used: Saudi Arabia, Russia, Turkey, Egypt routinely          │
+  │  Make defamation of state or officials a criminal offense        │
+  │  Truth is not always a defense in criminal defamation systems    │
+  │  Used: Saudi Arabia, Russia, Turkey, Egypt routinely             │
   └──────────────────────────────────────────────────────────────────┘
 
   STATE MEDIA OWNERSHIP:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Government owns dominant media → controls narrative directly  │
-  │  Russia: Gazprom-Media, Channel One, RT (state-funded)        │
-  │  China: CCTV, Xinhua, People's Daily all state-controlled     │
+  │  Government owns dominant media → controls narrative directly    │
+  │  Russia: Gazprom-Media, Channel One, RT (state-funded)           │
+  │  China: CCTV, Xinhua, People's Daily all state-controlled        │
   └──────────────────────────────────────────────────────────────────┘
 
   JOURNALIST INTIMIDATION AND KILLING:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  2023: 67 journalists killed (CPJ count)                       │
-  │  Mexico: Deadliest non-conflict country (cartel violence)      │
-  │  Russia: Politkovskaya (2006); numerous others                 │
-  │  Saudi Arabia: Jamal Khashoggi (2018) — murdered in consulate │
+  │  2023: 67 journalists killed (CPJ count)                         │
+  │  Mexico: Deadliest non-conflict country (cartel violence)        │
+  │  Russia: Politkovskaya (2006); numerous others                   │
+  │  Saudi Arabia: Jamal Khashoggi (2018) — murdered in consulate    │
   │  Pattern: Impunity for killers enables systemic self-censorship│
   └──────────────────────────────────────────────────────────────────┘
 
   LEGAL HARASSMENT:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Arrest then release → chill effect without trial             │
-  │  Prolonged detention without charge                            │
-  │  Tax audits and business regulation used as pressure           │
+  │  Arrest then release → chill effect without trial                │
+  │  Prolonged detention without charge                              │
+  │  Tax audits and business regulation used as pressure             │
   └──────────────────────────────────────────────────────────────────┘
 
   DIGITAL SUPPRESSION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Internet filtering (China Great Firewall)                     │
+  │  Internet filtering (China Great Firewall)                       │
   │  VPN restrictions                                                │
   │  Social media bans                                               │
-  │  Spyware (NSO Pegasus) on journalists' phones                 │
+  │  Spyware (NSO Pegasus) on journalists' phones                    │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -309,23 +309,23 @@ SAFETY IN THE FIELD
 
   CONFLICT ZONE REPORTING:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Hostile environment training: First aid, body armor fitting,  │
+  │  Hostile environment training: First aid, body armor fitting,    │
   │   mine awareness, kidnap/ransom protocols                        │
-  │  Check-in protocols: Daily contact with editor                 │
-  │  Fixer/local journalist: Essential in unfamiliar territory     │
-  │  Insurance: Hostile environment coverage; kidnap/ransom policy │
-  │  Digital hygiene: Encrypt devices, use Signal, VPN in hostile  │
-  │   environments; assume phones compromised                      │
+  │  Check-in protocols: Daily contact with editor                   │
+  │  Fixer/local journalist: Essential in unfamiliar territory       │
+  │  Insurance: Hostile environment coverage; kidnap/ransom policy   │
+  │  Digital hygiene: Encrypt devices, use Signal, VPN in hostile    │
+  │   environments; assume phones compromised                        │
   └──────────────────────────────────────────────────────────────────┘
 
   DIGITAL SECURITY:
   ┌──────────────────────────────────────────────────────────────────┐
   │  SecureDrop for receiving sensitive documents                    │
-  │  Signal for source communications                              │
-  │  Full disk encryption on all devices                           │
-  │  Password manager + unique passwords per service               │
-  │  Assume spyware if covering authoritarian governments          │
-  │  Physical device isolation for sensitive files                 │
+  │  Signal for source communications                                │
+  │  Full disk encryption on all devices                             │
+  │  Password manager + unique passwords per service                 │
+  │  Assume spyware if covering authoritarian governments            │
+  │  Physical device isolation for sensitive files                   │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

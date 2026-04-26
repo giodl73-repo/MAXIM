@@ -25,8 +25,8 @@ field challenges who tells history, whose perspective counts, and what categorie
 |  | Black Jacobins (1938|        | ANALYSIS                  |     |
 |  |                     |        | (Bhabha, Spivak)          |     |
 |  +---------------------+        +---------------------------+     |
-|                                                                   |
-|  KEY CONCEPTS                                                     |
+   |                                                                |
+   |  KEY CONCEPTS                                                  |
 |  +-----------------------------------------------------------+    |
 |  | Subaltern  |  Orientalism  |  Hybridity  |  Mimicry      |    |
 |  | Provincializing Europe  |  Coloniality  |  Decolonial    |    |

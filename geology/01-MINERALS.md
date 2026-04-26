@@ -10,7 +10,7 @@ Minerals are the atoms-to-molecules level of geology. ~5,700 known minerals; ~30
 +---------------------------------------------------------------+
 |               MINERAL HIERARCHY                               |
 |                                                               |
-|  ELEMENT:   Si, O, Al, Fe, Ca, Na, K, Mg  (Big 8 of crust)  |
+|  ELEMENT:   Si, O, Al, Fe, Ca, Na, K, Mg  (Big 8 of crust)    |
 |                          |                                    |
 |                          v                                    |
 |  ION/CRYSTAL:  [SiO₄]⁴⁻ tetrahedra link into structures       |

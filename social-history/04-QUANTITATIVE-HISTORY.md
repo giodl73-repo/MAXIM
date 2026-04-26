@@ -17,8 +17,8 @@ generated major controversies, and remains an active field now transformed by di
 |  | American economic history (Fogel, North, Conrad-Meyer)    |    |
 |  | Cambridge Group for Population History (Wrigley, Laslett) |    |
 |  +-----------------------------------------------------------+    |
-|                                                                   |
-|  METHODS                         APPLICATIONS                     |
+   |                                                                |
+   |  METHODS                         APPLICATIONS                  |
 |  +--------------------+          +---------------------------+    |
 |  | Regression         |          | Economic growth           |    |
 |  | Counterfactual     |          | Slavery and its economics |    |

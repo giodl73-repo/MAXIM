@@ -62,13 +62,13 @@ East Asian mythology divides into two major streams — Chinese and Japanese —
 │  Pangu dies; his body becomes the world:                         │
 │    — Breath → wind and clouds                                    │
 │    — Voice → thunder                                             │
-│    — Left eye → sun; right eye → moon                          │
+│    — Left eye → sun; right eye → moon                            │
 │    — Four limbs → cardinal mountains                             │
 │    — Blood → rivers                                              │
 │    — Flesh → soil                                                │
-│    — Hair → stars; body hair → plants                          │
+│    — Hair → stars; body hair → plants                            │
 │    — Sweat → rain                                                │
-│    — Parasites on his body → humanity                          │
+│    — Parasites on his body → humanity                            │
 │                                                                  │
 │  The "parasites become humans" variant is unusual and suggests   │
 │  a different origin for this sub-element                         │
@@ -89,17 +89,17 @@ East Asian mythology divides into two major streams — Chinese and Japanese —
 │  (folk etiology of social class)                                 │
 │                                                                  │
 │  REPAIRING HEAVEN:                                               │
-│  The cosmic pillar Buzhou Mountain is broken by the water god  │
+│  The cosmic pillar Buzhou Mountain is broken by the water god    │
 │  Gonggong (in a rage after losing a battle)                      │
-│  The sky tilts; floods and fires overwhelm the earth           │
+│  The sky tilts; floods and fires overwhelm the earth             │
 │  Nu Wa:                                                          │
-│    — Melts five-colored stones to patch the sky                │
-│    — Cuts off the legs of a great sea turtle to use as four    │
-│       pillars holding up the sky                               │
-│    — Kills the black dragon causing floods                     │
-│    — Builds dams of reed ash to stop the floods               │
-│  Sky repaired — but now slightly tilted (why sun/moon move     │
-│  from east to west; why rivers in China flow east to sea)      │
+│    — Melts five-colored stones to patch the sky                  │
+│    — Cuts off the legs of a great sea turtle to use as four      │
+│       pillars holding up the sky                                 │
+│    — Kills the black dragon causing floods                       │
+│    — Builds dams of reed ash to stop the floods                  │
+│  Sky repaired — but now slightly tilted (why sun/moon move       │
+│  from east to west; why rivers in China flow east to sea)        │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -165,14 +165,14 @@ HOUYI — The Divine Archer
 ┌──────────────────────────────────────────────────────────────────┐
 │              THE CHINESE CELESTIAL BUREAUCRACY                   │
 │                                                                  │
-│  JADE EMPEROR (Yù Huáng Dàdì) — Supreme Ruler of Heaven        │
+│  JADE EMPEROR (Yù Huáng Dàdì) — Supreme Ruler of Heaven          │
 │  — Not the oldest Chinese deity but became supreme through the   │
 │    influence of popular Taoism (Song Dynasty, ~10th–13th c.)     │
 │  — Rules heaven as a divine Emperor rules China                  │
 │  — His court mirrors the Chinese imperial administration exactly:│
 │    — Ministers, departments, officials with specific portfolios  │
 │    — Gods report to him; receive celestial appointments or       │
-│       demotions based on performance                           │
+│       demotions based on performance                             │
 │    — Annual audit: gods submit reports on human behavior below   │
 │                                                                  │
 │  KITCHEN GOD (Zao Jun)                                           │
@@ -184,8 +184,8 @@ HOUYI — The Divine Archer
 │  — New image placed on New Year's Day                            │
 │                                                                  │
 │  EARTH GOD (Tu Di Gong)                                          │
-│  — Local deity; one per neighborhood or district               │
-│  — The lowest level of the celestial bureaucracy               │
+│  — Local deity; one per neighborhood or district                 │
+│  — The lowest level of the celestial bureaucracy                 │
 │  — Receives offerings; reports to higher gods                    │
 │                                                                  │
 │  GUAN YU — God of War, Righteousness, Business                   │
@@ -197,17 +197,17 @@ HOUYI — The Divine Archer
 │  GUAN YIN / AVALOKITESHVARA                                      │
 │  — Buddhist Bodhisattva of Compassion                            │
 │  — In India: male (Avalokiteshvara)                              │
-│  — In China: gradually became female (Guan Yin) ~9th–12th c.   │
-│  — Goddess of mercy; hears the cries of the suffering world    │
+│  — In China: gradually became female (Guan Yin) ~9th–12th c.     │
+│  — Goddess of mercy; hears the cries of the suffering world      │
 │  — Shows how Chinese mythology absorbed Buddhist figures into    │
 │    native religious practice                                     │
 │                                                                  │
-│  QUEEN MOTHER OF THE WEST (Xi Wangmu)                          │
-│  — Ancient goddess; originally fierce (plague and punishment)  │
+│  QUEEN MOTHER OF THE WEST (Xi Wangmu)                            │
+│  — Ancient goddess; originally fierce (plague and punishment)    │
 │  — Later: wise ruler of the immortals in Kunlun Mountains        │
-│  — Her peach garden grows peaches of immortality (ripen every  │
-│    3,000 years; party of the gods when they do)                │
-│  — Sun Wukong steals them in Journey to the West               │
+│  — Her peach garden grows peaches of immortality (ripen every    │
+│    3,000 years; party of the gods when they do)                  │
+│  — Sun Wukong steals them in Journey to the West                 │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -541,8 +541,8 @@ Korea sits at the intersection of Chinese cultural influence and a distinct indi
 │  Source: Samguk Yusa (1281 CE) — Buddhist monk Iryeon's          │
 │  compilation; ~1,300 years after the supposed events             │
 │                                                                  │
-│  Hwan-in, the Lord of Heaven, has a son: Hwanung               │
-│  Hwanung descends to earth under the Sandalwood tree on        │
+│  Hwan-in, the Lord of Heaven, has a son: Hwanung                 │
+│  Hwanung descends to earth under the Sandalwood tree on          │
 │  Baekdu Mountain (sacred mountain, Korea-Manchuria border)       │
 │  He rules with ministers of Wind, Rain, and Cloud                │
 │  He teaches humans: agriculture, medicine, law, morality         │

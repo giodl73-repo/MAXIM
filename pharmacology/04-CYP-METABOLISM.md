@@ -12,7 +12,7 @@ The cytochrome P450 (CYP) enzyme family is the primary metabolic system for drug
 |  Primarily liver (hepatocytes), also intestine, lung, brain      |
 |                                                                  |
 |  MECHANISM                                                       |
-|  Drug (substrate) + O₂ + NADPH + CYP → oxidized drug + H₂O     |
+|  Drug (substrate) + O₂ + NADPH + CYP → oxidized drug + H₂O       |
 |  (monooxygenation: inserts one oxygen atom into the drug)        |
 |                                                                  |
 |  WHY IT MATTERS                                                  |
@@ -23,7 +23,7 @@ The cytochrome P450 (CYP) enzyme family is the primary metabolic system for drug
 |  CYP NOMENCLATURE                                                |
 |  CYP[family][subfamily][isoform]                                 |
 |  CYP3A4 = family 3, subfamily A, isoform 4                       |
-|  Clinically relevant: CYP3A4, CYP2D6, CYP2C9, CYP2C19, CYP1A2  |
+|  Clinically relevant: CYP3A4, CYP2D6, CYP2C9, CYP2C19, CYP1A2    |
 +──────────────────────────────────────────────────────────────────+
 ```
 

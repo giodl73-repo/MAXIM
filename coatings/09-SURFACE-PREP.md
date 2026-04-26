@@ -317,10 +317,10 @@ Check the product TDS for specific limits — these are minimums:
   UNIVERSAL RULES:
 
   ┌─────────────────────────────────────────────────────────────────────┐
-  │ Substrate temperature:   ≥ 40-50°F (some products require ≥ 50°F) │
+  │ Substrate temperature:   ≥ 40-50°F (some products require ≥ 50°F)   │
   │ Air temperature:         ≥ 50°F                                     │
   │ Relative humidity:       ≤ 85%                                      │
-  │ Substrate temperature:   ≥ 5°F above dew point                    │
+  │ Substrate temperature:   ≥ 5°F above dew point                      │
   └─────────────────────────────────────────────────────────────────────┘
 
   DEW POINT RULE EXPLAINED:

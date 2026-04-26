@@ -396,7 +396,7 @@ POLLOCK'S DRIP TECHNIQUE
   ┌───────────────────────────────────────────────────────┐
   │ NOT random splashing: the trajectory of poured paint  │
   │ follows the laws of fluid dynamics. Pollock controls  │
-  │ the viscosity, height of pour, speed of movement.   │
+  │ the viscosity, height of pour, speed of movement.     │
   │ The results are predictable within a range.           │
   │                                                       │
   │ NOT unconscious: Pollock worked until it was right    │

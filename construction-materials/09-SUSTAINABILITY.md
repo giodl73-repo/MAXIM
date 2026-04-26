@@ -56,24 +56,24 @@ PASSIVHAUS ENERGY BALANCE PRINCIPLE
   ┌──────────────────────────────────────────────────────────────────────────┐
   │                                                                          │
   │  GAINS:                        LOSSES:                                   │
-  │  Solar gains through glazing   Fabric heat loss: U × A × ΔT            │
-  │  Internal gains: people,       Ventilation heat loss: V_dot × ρ_air    │
-  │    appliances, lighting         × c_p × ΔT × (1 − η_MVHR)             │
+  │  Solar gains through glazing   Fabric heat loss: U × A × ΔT              │
+  │  Internal gains: people,       Ventilation heat loss: V_dot × ρ_air      │
+  │    appliances, lighting         × c_p × ΔT × (1 − η_MVHR)                │
   │                                                                          │
   │  PASSIVHAUS STRATEGY:                                                    │
-  │  1. Super-insulate: U_wall ≤ 0.10–0.15 W/m²K                          │
-  │  2. Triple glazing: U_w ≤ 0.80 W/m²K; south-facing gains               │
-  │  3. Thermal bridge-free: Ψ ≤ 0.01 W/mK at all junctions               │
-  │  4. Air-tight: n50 ≤ 0.6 ACH → stop infiltration losses               │
-  │  5. MVHR: mechanical ventilation with heat recovery η ≥ 75%            │
+  │  1. Super-insulate: U_wall ≤ 0.10–0.15 W/m²K                             │
+  │  2. Triple glazing: U_w ≤ 0.80 W/m²K; south-facing gains                 │
+  │  3. Thermal bridge-free: Ψ ≤ 0.01 W/mK at all junctions                  │
+  │  4. Air-tight: n50 ≤ 0.6 ACH → stop infiltration losses                  │
+  │  5. MVHR: mechanical ventilation with heat recovery η ≥ 75%              │
   │     → ventilation losses nearly eliminated                               │
   │  6. Result: internal + solar gains = space heating demand                │
-  │     → no boiler needed in most climates (only top-up from small HP)   │
+  │     → no boiler needed in most climates (only top-up from small HP)      │
   │                                                                          │
   │  MVHR: MECHANICAL VENTILATION WITH HEAT RECOVERY                         │
   │  Extract stale air from wet rooms → recover ~85% heat in heat exchanger  │
   │  → supply pre-warmed fresh air to living rooms                           │
-  │  Net ventilation heat loss: < 2% of extraction flow heat content       │
+  │  Net ventilation heat loss: < 2% of extraction flow heat content         │
   │                                                                          │
   └──────────────────────────────────────────────────────────────────────────┘
 ```
@@ -126,8 +126,8 @@ LCA STAGES IN DETAIL (EN 15978 / EN ISO 14040/14044)
 │                                                                              │
 │  D   BEYOND BOUNDARY (reuse, recovery, recycling potential)                  │
 │      Steel: high scrap value → D credit                                      │
-│      CLT: structural reuse credit (if designed for disassembly)            │
-│      Concrete: downcycled to aggregate (C3/D credit, small)                │
+│      CLT: structural reuse credit (if designed for disassembly)              │
+│      Concrete: downcycled to aggregate (C3/D credit, small)                  │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -180,7 +180,7 @@ BIOGENIC CARBON ACCOUNTING IN TIMBER
 STRUCTURAL FRAME COMPARISON (kgCO₂e/m² GROSS FLOOR AREA)
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  (Based on RICS guidance, LETI reports, IStructE embodied carbon data)     │
+│  (Based on RICS guidance, LETI reports, IStructE embodied carbon data)       │
 │                                                                              │
 │  FRAME TYPE                kgCO₂e/m² GFA    NOTES                            │
 │  ─────────────────────────────────────────────────────────────────────────   │
@@ -191,23 +191,23 @@ STRUCTURAL FRAME COMPARISON (kgCO₂e/m² GROSS FLOOR AREA)
 │  Structural steel (BOF)    90–180            BOF route; high scrap content   │
 │  Structural steel (EAF)    60–120            EAF scrap-based; ~40% less      │
 │  Mass timber CLT            30–80  (gross)   Plus biogenic sequestration     │
-│  Mass timber CLT            −10 to +30 (net) If biogenic credit included   │
+│  Mass timber CLT            −10 to +30 (net) If biogenic credit included     │
 │  Hybrid CLT + steel core   50–100            Typical commercial mass timber  │
 │  Precast concrete           70–140            Includes transport premium     │
 │                                                                              │
 │  LETI TARGETS (London Energy Transformation Initiative, 2020):               │
-│  2025:  <700 kgCO₂e/m² whole building embodied (A1–A5)                    │
-│  2030:  <500 kgCO₂e/m² whole building embodied                             │
+│  2025:  <700 kgCO₂e/m² whole building embodied (A1–A5)                       │
+│  2030:  <500 kgCO₂e/m² whole building embodied                               │
 │  Net zero embodied:  <300 kgCO₂e/m² whole building (aggressive; GLA London)│
 │                                                                              │
-│  Note: structural frame is 30–50% of whole-building A1–A5 embodied carbon  │
-│  → foundation, façade, fit-out, MEP add the rest                           │
+│  Note: structural frame is 30–50% of whole-building A1–A5 embodied carbon    │
+│  → foundation, façade, fit-out, MEP add the rest                             │
 │                                                                              │
 │  REDUCING EMBODIED IN CONCRETE FRAMES:                                       │
-│  → Specify GGBS/fly ash replacement: 40–50% GGBS = ~25–35% CO₂ reduction  │
+│  → Specify GGBS/fly ash replacement: 40–50% GGBS = ~25–35% CO₂ reduction     │
 │  → Optimise rebar quantity (BIM analysis; avoid over-specification)          │
-│  → Use UHPC or post-tensioned slabs to reduce concrete volume              │
-│  → Design for adaptability → longer building life → embodied amortized     │
+│  → Use UHPC or post-tensioned slabs to reduce concrete volume                │
+│  → Design for adaptability → longer building life → embodied amortized       │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -237,17 +237,17 @@ CIRCULAR ECONOMY PRINCIPLES IN CONSTRUCTION
 │     (Brand's shearing layers: Site 0–∞; Structure 30–300yr; Skin 20yr; Services 7–15yr)│
 │                                                                              │
 │  MATERIAL RECYCLABILITY:                                                     │
-│    Steel: 97%+ theoretically recyclable; in practice ~86% collected from   │
-│      buildings; high-value market for scrap; embodied carbon of EAF scrap  │
-│      ~0.4 tCO₂/t vs BOF ~1.9 tCO₂/t                                       │
+│    Steel: 97%+ theoretically recyclable; in practice ~86% collected from     │
+│      buildings; high-value market for scrap; embodied carbon of EAF scrap    │
+│      ~0.4 tCO₂/t vs BOF ~1.9 tCO₂/t                                          │
 │    Concrete: ~99% recycled as aggregate (C3 stage) but DOWNCYCLED            │
-│      Recycled concrete aggregate (RCA) used in sub-base, non-structural;   │
+│      Recycled concrete aggregate (RCA) used in sub-base, non-structural;     │
 │      properties inferior to virgin aggregate for structural concrete         │
 │      "Closed-loop" structural concrete recycling: experimental; not yet      │
 │      commercial (concrete composition knowledge needed; separating C from S)│
 │    Timber/CLT: reversible screw connections → structural reuse possible      │
-│      Structural reuse: 2nd-use CLT panels, glulam beams                    │
-│      "Design for reuse" specifically sizes CLT for multiple use cycles     │
+│      Structural reuse: 2nd-use CLT panels, glulam beams                      │
+│      "Design for reuse" specifically sizes CLT for multiple use cycles       │
 │    Glass: recyclable but mixed cullet → not float glass quality              │
 │      Currently: crushed glass → road aggregate, foam glass insulation        │
 │      True closed-loop float glass recycling: possible but market limited     │
@@ -303,7 +303,7 @@ HEMPCRETE: MATERIAL AND PERFORMANCE
 │    Uncertainty: biogenic carbon accounting conventions (temporary storage)   │
 │                                                                              │
 │  APPLICATIONS:                                                               │
-│  Cast-in-place: temporary formwork; cast hemp-lime in lifts around frame   │
+│  Cast-in-place: temporary formwork; cast hemp-lime in lifts around frame     │
 │  Pre-cast blocks: smaller-scale projects; easier quality control             │
 │  Spray-applied: mechanical application onto frame                            │
 │                                                                              │
@@ -430,7 +430,7 @@ BUILDING RATING SYSTEMS COMPARISON
 │                        No embodied carbon metric    AU/NZ origin             │
 │                                                                              │
 │  GAPS IN ALL SYSTEMS: No current major rating system adequately measures     │
-│  whole-life carbon (A1–C4 per EN 15978) in a rigorous standardized way.    │
+│  whole-life carbon (A1–C4 per EN 15978) in a rigorous standardized way.      │
 │  LETI, RIBA 2030 targets, GLA London Plan: provide embodied carbon limits    │
 │  but these are planning guidance, not certification schemes.                 │
 │                                                                              │

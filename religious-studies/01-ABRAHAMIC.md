@@ -60,14 +60,14 @@ Judaism does not accept the Christian fulfillment claim or the Islamic supersess
 |  | Deuter-   | (Joshua-Kings,   | Esther, Daniel,  |            |
 |  | onomy     | Isaiah-Malachi)  | Ezra-Nehemiah    |            |
 |  +-----------+------------------+------------------+            |
-|                                                                 |
-|  ORAL TORAH (claims equal authority with Written Torah)         |
+   |                                                              |
+   |  ORAL TORAH (claims equal authority with Written Torah)      |
 |  +------------------+                                           |
 |  | Mishnah (c.200 CE)| Oral law codified by Rabbi Judah         |
 |  | 6 orders, 63 tracts| the Prince. Topical arrangement.        |
 |  +------------------+                                           |
-|          |                                                      |
-|          v                                                      |
+   |          |                                                   |
+   |          v                                                   |
 |  +-------------------+------------------+                       |
 |  | Babylonian Talmud  | Jerusalem Talmud |                       |
 |  | (c.500 CE)         | (c.400 CE)       |                       |
@@ -75,10 +75,10 @@ Judaism does not accept the Christian fulfillment claim or the Islamic supersess
 |  | (rabbinic commentary| in most          |                      |
 |  | on Mishnah)        | traditions        |                      |
 |  +-------------------+------------------+                       |
-|                                                                 |
-|  LATER LAYERS: Midrash (narrative exegesis), Responsa           |
-|  (legal rulings), Kabbalah (medieval mystical tradition),       |
-|  Shulchan Aruch (Joseph Karo, 1563 — practical law code)        |
+   |                                                              |
+   |  LATER LAYERS: Midrash (narrative exegesis), Responsa        |
+   |  (legal rulings), Kabbalah (medieval mystical tradition),    |
+   |  Shulchan Aruch (Joseph Karo, 1563 — practical law code)     |
 +------------------------------------------------------------------+
 ```
 
@@ -252,24 +252,24 @@ against, and excluded by developing ecclesial consensus.
 |  +-----------------+                                             |
 |  | Great Schism 1054 CE: EAST-WEST SPLIT                        |
 |  +-----------------+                                            |
-|       |                    |                                    |
-|  ROMAN CATHOLIC        EASTERN ORTHODOX                         |
-|  (~1.3 billion)        (Greek, Russian,                         |
-|  Papal authority       Serbian, Coptic, etc.)                   |
-|  Magisterium           Conciliar authority                      |
-|  Marian doctrines      Seven ecumenical councils                |
-|  Purgatory, indulgences Icons, theosis                          |
-|       |                                                         |
-|  REFORMATION (Luther 1517, Calvin, Zwingli, Anabaptists)        |
-|       |                                                         |
-|  PROTESTANT BRANCHES:                                           |
-|  Lutheran (justification by faith alone, sola scriptura)        |
-|  Reformed/Presbyterian (Calvin — double predestination)         |
-|  Anglican/Episcopalian (via media, retained episcopacy)         |
-|  Baptist (believer's baptism only, congregationalism)           |
-|  Methodist (Wesley — sanctification, Arminian)                  |
-|  Pentecostal/Charismatic (Spirit gifts, glossolalia — 20th c)   |
-|  Evangelical (varied — biblical inerrancy, conversion emphasis) |
+   |       |                    |                                 |
+   |  ROMAN CATHOLIC        EASTERN ORTHODOX                      |
+   |  (~1.3 billion)        (Greek, Russian,                      |
+   |  Papal authority       Serbian, Coptic, etc.)                |
+   |  Magisterium           Conciliar authority                   |
+   |  Marian doctrines      Seven ecumenical councils             |
+   |  Purgatory, indulgences Icons, theosis                       |
+   |       |                                                      |
+   |  REFORMATION (Luther 1517, Calvin, Zwingli, Anabaptists)     |
+   |       |                                                      |
+   |  PROTESTANT BRANCHES:                                        |
+   |  Lutheran (justification by faith alone, sola scriptura)     |
+   |  Reformed/Presbyterian (Calvin — double predestination)      |
+   |  Anglican/Episcopalian (via media, retained episcopacy)      |
+   |  Baptist (believer's baptism only, congregationalism)        |
+   |  Methodist (Wesley — sanctification, Arminian)               |
+   |  Pentecostal/Charismatic (Spirit gifts, glossolalia — 20th c)|
+   |  Evangelical (varied — biblical inerrancy, conversion emphasis) |
 +------------------------------------------------------------------+
 ```
 

@@ -32,7 +32,7 @@ CONSENSUS THEORY — THE CONSTRAINT STACK
   ┌─────────────────────────────────────────────────────────────┐
   │                                                             │
   │  CRASH FAULT TOLERANT (f crashes, 2f+1 nodes)               │
-  │  ┌───────────┐  ┌──────────┐  ┌──────────────────┐        │
+  │  ┌───────────┐  ┌──────────┐  ┌──────────────────┐          │
   │  │ Paxos     │  │ Raft     │  │ Viewstamped Rep  │        │
   │  │ (1989)    │  │ (2014)   │  │ (1988)           │        │
   │  └───────────┘  └──────────┘  └──────────────────┘        │
@@ -50,8 +50,8 @@ CONSENSUS THEORY — THE CONSTRAINT STACK
                             ▼
   PRODUCTION SYSTEMS
   ┌─────────────────────────────────────────────────────────────┐
-  │ ZooKeeper (ZAB)   etcd (Raft)    Spanner (Paxos+TrueTime) │
-  │ CockroachDB (Raft+MVCC)  TiKV (Raft)  Consul (Raft)      │
+  │ ZooKeeper (ZAB)   etcd (Raft)    Spanner (Paxos+TrueTime)   │
+  │ CockroachDB (Raft+MVCC)  TiKV (Raft)  Consul (Raft)         │
   │ Hyperledger (PBFT)  Cosmos SDK (Tendermint)                 │
   └─────────────────────────────────────────────────────────────┘
 ```
@@ -327,7 +327,7 @@ PAXOS SAFETY PROOF — QUORUM OVERLAP
 
    Quorum Q_n (accepted v at n)     Quorum Q_m (promised to m)
    ┌───────────────────────┐       ┌───────────────────────┐
-   │  a₁  a₂  a₃          │       │       a₃  a₄  a₅     │
+   │  a₁  a₂  a₃          │       │       a₃  a₄  a₅       │
    │                       │       │                       │
    │ All accepted (n, v)   │       │ All promised to m>n   │
    └───────────────────────┘       └───────────────────────┘
@@ -378,9 +378,9 @@ MULTI-PAXOS ARCHITECTURE
   ┌─────────┐   ┌─────────┐   ┌─────────┐
   │Acceptor1│   │Acceptor2│   │Acceptor3│
   │ Log:    │   │ Log:    │   │ Log:    │
-  │ 1:X ✓  │   │ 1:X ✓  │   │ 1:X ✓  │
-  │ 2:Y ✓  │   │ 2:Y ✓  │   │ 2:Y ✓  │
-  │ 3:Z ?  │   │ 3:Z ✓  │   │ 3:Z ?  │
+  │ 1:X ✓  │   │ 1:X ✓  │   │ 1:X ✓     │
+  │ 2:Y ✓  │   │ 2:Y ✓  │   │ 2:Y ✓     │
+  │ 3:Z ?  │   │ 3:Z ✓  │   │ 3:Z ?     │
   └─────────┘   └─────────┘   └─────────┘
 
   OPTIMIZATION: Leader runs Phase 1 once per term.

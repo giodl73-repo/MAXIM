@@ -78,15 +78,15 @@ The global standard for retail product identification, managed by GS1.
 │                                                                  │
 │  Check digit (D13): calculated by algorithm:                     │
 │  1. Multiply alternate digits by 1 and 3                         │
-│     (positions 1,3,5,7,9,11 × 1; positions 2,4,6,8,10,12 × 3) │
+│     (positions 1,3,5,7,9,11 × 1; positions 2,4,6,8,10,12 × 3)    │
 │  2. Sum all 12 weighted values                                   │
 │  3. Find what makes sum + check_digit divisible by 10            │
 │     check = (10 - (sum mod 10)) mod 10                           │
 │                                                                  │
-│  Example: 978-0-306-40615-? (a book ISBN → EAN-13)             │
-│  9×1 + 7×3 + 8×1 + 0×3 + 3×1 + 0×3 + 6×1 + 4×3 + 0×1 + 6×3   │
-│  + 1×1 + 5×3 = 9+21+8+0+3+0+6+12+0+18+1+15 = 93              │
-│  Check = (10 - (93 mod 10)) mod 10 = (10-3) mod 10 = 7         │
+│  Example: 978-0-306-40615-? (a book ISBN → EAN-13)               │
+│  9×1 + 7×3 + 8×1 + 0×3 + 3×1 + 0×3 + 6×1 + 4×3 + 0×1 + 6×3       │
+│  + 1×1 + 5×3 = 9+21+8+0+3+0+6+12+0+18+1+15 = 93                  │
+│  Check = (10 - (93 mod 10)) mod 10 = (10-3) mod 10 = 7           │
 │  → 9780306406157                                                 │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -346,21 +346,21 @@ NFC is a short-range (≤4 cm) wireless communication standard derived from RFID
 │  Brown        1      ×10 (10¹)     ±1%  (F)                      │
 │  Red          2      ×100 (10²)    ±2%  (G)                      │
 │  Orange       3      ×1k (10³)     ±0.05% (rare)                 │
-│  Yellow       4      ×10k (10⁴)   ±0.02% (rare)                │
-│  Green        5      ×100k (10⁵)  ±0.5% (D)                    │
-│  Blue         6      ×1M (10⁶)    ±0.25% (C)                   │
-│  Violet       7      ×10M (10⁷)   ±0.1% (B)                    │
-│  Gray         8      ×100M (10⁸)  ±0.05% (A)                   │
+│  Yellow       4      ×10k (10⁴)   ±0.02% (rare)                  │
+│  Green        5      ×100k (10⁵)  ±0.5% (D)                      │
+│  Blue         6      ×1M (10⁶)    ±0.25% (C)                     │
+│  Violet       7      ×10M (10⁷)   ±0.1% (B)                      │
+│  Gray         8      ×100M (10⁸)  ±0.05% (A)                     │
 │  White        9      ×1G (10⁹)    —                              │
 │  Gold         —      ×0.1          ±5%  (J)                      │
 │  Silver       —      ×0.01         ±10% (K)                      │
 │  (no band)   —      —              ±20% (M)                      │
 │                                                                  │
 │  4-BAND RESISTOR: [Band1][Band2][Multiplier][Tolerance]          │
-│  Example: Red-Red-Brown-Gold = 2,2,×10, ±5% = 220Ω ±5%        │
+│  Example: Red-Red-Brown-Gold = 2,2,×10, ±5% = 220Ω ±5%           │
 │                                                                  │
-│  5-BAND RESISTOR: [Band1][Band2][Band3][Multiplier][Tolerance] │
-│  Example: Brown-Black-Black-Brown-Brown = 1,0,0,×10,±1%        │
+│  5-BAND RESISTOR: [Band1][Band2][Band3][Multiplier][Tolerance]   │
+│  Example: Brown-Black-Black-Brown-Brown = 1,0,0,×10,±1%          │
 │           = 1000Ω = 1kΩ ±1%                                      │
 │                                                                  │
 │  6-BAND RESISTOR: adds temperature coefficient                   │

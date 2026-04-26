@@ -15,7 +15,7 @@
 |  (rarity premium)      (disclosed req'd)    (no rarity premium)  |
 |                                                                  |
 |  GEM QUALITY DIMENSIONS (the 4Cs for diamonds, more for colored)|
-|  Cut × Clarity × Color × Carat weight × (Origin for colored)   |
+|  Cut × Clarity × Color × Carat weight × (Origin for colored)     |
 +------------------------------------------------------------------+
 ```
 
@@ -37,17 +37,17 @@ CUT QUALITY: proportions, symmetry, polish
 |                                                                  |
 |  Table   Crown facets                                            |
 |    ___________                                                   |
-|   /     |     \    ← Crown: angles 34-35° from horizontal      |
+|   /     |     \    ← Crown: angles 34-35° from horizontal        |
 |  /      |      \                                                 |
-|  |   Girdle    |   ← Where stone is set                        |
+|  |   Girdle    |   ← Where stone is set                          |
 |  \             /                                                 |
-|   \           /    ← Pavilion: angles ~40.75°                  |
+|   \           /    ← Pavilion: angles ~40.75°                    |
 |    \    |    /                                                   |
 |     \___|___/                                                    |
-|         Culet (tiny bottom facet)                              |
+|         Culet (tiny bottom facet)                                |
 |                                                                  |
-|  Round Brilliant: 57 or 58 facets (standard)                   |
-|  If pavilion too deep: light exits through sides (dark center) |
+|  Round Brilliant: 57 or 58 facets (standard)                     |
+|  If pavilion too deep: light exits through sides (dark center)   |
 |  If pavilion too shallow: light exits through bottom (washed out)|
 |  Ideal proportions: total internal reflection back through crown|
 +------------------------------------------------------------------+
@@ -255,25 +255,25 @@ COMMON TREATMENTS
 |  FRACTURE FILLING                                                |
 |  Emerald: 99%+ of commercial emeralds have fractures filled      |
 |    Filler: cedar oil, synthetic resins, Opticon                  |
-|  Ruby/sapphire: glass or borax filling of heavy fractures      |
-|    Lead glass (Pb) filling in rubies: changes density, RI      |
-|    Detection: RI measurement, heavy element by XRF             |
-|  Diamond: Laser drilling + filling (improving clarity)         |
-|    Laser drill channel → acid bleaches inclusion               |
+|  Ruby/sapphire: glass or borax filling of heavy fractures        |
+|    Lead glass (Pb) filling in rubies: changes density, RI        |
+|    Detection: RI measurement, heavy element by XRF               |
+|  Diamond: Laser drilling + filling (improving clarity)           |
+|    Laser drill channel → acid bleaches inclusion                 |
 |    Then resin fills channel                                      |
 |                                                                  |
 |  IRRADIATION (radiation exposure)                                |
-|  Blue topaz: colorless/pale → blue (neutron/electron/gamma)   |
-|  Blue diamond: irradiation (then heating for green diamond)    |
-|  Fancy colored diamond: gamma or electron bombardment         |
-|  Detection: temperature gradient of color (color zoned vs.    |
-|    uniform); spectroscopy; distinctive absorption features     |
+|  Blue topaz: colorless/pale → blue (neutron/electron/gamma)      |
+|  Blue diamond: irradiation (then heating for green diamond)      |
+|  Fancy colored diamond: gamma or electron bombardment            |
+|  Detection: temperature gradient of color (color zoned vs.       |
+|    uniform); spectroscopy; distinctive absorption features       |
 |                                                                  |
 |  COATING                                                         |
-|  Pale blue sapphire: thin Be-oxide coating = pink              |
-|  Topaz: mylar film on pavilion for "mystic topaz" colors       |
-|  Beryllium diffusion: heat + Be saturate lattice → new colors  |
-|  Detection: by immersion (color only at surface)               |
+|  Pale blue sapphire: thin Be-oxide coating = pink                |
+|  Topaz: mylar film on pavilion for "mystic topaz" colors         |
+|  Beryllium diffusion: heat + Be saturate lattice → new colors    |
+|  Detection: by immersion (color only at surface)                 |
 +------------------------------------------------------------------+
 ```
 
@@ -355,16 +355,16 @@ DETECTION METHODS AT LABS (GIA, AGL, Gübelin, SSEF)
 |  → HPHT treatment markers                        |
 |                                                  |
 |  UV fluorescence:                                |
-|  → Natural blue diamond: red phosphorescence   |
-|  → CVD: typically no UV phosphorescence        |
+|  → Natural blue diamond: red phosphorescence     |
+|  → CVD: typically no UV phosphorescence          |
 |                                                  |
 |  Inclusions:                                     |
 |  → Flux inclusions (tiny solidified flux drops)  |
-|  → Curved striae (Verneuil)                    |
+|  → Curved striae (Verneuil)                      |
 |  → Natural inclusions (minerals, fingerprints)   |
 |                                                  |
-|  X-ray fluorescence (XRF):                     |
-|  → Heavy elements (Pb) in glass-filled ruby    |
+|  X-ray fluorescence (XRF):                       |
+|  → Heavy elements (Pb) in glass-filled ruby      |
 |  → Be detection (Be diffusion treated sapphire)|
 +--------------------------------------------------+
 ```

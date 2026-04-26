@@ -221,7 +221,7 @@ FUNCTIONS IN THE DEEP SEA:
   │                    Viperfish photophores attract   │
   │                    Siphonophores: longest organisms  │
   │                    on Earth (~45 m); trailing      │
-  │                    bioluminescent tentacles          │
+  │                    bioluminescent tentacles        │
   │                                                    │
   │ COUNTERILLUMINATION: match downwelling light       │
   │ (mesopelagic)        to erase shadow silhouette    │

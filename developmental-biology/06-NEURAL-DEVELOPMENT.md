@@ -14,7 +14,7 @@ The nervous system is the most complex structure built by developmental biology.
 |  Neural plate        Primary NT + hindbrain   Brain vesicles     |
 |  forms               Secondary NT (caudal)    expand             |
 |                       Defects → NTDs          Cerebral cortex    |
-|                                               develops         |
+|                                               develops           |
 |                                                                  |
 |  NEUROGENESIS → MIGRATION → SYNAPTOGENESIS → PRUNING             |
 |  Week 6+           Week 8-29     Week 20-birth  Birth-adulthood  |

@@ -37,7 +37,7 @@ CUTTING GEOMETRY (orthogonal model):
   ┌─────────────────────────────────────────────────────────────┐
   │   Uncut chip thickness (t₁)                                 │
   │   ─────────────────────────────────────────────             │
-  │                              ╱╱╱╱╱╱╱╱╱╱╱╱╱ chip flows     │
+  │                              ╱╱╱╱╱╱╱╱╱╱╱╱╱ chip flows       │
   │                         ╱ PRIMARY         along tool face   │
   │                    ╱ SHEAR ZONE ╲                           │
   │               ╱   (45°±rake/2)  ╲                           │
@@ -239,7 +239,7 @@ TOOL MATERIAL EVOLUTION (hardness → wear resistance → allows higher Vc):
   ┌──────────────────────────────────────────────────────────────────┐
   │                                               CUBIC BORON NITRIDE│ ← hardened steel
   │                                  CERAMICS     (CBN)              │
-  │                 WC/CO CARBIDE    Al₂O₃/Si₃N₄  3500 HV          │
+  │                 WC/CO CARBIDE    Al₂O₃/Si₃N₄  3500 HV            │
   │   HSS            400–1800 HV    1600–3000HV    Vc: 200–600m/min  │
   │   700–900HV       Vc: 100–400     coated:      for hard turning  │
   │   Vc: 15–50m/min   m/min (steel)  up to 1000m/min                │

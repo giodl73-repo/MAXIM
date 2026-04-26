@@ -16,16 +16,16 @@ Every garment is a solution to a constraint-satisfaction problem. The body is th
 |  | Occasion   |      | Season       |       | Color & texture|         |
 |  | Identity   |      | Production   |       | Fit            |         |
 |  +-----------+       +--------------+       +----------------+         |
-|                                                                        |
-|  EVALUATION FUNCTION                                                   |
-|  Does the garment:                                                     |
-|    1. Achieve the intended silhouette?                                 |
-|    2. Move correctly on the body?                                      |
-|    3. Communicate the intended signal?                                 |
-|    4. Survive production at scale (if RTW)?                            |
-|    5. Fit the price point?                                             |
-|                                                                        |
-|  Every design decision is a trade-off within this space.               |
+   |                                                                     |
+   |  EVALUATION FUNCTION                                                |
+   |  Does the garment:                                                  |
+   |    1. Achieve the intended silhouette?                              |
+   |    2. Move correctly on the body?                                   |
+   |    3. Communicate the intended signal?                              |
+   |    4. Survive production at scale (if RTW)?                         |
+   |    5. Fit the price point?                                          |
+   |                                                                     |
+   |  Every design decision is a trade-off within this space.            |
 +------------------------------------------------------------------------+
 ```
 

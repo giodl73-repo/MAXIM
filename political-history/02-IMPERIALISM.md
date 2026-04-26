@@ -137,24 +137,24 @@ TWO TYPES OF COLONIAL STRUCTURE
 
   SETTLER COLONIALISM          EXTRACTION COLONIALISM
   ┌───────────────────────┐    ┌───────────────────────┐
-  │ Goal: replace          │    │ Goal: extract          │
-  │ indigenous population  │    │ resources/labor        │
-  │                        │    │                        │
-  │ Key mechanism:         │    │ Key mechanism:         │
-  │ land seizure,          │    │ coerced labor,         │
-  │ indigenous removal     │    │ plantation/mine        │
-  │                        │    │ systems                │
-  │ Examples: North        │    │ Examples: Belgian      │
-  │ America, Australia,    │    │ Congo, British India   │
+  │ Goal: replace          │    │ Goal: extract        │
+  │ indigenous population  │    │ resources/labor      │
+  │                        │    │                      │
+  │ Key mechanism:         │    │ Key mechanism:       │
+  │ land seizure,          │    │ coerced labor,       │
+  │ indigenous removal     │    │ plantation/mine      │
+  │                        │    │ systems              │
+  │ Examples: North        │    │ Examples: Belgian    │
+  │ America, Australia,    │    │ Congo, British India │
   │ South Africa (Boer     │    │ (textile extraction),  │
-  │ settler component),    │    │ Dutch East Indies      │
-  │ Algeria (colons)       │    │                        │
-  │                        │    │                        │
+  │ settler component),    │    │ Dutch East Indies    │
+  │ Algeria (colons)       │    │                      │
+  │                        │    │                      │
   │ Decolonization harder: │    │ Formal decolonization  │
   │ settler population     │    │ easier — no permanent  │
-  │ remains                │    │ settler class to       │
-  │ (Rhodesia, S. Africa,  │    │ displace               │
-  │  Algeria)              │    │                        │
+  │ remains                │    │ settler class to     │
+  │ (Rhodesia, S. Africa,  │    │ displace             │
+  │  Algeria)              │    │                      │
   └───────────────────────┘    └───────────────────────┘
 ```
 
@@ -181,7 +181,7 @@ BRITISH EMPIRE TIMELINE
   ┌──────────────────────────────────────────────────────────┐
   │ Crown rule in India (1858 — after Indian Rebellion)      │
   │ Free trade imperialism: global market integration        │
-  │ Gold standard anchored by City of London               │
+  │ Gold standard anchored by City of London                 │
   │ Scramble for Africa (1880s-1900s)                        │
   │ Peak: ~25% of world's land surface, ~23% of population   │
   └──────────────────────────────────────────────────────────┘

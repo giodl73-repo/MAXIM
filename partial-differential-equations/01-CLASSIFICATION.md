@@ -83,19 +83,19 @@ naturally flows. They are the key geometric concept.
      dy/dx = [B ± √(B²−AC)] / A
 
   ┌────────────────────────────────────────────────────────────────┐
-  │ ELLIPTIC:  B²−AC < 0 → no REAL characteristic curves         │
+  │ ELLIPTIC:  B²−AC < 0 → no REAL characteristic curves           │
   │   No preferred propagation direction.                          │
   │   Solutions are smooth (C∞) everywhere in the interior.        │
   │   Think: a soap film — disturb one point, whole film adjusts.  │
   │                                                                │
-  │ PARABOLIC: B²−AC = 0 → ONE real characteristic family        │
+  │ PARABOLIC: B²−AC = 0 → ONE real characteristic family          │
   │   One degenerate direction.                                    │
   │   For the heat equation: t = const are the characteristics.    │
   │   Information moves "forward" in the degenerate direction.     │
   │                                                                │
-  │ HYPERBOLIC: B²−AC > 0 → TWO real characteristic families     │
+  │ HYPERBOLIC: B²−AC > 0 → TWO real characteristic families       │
   │   Two distinct propagation directions.                         │
-  │   Wave eq: t − x/c = const and t + x/c = const.              │
+  │   Wave eq: t − x/c = const and t + x/c = const.                │
   │   Discontinuities travel along characteristics.                │
   └────────────────────────────────────────────────────────────────┘
 ```

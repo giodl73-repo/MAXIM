@@ -316,7 +316,7 @@ STATUS (2025):
 │ Distance 100-400 km          │ BB84 with SNSPD + trusted repeater  │
 │                              │ nodes (security degrades at nodes)   │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Distance > 400 km            │ Satellite relay (Micius-style) or   │
+│ Distance > 400 km            │ Satellite relay (Micius-style) or     │
 │                              │ wait for quantum repeaters (Gen 3)    │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Distrust devices             │ DI-QKD based on E91/Bell violation;  │

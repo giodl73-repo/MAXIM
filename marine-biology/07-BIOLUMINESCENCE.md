@@ -77,18 +77,18 @@ Multiple luciferins — different chemistry, independent evolution:
 │  Bacterial luciferin     Reduced riboflavin phosphate (FMNH₂)  │
 │                          + long-chain aldehyde                 │
 │                          Wavelength: ~490 nm (blue-green)      │
-│                                                                  │
-│  Coelenterazine          Imidazopyrazinone skeleton              │
+│                                                                │
+│  Coelenterazine          Imidazopyrazinone skeleton            │
 │  (most widespread        Found in: cnidarians, cephalopods,    │
 │   marine luciferin)      radiolarians, fish, crustaceans       │
 │                          Wavelength: ~460-480 nm (blue)        │
-│                          Acquired by diet (not synthesized       │
+│                          Acquired by diet (not synthesized     │
 │                          by most species that use it)          │
-│                                                                  │
+│                                                                │
 │  Dinoflagellate luciferin Tetrapyrrole (chlorophyll-derived)   │
 │                          Located in scintillons (organelles)   │
 │                          Wavelength: ~474 nm (blue)            │
-│                                                                  │
+│                                                                │
 │  Firefly luciferin       Benzothiazole compound                │
 │                          (unique to beetles)                   │
 │                          Wavelength: 550-570 nm (yellow-green) │

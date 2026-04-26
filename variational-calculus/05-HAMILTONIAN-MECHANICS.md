@@ -12,7 +12,7 @@ symmetric structure that reveals the deep geometry of dynamics.
 |                                                                       |
 |  LAGRANGIAN           HAMILTONIAN                                     |
 |  -----------          -----------                                     |
-|  State: (q, q̇)       State: (q, p)  [phase space]                   |
+|  State: (q, q̇)       State: (q, p)  [phase space]                     |
 |  n 2nd-order ODEs     2n 1st-order ODEs                               |
 |  L = T − V            H = T + V  (usually energy)                     |
 |  q̈ = f(q, q̇)         q̇ = ∂H/∂p,  ṗ = −∂H/∂q                      |
@@ -20,7 +20,7 @@ symmetric structure that reveals the deep geometry of dynamics.
 |                                                                       |
 |  ADVANTAGES OF HAMILTONIAN:                                           |
 |  • Phase space geometry (symplectic structure)                        |
-|  • Conservation: {H, f} = 0 ↔ f is conserved                        |
+|  • Conservation: {H, f} = 0 ↔ f is conserved                          |
 |  • Canonical transformations simplify problems                        |
 |  • Direct path to quantum mechanics                                   |
 |  • Statistical mechanics (Liouville's theorem)                        |
@@ -66,7 +66,7 @@ The equations of motion in phase space:
   HAMILTON'S EQUATIONS:
   ┌────────────────────────────────────────────────────────────────┐
   │   dqᵢ/dt = ∂H/∂pᵢ     (velocity = slope of H in p-direction)│
-  │   dpᵢ/dt = −∂H/∂qᵢ    (force = −slope of H in q-direction)  │
+  │   dpᵢ/dt = −∂H/∂qᵢ    (force = −slope of H in q-direction)     │
   └────────────────────────────────────────────────────────────────┘
 
   These replace: n 2nd-order E-L equations
@@ -248,7 +248,7 @@ The "ultimate" canonical transformation approach:
 
   HAMILTON-JACOBI EQUATION:
   ┌────────────────────────────────────────────────────────────────┐
-  │  ∂S/∂t + H(q, ∂S/∂q, t) = 0                                  │
+  │  ∂S/∂t + H(q, ∂S/∂q, t) = 0                                    │
   └────────────────────────────────────────────────────────────────┘
 
   This is a PDE for S(q,t). Once solved:

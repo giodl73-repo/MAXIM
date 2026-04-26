@@ -308,7 +308,7 @@ The full stack from language ordering guarantees down to hardware coherence — 
   |                                                                        |
   |  C++: memory_order_acquire/release on std::atomic<T>                   |
   |  Java: volatile fields, synchronized, VarHandle.getAcquire()           |
-  |  Go: sync.Mutex, sync/atomic.Load/Store (seq_cst by default)         |
+  |  Go: sync.Mutex, sync/atomic.Load/Store (seq_cst by default)           |
   |  Rust: Ordering::Acquire / Ordering::Release on atomics                |
   |  C#: volatile keyword, Interlocked, Thread.MemoryBarrier()             |
   +------------------------------------------------------------------------+
@@ -324,14 +324,14 @@ The full stack from language ordering guarantees down to hardware coherence — 
               ↕ emits
   +------------------------------------------------------------------------+
   |  ISA FENCE INSTRUCTIONS                                                |
-  |  x86-64: MFENCE (full), SFENCE (stores), LFENCE (loads),             |
+  |  x86-64: MFENCE (full), SFENCE (stores), LFENCE (loads),               |
   |          LOCK prefix on RMW operations                                 |
-  |  ARM64:  LDAR (load-acquire), STLR (store-release),                  |
+  |  ARM64:  LDAR (load-acquire), STLR (store-release),                    |
   |          DMB ISH (full data memory barrier)                            |
-  |  RISC-V: FENCE r,rw / FENCE rw,w (per RVWMO)                        |
+  |  RISC-V: FENCE r,rw / FENCE rw,w (per RVWMO)                           |
   |                                                                        |
   |  x86 NOTE: TSO is so strong that acquire/release often maps to         |
-  |  plain load/store — no fence emitted. ARM requires LDAR/STLR.        |
+  |  plain load/store — no fence emitted. ARM requires LDAR/STLR.          |
   +------------------------------------------------------------------------+
               ↕ hardware enforces
   +------------------------------------------------------------------------+
@@ -342,10 +342,10 @@ The full stack from language ordering guarantees down to hardware coherence — 
               ↕ defines what is observable
   +------------------------------------------------------------------------+
   |  MEMORY CONSISTENCY MODEL                                              |
-  |  x86: TSO (Total Store Order) — near-sequential, only store-buffer   |
-  |  ARM: WMO (Weak Memory Ordering) — aggressive reorder, fences needed |
-  |  RISC-V: RVWMO (weak + composable fence semantics)                   |
-  |  Java JMM: SC for DRF (data-race-free programs see SC behavior)      |
+  |  x86: TSO (Total Store Order) — near-sequential, only store-buffer     |
+  |  ARM: WMO (Weak Memory Ordering) — aggressive reorder, fences needed   |
+  |  RISC-V: RVWMO (weak + composable fence semantics)                     |
+  |  Java JMM: SC for DRF (data-race-free programs see SC behavior)        |
   +------------------------------------------------------------------------+
 ```
 

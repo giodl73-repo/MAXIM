@@ -10,13 +10,13 @@ DuckDB is SQLite for analytics — an in-process OLAP database. Single binary, n
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                    DuckDB vs SQLite vs Spark — Positioning                   │
 │                                                                              │
-│  SQLite ──── row-oriented ──── OLTP/transactional ──── tiny data (KB-GB)   │
+│  SQLite ──── row-oriented ──── OLTP/transactional ──── tiny data (KB-GB)     │
 │                                                                              │
-│  DuckDB ──── column-oriented ── OLAP/analytical ──── local data (GB-TB)    │
+│  DuckDB ──── column-oriented ── OLAP/analytical ──── local data (GB-TB)      │
 │                                                                              │
-│  Spark ───── distributed ────── OLAP/batch ────────── cluster data (TB-PB) │
+│  Spark ───── distributed ────── OLAP/batch ────────── cluster data (TB-PB)   │
 │                                                                              │
-│  ┌─────────────────────────────────────────────────────────────────────┐   │
+│  ┌─────────────────────────────────────────────────────────────────────┐     │
 │  │                        Your Application                             │   │
 │  │    Python  /  Node.js  /  R  /  C#  /  Java  /  CLI               │   │
 │  └───────────────────────────────┬─────────────────────────────────────┘   │

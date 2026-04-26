@@ -27,8 +27,8 @@ consistency.
 |  | 1936  Tarski: Truth is undefinable within the system.     |    |
 |  | 1963  Cohen: CH is independent of ZFC (completing ZF).    |    |
 |  +-----------------------------------------------------------+    |
-|                                                                   |
-|  WHAT THEY REQUIRE              WHAT THEY CONCLUDE                |
+   |                                                                |
+   |  WHAT THEY REQUIRE              WHAT THEY CONCLUDE             |
 |  +----------------------+       +---------------------------+     |
 |  | T is consistent      |       | T is incomplete (G1)      |     |
 |  | T is recursively     |       | T cannot prove Con(T)(G2) |     |

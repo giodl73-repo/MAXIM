@@ -5,7 +5,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    FERTILITY MEASUREMENT HIERARCHY                          │
-│                                                                               │
+│                                                                             │
 │  CRUDE MEASURE          PERIOD MEASURES         COHORT MEASURES             │
 │  ──────────────         ───────────────         ───────────────             │
 │  CBR (crude birth rate) ASFR by age             Completed cohort fertility  │
@@ -15,10 +15,10 @@
 │                         NRR (Net Reproduction   Parity progression ratios   │
 │                         Rate)                   (prob. of having n+1 given n)│
 │                         GRR (Gross Reprod. Rate)                            │
-│                                                                               │
+│                                                                             │
 │  BEHAVIORAL FRAMEWORK: BONGAARTS PROXIMATE DETERMINANTS MODEL               │
 │  Decompose fertility into biological/behavioral intermediate variables      │
-│                                                                               │
+│                                                                             │
 │  TRANSITION THEORIES: Why does fertility fall?                              │
 │  Demographic transition theory, wealth flows theory, second DT              │
 └─────────────────────────────────────────────────────────────────────────────┘

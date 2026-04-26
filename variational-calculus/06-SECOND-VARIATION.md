@@ -10,14 +10,14 @@ of the Hessian matrix.
 +-----------------------------------------------------------------------+
 |              FIRST vs. SECOND VARIATION                               |
 |                                                                       |
-|  FUNCTION f: R^n → R             FUNCTIONAL J: V → R                |
+|  FUNCTION f: R^n → R             FUNCTIONAL J: V → R                  |
 |  ─────────────────────────       ─────────────────────                |
 |  f(x+v) ≈ f(x) + ∇f·v + ½vᵀHv  J[u+εη] ≈ J[u] + εδJ + ½ε²δ²J   |
-|  Stationary: ∇f = 0              Stationary: δJ = 0                 |
-|  Local min:  H ≻ 0               Local min: δ²J > 0  (all η≠0)     |
+|  Stationary: ∇f = 0              Stationary: δJ = 0                   |
+|  Local min:  H ≻ 0               Local min: δ²J > 0  (all η≠0)        |
 |  (positive definite Hessian)     (positive second variation)          |
-|  Local max:  H ≺ 0               Local max: δ²J < 0                 |
-|  Saddle:     H indefinite        Saddle: δ²J changes sign           |
+|  Local max:  H ≺ 0               Local max: δ²J < 0                   |
+|  Saddle:     H indefinite        Saddle: δ²J changes sign             |
 |                                                                       |
 |  ADDITIONAL COMPLICATION in infinite dimensions:                      |
 |  "Positive second variation" does NOT guarantee global minimum.       |
@@ -139,7 +139,7 @@ the additional requirement:
   ┌──────────────────────────────────────────────────────────────┐
   │ SUFFICIENT CONDITIONS:                                       │
   │ 1. E-L equation satisfied (δJ = 0)                           │
-  │ 2. Strict Legendre: F_{u'u'} > 0 on [a,b]                  │
+  │ 2. Strict Legendre: F_{u'u'} > 0 on [a,b]                    │
   │ 3. No conjugate points in (a,b)                              │
   │                                                              │
   │ These three conditions TOGETHER are sufficient for u to be   │

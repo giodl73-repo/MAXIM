@@ -21,7 +21,7 @@
 │   VQE energies         Grover-based          Quantum      "Quantum  │
 │   as ML features       speedup for           kernels beat GPU       │
 │                        database search       classical   training"  │
-│                        (polynomial only)     SVM on real          │
+│                        (polynomial only)     SVM on real            │
 │                                              data                   │
 └─────────────────────────────────────────────────────────────────────┘
 ```

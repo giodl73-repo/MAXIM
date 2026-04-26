@@ -30,7 +30,7 @@ ADVANCED MATERIAL CATEGORIES
 │                                                                              │
 │  SPECIALTY INSULATION AND SMART MATERIALS                                    │
 │  ┌────────────────────────────────────────────────────────────────────────┐ │
-│  │  Aerogel: λ = 0.015 W/mK; 95% air; silica skeleton                   │ │
+│  │  Aerogel: λ = 0.015 W/mK; 95% air; silica skeleton                   │   │
 │  │  VIPs (vacuum insulation panels): λ_eff = 0.007 W/mK                   │ │
 │  │  PCMs (phase-change materials): latent heat buffer                     │ │
 │  │  Self-healing concrete: bacteria / crystalline admixtures              │ │
@@ -51,35 +51,35 @@ FRP FIBER COMPARISON
 │                                                                              │
 │  GFRP (E-glass, most common):                                                │
 │  ─────────────────────────────────────────────────────────────────────────   │
-│  E-glass fiber:   E = 72 GPa; σ_u = 2,400 MPa; ρ = 2,550 kg/m³            │
-│  ECR-glass:       E = 72 GPa; σ_u = 3,100 MPa; improved corrosion resist.  │
-│  AR-glass (alkali resistant): specifically for cement matrix (see GFRC)    │
+│  E-glass fiber:   E = 72 GPa; σ_u = 2,400 MPa; ρ = 2,550 kg/m³               │
+│  ECR-glass:       E = 72 GPa; σ_u = 3,100 MPa; improved corrosion resist.    │
+│  AR-glass (alkali resistant): specifically for cement matrix (see GFRC)      │
 │                                                                              │
 │  CFRP (carbon fiber):                                                        │
 │  ─────────────────────────────────────────────────────────────────────────   │
-│  Precursor: PAN (polyacrylonitrile) or pitch (less common)                 │
-│  Production: PAN fiber → oxidize (stabilize) at 200–300°C                  │
-│              → carbonize at 1,000–1,500°C in N₂ atmosphere                 │
-│              → graphitize at 2,000–3,000°C for high-modulus grades         │
+│  Precursor: PAN (polyacrylonitrile) or pitch (less common)                   │
+│  Production: PAN fiber → oxidize (stabilize) at 200–300°C                    │
+│              → carbonize at 1,000–1,500°C in N₂ atmosphere                   │
+│              → graphitize at 2,000–3,000°C for high-modulus grades           │
 │                                                                              │
 │  PAN-based carbon fiber grades (Toray standard):                             │
-│    Standard modulus (SM):   E = 230 GPa; σ_u = 3,500 MPa; ε_u = 1.5%     │
-│    Intermediate modulus (IM): E = 290 GPa; σ_u = 5,600 MPa; ε_u = 1.9%   │
-│    High modulus (HM):       E = 390 GPa; σ_u = 2,500 MPa; ε_u = 0.6%     │
-│    ρ = 1,750–1,800 kg/m³  (lightweight: 22% density of steel)              │
+│    Standard modulus (SM):   E = 230 GPa; σ_u = 3,500 MPa; ε_u = 1.5%         │
+│    Intermediate modulus (IM): E = 290 GPa; σ_u = 5,600 MPa; ε_u = 1.9%       │
+│    High modulus (HM):       E = 390 GPa; σ_u = 2,500 MPa; ε_u = 0.6%         │
+│    ρ = 1,750–1,800 kg/m³  (lightweight: 22% density of steel)                │
 │                                                                              │
 │  AFRP (aramid / Kevlar):                                                     │
 │  ─────────────────────────────────────────────────────────────────────────   │
-│  DuPont Kevlar 29:  E = 70 GPa;  σ_u = 2,900 MPa; ρ = 1,440 kg/m³        │
-│  DuPont Kevlar 49:  E = 125 GPa; σ_u = 3,000 MPa  (high modulus)          │
-│  AFRP advantages: toughness; low density; impact resistance                │
-│  AFRP disadvantages: moisture absorption; UV degradation; compression weak │
-│  Limited construction use: post-tensioning tendons; blast-resistant lining │
+│  DuPont Kevlar 29:  E = 70 GPa;  σ_u = 2,900 MPa; ρ = 1,440 kg/m³            │
+│  DuPont Kevlar 49:  E = 125 GPa; σ_u = 3,000 MPa  (high modulus)             │
+│  AFRP advantages: toughness; low density; impact resistance                  │
+│  AFRP disadvantages: moisture absorption; UV degradation; compression weak   │
+│  Limited construction use: post-tensioning tendons; blast-resistant lining   │
 │                                                                              │
 │  BASALT FIBER (emerging):                                                    │
 │  Extruded from basalt rock; no synthetic chemistry needed                    │
-│  E = 89 GPa; σ_u = 3,200 MPa; ρ = 2,700 kg/m³                            │
-│  Better high-temp performance than GFRP; less expensive than CFRP          │
+│  E = 89 GPa; σ_u = 3,200 MPa; ρ = 2,700 kg/m³                                │
+│  Better high-temp performance than GFRP; less expensive than CFRP            │
 │  Applications: BFRP rebar; mesh for concrete reinforcement                   │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -172,7 +172,7 @@ GFRP PULTRUDED BRIDGE DECK PANELS
   ┌─────────────────────────────────────────────────────────────────┐
   │  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ← wearing surface (thin concrete│
   │  ─────────────────────────────  or polymer overlay)             │
-  │  ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐     ← GFRP pultruded deck modules  │
+  │  ┌──┐ ┌──┐ ┌──┐ ┌──┐ ┌──┐     ← GFRP pultruded deck modules     │
   │  │  │ │  │ │  │ │  │ │  │        (adhesively bonded together)   │
   │  └──┘ └──┘ └──┘ └──┘ └──┘                                       │
   │  ════════════════════════════  ← main steel/concrete girders    │
@@ -265,25 +265,25 @@ GFRC PRODUCTION AND PROPERTIES
 │                                                                              │
 │  COMPOSITION:                                                                │
 │  OPC or white cement + silica fume/microsilica + alkali-resistant (AR)       │
-│  glass fibers (12–25 mm length; 0.4–1.0% by weight)                        │
+│  glass fibers (12–25 mm length; 0.4–1.0% by weight)                          │
 │  + acrylic polymer modifier (for cure, shrinkage)                            │
 │  No coarse aggregate (fine sand only, < 2 mm)                                │
 │  w/b ~ 0.30–0.40                                                             │
 │                                                                              │
 │  WHY AR-GLASS:                                                               │
-│  Portland cement pore solution pH ~12–13 → alkalis attack normal E-glass   │
-│  AR-glass has ZrO₂ content (16–20%): zirconia modifies silica network →    │
+│  Portland cement pore solution pH ~12–13 → alkalis attack normal E-glass     │
+│  AR-glass has ZrO₂ content (16–20%): zirconia modifies silica network →      │
 │  resists alkali dissolution → 25–50 year durability in cement matrix         │
 │                                                                              │
 │  PRODUCTION (premix or spray-up):                                            │
-│  Premix: AR glass fibers batched with cement slurry → mixed → cast/pressed │
+│  Premix: AR glass fibers batched with cement slurry → mixed → cast/pressed   │
 │  Spray-up: cement slurry + chopped AR glass simultaneously sprayed onto mold│
-│  → complex double-curved geometries easily formed → architectural freedom  │
+│  → complex double-curved geometries easily formed → architectural freedom    │
 │                                                                              │
 │  PANEL PROPERTIES:                                                           │
-│  Thickness: 8–25 mm  ← very thin vs precast concrete (100–200 mm)          │
-│  Weight: 20–60 kg/m² vs PC panel 250–500 kg/m² → much lighter              │
-│  Tensile MOR: 10–15 MPa (vs plain concrete 3 MPa)                          │
+│  Thickness: 8–25 mm  ← very thin vs precast concrete (100–200 mm)            │
+│  Weight: 20–60 kg/m² vs PC panel 250–500 kg/m² → much lighter                │
+│  Tensile MOR: 10–15 MPa (vs plain concrete 3 MPa)                            │
 │  Impact resistance: significantly better than plain concrete                 │
 │  Fire resistance: non-combustible; A1 class                                  │
 │  Freeze-thaw: excellent (no rebar to corrode; dense matrix)                  │
@@ -366,32 +366,32 @@ AEROGEL: PHYSICS AND PERFORMANCE
 │  WHAT IS AEROGEL?                                                            │
 │  Silica (SiO₂) gel with liquid replaced by gas via supercritical drying      │
 │  → nanoporous structure; 3D silica network with ~95% air by volume           │
-│  → pore size: 20–100 nm  (smaller than mean free path of air at STP ~70nm) │
+│  → pore size: 20–100 nm  (smaller than mean free path of air at STP ~70nm)   │
 │  → gas conduction suppressed: Knudsen effect                                 │
 │                                                                              │
 │  THERMAL PROPERTIES:                                                         │
-│    λ = 0.013–0.020 W/mK  (monolithic aerogel, ambient pressure)            │
-│    λ = 0.015 W/mK typical (vs mineral wool 0.035; EPS 0.038)               │
+│    λ = 0.013–0.020 W/mK  (monolithic aerogel, ambient pressure)              │
+│    λ = 0.015 W/mK typical (vs mineral wool 0.035; EPS 0.038)                 │
 │    → 2× better insulator per mm than best conventional alternatives          │
 │                                                                              │
 │  APPLICATIONS IN CONSTRUCTION:                                               │
 │                                                                              │
 │  Aerogel blanket (flexible composite):                                       │
 │    Aerogel particles embedded in fiber mat (glass or polyester)              │
-│    λ ~ 0.015–0.018 W/mK; flexible; can be cut with knife                  │
+│    λ ~ 0.015–0.018 W/mK; flexible; can be cut with knife                     │
 │    Use: pipe insulation; thin wall insulation; historic building retrofit    │
 │    Where space is critically limited (listed buildings, thermal bridges)     │
-│    Cost: ~£200–600/m² vs mineral wool ~£5–15/m² → 20–40× more expensive   │
+│    Cost: ~£200–600/m² vs mineral wool ~£5–15/m² → 20–40× more expensive      │
 │                                                                              │
 │  Aerogel granules (loose fill or concrete aggregate):                        │
 │    Aerogel-enhanced render: aerogel granules + lime or hydraulic binder      │
-│    λ ~ 0.025–0.045 W/mK (reduced by aggregate dilution)                    │
-│    15 mm aerogel render ≈ 50 mm mineral wool thermally                     │
+│    λ ~ 0.025–0.045 W/mK (reduced by aggregate dilution)                      │
+│    15 mm aerogel render ≈ 50 mm mineral wool thermally                       │
 │    Used: thin-joint masonry insulation; historic facades                     │
 │                                                                              │
 │  Transparent aerogel (daylighting):                                          │
 │    Silica aerogel granules in double-skin polycarbonate sheet                │
-│    Or monolithic clear aerogel in IGU (U-value ~ 0.2 W/m²K vs triple 0.5) │
+│    Or monolithic clear aerogel in IGU (U-value ~ 0.2 W/m²K vs triple 0.5)    │
 │    Highly experimental; cost prohibitive for construction scale              │
 │                                                                              │
 │  DISADVANTAGES:                                                              │
@@ -399,7 +399,7 @@ AEROGEL: PHYSICS AND PERFORMANCE
 │  Hydrophilic (standard): moisture absorption → increased λ                   │
 │    Hydrophobic treatment (MTMS, TMCS) available → repels water               │
 │  Cost: 10–40× premium over conventional insulation                           │
-│  Dust: aerogel blanket shedding → respiratory PPE required                 │
+│  Dust: aerogel blanket shedding → respiratory PPE required                   │
 │  Fire: silica aerogel itself non-combustible; binders vary                   │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -414,44 +414,44 @@ PCM THERMODYNAMICS AND CONSTRUCTION APPLICATION
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
 │  PCM PRINCIPLE: latent heat storage during phase transition                  │
-│  Sensible heat: Q = m × c_p × ΔT  (requires temperature change)            │
+│  Sensible heat: Q = m × c_p × ΔT  (requires temperature change)              │
 │  Latent heat:   Q = m × L_f        (at constant temperature!)                │
 │                                                                              │
 │  COMPARISON:                                                                 │
-│    Concrete: 2,400 kg/m³ × 880 J/kgK × 1°C = 2,112 kJ/m³K (sensible)     │
-│    Paraffin wax (PCM): L_f = 200,000 J/kg → 180,000 kJ/m³ per transition  │
-│    → equivalent to concrete storing 85°C temperature swing!               │
-│    → PCM wallboard 12 mm: holds latent heat of 500 mm concrete slab        │
+│    Concrete: 2,400 kg/m³ × 880 J/kgK × 1°C = 2,112 kJ/m³K (sensible)         │
+│    Paraffin wax (PCM): L_f = 200,000 J/kg → 180,000 kJ/m³ per transition     │
+│    → equivalent to concrete storing 85°C temperature swing!                  │
+│    → PCM wallboard 12 mm: holds latent heat of 500 mm concrete slab          │
 │                                                                              │
 │  PCM TYPES:                                                                  │
-│    Organic (paraffins):   T_melt = 18–30°C → comfort zone                  │
-│      L_f ~ 150–250 kJ/kg; ρ ~ 850 kg/m³; λ ~ 0.2 W/mK (low)              │
+│    Organic (paraffins):   T_melt = 18–30°C → comfort zone                    │
+│      L_f ~ 150–250 kJ/kg; ρ ~ 850 kg/m³; λ ~ 0.2 W/mK (low)                  │
 │      Non-toxic; stable; no supercooling; cycles millions of times            │
-│      Disadvantage: low λ → slow charge/discharge; flammable                │
+│      Disadvantage: low λ → slow charge/discharge; flammable                  │
 │      Encapsulation: microencapsulated in polymer shell → concrete additive   │
 │                                                                              │
-│    Inorganic (salt hydrates): T_melt = 10–50°C; L_f ~ 200–300 kJ/kg       │
+│    Inorganic (salt hydrates): T_melt = 10–50°C; L_f ~ 200–300 kJ/kg          │
 │      Na₂SO₄·10H₂O (Glauber's salt): T_m = 32°C; L_f = 252 kJ/kg         │
 │      CaCl₂·6H₂O: T_m = 29°C; L_f = 191 kJ/kg                            │
-│      Higher λ than organics; risk of supercooling; phase separation cycles │
+│      Higher λ than organics; risk of supercooling; phase separation cycles   │
 │                                                                              │
 │  CONSTRUCTION INTEGRATION:                                                   │
 │                                                                              │
 │  PCM wallboard (microencapsulated in plasterboard):                          │
-│    3–5% PCM by board mass → L_f contribution ≈ 30 kJ/m² per board          │
+│    3–5% PCM by board mass → L_f contribution ≈ 30 kJ/m² per board            │
 │    Activated at ~21–23°C → absorbs peak day heat → releases at night         │
 │    Effect: diurnal temperature swing reduced by 2–5°C in well-insulated rooms│
 │    Combine with night purge ventilation: most effective strategy             │
 │                                                                              │
 │  PCM in concrete:                                                            │
-│    Microencapsulated paraffin admixed (5–20% by volume of fine aggregate)  │
+│    Microencapsulated paraffin admixed (5–20% by volume of fine aggregate)    │
 │    → mass concrete floor slabs with enhanced thermal storage                 │
-│    Strength reduction: ~10–20% at 20% replacement → limits use             │
+│    Strength reduction: ~10–20% at 20% replacement → limits use               │
 │    Alternative: PCM-filled lightweight aggregate blocks                      │
 │                                                                              │
 │  PCM in insulation panels:                                                   │
-│    PCM-filled panels behind plasterboard → storage + slight insulation     │
-│    Rubitherm panels: graphite + paraffin → λ ~ 2 W/mK (fin effect)        │
+│    PCM-filled panels behind plasterboard → storage + slight insulation       │
+│    Rubitherm panels: graphite + paraffin → λ ~ 2 W/mK (fin effect)           │
 │    → faster charge/discharge than pure paraffin                              │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -467,27 +467,27 @@ SELF-HEALING MECHANISMS
 │                                                                              │
 │  AUTOGENOUS SELF-HEALING (natural):                                          │
 │  Unhydrated cement particles remain in concrete for years                    │
-│  Crack exposes water to unhydrated C₃S, C₂S → further hydration → C-S-H   │
-│  → fills micro-cracks (< 0.1 mm) naturally over weeks/months               │
+│  Crack exposes water to unhydrated C₃S, C₂S → further hydration → C-S-H      │
+│  → fills micro-cracks (< 0.1 mm) naturally over weeks/months                 │
 │  High SCM blends (GGBS): more latent hydraulic material → better autogenous  │
 │                                                                              │
 │  BACTERIAL SELF-HEALING (engineered):                                        │
-│  Spore-forming bacteria (Bacillus species: B. pasteurii, B. sphaericus)    │
+│  Spore-forming bacteria (Bacillus species: B. pasteurii, B. sphaericus)      │
 │  encapsulated in expanded clay pellets or polymer capsules                   │
-│  Added to concrete mix; lie dormant until crack provides water + O₂ access │
-│  Activated bacteria: metabolize calcium lactate or urea + CaCl₂            │
+│  Added to concrete mix; lie dormant until crack provides water + O₂ access   │
+│  Activated bacteria: metabolize calcium lactate or urea + CaCl₂              │
 │    Ureolysis: CO(NH₂)₂ + 2H₂O → 2NH₄⁺ + CO₃²⁻                           │
-│              Ca²⁺ + CO₃²⁻ → CaCO₃  (calcium carbonate precipitates)       │
-│  → CaCO₃ fills crack → seals against water/chloride ingress                │
-│  Crack width healed: up to 0.5–0.8 mm demonstrated (wider than autogenous) │
+│              Ca²⁺ + CO₃²⁻ → CaCO₃  (calcium carbonate precipitates)          │
+│  → CaCO₃ fills crack → seals against water/chloride ingress                  │
+│  Crack width healed: up to 0.5–0.8 mm demonstrated (wider than autogenous)   │
 │                                                                              │
 │  CRYSTALLINE ADMIXTURES:                                                     │
-│  Silicate-based chemicals added to mix (e.g., Kryton Krystol, Xypex)       │
+│  Silicate-based chemicals added to mix (e.g., Kryton Krystol, Xypex)         │
 │  Active chemicals migrate to cracks with moisture                            │
-│  React with Ca²⁺ and SiO₂ → form hydro-alumino-silicates                  │
+│  React with Ca²⁺ and SiO₂ → form hydro-alumino-silicates                     │
 │  → needle-like crystals grow to seal crack                                   │
 │  Effective for: water-retaining structures, basements                        │
-│  Re-activatable: if crack re-opens, crystals can re-grow                   │
+│  Re-activatable: if crack re-opens, crystals can re-grow                     │
 │                                                                              │
 │  ENCAPSULATED ADHESIVE:                                                      │
 │  Glass/polymer capsules filled with epoxy + hardener embedded in concrete    │
@@ -496,7 +496,7 @@ SELF-HEALING MECHANISMS
 │  Research stage; not commercial construction                                 │
 │                                                                              │
 │  STATUS:                                                                     │
-│    Autogenous healing: well-established; design for high SCM content       │
+│    Autogenous healing: well-established; design for high SCM content         │
 │    Bacterial: pilot projects in Netherlands (TU Delft), Belgium              │
 │    Cost: ~20–30% concrete cost premium for bacterial; durability data needed│
 │    Crystalline admixtures: commercial; WRAS-approved waterproofing systems   │

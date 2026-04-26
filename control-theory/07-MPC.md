@@ -321,12 +321,12 @@ WHEN PID OVER MPC:
 │ constraints, T_s > 10ms      │ OSQP or qpOASES; terminal cost/set  │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Nonlinear dynamics,          │ NMPC with multiple shooting +         │
-│ T_s > 100ms                  │ IPOPT; CasADi for automatic diff.   │
+│ T_s > 100ms                  │ IPOPT; CasADi for automatic diff.     │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Nonlinear, fast dynamics     │ RTI-NMPC (single SQP iteration);    │
 │ (T_s < 100ms)                │ acados or ACADO toolkit              │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Embedded, no QP solver,      │ Explicit MPC (MPT3 offline);        │
+│ Embedded, no QP solver,      │ Explicit MPC (MPT3 offline);          │
 │ simple system (n_x ≤ 5)      │ PWA lookup at runtime                 │
 ├──────────────────────────────┼───────────────────────────────────────┤
 │ Economic objective           │ Economic MPC: replace quadratic cost │

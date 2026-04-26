@@ -417,7 +417,7 @@ FONTS AT LOW RESOLUTION:
 
 BEFORE HINTING:               AFTER HINTING:
 ┌──────────────────────────┐  ┌──────────────────────────┐
-│  n   n   n              │  │  n   n   n              │
+│  n   n   n              │  │  n   n   n                │
 │  (stems vary in          │  │  (all stems same         │
 │   apparent weight)       │  │   apparent weight)       │
 │  m and n look slightly   │  │  m and n look consistent │

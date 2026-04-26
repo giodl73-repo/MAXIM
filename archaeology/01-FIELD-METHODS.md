@@ -159,20 +159,20 @@ SINGLE CONTEXT RECORDING SYSTEM
 |  PRINCIPLE: each stratigraphic unit = one record sheet           |
 |                                                                  |
 |  Each "context" gets:                                            |
-|  Context number (unique sequential, e.g., F.001, F.002, ...)   |
+|  Context number (unique sequential, e.g., F.001, F.002, ...)     |
 |  Type: deposit (layer/fill), cut, structure, interface           |
-|  Description: colour, texture, inclusions of deposit           |
-|  Dimensions: extent, depth, dimensions                         |
-|  Relationships: above/below/cuts/is cut by other contexts      |
-|  Interpretation: function/period (pencilled in; changed later) |
-|  Finds: list of associated finds numbers                       |
-|  Samples: environmental/scientific sample numbers              |
-|  Plans and sections at specific scales                         |
+|  Description: colour, texture, inclusions of deposit             |
+|  Dimensions: extent, depth, dimensions                           |
+|  Relationships: above/below/cuts/is cut by other contexts        |
+|  Interpretation: function/period (pencilled in; changed later)   |
+|  Finds: list of associated finds numbers                         |
+|  Samples: environmental/scientific sample numbers                |
+|  Plans and sections at specific scales                           |
 |                                                                  |
 |  CONTEXT NUMBER = the immutable audit key                        |
-|  An artifact found in F.047 can always be traced to F.047      |
+|  An artifact found in F.047 can always be traced to F.047        |
 |  Every bag, every sample, every photo references context number  |
-|  → Like a database foreign key linking all records to location |
+|  → Like a database foreign key linking all records to location   |
 +------------------------------------------------------------------+
 ```
 
@@ -217,25 +217,25 @@ ENVIRONMENTAL SAMPLES:
 HARRIS MATRIX: DAG OF ALL CONTEXTS
 +------------------------------------------------------------------+
 |  Nodes = context numbers                                         |
-|  Edges = stratigraphic relationship (older → younger)          |
+|  Edges = stratigraphic relationship (older → younger)            |
 |                                                                  |
 |  Four valid relationships:                                       |
-|  A is above B (A younger; superposition)                       |
-|  A is equal to B (correlation; same event)                    |
-|  A cuts B (A younger; interface relationship)                  |
-|  A is filled by B (A is a cut; B is the fill of A)            |
+|  A is above B (A younger; superposition)                         |
+|  A is equal to B (correlation; same event)                       |
+|  A cuts B (A younger; interface relationship)                    |
+|  A is filled by B (A is a cut; B is the fill of A)               |
 |                                                                  |
-|  MATRIX CONSTRUCTION:                                          |
-|  Start with known relationships from section drawings          |
-|  Each context block placed above those it overlies            |
-|  Correlated contexts at same level                            |
-|  Result: topological sequence from oldest (bottom) to         |
-|    youngest (top) — the relative chronology                   |
+|  MATRIX CONSTRUCTION:                                            |
+|  Start with known relationships from section drawings            |
+|  Each context block placed above those it overlies               |
+|  Correlated contexts at same level                               |
+|  Result: topological sequence from oldest (bottom) to            |
+|    youngest (top) — the relative chronology                      |
 |                                                                  |
-|  PHASING: groups of contexts = phases                          |
-|  Phase 1 (earliest): all contexts below certain relationships  |
-|  Phase 2: next group                                           |
-|  → Simplifies matrix to site narrative                        |
+|  PHASING: groups of contexts = phases                            |
+|  Phase 1 (earliest): all contexts below certain relationships    |
+|  Phase 2: next group                                             |
+|  → Simplifies matrix to site narrative                           |
 +------------------------------------------------------------------+
 
 EXAMPLE MATRIX READING:
@@ -261,28 +261,28 @@ EXAMPLE MATRIX READING:
 ARCHAEOLOGICAL GIS LAYERS
 +------------------------------------------------------------------+
 |  BASE LAYERS:                                                    |
-|  → Digital terrain model (LiDAR or surveyed)                  |
-|  → Historic maps, cadastral boundaries                         |
-|  → Satellite/aerial imagery                                    |
-|  → Geological/soil maps                                        |
+|  → Digital terrain model (LiDAR or surveyed)                     |
+|  → Historic maps, cadastral boundaries                           |
+|  → Satellite/aerial imagery                                      |
+|  → Geological/soil maps                                          |
 |                                                                  |
 |  SURVEY LAYERS:                                                  |
-|  → Fieldwalking transects + artifact density                  |
-|  → Geophysics anomalies                                       |
-|  → Previous site locations                                    |
+|  → Fieldwalking transects + artifact density                     |
+|  → Geophysics anomalies                                          |
+|  → Previous site locations                                       |
 |                                                                  |
-|  EXCAVATION LAYERS:                                            |
-|  → Trench outlines + context polygons                        |
-|  → Feature centroids                                          |
-|  → Finds + sample locations (GPS points)                     |
-|  → Section line positions                                     |
-|  → Photographic extent coverage                              |
+|  EXCAVATION LAYERS:                                              |
+|  → Trench outlines + context polygons                            |
+|  → Feature centroids                                             |
+|  → Finds + sample locations (GPS points)                         |
+|  → Section line positions                                        |
+|  → Photographic extent coverage                                  |
 |                                                                  |
-|  ANALYSIS LAYERS:                                              |
-|  → Site catchment (resource territories)                     |
-|  → Viewshed (what can be seen from monument)                 |
-|  → Least-cost paths (route modeling)                         |
-|  → Hotspot analysis (artifact density clusters)              |
+|  ANALYSIS LAYERS:                                                |
+|  → Site catchment (resource territories)                         |
+|  → Viewshed (what can be seen from monument)                     |
+|  → Least-cost paths (route modeling)                             |
+|  → Hotspot analysis (artifact density clusters)                  |
 +------------------------------------------------------------------+
 ```
 

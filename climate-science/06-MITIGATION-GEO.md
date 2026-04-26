@@ -28,7 +28,7 @@
 │  │ Soil carbon sequestration        │  BECCS                           │   │
 │  │ Peatland/wetland restoration     │  Enhanced weathering             │   │
 │  │ Ocean fertilization (speculative)│  Ocean alkalinization            │   │
-│  └─────────────────────────────────┴─────────────────────────────────┘   │
+│  └─────────────────────────────────┴─────────────────────────────────┘     │
 │                                                                             │
 │  SOLAR RADIATION MANAGEMENT (reflect sunlight — buys time, does not remove │
 │  CO₂, does not address ocean acidification)                                 │
@@ -199,7 +199,7 @@ Wright's Law governs solar PV costs: every doubling of cumulative production yie
   │ response      │ (EV charging, industrial processes)         │
   ├───────────────┼──────────────────────────────────────────────┤
   │ Firm power    │ Nuclear, hydro, gas + CCS as backup          │
-  │ (dispatchable)│ "when the wind doesn't blow, sun doesn't   │
+  │ (dispatchable)│ "when the wind doesn't blow, sun doesn't     │
   │               │ shine" — firm capacity required for          │
   │               │ reliability                                  │
   └───────────────┴──────────────────────────────────────────────┘
@@ -573,7 +573,7 @@ smaller droplets → brighter clouds → higher albedo. More localized than SAI.
 
   ┌────────────────────────────────────────────────────────────────┐
   │ BY 2030 (7-8 years from now):                                  │
-  │ - Global CO₂ emissions ~43% below 2019 levels                │
+  │ - Global CO₂ emissions ~43% below 2019 levels                  │
   │ - Roughly: eliminate all coal power, cut oil use ~20%,         │
   │   triple renewables, major efficiency improvements             │
   ├────────────────────────────────────────────────────────────────┤
@@ -583,10 +583,10 @@ smaller droplets → brighter clouds → higher albedo. More localized than SAI.
   │   oil, all electricity low-carbon, green steel/cement, CDR   │
   ├────────────────────────────────────────────────────────────────┤
   │ CDR ROLE:                                                      │
-  │ - 100-1000 GtCO₂ CDR this century depending on scenario      │
-  │ - Even most ambitious mitigation needs CDR for:              │
-  │   (a) past emissions overshoot correction                    │
-  │   (b) residual emissions from aviation/cement/agriculture    │
+  │ - 100-1000 GtCO₂ CDR this century depending on scenario        │
+  │ - Even most ambitious mitigation needs CDR for:                │
+  │   (a) past emissions overshoot correction                      │
+  │   (b) residual emissions from aviation/cement/agriculture      │
   └────────────────────────────────────────────────────────────────┘
 
   KEY INSIGHT: There is no single solution. The mitigation portfolio is:

@@ -43,8 +43,8 @@ PIPER NIGRUM LIFECYCLE
 |  | green    |  | drupe    |  | states   |            |
 |  | drupe    |  |          |  |          |            |
 |  +----------+  +----------+  +----------+            |
-|       |              |            |                  |
-|       v              v            v                  |
+   |       |              |            |               |
+   |       v              v            v               |
 |  +--------+    +--------+   +----------+             |
 |  | GREEN  |    | RED    |   | BLACK:   |            |
 |  | pepper |    | pepper |   | unripe,  |            |

@@ -63,33 +63,33 @@ THE FORGOTTEN DOMAINS: ARCHAEA AND MICROBIAL EUKARYOTES
   ┌──────────────────────────────────────────────────────────────────┐
   │ THERMOPHILES / HYPERTHERMOPHILES                                 │
   │   Grow at 55–115°C (!)                                           │
-  │   Pyrococcus furiosus: Optimal 100°C; ferments sugars to H₂    │
+  │   Pyrococcus furiosus: Optimal 100°C; ferments sugars to H₂      │
   │   Sulfolobus solfataricus: Grows in volcanic sulfur springs      │
-  │   Thermus aquaticus: 70°C, hot springs (Yellowstone)           │
+  │   Thermus aquaticus: 70°C, hot springs (Yellowstone)             │
   │   Enzyme adaptation: Proteins with more disulfide bonds,         │
   │   ion pairs, hydrophobic cores for thermal stability             │
   │                                                                  │
   │ HALOPHILES (salt lovers)                                         │
-  │   Haloarcula marismortui: 5 M NaCl (Dead Sea isolate)          │
+  │   Haloarcula marismortui: 5 M NaCl (Dead Sea isolate)            │
   │   Halobacterium salinarum: Pink coloration in salt ponds         │
-  │   Adaptation: Acidic proteome (high Asp/Glu) → stable in salt  │
-  │   Bacteriorhodopsin: Light-driven proton pump → solar energy   │
+  │   Adaptation: Acidic proteome (high Asp/Glu) → stable in salt    │
+  │   Bacteriorhodopsin: Light-driven proton pump → solar energy     │
   │                                                                  │
   │ METHANOGENS (methane producers)                                  │
   │   STRICT ANAEROBES — O₂ is lethal                                │
-  │   Methanobacterium, Methanosarcina, Methanobrevibacter         │
-  │   Metabolism: CO₂ + 4H₂ → CH₄ + 2H₂O (or acetate → CH₄)      │
-  │   Location: Gut of ruminants, termites, marshes, landfills     │
+  │   Methanobacterium, Methanosarcina, Methanobrevibacter           │
+  │   Metabolism: CO₂ + 4H₂ → CH₄ + 2H₂O (or acetate → CH₄)          │
+  │   Location: Gut of ruminants, termites, marshes, landfills       │
   │   Significance: 15% of global methane from methanogen activity   │
-  │   Ruminant methane: ~2% of global greenhouse gas emissions     │
-  │   Human gut: Methanobrevibacter smithii, ~30% of adults carry  │
+  │   Ruminant methane: ~2% of global greenhouse gas emissions       │
+  │   Human gut: Methanobrevibacter smithii, ~30% of adults carry    │
   │                                                                  │
   │ ACIDOPHILES                                                      │
-  │   Ferroplasma acidarmanus: pH 0 (mine drainage)                │
+  │   Ferroplasma acidarmanus: pH 0 (mine drainage)                  │
   │   Picrophilus torridus: pH –0.06, 60°C (most acid-tolerant known)│
   │                                                                  │
   │ PSYCHROPHILES (cold lovers)                                      │
-  │   Active below 0°C (permafrost, sea ice, Antarctic lakes)      │
+  │   Active below 0°C (permafrost, sea ice, Antarctic lakes)        │
   │   Methanogenium frigidum: methanogens in cold sediments          │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -133,21 +133,21 @@ THE FORGOTTEN DOMAINS: ARCHAEA AND MICROBIAL EUKARYOTES
   │   P. falciparum: Most dangerous malaria species                  │
   │   P. vivax: Most common; relapsing malaria (liver dormancy)      │
   │   Life cycle: Mosquito → sporozoite → liver → merozoite          │
-  │   → red blood cell → gametocytes → mosquito                    │
-  │   RBC destruction → anemia, fever, splenomegaly                │
+  │   → red blood cell → gametocytes → mosquito                      │
+  │   RBC destruction → anemia, fever, splenomegaly                  │
   │   Treatment: Artemisinin-based combination therapy (ACT)         │
   │   Resistance: ACT partial resistance (P. falciparum K13 mutation)│
   │                                                                  │
   │ TOXOPLASMA gondii (Apicomplexan)                                 │
   │   Definitive host: Cats (oocysts in feces)                       │
   │   Intermediate hosts: Warm-blooded animals including humans      │
-  │   Bradyzoites: Cysts in brain + muscle → lifelong persistence  │
-  │   Risk: Immunocompromised (CD4<100) → toxoplasma encephalitis  │
+  │   Bradyzoites: Cysts in brain + muscle → lifelong persistence    │
+  │   Risk: Immunocompromised (CD4<100) → toxoplasma encephalitis    │
   │   Congenital: If primary infection in pregnancy → fetal damage   │
   │                                                                  │
   │ GIARDIA lamblia (excavate)                                       │
   │   Diplomonad: Two nuclei; no mitochondria (reduced to mitosome)  │
-  │   Cyst: Environmental resistance; infectious dose: ~10 cysts   │
+  │   Cyst: Environmental resistance; infectious dose: ~10 cysts     │
   │   Trophozoite: Attaches to intestinal epithelium → malabsorption│
   │   Transmission: Fecal-oral, contaminated water (hikers, "beaver fever")│
   │                                                                  │
@@ -202,19 +202,19 @@ THE FORGOTTEN DOMAINS: ARCHAEA AND MICROBIAL EUKARYOTES
   │   Invasive candidiasis: Major cause of ICU infections          │
   │   Azole resistance (FKS1 mutations, ERG11 mutations): rising   │
   │   Candida auris: Multidrug-resistant; emerging global threat   │
-  │                                                                  │
+  │                                                                │
   │ Aspergillus fumigatus:                                         │
   │   Ubiquitous mold; conidia inhaled constantly                  │
   │   Healthy: Cleaned by alveolar macrophages + neutrophils       │
   │   Immunocompromised: Invasive aspergillosis → angioinvasion    │
   │   → Pulmonary infarction; 40–90% mortality untreated           │
   │   Treatment: Voriconazole (azole); isavuconazole               │
-  │                                                                  │
+  │                                                                │
   │ Cryptococcus neoformans/gattii:                                │
   │   Encapsulated yeast; polysaccharide capsule: anti-phagocytic  │
   │   Cryptococcal meningitis: AIDS-defining illness (CD4<100)     │
   │   Treatment: Amphotericin B + flucytosine induction            │
-  │                                                                  │
+  │                                                                │
   │ Pneumocystis jirovecii:                                        │
   │   Atypical fungus; doesn't grow on routine culture             │
   │   PCP (Pneumocystis pneumonia): AIDS-defining (CD4<200)        │
@@ -226,14 +226,14 @@ THE FORGOTTEN DOMAINS: ARCHAEA AND MICROBIAL EUKARYOTES
   ANTIFUNGAL DRUG TARGETS:
   ┌────────────────────────────────────────────────────────────────┐
   │ Azoles (fluconazole, voriconazole, itraconazole):              │
-  │   Inhibit CYP51 (lanosterol 14α-demethylase) → ergosterol ↓  │
+  │   Inhibit CYP51 (lanosterol 14α-demethylase) → ergosterol ↓    │
   │   Resistance: ERG11 mutations, overexpression                  │
-  │                                                                  │
+  │                                                                │
   │ Polyenes (amphotericin B, nystatin):                           │
   │   Bind ergosterol → membrane pores → cell death                │
   │   Broad spectrum; significant nephrotoxicity (AmB)             │
   │   Liposomal formulation: Reduced nephrotoxicity                │
-  │                                                                  │
+  │                                                                │
   │ Echinocandins (caspofungin, micafungin, anidulafungin):        │
   │   Inhibit β-1,3-glucan synthase (FKS1)                         │
   │   Fungal cell wall specific → low human toxicity               │

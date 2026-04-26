@@ -300,7 +300,7 @@ VERTEBRATE PHYLOGENY:
     |                   |
   AGNATHA             GNATHOSTOMATA
   (jawless)           (jawed)
-  Lampreys            |
+  Lampreys              |
   Hagfish             +--------+--------+
                       |                 |
                  CHONDRICHTHYES    OSTEICHTHYES

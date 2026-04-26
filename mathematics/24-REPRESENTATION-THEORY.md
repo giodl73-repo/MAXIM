@@ -9,7 +9,7 @@ Representation theory studies how groups act on vector spaces — it is the brid
 │  REPRESENTATION THEORY LANDSCAPE                                            │
 │                                                                             │
 │  Finite Groups                        Compact Lie Groups                    │
-│  ──────────────────────────────        ──────────────────────────────────     │
+│  ──────────────────────────────        ──────────────────────────────────   │
 │  Group algebra ℂ[G]                   Lie algebras (tangent at identity)    │
 │  Maschke's theorem (semisimplicity)   Exponential map exp: 𝔤 → G            │
 │  Characters χ(g) = tr ρ(g)            Root systems, Dynkin diagrams         │
@@ -17,7 +17,7 @@ Representation theory studies how groups act on vector spaces — it is the brid
 │  Regular, induced representations     Weyl character formula                │
 │                                                                             │
 │  Key Groups in Physics               ML & Computation                       │
-│  ──────────────────────────────        ──────────────────────────────────     │
+│  ──────────────────────────────        ──────────────────────────────────   │
 │  U(1): electromagnetism              G-equivariant networks (G-CNNs)        │
 │  SU(2) ≅ Spin(3): fermions           SE(3)-equivariant molecular modeling   │
 │  SU(3): strong force                 Permutation-equivariant (set networks) │

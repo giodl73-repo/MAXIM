@@ -33,7 +33,7 @@ CANONICAL ENSEMBLE — MASTER STRUCTURE
   │  U = −∂(ln Z)/∂β = ⟨E⟩      (internal energy = ⟨H⟩)                  │
   │  S = −∂F/∂T = k_B(ln Z + βU) (entropy)                               │
   │  P = −∂F/∂V = k_BT ∂(ln Z)/∂V (pressure)                             │
-  │  C_V = ∂U/∂T = k_Bβ² ∂²(ln Z)/∂β² (heat capacity)                  │
+  │  C_V = ∂U/∂T = k_Bβ² ∂²(ln Z)/∂β² (heat capacity)                    │
   │  μ = ∂F/∂N                   (chemical potential)                    │
   │                                                                      │
   └──────────────────────────────────────────────────────────────────────┘
@@ -133,7 +133,7 @@ dF = −S dT − P dV + μ dN    ← fundamental relation
   ┌──────────────────────────────────────────────────────────┐
   │  Var(E) = k_BT² C_V                                      │
   │                                                          │
-  │  Relative fluctuation: √Var(E)/⟨E⟩ ~ 1/√N → 0 for N→∞  │
+  │  Relative fluctuation: √Var(E)/⟨E⟩ ~ 1/√N → 0 for N→∞    │
   │  For large N, canonical ≡ microcanonical (sharp peak)    │
   └──────────────────────────────────────────────────────────┘
 ```

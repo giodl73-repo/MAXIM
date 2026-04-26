@@ -5,18 +5,18 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    HEURISTICS LANDSCAPE                                     │
-│                                                                               │
+│                                                                             │
 │  TVERSKY & KAHNEMAN (1974) "Science" paper:                                 │
 │  Three heuristics: Representativeness, Availability, Anchoring              │
 │  These are cognitive shortcuts for making probability judgments.            │
 │  Under most conditions: fast, adequate.                                     │
 │  Under certain conditions: systematic, predictable errors.                  │
-│                                                                               │
+│                                                                             │
 │  KEY DISTINCTION:                                                           │
 │  K-T view: Heuristics are error-prone shortcuts                             │
 │  Gigerenzen view: Heuristics are ecologically rational tools                │
 │  BOTH are empirically supported in their domains.                           │
-│                                                                               │
+│                                                                             │
 │  MODERN SYNTHESIS:                                                          │
 │  Heuristics work well when:                                                 │
 │    - Environment has regularities matching heuristic structure              │

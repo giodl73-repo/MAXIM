@@ -12,7 +12,7 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
 
   FRAMEWORK: INFECTION = SEQUENCE OF STEPS
   ┌─────────────────────────────────────────────────────────────────┐
-  │                                                                   │
+  │                                                                 │
   │  1. ENCOUNTER   → Exposure to pathogen (transmission)           │
   │        ↓                                                        │
   │  2. COLONIZATION → Adhere to host surface (adhesins)            │
@@ -25,7 +25,7 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
   │     EVASION                                                     │
   │        ↓                                                        │
   │  6. SPREAD      → Dissemination; or chronic infection           │
-  │                                                                   │
+  │                                                                 │
   │  DIFFERENT PATHOGENS FAIL DIFFERENTLY:                          │
   │  Toxin-mediated: Colonize surface only → toxin does the work    │
   │    (Cholera, C. diff, diphtheria)                               │
@@ -98,7 +98,7 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
   ┌────────────────────────────────────────────────────────────────┐
   │ PILI / FIMBRIAE                                                │
   │   Type I pili (E. coli): Mannose-binding FimH adhesin          │
-  │   → Binds uroepithelium → UTI (uropathogenic E. coli, UPEC)  │
+  │   → Binds uroepithelium → UTI (uropathogenic E. coli, UPEC)    │
   │   P pili (UPEC): Gal-Gal binding; upper UTI/pyelonephritis     │
   │   Type IV pili (N. gonorrhoeae, P. aeruginosa):                │
   │   → Retractile: Pull cell forward (twitching motility)         │
@@ -151,7 +151,7 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
   │                                                                │
   │   A subunit (Active): Catalytic; crosses into cytoplasm        │
   │   → Enzymatic modification of host target                      │
-  │   → Often NAD⁺-dependent (ADP-ribosyltransferases)           │
+  │   → Often NAD⁺-dependent (ADP-ribosyltransferases)             │
   └────────────────────────────────────────────────────────────────┘
 
   MAJOR TOXIN EXAMPLES:
@@ -227,13 +227,13 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
   │ No endocytosis needed — direct cytoplasmic delivery            │
   │                                                                │
   │ Salmonella T3SS (SPI-1): Entry                                 │
-  │   SopE: GEF for Rac1/Cdc42 → actin polymerization → ruffles  │
+  │   SopE: GEF for Rac1/Cdc42 → actin polymerization → ruffles    │
   │   → Macropinocytosis → "Salmonella-containing vacuole" (SCV)   │
   │                                                                │
   │ Yersinia T3SS (Ysc): Anti-phagocytic                           │
   │   YopH: Tyrosine phosphatase → dephosphorylates focal adhesion │
   │   → Disrupts phagocytic cup → resists uptake                   │
-  │   YopE, YopT: Inactivate Rac1/RhoA → actin collapse          │
+  │   YopE, YopT: Inactivate Rac1/RhoA → actin collapse            │
   └────────────────────────────────────────────────────────────────┘
 
   TYPE IV SECRETION SYSTEM (T4SS):
@@ -277,12 +277,12 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
   │   → Protrusions → taken up by neighboring cells                │
   │   → Never exposed to extracellular antibodies                  │
   │                                                                │
-  │   Shigella: IpaB/IpaC (T3SS) → phagosomal lysis              │
+  │   Shigella: IpaB/IpaC (T3SS) → phagosomal lysis                │
   │   → Cytoplasmic actin motility (IcsA protein)                  │
   │                                                                │
   │ PHAGOLYSOSOMAL FUSION BLOCK:                                   │
   │   Mycobacterium tuberculosis:                                  │
-  │   ManLAM on surface → blocks Ca²⁺ signaling → no Ca²⁺/CaM   │
+  │   ManLAM on surface → blocks Ca²⁺ signaling → no Ca²⁺/CaM      │
   │   → PI3P stays low → EEA1 not recruited → no fusion            │
   │   Vacuole maturation arrested at "early endosome" stage        │
   │   → Bacteria in comfortable mycobacterial phagosome            │
@@ -393,21 +393,21 @@ PATHOGEN MECHANISMS: HOW MICROBES CAUSE DISEASE
   KEY EXAMPLES:
   ┌────────────────────────────────────────────────────────────────┐
   │ SALMONELLA PATHOGENICITY ISLANDS:                              │
-  │ SPI-1: T3SS for intestinal invasion (SopE, SipA, SipB)       │
+  │ SPI-1: T3SS for intestinal invasion (SopE, SipA, SipB)         │
   │ SPI-2: T3SS for intracellular survival (maintains SCV)         │
   │ SPI-3/4/5: Iron acquisition, additional effectors              │
   │ Without SPI-1 + SPI-2: Salmonella is non-pathogenic E. coli    │
   │                                                                │
-  │ LEE (Locus of Enterocyte Effacement) — EPEC/EHEC:            │
+  │ LEE (Locus of Enterocyte Effacement) — EPEC/EHEC:              │
   │ T3SS + Tir (receptor injection) + intimin + EspAB effectors    │
   │ → Attaching-and-effacing lesion on intestinal epithelium       │
   │ → Destroys microvilli; causes diarrhea                         │
   │                                                                │
   │ S. aureus PATHOGENICITY ISLANDS (SaPI):                        │
-  │ SaPIbov1: Encodes toxic shock syndrome toxin (TSST-1)        │
-  │ SaPI2: TSST-1 variant + other toxins                         │
-  │ Unique: SaPI is ALSO a phage-parasitizing island             │
-  │ → Hijacks helper phage for its own spread (brilliant)        │
+  │ SaPIbov1: Encodes toxic shock syndrome toxin (TSST-1)          │
+  │ SaPI2: TSST-1 variant + other toxins                           │
+  │ Unique: SaPI is ALSO a phage-parasitizing island               │
+  │ → Hijacks helper phage for its own spread (brilliant)          │
   └────────────────────────────────────────────────────────────────┘
 
   LYSOGENIC CONVERSION: PHAGE ENCODES VIRULENCE

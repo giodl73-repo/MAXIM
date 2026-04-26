@@ -10,7 +10,7 @@ directly onto stages of the replication cycle.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │               ANTIVIRAL TARGET MAP                               │
-│                                                                    │
+│                                                                  │
 │  REPLICATION STEP          DRUG CLASS            TARGET EXAMPLES │
 │  ─────────────────         ──────────            ─────────────── │
 │  Attachment                Entry inhibitors      Maraviroc (HIV) │
@@ -19,13 +19,13 @@ directly onto stages of the replication cycle.
 │  Viral polymerase          NRTIs/NNRTIs/NAs      AZT, Sofosbuvir │
 │  RNA replication           RdRp inhibitors       Remdesivir      │
 │  Protease cleavage         Protease inhibitors   Lopinavir,      │
-│                                                   Nirmatrelvir     │
+│                                                   Nirmatrelvir   │
 │  Integrase                 INSTIs                Dolutegravir    │
 │  Neuraminidase             NA inhibitors         Oseltamivir     │
 │  Capsid assembly           Capsid assembly inhib.Lenacapavir     │
 │  Nuclear export            Cap-snatching inhib.  Baloxavir (flu) │
 │  Immune evasion block      IFN inducers          Type I IFN      │
-│                                                                    │
+│                                                                  │
 │  GENERAL PRINCIPLE: virus-specific enzymes are the best targets  │
 │  (no host counterpart = selective toxicity)                      │
 └──────────────────────────────────────────────────────────────────┘

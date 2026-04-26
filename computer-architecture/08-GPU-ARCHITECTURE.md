@@ -164,7 +164,7 @@ Single Instruction, Multiple Threads — GPU's version of SIMD.
 
   GLOBAL (DEVICE MEMORY):
   +───────────────────────────────────────+
-  | HBM3 (H100): 80 GB, 3.35 TB/s       |
+  | HBM3 (H100): 80 GB, 3.35 TB/s         |
   | GDDR7 (desktop): 16–24 GB, ~900 GB/s|
   | Latency: ~600–800 cycles              |
   +───────────────────────────────────────+

@@ -5,20 +5,20 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    MORTALITY ANALYSIS FRAMEWORK                             │
-│                                                                               │
+│                                                                             │
 │  DATA:                    MEASURES:               MODELS:                   │
 │  Vital registration        Age-specific death rate  Gompertz-Makeham        │
 │  Census + survey           Standardized rate        Lee-Carter              │
-│  Verbal autopsy            Life expectancy          Logistic hazard           │
-│  SRS (Sample Reg System)   Years of life lost       Compression models        │
+│  Verbal autopsy            Life expectancy          Logistic hazard         │
+│  SRS (Sample Reg System)   Years of life lost       Compression models      │
 │                            Survivorship curve                               │
 │                            Cause-of-death decomp.                           │
-│                                                                               │
+│                                                                             │
 │  PERIOD vs. COHORT:                                                         │
 │  Period life table: snapshot of current conditions (synthetic cohort)       │
 │  Cohort life table: follows actual birth cohort through time                │
 │  Cross-sectional: bias when mortality changing rapidly (period underestimates│
-│    actual cohort survival when mortality is improving)                        │
+│    actual cohort survival when mortality is improving)                      │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

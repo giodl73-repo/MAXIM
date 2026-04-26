@@ -27,7 +27,7 @@ HYDROTHERMAL SYSTEMS: SCHEMATIC CROSS-SECTION (continental arc)
 |           garnet + pyroxene + W/Cu/Fe sulfides                   |
 |                                                                  |
 |  MID-OCEAN RIDGE (separate tectonic setting):                    |
-|  Seawater → down faults → heated (350-400°C) → black smoker    |
+|  Seawater → down faults → heated (350-400°C) → black smoker      |
 |  VMS deposit: massive sulfide lens at seafloor                   |
 |  (Same chemistry, different geotectonic context)                 |
 +------------------------------------------------------------------+

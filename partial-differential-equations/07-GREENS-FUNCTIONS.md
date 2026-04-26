@@ -22,8 +22,8 @@ and are exactly the **impulse response** / **convolution kernel** from signal pr
 |         = ∫h(t−s)f(s)ds     (same: convolution)                       |
 |                                                                       |
 |  INVERSION:                  INVERSION:                               |
-|  Y(ω) = H(ω)·F(ω)           û(k) = Ĝ(k)·f̂(k)                      |
-|  H(ω) = 1 / (transfer fn)   Ĝ(k) = 1 / (symbol)                     |
+|  Y(ω) = H(ω)·F(ω)           û(k) = Ĝ(k)·f̂(k)                          |
+|  H(ω) = 1 / (transfer fn)   Ĝ(k) = 1 / (symbol)                       |
 |                                                                       |
 |  KEY: once you have G, you can solve for ANY source f                 |
 |  by quadrature. G encodes the operator inverse.                       |
@@ -61,9 +61,9 @@ To work rigorously with Green's functions requires the theory of distributions
 
 ```
   ┌────────────────────────────────────────────────────────────────┐
-  │ δ(x):      ⟨δ, φ⟩ = φ(0)           (point mass at 0)         │
-  │ δ(x−y):    ⟨δ_y, φ⟩ = φ(y)         (point mass at y)         │
-  │ H(x):      ⟨H, φ⟩ = ∫₀^∞ φ(x) dx  (Heaviside step function) │
+  │ δ(x):      ⟨δ, φ⟩ = φ(0)           (point mass at 0)           │
+  │ δ(x−y):    ⟨δ_y, φ⟩ = φ(y)         (point mass at y)           │
+  │ H(x):      ⟨H, φ⟩ = ∫₀^∞ φ(x) dx  (Heaviside step function)    │
   │ H'(x) = δ(x) in distribution sense                             │
   │                                                                │
   │ P.V.(1/x): ⟨P.V.(1/x), φ⟩ = lim_{ε→0} ∫_{|x|>ε} φ(x)/x dx │
@@ -88,7 +88,7 @@ To work rigorously with Green's functions requires the theory of distributions
 
   GREEN'S FUNCTION G(x,y) satisfies:
   ┌──────────────────────────────────────────────────────────────┐
-  │  L_x G(x,y) = δ(x−y)   in Ω  (for each fixed y)            │
+  │  L_x G(x,y) = δ(x−y)   in Ω  (for each fixed y)              │
   │  G(x,y) satisfies the homogeneous BCs in x                   │
   └──────────────────────────────────────────────────────────────┘
 

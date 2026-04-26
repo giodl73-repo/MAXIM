@@ -15,7 +15,7 @@ COMPLEX INTEGRATION — CONCEPTUAL FLOW
   │                                                                     │
   │  f holomorphic on simply connected domain Ω, C closed curve in Ω    │
   │                                                                     │
-  │  ⟹   ∮_C f(z) dz = 0                                              │
+  │  ⟹   ∮_C f(z) dz = 0                                                │
   │                                                                     │
   │  Consequence: path integrals ∫_γ f dz are PATH INDEPENDENT          │
   │  (depend only on endpoints, not on the specific path)               │
@@ -28,17 +28,17 @@ COMPLEX INTEGRATION — CONCEPTUAL FLOW
   │  f holomorphic on/inside simple closed curve C                      │
   │  z₀ in the interior of C                                            │
   │                                                                     │
-  │  f(z₀) = (1/2πi) ∮_C f(z)/(z − z₀) dz                            │
+  │  f(z₀) = (1/2πi) ∮_C f(z)/(z − z₀) dz                               │
   │                                                                     │
   │  For derivatives:                                                   │
-  │  f^(n)(z₀) = (n!/2πi) ∮_C f(z)/(z − z₀)^{n+1} dz                │
+  │  f^(n)(z₀) = (n!/2πi) ∮_C f(z)/(z − z₀)^{n+1} dz                    │
   └─────────────────────────────────────────────────────────────────────┘
                               │
                               ▼
   ┌─────────────────────────────────────────────────────────────────────┐
   │  RESIDUE THEOREM (see 03-RESIDUES-POLES.md)                         │
   │  If f has isolated singularities inside C:                          │
-  │  ∮_C f dz = 2πi × Σ Res(f, aₖ)                                    │
+  │  ∮_C f dz = 2πi × Σ Res(f, aₖ)                                      │
   └─────────────────────────────────────────────────────────────────────┘
 ```
 

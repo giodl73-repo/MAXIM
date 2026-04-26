@@ -93,7 +93,7 @@ Three main technologies with different maturity, cost, and operational character
   │  DC Power Supply                                               │
   │      +              −                                          │
   │      │              │                                          │
-  │  ┌───▼───┐      ┌───▼───┐                                    │
+  │  ┌───▼───┐      ┌───▼───┐                                      │
   │  │Anode  │      │Cathode│                                    │
   │  │ (Ni)  │      │  (Ni) │                                    │
   │  │       │ KOH  │       │                                    │
@@ -377,8 +377,8 @@ Apply to the applications where alternatives are hardest.
   │  HIGH PRIORITY (alternatives expensive or unavailable):         │
   │                                                                 │
   │  Ammonia synthesis (fertilizer):                                │
-  │    Already uses H₂ (grey). Drop-in green H₂.                  │
-  │    35% of global H₂ demand (~70 Mt H₂ total)                  │
+  │    Already uses H₂ (grey). Drop-in green H₂.                    │
+  │    35% of global H₂ demand (~70 Mt H₂ total)                    │
   │    Every kg of green H₂ directly displaces grey                 │
   │                                                                 │
   │  Steel DRI (direct reduction):                                  │
@@ -409,11 +409,11 @@ Apply to the applications where alternatives are hardest.
   │  Passenger cars (fuel cell vs BEV):                             │
   │    BEV wins on efficiency: 77% vs 25-30% for FCEV               │
   │    H₂ has energy penalty at every step                          │
-  │    Infrastructure cost: H₂ station ~$2M vs EV charger ~$50K   │
+  │    Infrastructure cost: H₂ station ~$2M vs EV charger ~$50K     │
   │                                                                 │
   │  Building heating (H₂ boiler):                                  │
   │    Heat pump wins on energy efficiency (COP 3 vs 1 for H₂ boiler)│
-  │    Blending H₂ into gas grid: safety issues, >20% limited     │
+  │    Blending H₂ into gas grid: safety issues, >20% limited       │
   └─────────────────────────────────────────────────────────────────┘
 ```
 

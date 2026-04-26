@@ -287,7 +287,7 @@ STEP 1: WEB FORMATION
 STEP 2: WEB BONDING
   ┌────────────────────────────────────────────────────────────────┐
   │ Thermal bonding:                                               │
-  │   Heat melts binder fibers (often BiCo — bicomponent)        │
+  │   Heat melts binder fibers (often BiCo — bicomponent)          │
   │   BiCo: PE/PP sheath/core; sheath melts at lower temp          │
   │   Core provides structure; sheath bonds fibers together        │
   │                                                                │

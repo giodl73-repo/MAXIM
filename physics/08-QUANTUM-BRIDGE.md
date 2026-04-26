@@ -19,7 +19,7 @@ required abandoning a deeply held assumption. The result was quantum mechanics.
 |                                                                        |
 |  THE THEORY (Schrödinger, Heisenberg, Dirac — 1925-1928):              |
 |                                                                        |
-|  iℏ ∂ψ/∂t = Ĥψ          ← Schrödinger equation                       |
+|  iℏ ∂ψ/∂t = Ĥψ          ← Schrödinger equation                         |
 |                                                                        |
 |  ψ: wavefunction (complex, probabilistic)                              |
 |  Ĥ: Hamiltonian operator (total energy)                                |

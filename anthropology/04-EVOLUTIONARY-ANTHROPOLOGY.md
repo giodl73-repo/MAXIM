@@ -57,7 +57,7 @@
   │   content (social contracts) is easier than abstract   │
   │   version — Cosmides's original finding                │
   │ Fear acquisition: snakes and spiders are acquired      │
-  │   faster than cars and guns (preparedness learning)  │
+  │   faster than cars and guns (preparedness learning)    │
   │ Kin recognition: Westermarck effect, incest avoidance  │
   │ Language acquisition device (Chomsky): universal       │
   │   grammar constraints on language learning             │

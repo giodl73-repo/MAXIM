@@ -10,16 +10,16 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
 
   ┌─────────────────────────────────────────────────────────────────┐
   │  NUMBERS (2016 revision of "10:1 ratio" — now ~1:1)             │
-  │                                                                   │
+  │                                                                 │
   │  Human cells:     ~37 trillion (Bianconi et al. 2013)           │
   │  Bacterial cells: ~38 trillion (Sender et al. 2016)             │
   │  Ratio: ~1:1  (old "10:1" was based on flawed estimates)        │
-  │                                                                   │
+  │                                                                 │
   │  But by GENE COUNT:                                             │
   │  Human genome:      ~20,000 protein-coding genes                │
   │  Gut microbiome: ~3,000,000 unique microbial genes (150x more)  │
   │  → You are ~0.6% human by gene count                            │
-  │                                                                   │
+  │                                                                 │
   │  ANATOMICAL DISTRIBUTION:                                       │
   │  ┌──────────────────────────────────────────────────────────┐   │
   │  │ Site         Dominant taxa          Density              │   │
@@ -54,8 +54,8 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
   │   Class Clostridia: Clostridium, Ruminococcus, Faecalibacterium│
   │   Class Bacilli: Lactobacillus, Enterococcus, Streptococcus   │
   │   Key species: Faecalibacterium prausnitzii (most abundant)   │
-  │   → Major butyrate producer → colonocyte fuel               │
-  │   → Anti-inflammatory; depleted in IBD                      │
+  │   → Major butyrate producer → colonocyte fuel                 │
+  │   → Anti-inflammatory; depleted in IBD                        │
   │                                                               │
   │ BACTEROIDETES (20–35%)                                        │
   │   Bacteroides: B. thetaiotaomicron (polysaccharide degrader)  │
@@ -106,7 +106,7 @@ THE HUMAN MICROBIOME: SCALE AND COMPOSITION
   │                                                                │
   │   Propionate: C3:0                                             │
   │   → Liver metabolism; gluconeogenic substrate                  │
-  │   → Appetite regulation (GPR41/GPR43 on L-cells)             │
+  │   → Appetite regulation (GPR41/GPR43 on L-cells)               │
   │   → Producers: Bacteroides, Ruminococcus                       │
   │                                                                │
   │   Acetate: C2:0  (most abundant SCFA)                          │

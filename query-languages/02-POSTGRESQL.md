@@ -43,7 +43,7 @@ PostgreSQL is the de facto standard for open-source relational databases. It ext
 │  Cross-partition queries │  BRIN (time-series)        │                   │
 │                          │  Hash (equality only)      │                   │
 ├─────────────────────────────────────────────────────────────────────────┤
-│  PROCEDURAL              │  SECURITY                  │  REPLICATION      │
+│  PROCEDURAL              │  SECURITY                  │  REPLICATION    │
 │  PL/pgSQL, PL/Python     │  Row-Level Security (RLS)  │  Streaming (WAL)  │
 │  PL/V8 (JavaScript)      │  Column-level privileges   │  Logical decoding │
 │  Custom aggregates       │  pg_crypto                 │  Logical replica  │

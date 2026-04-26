@@ -19,8 +19,8 @@ are reframing intellectual priorities.
 |  | Practice theory         |          | Evolutionary psych  |     |
 |  | New Materialism         |          | Embodied cognition  |     |
 |  +-------------------------+          +---------------------+     |
-|                                                                   |
-|  POLITICAL PHILOSOPHY                 SCIENCE AND SOCIETY         |
+   |                                                                |
+   |  POLITICAL PHILOSOPHY                 SCIENCE AND SOCIETY      |
 |  +-------------------------+          +---------------------+     |
 |  | Communitarianism        |          | Science studies     |     |
 |  | Deliberative democracy  |          | STS (science,       |     |
@@ -28,8 +28,8 @@ are reframing intellectual priorities.
 |  | Populism analyzed       |          | AI ethics           |     |
 |  | Identitarian politics   |          | Techno-futures      |     |
 |  +-------------------------+          +---------------------+     |
-|                                                                   |
-|  GLOBAL INTELLECTUAL HISTORY          NEW CHALLENGES              |
+   |                                                                |
+   |  GLOBAL INTELLECTUAL HISTORY          NEW CHALLENGES           |
 |  +-------------------------+          +---------------------+     |
 |  | Postcolonial theory     |          | Climate/Anthropocene|     |
 |  | Subaltern studies       |          | AI and consciousness|     |

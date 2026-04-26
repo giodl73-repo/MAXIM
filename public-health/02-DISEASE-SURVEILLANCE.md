@@ -5,9 +5,9 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    DISEASE SURVEILLANCE ECOSYSTEM                           │
-│                                                                               │
+│                                                                             │
 │  DATA SOURCES           COLLECTION                ANALYSIS & ACTION         │
-│                                                                               │
+│                                                                             │
 │  Clinicians/hospitals ──→ Passive/Mandatory ──→ Case counting               │
 │  Laboratories ──────────→ Lab reporting ────→ Cluster detection             │
 │  Pharmacies ────────────→ Syndromic ───────→ Signal generation              │
@@ -15,7 +15,7 @@
 │  Mortality registries ──→ Vital statistics → Trend analysis                 │
 │  Social media/news ─────→ Event-based ────→ Risk assessment                 │
 │  Traveler screening ────→ PoE surveillance → Response activation            │
-│                                                                               │
+│                                                                             │
 │  FEEDBACK LOOP: surveillance → public health action → disease control       │
 │                 → changed disease pattern → updated surveillance            │
 └─────────────────────────────────────────────────────────────────────────────┘

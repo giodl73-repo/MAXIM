@@ -168,13 +168,13 @@ CALCIUM SIGNALING (Ca²⁺ as second messenger):
   ┌──────────────────────────────────────────────────────────┐
   │  Cytosolic Ca²⁺: ~100 nM resting (very low!)             │
   │  Extracellular: ~2 mM (20,000× gradient maintained)      │
-  │  ER lumen: ~0.5 mM (internal Ca²⁺ store)               │
+  │  ER lumen: ~0.5 mM (internal Ca²⁺ store)                 │
   │                                                          │
   │  Signal cascade:                                         │
-  │    Hormone → receptor → IP₃ release → ER releases Ca²⁺ │
+  │    Hormone → receptor → IP₃ release → ER releases Ca²⁺   │
   │    OR                                                    │
   │    Action potential → voltage-gated Ca²⁺ channel opens   │
-  │    → Ca²⁺ floods in → calmodulin binds 4 Ca²⁺ → CaM   │
+  │    → Ca²⁺ floods in → calmodulin binds 4 Ca²⁺ → CaM      │
   │      activates kinases → cell response                   │
   │                                                          │
   │  Examples:                                               │

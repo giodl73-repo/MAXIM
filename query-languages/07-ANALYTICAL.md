@@ -12,7 +12,7 @@ Cloud data warehouses replaced on-prem Hadoop clusters and SQL Server Analysis S
 │                                                                              │
 │  ON-PREM ERA (the old world)                                                 │
 │  ──────────────────────────                                                  │
-│  SQL Server DW ──► SSIS (ETL) ──► SSAS (cubes/tabular) ──► SSRS / Excel    │
+│  SQL Server DW ──► SSIS (ETL) ──► SSAS (cubes/tabular) ──► SSRS / Excel      │
 │  Fixed capacity. Scale up (bigger box). MOLAP cubes pre-aggregate.           │
 │                                                                              │
 │  HADOOP ERA                                                                  │
@@ -34,7 +34,7 @@ Cloud data warehouses replaced on-prem Hadoop clusters and SQL Server Analysis S
 │                                                                              │
 │  MODERN DATA PATTERN (Medallion Architecture)                                │
 │  ─────────────────────────────────────────────                               │
-│  Raw Sources ──► BRONZE (raw) ──► SILVER (clean) ──► GOLD (biz layer)      │
+│  Raw Sources ──► BRONZE (raw) ──► SILVER (clean) ──► GOLD (biz layer)        │
 │                                                            │                 │
 │                                              Power BI / Tableau / Looker     │
 │                                              ML / AI / Feature Stores        │
@@ -656,7 +656,7 @@ The standard pattern for organizing data in a cloud DW or data lakehouse. Replac
 │  App Databases │ REST APIs │ Event Streams │ File Drops │ CDC (Debezium)     │
 │                │                                                             │
 │                ▼                                                             │
-│  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐         │
+│  ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐           │
 │  │    BRONZE        │    │     SILVER       │    │      GOLD        │        │
 │  │  (Raw / Ingest)  │───►│  (Clean / Valid) │───►│  (Biz / Serve)   │       │
 │  │                  │    │                  │    │                  │        │

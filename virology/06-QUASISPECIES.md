@@ -11,7 +11,7 @@ from this population-level view.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                   QUASISPECIES FRAMEWORK                         │
-│                                                                    │
+│                                                                  │
 │  CLASSICAL VIEW:            QUASISPECIES VIEW:                   │
 │  ──────────────             ────────────────────                 │
 │  Virus = defined sequence   Virus = cloud of mutants             │
@@ -20,7 +20,7 @@ from this population-level view.
 │  Drug resistance = new      Drug resistance variants PRE-EXIST   │
 │  mutation after drug        in the cloud before drug exposure    │
 │  exposure                                                        │
-│                                                                    │
+│                                                                  │
 │  KEY CONSEQUENCES:                                               │
 │  - Drug-resistant mutants are present before treatment begins    │
 │  - "Consensus sequence" is a statistical abstraction             │

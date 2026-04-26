@@ -9,7 +9,7 @@ BACTERIAL CELL: A SIMPLE BUT SOPHISTICATED AGENT
   CELL ANATOMY:
   ┌─────────────────────────────────────────────────────────────────┐
   │  GRAM-POSITIVE                    GRAM-NEGATIVE                 │
-  │                                                                   │
+  │                                                                 │
   │  ┌──────────────────┐             ┌─────────────────────────┐   │
   │  │ Thick             │             │ Outer membrane          │   │
   │  │ Peptidoglycan    │             │ (LPS in gram-)          │   │
@@ -156,7 +156,7 @@ BACTERIAL CELL: A SIMPLE BUT SOPHISTICATED AGENT
   │                                                                │
   │ Nitrogen fixers:   Rhizobium (in root nodules), Azotobacter,   │
   │                    Clostridium (anaerobic)                     │
-  │                    Nitrogenase enzyme: N₂ + 8H⁺ → 2NH₃ + H₂ │
+  │                    Nitrogenase enzyme: N₂ + 8H⁺ → 2NH₃ + H₂    │
   │                    (ATP-expensive; inhibited by O₂)            │
   └────────────────────────────────────────────────────────────────┘
 

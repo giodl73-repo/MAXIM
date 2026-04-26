@@ -13,13 +13,13 @@
 │  AIR-BREATHING           │  ROCKET (self-contained oxidizer)            │
 ├──────────────────────────┼───────────────────────────────────────────────┤
 │  Piston/reciprocating    │  Chemical (liquid/solid/hybrid)               │
-│  ├── 4-stroke Otto cycle │  ├── Liquid: LOX/LH2, LOX/RP-1, N2O4/UDMH  │
+│  ├── 4-stroke Otto cycle │  ├── Liquid: LOX/LH2, LOX/RP-1, N2O4/UDMH     │
 │  └── 2-stroke            │  ├── Solid: HTPB + ammonium perchlorate       │
 │                          │  └── Hybrid: solid fuel + liquid oxidizer     │
 │  Gas turbine             │                                               │
 │  ├── Turbojet            │  Non-chemical                                 │
 │  ├── Turbofan            │  ├── Ion thruster (electric)                  │
-│  ├── Turboprop           │  └── Nuclear (theoretical)                  │
+│  ├── Turboprop           │  └── Nuclear (theoretical)                    │
 │  ├── Turboshaft          │                                               │
 │  └── Ramjet / Scramjet   │                                               │
 └──────────────────────────┴───────────────────────────────────────────────┘

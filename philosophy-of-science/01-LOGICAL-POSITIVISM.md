@@ -13,7 +13,7 @@ Logical positivism was the attempt to make philosophy scientific by applying the
 |  +-----------------+  +-----------------+  +----------------+   |
 |  |  Frege / Russell|  |  Hume / Mach    |  |  Einstein GR   |   |
 |  |  Symbolic logic |  |  Empiricism,    |  |  as model of   |   |
-|  |  as foundation   |  |  positivism     |  |  scientific     |   |
+|  |  as foundation   |  |  positivism     |  |  scientific     | |
 |  |  of mathematics |  |  sensation-base |  |  rigor         |   |
 |  +-----------------+  +-----------------+  +----------------+   |
 |          |                    |                    |             |

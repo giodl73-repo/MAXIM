@@ -17,22 +17,22 @@ through internalist-externalist debates, to contextual, sociological, and postco
 |  | (Sarton: heroes of   |  March of reason toward truth          |
 |  |  science; progress)  |                                         |
 |  +----------------------+                                         |
-|           |                                                       |
-|           v                                                       |
+   |           |                                                    |
+   |           v                                                    |
 |  +----------------------+                                         |
 |  | INTERNALIST          |  1950s-1970s                           |
 |  | (Koyré, Hall:        |  Internal logic of ideas               |
 |  |  conceptual history) |  Mathematization of nature             |
 |  +----------------------+                                         |
-|           |                                                       |
-|           v                                                       |
+   |           |                                                    |
+   |           v                                                    |
 |  +----------------------+                                         |
 |  | SOCIAL/CONTEXTUAL    |  1970s-present                        |
 |  | (Merton, Edinburgh,  |  Social conditions of science          |
 |  |  Shapin, Schaffer)   |  Institutional history                 |
 |  +----------------------+                                         |
-|           |                                                       |
-|           v                                                       |
+   |           |                                                    |
+   |           v                                                    |
 |  +----------------------+                                         |
 |  | POSTCOLONIAL /       |  1990s-present                        |
 |  | GLOBAL               |  Non-Western science                   |

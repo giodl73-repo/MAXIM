@@ -16,8 +16,8 @@ THE LANDSCAPE
                            ▼
   GRAVITOELECTROMAGNETISM — GEM (weak gravity ≈ Maxwell-like equations)
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  ∇·Eg = -ρm/ε₀g           ∇·Bg = 0                                    │
-  │  ∇×Eg = -∂Bg/∂t           ∇×Bg = -(4/c²)(Jm/ε₀g) + ...               │
+  │  ∇·Eg = -ρm/ε₀g           ∇·Bg = 0                                      │
+  │  ∇×Eg = -∂Bg/∂t           ∇×Bg = -(4/c²)(Jm/ε₀g) + ...                  │
   │  Gravitoelectric ≈ Newtonian gravity                                    │
   │  Gravitomagnetic ≈ frame-dragging (Lense-Thirring effect)               │
   └────────────────────────┬────────────────────────────────────────────────┘
@@ -287,11 +287,11 @@ Proof: Any static potential satisfying Laplace's equation ∇²U = 0
 
 Circumventions:
 ┌──────────────────────────────────────────────────────────────────┐
-│  1. Diamagnetism     — χ_m < 0 creates a local maximum in U    │
-│  2. Superconductors  — perfect diamagnet, Meissner             │
-│  3. Active feedback  — sensor + coil (Maglev trains, EMS type) │
-│  4. AC traps         — Paul trap (ions), optical tweezer       │
-│  5. Rotation         — spinning gyroscopic stabilization       │
+│  1. Diamagnetism     — χ_m < 0 creates a local maximum in U      │
+│  2. Superconductors  — perfect diamagnet, Meissner               │
+│  3. Active feedback  — sensor + coil (Maglev trains, EMS type)   │
+│  4. AC traps         — Paul trap (ions), optical tweezer         │
+│  5. Rotation         — spinning gyroscopic stabilization         │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -507,7 +507,7 @@ THE UNIFICATION LANDSCAPE (2026)
   │  Candidates: String theory, Loop QG, asymptotic safety│
   │  None tested, none produce predictions yet            │
   │                                                       │
-  │  Planck scale: E_P = √(ℏc⁵/G) = 1.22 × 10¹⁹ GeV    │
+  │  Planck scale: E_P = √(ℏc⁵/G) = 1.22 × 10¹⁹ GeV       │
   │  Where QM and GR must both matter                     │
   │  LHC reaches 10⁴ GeV — 15 orders below Planck scale   │
   └───────────────────────────────────────────────────────┘

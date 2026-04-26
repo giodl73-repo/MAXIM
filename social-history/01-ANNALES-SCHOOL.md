@@ -21,8 +21,8 @@ Its four generations each took the project in new directions.
 |  | Geographic/social   |      |                           |       |
 |  | history             |      |                           |       |
 |  +---------------------+      +---------------------------+       |
-|                                                                   |
-|  GENERATION 3 (1968-1989)     GENERATION 4 (1989-)                |
+   |                                                                |
+   |  GENERATION 3 (1968-1989)     GENERATION 4 (1989-)             |
 |  +---------------------+      +---------------------------+       |
 |  | LE ROY LADURIE,     |      | Cultural/micro turn       |       |
 |  | DUBY, LE GOFF       |      | Chartier, Revel           |       |

@@ -142,9 +142,9 @@ Each has a distinct philosophy and ideal domain of application.
   │  Heat         Explicit    Δt ≤ h²/2α        O(Δt + h²)      │
   │  Heat         Implicit    Unconditional     O(Δt + h²)      │
   │  Heat         C-N         Unconditional     O(Δt² + h²)     │
-  │  Wave         Explicit    Δt ≤ h/c (CFL!)   O(Δt² + h²)   │
+  │  Wave         Explicit    Δt ≤ h/c (CFL!)   O(Δt² + h²)     │
   │  Wave         Implicit    Unconditional*    O(Δt² + h²)     │
-  │  Conv. u_t+cu_x=0  Upwind  Δt ≤ h/c        O(Δt + h)     │
+  │  Conv. u_t+cu_x=0  Upwind  Δt ≤ h/c        O(Δt + h)        │
   │                                                             │
   │  *Wave implicit: unconditionally stable but dispersive      │
   └─────────────────────────────────────────────────────────────┘

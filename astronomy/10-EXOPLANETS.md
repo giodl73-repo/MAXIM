@@ -22,10 +22,10 @@
 │                                                                            │
 │   POPULATION CENSUS (confirmed ~5700+ as of 2025):                         │
 │   Gas giants (R > 6 R_E)          ~5%  — overrepresented (detection bias)  │
-│   Sub-Neptunes (1.7–4 R_E)        ~36% — most common type                │
-│   Super-Earths (1–1.7 R_E)        ~30% — rocky side of Fulton gap        │
+│   Sub-Neptunes (1.7–4 R_E)        ~36% — most common type                  │
+│   Super-Earths (1–1.7 R_E)        ~30% — rocky side of Fulton gap          │
 │   Earths (< 1.2 R_E)              ~13% — difficult to detect               │
-│   Hot Jupiters (a < 0.1 AU, large) ~1%  — rare but first detected        │
+│   Hot Jupiters (a < 0.1 AU, large) ~1%  — rare but first detected          │
 └────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -341,7 +341,7 @@ Dayside temperatures > 2200 K → molecular dissociation (H₂ dissociates, FeI/
 │  Ariel       2029     Atmospheric survey      >1000 planets          │
 │  PLATO       2026     Rocky HZ planets        P up to 2 yr           │
 │  Roman       2027     Microlensing + coronagraph Cold planets + HJ   │
-│  HWO         ~2040    Rocky planet direct imaging 10⁻¹⁰ contrast   │
+│  HWO         ~2040    Rocky planet direct imaging 10⁻¹⁰ contrast     │
 │  LUVOIR-A    ~2040    UV-optical-IR direct imaging Rocky biosigs     │
 └──────────────────────────────────────────────────────────────────────┘
 ```

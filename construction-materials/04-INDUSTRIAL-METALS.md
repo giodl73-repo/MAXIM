@@ -26,8 +26,8 @@ IRON AND STEEL METALLURGY TIMELINE
 │  Pig iron (blast furnace output):   3–5% C → very brittle                    │
 │  Cast iron (remelted + poured):     2–4% C → brittle in tension              │
 │  Wrought iron (worked, slag-rich):  <0.1% C → ductile, fibrous               │
-│  Mild steel (structural):           0.15–0.30% C → balanced properties     │
-│  High-carbon steel:                 0.6–1.5% C → hard but brittle          │
+│  Mild steel (structural):           0.15–0.30% C → balanced properties       │
+│  High-carbon steel:                 0.6–1.5% C → hard but brittle            │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -176,16 +176,16 @@ WROUGHT IRON PUDDLING PROCESS
 BESSEMER CONVERTER PROCESS (1856)
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  1. Tilt converter → charge with ~15–20 tonnes molten pig iron (3.5–4% C)  │
+│  1. Tilt converter → charge with ~15–20 tonnes molten pig iron (3.5–4% C)    │
 │                                                                              │
 │  2. Upright → blast air through tuyères in converter bottom                  │
 │      O₂ in air → reacts with C, Si, Mn in molten iron                        │
-│      C + O₂ → CO₂/CO  (carbon removed; violent reaction; intense flame)    │
-│      Si + O₂ → SiO₂ (into slag)                                            │
+│      C + O₂ → CO₂/CO  (carbon removed; violent reaction; intense flame)      │
+│      Si + O₂ → SiO₂ (into slag)                                              │
 │      Mn + O₂ → MnO (into slag)                                               │
 │                                                                              │
 │  3. Blow duration: ~15–20 minutes                                            │
-│     → C drops from ~4% to <0.1% (OVER-blown) → iron oxidized               │
+│     → C drops from ~4% to <0.1% (OVER-blown) → iron oxidized                 │
 │                                                                              │
 │  4. Add ferromanganese: re-carburizes to target C; deoxidizes                │
 │     → target C: 0.15–0.30% for mild steel                                    │
@@ -199,8 +199,8 @@ BESSEMER CONVERTER PROCESS (1856)
 │  → superseded by open-hearth furnace by 1900 for quality work                │
 │                                                                              │
 │  REVOLUTION:                                                                 │
-│  15–20 minutes for 20 tonnes vs 5 hours/200 kg for wrought iron puddling   │
-│  Cost drop: steel price fell ~85% between 1865 and 1880                    │
+│  15–20 minutes for 20 tonnes vs 5 hours/200 kg for wrought iron puddling     │
+│  Cost drop: steel price fell ~85% between 1865 and 1880                      │
 │  → skeleton steel frame buildings viable                                     │
 │  → the Chicago School of architecture became economically possible           │
 │                                                                              │

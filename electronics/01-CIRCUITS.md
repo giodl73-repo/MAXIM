@@ -195,10 +195,10 @@ CIRCUIT ANALYSIS LANDSCAPE
 ```
   ┌───────────────────────────────────────────────────────┐
   │  Op-amp golden rules (for negative feedback circuits): │
-  │                                                         │
+  │                                                       │
   │  Rule 1: V+ = V−   (virtual short — inputs equalize)  │
   │  Rule 2: Iin = 0   (no current into inputs)           │
-  │                                                         │
+  │                                                       │
   │  Open-loop gain A → ∞, Rin → ∞, Rout → 0              │
   └───────────────────────────────────────────────────────┘
 

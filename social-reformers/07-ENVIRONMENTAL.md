@@ -283,14 +283,14 @@ Maathai founded the Green Belt Movement in Kenya (1977) and won the Nobel Peace 
   │ Environmental degradation in Kenya:                     │
   │ Deforestation → soil erosion → stream drying            │
   │ → women walk further for water and firewood             │
-  │ → less time for food production + education               │
+  │ → less time for food production + education             │
   │ → poverty cycle deepens                                 │
-  │                                                           │
-  │ Maathai's insight:                                        │
+  │                                                         │
+  │ Maathai's insight:                                      │
   │ Environment + women's livelihoods + democracy are       │
-  │ the same problem                                          │
+  │ the same problem                                        │
   │ Moi's authoritarian government sold forest reserves to  │
-  │ cronies → deforestation                                   │
+  │ cronies → deforestation                                 │
   │ Corrupt governance → resource extraction → poverty      │
   │ Environmental protection requires democratic accountability│
   └─────────────────────────────────────────────────────────┘

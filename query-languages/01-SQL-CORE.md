@@ -170,7 +170,7 @@ FETCH  FIRST n ROWS ONLY              -- ANSI SQL:2008 / Oracle / DB2
 ```
 INNER JOIN                      LEFT OUTER JOIN
   ┌──────┐   ┌──────┐             ┌──────┐   ┌──────┐
-  │  A   │░░░│   B  │             │  A   ███████   B  │
+  │  A   │░░░│   B  │             │  A   ███████   B│
   │      │███│      │             │      ░░░│       │
   └──────┘   └──────┘             └──────┘   └──────┘
   Only matching rows              All of A + matched B (NULLs where no match)

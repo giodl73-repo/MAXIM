@@ -127,25 +127,25 @@ creating new critical mineral concentrations even as it reduces oil dependency.
   │   but bypass capacity limited                                    │
   │                                                                  │
   │ STRAIT OF MALACCA:                                               │
-  │ Between Malay Peninsula and Sumatra; 15M bbl/day               │
+  │ Between Malay Peninsula and Sumatra; 15M bbl/day                 │
   │   + 40% of world container trade                                 │
-  │ Shortest route between Indian and Pacific Oceans               │
+  │ Shortest route between Indian and Pacific Oceans                 │
   │ Piracy historically; now heavily patrolled (5 Eyes + regional)   │
-  │ Alternative: Lombok Strait (longer) or proposed canals         │
+  │ Alternative: Lombok Strait (longer) or proposed canals           │
   │ Thailand Kra Canal: repeatedly proposed; geopolitically complex  │
   │                                                                  │
   │ BAB-EL-MANDEB:                                                   │
-  │ Between Djibouti/Eritrea and Yemen; Red Sea access to Suez     │
-  │   12M bbl/day; 10% of world trade                              │
-  │ Houthi disruptions 2023-: drone/missile attacks on shipping    │
-  │   → 60% drop in Suez Canal traffic; rerouting around Africa    │
-  │   → +10-14 day voyage; significant cost increase               │
+  │ Between Djibouti/Eritrea and Yemen; Red Sea access to Suez       │
+  │   12M bbl/day; 10% of world trade                                │
+  │ Houthi disruptions 2023-: drone/missile attacks on shipping      │
+  │   → 60% drop in Suez Canal traffic; rerouting around Africa      │
+  │   → +10-14 day voyage; significant cost increase                 │
   │                                                                  │
   │ SUEZ CANAL:                                                      │
-  │ 12% of world trade; 30% of global container traffic            │
+  │ 12% of world trade; 30% of global container traffic              │
   │ Largest supertankers can't fit; they go around Africa anyway     │
-  │ 2021 Ever Given: 6-day blockage → $9.6B/day impact (Lloyd's)  │
-  │ Egyptian revenue: ~$9.4B/year (2022-23 record before Houthi)   │
+  │ 2021 Ever Given: 6-day blockage → $9.6B/day impact (Lloyd's)     │
+  │ Egyptian revenue: ~$9.4B/year (2022-23 record before Houthi)     │
   │                                                                  │
   │ TURKISH STRAITS (BOSPORUS + DARDANELLES):                        │
   │ Only egress for Black Sea; 3M bbl/day Russian oil exports        │

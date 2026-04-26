@@ -394,8 +394,8 @@ properties. Most critical factor in determining biocompatibility outcome.
   |                 | Enhances osteoblast/fibroblast adhesion         |
   +-----------------+------------------------------------------------+
   | BMP-2 immobil.  | Bone morphogenetic protein-2 immobilized       |
-  |                 | Osteoinductive signal at implant surface         |
-  |                 | Experimental — concern about ectopic bone        |
+  |                 | Osteoinductive signal at implant surface       |
+  |                 | Experimental — concern about ectopic bone      |
   +-----------------+------------------------------------------------+
 ```
 

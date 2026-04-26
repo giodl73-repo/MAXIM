@@ -121,7 +121,7 @@ Android apps are not monolithic executables. The OS **assembles** an app from de
   ┌──────────────────────────────────────────────────────────────┐
   │  Your App Process                                            │
   │                                                              │
-  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌───────────┐  │
+  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌───────────┐     │
   │  │ Activity │  │ Fragment │  │ Service  │  │ Broadcast  │  │
   │  │ (screen) │  │ (UI unit)│  │ (bg work)│  │ Receiver   │  │
   │  └──────────┘  └──────────┘  └──────────┘  └───────────┘  │
@@ -866,7 +866,7 @@ class MainActivity : ComponentActivity() {
   ┌─────────────────┬────────────────────────────────────────────────┐
   │ Dispatchers.Main│ UI thread — must use for UI updates            │
   │ Dispatchers.IO  │ Blocking I/O: network, disk, database          │
-  │ Dispatchers.Default│ CPU-intensive: sorting, parsing, crypto   │
+  │ Dispatchers.Default│ CPU-intensive: sorting, parsing, crypto     │
   │ Dispatchers.Unconfined│ Inherits caller's thread (rarely useful) │
   └─────────────────┴────────────────────────────────────────────────┘
 

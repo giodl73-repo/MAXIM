@@ -209,7 +209,7 @@ OPEN-END / ROTOR SPINNING (1963, development from ~1960s):
   │                                                              │
   │  Ne (English Cotton Count):                                  │
   │    # of 840-yd hanks per pound                               │
-  │    Ne 30 = 30 × 840 yd = 25,200 yd per pound               │
+  │    Ne 30 = 30 × 840 yd = 25,200 yd per pound                 │
   │    Ne 100 = much finer (100 hanks per pound)                 │
   │    Used for: cotton, cotton blends, spun synthetic           │
   │                                                              │

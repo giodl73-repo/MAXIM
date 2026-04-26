@@ -87,7 +87,7 @@ PLANKTIVORES    INVERTIVORES
 | Anthias   |   | Goatfish  |
 | Fusiliers |   | Triggerfish|
 +-----------+   +-----------+
-       |                |
+       |                    |
 ZOOPLANKTON        INVERTEBRATES
 (copepods,         (worms, crustaceans,
  amphipods)        mollusks, echinoderms)

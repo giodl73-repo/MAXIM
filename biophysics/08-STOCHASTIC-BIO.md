@@ -5,25 +5,25 @@
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │             STOCHASTIC PROCESSES IN BIOLOGY LANDSCAPE                    │
-│                                                                            │
+│                                                                          │
 │  WHY STOCHASTICITY MATTERS:                                              │
 │  Cell volume ~10⁻¹⁵ L → low copy numbers                                 │
 │  Typical transcription factor: ~10-1000 molecules per cell               │
 │  Transcription: 1-2 copies of each gene → discrete, bursty events        │
 │  Single-molecule reactions: Poisson statistics, not continuous flows     │
-│                                                                            │
-│  MATHEMATICAL FRAMEWORKS:                                                  │
+│                                                                          │
+│  MATHEMATICAL FRAMEWORKS:                                                │
 │  ─────────────────────────────────────────────────────────────────────── │
 │  Langevin equation:  mẍ = F_det - γẋ + ξ(t)    (trajectory level)        │
-│  Fokker-Planck eq:   ∂P/∂t = -∂(FP)/∂x + D∂²P/∂x²  (density level)     │
-│  Master equation:    dPₙ/dt = Σ [W(n|m)Pₘ - W(m|n)Pₙ]  (discrete)      │
+│  Fokker-Planck eq:   ∂P/∂t = -∂(FP)/∂x + D∂²P/∂x²  (density level)       │
+│  Master equation:    dPₙ/dt = Σ [W(n|m)Pₘ - W(m|n)Pₙ]  (discrete)        │
 │  Birth-death process: gene expression, protein synthesis/degradation     │
-│                                                                            │
-│  KEY RESULTS:                                                              │
+│                                                                          │
+│  KEY RESULTS:                                                            │
 │  Fluctuation-dissipation theorem: noise ↔ dissipation are linked         │
-│  Jarzynski equality: ⟨exp(-βW)⟩ = exp(-βΔF)  (non-eq → eq)             │
+│  Jarzynski equality: ⟨exp(-βW)⟩ = exp(-βΔF)  (non-eq → eq)               │
 │  Crooks fluctuation theorem: P(W)/P(-W) = exp(β(W-ΔF))                   │
-│  Transcriptional bursting: protein count CV² = 1/⟨n⟩ + b/(1+kf/kb)     │
+│  Transcriptional bursting: protein count CV² = 1/⟨n⟩ + b/(1+kf/kb)       │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 

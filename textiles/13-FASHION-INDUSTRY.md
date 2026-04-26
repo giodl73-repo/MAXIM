@@ -327,9 +327,9 @@ FASHION INDUSTRY STRUCTURE: THE TIER PYRAMID
   CONGLOMERATE CONTROL:
   ┌───────────────────────────────────────────────────────────┐
   │  LVMH (Bernard Arnault):                                  │
-  │    Louis Vuitton, Dior, Givenchy, Celine, Loewe,        │
-  │    Kenzo, Loro Piana, Bulgari, TAG Heuer, Sephora,      │
-  │    Le Bon Marché, LVMH Moët Hennessy                    │
+  │    Louis Vuitton, Dior, Givenchy, Celine, Loewe,          │
+  │    Kenzo, Loro Piana, Bulgari, TAG Heuer, Sephora,        │
+  │    Le Bon Marché, LVMH Moët Hennessy                      │
   │    Revenue: ~€79B (2022)                                  │
   ├───────────────────────────────────────────────────────────┤
   │  KERING (François-Henri Pinault):                        │
@@ -338,7 +338,7 @@ FASHION INDUSTRY STRUCTURE: THE TIER PYRAMID
   │    Revenue: ~€17B (2022)                                 │
   ├───────────────────────────────────────────────────────────┤
   │  RICHEMONT (Johann Rupert):                               │
-  │    Cartier, IWC, Jaeger-LeCoultre, Van Cleef,           │
+  │    Cartier, IWC, Jaeger-LeCoultre, Van Cleef,             │
   │    Chloé (sold), Dunhill                                  │
   │    Revenue: ~€19B (2022)                                  │
   └───────────────────────────────────────────────────────────┘
@@ -356,7 +356,7 @@ FASHION INDUSTRY STRUCTURE: THE TIER PYRAMID
   │  Carbon: fashion ~4-10% of global emissions (methodology   │
   │  debated; includes fiber production through end-of-life)   │
   │                                                            │
-  │  Water: ~2,700 liters to produce one cotton T-shirt      │
+  │  Water: ~2,700 liters to produce one cotton T-shirt        │
   │  (~3 years of one person's drinking water need)            │
   │  Aral Sea (Central Asia): disappeared partly from Uzbek    │
   │  cotton irrigation diversions from Amu/Syr Darya rivers    │
@@ -364,10 +364,10 @@ FASHION INDUSTRY STRUCTURE: THE TIER PYRAMID
   │  Textile dyeing: ~20% of industrial water pollution;       │
   │  6,000+ chemicals used in textile production               │
   │                                                            │
-  │  Waste: ~85% of textiles globally go to landfill or      │
+  │  Waste: ~85% of textiles globally go to landfill or        │
   │  incineration; US: ~34 lbs per person per year waste       │
   │                                                            │
-  │  Microplastics: single polyester garment sheds ~700,000  │
+  │  Microplastics: single polyester garment sheds ~700,000    │
   │  microplastic fibers per wash                              │
   │  Passes wastewater treatment; in ocean sediment;           │
   │  in fish; in human blood and placentas (2022 studies)      │

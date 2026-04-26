@@ -13,7 +13,7 @@
 |   Infusion (VARTM)          Compression mold      Braiding       |
 |                             Pultrusion             Robotic drape |
 |                                                                  |
-|   LOW COST / QUALITY ◄──────────────────────────► HIGH COST/Q  |
+|   LOW COST / QUALITY ◄──────────────────────────► HIGH COST/Q    |
 |                                                                  |
 |   PREPREG + AUTOCLAVE: Aerospace gold standard                   |
 |   → Highest Vf (60%), lowest void, controlled properties         |

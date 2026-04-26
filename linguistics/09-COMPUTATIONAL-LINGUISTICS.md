@@ -9,12 +9,12 @@ Computational linguistics sits at the intersection of linguistics and computer s
 |              COMPUTATIONAL LINGUISTICS LANDSCAPE                 |
 |                                                                  |
 |  FORMAL GRAMMARS              PARSING ALGORITHMS                 |
-|  (CFG, PCFG, CCG, TAG,        (CYK, Earley, chart,             |
+|  (CFG, PCFG, CCG, TAG,        (CYK, Earley, chart,               |
 |   dependency grammar)          shift-reduce, neural)             |
 |                                                                  |
 |  CLASSIC NLP PIPELINE         STATISTICAL REVOLUTION             |
-|  (tokenize → POS tag →        (IBM alignment models,           |
-|   parse → NER → SRL)           n-gram LMs, HMMs, PCFGs)        |
+|  (tokenize → POS tag →        (IBM alignment models,             |
+|   parse → NER → SRL)           n-gram LMs, HMMs, PCFGs)          |
 |                                                                  |
 |  DISTRIBUTIONAL               NEURAL NLP                         |
 |  SEMANTICS                    (word2vec, GloVe, BERT,            |
@@ -22,7 +22,7 @@ Computational linguistics sits at the intersection of linguistics and computer s
 |   pointwise mutual info)                                         |
 |                                                                  |
 |  TCS BRIDGES:                                                    |
-|  CFG parsing → CYK (O(n³)), Earley (O(n³)),                    |
+|  CFG parsing → CYK (O(n³)), Earley (O(n³)),                      |
 |  weighted automata, inside-outside algorithm                     |
 +------------------------------------------------------------------+
 ```

@@ -10,12 +10,12 @@ BIOMECHANICS HIERARCHY:
   KINEMATICS                          KINETICS
   (describe motion)                   (explain motion)
   +---------------------------+        +---------------------------+
-  | Linear: position,          |        | Forces: ground reaction    |
-  | velocity, acceleration     |        | forces, joint moments,     |
-  | Angular: joint angles,     |        | muscle forces              |
-  | angular velocity           |        | Impulse-momentum theorem   |
-  | Center of mass trajectory  |        | Work-energy theorem        |
-  | Segment positions          |        | Power output               |
+  | Linear: position,          |        | Forces: ground reaction  |
+  | velocity, acceleration     |        | forces, joint moments,   |
+  | Angular: joint angles,     |        | muscle forces            |
+  | angular velocity           |        | Impulse-momentum theorem |
+  | Center of mass trajectory  |        | Work-energy theorem      |
+  | Segment positions          |        | Power output             |
   +---------------------------+        +---------------------------+
           |                                      |
           +------------------+-------------------+

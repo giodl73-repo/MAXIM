@@ -47,16 +47,16 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
 
   THE PHYSICS:
   ┌───────────────────────────────────────────────────────────┐
-  │  ePTFE MEMBRANE PORE SIZE: ~0.2 microns (200 nm)        │
+  │  ePTFE MEMBRANE PORE SIZE: ~0.2 microns (200 nm)          │
   │                                                           │
   │  COMPARISON:                                              │
-  │  Water droplet (rain/mist): ~100 microns (100,000 nm)   │
-  │  Water vapor molecule: ~0.0003 microns (0.3 nm)         │
+  │  Water droplet (rain/mist): ~100 microns (100,000 nm)     │
+  │  Water vapor molecule: ~0.0003 microns (0.3 nm)           │
   │                                                           │
-  │  Liquid water droplet: 500,000× too large → BLOCKED     │
-  │  Water vapor molecule: 667× too small → PASSES THROUGH  │
+  │  Liquid water droplet: 500,000× too large → BLOCKED       │
+  │  Water vapor molecule: 667× too small → PASSES THROUGH    │
   │                                                           │
-  │  RESULT: Waterproof + Breathable                        │
+  │  RESULT: Waterproof + Breathable                          │
   └───────────────────────────────────────────────────────────┘
 
   PORE DENSITY: ~9 billion pores per square inch
@@ -69,10 +69,10 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
 
   2-LAYER vs 3-LAYER vs 2.5-LAYER:
   ┌───────────────────────────────────────────────────────────┐
-  │  2-layer:   Face + membrane; separate lining            │
-  │             Softer, drapier; separate lining can bunch  │
-  │  3-layer:   Face + membrane + backer ALL laminated      │
-  │             Stiffer, more durable; used in hard shells  │
+  │  2-layer:   Face + membrane; separate lining              │
+  │             Softer, drapier; separate lining can bunch    │
+  │  3-layer:   Face + membrane + backer ALL laminated        │
+  │             Stiffer, more durable; used in hard shells    │
   │  2.5-layer: Face + membrane + printed texture (not lining)│
   │             Compromise; common in packable shells         │
   └───────────────────────────────────────────────────────────┘
@@ -119,9 +119,9 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
 
   ┌───────────────────────────────────────────────────────────┐
   │  Kevlar structure (schematic):                            │
-  │  –[NH-C₆H₄-NH-CO-C₆H₄-CO]ₙ–                           │
+  │  –[NH-C₆H₄-NH-CO-C₆H₄-CO]ₙ–                               │
   │  Aromatic rings connected at para positions               │
-  │  → all-aromatic backbone → extremely rigid              │
+  │  → all-aromatic backbone → extremely rigid                │
   └───────────────────────────────────────────────────────────┘
 
   MECHANICAL PROPERTIES:
@@ -276,14 +276,14 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
   ┌───────────────────────────────────────────────────────────┐
   │  SURGICAL SUTURES:                                        │
   │  Absorbable:                                              │
-  │    PGA (polyglycolic acid) — Dexon: absorbs 3-4 months  │
+  │    PGA (polyglycolic acid) — Dexon: absorbs 3-4 months    │
   │    PGLA (glycolide/lactide) — Vicryl: absorbs 2-3 months│
   │    Chromic gut: collagen + chromium; absorbs 2-3 weeks    │
   │  Non-absorbable:                                          │
   │    Nylon (monofilament or braided)                        │
-  │    Polypropylene: least tissue reactivity               │
+  │    Polypropylene: least tissue reactivity                 │
   │    Silk: braided; traditional but absorbs slowly          │
-  │    Stainless steel wire: bone closure, sternal wires    │
+  │    Stainless steel wire: bone closure, sternal wires      │
   │                                                           │
   │  HERNIA MESH:                                             │
   │    Polypropylene knitted mesh — most common               │
@@ -292,7 +292,7 @@ TECHNICAL TEXTILES: FUNCTION OVER AESTHETICS
   │    Biologic meshes (porcine/bovine collagen): alternative│
   │                                                           │
   │  VASCULAR GRAFTS:                                         │
-  │    ePTFE (Gore-Tex) or PET/Dacron (woven or knitted)    │
+  │    ePTFE (Gore-Tex) or PET/Dacron (woven or knitted)      │
   │    For replacing/bypassing blood vessels                  │
   │    Porosity allows tissue ingrowth over time              │
   └───────────────────────────────────────────────────────────┘

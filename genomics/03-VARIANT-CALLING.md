@@ -157,10 +157,10 @@ The Genome Analysis Toolkit (GATK) from the Broad Institute is the field standar
   │                                                                 │
   │  INSERTION:       ──[A]──[B]──  →  ──[A]──[NEW]──[B]──          │
   │                                                                 │
-  │  INVERSION:       ──[A]──[B]──[C]──  →  ──[A]──[B']──[C]──    │
+  │  INVERSION:       ──[A]──[B]──[C]──  →  ──[A]──[B']──[C]──      │
   │                         ↑ [B] reversed                          │
   │                                                                 │
-  │  DUPLICATION:     ──[A]──[B]──  →  ──[A]──[B]──[B]──[B]──     │
+  │  DUPLICATION:     ──[A]──[B]──  →  ──[A]──[B]──[B]──[B]──       │
   │  (tandem)                ↑ [B] copied                           │
   │                                                                 │
   │  TRANSLOCATION:   Segment moves to different chromosome         │
@@ -283,7 +283,7 @@ The Genome Analysis Toolkit (GATK) from the Broad Institute is the field standar
   │ PS1–4: Pathogenic evidence (frequency/functional/etc)  │
   │ PM1–6: Moderate pathogenic evidence                    │
   │ PP1–5: Supporting pathogenic evidence                  │
-  │ BA1: AF >5% in gnomAD → Benign standalone            │
+  │ BA1: AF >5% in gnomAD → Benign standalone              │
   │ BS1–4: Strong benign evidence                          │
   │ BP1–7: Supporting benign evidence                      │
   └────────────────────────────────────────────────────────┘

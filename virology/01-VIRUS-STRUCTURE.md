@@ -9,7 +9,7 @@ evasion. Everything else is stripped out.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                VIRUS STRUCTURAL HIERARCHY                        │
-│                                                                    │
+│                                                                  │
 │  GENOME                                                          │
 │  ─────── DNA or RNA, ss or ds, linear or circular, segmented     │
 │     │                                                            │

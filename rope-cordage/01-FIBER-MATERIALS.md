@@ -10,17 +10,17 @@ FIBER CLASSIFICATION
 
   NATURAL FIBERS (cellulosic or protein-based, finite staple length)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  BAST FIBERS (plant stem):  Hemp, Flax, Jute                   │
-  │  LEAF FIBERS (plant leaf):  Manila (abaca), Sisal, Phormium    │
+  │  BAST FIBERS (plant stem):  Hemp, Flax, Jute                     │
+  │  LEAF FIBERS (plant leaf):  Manila (abaca), Sisal, Phormium      │
   │  SEED FIBERS (seed hair):   Cotton                               │
-  │  FRUIT FIBERS (husk):       Coir (coconut)                     │
-  │  ANIMAL (protein):          Wool, Silk (rare in rope)          │
+  │  FRUIT FIBERS (husk):       Coir (coconut)                       │
+  │  ANIMAL (protein):          Wool, Silk (rare in rope)            │
   └──────────────────────────────────────────────────────────────────┘
 
   SYNTHETIC FIBERS (continuous filament, polymer-based)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  COMMODITY SYNTHETICS:  Nylon (PA), Polyester (PET), PP, PE    │
-  │  HIGH-PERFORMANCE:      UHMWPE, Aramid, LCP, PBO               │
+  │  COMMODITY SYNTHETICS:  Nylon (PA), Polyester (PET), PP, PE      │
+  │  HIGH-PERFORMANCE:      UHMWPE, Aramid, LCP, PBO                 │
   └──────────────────────────────────────────────────────────────────┘
 
   KEY DIMENSION:

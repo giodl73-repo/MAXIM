@@ -324,7 +324,7 @@ This maps to: N runnable processes → scheduler selects highest-priority → ot
     │       │           recurrent)          EC Layer V            │ │
     │       ▼                                    │                │ │
     │  High expansion:                     Neocortex ←────────────┘ │
-    │  ~200,000 → 1M GCs                   (memory consolidation)   │
+    │  ~200,000 → 1M GCs                   (memory consolidation) │
     └─────────────────────────────────────────────────────────────┘
 
     DG: pattern separation (orthogonalize similar inputs → distinct representations)

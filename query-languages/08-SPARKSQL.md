@@ -64,20 +64,20 @@ If you've run a Synapse notebook against an ADLS-backed Delta table, you've alre
 │                                 │  identical execution plan                 │
 │  ┌──────────────────────────────▼───────────────────────────────────────┐   │
 │  │                   Catalyst Query Optimizer                           │   │
-│  │   Parse → Analyze → Optimize → Physical Plan → Codegen (JVM)       │   │
+│  │   Parse → Analyze → Optimize → Physical Plan → Codegen (JVM)       │     │
 │  │   Rule-based + cost-based optimizations (column pruning, pushdown)   │   │
 │  └──────────────────────────────┬───────────────────────────────────────┘   │
 │                                 │                                           │
 │  ┌──────────────────────────────▼───────────────────────────────────────┐   │
 │  │             Distributed Execution (Driver + Executors)               │   │
-│  │   Stage 1 ──shuffle──► Stage 2 ──shuffle──► Stage 3                │   │
+│  │   Stage 1 ──shuffle──► Stage 2 ──shuffle──► Stage 3                │     │
 │  │   Each stage = DAG of tasks (1 task per partition)                   │   │
 │  └──────────────────────────────┬───────────────────────────────────────┘   │
 │                                 │                                           │
 │  ┌──────────────────────────────▼───────────────────────────────────────┐   │
 │  │      Storage Layer                                                   │   │
 │  │      Delta Lake / Parquet / ORC / JSON / CSV / Avro                  │   │
-│  │      HDFS  /  S3  /  ADLS Gen2  /  GCS                             │   │
+│  │      HDFS  /  S3  /  ADLS Gen2  /  GCS                             │     │
 │  └──────────────────────────────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────────────────────────────┘
 

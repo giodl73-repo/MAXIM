@@ -9,14 +9,14 @@ HYBRID AND MULTI-CLOUD SPECTRUM
 +-----------------------------------------------------------------------+
 |                                                                       |
 |  HYBRID                           MULTI-CLOUD                         |
-|  +---------------------------+   +-----------------------------+    |
+|  +---------------------------+   +-----------------------------+      |
 |  | Azure + On-Premises       |   | Azure + AWS                 |    |
 |  | Connected (VPN/ER)        |   | Azure + GCP                 |    |
 |  | Azure Arc manages on-prem |   | AWS + GCP (no Azure)        |    |
 |  | VMs, Kubernetes, SQL      |   | True multi-cloud strategy   |    |
 |  +---------------------------+   +-----------------------------+    |
-|                                                                       |
-|  MANAGEMENT PLANE PROJECTIONS                                       |
+   |                                                                  |
+   |  MANAGEMENT PLANE PROJECTIONS                                    |
 |  +------------------------------------------------------------------+ |
 |  | Azure Arc (Microsoft)   | Project Azure to on-prem / other clouds| |
 |  | Google Anthos           | Project GKE management to anywhere    | |

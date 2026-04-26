@@ -585,7 +585,7 @@ Polish survival phrases:
 
 ```
 +--------------------------------------------------------------------+
-| TAMIL (தமிழ் Tamiḻ)                                               |
+| TAMIL (தமிழ் Tamiḻ)                                                 |
 +--------------------------------------------------------------------+
 | Family:      Dravidian → South Dravidian → Tamil-Kannada           |
 | Native spkrs: ~78M                                                 |

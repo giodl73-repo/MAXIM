@@ -121,7 +121,7 @@ GRASSHOPPER ESCAPEMENT — PRINCIPLE
                    (locking face)              (locking face)
                     ↙                          ↘
            ╭──────────────╮              ╭──────────────╮
-           │  entry pallet │              │  exit pallet  │
+           │  entry pallet │              │  exit pallet│
            │  (pivots on  │              │  (pivots on  │
            │   spring     │              │   spring     │
            │   tension)   │              │   tension)   │

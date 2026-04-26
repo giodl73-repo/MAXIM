@@ -82,7 +82,7 @@ Cells are described by dot numbers (e.g., "1" = only dot 1 raised, "12" = dots 1
 │                                                              │
 │  u=136     v=1236    w=2456    x=1346    y=13456   z=1356    │
 │                                                              │
-│  PATTERN: letters a–j use only dots 1,2,4,5 (top 4 dots)   │
+│  PATTERN: letters a–j use only dots 1,2,4,5 (top 4 dots)     │
 │           letters k–t = corresponding a–j + dot 3            │
 │           letters u–z = corresponding k–t + dot 6            │
 │           (w is irregular: j+6 would be 2456, which IS w)    │

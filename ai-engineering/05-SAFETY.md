@@ -461,12 +461,12 @@ reach the user.
 ┌─────────────────────────────────────────────────────────────────────┐
 │  GUARDRAIL PIPELINE                                                 │
 │                                                                     │
-│  Input ──► [Input Guard] ──► LLM ──► [Output Guard] ──► User      │
+│  Input ──► [Input Guard] ──► LLM ──► [Output Guard] ──► User        │
 │               │                           │                         │
-│           - PII detect              - Toxicity classify           │
-│           - Injection detect        - Hallucination detect        │
-│           - Topic filter            - PII redact                  │
-│           - Rate limit              - Format validate             │
+│           - PII detect              - Toxicity classify             │
+│           - Injection detect        - Hallucination detect          │
+│           - Topic filter            - PII redact                    │
+│           - Rate limit              - Format validate               │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 

@@ -32,10 +32,10 @@ and circular economy (how do we eliminate waste by design?).
             ↓                    ↓                    ↓
   ┌─────────────────────────────────────────────────────────────────┐
   │  REPORTING / DISCLOSURE FRAMEWORKS                              │
-  │  GHG Protocol → Scope 1/2/3 reporting                         │
+  │  GHG Protocol → Scope 1/2/3 reporting                           │
   │  TCFD / ISSB IFRS S2 → climate-related financial disclosure     │
-  │  SBTi → science-based emission reduction targets              │
-  │  CDP / GRI / SASB → voluntary disclosure aggregators          │
+  │  SBTi → science-based emission reduction targets                │
+  │  CDP / GRI / SASB → voluntary disclosure aggregators            │
   │  SEC Climate Rule → mandatory US public company disclosure      │
   └─────────────────────────────────────────────────────────────────┘
 ```
@@ -101,7 +101,7 @@ LCA is the gold standard for environmental impact quantification — structurall
   │ (global warming)       │                     │ CH₄ = 29.8, N₂O = │
   │                        │                     │ 273, SF₆ = 23,500  │
   ├────────────────────────┼─────────────────────┼────────────────────┤
-  │ Acidification          │ kg SO₂ equivalent  │ SO₂, NOₓ, HCl,    │
+  │ Acidification          │ kg SO₂ equivalent  │ SO₂, NOₓ, HCl,      │
   │                        │                     │ HF, NH₃ → acid dep │
   ├────────────────────────┼─────────────────────┼────────────────────┤
   │ Eutrophication         │ kg N eq. or         │ N and P emissions  │
@@ -191,11 +191,11 @@ carbon accounting. Developed by WRI + WBCSD; used by >90% of Fortune 500.
   ├────┼──────────────────────────────────────────────────────────┤
   │ 3  │ Fuel- and energy-related activities                      │
   │    │ Upstream emissions from extraction/processing of         │
-  │    │ purchased fuel and energy (not Scope 1 or 2)           │
+  │    │ purchased fuel and energy (not Scope 1 or 2)             │
   ├────┼──────────────────────────────────────────────────────────┤
   │ 4  │ Upstream transportation and distribution                │
   ├────┼──────────────────────────────────────────────────────────┤
-  │ 5  │ Waste generated in operations                          │
+  │ 5  │ Waste generated in operations                            │
   │    │ Disposal/treatment of operational waste                  │
   ├────┼──────────────────────────────────────────────────────────┤
   │ 6  │ Business travel                                         │
@@ -304,13 +304,13 @@ The circular economy reframes waste as a design failure, not an inevitable outpu
 
   KALUNDBORG INDUSTRIAL SYMBIOSIS (Denmark — the archetype):
   ┌────────────────────────────────────────────────────────────────┐
-  │ Asnæs Power Plant → steam → Novo Nordisk (pharma)            │
+  │ Asnæs Power Plant → steam → Novo Nordisk (pharma)              │
   │                   → cooling water → fishery                    │
   │                   → fly ash → cement manufacturer              │
   │                   → gypsum → wallboard manufacturer            │
   │                   → district heating → Kalundborg city         │
-  │ Statoil refinery  → fuel gas → power plant (vs. flaring)     │
-  │ Novo Nordisk      → sludge → agriculture (fertilizer)        │
+  │ Statoil refinery  → fuel gas → power plant (vs. flaring)       │
+  │ Novo Nordisk      → sludge → agriculture (fertilizer)          │
   └────────────────────────────────────────────────────────────────┘
   Result: ~30% energy savings, significant waste diversion,
   economic benefits to all participants — emergent, not designed.

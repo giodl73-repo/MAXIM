@@ -83,8 +83,8 @@ UNIT STRENGTH METHOD (simplified table)
 
   Clay Masonry f'm (psi) by mortar type:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Unit Strength (psi)  │  Type M or S  │  Type N               │
-  │  ─────────────────────┼───────────────┼──────────────────────  │
+  │  Unit Strength (psi)  │  Type M or S  │  Type N                  │
+  │  ─────────────────────┼───────────────┼──────────────────────    │
   │  ≥14,000              │  5,300        │  4,400                 │
   │  ≥12,000              │  4,700        │  3,900                 │
   │  ≥10,000              │  4,000        │  3,300                 │
@@ -122,7 +122,7 @@ SLENDERNESS LIMITS (TMS 402 Empirical Design)
   ┌──────────────────────────────────────────────────────────────────┐
   │  h/t ≤ 18  for solid masonry                                     │
   │  h/t ≤ 18  for hollow masonry                                    │
-  │  h/t ≤ 12  for walls with d/t > 25 (cavity/composite walls)    │
+  │  h/t ≤ 12  for walls with d/t > 25 (cavity/composite walls)      │
   └──────────────────────────────────────────────────────────────────┘
 
   h = effective height
@@ -152,9 +152,9 @@ URM vs. RM COMPARISON
   ┌──────────────────────────────────────────────────────────────────┐
   │  Cross-section: solid or hollow (ungrouted)                      │
   │  Tension: masonry mortar only (very low)                         │
-  │  Seismic: permitted SDC A, B, C only                           │
-  │  Failure mode: brittle cracking at mortar joints               │
-  │  h/t limit: ≤ 18 for bearing walls                             │
+  │  Seismic: permitted SDC A, B, C only                             │
+  │  Failure mode: brittle cracking at mortar joints                 │
+  │  h/t limit: ≤ 18 for bearing walls                               │
   │  Advantage: simple, low cost                                     │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -202,8 +202,8 @@ REINFORCED CMU WALL SECTION (ASD approach)
   │  fa = P / An  (axial compressive stress)                         │
   │  fb = M / Sn  (flexural stress)                                  │
   │                                                                  │
-  │  Combined: fa/Fa + fb/Fb ≤ 1.0 (ASD interaction equation)      │
-  │  where: Fa = 0.25 f'm × [1 - (h/140r)²]  for h/r ≤ 99         │
+  │  Combined: fa/Fa + fb/Fb ≤ 1.0 (ASD interaction equation)        │
+  │  where: Fa = 0.25 f'm × [1 - (h/140r)²]  for h/r ≤ 99            │
   │         Fb = 0.33 f'm  (flexural compression allowable)          │
   │         r  = radius of gyration of net section                   │
   └──────────────────────────────────────────────────────────────────┘
@@ -266,14 +266,14 @@ OUT-OF-PLANE BENDING MODEL
 
   Wall supported top and bottom (pin-pin):
   ┌───────────────────────────────────────────────────────────────────┐
-  │  FLOOR/ROOF DIAPHRAGM  ← lateral support (pin)                  │
+  │  FLOOR/ROOF DIAPHRAGM  ← lateral support (pin)                    │
   │         │                                                         │
-  │         │   ← wind pressure w (uniform)                         │
-  │         │   →→→→→→→→→→→→→→→                                    │
+  │         │   ← wind pressure w (uniform)                           │
+  │         │   →→→→→→→→→→→→→→→                                       │
   │    WALL │                                                         │
-  │         │   →→→→→→→→→→→→→→→                                    │
+  │         │   →→→→→→→→→→→→→→→                                       │
   │         │                                                         │
-  │  FLOOR/FOUNDATION  ← lateral support (pin)                      │
+  │  FLOOR/FOUNDATION  ← lateral support (pin)                        │
   └───────────────────────────────────────────────────────────────────┘
 
   Maximum moment: M_max = w × h² / 8  (pin-pin, uniform load)
@@ -317,9 +317,9 @@ SEISMIC DESIGN CATEGORY vs. MASONRY REQUIREMENTS
 
   WHY MASONRY FAILS IN EARTHQUAKES:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  URM fails in shear → diagonal X-cracking in wall panels       │
-  │  URM fails in flexure → bed joint sliding at base              │
-  │  URM fails out-of-plane → wall overturns from its own inertia  │
+  │  URM fails in shear → diagonal X-cracking in wall panels         │
+  │  URM fails in flexure → bed joint sliding at base                │
+  │  URM fails out-of-plane → wall overturns from its own inertia    │
   │                                                                  │
   │  RM resists all three IF: rebar properly placed + fully grouted  │
   │    + walls properly connected to diaphragm                       │
@@ -338,7 +338,7 @@ DESIGN METHOD COMPARISON
   ┌──────────────────────────────────────────────────────────────────┐
   │  Rules of thumb based on historical practice                     │
   │  No stress calculations required                                 │
-  │  Limits: ≤3 stories OR ≤35 ft height, low seismic only         │
+  │  Limits: ≤3 stories OR ≤35 ft height, low seismic only           │
   │  Wall thickness minimums, h/t limits, bearing width requirements│
   │  Adequate for small, simple, low-seismic buildings               │
   └──────────────────────────────────────────────────────────────────┘
@@ -346,18 +346,18 @@ DESIGN METHOD COMPARISON
   ENGINEERED DESIGN — ASD (TMS 402 Chapter 8):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Working stress design                                           │
-  │  Allowable stresses = fraction of f'm (safety factor embedded) │
-  │  Interaction equation: fa/Fa + fb/Fb ≤ 1.0                    │
+  │  Allowable stresses = fraction of f'm (safety factor embedded)   │
+  │  Interaction equation: fa/Fa + fb/Fb ≤ 1.0                       │
   │  Simple to apply; conservative                                   │
-  │  Industry standard for mid-20th century through today          │
+  │  Industry standard for mid-20th century through today            │
   └──────────────────────────────────────────────────────────────────┘
 
   ENGINEERED DESIGN — Strength (TMS 402 Chapter 9):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Factored loads × load factors (matches LRFD philosophy)       │
+  │  Factored loads × load factors (matches LRFD philosophy)         │
   │  φ factors on nominal strength                                   │
   │  More complex; allows more economical designs                    │
-  │  Required for some high-seismic applications                   │
+  │  Required for some high-seismic applications                     │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

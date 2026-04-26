@@ -8,7 +8,7 @@ THE LANDSCAPE
   ┌──────────────────────────┐          ┌────────────────────────────────┐
   │ 1st order                │          │ Elliptic:  ∇²u = f  (Laplace)  │
   │  separable               │          │ Parabolic: ∂u/∂t = α∇²u (heat)│
-  │  linear (integrating μ)  │          │ Hyperbolic: ∂²u/∂t² = c²∇²u  │
+  │  linear (integrating μ)  │          │ Hyperbolic: ∂²u/∂t² = c²∇²u    │
   │  exact                   │          │            (wave equation)     │
   │ 2nd order                │          └────────────────────────────────┘
   │  constant coefficients   │
@@ -138,14 +138,14 @@ The workhorse of physics: harmonic oscillators, beams, circuits.
 
   ┌──────────────────────────────────────────────────────────────┐
   │ PHYSICAL EXAMPLE: RLC circuit / mass-spring-dashpot          │
-  │ mẍ + bẋ + kx = 0                                           │
-  │ ω₀ = √(k/m) = natural frequency                            │
-  │ γ  = b/2m   = damping rate                                 │
-  │ r  = -γ ± √(γ² - ω₀²)                                     │
+  │ mẍ + bẋ + kx = 0                                             │
+  │ ω₀ = √(k/m) = natural frequency                              │
+  │ γ  = b/2m   = damping rate                                   │
+  │ r  = -γ ± √(γ² - ω₀²)                                        │
   │                                                              │
-  │ Underdamped (γ < ω₀):  x(t) = Ae^(-γt)cos(ωt + φ)        │
-  │ where ω = √(ω₀² - γ²)  (damped frequency < natural freq)  │
-  │ Q factor = ω₀/2γ  (quality factor — cycles before decay)   │
+  │ Underdamped (γ < ω₀):  x(t) = Ae^(-γt)cos(ωt + φ)            │
+  │ where ω = √(ω₀² - γ²)  (damped frequency < natural freq)     │
+  │ Q factor = ω₀/2γ  (quality factor — cycles before decay)     │
   └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -281,9 +281,9 @@ For 2D systems ẋ = f(x,y), ẏ = g(x,y):
   │  Solution smooths out: initial sharp features diffuse away        │
   │  Physics: heat conduction, diffusion, Schrödinger (with i!)       │
   ├────────────────────────────────────────────────────────────────────┤
-  │  HYPERBOLIC: ∂²u/∂t² = c²∇²u                                     │
+  │  HYPERBOLIC: ∂²u/∂t² = c²∇²u                                       │
   │  Wave equation                                                     │
-  │  Initial value problem: specify u AND ∂u/∂t at t=0               │
+  │  Initial value problem: specify u AND ∂u/∂t at t=0                 │
   │  Finite propagation speed c: wavefronts, characteristics           │
   │  Physics: EM waves, acoustic waves, gravitational waves            │
   └────────────────────────────────────────────────────────────────────┘
@@ -409,7 +409,7 @@ The complete solution engine for linear PDEs:
 
   EXAMPLES:
   ┌────────────────────────────────────────────────────────────────────┐
-  │  Operator L        │  Green's function G(r, r')                  │
+  │  Operator L        │  Green's function G(r, r')                    │
   ├────────────────────────────────────────────────────────────────────┤
   │  -d²/dx² on ℝ     │  |x-x'|/2                                   │
   │  -∇² on ℝ³        │  1/(4π|r-r'|)  ← Coulomb's law potential!  │
@@ -509,7 +509,7 @@ Every major equation from your physics modules decoded:
   │  Stiff system: solution has components with vastly different         │
   │  timescales. Example: y' = -1000y + sin(t)  (fast decay, slow force)│
   │                                                                      │
-  │  STABILITY REGION of a method: the set of h·λ ∈ ℂ where            │
+  │  STABILITY REGION of a method: the set of h·λ ∈ ℂ where              │
   │  applied to y' = λy, the method gives bounded solutions.             │
   │                                                                      │
   │  RK4 stability region: roughly |hλ| < 2.8 (along negative real axis)│
@@ -517,7 +517,7 @@ Every major equation from your physics modules decoded:
   │  even though the interesting dynamics happen at timescale O(1)!      │
   │                                                                      │
   │  Jacobian eigenvalues of stiff systems lie far in the left half-plane│
-  │  → stability forces h << 1, but accuracy only needs h ~ O(1)       │
+  │  → stability forces h << 1, but accuracy only needs h ~ O(1)         │
   └──────────────────────────────────────────────────────────────────────┘
 
   IMPLICIT METHODS — for stiff systems:
@@ -557,7 +557,7 @@ Every major equation from your physics modules decoded:
   │  Non-stiff, smooth:     RK45 (Dormand-Prince) — default           │
   │  Non-stiff, high acc:   DOP853 (8th order Dormand-Prince)         │
   │  Stiff:                 BDF or Radau (scipy) — implicit           │
-  │  Unknown:               LSODA — auto-detects                    │
+  │  Unknown:               LSODA — auto-detects                      │
   │  Structure-preserving:  Leapfrog/Verlet (see §10 Hamiltonian)     │
   └───────────────────────────────────────────────────────────────────┘
 ```
@@ -578,8 +578,8 @@ Every major equation from your physics modules decoded:
 
   HAMILTON'S EQUATIONS (canonical form):
   ┌───────────────────────────────────────────────────────┐
-  │   q̇ᵢ = +∂H/∂pᵢ                                      │
-  │   ṗᵢ = -∂H/∂qᵢ                                      │
+  │   q̇ᵢ = +∂H/∂pᵢ                                        │
+  │   ṗᵢ = -∂H/∂qᵢ                                        │
   └───────────────────────────────────────────────────────┘
   These are 2n FIRST-ORDER ODEs for (q,p) ∈ phase space ℝ²ⁿ.
   (vs. n second-order Euler-Lagrange equations — same content, different form)
@@ -658,12 +658,12 @@ Every major equation from your physics modules decoded:
 
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Three coupled nonlinear ODEs. Deterministic. Dissipative (volume    │
-  │  contracts at rate -(σ+1+β)). Trajectories confined to a bounded   │
+  │  contracts at rate -(σ+1+β)). Trajectories confined to a bounded     │
   │  region. But within that region: CHAOS.                              │
   │                                                                      │
   │  STRANGE ATTRACTOR: bounded invariant set with fractal structure.    │
-  │  Trajectories on it diverge (λ > 0) yet stay on the attractor.     │
-  │  Fractal dimension ≈ 2.06 (slightly more than a 2D surface).       │
+  │  Trajectories on it diverge (λ > 0) yet stay on the attractor.       │
+  │  Fractal dimension ≈ 2.06 (slightly more than a 2D surface).         │
   │                                                                      │
   │  "Butterfly effect" (Lorenz 1963): sensitivity to initial            │
   │  conditions makes deterministic weather prediction impossible        │

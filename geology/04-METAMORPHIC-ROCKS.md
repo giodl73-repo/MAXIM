@@ -20,7 +20,7 @@ Metamorphism = solid-state recrystallization of existing rocks in response to ch
 |       |                                                       |
 |       |  Greenschist facies (chlorite, epidote green colors)  |
 |       |                                                       |
-|  LOW  |  Zeolite / Sub-greenschist (diagenesis boundary)    |
+|  LOW  |  Zeolite / Sub-greenschist (diagenesis boundary)      |
 |       +-------------------------------------------------->    |
 |          LOW                    HIGH   TEMPERATURE            |
 |                                                               |

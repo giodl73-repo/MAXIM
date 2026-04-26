@@ -5,10 +5,10 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    HEALTH SYSTEM ARCHETYPES                                 │
-│                                                                               │
+│                                                                             │
 │  BISMARCK MODEL         BEVERIDGE MODEL      OUT-OF-POCKET        MIXED     │
 │  (Social insurance)     (National service)   (Market)             (Hybrid)  │
-│                                                                               │
+│                                                                             │
 │  ┌─────────────────┐    ┌─────────────────┐  ┌─────────────────┐  ┌───────┐ │
 │  │Employer+employee│    │  Government     │  │  Individual     │  │Multi  │  │
 │  │payroll taxes    │    │  tax-funded     │  │  pays at point  │  │payer  │  │
@@ -174,7 +174,7 @@ UHC CUBE (WHO three dimensions):
   │           │                (service coverage)           │
   │           │                                             │
   │           └──── WHAT COSTS? (financial protection)      │
-  │                 (out-of-pocket cap)                       │
+  │                 (out-of-pocket cap)                     │
   └─────────────────────────────────────────────────────────┘
 
   SDG Target 3.8: Achieve UHC including financial risk protection,

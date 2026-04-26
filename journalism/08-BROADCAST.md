@@ -12,7 +12,7 @@ BROADCAST JOURNALISM ECOSYSTEM
   │                    BROADCAST JOURNALISM                              │
   │                                                                      │
   │  TELEVISION                   RADIO                 PODCAST          │
-  │  ┌────────────────────┐   ┌──────────────────┐  ┌───────────────┐  │
+  │  ┌────────────────────┐   ┌──────────────────┐  ┌───────────────┐    │
   │  │ Nightly news       │   │ NPR/public radio  │  │ Long-form     │  │
   │  │ Cable 24-hour      │   │ AM talk radio     │  │ Narrative     │  │
   │  │ Local news         │   │ Drive-time formats│  │ Series       │  │
@@ -175,9 +175,9 @@ LIVE SHOT MECHANICS AND ETHICS
   │  IFB (Interruptible Foldback): Earpiece — producer/anchor        │
   │   can interrupt correspondent live; correspondent hears          │
   │   anchor intro and own delayed audio feed                        │
-  │  MICROWAVE/SATELLITE UPLINK: Signal path from field to air     │
+  │  MICROWAVE/SATELLITE UPLINK: Signal path from field to air       │
   │  STAND-UP POSITION: Location with visual context behind          │
-  │   correspondent — courthouse, scene, landmark                  │
+  │   correspondent — courthouse, scene, landmark                    │
   └──────────────────────────────────────────────────────────────────┘
 
   LIVE SHOT PROBLEM: PRESENCE OVER SUBSTANCE:

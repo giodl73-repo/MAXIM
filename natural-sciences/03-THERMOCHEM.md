@@ -11,21 +11,21 @@
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │               THERMOCHEMISTRY & CHEMICAL THERMODYNAMICS          │
-│                                                                    │
-│  THE FOUR LAWS (foundations)                                       │
-│  ────────────────────────────                                      │
+│                                                                  │
+│  THE FOUR LAWS (foundations)                                     │
+│  ────────────────────────────                                    │
 │  0th: temperature defined    → measurement framework             │
 │  1st: ΔU = q + w             → enthalpy H, Hess's law            │
 │  2nd: ΔS_universe ≥ 0        → spontaneity criterion             │
 │  3rd: S(0K) = 0              → absolute entropy S° tables        │
-│         │           │                                              │
-│         ▼           ▼                                              │
+│         │           │                                            │
+│         ▼           ▼                                            │
 │  ENTHALPY (ΔH)   ENTROPY (ΔS)                                    │
-│  ─────────────   ─────────────                                     │
+│  ─────────────   ─────────────                                   │
 │  Hess's law      Boltzmann S=k ln W                              │
-│  Bond enthalpies Trouton's rule                                    │
+│  Bond enthalpies Trouton's rule                                  │
 │  Kirchhoff T-dep Colligative props (particle count)              │
-│         │           │                                              │
+│         │           │                                            │
 │         └─────┬─────┘                                            │
 │               ▼                                                    │
 │  GIBBS FREE ENERGY  ΔG = ΔH − TΔS      ← master criterion        │

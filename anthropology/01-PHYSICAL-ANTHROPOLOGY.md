@@ -253,10 +253,10 @@ humans engage in. The nature-culture split dissolves here.
   │  - Epiphyseal fusion (long bone ends fuse 16-25 yr)      │
   │  - Skeletal maturation staging                           │
   │                                                          │
-  │  Adult (> ~25): Less precise, ranges widen             │
+  │  Adult (> ~25): Less precise, ranges widen               │
   │  - Pubic symphysis (articular surface degenerates)       │
   │  - Auricular surface of ilium                            │
-  │  - Sternal rib ends (4th rib morphology)               │
+  │  - Sternal rib ends (4th rib morphology)                 │
   │  - Cranial suture closure (highly variable — less used)  │
   │  - Osteoarthritis patterns                               │
   └──────────────────────────────────────────────────────────┘
@@ -283,7 +283,7 @@ humans engage in. The nature-culture split dissolves here.
   │                                                          │
   │  Long bone regression equations (Trotter/Gleser 1952,    │
   │  Ousley 1995 and others):                                │
-  │  Stature = (2.38 x femur length) + 61.41 cm  (example) │
+  │  Stature = (2.38 x femur length) + 61.41 cm  (example)   │
   │                                                          │
   │  POPULATION-SPECIFIC: equations derived from one         │
   │  reference population do not transfer cleanly to others  │

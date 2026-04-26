@@ -48,7 +48,7 @@ The execution environment:
   │                                     1. %var%   (parse time)      │
   │                                     2. special chars             │
   │                                     3. FOR/IF recognition        │
-  │                                     4. execution               │
+  │                                     4. execution                 │
   │                                     5. !var!   (runtime, opt-in)│
   │                                                                  │
   │   No AST. No bytecode. No JIT. Pure sequential text processing.  │

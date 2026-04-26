@@ -231,7 +231,7 @@ ENERGY INPUT:    Plant roots + litter (organic matter)
     (bacteria-        (fungal          (soil algae, actinomycetes)
     vores: proto-     ivores:
     zoa, nematodes)   nematodes,
-         │            mites)             │
+         │            mites)                │
          └────────────────────────────────┘
                          │
                     SECONDARY PREDATORS

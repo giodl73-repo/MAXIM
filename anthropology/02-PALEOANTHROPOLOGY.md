@@ -19,7 +19,7 @@
 |  Paranthropus (robust, ~2.5-1.2 Ma)     [dietary dead-end?]      |
 |       |                                                          |
 |       v                                                          |
-|  Homo habilis / H. rudolfensis (~2.5-1.5 Ma)  [Oldowan tools]  |
+|  Homo habilis / H. rudolfensis (~2.5-1.5 Ma)  [Oldowan tools]    |
 |       |                                                          |
 |       v                                                          |
 |  Homo erectus (~1.9 Ma - 100 ka)  [Out of Africa 1, fire]        |
@@ -226,12 +226,12 @@ laboratory analysis — and remains contested at multiple points.
   │ on the stone — a MENTAL TEMPLATE exists before         │
   │ the knapping begins.                                   │
   │                                                        │
-  │ Used for ~1.5 MILLION YEARS with almost no change.   │
+  │ Used for ~1.5 MILLION YEARS with almost no change.     │
   │ Called "the most successful technology in human        │
   │ history." Very likely multipurpose: butchery,          │
   │ digging, processing plant material.                    │
   │                                                        │
-  │ Why so static? No cumulative cultural evolution.     │
+  │ Why so static? No cumulative cultural evolution.       │
   │ Each individual learns the template; innovations       │
   │ don't accumulate. Compare to post-50ka Upper           │
   │ Paleolithic — explosive diversity of tool types.       │

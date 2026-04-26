@@ -9,7 +9,7 @@ Population dynamics is the quantitative core of ecology. The mathematical struct
 |              POPULATION DYNAMICS FRAMEWORK                    |
 |                                                               |
 |  SINGLE SPECIES           MULTI-SPECIES                       |
-|  dN/dt = f(N, environment) dN₁/dt = f(N₁, N₂, ...)          |
+|  dN/dt = f(N, environment) dN₁/dt = f(N₁, N₂, ...)            |
 |                                                               |
 |  Exponential growth  ←→  Lotka-Volterra predator-prey         |
 |  Logistic growth     ←→  Competition models                   |

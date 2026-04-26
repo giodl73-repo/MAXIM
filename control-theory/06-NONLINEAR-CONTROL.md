@@ -376,7 +376,7 @@ ADVANTAGES:
 │ Strict-feedback structure,   │ Backstepping (systematic Lyapunov    │
 │ need systematic design       │ design); DSC for lower complexity    │
 ├──────────────────────────────┼───────────────────────────────────────┤
-│ Robotics, port-Hamiltonian   │ Passivity-based control (IDA-PBC);  │
+│ Robotics, port-Hamiltonian   │ Passivity-based control (IDA-PBC);    │
 │ systems, power electronics   │ energy shaping + damping injection    │
 └──────────────────────────────┴───────────────────────────────────────┘
 ```

@@ -9,12 +9,12 @@ why a small number of "toolkit" genes control the body plans of all animals.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                   EVO-DEVO LANDSCAPE                             │
-│                                                                    │
+│                                                                  │
 │  CORE INSIGHT: The same toolkit genes                            │
 │  control development in fly, worm, fish, and human.              │
 │  Morphological diversity arises from WHEN, WHERE, HOW MUCH       │
 │  these genes are expressed — not from different genes.           │
-│                                                                    │
+│                                                                  │
 │  TOOLKIT GENES                    EVO-DEVO MECHANISMS            │
 │  ─────────────                    ────────────────────           │
 │  HOX cluster genes                Heterochrony                   │
@@ -22,7 +22,7 @@ why a small number of "toolkit" genes control the body plans of all animals.
 │  Wnt, Hedgehog, Notch             Heterometry (dose)             │
 │  BMP / TGF-β pathway              Heterotypy (what acts)         │
 │  FGF / receptor tyrosine kinases  Co-option of existing pathways │
-│                                                                    │
+│                                                                  │
 │  DEVELOPMENTAL CONSTRAINTS: Some phenotypes are harder to        │
 │  evolve than others because of deep canalization in development  │
 └──────────────────────────────────────────────────────────────────┘

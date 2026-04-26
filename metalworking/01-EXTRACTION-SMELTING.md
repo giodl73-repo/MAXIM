@@ -53,23 +53,23 @@ The blast furnace is a countercurrent reduction reactor: ore descends, hot gases
 │                                                              │
 │  1. Stack / Upper zone (200–500°C):                          │
 │     H₂O driven off, indirect reduction begins                │
-│     3Fe₂O₃ + CO → 2Fe₃O₄ + CO₂                            │
-│     Fe₃O₄ + CO → 3FeO + CO₂                                │
+│     3Fe₂O₃ + CO → 2Fe₃O₄ + CO₂                               │
+│     Fe₃O₄ + CO → 3FeO + CO₂                                  │
 │                                                              │
 │  2. Bosh (600–900°C):                                        │
-│     CaCO₃ → CaO + CO₂  (limestone calcination)             │
+│     CaCO₃ → CaO + CO₂  (limestone calcination)               │
 │     FeO + CO → Fe + CO₂  (final reduction)                   │
 │                                                              │
 │  3. Combustion zone / Tuyeres (~2000°C):                     │
-│     2C + O₂ → 2CO  (coke + hot blast air)                  │
+│     2C + O₂ → 2CO  (coke + hot blast air)                    │
 │     CO rises — is the primary reductant                      │
 │                                                              │
 │  OUTPUTS (from bottom):                                      │
-│  Pig iron (liquid): ~94% Fe, 4–4.5% C, + Si, Mn, S, P     │
-│  Slag (liquid): CaO·SiO₂·Al₂O₃ — floats on iron           │
+│  Pig iron (liquid): ~94% Fe, 4–4.5% C, + Si, Mn, S, P        │
+│  Slag (liquid): CaO·SiO₂·Al₂O₃ — floats on iron              │
 │                 → granulated for cement, road base           │
 │                                                              │
-│  INPUTS (bottom): Hot blast air (1200°C), sometimes O₂     │
+│  INPUTS (bottom): Hot blast air (1200°C), sometimes O₂       │
 └──────────────────────────────────────────────────────────────┘
 
 Net reaction: Fe₂O₃ + 3CO → 2Fe + 3CO₂

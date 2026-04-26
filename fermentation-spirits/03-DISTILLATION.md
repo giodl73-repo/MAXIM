@@ -4,12 +4,12 @@
 
 ```
 +------------------------------------------------------------------+
-|                  DISTILLATION OVERVIEW                             |
-|                                                                    |
+|                  DISTILLATION OVERVIEW                           |
+|                                                                  |
 |  INPUT: Fermented liquid (~5-15% ABV)                            |
 |  OUTPUT: Concentrated spirit (15-95% ABV)                        |
 |  MECHANISM: Exploit different boiling points of mixture          |
-|                                                                    |
+|                                                                  |
 |  POT STILL                        COLUMN STILL                   |
 |  (batch distillation)             (continuous distillation)      |
 |  ----------------                 --------------------------     |

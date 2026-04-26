@@ -199,21 +199,21 @@ Amine scrubbing is a direct application of gas-liquid absorption/stripping (see 
   ┌──────────────────────────────────────────────────────────────────┐
   │  OXYFUEL COMBUSTION:                                             │
   │  Burn natural gas with PURE OXYGEN (from air separation unit)    │
-  │  → Flue gas is almost entirely CO₂ + H₂O (no N₂)              │
-  │  → After H₂O condenses: pure CO₂ stream                        │
+  │  → Flue gas is almost entirely CO₂ + H₂O (no N₂)                 │
+  │  → After H₂O condenses: pure CO₂ stream                          │
   │  → No need for amine scrubbing                                   │
   │                                                                  │
-  │  WORKING FLUID: supercritical CO₂ (sCO₂) at 300 bar, 1,150°C  │
-  │  CO₂ turbine drives generator → very high efficiency (~51-54%) │
-  │  Exhaust CO₂ recycled as working fluid (most goes back in)     │
+  │  WORKING FLUID: supercritical CO₂ (sCO₂) at 300 bar, 1,150°C     │
+  │  CO₂ turbine drives generator → very high efficiency (~51-54%)   │
+  │  Exhaust CO₂ recycled as working fluid (most goes back in)       │
   │  Small fraction: sequestered or sold                             │
   │                                                                  │
-  │  NET EMISSIONS: ~0.05 kg CO₂/kWh (vs ~0.43 for standard CCGT) │
+  │  NET EMISSIONS: ~0.05 kg CO₂/kWh (vs ~0.43 for standard CCGT)    │
   │                                                                  │
   │  DEMO PLANT:                                                     │
   │  NET Power (NET Power LLC, now merged with OXY) — La Porte, TX   │
   │  50 MW thermal demonstration, operated 2018-2022                 │
-  │  Full-scale plant: 280 MW proposed in Wyoming/TX (EPC stage)   │
+  │  Full-scale plant: 280 MW proposed in Wyoming/TX (EPC stage)     │
   │  Timeline: commercial operation ~2025-2027                       │
   └──────────────────────────────────────────────────────────────────┘
 ```

@@ -41,7 +41,7 @@ PHYSICAL CLASSIFICATION:
     ┌─────────────────────────────────────────┐
     │  FRESHWATER (S=0)  ───────────────────  │
     │ ─────────────────────────────────────── │  sea
-    │     SALTWATER (S=35) ──────────────► │
+    │     SALTWATER (S=35) ──────────────►    │
     └─────────────────────────────────────────┘
 
   Partially mixed estuary (moderate tidal mixing):

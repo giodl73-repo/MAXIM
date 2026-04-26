@@ -62,7 +62,7 @@ THE LANDSCAPE
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Straight line:  κ=0, τ=0    (no bending, no twisting)               │
   │  Circle of radius r: κ=1/r, τ=0   (constant bending, flat)           │
-  │  Helix (r, pitch p): κ=r/(r²+p²), τ=p/(r²+p²)  (constant κ and τ) │
+  │  Helix (r, pitch p): κ=r/(r²+p²), τ=p/(r²+p²)  (constant κ and τ)    │
   │  Plane curve: τ=0 always (stays in its plane)                        │
   └──────────────────────────────────────────────────────────────────────┘
 ```
@@ -139,17 +139,17 @@ THE LANDSCAPE
   PRINCIPAL DIRECTIONS = corresponding eigenvectors (orthogonal)
 
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  GAUSSIAN CURVATURE: K = κ₁κ₂ = det(S) = det(L)/det(g)             │
-  │  MEAN CURVATURE:     H = (κ₁+κ₂)/2 = ½ trace(S)                    │
+  │  GAUSSIAN CURVATURE: K = κ₁κ₂ = det(S) = det(L)/det(g)               │
+  │  MEAN CURVATURE:     H = (κ₁+κ₂)/2 = ½ trace(S)                      │
   └──────────────────────────────────────────────────────────────────────┘
 
   SURFACE EXAMPLES:
   ┌────────────────────────────────────────────────────────────────────┐
-  │  Sphere radius R:  κ₁=κ₂=1/R,   K=1/R²>0,  H=1/R                │
-  │  Saddle (monkey): κ₁>0, κ₂<0,   K<0                              │
-  │  Cylinder radius R: κ₁=1/R, κ₂=0, K=0,   H=1/(2R)               │
-  │  Flat plane:       κ₁=κ₂=0,   K=0,   H=0                        │
-  │  Minimal surface:  κ₁=-κ₂,   H=0     (soap films)               │
+  │  Sphere radius R:  κ₁=κ₂=1/R,   K=1/R²>0,  H=1/R                   │
+  │  Saddle (monkey): κ₁>0, κ₂<0,   K<0                                │
+  │  Cylinder radius R: κ₁=1/R, κ₂=0, K=0,   H=1/(2R)                  │
+  │  Flat plane:       κ₁=κ₂=0,   K=0,   H=0                           │
+  │  Minimal surface:  κ₁=-κ₂,   H=0     (soap films)                  │
   └────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -171,14 +171,14 @@ THE LANDSCAPE
   CONCRETE CONSEQUENCES:
   ┌──────────────────────────────────────────────────────────────────────┐
   │  You cannot flatten a sphere without distortion.                     │
-  │  (K=1/R²≠0 on sphere, K=0 on plane → not isometric)               │
+  │  (K=1/R²≠0 on sphere, K=0 on plane → not isometric)                  │
   │  This is why maps of Earth always distort either area or angle.      │
   │                                                                      │
-  │  You CAN flatten a cylinder (K=0 on both cylinder and plane).      │
+  │  You CAN flatten a cylinder (K=0 on both cylinder and plane).        │
   │  Unrolling a cylinder = isometric map.                               │
   │                                                                      │
   │  An ant can measure K by doing geometry:                             │
-  │  Sum of angles of a geodesic triangle = π + K × (area)             │
+  │  Sum of angles of a geodesic triangle = π + K × (area)               │
   │  On sphere: triangle angles sum > π ✓                                │
   │  On saddle: triangle angles sum < π ✓                                │
   └──────────────────────────────────────────────────────────────────────┘
@@ -263,7 +263,7 @@ THE LANDSCAPE
   │  Transport north back to North Pole along φ longitude.              │
   │                                                                     │
   │  Vector returns rotated by angle φ (the solid angle enclosed).      │
-  │  Rotation angle = K × (enclosed area) = (1/R²)(φR²) = φ           │
+  │  Rotation angle = K × (enclosed area) = (1/R²)(φR²) = φ             │
   │                                                                     │
   │     N                                                               │
   │     │↑                                                              │
@@ -339,12 +339,12 @@ THE LANDSCAPE
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Geometric interpretation:                                           │
   │                                                                      │
-  │  Transport Z first in Y-direction, then in X-direction:   ∇_X∇_YZ │
-  │  Transport Z first in X-direction, then in Y-direction:   ∇_Y∇_XZ │
+  │  Transport Z first in Y-direction, then in X-direction:   ∇_X∇_YZ    │
+  │  Transport Z first in X-direction, then in Y-direction:   ∇_Y∇_XZ    │
   │  The difference = R(X,Y)Z                                            │
   │                                                                      │
-  │  On flat space: partial derivatives commute → R=0.                 │
-  │  On curved space: R≠0 measures the curvature.                      │
+  │  On flat space: partial derivatives commute → R=0.                   │
+  │  On curved space: R≠0 measures the curvature.                        │
   └──────────────────────────────────────────────────────────────────────┘
 
   In components: Rⁱⱼₖˡ = ∂ₖΓⁱⱼˡ - ∂ˡΓⁱⱼₖ + Γⁱₘₖ Γᵐⱼˡ - Γⁱₘˡ Γᵐⱼₖ
@@ -379,7 +379,7 @@ THE LANDSCAPE
 ```
   ┌──────────────────────────────────────────────────────────────────────┐
   │                                                                      │
-  │   Gμν = (8πG/c⁴) Tμν                                               │
+  │   Gμν = (8πG/c⁴) Tμν                                                 │
   │                                                                      │
   │   Gμν = Rμν - ½ gμν R      (Einstein tensor = spacetime curvature)   │
   │   Tμν = stress-energy tensor  (energy, momentum, pressure, stress)   │
@@ -432,13 +432,13 @@ THE LANDSCAPE
 
   CONSEQUENCES:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Sphere (χ=2):      ∫K dA = 4π                                     │
-  │  Deform sphere → ∫K dA stays 4π no matter how you squish it!       │
+  │  Sphere (χ=2):      ∫K dA = 4π                                       │
+  │  Deform sphere → ∫K dA stays 4π no matter how you squish it!         │
   │                                                                      │
-  │  Torus (χ=0):       ∫K dA = 0                                      │
-  │  Positive curvature (outside) and negative (inside hole) cancel.   │
+  │  Torus (χ=0):       ∫K dA = 0                                        │
+  │  Positive curvature (outside) and negative (inside hole) cancel.     │
   │                                                                      │
-  │  Genus-g surface (χ=2-2g): ∫K dA = 4π(1-g)                       │
+  │  Genus-g surface (χ=2-2g): ∫K dA = 4π(1-g)                           │
   └──────────────────────────────────────────────────────────────────────┘
 
   WITH BOUNDARY ∂M:
@@ -756,7 +756,7 @@ THE LANDSCAPE
 
   ┌────────────────────────────────────────────────────────────────────┐
   │  TIDAL FORCES (geodesic deviation equation):                       │
-  │  D²ξμ/dτ² = -Rμνρσ Uν ξρ Uσ                                    │
+  │  D²ξμ/dτ² = -Rμνρσ Uν ξρ Uσ                                        │
   │  ξμ = separation vector between nearby geodesics                   │
   │  Uμ = 4-velocity along geodesic                                    │
   │  In vacuum: this is ENTIRELY due to the Weyl tensor.               │

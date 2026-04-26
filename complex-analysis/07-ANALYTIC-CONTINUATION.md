@@ -20,8 +20,8 @@ ANALYTIC CONTINUATION — PROCESS
   │  IDENTITY THEOREM (uniqueness of continuation)                      │
   │                                                                     │
   │  f, g holomorphic on connected domain Ω                             │
-  │  f = g on a set S ⊂ Ω with an accumulation point in Ω             │
-  │  ⟹  f ≡ g on all of Ω                                             │
+  │  f = g on a set S ⊂ Ω with an accumulation point in Ω               │
+  │  ⟹  f ≡ g on all of Ω                                               │
   │                                                                     │
   │  Consequence: continuation is UNIQUE when it exists                 │
   └─────────────────────────────────────────────────────────────────────┘

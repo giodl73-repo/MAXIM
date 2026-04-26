@@ -334,7 +334,7 @@ The structural analog: LoRA is the Adapter pattern. The frozen base model is a s
              │
        ┌─────┴──────┐
       YES            NO
-       │              │
+       │            │
        ▼              ▼
   Use RAG          Is the task about consistent
   (09-VECTOR)      behavior, style, or format?

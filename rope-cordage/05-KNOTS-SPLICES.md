@@ -21,16 +21,16 @@ KNOT CHOICE HIERARCHY (by strength retention)
 
   WHY KNOTS REDUCE STRENGTH:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  At every bend in a knot, the rope is under combined:          │
+  │  At every bend in a knot, the rope is under combined:            │
   │  • Axial tension (primary load)                                  │
-  │  • Bending stress (outer fibers more stressed)                 │
-  │  • Transverse compression (from loaded rope parts pressing)    │
+  │  • Bending stress (outer fibers more stressed)                   │
+  │  • Transverse compression (from loaded rope parts pressing)      │
   │                                                                  │
-  │  The failure point is at the first sharp bend after the knot  │
-  │  (the "knot nip") where all three stresses peak simultaneously │
+  │  The failure point is at the first sharp bend after the knot     │
+  │  (the "knot nip") where all three stresses peak simultaneously   │
   │                                                                  │
-  │  UHMWPE is especially bad in knots: low friction → slippage    │
-  │  occurs before material failure → effective strength ~50–65%   │
+  │  UHMWPE is especially bad in knots: low friction → slippage      │
+  │  occurs before material failure → effective strength ~50–65%     │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -46,10 +46,10 @@ KNOT TAXONOMY
 
   STOPPERS — prevent rope from running through an opening
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Overhand knot:     Simplest. Jams when loaded. Use with care. │
-  │  Figure-8 stopper: Larger than overhand; doesn't jam as tight. │
+  │  Overhand knot:     Simplest. Jams when loaded. Use with care.   │
+  │  Figure-8 stopper: Larger than overhand; doesn't jam as tight.   │
   │                    Standard stopper for climbing/rescue rope.    │
-  │  Ashley stopper:   Triple bulge; best for fine rope/string.    │
+  │  Ashley stopper:   Triple bulge; best for fine rope/string.      │
   └──────────────────────────────────────────────────────────────────┘
 
   BENDS — join two ropes end-to-end
@@ -60,36 +60,36 @@ KNOT TAXONOMY
   │                     (jams or capsizes if loaded incorrectly)     │
   │  Reef knot:         = Square knot; used for tying reefs in sails│
   │  Carrick bend:      Large diameter hawsers; unties after loading│
-  │  Double fisherman's: Joining slippery ropes (UHMWPE, Dyneema); │
+  │  Double fisherman's: Joining slippery ropes (UHMWPE, Dyneema);   │
   │                      very secure; difficult to untie after load  │
   │  Water knot (tape): For flat webbing — loops and joins in tape   │
   └──────────────────────────────────────────────────────────────────┘
 
   LOOPS — create a fixed loop in the rope
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Bowline:           Standard fixed loop; easy to tie/untie;    │
+  │  Bowline:           Standard fixed loop; easy to tie/untie;      │
   │                     70% efficiency; standard marine/rescue loop  │
-  │  Figure-8 loop:     75–80% efficiency; preferred for climbing  │
+  │  Figure-8 loop:     75–80% efficiency; preferred for climbing    │
   │                     (more secure than bowline when frozen/wet)   │
-  │  Double figure-8:   Rethreaded through loop — for attaching to │
+  │  Double figure-8:   Rethreaded through loop — for attaching to   │
   │                     anchor (equalized two-leg anchor loop)       │
-  │  Butterfly loop:    Fixed loop in middle of rope; load in any  │
+  │  Butterfly loop:    Fixed loop in middle of rope; load in any    │
   │                     direction; strand-efficient                  │
-  │  Alpine butterfly:  High-load loop in bight; for rigging       │
+  │  Alpine butterfly:  High-load loop in bight; for rigging         │
   └──────────────────────────────────────────────────────────────────┘
 
   HITCHES — attach rope to an object (post, ring, other rope)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Clove hitch:       Two half-hitches; quick; slips under shock │
+  │  Clove hitch:       Two half-hitches; quick; slips under shock   │
   │                     load if not backed up                        │
-  │  Round turn + 2 HH: More secure; distributes load over post    │
-  │  Rolling hitch:     Attaches to another rope under load;       │
+  │  Round turn + 2 HH: More secure; distributes load over post      │
+  │  Rolling hitch:     Attaches to another rope under load;         │
   │                     won't slide toward load                      │
-  │  Prusik:            Friction hitch on another rope; climbs and │
+  │  Prusik:            Friction hitch on another rope; climbs and   │
   │                     locks in one direction                       │
-  │  Munter hitch:      Belaying hitch on carabiner; variable      │
-  │                     friction for dynamic belay                 │
-  │  Timber hitch:      Attaching to logs/posts; self-tightening   │
+  │  Munter hitch:      Belaying hitch on carabiner; variable        │
+  │                     friction for dynamic belay                   │
+  │  Timber hitch:      Attaching to logs/posts; self-tightening     │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -126,8 +126,8 @@ The eye splice is the definitive rope terminal — achieves 95% of rope MBS, cre
 
   STEP 1: Unlay strands back approximately 4 rope diameters
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Rope: ═══════╮   2  ╮                                         │
-  │                 3     1   ← unlay 3 strands                    │
+  │  Rope: ═══════╮   2  ╮                                           │
+  │                 3     1   ← unlay 3 strands                      │
   └──────────────────────────────────────────────────────────────────┘
 
   STEP 2: First tuck — strand 2 (center) goes under center strand
@@ -183,23 +183,23 @@ SHORT SPLICE vs. LONG SPLICE
 
   SHORT SPLICE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Unlay both rope ends 4–5 tucks' worth                         │
-  │  Interleave ends → tuck each strand of rope A over/under       │
-  │  strands of rope B (3 tucks each direction)                    │
-  │  Result: Diameter increases ~25–30% at splice                  │
-  │  Strength: 85–90% of rope MBS                                  │
+  │  Unlay both rope ends 4–5 tucks' worth                           │
+  │  Interleave ends → tuck each strand of rope A over/under         │
+  │  strands of rope B (3 tucks each direction)                      │
+  │  Result: Diameter increases ~25–30% at splice                    │
+  │  Strength: 85–90% of rope MBS                                    │
   │  Use: Permanent field repair where increased diameter acceptable│
   └──────────────────────────────────────────────────────────────────┘
 
   LONG SPLICE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Unlay both rope ends 10–15 rope diameters each                │
+  │  Unlay both rope ends 10–15 rope diameters each                  │
   │  Interleave ends; walk strands out along opposing strands        │
-  │  Then tuck-splice at three evenly spaced points                │
+  │  Then tuck-splice at three evenly spaced points                  │
   │  Result: NO diameter increase — looks like continuous rope       │
-  │  Strength: 85–90% of rope MBS                                  │
-  │  Use: Rope that must run through blocks, fairleads, or where   │
-  │        uniform diameter required                               │
+  │  Strength: 85–90% of rope MBS                                    │
+  │  Use: Rope that must run through blocks, fairleads, or where     │
+  │        uniform diameter required                                 │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -217,10 +217,10 @@ WIRE ROPE TERMINALS
   ┌──────────────────────────────────────────────────────────────────┐
   │  Wire rope end inserted into metal ferrule                       │
   │  Hydraulic press squeezes ferrule around wire                    │
-  │  Result: Metal-to-wire friction + deformation lock             │
-  │  Strength: 90–100% of wire rope MBS (depends on design)        │
+  │  Result: Metal-to-wire friction + deformation lock               │
+  │  Strength: 90–100% of wire rope MBS (depends on design)          │
   │  Use: Permanent, high-load, marine rigging, structural cable     │
-  │  CANNOT be field-made without hydraulic press                  │
+  │  CANNOT be field-made without hydraulic press                    │
   └──────────────────────────────────────────────────────────────────┘
 
   FLEMISH EYE (mechanical splice):
@@ -228,7 +228,7 @@ WIRE ROPE TERMINALS
   │  Wire rope unlaid; strands rewound around thimble in opposite    │
   │  direction; covered with swaged ferrule                          │
   │  Strength: 95–100% MBS                                           │
-  │  Field-assemblable with proper tooling                         │
+  │  Field-assemblable with proper tooling                           │
   └──────────────────────────────────────────────────────────────────┘
 
   WEDGE SOCKET:
@@ -243,7 +243,7 @@ WIRE ROPE TERMINALS
   ┌──────────────────────────────────────────────────────────────────┐
   │  Wire end opened (broom), inserted in socket, poured with zinc   │
   │  (or resin) to lock in place                                     │
-  │  Strength: 100% MBS (highest efficiency)                       │
+  │  Strength: 100% MBS (highest efficiency)                         │
   │  Use: Permanent, critical-load applications                      │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -270,26 +270,26 @@ WHIPPING TYPES
   SAILMAKER'S WHIPPING (strongest, tool required):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Needle-and-thread method                                        │
-  │  Thread passes through strands at both ends of the whipping    │
-  │  Locks whipping in place mechanically                          │
-  │  Durability: Excellent — does not slip                         │
-  │  Use: Permanent marine whipping on laid rope                   │
+  │  Thread passes through strands at both ends of the whipping      │
+  │  Locks whipping in place mechanically                            │
+  │  Durability: Excellent — does not slip                           │
+  │  Use: Permanent marine whipping on laid rope                     │
   └──────────────────────────────────────────────────────────────────┘
 
   WEST COUNTRY WHIPPING:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Half-hitch applied alternately on opposite sides                │
-  │  Slower but very secure without needle                         │
-  │  Result: zigzag pattern of thread on rope surface              │
+  │  Slower but very secure without needle                           │
+  │  Result: zigzag pattern of thread on rope surface                │
   └──────────────────────────────────────────────────────────────────┘
 
   HEAT FUSION (synthetic rope):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Hold cut end near (not in) flame → fibers fuse together       │
-  │  Works only for nylon, polyester, polypropylene, UHMWPE        │
-  │  NOT for aramid (chars, doesn't melt cleanly)                  │
-  │  NOT for natural fiber rope (burns, doesn't fuse)              │
-  │  Quick field method; adequate for moderate use                 │
+  │  Hold cut end near (not in) flame → fibers fuse together         │
+  │  Works only for nylon, polyester, polypropylene, UHMWPE          │
+  │  NOT for aramid (chars, doesn't melt cleanly)                    │
+  │  NOT for natural fiber rope (burns, doesn't fuse)                │
+  │  Quick field method; adequate for moderate use                   │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

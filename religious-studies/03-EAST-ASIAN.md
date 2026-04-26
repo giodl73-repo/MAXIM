@@ -49,7 +49,7 @@ domains of life.
 |  | festivals, shrines.| merit, funerals. |                           |
 |  | This world.       | Transcendence.    |                           |
 |  +-------------------+-------------------+                           |
-|  (+ Confucian ethical framework in both)                             |
+   |  (+ Confucian ethical framework in both)                          |
 +----------------------------------------------------------------------+
 ```
 
@@ -234,7 +234,7 @@ systematic treatise; must be read as a record of a teaching relationship.
 |  The supreme virtue. The full realization of humanity.           |
 |  Ren is achieved through li, expressed in all relationships.     |
 |  "Do not do to others what you would not want for yourself."     |
-|  (Negative formulation of the Golden Rule — Analects 12.2)     |
+|  (Negative formulation of the Golden Rule — Analects 12.2)       |
 |                                                                  |
 |  LI (ritual propriety/rites):                                    |
 |  The totality of proper behavior in social roles.                |
@@ -244,8 +244,8 @@ systematic treatise; must be read as a record of a teaching relationship.
 |  and trains inner virtue.                                        |
 |                                                                  |
 |  YI (righteousness):                                             |
-|  Doing what is right because it is right, not for              |
-|  profit. The superior person (junzi) acts from yi.             |
+|  Doing what is right because it is right, not for                |
+|  profit. The superior person (junzi) acts from yi.               |
 |                                                                  |
 |  ZHI (wisdom/moral knowledge):                                   |
 |  Knowing what is right in concrete situations.                   |
@@ -255,9 +255,9 @@ systematic treatise; must be read as a record of a teaching relationship.
 |                                                                  |
 |  ZHENGMING (rectification of names):                             |
 |  When names don't match realities, social order decays.          |
-|  "Let the ruler be a ruler, the minister a minister,           |
-|   the father a father, the son a son." (Analects 12.11)        |
-|  This is not conservative stasis — it is a call to make        |
+|  "Let the ruler be a ruler, the minister a minister,             |
+|   the father a father, the son a son." (Analects 12.11)          |
+|  This is not conservative stasis — it is a call to make          |
 |  rulers actually rule well, ministers actually serve.            |
 +------------------------------------------------------------------+
 ```

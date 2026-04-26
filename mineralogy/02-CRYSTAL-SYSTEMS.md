@@ -36,38 +36,38 @@ CRYSTAL SYSTEMS: UNIT CELL PARAMETERS
 |  Parameter notation: a, b, c = edge lengths                      |
 |                       α, β, γ = angles between axes              |
 |                                                                  |
-|  CUBIC (Isometric)      a = b = c;  α = β = γ = 90°            |
+|  CUBIC (Isometric)      a = b = c;  α = β = γ = 90°              |
 |  Highest symmetry.  4-fold rotation axes.                        |
 |  Minerals: Halite, galena, pyrite, garnet, diamond, fluorite     |
 |  Crystal habit: cubes, octahedra, dodecahedra                    |
 |                                                                  |
-|  TETRAGONAL             a = b ≠ c;  α = β = γ = 90°            |
+|  TETRAGONAL             a = b ≠ c;  α = β = γ = 90°              |
 |  One unique 4-fold rotation axis.                                |
-|  Minerals: Zircon, cassiterite (SnO₂), chalcopyrite, anatase   |
+|  Minerals: Zircon, cassiterite (SnO₂), chalcopyrite, anatase     |
 |  Crystal habit: square prisms, bipyramids                        |
 |                                                                  |
-|  ORTHORHOMBIC           a ≠ b ≠ c;  α = β = γ = 90°            |
+|  ORTHORHOMBIC           a ≠ b ≠ c;  α = β = γ = 90°              |
 |  Three mutually perpendicular 2-fold axes.                       |
 |  Minerals: Olivine, sulfur, barite, aragonite, topaz             |
 |  Crystal habit: tabular, prismatic                               |
 |                                                                  |
-|  HEXAGONAL              a = b ≠ c;  α = β = 90°, γ = 120°      |
+|  HEXAGONAL              a = b ≠ c;  α = β = 90°, γ = 120°        |
 |  One 6-fold rotation axis.                                       |
 |  Minerals: Quartz (at high T), beryl, graphite, apatite          |
 |  Crystal habit: hexagonal prisms                                 |
 |                                                                  |
-|  TRIGONAL (Rhombohedral) a = b = c; α = β = γ ≠ 90°            |
+|  TRIGONAL (Rhombohedral) a = b = c; α = β = γ ≠ 90°              |
 |  One 3-fold rotation axis. Subset of hexagonal.                  |
 |  Minerals: Calcite, dolomite, corundum, tourmaline, quartz       |
 |  Crystal habit: rhombohedra, scalenohedra                        |
 |                                                                  |
-|  MONOCLINIC             a ≠ b ≠ c;  α = γ = 90°, β ≠ 90°       |
+|  MONOCLINIC             a ≠ b ≠ c;  α = γ = 90°, β ≠ 90°         |
 |  One 2-fold rotation axis or mirror plane.                       |
 |  Minerals: Orthoclase, augite, hornblende, gypsum, epidote       |
 |  Crystal habit: prismatic, tabular                               |
 |                                                                  |
-|  TRICLINIC              a ≠ b ≠ c;  α ≠ β ≠ γ ≠ 90°            |
-|  Lowest symmetry. Only inversion center (or none).             |
+|  TRICLINIC              a ≠ b ≠ c;  α ≠ β ≠ γ ≠ 90°              |
+|  Lowest symmetry. Only inversion center (or none).               |
 |  Minerals: Plagioclase, kyanite, rhodonite                       |
 |  Crystal habit: tabular, pinacoidal                              |
 +------------------------------------------------------------------+
@@ -90,11 +90,11 @@ This is the exact same group theory from abstract algebra — the classification
 ```
 THE 32 POINT GROUPS — organized by crystal system
 +------------------------------------------------------------------+
-|  Cubic:        23, m3, 432, 4̄3m, m3m        (5 groups)         |
-|  Tetragonal:   4, 4̄, 4/m, 422, 4mm, 4̄2m, 4/mmm  (7 groups)   |
+|  Cubic:        23, m3, 432, 4̄3m, m3m        (5 groups)           |
+|  Tetragonal:   4, 4̄, 4/m, 422, 4mm, 4̄2m, 4/mmm  (7 groups)       |
 |  Orthorhombic: 222, mm2, mmm                 (3 groups)          |
-|  Hexagonal:    6, 6̄, 6/m, 622, 6mm, 6̄m2, 6/mmm  (7 groups)   |
-|  Trigonal:     3, 3̄, 32, 3m, 3̄m             (5 groups)        |
+|  Hexagonal:    6, 6̄, 6/m, 622, 6mm, 6̄m2, 6/mmm  (7 groups)       |
+|  Trigonal:     3, 3̄, 32, 3m, 3̄m             (5 groups)           |
 |  Monoclinic:   2, m, 2/m                     (3 groups)          |
 |  Triclinic:    1, 1̄                          (2 groups)          |
 |  Total: 32 point groups                                          |
@@ -116,7 +116,7 @@ THE 14 BRAVAIS LATTICES — unique translational tilings of 3D space
 |    Face-centered cubic (F)  + 1 atom at each face center         |
 |                                                                  |
 |  Tetragonal (2):  Simple (P), Body-centered (I)                  |
-|  Orthorhombic (4): P, I, F, C (base-centered)                  |
+|  Orthorhombic (4): P, I, F, C (base-centered)                    |
 |  Hexagonal (1):   Simple (P)                                     |
 |  Rhombohedral (1): R                                             |
 |  Monoclinic (2):  P, C                                           |
@@ -125,8 +125,8 @@ THE 14 BRAVAIS LATTICES — unique translational tilings of 3D space
 |                                                                  |
 |  Key insight: FCC = closest packing of equal spheres             |
 |  → Explains structure of many metals (Cu, Al, Ni, Au)            |
-|  → Halite (NaCl): FCC of Cl⁻ with Na⁺ in octahedral holes      |
-|  → Fluorite (CaF₂): FCC of Ca²⁺ with F⁻ in all tetrahedral    |
+|  → Halite (NaCl): FCC of Cl⁻ with Na⁺ in octahedral holes        |
+|  → Fluorite (CaF₂): FCC of Ca²⁺ with F⁻ in all tetrahedral       |
 |     holes (opposite of antifluorite structure)                   |
 +------------------------------------------------------------------+
 ```
@@ -178,7 +178,7 @@ TYPES OF TWINNING
 |  PENETRATION TWINS: individuals interpenetrate                   |
 |  Example: Orthoclase Carlsbad twin, fluorite penetration twin    |
 |                                                                  |
-|  POLYSYNTHETIC TWINS: many repeated fine lamellae              |
+|  POLYSYNTHETIC TWINS: many repeated fine lamellae                |
 |  Example: Plagioclase — alternating twin orientations visible    |
 |    under microscope (key identification feature)                 |
 |  Example: Calcite — deformation twinning under stress            |
@@ -236,9 +236,9 @@ XRD WORKFLOW
 |       |                                                          |
 |       v                                                          |
 |  Each peak: use Bragg → d-spacing for that plane family          |
-|  Peak positions → unit cell parameters (a, b, c, α, β, γ)      |
+|  Peak positions → unit cell parameters (a, b, c, α, β, γ)        |
 |  Peak intensities → atom positions within unit cell              |
-|  Peak widths → crystallite size (Scherrer equation)            |
+|  Peak widths → crystallite size (Scherrer equation)              |
 |       |                                                          |
 |  MINERAL IDENTIFICATION: match d-spacings to JCPDS/ICDD database|
 |  (every mineral has a unique XRD fingerprint)                    |

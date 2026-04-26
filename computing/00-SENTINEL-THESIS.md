@@ -173,8 +173,8 @@ The simplest example of this volume's principle is one you already lived through
 SOURCE DEPOT (centralized)              GIT (distributed)
 ┌────────────────────────┐              ┌────────────────────────┐
 │    CENTRAL SERVER      │              │    EVERY CLONE IS A    │
-│    holds THE truth      │              │    FULL REPLICA         │
-│                         │              │                         │
+│    holds THE truth      │              │    FULL REPLICA       │
+│                         │              │                       │
 │  ┌─────────────────┐   │              │  ┌───────┐ ┌───────┐   │
 │  │  master history  │   │              │  │clone A│ │clone B│   │
 │  │  (authoritative) │   │              │  │(full) │ │(full) │   │

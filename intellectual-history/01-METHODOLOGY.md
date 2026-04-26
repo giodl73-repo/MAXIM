@@ -28,8 +28,8 @@ of history and interpretation theory.
 |  | understanding the whole requires understanding parts.     |    |
 |  | Iterative process: never fully resolved.                  |    |
 |  +-----------------------------------------------------------+    |
-|                                                                   |
-|  CORE RISKS                                                       |
+   |                                                                |
+   |  CORE RISKS                                                    |
 |  +-----------------------------------------------------------+    |
 |  | Anachronism  |  Whig history  |  Over-contextualization   |    |
 |  | Hagiography  |  Presentism    |  Reductionism             |    |

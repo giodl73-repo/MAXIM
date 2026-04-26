@@ -5,7 +5,7 @@
 THE RL FRAMEWORK
 
   ┌───────────────────────────────────────────────────────┐
-  │                                                         │
+  │                                                       │
   │   Agent ──action aₜ──► Environment                    │
   │      ▲                      │                         │
   │      │ state sₜ₊₁           │                         │

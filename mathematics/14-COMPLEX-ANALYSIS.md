@@ -233,17 +233,17 @@ singularities at z₀:
 │  SINGULARITY TYPES                                                      │
 │                                                                         │
 │  Removable singularity                                                  │
-│  Principal part = 0. lim f(z) exists as z→z₀.                         │
-│  Example: sin(z)/z at z=0. Define f(0)=1 → holomorphic everywhere.    │
+│  Principal part = 0. lim f(z) exists as z→z₀.                           │
+│  Example: sin(z)/z at z=0. Define f(0)=1 → holomorphic everywhere.      │
 │                                                                         │
 │  Pole of order m                                                        │
 │  cₙ = 0 for n < −m, c₋ₘ ≠ 0.  |f(z)| → ∞ as z → z₀.               │
-│  Example: 1/z² has a pole of order 2 at 0.                            │
-│  g(z) = (z−z₀)^m f(z) is holomorphic at z₀.                         │
+│  Example: 1/z² has a pole of order 2 at 0.                              │
+│  g(z) = (z−z₀)^m f(z) is holomorphic at z₀.                             │
 │                                                                         │
 │  Essential singularity                                                  │
 │  Infinitely many negative terms.                                        │
-│  Example: e^(1/z) at z=0.                                             │
+│  Example: e^(1/z) at z=0.                                               │
 │  Picard's Great Theorem: in any punctured neighborhood of an            │
 │  essential singularity, f takes every complex value (with at most       │
 │  one exception) infinitely often.                                       │

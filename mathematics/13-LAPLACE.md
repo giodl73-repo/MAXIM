@@ -285,7 +285,7 @@ systems with initial conditions:
   │  4. Simple real zero (1 + s/ωz):                                    │
   │     Same but +20 dB/decade, +90°                                    │
   │                                                                     │
-  │  5. Complex conjugate pair 1/(s² + 2ζω₀s + ω₀²):                  │
+  │  5. Complex conjugate pair 1/(s² + 2ζω₀s + ω₀²):                    │
   │     Resonance peak at ω₀, height 1/2ζ                               │
   │     -40 dB/decade above ω₀                                          │
   │     Phase swings -180° through ω₀                                   │

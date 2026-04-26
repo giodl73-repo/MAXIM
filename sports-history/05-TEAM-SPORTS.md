@@ -448,7 +448,7 @@ RUGBY SPLIT (1895):
 
 COMPARISON TABLE:
   +---------------------------+---------------------------+
-  | Rugby Union              | Rugby League             |
+  | Rugby Union              | Rugby League               |
   +---------------------------+---------------------------+
   | 15 players               | 13 players               |
   | Contested possession     | Possession more linear   |

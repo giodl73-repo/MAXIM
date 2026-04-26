@@ -8,8 +8,8 @@ Red team, blue team, and purple team activities test security controls against r
 OFFENSIVE AND DEFENSIVE SECURITY FUNCTIONS
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  RED TEAM                     BLUE TEAM               PURPLE TEAM   |
-|  +-----------------------+   +-------------------+   +------------+ |
+|  RED TEAM                     BLUE TEAM               PURPLE TEAM     |
+|  +-----------------------+   +-------------------+   +------------+   |
 |  | Adversary simulation  |   | Detection &       |   | Red + Blue  | |
 |  | Goal-oriented         |   | Response          |   | working     | |
 |  | Persistent access     |   | SOC operations    |   | together    | |
@@ -17,13 +17,13 @@ OFFENSIVE AND DEFENSIVE SECURITY FUNCTIONS
 |  | Data exfiltration     |   | SIEM tuning       |   | knowledge   | |
 |  | months-long           |   | Playbook updates  |   | transfer    | |
 |  +-----------------------+   +-------------------+   +------------+ |
-|          |                           |                      |         |
-|          v                           v                      v         |
+|          |                           |                      |       |
+|          v                           v                      v       |
 |  PEN TEST                   THREAT HUNTING        TABLETOP          |
 |  Point-in-time              Hypothesis-driven     Scenario-based    |
 |  scoped assessment          proactive search      discussion exercise |
-|  weeks                      for undetected        no actual attack    |
-|                             threats               hours               |
+|  weeks                      for undetected        no actual attack  |
+|                             threats               hours             |
 +-----------------------------------------------------------------------+
 ```
 

@@ -14,12 +14,12 @@ Von Neumann entropy: S(ρ) = -Tr(ρ log ρ)
 
 ┌─────────────────────────────────────────────────────────────────────┐
 │  Density matrix ρ:                                                  │
-│    Pure state:  ρ = |ψ⟩⟨ψ|,   ρ² = ρ,   Tr(ρ²) = 1               │
-│    Mixed state: ρ = Σᵢ pᵢ|ψᵢ⟩⟨ψᵢ|,  ρ² ≠ ρ,  Tr(ρ²) < 1          │
+│    Pure state:  ρ = |ψ⟩⟨ψ|,   ρ² = ρ,   Tr(ρ²) = 1                  │
+│    Mixed state: ρ = Σᵢ pᵢ|ψᵢ⟩⟨ψᵢ|,  ρ² ≠ ρ,  Tr(ρ²) < 1             │
 │    Maximally mixed: ρ = I/d  (S = log d,  maximum entropy)          │
 │                                                                     │
-│  Eigendecomposition: ρ = Σᵢ λᵢ|eᵢ⟩⟨eᵢ|,  λᵢ ≥ 0,  Σ λᵢ = 1      │
-│  Von Neumann entropy: S(ρ) = -Σᵢ λᵢ log λᵢ   [0 ≤ S ≤ log d]     │
+│  Eigendecomposition: ρ = Σᵢ λᵢ|eᵢ⟩⟨eᵢ|,  λᵢ ≥ 0,  Σ λᵢ = 1          │
+│  Von Neumann entropy: S(ρ) = -Σᵢ λᵢ log λᵢ   [0 ≤ S ≤ log d]        │
 └─────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -117,18 +117,18 @@ A quantum channel ε: ρ → ε(ρ) is a CPTP map. Multiple capacity notions:
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │  Classical capacity C:  max bits/channel use                        │
-│    Holevo bound (single use): χ = S(Σᵢ pᵢ ε(ρᵢ)) - Σᵢ pᵢ S(ε(ρᵢ)) │
-│    HSW theorem: C = lim_{n→∞} χ(ε^{⊗n})/n                         │
-│    Superadditivity: χ(ε⊗ε) may exceed 2χ(ε) for some channels     │
+│    Holevo bound (single use): χ = S(Σᵢ pᵢ ε(ρᵢ)) - Σᵢ pᵢ S(ε(ρᵢ))   │
+│    HSW theorem: C = lim_{n→∞} χ(ε^{⊗n})/n                           │
+│    Superadditivity: χ(ε⊗ε) may exceed 2χ(ε) for some channels       │
 │                                                                     │
 │  Quantum capacity Q:  max qubits/channel use                        │
-│    Coherent information: Ic(ρ,ε) = S(ε(ρ)) - S((id⊗ε)(|φ⟩⟨φ|))   │
+│    Coherent information: Ic(ρ,ε) = S(ε(ρ)) - S((id⊗ε)(|φ⟩⟨φ|))      │
 │      where |φ⟩ is purification of ρ in reference system             │
-│    LSD theorem: Q = lim_{n→∞} max_ρ Ic(ρ,ε^{⊗n})/n               │
+│    LSD theorem: Q = lim_{n→∞} max_ρ Ic(ρ,ε^{⊗n})/n                  │
 │    Superadditivity: Q > single-use coherent info for some channels  │
 │                                                                     │
 │  Entanglement-assisted capacity C_E:                                │
-│    C_E = max_{ρ} I(A:B) = max_{ρ} [S(ρ) + Ic(ρ,ε)]               │
+│    C_E = max_{ρ} I(A:B) = max_{ρ} [S(ρ) + Ic(ρ,ε)]                  │
 │    No superadditivity: single-letter formula suffices               │
 │    C_E ≥ C, Q  (pre-shared entanglement only helps)                 │
 └─────────────────────────────────────────────────────────────────────┘

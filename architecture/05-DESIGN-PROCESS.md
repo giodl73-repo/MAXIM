@@ -18,7 +18,7 @@ The architecture design process is not linear. It spirals: each phase revisits e
 |                                                                    |
 |  DECISIONS MADE vs COST TO CHANGE:                                 |
 |  ────────────────────────────────────────────────────────────      |
-|  SD: 15% decisions → determine 80% of project cost               |
+|  SD: 15% decisions → determine 80% of project cost                 |
 |      1x cost to change                                             |
 |  DD: 35% decisions locked                                          |
 |      10–50x cost to change                                         |

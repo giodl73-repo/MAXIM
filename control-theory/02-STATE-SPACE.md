@@ -13,7 +13,7 @@ scales to arbitrary dimensionality.
 |              STATE-SPACE MENTAL MODEL                            |
 |                                                                  |
 |  Physical system:                                                |
-|    Inputs u(t) ─────→ [PLANT DYNAMICS] ─────→ Outputs y(t)     |
+|    Inputs u(t) ─────→ [PLANT DYNAMICS] ─────→ Outputs y(t)       |
 |                           ↕                                      |
 |                        State x(t)                                |
 |                   (internal variables)                           |

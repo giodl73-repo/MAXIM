@@ -23,7 +23,7 @@ GLOBAL GOVERNANCE — THE LANDSCAPE
   ├────────────────────────────────────────────────────────────┤
   │ STANDARD-SETTING:            Telecommunications, internet,│
   │ (network effects)            AI systems, trade rules       │
-  │ → ITU, ICANN, ISO,           Standards = de facto power  │
+  │ → ITU, ICANN, ISO,           Standards = de facto power    │
   │   WTO, G7/G20                                              │
   ├────────────────────────────────────────────────────────────┤
   │ SECURITY PUBLIC GOODS:       Nuclear non-proliferation,   │

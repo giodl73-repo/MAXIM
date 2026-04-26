@@ -27,7 +27,7 @@ SOLID TIMBER vs ENGINEERED WOOD PRODUCTS
 │                          → design conservatively      → consistent values    │
 │                                                                              │
 │  PRODUCT FAMILY:                                                             │
-│  ┌─────────┬────────────┬──────────────┬─────────────┬─────────────────┐   │
+│  ┌─────────┬────────────┬──────────────┬─────────────┬─────────────────┐     │
 │  │Plywood  │  LVL       │  Glulam      │   CLT       │ Mass timber     │   │
 │  │(sheets) │ (beams)    │ (beams/cols) │ (panels)    │ (buildings)     │   │
 │  │Cross-lam│ Parallel   │ Parallel     │ Cross-lam   │ CLT+glulam+LVL  │   │
@@ -91,8 +91,8 @@ PLYWOOD CONSTRUCTION
 │                                                                              │
 │  3-PLY CONSTRUCTION (simplest):                                              │
 │  ──────────────────────────────                                              │
-│  Face veneer:   grain → → → → → → (along panel length direction)           │
-│  Core veneer:   grain ↑↑↑↑↑↑↑↑↑↑ (across; 90° to face)                     │
+│  Face veneer:   grain → → → → → → (along panel length direction)             │
+│  Core veneer:   grain ↑↑↑↑↑↑↑↑↑↑ (across; 90° to face)                       │
 │  Back veneer:   grain → → → → → → (same as face; panel balanced)             │
 │                                                                              │
 │  ALWAYS ODD NUMBER OF PLIES:                                                 │
@@ -105,12 +105,12 @@ PLYWOOD CONSTRUCTION
 │     Net in-plane movement: ~0.02% per 1% MC change vs ~0.3% for solid wood   │
 │  2. Biaxial stiffness: load sharing in both directions                       │
 │     (though face grain direction is still stiffer)                           │
-│  3. Splits blocked: crack along grain in one ply stopped by next ply       │
+│  3. Splits blocked: crack along grain in one ply stopped by next ply         │
 │                                                                              │
 │  STANDARD SIZES:                                                             │
-│  2440 × 1220 mm (8 × 4 ft) — universally dominant                          │
+│  2440 × 1220 mm (8 × 4 ft) — universally dominant                            │
 │  1250 × 2500 mm (metric equivalent)                                          │
-│  Thicknesses: 3, 4, 6, 9, 12, 15, 18, 25, 32 mm                           │
+│  Thicknesses: 3, 4, 6, 9, 12, 15, 18, 25, 32 mm                              │
 │                                                                              │
 │  GRADES (face/back):                                                         │
 │  A-A: both faces clear; furniture; expensive                                 │
@@ -232,26 +232,26 @@ CLT CONSTRUCTION
 │                                                                              │
 │  5-PLY CLT (common floor panel):                                             │
 │                                                                              │
-│  Layer 1 (top/outer):  → → → → → →  major direction (span direction)       │
-│  Layer 2:              ↑↑↑↑↑↑↑↑↑↑  minor direction (90°)                   │
+│  Layer 1 (top/outer):  → → → → → →  major direction (span direction)         │
+│  Layer 2:              ↑↑↑↑↑↑↑↑↑↑  minor direction (90°)                     │
 │  Layer 3 (core):       → → → → → →  major direction                          │
-│  Layer 4:              ↑↑↑↑↑↑↑↑↑↑  minor direction                         │
+│  Layer 4:              ↑↑↑↑↑↑↑↑↑↑  minor direction                           │
 │  Layer 5 (bottom/outer): → → → → →  major direction                          │
 │                                                                              │
 │  PANEL SIZES:                                                                │
 │    Width: up to 3.0 m (limited by press width)                               │
 │    Length: up to 20 m (limited by transport)                                 │
-│    Thickness: 60mm (3-ply) to 400mm+ (7+ ply)                              │
-│    Common floor panels: 140–200 mm (5-ply); wall panels: 100–200 mm        │
+│    Thickness: 60mm (3-ply) to 400mm+ (7+ ply)                                │
+│    Common floor panels: 140–200 mm (5-ply); wall panels: 100–200 mm          │
 │                                                                              │
 │  TWO-WAY PLATE ACTION:                                                       │
 │    Unlike I-beams or one-way slabs, CLT panel distributes load in 2D         │
 │    Orthotropic elastic plate: D₁₁ ≠ D₂₂  (different stiffness per direction)│
-│    D₁₁ (major): governed by layers 1,3,5 (strong direction)                │
+│    D₁₁ (major): governed by layers 1,3,5 (strong direction)                  │
 │    D₂₂ (minor): governed by layers 2,4  (weaker direction)                   │
-│    Torsional stiffness D₁₂: provided by cross layers                       │
+│    Torsional stiffness D₁₂: provided by cross layers                         │
 │    → stiffness matrix Dij used in FEM plate analysis                         │
-│    → for panel-level design: simplified Kxyz method or Gamma method        │
+│    → for panel-level design: simplified Kxyz method or Gamma method          │
 │                                                                              │
 │  ROLLING SHEAR:                                                              │
 │    Shear in the transverse layers (layers 2, 4) → rolling shear failure      │
@@ -261,12 +261,12 @@ CLT CONSTRUCTION
 │    → avoid large concentrated loads without stiffener or reinforcement       │
 │                                                                              │
 │  CONNECTIONS (structural critical path):                                     │
-│    Self-tapping screws (STS): fully threaded; draw panels together;        │
-│      can be inclined (45°) → resist axial + shear in 3D                    │
-│      capacity: ~12–25 kN/screw depending on diameter (8–14mm) and angle    │
-│    Angle brackets: steel; screwed to CLT; bolted/nailed to steel support   │
-│    LVL spline: LVL strip glued/screwed into routed groove → panel-to-panel │
-│    Hold-down anchors (HDA): tension resist; for uplift and racking walls   │
+│    Self-tapping screws (STS): fully threaded; draw panels together;          │
+│      can be inclined (45°) → resist axial + shear in 3D                      │
+│      capacity: ~12–25 kN/screw depending on diameter (8–14mm) and angle      │
+│    Angle brackets: steel; screwed to CLT; bolted/nailed to steel support     │
+│    LVL spline: LVL strip glued/screwed into routed groove → panel-to-panel   │
+│    Hold-down anchors (HDA): tension resist; for uplift and racking walls     │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -299,14 +299,14 @@ TALL TIMBER BUILDINGS: CASE STUDIES
 │  BROCK COMMONS TALLWOOD HOUSE (Vancouver, 2017)                              │
 │  18 stories; 53 m tall                                                       │
 │  Structural system:                                                          │
-│    CLT floor panels: 5-ply 169 mm span ~8.2 m between columns              │
+│    CLT floor panels: 5-ply 169 mm span ~8.2 m between columns                │
 │    Glulam columns: continuous vertical post-and-beam                         │
 │    RC cores × 2: lateral stability (seismic + wind)                          │
-│    RC ground floor: transfer slab + podium (fire access)                   │
+│    RC ground floor: transfer slab + podium (fire access)                     │
 │    Hybrid: CLT + glulam structure; concrete lateral system                   │
 │  CLT prefabricated with pre-drilled connection holes → fast erection         │
 │  One floor per day at peak rate                                              │
-│  CO₂ stored in CLT structure: ~1,628 tCO₂ sequestered                      │
+│  CO₂ stored in CLT structure: ~1,628 tCO₂ sequestered                        │
 │                                                                              │
 │  ASCENT (Milwaukee, 2022)                                                    │
 │  25 stories; 86.6 m — currently tallest mass timber building in world        │
@@ -341,18 +341,18 @@ TIMBER CHARRING AND FIRE RESISTANCE
 │                                                                              │
 │  CHARRING PROCESS:                                                           │
 │  At ~270–300°C: wood surface begins pyrolysis → char layer forms             │
-│  Char rate (β₀): ~0.65 mm/min for glulam/CLT softwood (EN 1995-1-2)        │
-│  Hardwood: ~0.5 mm/min (slower → better fire resistance per mm)            │
+│  Char rate (β₀): ~0.65 mm/min for glulam/CLT softwood (EN 1995-1-2)          │
+│  Hardwood: ~0.5 mm/min (slower → better fire resistance per mm)              │
 │                                                                              │
 │  RESIDUAL SECTION UNDER FIRE:                                                │
 │  After t minutes of fire:                                                    │
-│    Char depth: d_char = β₀ × t + k₀ × (depth of zero-strength layer, 7mm) │
-│    Residual section: original section − d_char on all exposed faces        │
+│    Char depth: d_char = β₀ × t + k₀ × (depth of zero-strength layer, 7mm)    │
+│    Residual section: original section − d_char on all exposed faces          │
 │                                                                              │
-│  EXAMPLE: 120 × 120 mm glulam post, 4-sides exposed, 60-min fire           │
-│    Char per side: 0.65 × 60 + 7 = 46 mm                                    │
-│    Residual section: 120 − 2×46 = 28 mm on each axis                      │
-│    → too small; would fail → must be 160 × 160 mm minimum for REI60        │
+│  EXAMPLE: 120 × 120 mm glulam post, 4-sides exposed, 60-min fire             │
+│    Char per side: 0.65 × 60 + 7 = 46 mm                                      │
+│    Residual section: 120 − 2×46 = 28 mm on each axis                         │
+│    → too small; would fail → must be 160 × 160 mm minimum for REI60          │
 │                                                                              │
 │  MASS TIMBER FIRE COMPARISON vs STEEL:                                       │
 │                                                                              │

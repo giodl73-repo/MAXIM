@@ -8,17 +8,17 @@ Drug development is a 10-15 year, $2-3 billion process from identifying a target
 +──────────────────────────────────────────────────────────────────+
 |              DRUG DEVELOPMENT PIPELINE                           |
 |                                                                  |
-|  TARGET   →  LEAD       →  PRECLINICAL  →  CLINICAL TRIALS  → |
+|  TARGET   →  LEAD       →  PRECLINICAL  →  CLINICAL TRIALS  →    |
 |  ID          DISCOVERY     TESTING         Phase I/II/III        |
-|  ~2 yr       ~2 yr         ~3-4 yr         ~6-8 yr             |
+|  ~2 yr       ~2 yr         ~3-4 yr         ~6-8 yr               |
 |                                                                  |
 |  Failure rate: ────────────────────────────────────────────────  |
 |  Target ID    Lead        Enter      Phase I   Phase II  Ph III  |
-|  10-20% of   ~90% of     IND:       63% fail  66% fail  44%    |
+|  10-20% of   ~90% of     IND:       63% fail  66% fail  44%      |
 |  targets     compounds   10% pass                        fail    |
 |  validated   eliminated              ← Only ~10% through III →   |
 |                                                                  |
-|  → FDA REVIEW → APPROVAL → POST-MARKETING SURVEILLANCE (PV)    |
+|  → FDA REVIEW → APPROVAL → POST-MARKETING SURVEILLANCE (PV)      |
 |     6-12 mo                           Ongoing forever            |
 +──────────────────────────────────────────────────────────────────+
 ```

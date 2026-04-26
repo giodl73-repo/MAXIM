@@ -260,9 +260,9 @@ A **topological invariant** is a property preserved by homeomorphisms:
 
   EXAMPLES:
   ┌─────────────────────────────────────────────────────────────────┐
-  │  p: ℝ → S¹,  p(t) = e^(2πit)                                  │
+  │  p: ℝ → S¹,  p(t) = e^(2πit)                                    │
   │  The real line "wraps around" the circle.                       │
-  │  Fiber p⁻¹(x₀) = ℤ (all integers, equally spaced)             │
+  │  Fiber p⁻¹(x₀) = ℤ (all integers, equally spaced)               │
   │                                                                 │
   │  p: S² → RP²  (antipodal map)                                   │
   │  Sphere double-covers real projective plane.                    │
@@ -428,7 +428,7 @@ A **topological invariant** is a property preserved by homeomorphisms:
 
   EXAMPLES:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Vortices (2D superfluid): π₁(U(1)) = ℤ → quantized vortex lines   │
+  │  Vortices (2D superfluid): π₁(U(1)) = ℤ → quantized vortex lines     │
   │  Strings (3D, symmetry breaking): π₁(vacuum manifold) ≠ 0            │
   │  Monopoles (3D): π₂(vacuum manifold) ≠ 0                             │
   │  Textures: π₃(vacuum manifold) ≠ 0                                   │
@@ -483,7 +483,7 @@ Before TDA, the algebraic machinery needs to be in place.
   ∂[v₀,...,vₙ] = Σᵢ (-1)ⁱ [v₀,...,v̂ᵢ,...,vₙ]  (omit the i-th vertex)
 
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  ... → C₂ →^∂₂ C₁ →^∂₁ C₀ → 0                                    │
+  │  ... → C₂ →^∂₂ C₁ →^∂₁ C₀ → 0                                       │
   │                                                                     │
   │  KEY IDENTITY: ∂²= 0  (boundary of a boundary is empty)             │
   │  Algebraic proof: the (-1)ⁱ signs cause exact cancellation.         │
@@ -498,7 +498,7 @@ Before TDA, the algebraic machinery needs to be in place.
 
   EXAMPLES:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Space X     │  H₀      │  H₁      │  H₂      │  Interpretation    │
+  │  Space X     │  H₀      │  H₁      │  H₂      │  Interpretation      │
   ├──────────────────────────────────────────────────────────────────────┤
   │  Point       │  ℤ       │  0       │  0       │  1 component       │
   │  S¹ (circle) │  ℤ       │  ℤ       │  0       │  1 loop            │
@@ -560,9 +560,9 @@ Before TDA, the algebraic machinery needs to be in place.
 
   ┌────────────────────────────────────────────────────────────────────┐
   │  PERSISTENCE BARCODE: one horizontal bar per feature               │
-  │  r:   0  ──────────────────────────────────────────────► ∞       │
-  │  H₀:  ───── ──── ──── ──  ─    (components merging)             │
-  │  H₁:                ────────  ──── ─  (loops appearing/dying)    │
+  │  r:   0  ──────────────────────────────────────────────► ∞         │
+  │  H₀:  ───── ──── ──── ──  ─    (components merging)                │
+  │  H₁:                ────────  ──── ─  (loops appearing/dying)      │
   │  Long bars = topologically significant features                    │
   │  Short bars = noise                                                │
   │                                                                    │
@@ -680,11 +680,11 @@ Before TDA, the algebraic machinery needs to be in place.
 
   ┌─────────────────────────────────────────────────────────────────────┐
   │  Cover p: X̃ → X        │  Subgroup H ≤ π₁(X, x₀)               │
-  │  Universal cover        │  H = {e} (trivial subgroup)             │
-  │  X itself (trivial)     │  H = π₁(X) (whole group)               │
-  │  n-sheeted cover        │  [π₁:H] = n (index n subgroup)         │
-  │  Normal cover           │  H ◁ π₁ (normal subgroup)              │
-  │  Deck transformations   │  π₁/H (quotient when H normal)         │
+  │  Universal cover        │  H = {e} (trivial subgroup)               │
+  │  X itself (trivial)     │  H = π₁(X) (whole group)                  │
+  │  n-sheeted cover        │  [π₁:H] = n (index n subgroup)            │
+  │  Normal cover           │  H ◁ π₁ (normal subgroup)                 │
+  │  Deck transformations   │  π₁/H (quotient when H normal)            │
   └─────────────────────────────────────────────────────────────────────┘
 
   This is exactly analogous to Galois theory:
@@ -700,15 +700,15 @@ Before TDA, the algebraic machinery needs to be in place.
 
   EXAMPLES:
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  X = S¹:  X̃ = ℝ,  π₁(S¹) = ℤ                                    │
+  │  X = S¹:  X̃ = ℝ,  π₁(S¹) = ℤ                                        │
   │  Deck transformations: t ↦ t + n (integer translations)             │
   │  S¹ = ℝ/ℤ ✓                                                         │
   │                                                                     │
   │  X = SO(3):  X̃ = SU(2) ≅ S³,  π₁(SO(3)) = ℤ/2ℤ                │
   │  Deck transformations: {id, antipodal map on S³}                    │
-  │  SO(3) = S³/(ℤ/2ℤ) = RP³ ✓                                        │
+  │  SO(3) = S³/(ℤ/2ℤ) = RP³ ✓                                          │
   │                                                                     │
-  │  X = torus T²:  X̃ = ℝ²,  π₁(T²) = ℤ²                            │
+  │  X = torus T²:  X̃ = ℝ²,  π₁(T²) = ℤ²                                │
   │  Deck transformations: (m,n) integer lattice translations           │
   │  T² = ℝ²/ℤ² ✓                                                       │
   └─────────────────────────────────────────────────────────────────────┘

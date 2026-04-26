@@ -10,7 +10,7 @@ T CELLS: CELLULAR IMMUNITY COORDINATORS AND KILLERS
   ┌────────────────────────────────────────────────────────────────┐
   │ α/β TCR (dominant, 95% of circulating T cells):                │
   │   α chain: V (~50) × J (~61) = ~3,050                          │
-  │   β chain: V (~54) × D (2) × J (~14) = ~1,512                │
+  │   β chain: V (~54) × D (2) × J (~14) = ~1,512                  │
   │   Combinatorial: ~4.6 million                                  │
   │   + Junctional diversity: ~10¹⁸ total                          │
   │                                                                │
@@ -155,8 +155,8 @@ T CELLS: CELLULAR IMMUNITY COORDINATORS AND KILLERS
   │            Extracellular bacterial defense at barriers     │
   │ Pathogens: Candida, Klebsiella, Staphylococcus             │
   │ Disease: Psoriasis (excess IL-17); IBD; ankylosing spondy  │
-  │ Therapy: Anti-IL-17A (secukinumab → psoriasis, AS)       │
-  │          Anti-IL-23 (guselkumab → blocks Th17 induction) │
+  │ Therapy: Anti-IL-17A (secukinumab → psoriasis, AS)         │
+  │          Anti-IL-23 (guselkumab → blocks Th17 induction)   │
   └────────────────────────────────────────────────────────────┘
 
   REGULATORY T CELLS (TREG):
@@ -165,15 +165,15 @@ T CELLS: CELLULAR IMMUNITY COORDINATORS AND KILLERS
   │   multi-organ autoimmunity)                                │
   │ Mechanisms of suppression:                                 │
   │   1. IL-10: anti-inflammatory cytokine                     │
-  │   2. TGF-β: suppresses effector T cells                  │
+  │   2. TGF-β: suppresses effector T cells                    │
   │   3. IL-35: suppressive (minor)                            │
-  │   4. CTLA-4 (high on Treg): outcompetes CD28 for B7      │
-  │   5. IL-2 consumption: Treg expresses high CD25 (IL-2R)  │
-  │      → depletes local IL-2 → starves effector cells      │
-  │   6. Direct cytotoxicity: Kill effector T cells via Gzm  │
+  │   4. CTLA-4 (high on Treg): outcompetes CD28 for B7        │
+  │   5. IL-2 consumption: Treg expresses high CD25 (IL-2R)    │
+  │      → depletes local IL-2 → starves effector cells        │
+  │   6. Direct cytotoxicity: Kill effector T cells via Gzm    │
   │                                                            │
   │ TREG IMPORTANCE:                                           │
-  │   Anti-tumor immunity: Tregs in tumor → poor prognosis   │
+  │   Anti-tumor immunity: Tregs in tumor → poor prognosis     │
   │   Transplant tolerance: Treg expansion → graft tolerance   │
   │   Autoimmunity: Treg deficiency → autoimmune disease       │
   └────────────────────────────────────────────────────────────┘
@@ -194,14 +194,14 @@ T CELLS: CELLULAR IMMUNITY COORDINATORS AND KILLERS
   │                                                            │
   │ Lytic granule exocytosis (polarized toward target):        │
   │   Perforin: oligomerizes in membrane → pore formation      │
-  │   Granzyme A, B: enter via perforin pores + mannose-6-P  │
+  │   Granzyme A, B: enter via perforin pores + mannose-6-P    │
   │                  receptor-mediated endocytosis             │
-  │   Granzyme B: cleaves caspase-3 directly → apoptosis     │
+  │   Granzyme B: cleaves caspase-3 directly → apoptosis       │
   │               cleaves BID → mitochondrial apoptosis        │
   │   Granzyme A: single-strand DNA nicking → apoptosis        │
   │                                                            │
-  │ Killing: CD8 kills target in <5 minutes; then moves on   │
-  │ Serial killing: One CD8 can kill multiple target cells   │
+  │ Killing: CD8 kills target in <5 minutes; then moves on     │
+  │ Serial killing: One CD8 can kill multiple target cells     │
   └────────────────────────────────────────────────────────────┘
 
   KILLING MECHANISM 2: FasL-Fas
@@ -232,7 +232,7 @@ T CELLS: CELLULAR IMMUNITY COORDINATORS AND KILLERS
   │                                                            │
   │ EXHAUSTION: Chronic antigen (tumors, HIV):                 │
   │   Progressive loss of effector function                    │
-  │   PD-1hi TOX+ BATF+ → exhausted state                    │
+  │   PD-1hi TOX+ BATF+ → exhausted state                      │
   │   Anti-PD-1 (pembrolizumab) partially reinvigorates        │
   └────────────────────────────────────────────────────────────┘
 ```

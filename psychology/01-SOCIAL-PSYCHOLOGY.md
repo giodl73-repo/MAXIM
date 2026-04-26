@@ -91,10 +91,10 @@ The core lesson: never underestimate context.
   │ 2. INCREMENTAL ESCALATION: Started at 15V; each step only 15V  │
   │    more; foot-in-the-door; commitment compounds                │
   │                                                                │
-  │ 3. PROXIMITY TO AUTHORITY: Experimenter present → 65%        │
+  │ 3. PROXIMITY TO AUTHORITY: Experimenter present → 65%          │
   │    Experimenter by phone → ~20%                                │
   │                                                                │
-  │ 4. DISTANCE FROM VICTIM: Learner behind wall → 65%           │
+  │ 4. DISTANCE FROM VICTIM: Learner behind wall → 65%             │
   │    Learner in same room → ~40%                                 │
   │    Physical contact required → ~30%                            │
   │                                                                │

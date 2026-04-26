@@ -178,12 +178,12 @@ This is the central theoretical distinction in phonology.
 ```
 PHONEME                              ALLOPHONE
 +---------------------------+       +---------------------------+
-| Abstract mental unit       |       | Physical realization       |
+| Abstract mental unit       |       | Physical realization     |
 | /p/ — the phoneme          |       | [pʰ] in "pin" (aspirated)  |
 | (underlying form)          |       | [p] in "spin" (unaspirated)|
-| Contrastive                |       | Predictable from context   |
-| Minimal pairs reveal them  |       | NOT contrastive            |
-| Written /slashes/          |       | Written [brackets]         |
+| Contrastive                |       | Predictable from context |
+| Minimal pairs reveal them  |       | NOT contrastive          |
+| Written /slashes/          |       | Written [brackets]       |
 +---------------------------+       +---------------------------+
 
 /p/ is realized as [pʰ] in syllable-initial position (before stressed vowel)

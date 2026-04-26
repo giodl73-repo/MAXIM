@@ -12,7 +12,7 @@ In 2006, Shinya Yamanaka demonstrated that fully differentiated adult fibroblast
 |  Zygote → ESC → Progenitors → Differentiated cells               |
 |                                                                  |
 |  YAMANAKA (reversed the arrow, 2006)                             |
-|  Fibroblast + Oct4 + Sox2 + Klf4 + cMyc → iPSC                 |
+|  Fibroblast + Oct4 + Sox2 + Klf4 + cMyc → iPSC                   |
 |  Any somatic cell → pluripotent stem cell                        |
 |                                                                  |
 |  iPSC PROPERTIES                                                 |

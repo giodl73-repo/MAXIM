@@ -12,7 +12,7 @@ Semantics is the study of linguistic meaning — what words and sentences mean, 
 |  SEMANTICS                  SEMANTICS                             |
 |  (Frege, Tarski,            (how word meanings                    |
 |   Montague)                  combine — Frege's               |
-|  Meaning = intension         principle: meaning of              |
+|  Meaning = intension         principle: meaning of                |
 |  + extension                 whole from parts)                    |
 |                                                                   |
 |  LAMBDA CALCULUS            LEXICAL SEMANTICS                     |

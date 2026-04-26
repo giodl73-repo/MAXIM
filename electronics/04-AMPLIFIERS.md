@@ -358,35 +358,35 @@ Every amplifier adds noise to the signal, setting a fundamental limit on recover
 ```
   NOISE SOURCES IN AMPLIFIERS
   ┌────────────────────────────────────────────────────────────────────────────┐
-  │  Johnson-Nyquist (thermal):  v_n² = 4kTRΔf                              │
-  │    k = 1.38×10⁻²³ J/K, T = temperature (K), R = resistance, Δf = BW    │
-  │    At 300K, 1 kΩ, 1 Hz BW: v_n = 4.07 nV/√Hz                           │
-  │    → Every resistor is a noise source. R_source noise → amplifier input. │
+  │  Johnson-Nyquist (thermal):  v_n² = 4kTRΔf                                 │
+  │    k = 1.38×10⁻²³ J/K, T = temperature (K), R = resistance, Δf = BW        │
+  │    At 300K, 1 kΩ, 1 Hz BW: v_n = 4.07 nV/√Hz                               │
+  │    → Every resistor is a noise source. R_source noise → amplifier input.   │
   │                                                                            │
-  │  Shot noise:  i_n² = 2qI_DC Δf                                           │
-  │    q = 1.6×10⁻¹⁹ C, I_DC = DC bias current                              │
+  │  Shot noise:  i_n² = 2qI_DC Δf                                             │
+  │    q = 1.6×10⁻¹⁹ C, I_DC = DC bias current                                 │
   │    Dominant in BJT base current and photodiode dark current.               │
   │                                                                            │
-  │  Flicker (1/f):  S(f) ∝ 1/f                                              │
+  │  Flicker (1/f):  S(f) ∝ 1/f                                                │
   │    Dominant below corner frequency f_c (1 Hz – 10 kHz depending on tech).  │
   │    CMOS has higher 1/f noise than BJT — matters for DC precision amps.     │
   └────────────────────────────────────────────────────────────────────────────┘
 
   NOISE FIGURE AND SIGNAL CHAIN
   ┌────────────────────────────────────────────────────────────────────────────┐
-  │  Noise figure NF = 10 log₁₀(SNR_in / SNR_out) [dB]                      │
-  │  NF = 0 dB → noiseless amplifier (impossible; ≥ 0.5 dB for best LNAs)   │
+  │  Noise figure NF = 10 log₁₀(SNR_in / SNR_out) [dB]                         │
+  │  NF = 0 dB → noiseless amplifier (impossible; ≥ 0.5 dB for best LNAs)      │
   │                                                                            │
   │  Friis cascade formula (N stages):                                         │
   │    NF_total = NF₁ + (NF₂-1)/G₁ + (NF₃-1)/(G₁G₂) + ...                 │
-  │    → First stage dominates! Low-noise amplifier (LNA) must be first.     │
+  │    → First stage dominates! Low-noise amplifier (LNA) must be first.       │
   │                                                                            │
   │  Information-theoretic connection:                                         │
-  │    Shannon capacity: C = B log₂(1 + SNR)  [bits/s]                       │
+  │    Shannon capacity: C = B log₂(1 + SNR)  [bits/s]                         │
   │    Amplifier NF degrades SNR → directly reduces channel capacity.          │
   │    For an ADC front end: input-referred noise + quantization noise         │
-  │    together set ENOB = (SINAD - 1.76) / 6.02.                            │
-  │    A 16-bit ADC with NF = 10 dB front-end amp may achieve only 14 ENOB.  │
+  │    together set ENOB = (SINAD - 1.76) / 6.02.                              │
+  │    A 16-bit ADC with NF = 10 dB front-end amp may achieve only 14 ENOB.    │
   └────────────────────────────────────────────────────────────────────────────┘
 
   DESIGN RULES

@@ -66,7 +66,7 @@ the entire party system and policy outcomes.
   │ + Clear accountability: voters know who governs                │
   │ + Geographic representation: each district has own MP          │
   │                                                                │
-  │ - Unrepresentative: 40% of votes → 60% of seats              │
+  │ - Unrepresentative: 40% of votes → 60% of seats                │
   │ - Wasted votes: large parties win big margins; small parties   │
   │   get nothing                                                  │
   │ - Tactical voting: vote for lesser evil, not preference        │

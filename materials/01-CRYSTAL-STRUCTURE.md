@@ -375,7 +375,7 @@ This sets a floor on peak width — instrument broadening and microstrain add to
     │                                                         │
     │  Vacancy: missing atom □                                │
     │    Equilibrium concentration: n/N = exp(-E_f/kT)        │
-    │    E_f ≈ 1 eV for Cu → n/N ≈ 10⁻⁶ at 900°C            │
+    │    E_f ≈ 1 eV for Cu → n/N ≈ 10⁻⁶ at 900°C              │
     │    Vacancies required for solid-state diffusion         │
     │                                                         │
     │  Interstitial: extra atom in gap between lattice sites  │
@@ -581,7 +581,7 @@ For FCC: partial dislocations (b = a/6<112>) have lower energy than perfect disl
     │  Isotropic (polycrystal)     │                              │
     ├──────────────────────────────┼──────────────────────────────┤
     │  Grain boundaries = defects  │  No grain boundaries         │
-    │  → scatter at GBs           │  → better corrosion         │
+    │  → scatter at GBs           │  → better corrosion           │
     ├──────────────────────────────┼──────────────────────────────┤
     │  Slip on specific planes     │  Shear bands (localized)     │
     │  → work hardens              │  → no work hardening        │

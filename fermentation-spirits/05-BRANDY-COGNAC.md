@@ -5,12 +5,12 @@
 ```
 +------------------------------------------------------------------+
 |                    BRANDY FAMILY TREE                            |
-|                                                                    |
+|                                                                  |
 |  BRANDY: Any distilled spirit from fermented fruit               |
 |  (from Dutch "brandewijn" = "burnt wine")                        |
-|                                                                    |
+|                                                                  |
 |  GRAPE BRANDIES                    FRUIT BRANDIES (Eau de Vie)   |
-|  --------------                    ------------------------        |
+|  --------------                    ------------------------      |
 |  Cognac (Charente, France)         Calvados (Norman apple)       |
 |  Armagnac (Gascony, France)        Kirschwasser (cherry)         |
 |  Pisco (Peru/Chile -- disputed)    Slivovitz (Balkan plum)       |
@@ -19,7 +19,7 @@
 |  Metaxa (Greek grape blend)        Quetsch (prune plum)          |
 |  Brandy de Jerez (Spanish)         Poire William (pear)          |
 |                                    Applejack (American apple)    |
-|                                                                    |
+|                                                                  |
 |  POMACE BRANDIES (skins, seeds, stems after pressing)            |
 |  Grappa (Italy), Marc de Bourgogne (France), Bagaceira (Portugal)|
 +------------------------------------------------------------------+

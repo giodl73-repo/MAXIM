@@ -15,7 +15,7 @@ with remarkable fidelity — you can reconstruct one from the other.
 |                                                                      |
 |  LATITUDE              → primary driver (solar angle → insolation)   |
 |  │                                                                   |
-|  ├── Tropical (0°-23.5°N/S)  ←──── ITCZ (follows solar zenith)    |
+|  ├── Tropical (0°-23.5°N/S)  ←──── ITCZ (follows solar zenith)       |
 |  │     ITCZ migration → wet-dry seasonality ←──── Ocean SST          |
 |  │                                                                   |
 |  ├── Subtropical (23.5°-35°): HIGH PRESSURE BELTS                    |
@@ -34,7 +34,7 @@ with remarkable fidelity — you can reconstruct one from the other.
 |  │     −6.5°C per 1000m → compressed climate zones vertically        |
 |  │     Mountains create local climate envelope regardless of latitude|
 |  │                                                                   |
-|  └── Polar (60°-90°): COLD POLAR HIGH PRESSURE                     |
+|  └── Polar (60°-90°): COLD POLAR HIGH PRESSURE                       |
 |        Ice caps, tundra, permafrost                                  |
 +----------------------------------------------------------------------+
 ```

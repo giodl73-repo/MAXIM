@@ -44,21 +44,21 @@ NUCLEAR POWER ECONOMICS SPECTRUM
   ┌────────────────────────────────────────────────────────────────┐
   │  OVERNIGHT CAPITAL COST (OCC):   ~$6,000-10,000/kW installed   │
   │  "What it would cost if built overnight (no financing)"        │
-  │  US: ~$8,000-10,000/kW (AP1000 Vogtle: ~$9,000/kW)          │
-  │  South Korea (KEPCO APR-1400): ~$2,500-4,000/kW (export)     │
-  │  China (CPR-1000, Hualong): ~$2,000-3,000/kW                 │
+  │  US: ~$8,000-10,000/kW (AP1000 Vogtle: ~$9,000/kW)             │
+  │  South Korea (KEPCO APR-1400): ~$2,500-4,000/kW (export)       │
+  │  China (CPR-1000, Hualong): ~$2,000-3,000/kW                   │
   │                                                                │
   │  FINANCING COST (Interest During Construction — IDC):          │
   │  10-year construction × 8% WACC = enormous IDC                 │
   │  IDC adds ~30-60% to overnight cost                            │
-  │  Final "all-in" cost: $10,000-18,000/kW                      │
+  │  Final "all-in" cost: $10,000-18,000/kW                        │
   │                                                                │
-  │  ANNUAL FIXED O&M:               ~$150-200/kW-yr             │
-  │  Fuel cycle (enrichment + fab):  ~$10-15/MWh                 │
-  │  Decommissioning fund:           ~$1-2/MWh (set aside now)   │
+  │  ANNUAL FIXED O&M:               ~$150-200/kW-yr               │
+  │  Fuel cycle (enrichment + fab):  ~$10-15/MWh                   │
+  │  Decommissioning fund:           ~$1-2/MWh (set aside now)     │
   │                                                                │
-  │  LCOE (new build, US, 2024):     ~$100-200/MWh               │
-  │  Vogtle Units 3&4 all-in est:    ~$180/MWh                   │
+  │  LCOE (new build, US, 2024):     ~$100-200/MWh                 │
+  │  Vogtle Units 3&4 all-in est:    ~$180/MWh                     │
   │                                                                │
   │  COMPARISON:                                                   │
   │  LCOE existing US nuclear:        ~$25-40/MWh (capital paid)   │
@@ -92,13 +92,13 @@ NUCLEAR POWER ECONOMICS SPECTRUM
   │  2010s (nuclear renaissance, failed):                          │
   │  • First-of-a-kind (FOAK) projects with new designs            │
   │  • Regulatory uncertainty, contractor inexperience             │
-  │  • Westinghouse AP1000 at Vogtle: $14B → $35B+ (budget)     │
-  │  • VC Summer (SC): cancelled after $9B spent                 │
-  │  • Westinghouse bankrupt 2017 (Toshiba took $10B loss)       │
+  │  • Westinghouse AP1000 at Vogtle: $14B → $35B+ (budget)        │
+  │  • VC Summer (SC): cancelled after $9B spent                   │
+  │  • Westinghouse bankrupt 2017 (Toshiba took $10B loss)         │
   │                                                                │
-  │  CONTRAST WITH FRANCE (1970s-1990s):                         │
-  │  58 reactors, standardized N4 design, rapid sequential build │
-  │  Cost: ~$1,500-2,500/kW (1990s dollars)                      │
+  │  CONTRAST WITH FRANCE (1970s-1990s):                           │
+  │  58 reactors, standardized N4 design, rapid sequential build   │
+  │  Cost: ~$1,500-2,500/kW (1990s dollars)                        │
   │  Key: series production of identical units                     │
   │  Korea/China: same strategy, achieving low costs today         │
   └────────────────────────────────────────────────────────────────┘
@@ -119,8 +119,8 @@ Currently operating or under construction globally.
   ┌────────────────────────────────────────────────────────────────┐
   │  Emergency Core Cooling:                                       │
   │  • Water tanks above reactor (gravity drain on actuation)      │
-  │  • Core Makeup Tanks: pressurized N₂ injection               │
-  │  • No AC power required for 72 hours                         │
+  │  • Core Makeup Tanks: pressurized N₂ injection                 │
+  │  • No AC power required for 72 hours                           │
   │                                                                │
   │  Passive Residual Heat Removal:                                │
   │  • Steam condenses on steel containment wall                   │
@@ -196,31 +196,31 @@ for potential commercialization by 2030-2040. Status varies widely.
   │  Examples: TerraPower Natrium (US), China CFR-600, Russia BN-800│
   │                                                                  │
   │  MOLTEN SALT REACTOR (MSR) — fuel dissolved in coolant           │
-  │  Coolant: fluoride salt (FLiBe or other) at 600-750°C          │
-  │  Fuel: dissolved UF₄ or ThF₄ (thorium cycle possible)         │
+  │  Coolant: fluoride salt (FLiBe or other) at 600-750°C            │
+  │  Fuel: dissolved UF₄ or ThF₄ (thorium cycle possible)            │
   │  Online refueling (no shutdown needed for fuel change)           │
   │  Walk-away safe: fuel drains to freeze plug if power lost        │
-  │  Examples: Terrestrial Energy IMSR, Kairos KP-FHR, ThorCon     │
+  │  Examples: Terrestrial Energy IMSR, Kairos KP-FHR, ThorCon       │
   │                                                                  │
-  │  HIGH-TEMPERATURE GAS (HTGR) — used for industrial heat        │
+  │  HIGH-TEMPERATURE GAS (HTGR) — used for industrial heat          │
   │  Coolant: helium at 700-1,000°C                                  │
   │  Fuel: TRISO particles (fuel encased in ceramic layers)          │
   │  Inherently safe: fuel can't melt (ceramic has ~2,000°C limit)   │
   │  Heat output: can drive steam turbines or direct H₂ production   │
-  │  Examples: X-energy Xe-100 (USA), HTR-PM (China — operating)   │
+  │  Examples: X-energy Xe-100 (USA), HTR-PM (China — operating)     │
   │                                                                  │
   │  LEAD-COOLED FAST REACTOR (LFR)                                  │
   │  Coolant: liquid lead or Pb-Bi eutectic                          │
   │  Very high neutron economy; natural convection cooling           │
-  │  Examples: Russia BREST-OD-300 (under construction)            │
+  │  Examples: Russia BREST-OD-300 (under construction)              │
   │                                                                  │
   │  SUPERCRITICAL WATER REACTOR (SCWR)                              │
-  │  Coolant: supercritical water (>374°C, >22 MPa)                │
+  │  Coolant: supercritical water (>374°C, >22 MPa)                  │
   │  Higher thermal efficiency (~44%); familiar LWR fuel cycle       │
   │  R&D stage; no demonstration projects yet                        │
   │                                                                  │
   │  GAS-COOLED FAST REACTOR (GFR)                                   │
-  │  Fast spectrum + helium cooling — early R&D stage              │
+  │  Fast spectrum + helium cooling — early R&D stage                │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -407,12 +407,12 @@ Fusion power (combining light nuclei, typically D-T, releasing energy) has been
   THE ENGINEERING GAP:
   ┌────────────────────────────────────────────────────────────────┐
   │  Even after ignition (plasma physics):                         │
-  │  • Tritium breeding (T must be bred from Li-6 in blanket)    │
+  │  • Tritium breeding (T must be bred from Li-6 in blanket)      │
   │  • Neutron activation of structural materials (activation)     │
   │  • Materials survival (14 MeV neutrons damage everything)      │
   │  • Remote handling for activated components                    │
   │  • Heat exchange to steam turbine (~40% thermal efficiency)    │
-  │  • Grid-scale economics ($0.05-0.10/kWh competitive target)  │
+  │  • Grid-scale economics ($0.05-0.10/kWh competitive target)    │
   │                                                                │
   │  D-T fusion produces:                                          │
   │  80% of energy: fast neutrons (14 MeV) — hard to capture       │

@@ -7,7 +7,7 @@
 |                    THE ENVELOPE OF LIFE                               |
 |                                                                       |
 |  Temperature    pH          Pressure     Radiation    Water activity  |
-|  -20 to 122 C   0 to 12.5  0.1 to 110   up to 5000   down to 0.60   |
+|  -20 to 122 C   0 to 12.5  0.1 to 110   up to 5000   down to 0.60     |
 |                             MPa          Gy            aw             |
 |                                                                       |
 |  EXTREMOPHILE TAXONOMY                                                |

@@ -68,13 +68,13 @@ BALTIMORE CLASSIFICATION: THE FORMAL VIRAL TAXONOMY
   │   20 equilateral triangular faces                              │
   │   Mathematically optimal packing for sphere-like protein shell │
   │   Triangulation number (T): determines size/complexity         │
-  │   Examples: Adenovirus (T=25), Poliovirus (T=1), AAV (T=1)   │
-  │                                                                  │
-  │ HELICAL:                                                         │
+  │   Examples: Adenovirus (T=25), Poliovirus (T=1), AAV (T=1)     │
+  │                                                                │
+  │ HELICAL:                                                       │
   │   Protein subunits spiral around nucleic acid                  │
   │   Common in plant viruses (TMV) + enveloped animal viruses     │
   │   Examples: Influenza, Measles, Rabies, RSV                    │
-  │                                                                  │
+  │                                                                │
   │ COMPLEX (none of the above):                                   │
   │   Poxviruses: "Brick-shaped"; most complex known               │
   │   Bacteriophage T4: Icosahedral head + helical tail            │
@@ -87,8 +87,8 @@ BALTIMORE CLASSIFICATION: THE FORMAL VIRAL TAXONOMY
   │   Viral glycoproteins embedded (hemagglutinin, gp120, etc.)    │
   │   Fragile: Disrupted by detergent, drying, stomach acid        │
   │   → Usually transmitted through close contact, respiratory     │
-  │   Examples: HIV, Influenza, SARS-CoV-2, CMV, EBV             │
-  │                                                                  │
+  │   Examples: HIV, Influenza, SARS-CoV-2, CMV, EBV               │
+  │                                                                │
   │ NON-ENVELOPED (naked):                                         │
   │   Capsid directly exposed                                      │
   │   Resistant: Survives on surfaces, stomach acid, detergent     │
@@ -131,10 +131,10 @@ BALTIMORE CLASSIFICATION: THE FORMAL VIRAL TAXONOMY
   │ 4. Replication with host: Prophage copied every cell division  │
   │ 5. INDUCTION: UV, mitomycin C, DNA damage                      │
   │    → RecA cleaves CI repressor → lytic cycle begins            │
-  │                                                                  │
+  │                                                                │
   │ MEDICAL IMPORTANCE OF LYSOGENY:                                │
   │   Prophages encode many bacterial virulence factors:           │
-  │   Shiga toxin: stx1/stx2 on lambdoid phage in E. coli O157   │
+  │   Shiga toxin: stx1/stx2 on lambdoid phage in E. coli O157     │
   │   Cholera toxin: ctx on CTXφ phage in V. cholerae              │
   │   Diphtheria toxin: tox gene on corynephage β                  │
   │   Scarlet fever toxin: on phage in S. pyogenes                 │

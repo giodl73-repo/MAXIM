@@ -29,9 +29,9 @@
   THE KEY ACTORS:
   ┌──────────────────────────────────────────────────────────────────────────┐
   │  Solar nebula gas   → carries angular momentum, drives migration         │
-  │  Dust/ice grains    → feedstock for all solids                         │
-  │  Planetesimals      → first self-gravitating bodies, meteorite parents │
-  │  Planetary embryos  → oligarchic stage, 0.01–0.1 M_Earth               │
+  │  Dust/ice grains    → feedstock for all solids                           │
+  │  Planetesimals      → first self-gravitating bodies, meteorite parents   │
+  │  Planetary embryos  → oligarchic stage, 0.01–0.1 M_Earth                 │
   │  Giant planet cores → ~10 M_Earth, trigger runaway gas accretion         │
   │  Gas giants         → gravitational architects, migration engines        │
   └──────────────────────────────────────────────────────────────────────────┘
@@ -267,7 +267,7 @@ Classic core accretion (Pollack 1996) was too slow at 5 AU. Pebble accretion (La
 
   ┌──────────────────────────────────────────────────────────────────────┐
   │  DISK LIFETIME CONSTRAINT:                                           │
-  │  Disk gas dissipates in 1–10 Myr (median ~3 Myr)                   │
+  │  Disk gas dissipates in 1–10 Myr (median ~3 Myr)                     │
   │  Giant planet MUST reach runaway phase before disk clears            │
   │  → Jupiter and Saturn managed it; Uranus/Neptune did not fully       │
   │    → "failed cores" → ice giants (H/He envelope but not Jovian)      │
@@ -372,7 +372,7 @@ Walsh, Morbidelli, Raymond, O'Brien & Mandell (2011):
   │  → Mars's feeding zone mass-depleted → Mars stays small                │
   │                                                                        │
   │  On outward pass:                                                      │
-  │  → Scattered C-type (volatile-rich) bodies from 5–8 AU inward        │
+  │  → Scattered C-type (volatile-rich) bodies from 5–8 AU inward          │
   │  → Some implanted into asteroid belt → explains C-type in outer belt   │
   │  → Some C-type impacted Earth → water delivery to early Earth          │
   │                                                                        │
@@ -510,7 +510,7 @@ Gomes, Morbidelli, Tsiganis & Levison (2005) — "Nice model" (from Nice, France
 
   KEY RESULTS:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  ²⁶Al/²⁷Al = 5×10⁻⁵ at t=0 (from CAIs)                            │
+  │  ²⁶Al/²⁷Al = 5×10⁻⁵ at t=0 (from CAIs)                               │
   │  → ²⁶Al decay heated planetesimals that formed in first ~2 Myr       │
   │  → Bodies formed EARLY: melted + differentiated (iron meteorite      │
   │    parents, achondrite parents)                                      │

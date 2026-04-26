@@ -8,27 +8,27 @@ The key word is automatically — no human-written proofs, just state space expl
 ```
 +--------------------------------------------------------------------------+
 |                        MODEL CHECKING LANDSCAPE                          |
-|                                                                            |
-|  INPUT          TECHNIQUE              TOOLS             USE CASE          |
-|  ─────          ─────────              ─────             ────────          |
-|                                                                            |
+|                                                                          |
+|  INPUT          TECHNIQUE              TOOLS             USE CASE        |
+|  ─────          ─────────              ─────             ────────        |
+|                                                                          |
 |  System model + EXPLICIT-STATE        SPIN (PROMELA)    Concurrent       |
 |  LTL/CTL         BFS/DFS + Buchi      TLC (TLA+)        protocols        |
-|  property        on-the-fly                                                |
-|                                                                            |
+|  property        on-the-fly                                              |
+|                                                                          |
 |  System model + SYMBOLIC (BDD)        NuSMV/SMV         Hardware,        |
-|  CTL property    image computation    Cadence JasperGold control systems   |
-|                                                                            |
+|  CTL property    image computation    Cadence JasperGold control systems |
+|                                                                          |
 |  C/C++ code +   BOUNDED (SAT/SMT)     CBMC              Embedded C,      |
-|  assertions      unroll k steps       AWS CBMC           memory safety     |
-|                  check as SAT         ESBMC                                |
-|                                                                            |
-|  Abstracted  +  CEGAR                 BLAST, SLAM        OS drivers,       |
-|  C/Java code     refine on demand     CPAchecker         software model     |
-|                                                                            |
-|  SMT formula +  IC3/PDR               AVR, pono          Invariant          |
-|  transition     property-directed     (hardware/SW)      inference          |
-|  relation        reachability                                               |
+|  assertions      unroll k steps       AWS CBMC           memory safety   |
+|                  check as SAT         ESBMC                              |
+|                                                                          |
+|  Abstracted  +  CEGAR                 BLAST, SLAM        OS drivers,     |
+|  C/Java code     refine on demand     CPAchecker         software model  |
+|                                                                          |
+|  SMT formula +  IC3/PDR               AVR, pono          Invariant       |
+|  transition     property-directed     (hardware/SW)      inference       |
+|  relation        reachability                                            |
 +--------------------------------------------------------------------------+
 
   Fundamental limitation: STATE EXPLOSION
@@ -352,7 +352,7 @@ concrete program, verify an abstraction, then refine when the abstraction lies.
 ```
   CEGAR Loop:
   ┌──────────────────────────────────────────────────────┐
-  │                                                        │
+  │                                                      │
   │   Concrete Program  --abstract-->  Abstract Model    │
   │                                         |            │
   │                                    model check       │

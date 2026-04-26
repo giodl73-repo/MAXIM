@@ -11,17 +11,17 @@ Pharmacodynamics (PD) describes the relationship between drug concentration and 
 |  EFFECT (%) │ ───────────────── Emax (ceiling)                   |
 |         100 │          ╭────────────────────────────────         |
 |          75 │        ╱                                           |
-|          50 │      ╱ ← EC50 (potency marker)                   |
+|          50 │      ╱ ← EC50 (potency marker)                     |
 |          25 │    ╱                                               |
-|           0 │──╱────────────────────────────────────           |
-|             └────────────────────────────────────────→         |
+|           0 │──╱────────────────────────────────────             |
+|             └────────────────────────────────────────→           |
 |                  [Drug] (log scale)                              |
 |                                                                  |
 |  KEY PARAMETERS                                                  |
-|  EC50:   Concentration for 50% of Emax          → POTENCY      |
-|  Emax:   Maximum achievable effect              → EFFICACY     |
-|  TI:     TD50/ED50 or TD10/ED90                → SAFETY        |
-|  Hill n: Steepness of curve                    → COOPERATIVITY |
+|  EC50:   Concentration for 50% of Emax          → POTENCY        |
+|  Emax:   Maximum achievable effect              → EFFICACY       |
+|  TI:     TD50/ED50 or TD10/ED90                → SAFETY          |
+|  Hill n: Steepness of curve                    → COOPERATIVITY   |
 +──────────────────────────────────────────────────────────────────+
 ```
 

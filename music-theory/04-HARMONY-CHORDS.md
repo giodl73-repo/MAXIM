@@ -216,7 +216,7 @@ Every chord in tonal harmony has a **functional role**:
 FUNCTION MAP (in C major):
 ┌──────────────────────────────────────────────────────────────┐
 │  TONIC (T)           PRE-DOMINANT (PD)      DOMINANT (D)     │
-│  I, I⁶, vi, iii      ii, ii⁶, IV, IV⁶       V, V⁷, vii°    │
+│  I, I⁶, vi, iii      ii, ii⁶, IV, IV⁶       V, V⁷, vii°      │
 │                       II (secondary)          V of X         │
 │                                                              │
 │  Stable, at rest      Moving, heading          Tense, needs  │

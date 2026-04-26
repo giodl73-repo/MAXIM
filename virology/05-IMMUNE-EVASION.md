@@ -10,30 +10,30 @@ cause chronic infections, why some escape vaccines, and why cytokine storms occu
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                IMMUNE EVASION — FULL LANDSCAPE                   │
-│                                                                    │
+│                                                                  │
 │  TARGET         EVASION STRATEGY                  EXAMPLES       │
 │  ─────────      ─────────────────                 ────────       │
 │  Innate         Block IFN induction               Flu NS1        │
 │  sensing        Degrade sensing molecules         SARS nsp3 PLpro │
 │                 Sequester dsRNA from RIG-I        Coronavirus DMVs│
 │                 cGAS/STING inhibition             Adenovirus E1A │
-│                                                                    │
+│                                                                  │
 │  IFN signaling  Block JAK-STAT pathway            Paramyxovirus V│
 │                 Degrade STAT1/STAT2               Simian virus 5 │
-│                                                                    │
+│                                                                  │
 │  MHC-I          Downregulate MHC-I                HIV Nef, HCMV  │
 │  presentation   Block TAP (peptide transport)     HSV ICP47      │
 │                 Retain MHC-I in ER/Golgi          HCMV US2/US11  │
-│                                                                    │
+│                                                                  │
 │  CTL killing    Prevent apoptosis                 EBV BHRF1, FLIP │
 │                 Target NK cell sensors            HCMV UL18      │
-│                                                                    │
+│                                                                  │
 │  Antibodies     Antigenic variation               HIV gp120 glycan│
 │                 Decoy antigens                    HIV shed gp120 │
 │                 Structural shielding              Sialylation    │
-│                                                                    │
+│                                                                  │
 │  Complement     Complement regulators             HSV gC, EBV    │
-│                                                                    │
+│                                                                  │
 │  Latency        Hide genome in resting cells      HSV, EBV, HIV  │
 └──────────────────────────────────────────────────────────────────┘
 ```

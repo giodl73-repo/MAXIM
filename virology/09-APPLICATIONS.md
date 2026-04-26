@@ -9,20 +9,20 @@ make viruses powerful tools for medicine, research, and biotechnology.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                  VIRUSES AS TOOLS — LANDSCAPE                    │
-│                                                                    │
+│                                                                  │
 │  GENE THERAPY VECTORS:       RESEARCH TOOLS:                     │
 │  ─────────────────────       ────────────────                    │
 │  AAV: in vivo gene delivery  Phage lambda: genetic engineering   │
 │  Lentivirus: stable insert   Phage T4/T7: protein expression     │
 │  Adenovirus: transient       CRISPR delivery                     │
 │  expression, vaccines        Reporter gene systems               │
-│                                                                    │
+│                                                                  │
 │  PHAGE THERAPY:              ONCOLYTIC VIRUSES:                  │
 │  ──────────────              ─────────────────                   │
 │  Bacteriophage kill           Engineered viruses that            │
 │  specific bacteria            selectively kill tumor cells       │
 │  Alternative to antibiotics   T-Vec (oncolytic HSV) approved     │
-│                                                                    │
+│                                                                  │
 │  mRNA VACCINES:              VIRAL DIAGNOSTICS:                  │
 │  ─────────────               ──────────────────                  │
 │  Lipid nanoparticle (not      qRT-PCR, serology                  │

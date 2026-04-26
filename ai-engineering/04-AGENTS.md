@@ -14,7 +14,7 @@
 │  COMPLEXITY ──────────────────────────────────────────────────────────►     │
 │                                                                             │
 │  Single call      Chain          Agent          Multi-Agent System          │
-│  ┌──────────┐  ┌──────────┐  ┌──────────────┐  ┌─────────────────────┐   │
+│  ┌──────────┐  ┌──────────┐  ┌──────────────┐  ┌─────────────────────┐      │
 │  │ prompt   │  │ prompt   │  │              │  │   Orchestrator      │   │
 │  │   │      │  │   │      │  │  ┌─────────┐ │  │   ┌───────────────┐ │   │
 │  │  LLM     │  │  LLM     │  │  │  LLM    │ │  │   │ Subagent A    │ │   │
@@ -584,7 +584,7 @@ state is fully persisted — the agent can be paused for hours and resumed exact
 │  MULTI-AGENT TOPOLOGIES                                             │
 │                                                                     │
 │  SUPERVISOR / WORKER               PEER (SWARM)                     │
-│  ┌──────────────┐                  ┌──────┐  ┌──────┐             │
+│  ┌──────────────┐                  ┌──────┐  ┌──────┐               │
 │  │  Supervisor  │◄─────────────────┤Agent │  │Agent │             │
 │  └──────┬───────┘                  └──┬───┘  └───┬──┘             │
 │         │ routes tasks                │ ◄────────► │               │

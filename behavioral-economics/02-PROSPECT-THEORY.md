@@ -17,15 +17,15 @@ The paper is remarkable for its combination of:
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    PROSPECT THEORY ARCHITECTURE                             │
-│                                                                               │
+│                                                                             │
 │  A "prospect" is a lottery: {(x₁, p₁), ..., (xₙ, pₙ)}                       │
-│                                                                               │
-│  EVALUATION: V(prospect) = Σᵢ π(pᵢ) × v(xᵢ)                               │
-│                                                                               │
-│  where:                                                                       │
+│                                                                             │
+│  EVALUATION: V(prospect) = Σᵢ π(pᵢ) × v(xᵢ)                                 │
+│                                                                             │
+│  where:                                                                     │
 │  v(x) = VALUE FUNCTION (defined on GAINS and LOSSES from a reference point) │
 │  π(p) = PROBABILITY WEIGHTING FUNCTION (nonlinear probability perception)   │
-│                                                                               │
+│                                                                             │
 │  TWO PHASES:                                                                │
 │  EDITING: Frame, simplify, and code the prospect                            │
 │  EVALUATION: Apply v(·) and π(·) to compute overall value                   │

@@ -52,7 +52,7 @@
 ┌──────────────────────────────────────────────────────────────────┐
 │  REINFORCE (Monte Carlo policy gradient):                        │
 │                                                                  │
-│    ∇_θ J = E[Σ_t ∇_θ log π_θ(u_t|x_t) · G_t]                   │
+│    ∇_θ J = E[Σ_t ∇_θ log π_θ(u_t|x_t) · G_t]                     │
 │    G_t = Σ_{k≥t} γᵏ r_k   (return from t)                        │
 │                                                                  │
 │    Problem: high variance — G_t mixes good/bad actions           │
@@ -61,9 +61,9 @@
 │    Actor:   π_θ  — the policy                                    │
 │    Critic:  V_φ  — estimates V(x) to reduce variance             │
 │    Advantage: A(x,u) = Q(x,u) - V(x) — was this action better    │
-│               than average?                                        │
+│               than average?                                      │
 │                                                                  │
-│    ∇_θ J ≈ E[∇_θ log π_θ(u|x) · A(x,u)]   (lower variance)     │
+│    ∇_θ J ≈ E[∇_θ log π_θ(u|x) · A(x,u)]   (lower variance)       │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -100,12 +100,12 @@ SAC (Soft Actor-Critic):
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  MODEL-FREE RL:  x_t → [env] → r_t, x_{t+1}   (black box)     │
-│  MODEL-BASED RL: x_t → [learned f̂] → x_{t+1}  (white box)    │
+│  MODEL-FREE RL:  x_t → [env] → r_t, x_{t+1}   (black box)       │
+│  MODEL-BASED RL: x_t → [learned f̂] → x_{t+1}  (white box)       │
 │                                                                 │
 │  MBRL LOOP:                                                     │
 │    1. Collect real data: D = {(x,u,x',r)}                       │
-│    2. Train dynamics model: f̂_φ(x,u) ≈ x'                     │
+│    2. Train dynamics model: f̂_φ(x,u) ≈ x'                       │
 │    3. Plan/optimize inside model (rollouts, MPC, policy search) │
 │    4. Execute on real system, collect more data                 │
 │    5. Repeat                                                    │
@@ -160,7 +160,7 @@ SAC (Soft Actor-Critic):
   ┌──────────────────────────────────────────────────────────────┐
   │  Neural Lyapunov (Yudong Chen, 2019):                        │
   │    V_φ(x): NN trained to satisfy Lyapunov conditions         │
-  │    Verify: V(0)=0, V(x)>0, V̇(x)=-ε·V(x)                   │
+  │    Verify: V(0)=0, V(x)>0, V̇(x)=-ε·V(x)                      │
   │    Policy π certified stable in learned region-of-attraction │
   │                                                              │
   │  Input Convex NN (ICNN):                                     │
@@ -169,7 +169,7 @@ SAC (Soft Actor-Critic):
   │                                                              │
   │  Koopman Operator Linearization:                             │
   │    φ(x): lift to high-dim feature space                      │
-  │    K·φ(x) ≈ φ(f(x))  (linear dynamics in feature space)    │
+  │    K·φ(x) ≈ φ(f(x))  (linear dynamics in feature space)      │
   │    Apply linear LQR/MPC to Koopman-linearized system         │
   └──────────────────────────────────────────────────────────────┘
 ```
@@ -196,12 +196,12 @@ SAC (Soft Actor-Critic):
 │    RL Policy → u_nominal                                        │
 │         ↓                                                       │
 │    CBF Filter: solve min ||u - u_nominal||²                     │
-│                       s.t. ḣ(x) + α(h(x)) ≥ 0                 │
+│                       s.t. ḣ(x) + α(h(x)) ≥ 0                   │
 │         ↓                                                       │
 │    u_safe → System                                              │
 │                                                                 │
-│  h(x) ≥ 0 defines safe set (e.g., h = dist_to_obstacle - r)   │
-│  CBF condition: if h(x) ≥ 0, then ḣ + αh ≥ 0 keeps h ≥ 0     │
+│  h(x) ≥ 0 defines safe set (e.g., h = dist_to_obstacle - r)     │
+│  CBF condition: if h(x) ≥ 0, then ḣ + αh ≥ 0 keeps h ≥ 0        │
 │                                                                 │
 │  KEY: Policy can explore freely — CBF intercepts only when      │
 │       safety boundary is about to be violated. Minimal          │

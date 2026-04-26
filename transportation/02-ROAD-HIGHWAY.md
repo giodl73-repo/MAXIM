@@ -13,20 +13,20 @@ Roads are the default transportation infrastructure of the 20th and 21st centuri
 |  | Horizontal|  | Vertical  |  | Cross-    |  | Sight     |     |
 |  | Alignment |  | Alignment |  | Section   |  | Distance  |     |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
-|                                                                 |
-|  PAVEMENT STRUCTURE                                             |
+   |                                                              |
+   |  PAVEMENT STRUCTURE                                          |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
 |  | Flexible  |  | Rigid     |  | Composite |  | Distress  |     |
 |  | (Asphalt) |  | (Concrete)|  | (Overlay) |  | & Repair  |     |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
-|                                                                 |
-|  TRAFFIC FLOW                                                   |
+   |                                                              |
+   |  TRAFFIC FLOW                                                |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
 |  | Flow-     |  | LWR       |  | Level of  |  | Capacity  |     |
 |  | Density   |  | Waves     |  | Service   |  | Analysis  |     |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
-|                                                                 |
-|  INTELLIGENT TRANSPORTATION SYSTEMS                             |
+   |                                                              |
+   |  INTELLIGENT TRANSPORTATION SYSTEMS                          |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
 |  | Signal    |  | Freeway   |  | Connected |  | Traffic   |     |
 |  | Control   |  | Mgmt      |  | Vehicles  |  | Data      |     |
@@ -158,7 +158,7 @@ Grade separation of intersecting highways. The choice of type balances cost, cap
   Eliminates left-turn conflicts with freeway ramps.
   +--+--+
   | /  \|  <- Cross-over between ramps
-  |X    X|
+  |X    X |
   +--+--+
   Becoming popular in US: 10-30% capacity improvement over diamond.
   Initially confusing; studies show drivers adapt within a few trips.

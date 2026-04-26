@@ -17,7 +17,7 @@ AZURE MICROSERVICES REFERENCE ARCHITECTURE
 |  Azure API Management (auth, rate limit, policy pipeline)             |
 |       |                                                               |
 |       v                                                               |
-|  AKS Ingress (nginx or AGIC - App Gateway Ingress Controller)       |
+|  AKS Ingress (nginx or AGIC - App Gateway Ingress Controller)         |
 |       |                                                               |
 |  +----+----+----+----+                                                |
 |  |    |    |    |    |                                               |

@@ -391,7 +391,7 @@ Used in jazz, pop, and lead sheets (not traditional classical notation):
 ┌──────────────────────────────────────────────────────────────┐
 │                    CHORD SYMBOL SYSTEM                       │
 │                                                              │
-│  Root note:      C, D, E, F, G, A, B (+ ♯/♭)               │
+│  Root note:      C, D, E, F, G, A, B (+ ♯/♭)                 │
 │                                                              │
 │  Chord quality:                                              │
 │  (nothing)  = major triad:          C   = C-E-G              │

@@ -49,7 +49,7 @@ A star in spherical hydrostatic equilibrium is described by four coupled ODEs:
 ```
   HYDROSTATIC EQUILIBRIUM:
   ┌───────────────────────────────────────────────────────┐
-  │  dP/dr = −G m(r) ρ(r) / r²                          │
+  │  dP/dr = −G m(r) ρ(r) / r²                            │
   └───────────────────────────────────────────────────────┘
   Inward gravity of shell mass balanced by outward pressure gradient.
   m(r) = total mass interior to radius r.
@@ -62,7 +62,7 @@ A star in spherical hydrostatic equilibrium is described by four coupled ODEs:
 
   ENERGY TRANSPORT:
   ┌───────────────────────────────────────────────────────────────────────┐
-  │  dT/dr = − (3 κ ρ L(r)) / (64π r² σ_SB T³)   [radiative]           │
+  │  dT/dr = − (3 κ ρ L(r)) / (64π r² σ_SB T³)   [radiative]              │
   │  dT/dr = − (1 − 1/γ) T/P · dP/dr              [convective/adiabatic]│
   └───────────────────────────────────────────────────────────────────────┘
   κ = opacity [cm²/g]; σ_SB = Stefan-Boltzmann constant.
@@ -71,7 +71,7 @@ A star in spherical hydrostatic equilibrium is described by four coupled ODEs:
 
   ENERGY GENERATION:
   ┌───────────────────────────────────────────────────────┐
-  │  dL/dr = 4π r² ρ ε(r, T, ρ, composition)            │
+  │  dL/dr = 4π r² ρ ε(r, T, ρ, composition)              │
   └───────────────────────────────────────────────────────┘
   ε = nuclear energy generation rate [erg/g/s], strong T-dependence.
 ```
@@ -145,7 +145,7 @@ A star in spherical hydrostatic equilibrium is described by four coupled ODEs:
 
   KEY REGIONS:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │ Main Sequence:  hydrogen core burning; τ_nuc ∝ M^(−2.5)            │
+  │ Main Sequence:  hydrogen core burning; τ_nuc ∝ M^(−2.5)              │
   │ Red Giants:     H shell burning; greatly expanded envelope           │
   │ Horizontal Branch: He core burning (post-RGB helium flash)           │
   │ AGB:            He+H shell burning; thermal pulses; mass loss        │
@@ -502,7 +502,7 @@ After He exhaustion, the core contracts, heats further:
   │  Schwarzschild radius:  r_s = 2GM/c²                               │
   │  Sun:     r_s = 3.0 km                                             │
   │  Earth:   r_s = 8.9 mm                                             │
-  │  10 M☉:   r_s = 30 km                                            │
+  │  10 M☉:   r_s = 30 km                                              │
   └────────────────────────────────────────────────────────────────────┘
 
   Event horizon: surface of no return; not a physical surface, a causal boundary
@@ -585,7 +585,7 @@ After He exhaustion, the core contracts, heats further:
   │              enrichment       formation         (no metals to form dust)│
   ├─────────────────────────────────────────────────────────────────────────┤
   │ "Metallicity" in astronomy = everything heavier than He                 │
-  │ Z☉ ≈ 0.0142 (1.42% of solar mass in elements heavier than He)         │
+  │ Z☉ ≈ 0.0142 (1.42% of solar mass in elements heavier than He)           │
   └─────────────────────────────────────────────────────────────────────────┘
 
   POP III STARS: theoretical first stars (z ~ 20-30, ~200 Myr after BB)
@@ -621,7 +621,7 @@ After He exhaustion, the core contracts, heats further:
   │ Why is the Hoyle state remarkable?     │ Predicted from existence of C life │
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ Where does gold come from?             │ r-process in neutron star mergers │
-  │ Where does Fe come from?               │ Type Ia SN (⁵⁶Ni→⁵⁶Co→⁵⁶Fe)     │
+  │ Where does Fe come from?               │ Type Ia SN (⁵⁶Ni→⁵⁶Co→⁵⁶Fe)       │
   │ Where does C come from?                │ Triple-α in He-burning stars      │
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ What is the turnoff point?             │ Stars just leaving main sequence;  │

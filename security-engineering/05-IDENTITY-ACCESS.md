@@ -16,7 +16,7 @@ IDENTITY AND ACCESS LANDSCAPE
 |  | OIDC identity token   |   | ReBAC (Relationship-Based)|           |
 |  | SAML 2.0 (legacy)     |   | Zanzibar (Google)         |           |
 |  | Certificate-based     |   +---------------------------+           |
-|  | WebAuthn / FIDO2      |                                           |
+|  | WebAuthn / FIDO2          |                                       |
 |  +-----------------------+   PRIVILEGED ACCESS                       |
 |                               +---------------------------+           |
 |  SERVICE IDENTITY             | PAM (Privileged Access    |           |

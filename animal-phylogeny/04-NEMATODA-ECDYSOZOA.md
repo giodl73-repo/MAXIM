@@ -12,7 +12,7 @@ ECDYSOZOA — defined by one character:
              |                     |
      CYCLONEURALIA               PANARTHROPODA
     (no legs)                    (legs)
-         |                           |
+         |                         |
     +----+----+              +-------+-------+
     |         |              |       |       |
 Nematoda  Kinorhyncha   Onychophora Tardigrada Arthropoda

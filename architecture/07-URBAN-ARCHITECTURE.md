@@ -12,14 +12,14 @@ No building exists in isolation. Every building is simultaneously a private arti
 |  Urban structure, transit networks, land use, zoning               |
 |  → Urban planning, not architecture per se                         |
 |                       │                                            |
-|  DISTRICT / NEIGHBORHOOD SCALE (1:2,000–1:10,000)                |
+|  DISTRICT / NEIGHBORHOOD SCALE (1:2,000–1:10,000)                  |
 |  Urban fabric, block structure, street network,                    |
 |  TOD (transit-oriented development)                                |
 |  → Architecture + urban design overlap                             |
 |                       │                                            |
 |  BLOCK SCALE (1:500–1:2,000)                                       |
 |  Building typology: perimeter block / tower / slab / podium        |
-|  Figure-ground relationship, street wall, setbacks               |
+|  Figure-ground relationship, street wall, setbacks                 |
 |  → Primary architecture + urban design territory                   |
 |                       │                                            |
 |  STREET SECTION (1:100–1:500)                                      |

@@ -18,7 +18,7 @@ Probability theory is measure theory with total mass normalized to 1. The machin
 |  |  +------+          |                                         |
 |  |  |  A   |  <- event: a subset of Omega in F                  |
 |  |  +------+          |                                         |
-|  |                    |                                         |
+|     |                    |                                      |
 |  +--------------------+                                         |
 |           |                                                      |
 |           v                                                      |

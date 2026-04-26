@@ -20,8 +20,8 @@ hierarchy stratifies the degrees of undecidability.
 |  | Rice's theorem     | <--> | Undecidability of props.   |       |
 |  | Halting problem    | <--> | FOL validity undecidable   |       |
 |  +--------------------+      +----------------------------+       |
-|                                                                   |
-|  ARITHMETIC HIERARCHY                                             |
+   |                                                                |
+   |  ARITHMETIC HIERARCHY                                          |
 |  +-----------------------------------------------------------+    |
 |  | Sigma-0 = Pi-0 = Delta-1 = Recursive (decidable)          |    |
 |  | Sigma-1 = RE (semi-decidable)                             |    |

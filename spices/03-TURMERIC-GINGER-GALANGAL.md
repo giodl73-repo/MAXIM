@@ -13,17 +13,17 @@
 |  | Zingiber  |  | Curcuma   |  | Elettaria |  | Alpinia   |     |
 |  | (ginger)  |  | (turmeric)|  |(cardamom) |  |(galangal) |     |
 |  +-----------+  +-----------+  +-----------+  +-----------+     |
-|                                                                 |
-|  WHAT THEY SHARE:                                               |
-|  Rhizome (underground stem, not root) = the spice part          |
-|  Aromatic essential oils in rhizome tissue                      |
-|  Monocot leaf structure (parallel venation)                     |
-|  Tropical distribution (high rainfall + humidity)               |
-|                                                                 |
-|  RHIZOME vs ROOT:                                               |
+   |                                                              |
+   |  WHAT THEY SHARE:                                            |
+   |  Rhizome (underground stem, not root) = the spice part       |
+   |  Aromatic essential oils in rhizome tissue                   |
+   |  Monocot leaf structure (parallel venation)                  |
+   |  Tropical distribution (high rainfall + humidity)            |
+   |                                                              |
+   |  RHIZOME vs ROOT:                                            |
 |  Rhizome = modified horizontal stem, has nodes, buds, scale leaves|
-|  Root = no nodes, no buds, anchors plant, absorbs water         |
-|  (Ginger/turmeric = rhizome. Maca/ginseng = root.)              |
+   |  Root = no nodes, no buds, anchors plant, absorbs water      |
+   |  (Ginger/turmeric = rhizome. Maca/ginseng = root.)           |
 +------------------------------------------------------------------+
 ```
 

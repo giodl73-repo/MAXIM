@@ -5,21 +5,21 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                   PANDEMIC RESPONSE FRAMEWORK                               │
-│                                                                               │
+│                                                                             │
 │  PHASE 1: DETECTION          PHASE 2: ASSESSMENT       PHASE 3: RESPONSE    │
 │  ─────────────────────       ────────────────────       ─────────────────── │
 │  Surveillance triggers       Risk characterization      Containment         │
 │  Lab confirmation            PHEIC evaluation           Mitigation          │
 │  Notification (IHR)          Severity + transmissibility Suppression        │
 │  International alert         Impact modelling            NPI deployment     │
-│                                                                               │
+│                                                                             │
 │  PHASE 4: SCALE-UP           PHASE 5: SUSTAINMENT       PHASE 6: RECOVERY   │
 │  ────────────────────        ─────────────────────       ────────────────── │
 │  Surge capacity              Long-term case management   Health system rebuild│
-│  MCM procurement             Vaccine rollout             Mental health        │
-│  Workforce deployment        Ongoing surveillance        Economic recovery    │
-│  Supply chain activation     Equity monitoring           Lessons learned      │
-│                                                                               │
+│  MCM procurement             Vaccine rollout             Mental health      │
+│  Workforce deployment        Ongoing surveillance        Economic recovery  │
+│  Supply chain activation     Equity monitoring           Lessons learned    │
+│                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 

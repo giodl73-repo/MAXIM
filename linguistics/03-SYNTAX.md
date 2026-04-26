@@ -16,7 +16,7 @@ Syntax is the study of how words combine into phrases, clauses, and sentences �
 |                                                                  |
 |  BINDING THEORY                WORD ORDER                        |
 |  (how NPs refer and            (universals + parameters          |
-|   corefer — reflexives,        SOV/SVO/VSO/OVS/OVS/VOS)        |
+|   corefer — reflexives,        SOV/SVO/VSO/OVS/OVS/VOS)          |
 |   pronouns, R-expressions)                                       |
 |                                                                  |
 |  FROM GENERATIVE GRAMMAR:                                        |

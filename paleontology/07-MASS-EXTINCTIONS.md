@@ -223,7 +223,7 @@ CAUSE: Siberian Traps Large Igneous Province (LIP)
   KILL MECHANISMS (cascade):
   ┌─────────────────────────────────────────────────────────────────────┐
   │ SIBERIAN TRAPS ERUPTIONS                                            │
-  │   ↓ CO₂ + SO₂ + HCl + halogens released                           │
+  │   ↓ CO₂ + SO₂ + HCl + halogens released                             │
   │   ↓                                                                 │
   │ SHORT-TERM (SO₂): Volcanic winter → rapid cooling → acid rain       │
   │   ↓                                                                 │

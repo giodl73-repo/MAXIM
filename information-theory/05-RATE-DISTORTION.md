@@ -21,7 +21,7 @@ Source X ──[Encoder]──> codeword (R bits/symbol) ──[Decoder]──> 
      │  │                  '─────────────────────────      │
      │  │                           D_max    D             │
      │  └────────────────────────────────────────────      │
-     │  D_max = E[d(X, x̂_const)] for best constant x̂    │
+     │  D_max = E[d(X, x̂_const)] for best constant x̂       │
      └─────────────────────────────────────────────────────┘
 ```
 
@@ -245,11 +245,11 @@ Rate = (log₂ k)/n bits per sample. As n → ∞, VQ achieves R(D) (shape gain 
 │                                                                 │
 │  Variants:                                                      │
 │    Residual VQ (RVQ): quantize, then quantize residual          │
-│      X → q₁(X) → X - q₁(X) → q₂(X-q₁) → ...                 │
+│      X → q₁(X) → X - q₁(X) → q₂(X-q₁) → ...                     │
 │      Used in: neural codec language models (EnCodec, DAC)       │
 │                                                                 │
 │    Product Quantization (PQ): split vector, quantize subspaces  │
-│      X = [X₁, X₂, ..., Xₘ]  (d/m dimensions each)             │
+│      X = [X₁, X₂, ..., Xₘ]  (d/m dimensions each)               │
 │      Rate = m · log₂(k)/n  bits/sample                          │
 │      Used in: FAISS ANN search, ANN vector databases            │
 └─────────────────────────────────────────────────────────────────┘

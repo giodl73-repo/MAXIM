@@ -346,7 +346,7 @@ GOOGLE MAPS UX INNOVATION (2005)
   │  Zoom 0:  1 tile  = whole world (very small)           │
   │  Zoom 1:  4 tiles (2×2 grid)                           │
   │  Zoom 2: 16 tiles (4×4 grid)                           │
-  │  Zoom n: 4ⁿ tiles (2ⁿ × 2ⁿ grid)                     │
+  │  Zoom n: 4ⁿ tiles (2ⁿ × 2ⁿ grid)                       │
   │  Zoom 18: 68 billion tiles (house-level detail)        │
   │                                                        │
   │  Tile URL: https://maps.example.com/tiles/{z}/{x}/{y}.png│

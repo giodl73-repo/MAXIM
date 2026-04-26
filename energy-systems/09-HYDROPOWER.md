@@ -609,7 +609,7 @@ PUMPED HYDRO IN THE VRE GRID:
   │                                                          │
   │  Revenue = (peak price × generation) - (off-peak × pump) │
   │  If peak = $60/MWh and off-peak = $10/MWh:               │
-  │  Revenue = $60 × 1100 - $10 × 1375 = $66,000 - $13,750 │
+  │  Revenue = $60 × 1100 - $10 × 1375 = $66,000 - $13,750   │
   │         = $52,250 per cycle → ~$19M/yr                   │
   └──────────────────────────────────────────────────────────┘
 

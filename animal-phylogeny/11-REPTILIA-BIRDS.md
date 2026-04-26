@@ -319,7 +319,7 @@ DINOSAUR PHYLOGENY:
 ORNITHISCHIA  SAURISCHIA
 (bird-hipped   (lizard-hipped —
  but NOT birds) but BIRDS are here!)
-                   |
+                |
             +------+------+
             |             |
         Sauropoda      Theropoda
@@ -328,7 +328,7 @@ ORNITHISCHIA  SAURISCHIA
                      +---------+
                      |         |
                 T.rex &      MANIRAPTORA
-                relatives        |
+                relatives      |
                             +---------+
                             |         |
                        Oviraptors   AVIALAE

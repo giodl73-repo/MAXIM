@@ -46,13 +46,13 @@ A **functional** is a map from a space of functions to the real numbers.
 
   EXAMPLES:
   ┌───────────────────────────────────────────────────────────────┐
-  │ Arc length:         J[u] = ∫√(1+u'²) dx                     │
-  │ Area functional:    J[u] = ∫∫ √(1+u_x²+u_y²) dA            │
-  │ Dirichlet energy:   J[u] = ½∫|∇u|² dA                       │
-  │ Elastic energy:     J[u] = ½∫EI(u'')² dx  (beam)            │
-  │ Least action:       S[q] = ∫[½m|q̇|² − V(q)] dt             │
-  │ Optimal transport:  W²[T] = ∫|x − T(x)|² dμ(x)             │
-  │ Log-likelihood:     L[θ] = Σ log p(xᵢ; θ) (with θ = fn)    │
+  │ Arc length:         J[u] = ∫√(1+u'²) dx                       │
+  │ Area functional:    J[u] = ∫∫ √(1+u_x²+u_y²) dA               │
+  │ Dirichlet energy:   J[u] = ½∫|∇u|² dA                         │
+  │ Elastic energy:     J[u] = ½∫EI(u'')² dx  (beam)              │
+  │ Least action:       S[q] = ∫[½m|q̇|² − V(q)] dt                │
+  │ Optimal transport:  W²[T] = ∫|x − T(x)|² dμ(x)                │
+  │ Log-likelihood:     L[θ] = Σ log p(xᵢ; θ) (with θ = fn)       │
   └───────────────────────────────────────────────────────────────┘
 ```
 
@@ -143,16 +143,16 @@ For functionals of the form J[u] = ∫ F(x,u,∇u) dx, define:
   EXAMPLES:
   ┌─────────────────────────────────────────────────────────────────┐
   │ Dirichlet: J[u] = ½∫|∇u|² dx                                    │
-  │   δJ/δu = −∇²u   (the negative Laplacian)                     │
-  │   δJ/δu = 0 → ∇²u = 0  (Laplace equation)                    │
+  │   δJ/δu = −∇²u   (the negative Laplacian)                       │
+  │   δJ/δu = 0 → ∇²u = 0  (Laplace equation)                       │
   │                                                                 │
-  │ Area: J[u] = ∫√(1+|∇u|²) dA                                   │
-  │   δJ/δu = −∇·(∇u/√(1+|∇u|²))                                 │
+  │ Area: J[u] = ∫√(1+|∇u|²) dA                                     │
+  │   δJ/δu = −∇·(∇u/√(1+|∇u|²))                                    │
   │   = −(mean curvature H of the surface u)                        │
-  │   δJ/δu = 0 → H = 0  (minimal surface equation)               │
+  │   δJ/δu = 0 → H = 0  (minimal surface equation)                 │
   │                                                                 │
   │ Action: S[q] = ∫L(q,q̇)dt                                        │
-  │   δS/δq = ∂L/∂q − d/dt(∂L/∂q̇)                                │
+  │   δS/δq = ∂L/∂q − d/dt(∂L/∂q̇)                                   │
   │   δS/δq = 0 → Euler-Lagrange equations of mechanics             │
   └─────────────────────────────────────────────────────────────────┘
 ```

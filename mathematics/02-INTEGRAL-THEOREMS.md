@@ -13,10 +13,10 @@ exactly what converts between them.
 |   (local — at a point)           (global — over regions)               |
 |   ─────────────────────          ──────────────────────                |
 |                                                                        |
-|   ∇·E  = ρ/ε₀        ←────────→  ∮∮ E·dA = Q_enc/ε₀                 |
-|   ∇·B  = 0           ←────────→  ∮∮ B·dA = 0                         |
-|   ∇×E  = -∂B/∂t      ←────────→  ∮ E·dl  = -dΦ_B/dt                 |
-|   ∇×B  = μ₀J+...     ←────────→  ∮ B·dl  = μ₀I_enc + ...            |
+|   ∇·E  = ρ/ε₀        ←────────→  ∮∮ E·dA = Q_enc/ε₀                    |
+|   ∇·B  = 0           ←────────→  ∮∮ B·dA = 0                           |
+|   ∇×E  = -∂B/∂t      ←────────→  ∮ E·dl  = -dΦ_B/dt                    |
+|   ∇×B  = μ₀J+...     ←────────→  ∮ B·dl  = μ₀I_enc + ...               |
 |                                                                        |
 |        ↑                                  ↑                            |
 |   (module 01)              DIVERGENCE THEOREM + STOKES' THEOREM        |
@@ -389,7 +389,7 @@ Right side: current through any surface bounded by C, plus displacement current
 |                         charge inside"                               |
 +──────────────────────────────────────────────────────────────────────+
 |                                                                      |
-|  ∇·B = 0              ∮∮ B·dA = 0                Divergence thm    |
+|  ∇·B = 0              ∮∮ B·dA = 0                Divergence thm      |
 |                                                                      |
 |  "B has no             "Net B flux through                           |
 |   monopoles"           any closed surface = 0"                       |
@@ -402,8 +402,8 @@ Right side: current through any surface bounded by C, plus displacement current
 |                        ← generator equation →                       |
 +──────────────────────────────────────────────────────────────────────+
 |                                                                      |
-|  ∇×B = μ₀J            ∮ B·dl = μ₀I_enc           Stokes' thm       |
-|       +μ₀ε₀∂E/∂t            + μ₀ε₀dΦ_E/dt                         |
+|  ∇×B = μ₀J            ∮ B·dl = μ₀I_enc           Stokes' thm         |
+|       +μ₀ε₀∂E/∂t            + μ₀ε₀dΦ_E/dt                            |
 |                                                                      |
 |  "Current and          "B circulation around                         |
 |   changing E curl B"    loop = enclosed current                      |

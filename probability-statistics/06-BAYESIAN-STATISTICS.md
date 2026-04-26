@@ -16,7 +16,7 @@ Bayesian statistics treats parameters as random variables and updates beliefs us
 |          |                          |                          |                |
 |          +----------x--------------+                          |                |
 |                     |                                          |               |
-|             BAYES' THEOREM                                      |                |
+|             BAYES' THEOREM                                      |              |
 |             p(theta|x) = p(x|theta) p(theta) / p(x)           |                |
 |                          = p(x|theta) p(theta) /               |               |
 |                            Integral p(x|theta) p(theta) dtheta |               |

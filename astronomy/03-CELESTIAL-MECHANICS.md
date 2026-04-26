@@ -160,8 +160,8 @@ Six numbers completely specify an orbit + position on it:
 
   ┌──────────────────────────────────────────────────────────────────────────┐
   │ SHAPE & SIZE                                                             │
-  │   a  — semi-major axis        [distance]  Sets T via T²=4π²a³/(GM)     │
-  │   e  — eccentricity           [0 to 1+]   Shape: 0=circle, 1=parabola  │
+  │   a  — semi-major axis        [distance]  Sets T via T²=4π²a³/(GM)       │
+  │   e  — eccentricity           [0 to 1+]   Shape: 0=circle, 1=parabola    │
   ├──────────────────────────────────────────────────────────────────────────┤
   │ ORIENTATION OF ORBITAL PLANE                                             │
   │   i  — inclination            [0°–180°]   Tilt wrt reference plane      │
@@ -282,7 +282,7 @@ Two massive bodies M₁ ≫ M₂ orbit their CM in circles; massless test partic
 
   STABILITY CHECK:
   ┌─────────────────────────────────────────────────────────────────────┐
-  │ System         M₂/(M₁+M₂)    L4/L5 stable?   Trojans?             │
+  │ System         M₂/(M₁+M₂)    L4/L5 stable?   Trojans?               │
   │ Sun–Jupiter    9.5 × 10⁻⁴    YES              ~12,000 Trojans       │
   │ Sun–Earth      3.0 × 10⁻⁶    YES              ~few Earth Trojans    │
   │ Sun–Mars       3.2 × 10⁻⁷    YES              ~Trojan asteroids     │
@@ -337,7 +337,7 @@ Earth's equatorial bulge (J₂) acts as a perturbation R on satellite orbits:
 
   Nodal regression:
   ┌─────────────────────────────────────────────────────────┐
-  │  dΩ/dt = −(3/2) · n · J₂ · (R_E/a)² · cos i          │
+  │  dΩ/dt = −(3/2) · n · J₂ · (R_E/a)² · cos i             │
   │                              (1−e²)²                    │
   └─────────────────────────────────────────────────────────┘
   Prograde orbits (i < 90°): Ω decreases (nodes regress westward)
@@ -345,7 +345,7 @@ Earth's equatorial bulge (J₂) acts as a perturbation R on satellite orbits:
 
   Apsidal precession:
   ┌─────────────────────────────────────────────────────────┐
-  │  dω/dt = +(3/4) · n · J₂ · (R_E/a)² · (5cos²i − 1)   │
+  │  dω/dt = +(3/4) · n · J₂ · (R_E/a)² · (5cos²i − 1)      │
   │                               (1−e²)²                   │
   └─────────────────────────────────────────────────────────┘
   5cos²i − 1 = 0 at i = 63.43° → ω frozen (Molniya condition)
@@ -533,7 +533,7 @@ If a body orbits too close, tidal forces overcome its self-gravity and it is tor
 
   ┌─────────────────────────────────────────────────────────────────────┐
   │  System              d_Roche    Comparison                          │
-  │  Earth (fluid Moon)  ~9,500 km  ~1.5 R_Earth (Moon at 384,400 km) │
+  │  Earth (fluid Moon)  ~9,500 km  ~1.5 R_Earth (Moon at 384,400 km)   │
   │  Saturn (ice)        ~87,000 km Saturn's rings are INSIDE this!     │
   │  Sun (Earth)         ~557,000 km ~0.8 R_Sun (well inside Sun)       │
   └─────────────────────────────────────────────────────────────────────┘
@@ -714,12 +714,12 @@ Covered in 02-MILANKOVITCH.md but worth connecting here:
   ├────────────────────────────────────────┼────────────────────────────────────┤
   │ Speed at any point in orbit         │ Vis-viva: v² = GM(2/r − 1/a)       │
   ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Orbit period                        │ T = 2π √(a³/GM)                     │
+  │ Orbit period                        │ T = 2π √(a³/GM)                       │
   ├────────────────────────────────────────┼────────────────────────────────────┤
   │ Position at time t                  │ Kepler's equation: M = E − e sin E  │
   ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Will satellite orbit precess?        │ J₂ nodal regression: dΩ/dt ∝ cos i │
-  │ Need sun-synchronous?                │ i ≈ 97–98° (retrograde, dΩ/dt =    │
+  │ Will satellite orbit precess?        │ J₂ nodal regression: dΩ/dt ∝ cos i   │
+  │ Need sun-synchronous?                │ i ≈ 97–98° (retrograde, dΩ/dt =      │
   │                                      │ +360°/yr)                            │
   ├────────────────────────────────────────┼────────────────────────────────────┤
   │ Want apogee frozen over latitude?    │ Molniya: i = 63.43°, ω = 270°      │
@@ -731,14 +731,14 @@ Covered in 02-MILANKOVITCH.md but worth connecting here:
   │                                      │ L2: deep-space observation, thermal │
   │                                      │ L4/L5: debris/Trojans, station-keep │
   ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Does object get tidally disrupted?   │ Check if r < d_Roche               │
-  │                                      │ d_Roche ≈ 2.44 R (ρ₁/ρ₂)^(1/3)   │
+  │ Does object get tidally disrupted?   │ Check if r < d_Roche                 │
+  │                                      │ d_Roche ≈ 2.44 R (ρ₁/ρ₂)^(1/3)       │
   ├────────────────────────────────────────┼────────────────────────────────────┤
   │ Is tidal locking expected?           │ τ ∝ a⁶ Q m / (M² R⁵)             │
   │                                      │ Small a → locked fast               │
   ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Minimum-ΔV transfer between orbits   │ Hohmann (two burns); bi-elliptic   │
-  │                                      │ if r₂/r₁ > ~12 (three burns)       │
+  │ Minimum-ΔV transfer between orbits   │ Hohmann (two burns); bi-elliptic     │
+  │                                      │ if r₂/r₁ > ~12 (three burns)         │
   ├────────────────────────────────────────┼────────────────────────────────────┤
   │ Getting to outer solar system fast   │ Gravity assist; plan alignment     │
   │                                      │ windows years in advance            │

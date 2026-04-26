@@ -145,7 +145,7 @@ The most important design decision for balanced ventilation:
   ┌──────────────────────────────────────────────────────────────────┐
   │ Transfers SENSIBLE HEAT only between exhaust and supply streams  │
   │                                                                  │
-  │ Exhaust air: 70°F, 50% RH  ──────── HRV core ──────── exits    │
+  │ Exhaust air: 70°F, 50% RH  ──────── HRV core ──────── exits      │
   │ Supply air: -10°F outdoor   ──────── HRV core ──────── 55°F in   │
   │                                                                  │
   │ 70–80% sensible heat recovery                                    │

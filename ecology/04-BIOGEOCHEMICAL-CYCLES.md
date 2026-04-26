@@ -12,7 +12,7 @@ While energy flows through ecosystems and is lost as heat, nutrients cycle. The 
 |  -------  ----------------  ----------  ----------------------   |
 |  Carbon   Deep ocean +      Light, H₂O  Fossil fuel combustion   |
 |           lithosphere                   Deforestation            |
-|           (sedimentary rock)                                       |
+|           (sedimentary rock)                                     |
 |                                                                  |
 |  Nitrogen Atmosphere (N₂)   N-fixation  Haber-Bosch; crop        |
 |           (vast but         capacity    legumes; NOx from        |

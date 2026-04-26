@@ -9,8 +9,8 @@ VC dimension (Vapnik-Chervonenkis, 1971) is the combinatorial measure of hypothe
 |                  VC DIMENSION FRAMEWORK                          |
 |                                                                  |
 |  SHATTERING                                                      |
-|  H shatters a set C = {x₁,...,xd} iff for every labeling       |
-|  y: C → {0,1}, there exists h ∈ H with h(xᵢ) = yᵢ for all i    |
+|  H shatters a set C = {x₁,...,xd} iff for every labeling         |
+|  y: C → {0,1}, there exists h ∈ H with h(xᵢ) = yᵢ for all i      |
 |                                                                  |
 |  VC DIMENSION                                                    |
 |  VCdim(H) = largest d such that some set of d points is          |

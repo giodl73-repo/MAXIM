@@ -212,10 +212,10 @@ A **group** (G, ·) is a set G with a binary operation · satisfying:
 
   KEY EXAMPLES:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  exp: (ℝ, +) → (ℝ⁺, ×)     φ(x) = eˣ                             │
-  │       φ(a+b) = e^(a+b) = eᵃeᵇ = φ(a)φ(b)  ✓  (isomorphism)       │
+  │  exp: (ℝ, +) → (ℝ⁺, ×)     φ(x) = eˣ                                 │
+  │       φ(a+b) = e^(a+b) = eᵃeᵇ = φ(a)φ(b)  ✓  (isomorphism)           │
   │                                                                      │
-  │  det: (GL(n,ℝ), ×) → (ℝ*, ×)                                       │
+  │  det: (GL(n,ℝ), ×) → (ℝ*, ×)                                         │
   │       det(AB) = det(A)det(B)  ✓   (homomorphism, not isomorphism)    │
   │       kernel = SL(n,ℝ) = {matrices with det=1}                       │
   └──────────────────────────────────────────────────────────────────────┘
@@ -345,7 +345,7 @@ You've read Artin. Here's the structure:
 ```
   ARTIN'S ALGEBRA ARCHITECTURE
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Ch 1-2:  Matrix groups (GL, SL, O, U) — concrete examples first   │
+  │  Ch 1-2:  Matrix groups (GL, SL, O, U) — concrete examples first     │
   │  Ch 3-6:  Abstract groups — cosets, normal subgroups, products       │
   │  Ch 7:    More group theory — Jordan-Hölder, solvable groups         │
   │  Ch 8:    Rings — ideals, quotient rings, ring homomorphisms         │
@@ -409,56 +409,56 @@ You've read Artin. Here's the structure:
 ```
   ┌────────────────────────────────────────────────────────────────────────┐
   │  U(1) — Electromagnetism                                               │
-  │  ─────────────────────────────────────────────────────────────────── │
-  │  G = {e^(iθ) | θ ∈ ℝ} ≅ S¹                                          │
-  │  𝔤 = iℝ (purely imaginary numbers)  [trivial: all elements commute]  │
+  │  ───────────────────────────────────────────────────────────────────   │
+  │  G = {e^(iθ) | θ ∈ ℝ} ≅ S¹                                             │
+  │  𝔤 = iℝ (purely imaginary numbers)  [trivial: all elements commute]    │
   │  Generator: Y (hypercharge) — one generator, one gauge boson (photon)  │
   │  Gauge field: Aμ (the EM 4-potential)                                  │
-  │  Invariance of physics under ψ → e^(iα)ψ → conservation of charge    │
+  │  Invariance of physics under ψ → e^(iα)ψ → conservation of charge      │
   └────────────────────────────────────────────────────────────────────────┘
 
   ┌────────────────────────────────────────────────────────────────────────┐
   │  SU(2) — Weak Force / Spin                                             │
-  │  ─────────────────────────────────────────────────────────────────── │
-  │  G = {2×2 unitary matrices, det=1}  ≅ S³ (3-sphere)                  │
-  │  𝔤 = 𝔰𝔲(2) = {traceless anti-Hermitian 2×2 matrices}                │
-  │  Basis generators: Tₐ = σₐ/2  (a = 1,2,3)                            │
-  │  where σ₁,σ₂,σ₃ are the Pauli matrices                               │
+  │  ───────────────────────────────────────────────────────────────────   │
+  │  G = {2×2 unitary matrices, det=1}  ≅ S³ (3-sphere)                    │
+  │  𝔤 = 𝔰𝔲(2) = {traceless anti-Hermitian 2×2 matrices}                   │
+  │  Basis generators: Tₐ = σₐ/2  (a = 1,2,3)                              │
+  │  where σ₁,σ₂,σ₃ are the Pauli matrices                                 │
   │                                                                        │
   │  [T₁,T₂] = iT₃,  [T₂,T₃] = iT₁,  [T₃,T₁] = iT₂                    │
   │                                                                        │
-  │  3 generators → 3 gauge bosons: W⁺, W⁻, W⁰ (→ Z⁰ after mixing)     │
+  │  3 generators → 3 gauge bosons: W⁺, W⁻, W⁰ (→ Z⁰ after mixing)         │
   │                                                                        │
-  │  AS SPIN: Jₓ, Jy, Jz satisfy same commutation relations              │
-  │  [Jₓ,Jy] = iℏJz etc. — angular momentum algebra is SU(2) algebra    │
+  │  AS SPIN: Jₓ, Jy, Jz satisfy same commutation relations                │
+  │  [Jₓ,Jy] = iℏJz etc. — angular momentum algebra is SU(2) algebra       │
   │  Spin-½ particles are in the fundamental (2D) representation of SU(2)│
   └────────────────────────────────────────────────────────────────────────┘
 
   ┌────────────────────────────────────────────────────────────────────────┐
   │  SU(3) — Strong Force (QCD)                                            │
-  │  ─────────────────────────────────────────────────────────────────── │
+  │  ───────────────────────────────────────────────────────────────────   │
   │  G = {3×3 unitary matrices, det=1}                                     │
-  │  𝔤 = 𝔰𝔲(3) — 8-dimensional                                          │
+  │  𝔤 = 𝔰𝔲(3) — 8-dimensional                                             │
   │  Basis: Gell-Mann matrices λ₁,...,λ₈                                   │
   │  8 generators → 8 gauge bosons: 8 gluons                               │
-  │  Quarks come in 3 "colors": (r, g, b) = fundamental representation   │
+  │  Quarks come in 3 "colors": (r, g, b) = fundamental representation     │
   │  Gluons are in the adjoint (8D) representation                         │
   └────────────────────────────────────────────────────────────────────────┘
 
   ┌────────────────────────────────────────────────────────────────────────┐
-  │  SO(3) vs SU(2) — The Double Cover                                   │
-  │  ─────────────────────────────────────────────────────────────────── │
-  │  SO(3) = rotations in 3D space (det=1 orthogonal matrices)           │
-  │  SU(2) = 2×2 unitary, det=1                                          │
+  │  SO(3) vs SU(2) — The Double Cover                                     │
+  │  ───────────────────────────────────────────────────────────────────   │
+  │  SO(3) = rotations in 3D space (det=1 orthogonal matrices)             │
+  │  SU(2) = 2×2 unitary, det=1                                            │
   │                                                                        │
-  │  There is a 2-to-1 homomorphism: SU(2) → SO(3)                       │
-  │  Both +U and -U ∈ SU(2) map to the same rotation in SO(3)            │
+  │  There is a 2-to-1 homomorphism: SU(2) → SO(3)                         │
+  │  Both +U and -U ∈ SU(2) map to the same rotation in SO(3)              │
   │  SU(2) is the "double cover" of SO(3)                                  │
   │                                                                        │
-  │  Physical consequence: a spin-½ particle requires a 720° rotation    │
+  │  Physical consequence: a spin-½ particle requires a 720° rotation      │
   │  to return to its original state (not 360°)                            │
-  │  This is DIRECTLY because SU(2) double covers SO(3).                 │
-  │  Half-integer spin is not a mystery — it's representation theory.    │
+  │  This is DIRECTLY because SU(2) double covers SO(3).                   │
+  │  Half-integer spin is not a mystery — it's representation theory.      │
   └────────────────────────────────────────────────────────────────────────┘
 ```
 

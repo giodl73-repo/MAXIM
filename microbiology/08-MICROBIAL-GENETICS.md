@@ -11,14 +11,14 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
 
   ┌─────────────────────────────────────────────────────────────────┐
   │  REGULATORY ARCHITECTURE OVERVIEW                               │
-  │                                                                   │
+  │                                                                 │
   │  GENE REGULATION LEVELS:                                        │
   │  1. Transcription:  Promoter, sigma factors, activators,        │
   │                     repressors, enhancers (rare in bacteria)    │
   │  2. Post-transcription: sRNA, RNA-binding proteins, riboswitches│
   │  3. Translation:   Ribosome binding site, start codon context   │
   │  4. Post-translation: Proteolysis, modification, localization   │
-  │                                                                   │
+  │                                                                 │
   │  COMPUTATIONAL FRAMING:                                         │
   │  Operon          = IF-THEN logic gate                           │
   │  Regulon         = Module (multiple operons, one regulator)     │
@@ -51,12 +51,12 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
   │                                                                │
   │  Signal 1: Lactose present                                     │
   │  Allolactose (lactose metabolite) → binds LacI repressor       │
-  │  → Conformational change → LacI releases operator            │
+  │  → Conformational change → LacI releases operator              │
   │  → RNA pol can transcribe operon                               │
   │                                                                │
   │  Signal 2: Glucose absent (catabolite repression)              │
-  │  Low glucose → high cAMP (adenylate cyclase active)          │
-  │  cAMP binds CAP (CRP): Activator protein                     │
+  │  Low glucose → high cAMP (adenylate cyclase active)            │
+  │  cAMP binds CAP (CRP): Activator protein                       │
   │  cAMP-CAP complex binds CAP site upstream of promoter          │
   │  → Increases RNA pol binding affinity                          │
   │  → Enhances transcription                                      │
@@ -73,31 +73,31 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
   │                                                                │
   │  TrpR (apo-repressor) alone: Inactive → operon ON              │
   │  TrpR + tryptophan (corepressor): Active repressor             │
-  │  → Binds trpO operator → operon OFF                          │
+  │  → Binds trpO operator → operon OFF                            │
   │                                                                │
   │  ATTENTUATION (second control layer):                          │
   │  Leader peptide region: Contains Trp codons                    │
   │  If ribosome stalls (Trp scarce): forms anti-terminator stem   │
-  │  → RNA pol reads through → transcription continues           │
+  │  → RNA pol reads through → transcription continues             │
   │  If ribosome runs through (Trp plentiful): forms terminator    │
   │  → RNA pol falls off before structural genes                   │
   │  → Coupling between Trp supply and ribosome translation speed  │
-  │  → Elegant analog control: more Trp → more attenuation       │
+  │  → Elegant analog control: more Trp → more attenuation         │
   └────────────────────────────────────────────────────────────────┘
 
   SIGMA FACTORS: RUNTIME MODULE LOADING
   ┌────────────────────────────────────────────────────────────────┐
   │ Sigma (σ) factor: Dissociable subunit of RNA polymerase core   │
-  │ Core RNAP (α₂ββ'ω): Catalytic; binds σ to form holoenzyme    │
-  │ σ factor recognizes promoter −10 and −35 elements            │
+  │ Core RNAP (α₂ββ'ω): Catalytic; binds σ to form holoenzyme      │
+  │ σ factor recognizes promoter −10 and −35 elements              │
   │                                                                │
   │ E. COLI SIGMA FACTORS:                                         │
-  │ σ⁷⁰ (RpoD):   Housekeeping; vegetative growth; most genes    │
+  │ σ⁷⁰ (RpoD):   Housekeeping; vegetative growth; most genes      │
   │ σ³²  (RpoH):  Heat shock; activated 42°C; DnaK, GroEL induction│
-  │ σ²⁴ (RpoE):   Extreme heat + envelope stress                 │
-  │ σ³⁸ (RpoS):   Stationary phase + stress; "general stress σ"  │
-  │ σ²⁸ (FliA):   Flagellar genes (motility program)             │
-  │ σ⁵⁴ (RpoN):   Nitrogen limitation; requires activator ATP    │
+  │ σ²⁴ (RpoE):   Extreme heat + envelope stress                   │
+  │ σ³⁸ (RpoS):   Stationary phase + stress; "general stress σ"    │
+  │ σ²⁸ (FliA):   Flagellar genes (motility program)               │
+  │ σ⁵⁴ (RpoN):   Nitrogen limitation; requires activator ATP      │
   │                                                                │
   │ Anti-sigma factors: Inhibit σ until signal releases them       │
   │ FlgM: Anti-σ²⁸; keeps flagellar program off until hook built   │
@@ -105,7 +105,7 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
   │                                                                │
   │ SPORULATION (B. subtilis): σ cascade orchestrates development  │
   │ σᴴ → initiates sporulation → σᶠ (forespore) + σᴱ (mother cell)│
-  │ → σᴳ + σᴷ: Late sporulation programs                        │
+  │ → σᴳ + σᴷ: Late sporulation programs                           │
   │ Each σ activates next tier + previous tier genes turned off    │
   └────────────────────────────────────────────────────────────────┘
 ```
@@ -135,15 +135,15 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
   │                                                                │
   │ HEAT SHOCK REGULON (σ³²):                                      │
   │   Trigger: Temperature rise → misfolded proteins               │
-  │   DnaK/DnaJ chaperones sequester σ³² normally                │
-  │   Misfolded proteins titrate DnaK → free σ³² → transcription │
-  │   Genes: GroEL/GroES, DnaK, DnaJ, ClpB, HtpG (chaperones)   │
+  │   DnaK/DnaJ chaperones sequester σ³² normally                  │
+  │   Misfolded proteins titrate DnaK → free σ³² → transcription   │
+  │   Genes: GroEL/GroES, DnaK, DnaJ, ClpB, HtpG (chaperones)      │
   │           Lon, ClpXP, FtsH proteases (degrade misfolded prot)  │
   │                                                                │
   │ PhoP/PhoQ (VIRULENCE REGULON in Salmonella):                   │
   │   Two-component system (see next section)                      │
   │   Induces: Low Mg²⁺, antimicrobial peptide exposure            │
-  │   → Activates >100 genes; LPS modification, Mg²⁺ uptake      │
+  │   → Activates >100 genes; LPS modification, Mg²⁺ uptake        │
   │   → Critical for intramacrophage survival                      │
   │                                                                │
   │ FNR REGULON (anaerobic response):                              │
@@ -239,7 +239,7 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
   │   Hfq: Sm-like protein; hexameric ring                         │
   │   Binds AU-rich sequences (Distal face) + sRNA (Proximal face) │
   │   → Increases effective local concentration → faster pairing   │
-  │   → Also recruits RNase E → coupled mRNA degradation         │
+  │   → Also recruits RNase E → coupled mRNA degradation           │
   └────────────────────────────────────────────────────────────────┘
 
   KEY sRNA EXAMPLES:
@@ -265,11 +265,11 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
   │ SAM riboswitch: S-adenosylmethionine → represses expression    │
   │ Cobalamin (B12) riboswitch: Sequesters RBS; ~200 nt aptamer    │
   │ Lysine riboswitch: Lysine → premature termination              │
-  │ Fluoride riboswitch: F⁻ detection → induces F⁻ exporter      │
+  │ Fluoride riboswitch: F⁻ detection → induces F⁻ exporter        │
   │                                                                │
   │ BIOTECHNOLOGY: Riboswitches as biosensors + genetic switches   │
   │ Synthetic biology: Engineer riboswitches to respond to         │
-  │ non-natural ligands → programmable genetic control           │
+  │ non-natural ligands → programmable genetic control             │
   └────────────────────────────────────────────────────────────────┘
 ```
 
@@ -324,7 +324,7 @@ MICROBIAL GENETICS: REGULATION AS COMPUTATION
   │ Type II:  Single Cas9 effector; requires tracrRNA + crRNA      │
   │           → sgRNA engineering → the genome editing workhorse   │
   │ Type III: RNA-targeting + ssDNA targeting; Csm/Cmr complexes   │
-  │ Type V:   Cas12a/Cas12b: PAM on 5' end; staggered cuts       │
+  │ Type V:   Cas12a/Cas12b: PAM on 5' end; staggered cuts         │
   │ Type VI:  Cas13: RNA-only targeting; collateral RNA cleavage   │
   │           → SHERLOCK diagnostic platform (see genomics/)       │
   └────────────────────────────────────────────────────────────────┘

@@ -215,19 +215,19 @@ humans have settled and why.
   │ Pegmatite: gem minerals (tourmaline, emerald, beryl); REE-     │
   │   bearing minerals (spodumene for Li; columbite for Nb/Ta)     │
   │ Porphyry intrusions: largest Cu-Mo deposits (~75% of global    │
-  │   Cu production from porphyry deposits; Bingham Canyon UT,   │
+  │   Cu production from porphyry deposits; Bingham Canyon UT,     │
   │   Escondida Chile)                                             │
   │ Kimberlite pipes: primary diamond source (>50 km depth mantle  │
   │   xenoliths; South Africa, Botswana, Russia, Canada)           │
   │                                                                │
   │ SEDIMENTARY ROCK RESOURCES:                                    │
-  │ Limestone: cement feedstock (CaCO₃ → CaO + CO₂ at 900°C);   │
+  │ Limestone: cement feedstock (CaCO₃ → CaO + CO₂ at 900°C);      │
   │   karst aquifer; building stone (Paris Basin limestone)        │
   │ Coal: organic accumulation + burial; Carboniferous swamps      │
   │ Oil/gas: organic-rich shale buried to "oil window" (~60-120°C)│
   │   migration to porous reservoir; trap + seal required          │
   │ Evaporites: potash (fertilizer; K is a critical crop nutrient)│
-  │   halite (chemical feedstock); gypsum (drywall/plaster)      │
+  │   halite (chemical feedstock); gypsum (drywall/plaster)        │
   │ Iron formation (BIF): world's largest iron ore deposits;       │
   │   Proterozoic age (Hamersley Basin Australia; Carajas Brazil)  │
   │                                                                │
@@ -239,7 +239,7 @@ humans have settled and why.
   │ Cobalt: DRC (70%); magmatic Ni-Cu-Co deposits (Sudbury,        │
   │   Norilsk) + Congo Basin laterites                             │
   │ → Connects to geopolitics: resource geography ≈ mineral        │
-  │   deposit geography (see 06-GEOPOLITICS-RESOURCES.md)        │
+  │   deposit geography (see 06-GEOPOLITICS-RESOURCES.md)          │
   └────────────────────────────────────────────────────────────────┘
 ```
 

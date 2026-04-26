@@ -71,14 +71,14 @@ Napoleon's corps system (refined 1800-1804, fully developed by Austerlitz 1805):
 |     \         |          |         /                            |
 |      \        |          |        /                             |
 |       +-------+----------+-------+                             |
-|              TARGET AREA                                         |
-|                                                                  |
+|              TARGET AREA                                       |
+|                                                                |
 |  Each corps marches on SEPARATE ROADS, 30-40 km apart          |
 |  Each corps can fight a delaying action for 1-2 days           |
 |  All corps converge on battle area — "march divided,           |
-|  fight united"                                                   |
-|                                                                  |
-|  LOGISTICAL ADVANTAGE:                                           |
+|  fight united"                                                 |
+|                                                                |
+|  LOGISTICAL ADVANTAGE:                                         |
 |  5 corps on 5 roads = 5x the foraging area                     |
 |  Armies now fed off the land (HUGE doctrinal change)           |
 |  No more 16-km operational radius from supply depot            |

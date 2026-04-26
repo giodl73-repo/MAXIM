@@ -18,7 +18,7 @@ AERODYNAMIC FORCES — CLASSIFICATION
   ┌───────────────────┬────────────────────────────────────────────────┐
   │ Skin friction     │ Viscous shear at wall; C_Df ~ Re^{-1/5} (turb)│
   │ Pressure drag     │ Separation → wake; depends on body shape       │
-  │ Induced drag      │ 3D wing tip vortices; C_Di = C_L²/(πeAR)     │
+  │ Induced drag      │ 3D wing tip vortices; C_Di = C_L²/(πeAR)       │
   │ Wave drag         │ Shocks at M > 0.8; rises rapidly near M = 1    │
   └───────────────────┴────────────────────────────────────────────────┘
 

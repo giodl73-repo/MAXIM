@@ -284,11 +284,11 @@ Daylight is not just about energy savings (though they are significant — light
   │   EXTERIOR   │        INTERIOR ROOM            │
   │              │                                 │
   │    ──────────┤  light shelf (horizontal)       │
-  │     upper    │       bounces light               │
+  │     upper    │       bounces light             │
   │     glazing  │    ↗  to ceiling                │
-  │    ──────────┤────────────────────               │
-  │     lower    │        deep                       │
-  │     glazing  │        penetration                │
+  │    ──────────┤────────────────────             │
+  │     lower    │        deep                     │
+  │     glazing  │        penetration              │
   └──────────────┴─────────────────────────────────┘
   Light shelf shades direct sun at lower glazing (glare control)
   while bouncing diffuse light off ceiling (depth penetration).

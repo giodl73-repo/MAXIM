@@ -18,7 +18,7 @@
 |   → Soften and increase flexibility; lower Tg                    |
 |                                                                  |
 |   FILLERS AND REINFORCEMENTS                                     |
-|   Carbon black · Silica · Talc · CaCO3 · Glass fiber · Mica    |
+|   Carbon black · Silica · Talc · CaCO3 · Glass fiber · Mica      |
 |   → Modify stiffness, strength, cost, color, conductivity        |
 |                                                                  |
 |   FUNCTIONAL ADDITIVES                                           |

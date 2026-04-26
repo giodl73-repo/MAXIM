@@ -9,13 +9,13 @@ primarily by receptor distribution and post-entry replication capacity.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │               VIRUS-HOST INTERACTION LAYERS                      │
-│                                                                    │
+│                                                                  │
 │  MOLECULAR LEVEL:    Receptor recognition → entry mechanism      │
 │  CELLULAR LEVEL:     Restriction factors, innate sensors         │
 │  TISSUE LEVEL:       Barrier crossing, cell type specificity     │
 │  ORGANISM LEVEL:     Immune response, pathogenesis               │
 │  POPULATION LEVEL:   Transmission, herd immunity, evolution      │
-│                                                                    │
+│                                                                  │
 │  TROPISM DETERMINANTS:                                           │
 │  1. Receptor expression (necessary)                              │
 │  2. Co-receptor expression (necessary for some)                  │

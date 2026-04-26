@@ -701,16 +701,16 @@ REVERSE-MODE AD → ADJOINT METHOD (the cross-module bridge):
   │  ML BACKPROP              ODE/PDE ADJOINT                       │
   │  ─────────────            ──────────────────                    │
   │  Forward pass:            Forward solve:                        │
-  │    compute activations      y' = f(t,y,p), y(0)=y_0           │
+  │    compute activations      y' = f(t,y,p), y(0)=y_0             │
   │    through layers           integrate t=0 → T                   │
   │                                                                 │
   │  Loss: L(output)          Objective: J(y(T), p)                 │
   │                                                                 │
   │  Backward pass:           Adjoint solve:                        │
-  │    ∂L/∂weights via          λ' = -(∂f/∂y)^T λ, λ(T)=∂J/∂y(T) │
-  │    chain rule backward      integrate t=T → 0 (backward!)     │
+  │    ∂L/∂weights via          λ' = -(∂f/∂y)^T λ, λ(T)=∂J/∂y(T)    │
+  │    chain rule backward      integrate t=T → 0 (backward!)       │
   │                                                                 │
-  │  Gradient: ∂L/∂θ         Gradient: dJ/dp = ∫₀ᵀ λ^T ∂f/∂p dt  │
+  │  Gradient: ∂L/∂θ         Gradient: dJ/dp = ∫₀ᵀ λ^T ∂f/∂p dt     │
   │  Cost: O(forward pass)   Cost: O(forward solve + adjoint solve)│
   └─────────────────────────────────────────────────────────────────┘
 

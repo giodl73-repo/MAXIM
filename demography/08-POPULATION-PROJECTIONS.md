@@ -5,7 +5,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    POPULATION PROJECTION APPROACHES                         │
-│                                                                               │
+│                                                                             │
 │  DETERMINISTIC SCENARIOS       PROBABILISTIC             SIMPLIFIED         │
 │  ──────────────────────────    ─────────────────         ────────────────── │
 │  UN: Low/Medium/High variants  UN probabilistic          Extrapolation      │
@@ -14,7 +14,7 @@
 │  paths                         fertility rates           (S-curve)          │
 │                                Bayesian model            Cohort model       │
 │                                Uncertainty intervals     simplifications    │
-│                                                                               │
+│                                                                             │
 │  COHORT-COMPONENT MODEL: Standard method for all serious projection         │
 │  - Projects each age-sex cohort forward using fertility, mortality, migration │
 │  - Leslie matrix formulation                                                │

@@ -5,9 +5,9 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    SOCIAL PREFERENCES LANDSCAPE                             │
-│                                                                               │
+│                                                                             │
 │  STANDARD MODEL: U_i(x) = f(x_i)  — utility depends only on OWN payoff      │
-│                                                                               │
+│                                                                             │
 │  SOCIAL PREFERENCES: U_i(x) = f(x_i, x_{-i}, context, history)              │
 │  Utility depends on:                                                        │
 │    - Own payoff x_i                                                         │
@@ -16,7 +16,7 @@
 │    - Whether others cooperated  (reciprocity)                               │
 │    - Identity/group membership  (in-group favoritism)                       │
 │    - Social norms in context  (what's appropriate here?)                    │
-│                                                                               │
+│                                                                             │
 │  EXPERIMENTAL METHODS:                                                      │
 │  Ultimatum Game, Dictator Game, Trust Game, Public Goods Game,              │
 │  Prisoner's Dilemma variants — all run with real money stakes               │

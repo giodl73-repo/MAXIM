@@ -45,15 +45,15 @@ DG APPLICATIONS — 6 DOMAINS WITH SOURCE MODULES
 |  | Geodesics = free   |       | U(1) x SU(2) x SU(3)|           |
 |  | fall trajectories  |       +--------------------+            |
 |  +--------------------+                                          |
-|                                                                  |
-|  ROBOT KINEMATICS             ML ON MANIFOLDS                    |
+   |                                                               |
+   |  ROBOT KINEMATICS             ML ON MANIFOLDS                 |
 |  +--------------------+       +--------------------+             |
 |  | SE(3) = rigid body |       | Riemannian SGD     |            |
 |  | motions            |       | Natural gradient   |            |
 |  | Screw motions      |       | Manifold-valued    |            |
 |  | Configuration space|       | data (SPD matrices)|            |
 |  +--------------------+       +--------------------+            |
-|                                                                 |
+   |                                                              |
 +------------------------------------------------------------------+
 ```
 

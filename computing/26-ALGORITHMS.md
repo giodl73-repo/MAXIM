@@ -23,7 +23,7 @@ You have MIT 6.006 and 6.046 under your belt. This is not a tutorial — it is a
 │  Knapsack (general), Partition        Randomized algorithms                 │
 │                                                                             │
 │  Complexity Hierarchy:                                                      │
-│  P ⊆ NP ∩ co-NP ⊆ PH ⊆ PSPACE ⊆ EXPTIME                                  │
+│  P ⊆ NP ∩ co-NP ⊆ PH ⊆ PSPACE ⊆ EXPTIME                                     │
 │  NP-hard: ≥ any NP (not necessarily in NP)                                  │
 │  NP-complete: NP-hard ∩ NP                                                  │
 │                                                                             │

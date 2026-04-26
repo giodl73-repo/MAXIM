@@ -168,25 +168,25 @@ Roman Jakobson (1896–1982) moved from Prague to the US and became the most inf
 
 ```
 +---------------------------------------------------------------------+
-| FUNCTION      | ORIENTATION   | EXAMPLES                          |
+| FUNCTION      | ORIENTATION   | EXAMPLES                            |
 |---------------|---------------|-----------------------------------|
-| Referential   | Context/topic | News report, encyclopedia article |
-|               |               | "Water boils at 100°C"            |
+| Referential   | Context/topic | News report, encyclopedia article   |
+|               |               | "Water boils at 100°C"              |
 |---------------|---------------|-----------------------------------|
-| Emotive       | Sender        | "Oh! That's disgusting!"          |
-|               |               | Interjections, diary              |
+| Emotive       | Sender        | "Oh! That's disgusting!"            |
+|               |               | Interjections, diary                |
 |---------------|---------------|-----------------------------------|
-| Conative      | Addressee     | Commands, ads, rhetoric           |
-|               |               | "Buy now!" "Vote Smith!"          |
+| Conative      | Addressee     | Commands, ads, rhetoric             |
+|               |               | "Buy now!" "Vote Smith!"            |
 |---------------|---------------|-----------------------------------|
 | Phatic        | Contact       | "Hello?" "Nice weather, isn't it?"|
-|               |               | Small talk, channel-checking      |
+|               |               | Small talk, channel-checking        |
 |---------------|---------------|-----------------------------------|
-| Metalingual   | Code          | Definitions, grammar books        |
-|               |               | "What does 'irony' mean?"         |
+| Metalingual   | Code          | Definitions, grammar books          |
+|               |               | "What does 'irony' mean?"           |
 |---------------|---------------|-----------------------------------|
-| Poetic        | Message form  | Poetry, puns, alliteration        |
-|               |               | "I like Ike" (sound pattern)      |
+| Poetic        | Message form  | Poetry, puns, alliteration          |
+|               |               | "I like Ike" (sound pattern)        |
 +---------------------------------------------------------------------+
 
   JAKOBSON ON THE POETIC FUNCTION:

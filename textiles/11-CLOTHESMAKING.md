@@ -97,9 +97,9 @@ LOCKSTITCH (domestic and industrial sewing machine):
   Needle rises → threads tighten → "lock" forms at middle of fabric
 
   ┌──────────────────────────────────────────────────────────┐
-  │  Fabric top surface:  ─ ─ ─ ─ ─ (even stitch line)     │
+  │  Fabric top surface:  ─ ─ ─ ─ ─ (even stitch line)       │
   │  Fabric interior:         X X X X (interlocked threads)  │
-  │  Fabric underside:   ─ ─ ─ ─ ─ (even stitch line)      │
+  │  Fabric underside:   ─ ─ ─ ─ ─ (even stitch line)        │
   └──────────────────────────────────────────────────────────┘
 
   SPEED:

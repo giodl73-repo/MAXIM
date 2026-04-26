@@ -171,7 +171,7 @@ COURSE HEIGHT CALCULATION
   │           every course. Mark once, use throughout project.       │
   │                                                                  │
   │  Mark locations (typical 8' wall, modular brick, 3 courses=8"):  │
-  │  8", 16", 24", 32", 40", 48" (sill), 56", 64", 72", 80" (arch) │
+  │  8", 16", 24", 32", 40", 48" (sill), 56", 64", 72", 80" (arch)   │
   │                                                                  │
   │  RULE: If courses don't hit marks, mortar joint is wrong.        │
   │        Adjust mortar joint thickness — never cut brick.          │

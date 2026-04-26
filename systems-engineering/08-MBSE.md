@@ -23,7 +23,7 @@ DOCUMENT-CENTRIC SE (Traditional)
 MODEL-BASED SE (MBSE)
 ──────────────────────────────────────────────────────────────────
                     ┌──────────────────────────────┐
-                    │       SYSTEM MODEL             │
+                    │       SYSTEM MODEL           │
                     │                              │
                     │  Requirements + Architecture │
                     │  + Behavior + ICDs + Analyses  │

@@ -161,7 +161,7 @@ BULK REGULATION SYSTEM:
   | D |                           |D                           |
   | E |                           |E                           |
   |   +---------------------------+                            |
-  |     [REAR SETBACK]                                         |
+      |     [REAR SETBACK]                                     |
   +------------------------------------------------------------+
 
   KEY CONTROLS:

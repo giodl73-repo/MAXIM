@@ -148,7 +148,7 @@ A petroleum system requires all five elements to exist simultaneously:
 |                    PETROLEUM SYSTEM                            |
 |                                                                |
 |  SOURCE ROCK      Organic-rich shale buried to "oil window"    |
-|  (kitchen)        Ro 0.6–1.3% = oil; 1.3–3.0% = wet gas;     |
+|  (kitchen)        Ro 0.6–1.3% = oil; 1.3–3.0% = wet gas;       |
 |                   >3% = dry gas (overmature)                   |
 |                                                                |
 |  MIGRATION        Primary: micro-scale to carrier bed          |

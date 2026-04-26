@@ -152,16 +152,16 @@ Proposed independently by Daniel Janzen (1970) and Joseph Connell (1971): seeds 
   | Janzen-Connell   |     | Host-specific pests|     | Strong field evidence|
   |                  |     | and pathogens      |     | (many experimental  |
   |                  |     | prevent local       |     | and observational   |
-  |                  |     | dominance          |     | support)            |
+  |                  |     | dominance          |     | support)          |
   +------------------+     +-------------------+      +-------------------+
   | Intermediate     |     | Moderate disturbance|    | Strong; gap dynamics|
   | Disturbance      |     | (gaps) creates niche|    | clearly promote     |
   |                  |     | heterogeneity       |    | diversity           |
   +------------------+     +-------------------+      +-------------------+
-  | Resource         |     | Fine-scale variation|    | Strong for some     |
+  | Resource         |     | Fine-scale variation|    | Strong for some   |
   | Partitioning     |     | in light, water, P; |    | resources; less for |
-  |                  |     | species occupy diff |    | others              |
-  |                  |     | niches              |    |                     |
+  |                  |     | species occupy diff |    | others            |
+  |                  |     | niches              |    |                   |
   +------------------+     +-------------------+      +-------------------+
   | Neutral Theory   |     | Species ecologically|    | Controversial; fits |
   | (Hubbell 2001)   |     | equivalent; drift +|     | species-abundance   |

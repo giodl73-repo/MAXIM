@@ -127,7 +127,7 @@ Comet nuclei: "dirty snowballs" (Whipple 1950) or better "icy dirtballs" — DII
 │     CO₂ active at r < 6 AU; CO at any distance          │
 │                                                         │
 │   Coma: 10,000–100,000 km radius                        │
-│     Gas: H₂O, CO₂, CO, CN, C₂, NH₂                    │
+│     Gas: H₂O, CO₂, CO, CN, C₂, NH₂                      │
 │     Dust: μm-sized silicate + organic grains            │
 │                                                         │
 │   Tails (always point away from Sun):                   │
@@ -136,7 +136,7 @@ Comet nuclei: "dirty snowballs" (Whipple 1950) or better "icy dirtballs" — DII
 │   Dust tail (Type II): micron-sized dust, radiation     │
 │                         pressure, curved, white/yellow  │
 │                                                         │
-│   Hydrogen corona: 10⁷ km; Lyman-α; from H₂O→H+OH    │
+│   Hydrogen corona: 10⁷ km; Lyman-α; from H₂O→H+OH       │
 └─────────────────────────────────────────────────────────┘
 ```
 

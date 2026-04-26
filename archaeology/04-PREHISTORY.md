@@ -15,7 +15,7 @@
 |  100 Ka  Out-of-Africa dispersal (multiple waves evidence)       |
 |  45 Ka   Upper Paleolithic revolution in Europe                  |
 |  40 Ka   Cave art (Sulawesi, Indonesia now oldest)               |
-|  12 Ka   End of Pleistocene; start of Holocene                 |
+|  12 Ka   End of Pleistocene; start of Holocene                   |
 |  10 Ka   Neolithic Revolution begins (SW Asia)                   |
 |  5 Ka    Metalworking; first writing; state societies            |
 |  2 Ka    Iron widespread; historical period begins most regions  |

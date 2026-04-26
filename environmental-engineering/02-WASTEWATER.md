@@ -63,7 +63,7 @@ Before sizing any unit process, quantify what you are treating.
   │                  │            │ driver (often the limiting     │
   │                  │            │ nutrient in freshwater)        │
   ├──────────────────┼────────────┼────────────────────────────────┤
-  │ Pathogens        │ 10⁶–10⁸   │ Fecal coliforms (CFU/100 mL); │
+  │ Pathogens        │ 10⁶–10⁸   │ Fecal coliforms (CFU/100 mL);   │
   │                  │ CFU/100 mL │ Giardia, Crypto, enteric virus │
   └──────────────────┴────────────┴────────────────────────────────┘
 ```
@@ -97,9 +97,9 @@ Removes settleable and floatable solids by physical separation — no biology, n
   │              │ Vortex grit: centrifugal separation           │
   ├──────────────┼────────────────────────────────────────────────┤
   │ Primary      │ Gravity sedimentation:                         │
-  │ clarifier    │ SOR: 400–600 gpd/ft² (16–24 m/d)             │
+  │ clarifier    │ SOR: 400–600 gpd/ft² (16–24 m/d)               │
   │              │ HRT: 1.5–2.5 hours                             │
-  │              │ Removal: 50–65% TSS, 25–40% BOD₅             │
+  │              │ Removal: 50–65% TSS, 25–40% BOD₅               │
   │              │ Produces primary sludge (2–6% solids)          │
   └──────────────┴────────────────────────────────────────────────┘
 ```
@@ -264,8 +264,8 @@ Regulators increasingly require nutrient limits to prevent eutrophication.
   │ Bardenpho        │ 5-stage: Anaerobic/Anoxic/Aerobic/         │
   │ (5-stage)        │ Anoxic/Aerobic — very low effluent TN      │
   ├──────────────────┼─────────────────────────────────────────────┤
-  │ UCT              │ Modified A²/O — prevents nitrate in RAS   │
-  │ (Univ. of Cape   │ from disrupting anaerobic zone for EBPR   │
+  │ UCT              │ Modified A²/O — prevents nitrate in RAS     │
+  │ (Univ. of Cape   │ from disrupting anaerobic zone for EBPR     │
   │ Town)            │                                             │
   └──────────────────┴─────────────────────────────────────────────┘
 ```

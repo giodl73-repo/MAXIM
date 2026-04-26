@@ -5,7 +5,7 @@
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │              SINGLE-MOLECULE TECHNIQUE LANDSCAPE                         │
-│                                                                            │
+│                                                                          │
 │  TECHNIQUE         WHAT IT MEASURES        FORCE RANGE   RESOLUTION      │
 │  ─────────────     ────────────────────────────────────────────────────  │
 │  Optical tweezers  Force, displacement      0.1-100 pN    0.1 nm, 0.1 pN │
@@ -13,7 +13,7 @@
 │  AFM               Force, topography        10 pN-10 nN   0.1 nm, ~10 pN │
 │  smFRET            Distance, dynamics       N/A           1-10 nm dist.  │
 │  Patch clamp       Ion current              N/A           0.1 pA, 0.05 ms│
-│                                                                            │
+│                                                                          │
 │  THE VALUE: ensemble methods give averages;                              │
 │  single-molecule methods reveal:                                         │
 │    • Distributions (not just means)                                      │

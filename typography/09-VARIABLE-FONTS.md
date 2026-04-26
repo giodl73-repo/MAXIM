@@ -24,14 +24,14 @@ STATIC FONT MODEL:
   │  Roboto-BoldItalic.ttf                   65 KB                           │
   │  ...                                                                     │
   │  Total: 12 files × ~66 KB = ~790 KB                                      │
-  │  Instances available: discrete (100, 300, 400, 500, 700, 900)          │
+  │  Instances available: discrete (100, 300, 400, 500, 700, 900)            │
   └──────────────────────────────────────────────────────────────────────────┘
 
 VARIABLE FONT MODEL:
   ┌──────────────────────────────────────────────────────────────────────────┐
   │  Roboto[wght].woff2      (weight axis: 100–900)  ~180 KB                 │
   │  Total: 1 file × 180 KB = ~180 KB                                        │
-  │  Instances available: ANY value from 100.0 to 900.0 (continuous)       │
+  │  Instances available: ANY value from 100.0 to 900.0 (continuous)         │
   │  font-weight: 437;  → valid; precisely between Regular and Medium        │
   └──────────────────────────────────────────────────────────────────────────┘
 

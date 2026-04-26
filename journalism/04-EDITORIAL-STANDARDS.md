@@ -12,23 +12,23 @@ SPJ CODE OF ETHICS — FOUR PRINCIPLES
   ┌──────────────────────────────────────────────────────────────────┐
   │  Take responsibility for accuracy                                │
   │  Verify; do not assume                                           │
-  │  Seek out the marginalized, not just the powerful              │
-  │  Boldly tell the truth even when unpopular                     │
+  │  Seek out the marginalized, not just the powerful                │
+  │  Boldly tell the truth even when unpopular                       │
   └──────────────────────────────────────────────────────────────────┘
 
   MINIMIZE HARM
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Treat sources, subjects, colleagues with dignity              │
-  │  Recognize that publishing causes harm → weigh public interest │
-  │  Consider consequences for victims and the vulnerable          │
-  │  Balance the public's need to know against private harm        │
+  │  Treat sources, subjects, colleagues with dignity                │
+  │  Recognize that publishing causes harm → weigh public interest   │
+  │  Consider consequences for victims and the vulnerable            │
+  │  Balance the public's need to know against private harm          │
   └──────────────────────────────────────────────────────────────────┘
 
   ACT INDEPENDENTLY
   ┌──────────────────────────────────────────────────────────────────┐
   │  Avoid conflicts of interest                                     │
-  │  Reject gifts, favors that create obligations                  │
-  │  Resist pressure from advertisers, owners, sources             │
+  │  Reject gifts, favors that create obligations                    │
+  │  Resist pressure from advertisers, owners, sources               │
   │  Disclose unavoidable conflicts                                  │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -37,7 +37,7 @@ SPJ CODE OF ETHICS — FOUR PRINCIPLES
   │  Acknowledge errors promptly and correct with equal prominence   │
   │  Expose unethical conduct in own organization                    │
   │  Explain editorial choices when public interest demands          │
-  │  Respond to audience questions and criticism                   │
+  │  Respond to audience questions and criticism                     │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -51,9 +51,9 @@ OBJECTIVITY — THREE ERAS
 
   ERA 1: PARTISAN PRESS (1700s–1880s)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Newspapers openly aligned with political parties or interests │
-  │  Party newspapers: Common in UK, US, Europe                    │
-  │  Editor's opinion mixed freely with news reporting             │
+  │  Newspapers openly aligned with political parties or interests   │
+  │  Party newspapers: Common in UK, US, Europe                      │
+  │  Editor's opinion mixed freely with news reporting               │
   │  No expectation of "balance"                                     │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -106,27 +106,27 @@ FALSE BALANCE TAXONOMY
   ┌──────────────────────────────────────────────────────────────────┐
   │  Story: "Scientists debate whether vaccines cause autism"        │
   │  Reality: No scientific debate; overwhelming consensus vaccines  │
-  │   do not cause autism; one retracted fraudulent study        │
-  │  Effect: Treating Wakefield's fraud as one side of debate      │
-  │   contributed to measles outbreaks by distorting public's      │
-  │   perception of scientific consensus                           │
+  │   do not cause autism; one retracted fraudulent study            │
+  │  Effect: Treating Wakefield's fraud as one side of debate        │
+  │   contributed to measles outbreaks by distorting public's        │
+  │   perception of scientific consensus                             │
   └──────────────────────────────────────────────────────────────────┘
 
   TYPE 2: FACTUAL CLAIM vs. UNSUBSTANTIATED DENIAL:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Story: "Company denies releasing chemicals, regulators say    │
+  │  Story: "Company denies releasing chemicals, regulators say      │
   │   otherwise"                                                     │
-  │  Presented as: Equal sides → public uncertain                  │
-  │  Reality: Documents, testing, inspection records may make      │
-  │   denial factually incorrect — reporter must weigh evidence    │
+  │  Presented as: Equal sides → public uncertain                    │
+  │  Reality: Documents, testing, inspection records may make        │
+  │   denial factually incorrect — reporter must weigh evidence      │
   └──────────────────────────────────────────────────────────────────┘
 
   TYPE 3: LEGITIMATE POLICY DEBATE (appropriate balance):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  "Should the city raise the minimum wage?"                     │
-  │  Reality: Reasonable people with evidence on different sides   │
+  │  "Should the city raise the minimum wage?"                       │
+  │  Reality: Reasonable people with evidence on different sides     │
   │  Appropriate: Present multiple perspectives and evidence         │
-  │  The difference: Policy values questions ≠ factual questions   │
+  │  The difference: Policy values questions ≠ factual questions     │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -169,8 +169,8 @@ CORRECTIONS STANDARDS
   WHAT DOES NOT REQUIRE CORRECTION:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Subject dislikes accurate coverage                              │
-  │  Subject's interpretation of events differs from documented    │
-  │   record (subject's preferred narrative ≠ factual error)       │
+  │  Subject's interpretation of events differs from documented      │
+  │   record (subject's preferred narrative ≠ factual error)         │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -185,9 +185,9 @@ CONFLICT OF INTEREST FRAMEWORK
   DIRECT FINANCIAL CONFLICTS:
   ┌──────────────────────────────────────────────────────────────────┐
   │  Owning stock in companies covered → sell or recuse from coverage│
-  │  Spousal financial interests → same treatment                  │
-  │  Freelance income from organizations covered → disclose        │
-  │   or end relationship before coverage begins                   │
+  │  Spousal financial interests → same treatment                    │
+  │  Freelance income from organizations covered → disclose          │
+  │   or end relationship before coverage begins                     │
   └──────────────────────────────────────────────────────────────────┘
 
   GIFTS AND FREEBIES:
@@ -212,9 +212,9 @@ CONFLICT OF INTEREST FRAMEWORK
 
   SOURCE CAPTURE (structural):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Beat reporter develops close relationship with beat community │
-  │  Sources become social contacts → favorable coverage expected  │
-  │  Mitigation: Periodic rotation of beat assignments             │
+  │  Beat reporter develops close relationship with beat community   │
+  │  Sources become social contacts → favorable coverage expected    │
+  │  Mitigation: Periodic rotation of beat assignments               │
   │              Editor oversight of reporter-source relationships   │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -254,11 +254,11 @@ ANONYMOUS SOURCE STANDARDS (expanded)
 
   PRIOR REVIEW (what it covers):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ACCEPTABLE: Reading back quotes to sources for accuracy       │
-  │  ACCEPTABLE: Confirming factual details with sources           │
-  │  NOT ACCEPTABLE: Allowing sources to approve or veto stories   │
-  │  NOT ACCEPTABLE: Allowing PR review of stories before publish  │
-  │   (except in very limited circumstances disclosed to readers)  │
+  │  ACCEPTABLE: Reading back quotes to sources for accuracy         │
+  │  ACCEPTABLE: Confirming factual details with sources             │
+  │  NOT ACCEPTABLE: Allowing sources to approve or veto stories     │
+  │  NOT ACCEPTABLE: Allowing PR review of stories before publish    │
+  │   (except in very limited circumstances disclosed to readers)    │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

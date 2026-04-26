@@ -253,7 +253,7 @@ Marx's analysis of religion is structurally different from Durkheim's and Weber'
 |  Marx: right analysis, wrong solution. Feuerbach wants    |
 |    to replace religion with humanism; Marx says           |
 |    we need to change the material conditions that         |
-|    produce alienation, not just the ideas               |
+|    produce alienation, not just the ideas                 |
 |                                                           |
 |  "OPIATE OF THE MASSES":                                  |
 |  Famous phrase, usually misread as pure contempt          |

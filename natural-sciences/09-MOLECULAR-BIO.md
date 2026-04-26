@@ -221,7 +221,7 @@ CODON TABLE (standard genetic code):
        ┌─────────── ─────────── ─────────── ───────────┐
        │ UUU Phe (F) UCU Ser (S) UAU Tyr (Y) UGU Cys (C) │
    U   │ UUC Phe (F) UCC Ser (S) UAC Tyr (Y) UGC Cys (C) │
-       │ UUA Leu (L) UCA Ser (S) UAA Stop     UGA Stop     │
+       │ UUA Leu (L) UCA Ser (S) UAA Stop     UGA Stop │
        │ UUG Leu (L) UCG Ser (S) UAG Stop     UGG Trp (W) │
        ├─────────── ─────────── ─────────── ───────────┤
        │ CUU Leu (L) CCU Pro (P) CAU His (H) CGU Arg (R) │

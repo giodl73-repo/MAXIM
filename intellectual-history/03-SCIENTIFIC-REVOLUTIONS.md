@@ -19,16 +19,16 @@ Feyerabend, Popper, and Laudan all responded.
 |  | Errors corrected;   |      | Paradigm shift:         |         |
 |  | truths accumulate   |      | incommensurable worlds  |         |
 |  +---------------------+      +-------------------------+         |
-|                                                                   |
-|  POPPER (Falsificationism)    LAKATOS (Research Programmes)       |
+   |                                                                |
+   |  POPPER (Falsificationism)    LAKATOS (Research Programmes)    |
 |  +---------------------+      +-------------------------+         |
 |  | Science progresses  |      | Hard core protected by  |         |
 |  | by bold conjectures |      | auxiliary belt          |         |
 |  | and ruthless        |      | Progressive vs.         |         |
 |  | refutations         |      | degenerative programmes |         |
 |  +---------------------+      +-------------------------+         |
-|                                                                   |
-|  FEYERABEND                   LAUDAN (Problem-Solving)            |
+   |                                                                |
+   |  FEYERABEND                   LAUDAN (Problem-Solving)         |
 |  +---------------------+      +-------------------------+         |
 |  | "Against Method":   |      | Science solves          |         |
 |  | No single method    |      | conceptual and          |         |

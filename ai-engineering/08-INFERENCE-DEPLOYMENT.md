@@ -262,7 +262,7 @@
   │    Supported by: AutoAWQ, vLLM, llama.cpp                           │
   │                                                                     │
   │  GGUF (llama.cpp format)                                            │
-  │    Flexible quantization: Q2_K, Q3_K, Q4_K, Q5_K, Q6_K, Q8_0     │
+  │    Flexible quantization: Q2_K, Q3_K, Q4_K, Q5_K, Q6_K, Q8_0        │
   │    CPU and Apple Silicon optimized                                  │
   │    Used by: llama.cpp, Ollama, LM Studio, Jan                       │
   │    Q4_K_M is the standard local-deployment choice                   │

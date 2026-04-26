@@ -18,7 +18,7 @@ For TCS background: Montague grammar IS typed lambda calculus applied to natural
 |  Denotational: phrases →       Davidson: T-sentences as the           |
 |  mathematical objects          core of meaning theory                 |
 |                                                                       |
-|  CONTINUATIONS/TYPE-SHIFTING   DYNAMIC SEMANTICS (1990s)            |
+|  CONTINUATIONS/TYPE-SHIFTING   DYNAMIC SEMANTICS (1990s)              |
 |  Montague extended:            Discourse representation theory        |
 |  flexible types, continuations Pronouns across sentences              |
 |  in natural language semantics Dynamic predicate logic                |

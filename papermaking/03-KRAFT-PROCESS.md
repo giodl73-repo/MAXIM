@@ -7,7 +7,7 @@
 |              THE KRAFT MILL — FULL SYSTEM VIEW                   |
 |                                                                  |
 |  WOOD      CHIP BIN   DIGESTER    BLOW      BROWN STOCK          |
-|  YARD  →  (screened) → (cooking) → TANK  →  WASHING →          |
+|  YARD  →  (screened) → (cooking) → TANK  →  WASHING →            |
 |                           |                                      |
 |                    BLACK LIQUOR           SCREENING              |
 |                           |                   |                  |

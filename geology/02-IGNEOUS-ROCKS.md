@@ -12,7 +12,7 @@ Igneous rocks record the cooling history of melts. The entire compositional rang
 |                                                               |
 |  COMPOSITION (SiO₂ content)                                   |
 |  Mafic         Intermediate      Felsic                       |
-|  ~50% SiO₂     ~57-63%           ~70-75% SiO₂               |
+|  ~50% SiO₂     ~57-63%           ~70-75% SiO₂                 |
 |  (Mg/Fe-rich)  (mixed)           (Si/Al-rich)                 |
 |                                                               |
 |  EXTRUSIVE (volcanic, fast cooling, fine-grained):            |

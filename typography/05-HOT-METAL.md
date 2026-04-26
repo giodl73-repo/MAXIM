@@ -54,9 +54,9 @@ THE TYPE CASE:
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ LOWER CASE (approximate layout):                                        │
   │                                                                         │
-  │ [j] [b] [w] [comma] [period] [hyphen] [space][e-quad][em][m][en][n]   │
+  │ [j] [b] [w] [comma] [period] [hyphen] [space][e-quad][em][m][en][n]     │
   │                                                                         │
-  │ [i] [s] [f] [g] [y] [p]  [,] [.] [;]    e  t  a  o  i  n  s  h  r   │
+  │ [i] [s] [f] [g] [y] [p]  [,] [.] [;]    e  t  a  o  i  n  s  h  r       │
   │                                                                         │
   │ [l] [a] [o] [e] [r] [n]  Most frequent letters in easiest reach         │
   │                                                                         │
@@ -102,9 +102,9 @@ LINOTYPE MACHINE — SYSTEM ARCHITECTURE
                     ┌──────────────────────────────┐
                     │ 90-key keyboard              │
                     │ (normal QWERTY + caps/special) │
-                    │ Note: originally influenced    │
+                    │ Note: originally influenced  │
                     │ QWERTY layout of standard    │
-                    │ typewriter keyboards           │
+                    │ typewriter keyboards         │
                     └────────────────┬─────────────┘
                                      │ key press
                                      ▼

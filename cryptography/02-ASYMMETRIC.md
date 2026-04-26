@@ -14,9 +14,9 @@
 │  HARDNESS PROBLEMS                                                       │
 │  ┌────────────────────────┬───────────────────────────────────────────┐  │
 │  │ INTEGER FACTORING      │ DISCRETE LOGARITHM                        │  │
-│  │  RSA, Rabin, Paillier   │  DH, DSA (ℤₚ*), ECDH, ECDSA (EC group) │  │
+│  │  RSA, Rabin, Paillier   │  DH, DSA (ℤₚ*), ECDH, ECDSA (EC group) │    │
 │  │  n=pq → factor n hard   │  given g^x, find x hard                 │   │
-│  │  Best: GNFS (~2¹¹²/2048)│  DLOG ℤₚ*: index calculus sub-exp      │  │
+│  │  Best: GNFS (~2¹¹²/2048)│  DLOG ℤₚ*: index calculus sub-exp      │    │
 │  │                         │  DLOG EC: no sub-exp known → ECC smaller│   │
 │  └────────────────────────┴───────────────────────────────────────────┘  │
 │                                                                          │

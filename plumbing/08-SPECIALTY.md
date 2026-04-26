@@ -115,18 +115,18 @@ SPECIALTY SYSTEMS: BEYOND BASIC SUPPLY AND DRAIN
 ```
   NATURAL GAS SYSTEM PRESSURES:
   ┌──────────────────────────────────────────────────────────────┐
-  │  UTILITY DISTRIBUTION MAIN: 0.25-200 PSI (varies)          │
+  │  UTILITY DISTRIBUTION MAIN: 0.25-200 PSI (varies)            │
   │          ↓                                                   │
   │  SERVICE REGULATOR (utility-owned at meter):                 │
   │    Reduces to "service pressure" at meter                    │
-  │    Typical residential delivery: 0.25 PSI (7" w.c.)        │
+  │    Typical residential delivery: 0.25 PSI (7" w.c.)          │
   │    OR 2 PSI with in-house regulator for longer runs          │
   │          ↓                                                   │
-  │  HOUSE PIPING: 7" w.c. (0.25 PSI) or 2 PSI                 │
+  │  HOUSE PIPING: 7" w.c. (0.25 PSI) or 2 PSI                   │
   │          ↓                                                   │
   │  APPLIANCE MANIFOLD PRESSURE:                                │
-  │    Most appliances: 3.5" w.c. (0.125 PSI) for natural gas  │
-  │    OR 11" w.c. (0.4 PSI) for gas ranges, some appliances   │
+  │    Most appliances: 3.5" w.c. (0.125 PSI) for natural gas    │
+  │    OR 11" w.c. (0.4 PSI) for gas ranges, some appliances     │
   │    Regulator at appliance reduces house pressure to this     │
   └──────────────────────────────────────────────────────────────┘
 
@@ -331,7 +331,7 @@ SPECIALTY SYSTEMS: BEYOND BASIC SUPPLY AND DRAIN
   │  Significant cost reduction vs NFPA 13                      │
   │  Many jurisdictions require for new construction            │
   ├──────────────────────────────────────────────────────────────┤
-  │  NFPA 13R: Residential, 1-4 stories                        │
+  │  NFPA 13R: Residential, 1-4 stories                          │
   │  Low-rise multi-family: apartments, condos, townhouses       │
   │  Intermediate standard between 13D and 13                    │
   │  Allows some space exemptions (similar to 13D)               │

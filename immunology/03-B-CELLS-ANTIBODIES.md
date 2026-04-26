@@ -150,7 +150,7 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
   ├──────────────────────────────────────────────────────────────────┤
   │  IgD                                                             │
   │  ────                                                            │
-  │  Low serum levels; co-expressed with IgM on naïve B cells      │
+  │  Low serum levels; co-expressed with IgM on naïve B cells        │
   │  Function poorly understood; some role in upper respiratory      │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -195,9 +195,9 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
   ┌────────────────────────────────────────────────────────────┐
   │ T-DEPENDENT (most protein antigens):                       │
   │   Requires CD4 Tfh cells for full germinal center reaction │
-  │   CD40 (B cell) : CD40L (T cell) → survival + GC entry   │
-  │   Cytokines (IL-21, IL-4, IL-10) → isotype switching     │
-  │   Result: High-affinity IgG, IgA, IgE + memory B cells   │
+  │   CD40 (B cell) : CD40L (T cell) → survival + GC entry     │
+  │   Cytokines (IL-21, IL-4, IL-10) → isotype switching       │
+  │   Result: High-affinity IgG, IgA, IgE + memory B cells     │
   │                                                            │
   │ T-INDEPENDENT (polysaccharides, LPS):                      │
   │   Repeating epitopes cross-link BCR directly               │
@@ -280,7 +280,7 @@ B CELLS AND ANTIBODIES: HUMORAL IMMUNITY
   │                                                            │
   │ ADC (Antibody-Drug Conjugate):                             │
   │   Antibody + cytotoxin linked via cleavable linker         │
-  │   Trastuzumab emtansine (T-DM1): HER2 → delivers toxin   │
+  │   Trastuzumab emtansine (T-DM1): HER2 → delivers toxin     │
   └────────────────────────────────────────────────────────────┘
 ```
 

@@ -171,7 +171,7 @@ FLAX CROSS-SECTION:
   │  │   20–30 fibers/bundle) │
   │  ├────────────────────────┤  │
   │  │  Woody core (shive)    │← ← what must be removed
-  │  │  (xylem/phloem)        │
+  │  │  (xylem/phloem)           │
   │  └────────────────────────┘  │
   └──────────────────────────────┘
 

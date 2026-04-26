@@ -5,15 +5,15 @@
 ```
 +------------------------------------------------------------------+
 |                    BEER PRODUCTION FLOW                          |
-|                                                                    |
-|  MALTHOUSE              BREWHOUSE              FERMENTATION        |
-|  ---------              ---------              -----------         |
+|                                                                  |
+|  MALTHOUSE              BREWHOUSE              FERMENTATION      |
+|  ---------              ---------              -----------       |
 |  Barley                 Mash Tun               Fermentation Vessel |
-|  -> Steep               (mashing)              (7-14 days)         |
-|  -> Germinate           -> Lauter Tun           -> Conditioning     |
-|  -> Kiln                (lautering)             -> Packaging        |
-|  MALT                   -> Kettle               -> BEER             |
-|                         (boiling + hops)                           |
+|  -> Steep               (mashing)              (7-14 days)       |
+|  -> Germinate           -> Lauter Tun           -> Conditioning  |
+|  -> Kiln                (lautering)             -> Packaging     |
+|  MALT                   -> Kettle               -> BEER          |
+|                         (boiling + hops)                         |
 +------------------------------------------------------------------+
 
 KEY INPUTS AT EACH STAGE:
@@ -298,8 +298,8 @@ Examples        IPA, stout, porter,         Pilsner, Helles, Märzen,
 
 ```
 +------------------------------------------------------------------+
-|                    BEER STYLE TREE                                 |
-|                                                                    |
+|                    BEER STYLE TREE                               |
+|                                                                  |
 |  LAGER                          ALE                              |
 |  -----                          ---                              |
 |  Pale                           British                          |
@@ -307,10 +307,10 @@ Examples        IPA, stout, porter,         Pilsner, Helles, Märzen,
 |  +-Helles (Munich)              +-IPA (English)                  |
 |  +-Kolsch (top-fermented lager) +-Porter / Stout                 |
 |  +-American Light               +-Barleywine                     |
-|                                                                    |
+|                                                                  |
 |  Amber/Dark                     American                         |
 |  +-Vienna                       +-American Pale Ale              |
-|  +-Märzen/Oktoberfest            +-American IPA (West Coast)       |
+|  +-Märzen/Oktoberfest            +-American IPA (West Coast)     |
 |  +-Dunkel                       +-Double/Imperial IPA            |
 |  +-Schwarzbier                  +-New England/Hazy IPA           |
 |                                 +-American Stout                 |

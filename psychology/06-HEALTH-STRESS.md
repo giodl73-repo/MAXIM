@@ -427,17 +427,17 @@ explain why ACEs (adverse childhood experiences) shorten life expectancy.
   SLEEP DEPRIVATION EFFECTS:
   ┌────────────────────────────────────────────────────────────────┐
   │ Cognitive: sustained attention impaired first; resembles       │
-  │   intoxication; 24h awake ≈ 0.10 BAC impairment              │
+  │   intoxication; 24h awake ≈ 0.10 BAC impairment                │
   │   Working memory, executive function, decision quality         │
   │                                                                │
   │ Emotional: amygdala reactivity increased ~60% (less PFC        │
   │   regulation); mood lability, stress intolerance               │
   │                                                                │
-  │ Immune: <7 hrs → 3× more susceptible to rhinovirus           │
+  │ Immune: <7 hrs → 3× more susceptible to rhinovirus             │
   │   (Cohen et al.) NK cell activity reduced                      │
   │                                                                │
   │ Metabolic: insulin sensitivity reduced; hunger hormones        │
-  │   shifted (ghrelin ↑, leptin ↓) → increased appetite and     │
+  │   shifted (ghrelin ↑, leptin ↓) → increased appetite and       │
   │   caloric intake; long-term → T2DM and obesity risk            │
   │                                                                │
   │ Cardiovascular: 1-hour sleep loss (spring clock change) →      │

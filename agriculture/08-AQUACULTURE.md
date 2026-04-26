@@ -15,8 +15,8 @@ Aquaculture surpassed wild-catch fishing as the primary source of fish for human
 |                                                                  |
 |  BY ENVIRONMENT:                                                 |
 |  Marine aquaculture: ~37 MT (seawater: salmon, shrimp, oysters)  |
-|  Freshwater:         ~52 MT (rivers, ponds: carp, tilapia)     |
-|  Brackish:           ~3 MT (estuarine: shrimp, milkfish)       |
+|  Freshwater:         ~52 MT (rivers, ponds: carp, tilapia)       |
+|  Brackish:           ~3 MT (estuarine: shrimp, milkfish)         |
 |                                                                  |
 |  TOP SPECIES GROUPS (by volume):                                 |
 |  Finfish (carp, tilapia, salmon): ~50 MT                         |
@@ -355,13 +355,13 @@ RAS CONCEPT:
                     ↓ dissolved ammonia (NH₃/NH₄⁺)
   ┌─────────────────────────────────────────────────────┐
   │  BIOLOGICAL FILTER (biofilm on media)               │
-  │  Nitrification: NH₄⁺ → NO₂⁻ → NO₃⁻               │
+  │  Nitrification: NH₄⁺ → NO₂⁻ → NO₃⁻                  │
   │  (Nitrosomonas + Nitrospira bacteria)               │
   └─────────────────┬───────────────────────────────────┘
                     ↓ NO₃⁻ accumulates
   ┌─────────────────────────────────────────────────────┐
   │  DENITRIFICATION or water exchange                  │
-  │  Anoxic reactor: NO₃⁻ → N₂ (denitrification)      │
+  │  Anoxic reactor: NO₃⁻ → N₂ (denitrification)        │
   │  or: bleed NO₃⁻-rich water; replace with fresh      │
   └─────────────────┬───────────────────────────────────┘
                     ↓ degassed, oxygenated

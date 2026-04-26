@@ -11,7 +11,7 @@ HOX genes are master transcription factors that specify positional identity alon
 |  CHROMOSOMAL ARRANGEMENT                                         |
 |  (3' end → 5' end on chromosome)                                 |
 |  3' ─────────────────────────────────────────────── 5'           |
-|     Hox1 Hox2 Hox3 Hox4 Hox5 Hox6 Hox7 Hox8 Hox9 Hox10-13    |
+|     Hox1 Hox2 Hox3 Hox4 Hox5 Hox6 Hox7 Hox8 Hox9 Hox10-13        |
 |     ──────────────────────────────────────────────────────────   |
 |     ANTERIOR                                         POSTERIOR   |
 |     (expressed                                       (expressed  |
@@ -22,7 +22,7 @@ HOX genes are master transcription factors that specify positional identity alon
 |  3'-most gene → most anterior expression                         |
 |  5'-most gene → most posterior expression                        |
 |                                                                  |
-|  HUMANS: 4 clusters (HOXA, B, C, D) on chromosomes 7, 17, 12, 2|
+|  HUMANS: 4 clusters (HOXA, B, C, D) on chromosomes 7, 17, 12, 2  |
 |  39 genes total (some lost in vertebrate evolution)              |
 +──────────────────────────────────────────────────────────────────+
 ```

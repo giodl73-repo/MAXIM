@@ -11,20 +11,20 @@ TWIST DIRECTION DEFINITIONS
   S-TWIST: The helix leans like the diagonal of the letter S
   ┌──────────────────────────────────────────────────────────────────┐
   │                                                                  │
-  │   ╲   ╲   ╲   ╲   ╲   ╲   ╲   ╲   ╲                          │
-  │    ╲   ╲   ╲   ╲   ╲   ╲   ╲   ╲                              │
+  │   ╲   ╲   ╲   ╲   ╲   ╲   ╲   ╲   ╲                              │
+  │    ╲   ╲   ╲   ╲   ╲   ╲   ╲   ╲                                 │
   │                                                                  │
-  │   Middle stroke of S leans ↖↗ = S-twist                        │
+  │   Middle stroke of S leans ↖↗ = S-twist                          │
   │   Also called "left-lay" or "backhand twist"                     │
   └──────────────────────────────────────────────────────────────────┘
 
   Z-TWIST: The helix leans like the diagonal of the letter Z
   ┌──────────────────────────────────────────────────────────────────┐
   │                                                                  │
-  │   ╱   ╱   ╱   ╱   ╱   ╱   ╱   ╱   ╱                          │
-  │    ╱   ╱   ╱   ╱   ╱   ╱   ╱   ╱                              │
+  │   ╱   ╱   ╱   ╱   ╱   ╱   ╱   ╱   ╱                              │
+  │    ╱   ╱   ╱   ╱   ╱   ╱   ╱   ╱                                 │
   │                                                                  │
-  │   Middle stroke of Z leans ↘↗ = Z-twist                        │
+  │   Middle stroke of Z leans ↘↗ = Z-twist                          │
   │   Also called "right-lay" or "forehand twist"                    │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -96,15 +96,15 @@ SPINNING MECHANICS
   │                                                                   │
   │  TWISTING: roving receives Z or S twist at drafting frame       │
   │  ┌──────────────────────────────────────────────────────────┐   │
-  │  │  ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱  (Z-spun yarn)      │   │
+  │  │  ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱  (Z-spun yarn)      │     │
   │  └──────────────────────────────────────────────────────────┘   │
   └──────────────────────────────────────────────────────────────────┘
 
   TWIST ANGLE and STRENGTH:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Low twist angle (< 10°): High strength, low cohesion (frays)  │
+  │  Low twist angle (< 10°): High strength, low cohesion (frays)    │
   │  Moderate angle (15–25°): Best strength-to-cohesion balance      │
-  │  High twist angle (> 30°): Low strength (fibers act in shear)  │
+  │  High twist angle (> 30°): Low strength (fibers act in shear)    │
   │                             High cohesion (won't unravel)        │
   │                             HIGH ELONGATION (helix stretches)    │
   └──────────────────────────────────────────────────────────────────┘
@@ -130,7 +130,7 @@ PLYING
   ┌──────────────────────────────────────────────────────────────────┐
   │  Z-yarn A: ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱                              │
   │  Z-yarn B: ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱                              │
-  │  Plied S:  ╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲  (two yarns wrapped together) │
+  │  Plied S:  ╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲  (two yarns wrapped together)     │
   └──────────────────────────────────────────────────────────────────┘
 
   3-PLY: Three Z-yarns twisted together S → 3-ply strand
@@ -203,7 +203,7 @@ CABLE LAY
   ┌──────────────────────────────────────────────────────────────────┐
   │  Each rope element:  Z-lay (right hand)                          │
   │  Combined cable:     S-lay (left hand)                           │
-  │  Result: 9-strand assembly (3 ropes × 3 strands each)          │
+  │  Result: 9-strand assembly (3 ropes × 3 strands each)            │
   └──────────────────────────────────────────────────────────────────┘
 
   USES: Large anchor cables; mooring hawsers; where diameter limits
@@ -223,8 +223,8 @@ LAY LENGTH
 ===========
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │   →←────────── one lay ────────────→←────────── one lay        │
-  │   ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱            │
+  │   →←────────── one lay ────────────→←────────── one lay          │
+  │   ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱               │
   └──────────────────────────────────────────────────────────────────┘
 
   MEASURING:
@@ -258,11 +258,11 @@ TWIST ANGLE EFFECTS (quantitative)
   where α = helix angle (twist angle) from rope/yarn axis
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  α = 0°:   cos²(0) = 1.0   → 100% theoretical (untwisted)     │
-  │  α = 15°:  cos²(15°) = 0.93 → 93% theoretical                 │
-  │  α = 25°:  cos²(25°) = 0.82 → 82% theoretical                 │
-  │  α = 35°:  cos²(35°) = 0.67 → 67% theoretical                 │
-  │  α = 45°:  cos²(45°) = 0.50 → 50% theoretical                 │
+  │  α = 0°:   cos²(0) = 1.0   → 100% theoretical (untwisted)        │
+  │  α = 15°:  cos²(15°) = 0.93 → 93% theoretical                    │
+  │  α = 25°:  cos²(25°) = 0.82 → 82% theoretical                    │
+  │  α = 35°:  cos²(35°) = 0.67 → 67% theoretical                    │
+  │  α = 45°:  cos²(45°) = 0.50 → 50% theoretical                    │
   └──────────────────────────────────────────────────────────────────┘
 
   ELONGATION at α:

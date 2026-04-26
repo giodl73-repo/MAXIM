@@ -724,7 +724,7 @@ ESPORTS INFRASTRUCTURE STACK
 
   ┌──────────────────────────────────────────────────────────┐
   │  GAMES (the IP)                                          │
-  │  StarCraft BW, CS:GO, LoL, Dota 2, Fortnite, Valorant  │
+  │  StarCraft BW, CS:GO, LoL, Dota 2, Fortnite, Valorant    │
   └──────────────────────────┬───────────────────────────────┘
                              │
   ┌──────────────────────────▼───────────────────────────────┐

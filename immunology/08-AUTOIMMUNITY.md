@@ -57,7 +57,7 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
   CLASSIC EXAMPLES:
   ┌────────────────────────────────────────────────────────────────┐
   │ RHEUMATIC FEVER:                                               │
-  │ Streptococcus M protein → antibodies cross-react with        │
+  │ Streptococcus M protein → antibodies cross-react with          │
   │ cardiac myosin and valvular endothelium → rheumatic carditis   │
   │ Prevention: Penicillin for strep throat (→ prevents RF)        │
   │                                                                │
@@ -69,10 +69,10 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
   │                                                                │
   │ ANKYLOSING SPONDYLITIS (AS):                                   │
   │ HLA-B27 + Klebsiella nitrogenase hypothesis (contested)        │
-  │ HLA-B27 heavy chain → CD8 T cell response                    │
+  │ HLA-B27 heavy chain → CD8 T cell response                      │
   │                                                                │
   │ MULTIPLE SCLEROSIS:                                            │
-  │ EBV infection → anti-GlialCAM × anti-EBNA1 cross-reaction    │
+  │ EBV infection → anti-GlialCAM × anti-EBNA1 cross-reaction      │
   │ (2022 Bjornevik study: 32x increased MS risk after EBV)        │
   └────────────────────────────────────────────────────────────────┘
 ```
@@ -112,12 +112,12 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
   HLA: THE STRONGEST GENETIC RISK FACTOR FOR MOST AUTOIMMUNE DISEASES
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │ DISEASE           HLA ALLELE      RELATIVE RISK               │
+  │ DISEASE           HLA ALLELE      RELATIVE RISK                 │
   │ Ankylosing spondylitis  B*27:05    ~30–100x (strongest known)   │
   │ Type 1 Diabetes   DR3-DQ2          ~3x                          │
   │                   DR4-DQ8          ~4x                          │
   │                   DR3/DR4          ~20x (combined)              │
-  │ Rheumatoid Arthritis DRB1*04:01    ~3–5x (shared epitope)     │
+  │ Rheumatoid Arthritis DRB1*04:01    ~3–5x (shared epitope)       │
   │ Multiple sclerosis  DRB1*15:01     ~3x                          │
   │ SLE                DR2, DR3        ~2–3x                        │
   │ Celiac disease     DQ2, DQ8        ~Required (necessary not suf)│
@@ -243,20 +243,20 @@ AUTOIMMUNITY: WHEN TOLERANCE FAILS
 
   TREATMENT PYRAMID:
   ┌────────────────────────────────────────────────────────────────┐
-  │ 1st LINE: Methotrexate (MTX, anchor drug)                    │
+  │ 1st LINE: Methotrexate (MTX, anchor drug)                      │
   │   Folate antagonist → anti-proliferative + anti-inflammatory   │
   │   Weekly dose; required with most biologics                    │
   │                                                                │
   │ 2nd LINE: Biologic DMARDs                                      │
   │   Anti-TNF (adalimumab, etanercept): Most established          │
   │   Anti-IL-6R (tocilizumab, sarilumab): Alternative to anti-TNF│
-  │   Anti-CD20 (rituximab): B cell depletion; seropositive RA   │
-  │   CTLA-4-Ig (abatacept): Blocks T cell co-stimulation        │
+  │   Anti-CD20 (rituximab): B cell depletion; seropositive RA     │
+  │   CTLA-4-Ig (abatacept): Blocks T cell co-stimulation          │
   │                                                                │
   │ 3rd LINE: JAK inhibitors (oral)                                │
-  │   Tofacitinib (JAK1/3), baricitinib (JAK1/2)                 │
+  │   Tofacitinib (JAK1/3), baricitinib (JAK1/2)                   │
   │   Upadacitinib (selective JAK1)                                │
-  │   Boxed warning: Cardiovascular, thromboembolic (JAKis)      │
+  │   Boxed warning: Cardiovascular, thromboembolic (JAKis)        │
   └────────────────────────────────────────────────────────────────┘
 ```
 

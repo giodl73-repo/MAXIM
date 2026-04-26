@@ -189,7 +189,7 @@ ADAPTIVE IMMUNITY: LEARNED, SPECIFIC, REMEMBERED
   │ PATHWAY:                                                       │
   │ 1. Proteasome degrades cytoplasmic proteins → 8–10 aa peptides │
   │ 2. TAP transporter moves peptides into ER                      │
-  │ 3. MHC I α-chain + β₂-microglobulin + peptide assemble in ER │
+  │ 3. MHC I α-chain + β₂-microglobulin + peptide assemble in ER   │
   │ 4. Complex traffics to cell surface                            │
   │                                                                │
   │ RESULT: MHC I:peptide on surface says:                         │
@@ -260,15 +260,15 @@ ADAPTIVE IMMUNITY: LEARNED, SPECIFIC, REMEMBERED
 
   CO-STIMULATORY CHECKPOINTS (exploited by cancer/immunotherapy):
   ┌───────────────────────────────────────────────────────────┐
-  │ CTLA-4: Competes with CD28 for B7 binding               │
+  │ CTLA-4: Competes with CD28 for B7 binding                 │
   │   Higher affinity than CD28 → INHIBITS T cell activation  │
   │   Expressed after activation → dampens response           │
-  │   Anti-CTLA-4 (ipilimumab): blocks inhibition → more    │
-  │   T cell activation → cancer immunotherapy              │
+  │   Anti-CTLA-4 (ipilimumab): blocks inhibition → more      │
+  │   T cell activation → cancer immunotherapy                │
   │                                                           │
   │ PD-1: Checkpoint expressed on chronic stimulation         │
-  │   Binds PD-L1 (on tumor cells) → inhibits T cell        │
-  │   Anti-PD-1 (pembrolizumab/nivolumab): reinvigorates    │
+  │   Binds PD-L1 (on tumor cells) → inhibits T cell          │
+  │   Anti-PD-1 (pembrolizumab/nivolumab): reinvigorates      │
   │   exhausted T cells → tumor killing                       │
   └───────────────────────────────────────────────────────────┘
 
@@ -297,14 +297,14 @@ ADAPTIVE IMMUNITY: LEARNED, SPECIFIC, REMEMBERED
   │   Activation-induced cytidine deaminase (AID) enzyme         │
   │   Introduces targeted mutations in VDJ region                │
   │   (somatic hypermutation) — ~10⁻³ per bp per generation      │
-  │   (vs. ~10⁻⁹ in rest of genome)                            │
+  │   (vs. ~10⁻⁹ in rest of genome)                              │
   │                                                              │
   │ LIGHT ZONE: Selection of high-affinity variants              │
   │   Mutated B cells (centrocytes) compete for antigen          │
   │   Antigen held on Follicular DCs (FDCs) as immune complexes  │
   │   High-affinity BCR captures more antigen → internalize      │
-  │   Present to Tfh (T follicular helper) cells → get help    │
-  │   High affinity → survive + re-enter dark zone             │
+  │   Present to Tfh (T follicular helper) cells → get help      │
+  │   High affinity → survive + re-enter dark zone               │
   │   Low affinity → die by apoptosis                            │
   │                                                              │
   │ ANALOGY: Gradient descent on the affinity landscape          │

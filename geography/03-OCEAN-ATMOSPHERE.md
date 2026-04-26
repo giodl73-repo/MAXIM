@@ -133,7 +133,7 @@ propagates spatially.
   ┌────────────────────────────────────────────────────────────────┐
   │ Mechanism for weakening:                                       │
   │ Greenland ice sheet melting → freshwater influx → reduces      │
-  │ salinity → reduces density → reduces sinking → weakens AMOC  │
+  │ salinity → reduces density → reduces sinking → weakens AMOC    │
   │                                                                │
   │ Evidence: AMOC is at weakest point in ~1000 years (Caesar      │
   │ et al. 2018; Boers 2021 — tipping point indicators)            │
@@ -164,7 +164,7 @@ propagates spatially.
   │ → Warm water accumulates in W Pacific (Indonesia/Australia)    │
   │ → Cold upwelling along Peru coast (Humboldt Current enhanced)  │
   │ → Walker Circulation: low pressure W Pacific, high pressure E  │
-  │ → Heavy rainfall Indonesia/PNG; dry Peru/Ecuador             │
+  │ → Heavy rainfall Indonesia/PNG; dry Peru/Ecuador               │
   └────────────────────────────────────────────────────────────────┘
 
   EL NIÑO CONDITIONS (irregular, 2-7 year cycle):
@@ -296,12 +296,12 @@ propagates spatially.
   │ Index: pressure difference between Icelandic Low and Azores High│
   │                                                                │
   │ NAO+ (high index): strong pressure gradient                    │
-  │   → Strong westerlies → mild, wet W Europe                   │
-  │   → Cold, dry NE Canada; dry Mediterranean                   │
+  │   → Strong westerlies → mild, wet W Europe                     │
+  │   → Cold, dry NE Canada; dry Mediterranean                     │
   │                                                                │
   │ NAO− (low index): weak pressure gradient                       │
-  │   → Weak westerlies → cold, dry/snowy W Europe               │
-  │   → Mild NE Canada; wet Mediterranean                        │
+  │   → Weak westerlies → cold, dry/snowy W Europe                 │
+  │   → Mild NE Canada; wet Mediterranean                          │
   │   → 2010: extreme NAO−; severe European winters                │
   └────────────────────────────────────────────────────────────────┘
 

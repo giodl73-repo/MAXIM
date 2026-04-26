@@ -7,21 +7,21 @@
 |           FUNGAL AND OOMYCETE PLANT PATHOGENS: SCOPE             |
 |                                                                  |
 |  MAJOR GROUPS:                                                   |
-|  Rust fungi (Pucciniales): obligate biotrophs; cereal crops    |
-|  Smut fungi (Ustilaginales): grain crops; corn                 |
-|  Powdery mildews (Erysiphales): wide host range                |
+|  Rust fungi (Pucciniales): obligate biotrophs; cereal crops      |
+|  Smut fungi (Ustilaginales): grain crops; corn                   |
+|  Powdery mildews (Erysiphales): wide host range                  |
 |  Necrotrophic fungi: kill tissue, then feed (Botrytis, Fusarium)|
 |  Vascular wilts: Fusarium, Verticillium (block water transport)  |
 |  Chestnut blight, Dutch elm: devastated North American forests   |
 |                                                                  |
 |  NOT FUNGI BUT STUDIED HERE:                                     |
-|  Oomycetes (Phytophthora, Peronospora): water molds            |
-|  → Phylogenetically Stramenopiles, not fungi                   |
-|  → Potato blight, downy mildews, sudden oak death              |
+|  Oomycetes (Phytophthora, Peronospora): water molds              |
+|  → Phylogenetically Stramenopiles, not fungi                     |
+|  → Potato blight, downy mildews, sudden oak death                |
 |                                                                  |
 |  ECONOMIC SCALE:                                                 |
-|  ~15–20% of global crop production lost to fungi annually      |
-|  Wheat rust: potentially >20% loss if Ug99 spreads fully       |
+|  ~15–20% of global crop production lost to fungi annually        |
+|  Wheat rust: potentially >20% loss if Ug99 spreads fully         |
 +------------------------------------------------------------------+
 ```
 

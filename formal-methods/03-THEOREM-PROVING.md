@@ -8,25 +8,25 @@ checks its type. A proof is a term whose type is the proposition being proved.
 ```
 +--------------------------------------------------------------------------+
 |                    PROOF ASSISTANT LANDSCAPE                             |
-|                                                                            |
+|                                                                          |
 |  FOUNDATION         TOOL           ECOSYSTEM        PRIMARY USE          |
 |  ──────────         ────           ─────────        ───────────          |
-|                                                                            |
+|                                                                          |
 |  CIC (Coq)          Coq 8.x        Coq stdlib,      Compilers,           |
 |  Calculus of        (INRIA)        MathComp, CF     math, program        |
 |  Inductive Const.                  Coquelicot       extraction           |
-|                                                                            |
+|                                                                          |
 |  MLTT + univ.       Lean 4         Mathlib4         Mathematics          |
 |  (Lean 4)           (2021+)        (>100k thms)     software (growing)   |
-|                                                                            |
+|                                                                          |
 |  HOL (Church)       Isabelle/HOL   AFP (Archive     OS kernels,          |
 |  Higher-order       (TU Munich)    of Formal        crypto proofs,       |
 |  logic              (Paulson)      Proofs)          CS theory            |
-|                                                                            |
+|                                                                          |
 |  HOL (Church)       HOL4           CakeML compiler  Compilers,           |
 |  LCF style          (Edinburgh/    ARM/x86 ISA      hardware,            |
 |                     Cambridge)     proofs           low-level systems    |
-|                                                                            |
+|                                                                          |
 |  Simple HOL         HOL Light      Flyspeck (Kepler)Formal math          |
 |  LCF minimal        (Harrison,     geometry         proofs               |
 |                     Intel/MSR)                                           |
@@ -35,11 +35,11 @@ checks its type. A proof is a term whose type is the proposition being proved.
   All proof assistants share this architecture:
   ┌──────────────────────────────────────────────────────────────┐
   │  TACTIC LAYER  (user-facing: automation, search, tactics)    │
-  │       |                                                        │
+  │       |                                                      │
   │  ELABORATOR    (fills implicit arguments, type inference)    │
-  │       |                                                        │
+  │       |                                                      │
   │  KERNEL        (the trusted core — checks proof terms)       │
-  │       |                                                        │
+  │       |                                                      │
   │  LOGIC         (type theory or higher-order logic)           │
   └──────────────────────────────────────────────────────────────┘
 

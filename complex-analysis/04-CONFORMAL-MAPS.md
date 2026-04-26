@@ -15,18 +15,18 @@ CONFORMAL MAPS — LANDSCAPE
 
   KEY CLASSES
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  Möbius (linear fractional)   f = (az+b)/(cz+d),  ad−bc ≠ 0      │
-  │  Power maps                   f = zⁿ, f = z^{1/n}                 │
-  │  Exponential/logarithm        f = e^z, f = log z                  │
-  │  Joukowski                    f = z + 1/z   (circles → airfoils)  │
+  │  Möbius (linear fractional)   f = (az+b)/(cz+d),  ad−bc ≠ 0         │
+  │  Power maps                   f = zⁿ, f = z^{1/n}                   │
+  │  Exponential/logarithm        f = e^z, f = log z                    │
+  │  Joukowski                    f = z + 1/z   (circles → airfoils)    │
   │  Schwarz-Christoffel          maps to polygons                      │
   └─────────────────────────────────────────────────────────────────────┘
 
   RIEMANN MAPPING THEOREM
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  Ω ⊂ ℂ simply connected and Ω ≠ ℂ                                 │
-  │  ⟹  ∃ unique biholomorphic f: Ω → D (unit disk)                  │
-  │      with f(z₀) = 0 and f'(z₀) > 0 for any fixed z₀ ∈ Ω         │
+  │  Ω ⊂ ℂ simply connected and Ω ≠ ℂ                                   │
+  │  ⟹  ∃ unique biholomorphic f: Ω → D (unit disk)                     │
+  │      with f(z₀) = 0 and f'(z₀) > 0 for any fixed z₀ ∈ Ω             │
   └─────────────────────────────────────────────────────────────────────┘
 
   APPLICATIONS

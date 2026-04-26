@@ -117,7 +117,7 @@ STONE PROPERTIES FOR STRUCTURAL USE
 │  Granite        Igneous      6–7 Mohs   150–250 MPa Hard         Egyptian    │
 │  Sandstone      Sedimentary  2–5 Mohs   20–170 MPa  Easy         Many UK     │
 │  Basalt         Igneous      5–6 Mohs   100–300 MPa Very hard    Roman road  │
-│  Travertine     Sedimentary  3–4 Mohs   50–150 MPa  Easy        Colosseum  │
+│  Travertine     Sedimentary  3–4 Mohs   50–150 MPa  Easy        Colosseum    │
 │                                                                              │
 │  WORKABILITY FACTORS:                                                        │
 │  Grain size: fine-grain → smooth finish; coarse → rough but strong           │
@@ -134,10 +134,10 @@ STONE PROPERTIES FOR STRUCTURAL USE
 │                                                                              │
 │  PYRAMID GEOMETRY:                                                           │
 │  Angle of repose for rough limestone: ~45°                                   │
-│  Pyramid face angle: ~52° (Khufu); stability from self-weight, not mortar  │
+│  Pyramid face angle: ~52° (Khufu); stability from self-weight, not mortar    │
 │  Core: roughly cut limestone rubble; casing: fine-cut Tura limestone         │
 │  Interior chambers: corbelled (stepped) vault → reduces tension in lintel    │
-│  Grand Gallery: corbelled vault 47 m long × 8.6 m high                     │
+│  Grand Gallery: corbelled vault 47 m long × 8.6 m high                       │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -189,7 +189,7 @@ ROMAN CONCRETE CHEMISTRY
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
 │  COMPONENTS:                                                                 │
-│  1. Lime (CaO): calcined limestone  CaCO₃ → CaO + CO₂  at ~900°C           │
+│  1. Lime (CaO): calcined limestone  CaCO₃ → CaO + CO₂  at ~900°C             │
 │  2. Pozzolana: volcanic ash from Puteoli (Pozzuoli) near Naples              │
 │     Minerals: leucite (KAlSi₂O₆), analcite, smectite clays                   │
 │     → reactive aluminosilicates (amorphous glass phase critical)             │
@@ -198,11 +198,11 @@ ROMAN CONCRETE CHEMISTRY
 │                                                                              │
 │  REACTION SEQUENCE:                                                          │
 │                                                                              │
-│  Step 1 — Slaking:  CaO + H₂O → Ca(OH)₂  (exothermic; "hot lime")          │
+│  Step 1 — Slaking:  CaO + H₂O → Ca(OH)₂  (exothermic; "hot lime")            │
 │                                                                              │
 │  Step 2 — Pozzolanic reaction:                                               │
-│    Ca(OH)₂ + SiO₂ (amorphous) → C-S-H  (calcium silicate hydrate)          │
-│    Ca(OH)₂ + Al₂O₃ (amorphous) → C-A-H  (calcium aluminate hydrate)        │
+│    Ca(OH)₂ + SiO₂ (amorphous) → C-S-H  (calcium silicate hydrate)            │
+│    Ca(OH)₂ + Al₂O₃ (amorphous) → C-A-H  (calcium aluminate hydrate)          │
 │    → these are the same gel phases as in Portland cement hydration!          │
 │                                                                              │
 │  Step 3 — Seawater reaction (UNIQUE to Roman concrete):                      │
@@ -310,7 +310,7 @@ BARREL VAULT THRUST LINES
   Plan:                                     Section:
   ┌──────────────────────────────────┐          ╭──────╮
   │  → → → → → lateral thrust → →    │         /        \
-  │  ┌────────────────────────────┐  │        │          │
+  │  ┌────────────────────────────┐  │        │        │
   │  │       BARREL VAULT         │  │        │          │
   │  └────────────────────────────┘  │         \        /
   │  ← ← ← lateral thrust ← ←      │          ╰──────╯
@@ -355,15 +355,15 @@ PANTHEON DOME GEOMETRY (118–125 CE, Emperor Hadrian)
 │                                                                              │
 │  HOOP TENSION PROBLEM (horizontal rings through the dome):                   │
 │    In the upper portion: hoop forces are compressive → no problem            │
-│    In the lower portion: hoop forces are TENSILE → concrete can't take it  │
+│    In the lower portion: hoop forces are TENSILE → concrete can't take it    │
 │    Roman solution: COFFERING (the decorative recesses in the dome)           │
 │    Coffering reduces dome mass → reduces the tensile hoop forces             │
 │    Also: stepped outer rings at base = horizontal buttressing                │
 │    Roman pozzolana concrete tensile: ~2 MPa (enough to resist small tension)│
 │                                                                              │
 │  OCULUS STRUCTURAL ROLE:                                                     │
-│    The oculus is NOT a weak point. At the crown of a dome, the meridional  │
-│    compressive forces converge → crown is under biaxial compression        │
+│    The oculus is NOT a weak point. At the crown of a dome, the meridional    │
+│    compressive forces converge → crown is under biaxial compression          │
 │    Opening the crown reduces the hoop tension that would otherwise build up  │
 │    in a solid crown → structurally beneficial as well as functional          │
 │                                                                              │

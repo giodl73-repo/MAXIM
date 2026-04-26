@@ -17,11 +17,11 @@
 |                                                                  |
 |  WILD-FORAGED (cannot yet be commercially cultivated):           |
 |  Tuber melanosporum: black Périgord truffle (~€800–2000/kg)      |
-|  Tuber magnatum: white Alba truffle (~€2,000–5,000/kg)         |
+|  Tuber magnatum: white Alba truffle (~€2,000–5,000/kg)           |
 |  Cantharellus cibarius: chanterelle                              |
 |  Boletus edulis: porcini                                         |
 |  Morchella: morel (some cultivation, difficult)                  |
-|  Lactarius deliciosus: saffron milk cap                        |
+|  Lactarius deliciosus: saffron milk cap                          |
 +------------------------------------------------------------------+
 ```
 

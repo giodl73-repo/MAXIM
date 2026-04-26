@@ -18,7 +18,7 @@ conditions in addition to the boundary conditions.
 |                                                                       |
 |  HOLONOMIC (POINTWISE) CONSTRAINT:                                    |
 |  extremize J[u] subject to g(x, u, u') = 0                            |
-|  → E-L for F + λ(x)g (multiplier is a FUNCTION)                     |
+|  → E-L for F + λ(x)g (multiplier is a FUNCTION)                       |
 |                                                                       |
 |  NON-HOLONOMIC (DIFFERENTIAL) CONSTRAINT:                             |
 |  constraint involves velocities in a non-integrable way               |

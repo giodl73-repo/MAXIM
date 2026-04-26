@@ -5,7 +5,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    PRODUCT BEHAVIORAL DESIGN SPECTRUM                       │
-│                                                                               │
+│                                                                             │
 │  ETHICAL                                                        UNETHICAL   │
 │  DESIGN                                                        DARK PATTERN │
 │     │                                                               │       │
@@ -14,12 +14,12 @@
 │  benefits; would         cognitive shortcuts      cognitive        false    │
 │  choose same             but serves user          weaknesses       information│
 │  if fully informed       AND product goals        against user     or design  │
-│                                                   interest                    │
-│                                                                               │
+│                                                   interest                  │
+│                                                                             │
 │  Example: Netflix pause  Example: Social proof   Example: Variable Example: │
 │  suggestions at end      "X people watching       reward → infinite Fake    │
 │  of season               this right now"          scroll           countdowns │
-│                                                                               │
+│                                                                             │
 │  THE CRITICAL DISTINCTION:                                                  │
 │  Nudge: guides toward outcome user would choose if attentive and informed.  │
 │  Dark pattern: guides toward outcome that benefits product at user's expense.│

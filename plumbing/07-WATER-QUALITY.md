@@ -89,11 +89,11 @@ RESIDENTIAL WATER QUALITY TREATMENT HIERARCHY:
   ECONOMIC IMPACT:
   ┌──────────────────────────────────────────────────────────┐
   │  Scale insulates heat exchange surfaces:                 │
-  │  1/4" scale on heating element → 39% efficiency loss   │
+  │  1/4" scale on heating element → 39% efficiency loss     │
   │  1/2" scale → 70% efficiency loss (DOE estimates)        │
   │                                                          │
   │  Tankless water heater vulnerability:                    │
-  │  Very narrow heat exchanger passages → scale quickly   │
+  │  Very narrow heat exchanger passages → scale quickly     │
   │  blocks flow → catastrophic failure without maintenance  │
   │  Annual descaling required in hard water areas           │
   │  (citric acid or white vinegar circulated through)       │
@@ -117,17 +117,17 @@ RESIDENTIAL WATER QUALITY TREATMENT HIERARCHY:
   │  Beads pre-charged with Na⁺ ions                             │
   │                                                              │
   │  SOFTENING:                                                  │
-  │  Hard water (Ca²⁺, Mg²⁺) flows through resin               │
-  │  Ca²⁺ and Mg²⁺ have higher affinity for resin than Na⁺     │
-  │  → Exchange: Ca²⁺ and Mg²⁺ bind to resin, Na⁺ releases     │
-  │  → Softened water exits with Na⁺ (no Ca²⁺ or Mg²⁺)         │
+  │  Hard water (Ca²⁺, Mg²⁺) flows through resin                 │
+  │  Ca²⁺ and Mg²⁺ have higher affinity for resin than Na⁺       │
+  │  → Exchange: Ca²⁺ and Mg²⁺ bind to resin, Na⁺ releases       │
+  │  → Softened water exits with Na⁺ (no Ca²⁺ or Mg²⁺)           │
   │                                                              │
   │  REGENERATION (when resin exhausted):                        │
   │  Concentrated NaCl brine from salt tank flushes resin        │
-  │  High Na⁺ concentration reverses equilibrium               │
-  │  → Ca²⁺ and Mg²⁺ released from resin                       │
+  │  High Na⁺ concentration reverses equilibrium                 │
+  │  → Ca²⁺ and Mg²⁺ released from resin                         │
   │  → Drain to waste                                            │
-  │  → Resin re-charged with Na⁺ → ready for next cycle        │
+  │  → Resin re-charged with Na⁺ → ready for next cycle          │
   └──────────────────────────────────────────────────────────────┘
 
   SODIUM ADDITION:
@@ -441,7 +441,7 @@ RESIDENTIAL WATER QUALITY TREATMENT HIERARCHY:
   │  Treatment: oxidation (chlorination or air) + filtration│
   │                                                          │
   │  Nitrates: agricultural areas, near septic systems       │
-  │  MCL: 10 mg/L (as N); dangerous for infants <6 months  │
+  │  MCL: 10 mg/L (as N); dangerous for infants <6 months    │
   │  ("blue baby syndrome" — methemoglobinemia)              │
   │  Treatment: RO, ion exchange                             │
   └──────────────────────────────────────────────────────────┘

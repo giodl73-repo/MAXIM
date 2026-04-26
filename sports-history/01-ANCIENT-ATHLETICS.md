@@ -355,20 +355,20 @@ BALL COURT (juego de pelota):
   |  | ENDZONE|                              |
   |  +---++---+                              |
   |      ||                                  |
-  |  ====++==== STONE RING (high on wall)    |
+     |  ====++==== STONE RING (high on wall) |
   |      ||                                  |
-  |  ALLEY (primary playing surface)         |
-  |  Typically 40-60m long, 6-8m wide        |
+     |  ALLEY (primary playing surface)      |
+     |  Typically 40-60m long, 6-8m wide     |
   |      ||                                  |
-  |  ====++==== STONE RING (opposite wall)   |
+     |  ====++==== STONE RING (opposite wall)   |
   |      ||                                  |
   |  +---++---+                              |
   |  | ENDZONE|                              |
   |  +--------+                              |
-  |                                          |
-  |  Sloping or vertical side walls          |
-  |  Stone rings: 2m+ above playing surface  |
-  |  Ring opening: slightly larger than ball |
+     |                                       |
+     |  Sloping or vertical side walls       |
+     |  Stone rings: 2m+ above playing surface  |
+     |  Ring opening: slightly larger than ball |
   +------------------------------------------+
 ```
 

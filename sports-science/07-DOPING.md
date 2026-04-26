@@ -11,7 +11,7 @@ DOPING LANDSCAPE:
   +-----------------------------------------------------------+
   |                                                           |
   |  ANABOLIC AGENTS      PEPTIDE HORMONES    BLOOD DOPING    |
-  |  (testosterone,       (EPO, GH, IGF-1,   (autologous    |
+  |  (testosterone,       (EPO, GH, IGF-1,   (autologous      |
   |   SARMs, others)       LH, CG, GHRH,      RBC transfusion|
   |                         insulin)           or rhEPO)      |
   |                                                           |

@@ -14,21 +14,21 @@ Logistics is the discipline of moving the right thing to the right place at the 
 |  | Location | | Selection| | Placement| | Buy vs   |            |
 |  |          | |          | |          | | Outsource|            |
 |  +----------+ +----------+ +----------+ +----------+            |
-|                                                                 |
-|  TRANSPORTATION (tactical, daily-weekly)                        |
+   |                                                              |
+   |  TRANSPORTATION (tactical, daily-weekly)                     |
 |  +----------+ +----------+ +----------+ +----------+            |
 |  | Ocean    | | Air      | | Truckload| | LTL/     |            |
 |  | Freight  | | Freight  | | (FTL)    | | Parcel   |            |
 |  +----------+ +----------+ +----------+ +----------+            |
-|                                                                 |
-|  WAREHOUSING (execution, hourly)                                |
+   |                                                              |
+   |  WAREHOUSING (execution, hourly)                             |
 |  +----------+ +----------+ +----------+ +----------+            |
 |  | Receiving| | Storage  | | Pick/Pack| | Shipping |            |
 |  | Cross-   | | Slotting | | Order    | | Sortation|            |
 |  | docking  | |          | | Mgmt     | |          |            |
 |  +----------+ +----------+ +----------+ +----------+            |
-|                                                                 |
-|  LAST MILE (delivery to customer)                               |
+   |                                                              |
+   |  LAST MILE (delivery to customer)                            |
 |  +----------+ +----------+ +----------+ +----------+            |
 |  | Route    | | Delivery | | Returns  | | Customer |            |
 |  | Optim.   | | density  | | (reverse)| | Experience|           |

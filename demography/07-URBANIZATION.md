@@ -5,21 +5,21 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    GLOBAL URBANIZATION TREND                                │
-│                                                                               │
-│  % Urban:                                                                     │
-│                                                                               │
+│                                                                             │
+│  % Urban:                                                                   │
+│                                                                             │
 │  1800: ~3%    Cities: London 1M, Beijing 1M (only two ≥ 1M)                 │
 │  1900: ~13%   Industrial revolution → urban growth in Europe, N. America    │
 │  1950: ~29%   Post-WWII industrialization; developing world urbanizing      │
 │  2007: ~50%   MILESTONE: First time more people in cities than rural        │
 │  2023: ~56%   4.4B urban dwellers                                           │
 │  2050: ~68%   Projected; 6.7B urban (net growth = megacity equivalents)     │
-│                                                                               │
+│                                                                             │
 │  CURRENT REGIONAL URBANIZATION RATES:                                       │
 │  North America: 83%  | South America: 83%  | Europe: 75%                    │
 │  Asia: 52%           | Africa: 44% (fastest growing, absolute largest growth)│
-│  Oceania: 68%        |                                                        │
-│                                                                               │
+│  Oceania: 68%        |                                                      │
+│                                                                             │
 │  URBAN GROWTH HOTSPOTS 2023-2050:                                           │
 │  India: +416M urban                                                         │
 │  China: +255M urban                                                         │

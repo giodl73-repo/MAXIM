@@ -8,8 +8,8 @@ Incident response is the structured process for detecting, analyzing, containing
 NIST SP 800-61 INCIDENT RESPONSE LIFECYCLE
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  PREPARATION → DETECTION & → CONTAINMENT, → POST-INCIDENT          |
-|               ANALYSIS      ERADICATION,   ACTIVITY                 |
+|  PREPARATION → DETECTION & → CONTAINMENT, → POST-INCIDENT             |
+|               ANALYSIS      ERADICATION,   ACTIVITY                   |
 |                              RECOVERY                                 |
 |                                                                       |
 |  PREPARATION:        DETECTION &        CONTAINMENT:                  |

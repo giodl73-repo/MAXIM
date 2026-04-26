@@ -9,7 +9,7 @@ diversity of life.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                    SPECIATION FRAMEWORK                          │
-│                                                                    │
+│                                                                  │
 │  GEOGRAPHIC ARRANGEMENT          REPRODUCTIVE ISOLATION          │
 │  ─────────────────────────       ──────────────────────          │
 │  Allopatric: populations          Prezygotic:                    │
@@ -18,7 +18,7 @@ diversity of life.
 │                                   - Behavioral (mate choice)     │
 │  Parapatric: adjacent zones       - Mechanical (morphology)      │
 │    with limited contact           - Gametic (sperm-egg incomp.)  │
-│                                                                    │
+│                                                                  │
 │  Sympatric: same geographic       Postzygotic:                   │
 │    area, diverging anyway         - Hybrid inviability           │
 │                                   - Hybrid sterility (F1)        │

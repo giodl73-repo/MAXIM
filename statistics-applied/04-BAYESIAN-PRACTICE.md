@@ -16,7 +16,7 @@
 |     → Catches unreasonable priors before seeing real data        |
 |                                                                  |
 |  3. FIT MODEL                                                    |
-|     Compute posterior p(θ|y) ∝ p(y|θ) × p(θ)                   |
+|     Compute posterior p(θ|y) ∝ p(y|θ) × p(θ)                     |
 |     MCMC (HMC/NUTS) or variational inference                     |
 |                                                                  |
 |  4. POSTERIOR DIAGNOSTICS                                        |

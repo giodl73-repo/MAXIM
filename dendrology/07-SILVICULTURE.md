@@ -10,8 +10,8 @@ SILVICULTURAL SYSTEMS — DECISION SPACE
   REGENERATION      STAND           CUTTING
   METHOD            STRUCTURE       SYSTEM
   +-------------+   +----------+   +------------------+
-  | Natural seed |   | Even-aged|   | Clearcut          |
-  | (from above) |   | one cohort|  | Seed tree         |
+  | Natural seed |   | Even-aged|   | Clearcut        |
+  | (from above) |   | one cohort|  | Seed tree       |
   +-------------+   +----------+   | Shelterwood      |
                                    +------------------+
   +-------------+   +----------+   +------------------+

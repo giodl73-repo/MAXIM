@@ -10,17 +10,17 @@ Organogenesis (Weeks 4-8 in humans) is when specific organ structures form from 
 |                                                                  |
 |  GERM LAYER → ORGAN SYSTEM DERIVATION                            |
 |                                                                  |
-|  ECTODERM ──────────────────────────────────────────────────►  |
+|  ECTODERM ──────────────────────────────────────────────────►    |
 |  (outer)    Brain, spinal cord, PNS, skin, eye lens, ear         |
 |             Neural crest → PNS, craniofacial, melanocytes        |
 |                                                                  |
-|  MESODERM ──────────────────────────────────────────────────►  |
+|  MESODERM ──────────────────────────────────────────────────►    |
 |  (middle)   Heart, blood vessels, kidneys, skeleton, muscle,     |
 |             spleen, gonads, connective tissue (dermis)           |
 |             ↑ receives inductive signals from endoderm (heart)   |
 |             ↑ and from ectoderm (limb)                           |
 |                                                                  |
-|  ENDODERM ──────────────────────────────────────────────────►  |
+|  ENDODERM ──────────────────────────────────────────────────►    |
 |  (inner)    Gut epithelium, liver, pancreas, lungs, thyroid,     |
 |             thymus, bladder lining                               |
 |                                                                  |

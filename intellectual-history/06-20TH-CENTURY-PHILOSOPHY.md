@@ -31,8 +31,8 @@ methods.
 |  | Quine, Rawls,       |      |                           |       |
 |  | Kripke, Chalmers    |      |                           |       |
 |  +---------------------+      +---------------------------+       |
-|                                                                   |
-|  PHILOSOPHY OF SCIENCE                                            |
+   |                                                                |
+   |  PHILOSOPHY OF SCIENCE                                         |
 |  +-----------------------------------------------------------+    |
 |  | Logical empiricism -> Popper -> Kuhn -> Lakatos ->        |    |
 |  | Feyerabend -> Laudan -> Scientific realism debate         |    |

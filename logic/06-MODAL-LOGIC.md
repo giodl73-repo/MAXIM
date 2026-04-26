@@ -22,8 +22,8 @@ deontic logic, and description logics — all engineering-relevant systems.
 |  | Diamond =  |      |   iff all w' in  |    +-----------------+  |
 |  | possible   |      |   R(w): M,w'|=phi|                         |
 |  +------------+      +------------------+                         |
-|                                                                   |
-|  EXTENSIONS                                                       |
+   |                                                                |
+   |  EXTENSIONS                                                    |
 |  +-----------------------------------------------------------+    |
 |  | Epistemic logic: K_a phi = "agent a knows phi"           |    |
 |  | Deontic: O phi = "phi is obligatory"                     |    |

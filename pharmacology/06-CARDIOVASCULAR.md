@@ -10,14 +10,14 @@ Cardiovascular (CV) pharmacology targets the heart, vasculature, kidneys, and th
 |                                                                  |
 |  TARGET                DRUGS                   GOAL              |
 |  ──────────────────    ──────────────────────  ───────────────   |
-|  Sympathetic NS        β-blockers, α-blockers  ↓HR, ↓BP        |
-|  Renin-Angiotensin     ACE-I, ARB, aliskiren   ↓BP, ↓cardiac   |
+|  Sympathetic NS        β-blockers, α-blockers  ↓HR, ↓BP          |
+|  Renin-Angiotensin     ACE-I, ARB, aliskiren   ↓BP, ↓cardiac     |
 |  Aldosterone           Spironolactone,         ↓fluid, heart     |
 |                        eplerenone              failure, HTN      |
-|  Cardiac channels      CCB, digoxin            ↓HR, ↓BP        |
+|  Cardiac channels      CCB, digoxin            ↓HR, ↓BP          |
 |  Diuretics             Thiazides, loops, K+    ↓volume, ↓BP      |
 |                        sparing                                   |
-|  Lipid pathways        Statins, PCSK9i, ezetimibe ↓LDL         |
+|  Lipid pathways        Statins, PCSK9i, ezetimibe ↓LDL           |
 |  Coagulation           Anticoagulants,         ↓thrombosis       |
 |                        antiplatelets                             |
 |  Channels (arrhythmia) Antiarrhythmics         Restore rhythm    |

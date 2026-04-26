@@ -103,14 +103,14 @@ US-CHINA TECH COMPETITION
   │              SMIC (China) — 7nm, partially blocked       │
   │                                                          │
   │ Equipment: ASML (Netherlands, EUV — monopoly)            │
-  │            Applied Materials, Lam Research, KLA (US)   │
+  │            Applied Materials, Lam Research, KLA (US)     │
   │            Tokyo Electron (Japan)                        │
   │                                                          │
-  │ US CONTROLS (2022-2024):                               │
+  │ US CONTROLS (2022-2024):                                 │
   │ • Advanced node chip export controls (below 14nm)        │
-  │ • EDA software export controls                         │
-  │ • NVIDA H100/A100 GPU restrictions                     │
-  │ • CHIPS Act: $52B to subsidize US domestic fabs        │
+  │ • EDA software export controls                           │
+  │ • NVIDA H100/A100 GPU restrictions                       │
+  │ • CHIPS Act: $52B to subsidize US domestic fabs          │
   └──────────────────────────────────────────────────────────┘
 
   AI COMPETITION:
@@ -407,9 +407,9 @@ GLOBAL SOUTH — CONTESTED CONCEPT AND REAL POLITICS
 
   DEBT AND DEVELOPMENT FINANCE:
   ┌──────────────────────────────────────────────────────────┐
-  │ BELT AND ROAD INITIATIVE (BRI) — DEBT TRAP DEBATE:     │
+  │ BELT AND ROAD INITIATIVE (BRI) — DEBT TRAP DEBATE:       │
   │                                                          │
-  │ DEBT TRAP THESIS (Brahma Chellaney, 2017):             │
+  │ DEBT TRAP THESIS (Brahma Chellaney, 2017):               │
   │ China extends loans for infrastructure;                  │
   │ countries cannot repay → China gains strategic assets.   │
   │ Hambantota Port (Sri Lanka): leased to China for 99 yrs  │
@@ -537,7 +537,7 @@ AI IN IR — MILITARY, INTELLIGENCE, AND EPISTEMIC SECURITY
   │ CIWS (Close-In Weapon System): automated anti-missile    │
   │ Iron Dome: automated intercept decisions                 │
   │ Loitering munitions (Switchblade, Harop): human launch;  │
-  │   autonomous terminal guidance                         │
+  │   autonomous terminal guidance                           │
   │                                                          │
   │ DEBATE:                                                  │
   │ FOR lethal autonomous weapons:                           │
@@ -631,7 +631,7 @@ POLYCRISIS — COMPOUNDING SYSTEMIC RISKS
   │   right-wing politics → Paris Agreement defection        │
   │ • Ukraine war → energy crisis → industrial recession →   │
   │   reduced climate investment                             │
-  │ • AI disruption → labor dislocation → political anger  │
+  │ • AI disruption → labor dislocation → political anger    │
   │   → protectionism → deglobalization                      │
   │                                                          │
   │ The system isn't just stressed; it's in compounding      │

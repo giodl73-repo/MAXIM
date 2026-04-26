@@ -286,7 +286,7 @@ REGENERATIVE FEEDWATER HEATING — Use bleed steam to preheat feedwater:
 
   ┌────────────────────────────────────────────────────────────┐
   │                                                            │
-  │  Turbine: HP ──►[bleed]──► IP ──►[bleed]──► LP ──► Cond. │
+  │  Turbine: HP ──►[bleed]──► IP ──►[bleed]──► LP ──► Cond.   │
   │                   │                │                       │
   │                   ▼                ▼                       │
   │              [FWH #1]         [FWH #2]                     │
@@ -553,8 +553,8 @@ COMBINED CYCLE GAS TURBINE — SYSTEM DIAGRAM:
   │  GAS TURBINE (Brayton topping cycle)                │
   │                                                     │
   │  [Compressor] → [Combustor] → [Turbine] → Generator │
-  │                                    │                  │
-  │  Exhaust gas: ~550-650°C           │                  │
+  │                                    │                │
+  │  Exhaust gas: ~550-650°C           │                │
   └────────────────────────────────────┼──────────────────┘
                                        │
                                        ▼
@@ -916,7 +916,7 @@ ALLAM-FETVEDT CYCLE SCHEMATIC:
         ▼
   ┌──────────────────────────────────────────────┐
   │  COMBUSTOR                                   │
-  │  Oxy-combustion: CH₄ + 2O₂ → CO₂ + 2H₂O    │
+  │  Oxy-combustion: CH₄ + 2O₂ → CO₂ + 2H₂O      │
   │  Working fluid: supercritical CO₂ at ~300 bar │
   │  T_combustor: ~1150°C                        │
   └────────┬─────────────────────────────────────┘

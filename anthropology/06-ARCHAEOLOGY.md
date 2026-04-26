@@ -53,7 +53,7 @@ in an argument about behavior, cognition, society, and change over time.
   │ heterogeneous landscapes.                              │
   │                                                        │
   │ JUDGMENTAL SAMPLING: survey where you think sites      │
-  │ are (near water, on ridges). Efficient but biased.   │
+  │ are (near water, on ridges). Efficient but biased.     │
   └────────────────────────────────────────────────────────┘
 
   SITE DEFINITION: a spatial concentration of artifacts
@@ -326,7 +326,7 @@ in an argument about behavior, cognition, society, and change over time.
 
   ┌────────────────────────────────────────────────────────┐
   │          TIME                                          │
-  │  Early ┌───────────────────────────────────┐ Late    │
+  │  Early ┌───────────────────────────────────┐ Late      │
   │        │ Type A: ░░░████████████░░░         │         │
   │        │ Type B: ░░░░░████████████████░░░░  │         │
   │        │ Type C:     ░░░░░░████████████████ │         │
@@ -404,7 +404,7 @@ in an argument about behavior, cognition, society, and change over time.
   │                                                        │
   │ Climate/drought: pollen records, sediment cores show   │
   │ ~300-year aridification across Eastern Mediterranean   │
-  │ ~1200-900 BCE. Megadrought in 1200s BCE documented.  │
+  │ ~1200-900 BCE. Megadrought in 1200s BCE documented.    │
   │                                                        │
   │ Earthquakes: several Mycenaean sites show earthquake   │
   │ damage (~1200 BCE).                                    │

@@ -17,7 +17,7 @@ NON-WESTERN ART: THE STRUCTURAL PROBLEM
   │ The Western canon was institutionalized in 19th-century   │
   │ German universities (Winckelmann, Kugler, Wölfflin).      │
   │ It takes Greek antiquity → Renaissance → Modernism        │
-  │ as the spine. Everything else is "other" or "source."   │
+  │ as the spine. Everything else is "other" or "source."     │
   │                                                           │
   │ Consequences:                                             │
   │ - African objects become "primitivism's" raw material     │
@@ -59,7 +59,7 @@ WENREN IDEAL vs PROFESSIONAL PAINTING
   │ Client sets the subject   │   │ Chooses subject for meaning   │
   │ Technical virtuosity valued│   │ Technical ease APPEARS effortless│
   │ Illusionistic rendering   │   │ Brushwork = moral character   │
-  │ Color, decoration           │   │ Ink, not color (primarily)    │
+  │ Color, decoration           │   │ Ink, not color (primarily)  │
   │ Work as product            │   │ Work as self-portrait of mind │
   └───────────────────────────┘   └───────────────────────────────┘
 
@@ -176,7 +176,7 @@ UKIYO-E: MEDIUM AND MEANING
   │                                                          │
   │ PRODUCTION: editions of hundreds or thousands            │
   │ Price: affordable for urban middle class                 │
-  │ Subject: contemporary life, not mythology              │
+  │ Subject: contemporary life, not mythology                │
   └──────────────────────────────────────────────────────────┘
 
   KEY ARTISTS:

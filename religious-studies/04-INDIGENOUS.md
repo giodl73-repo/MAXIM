@@ -277,7 +277,7 @@ significant in ways that cannot be transferred.
 |  traveling it re-enacts and maintains the creation.       |
 |  Not historical past — ontological foundation.            |
 |  The Dreamtime is always happening.                       |
-|  Bruce Chatwin's "The Songlines" (1987) is a            |
+|  Bruce Chatwin's "The Songlines" (1987) is a              |
 |  useful if imperfect introduction.                        |
 |                                                           |
 |  Land rights as religious rights:                         |

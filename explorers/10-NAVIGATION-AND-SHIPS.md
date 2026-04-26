@@ -768,9 +768,9 @@ HULL SHAPE: BEAM-TO-LENGTH RATIO AND SPEED
    Carrack (beamy)      Galleon          Clipper (sharp)
     ╭────────────╮      ╭──────────╮      ╭──────╮
    ╱              ╲    ╱            ╲    ╱        ╲
-  │                │  │              │  │          │
+  │                │  │              │  │        │
   │    wide beam   │  │   moderate   │  │  narrow  │
-  │                │  │              │  │          │
+  │                │  │              │  │        │
    ╲              ╱    ╲            ╱    ╲        ╱
     ╰────────────╯      ╰──────────╯      ╰──────╯
     ← 8–12 m →          ← 7–10 m →        ← 5–7 m →

@@ -87,7 +87,7 @@ different number. Critical to understand when comparing pre-2023 and post-2023 s
 
   HEAT PUMPS (ASHP):
   ┌─────────────────────────────────────────────────────────────────┐
-  │ National: 14.3 SEER2, 7.5 HSPF2 minimum                       │
+  │ National: 14.3 SEER2, 7.5 HSPF2 minimum                         │
   └─────────────────────────────────────────────────────────────────┘
 
   GAS FURNACES:
@@ -122,13 +122,13 @@ Energy Star is voluntary — significantly above federal minimums:
   │        ≥ 15.2 SEER2 (two-stage)                                 │
   │                                                                 │
   │ HEAT PUMPS:                                                     │
-  │ ≥ 15.2 SEER2 (cooling) AND ≥ 8.1 HSPF2 (heating)              │
+  │ ≥ 15.2 SEER2 (cooling) AND ≥ 8.1 HSPF2 (heating)                │
   │                                                                 │
   │ GAS FURNACES:                                                   │
   │ ≥ 95% AFUE                                                      │
   │                                                                 │
   │ BOILERS:                                                        │
-  │ ≥ 90% AFUE (oil), ≥ 90% AFUE (gas)                            │
+  │ ≥ 90% AFUE (oil), ≥ 90% AFUE (gas)                              │
   │                                                                 │
   │ HEAT PUMP WATER HEATERS:                                        │
   │ ≥ 2.0 UEF (Energy Factor); best are 3.5+ UEF                    │

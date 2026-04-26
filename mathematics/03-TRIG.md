@@ -51,7 +51,7 @@ UNIT CIRCLE
 
   Key values — memorize these, derive the rest:
   ┌────────────────────────────────────────────────────────────────┐
-  │  θ (rad)  │  θ (deg)  │  cos θ      │  sin θ      │  tan θ   │
+  │  θ (rad)  │  θ (deg)  │  cos θ      │  sin θ      │  tan θ     │
   ├───────────┼───────────┼─────────────┼─────────────┼──────────┤
   │  0        │    0°     │  1          │  0          │  0       │
   │  π/6      │   30°     │  √3/2       │  1/2        │  1/√3    │
@@ -107,7 +107,7 @@ UNIT CIRCLE
   Proof via rotation matrices (the "real" proof):
   ┌          ┐   ┌          ┐   ┌              ┐
   │ cos(A+B) │   │ cos A  -sin A│   │ cos B  -sin B│
-  │          │ = │              │ × │              │
+  │          │ = │              │ × │          │
   │ sin(A+B) │   │ sin A   cos A│   │ sin B   cos B│
   └          ┘   └              ┘   └              ┘
 

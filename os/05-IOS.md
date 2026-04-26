@@ -103,10 +103,10 @@ SpringBoard (com.apple.springboard)
 │         ▼                                                            │
 │  ┌─────────────┐                                                     │
 │  │  Suspended  │  ← frozen in RAM; no CPU time; can be killed        │
-│  └─────────────┘    without notification (jetsam)                    │
-│                                                                      │
-│  SwiftUI equivalent:  @Environment(\.scenePhase)                     │
-│    .active / .inactive / .background                                 │
+   │  └─────────────┘    without notification (jetsam)                 │
+   │                                                                   │
+   │  SwiftUI equivalent:  @Environment(\.scenePhase)                  │
+   │    .active / .inactive / .background                              │
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -501,7 +501,7 @@ if let url = URL(string: UIApplication.openSettingsURLString) {
 │                       UI FRAMEWORK COMPARISON                               │
 │                                                                             │
 │  UIKit                                    SwiftUI                           │
-│  ┌──────────────────────────────┐        ┌────────────────────────────┐   │
+│  ┌──────────────────────────────┐        ┌────────────────────────────┐     │
 │  │ UIViewController lifecycle  │        │ View.body computed prop    │   │
 │  │   viewDidLoad()             │        │ .onAppear / .onDisappear   │   │
 │  │   viewWillAppear()          │        │ @State, @Binding           │   │
@@ -1275,7 +1275,7 @@ class NotificationService: UNNotificationServiceExtension {
 │                    DISTRIBUTION PIPELINE                                    │
 │                                                                             │
 │  Xcode                    App Store Connect           Devices               │
-│  ┌──────────────────┐    ┌──────────────────────┐   ┌─────────────────┐   │
+│  ┌──────────────────┐    ┌──────────────────────┐   ┌─────────────────┐     │
 │  │ 1. Product →     │    │ 3. Processing (mins) │   │                 │   │
 │  │    Archive       │    │ 4. TestFlight tab     │   │ Internal testers│   │
 │  │                  │    │    - Internal (≤100)  │──►│ (same org)      │   │

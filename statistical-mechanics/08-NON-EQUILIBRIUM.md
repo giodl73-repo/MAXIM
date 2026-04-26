@@ -23,14 +23,14 @@ NON-EQUILIBRIUM STATISTICAL MECHANICS — LANDSCAPE
   ┌──────────────────────────────────────────────────────────────────┐
   │  Fluctuation-Dissipation Theorem:                                │
   │  Response to perturbation = equilibrium fluctuations             │
-  │  Kubo formula: χ(ω) = ∫ e^{iωt} ⟨[A(t),B(0)]⟩ dt              │
+  │  Kubo formula: χ(ω) = ∫ e^{iωt} ⟨[A(t),B(0)]⟩ dt                 │
   │  Einstein: D = k_BT/γ  (diffusion = mobility × temperature)      │
   └──────────────────────────────────────────────────────────────────┘
 
   FAR FROM EQUILIBRIUM:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Jarzynski equality: ⟨e^{-βW}⟩ = e^{-βΔF}                      │
-  │  Crooks relation:    P_F(W)/P_R(−W) = e^{β(W−ΔF)}              │
+  │  Jarzynski equality: ⟨e^{-βW}⟩ = e^{-βΔF}                        │
+  │  Crooks relation:    P_F(W)/P_R(−W) = e^{β(W−ΔF)}                │
   │  Valid for ANY process, however fast or far from equilibrium     │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -150,7 +150,7 @@ PHYSICAL MEANING:
   │                                                              │
   │  Same physics: a resistor dissipates electrical energy       │
   │  AND generates Johnson-Nyquist thermal noise.                │
-  │  They are related: S_V(ω) = 4k_BT Re[Z(ω)]                 │
+  │  They are related: S_V(ω) = 4k_BT Re[Z(ω)]                   │
   │  (Nyquist theorem: noise voltage spectral density ∝ T × R)   │
   └──────────────────────────────────────────────────────────────┘
 

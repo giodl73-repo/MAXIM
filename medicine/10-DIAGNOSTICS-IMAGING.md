@@ -25,7 +25,7 @@
 │  ┌──────────────────────────────────────────────────────────────────┐   │
 │  │  X-ray: ionizing; bone/air/soft tissue contrast                  │   │
 │  │  CT: Hounsfield units; rapid; excellent detail; radiation dose   │   │
-│  │  MRI: T1/T2/DWI/FLAIR; soft tissue; no radiation               │   │
+│  │  MRI: T1/T2/DWI/FLAIR; soft tissue; no radiation               │     │
 │  │  Ultrasound: real-time; no radiation; bedside POCUS              │   │
 │  │  Nuclear/PET: functional imaging; tracers; FDG/sestamibi         │   │
 │  └──────────────────────────────────────────────────────────────────┘   │

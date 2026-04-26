@@ -31,7 +31,7 @@
 │  ─────────────────         ──────────────────                      │
 │  ΔG° = −nFE°               Butler-Volmer equation                  │
 │  K = 10^(nE°/0.05916)      Overpotential η                         │
-│  Nernst: E = E°−(RT/nF)lnQ Tafel slope / exchange current j₀     │
+│  Nernst: E = E°−(RT/nF)lnQ Tafel slope / exchange current j₀       │
 │          │                                                         │
 │     ┌────┴───────────────────────┐                                 │
 │     ▼                            ▼                                 │

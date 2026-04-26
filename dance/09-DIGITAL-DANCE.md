@@ -16,7 +16,7 @@ Digital technology has transformed dance in three separate ways: documentation (
 |  Gait analysis             Digital scores         Avatar performance |
 |  Annotation tools          AI choreography        Gaming + dance     |
 |                                                                      |
-|  PURPOSE: Understand        PURPOSE: Make new       PURPOSE: New       |
+|  PURPOSE: Understand        PURPOSE: Make new       PURPOSE: New     |
 |  what already exists        work with new tools     contexts for body  |
 +----------------------------------------------------------------------+
 ```

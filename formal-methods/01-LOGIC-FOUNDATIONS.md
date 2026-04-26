@@ -9,7 +9,7 @@ layer map:
 ```
 +--------------------------------------------------------------------------+
 |                        LOGIC LAYERS                                      |
-|                                                                            |
+|                                                                          |
 |  PROPOSITIONAL LOGIC         "P and Q implies R"                         |
 |  SAT Solvers: DPLL, CDCL     NP-complete, but practical at millions vars |
 |  MiniSat, CaDiCaL, Kissat                                                |
@@ -27,7 +27,7 @@ layer map:
 |  SMT: SATISFIABILITY MODULO THEORIES                                     |
 |  "This formula over integers/arrays/bitvectors" — is it satisfiable?     |
 |  DPLL(T) architecture: SAT core + theory solvers                         |
-|  Z3, CVC5, Yices2 — the engines behind Dafny, CBMC, Infer, Lean 4      |
+|  Z3, CVC5, Yices2 — the engines behind Dafny, CBMC, Infer, Lean 4        |
 +--------------------------------------------------------------------------+
          |   specialized logics
          v
@@ -35,7 +35,7 @@ layer map:
 |  TEMPORAL LOGICS             Reasoning about TIME and STATE SEQUENCES    |
 |  LTL: linear time (paths)    "Always p", "Eventually q", "p Until q"     |
 |  CTL: branching time (trees) "There exists a path where...", "All paths" |
-|  CTL*: full (unifies both)   Expressiveness: LTL ⊄ CTL, CTL ⊄ LTL      |
+|  CTL*: full (unifies both)   Expressiveness: LTL ⊄ CTL, CTL ⊄ LTL        |
 |  Used in: model checkers (SPIN, NuSMV, TLC)                              |
 +--------------------------------------------------------------------------+
          |   proof systems
@@ -43,7 +43,7 @@ layer map:
 +--------------------------------------------------------------------------+
 |  HIGHER-ORDER LOGIC (HOL)    Quantify over predicates and functions      |
 |  Expressiveness: all of math  Decidability: none (semi-decidable at best)|
-|  Used in: Isabelle/HOL, HOL4, Coq (via CIC), Lean 4                    |
+|  Used in: Isabelle/HOL, HOL4, Coq (via CIC), Lean 4                      |
 +--------------------------------------------------------------------------+
 ```
 
@@ -236,7 +236,7 @@ theories with known decision procedures.
 ```
   ┌──────────────────────────────────────────────────────┐
   │                    DPLL(T) CORE                      │
-  │                                                        │
+  │                                                      │
   │  SAT Solver                 Theory Solver T          │
   │  ────────────               ─────────────────        │
   │  Works on              <--> Handles T-consistency    │
@@ -248,7 +248,7 @@ theories with known decision procedures.
   │  (x + y <= 5)           |                            │
   │  (a[i] = b[j])          |   Theory conflict:         │
   │  (f(a) = f(b))      <---|   return explanation clause |
-  │                                                        │
+  │                                                      │
   │  If T-consistent: continue                           │
   │  If T-conflict:   learn clause, backjump             │
   └──────────────────────────────────────────────────────┘

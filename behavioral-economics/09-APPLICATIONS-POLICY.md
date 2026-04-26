@@ -5,26 +5,26 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    BEHAVIORAL INSIGHT TEAMS GLOBALLY                        │
-│                                                                               │
+│                                                                             │
 │  BIT (UK Behavioural Insights Team, 2010):                                  │
 │  First government behavioral unit. Started in Cabinet Office.               │
 │  Now quasi-commercial, operating in 30+ countries.                          │
 │  Flagship interventions: tax compliance, organ donation, employment services │
-│                                                                               │
+│                                                                             │
 │  SBST (Social and Behavioral Sciences Team, US, 2014-2017):                 │
 │  White House unit. Executive Order (Obama). >200 trials run.                │
 │  Abolished under Trump; partially revived under Biden as Evidence Team.     │
-│                                                                               │
+│                                                                             │
 │  IDEAS42 (US, 2008): Non-profit behavioral consulting.                      │
 │  BETA (Australian Government Behavioral Economics Team, 2015)               │
 │  EAST unit in Singapore, Netherlands, France, Canada, Denmark               │
-│                                                                               │
+│                                                                             │
 │  COMMON METHODOLOGY:                                                        │
 │  1. Diagnose the behavioral bottleneck (why don't people do X already?)     │
 │  2. Design the intervention (EAST framework; exploit behavioral patterns)   │
 │  3. Test with randomized controlled trial (A/B test)                        │
 │  4. Scale if effective                                                      │
-│                                                                               │
+│                                                                             │
 │  CONNECTION TO COMPUTING:                                                   │
 │  This is A/B testing applied to policy. Same statistical framework as       │
 │  product feature testing (see statistics-applied/). Same power calculations. │

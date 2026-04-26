@@ -21,9 +21,9 @@
 |  | semiconductor     |  | 99.965% absorption|                    |
 |  | nanocrystals      |  | Near-perfect black|                    |
 |  +------------------+  +------------------+                     |
-|                                                                 |
-|  Performance trend: better lightfastness, lower toxicity,       |
-|  higher tinting strength, more reproducible color               |
+   |                                                              |
+   |  Performance trend: better lightfastness, lower toxicity,    |
+   |  higher tinting strength, more reproducible color            |
 +------------------------------------------------------------------+
 ```
 

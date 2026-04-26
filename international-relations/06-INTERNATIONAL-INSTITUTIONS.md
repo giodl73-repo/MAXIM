@@ -56,8 +56,8 @@ UN SYSTEM ARCHITECTURE
   │                                                          │
   │ VETO POWER: Any P5 member can block any substantive      │
   │ resolution                                               │
-  │ → Design reflects 1945 reality: great powers won't     │
-  │   accept binding decisions against their interests     │
+  │ → Design reflects 1945 reality: great powers won't       │
+  │   accept binding decisions against their interests       │
   │ → Consequence: SC gridlocks when P5 interests conflict   │
   └──────────────────────────────────────────────────────────┘
 

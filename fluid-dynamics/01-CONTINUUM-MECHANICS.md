@@ -10,24 +10,24 @@ CONTINUUM MECHANICS — STRUCTURE
 
   KINEMATICS  (geometry of deformation — no forces yet)
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Velocity field:  **v**(x, t)   Eulerian description               │
-  │  Material derivative: D/Dt = ∂/∂t + **v**·∇                       │
+  │  Velocity field:  **v**(x, t)   Eulerian description                 │
+  │  Material derivative: D/Dt = ∂/∂t + **v**·∇                          │
   │  Strain rate tensor: e_{ij} = (1/2)(∂vᵢ/∂xⱼ + ∂vⱼ/∂xᵢ)          │
-  │  Vorticity: **ω** = ∇ × **v**    (local rotation rate, 2ω)        │
+  │  Vorticity: **ω** = ∇ × **v**    (local rotation rate, 2ω)           │
   └──────────────────────────────────────────────────────────────────────┘
                               ↓
   CONSERVATION LAWS (continuum versions of F = ma)
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Mass:       ∂ρ/∂t + ∇·(ρ**v**) = 0                               │
-  │  Momentum:   ρ D**v**/Dt = ∇·σ + ρ**g**                           │
-  │  Energy:     ρ De/Dt = σ:∇**v** − ∇·**q** + ρr                   │
+  │  Mass:       ∂ρ/∂t + ∇·(ρ**v**) = 0                                  │
+  │  Momentum:   ρ D**v**/Dt = ∇·σ + ρ**g**                              │
+  │  Energy:     ρ De/Dt = σ:∇**v** − ∇·**q** + ρr                       │
   └──────────────────────────────────────────────────────────────────────┘
                               ↓
   CONSTITUTIVE RELATIONS (material-specific: what σ looks like)
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Ideal fluid:    σ = −pI  (pressure only, no viscosity)            │
+  │  Ideal fluid:    σ = −pI  (pressure only, no viscosity)              │
   │  Newtonian:      σ = −pI + μ(∇**v** + ∇**v**ᵀ) + λ(∇·**v**)I    │
-  │  Non-Newtonian:  σ = σ(strain rate tensor) — various models        │
+  │  Non-Newtonian:  σ = σ(strain rate tensor) — various models          │
   └──────────────────────────────────────────────────────────────────────┘
 ```
 

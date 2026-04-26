@@ -20,10 +20,10 @@ constraints naturally, and directly reveals conservation laws via symmetry.
 |  Vectors (forces)          Scalar (Lagrangian function)               |
 |  Frame-dependent           Covariant (works in any frame)             |
 |                                                                       |
-|  CENTRAL OBJECT:  L(q, q̇, t) = T − V                                |
+|  CENTRAL OBJECT:  L(q, q̇, t) = T − V                                  |
 |  T = kinetic energy,  V = potential energy                            |
 |                                                                       |
-|  E-L EQUATIONS:   d/dt(∂L/∂q̇ᵢ) = ∂L/∂qᵢ                           |
+|  E-L EQUATIONS:   d/dt(∂L/∂q̇ᵢ) = ∂L/∂qᵢ                               |
 |  "Momentum rate = generalized force"                                  |
 |                                                                       |
 +-----------------------------------------------------------------------+
@@ -63,8 +63,8 @@ constraints naturally, and directly reveals conservation laws via symmetry.
 
   EXAMPLES:
   ┌─────────────────────────────────────────────────────────────────┐
-  │ Double pendulum:     q = (θ₁, θ₂)  (two angles)               │
-  │ Rigid body rotation: q = (φ, θ, ψ)  (Euler angles)            │
+  │ Double pendulum:     q = (θ₁, θ₂)  (two angles)                 │
+  │ Rigid body rotation: q = (φ, θ, ψ)  (Euler angles)              │
   │ Molecule:            q = (COM position, bond lengths, angles)   │
   │ Elastic rod:         q(s,t) = shape function (infinite DOF)     │
   │ EM field:            q = A_μ(x,t)  (gauge potential — field)    │
@@ -189,13 +189,13 @@ constraints naturally, and directly reveals conservation laws via symmetry.
 
   EXAMPLES:
   ┌─────────────────────────────────────────────────────────────────┐
-  │ L = ½m(ṙ² + r²θ̇²) − V(r)  [central force, polar coords]      │
-  │ ∂L/∂θ = 0 → p_θ = mr²θ̇ = const  (angular momentum conserved) │
-  │ ∂L/∂θ = 0 means V = V(r) only: isotropy → ang. mom. conserved │
+  │ L = ½m(ṙ² + r²θ̇²) − V(r)  [central force, polar coords]         │
+  │ ∂L/∂θ = 0 → p_θ = mr²θ̇ = const  (angular momentum conserved)    │
+  │ ∂L/∂θ = 0 means V = V(r) only: isotropy → ang. mom. conserved   │
   │                                                                 │
-  │ L = ½m(ẋ² + ẏ²) − V(x−a, y)  [translation symmetry in x]    │
-  │ ∂L/∂(x−a)/∂x = 0 for translations x→x+c                       │
-  │ → px = mẋ = const  (x-momentum conserved)                     │
+  │ L = ½m(ẋ² + ẏ²) − V(x−a, y)  [translation symmetry in x]        │
+  │ ∂L/∂(x−a)/∂x = 0 for translations x→x+c                         │
+  │ → px = mẋ = const  (x-momentum conserved)                       │
   └─────────────────────────────────────────────────────────────────┘
 
   ENERGY CONSERVATION (from time-translation symmetry):
@@ -219,15 +219,15 @@ The Lagrangian formulation extends naturally to fields (infinite DOF):
 
   EXAMPLES:
   ┌─────────────────────────────────────────────────────────────────┐
-  │ Free scalar: L = ½(∂_μφ)(∂^μφ) − ½m²φ²                       │
-  │   E-L: □φ + m²φ = 0  (Klein-Gordon equation)                  │
+  │ Free scalar: L = ½(∂_μφ)(∂^μφ) − ½m²φ²                          │
+  │   E-L: □φ + m²φ = 0  (Klein-Gordon equation)                    │
   │                                                                 │
-  │ EM field: L = −¼ F_μν F^μν  where F = dA (field strength)     │
-  │   E-L: ∂_μF^μν = 0  (Maxwell's equations!)                    │
+  │ EM field: L = −¼ F_μν F^μν  where F = dA (field strength)       │
+  │   E-L: ∂_μF^μν = 0  (Maxwell's equations!)                      │
   │                                                                 │
-  │ GR: L = √(−g) R  (Einstein-Hilbert action, R = Ricci scalar)  │
-  │   E-L: G_μν = 0  (Einstein vacuum equations)                  │
-  │   With matter: G_μν = 8πT_μν                                  │
+  │ GR: L = √(−g) R  (Einstein-Hilbert action, R = Ricci scalar)    │
+  │   E-L: G_μν = 0  (Einstein vacuum equations)                    │
+  │   With matter: G_μν = 8πT_μν                                    │
   └─────────────────────────────────────────────────────────────────┘
 
   The entire Standard Model of particle physics is defined by

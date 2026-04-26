@@ -7,7 +7,7 @@
 │             CIRCUIT MODEL — BUILDING BLOCKS                         │
 │                                                                     │
 │  QUBIT MATH          GATES                MULTI-QUBIT               │
-│  ┌────────────┐      ┌──────────────┐     ┌──────────────────┐    │
+│  ┌────────────┐      ┌──────────────┐     ┌──────────────────┐      │
 │  │ ℂ² state   │      │ Single-qubit │     │ Tensor products  │    │
 │  │ Bloch sphere│─────►│ X,Y,Z,H,S,T │────►│ Entanglement     │    │
 │  │ Born rule   │      │ Rotations    │     │ Bell states      │    │
@@ -23,7 +23,7 @@
 │  UNIVERSALITY          MEASUREMENT        │ T-count metrics  │    │
 │  ┌──────────────┐     ┌──────────────┐    └────────┬─────────┘    │
 │  │ {H,T,CNOT}   │     │ Projective   │             │              │
-│  │ Solovay-      │     │ Born rule    │             ▼               │
+│  │ Solovay-      │     │ Born rule    │             ▼             │
 │  │ Kitaev       │     │ Syndrome     │    ┌──────────────────┐    │
 │  │              │     │ (for QEC)    │    │ DENSITY MATRICES │    │
 │  │ Clifford+T   │     └──────────────┘    │ Mixed states     │    │

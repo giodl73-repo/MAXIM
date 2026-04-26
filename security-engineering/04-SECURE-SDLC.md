@@ -8,19 +8,19 @@ A Secure Software Development Lifecycle integrates security practices into every
 SECURE SDLC LIFECYCLE
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  REQUIREMENTS   DESIGN   IMPLEMENT   VERIFY   RELEASE   RESPOND     |
-|  +-----------+ +------+ +--------+ +------+ +-------+ +--------+   |
+|  REQUIREMENTS   DESIGN   IMPLEMENT   VERIFY   RELEASE   RESPOND       |
+|  +-----------+ +------+ +--------+ +------+ +-------+ +--------+      |
 |  | Security  | |Threat| |Banned  | |SAST  | |FSR    | |MSRC    |   |
 |  | & privacy | |model | |API list| |DAST  | |sign-  | |process |   |
 |  | require-  | |Attack| |Crypto  | |Fuzz  | |off    | |patch   |   |
 |  | ments     | |surface|approved | |review| |       | |deploy  |   |
 |  |           | |review| |only    | |SCA   | |       | |        |   |
 |  +-----------+ +------+ +--------+ +------+ +-------+ +--------+   |
-|                                                                       |
-|  SHIFT LEFT: Problems found in requirements cost 1x                  |
-|              Problems found in production cost 30-100x               |
-|                                                                       |
-|  DEVOPS INTEGRATION (DevSecOps):                                      |
+|                                                                    |
+|  SHIFT LEFT: Problems found in requirements cost 1x                |
+|              Problems found in production cost 30-100x             |
+|                                                                    |
+|  DEVOPS INTEGRATION (DevSecOps):                                   |
 |  Every commit: SAST scan, secret scan, SCA                         |
 |  Every PR: security gate (no new high/critical issues)             |
 |  Every merge: container scan, IaC scan                             |

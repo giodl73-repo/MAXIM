@@ -8,14 +8,14 @@ tree of relationships (phylogeny) from molecular or morphological data.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │                   PHYLOGENETICS WORKFLOW                         │
-│                                                                    │
+│                                                                  │
 │  DATA                ALIGNMENT            TREE INFERENCE         │
 │  ────                ─────────            ──────────────         │
 │  DNA sequences  →  Multiple sequence  →  Parsimony               │
 │  Protein seqs      alignment (MSA)       Maximum likelihood      │
 │  Morphology        ClustalW/MUSCLE       Bayesian MCMC           │
 │  SNP arrays        MAFFT                                         │
-│                                                                    │
+│                                                                  │
 │  TREE INTERPRETATION        MOLECULAR CLOCK                      │
 │  ──────────────────         ────────────────                     │
 │  Topology: who is           Strict: rate constant                │

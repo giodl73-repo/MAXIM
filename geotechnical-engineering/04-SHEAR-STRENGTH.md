@@ -110,9 +110,9 @@ More controlled, better for clayey soils. Three test types:
 TRIAXIAL TEST CONFIGURATIONS:
 
   +------------------+------------------+------------------+
-  |    UU TEST        |    CU TEST        |    CD TEST       |
-  |  (Unconsolidated  |  (Consolidated-   |  (Consolidated-  |
-  |   Undrained)      |   Undrained)      |   Drained)       |
+  |    UU TEST        |    CU TEST        |    CD TEST     |
+  |  (Unconsolidated  |  (Consolidated-   |  (Consolidated-|
+  |   Undrained)      |   Undrained)      |   Drained)     |
   +------------------+------------------+------------------+
   | Consolidation:    | Consolidate to    | Consolidate to   |
   | NOT consolidated  | in-situ stress    | target stress    |
@@ -125,10 +125,10 @@ TRIAXIAL TEST CONFIGURATIONS:
   | Not measured      | effective stress  | (u = hydrostatic)|
   |                   | known)            |                  |
   +------------------+------------------+------------------+
-  | Results:          | c', φ' in terms   | c', φ' in terms  |
-  | Su = qu/2         | of effective      | of effective     |
-  | (total stress,    | stress (reliable) | stress (most     |
-  | φ = 0 analysis)   |                   | fundamental)     |
+  | Results:          | c', φ' in terms   | c', φ' in terms|
+  | Su = qu/2         | of effective      | of effective   |
+  | (total stress,    | stress (reliable) | stress (most   |
+  | φ = 0 analysis)   |                   | fundamental)   |
   +------------------+------------------+------------------+
   | Use for:          | Short-term +      | Long-term        |
   | Quick loading,    | long-term analysis| analysis, drained|

@@ -7,9 +7,9 @@
 |              ANALYTICAL METHODS AND WHAT THEY ANSWER             |
 |                                                                  |
 |  Question                  Method                                |
-|  ───────────────────────────────────────────────────────────── |
+|  ─────────────────────────────────────────────────────────────   |
 |  Where was this made?      XRF / EMPA / lead isotopes            |
-|  What did they eat?        Stable isotopes (δ¹³C, δ¹⁵N)        |
+|  What did they eat?        Stable isotopes (δ¹³C, δ¹⁵N)          |
 |  Where did they live?      Sr/O isotopes (migration)             |
 |  Who were they genetically?Ancient DNA (aDNA)                    |
 |  What was in this vessel?  Lipid residue analysis                |

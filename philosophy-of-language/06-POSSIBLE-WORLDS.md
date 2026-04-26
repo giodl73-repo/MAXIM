@@ -19,11 +19,11 @@ For a TCS background: possible worlds semantics is Kripke semantics for modal lo
 |  "2+2=5" FALSE              World w5: no world — necessary falsehood  |
 |                                                                       |
 |  SEMANTICS:                                                           |
-|  □P (necessarily P): P is true in ALL accessible worlds             |
-|  ◇P (possibly P):    P is true in SOME accessible world             |
+|  □P (necessarily P): P is true in ALL accessible worlds               |
+|  ◇P (possibly P):    P is true in SOME accessible world               |
 |                                                                       |
 |  ACCESSIBILITY RELATION R(w, w'):                                     |
-|  w' is accessible from w = w' is relevant for evaluating            |
+|  w' is accessible from w = w' is relevant for evaluating              |
 |  necessity/possibility from perspective of w                          |
 |  Different modal logics = different properties of R                   |
 +-----------------------------------------------------------------------+

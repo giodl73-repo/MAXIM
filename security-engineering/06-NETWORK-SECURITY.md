@@ -13,21 +13,21 @@ NETWORK SECURITY LAYERS
 |  API Gateway: auth, rate limiting, routing                            |
 |                                                                       |
 |  LAYER 4-7 (Transport + Application)                                  |
-|  NGFW (Next-Gen Firewall): stateful, TLS inspection, IDS/IPS        |
-|  Zero Trust Network Access (ZTNA): identity-aware access            |
+|  NGFW (Next-Gen Firewall): stateful, TLS inspection, IDS/IPS          |
+|  Zero Trust Network Access (ZTNA): identity-aware access              |
 |                                                                       |
 |  LAYER 3-4 (Network + Transport)                                      |
 |  Classic Firewall: IP/port-based packet filter                        |
-|  Network Segmentation: VLANs, subnets, NSGs                        |
+|  Network Segmentation: VLANs, subnets, NSGs                           |
 |                                                                       |
 |  LAYER 2 (Data Link)                                                  |
 |  802.1X port authentication                                           |
 |  VLAN tagging                                                         |
 |                                                                       |
 |  TRANSPORT SECURITY (spans all layers)                                |
-|  TLS 1.3: encryption + authentication for all TCP                   |
+|  TLS 1.3: encryption + authentication for all TCP                     |
 |  DNSSEC: authenticated DNS responses                                  |
-|  mTLS: mutual authentication for service-to-service                 |
+|  mTLS: mutual authentication for service-to-service                   |
 +-----------------------------------------------------------------------+
 ```
 

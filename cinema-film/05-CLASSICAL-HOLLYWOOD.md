@@ -18,24 +18,24 @@ CLASSICAL HOLLYWOOD STRUCTURE
 |  |Contract   |    |to theaters|    |chains     |                 |
 |  |talent     |    |worldwide  |    |First-run  |                 |
 |  +-----------+    +-----------+    +-----------+                 |
-|                                                                  |
-|  BIG FIVE (controlled all 3 verticals):                          |
-|    Paramount Pictures                                            |
-|    Metro-Goldwyn-Mayer (MGM)                                     |
-|    Warner Bros                                                   |
-|    RKO Radio Pictures                                            |
-|    20th Century Fox                                              |
-|                                                                  |
-|  LITTLE THREE (production + distribution, no theaters):          |
-|    Universal Pictures                                            |
-|    Columbia Pictures                                             |
-|    United Artists (distribution only; artist-owned)              |
-|                                                                  |
-|  ANTI-COMPETITIVE PRACTICES:                                     |
-|    Block booking: must take whole slate to get hits              |
-|    Blind bidding: buy films without seeing them                  |
-|    Clearances: release schedule privileges first-run theaters    |
-|    Geographic exclusivity: one first-run theater per zone        |
+   |                                                               |
+   |  BIG FIVE (controlled all 3 verticals):                       |
+   |    Paramount Pictures                                         |
+   |    Metro-Goldwyn-Mayer (MGM)                                  |
+   |    Warner Bros                                                |
+   |    RKO Radio Pictures                                         |
+   |    20th Century Fox                                           |
+   |                                                               |
+   |  LITTLE THREE (production + distribution, no theaters):       |
+   |    Universal Pictures                                         |
+   |    Columbia Pictures                                          |
+   |    United Artists (distribution only; artist-owned)           |
+   |                                                               |
+   |  ANTI-COMPETITIVE PRACTICES:                                  |
+   |    Block booking: must take whole slate to get hits           |
+   |    Blind bidding: buy films without seeing them               |
+   |    Clearances: release schedule privileges first-run theaters |
+   |    Geographic exclusivity: one first-run theater per zone     |
 +-------------------------------------------------------------------+
          |
          | 1948: United States v. Paramount Pictures, Inc.

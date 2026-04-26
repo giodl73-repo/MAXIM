@@ -24,8 +24,8 @@ INVESTIGATIVE vs. BEAT JOURNALISM
   │  Ida Tarbell/Standard Oil (1904): Document analysis              │
   │  Boston Globe/Catholic Church (2002): Source cultivation         │
   │   → basis for the film Spotlight                                 │
-  │  Panama Papers (ICIJ 2016): Data analysis of 11.5M documents   │
-  │  NYT/Weinstein (2017): Source cultivation over months          │
+  │  Panama Papers (ICIJ 2016): Data analysis of 11.5M documents     │
+  │  NYT/Weinstein (2017): Source cultivation over months            │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -82,12 +82,12 @@ RECORDS REQUEST STRATEGY
 
   WHAT TO REQUEST FIRST:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ① Contract documents (procurement records)                    │
-  │  ② Correspondence (emails, memos) — most revealing            │
-  │  ③ Meeting minutes (who attended, what was decided)            │
-  │  ④ Financial records (expenditures, payments)                  │
-  │  ⑤ Complaints/investigations/audit reports                     │
-  │  ⑥ Regulatory filings (especially for private companies)       │
+  │  ① Contract documents (procurement records)                      │
+  │  ② Correspondence (emails, memos) — most revealing               │
+  │  ③ Meeting minutes (who attended, what was decided)              │
+  │  ④ Financial records (expenditures, payments)                    │
+  │  ⑤ Complaints/investigations/audit reports                       │
+  │  ⑥ Regulatory filings (especially for private companies)         │
   └──────────────────────────────────────────────────────────────────┘
 
   PARALLEL REQUEST STRATEGY:
@@ -123,31 +123,31 @@ CAR METHODOLOGY
   DATA JOURNALISM APPLIED TO INVESTIGATION:
   ┌──────────────────────────────────────────────────────────────────┐
   │  CLASSIC CAR STORIES:                                            │
-  │  Pulitzer 1989 (Philadelphia Inquirer, Donald Barlett/James    │
-  │   Steele): Tax code analysis showed systematic inequality     │
-  │  USA Today: Bridge safety database analysis                    │
+  │  Pulitzer 1989 (Philadelphia Inquirer, Donald Barlett/James      │
+  │   Steele): Tax code analysis showed systematic inequality        │
+  │  USA Today: Bridge safety database analysis                      │
   │  IRE (Investigative Reporters and Editors): Annual conf.         │
-  │   shares methodology templates                                 │
+  │   shares methodology templates                                   │
   └──────────────────────────────────────────────────────────────────┘
 
   INVESTIGATION DATA WORKFLOW:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  1. Acquire database (FOIA, public download, scraping)         │
-  │  2. Understand its structure (what fields, what time range)    │
-  │  3. Document cleaning decisions (maintain audit log)           │
-  │  4. Analyze: Group by entity; calculate totals/rates          │
-  │  5. Look for anomalies: Outliers from the pattern             │
-  │  6. Verify: Are anomalies errors or real?                      │
-  │  7. Human story: Data point to people and places              │
-  │  8. Subject interview: Confront anomalies with subject        │
+  │  1. Acquire database (FOIA, public download, scraping)           │
+  │  2. Understand its structure (what fields, what time range)      │
+  │  3. Document cleaning decisions (maintain audit log)             │
+  │  4. Analyze: Group by entity; calculate totals/rates             │
+  │  5. Look for anomalies: Outliers from the pattern                │
+  │  6. Verify: Are anomalies errors or real?                        │
+  │  7. Human story: Data point to people and places                 │
+  │  8. Subject interview: Confront anomalies with subject           │
   └──────────────────────────────────────────────────────────────────┘
 
   WHAT COMPUTERS DO THAT REPORTERS ALONE CANNOT:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Process millions of records for pattern → impossible manually │
-  │  Cross-reference databases → find connections                  │
-  │  Calculate rates across geography/time → context for numbers  │
-  │  Create searchable database from documents (OCR + index)       │
+  │  Process millions of records for pattern → impossible manually   │
+  │  Cross-reference databases → find connections                    │
+  │  Calculate rates across geography/time → context for numbers     │
+  │  Create searchable database from documents (OCR + index)         │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -238,9 +238,9 @@ CONFRONTING THE SUBJECT
 
   WHY IT'S REQUIRED:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Fairness: Subject has right to respond to damaging claims     │
+  │  Fairness: Subject has right to respond to damaging claims       │
   │  Accuracy: Subject may have information that changes the story   │
-  │  Legal protection: Cannot claim malice if subject was offered  │
+  │  Legal protection: Cannot claim malice if subject was offered    │
   │   opportunity to respond and declined or responded inadequately│
   └──────────────────────────────────────────────────────────────────┘
 
@@ -276,11 +276,11 @@ DEFAMATION LAW BASICS (US)
   DEFAMATION ELEMENTS:
   ┌──────────────────────────────────────────────────────────────────┐
   │  To succeed in a defamation lawsuit, plaintiff must prove:       │
-  │  ① False statement of fact (not opinion, not true)             │
-  │  ② Publication to a third party                               │
-  │  ③ Identification (reader would understand who it refers to)  │
-  │  ④ Fault (varies by plaintiff type — see below)               │
-  │  ⑤ Damages (actual harm — sometimes presumed)                 │
+  │  ① False statement of fact (not opinion, not true)               │
+  │  ② Publication to a third party                                  │
+  │  ③ Identification (reader would understand who it refers to)     │
+  │  ④ Fault (varies by plaintiff type — see below)                  │
+  │  ⑤ Damages (actual harm — sometimes presumed)                    │
   └──────────────────────────────────────────────────────────────────┘
 
   NYT v. SULLIVAN (1964) — ACTUAL MALICE STANDARD:

@@ -22,7 +22,7 @@ REPLICATION TOPOLOGY COMPARISON
 |    | replicates      \   /               Read Repair     |
 |    |                  \ /                Anti-entropy    |
 |    v                  Merge             (eventual sync)  |
-|  R1  R2  R3          conflict                          |
+|  R1  R2  R3          conflict                            |
 |  (read replicas)                                         |
 +----------------------------------------------------------+
 

@@ -106,7 +106,7 @@ means holding economic and political logic simultaneously.
 
   ┌───────────────────────────────────────────────────────────────────┐
   │  Design        Components      Assembly        Brand/Marketing    │
-  │  (US, EU)  →   (Japan, Korea) → (China, Vietnam) → (US, EU)     │
+  │  (US, EU)  →   (Japan, Korea) → (China, Vietnam) → (US, EU)       │
   │                                                                   │
   │  iPhone example:                                                  │
   │  Design: Apple (California)                                       │
@@ -227,9 +227,9 @@ means holding economic and political logic simultaneously.
   │  (3) Independent monetary policy                                 │
   │                                                                  │
   │ Bretton Woods: (2) + (3) → capital controls                      │
-  │ Post-1970s: (1) + (3) → floating rates                         │
-  │ Eurozone: (1) + (2) → no independent monetary policy           │
-  │ China historically: (2) + (3) → capital controls               │
+  │ Post-1970s: (1) + (3) → floating rates                           │
+  │ Eurozone: (1) + (2) → no independent monetary policy             │
+  │ China historically: (2) + (3) → capital controls                 │
   └──────────────────────────────────────────────────────────────────┘
 
   CURRENCY MANIPULATION:

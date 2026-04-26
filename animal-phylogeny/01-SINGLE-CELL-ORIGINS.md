@@ -198,7 +198,7 @@ EVIDENCE IT HAPPENED:
 +--------------------------------------------------+
 | Feature         | Mitochondria | Chloroplast     |
 |-----------------|-------------|-----------------|
-| Own DNA         | ✓ (circular)| ✓ (circular)   |
+| Own DNA         | ✓ (circular)| ✓ (circular)     |
 | Double membrane | ✓           | ✓                |
 | 70S ribosomes   | ✓           | ✓                |
 | Binary fission  | ✓           | ✓                |

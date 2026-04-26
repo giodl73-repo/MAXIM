@@ -10,8 +10,8 @@ THE ARCH LOGIC
 
   BEAM (conventional spanning):          ARCH (masonry spanning):
   ┌────────────────────────────┐         ┌────────────────────────────┐
-  │  P      P      P          │         │  P      P      P          │
-  │  ↓      ↓      ↓          │         │  ↓      ↓      ↓          │
+  │  P      P      P          │         │  P      P      P            │
+  │  ↓      ↓      ↓          │         │  ↓      ↓      ↓            │
   │  ════════════════════      │         │      ╭─────────╮           │
   │  Tension in bottom fiber   │         │  ╭──╯           ╰──╮       │
   │  → masonry cannot do this  │         │  │   COMPRESSION   │       │
@@ -49,19 +49,19 @@ CATENARY AND ARCH RELATIONSHIP
 
   ┌──────────────────────────────────────────────────────────────────────┐
   │                  ARCH CROSS-SECTION                                  │
-  │                                                                        │
+  │                                                                      │
   │  ╔════════════════════════════════════════════╗  ← extrados (top)    │
-  │  ║                                            ║                        │
-  │  ║  ─ ─ ─ ─ ─ THRUST LINE ─ ─ ─ ─ ─ ─ ─ ─  ║  ← stays inside      │
-  │  ║                                            ║                        │
+  │  ║                                            ║                      │
+  │  ║  ─ ─ ─ ─ ─ THRUST LINE ─ ─ ─ ─ ─ ─ ─ ─  ║  ← stays inside         │
+  │  ║                                            ║                      │
   │  ╚════════════════════════════════════════════╝  ← intrados (bottom) │
-  │                                                                        │
+  │                                                                      │
   │  THREE HINGE MECHANISM (collapse state):                             │
   │  ╔══╗                              ╔══╗                              │
   │  ║  ╚═══╗  hinge              ╔═══╝  ║                               │
   │  ║      ╚═══════[HINGE]═════╝      ║   ← thrust line exits;          │
   │  ╚═════[H]═══════════════════[H]═══╝     arch becomes mechanism      │
-  │                                                                        │
+  │                                                                      │
   │  3 hinges = statically determinate mechanism = COLLAPSE              │
   └──────────────────────────────────────────────────────────────────────┘
 ```
@@ -79,7 +79,7 @@ VOUSSOIR ARCH ANATOMY
 ======================
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │                                                                    │
+  │                                                                  │
   │              KEYSTONE (crown)                                    │
   │               ┌────┐                                             │
   │            ╔══╝    ╚══╗                                          │
@@ -89,7 +89,7 @@ VOUSSOIR ARCH ANATOMY
   │        ╔╝                   ╚╗                                   │
   │  ──────╝  SKEWBACK           ╚──────  SKEWBACK                   │
   │  ABUTMENT ←                → ABUTMENT (must resist horiz. thrust) │
-  │                                                                    │
+  │                                                                  │
   │  INTRADOS = inner curved face of arch (soffit)                   │
   │  EXTRADOS = outer curved face of arch                            │
   │  RISE = vertical distance from spring line to crown              │
@@ -130,8 +130,8 @@ POINTED ARCH (Gothic)
 COMPARISON: THRUST AT SAME SPAN
 ================================
   ┌────────────────────────────────────────────────────────────────┐
-  │  Semicircular: H = V / 2 (rise/span = 0.5)                   │
-  │  Pointed 2-centered: H = V × (depends on rise)               │
+  │  Semicircular: H = V / 2 (rise/span = 0.5)                     │
+  │  Pointed 2-centered: H = V × (depends on rise)                 │
   │  Pointed (steep): H significantly < semicircular               │
   │                                                                │
   │  Higher rise → lower horizontal thrust                         │
@@ -187,13 +187,13 @@ VAULT TAXONOMY
   │  intersection) concentrate load at 4 corner piers                │
   │                                                                  │
   │     ╱───────╲                                                    │
-  │    ╱  GROIN  ╲   ← diagonal groins (lines of intersection)    │
+  │    ╱  GROIN  ╲   ← diagonal groins (lines of intersection)       │
   │   ╱  vault    ╲                                                  │
   │  ╱─────────────╲                                                 │
   │                                                                  │
-  │  Advantage: load concentrates at 4 points → walls between      │
-  │  piers freed from thrust → can have openings (windows)         │
-  │  Use: Roman baths, Romanesque crossing vaults                  │
+  │  Advantage: load concentrates at 4 points → walls between        │
+  │  piers freed from thrust → can have openings (windows)           │
+  │  Use: Roman baths, Romanesque crossing vaults                    │
   └──────────────────────────────────────────────────────────────────┘
 
   RIB VAULT (Gothic revolution)
@@ -203,13 +203,13 @@ VAULT TAXONOMY
   │  Thin masonry webs (infill) between ribs                         │
   │                                                                  │
   │  Construction advantage:                                         │
-  │  • Ribs built on light centering (temporary wooden formwork)   │
+  │  • Ribs built on light centering (temporary wooden formwork)     │
   │  • Webs infilled after ribs set                                  │
-  │  • Centering removed rib by rib — never entire vault at once   │
+  │  • Centering removed rib by rib — never entire vault at once     │
   │                                                                  │
   │  Structural advantage:                                           │
-  │  • Concentrated point loads at piers (not distributed wall)    │
-  │  • Thin webs = lighter vault = less thrust                     │
+  │  • Concentrated point loads at piers (not distributed wall)      │
+  │  • Thin webs = lighter vault = less thrust                       │
   └──────────────────────────────────────────────────────────────────┘
 
   FAN VAULT (Late Gothic / Tudor)
@@ -231,7 +231,7 @@ GOTHIC CATHEDRAL STRUCTURAL SYSTEM
 
   PLAN:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  [BUTTRESS] [FLYING BUTTRESS]  [PIER]  [FLYING] [BUTTRESS]     │
+  │  [BUTTRESS] [FLYING BUTTRESS]  [PIER]  [FLYING] [BUTTRESS]       │
   │                                                                  │
   │  OUTER AISLE    │    NAVE    │    OUTER AISLE                    │
   │                 │           │                                    │
@@ -284,7 +284,7 @@ DOME GEOMETRY AND STRUCTURAL BEHAVIOR
   ┌──────────────────────────────────────────────────────────────────┐
   │     CROWN                                                        │
   │      │                                                           │
-  │   ╔══╧══╗   ← meridional compression (arch behavior)           │
+  │   ╔══╧══╗   ← meridional compression (arch behavior)             │
   │  ╔╝     ╚╗                                                       │
   │ ╔╝  COMP  ╚╗  hoop compression in upper dome                   │
   │╔╝──────────╚╗  ← transition zone (~52° from crown)             │
@@ -323,14 +323,14 @@ ARCH CENTERING
   PROCEDURE:
   ┌──────────────────────────────────────────────────────────────────┐
   │  1. Erect wooden centering to arch profile                       │
-  │  2. Lay voussoirs from both sides toward crown simultaneously  │
-  │     (balanced loading — prevents centering from tipping)       │
+  │  2. Lay voussoirs from both sides toward crown simultaneously    │
+  │     (balanced loading — prevents centering from tipping)         │
   │  3. Place keystone last                                          │
-  │  4. Allow mortar to cure (or allow dry arch to consolidate)    │
-  │  5. STRIKING THE CENTERING: lower gradually on wedges or       │
-  │     sand jacks → arch springs into self-supporting action      │
-  │  6. Monitor for cracking — small cracks at crown and           │
-  │     haunches normal as thrust line readjusts                   │
+  │  4. Allow mortar to cure (or allow dry arch to consolidate)      │
+  │  5. STRIKING THE CENTERING: lower gradually on wedges or         │
+  │     sand jacks → arch springs into self-supporting action        │
+  │  6. Monitor for cracking — small cracks at crown and             │
+  │     haunches normal as thrust line readjusts                     │
   └──────────────────────────────────────────────────────────────────┘
 
   Gothic rib vault centering:

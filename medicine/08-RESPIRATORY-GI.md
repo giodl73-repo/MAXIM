@@ -14,7 +14,7 @@
 │  RESPIRATORY SYSTEM                                                     │
 │  ┌──────────────────────────────────────────────────────────────────┐   │
 │  │  BRONCHOSPASM AXIS                                               │   │
-│  │    β2-agonist (SABAs/LABAs) → cAMP ↑ → smooth muscle relax     │   │
+│  │    β2-agonist (SABAs/LABAs) → cAMP ↑ → smooth muscle relax     │     │
 │  │    Anticholinergic (SAMA/LAMA) → block M3 → reduce ACh-bronchoconstriction│
 │  │    Xanthines → PDE inhibition → cAMP ↑ (weak); adenosine block   │   │
 │  ├──────────────────────────────────────────────────────────────────┤   │
@@ -30,7 +30,7 @@
 │  │    H2 blockers → competitive histamine block (famotidine)        │   │
 │  │  MOTILITY / EMESIS                                               │   │
 │  │    Prokinetics → D2/5-HT4 targets (metoclopramide, erythromycin)│    │
-│  │    Antiemetics → 5-HT3 / D2 / NK1 / H1 targets                 │   │
+│  │    Antiemetics → 5-HT3 / D2 / NK1 / H1 targets                 │     │
 │  └──────────────────────────────────────────────────────────────────┘   │
 │                                                                         │
 │  LOWER GI SYSTEM                                                        │

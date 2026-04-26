@@ -5,18 +5,18 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    BEHAVIORAL FINANCE LANDSCAPE                             │
-│                                                                               │
+│                                                                             │
 │  EFFICIENT MARKET HYPOTHESIS (Fama 1970):                                   │
 │  Prices reflect all available information.                                  │
 │  No systematic profitable trading strategy exists.                          │
 │  Price changes = unpredictable (random walk).                               │
-│                                                                               │
+│                                                                             │
 │  BEHAVIORAL CHALLENGE:                                                      │
 │  Systematic, predictable pricing errors exist.                              │
 │  These anomalies are inconsistent with rational risk-based explanations.    │
 │  They are consistent with psychological mechanisms (prospect theory,        │
 │  overconfidence, representativeness, loss aversion).                        │
-│                                                                               │
+│                                                                             │
 │  KEY TENSION: If anomalies are real, why don't arbitrageurs eliminate them? │
 │  ANSWER: Limits to arbitrage (Shleifer & Vishny 1997):                      │
 │  - Risk: arbitrage is never riskless (noise trader risk)                    │

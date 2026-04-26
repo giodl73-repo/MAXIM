@@ -10,7 +10,7 @@ Egyptian religion is one of the world's longest-lived: 3,000+ years from c. 3000
 │                                                                  │
 │  HELIOPOLIS (On):                                                │
 │  The Ennead — "Nine" — the primary creation theology             │
-│  Atum → Shu+Tefnut → Geb+Nut → Osiris+Isis+Set+Nephthys        │
+│  Atum → Shu+Tefnut → Geb+Nut → Osiris+Isis+Set+Nephthys          │
 │  Ra/Atum as sun-creator; solar theology dominant                 │
 │                                                                  │
 │  MEMPHIS:                                                        │
@@ -21,7 +21,7 @@ Egyptian religion is one of the world's longest-lived: 3,000+ years from c. 3000
 │  HERMOPOLIS:                                                     │
 │  The Ogdoad — "Eight" primordial pairs (chaos before creation)   │
 │  Nun+Naunet (water), Amun+Amaunet (hidden), Huh+Hauhet (infinity),│
-│  Kuk+Kauket (darkness) — the eight chaos forces                │
+│  Kuk+Kauket (darkness) — the eight chaos forces                  │
 │  Creation: primordial mound rises from chaos waters; first light │
 │                                                                  │
 │  THEBES (New Kingdom dominance):                                 │
@@ -29,11 +29,11 @@ Egyptian religion is one of the world's longest-lived: 3,000+ years from c. 3000
 │  Eventually: "the hidden one" whose name cannot be spoken        │
 │  → proto-monotheistic trend                                      │
 │                                                                  │
-│  AMARNA HERESY (Akhenaten, 1353–1336 BCE):                     │
+│  AMARNA HERESY (Akhenaten, 1353–1336 BCE):                       │
 │  Akhenaten (Amenhotep IV) suppresses all gods → worship Aten only│
-│  (solar disk, not anthropomorphized)                           │
+│  (solar disk, not anthropomorphized)                             │
 │  Only documented attempt at royal-imposed monotheism             │
-│  Reversed immediately after Akhenaten's death                  │
+│  Reversed immediately after Akhenaten's death                    │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -121,7 +121,7 @@ The most important narrative in Egyptian religion, encoding the theology of king
 │  Osiris cannot fully return to life; becomes king of the dead    │
 │  (the Duat — Egyptian underworld)                                │
 │  His resurrection is partial: he is the first mummy              │
-│  Embalming = re-enacting Isis/Anubis's preparation of Osiris   │
+│  Embalming = re-enacting Isis/Anubis's preparation of Osiris     │
 │                                                                  │
 │  THE CONTENDINGS OF HORUS AND SET:                               │
 │  Horus grows up (protected by Isis in papyrus swamps)            │
@@ -293,7 +293,7 @@ LAKE OF FIRE (Amenti):
 │  "I have not stopped the flow of water."                         │
 │  [The list is exhaustive — personal, social, and cosmic sins]    │
 │                                                                  │
-│  IF HEART = FEATHER: justified (maa-kheru = "true of voice")   │
+│  IF HEART = FEATHER: justified (maa-kheru = "true of voice")     │
 │    → proceed to the Field of Reeds                               │
 │  IF HEART HEAVIER: Ammit devours it → second death               │
 └──────────────────────────────────────────────────────────────────┘

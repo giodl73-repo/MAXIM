@@ -15,9 +15,9 @@ Hindu mythology is not a single tradition — it is the accumulated theological 
 │                                                                  │
 │  SMRITI ("remembered" — composed, not revealed):                 │
 │  — Mahabharata (~400 BCE–400 CE compiled): 1.8 million words     │
-│    Includes Bhagavad Gita (Chapters 25–42 of Book 6)           │
+│    Includes Bhagavad Gita (Chapters 25–42 of Book 6)             │
 │  — Ramayana (~500–100 BCE): 24,000 verses; Valmiki version       │
-│  — Puranas (3rd–18th c. CE): 18 major, 18 minor                │
+│  — Puranas (3rd–18th c. CE): 18 major, 18 minor                  │
 │    Vishnu Purana, Shiva Purana, Bhagavata Purana, etc.           │
 │  — Dharma Shastras: Manu's Laws, etc.                            │
 │                                                                  │
@@ -85,7 +85,7 @@ Post-Vedic synthesis produces the Trimurti — three aspects of the divine manag
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    THE TRIMURTI                                    │
+│                    THE TRIMURTI                                  │
 │                                                                  │
 │  BRAHMA — The Creator                                            │
 │  — Creates the universe at the beginning of each cosmic cycle    │
@@ -98,10 +98,10 @@ Post-Vedic synthesis produces the Trimurti — three aspects of the divine manag
 │  VISHNU — The Preserver                                          │
 │  — Maintains and sustains creation through cosmic cycles         │
 │  — Descends to earth in avatars when dharma is threatened        │
-│  — Rests on the cosmic serpent Shesha (Ananta) on the milky    │
+│  — Rests on the cosmic serpent Shesha (Ananta) on the milky      │
 │    ocean (Kshira Sagara) between creations                       │
 │  — Consort: Lakshmi (wealth, fortune, beauty)                    │
-│  — Attributes: conch (shankha), discus (Sudarshana Chakra),    │
+│  — Attributes: conch (shankha), discus (Sudarshana Chakra),      │
 │    mace (Kaumodaki), lotus                                       │
 │  — Color: dark blue-black                                        │
 │                                                                  │
@@ -112,10 +112,10 @@ Post-Vedic synthesis produces the Trimurti — three aspects of the divine manag
 │    householder (married to Parvati/Shakti), cosmic dancer        │
 │    (Nataraja — dancing destroys and recreates the universe)      │
 │  — Attributes: trident (trishula), drum (damaru), third eye      │
-│    (destroys with fire when opened), crescent moon in hair,    │
+│    (destroys with fire when opened), crescent moon in hair,      │
 │    Ganga flows from his matted locks, snake Vasuki on neck       │
 │  — Lingam: phallic column = his primary form of worship          │
-│  — Consort: Parvati (and her fierce forms: Durga, Kali)        │
+│  — Consort: Parvati (and her fierce forms: Durga, Kali)          │
 │  — Sons: Ganesha (elephant head; remover of obstacles),          │
 │           Kartikeya/Murugan (war god, peacock rider)             │
 │                                                                  │
@@ -156,7 +156,7 @@ Avatar (avatāra) = descent; Vishnu descends in bodily form to restore dharma:
 │     — Demon Hiranyakashipu has boon: cannot be killed by man     │
 │       or beast, by day or night, inside or outside, on earth     │
 │       or in sky, by any weapon                                   │
-│     — Narasimha: neither man nor beast; at dusk (neither day   │
+│     — Narasimha: neither man nor beast; at dusk (neither day     │
 │       nor night); on a threshold (neither inside nor outside);   │
 │       on his lap (neither earth nor sky); with claws             │
 │       (not a weapon) — every condition of the boon exploited     │
@@ -178,7 +178,7 @@ Avatar (avatāra) = descent; Vishnu descends in bodily form to restore dharma:
 │  7. RAMA — Hero of the Ramayana                                  │
 │     — Model king, dutiful son, devoted husband                   │
 │     — Rescues Sita from Ravana with help of Hanuman              │
-│     — The "maryada purushottama" — the ideal man               │
+│     — The "maryada purushottama" — the ideal man                 │
 │                                                                  │
 │  8. KRISHNA — Hero of the Mahabharata                            │
 │     — Most complex avatar: divine trickster, lover, warrior,     │
@@ -347,7 +347,7 @@ One of the most distinctive Hindu cosmological contributions — time as cyclica
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                    THE YUGA CYCLE                                  │
+│                    THE YUGA CYCLE                                │
 │                                                                  │
 │  A Mahayuga = four yugas = one complete cycle of human history   │
 │                                                                  │
@@ -367,33 +367,33 @@ One of the most distinctive Hindu cosmological contributions — time as cyclica
 │  Duration: 864,000 human years                                   │
 │  — Dharma on two legs; humanity at half capacity                 │
 │  — Disease and discord appear; need for more complex ritual      │
-│  — Mahabharata occurs at the cusp of Dvapara/Kali transition   │
+│  — Mahabharata occurs at the cusp of Dvapara/Kali transition     │
 │  — Krishna departs; Kali Yuga begins                             │
 │                                                                  │
 │  KALI YUGA — The Iron Age (Current)                              │
 │  Duration: 432,000 human years                                   │
-│  — Dharma on one leg; majority of virtue has left the world    │
-│  — Discord, deception, greed, shortened lifespans              │
-│  — Began: ~3102 BCE (traditional date = when Krishna departed) │
-│  — We are ~5,100 years into a 432,000-year era                 │
+│  — Dharma on one leg; majority of virtue has left the world      │
+│  — Discord, deception, greed, shortened lifespans                │
+│  — Began: ~3102 BCE (traditional date = when Krishna departed)   │
+│  — We are ~5,100 years into a 432,000-year era                   │
 │                                                                  │
 │  MAHAYUGA TOTAL: 4,320,000 years                                 │
 │                                                                  │
 │  LARGER CYCLES:                                                  │
 │  1,000 Mahayugas = 1 Kalpa (one day of Brahma)                   │
-│  = 4.32 billion years = one creative cycle of the universe     │
-│  (strikingly close to Earth's actual age: ~4.5 billion years)  │
+│  = 4.32 billion years = one creative cycle of the universe       │
+│  (strikingly close to Earth's actual age: ~4.5 billion years)    │
 │                                                                  │
 │  Brahma's night = 4.32 billion years (universe dissolved)        │
 │  Brahma's full life = 311 trillion years                         │
-│  After Brahma dies, a new Brahma is born; the cycle restarts   │
-│  → No beginning; no end; time is cyclic at all scales          │
+│  After Brahma dies, a new Brahma is born; the cycle restarts     │
+│  → No beginning; no end; time is cyclic at all scales            │
 │                                                                  │
 │  COMPARE:                                                        │
-│  Greek: Hesiod's five ages (Gold → Silver → Bronze → Heroic →  │
+│  Greek: Hesiod's five ages (Gold → Silver → Bronze → Heroic →    │
 │          Iron) also shows degradation over time                  │
-│  Norse: Three ages from creation to Ragnarok (no restart)      │
-│  Abrahamic: Linear time (creation → fall → redemption → end)   │
+│  Norse: Three ages from creation to Ragnarok (no restart)        │
+│  Abrahamic: Linear time (creation → fall → redemption → end)     │
 │  Hindu: Cyclic, multi-scale, no ultimate end — just more cycles  │
 └──────────────────────────────────────────────────────────────────┘
 ```

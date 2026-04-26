@@ -144,7 +144,7 @@ Crops grown primarily to improve soil/manage nutrients/control erosion rather th
 COVER CROP FUNCTIONS:
   ┌─────────────────────────────────────────────────────────┐
   │ FUNCTION           SPECIES             MECHANISM        │
-  │─────────────────   ─────────────────   ────────────── │
+  │─────────────────   ─────────────────   ──────────────   │
   │ N fixation         Crimson clover,      Rhizobium       │
   │                    hairy vetch,         symbiosis       │
   │                    field peas           50–200 kg N/ha  │

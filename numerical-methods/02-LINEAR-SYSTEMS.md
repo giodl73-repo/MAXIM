@@ -25,9 +25,9 @@ Solving Ax = b is the most common operation in scientific computing. Every PDE s
 |  | A = LL^T            |           Key to practical speed       |
 |  | Half the work of LU |                                        |
 |  +---------------------+                                        |
-|                                                                 |
-|  WHEN DIRECT:          n < 10^4, dense, need exact solution     |
-|  WHEN ITERATIVE:       n > 10^4, sparse, structure exploitable  |
+   |                                                              |
+   |  WHEN DIRECT:          n < 10^4, dense, need exact solution  |
+   |  WHEN ITERATIVE:       n > 10^4, sparse, structure exploitable  |
 +------------------------------------------------------------------+
 ```
 

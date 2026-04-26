@@ -5,26 +5,26 @@
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │                   PROTEIN FOLDING LANDSCAPE                              │
-│                                                                            │
+│                                                                          │
 │  SEQUENCE → STRUCTURE → FUNCTION                                         │
 │  (1D)        (3D)         (activity)                                     │
-│                                                                            │
-│  THE FOLDING PROBLEM (three distinct questions):                           │
+│                                                                          │
+│  THE FOLDING PROBLEM (three distinct questions):                         │
 │  ─────────────────────────────────────────────                           │
 │  1. Prediction: Given sequence, what is the 3D structure?  ← AlphaFold2  │
 │  2. Mechanism: How does folding happen in time?             ← energy funnels│
 │  3. Design: Given desired function, what sequence folds to it? ← RFdiffusion│
-│                                                                            │
-│  LEVINTHAL'S PARADOX                                                       │
-│  ──────────────────                                                        │
+│                                                                          │
+│  LEVINTHAL'S PARADOX                                                     │
+│  ──────────────────                                                      │
 │  100-residue protein: 3¹⁰⁰ ≈ 10⁴⁸ conformations                          │
 │  At 1 ns/conformation: 10³⁹ years to search exhaustively                 │
-│  Actual folding time: microseconds to seconds                              │
-│  Resolution: proteins do NOT do exhaustive search — they fold via          │
-│  energy funnels, biasing toward lower-energy conformations                 │
-│                                                                            │
-│  MISFOLDING DISEASES                                                       │
-│  ──────────────────                                                        │
+│  Actual folding time: microseconds to seconds                            │
+│  Resolution: proteins do NOT do exhaustive search — they fold via        │
+│  energy funnels, biasing toward lower-energy conformations               │
+│                                                                          │
+│  MISFOLDING DISEASES                                                     │
+│  ──────────────────                                                      │
 │  Alzheimer's:  Aβ, tau fibrillization                                    │
 │  Parkinson's:  α-synuclein aggregation                                   │
 │  Prion:        PrPᶜ → PrPˢᶜ conversion                                   │
@@ -185,12 +185,12 @@ off-pathway aggregation and enable productive folding:
 │  GroEL/GroES   │  Misfolded, sticky,  │  Barrel chamber: encapsulates    │
 │  (Hsp60/Hsp10) │  ~20-60 kDa          │  single protein. ATP-driven lid  │
 │                │                      │  (GroES) closes → forced unfolding│
-│                │                      │  and refolding in isolation.       │
+│                │                      │  and refolding in isolation.     │
 │  ──────────────│──────────────────────│───────────────────────────────── │
 │  Hsp90         │  Signaling proteins, │  Stabilizes near-native states.  │
 │                │  kinases, nuclear    │  Regulatory: many co-chaperones. │
-│                │  receptors           │  ATP-dependent conformational      │
-│                │                      │  clamp mechanism.                  │
+│                │  receptors           │  ATP-dependent conformational    │
+│                │                      │  clamp mechanism.                │
 │  ──────────────│──────────────────────│───────────────────────────────── │
 │  TRiC/CCT      │  Actin, tubulin,     │  Eukaryotic GroEL analog.        │
 │                │  WD40 domains        │  8 subunits, different pockets   │
@@ -292,7 +292,7 @@ This ended the "protein structure prediction problem" as stated for 50+ years.
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │  SOLVED BY ALPHAFOLD2           │  NOT SOLVED                            │
-│  ──────────────────────────────│────────────────────────────────────── │
+│  ──────────────────────────────│──────────────────────────────────────   │
 │  Single-chain structure         │  Protein dynamics / conformational     │
 │  Accurate backbone + sidechain  │    ensemble (only one state predicted) │
 │  Most structured proteins       │  Intrinsically disordered proteins     │

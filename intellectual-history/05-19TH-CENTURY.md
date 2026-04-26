@@ -23,10 +23,10 @@ Together they are the intellectual roots of modernity and its discontents.
 |  | Morality is absolute |         | Nietzsche: morality is  |     |
 |  |  (God, Kant, Reason) |    =>   |  contingent, power-laden|     |
 |  +----------------------+         +-------------------------+     |
-|                                                                   |
-|  ALSO: POSITIVISM (Comte)  HISTORICAL IDEALISM (Hegel)            |
-|         UTILITARIANISM (Mill)  ROMANTICISM (ongoing)              |
-|         IMPERIALISM (Spencer)  ANARCHISM (Proudhon, Bakunin)      |
+   |                                                                |
+   |  ALSO: POSITIVISM (Comte)  HISTORICAL IDEALISM (Hegel)         |
+   |         UTILITARIANISM (Mill)  ROMANTICISM (ongoing)           |
+   |         IMPERIALISM (Spencer)  ANARCHISM (Proudhon, Bakunin)   |
 +-------------------------------------------------------------------+
 ```
 

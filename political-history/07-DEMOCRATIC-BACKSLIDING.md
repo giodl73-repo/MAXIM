@@ -52,18 +52,18 @@ DEMOCRATIC GUARDRAILS
   ┌────────────────────┐     ┌────────────────────┐
   │ • Constitution     │     │ • Mutual toleration: │
   │ • Election laws    │     │   treat opponents as │
-  │ • Term limits      │     │   legitimate, not    │
+  │ • Term limits      │     │   legitimate, not  │
   │ • Judicial review  │     │   existential threats│
-  │ • Free press       │     │                      │
-  │   protections      │     │ • Institutional      │
-  │ • Anti-corruption  │     │   forbearance:       │
-  │   laws             │     │   don't use legal    │
-  │                    │     │   powers maximally   │
-  │                    │     │   just because you   │
+  │ • Free press       │     │                    │
+  │   protections      │     │ • Institutional    │
+  │ • Anti-corruption  │     │   forbearance:     │
+  │   laws             │     │   don't use legal  │
+  │                    │     │   powers maximally │
+  │                    │     │   just because you │
   │                    │     │   can (filling every │
-  │                    │     │   court vacancy,     │
-  │                    │     │   using filibuster   │
-  │                    │     │   on everything)     │
+  │                    │     │   court vacancy,   │
+  │                    │     │   using filibuster │
+  │                    │     │   on everything)   │
   └────────────────────┘     └────────────────────┘
 
   KEY INSIGHT: Informal norms matter AS MUCH as
@@ -259,19 +259,19 @@ DEMOCRATIC RESILIENCE FACTORS
   INSTITUTIONAL:              POLITICAL:
   ┌────────────────────┐      ┌────────────────────┐
   │ • Federal structure │      │ • Opposition parties │
-  │   (state govts as   │      │   united, not       │
-  │   resistance nodes) │      │   fragmented        │
-  │                     │      │                     │
-  │ • Independent        │      │ • Norm-upholding    │
-  │   judiciary with     │      │   faction within   │
+  │   (state govts as   │      │   united, not     │
+  │   resistance nodes) │      │   fragmented      │
+  │                     │      │                   │
+  │ • Independent        │      │ • Norm-upholding │
+  │   judiciary with     │      │   faction within │
   │   strong tradition   │      │   incumbent party  │
-  │                     │      │                     │
-  │ • Free press with   │      │ • Civil society     │
+  │                     │      │                   │
+  │ • Free press with   │      │ • Civil society   │
   │   economic           │      │   robust (unions,  │
   │   independence       │      │   churches, NGOs)  │
-  │   from state         │      │                    │
-  │                     │      │ • Elite defection   │
-  │ • Civil society      │      │   from autocrat    │
+  │   from state         │      │                  │
+  │                     │      │ • Elite defection │
+  │ • Civil society      │      │   from autocrat  │
   │   organizations      │      │   (business, mil.) │
   └────────────────────┘      └────────────────────┘
 

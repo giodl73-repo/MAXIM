@@ -280,7 +280,7 @@ ARITHMETIZATION:
 
 COMPARISON: SNARK vs STARK:
   ┌────────────────────────────────────────────────────────────────────────┐
-  │  Property       │ Groth16        │ Plonk         │ STARKs            │
+  │  Property       │ Groth16        │ Plonk         │ STARKs              │
   ├────────────────────────────────────────────────────────────────────────┤
   │  Proof size     │ 192 bytes      │ ~1.5 KB       │ ~100-500 KB       │
   │  Verify time    │ ~1.5ms (3 prs) │ ~2ms          │ ~10-50ms          │

@@ -13,9 +13,9 @@ RESIDUE THEOREM — CENTRAL RESULT
 
   ┌─────────────────────────────────────────────────────────────────────┐
   │                                                                     │
-  │   ∮_C f(z) dz = 2πi × Σ_{aₖ inside C} Res(f, aₖ)                │
+  │   ∮_C f(z) dz = 2πi × Σ_{aₖ inside C} Res(f, aₖ)                    │
   │                                                                     │
-  │   where  Res(f, a) = coefficient of (z−a)^{-1} in Laurent series  │
+  │   where  Res(f, a) = coefficient of (z−a)^{-1} in Laurent series    │
   │           of f at a                                                 │
   └─────────────────────────────────────────────────────────────────────┘
 

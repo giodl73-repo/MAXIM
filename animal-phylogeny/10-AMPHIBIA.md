@@ -10,7 +10,7 @@ THE TETRAPOD TRANSITION
      +---------+----------+
      |                    |
   Coelacanth            Rhipidistia
-                             |
+                          |
                     +--------+--------+
                     |                 |
                 Lungfish          TETRAPODA

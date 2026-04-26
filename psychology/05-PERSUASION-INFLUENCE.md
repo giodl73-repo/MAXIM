@@ -22,10 +22,10 @@ mechanisms with identified neural correlates and measurable effect sizes.
 |                                                                      |
 |  COGNITIVE ROUTE MODEL     DISINFORMATION RESISTANCE                 |
 |  ──────────────────────    ────────────────────────────              |
-|  ELM (Petty/Cacioppo):     Inoculation theory (McGuire)            |
-|  Central route: effortful  Prebunking vs debunking                 |
-|  Peripheral route: cues    SIREN/inoculation vaccine model         |
-|  Motivation × Ability      Illusory truth, firehose effects        |
+|  ELM (Petty/Cacioppo):     Inoculation theory (McGuire)              |
+|  Central route: effortful  Prebunking vs debunking                   |
+|  Peripheral route: cues    SIREN/inoculation vaccine model           |
+|  Motivation × Ability      Illusory truth, firehose effects          |
 +----------------------------------------------------------------------+
 ```
 

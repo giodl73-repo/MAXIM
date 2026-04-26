@@ -318,7 +318,7 @@ NAV2 ARCHITECTURE:
         |
   +------------------+   +------------------+
   |  GLOBAL PLANNER  |   |  LOCALIZATION    |
-  |  NavFn (A*)       |   |  AMCL (particle   |
+  |  NavFn (A*)       |   |  AMCL (particle |
   |  SMAC (lattice)  |   |  filter), or     |
   |  Theta* (any-ang)|   |  SLAM Toolbox    |
   +------------------+   +------------------+
@@ -365,10 +365,10 @@ MOVEIT2 ARCHITECTURE:
   +---------------------+
         |
   +---------------------+   +---------------------+
-  |  MOTION PLANNING     |   |  PLANNING SCENE      |
-  |  FRAMEWORK (OMPL)    |   |  Collision objects   |
-  |  RRTConnect default  |   |  ACM (allowed        |
-  |  PILZ (industrial)   |   |  collision matrix)   |
+  |  MOTION PLANNING     |   |  PLANNING SCENE    |
+  |  FRAMEWORK (OMPL)    |   |  Collision objects |
+  |  RRTConnect default  |   |  ACM (allowed      |
+  |  PILZ (industrial)   |   |  collision matrix) |
   +---------------------+   | Robot model (URDF)  |
         |                   +---------------------+
   +---------------------+

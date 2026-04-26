@@ -8,7 +8,7 @@ ALL ANIMAL FIBERS = PROTEIN POLYMER
 |                                                                  |
 |  Amino acid monomers (20 types; all have -NH₂, -COOH, R-group)   |
 |        ↓                                                         |
-|  Peptide bonds: -CO-NH- (condensation of -COOH + -NH₂)         |
+|  Peptide bonds: -CO-NH- (condensation of -COOH + -NH₂)           |
 |        ↓                                                         |
 |  Polypeptide chain (protein)                                     |
 |        ↓ ↓                                                       |

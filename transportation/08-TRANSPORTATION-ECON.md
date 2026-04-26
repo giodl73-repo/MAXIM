@@ -15,21 +15,21 @@ Transportation economics is applied welfare economics and industrial organizatio
 |  | (travel  |  |          |  | Benefits |  | Debate   |         |
 |  | time...) |  |          |  |          |  |          |         |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                 |
-|  EXTERNALITIES AND PRICING                                      |
+   |                                                              |
+   |  EXTERNALITIES AND PRICING                                   |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Congestion| | Emissions| | Accidents| | First-best|         |
 |  | external- | | pricing  | | external | | Pigouvian|          |
 |  | ity       | | (carbon) | | costs    | | tolls    |          |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                 |
-|  ROAD PRICING CASES                                             |
+   |                                                              |
+   |  ROAD PRICING CASES                                          |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Singapore| | Stockholm| | London   | | SR91     |           |
 |  | ERP      | | Charge   | | CC       | | Express  |           |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                 |
-|  PUBLIC VS PRIVATE PROVISION                                    |
+   |                                                              |
+   |  PUBLIC VS PRIVATE PROVISION                                 |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Natural  |  | PPP      |  | Port     |  | Aviation |         |
 |  | Monopoly |  | Models   |  | Competition| | Markets |         |

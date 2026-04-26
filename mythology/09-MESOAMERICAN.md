@@ -17,22 +17,22 @@ Mesoamerica — the culture zone running from central Mexico through Guatemala a
 │  POST-CONQUEST AZTEC (most reliable):                            │
 │  — Florentine Codex (Sahagún, ~1575–1577): Nahuatl text with     │
 │    Spanish translation; most comprehensive source                │
-│  — Legends of the Suns (Leyenda de los Soles, 1558)            │
+│  — Legends of the Suns (Leyenda de los Soles, 1558)              │
 │  — Aztec songs (cantares mexicanos, romances de los señores)     │
 │                                                                  │
 │  MAYA:                                                           │
 │  — Popol Vuh: written in Quiché Maya ~1550–1700 CE               │
 │    (original compiled earlier; a bishop discovered the copy)     │
-│  — Dresden, Madrid, and Paris Codices (pre-conquest)           │
+│  — Dresden, Madrid, and Paris Codices (pre-conquest)             │
 │  — Classic Maya inscriptions on stone (600–900 CE): largely      │
 │    dynastic, but include mythological narrative                  │
-│  — Chilam Balam books (post-conquest)                          │
+│  — Chilam Balam books (post-conquest)                            │
 │                                                                  │
 │  INCA:                                                           │
 │  — No writing system; oral tradition recorded by Spanish         │
-│  — Garcilaso de la Vega: Inca Comentarios Reales (1609)        │
-│  — Guaman Poma de Ayala: Letter to a King (~1615)              │
-│  — Francisco de Avila: Huarochirí Manuscript (~1598)           │
+│  — Garcilaso de la Vega: Inca Comentarios Reales (1609)          │
+│  — Guaman Poma de Ayala: Letter to a King (~1615)                │
+│  — Francisco de Avila: Huarochirí Manuscript (~1598)             │
 │    Only pre-Columbian Andean mythology in indigenous language    │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -50,7 +50,7 @@ The central Aztec cosmological myth explains the current world as the fifth and 
 │  Each "Sun" = a complete world-age; each destroyed               │
 │  Current world = the Fifth Sun = the Sun of Movement (Nahui Ollin)│
 │                                                                  │
-│  SUN 1 — Nahui Ocelotl (4-Jaguar)                              │
+│  SUN 1 — Nahui Ocelotl (4-Jaguar)                                │
 │  Patron: Tezcatlipoca (Smoking Mirror; Black god; darkness)      │
 │  Inhabitants: Giants who ate acorns                              │
 │  Destruction: Tezcatlipoca's foot bitten off by a great crocodile│
@@ -72,7 +72,7 @@ The central Aztec cosmological myth explains the current world as the fifth and 
 │  Destruction: 52-year flood; the sky fell                        │
 │  Note: Tezcatlipoca and Quetzalcóatl rebuild sky (become pillars)│
 │                                                                  │
-│  SUN 5 — Nahui Ollin (4-Movement) — CURRENT SUN                │
+│  SUN 5 — Nahui Ollin (4-Movement) — CURRENT SUN                  │
 │  Created at Teotihuacan:                                         │
 │  — The gods gather in darkness; two volunteer to become sun/moon │
 │  — Tecuciztecatl (proud, wealthy) and Nanahuatzin (humble, scab)│
@@ -82,8 +82,8 @@ The central Aztec cosmological myth explains the current world as the fifth and 
 │    → He becomes the sun                                          │
 │  — Tecuciztecatl finally jumps; becomes the moon                 │
 │    (Originally as bright as the sun; one of the gods hits the    │
-│     moon with a rabbit to dim it — why there is a rabbit in    │
-│     the moon / why the moon is dimmer)                         │
+│     moon with a rabbit to dim it — why there is a rabbit in      │
+│     the moon / why the moon is dimmer)                           │
 │                                                                  │
 │  THE PROBLEM: Both sun and moon sit on the horizon; neither      │
 │  moves. The gods must die to set the sun in motion.              │
@@ -371,7 +371,7 @@ NEW FIRE CEREMONY:
 │  — Receives offerings poured into the earth (especially chicha)  │
 │  — Not absorbed into Inca state religion the same way as Inti    │
 │                                                                  │
-│  THE ORIGIN MYTH — MANCO CAPAC AND MAMA OCLLO:                 │
+│  THE ORIGIN MYTH — MANCO CAPAC AND MAMA OCLLO:                   │
 │  Inti sent his son Manco Capac and daughter-wife Mama Ocllo      │
 │  from Lake Titicaca with a golden staff                          │
 │  They were to found a city where the staff sank into the ground  │

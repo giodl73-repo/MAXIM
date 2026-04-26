@@ -101,7 +101,7 @@ CRISPR: PROGRAMMABLE GENOME EDITING
   USE CASE: Gene knockout
   ┌──────────────────────────────────────────────────────┐
   │ Wild-type: ATCGATCGATCGATCG → Protein: IDIDID        │
-  │ +1 insertion: ATCG[A]ATCGATCGATCG → IDIDX (frame   │
+  │ +1 insertion: ATCG[A]ATCGATCGATCG → IDIDX (frame     │
   │   shift, garbage protein → nonsense-mediated decay)  │
   └──────────────────────────────────────────────────────┘
 
@@ -229,15 +229,15 @@ CRISPR: PROGRAMMABLE GENOME EDITING
   │ pegRNA = gRNA + primer binding site (PBS) + reverse            │
   │          transcriptase template (RTT) encoding desired edit    │
   │                                                                │
-  │ PE protein = Cas9 nickase (nicks one strand) +               │
+  │ PE protein = Cas9 nickase (nicks one strand) +                 │
   │              M-MLV reverse transcriptase                       │
   │                                                                │
   │ PROCESS:                                                       │
-  │ 1. pegRNA guides Cas9 to target; nicks PAM strand            │
-  │ 2. 3' end of nicked strand hybridizes to PBS on pegRNA       │
-  │ 3. RT uses RTT as template to copy desired edit              │
-  │ 4. New DNA strand with edit replaces original                │
-  │ 5. PE3: second nick on opposite strand → promotes edit       │
+  │ 1. pegRNA guides Cas9 to target; nicks PAM strand              │
+  │ 2. 3' end of nicked strand hybridizes to PBS on pegRNA         │
+  │ 3. RT uses RTT as template to copy desired edit                │
+  │ 4. New DNA strand with edit replaces original                  │
+  │ 5. PE3: second nick on opposite strand → promotes edit         │
   └────────────────────────────────────────────────────────────────┘
 
   CAPABILITIES (all four types of edit):

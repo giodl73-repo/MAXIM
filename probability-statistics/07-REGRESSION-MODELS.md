@@ -26,7 +26,7 @@ Regression models the relationship between a response Y and predictors X. The fa
 |  REGULARIZED / HIGH-DIMENSIONAL                                  |
 |  +---------------------------+                                   |
 |  | Ridge: L2 penalty         |  For multicollinearity            |
-|  | Lasso: L1 penalty         |  For sparse models              |
+|  | Lasso: L1 penalty         |  For sparse models                |
 |  | Elastic Net: L1 + L2      |  For correlated predictors        |
 |  +---------------------------+                                   |
 |          |                                                       |

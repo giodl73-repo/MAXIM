@@ -75,10 +75,10 @@ A function u satisfying ∇²u = 0 in an open set Ω is called **harmonic**.
 
   COROLLARIES:
   ┌─────────────────────────────────────────────────────────────────┐
-  │ UNIQUENESS:  If ∇²u = ∇²v = 0 in Ω and u = v on ∂Ω,          │
+  │ UNIQUENESS:  If ∇²u = ∇²v = 0 in Ω and u = v on ∂Ω,             │
   │              then u = v everywhere in Ω.                        │
   │                                                                 │
-  │ STABILITY:   max|u − v| in Ω ≤ max|u − v| on ∂Ω               │
+  │ STABILITY:   max|u − v| in Ω ≤ max|u − v| on ∂Ω                 │
   │              The solution depends continuously on boundary data. │
   │                                                                 │
   │ LIOUVILLE:   A bounded harmonic function on all of Rⁿ must be   │
@@ -168,7 +168,7 @@ The centerpiece of elliptic theory:
 ```
   GREEN'S FUNCTION G(x,y) for domain Ω with Dirichlet BC:
   ┌───────────────────────────────────────────────────────────────┐
-  │  ∇²_x G(x,y) = δ(x−y)    in Ω  (for fixed y)               │
+  │  ∇²_x G(x,y) = δ(x−y)    in Ω  (for fixed y)                  │
   │  G(x,y) = 0               on ∂Ω                               │
   └───────────────────────────────────────────────────────────────┘
 
@@ -200,7 +200,7 @@ The centerpiece of elliptic theory:
   PHYSICAL PICTURE:
   +----------------------------------------------------+
   |         REAL CHARGE at y (upper half-space)        |
-  | ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  · |
+  | ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·     |
   ======================= x₃ = 0 (grounded plane) ===
   |         IMAGE CHARGE at y* (lower half-space)      |
   +----------------------------------------------------+

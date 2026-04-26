@@ -5,30 +5,30 @@
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │              BIOLOGICAL THERMODYNAMICS LANDSCAPE                         │
-│                                                                            │
+│                                                                          │
 │  EQUILIBRIUM THERMO           NON-EQUILIBRIUM THERMO                     │
 │  ──────────────────           ─────────────────────                      │
 │  ΔG = ΔH - TΔS               Steady-state fluxes                         │
 │  Keq = exp(-ΔG°/RT)          Driving force: chemical potential gradient  │
-│  Boltzmann distribution       Onsager reciprocal relations                 │
-│  Free energy minimization     NESS: non-equilibrium steady state           │
-│                                                                            │
-│  ATP HYDROLYSIS                                                            │
-│  ─────────────                                                             │
+│  Boltzmann distribution       Onsager reciprocal relations               │
+│  Free energy minimization     NESS: non-equilibrium steady state         │
+│                                                                          │
+│  ATP HYDROLYSIS                                                          │
+│  ─────────────                                                           │
 │  ATP + H₂O → ADP + Pᵢ                                                    │
 │  ΔG°' = -7.3 kcal/mol    (standard, pH 7, 25°C)                          │
 │  ΔG_cell ≈ -12 kcal/mol  (in vivo, far from equilibrium)                 │
-│                                                                            │
-│  FREE ENERGY TRANSDUCTION CHAIN                                            │
-│  ─────────────────────────────                                             │
-│  Light / Food                                                              │
+│                                                                          │
+│  FREE ENERGY TRANSDUCTION CHAIN                                          │
+│  ─────────────────────────────                                           │
+│  Light / Food                                                            │
 │      ↓  oxidative phosphorylation / photosynthesis                       │
 │  Proton gradient (ΔμH⁺)                                                  │
-│      ↓  ATP synthase                                                       │
-│  ATP                                                                       │
-│      ↓  hydrolysis by molecular machines                                   │
-│  Mechanical work / ion pumping / biosynthesis                              │
-│                                                                            │
+│      ↓  ATP synthase                                                     │
+│  ATP                                                                     │
+│      ↓  hydrolysis by molecular machines                                 │
+│  Mechanical work / ion pumping / biosynthesis                            │
+│                                                                          │
 │  ENERGY SCALE ANCHOR: k_BT = 0.6 kcal/mol at 310 K                       │
 │  ATP hydrolysis ΔG_cell ≈ 20 k_BT — large premium over thermal noise     │
 └──────────────────────────────────────────────────────────────────────────┘
@@ -70,7 +70,7 @@ This matters because ATP hydrolysis releases a proton — the pH dependence is b
 ```
 ┌──────────────────────────────────────────────────────────┐
 │                ΔG = ΔH - TΔS                             │
-│                                                            │
+│                                                          │
 │  ΔH contributions (enthalpy):                            │
 │  ─────────────────────────────                           │
 │  Covalent bond formation/breaking    ±50-500 kcal/mol    │
@@ -78,7 +78,7 @@ This matters because ATP hydrolysis releases a proton — the pH dependence is b
 │  van der Waals contacts              ±0.1-1 kcal/mol     │
 │  Electrostatic interactions          ±1-10 kcal/mol      │
 │  Hydrophobic effect (ΔH small!)      ≈0 kcal/mol         │
-│                                                            │
+│                                                          │
 │  TΔS contributions (at 310 K):                           │
 │  ─────────────────────────────                           │
 │  Hydrophobic burial (water ordering) -TΔS ≈ -3 kcal/mol  │

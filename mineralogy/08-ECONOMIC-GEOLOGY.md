@@ -11,15 +11,15 @@
 |                                                                  |
 |  Chromite           Porphyry Cu-Mo      BIF (iron)               |
 |  Ni-Cu-PGE          Epithermal Au-Ag    SEDEX (Pb-Zn)            |
-|  Kimberlite (diamond)VMS (Cu-Zn-Pb)    MVT (Pb-Zn)             |
-|  Anorthosite (Ti)   Skarn (Fe, Cu, W)  Phosphorite             |
+|  Kimberlite (diamond)VMS (Cu-Zn-Pb)    MVT (Pb-Zn)               |
+|  Anorthosite (Ti)   Skarn (Fe, Cu, W)  Phosphorite               |
 |  Pegmatite (Li, REE)Carlin (Au)        Evaporite (K, Na)         |
 |                                                                  |
 |  SUPERGENE          PLACER              RESIDUAL                 |
 |  (weathering)       (erosion/transport) (in-situ weathering)     |
 |                                                                  |
 |  Secondary enrichment Beach/river sands Laterite (Ni, Al)        |
-|  (Cu, Ag, Au)       (Ti, Sn, Au, REE)  Bauxite (Al)            |
+|  (Cu, Ag, Au)       (Ti, Sn, Au, REE)  Bauxite (Al)              |
 +------------------------------------------------------------------+
 ```
 
@@ -303,41 +303,41 @@ TECH SUPPLY CHAINS: MINERAL TO DEVICE
 +------------------------------------------------------------------+
 |  LITHIUM-ION BATTERY (EV and grid storage)                       |
 |                                                                  |
-|  Cathode: Li + NiMnCo or LiFePO₄                               |
+|  Cathode: Li + NiMnCo or LiFePO₄                                 |
 |  Li source: spodumene pegmatite (Australia, Chile)               |
 |             or Andean brine (Chile, Argentina, Bolivia triangle) |
 |  Ni source: laterite Ni (Philippines, Indonesia) or Ni sulfide   |
 |  Co source: cobaltite/pentlandite; 70% from DRC                  |
 |  Mn source: various; relatively abundant                         |
 |                                                                  |
-|  Anode: graphite (natural or synthetic)                        |
+|  Anode: graphite (natural or synthetic)                          |
 |  China: 65% of natural graphite production                       |
 |                                                                  |
-|  RARE EARTH ELEMENTS (REE): for motors and displays            |
-|  Nd, Pr → NdFeB permanent magnets (EV motors, wind turbines)   |
-|  La, Ce → catalytic converters, glass polishing               |
-|  Tb, Dy → high-T magnets (needed for EV in extreme temps)     |
-|  Eu, Tb, Y → phosphors (LEDs, fluorescent screens)             |
+|  RARE EARTH ELEMENTS (REE): for motors and displays              |
+|  Nd, Pr → NdFeB permanent magnets (EV motors, wind turbines)     |
+|  La, Ce → catalytic converters, glass polishing                  |
+|  Tb, Dy → high-T magnets (needed for EV in extreme temps)        |
+|  Eu, Tb, Y → phosphors (LEDs, fluorescent screens)               |
 |  Source: bastnasite (Mountain Pass, CA; China)                   |
-|           monazite (Australia, India, S. Africa)               |
-|           ion-adsorption clays (China Jiangxi Province = HREE) |
-|  China: ~60% of REE production, ~85% of separation/processing  |
+|           monazite (Australia, India, S. Africa)                 |
+|           ion-adsorption clays (China Jiangxi Province = HREE)   |
+|  China: ~60% of REE production, ~85% of separation/processing    |
 |                                                                  |
 |  SEMICONDUCTOR MATERIALS                                         |
-|  Silicon (Si): quartz sand → metallurgical Si → polysilicon    |
-|  Gallium (Ga): byproduct of Al smelting from bauxite          |
-|    → GaAs, GaN (high-frequency semiconductors, LEDs, solar)   |
-|  Germanium (Ge): byproduct of Zn smelting from sphalerite     |
-|    → Fiber optic cables, IR optics, SiGe chips               |
-|  Indium (In): byproduct of Zn from sphalerite                 |
-|    → ITO (touchscreens); In-Ga-N LEDs                        |
-|  High-purity quartz → fused silica → fiber optic cladding     |
+|  Silicon (Si): quartz sand → metallurgical Si → polysilicon      |
+|  Gallium (Ga): byproduct of Al smelting from bauxite             |
+|    → GaAs, GaN (high-frequency semiconductors, LEDs, solar)      |
+|  Germanium (Ge): byproduct of Zn smelting from sphalerite        |
+|    → Fiber optic cables, IR optics, SiGe chips                   |
+|  Indium (In): byproduct of Zn from sphalerite                    |
+|    → ITO (touchscreens); In-Ga-N LEDs                            |
+|  High-purity quartz → fused silica → fiber optic cladding        |
 |                                                                  |
 |  TANTALUM AND NIOBIUM                                            |
-|  Columbite-tantalite ("coltan"): DRC, Rwanda, Australia        |
-|  Ta → capacitors (85% of capacitors in electronics)           |
+|  Columbite-tantalite ("coltan"): DRC, Rwanda, Australia          |
+|  Ta → capacitors (85% of capacitors in electronics)              |
 |  Nb → high-strength steel, superconducting magnets (NbTi, Nb₃Sn)|
-|  SIGNIFICANT SUPPLY CHAIN RISK: DRC conflict history           |
+|  SIGNIFICANT SUPPLY CHAIN RISK: DRC conflict history             |
 +------------------------------------------------------------------+
 ```
 
@@ -406,19 +406,19 @@ CRITICAL SUPPLY CONCENTRATIONS:
 ```
 MINING METHODS vs. DEPOSIT TYPE
 +------------------------------------------------------------------+
-|  OPEN PIT: flat-lying or large, low-grade deposits             |
-|  Strip ratio determines economics                              |
+|  OPEN PIT: flat-lying or large, low-grade deposits               |
+|  Strip ratio determines economics                                |
 |  Bingham Canyon: world's largest open pit (1.2 km deep, 4 km wide)|
 |                                                                  |
-|  UNDERGROUND: narrow veins, high-grade, deep                   |
+|  UNDERGROUND: narrow veins, high-grade, deep                     |
 |  Block caving (mass caving): large low-grade bodies underground  |
-|  Cut and fill: narrow high-grade veins                         |
+|  Cut and fill: narrow high-grade veins                           |
 |                                                                  |
-|  PLACER: alluvial/beach mining; gold, Ti, Sn                  |
-|  Dredging, sluicing, hydraulic mining (environmental damage)   |
+|  PLACER: alluvial/beach mining; gold, Ti, Sn                     |
+|  Dredging, sluicing, hydraulic mining (environmental damage)     |
 |                                                                  |
-|  IN-SITU LEACHING: inject solution, pump out dissolved metals  |
-|  Copper (heap leach), uranium (ISL)                            |
+|  IN-SITU LEACHING: inject solution, pump out dissolved metals    |
+|  Copper (heap leach), uranium (ISL)                              |
 +------------------------------------------------------------------+
 
 ENVIRONMENTAL ISSUES:

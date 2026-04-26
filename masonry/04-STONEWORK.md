@@ -15,11 +15,11 @@ STONE MASONRY CLASSIFICATION
   │  ├── Random coursed: cut, but courses vary in height            │
   │  └── Random rubble (semi-dressed): irregular faces, dressed     │
   │                                     edges only                  │
-  │                                                                   │
+  │                                                                 │
   │  RUBBLE (undressed or minimally dressed)                        │
   │  ├── Coursed rubble: uncut stones laid in approximate courses   │
   │  └── Random rubble: no courses, stones as found                 │
-  │                                                                   │
+  │                                                                 │
   │  DRY-STONE (no mortar)                                          │
   │  ├── Dry-stone wall (agricultural boundary)                     │
   │  └── Cyclopean masonry (prehistoric large blocks)               │
@@ -57,7 +57,7 @@ ASHLAR CLASSIFICATION
 
   RANDOM COURSED ASHLAR
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ┌────────────┬──────┬────────────────┬──────┐                 │
+  │  ┌────────────┬──────┬────────────────┬──────┐                   │
   │  │  8" course │      │   8" course     │      │ ← vary heights  │
   │  ├────────────┤  6"  ├────────────────┤  6"  │                 │
   │  │  6" course │      │   6" course    │      │                 │
@@ -68,7 +68,7 @@ ASHLAR CLASSIFICATION
 
   RANDOM ASHLAR (non-coursed)
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ┌────────────┬──────────────┬──────┐                          │
+  │  ┌────────────┬──────────────┬──────┐                            │
   │  │            │  ┌───────┬───┴──┐   │  ← no horizontal courses  │
   │  │            │  │       │      │   │                           │
   │  ├──────┬─────┴──┤       ├──────┤   │  ← dressed faces, flat   │
@@ -152,12 +152,12 @@ DRY-STONE WALL ANATOMY
   KEY ELEMENTS:
   ┌──────────────────────────────────────────────────────────────────┐
   │  BATTER: Wall leans slightly inward on both faces                │
-  │    Typical: 1" in 2 feet (1:24) per face                       │
+  │    Typical: 1" in 2 feet (1:24) per face                         │
   │    Purpose: Lowers center of gravity, increases stability        │
   │                                                                  │
   │  THROUGH-STONE (bond stone, tie stone):                          │
   │    Spans full wall width at intervals                            │
-  │    Frequency: Every 3–4 sq ft of face area                     │
+  │    Frequency: Every 3–4 sq ft of face area                       │
   │    Critical: Without through-stones, two separate stacks form    │
   │                                                                  │
   │  HEARTING:                                                       │

@@ -270,7 +270,7 @@ PLACENTAL MAMMAL TREE:
     +----------+----------+
     |                     |
   ATLANTOGENATA        BOREOEUTHERIA
-       |                     |
+    |                     |
   +----+----+          +------+------+
   |         |          |             |
 Afrotheria Xenarthra Laurasiatheria Euarchontoglires
@@ -533,7 +533,7 @@ PRIMATE PHYLOGENY — KEY NODES
           (reached S.America
            ~40 Ma via
            Atlantic raft)
-                               │
+                                 │
                      ┌─────────┴─────────┐
                      │                   │
               CERCOPITHECIDAE        HOMINOIDEA (apes)

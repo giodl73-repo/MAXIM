@@ -206,7 +206,7 @@ Vygotsky worked in the Soviet Union from 1924 until his death from tuberculosis 
   |  |    <- instruction targets HERE      |        |
   |  +--------------------------------------+        |
   |  |                                               |
-  |  |  [CAN DO INDEPENDENTLY]                     |
+  |  |  [CAN DO INDEPENDENTLY]                       |
   |  |    (already developed)                        |
   |  +----------------------------------------------+
   |                                                  |

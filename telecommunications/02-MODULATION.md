@@ -180,7 +180,7 @@ IFFT/FFT IMPLEMENTATION:
   ┌──────────────────────────────────────────────────────────────────┐
   │ OFDM TRANSMITTER                                                 │
   │                                                                  │
-  │ Bits → [QAM map] → [S/P] → [N-point IFFT] → [P/S] → [Add CP] → │
+  │ Bits → [QAM map] → [S/P] → [N-point IFFT] → [P/S] → [Add CP] →   │
   │                                                                  │
   │ OFDM RECEIVER                                                    │
   │                                                                  │

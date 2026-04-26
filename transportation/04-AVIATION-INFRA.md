@@ -14,21 +14,21 @@ Aviation is a system of extraordinary complexity operating to extraordinarily ti
 |  | Class A-G|  | Routes   |  | (1000ft  |  | (PBN     |         |
 |  |          |  |          |  | sep)     |  | operations)|        |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                 |
-|  ATC SYSTEMS                                                    |
+   |                                                              |
+   |  ATC SYSTEMS                                                 |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Primary  |  | Secondary|  | ADS-B    |  | TCAS II  |         |
 |  | Radar    |  | Radar    |  | Out      |  | (RA/TA)  |         |
 |  | (PSR)    |  | (SSR)    |  |          |  |          |         |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                 |
-|  AIRPORT                                                        |
+   |                                                              |
+   |  AIRPORT                                                     |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Runway   |  | Taxiway  |  | Terminal |  | Approach |         |
 |  | Design   |  | System   |  | & Apron  |  | Aids     |         |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                 |
-|  AIRLINE ECONOMICS                                              |
+   |                                                              |
+   |  AIRLINE ECONOMICS                                           |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Yield    |  | Hub vs   |  | CASM /   |  | Slot     |         |
 |  | Mgmt     |  | LCC      |  | RASM     |  | Coords   |         |

@@ -206,7 +206,7 @@ Bismarck unified the German states under Prussian leadership through *Realpoliti
   +---------------------+
            |
   +---------------------+        +-------------------+
-  | Reichstag (Parliament)        | Bundesrat          |
+  | Reichstag (Parliament)        | Bundesrat        |
   | Elected by universal          | (State governments)|
   | male suffrage                 | Prussian-dominated |
   +---------------------+        +-------------------+

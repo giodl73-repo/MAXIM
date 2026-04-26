@@ -23,10 +23,10 @@ Effect systems track what "side effects" a computation can perform — IO, state
 |  │ compose via >>=  │ compose via handlers │ capabilities restrict  │  |
 |  │ (bind)           │ algebraic operations │ effect use             │  |
 |  │                  │                      │                        │  |
-|  │ n effects =       │ n effects compose    │ n effects: capability   │  |
+|  │ n effects =       │ n effects compose    │ n effects: capability   │|
 |  │ 2ⁿ transformer   │ naturally              │ tokens in environment   │  |
 |  │ stack options    │ handlers are first-  │                        │  |
-|  │                  │ class                  │                        │  |
+|  │                  │ class                  │                        │|
 |  └──────────────────┴──────────────────────┴────────────────────────┘  |
 |                                                                          |
 |  LINEAR TYPES AND EFFECTS:                                              |

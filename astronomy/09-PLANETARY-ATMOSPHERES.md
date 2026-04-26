@@ -12,23 +12,23 @@
 │   ORIGIN                RETENTION              MODIFICATION                │
 │   ──────                ─────────              ────────────                │
 │   Primordial H/He  ──►  Mass (gravity) ──►     Photochemistry              │
-│   Volcanic outgas  ──►  Temperature   ──►      Biology (O₂, CH₄, N₂O)   │
+│   Volcanic outgas  ──►  Temperature   ──►      Biology (O₂, CH₄, N₂O)      │
 │   Cometary delivery──►  Magnetic field ──►     Impacts (catastrophic)      │
 │   Late veneer      ──►  Stellar wind   ──►     Climate feedbacks           │
 │                                                                            │
 │   KEY PARAMETERS:                                                          │
 │   Scale height   H = kT/mg  (homogeneous approximation)                    │
-│   Jeans escape   λ_J = R·g·m/(kT) — thermal loss parameter               │
+│   Jeans escape   λ_J = R·g·m/(kT) — thermal loss parameter                 │
 │   Optical depth  τ = ∫κρ dr — controls greenhouse effect                   │
-│   Radiative forcing ΔF = 5.35 ln(C/C₀) W/m² for CO₂                     │
+│   Radiative forcing ΔF = 5.35 ln(C/C₀) W/m² for CO₂                        │
 │                                                                            │
 │   SOLAR SYSTEM ATMOSPHERE CENSUS:                                          │
 │   Venus  92 bar CO₂    737 K   stagnant, extreme greenhouse                │
-│   Earth   1 bar N₂/O₂  288 K   active biosphere + moderate greenhouse    │
-│   Mars  0.006 bar CO₂  210 K   thin, partially frozen, ancient thick?    │
-│   Titan   1.5 bar N₂   94 K    hydrocarbon haze, CH₄ cycle               │
-│   Jupiter  ~1 bar H₂   165 K   upper deck — no solid surface             │
-│   Triton  0.00001 bar N₂ 38 K  cryo-active nitrogen geysers              │
+│   Earth   1 bar N₂/O₂  288 K   active biosphere + moderate greenhouse      │
+│   Mars  0.006 bar CO₂  210 K   thin, partially frozen, ancient thick?      │
+│   Titan   1.5 bar N₂   94 K    hydrocarbon haze, CH₄ cycle                 │
+│   Jupiter  ~1 bar H₂   165 K   upper deck — no solid surface               │
+│   Triton  0.00001 bar N₂ 38 K  cryo-active nitrogen geysers                │
 └────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -243,7 +243,7 @@ Titan's N₂ atmosphere (95%) + CH₄ (5%) mirrors Earth's water cycle:
 │  Obliquity        177°           23.4°          25.2°                        │
 │  Magnetic field   None           Active dipole  Ancient remnant              │
 │  Water            None (lost)    Oceans         Ice + permafrost             │
-│  Solar flux       2601 W/m²      1361 W/m²      588 W/m²                   │
+│  Solar flux       2601 W/m²      1361 W/m²      588 W/m²                     │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
 

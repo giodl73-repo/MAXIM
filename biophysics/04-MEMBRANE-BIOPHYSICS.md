@@ -5,22 +5,22 @@
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │               MEMBRANE BIOPHYSICS LANDSCAPE                              │
-│                                                                            │
+│                                                                          │
 │  BILAYER STRUCTURE               ELECTRICAL PROPERTIES                   │
 │  ────────────────                ────────────────────                    │
 │  Singer-Nicolson fluid mosaic    Resting potential: -70 mV (neuron)      │
 │  2D fluid: lateral diffusion     Goldman-Hodgkin-Katz equation           │
 │  Lipid asymmetry                 Nernst equation per ion                 │
 │  Rafts / phase separation        Membrane as RC circuit                  │
-│                                                                            │
+│                                                                          │
 │  ION CHANNELS                    VESICLE MECHANICS                       │
 │  ────────────                    ─────────────────                       │
 │  Gating: voltage / ligand / mech Bending rigidity κ ≈ 20 k_BT            │
 │  Single channel conductance      Helfrich free energy                    │
 │  Selectivity filter              Curvature-inducing proteins             │
 │  Patch clamp technique           BAR domains, dynamin                    │
-│                                                                            │
-│  SCALE:                                                                    │
+│                                                                          │
+│  SCALE:                                                                  │
 │  Bilayer thickness: ~4 nm total (hydrophobic core: ~3 nm)                │
 │  Single channel current: 1-100 pA (10⁶-10⁷ ions/s)                       │
 │  Membrane resistance: ~10⁸ Ω per μm² (neuron at rest)                    │
@@ -206,11 +206,11 @@ Ion channels are membrane proteins that form hydrophilic pores:
   │  ION CHANNEL PROPERTIES                                       │
   │                                                               │
   │  Single-channel conductance:  1-100 pS (picosiemens)          │
-  │  → At -70 mV: current = g × V ≈ 1 pS × 70 mV = 70 fA        │
+  │  → At -70 mV: current = g × V ≈ 1 pS × 70 mV = 70 fA          │
   │  → Ionic flux: ~10⁶-10⁷ ions/second per channel               │
   │                                                               │
   │  Selectivity filter: sub-Å selectivity between K⁺ and Na⁺     │
-  │  (K⁺ r = 1.33 Å; Na⁺ r = 0.95 Å; filter: ~3 Å pore)         │
+  │  (K⁺ r = 1.33 Å; Na⁺ r = 0.95 Å; filter: ~3 Å pore)           │
   │  → Selectivity paradox: K⁺ passes 10⁴× faster than Na⁺        │
   │     despite K⁺ being larger                                   │
   │  → Resolution: K⁺ fits perfectly into 8-oxygen cage; Na⁺      │
@@ -347,15 +347,15 @@ Biological curvature generation:
   │  CURVATURE MECHANISM    │  PROTEIN/LIPID     │  PROCESS         │
   │  ─────────────────────  │  ─────────────────  │  ──────────────── │
   │  BAR domain scaffold    │  N-BAR, F-BAR, I-BAR│  Endocytosis,   │
-  │                         │  (banana-shaped)    │  tubulation       │
-  │  Amphipathic helix ins. │  ENTH, ANTH, ALPS   │  Sensing and      │
+  │                         │  (banana-shaped)    │  tubulation     │
+  │  Amphipathic helix ins. │  ENTH, ANTH, ALPS   │  Sensing and    │
   │                         │  N-BAR H0 helix     │  generating curv. │
   │  Lipid asymmetry        │  Flippases (ATP dep.)│  PS inner leaflet │
   │                         │  Scramblases        │  apoptosis signal │
   │  Dynamin GTPase         │  Helical polymer     │  Vesicle scission │
-  │                         │  around neck        │  (endocytosis)    │
+  │                         │  around neck        │  (endocytosis)  │
   │  Clathrin coat          │  Triskelion lattice  │  Clathrin-coated  │
-  │                         │  geometry           │  pits             │
+  │                         │  geometry           │  pits           │
   └─────────────────────────────────────────────────────────────────┘
 ```
 

@@ -50,16 +50,16 @@ The Mythological Cycle tells the pre-history of Ireland through five successive 
 │                                                                  │
 │  4. FIR BOLG                                                     │
 │     Bags of earth; divided Ireland into provinces                │
-│     Defeated at First Battle of Mag Tuired by Tuatha Dé Danann │
+│     Defeated at First Battle of Mag Tuired by Tuatha Dé Danann   │
 │                                                                  │
 │  5. TUATHA DÉ DANANN                                             │
 │     "The peoples/tribes of the goddess Danu"                     │
 │     Divine race; brought four sacred treasures                   │
 │     Fought two great battles:                                    │
-│     — First Mag Tuired: vs. Fir Bolg (won)                     │
-│     — Second Mag Tuired: vs. Fomorians (won)                   │
+│     — First Mag Tuired: vs. Fir Bolg (won)                       │
+│     — Second Mag Tuired: vs. Fomorians (won)                     │
 │     Then defeated by SONS OF MIL (Milesians = historical Irish)  │
-│     → Retreat underground: become the Síde (fairy mounds)      │
+│     → Retreat underground: become the Síde (fairy mounds)        │
 │       Aos Sí / Sídhe                                             │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -353,8 +353,8 @@ WHAT WE DON'T KNOW:
 │  LAYER 5: MALORY'S LE MORTE D'ARTHUR (1485)                      │
 │  English synthesis; what most people mean by "Arthurian legend"  │
 │  — Lancelot's love for Guinevere destroys the Round Table        │
-│  — Mordred (Arthur's illegitimate son) betrays him             │
-│  — Battle of Camlann, Arthur mortally wounded                  │
+│  — Mordred (Arthur's illegitimate son) betrays him               │
+│  — Battle of Camlann, Arthur mortally wounded                    │
 │  — Arthur taken to Avalon ("isle of apples" = Celtic Otherworld)│
 │  — "The once and future king" — will return in Britain's need    │
 └──────────────────────────────────────────────────────────────────┘

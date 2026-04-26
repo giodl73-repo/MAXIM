@@ -13,10 +13,10 @@ Rademacher complexity is a data-dependent measure of hypothesis class richness t
 |                                                                  |
 |  EMPIRICAL RADEMACHER COMPLEXITY                                 |
 |  Given sample S = {x₁,...,xₘ}:                                   |
-|    R̂_S(H) = E_σ[ sup_{h∈H} (1/m) Σᵢ σᵢ h(xᵢ) ]               |
+|    R̂_S(H) = E_σ[ sup_{h∈H} (1/m) Σᵢ σᵢ h(xᵢ) ]                   |
 |                                                                  |
 |  RADEMACHER COMPLEXITY                                           |
-|    R_m(H) = E_S[R̂_S(H)]                                        |
+|    R_m(H) = E_S[R̂_S(H)]                                          |
 |                                                                  |
 |  INTUITION: How well can H correlate with pure random ±1 noise?  |
 |  If H can correlate perfectly → rich class → bad generalization  |

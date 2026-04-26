@@ -212,19 +212,19 @@ IMPOSSIBILITY THEOREM (Chouldechova 2016; Kleinberg et al. 2016):
 COMMON FAIRNESS CRITERIA:
   +---------------------------+------------------------------------------+
   | Demographic parity        | Equal positive rates across groups.      |
-  | (statistical parity)      | p(Ŷ=1|A) = p(Ŷ=1|B)                   |
+  | (statistical parity)      | p(Ŷ=1|A) = p(Ŷ=1|B)                      |
   +---------------------------+------------------------------------------+
   | Equal accuracy            | Same overall error rate.                 |
   |                           | p(Ŷ=Y|A) = p(Ŷ=Y|B)                   |
   +---------------------------+------------------------------------------+
   | Calibration               | Same predicted probabilities.            |
-  | (predictive parity)       | p(Y=1|Ŷ=s,A) = p(Y=1|Ŷ=s,B)          |
+  | (predictive parity)       | p(Y=1|Ŷ=s,A) = p(Y=1|Ŷ=s,B)              |
   +---------------------------+------------------------------------------+
   | Equalized odds            | Equal TPR AND FPR.                       |
   |                           | p(Ŷ=1|Y=y,A) = p(Ŷ=1|Y=y,B), y∈{0,1} |
   +---------------------------+------------------------------------------+
   | Equal opportunity         | Equal TPR only.                          |
-  |                           | p(Ŷ=1|Y=1,A) = p(Ŷ=1|Y=1,B)          |
+  |                           | p(Ŷ=1|Y=1,A) = p(Ŷ=1|Y=1,B)              |
   +---------------------------+------------------------------------------+
   | Counterfactual fairness   | Ŷ would be the same if the person's     |
   |                           | protected attribute were different.      |

@@ -4,7 +4,7 @@
 
 ```
 +--------------------------------------------------------------------+
-| HINDI / URDU (हिन्दी / اردو) — Hindustani                         |
+| HINDI / URDU (हिन्दी / اردو) — Hindustani                           |
 +--------------------------------------------------------------------+
 | Family:      Indo-European → Indo-Iranian → Indic                 |
 | Native spkrs: Hindi ~344M + Urdu ~92M = ~436M Hindustani          |

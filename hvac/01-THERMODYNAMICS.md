@@ -17,7 +17,7 @@ building envelope and what drives that movement.
 |  Window frame           Forced air at surface   Night sky radiation  |
 |  Thermal bridging       Natural convection      Radiant floor        |
 |                                                                      |
-|  Q = kA∆T/L            Q = h·A·∆T              Q = ε·σ·A·T⁴        |
+|  Q = kA∆T/L            Q = h·A·∆T              Q = ε·σ·A·T⁴          |
 |  Fourier's law          Newton's law of          Stefan-Boltzmann    |
 |                         cooling                                      |
 +----------------------------------------------------------------------+

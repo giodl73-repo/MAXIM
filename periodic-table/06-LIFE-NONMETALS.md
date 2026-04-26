@@ -34,24 +34,24 @@ ALLOTROPES OF CARBON:
   │  sp³, tetrahedral     sp², layered         sp², monolayer               │
   │  3D covalent network  hexagonal planes      2D crystal                  │
   │  Hardest natural      Planes slide on       Strongest material known    │
-  │  material (10 Mohs)   each other (0.01 μm)  per unit thickness        │
-  │  Electrical insulator Electrical conductor  Semi-metal (zero-gap)     │
-  │  Best thermal cond.   Lubricant, electrode  Thermal cond. ~5000 W/mK  │
-  │  3 × silicon in heat                        Quantum Hall effect at RT │
+  │  material (10 Mohs)   each other (0.01 μm)  per unit thickness          │
+  │  Electrical insulator Electrical conductor  Semi-metal (zero-gap)       │
+  │  Best thermal cond.   Lubricant, electrode  Thermal cond. ~5000 W/mK    │
+  │  3 × silicon in heat                        Quantum Hall effect at RT   │
   │                                                                         │
   │  FULLERENES                    CARBON NANOTUBES (CNTs)                  │
   │  ─────────────                 ────────────────────────                 │
   │  C₆₀ (buckminsterfullerene)    Single-wall (SWCNT): graphene rolled     │
   │  sp² carbon in cage            Multi-wall (MWCNT): nested tubes         │
-  │  C₆₀ = 20 hexagons +          Tensile strength: ~100× steel           │
-  │         12 pentagons (soccer ball)  Ballistic conductors (armchair)   │
+  │  C₆₀ = 20 hexagons +          Tensile strength: ~100× steel             │
+  │         12 pentagons (soccer ball)  Ballistic conductors (armchair)     │
   │  Superconducting when doped    Field emission displays, composites      │
-  │  (K₃C₆₀: Tc = 18 K)                                                   │
+  │  (K₃C₆₀: Tc = 18 K)                                                     │
   │                                                                         │
   │  AMORPHOUS CARBON                  DIAMOND-LIKE CARBON (DLC)            │
-  │  Coal, charcoal, coke              Mixed sp²/sp³; hard, amorphous     │
-  │  Active carbon: high surface area  Hard coatings (cutting tools,      │
-  │  (~1000 m²/g) → adsorption, filter  razor blades, automotive)         │
+  │  Coal, charcoal, coke              Mixed sp²/sp³; hard, amorphous       │
+  │  Active carbon: high surface area  Hard coatings (cutting tools,        │
+  │  (~1000 m²/g) → adsorption, filter  razor blades, automotive)           │
   └─────────────────────────────────────────────────────────────────────────┘
 
 Phase diagram: at normal pressure, diamond → graphite spontaneously (ΔG < 0)
@@ -396,9 +396,9 @@ C/N/O/P/S METABOLIC WEB:
   │  (phosphodiester │ backbone)         │            MATTER
   │                  │                   │               │
   │  Protein ─────── C+N+O+S  ──────→  │               │
-  │  (amino acids,   │ disulfides)       │               │
-  │  enzymes)        │                   │               │
-  │                  │                   │               │
+  │  (amino acids,    │ disulfides)       │            │
+  │  enzymes)         │                   │            │
+  │                   │                   │            │
   │  ATP ──────────  C+N+O+P            │              │
   │  (energy         phosphoanhydride    │               │
   │   currency)      bonds               │               │

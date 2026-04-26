@@ -18,15 +18,15 @@ Urban transit is fundamentally a network problem. Its value grows non-linearly w
 |  |$200-700M |  |$50-150M  |  |$2-20M/km |  |$0.5-2M   |         |
 |  | /km      |  |/km       |  |          |  |/km       |         |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                 |
-|  DEMAND MODELING                                                |
+   |                                                              |
+   |  DEMAND MODELING                                             |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Trip gen |  | Mode     |  | Route    |  | Network  |         |
 |  | 4-step   |  | Choice   |  | Choice   |  | Assignment|         |
 |  | model    |  | (Logit)  |  |          |  |          |         |
 |  +----------+  +----------+  +----------+  +----------+         |
-|                                                                 |
-|  NETWORK DESIGN PRINCIPLES                                      |
+   |                                                              |
+   |  NETWORK DESIGN PRINCIPLES                                   |
 |  +----------+  +----------+  +----------+  +----------+         |
 |  | Coverage |  | Frequency| | Transfer  |  | TOD/Land |         |
 |  | vs       |  | is       |  | design   |  | Value    |         |
@@ -177,12 +177,12 @@ This is the fundamental design tension in transit networks (Jarrett Walker's fra
   | SERVE LOW-DENSITY AREAS   |       | CONCENTRATE ON HIGH-      |
   | Many routes, low frequency|       | DEMAND CORRIDORS          |
   | 30-60min headways        |       | Few routes, high frequency|
-  | 2-3 riders per bus       |       | 5-10 min headways        |
-  | High subsidy per trip    |       | 50+ riders per bus       |
-  | Social equity argument   |       | Lower subsidy per trip   |
-  |                          |       |                          |
-  | Serves transit-dependent |       | Maximizes overall system |
-  | (no car) populations     |       | ridership and farebox    |
+  | 2-3 riders per bus       |       | 5-10 min headways          |
+  | High subsidy per trip    |       | 50+ riders per bus         |
+  | Social equity argument   |       | Lower subsidy per trip     |
+  |                          |       |                            |
+  | Serves transit-dependent |       | Maximizes overall system   |
+  | (no car) populations     |       | ridership and farebox      |
   +---------------------------+       +---------------------------+
 
   THE TENSION:

@@ -15,7 +15,7 @@ HIERARCHY:
 │  CRH, TRH, GnRH, GHRH, somatostatin, dopamine            │
 │               ↓↓ portal blood (short circuit)            │
 │  ANTERIOR PITUITARY (6 hormones)                         │
-│  ACTH, TSH, LH, FSH, GH, Prolactin                     │
+│  ACTH, TSH, LH, FSH, GH, Prolactin                       │
 │               ↓↓ systemic blood                          │
 │  PERIPHERAL GLANDS                                       │
 │  Adrenal · Thyroid · Gonads · Liver/IGF-1                │

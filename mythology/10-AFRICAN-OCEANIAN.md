@@ -16,7 +16,7 @@
 │    Egyptian (covered in 05-EGYPTIAN.md)                          │
 │  — Most traditions oral; recorded by anthropologists 19th–20th c.│
 │  — Diaspora transmission: Yoruba mythology survived slavery via  │
-│    Candomblé, Santería/Lucumí, Trinidad Orisha, Vodou (partly) │
+│    Candomblé, Santería/Lucumí, Trinidad Orisha, Vodou (partly)   │
 │                                                                  │
 │  OCEANIA:                                                        │
 │  — Three regions: Melanesia, Micronesia, Polynesia               │
@@ -52,7 +52,7 @@ The Yoruba (southwestern Nigeria, Benin, Togo) have one of the most sophisticate
 │  — Not directly worshipped (no shrines, no offerings to him)     │
 │  — Transcendent; communicates with the world through the Orishas │
 │  — Compare: the Gnostic "distant god" or Deist "watchmaker"      │
-│  — "Olorun" = "owner of the sky/heaven"                        │
+│  — "Olorun" = "owner of the sky/heaven"                          │
 │                                                                  │
 │  THE ORISHAS — Divine intermediaries (~401 or more)              │
 │  — Emanations from Olodumare; they are both divine beings AND    │
@@ -66,9 +66,9 @@ The Yoruba (southwestern Nigeria, Benin, Togo) have one of the most sophisticate
 │  THE CREATION MYTH:                                              │
 │  Olodumare sends Obatala to create the earth from primordial     │
 │  water. Obatala is given a snail shell of sand, a five-toed hen,│
-│  and a palm nut.                                               │
+│  and a palm nut.                                                 │
 │  He pours sand from the shell; the hen scatters it; solid land   │
-│  forms (Ile-Ife, the sacred city, is the center)               │
+│  forms (Ile-Ife, the sacred city, is the center)                 │
 │  Olodumare breathes life into clay figures Obatala has shaped →  │
 │  humanity                                                        │
 │  Note: Obatala once created humans while drunk on palm wine;     │
@@ -273,43 +273,43 @@ SIGNIFICANCE:
 │  — Every Ancestor Being's journey is encoded in a song           │
 │  — The song maps the geography: each verse corresponds to a      │
 │    specific location on the route                                │
-│  — To sing the song is to re-walk the route; the land is a     │
+│  — To sing the song is to re-walk the route; the land is a       │
 │    musical score                                                 │
 │  — Bruce Chatwin's "The Songlines" (1987) introduced this to     │
 │    wide Western audiences (though Chatwin's interpretation is    │
 │    contested; Aboriginal communities have mixed views of it)     │
 │                                                                  │
 │  OWNERSHIP AND RESPONSIBILITY:                                   │
-│  — Particular clans "own" particular Dreamtime stories and     │
-│    songlines; they are the custodians and have obligations to  │
-│    maintain them through ceremony                              │
-│  — The land is not property to be owned in the Western sense   │
-│    but a relationship of mutual obligation                     │
-│  — Country (the specific ancestral landscape) is a living,     │
-│    responsive entity that requires care                        │
+│  — Particular clans "own" particular Dreamtime stories and       │
+│    songlines; they are the custodians and have obligations to    │
+│    maintain them through ceremony                                │
+│  — The land is not property to be owned in the Western sense     │
+│    but a relationship of mutual obligation                       │
+│  — Country (the specific ancestral landscape) is a living,       │
+│    responsive entity that requires care                          │
 │                                                                  │
 │  EXAMPLES OF ANCESTOR BEINGS:                                    │
 │  — Rainbow Serpent: widespread across many groups; the great     │
-│    creative and destructive serpent of the waterways           │
+│    creative and destructive serpent of the waterways             │
 │  — Wandjina: ancestral creator beings from the Kimberley         │
-│    region (Western Australia); cloud and rain spirits          │
-│    depicted in rock art without mouths (they speak through     │
-│    rain; if the rock art fades, they may be retouched by the   │
-│    appropriate custodians to maintain the relationship)        │
+│    region (Western Australia); cloud and rain spirits            │
+│    depicted in rock art without mouths (they speak through       │
+│    rain; if the rock art fades, they may be retouched by the     │
+│    appropriate custodians to maintain the relationship)          │
 │  — Baiame: sky god among southeastern groups (Kamilaroi,         │
-│    Wiradjuri); creator; father figure                          │
+│    Wiradjuri); creator; father figure                            │
 │  — Yowie, Bunyip: creatures of the bush; Bunyip is a dangerous   │
 │    water creature (regional variations in description)           │
 │                                                                  │
 │  AGE:                                                            │
 │  — Aboriginal Australians have the world's longest continuous    │
-│    cultural tradition (~65,000 years, based on archaeological  │
+│    cultural tradition (~65,000 years, based on archaeological    │
 │    evidence)                                                     │
 │  — Some Dreaming stories may encode actual geological events:    │
 │    — Stories of the sea rising to cover land (correctly          │
-│      describe post-glacial sea level rise ~10,000 BCE)         │
+│      describe post-glacial sea level rise ~10,000 BCE)           │
 │    — Stories of volcanic eruptions that match geological dates   │
-│  → The Dreaming may preserve real memory across tens of        │
+│  → The Dreaming may preserve real memory across tens of          │
 │    thousands of years — an unprecedented level of oral           │
 │    transmission fidelity                                         │
 └──────────────────────────────────────────────────────────────────┘
@@ -358,9 +358,9 @@ The Maori of Aotearoa/New Zealand represent one of the most well-documented Poly
 │  Tāne and Hineahuone have a daughter: Hinetītama                 │
 │  (Tāne, not knowing his own daughter, marries her)               │
 │  Hinetītama discovers Tāne is her father; flees to the           │
-│  underworld (Rarohenga/Te Pō) in shame                         │
+│  underworld (Rarohenga/Te Pō) in shame                           │
 │  Becomes Hinenuitepō — the Great Woman of Night/Death            │
-│  "I will gather our descendants." → Death enters the world     │
+│  "I will gather our descendants." → Death enters the world       │
 │                                                                  │
 │  MĀUI — THE GREAT TRICKSTER-HERO                                 │
 │  — Semi-divine trickster; one of the most important Polynesian   │
@@ -371,37 +371,37 @@ The Maori of Aotearoa/New Zealand represent one of the most well-documented Poly
 │  1. FISHING UP AOTEAROA:                                         │
 │     Māui tricks his brothers into taking him fishing             │
 │     He uses his grandmother's jawbone as a magical fishhook      │
-│     Baits it with his own blood; casts it into the sea         │
+│     Baits it with his own blood; casts it into the sea           │
 │     Catches a giant fish; pulls it up — it becomes the North     │
-│     Island of New Zealand (Te Ika a Māui — "the fish of Māui") │
+│     Island of New Zealand (Te Ika a Māui — "the fish of Māui")   │
 │     His brothers hack at it while he is gone (he told them not   │
 │     to) → the irregular, mountainous surface of the North Island│
-│     → The South Island = his canoe (Te Waka o Māui)            │
+│     → The South Island = his canoe (Te Waka o Māui)              │
 │                                                                  │
 │  2. SLOWING THE SUN:                                             │
 │     The sun moved too quickly; days too short                    │
 │     Māui and his brothers weave ropes of flax; wait at the sun's│
-│     rising point; lasso the sun as it emerges                  │
+│     rising point; lasso the sun as it emerges                    │
 │     Beat it with his grandmother's jawbone until it promises to  │
 │     move more slowly → longer days                               │
 │                                                                  │
 │  3. BRINGING FIRE:                                               │
 │     Māui quenches all fires in the world; forces his ancestor    │
-│     Mahuika (fire goddess) to give him fire                    │
+│     Mahuika (fire goddess) to give him fire                      │
 │     She gives him one nail's fire at a time; he extinguishes     │
-│     each by dipping it in water; she runs out; in fury throws  │
+│     each by dipping it in water; she runs out; in fury throws    │
 │     her last fire; it sets the forest ablaze                     │
 │     Māui calls rain; saves himself; fire now lives in specific   │
 │     trees (kaikōmako, māhoe) from which friction fire is made    │
 │                                                                  │
-│  4. DEATH OF MĀUI — HE FAILS TO ACHIEVE IMMORTALITY:           │
-│     Hinenuitepō (Death goddess) sleeps; birds accompany Māui   │
-│     He plans to enter her body (like a worm through the earth) │
+│  4. DEATH OF MĀUI — HE FAILS TO ACHIEVE IMMORTALITY:             │
+│     Hinenuitepō (Death goddess) sleeps; birds accompany Māui     │
+│     He plans to enter her body (like a worm through the earth)   │
 │     and exit her mouth → humanity would gain immortality         │
 │     One of the birds (the pīwakawaka / fantail) laughs           │
 │     Hinenuitepō wakes; sees Māui; crushes him between her thighs│
 │     Māui dies — the first death of a man; mortality confirmed    │
-│     "Had it not been for that little bird, we would have won"  │
+│     "Had it not been for that little bird, we would have won"    │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

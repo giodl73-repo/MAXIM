@@ -13,19 +13,19 @@ the field, the field drives the fluid. They are inseparable.
 |   MAXWELL'S EQUATIONS          NAVIER-STOKES EQUATION                  |
 |   (EM field evolution)          (fluid momentum)                       |
 |                                                                        |
-|   ∂B/∂t = ∇×(v×B) + η∇²B       ρ Dv/Dt = -∇p + η_v∇²v + J×B        |
+|   ∂B/∂t = ∇×(v×B) + η∇²B       ρ Dv/Dt = -∇p + η_v∇²v + J×B            |
 |   ─────────────────────         ────────────────────────────           |
 |   induction equation             fluid + magnetic body force           |
 |        ↑                ↗                             ↑                |
-|        └── v moves B ──┘         J×B forces fluid ───┘               |
+|        └── v moves B ──┘         J×B forces fluid ───┘                 |
 |                                                                        |
 |   COUPLED: fluid velocity changes B; B creates forces on fluid.        |
 |   You cannot solve one without the other.                              |
 |                                                                        |
 |   KEY DIMENSIONLESS NUMBERS:                                           |
 |   Rm = μ₀σvL   (magnetic Reynolds — advection vs diffusion of B)       |
-|   Ha = BL√(σ/ν) (Hartmann — magnetic braking vs viscosity)           |
-|   β  = 2μ₀p/B²  (plasma beta — thermal vs magnetic pressure)         |
+|   Ha = BL√(σ/ν) (Hartmann — magnetic braking vs viscosity)             |
+|   β  = 2μ₀p/B²  (plasma beta — thermal vs magnetic pressure)           |
 +------------------------------------------------------------------------+
 ```
 
@@ -133,7 +133,7 @@ Using the identity ∇×(∇×B) = -∇²B (since ∇·B = 0):
 ```
   ┌─────────────────────────────────────────────────────────┐
   │                                                         │
-  │   ∂B/∂t  =  ∇×(v×B)  +  η∇²B                          │
+  │   ∂B/∂t  =  ∇×(v×B)  +  η∇²B                            │
   │              ─────────     ─────                        │
   │              advection   diffusion                      │
   │             (fluid carries B)  (B diffuses through fluid)│

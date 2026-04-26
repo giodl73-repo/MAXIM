@@ -9,7 +9,7 @@ evolutionary biology.
 ```
 ┌──────────────────────────────────────────────────────────────────┐
 │               EVOLUTIONARY FORCES ON ALLELE FREQUENCY            │
-│                                                                    │
+│                                                                  │
 │  FORCE           DIRECTION        SPEED        PREDICTABLE?      │
 │  ─────           ─────────        ─────        ────────────      │
 │  Selection       Toward fitness   Fast (large s)   Yes           │
@@ -19,7 +19,7 @@ evolutionary biology.
 │                  alleles          (~10⁻⁸/bp/gen)                 │
 │  Gene flow       Toward source    Depends on        Yes (Fst)    │
 │                  population       migration rate                 │
-│                                                                    │
+│                                                                  │
 │  NULL: HARDY-WEINBERG EQUILIBRIUM                                │
 │  ─────────────────────────────────                               │
 │  No forces acting → allele frequencies constant, genotype        │

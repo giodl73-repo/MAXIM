@@ -186,7 +186,7 @@ DEFORMATION RETRACT: r: X → A ⊆ X with r|_A = id_A and r ≃ id_X.
 
 ```
 +--------------------------------------------------------------------+
-| SPACE        | π₁      | H₀ | H₁      | H₂  | χ  | Compact? Ori? |
+| SPACE        | π₁      | H₀ | H₁      | H₂  | χ  | Compact? Ori?   |
 +--------------------------------------------------------------------+
 | Point {pt}   | 0       | Z  | 0       | 0   | 1  | Yes       Yes  |
 | Interval I   | 0       | Z  | 0       | 0   | 1  | Yes       Yes  |

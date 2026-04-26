@@ -34,7 +34,7 @@ Everything below the ISA is the microarchitecture — invisible to correctly-wri
 |  Compiler does the work            Hardware does the work             |
 |                                                                       |
 |  History: IBM 801 (Patterson       History: IBM 360, PDP-11,          |
-|  & Hennessy, Berkeley, Stanford,   VAX, Intel 8086 → x86 → x86-64   |
+|  & Hennessy, Berkeley, Stanford,   VAX, Intel 8086 → x86 → x86-64     |
 |  ~1980)                            (backward compat chain)            |
 +-----------------------------------------------------------------------+
 ```

@@ -26,8 +26,8 @@ medium-term economic and social cycles, to the fast-moving events of conventiona
 |  | (Events)      |               | reigns, decisions | ephemeral    ||
 |  +---------------------------------------------------------------+|
 |                                                                   |
-|  Traditional history is 90% at the événements level.             |
-|  Braudel says the real action is at the longue durée level.      |
+|  Traditional history is 90% at the événements level.              |
+|  Braudel says the real action is at the longue durée level.       |
 +-------------------------------------------------------------------+
 ```
 

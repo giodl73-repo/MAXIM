@@ -13,10 +13,10 @@ imaginary-time version of the Schrödinger equation.
 |  FORMS:                                                               |
 |  u_t = α∇²u          (heat / diffusion, α = diffusivity)              |
 |  u_t = α∇²u + f      (with source f)                                  |
-|  u_t = ∇·(D(x)∇u)   (variable diffusivity D)                        |
+|  u_t = ∇·(D(x)∇u)   (variable diffusivity D)                          |
 |  u_t = ∇·(D(u)∇u)   (nonlinear diffusion)                             |
-|  iℏψ_t = −(ℏ²/2m)∇²ψ + Vψ   (Schrödinger = i × heat)               |
-|  V_t + ½σ²S²V_SS + rSV_S − rV = 0  (Black-Scholes)                  |
+|  iℏψ_t = −(ℏ²/2m)∇²ψ + Vψ   (Schrödinger = i × heat)                  |
+|  V_t + ½σ²S²V_SS + rSV_S − rV = 0  (Black-Scholes)                    |
 |                                                                       |
 |  PROPERTIES:                                                          |
 |  • Infinite propagation speed (instantaneous awareness)               |
@@ -44,11 +44,11 @@ The heat kernel K(x,t) is the solution starting from a point mass at the origin:
 
   PROPERTIES OF K:
   ┌──────────────────────────────────────────────────────────┐
-  │ ∫ K(x,t) dx = 1  for all t > 0  (mass conservation)    │
-  │ K(x,t) > 0  for all x, t>0  (strict positivity)        │
-  │ K(x,t) → δ(x) as t → 0+                                │
+  │ ∫ K(x,t) dx = 1  for all t > 0  (mass conservation)      │
+  │ K(x,t) > 0  for all x, t>0  (strict positivity)          │
+  │ K(x,t) → δ(x) as t → 0+                                  │
   │ K(x,t) is a Gaussian: mean 0, variance 2αt               │
-  │ K(x,t) → 0 as t → ∞ (spreads to zero)                  │
+  │ K(x,t) → 0 as t → ∞ (spreads to zero)                    │
   └──────────────────────────────────────────────────────────┘
 
   SOLUTION TO IVP:

@@ -53,7 +53,7 @@ The central analysis of Mythologies. Barthes takes Saussure's two-level sign and
   |  Signifier₂   |    Signified₂            |
   |  (Sign₁)      |    (mythical concept)    |
   |  [arbr/tree]  |    FRENCHNESS, NATURE,   |
-  |               |    NATURAL ORDER           |
+  |               |    NATURAL ORDER         |
   +------------------------------------------+
 
   The first-order sign is PLUNDERED by myth.

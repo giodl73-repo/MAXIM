@@ -87,15 +87,15 @@ Four modes of convergence for a sequence of random variables Xₙ → X:
   ┌─────────────────────────────────────────────────────────────────────┐
   │  CONVERGENCE MODES (strongest to weakest)                           │
   │                                                                     │
-  │  Almost sure (a.s.):   P(lim Xₙ = X) = 1                          │
-  │    Xₙ(ω) → X(ω) for all ω outside a null set.                     │
+  │  Almost sure (a.s.):   P(lim Xₙ = X) = 1                            │
+  │    Xₙ(ω) → X(ω) for all ω outside a null set.                       │
   │                                                                     │
-  │  In Lᵖ (mean pth power): E[|Xₙ - X|ᵖ] → 0                        │
+  │  In Lᵖ (mean pth power): E[|Xₙ - X|ᵖ] → 0                           │
   │    Most useful: L² (mean square convergence, geometry of Hilbert)   │
   │                                                                     │
-  │  In probability:  P(|Xₙ - X| > ε) → 0  for all ε > 0             │
+  │  In probability:  P(|Xₙ - X| > ε) → 0  for all ε > 0                │
   │                                                                     │
-  │  In distribution: F_Xₙ(x) → F_X(x) at continuity points of F_X   │
+  │  In distribution: F_Xₙ(x) → F_X(x) at continuity points of F_X      │
   │    Weakest: only the law (distribution) converges, not the values   │
   └─────────────────────────────────────────────────────────────────────┘
 
@@ -288,19 +288,19 @@ These are the workhorses of PAC learning, VC-dimension bounds, and algorithm ana
   │    P(Σ Xᵢ ≥ (1+δ)μ) ≤ e^(-μδ²/3)   for δ ∈ (0,1]                   │
   │    Derived from M_X(t) directly; exponentially tight.                   │
   │                                                                         │
-  │  Hoeffding (bounded independent r.v., aᵢ ≤ Xᵢ ≤ bᵢ):                │
+  │  Hoeffding (bounded independent r.v., aᵢ ≤ Xᵢ ≤ bᵢ):                    │
   │    P(Σ(Xᵢ - E[Xᵢ]) ≥ t) ≤ exp(-2t²/Σ(bᵢ-aᵢ)²)                    │
-  │    Replaces MGF bound with variance proxy from the range [aᵢ,bᵢ].     │
+  │    Replaces MGF bound with variance proxy from the range [aᵢ,bᵢ].       │
   │    Key use: uniform convergence in PAC learning over finite hypotheses  │
   │                                                                         │
-  │  Azuma-Hoeffding (martingale differences, |Xᵢ - Xᵢ₋₁| ≤ cᵢ):        │
+  │  Azuma-Hoeffding (martingale differences, |Xᵢ - Xᵢ₋₁| ≤ cᵢ):            │
   │    P(|Xₙ - X₀| ≥ t) ≤ 2 exp(-t²/(2Σcᵢ²))                           │
   │    Drops the independence requirement — only needs bounded increments.  │
   │    Doob martingale converts function of independent r.v. to martingale. │
   │                                                                         │
   │  McDiarmid / Bounded Differences (function of independent inputs):      │
-  │    f(x₁,...,xₙ) stable: changing xᵢ → x'ᵢ changes f by at most cᵢ.  │
-  │    P(f - E[f] ≥ t) ≤ exp(-2t²/Σcᵢ²)                                 │
+  │    f(x₁,...,xₙ) stable: changing xᵢ → x'ᵢ changes f by at most cᵢ.      │
+  │    P(f - E[f] ≥ t) ≤ exp(-2t²/Σcᵢ²)                                     │
   │    This is Azuma applied via Doob's martingale construction.            │
   │    Use: VC-dimension bounds, Rademacher complexity, any f of iid data.  │
   │                                                                         │
@@ -349,10 +349,10 @@ recurrence structure and (b) random recursion trees connect to branching process
   │    Subproblems dominate — leaves do most work                       │
   │    T(n) = Θ(n^c*)                                                   │
   │                                                                     │
-  │  Case 2: f(n) = Θ(n^(c*) · log^k(n))  for some k ≥ 0              │
+  │  Case 2: f(n) = Θ(n^(c*) · log^k(n))  for some k ≥ 0                │
   │    Balanced — work spread across all levels                         │
   │    T(n) = Θ(n^(c*) · log^(k+1)(n))                                  │
-  │    Common: f(n) = Θ(n^c*) → k=0 → T(n) = Θ(n^c* log n)            │
+  │    Common: f(n) = Θ(n^c*) → k=0 → T(n) = Θ(n^c* log n)              │
   │                                                                     │
   │  Case 3: f(n) = Ω(n^(c*+ε))  for some ε > 0,                        │
   │    AND  a·f(n/b) ≤ c·f(n)  for c < 1  (regularity condition)        │

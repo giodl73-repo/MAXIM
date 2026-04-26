@@ -12,18 +12,18 @@ His central move: shift linguistics from the historical/comparative study of lan
 |                                                                       |
 |  LANGUE vs PAROLE              SYNCHRONY vs DIACHRONY                 |
 |  ----------------------        ----------------------------           |
-|  Langue: the system.           Synchrony: the state of a            |
-|  The shared code, the          language at a single moment          |
-|  social institution.           in time. A cross-section.            |
+|  Langue: the system.           Synchrony: the state of a              |
+|  The shared code, the          language at a single moment            |
+|  social institution.           in time. A cross-section.              |
 |  Abstract, collective.                                                |
-|                                Diachrony: how a language            |
-|  Parole: individual            changes over time.                   |
-|  utterances. Speech acts.      Historical linguistics.              |
+|                                Diachrony: how a language              |
+|  Parole: individual            changes over time.                     |
+|  utterances. Speech acts.      Historical linguistics.                |
 |  Concrete, personal.                                                  |
-|                                Saussure's key methodological        |
-|  Linguistics studies           claim: synchronic linguistics        |
-|  LANGUE, not parole.           is the primary science.              |
-|  (The system, not the          Diachrony is secondary.              |
+|                                Saussure's key methodological          |
+|  Linguistics studies           claim: synchronic linguistics          |
+|  LANGUE, not parole.           is the primary science.                |
+|  (The system, not the          Diachrony is secondary.                |
 |  instances)                                                           |
 +-----------------------------------------------------------------------+
 ```

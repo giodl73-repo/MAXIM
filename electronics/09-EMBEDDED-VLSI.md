@@ -379,7 +379,7 @@ overflows are silent corruption bugs in bare-metal contexts.
   │  Clock edge                                  Next clock edge           │
   │       │                                           │                    │
   │       │  t_clk_to_Q    t_comb          t_setup    │                    │
-  │       │◄────────────►◄───────────────►◄─────────►│                   │
+  │       │◄────────────►◄───────────────►◄─────────►│                     │
   │       │                                           │                    │
   │       ▼                                           ▼                    │
   │  FF1 output        logic propagation         FF2 must be stable        │

@@ -49,7 +49,7 @@ STANDING RIGGING SPECIFICATIONS
 
   1×19 WIRE ROPE (most common traditional standing rigging):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Construction: 19 wires in concentric layers (1+6+12)          │
+  │  Construction: 19 wires in concentric layers (1+6+12)            │
   │  Wire material: Type 316 stainless steel                         │
   │  ┌──────────────────────────────────────────────────────────┐    │
   │  │  CENTER: 1 wire   (king wire)                            │   │
@@ -66,23 +66,23 @@ STANDING RIGGING SPECIFICATIONS
 
   7×7 WIRE ROPE (more flexible):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Construction: 7 strands × 7 wires = 49 wires total            │
+  │  Construction: 7 strands × 7 wires = 49 wires total              │
   │  More flexible than 1×19 (smaller wire diameter, more helical)   │
   │  Use: Intermediate stays, running backstays, controls            │
-  │  Elongation: Slightly more than 1×19                           │
+  │  Elongation: Slightly more than 1×19                             │
   └──────────────────────────────────────────────────────────────────┘
 
   HIGH-MODULUS FIBER STANDING RIGGING (modern racing/cruising):
   ┌──────────────────────────────────────────────────────────────────┐
   │  PBO (Zylon): Highest modulus, lightest; UV degradation fatal    │
-  │  Vectran: Low creep, excellent for permanent stays             │
-  │  UHMWPE (Dyneema): Strong, light, UV moderate                  │
-  │  Aramid (Kevlar): Proven but poor bending fatigue              │
+  │  Vectran: Low creep, excellent for permanent stays               │
+  │  UHMWPE (Dyneema): Strong, light, UV moderate                    │
+  │  Aramid (Kevlar): Proven but poor bending fatigue                │
   │                                                                  │
-  │  COMMON: Rod rigging (solid stainless rod, not wire)           │
-  │  Construction: Single solid rod, swaged end terminals          │
+  │  COMMON: Rod rigging (solid stainless rod, not wire)             │
+  │  Construction: Single solid rod, swaged end terminals            │
   │  Properties: Minimal elongation (<0.1%), very long service life│
-  │  Limitation: Cannot be coiled; straight sections only          │
+  │  Limitation: Cannot be coiled; straight sections only            │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -97,34 +97,34 @@ RUNNING RIGGING REQUIREMENTS
   HALYARDS (raise/lower sails):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Primary requirement: Run through masthead sheave without        │
-  │  kinking; low stretch so sail doesn't drop when eased          │
+  │  kinking; low stretch so sail doesn't drop when eased            │
   │                                                                  │
-  │  TRADITIONAL: Polyester double braid                           │
-  │    Elongation: 10–15% at break; ~3–5% at working loads        │
+  │  TRADITIONAL: Polyester double braid                             │
+  │    Elongation: 10–15% at break; ~3–5% at working loads           │
   │    Durability: Excellent UV stability; good abrasion resistance  │
   │    Cost: Moderate                                                │
   │                                                                  │
-  │  PERFORMANCE: Polyester/UHMWPE composite braid                 │
-  │    UHMWPE core + polyester cover                               │
-  │    Elongation: <3% at working loads                            │
-  │    Advantage: Near-zero stretch so sail height is held         │
+  │  PERFORMANCE: Polyester/UHMWPE composite braid                   │
+  │    UHMWPE core + polyester cover                                 │
+  │    Elongation: <3% at working loads                              │
+  │    Advantage: Near-zero stretch so sail height is held           │
   │    Cost: High                                                    │
   └──────────────────────────────────────────────────────────────────┘
 
   SHEETS (control sail angle in/out):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Primary requirement: Must run through blocks smoothly;        │
+  │  Primary requirement: Must run through blocks smoothly;          │
   │  be gripped in clutches and cleats; hand-manageable              │
   │                                                                  │
-  │  Standard: 3/8"–1/2" polyester double braid                    │
+  │  Standard: 3/8"–1/2" polyester double braid                      │
   │  Coefficient of friction: Must grip on cleats and winch drums    │
   │  Construction: Braided cover must engage winch drum (not         │
   │    so slippery that it slips under load)                         │
-  │  Cover material: Polyester (good friction) + durability        │
+  │  Cover material: Polyester (good friction) + durability          │
   │                                                                  │
-  │  Note: UHMWPE covers are too slippery for standard cleats      │
-  │        and can fail to grip on winch drums — racing sheets     │
-  │        with UHMWPE core always use polyester or nylon covers   │
+  │  Note: UHMWPE covers are too slippery for standard cleats        │
+  │        and can fail to grip on winch drums — racing sheets       │
+  │        with UHMWPE core always use polyester or nylon covers     │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -140,40 +140,40 @@ MOORING LINE SYSTEM
 
   MOORING LINE TYPES (by attachment point):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  BREAST LINES: Perpendicular to dock (lateral positioning)     │
-  │  SPRING LINES: Diagonal forward and aft (prevent surge)        │
-  │    Forward spring: prevents going astern                       │
-  │    Aft spring: prevents going ahead                            │
-  │  HEADLINES/STERNLINES: Forward/aft control                     │
+  │  BREAST LINES: Perpendicular to dock (lateral positioning)       │
+  │  SPRING LINES: Diagonal forward and aft (prevent surge)          │
+  │    Forward spring: prevents going astern                         │
+  │    Aft spring: prevents going ahead                              │
+  │  HEADLINES/STERNLINES: Forward/aft control                       │
   └──────────────────────────────────────────────────────────────────┘
 
   MATERIAL SELECTION:
   ┌──────────────────────────────────────────────────────────────────┐
   │  NYLON (preferred for most mooring):                             │
-  │  • 20–30% elongation absorbs dock surge and wave action        │
-  │  • Prevents snatch loads that would break cleats and deck gear │
-  │  • Sinks (won't foul propeller if dropped)                     │
-  │  • Degrades over time (UV + abrasion at chocks)                │
+  │  • 20–30% elongation absorbs dock surge and wave action          │
+  │  • Prevents snatch loads that would break cleats and deck gear   │
+  │  • Sinks (won't foul propeller if dropped)                       │
+  │  • Degrades over time (UV + abrasion at chocks)                  │
   │  • Replace when sheath worn through or stiff/brittle             │
   │                                                                  │
   │  POLYESTER (for minimum stretch situations):                     │
-  │  • Lower elongation = more precise vessel positioning          │
-  │  • Less surge absorption than nylon                            │
+  │  • Lower elongation = more precise vessel positioning            │
+  │  • Less surge absorption than nylon                              │
   │  • Use where tidal range is small and tide control matters       │
   │                                                                  │
-  │  NYLON SPRING DAMPER (combination):                            │
+  │  NYLON SPRING DAMPER (combination):                              │
   │  Nylon stretch insert in polyester line                          │
   │  Provides controlled elongation + stable endpoint                │
   └──────────────────────────────────────────────────────────────────┘
 
   CHAFE PROTECTION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  At any point where line contacts dock, chock, or cleat:       │
-  │  • Leather chafe guard (traditional, shaped to fit)            │
-  │  • Rubber hose (split garden hose) over running section        │
-  │  • Nylon chafe guard sleeves                                   │
-  │  • Chain legs at chocks (chain doesn't chafe, doesn't fray)   │
-  │  Chafe point = highest wear location = inspect here first      │
+  │  At any point where line contacts dock, chock, or cleat:         │
+  │  • Leather chafe guard (traditional, shaped to fit)              │
+  │  • Rubber hose (split garden hose) over running section          │
+  │  • Nylon chafe guard sleeves                                     │
+  │  • Chain legs at chocks (chain doesn't chafe, doesn't fray)      │
+  │  Chafe point = highest wear location = inspect here first        │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -189,15 +189,15 @@ ANCHOR RODE TYPES
 
   ALL-CHAIN RODE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Construction: Galvanized or stainless steel grade 40 chain    │
+  │  Construction: Galvanized or stainless steel grade 40 chain      │
   │  Properties:                                                     │
-  │  • Heavy (catenary sag provides dynamic surge absorption)      │
-  │  • Abrasion-resistant (rock bottoms)                           │
-  │  • Self-stowing (falls into locker without coiling)            │
-  │  • Zero creep or degradation issues                            │
-  │  Scope required: 3:1 minimum (chain weight creates catenary)   │
-  │  Catenary effect: Chain sag absorbs surge before the chain     │
-  │    goes straight — acts as dynamic shock absorber              │
+  │  • Heavy (catenary sag provides dynamic surge absorption)        │
+  │  • Abrasion-resistant (rock bottoms)                             │
+  │  • Self-stowing (falls into locker without coiling)              │
+  │  • Zero creep or degradation issues                              │
+  │  Scope required: 3:1 minimum (chain weight creates catenary)     │
+  │  Catenary effect: Chain sag absorbs surge before the chain       │
+  │    goes straight — acts as dynamic shock absorber                │
   └──────────────────────────────────────────────────────────────────┘
 
   ROPE RODE:
@@ -205,38 +205,38 @@ ANCHOR RODE TYPES
   │  Construction: 3-strand nylon (preferred over braid for          │
   │    flexibility and resistance to unfair bends in locker)         │
   │  Properties:                                                     │
-  │  • Light (less windlass load; smaller anchor locker)           │
-  │  • High elongation absorbs surge and wave slam                 │
-  │  • Can foul and chafe on bottom obstacles                      │
-  │  Scope required: 5:1 to 7:1 (no catenary — depth to length)   │
+  │  • Light (less windlass load; smaller anchor locker)             │
+  │  • High elongation absorbs surge and wave slam                   │
+  │  • Can foul and chafe on bottom obstacles                        │
+  │  Scope required: 5:1 to 7:1 (no catenary — depth to length)      │
   └──────────────────────────────────────────────────────────────────┘
 
   COMBINATION RODE (most common on cruising vessels):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ANCHOR ──── 15–50 ft CHAIN ──── ROPE RODE                    │
+  │  ANCHOR ──── 15–50 ft CHAIN ──── ROPE RODE                       │
   │                                                                  │
-  │  Chain section: Resists chafe on seabed                        │
+  │  Chain section: Resists chafe on seabed                          │
   │    Provides catenary at anchor attachment                        │
-  │    (Horizontal pull on anchor critical — angle should be <15°) │
+  │    (Horizontal pull on anchor critical — angle should be <15°)   │
   │                                                                  │
-  │  Rope section: Reduces overall weight                          │
-  │    Provides elongation shock absorption                        │
-  │    Large-diameter nylon (1/2"–3/4") for strength               │
+  │  Rope section: Reduces overall weight                            │
+  │    Provides elongation shock absorption                          │
+  │    Large-diameter nylon (1/2"–3/4") for strength                 │
   └──────────────────────────────────────────────────────────────────┘
 
   SCOPE CALCULATION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Scope = rode length paid out / water depth at high tide       │
+  │  Scope = rode length paid out / water depth at high tide         │
   │                                                                  │
   │  Minimum by rode type:                                           │
-  │  All chain:    3:1 (catenary handles the rest)                 │
-  │  All rope:     5:1 to 7:1 (no catenary cushion)               │
-  │  Combination: 5:1 (5 × depth in feet, paid out)               │
+  │  All chain:    3:1 (catenary handles the rest)                   │
+  │  All rope:     5:1 to 7:1 (no catenary cushion)                  │
+  │  Combination: 5:1 (5 × depth in feet, paid out)                  │
   │                                                                  │
-  │  EXAMPLE: Anchoring in 20 ft at high tide                      │
-  │    Add freeboard (5 ft) + depth = 25 ft reference              │
-  │    All rope at 5:1: 125 ft of rode                             │
-  │    Combination at 5:1: 125 ft total                            │
+  │  EXAMPLE: Anchoring in 20 ft at high tide                        │
+  │    Add freeboard (5 ft) + depth = 25 ft reference                │
+  │    All rope at 5:1: 125 ft of rode                               │
+  │    Combination at 5:1: 125 ft total                              │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -250,16 +250,16 @@ COILING (for storage and running):
 
   3-STRAND ROPE COILING:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Z-lay rope: Coil clockwise (with the lay)                     │
-  │  Reverse coil creates kinks (against lay)                      │
-  │  Coil diameter: ~1 ft minimum for 3/8" rope; scale with size  │
-  │  Hang coil on cleat: not on the end that may need to run       │
+  │  Z-lay rope: Coil clockwise (with the lay)                       │
+  │  Reverse coil creates kinks (against lay)                        │
+  │  Coil diameter: ~1 ft minimum for 3/8" rope; scale with size     │
+  │  Hang coil on cleat: not on the end that may need to run         │
   └──────────────────────────────────────────────────────────────────┘
 
   BRAID COILING:
   ┌──────────────────────────────────────────────────────────────────┐
   │  No preferred direction (torque-balanced)                        │
-  │  Use figure-8 coil to prevent twist accumulation               │
+  │  Use figure-8 coil to prevent twist accumulation                 │
   │  ┌──────────────────────────────────────────────────────────┐    │
   │  │  ○ → figure-8:  top loop CW, bottom loop CCW              │   │
   │  │  ∞                                                         │   │
@@ -269,9 +269,9 @@ COILING (for storage and running):
   CLEATING A LINE:
   ┌──────────────────────────────────────────────────────────────────┐
   │  1. Round turn under both horns of cleat                         │
-  │  2. Figure-8: over far horn, under near horn, over far horn    │
-  │  3. Finishing hitch: loop over near horn (locks the figure-8) │
-  │  4. DO NOT: wrap more than 2 figure-8s (jams under load)      │
+  │  2. Figure-8: over far horn, under near horn, over far horn      │
+  │  3. Finishing hitch: loop over near horn (locks the figure-8)    │
+  │  4. DO NOT: wrap more than 2 figure-8s (jams under load)         │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

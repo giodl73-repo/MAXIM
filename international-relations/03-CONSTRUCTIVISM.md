@@ -128,7 +128,7 @@ NORM LIFECYCLE — THREE STAGES
   │ Norm entrepreneurs + organizational platforms            │
   │                                                          │
   │ Norm entrepreneurs: individuals or organizations         │
-  │ with strong notions of appropriate behavior who        │
+  │ with strong notions of appropriate behavior who          │
   │ seek to change existing standards.                       │
   │ Examples: Henri Dunant (Red Cross/Geneva Convention),    │
   │ Eleanor Roosevelt (UDHR), anti-slavery campaigners.      │

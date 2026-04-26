@@ -138,13 +138,13 @@ WHIP-AND-TONGUE GRAFT:
      halfway into the wood.
 
       Scion:           Rootstock:
-      |\               /|
+      |\               / |
       | \             / |
       |  \====       |  |
       |   |   \===== |  |
       |   /   /      |  |
       |  / ==|        \ |
-      | /    \         \|
+      | /    \         \ |
       |/      |
 
   3. Interlock the tongues: the T-shape of scion fits into rootstock's slot.

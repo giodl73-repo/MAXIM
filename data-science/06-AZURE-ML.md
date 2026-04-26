@@ -135,14 +135,14 @@ AzureML Data Scientist = train/deploy but not manage infra.
 │  └─────────────────────────────┘  └─────────────────────────────┘   │
 │                                                                      │
 │  ┌─────────────────────────────┐  ┌─────────────────────────────┐   │
-│  │     SERVERLESS COMPUTE       │  │     ATTACHED COMPUTE         │   │
-│  │  (No cluster to manage)      │  │  (Bring your own)            │   │
-│  │                              │  │                              │   │
-│  │  • AzureML allocates VM      │  │  • Attach existing AKS       │   │
-│  │    on demand                 │  │  • Attach Arc-enabled K8s    │   │
-│  │  • Pay per second            │  │  • Synapse Spark pool        │   │
-│  │  • Cold-start latency        │  │  • HDInsight                 │   │
-│  │  • Best for: infrequent jobs │  │  • Best: existing infra      │   │
+│  │     SERVERLESS COMPUTE       │  │     ATTACHED COMPUTE         │ │
+│  │  (No cluster to manage)      │  │  (Bring your own)            │ │
+│  │                              │  │                              │ │
+│  │  • AzureML allocates VM      │  │  • Attach existing AKS       │ │
+│  │    on demand                 │  │  • Attach Arc-enabled K8s    │ │
+│  │  • Pay per second            │  │  • Synapse Spark pool        │ │
+│  │  • Cold-start latency        │  │  • HDInsight                 │ │
+│  │  • Best for: infrequent jobs │  │  • Best: existing infra      │ │
 │  └─────────────────────────────┘  └─────────────────────────────┘   │
 └──────────────────────────────────────────────────────────────────────┘
 ```

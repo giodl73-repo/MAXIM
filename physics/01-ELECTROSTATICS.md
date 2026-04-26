@@ -13,12 +13,12 @@ It is the foundation everything else builds on.
 |   SOURCE          CREATES            FIELD          DESCRIBED BY       |
 |   ──────          ───────            ─────          ────────────       |
 |                                                                        |
-|   charge q  ──>  force on           E(x,y,z)       ∇·E  = ρ/ε₀       |
+|   charge q  ──>  force on           E(x,y,z)       ∇·E  = ρ/ε₀         |
 |   (scalar)        other charges     vector field    ∇×E  = 0           |
 |                                          │                             |
 |                                          │ E = -∇V                     |
 |                                          ▼                             |
-|                                     V(x,y,z)       ∇²V = -ρ/ε₀       |
+|                                     V(x,y,z)       ∇²V = -ρ/ε₀         |
 |                                     scalar field   (Poisson)           |
 |                                                    ∇²V = 0             |
 |                                                    (Laplace, no charge) |

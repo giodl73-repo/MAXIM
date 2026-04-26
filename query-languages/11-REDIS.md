@@ -12,9 +12,9 @@ Redis is not a query language in the SQL sense — it's a command-based interfac
 ┌──────────────────────────────────────────────────────────────────────┐
 │                         Where Redis Sits                             │
 │                                                                      │
-│  App ──► Redis (in-memory) ──────────────────► responses in μs-ms  │
+│  App ──► Redis (in-memory) ──────────────────► responses in μs-ms    │
 │   │                                                                  │
-│   └──► PostgreSQL / SQL Server (on-disk) ────► responses in ms-s   │
+│   └──► PostgreSQL / SQL Server (on-disk) ────► responses in ms-s     │
 │                                                                      │
 │  Redis = primary store for ephemeral / hot data                      │
 │  RDBMS = primary store for durable / relational data                 │
@@ -59,7 +59,7 @@ Redis is not a query language in the SQL sense — it's a command-based interfac
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
 │  │  Set         │ Unordered unique members. SADD/SINTER/SUNION.     │   │
 │  │              │ O(1) add/member. Use: tags, unique visitors,      │   │
-│  │              │ follow graphs                                       │   │
+│  │              │ follow graphs                                       │ │
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
 │  │  Sorted Set  │ Members + float score, sorted. ZADD/ZRANGE.        │   │
 │  │  (ZSET)      │ O(log N). Use: leaderboards, priority queues       │   │
@@ -72,7 +72,7 @@ Redis is not a query language in the SQL sense — it's a command-based interfac
 │  ├──────────────┼───────────────────────────────────────────────────┤   │
 │  │  Stream      │ Append-only log with consumer groups + ACK.       │   │
 │  │              │ XADD/XREADGROUP. O(1) append. Use: event log,     │   │
-│  │              │ durable queue                                       │   │
+│  │              │ durable queue                                       │ │
 │  └──────────────┴───────────────────────────────────────────────────┘   │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
@@ -734,7 +734,7 @@ Sentinel provides automatic failover for a standalone Redis instance (one master
 ┌─────────────────────────────────────────────────────────────────┐
 │                      Sentinel Topology                          │
 │                                                                 │
-│  ┌──────────┐   ┌──────────┐   ┌──────────┐                   │
+│  ┌──────────┐   ┌──────────┐   ┌──────────┐                     │
 │  │Sentinel 1│   │Sentinel 2│   │Sentinel 3│  ← quorum = 2     │
 │  └────┬─────┘   └────┬─────┘   └────┬─────┘                   │
 │       │              │              │                           │
@@ -767,7 +767,7 @@ Redis Cluster shards data across multiple master nodes using hash slots, with ea
 │                                                                      │
 │  16384 hash slots distributed across master nodes                    │
 │                                                                      │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐     │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐       │
 │  │  Master A        │  │  Master B        │  │  Master C        │    │
 │  │  slots 0–5460    │  │  slots 5461–10922│  │  slots 10923–   │    │
 │  │                  │  │                  │  │  16383           │    │

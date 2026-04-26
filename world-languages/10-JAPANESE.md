@@ -32,7 +32,7 @@ Three scripts interleave in every sentence:
 
   +------------------+------------------+------------------+
   | HIRAGANA         | KATAKANA         | KANJI            |
-  | (ひらがな)        | (カタカナ)        | (漢字)            |
+  | (ひらがな)        | (カタカナ)        | (漢字)         |
   +------------------+------------------+------------------+
   | 46 syllables     | 46 syllables     | ~2136 jōyō       |
   | (+ diacritics)   | (+ diacritics)   | (required chars) |

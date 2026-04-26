@@ -349,8 +349,8 @@ L1                              L2
 +----------------------------+  +----------------------------+
 | No prior linguistic system |  | L1 fully in place          |
 | All learning is acquisition |  | L1 interferes             |
-| Critical period open        |  | Critical period closing/    |
-| Near-universal success       |  |   closed                   |
+| Critical period open        |  | Critical period closing/  |
+| Near-universal success       |  |   closed                 |
 |                             |  | Near-universal incompletion|
 | Error = developmental      |  | Error = transfer from L1   |
 | Motivation: survival       |  | Motivation: varies widely  |

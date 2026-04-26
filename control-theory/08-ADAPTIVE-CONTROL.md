@@ -23,9 +23,9 @@
 │  │  1. Estimate θ̂(t) from I/O data                              │  │
 │  │  2. Design controller for estimated plant (certainty equiv.) │  │
 │  │                                                              │  │
-│  │     r ─► [C(θ̂(t))] ─► u ─► [Plant G(θ*)] ─► y             │  │
+│  │     r ─► [C(θ̂(t))] ─► u ─► [Plant G(θ*)] ─► y             │     │
 │  │                              ↓ estimation                    │  │
-│  │              θ̂̇ = RLS update                                │  │
+│  │              θ̂̇ = RLS update                                │    │
 │  └──────────────────────────────────────────────────────────────┘  │
 │                                                                     │
 │  GAIN SCHEDULING: No adaptation — scheduled from operating point   │
@@ -235,8 +235,8 @@ ARCHITECTURE:
   │  State predictor:  x̂̇ = A_m x̂ + B(u + σ̂(t))               │
   │                   (fast, uses current θ̂)                       │
   │  Adaptation law:  σ̂̇ = ΓProj(σ̂, -Bᵀ P ẽ)  (fast, Γ → ∞)   │
-  │                   ẽ = x̂ - x  (prediction error)              │
-  │  Control signal:  u(s) = -C(s)σ̂(s)  (LPF of adaptive signal) │
+  │                   ẽ = x̂ - x  (prediction error)                │
+  │  Control signal:  u(s) = -C(s)σ̂(s)  (LPF of adaptive signal)   │
   │                   C(s) = ω/(s + ω)  (low-pass filter)          │
   └────────────────────────────────────────────────────────────────┘
 

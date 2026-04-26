@@ -10,18 +10,18 @@ to a solved one.
 +-----------------------------------------------------------------------+
 |              FIRST-ORDER PDE TAXONOMY                                 |
 |                                                                       |
-|  LINEAR:         a(x,y)u_x + b(x,y)u_y = c(x,y)                     |
+|  LINEAR:         a(x,y)u_x + b(x,y)u_y = c(x,y)                       |
 |                  Characteristics: ODEs dx/a = dy/b = du/c             |
 |                                                                       |
-|  SEMILINEAR:     a(x,y)u_x + b(x,y)u_y = c(x,y,u)                  |
+|  SEMILINEAR:     a(x,y)u_x + b(x,y)u_y = c(x,y,u)                     |
 |                  Characteristics: same curves, but u evolves          |
 |                  nonlinearly along them                               |
 |                                                                       |
-|  QUASILINEAR:    a(x,y,u)u_x + b(x,y,u)u_y = c(x,y,u)              |
+|  QUASILINEAR:    a(x,y,u)u_x + b(x,y,u)u_y = c(x,y,u)                 |
 |                  Characteristics DEPEND ON SOLUTION u                 |
 |                  → characteristics can cross → SHOCKS                 |
 |                                                                       |
-|  FULLY NONLINEAR: F(x,y,u,u_x,u_y) = 0                              |
+|  FULLY NONLINEAR: F(x,y,u,u_x,u_y) = 0                                |
 |                  More complex geometry; Monge cones; Hamilton-Jacobi  |
 |                                                                       |
 |  KEY RESULTS:                                                         |

@@ -5,17 +5,17 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    GLOBAL POPULATION AGING                                  │
-│                                                                               │
+│                                                                             │
 │  Share of population aged 65+:                                              │
-│                                                                               │
+│                                                                             │
 │  2000: Japan 17%, Germany 16%, Italy 18%, US 12%, World 7%                  │
 │  2023: Japan 29%, Germany 22%, Italy 24%, US 17%, World 10%                 │
 │  2050: Japan 38%, Germany 31%, Italy 36%, US 22%, World 16%                 │
-│                                                                               │
+│                                                                             │
 │  DRIVER 1: Fertility decline → fewer young → older age structure            │
 │  DRIVER 2: Mortality decline → longer lives → more elderly                  │
 │  (Fertility decline is the PRIMARY driver of aging — not mortality)         │
-│                                                                               │
+│                                                                             │
 │  DOUBLE AGING:                                                              │
 │  Within the elderly population, the oldest-old (85+) is fastest-growing     │
 │  segment due to improved survival at advanced ages.                         │

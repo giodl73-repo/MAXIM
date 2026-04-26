@@ -176,7 +176,7 @@ animal cell. It consumes ~1/3 of all neuronal ATP.
   │  5. Dephosphorylation → pump resets                      │
   │  6. 2 K⁺ released intracellularly                        │
   │                                                          │
-  │  Net: 3 Na⁺ out, 2 K⁺ in (against concentration grad.) │
+  │  Net: 3 Na⁺ out, 2 K⁺ in (against concentration grad.)   │
   │       Membrane potential = −70 mV at rest                │
   └──────────────────────────────────────────────────────────┘
 
@@ -264,8 +264,8 @@ THE SI SECOND:
   │  5. Feedback loop locks microwave to maximize F=4 signal    │
   │  6. Count oscillations → time                               │
   │                                                             │
-  │  Accuracy: ~5×10⁻¹⁴ (NIST F-2 fountain clock)             │
-  │  Optical clocks (Al⁺, Sr lattice) now ~10⁻¹⁸ — better     │
+  │  Accuracy: ~5×10⁻¹⁴ (NIST F-2 fountain clock)               │
+  │  Optical clocks (Al⁺, Sr lattice) now ~10⁻¹⁸ — better       │
   │  but Cs still defines the SI second                         │
   └─────────────────────────────────────────────────────────────┘
 

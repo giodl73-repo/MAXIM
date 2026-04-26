@@ -265,10 +265,10 @@ CASSANDRA RING TOPOLOGY
 |                                                          |
 | WRITE:                                                   |
 |   Client → coordinator (any node) → W replica nodes      |
-|   Coordinator waits for W acks (W = quorum setting)    |
+|   Coordinator waits for W acks (W = quorum setting)      |
 |                                                          |
 | READ:                                                    |
-|   Client → coordinator → R replica nodes               |
+|   Client → coordinator → R replica nodes                 |
 |   Coordinator returns latest (by timestamp), repairs     |
 |   stale replicas (read repair)                           |
 +----------------------------------------------------------+

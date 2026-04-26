@@ -7,7 +7,7 @@
 |                    FUNGAL CELL BIOLOGY                           |
 |               (cross-section, outside to inside)                 |
 |                                                                  |
-|  ┌── CELL WALL (outermost) ──────────────────────────────────┐ |
+|  ┌── CELL WALL (outermost) ──────────────────────────────────┐   |
 |  │  β-1,3-glucan scaffold + chitin microfibrils              │ |
 |  │  NOT cellulose (cellulose = plant; chitin = fungus/insect) │ |
 |  │  Antifungal targets: echinocandins block glucan synthase   │ |
@@ -45,10 +45,10 @@ The fungal cell wall is the defining structural feature and the primary target o
 FUNGAL CELL WALL LAYERS (inside to outside):
 +--------------------------------------------------+
 |  Plasma membrane (ergosterol)                    |
-|  β-1,3-glucan layer (branched polysaccharide)  |
-|  β-1,6-glucan crosslinks                       |
+|  β-1,3-glucan layer (branched polysaccharide)    |
+|  β-1,6-glucan crosslinks                         |
 |  Chitin fibres (embedded in glucan)              |
-|  α-1,3-glucan + galactomannan (outer layer)    |
+|  α-1,3-glucan + galactomannan (outer layer)      |
 |  Mannoproteins (surface glycoproteins)           |
 +--------------------------------------------------+
 

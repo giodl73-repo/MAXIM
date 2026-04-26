@@ -9,28 +9,28 @@ verification: it is design clarity and communication.
 ```
 +--------------------------------------------------------------------------+
 |                    SPECIFICATION LANGUAGE LANDSCAPE                      |
-|                                                                            |
+|                                                                          |
 |  LANGUAGE    FORMALISM        BACKEND         BEST FOR                   |
 |  ────────    ─────────        ───────         ────────                   |
 |  TLA+        Temporal logic   TLC (explicit   Distributed protocols      |
 |  (Lamport)   + set theory     state), TLAPS   (Paxos, Raft, replication) |
 |                               (proof system)                             |
-|                                                                            |
+|                                                                          |
 |  PlusCal     Pseudocode       Transpiles to   Algorithms (easier entry   |
 |  (Lamport)   (imperative)     TLA+            for engineers)             |
-|                                                                            |
+|                                                                          |
 |  Alloy       Relational FOL   Kodkod (SAT)    Data model correctness,    |
 |  (Jackson)   first-order      bounded scope   structural invariants,     |
 |              + transitive     analysis        schema design              |
-|              closure                                                       |
-|                                                                            |
+|              closure                                                     |
+|                                                                          |
 |  Z notation  Set theory       Z/Eves, ProofPwr  Sequential specs,        |
 |  (Spivey)    + schemas        (verification)    IBM CICS, civil aviation |
-|                                                                            |
+|                                                                          |
 |  Event-B     Refinement       Rodin tool      Safety-critical embedded,  |
 |  (Abrial)    calculus         (proof oblig.)  Paris Metro Line 14,       |
 |              B-Method family  ProB (animator) transit control systems    |
-|                                                                            |
+|                                                                          |
 |  VDM-SL      Implicit + expl. VDMTools        Sequential + concurrent    |
 |  (Bjorner)   specs, pre/post  Overture         industrial specs          |
 +--------------------------------------------------------------------------+

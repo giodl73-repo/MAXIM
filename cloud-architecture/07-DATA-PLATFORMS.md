@@ -8,8 +8,8 @@ The lakehouse pattern combines a data lake (cheap, scalable storage) with data w
 DATA PLATFORM ARCHITECTURE EVOLUTION
 +-----------------------------------------------------------------------+
 |                                                                       |
-|  TRADITIONAL (2000s)      DATA LAKE ERA (2010s)   LAKEHOUSE (2020s) |
-|  +-------------------+   +------------------+   +----------------+  |
+|  TRADITIONAL (2000s)      DATA LAKE ERA (2010s)   LAKEHOUSE (2020s)   |
+|  +-------------------+   +------------------+   +----------------+    |
 |  | Data Warehouse    |   | Data Lake        |   | Delta Lake     |  |
 |  | (Teradata, Netezza|   | (HDFS, S3/ADLS2) |   | / Iceberg /   |  |
 |  | SQL DW)           |   | Schema on read   |   | Hudi           |  |
@@ -18,8 +18,8 @@ DATA PLATFORM ARCHITECTURE EVOLUTION
 |  | Schema on write   |   | No transactions  |   | Schema+transact|  |
 |  | Good query perf   |   | Spark/Hive query |   | Good query perf|  |
 |  +-------------------+   +------------------+   +----------------+  |
-|                                                                       |
-|  AZURE SERVICES:                                                      |
+|                                                                     |
+|  AZURE SERVICES:                                                    |
 |  +------------------------------------------------------------------+ |
 |  |  ADLS Gen2      |  Delta Lake     |  Synapse        |            | |
 |  |  (storage)      |  (table format) |  Analytics      |            | |

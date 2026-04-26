@@ -68,7 +68,7 @@ NEWCOMEN ATMOSPHERIC ENGINE — PRINCIPLES
   ┌─────────────────────────────────────────────────┐
   │  OVERHEAD BEAM (pivots at center)               │
   │   /\                              /\            │
-  │  /  \──────────────────────────/  \           │
+  │  /  \──────────────────────────/  \             │
   │ pump    pivot                 cylinder          │
   │  rod     ○                    piston            │
   │   ↑↓                            ↑↓              │

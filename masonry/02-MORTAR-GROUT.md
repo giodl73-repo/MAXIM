@@ -11,15 +11,15 @@ MORTAR FUNCTION DIAGRAM
   ┌──────────────────────────────────────────────────────────────────┐
   │                        MASONRY WALL SECTION                      │
   │                                                                  │
-  │  [UNIT]  [BED JOINT — horizontal mortar]  [UNIT]               │
-  │  [UNIT]  [HEAD JOINT — vertical mortar]   [UNIT]               │
+  │  [UNIT]  [BED JOINT — horizontal mortar]  [UNIT]                 │
+  │  [UNIT]  [HEAD JOINT — vertical mortar]   [UNIT]                 │
   │                                                                  │
   │  MORTAR FUNCTIONS:                                               │
   │  ① Bond units together (tensile/shear bond strength)             │
   │  ② Transfer compressive loads (gravity path)                     │
   │  ③ Accommodate dimensional variation (3/8" joint tolerance)      │
   │  ④ Seal joints against moisture infiltration                     │
-  │  ⑤ SACRIFICIAL ELEMENT — fails before unit face spalls         │
+  │  ⑤ SACRIFICIAL ELEMENT — fails before unit face spalls           │
   └──────────────────────────────────────────────────────────────────┘
 
   MORTAR INGREDIENT TRIANGLE:
@@ -145,7 +145,7 @@ BINDER COMPARISON
   │  Type S: Special hydrated lime — fine, high plasticity           │
   │  Type N: Normal hydrated lime — less plastic, drier              │
   │  Chemistry: Ca(OH)₂ (calcium hydroxide)                          │
-  │  Set mechanism: Slow carbonation → Ca(OH)₂ + CO₂ → CaCO₃       │
+  │  Set mechanism: Slow carbonation → Ca(OH)₂ + CO₂ → CaCO₃         │
   │  Role in mortar: Workability, plasticity, water retention        │
   │  Sets by: Drying + CO₂ absorption from air (weeks to months)     │
   └──────────────────────────────────────────────────────────────────┘

@@ -20,7 +20,7 @@
 |  Industrial archaeology                                          |
 |  Shipwreck archaeology (post-1500)                               |
 |  Conflict archaeology                                            |
-|  Contemporary/modern archaeology                               |
+|  Contemporary/modern archaeology                                 |
 +------------------------------------------------------------------+
 ```
 

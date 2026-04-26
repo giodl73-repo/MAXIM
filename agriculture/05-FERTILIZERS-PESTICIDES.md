@@ -10,7 +10,7 @@ Synthetic fertilizers and pesticides are the two chemical pillars of industrial 
 |                                                                  |
 |  FERTILIZERS                   PESTICIDES                        |
 |  ──────────────────────        ─────────────────────────────── |\n|  Provide macronutrients        Kill or repel organisms that   |
-|  (N, P, K) + secondaries      compete with or damage crops    |
+|  (N, P, K) + secondaries      compete with or damage crops       |
 |                                                                  |
 |  SOURCES:                      CLASSES:                          |
 |  Synthetic: Haber-Bosch N      Herbicides   (weeds)              |

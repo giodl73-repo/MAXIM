@@ -5,24 +5,24 @@
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
 │              STRUCTURAL BIOLOGY METHOD LANDSCAPE                         │
-│                                                                            │
+│                                                                          │
 │  METHOD         RESOLUTION  SIZE RANGE      KEY LIMITATION               │
 │  ─────────────  ──────────  ─────────────   ──────────────────────────── │
 │  X-ray crystal  0.5-3 Å     1 kDa - 10 MDa  Must crystallize             │
 │  NMR            1-3 Å       <50 kDa          Size limit, assignment effort │
 │  Cryo-EM        1.5-4 Å     100 kDa - GDa   Small proteins still hard    │
-│  Cryo-ET        2-5 nm      10-100s MDa      In situ tomography            │
+│  Cryo-ET        2-5 nm      10-100s MDa      In situ tomography          │
 │  SAXS           ~1 nm       1 kDa - 1 GDa   Low resolution, envelope only │
 │  AFM            ~1 nm       Any size         Low resolution, surface only  │
-│                                                                            │
-│  DOMINANCE SHIFT:                                                          │
+│                                                                          │
+│  DOMINANCE SHIFT:                                                        │
 │  1950s-2010s:  X-ray crystallography dominated (~90% of PDB)             │
 │  2013-present: Cryo-EM resolution revolution (Kühlbrandt, Frank, Henderson│
 │                Nobel 2017) displaced X-ray for large complexes           │
-│                                                                            │
-│  2025 PDB statistics (~230,000+ total entries):                            │
+│                                                                          │
+│  2025 PDB statistics (~230,000+ total entries):                          │
 │  X-ray:   ~175,000 entries (~76% of total)                               │
-│  NMR:     ~14,000 entries (~6%)                                            │
+│  NMR:     ~14,000 entries (~6%)                                          │
 │  Cryo-EM: ~37,000 entries (~16%, growing fastest — tripled since 2020)   │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
@@ -73,7 +73,7 @@ each reflection.
   │                 collect millions of spots                        │
   │  4. Data        Indexing, integrating,        Mostly automated   │
   │     processing  scaling; CCP4, XDS, HKL2000                      │
-  │  5. Phase       Solve the phase problem       THE hard step        │
+  │  5. Phase       Solve the phase problem       THE hard step      │
   │     determina.  (see below)                                      │
   │  6. Model build Place atoms into density;     Semi-manual, expert │
   │                 Coot for manual fitting                          │

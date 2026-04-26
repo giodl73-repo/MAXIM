@@ -19,7 +19,7 @@ GraphQL is a typed API query language and runtime. This guide covers it at the l
 │                                                                          │
 │  GraphQL (field-based, single endpoint):                                 │
 │    POST /graphql                                                         │
-│    { user(id: 1) { name, orders { id, total } } }                      │
+│    { user(id: 1) { name, orders { id, total } } }                        │
 │    → exactly these fields, one request, client drives shape              │
 │                                                                          │
 │  tRPC (TypeScript-first RPC):                                            │
@@ -27,7 +27,7 @@ GraphQL is a typed API query language and runtime. This guide covers it at the l
 │    Type-safe without codegen, but TypeScript/Node-only ecosystem         │
 │                                                                          │
 │  OData (Microsoft's URL-based query):                                    │
-│    GET /users?$select=name,email&$expand=orders&$filter=age gt 18      │
+│    GET /users?$select=name,email&$expand=orders&$filter=age gt 18        │
 │    Query params in URL — REST + filter language                          │
 │    Used in: Azure REST APIs, Dynamics 365, Power BI datasets             │
 │    T-SQL bridge: if you've used Azure REST APIs or ADO.NET OData         │
@@ -35,7 +35,7 @@ GraphQL is a typed API query language and runtime. This guide covers it at the l
 │                                                                          │
 │  Where GraphQL fits architecturally:                                     │
 │                                                                          │
-│  ┌──────────┐     ┌─────────────────┐     ┌────────────────────────┐   │
+│  ┌──────────┐     ┌─────────────────┐     ┌────────────────────────┐     │
 │  │  Client  │────►│  GraphQL Layer  │────►│  Backing Data Sources  │   │
 │  │ (mobile/ │     │  (schema +      │     │  - PostgreSQL / SQL Srv │   │
 │  │  web/IoT)│◄────│   resolvers)    │◄────│  - REST microservices  │   │

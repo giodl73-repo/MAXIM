@@ -194,7 +194,7 @@ The sizing methodology is a probabilistic layer (Hunter's fixture-unit method) o
 
   HORIZONTAL DRAIN PIPE SIZING (IPC Table 704.1):
   ┌──────────────────────────────────────────────────────────────┐
-  │  Pipe size │ Max DFU (1/4"/ft slope) │ Max DFU (1/8"/ft)   │
+  │  Pipe size │ Max DFU (1/4"/ft slope) │ Max DFU (1/8"/ft)     │
   ├──────────────────────────────────────────────────────────────┤
   │  1-1/2"    │ 3                       │ 1                    │
   │  2"        │ 6                       │3                     │

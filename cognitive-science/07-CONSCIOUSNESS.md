@@ -84,8 +84,8 @@ Implication: No computational system has genuine understanding — only *simulat
 ```
                  SPECIALIZED MODULES
       ┌──────────────────────────────────┐
-      │  Vision   Auditory  Language   │
-      │  Memory   Emotion   Motor      │
+      │  Vision   Auditory  Language     │
+      │  Memory   Emotion   Motor        │
       └──────────────┬───────────────┘
                      │ compete for access
                      ▼

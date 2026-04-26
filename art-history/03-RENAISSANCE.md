@@ -23,7 +23,7 @@ RENAISSANCE ART: GEOGRAPHY AND CHRONOLOGY
   │    Papal Rome replaces Florence as center                          │
   │    Sack of Rome 1527 ends the moment                               │
   │                                                                    │
-  │  VENETIAN RENAISSANCE (parallel, c. 1430–1580)                   │
+  │  VENETIAN RENAISSANCE (parallel, c. 1430–1580)                     │
   │    Bellini, Giorgione, Titian, Tintoretto, Veronese                │
   │    Color as structure (vs Florentine disegno)                      │
   │                                                                    │
@@ -35,7 +35,7 @@ RENAISSANCE ART: GEOGRAPHY AND CHRONOLOGY
   ┌────────────────────────────────────────────────────────────────────┐
   │                   NORTHERN RENAISSANCE                             │
   │                                                                    │
-  │  Flemish (c. 1420–1520): Van Eyck, Rogier van der Weyden,        │
+  │  Flemish (c. 1420–1520): Van Eyck, Rogier van der Weyden,          │
   │    Hugo van der Goes, Hieronymus Bosch                             │
   │    Oil technique as fundamental innovation                         │
   │                                                                    │

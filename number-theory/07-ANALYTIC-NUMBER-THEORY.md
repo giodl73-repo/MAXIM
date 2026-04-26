@@ -18,7 +18,7 @@
 |  Key results:                                                      |
 |  +-----------------------+    +------------------------------+     |
 |  |  Prime Number Theorem |    |  Primes in APs               |     |
-|  |  π(x) ~ x / ln x     |    |  Dirichlet: ∞ primes in     |     |
+|  |  π(x) ~ x / ln x     |    |  Dirichlet: ∞ primes in     |       |
 |  |  Proof: ζ has no zeros|    |  {a, a+q, a+2q,...}          |     |
 |  |  on Re(s)=1 line      |    |  Proof: L(1,χ) ≠ 0           |     |
 |  +-----------------------+    +------------------------------+     |
@@ -26,7 +26,7 @@
 |           v                              v                        |
 |  +---------------------------------------------------+            |
 |  |   GENERAL FRAMEWORK: AUTOMORPHIC L-FUNCTIONS      |            |
-|  |   Langlands program (open), Weil conjectures        |            |
+|  |   Langlands program (open), Weil conjectures        |          |
 |  |   (proved), BSD conjecture (open)                 |            |
 |  +---------------------------------------------------+            |
 +====================================================================+

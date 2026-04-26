@@ -208,7 +208,7 @@ MEDICAL USE:
 BIVALVE BODY PLAN
 
 LEFT VALVE    VISCERAL MASS    RIGHT VALVE
-    |\                              /|
+    |\                              / |
     | \    MANTLE LOBES           / |
     |  \  (secrete shell)        /  |
     |   +------GILLS------------+   |

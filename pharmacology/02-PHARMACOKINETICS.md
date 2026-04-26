@@ -11,7 +11,7 @@ Pharmacokinetics (PK) describes the time course of drug concentration in the bod
 |  [DOSE administered]                                             |
 |       │                                                          |
 |       v Absorption (A)                                           |
-|  [Drug in systemic circulation] ── Plasma concentration-time   |
+|  [Drug in systemic circulation] ── Plasma concentration-time     |
 |       │                            curve: Cmax, Tmax, AUC        |
 |       v Distribution (D)                                         |
 |  [Drug in tissues / bound to proteins]                           |
@@ -19,7 +19,7 @@ Pharmacokinetics (PK) describes the time course of drug concentration in the bod
 |       v Metabolism (M) — mainly liver CYP enzymes                |
 |  [Drug → Metabolites] (active or inactive)                       |
 |       │                                                          |
-|       v Excretion (E) — mainly kidney, some bile               |
+|       v Excretion (E) — mainly kidney, some bile                 |
 |  [Drug / metabolites eliminated]                                 |
 |                                                                  |
 |  MASTER EQUATION: Concentration(t) = f(A, D, M, E, dose, time)   |

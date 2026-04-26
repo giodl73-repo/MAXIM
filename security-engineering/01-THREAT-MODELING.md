@@ -123,13 +123,13 @@ DATA FLOW DIAGRAM ELEMENTS AND APPLICABLE THREATS
 | External entities        | Spoofing, Repudiation                       |
 | (users, external systems)|                                             |
 +-----------------------------------------------------------------------+
-| Processes                | Spoofing, Tampering, Repudiation,            |
+| Processes                | Spoofing, Tampering, Repudiation,          |
 | (services, APIs)         | Info Disclosure, DoS, Elevation            |
 +-----------------------------------------------------------------------+
 | Data flows               | Tampering, Info Disclosure, DoS              |
 | (HTTP, gRPC, queue msgs) |                                             |
 +-----------------------------------------------------------------------+
-| Data stores              | Tampering, Repudiation, Info Disclosure,     |
+| Data stores              | Tampering, Repudiation, Info Disclosure,   |
 | (DBs, caches, files)     | DoS (store exhaustion)                     |
 +-----------------------------------------------------------------------+
 | Trust boundaries         | Spoofing, Tampering, Elevation              |

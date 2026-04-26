@@ -323,13 +323,13 @@ ADAPTATION STRATEGIES:
   │ PASSIVE: reduce other stressors, let species self-adjust        │
   │   Reduce fragmentation (improve matrix permeability)            │
   │   Reduce overexploitation, pollution                            │
-  │   → Creates "headroom" for adaptation                         │
-  │                                                               │
+  │   → Creates "headroom" for adaptation                           │
+  │                                                                 │
   │ CONNECTIVITY: facilitate natural dispersal                      │
   │   Climate corridors: route from current → future habitat        │
   │   Stepping stones: intermediate patches for long-distance moves│
-  │   → Design for future climate, not current conditions         │
-  │                                                               │
+  │   → Design for future climate, not current conditions           │
+  │                                                                 │
   │ MANAGED RELOCATION (assisted migration):                        │
   │   Deliberately move individuals/populations to future habitat   │
   │   High controversy: could introduce new invasive dynamics       │

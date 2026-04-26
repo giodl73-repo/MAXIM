@@ -5,7 +5,7 @@
 ```
 +------------------------------------------------------------------+
 |                    SUGARCANE SPIRIT TREE                         |
-|                                                                    |
+|                                                                  |
 |  SUGARCANE (Saccharum officinarum)                               |
 |       |                                                          |
 |       +-> Sugar production -> MOLASSES (waste byproduct)         |
@@ -21,7 +21,7 @@
 |            RHUM AGRICOLE (AOC Martinique, etc.)                  |
 |            CACHACA (Brazil)                                      |
 |            CLAIRIN (Haiti)                                       |
-|                                                                    |
+|                                                                  |
 |  CHARACTER SPECTRUM:                                             |
 |  Light (column, light yeast) <-----------> Heavy (pot, dunder)   |
 |  Bacardi, Havana Club          Jamaica (Worthy Park, Hampden)    |
@@ -170,7 +170,7 @@ VERY HIGH:              1,600-4,000+ g/hlpa
 ```
 +------------------------------------------------------------------+
 |               CARIBBEAN REGIONAL RUM STYLES                      |
-|                                                                    |
+|                                                                  |
 |  BARBADOS                                                        |
 |  Oldest rum-producing island (first documented rum production)   |
 |  Mix of pot and column distillation                              |
@@ -178,7 +178,7 @@ VERY HIGH:              1,600-4,000+ g/hlpa
 |  Mount Gay (oldest rum brand in continuous production, ~1703)    |
 |  Foursquare (Richard Seale, quality-focused, vintage dated)      |
 |  Cockspur, Banks (blended for export)                            |
-|                                                                    |
+|                                                                  |
 |  JAMAICA                                                         |
 |  Heaviest-bodied rums; highest ester production                  |
 |  Pot still dominant for heavy marks; column for lighter          |
@@ -186,23 +186,23 @@ VERY HIGH:              1,600-4,000+ g/hlpa
 |  Worthy Park Estate, Hampden Estate, Long Pond, Appleton Estate  |
 |  Rum Fire (Worthy Park raw pot still) -- intense                 |
 |  Overproof (Wray & Nephew 63% ABV) -- the national drink         |
-|                                                                    |
+|                                                                  |
 |  TRINIDAD                                                        |
 |  Angostura (also makes the bitters): column distilled, light     |
 |  Caroni (1975-2002, now defunct): sought-after single-column rums |
-|                                                                    |
+|                                                                  |
 |  CUBA                                                            |
 |  Cuban style: light, clean, column distilled                     |
 |  5-year minimum aging standard                                   |
 |  Havana Club (state-owned in Cuba; disputed brand in US)         |
 |  Bacardi (Cuban in origin; fled Cuba after 1959 revolution)      |
-|                                                                    |
+|                                                                  |
 |  HAITI                                                           |
 |  Clairin: artisanal agricole-style spirit                        |
 |  Wild fermentation, small copper pot stills                      |
 |  Enormous diversity: village-specific styles                     |
 |  Velier company (Italian importers) brought international attention|
-|                                                                    |
+|                                                                  |
 |  GUYANA (Demerara)                                               |
 |  Historical wooden column stills (unique surviving equipment)    |
 |  Versailles wooden pot still (pre-1800)                          |

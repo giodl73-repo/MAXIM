@@ -5,19 +5,19 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                    INTERTEMPORAL CHOICE FRAMEWORK                           │
-│                                                                               │
+│                                                                             │
 │  STANDARD MODEL (DU — Discounted Utility, Samuelson 1937):                  │
 │  V = Σ_t U(c_t) × δ^t   where δ = discount factor = 1/(1+r)                 │
 │  Constant discount rate r per period. Exponential discounting.              │
 │  Preferences are DYNAMICALLY CONSISTENT.                                    │
-│                                                                               │
+│                                                                             │
 │  BEHAVIORAL REALITY:                                                        │
 │  People discount the near future MUCH more steeply than the far future.     │
 │  Hyperbolic discounting: D(t) = 1/(1+kt) for parameter k                    │
 │  Present bias: immediate rewards get disproportionate weight.               │
 │  Dynamic inconsistency: plans made for the future are abandoned             │
 │  when the future arrives and becomes the present.                           │
-│                                                                               │
+│                                                                             │
 │  APPLICATIONS:                                                              │
 │  Retirement savings, dieting, exercise, debt management                     │
 │  Technical debt in software (delayed pain → discounted)                     │

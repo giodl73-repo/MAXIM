@@ -133,11 +133,11 @@ ARGUMENT STRUCTURE:
               Property dualism.
 
   +------------------+          +------------------+
-  | Human brain       |          | Zombie brain      |
-  | Same atoms,       |          | Same atoms,       |
+  | Human brain       |          | Zombie brain    |
+  | Same atoms,       |          | Same atoms,     |
   | same connections, |          | same connections, |
-  | same behavior     |          | same behavior     |
-  | + EXPERIENCE      |          | NO experience     |
+  | same behavior     |          | same behavior   |
+  | + EXPERIENCE      |          | NO experience   |
   +------------------+          +------------------+
   Logically possible? Chalmers: YES.
   Therefore: experience is not entailed by physical facts.

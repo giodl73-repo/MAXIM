@@ -6,7 +6,7 @@
 +------------------------------------------------------------------+
 |            ONLINE EXPERIMENTATION ARCHITECTURE                   |
 |                                                                  |
-|  REQUEST → [ASSIGNMENT] → [TREATMENT] → [LOGGING] → [ANALYSIS] |
+|  REQUEST → [ASSIGNMENT] → [TREATMENT] → [LOGGING] → [ANALYSIS]   |
 |                                                                  |
 |  ASSIGNMENT:                                                     |
 |  Hash(user_id + experiment_id) → bucket (0-999)                  |

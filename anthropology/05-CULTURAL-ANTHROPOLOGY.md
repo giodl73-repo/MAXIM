@@ -419,7 +419,7 @@
   │                                                          │
   │  Examples:                                               │
   │  Birth:     Infant   -> unbaptized/nameless -> full      │
-  │             separate   member of society               │
+  │             separate   member of society                 │
   │  Initiation: Child  -> seclusion/ordeal    -> adult      │
   │  Marriage:   Single -> betrothal period    -> married    │
   │  Death:      Living -> funeral rites       -> ancestor   │

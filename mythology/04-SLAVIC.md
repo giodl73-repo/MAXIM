@@ -17,14 +17,14 @@ Slavic mythology is the hardest major tradition to reconstruct. Unlike Norse, Gr
 │                                                                  │
 │  SECONDARY SOURCES (after Christianization):                     │
 │  — Russian/Ukrainian folklore (collected 19th c.)                │
-│  — Fairy tales (skazki) — heavily transformed                  │
+│  — Fairy tales (skazki) — heavily transformed                    │
 │  — Seasonal customs and folk practices                           │
 │  — Place names with deity connections                            │
 │  — Medieval church polemics against pagan practices              │
 │                                                                  │
 │  PROBLEMATIC SOURCE: Book of Veles (Velesova Kniga)              │
 │  — Claimed pre-Christian Slavic text                             │
-│  — Consensus: 20th-century forgery (appeared 1954)             │
+│  — Consensus: 20th-century forgery (appeared 1954)               │
 │  — Do not cite as authentic                                      │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -48,7 +48,7 @@ The **central myth** of Slavic religion is a cosmic combat between two great for
 │  — Cognate: Baltic Perkūnas, Vedic Parjanya, PIE *perkwunos      │
 │                                                                  │
 │  VELES (Underworld God)                                          │
-│  — Rules the underworld (Nav), waters, earth                   │
+│  — Rules the underworld (Nav), waters, earth                     │
 │  — Cattle, wealth, magic, arts, poetry                           │
 │  — Shape-shifter (serpent, bear, human)                          │
 │  — Associated with the dead and fate                             │
@@ -143,7 +143,7 @@ This cosmological tripartition is reconstructed from folk sources and the compar
 │                                                                  │
 │  YAV (Явь) — The Manifest World                                  │
 │  — The world of the living; reality as experienced               │
-│  — "Yav" related to "yavit'" (to manifest/appear)              │
+│  — "Yav" related to "yavit'" (to manifest/appear)                │
 │                                                                  │
 │  NAV (Навь) — The Death World                                    │
 │  — The realm of the dead, the unmanifest                         │
@@ -151,7 +151,7 @@ This cosmological tripartition is reconstructed from folk sources and the compar
 │  — Associated with disease, winter, bad luck                     │
 │                                                                  │
 │  The World Tree (Mировое Дерево) connects all three:             │
-│  — Roots in Nav, trunk in Yav, crown in Prav                   │
+│  — Roots in Nav, trunk in Yav, crown in Prav                     │
 │  — Birds in the canopy (heavenly), serpents at roots (chthonic)  │
 │  — Axis mundi in Slavic cosmology                                │
 └──────────────────────────────────────────────────────────────────┘

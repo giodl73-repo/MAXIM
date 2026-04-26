@@ -31,7 +31,7 @@
 │                               │                                             │
 │  ┌─────────────────────────────────────────────────────────────────────┐   │
 │  │  XNU Kernel                                                         │   │
-│  │  ┌──────────────┐  ┌──────────────────┐  ┌────────────────────┐   │   │
+│  │  ┌──────────────┐  ┌──────────────────┐  ┌────────────────────┐   │     │
 │  │  │  Mach Layer  │  │   BSD Layer       │  │  IOKit (Drivers)   │   │   │
 │  │  │  tasks       │  │  POSIX syscalls   │  │  C++ OOP in kernel │   │   │
 │  │  │  threads     │  │  VFS              │  │  IOService tree    │   │   │
@@ -1029,7 +1029,7 @@ SIGNAL HANDLING: LINUX vs MACOS vs WINDOWS
 │                    UI FRAMEWORK LANDSCAPE                                   │
 │                                                                             │
 │  AppKit (macOS 10.0, 1999)          SwiftUI (macOS 10.15, 2019)             │
-│  ┌─────────────────────────────┐    ┌─────────────────────────────────┐   │
+│  ┌─────────────────────────────┐    ┌─────────────────────────────────┐     │
 │  │ NSApplication               │    │ @main struct MyApp: App { }      │   │
 │  │ NSWindow + NSWindowDelegate │    │ WindowGroup { ContentView() }    │   │
 │  │ NSViewController            │    │ View protocol + body: some View  │   │

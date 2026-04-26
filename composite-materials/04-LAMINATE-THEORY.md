@@ -20,7 +20,7 @@
 |   1. Kirchhoff-Love plate theory (thin plate, plane stress)      |
 |   2. Linear elastic material behavior                            |
 |   3. Perfect bonding between plies (no delamination)             |
-|   4. Plane stress through thickness (σ3 = τ23 = τ13 = 0)       |
+|   4. Plane stress through thickness (σ3 = τ23 = τ13 = 0)         |
 +------------------------------------------------------------------+
 ```
 

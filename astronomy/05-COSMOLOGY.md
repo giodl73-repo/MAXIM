@@ -28,7 +28,7 @@
   ┌──────────────────────────────────────────────────────────────────────┐
   │  Dark Energy (Λ):    68.5%  — drives accelerated expansion           │
   │  Dark Matter (CDM):  26.5%  — gravitational scaffold for structure   │
-  │  Ordinary Matter:     4.9%  — baryons (stars, gas, planets, you)   │
+  │  Ordinary Matter:     4.9%  — baryons (stars, gas, planets, you)     │
   │  Radiation:          ~0.01% — photons + neutrinos, negligible today  │
   └──────────────────────────────────────────────────────────────────────┘
   Of the ~5% ordinary matter: ~90% is diffuse gas in filaments/CGM,
@@ -81,7 +81,7 @@ From Einstein's field equations G_μν + Λg_μν = 8πG/c⁴ T_μν with FLRW m
 
   SECOND FRIEDMANN EQUATION  (force-like / acceleration):
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  ä/a = −4πG/3 (ρ + 3P/c²) + Λc²/3                                 │
+  │  ä/a = −4πG/3 (ρ + 3P/c²) + Λc²/3                                    │
   └──────────────────────────────────────────────────────────────────────┘
   Deceleration if ρ + 3P > 0; acceleration if Λc²/3 > 4πG(ρ + 3P/c²)/3
 
@@ -110,14 +110,14 @@ From Einstein's field equations G_μν + Λg_μν = 8πG/c⁴ T_μν with FLRW m
 
   PLANCK 2018 BEST-FIT ΛCDM PARAMETERS:
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  H₀     = 67.36 ± 0.54  km/s/Mpc   (Planck CMB)                  │
-  │  H₀     = 73.0  ± 1.0   km/s/Mpc   (SH0ES Cepheids) ← TENSION!   │
+  │  H₀     = 67.36 ± 0.54  km/s/Mpc   (Planck CMB)                     │
+  │  H₀     = 73.0  ± 1.0   km/s/Mpc   (SH0ES Cepheids) ← TENSION!      │
   │  Ω_b h² = 0.02237        baryons                                    │
   │  Ω_c h² = 0.1200         cold dark matter                           │
   │  Ω_Λ   = 0.6847          dark energy                                │
   │  n_s    = 0.9651          primordial spectral index                 │
   │  σ₈    = 0.8111           amplitude of matter fluctuations          │
-  │  t₀    = 13.787 ± 0.020 Gyr   age of universe                     │
+  │  t₀    = 13.787 ± 0.020 Gyr   age of universe                       │
   │  Flat: Ω_total = 1.000 ± 0.002                                      │
   └─────────────────────────────────────────────────────────────────────┘
 ```
@@ -189,7 +189,7 @@ Before inflation was proposed, ΛCDM had three unresolved problems:
   ┌─────────────────────────────────────────────────────────────────────┐
   │  p + n → D + γ                                                      │
   │  D + D → ³He + n,  ⁴He + p                                          │
-  │  D + p → ³He + γ,  ³He + n → ⁴He + p (etc.)                       │
+  │  D + p → ³He + γ,  ³He + n → ⁴He + p (etc.)                         │
   │  Bottleneck: D photodissociation delays start until T < 0.07 MeV    │
   │  (despite n+p→D available, photons destroy D until cool enough)     │
   └─────────────────────────────────────────────────────────────────────┘
@@ -248,25 +248,25 @@ Before inflation was proposed, ΛCDM had three unresolved problems:
   ┌─────────────────────────────────────────────────────────────────────────┐
   │ Primary (from recombination):                                           │
   │                                                                         │
-  │ 1. Sachs-Wolfe effect (ℓ < 100, θ > 2°):                              │
+  │ 1. Sachs-Wolfe effect (ℓ < 100, θ > 2°):                                │
   │    Photons climbing out of density wells at recombination               │
   │    Are gravitationally redshifted → cooler toward overdensities         │
   │    (counter-intuitive: overdense regions appear cool on large scales)   │
   │                                                                         │
-  │ 2. Acoustic oscillations (ℓ ~ 100–2000):                              │
+  │ 2. Acoustic oscillations (ℓ ~ 100–2000):                                │
   │    Pre-recombination plasma is coupled gas+radiation                    │
   │    Pressure waves oscillate in photon-baryon fluid                      │
   │    At recombination: modes "frozen" at random phase in oscillation      │
   │    → peaks in power spectrum where modes caught at extrema              │
   │                                                                         │
-  │ 3. Silk damping (ℓ > 1000, small scales):                             │
-  │    Photon diffusion erases fluctuations below Silk scale (~7 Mpc)     │
-  │    Exponential suppression of power at high ℓ                         │
+  │ 3. Silk damping (ℓ > 1000, small scales):                               │
+  │    Photon diffusion erases fluctuations below Silk scale (~7 Mpc)       │
+  │    Exponential suppression of power at high ℓ                           │
   │                                                                         │
   │ Secondary (after recombination):                                        │
   │    Reionization (τ_reion): suppresses power by e^(−2τ) at small scales  │
   │    Integrated Sachs-Wolfe (ISW): DE-induced potential decay at late time│
-  │    Sunyaev-Zel'dovich (SZ): hot cluster gas inverse-Compton scatters  │
+  │    Sunyaev-Zel'dovich (SZ): hot cluster gas inverse-Compton scatters    │
   │    Gravitational lensing: smears acoustic peaks                         │
   └─────────────────────────────────────────────────────────────────────────┘
 ```
@@ -405,10 +405,10 @@ Before inflation was proposed, ΛCDM had three unresolved problems:
 
   THE COSMOLOGICAL CONSTANT PROBLEM:
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  QFT prediction: ρ_vac ~ (E_Planck)⁴/(ℏc)³ ~ 10⁹⁴ g/cm³              │
-  │  Observed:       ρ_Λ  ~ 10⁻²⁹ g/cm³                                   │
+  │  QFT prediction: ρ_vac ~ (E_Planck)⁴/(ℏc)³ ~ 10⁹⁴ g/cm³                  │
+  │  Observed:       ρ_Λ  ~ 10⁻²⁹ g/cm³                                      │
   │  Discrepancy:    10¹²³  — worst fine-tuning problem in physics           │
-  │  SUSY would reduce to ~10⁶⁰, still terrible.                           │
+  │  SUSY would reduce to ~10⁶⁰, still terrible.                             │
   └──────────────────────────────────────────────────────────────────────────┘
 
   ALTERNATIVES:
@@ -496,7 +496,7 @@ Before inflation was proposed, ΛCDM had three unresolved problems:
   ┌──────────────────────────────────────────────────────────────────────┐
   │ SDSS BOSS (2014):   BAO detected at 0.1 < z < 0.6, ~1% precision     │
   │ eBOSS (2021):       z up to 2.2 using quasars as tracers, ~0.7%      │
-  │ DESI (2024):        6 million galaxies, 0.1 < z < 3.5, ~0.5%       │
+  │ DESI (2024):        6 million galaxies, 0.1 < z < 3.5, ~0.5%         │
   │                     First evidence of evolving dark energy (w₀,wₐ)   │
   └──────────────────────────────────────────────────────────────────────┘
 ```
@@ -619,27 +619,27 @@ How we measure cosmic distances — each rung calibrates the next:
   DISTANCE MEASURES (they all differ in an expanding universe):
 
   ┌────────────────────────────────────────────────────────────────────────┐
-  │ Comoving distance:  χ = ∫₀ᶻ c dz'/H(z')                             │
+  │ Comoving distance:  χ = ∫₀ᶻ c dz'/H(z')                                │
   │   Distance in today's coordinates; doesn't change as universe expands  │
-  │   Observable universe: χ_max ≈ 46.5 Gly (comoving)                   │
+  │   Observable universe: χ_max ≈ 46.5 Gly (comoving)                     │
   │                                                                        │
-  │ Angular diameter distance: D_A = χ/(1+z)                             │
-  │   Physical size of object / observed angle: θ = l/D_A                │
-  │   Has a MAXIMUM: peaks at z ~ 1.5 (objects at z > 1.5 appear LARGER  │
+  │ Angular diameter distance: D_A = χ/(1+z)                               │
+  │   Physical size of object / observed angle: θ = l/D_A                  │
+  │   Has a MAXIMUM: peaks at z ~ 1.5 (objects at z > 1.5 appear LARGER    │
   │   with increasing z — expansion shrinks angular diam. distance)        │
   │                                                                        │
-  │ Luminosity distance: D_L = χ(1+z) = D_A(1+z)²                        │
-  │   flux = L/(4πD_L²)    [used for SNe Ia, Type Ia standard candle]    │
+  │ Luminosity distance: D_L = χ(1+z) = D_A(1+z)²                          │
+  │   flux = L/(4πD_L²)    [used for SNe Ia, Type Ia standard candle]      │
   │   Always larger than comoving distance                                 │
   │                                                                        │
-  │ Hubble radius: d_H = c/H₀ ≈ 14.5 Gly                                 │
+  │ Hubble radius: d_H = c/H₀ ≈ 14.5 Gly                                   │
   │   NOT a horizon — objects beyond can still send light to us            │
   │   (due to acceleration, some comoving regions already out of reach)    │
   │                                                                        │
-  │ Particle horizon:  χ_particle ≈ 46.5 Gly   (furthest light could     │
+  │ Particle horizon:  χ_particle ≈ 46.5 Gly   (furthest light could       │
   │   have reached us from Big Bang — defines observable universe)         │
   │                                                                        │
-  │ Event horizon:  χ_event ≈ 16 Gly  (furthest we can ever influence    │
+  │ Event horizon:  χ_event ≈ 16 Gly  (furthest we can ever influence      │
   │   or receive light from — due to accelerating expansion)               │
   └────────────────────────────────────────────────────────────────────────┘
 ```

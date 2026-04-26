@@ -310,7 +310,7 @@ $$\mathbf{b}_1 = 2\pi \frac{\mathbf{a}_2 \times \mathbf{a}_3}{\mathbf{a}_1 \cdot
     │  ╚═══════════╝                                          │
     │                                                         │
     │  Even infinitesimal electric field accelerates electrons │
-    │  → σ_e ~ 10⁷ S/m (Cu), 10⁶ S/m (Al)                   │
+    │  → σ_e ~ 10⁷ S/m (Cu), 10⁶ S/m (Al)                     │
     │  Resistivity: ρ_e = m/(ne²τ) increases with T           │
     │  (more phonon scattering at higher T)                   │
     │                                                         │
@@ -399,8 +399,8 @@ Lorentz force on carriers: F = q(v × B)
     │   I_x →    ●  ●  ●  ●                       │
     │            electrons move ←                 │
     │   Lorentz force on e⁻: F = -e(v × B)        │
-    │   v = -v_x x̂, B = B_z ẑ                   │
-    │   F = -e(-v_x x̂ × B_z ẑ) = ev_x B_z ŷ    │
+    │   v = -v_x x̂, B = B_z ẑ                     │
+    │   F = -e(-v_x x̂ × B_z ẑ) = ev_x B_z ŷ       │
     │   → electrons accumulate on +y face         │
     │   → Hall voltage V_H = positive on -y face  │
     │                                             │

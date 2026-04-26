@@ -22,7 +22,7 @@ H.P. Grice (1913–1988) laid the foundations by identifying the inferential mec
 |   literally: question about        Not really asking about ability.   |
 |   ability                                                             |
 |                                                                       |
-|  "It's warm in here"               I want you to open a window.     |
+|  "It's warm in here"               I want you to open a window.       |
 |   literally: a statement           (hint / indirect request)          |
 |   about temperature                                                   |
 |                                                                       |

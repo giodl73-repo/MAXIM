@@ -319,7 +319,7 @@ Amphiphilic structure → self-assembly into bilayer:
   │ ●●●●●●●●●●●●●●●●●●●●●●●●●●●● │  polar heads (outward, face water)
   │ |||||||||||||||||||||||||||||| │  nonpolar tails (inward, face each other)
   │ |||||||||||||||||||||||||||||| │
-  │ ●●●●●●●●●●●●●●●●●●●●●●●●●●●● │
+  │ ●●●●●●●●●●●●●●●●●●●●●●●●●●●●   │
   └────────────────────────────────┘
 
 Bilayer thickness: ~4 nm

@@ -41,32 +41,32 @@ HAND SPECIMEN IDENTIFICATION WORKFLOW
 |     Non-metallic → silicates/carbonates/phosphates/sulfates      |
 |                                                                  |
 |  2. HARDNESS (carry: fingernail, penny, knife, quartz piece)     |
-|     <2.5: talc, gypsum, graphite, sulfur                       |
-|     2.5–3.5: calcite, halite, argentite                        |
-|     3.5–5.5: fluorite, apatite, chalcopyrite                   |
-|     5.5–7: pyroxene, amphibole, feldspar                       |
-|     >7: quartz, topaz, corundum, garnet                        |
+|     <2.5: talc, gypsum, graphite, sulfur                         |
+|     2.5–3.5: calcite, halite, argentite                          |
+|     3.5–5.5: fluorite, apatite, chalcopyrite                     |
+|     5.5–7: pyroxene, amphibole, feldspar                         |
+|     >7: quartz, topaz, corundum, garnet                          |
 |                                                                  |
 |  3. CLEAVAGE/FRACTURE                                            |
-|     1 perfect basal: mica                                      |
-|     3 planes ≈90°: halite, galena, orthoclase                  |
-|     3 planes rhombohedral: calcite, dolomite                   |
-|     2 planes ≈90°: pyroxene (also feldspar)                    |
-|     2 planes ≈60°/120°: amphibole                              |
-|     Conchoidal: quartz, obsidian, flint                        |
+|     1 perfect basal: mica                                        |
+|     3 planes ≈90°: halite, galena, orthoclase                    |
+|     3 planes rhombohedral: calcite, dolomite                     |
+|     2 planes ≈90°: pyroxene (also feldspar)                      |
+|     2 planes ≈60°/120°: amphibole                                |
+|     Conchoidal: quartz, obsidian, flint                          |
 |                                                                  |
-|  4. STREAK (on unglazed porcelain if H < 7)                    |
+|  4. STREAK (on unglazed porcelain if H < 7)                      |
 |     Red-brown: hematite       Greenish-black: pyrite, chalcopyrite|
-|     Black: magnetite          Yellow: gold                     |
+|     Black: magnetite          Yellow: gold                       |
 |                                                                  |
-|  5. SPECIFIC GRAVITY ("heft" test)                             |
-|     Very dense for size: galena, barite, native metals         |
+|  5. SPECIFIC GRAVITY ("heft" test)                               |
+|     Very dense for size: galena, barite, native metals           |
 |                                                                  |
-|  6. SPECIAL TESTS                                              |
-|     Magnet: magnetite (strongly), pyrrhotite (weakly)          |
-|     HCl fizz: calcite (cold), dolomite (hot/powder)           |
-|     Taste: halite (salty), sylvite (bitter)                   |
-|     UV light: scheelite (bright blue-white), willemite (green) |
+|  6. SPECIAL TESTS                                                |
+|     Magnet: magnetite (strongly), pyrrhotite (weakly)            |
+|     HCl fizz: calcite (cold), dolomite (hot/powder)              |
+|     Taste: halite (salty), sylvite (bitter)                      |
+|     UV light: scheelite (bright blue-white), willemite (green)   |
 +------------------------------------------------------------------+
 ```
 
@@ -100,11 +100,11 @@ POLARIZING MICROSCOPE SETUP
 |    [Light source]                                                |
 |                                                                  |
 |  PPL: Plane Polarized Light (analyzer out)                       |
-|  → Color, pleochroism, cleavage, habit                         |
+|  → Color, pleochroism, cleavage, habit                           |
 |                                                                  |
 |  XPL: Cross Polarized Light (analyzer in)                        |
-|  → Birefringence (interference colors), extinction angle,      |
-|    twinning patterns                                           |
+|  → Birefringence (interference colors), extinction angle,        |
+|    twinning patterns                                             |
 +------------------------------------------------------------------+
 ```
 
@@ -154,23 +154,23 @@ The definitive mineral identification method — uses crystal structure, not jus
 ```
 POWDER XRD WORKFLOW
 +------------------------------------------------------------------+
-|  Sample: ~0.5 g mineral, ground to <45 µm powder               |
+|  Sample: ~0.5 g mineral, ground to <45 µm powder                 |
 |  Loaded into sample holder (flat plate or capillary)             |
 |       |                                                          |
-|  Irradiated with X-rays (Cu Kα = 1.5406 Å most common)        |
+|  Irradiated with X-rays (Cu Kα = 1.5406 Å most common)           |
 |       |                                                          |
-|  Detector scans 2θ from 2° to 70°+                             |
-|  Peak positions → d-spacings via Bragg's law: nλ = 2d·sin(θ)  |
+|  Detector scans 2θ from 2° to 70°+                               |
+|  Peak positions → d-spacings via Bragg's law: nλ = 2d·sin(θ)     |
 |       |                                                          |
 |  MATCH against ICDD database (International Centre for           |
-|  Diffraction Data) — PDF-4/Minerals database                   |
+|  Diffraction Data) — PDF-4/Minerals database                     |
 |       |                                                          |
-|  Each mineral has a unique "fingerprint" of d-spacings         |
+|  Each mineral has a unique "fingerprint" of d-spacings           |
 |  and relative intensities                                        |
 |       |                                                          |
 |  Qualitative analysis: identify which minerals are present       |
-|  Quantitative analysis (Rietveld refinement):                  |
-|    Fit calculated pattern to observed → wt% of each phase      |
+|  Quantitative analysis (Rietveld refinement):                    |
+|    Fit calculated pattern to observed → wt% of each phase        |
 +------------------------------------------------------------------+
 ```
 
@@ -198,18 +198,18 @@ EPMA/EDS PRINCIPLE
 |       |                                                          |
 |  Incident electrons eject core electrons from atoms              |
 |       |                                                          |
-|  Outer electrons fall to fill vacancies → emit X-rays          |
-|  X-ray energy = specific to element (characteristic X-rays)    |
+|  Outer electrons fall to fill vacancies → emit X-rays            |
+|  X-ray energy = specific to element (characteristic X-rays)      |
 |       |                                                          |
 |  EDS (Energy Dispersive Spectrometry):                           |
 |  → Fast; identifies all elements simultaneously                  |
-|  → Lower precision (better for qualitative/semi-quantitative)  |
+|  → Lower precision (better for qualitative/semi-quantitative)    |
 |                                                                  |
 |  WDS (Wavelength Dispersive Spectrometry — EPMA proper):         |
-|  → Slower; analyzes one element at a time                      |
-|  → Higher precision (±0.01–0.1 wt%) → full quantitative        |
-|  → Can measure light elements (B, C, N, O, F) with appropriate |
-|    crystals — EDS typically cannot                             |
+|  → Slower; analyzes one element at a time                        |
+|  → Higher precision (±0.01–0.1 wt%) → full quantitative          |
+|  → Can measure light elements (B, C, N, O, F) with appropriate   |
+|    crystals — EDS typically cannot                               |
 +------------------------------------------------------------------+
 
 OUTPUTS:
@@ -236,8 +236,8 @@ OUTPUTS:
 ```
 LA-ICP-MS WORKFLOW
 +------------------------------------------------------------------+
-|  Pulsed UV laser (193 nm ArF excimer) → mineral surface        |
-|  Ablation spot: 10–200 µm diameter; ~50 µm deep pit            |
+|  Pulsed UV laser (193 nm ArF excimer) → mineral surface          |
+|  Ablation spot: 10–200 µm diameter; ~50 µm deep pit              |
 |       |                                                          |
 |  Ablated material transported in He carrier gas                  |
 |       |                                                          |
@@ -245,7 +245,7 @@ LA-ICP-MS WORKFLOW
 |       |                                                          |
 |  Mass spectrometer: separates ions by m/z → measures each isotope|
 |       |                                                          |
-|  Calibration against glass standards (NIST SRM 610, 612)       |
+|  Calibration against glass standards (NIST SRM 610, 612)         |
 |  Internal standard: usually a major element from EPMA            |
 +------------------------------------------------------------------+
 

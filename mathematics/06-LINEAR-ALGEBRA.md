@@ -95,18 +95,18 @@ A **vector space** V over field F satisfies:
   FOUR FUNDAMENTAL SUBSPACES of A ∈ M_{m×n}:
   ┌────────────────────────────────────────────────────────────────────┐
   │                                                                    │
-  │  Column space (range):   C(A) = {Ax | x ∈ Fⁿ}    ⊆ Fᵐ           │
-  │  Null space (kernel):    N(A) = {x | Ax = 0}       ⊆ Fⁿ          │
-  │  Row space:              C(Aᵀ)                     ⊆ Fⁿ          │
-  │  Left null space:        N(Aᵀ)                     ⊆ Fᵐ          │
+  │  Column space (range):   C(A) = {Ax | x ∈ Fⁿ}    ⊆ Fᵐ              │
+  │  Null space (kernel):    N(A) = {x | Ax = 0}       ⊆ Fⁿ            │
+  │  Row space:              C(Aᵀ)                     ⊆ Fⁿ            │
+  │  Left null space:        N(Aᵀ)                     ⊆ Fᵐ            │
   │                                                                    │
   │  RANK-NULLITY THEOREM:                                             │
   │  rank(A) + nullity(A) = n                                          │
   │  dim C(A) + dim N(A) = number of columns                           │
   │                                                                    │
   │  ORTHOGONALITY:                                                    │
-  │  C(A) ⊥ N(Aᵀ)    (column space ⊥ left null space, both in Fᵐ)   │
-  │  C(Aᵀ) ⊥ N(A)    (row space ⊥ null space, both in Fⁿ)           │
+  │  C(A) ⊥ N(Aᵀ)    (column space ⊥ left null space, both in Fᵐ)      │
+  │  C(Aᵀ) ⊥ N(A)    (row space ⊥ null space, both in Fⁿ)              │
   └────────────────────────────────────────────────────────────────────┘
 
   RANK = dim C(A) = dim C(Aᵀ) = number of pivots after row reduction
@@ -416,19 +416,19 @@ A **vector space** V over field F satisfies:
 
   APPLICATIONS:
   ┌────────────────────────────────────────────────────────────────────┐
-  │  Image compression: A = image matrix, Aₖ = compressed version    │
-  │  k=10 terms: ~90% quality, 10× compression                       │
+  │  Image compression: A = image matrix, Aₖ = compressed version      │
+  │  k=10 terms: ~90% quality, 10× compression                         │
   │                                                                    │
   │  PCA (Principal Component Analysis):                               │
   │  Center data, compute SVD of data matrix X                         │
-  │  Principal components = right singular vectors (rows of Vᵀ)      │
-  │  Variance captured = σᵢ²/Σσᵢ²                                    │
+  │  Principal components = right singular vectors (rows of Vᵀ)        │
+  │  Variance captured = σᵢ²/Σσᵢ²                                      │
   │                                                                    │
   │  Latent Semantic Analysis (pre-deep learning NLP):                 │
-  │  Term-document matrix → SVD → semantic "topics"                  │
+  │  Term-document matrix → SVD → semantic "topics"                    │
   │                                                                    │
   │  Recommender systems (Netflix Prize era): matrix factorization     │
-  │  Ratings matrix ≈ UΣVᵀ, fill in missing entries from low-rank   │
+  │  Ratings matrix ≈ UΣVᵀ, fill in missing entries from low-rank      │
   └────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -585,10 +585,10 @@ The theoretical structures above have a direct computational implementation laye
   │  LU with partial pivoting: backward stable for most matrices,     │
   │    but pathological cases exist (Wilkinson matrix)                │
   │  QR (Householder): unconditionally backward stable for least sq.  │
-  │  Normal equations AᵀAx = Aᵀb: condition number SQUARED → avoid  │
+  │  Normal equations AᵀAx = Aᵀb: condition number SQUARED → avoid    │
   │                                                                   │
   │  RULE: solve least squares via QR (scipy.linalg.lstsq uses it),   │
-  │  not via (AᵀA)⁻¹Aᵀ. The condition number of AᵀA = κ(A)².        │
+  │  not via (AᵀA)⁻¹Aᵀ. The condition number of AᵀA = κ(A)².          │
   └───────────────────────────────────────────────────────────────────┘
 
   ITERATIVE METHODS for large sparse systems:
@@ -621,7 +621,7 @@ The theoretical structures above have a direct computational implementation laye
 
   WHEN TO USE WHAT:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Dense n×n, n < 10⁴:      LAPACK (direct)  — numpy.linalg      │
+  │  Dense n×n, n < 10⁴:      LAPACK (direct)  — numpy.linalg        │
   │  SPD system:               Cholesky (2× faster than LU)          │
   │  Least squares:            QR via lstsq (never normal equations) │
   │  Large sparse Ax=b:        CG (SPD) or GMRES (general)           │
@@ -650,12 +650,12 @@ The theoretical structures above have a direct computational implementation laye
 
   SVD ANALYSIS OF WEIGHT MATRICES:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  A weight matrix W ∈ M_{m×n} has SVD W = UΣVᵀ.                 │
-  │  The singular value spectrum σ₁ ≥ σ₂ ≥ ... reveals:            │
+  │  A weight matrix W ∈ M_{m×n} has SVD W = UΣVᵀ.                   │
+  │  The singular value spectrum σ₁ ≥ σ₂ ≥ ... reveals:              │
   │  ├── Effective rank: how many singular values are non-negligible │
   │  ├── Information compression: top-k singular vectors span the    │
   │  │   "important" subspace for that layer                         │
-  │  └── Stability: κ(W) = σ₁/σₙ — high = numerically sensitive    │
+  │  └── Stability: κ(W) = σ₁/σₙ — high = numerically sensitive      │
   └──────────────────────────────────────────────────────────────────┘
 
   LOW-RANK ADAPTATION (LoRA) — fine-tuning large models:
@@ -714,15 +714,15 @@ The Jordan form is the canonical answer.
 
   WHY IT MATTERS FOR ODEs (connection to §3.1 of 07-DIFFEQ):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  System ẋ = Ax:  x(t) = e^(At) x(0)                            │
-  │  If A = P·J·P⁻¹:  e^(At) = P·e^(Jt)·P⁻¹                      │
+  │  System ẋ = Ax:  x(t) = e^(At) x(0)                              │
+  │  If A = P·J·P⁻¹:  e^(At) = P·e^(Jt)·P⁻¹                          │
   │                                                                  │
-  │  For a Jordan block Jₖ(λ) = λI + N:                            │
-  │  e^(Jₖ(λ)t) = e^(λt) · e^(Nt)                                  │
+  │  For a Jordan block Jₖ(λ) = λI + N:                              │
+  │  e^(Jₖ(λ)t) = e^(λt) · e^(Nt)                                    │
   │             = e^(λt) · (I + Nt + N²t²/2! + ... + Nᵏ⁻¹tᵏ⁻¹/(k-1)!)
   │             (series terminates because Nᵏ=0)                     │
   │                                                                  │
-  │  Result: solutions contain terms  tʲ e^(λt) for j=0,1,...,k-1  │
+  │  Result: solutions contain terms  tʲ e^(λt) for j=0,1,...,k-1    │
   │  This is why repeated eigenvalues produce "polynomial × exponential"│
   │  solutions — the xe^(λx) term in ODE theory is Jordan structure! │
   └──────────────────────────────────────────────────────────────────┘
@@ -766,19 +766,19 @@ essential new phenomena that don't exist in finite dimensions.
 
   Three disjoint types:
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  POINT SPECTRUM σₚ(T): (T-λI) not injective → eigenvalues         │
-  │  Tx = λx for some x ≠ 0.  Same as finite-dim eigenvalues.         │
-  │  Example: H = -ℏ²/2m d²/dx² + V(x)                               │
-  │  Bound states: discrete energy levels ∈ σₚ(H)                     │
+  │  POINT SPECTRUM σₚ(T): (T-λI) not injective → eigenvalues           │
+  │  Tx = λx for some x ≠ 0.  Same as finite-dim eigenvalues.           │
+  │  Example: H = -ℏ²/2m d²/dx² + V(x)                                  │
+  │  Bound states: discrete energy levels ∈ σₚ(H)                       │
   │                                                                     │
-  │  CONTINUOUS SPECTRUM σ_c(T): (T-λI) injective but not surjective  │
+  │  CONTINUOUS SPECTRUM σ_c(T): (T-λI) injective but not surjective    │
   │  and range is dense. No eigenvector exists, but "approximate        │
   │  eigenvectors" exist: ‖Txₙ - λxₙ‖→0 with ‖xₙ‖=1.               │
-  │  Example: free particle momentum p̂ on L²(ℝ)                      │
-  │  "Eigenfunctions" e^(ikx) are not in L² — they're distributions.  │
+  │  Example: free particle momentum p̂ on L²(ℝ)                         │
+  │  "Eigenfunctions" e^(ikx) are not in L² — they're distributions.    │
   │  Scattering states, continuous spectrum = physical continuum.       │
   │                                                                     │
-  │  RESIDUAL SPECTRUM σ_r(T): (T-λI) injective, range not dense.     │
+  │  RESIDUAL SPECTRUM σ_r(T): (T-λI) injective, range not dense.       │
   │  Doesn't occur for self-adjoint operators — purely a curiosity      │
   │  for asymmetric operators.                                          │
   └─────────────────────────────────────────────────────────────────────┘

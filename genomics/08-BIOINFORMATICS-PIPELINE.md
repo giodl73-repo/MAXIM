@@ -158,7 +158,7 @@ BIOINFORMATICS AS SOFTWARE ENGINEERING
   │ ALT    Alternate allele(s), comma-separated if multiple        │
   │ QUAL   Phred-scaled genotype quality (-10 log₁₀ P(wrong))      │
   │ FILTER PASS or filter names that the variant failed            │
-  │ INFO   Key=value pairs: AF, DP, SOR, QD, etc.                │
+  │ INFO   Key=value pairs: AF, DP, SOR, QD, etc.                  │
   │ FORMAT Per-sample format field definition                      │
   │ SAMPLE Per-sample values: 0/1:99:45                            │
   └────────────────────────────────────────────────────────────────┘
