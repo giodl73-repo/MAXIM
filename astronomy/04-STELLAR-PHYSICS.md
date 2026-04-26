@@ -56,7 +56,7 @@ A star in spherical hydrostatic equilibrium is described by four coupled ODEs:
 
   MASS CONTINUITY:
   ┌───────────────────────────────────────────────────────┐
-  │  dm/dr = 4π r² ρ(r)                                  │
+  │  dm/dr = 4π r² ρ(r)                                   │
   └───────────────────────────────────────────────────────┘
   Trivial: mass in thin shell dr is 4πr²ρ dr.
 
@@ -574,7 +574,7 @@ After He exhaustion, the core contracts, heats further:
   STELLAR POPULATIONS: metallicity + age + location
 
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │          Pop I          Pop II          Pop III                        │
+  │          Pop I          Pop II          Pop III                         │
   ├─────────────────────────────────────────────────────────────────────────┤
   │ Metallicity  High (Z ~ Z☉) Low (Z < 0.01 Z☉) Zero (Z = 0)            │
   │ Age          Young (<1-2 Gyr) Old (>10 Gyr)   First stars (~200 Myr)  │
@@ -608,14 +608,14 @@ After He exhaustion, the core contracts, heats further:
   │                                        │ NS: neutron deg + nuclear repulse │
   │                                        │ BH: nothing → collapsed           │
   ├────────────────────────────────────────┼───────────────────────────────────┤
-  │ What kills a WD?                       │ Accumulate > M_Ch (~1.44 M☉)     │
+  │ What kills a WD?                       │ Accumulate > M_Ch (~1.44 M☉)      │
   │                                        │ → Type Ia SN                      │
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ Why does a star heat up when it        │ Virial theorem: negative heat      │
   │ contracts (loses energy)?              │ capacity of gravity                │
   ├────────────────────────────────────────┼───────────────────────────────────┤
-  │ What ends the main sequence?           │ Core H exhaustion; core contracts; │
-  │                                        │ H shell ignites; star expands      │
+  │ What ends the main sequence?           │ Core H exhaustion; core contracts;│
+  │                                        │ H shell ignites; star expands     │
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ Why does He burning have triple-alpha? │ ⁸Be is unstable; needs resonance  │
   │ Why is the Hoyle state remarkable?     │ Predicted from existence of C life │
@@ -627,14 +627,14 @@ After He exhaustion, the core contracts, heats further:
   │ What is the turnoff point?             │ Stars just leaving main sequence;  │
   │                                        │ τ_MS = cluster age → dating method │
   ├────────────────────────────────────────┼───────────────────────────────────┤
-  │ How does Type Ia constrain cosmology?  │ Standard candle (uniform L_peak);  │
-  │                                        │ used to discover dark energy 1998  │
+  │ How does Type Ia constrain cosmology?  │ Standard candle (uniform L_peak); │
+  │                                        │ used to discover dark energy 1998 │
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ Why is Fe the nuclear endpoint?        │ Highest binding energy per nucleon │
   │                                        │ (~8.8 MeV); fusion past it costs   │
   │                                        │ energy → no pressure support       │
   ├────────────────────────────────────────┼───────────────────────────────────┤
-  │ Which nuclear chain dominates in Sun?  │ pp chain (~99%); CNO ~1%           │
+  │ Which nuclear chain dominates in Sun?  │ pp chain (~99%); CNO ~1%          │
   │ Which dominates in more massive stars? │ CNO (ε_CNO ∝ T^17 >> pp at T>18MK)│
   └────────────────────────────────────────┴───────────────────────────────────┘
 ```

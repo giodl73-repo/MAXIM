@@ -8,7 +8,7 @@ Build tools solve a problem that doesn't exist in .NET: browsers can't natively 
 +------------------------------------------------------------------+
 |                    THE BUILD TOOL LANDSCAPE                      |
 |                                                                  |
-|  SOURCE (what you write)       OUTPUT (what the browser gets)   |
+|  SOURCE (what you write)       OUTPUT (what the browser gets)    |
 |  ----------------------        ------------------------------    |
 |  TypeScript                    Minified JavaScript bundles       |
 |  JSX / TSX                     Hashed filenames (cache busting)  |
@@ -46,7 +46,7 @@ Build tools solve a problem that doesn't exist in .NET: browsers can't natively 
   Each module resolution requires a round trip.
 
   +--------+     GET /src/app.js           +--------+
-  |        | --> GET /src/router.js     --> |        |
+  |        | --> GET /src/router.js     --> |       |
   | Browser|     GET /src/auth.js          | Server |
   |        |     GET /src/utils.js         |        |
   |        |     ...×300                   |        |
@@ -319,8 +319,8 @@ Vite (French: "fast") is the tool you should reach for first in 2026 for any new
   | Browser requests http://localhost:5173/app.ts    |
   |                                                  |
   | Vite dev server intercepts:                      |
-  | 1. Transforms file on demand (esbuild, <10ms)   |
-  | 2. Serves as native ES module                   |
+  | 1. Transforms file on demand (esbuild, <10ms)    |
+  | 2. Serves as native ES module                    |
   | 3. Browser handles module graph resolution       |
   |                                                  |
   | No bundling. Each file served individually.      |

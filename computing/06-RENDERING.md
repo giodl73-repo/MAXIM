@@ -487,8 +487,8 @@ Popularized by Astro. The logical extension of partial hydration.
   Only specific "islands" of interactivity are hydrated.
 
   +----------------------------------------------+
-  |          STATIC HTML (no JS)                  |
-  |  +----------+  +---------------------------+  |
+  |          STATIC HTML (no JS)                 |
+  |  +----------+  +---------------------------+ |
   |  | ISLAND   |  | ISLAND                    |  |
   |  | Search   |  | Shopping Cart             |  |
   |  | (React)  |  | (React)                   |  |
@@ -597,7 +597,7 @@ Next.js implements every pattern, per route.
   +----------+--------+--------+---------+---------+--------+
   | TTI      | Fast   | Slow   | Medium  | Medium  | Medium |
   +----------+--------+--------+---------+---------+--------+
-  | SEO      | ✅     | ⚠️     | ✅      | ✅      | ✅     |
+  | SEO      | ✅     | ⚠️     | ✅      | ✅      | ✅      |
   +----------+--------+--------+---------+---------+--------+
   | Fresh    | ✅     | ✅     | ✅      | ❌      | ⚠️     |
   | data     |        |        |         | build   | window |

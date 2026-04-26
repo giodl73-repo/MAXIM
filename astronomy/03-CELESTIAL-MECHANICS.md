@@ -44,8 +44,8 @@
                           │ long time integration
                           ▼
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  CHAOS AND STABILITY                                                    │
-  │    Lyapunov exponents; solar system long-term fate; Mercury chaos       │
+  │  CHAOS AND STABILITY                                                     │
+  │    Lyapunov exponents; solar system long-term fate; Mercury chaos        │
   └──────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -106,8 +106,8 @@ Two masses m₁ and m₂ under mutual gravity:
   e = eccentricity = √(1 + 2EL²/(μ³ G²m₁²m₂²))
 
   ┌─────────────────────────────────────────────────────────┐
-  │  e = 0: circle      e < 1: ellipse     r_min = a(1−e)  │
-  │  e = 1: parabola    e > 1: hyperbola   r_max = a(1+e)  │
+  │  e = 0: circle      e < 1: ellipse     r_min = a(1−e)   │
+  │  e = 1: parabola    e > 1: hyperbola   r_max = a(1+e)   │
   └─────────────────────────────────────────────────────────┘
 ```
 
@@ -133,7 +133,7 @@ The single most useful formula in orbital mechanics:
 
 ```
   ┌──────────────────────────────────────────────────────┐
-  │  v² = GM ( 2/r − 1/a )                              │
+  │  v² = GM ( 2/r − 1/a )                               │
   └──────────────────────────────────────────────────────┘
 
   From E = ½μv² − GMμ/r = −GMμ/(2a), rearranged.
@@ -169,7 +169,7 @@ Six numbers completely specify an orbit + position on it:
   │         (RAAN)                              reference plane going north  │
   ├──────────────────────────────────────────────────────────────────────────┤
   │ ORIENTATION OF ELLIPSE IN PLANE                                          │
-  │   ω  — argument of periapsis  [0°–360°]   Angle from node to periapsis  │
+  │   ω  — argument of periapsis  [0°–360°]   Angle from node to periapsis   │
   ├──────────────────────────────────────────────────────────────────────────┤
   │ POSITION ON ORBIT                                                        │
   │   ν  — true anomaly           [0°–360°]   Current angle from periapsis  │
@@ -612,10 +612,10 @@ Minimum-energy path between two coplanar circular orbits:
 
   ┌─────────────────────────────────────────────────────────────────────┐
   │  Voyager 2 gravity assists (launched 1977):                         │
-  │  Jupiter (1979): +10 km/s → Saturn achievable                      │
-  │  Saturn  (1981): +5 km/s  → Uranus achievable                      │
-  │  Uranus  (1986): +3 km/s  → Neptune achievable                     │
-  │  Neptune (1989): final flyby; now coasting at ~15 km/s             │
+  │  Jupiter (1979): +10 km/s → Saturn achievable                       │
+  │  Saturn  (1981): +5 km/s  → Uranus achievable                       │
+  │  Uranus  (1986): +3 km/s  → Neptune achievable                      │
+  │  Neptune (1989): final flyby; now coasting at ~15 km/s              │
   │  Without assists: Uranus/Neptune missions would require ~5× more Δv │
   └─────────────────────────────────────────────────────────────────────┘
 
@@ -724,8 +724,8 @@ Covered in 02-MILANKOVITCH.md but worth connecting here:
   ├────────────────────────────────────────┼────────────────────────────────────┤
   │ Want apogee frozen over latitude?    │ Molniya: i = 63.43°, ω = 270°      │
   ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Is a resonance stable or clearing?   │ Check critical angle libration vs   │
-  │                                      │ circulation; check forced e growth  │
+  │ Is a resonance stable or clearing?   │ Check critical angle libration vs    │
+  │                                      │ circulation; check forced e growth   │
   ├────────────────────────────────────────┼────────────────────────────────────┤
   │ Lagrange point choice for mission    │ L1: Sun-monitoring, continuous view │
   │                                      │ L2: deep-space observation, thermal │

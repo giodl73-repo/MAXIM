@@ -155,11 +155,11 @@ Axial precession (covered in 01-EARTH-MOTIONS.md) is not the whole story for cli
   CYCLE THROUGH THE SEASONS (schematic, ~21 kyr period)
 
   ┌────────────────────────────────────────────────────────────────────┐
-  │  Now (~2000 CE):  perihelion in January  (NH winter)              │
-  │  +5,500 yr:       perihelion in April    (NH spring)              │
-  │  +10,500 yr:      perihelion in July     (NH summer) ← hot NH     │
-  │  +15,500 yr:      perihelion in October  (NH autumn)              │
-  │  +21,000 yr:      perihelion in January again                     │
+  │  Now (~2000 CE):  perihelion in January  (NH winter)               │
+  │  +5,500 yr:       perihelion in April    (NH spring)               │
+  │  +10,500 yr:      perihelion in July     (NH summer) ← hot NH      │
+  │  +15,500 yr:      perihelion in October  (NH autumn)               │
+  │  +21,000 yr:      perihelion in January again                      │
   └────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -393,20 +393,20 @@ The most vexing issue in Milankovitch theory:
   │    Eccentricity provides weak pacing to synchronize internal oscillation│
   │                                                                         │
   │ 2. Precession modulation                                                │
-  │    Precession signal amplitude ∝ e; at e~0 → no precession forcing     │
+  │    Precession signal amplitude ∝ e; at e~0 → no precession forcing      │
   │    → 100-kyr gaps in precession allow ice buildup                       │
-  │    → envelope of precession amplitude has ~100-kyr periodicity         │
+  │    → envelope of precession amplitude has ~100-kyr periodicity          │
   │                                                                         │
   │ 3. CO₂ feedback                                                         │
-  │    Ice cores show CO₂ correlates with temperature at ~100 kyr          │
-  │    CO₂ may amplify weak orbital signal (but CO₂ lags T by ~800 yr      │
+  │    Ice cores show CO₂ correlates with temperature at ~100 kyr           │
+  │    CO₂ may amplify weak orbital signal (but CO₂ lags T by ~800 yr       │
   │    — it's a feedback, not forcing)                                      │
   │                                                                         │
   │ 4. Resonance / stochastic resonance                                     │
   │    Noise + weak periodic forcing → large-amplitude response at          │
-  │    forcing period                                                        │
+  │    forcing period                                                       │
   │                                                                         │
-  │ Current consensus: likely combination of 1+2+3; no definitive answer   │
+  │ Current consensus: likely combination of 1+2+3; no definitive answer    │
   └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -448,7 +448,7 @@ Deep tropics show ~11 kyr (half-precession) signal in speleothem records. The ex
   Dominant contributions (relative amplitude at 65°N June):
 
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Term                        Period      Rel. amplitude             │
+  │  Term                        Period      Rel. amplitude              │
   ├──────────────────────────────────────────────────────────────────────┤
   │  e · cos(λ̃) component        ~23 kyr     large (precession×ecc)    │
   │  obliquity ε                  ~41 kyr     significant               │
@@ -500,8 +500,8 @@ Deep tropics show ~11 kyr (half-precession) signal in speleothem records. The ex
   │ Orbital tuning           any            ±2–5 kyr      Circular — assumes │
   │                                                        Milankovitch valid │
   ├──────────────────────────────────────────────────────────────────────────┤
-  │ Key anchor: Brunhes–Matuyama reversal at 780 kyr BP (Ar/Ar dated)       │
-  │ Allows orbital tuning to extend confidently past ¹⁴C range              │
+  │ Key anchor: Brunhes–Matuyama reversal at 780 kyr BP (Ar/Ar dated)        │
+  │ Allows orbital tuning to extend confidently past ¹⁴C range               │
   └──────────────────────────────────────────────────────────────────────────┘
 
   SAROS CYCLE (eclipse chronology — separate application of orbital periods):
@@ -529,7 +529,7 @@ Deep tropics show ~11 kyr (half-precession) signal in speleothem records. The ex
   │ Why do African monsoons pulse at       │ Precession (~23 kyr) — controls    │
   │ ~21 kyr? (Green Sahara periods)        │ NH summer insolation and ITCZ      │
   ├────────────────────────────────────────┼────────────────────────────────────┤
-  │ Which parameter is most stable over   │ 413-kyr eccentricity cycle —       │
+  │ Which parameter is most stable over   │ 413-kyr eccentricity cycle —        │
   │ tens of millions of years?             │ Laskar: reliable to ±50 Myr        │
   ├────────────────────────────────────────┼────────────────────────────────────┤
   │ When is precession forcing strongest? │ When e is large (e·sin(λ̃) large)  │

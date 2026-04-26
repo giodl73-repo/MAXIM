@@ -39,9 +39,9 @@ IaC Tool Landscape
 
 
   ┌──────────────────────────────────────────────────────────────┐
-  │  If you're Azure-first:   Bicep is the answer               │
-  │  If you're multi-cloud:   Terraform                         │
-  │  If you want real code:   Pulumi                            │
+  │  If you're Azure-first:   Bicep is the answer                │
+  │  If you're multi-cloud:   Terraform                          │
+  │  If you want real code:   Pulumi                             │
   └──────────────────────────────────────────────────────────────┘
 ```
 

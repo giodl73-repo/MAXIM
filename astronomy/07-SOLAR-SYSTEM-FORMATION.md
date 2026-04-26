@@ -56,8 +56,8 @@ A molecular cloud core (T ~ 10 K, n ~ 10⁴ cm⁻³) collapses when its Jeans ma
   ┌───────────────────────────────────────────────────────────────────────┐
   │  Collapsing cloud (slow rotation)  →  protostar + protoplanetary disk │
   │  Disk radius ~ 10–100 AU                                              │
-  │  Disk mass ~ 0.01–0.1 M_☉   (typically ~1% of stellar mass)          │
-  │  Disk lifetime ~ 1–10 Myr (median ~3 Myr; set by viscous evolution   │
+  │  Disk mass ~ 0.01–0.1 M_☉   (typically ~1% of stellar mass)           │
+  │  Disk lifetime ~ 1–10 Myr (median ~3 Myr; set by viscous evolution    │
   │                              + photoevaporation by stellar UV/X-ray)  │
   └───────────────────────────────────────────────────────────────────────┘
 ```
@@ -137,8 +137,8 @@ Grain growth from μm → km involves collisions at increasing relative velociti
   │ 1. Bouncing: ~cm particles bounce rather than stick                  │
   │ 2. Fragmentation: ~m particles shatter on collision                  │
   │ 3. Radial drift: sub-Keplerian gas → headwind → inward spiral:       │
-  │    dr/dt ≈ −2η v_K St / (1 + St²)    (Stokes number St ≈ 1 at ~1 m) │
-  │    Peak drift at St=1: ~1 AU per ~100 yr at 1 AU → lost to star     │
+  │    dr/dt ≈ −2η v_K St / (1 + St²)    (Stokes number St ≈ 1 at ~1 m)  │
+  │    Peak drift at St=1: ~1 AU per ~100 yr at 1 AU → lost to star      │
   └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -153,7 +153,7 @@ Grain growth from μm → km involves collisions at increasing relative velociti
 
   ┌──────────────────────────────────────────────────────────────────────┐
   │  STREAMING INSTABILITY bypasses meter barrier:                       │
-  │  pebbles (~cm–m) → direct gravitational collapse → ~100 km bodies   │
+  │  pebbles (~cm–m) → direct gravitational collapse → ~100 km bodies    │
   │  (Kuiper Belt "cold classical" binaries support this: nearly equal   │
   │   size, prograde, low inclination — consistent with pebble cloud     │
   │   collapse, not accretion from random collisions)                    │
@@ -209,8 +209,8 @@ Grain growth from μm → km involves collisions at increasing relative velociti
 
   Timeline:
   ┌────────────────────────────────────────────────────────────────────┐
-  │ 1 AU:  embryos reach ~0.1 M_Earth in ~0.1–1 Myr                   │
-  │ 5 AU:  cores reach ~10 M_Earth in ~1–5 Myr (pebble accretion)     │
+  │ 1 AU:  embryos reach ~0.1 M_Earth in ~0.1–1 Myr                    │
+  │ 5 AU:  cores reach ~10 M_Earth in ~1–5 Myr (pebble accretion)      │
   │ 30 AU: cores barely grow in disk lifetime (→ Uranus/Neptune late)  │
   └────────────────────────────────────────────────────────────────────┘
 ```
@@ -327,7 +327,7 @@ Classic core accretion (Pollack 1996) was too slow at 5 AU. Pebble accretion (La
 
   ┌──────────────────────────────────────────────────────────────────────┐
   │  HOT JUPITERS: formed beyond snowline (~3–5 AU) → Type II migration  │
-  │  → ended up at ~0.05 AU (orbital period < 5 days)                   │
+  │  → ended up at ~0.05 AU (orbital period < 5 days)                    │
   │  Stopped by: disk inner edge (magnetospheric cavity), tidal locking, │
   │  disk dispersal → halted migration                                   │
   └──────────────────────────────────────────────────────────────────────┘
@@ -342,10 +342,10 @@ Walsh, Morbidelli, Raymond, O'Brien & Mandell (2011):
 ```
   THE PROBLEM IT SOLVES:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Mars is too small: models without migration predict ~1 M_Earth;    │
+  │  Mars is too small: models without migration predict ~1 M_Earth;     │
   │  actual Mars: 0.107 M_Earth                                          │
-  │  Asteroid belt too empty: models predict ~1 M_Earth in belt;        │
-  │  actual belt: ~5×10⁻⁴ M_Earth                                       │
+  │  Asteroid belt too empty: models predict ~1 M_Earth in belt;         │
+  │  actual belt: ~5×10⁻⁴ M_Earth                                        │
   └──────────────────────────────────────────────────────────────────────┘
 
   THE GRAND TACK SEQUENCE:
@@ -450,10 +450,10 @@ Gomes, Morbidelli, Tsiganis & Levison (2005) — "Nice model" (from Nice, France
 
   LATE HEAVY BOMBARDMENT (LHB):
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Evidence: Apollo samples show lunar craters cluster at ~3.9 Gyr    │
-  │  Many large impact basins formed in ~50–200 Myr window              │
-  │  Also seen in asteroid belt: isotopic reset ages cluster at 3.9 Gyr │
-  │  Mars also shows intensive bombardment in this era                  │
+  │  Evidence: Apollo samples show lunar craters cluster at ~3.9 Gyr     │
+  │  Many large impact basins formed in ~50–200 Myr window               │
+  │  Also seen in asteroid belt: isotopic reset ages cluster at 3.9 Gyr  │
+  │  Mars also shows intensive bombardment in this era                   │
   └──────────────────────────────────────────────────────────────────────┘
 
   POST-INSTABILITY OUTCOMES:
@@ -570,25 +570,25 @@ Gomes, Morbidelli, Tsiganis & Levison (2005) — "Nice model" (from Nice, France
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ Why are giant planets beyond ~3 AU?    │ Snowline at ~2.7 AU: solids 4×    │
   │                                        │ more abundant → isolation mass    │
-  │                                        │ crosses ~10 M_Earth threshold      │
+  │                                        │ crosses ~10 M_Earth threshold     │
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ Why is Mars so small?                  │ Grand Tack: Jupiter swept the      │
   │                                        │ 1-3 AU region, depleting mass      │
   ├────────────────────────────────────────┼───────────────────────────────────┤
-  │ Why are there no planets in the belt?  │ Grand Tack depletion + Jupiter     │
-  │                                        │ MMRs dynamically excited remaining │
+  │ Why are there no planets in the belt?  │ Grand Tack depletion + Jupiter    │
+  │                                        │ MMRs dynamically excited remaining│
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ What caused the Late Heavy Bombardment?│ Nice model 2:1 JS resonance        │
   │                                        │ crossing → giant planet instability│
   ├────────────────────────────────────────┼───────────────────────────────────┤
-  │ Why are Uranus/Neptune "ice giants"    │ Failed cores: disk dispersed       │
-  │ not gas giants?                        │ before reaching runaway gas        │
-  │                                        │ accretion threshold                │
+  │ Why are Uranus/Neptune "ice giants"    │ Failed cores: disk dispersed      │
+  │ not gas giants?                        │ before reaching runaway gas       │
+  │                                        │ accretion threshold               │
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ When did Earth's core form?            │ Within ~30-40 Myr of CAIs         │
   │ When did the Moon form?                │ ~50–150 Myr after CAIs            │
   ├────────────────────────────────────────┼───────────────────────────────────┤
-  │ Why did early planetesimals melt?      │ ²⁶Al (t₁/₂=0.72 Myr) decay heat; │
+  │ Why did early planetesimals melt?      │ ²⁶Al (t₁/₂=0.72 Myr) decay heat;  │
   │                                        │ only if formed in first ~2 Myr    │
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ How did water get to Earth?            │ C-type asteroids implanted by      │

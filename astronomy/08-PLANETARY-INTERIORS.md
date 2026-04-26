@@ -108,14 +108,14 @@ Mercury's large core: either originally iron-rich (reduced nebular condensation)
 │                  EARTH CROSS-SECTION                    │
 │                                                         │
 │    Depth     Layer          V_P    V_S    ρ             │
-│    (km)                    (km/s) (km/s) (g/cm³)       │
-│    ─────     ─────         ─────  ─────  ──────        │
+│    (km)                    (km/s) (km/s) (g/cm³)        │
+│    ─────     ─────         ─────  ─────  ──────         │
 │    0–35      Crust          6.5    3.7    2.9           │
 │    35–80     Lithosphere    8.1    4.5    3.3           │
 │    35–410    Upper mantle   8–9    4.5    3.3–3.5       │
 │    410–660   Transition zone 9–11  5      3.5–3.9       │
 │    660–2891  Lower mantle   11–13  6–7    4.4–5.6       │
-│    2891      CMB ←─── zero shear below this            │
+│    2891      CMB ←─── zero shear below this             │
 │    2891–5150 Outer core     8–11   0      9.9–12.1      │
 │    5150–6371 Inner core     11.0   3.5    12.8–13.1     │
 │    6371      Center                                     │
@@ -322,17 +322,17 @@ Plume tail diameter: ~100 km; head: can be 1000 km → flood basalt province upo
 ┌────────────────────────────────────────────────────────────────────────────────┐
 │                    TERRESTRIAL PLANET INTERIORS COMPARED                       │
 │                                                                                │
-│  Property      Earth       Moon        Mars        Venus       Mercury        │
-│  ──────────    ─────       ────        ────        ─────       ───────        │
-│  Mass (M_E)    1.0         0.0123      0.107       0.815       0.0553         │
-│  Radius (km)   6371        1737        3390        6051        2440           │
-│  C/MR²         0.3307      0.3932      0.3662      0.337(est)  0.346          │
-│  Core radius   3480 km     <350 km     ~1400–1600  ~3000 km    ~2000 km       │
-│  Core state    Liq+solid   Mostly solid Mostly solid ?         Liq outer      │
-│  Dynamo        Active      Dead        Dead (4Gya) Dead?       Active(weak)   │
-│  Tectonics     Plate       None (rigid) None       Stagnant lid None          │
-│  Volcanism     Active      Dead        Ancient (Tharsis active?) Recent       │
-│  Mantle H₂O    0.5–1 oc.vol Dry        Dry         ?           Extremely dry  │
+│  Property      Earth       Moon        Mars        Venus       Mercury         │
+│  ──────────    ─────       ────        ────        ─────       ───────         │
+│  Mass (M_E)    1.0         0.0123      0.107       0.815       0.0553          │
+│  Radius (km)   6371        1737        3390        6051        2440            │
+│  C/MR²         0.3307      0.3932      0.3662      0.337(est)  0.346           │
+│  Core radius   3480 km     <350 km     ~1400–1600  ~3000 km    ~2000 km        │
+│  Core state    Liq+solid   Mostly solid Mostly solid ?         Liq outer       │
+│  Dynamo        Active      Dead        Dead (4Gya) Dead?       Active(weak)    │
+│  Tectonics     Plate       None (rigid) None       Stagnant lid None           │
+│  Volcanism     Active      Dead        Ancient (Tharsis active?) Recent        │
+│  Mantle H₂O    0.5–1 oc.vol Dry        Dry         ?           Extremely dry   │
 └────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -408,16 +408,16 @@ where k₂ = tidal Love number (measures deformability), Q = quality factor (inv
 ┌──────────────────────────────────────────────────────────────────┐
 │                    SOLAR SYSTEM OCEAN WORLDS                     │
 │                                                                  │
-│  Body         Ocean type    Evidence strength   Habitability    │
-│  ────         ──────────    ─────────────────   ────────────    │
-│  Earth        Surface       Trivial             Confirmed       │
-│  Europa       Subsurface    Strong              High potential  │
-│  Enceladus    Subsurface    Very strong         Very high       │
-│  Titan        Subsurface    Moderate            Low (cold)      │
-│  Ganymede     Subsurface    Strong (Hubble HST) Uncertain       │
-│  Callisto     Subsurface    Moderate            Lower           │
-│  Ceres        Subsurface(?) Moderate (Dawn)     Unknown         │
-│  Pluto        Ancient(?)    Weak                Unknown         │
+│  Body         Ocean type    Evidence strength   Habitability     │
+│  ────         ──────────    ─────────────────   ────────────     │
+│  Earth        Surface       Trivial             Confirmed        │
+│  Europa       Subsurface    Strong              High potential   │
+│  Enceladus    Subsurface    Very strong         Very high        │
+│  Titan        Subsurface    Moderate            Low (cold)       │
+│  Ganymede     Subsurface    Strong (Hubble HST) Uncertain        │
+│  Callisto     Subsurface    Moderate            Lower            │
+│  Ceres        Subsurface(?) Moderate (Dawn)     Unknown          │
+│  Pluto        Ancient(?)    Weak                Unknown          │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

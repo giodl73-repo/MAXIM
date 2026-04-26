@@ -8,11 +8,11 @@ FOURIER LANDSCAPE
                           Fourier Transform pair
 
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  FOURIER SERIES         periodic f(t)  →  discrete spectrum         │
-  │  FOURIER TRANSFORM      aperiodic f(t) →  continuous spectrum       │
-  │  DTFT                   discrete-time sequence → continuous ω       │
-  │  DFT / FFT              finite sequence → finite spectrum           │
-  │  STFT / Wavelet         time-varying spectra                        │
+  │  FOURIER SERIES         periodic f(t)  →  discrete spectrum          │
+  │  FOURIER TRANSFORM      aperiodic f(t) →  continuous spectrum        │
+  │  DTFT                   discrete-time sequence → continuous ω        │
+  │  DFT / FFT              finite sequence → finite spectrum            │
+  │  STFT / Wavelet         time-varying spectra                         │
   └──────────────────────────────────────────────────────────────────────┘
 
   Central unity:
@@ -217,7 +217,7 @@ the distributional framework:
 | δ(t) | 1 | Dirac delta → flat spectrum |
 | 1 | 2πδ(ω) | DC → impulse at ω=0 |
 | e^(-at)u(t), a>0 | 1/(a+iω) | Decaying exponential |
-| e^(-a|t|) | 2a/(a²+ω²) | Two-sided exponential |
+| e^(-a | t | ) | 2a/(a²+ω²) | Two-sided exponential |
 | e^(-t²/2) | √(2π)e^(-ω²/2) | Gaussian → Gaussian |
 | rect(t) | sinc(ω/2) = sin(ω/2)/(ω/2) | Box → sinc |
 | sinc(t) | π·rect(ω/2) | Sinc → box |
@@ -513,7 +513,7 @@ abelian (LCA) groups.
   The four standard transforms are all instantiations of this:
 
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Group G        │  Dual Ĝ        │  Transform       │ Spectrum      │
+  │  Group G        │  Dual Ĝ        │  Transform       │ Spectrum       │
   ├──────────────────────────────────────────────────────────────────────┤
   │  ℝ              │  ℝ             │  CTFT            │  Continuous   │
   │  𝕋 = ℝ/ℤ (circle)│  ℤ           │  Fourier series  │  Discrete     │

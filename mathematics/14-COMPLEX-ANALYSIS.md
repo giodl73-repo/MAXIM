@@ -5,7 +5,7 @@
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                         COMPLEX ANALYSIS                                    │
-│         The study of functions f: ℂ → ℂ that are complex-differentiable    │
+│         The study of functions f: ℂ → ℂ that are complex-differentiable     │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │  Layer 1: Algebra                                                           │
@@ -130,9 +130,9 @@ smooth bump functions with compact support — those have no holomorphic extensi
 | Rational | p(z)/q(z) | Holomorphic away from zeros of q |
 | eᶻ | eˣ(cos y + i sin y) | Entire, periodic with period 2πi |
 | sin z, cos z | (eⁱᶻ ∓ e⁻ⁱᶻ)/2i, (eⁱᶻ + e⁻ⁱᶻ)/2 | Entire, unbounded in imaginary direction |
-| log z | ln|z| + i arg z | Multi-valued! Needs branch cut |
+| log z | ln | z | + i arg z | Multi-valued! Needs branch cut |
 | zᵃ | e^(a log z) | Multi-valued for a ∉ ℤ |
-| 1/z | z̄/|z|² | Holomorphic on ℂ\{0}; prototype for poles |
+| 1/z | z̄/ | z | ² | Holomorphic on ℂ\{0}; prototype for poles |
 
 ---
 
@@ -693,7 +693,7 @@ H∞ (bounded analytic functions on disk): appear in robust control theory.
 | **Identity theorem** | Two holomorphic functions agreeing on a set with a limit point are identical |
 | **Picard's great theorem** | Near an essential singularity, f takes every value except one, infinitely often |
 | **Open mapping** | Non-constant holomorphic maps are open maps |
-| **Maximum modulus** | |f| cannot have an interior maximum |
+| **Maximum modulus** | | f | cannot have an interior maximum |
 | **Riemann-Hurwitz** | 2g(S)−2 = d(2g(T)−2) + Σ(e_p−1) for branched cover S → T |
 
 ---

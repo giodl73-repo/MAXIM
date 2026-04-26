@@ -6,7 +6,7 @@ THE LANDSCAPE
 
   MANIFOLDS                  DIFFERENTIAL FORMS           STOKES' THEOREM
   ┌──────────────────────┐   ┌─────────────────────────┐  ┌──────────────────┐
-  │ locally ≅ ℝⁿ         │   │ k-forms: antisymmetric  │  │ ∫_M dω = ∫_∂M ω │
+  │ locally ≅ ℝⁿ         │   │ k-forms: antisymmetric  │  │ ∫_M dω = ∫_∂M ω  │
   │ charts + atlas       │ → │ wedge product ∧         │→ │                  │
   │ smooth transitions   │   │ exterior derivative d   │  │ unifies ALL the  │
   │ Sⁿ, tori, Lie groups │   │ d²= 0                   │  │ integral theorems│

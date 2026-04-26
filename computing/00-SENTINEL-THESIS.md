@@ -17,7 +17,7 @@ THE SENTINEL'S DOMAIN
                      solves consensus with one crash."
                                │
                     ┌──────────┴──────────┐
-                    │   THEORETICAL FLOOR  │
+                    │   THEORETICAL FLOOR │
                     └──────────┬──────────┘
                                │
           ┌────────────────────┼────────────────────┐
@@ -99,15 +99,15 @@ A system of *n* nodes can tolerate *f* Byzantine (arbitrary/malicious) failures 
 ```
 FAULT MODEL HIERARCHY (strictest → most lenient)
 ┌──────────────────────────────────────────────────────────────────┐
-│  BYZANTINE          n >= 3f + 1     Arbitrary behavior, lying   │
+│  BYZANTINE          n >= 3f + 1     Arbitrary behavior, lying    │
 │  ──────────────────────────────────────────────────────────────  │
-│  AUTHENTICATED BYZ  n >= 3f + 1     Byzantine + digital sigs    │
+│  AUTHENTICATED BYZ  n >= 3f + 1     Byzantine + digital sigs     │
 │  ──────────────────────────────────────────────────────────────  │
-│  CRASH-RECOVERY     n >= 2f + 1     Stop + restart with state   │
+│  CRASH-RECOVERY     n >= 2f + 1     Stop + restart with state    │
 │  ──────────────────────────────────────────────────────────────  │
-│  CRASH-STOP         n >= 2f + 1     Stop permanently, silent    │
+│  CRASH-STOP         n >= 2f + 1     Stop permanently, silent     │
 │  ──────────────────────────────────────────────────────────────  │
-│  FAIL-STOP          n >= f + 1      Stop, detectable by others  │
+│  FAIL-STOP          n >= f + 1      Stop, detectable by others   │
 └──────────────────────────────────────────────────────────────────┘
 
 Why 3f + 1?
@@ -127,18 +127,18 @@ The three directories in this volume each instantiate the same principle at a di
 
 ```
 ┌─────────────────┬──────────────────────┬──────────────────────────┐
-│  DOMAIN          │  THE QUESTION        │  THE SENTINEL'S ANSWER   │
+│  DOMAIN          │  THE QUESTION        │  THE SENTINEL'S ANSWER  │
 ├─────────────────┼──────────────────────┼──────────────────────────┤
 │  Distributed     │  Who has the         │  Nobody. Consensus       │
 │  Systems         │  authoritative       │  protocols among         │
 │                  │  state?              │  quorums hold the        │
 │                  │                      │  truth collectively.     │
 ├─────────────────┼──────────────────────┼──────────────────────────┤
-│  Security        │  Who is allowed      │  Nobody by default.      │
-│  Engineering     │  to act?             │  Every request is        │
-│                  │                      │  authenticated,          │
-│                  │                      │  authorized, encrypted,  │
-│                  │                      │  and audited.            │
+│  Security        │  Who is allowed      │  Nobody by default.     │
+│  Engineering     │  to act?             │  Every request is       │
+│                  │                      │  authenticated,         │
+│                  │                      │  authorized, encrypted, │
+│                  │                      │  and audited.           │
 ├─────────────────┼──────────────────────┼──────────────────────────┤
 │  Cloud           │  Where does the      │  Nowhere permanently.    │
 │  Architecture    │  system run?         │  Cattle not pets.        │
@@ -300,7 +300,7 @@ Every system in this volume operates under a hierarchy of constraints. Higher co
 CONSTRAINT HIERARCHY (top dominates)
 ┌──────────────────────────────────────────────────────────────────────┐
 │  PHYSICS                                                             │
-│  Speed of light: cross-continent RTT ~ 60-80 ms (irreducible)       │
+│  Speed of light: cross-continent RTT ~ 60-80 ms (irreducible)        │
 │  Cannot coordinate faster than c allows.                             │
 ├──────────────────────────────────────────────────────────────────────┤
 │  IMPOSSIBILITY RESULTS                                               │
@@ -309,8 +309,8 @@ CONSTRAINT HIERARCHY (top dominates)
 │  Two Generals: no guaranteed agreement over unreliable channel       │
 ├──────────────────────────────────────────────────────────────────────┤
 │  PROTOCOL BOUNDS                                                     │
-│  BFT: need 3f+1 nodes for f Byzantine faults                        │
-│  Paxos/Raft: need 2f+1 nodes for f crash faults                     │
+│  BFT: need 3f+1 nodes for f Byzantine faults                         │
+│  Paxos/Raft: need 2f+1 nodes for f crash faults                      │
 │  Quorum intersection: R + W > N for linearizability                  │
 ├──────────────────────────────────────────────────────────────────────┤
 │  ENGINEERING TRADE-OFFS                                              │

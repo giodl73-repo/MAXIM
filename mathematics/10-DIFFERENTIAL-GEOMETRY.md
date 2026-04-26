@@ -501,13 +501,13 @@ THE LANDSCAPE
 
   Layers of the hierarchy:
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  Group G on domain M  →  Function space on M  →  Equivariant maps  │
+  │  Group G on domain M  →  Function space on M  →  Equivariant maps   │
   │                                                                     │
-  │  G=translation on ℝ²:  CNN (convolutional layers)                  │
+  │  G=translation on ℝ²:  CNN (convolutional layers)                   │
   │  G=SO(2) on sphere:    Spherical CNNs                               │
-  │  G=SE(3) on ℝ³:        E(3)-equivariant (molecular property pred.) │
-  │  G=Diff(M) on mesh:    Gauge-equivariant mesh CNNs                 │
-  │  G=permutations Sₙ:    Graph Neural Networks (on graphs)           │
+  │  G=SE(3) on ℝ³:        E(3)-equivariant (molecular property pred.)  │
+  │  G=Diff(M) on mesh:    Gauge-equivariant mesh CNNs                  │
+  │  G=permutations Sₙ:    Graph Neural Networks (on graphs)            │
   └─────────────────────────────────────────────────────────────────────┘
 
   The key operation: equivariant convolution uses the group structure to

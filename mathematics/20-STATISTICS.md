@@ -6,25 +6,25 @@ Statistics is the mathematical framework for making inferences from data under u
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  STATISTICAL INFERENCE LANDSCAPE                                             │
-│                                                                              │
-│  Frequentist                          Bayesian                               │
-│  ─────────────────────────────────    ──────────────────────────────────     │
-│  Parameters are fixed, unknown        Parameters are random variables        │
-│  Data is random (from sampling)       Prior + Likelihood → Posterior         │
-│  Inference via sampling distributions p(θ|X) ∝ p(X|θ) · p(θ)               │
+│  STATISTICAL INFERENCE LANDSCAPE                                            │
+│                                                                             │
+│  Frequentist                          Bayesian                              │
+│  ─────────────────────────────────    ──────────────────────────────────    │
+│  Parameters are fixed, unknown        Parameters are random variables       │
+│  Data is random (from sampling)       Prior + Likelihood → Posterior        │
+│  Inference via sampling distributions p(θ|X) ∝ p(X|θ) · p(θ)                │
 │  Confidence intervals: random, not θ  Credible intervals: about θ           │
 │  p-values: P(data|H₀), not P(H₀|data) Natural probability statements        │
-│                                                                              │
-│  Point Estimation      Interval Estimation     Hypothesis Testing            │
-│  ──────────────────    ─────────────────────   ─────────────────────         │
+│                                                                             │
+│  Point Estimation      Interval Estimation     Hypothesis Testing           │
+│  ──────────────────    ─────────────────────   ─────────────────────        │
 │  MLE, MOM              CI (Wald, exact, boot)  NHST, p-values               │
-│  MAP (Bayesian)        Credible intervals      Bayes factors                 │
-│  UMVUE (theory)        Prediction intervals    Multiple testing              │
-│                                                                              │
-│  Models                                                                      │
-│  ─────────────────────────────────────────────────────────────────────       │
-│  Linear regression (OLS) → Ridge/LASSO → GLMs (logistic/Poisson/Gamma)     │
+│  MAP (Bayesian)        Credible intervals      Bayes factors                │
+│  UMVUE (theory)        Prediction intervals    Multiple testing             │
+│                                                                             │
+│  Models                                                                     │
+│  ─────────────────────────────────────────────────────────────────────      │
+│  Linear regression (OLS) → Ridge/LASSO → GLMs (logistic/Poisson/Gamma)      │
 │  Nonparametric (Mann-Whitney, KS, rank tests) → bootstrap equivalents       │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

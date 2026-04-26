@@ -8,10 +8,10 @@ Frontend frameworks solve one problem: **keeping the UI in sync with data**. Wit
 +------------------------------------------------------------------+
 |                    FRONTEND FRAMEWORK LANDSCAPE                  |
 |                                                                  |
-|  THE PROBLEM:  Data changes → UI must update                    |
+|  THE PROBLEM:  Data changes → UI must update                     |
 |  THE SOLUTION: Declare UI as a function of state                 |
 |                                                                  |
-|  +------------+  +------------+  +------------+  +----------+   |
+|  +------------+  +------------+  +------------+  +----------+    |
 |  |   REACT    |  |    VUE     |  |  ANGULAR   |  |  SVELTE  |   |
 |  +------------+  +------------+  +------------+  +----------+   |
 |  | Virtual    |  | Reactive   |  | Zone.js    |  | Compile- |   |
@@ -84,25 +84,25 @@ Every framework uses components. A component is the fundamental unit of UI compo
   COMPONENT = Data In + UI Out + Local State + Events Out
 
   +------------------------------------------+
-  |              <UserCard>                   |
-  |  Props (inputs):                          |
-  |    name: "Alice"                          |
-  |    avatarUrl: "..."                       |
-  |    role: "Admin"                          |
-  |                                           |
-  |  Local State:                             |
-  |    isExpanded: false                      |
-  |                                           |
-  |  Renders:                                 |
-  |    <div class="card">                     |
-  |      <img src={avatarUrl} />              |
-  |      <h2>{name}</h2>                      |
-  |      <span>{role}</span>                  |
-  |      {isExpanded && <Details />}          |
-  |    </div>                                 |
-  |                                           |
-  |  Events Out (callbacks via props):        |
-  |    onSelect: () => void                   |
+  |              <UserCard>                  |
+  |  Props (inputs):                         |
+  |    name: "Alice"                         |
+  |    avatarUrl: "..."                      |
+  |    role: "Admin"                         |
+  |                                          |
+  |  Local State:                            |
+  |    isExpanded: false                     |
+  |                                          |
+  |  Renders:                                |
+  |    <div class="card">                    |
+  |      <img src={avatarUrl} />             |
+  |      <h2>{name}</h2>                     |
+  |      <span>{role}</span>                 |
+  |      {isExpanded && <Details />}         |
+  |    </div>                                |
+  |                                          |
+  |  Events Out (callbacks via props):       |
+  |    onSelect: () => void                  |
   +------------------------------------------+
 
   Compose them into trees:

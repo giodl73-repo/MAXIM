@@ -352,7 +352,7 @@ The orientation of Earth in space is described by three Euler angles:
   ┌─────────────────────────────────────────────────────────────────────┐
   │  TRANSFORMATION CHAIN: from ecliptic frame to Earth body frame      │
   │                                                                     │
-  │  R = Rz(φ) · Rx(θ) · Rz(ψ)                                         │
+  │  R = Rz(φ) · Rx(θ) · Rz(ψ)                                          │
   │                                                                     │
   │  ψ: rotate around ecliptic pole by precession angle                 │
   │  θ: tilt by obliquity angle (+ nutation correction)                 │
@@ -468,7 +468,7 @@ The above is Newtonian. GR adds two corrections worth knowing:
   3. Combined:
      ┌──────────────────────────────────────────────┐
      │ Total precession = luni-solar − geodetic − Δ │
-     │  50.30 "/yr − 1.92 "/yr − (planetary) ≈     │
+     │  50.30 "/yr − 1.92 "/yr − (planetary) ≈      │
      │  General precession ≈ 50.29 "/yr             │
      └──────────────────────────────────────────────┘
 ```

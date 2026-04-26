@@ -7,12 +7,12 @@
 
 ```
 ┌───────────────────────────────────────────────────────────────────────────┐
-│                    SMALL BODY POPULATIONS                                  │
+│                    SMALL BODY POPULATIONS                                 │
 │                                                                           │
 │  Distance    Population          Count    Composition                     │
 │  ─────────   ──────────          ─────    ───────────                     │
-│  0–1 AU      Near-Earth Objects  ~36,000  S, C, X types                  │
-│  2.2–3.2 AU  Main Asteroid Belt  ~1.2M>1km S (inner), C (outer), M       │
+│  0–1 AU      Near-Earth Objects  ~36,000  S, C, X types                   │
+│  2.2–3.2 AU  Main Asteroid Belt  ~1.2M>1km S (inner), C (outer), M        │
 │  3.2 AU      Hildas (3:2 MMR)    ~5000                                    │
 │  4–5 AU      Jupiter Trojans     ~10,000  P/D type (outer system?)        │
 │  30–50 AU    Kuiper Belt         ~100,000>100km  KBOs — cold/hot          │
@@ -20,10 +20,10 @@
 │  2000–50000 AU Oort Cloud        10¹²     Cometary nuclei                 │
 │                                                                           │
 │   COMET FAMILIES:                                                         │
-│   Jupiter-family (JFC): P < 20 yr, low inclination, Tisserand T > 2      │
-│   Halley-type (HTC):    20 < P < 200 yr, isotropic inclination           │
-│   Long-period (LPC):    P > 200 yr, from Oort Cloud, near-isotropic      │
-│   Hyperbolic:           e > 1.0 — interstellar (2I/Borisov confirmed)    │
+│   Jupiter-family (JFC): P < 20 yr, low inclination, Tisserand T > 2       │
+│   Halley-type (HTC):    20 < P < 200 yr, isotropic inclination            │
+│   Long-period (LPC):    P > 200 yr, from Oort Cloud, near-isotropic       │
+│   Hyperbolic:           e > 1.0 — interstellar (2I/Borisov confirmed)     │
 └───────────────────────────────────────────────────────────────────────────┘
 ```
 

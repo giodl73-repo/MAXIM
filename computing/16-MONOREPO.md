@@ -35,13 +35,13 @@ The Core Problems a Monorepo Tool Solves
   │  Problem 1: Only rebuild what changed                           │
   │                                                                 │
   │  You changed packages/utils.                                    │
-  │  Don't rebuild apps/web, apps/admin if they don't use utils.   │
+  │  Don't rebuild apps/web, apps/admin if they don't use utils.    │
   │  Do rebuild apps/api because it imports utils.                  │
   │                                                                 │
   │  Problem 2: Run tasks in correct order                          │
   │                                                                 │
-  │  apps/api depends on packages/utils.                           │
-  │  Build utils before building api — not after, not in parallel. │
+  │  apps/api depends on packages/utils.                            │
+  │  Build utils before building api — not after, not in parallel.  │
   │                                                                 │
   │  Problem 3: Cache results                                       │
   │                                                                 │

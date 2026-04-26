@@ -7,29 +7,29 @@
 
 ```
 +--------------------------------------------------------------------------------+
-|  APPLICATION LAYER                                                              |
-|  DNS   HTTP/1.1   HTTP/2   HTTP/3(QUIC)   WebSocket   gRPC   TLS              |
+|  APPLICATION LAYER                                                             |
+|  DNS   HTTP/1.1   HTTP/2   HTTP/3(QUIC)   WebSocket   gRPC   TLS               |
 +--------------------------------------------------------------------------------+
               |                |                 |               |
 +--------------------------------------------------------------------------------+
-|  TRANSPORT LAYER                                                                |
+|  TRANSPORT LAYER                                                               |
 |  TCP (reliable, ordered, flow-controlled)                                      |
 |  UDP (unreliable, unordered, low-overhead)                                     |
-|  QUIC (UDP-based, streams, built-in TLS 1.3)                                  |
+|  QUIC (UDP-based, streams, built-in TLS 1.3)                                   |
 +--------------------------------------------------------------------------------+
               |                |                 |
 +--------------------------------------------------------------------------------+
-|  NETWORK LAYER                                                                  |
-|  IPv4 / IPv6   ICMP   BGP / OSPF (routing)   NAT   IPsec                      |
+|  NETWORK LAYER                                                                 |
+|  IPv4 / IPv6   ICMP   BGP / OSPF (routing)   NAT   IPsec                       |
 +--------------------------------------------------------------------------------+
               |
 +--------------------------------------------------------------------------------+
-|  DATA LINK LAYER                                                                |
-|  Ethernet   MAC addresses   ARP   VLANs (802.1Q)   Spanning Tree (802.1D)     |
+|  DATA LINK LAYER                                                               |
+|  Ethernet   MAC addresses   ARP   VLANs (802.1Q)   Spanning Tree (802.1D)      |
 +--------------------------------------------------------------------------------+
               |
 +--------------------------------------------------------------------------------+
-|  PHYSICAL LAYER                                                                 |
+|  PHYSICAL LAYER                                                                |
 |  Copper, fiber, radio — not covered here                                       |
 +--------------------------------------------------------------------------------+
 ```
@@ -90,8 +90,8 @@ A /28 gives 16 - 5 = 11 usable IPs in Azure.
 | Range                      | CIDR           | Size     | Common Use                      |
 |----------------------------|----------------|----------|---------------------------------|
 | 10.0.0.0 – 10.255.255.255  | 10.0.0.0/8     | 16M IPs  | Large enterprises, Azure VNets  |
-| 172.16.0.0 – 172.31.255.255| 172.16.0.0/12  | 1M IPs   | Docker default bridge (172.17.x)|
-| 192.168.0.0 – 192.168.255.255| 192.168.0.0/16 | 65K IPs | Home/SOHO networks              |
+| 172.16.0.0 – 172.31.255.255 | 172.16.0.0/12  | 1M IPs   | Docker default bridge (172.17.x) |
+| 192.168.0.0 – 192.168.255.255 | 192.168.0.0/16 | 65K IPs | Home/SOHO networks              |
 
 Also: `169.254.0.0/16` (link-local, APIPA — assigned when DHCP fails)
 `127.0.0.0/8` (loopback — only `127.0.0.1` used in practice)
@@ -226,8 +226,8 @@ tcpClient.NoDelay = true;  // .NET
 | Ordering          | In-order delivery                      | Out-of-order possible                  |
 | Connection        | Stateful (3-way handshake)             | Stateless                              |
 | Flow control      | Yes (rwnd)                             | No                                     |
-| Congestion control| Yes (cwnd, CUBIC/BBR)                  | No                                     |
-| Head-of-line block| Yes — lost packet blocks stream        | No — each packet independent           |
+| Congestion control | Yes (cwnd, CUBIC/BBR)                  | No                                     |
+| Head-of-line block | Yes — lost packet blocks stream        | No — each packet independent           |
 | Overhead          | 20-byte header + state                 | 8-byte header, no state                |
 | Use cases         | HTTP, databases, SSH, email            | DNS, gaming, video streams, QUIC       |
 
@@ -244,13 +244,13 @@ DNS resolution chain (3 lines): stub resolver checks OS cache → forwards to re
 | Type  | Purpose                                         | Example                                           |
 |-------|-------------------------------------------------|---------------------------------------------------|
 | A     | Hostname → IPv4 address                         | `example.com. → 93.184.216.34`                    |
-| AAAA  | Hostname → IPv6 address                         | `example.com. → 2606:2800:220:1:248:1893:25c8:1946`|
+| AAAA  | Hostname → IPv6 address                         | `example.com. → 2606:2800:220:1:248:1893:25c8:1946` |
 | CNAME | Hostname → another hostname (alias)             | `www.example.com. → example.com.`                 |
 | MX    | Mail exchange server for domain                 | `example.com. 10 mail.example.com.`               |
-| TXT   | Arbitrary text — SPF, DKIM, DMARC, domain verify| `"v=spf1 include:_spf.google.com ~all"`           |
+| TXT   | Arbitrary text — SPF, DKIM, DMARC, domain verify | `"v=spf1 include:_spf.google.com ~all"`           |
 | NS    | Authoritative nameservers for zone              | `example.com. NS ns1.example.com.`                |
 | SOA   | Start of Authority — zone metadata              | serial, refresh, retry, expire, minimum TTL       |
-| SRV   | Service location (host + port)                  | `_grpc._tcp.example.com. 0 5 50051 api.example.com.`|
+| SRV   | Service location (host + port)                  | `_grpc._tcp.example.com. 0 5 50051 api.example.com.` |
 | PTR   | Reverse DNS — IP → hostname                     | `34.216.184.93.in-addr.arpa. → example.com.`      |
 | CAA   | Authorized certificate authorities for domain   | `example.com. CAA 0 issue "letsencrypt.org"`      |
 | TLSA  | DANE — cert pinning in DNS (requires DNSSEC)    |                                                   |
@@ -286,7 +286,7 @@ Standard DNS is plaintext UDP/TCP. ISP and network operators can see and modify 
 |----------|------|-------------------|------------------------------------------|
 | DNS      | 53   | UDP/TCP plaintext | Default, observable by network           |
 | DoT      | 853  | TCP + TLS         | RFC 7858, easy to block (single port)    |
-| DoH      | 443  | HTTP/2 + TLS      | RFC 8484, looks like HTTPS, hard to block|
+| DoH      | 443  | HTTP/2 + TLS      | RFC 8484, looks like HTTPS, hard to block |
 
 **Enterprise split-horizon risk with DoH**: browsers (Firefox, Chrome) use DoH by default to their own resolvers (Cloudflare 1.1.1.1, Google 8.8.8.8), bypassing OS resolver configuration entirely. This breaks enterprise split-horizon DNS, DNS-based filtering, and DNS-based traffic steering. Enterprise mitigation: configure canary domains (Firefox checks `use-application-dns.net`; if NXDOMAIN, DoH disabled) or push Managed Browser Policy that forces OS resolver.
 
@@ -382,7 +382,7 @@ ETag: "abc123"\r\n
 | `If-None-Match: "abc123"`        | Conditional GET — 304 if unchanged                                   |
 | `Last-Modified: Tue, 01 Jan 2025 00:00:00 GMT` | Last modification time                              |
 | `If-Modified-Since: ...`         | Conditional GET by time — 304 if unchanged                           |
-| `Vary: Accept-Encoding`          | Cache key includes Accept-Encoding — separate cache entries per value|
+| `Vary: Accept-Encoding`          | Cache key includes Accept-Encoding — separate cache entries per value |
 | `Content-Encoding: gzip`         | Response body is gzip-compressed                                     |
 | `Transfer-Encoding: chunked`     | Body sent as chunks, length unknown upfront (streaming)              |
 
@@ -518,7 +518,7 @@ Total: 1 RTT. Compare TLS 1.2: 2 RTTs (or 1 RTT with False Start, but non-standa
 
 | Feature                     | TLS 1.2                              | TLS 1.3                               |
 |-----------------------------|--------------------------------------|---------------------------------------|
-| Handshake RTTs              | 2 RTT (1 RTT with session resumption)| 1 RTT (0-RTT on resumption)           |
+| Handshake RTTs              | 2 RTT (1 RTT with session resumption) | 1 RTT (0-RTT on resumption)           |
 | RSA key exchange            | Supported (no forward secrecy)       | **Removed**                           |
 | Key exchange                | RSA, DHE, ECDHE                      | **Only (EC)DHE** — always PFS         |
 | Cipher suites               | 300+ (many weak)                     | **5 only** (all AEAD)                 |
@@ -725,7 +725,7 @@ Status and error details are in HTTP/2 **trailers** (HEADERS frame with END_STRE
 | Unary                 | 1 request → 1 response     | Standard RPC (like REST)                 |
 | Server streaming      | 1 request → N responses    | Live feed, large result set pagination   |
 | Client streaming      | N requests → 1 response    | Chunked upload, sensor batching          |
-| Bidirectional streaming| N requests ↔ N responses  | Chat, collaborative editing, game state  |
+| Bidirectional streaming | N requests ↔ N responses  | Chat, collaborative editing, game state  |
 
 ### Protobuf Wire Format
 
@@ -755,8 +755,8 @@ No field names on the wire — only field numbers. Schema (`.proto` file) maps n
 | 5    | NOT_FOUND         | Resource not found                             |
 | 6    | ALREADY_EXISTS    | Resource already exists                        |
 | 7    | PERMISSION_DENIED | Auth OK but no permission                      |
-| 8    | RESOURCE_EXHAUSTED| Quota exceeded, rate limited                   |
-| 9    | FAILED_PRECONDITION| System not in state to execute (e.g., not empty)|
+| 8    | RESOURCE_EXHAUSTED | Quota exceeded, rate limited                   |
+| 9    | FAILED_PRECONDITION | System not in state to execute (e.g., not empty) |
 | 10   | ABORTED           | Concurrency conflict (compare-and-set failed)  |
 | 11   | OUT_OF_RANGE      | Beyond valid range                             |
 | 12   | UNIMPLEMENTED     | Method not implemented                         |
@@ -862,9 +862,9 @@ Origin: changed   → 200 OK with new body + new ETag
 |----------------------|--------------------------------------------------|---------------|------------------------------------|
 | TTL expiry           | Wait for max-age/s-maxage to expire              | Up to TTL     | Simple, delayed                    |
 | URL versioning       | `/app.abc123.js` — hash in filename              | Instant       | Forces new URL = new cache entry   |
-| Surrogate keys / Cache tags | Tag resources, purge by tag               | Instant (API) | Cloudflare Cache-Tag, Fastly surrogates|
+| Surrogate keys / Cache tags | Tag resources, purge by tag               | Instant (API) | Cloudflare Cache-Tag, Fastly surrogates |
 | CDN purge API        | Explicit API call to invalidate URL/path         | Seconds       | After deploy, purge affected paths |
-| Vary-based           | `Vary: Accept-Encoding` creates per-variant entries| N/A         | Can fragment cache badly if overused|
+| Vary-based           | `Vary: Accept-Encoding` creates per-variant entries | N/A         | Can fragment cache badly if overused |
 
 **Origin shield**: An intermediate caching layer between edge PoPs and origin. Without it: 200 edge PoPs each miss → 200 requests to origin. With shield: all PoPs route misses through 1 shield → origin sees 1 request.
 
@@ -872,13 +872,13 @@ Origin: changed   → 200 OK with new body + new ETag
 
 | Feature                    | Azure Front Door      | AWS CloudFront        | Cloudflare CDN        |
 |----------------------------|-----------------------|-----------------------|-----------------------|
-| Network                    | Anycast (Azure backbone)| Anycast             | Anycast (world's largest)|
+| Network                    | Anycast (Azure backbone) | Anycast             | Anycast (world's largest) |
 | WAF                        | Built-in              | AWS WAF (add-on)      | Built-in              |
 | DDoS                       | Standard included     | Standard included     | Built-in (Unmetered)  |
 | Cache purge                | Yes (path + tag)      | Yes (path)            | Yes (path + tag)      |
 | Routing rules              | Rules engine          | CloudFront Functions  | Workers               |
 | HTTP/3                     | Yes                   | Yes                   | Yes (early support)   |
-| Origin protocol            | HTTP/1.1, HTTP/2      | HTTP/1.1, HTTP/2      | HTTP/1.1, HTTP/2, HTTP/3|
+| Origin protocol            | HTTP/1.1, HTTP/2      | HTTP/1.1, HTTP/2      | HTTP/1.1, HTTP/2, HTTP/3 |
 | Azure integration          | Native                | Via Direct Connect    | Via CNAME             |
 
 ---
@@ -917,12 +917,12 @@ Client ────────────►│  L4 Load Balancer             
 
 | Algorithm             | How                                                             | Best For                            |
 |-----------------------|-----------------------------------------------------------------|-------------------------------------|
-| Round-robin           | Each request to next backend in order                           | Homogeneous backends, equal request cost|
+| Round-robin           | Each request to next backend in order                           | Homogeneous backends, equal request cost |
 | Weighted round-robin  | More requests to higher-weight backends                         | Mixed capacity backends             |
 | Least connections     | Route to backend with fewest active connections                 | Variable request duration           |
 | IP hash               | hash(client_ip) % backends = backend index                      | Soft session affinity               |
-| Consistent hashing    | Ring topology, hash both backends and requests                  | Cache sharding, minimize redistribution|
-| Random                | Random backend selection                                        | Simple, stateless, works well at scale|
+| Consistent hashing    | Ring topology, hash both backends and requests                  | Cache sharding, minimize redistribution |
+| Random                | Random backend selection                                        | Simple, stateless, works well at scale |
 | Resource-based        | Route based on backend CPU/memory (L7 only)                     | Heterogeneous load                  |
 
 ### Consistent Hashing
@@ -1063,9 +1063,9 @@ NSG can be applied to subnet (affects all resources in subnet) or NIC (affects i
 ```
 Traditional perimeter model (1990s–2010s):
   ┌──────────────────────────────────┐
-  │  VNet / Corporate Network         │
-  │  All traffic inside = trusted     │
-  │  One firewall at the edge         │
+  │  VNet / Corporate Network        │
+  │  All traffic inside = trusted    │
+  │  One firewall at the edge        │
   └──────────────────────────────────┘
   Breach the perimeter → lateral movement free
 
@@ -1120,7 +1120,7 @@ NSG: SSH from Internet ALLOW          NSG: SSH from Internet DENY (always)
 | Type                  | Protocol           | Use Case                                          |
 |-----------------------|--------------------|---------------------------------------------------|
 | Site-to-site          | IPsec/IKEv2        | On-prem datacenter ↔ Azure VNet                  |
-| Point-to-site         | SSTP, OpenVPN, IKEv2| Individual developer → Azure VNet               |
+| Point-to-site         | SSTP, OpenVPN, IKEv2 | Individual developer → Azure VNet               |
 | WireGuard             | WireGuard (UDP)    | Modern, fast, simple config, 4096-byte codebase  |
 | Azure ExpressRoute    | MPLS/BGP           | Private, dedicated circuit, not over internet    |
 
@@ -1166,14 +1166,14 @@ Time 2s:  10 tokens, 5 requests → 5 served, 5 tokens left
 | 3306     | MySQL        | MySQL / MariaDB                                              |
 | 3389     | RDP          | Windows Remote Desktop Protocol                              |
 | 5432     | PostgreSQL   | PostgreSQL wire protocol                                     |
-| 5671/5672| AMQP         | RabbitMQ. 5671=TLS, 5672=plain                              |
+| 5671/5672 | AMQP         | RabbitMQ. 5671=TLS, 5672=plain                              |
 | 6379     | Redis        | Redis. No TLS by default — use TLS or TLS proxy              |
 | 6443     | Kubernetes   | Kubernetes API server                                        |
 | 8080     | HTTP alt     | Dev convention, HTTP without TLS                             |
 | 8443     | HTTPS alt    | Dev convention, HTTPS on non-standard port                   |
 | 9090     | Prometheus   | Prometheus HTTP API                                          |
 | 9092     | Kafka        | Kafka broker plaintext                                       |
-| 9200     | Elasticsearch| REST API                                                     |
+| 9200     | Elasticsearch | REST API                                                     |
 | 10250    | kubelet      | Kubernetes kubelet API (node agent)                          |
 | 27017    | MongoDB      | MongoDB wire protocol                                        |
 | 50051    | gRPC         | gRPC convention (not standard, just common)                  |
@@ -1226,7 +1226,7 @@ Time 2s:  10 tokens, 5 requests → 5 served, 5 tokens left
 | Connect on-prem to Azure (dedicated private circuit)  | Azure ExpressRoute                                   |
 | Automatic TLS for internal services                   | cert-manager (Kubernetes) + Let's Encrypt            |
 | DNS for internal Kubernetes services                  | CoreDNS (built-in to Kubernetes)                     |
-| Debugging why a request is slow                       | `curl -w "@curl-format.txt"` timing breakdown; Wireshark|
+| Debugging why a request is slow                       | `curl -w "@curl-format.txt"` timing breakdown; Wireshark |
 | Rate limiting at edge                                 | CDN/Front Door rate limiting rules; token bucket     |
 | Service-to-service auth without passwords             | Workload identity (Managed Identity in Azure)        |
 | NSG microsegmentation by role                         | Azure Application Security Groups (ASGs)             |

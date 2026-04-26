@@ -41,7 +41,7 @@ These are three different things that people blur together:
   +-------------------------------------------------+
   | Defines: syntax, semantics, built-in objects    |
   | Who sets it: TC39 committee (annual releases)   |
-  | ES2015 (ES6), ES2016... ES2024, ES2025...        |
+  | ES2015 (ES6), ES2016... ES2024, ES2025...       |
   +-------------------------------------------------+
              |
              | implemented by
@@ -51,7 +51,7 @@ These are three different things that people blur together:
   | V8          -- Chrome, Node.js, Deno, Edge      |
   | SpiderMonkey -- Firefox                         |
   | JavaScriptCore -- Safari, Bun                   |
-  | Each engine implements the ECMAScript spec.      |
+  | Each engine implements the ECMAScript spec.     |
   +-------------------------------------------------+
              |
              | runs inside

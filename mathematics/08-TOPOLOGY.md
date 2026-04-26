@@ -8,9 +8,9 @@ THE LANDSCAPE
   ┌────────────────────┐      ┌──────────────────────┐   ┌──────────────────┐
   │ Metric spaces      │      │ Homotopy             │   │ Topological ins. │
   │ Topological spaces │  →   │ Fundamental group π₁ │ → │ Quantum Hall eff.│
-  │ Continuity         │      │ Homology groups      │   │ Fiber bundles     │
-  │ Compactness        │      │ Euler characteristic │   │ Gauge fields      │
-  │ Connectedness      │      │ Covering spaces      │   │ Monopoles, knots  │
+  │ Continuity         │      │ Homology groups      │   │ Fiber bundles    │
+  │ Compactness        │      │ Euler characteristic │   │ Gauge fields     │
+  │ Connectedness      │      │ Covering spaces      │   │ Monopoles, knots │
   └────────────────────┘      └──────────────────────┘   └──────────────────┘
 
   THE CENTRAL IDEA:
@@ -218,7 +218,7 @@ A **topological invariant** is a property preserved by homeomorphisms:
   Inverse of [γ] = [γ traversed backwards]
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  SPACE X          │  π₁(X)          │  MEANING                  │
+  │  SPACE X          │  π₁(X)          │  MEANING                   │
   ├──────────────────────────────────────────────────────────────────┤
   │  ℝⁿ               │  {e} (trivial)  │  all loops contractible   │
   │  S¹ (circle)      │  ℤ              │  loop winds n times       │
@@ -318,7 +318,7 @@ A **topological invariant** is a property preserved by homeomorphisms:
   ┌─────────────────────────────────────────────────────────────────┐
   │                 ○    ○──○    ○──○──○                            │
   │  Sphere  Torus     Genus 2    Genus 3 ...                       │
-  │  χ=2     χ=0       χ=-2       χ=-4                             │
+  │  χ=2     χ=0       χ=-2       χ=-4                              │
   └─────────────────────────────────────────────────────────────────┘
 
   MÖBIUS BAND: non-orientable surface with boundary
@@ -384,9 +384,9 @@ A **topological invariant** is a property preserved by homeomorphisms:
 
   EXAMPLES:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Möbius band:  base = S¹, fiber = interval [-1,1], twisted          │
-  │  Cylinder:     base = S¹, fiber = interval [-1,1], untwisted        │
-  │  Tangent bundle TM: base = M, fiber = tangent space Tₓ M at each x  │
+  │  Möbius band:  base = S¹, fiber = interval [-1,1], twisted           │
+  │  Cylinder:     base = S¹, fiber = interval [-1,1], untwisted         │
+  │  Tangent bundle TM: base = M, fiber = tangent space Tₓ M at each x   │
   │  EM gauge theory:  base = spacetime, fiber = U(1), connection = Aμ   │
   │  Yang-Mills (weak): base = spacetime, fiber = SU(2)                  │
   └──────────────────────────────────────────────────────────────────────┘

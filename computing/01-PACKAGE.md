@@ -6,7 +6,7 @@ Package managers exist at **different layers** of the software stack. The confus
 
 ```
 +---------------------------------------------------------------+
-|                    SYSTEM / OS LAYER                           |
+|                    SYSTEM / OS LAYER                          |
 |  winget, choco, apt, brew, scoop                              |
 |  Installs: runtimes, tools, apps, drivers                     |
 +---------------------------------------------------------------+
@@ -27,7 +27,7 @@ Package managers exist at **different layers** of the software stack. The confus
         |           |           |           |           |
         v           v           v           v           v
    +---------+ +---------+ +---------+ +---------+ +---------+
-   |requests | | react  | |Newtonsoft| | serde   | | spring  |
+   |requests | | react   | |Newtonsoft| | serde   | | spring  |
    |numpy    | | express | |EF Core  | | tokio   | | jackson |
    | LIBS    | | LIBS    | | LIBS    | | LIBS    | | LIBS    |
    +---------+ +---------+ +---------+ +---------+ +---------+
@@ -106,7 +106,7 @@ These install **libraries and frameworks** for a specific programming language. 
 
 ```
 +------------------------------------------------------------------+
-|                        LANGUAGE LAYER                             |
+|                        LANGUAGE LAYER                            |
 |                                                                  |
 |  PYTHON          NODE.JS         .NET           RUST             |
 |  -------         --------        -----          -----            |
@@ -253,7 +253,7 @@ Some tools span multiple languages or manage environments rather than packages.
 
 ```
 +----------------------------------------------------------------+
-|                     META LAYER                                  |
+|                     META LAYER                                 |
 |                                                                |
 |  CONTAINERS        VERSION MGR       MONOREPO        TASK      |
 |  ----------        -----------       --------        ------    |

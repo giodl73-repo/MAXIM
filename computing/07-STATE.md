@@ -22,9 +22,9 @@ State management is the most over-engineered topic in frontend. Most complexity 
 |  Next.js router        Formik                 localStorage       |
 |  useSearchParams       Zod (validation)       IndexedDB          |
 |                                                                  |
-|  SIGNALS (alternative reactivity model — see Signals section)   |
-|  SolidJS (signals-first) · Vue 3 (signals under the hood)       |
-|  Angular 16+ (adopted signals) · TC39 proposal (stage 1)        |
+|  SIGNALS (alternative reactivity model — see Signals section)    |
+|  SolidJS (signals-first) · Vue 3 (signals under the hood)        |
+|  Angular 16+ (adopted signals) · TC39 proposal (stage 1)         |
 +------------------------------------------------------------------+
 
   KEY INSIGHT: Server state (API data) is NOT the same problem

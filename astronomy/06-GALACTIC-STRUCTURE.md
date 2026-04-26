@@ -79,7 +79,7 @@
 
 ```
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │ COMPONENT         │ MASS          │ SCALE HEIGHT │ [Fe/H]   │ AGE      │
+  │ COMPONENT         │ MASS          │ SCALE HEIGHT │ [Fe/H]   │ AGE       │
   ├─────────────────────────────────────────────────────────────────────────┤
   │ Thin disk         │ ~5×10¹⁰ M☉   │ ~300 pc      │ > −1     │ 0–10 Gyr │
   │ Thick disk        │ ~1×10¹⁰ M☉   │ ~900 pc      │ −0.5 to−1│ 8–12 Gyr │
@@ -255,8 +255,8 @@ The wave-orbit interaction has resonances when the orbital response frequency ma
   │     GMC → trigger next generation → propagating SF             │
   ├─────────────────────────────────────────────────────────────────┤
   │ Multi-armed / Intermediate (Milky Way)                          │
-  │   4 major arms + local spur + flocculent structure             │
-  │   Mix of density wave (global 4-arm pattern) + SSPSF           │
+  │   4 major arms + local spur + flocculent structure              │
+  │   Mix of density wave (global 4-arm pattern) + SSPSF            │
   └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -400,7 +400,7 @@ The local rotation curve is characterized by two constants from Oort (1927):
 ```
   STELLAR POPULATION TAXONOMY:
   ┌───────────────────────────────────────────────────────────────────────┐
-  │ Population  │ Age        │ [Fe/H]       │ Location        │ [α/Fe]   │
+  │ Population  │ Age        │ [Fe/H]       │ Location        │ [α/Fe]    │
   ├───────────────────────────────────────────────────────────────────────┤
   │ Pop I       │ 0–8 Gyr   │ −1 to +0.5   │ thin disk, arms │ low      │
   │ Pop II      │ 8–13 Gyr  │ −1 to −5     │ thick disk, halo│ high     │
@@ -504,16 +504,16 @@ The closed-box model predicts too many metal-poor ([Fe/H] < −1) G dwarfs in th
   │  The disk was NOT pre-enriched. It formed by INFALL of           │
   │  metal-poor (primordial) gas over time.                          │
   │                                                                  │
-  │  When pristine gas falls in, it DILUTES the metallicity.        │
-  │  Early on, infalling gas keeps Z low → few stars form at        │
-  │  low Z because the infalling gas increases the denominator      │
-  │  (gas mass) faster than SF can reduce it.                       │
+  │  When pristine gas falls in, it DILUTES the metallicity.         │
+  │  Early on, infalling gas keeps Z low → few stars form at         │
+  │  low Z because the infalling gas increases the denominator       │
+  │  (gas mass) faster than SF can reduce it.                        │
   │                                                                  │
-  │  Infall model metallicity distribution: suppresses the          │
-  │  low-[Fe/H] tail → matches observations.                        │
+  │  Infall model metallicity distribution: suppresses the           │
+  │  low-[Fe/H] tail → matches observations.                         │
   │                                                                  │
-  │  Physical: MW disk built up by cosmological accretion,          │
-  │  preferentially from metal-poor CGM/satellites.                 │
+  │  Physical: MW disk built up by cosmological accretion,           │
+  │  preferentially from metal-poor CGM/satellites.                  │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -599,7 +599,7 @@ The most direct BH mass determination comes from stellar orbits in the S-star cl
   FERMI BUBBLE MORPHOLOGY:
   ┌─────────────────────────────────────────────────────────────────────┐
   │                                                                     │
-  │        ╭───────────────╮   north bubble                            │
+  │        ╭───────────────╮   north bubble                             │
   │       ╭╯               ╰╮  ~10 kpc tall                           │
   │       │  uniform hard   │  (= 10 kpc above GC plane)              │
   │       │  γ-ray spectrum │  γ-ray: E > 1 GeV                       │
@@ -929,7 +929,7 @@ Stars on nearly circular orbits undergo small oscillations — this is the epicy
 ```
   LOCAL GROUP MEMBERSHIP (key objects):
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │ Object          │ Type    │ Distance  │ M_* (M☉)    │ Notes            │
+  │ Object          │ Type    │ Distance  │ M_* (M☉)    │ Notes             │
   ├─────────────────────────────────────────────────────────────────────────┤
   │ Milky Way       │ SBbc    │ —         │ ~5×10¹⁰    │ Our galaxy       │
   │ M31 (Andromeda) │ SAb     │ 770 kpc   │ ~10¹¹      │ Approaching MW   │
@@ -985,17 +985,17 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   FUTURE MERGER: MW + M31
   ┌─────────────────────────────────────────────────────────────────┐
   │  Current separation: ~770 kpc                                   │
-  │  Radial velocity: −110 km/s (approaching)                      │
-  │  Transverse velocity: ~17 km/s (from HST + Gaia proper motions)│
-  │  → Nearly head-on collision, low angular momentum              │
-  │                                                                  │
-  │  First pericenter: ~4.5 Gyr from now                           │
-  │  Full merger ("Milkomeda"): ~6–7 Gyr from now                  │
-  │                                                                  │
-  │  EXPECTED OUTCOME:                                               │
-  │  Major merger → bursty SF → AGN activity → gas funneled to     │
+  │  Radial velocity: −110 km/s (approaching)                       │
+  │  Transverse velocity: ~17 km/s (from HST + Gaia proper motions) │
+  │  → Nearly head-on collision, low angular momentum               │
+  │                                                                 │
+  │  First pericenter: ~4.5 Gyr from now                            │
+  │  Full merger ("Milkomeda"): ~6–7 Gyr from now                   │
+  │                                                                 │
+  │  EXPECTED OUTCOME:                                              │
+  │  Major merger → bursty SF → AGN activity → gas funneled to      │
   │  merged nucleus → likely quenching → giant elliptical galaxy    │
-  │  Solar System is almost certainly ejected to large radius        │
+  │  Solar System is almost certainly ejected to large radius       │
   │  (~100 kpc orbits in the merger remnant)                        │
   │  Probability of direct stellar collision: effectively zero      │
   │  (stars are too small relative to inter-stellar spacing)        │
@@ -1008,17 +1008,17 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   ΛCDM PREDICTIONS vs OBSERVATIONS at small scales:
 
   ┌──────────────────────────────────────────────────────────────────────┐
-  │ Problem              │ CDM Prediction    │ Observation      │ Status  │
+  │ Problem              │ CDM Prediction    │ Observation      │ Status │
   ├──────────────────────────────────────────────────────────────────────┤
   │ Missing Satellites   │ ~10³ subhalos     │ ~60 MW sats      │ Tension │
   │                      │ M > 10⁸ M☉       │ known+projected  │         │
   │ Resolution: reionization photo-evaporates gas from small halos;     │
   │ SDSS/LSST finding more UFDs; observational incompleteness.          │
   ├──────────────────────────────────────────────────────────────────────┤
-  │ Too Big to Fail      │ Most massive subs │ Not hosting      │ Tension │
-  │                      │ (10^9-10 M☉ halos)│ bright galaxies  │         │
-  │ Resolution: SN feedback lowers central density; baryon effects      │
-  │ reduce rotation curves of massive subs below observed dSphs.        │
+  │ Too Big to Fail      │ Most massive subs │ Not hosting      │ Tension│
+  │                      │ (10^9-10 M☉ halos)│ bright galaxies  │        │
+  │ Resolution: SN feedback lowers central density; baryon effects       │
+  │ reduce rotation curves of massive subs below observed dSphs.         │
   ├──────────────────────────────────────────────────────────────────────┤
   │ Core-Cusp           │ NFW: ρ ∝ r⁻¹     │ dwarf sph: cores │ Tension │
   │                      │ (cuspy core)      │ (flat center)    │         │
@@ -1070,7 +1070,7 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
 
   CLASSIFICATION AXES (along Hubble sequence S→Sd):
   ┌──────────────────────────────────────────────────────────────────┐
-  │ Property         │  Early-type (E/S0/Sa) │  Late-type (Sd/Irr)  │
+  │ Property         │  Early-type (E/S0/Sa) │  Late-type (Sd/Irr)   │
   ├──────────────────────────────────────────────────────────────────┤
   │ Bulge fraction   │  Large (50–100%)       │  Small (<5%)         │
   │ Arm definition   │  Tightly wound (>25°)  │  Open, ragged        │
@@ -1329,22 +1329,22 @@ White & Rees (1978) formulated the key physics: gas falls into DM potential well
   ┌─────────────────────────────────────────────────────────────────┐
   │  CDM predicts: massive galaxies assembled LATER (more mergers   │
   │  required; halos virialize later for larger mass scales).       │
-  │                                                                  │
+  │                                                                 │
   │  Observed: the most MASSIVE galaxies:                           │
   │  1. Have the OLDEST stellar populations ([α/Fe] enhancement     │
-  │     → rapid SF → old)                                          │
+  │     → rapid SF → old)                                           │
   │  2. Were quenched earliest (passive evolution since z ~ 2)      │
-  │  3. Their stars formed in the highest-SFR events at z ~ 2–4    │
-  │                                                                  │
-  │  RESOLUTION: "Downsizing in STARS, not in halos"               │
+  │  3. Their stars formed in the highest-SFR events at z ~ 2–4     │
+  │                                                                 │
+  │  RESOLUTION: "Downsizing in STARS, not in halos"                │
   │  Massive halos DO assemble hierarchically (CDM is right about   │
   │  halos). But their star formation is ANTI-HIERARCHICAL because: │
-  │                                                                  │
-  │  At z ~ 2–3: massive halos host quasar activity → AGN quenches │
+  │                                                                 │
+  │  At z ~ 2–3: massive halos host quasar activity → AGN quenches  │
   │  → stars formed in burst at high z, then galaxy goes red.       │
   │  Subsequent mergers add stellar mass but are gas-poor "dry"     │
   │  mergers → no new SF, just stellar growth.                      │
-  │                                                                  │
+  │                                                                 │
   │  Low-mass galaxies: shallow potential → SN feedback regulates   │
   │  SF to be slow and steady → stars still forming today           │
   └─────────────────────────────────────────────────────────────────┘

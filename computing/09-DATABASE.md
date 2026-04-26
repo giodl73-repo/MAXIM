@@ -8,18 +8,18 @@ The database landscape has fragmented — not because SQL is broken, but because
 +------------------------------------------------------------------+
 |                    DATABASE LANDSCAPE                            |
 |                                                                  |
-|  RELATIONAL (SQL)          DOCUMENT         KEY-VALUE / CACHE   |
-|  ----------------          --------         ---------------     |
-|  PostgreSQL ← king         MongoDB          Redis               |
-|  MySQL / MariaDB           DynamoDB         Memcached           |
-|  SQLite (embedded)         Firestore        Upstash (serverless)|
-|  SQL Server (you know it)  CouchDB          DynamoDB            |
+|  RELATIONAL (SQL)          DOCUMENT         KEY-VALUE / CACHE    |
+|  ----------------          --------         ---------------      |
+|  PostgreSQL ← king         MongoDB          Redis                |
+|  MySQL / MariaDB           DynamoDB         Memcached            |
+|  SQLite (embedded)         Firestore        Upstash (serverless) |
+|  SQL Server (you know it)  CouchDB          DynamoDB             |
 |                                                                  |
-|  SEARCH                    GRAPH            VECTOR              |
-|  ------                    -----            ------              |
-|  Elasticsearch             Neo4j            pgvector (Postgres) |
-|  Typesense                 Amazon Neptune   Pinecone            |
-|  Meilisearch               FalkorDB         Qdrant              |
+|  SEARCH                    GRAPH            VECTOR               |
+|  ------                    -----            ------               |
+|  Elasticsearch             Neo4j            pgvector (Postgres)  |
+|  Typesense                 Amazon Neptune   Pinecone             |
+|  Meilisearch               FalkorDB         Qdrant               |
 |                                                                  |
 |  ORM / QUERY LAYER                                               |
 |  -----------------                                               |
@@ -487,13 +487,13 @@ Drizzle is gaining fast on Prisma. Different philosophy: write SQL-like TypeScri
   That's 100 connections from one app. You'll hit limits fast.
 
   +------------------+         +------------------+
-  | App instances    |         | PostgreSQL        |
-  | (many)           |         | max_connections   |
-  |                  |         | = 100 (default)   |
-  | instance 1 ×10 --+----+--> | Accepts 100       |
-  | instance 2 ×10 --+    |    | simultaneous      |
-  | instance 3 ×10 --+    +--> | connections       |
-  | ...              |         |                   |
+  | App instances    |         | PostgreSQL       |
+  | (many)           |         | max_connections  |
+  |                  |         | = 100 (default)  |
+  | instance 1 ×10 --+----+--> | Accepts 100      |
+  | instance 2 ×10 --+    |    | simultaneous     |
+  | instance 3 ×10 --+    +--> | connections      |
+  | ...              |         |                  |
   +------------------+         +------------------+
   100 instances = 1000 connections = CRASH
 

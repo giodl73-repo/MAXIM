@@ -413,9 +413,9 @@ Before inflation was proposed, ΛCDM had three unresolved problems:
 
   ALTERNATIVES:
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │ Quintessence: dynamical scalar field, w > −1, w varies with time        │
-  │ Phantom energy: w < −1 → Big Rip (all structure torn apart)             │
-  │ Modified gravity (f(R), DGP, etc.): GR modified at cosmological scales  │
+  │ Quintessence: dynamical scalar field, w > −1, w varies with time         │
+  │ Phantom energy: w < −1 → Big Rip (all structure torn apart)              │
+  │ Modified gravity (f(R), DGP, etc.): GR modified at cosmological scales   │
   │ Anthropic selection (landscape): Λ small enough for galaxies to form     │
   └──────────────────────────────────────────────────────────────────────────┘
 
@@ -434,12 +434,12 @@ Before inflation was proposed, ΛCDM had three unresolved problems:
 ```
   COSMIC WEB HIERARCHY:
   ┌─────────────────────────────────────────────────────────────────────────┐
-  │  Voids         ~10–100 Mpc  underdense regions, ~70% of volume         │
-  │  Filaments     ~10–100 Mpc  web connecting nodes, ~5% of volume        │
+  │  Voids         ~10–100 Mpc  underdense regions, ~70% of volume          │
+  │  Filaments     ~10–100 Mpc  web connecting nodes, ~5% of volume         │
   │  Walls/sheets  ~100 Mpc     flattened overdensities                     │
   │  Clusters      ~1–30 Mpc   massive collapsed structures, ~500 galaxies+ │
-  │  Groups        ~1–5 Mpc    ~50 galaxies (Local Group: MW + Andromeda)  │
-  │  Galaxies      ~10–100 kpc  stars + DM halo + CGM                      │
+  │  Groups        ~1–5 Mpc    ~50 galaxies (Local Group: MW + Andromeda)   │
+  │  Galaxies      ~10–100 kpc  stars + DM halo + CGM                       │
   │  Stars         varies       nuclear-burning plasma spheres (§ 04)       │
   └─────────────────────────────────────────────────────────────────────────┘
 
@@ -557,8 +557,8 @@ How we measure cosmic distances — each rung calibrates the next:
   CANDIDATE RESOLUTIONS:
   ┌────────────────────────────────────────────────────────────────────────┐
   │ New physics before recombination:                                      │
-  │   Early Dark Energy (EDE): decays at z~3000, increases expansion rate │
-  │   Extra relativistic species (ΔN_eff): more radiation → higher H_rec  │
+  │   Early Dark Energy (EDE): decays at z~3000, increases expansion rate  │
+  │   Extra relativistic species (ΔN_eff): more radiation → higher H_rec   │
   │   Neutrino self-interactions: alter sound horizon                      │
   │                                                                        │
   │ New physics after recombination:                                       │
@@ -566,7 +566,7 @@ How we measure cosmic distances — each rung calibrates the next:
   │   Evolving dark energy w(z)                                            │
   │                                                                        │
   │ Systematic errors:                                                     │
-  │   Crowded fields in Cepheid host galaxies → blend contamination       │
+  │   Crowded fields in Cepheid host galaxies → blend contamination        │
   │   LMC Cepheid calibration                                              │
   │   Reddening + metallicity corrections                                  │
   │   JWST reduces these concerns but tension persists                     │
@@ -583,7 +583,7 @@ How we measure cosmic distances — each rung calibrates the next:
   GW SOURCES AND DETECTORS:
 
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │ Frequency    Source                  Detector          Status           │
+  │ Frequency    Source                  Detector          Status            │
   ├──────────────────────────────────────────────────────────────────────────┤
   │ ~100 Hz      BH+BH, NS+NS mergers   LIGO/Virgo/KAGRA  Operating        │
   │ ~1-10 mHz    Massive BH mergers,    LISA               Launch ~2035     │
@@ -699,8 +699,8 @@ How we measure cosmic distances — each rung calibrates the next:
   │ Why is matter ∝ (1+z)³ but DE const?  │ Matter dilutes with volume;        │
   │                                        │ vacuum energy = constant density   │
   ├────────────────────────────────────────┼───────────────────────────────────┤
-  │ Best evidence DM is not baryonic?      │ BBN: Ω_b h²=0.022 vs CMB         │
-  │                                        │ Ω_m h²=0.143 → 84% non-baryonic  │
+  │ Best evidence DM is not baryonic?      │ BBN: Ω_b h²=0.022 vs CMB          │
+  │                                        │ Ω_m h²=0.143 → 84% non-baryonic   │
   ├────────────────────────────────────────┼───────────────────────────────────┤
   │ Best evidence DM is collisionless?     │ Bullet Cluster: mass peak follows │
   │                                        │ galaxies, not hot gas             │

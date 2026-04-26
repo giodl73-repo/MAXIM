@@ -6,8 +6,8 @@ THE LANDSCAPE
 
   SETS                GROUPS              RINGS / FIELDS       LIE GROUPS
   ┌──────────┐        ┌──────────────┐    ┌──────────────┐     ┌──────────────┐
-  │ ∈, ⊆, ∪ │        │ closure      │    │ + and ×      │     │ group + mfld │
-  │ ∩, \, ×  │   →   │ associative  │ →  │ distributive │  →  │ smooth sym.  │
+  │ ∈, ⊆, ∪ │        │ closure      │    │ + and ×      │     │ group + mfld  │
+  │ ∩, \, ×  │   →   │ associative  │ →  │ distributive │  →  │ smooth sym.   │
   │ power set│        │ identity     │    │ inverses     │     │ U(1),SU(2)   │
   │ functions│        │ inverses     │    │ Fields: ÷    │     │ SU(3),SO(3)  │
   └──────────┘        └──────────────┘    └──────────────┘     └──────────────┘

@@ -10,7 +10,7 @@ Astronomy is the science of deep time measured through light. Every observation 
 
 ```
 +============================================================================+
-|                    THE TIMEKEEPER'S INSTRUMENTS                             |
+|                    THE TIMEKEEPER'S INSTRUMENTS                            |
 |        Three clock families, one deep-time framework                       |
 +============================================================================+
 |                                                                            |

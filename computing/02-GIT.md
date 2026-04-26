@@ -354,17 +354,17 @@ This is the most debated topic in Git workflows. Understand both.
 
 ```
   +-----------------------------------------------+
-  |  NEVER rebase commits that exist on a          |
-  |  remote branch others have pulled from.        |
-  |                                                |
-  |  Rebase = rewrite history = new SHAs.          |
-  |  Others' local branches still point to         |
-  |  the OLD SHAs. Chaos follows.                  |
-  |                                                |
-  |  Safe: rebase your LOCAL feature branch        |
-  |        before opening a PR.                    |
-  |  Safe: rebase interactively to clean up        |
-  |        your own unpushed commits.              |
+  |  NEVER rebase commits that exist on a         |
+  |  remote branch others have pulled from.       |
+  |                                               |
+  |  Rebase = rewrite history = new SHAs.         |
+  |  Others' local branches still point to        |
+  |  the OLD SHAs. Chaos follows.                 |
+  |                                               |
+  |  Safe: rebase your LOCAL feature branch       |
+  |        before opening a PR.                   |
+  |  Safe: rebase interactively to clean up       |
+  |        your own unpushed commits.             |
   +-----------------------------------------------+
 ```
 

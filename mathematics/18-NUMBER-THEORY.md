@@ -23,8 +23,8 @@ NUMBER THEORY
   Completely multiplicative    Sums of squares              Post-quantum crypto
 
   ┌─────────────────────────────────────────────────────────────────────┐
-  │  Core theme: Structure of integers, prime distribution, and the    │
-  │  algebraic/analytic tools that underpin all of cryptography        │
+  │  Core theme: Structure of integers, prime distribution, and the     │
+  │  algebraic/analytic tools that underpin all of cryptography         │
   └─────────────────────────────────────────────────────────────────────┘
 ```
 

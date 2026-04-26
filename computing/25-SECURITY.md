@@ -13,25 +13,25 @@ Security is not a feature you bolt on. It is a property that must be designed in
 │                                                                         │
 │  Cryptography          Identity & Access        Network Security        │
 │  ──────────────────    ──────────────────────   ──────────────────      │
-│  Symmetric enc         AuthN / AuthZ            TLS 1.3 / mTLS         │
-│  Asymmetric (EC/RSA)   OAuth2 / OIDC            Firewalls / NSG        │
-│  Hashing / MAC         Zero-trust model         VPN / Private Link     │
-│  KDFs (Argon2id)       Secrets management       DDoS mitigation        │
+│  Symmetric enc         AuthN / AuthZ            TLS 1.3 / mTLS          │
+│  Asymmetric (EC/RSA)   OAuth2 / OIDC            Firewalls / NSG         │
+│  Hashing / MAC         Zero-trust model         VPN / Private Link      │
+│  KDFs (Argon2id)       Secrets management       DDoS mitigation         │
 │  Key management        PIM / JIT access                                 │
 │                                                                         │
 │  Application Security  Supply Chain             Threat Modeling         │
 │  ──────────────────    ─────────────────────    ──────────────────      │
-│  OWASP Top 10          SBOM (CycloneDX/SPDX)   STRIDE                  │
+│  OWASP Top 10          SBOM (CycloneDX/SPDX)   STRIDE                   │
 │  Input validation      SLSA provenance levels   Attack trees            │
-│  Injection → SQLi      Sigstore / Cosign        Data flow diagrams     │
-│  SSRF / XXE / SSTI     Dependency scanning      PASTA model            │
+│  Injection → SQLi      Sigstore / Cosign        Data flow diagrams      │
+│  SSRF / XXE / SSTI     Dependency scanning      PASTA model             │
 │  Security headers      Secret scanning                                  │
 │                                                                         │
 │  Container & Cloud Security                                             │
 │  ─────────────────────────────────────────────────────────────────      │
 │  Image scanning        IAM least privilege      Managed Identity        │
-│  Non-root containers   RBAC scoping             Seccomp / AppArmor     │
-│  Distroless images     Conditional Access       PIM / JIT elevation    │
+│  Non-root containers   RBAC scoping             Seccomp / AppArmor      │
+│  Distroless images     Conditional Access       PIM / JIT elevation     │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -436,17 +436,17 @@ Secret lifecycle:
   ANTI-PATTERN — hardcoded:
   ┌─────────────────────────────────────────────────┐
   │ const apiKey = "sk-prod-abc123...";             │
-  │ // pushed to GitHub                              │
+  │ // pushed to GitHub                             │
   │ // GitHub secret scanning alerts within seconds │
-  │ // key is now in git history forever             │
+  │ // key is now in git history forever            │
   └─────────────────────────────────────────────────┘
 
   ANTI-PATTERN — .env in container:
   ┌─────────────────────────────────────────────────┐
   │ COPY .env /app/.env                             │
   │ // .env is now in an image layer                │
-  │ // docker inspect reveals ENV vars               │
-  │ // "docker history" reveals COPY layers          │
+  │ // docker inspect reveals ENV vars              │
+  │ // "docker history" reveals COPY layers         │
   └─────────────────────────────────────────────────┘
 
   CORRECT — runtime injection from vault:
@@ -1169,7 +1169,7 @@ Container threat model:
 
   ┌─────────────────────────────────────────────────────────┐
   │  Host OS / Kernel                                       │
-  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐ │
+  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐  │
   │  │  Container  │  │  Container  │  │  Container      │ │
   │  │  (root)     │  │  (UID 1001) │  │  (privileged)   │ │
   │  │             │  │             │  │  ← full host    │ │
@@ -1549,9 +1549,9 @@ Client                                          Server
   │                                               │
   Both sides compute:
   ┌─────────────────────────────────────────────┐
-  │  X25519 shared secret (32 bytes)             │
+  │  X25519 shared secret (32 bytes)            │
   │       XOR / HKDF combine                    │
-  │  ML-KEM-768 shared secret (32 bytes)         │
+  │  ML-KEM-768 shared secret (32 bytes)        │
   │       =                                     │
   │  Combined session key material              │
   └─────────────────────────────────────────────┘

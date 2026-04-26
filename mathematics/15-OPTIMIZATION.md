@@ -22,7 +22,7 @@
 │  │ UNCONSTRAINED │  │  EQUALITY     │  │  INEQUALITY   │                  │
 │  │               │  │               │  │               │                  │
 │  │ ∇f = 0        │  │ Lagrange mult │  │ KKT conditions│                  │
-│  │ Gradient desc │  │ h(x) = 0      │  │ g(x) ≤ 0     │                  │
+│  │ Gradient desc │  │ h(x) = 0      │  │ g(x) ≤ 0     │                   │
 │  └───────────────┘  └───────────────┘  └───────────────┘                  │
 │                                                                             │
 │  Key algorithms by regime:                                                  │
@@ -103,7 +103,7 @@ These rates are tight — there are matching lower bounds:
   for high-condition-number problems (κ = 10⁶ is common in ML).
 
   ┌───────────────────────────────────────────────────────────────────────┐
-  │  Method            │  Convex rate    │  Strongly convex rate         │
+  │  Method            │  Convex rate    │  Strongly convex rate          │
   ├───────────────────────────────────────────────────────────────────────┤
   │  Gradient descent  │  O(1/k)         │  O((1-1/κ)^k)                 │
   │  Nesterov (opt.)   │  O(1/k²) ← opt │  O((1-1/√κ)^k) ← opt         │

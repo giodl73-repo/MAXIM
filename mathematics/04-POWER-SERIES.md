@@ -9,7 +9,7 @@ THE LANDSCAPE
                                               n=0
 
   ┌──────────────────────────────────────────────────────────────────────────┐
-  │  TAYLOR / MACLAURIN     GENERATING FUNCTIONS     ASYMPTOTIC SERIES      │
+  │  TAYLOR / MACLAURIN     GENERATING FUNCTIONS     ASYMPTOTIC SERIES       │
   │  Approximation          Encode sequences         Divergent but useful    │
   │  Local → global         Combinatorics, QM        Stirling, Laplace       │
   │                                                                          │
@@ -19,7 +19,7 @@ THE LANDSCAPE
   │                                                                          │
   │  COMPLEX ANALYTIC        FORMAL SERIES            Z-TRANSFORM / DSP      │
   │  Functions on ℂ          No convergence req.      Discrete sequences     │
-  │  Identity theorem        Ring ℝ[[x]]              Transfer functions      │
+  │  Identity theorem        Ring ℝ[[x]]              Transfer functions     │
   └──────────────────────────────────────────────────────────────────────────┘
 
   THE CORE INSIGHT:

@@ -6,25 +6,25 @@ Distributed systems are fundamentally about **coordinating processes that can fa
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  DISTRIBUTED SYSTEMS PROBLEM SPACE                                           │
-│                                                                              │
-│  Core Challenges             Fundamental Impossibilities                     │
-│  ────────────────────────    ─────────────────────────────────────           │
+│  DISTRIBUTED SYSTEMS PROBLEM SPACE                                          │
+│                                                                             │
+│  Core Challenges             Fundamental Impossibilities                    │
+│  ────────────────────────    ─────────────────────────────────────          │
 │  Partial failures            FLP: No consensus in async with 1 crash        │
-│  Network partitions          CAP: Choose 2 of: C, A, P                     │
+│  Network partitions          CAP: Choose 2 of: C, A, P                      │
 │  Message delays/reordering   Impossibility of 2PC in failures               │
 │  Node crashes (fail-stop)    Byzantine generals require n > 3f nodes        │
-│  Byzantine faults                                                            │
-│                                                                              │
-│  Core Protocols              Modern Systems                                  │
-│  ────────────────────────    ─────────────────────────────────────           │
+│  Byzantine faults                                                           │
+│                                                                             │
+│  Core Protocols              Modern Systems                                 │
+│  ────────────────────────    ─────────────────────────────────────          │
 │  Paxos (consensus)           etcd/ZooKeeper: Raft + distributed config      │
-│  Multi-Paxos (replication)   Spanner: TrueTime + Paxos per shard           │
+│  Multi-Paxos (replication)   Spanner: TrueTime + Paxos per shard            │
 │  Raft (understandable)       CockroachDB: Raft + MVCC + distributed SQL     │
-│  Viewstamped Replication     DynamoDB: eventual consistency + versioning     │
+│  Viewstamped Replication     DynamoDB: eventual consistency + versioning    │
 │  Zab (ZooKeeper)             Kafka: log replication + leader election       │
-│                                                                              │
-│  Consistency Models (strongest to weakest):                                  │
+│                                                                             │
+│  Consistency Models (strongest to weakest):                                 │
 │  Linearizability > Sequential > Causal > PRAM > Eventual                    │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```

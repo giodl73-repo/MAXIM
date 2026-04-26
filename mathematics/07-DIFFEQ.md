@@ -156,7 +156,7 @@ The workhorse of physics: harmonic oscillators, beams, circuits.
 
   GUESS TABLE:
   ┌──────────────────────────────────────────────────────────────┐
-  │  f(x)                  │  Guess for yₚ                      │
+  │  f(x)                  │  Guess for yₚ                       │
   ├──────────────────────────────────────────────────────────────┤
   │  polynomial degree n   │  Aₙxⁿ + ... + A₁x + A₀           │
   │  e^(ax)               │  Ae^(ax)                            │
@@ -225,7 +225,7 @@ For 2D systems ẋ = f(x,y), ẏ = g(x,y):
   Local behavior determined by eigenvalues of A:
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  Eigenvalues of A        │  Type of equilibrium                │
+  │  Eigenvalues of A        │  Type of equilibrium                 │
   ├─────────────────────────────────────────────────────────────────┤
   │  λ₁ < λ₂ < 0            │  Stable node (overdamped)           │
   │  0 < λ₁ < λ₂            │  Unstable node                      │
@@ -268,12 +268,12 @@ For 2D systems ẋ = f(x,y), ẏ = g(x,y):
 
 ```
   ┌────────────────────────────────────────────────────────────────────┐
-  │  ELLIPTIC: ∇²u = f                                                │
-  │  Laplace equation: ∇²u = 0                                        │
-  │  Poisson equation: ∇²u = f                                        │
+  │  ELLIPTIC: ∇²u = f                                                 │
+  │  Laplace equation: ∇²u = 0                                         │
+  │  Poisson equation: ∇²u = f                                         │
   │  Steady-state: no time dependence                                  │
-  │  Boundary value problem: specify u on all boundaries              │
-  │  Physics: electrostatics, gravitational potential, steady heat    │
+  │  Boundary value problem: specify u on all boundaries               │
+  │  Physics: electrostatics, gravitational potential, steady heat     │
   ├────────────────────────────────────────────────────────────────────┤
   │  PARABOLIC: ∂u/∂t = α∇²u                                         │
   │  Heat equation / diffusion equation                                │
@@ -687,12 +687,12 @@ Every major equation from your physics modules decoded:
 
   BIFURCATIONS — qualitative changes in phase portrait as parameter varies:
   ┌──────────────────────────────────────────────────────────────────────┐
-  │  Saddle-node:     two equilibria merge and annihilate               │
-  │  Transcritical:   two equilibria swap stability                     │
-  │  Pitchfork:       one equilibrium splits into three (symmetry-break)│
-  │  Hopf:            stable equilibrium becomes unstable + limit cycle │
-  │    Subcritical Hopf: discontinuous jump to large amplitude          │
-  │    Supercritical Hopf: smooth growth of oscillation amplitude       │
+  │  Saddle-node:     two equilibria merge and annihilate                │
+  │  Transcritical:   two equilibria swap stability                      │
+  │  Pitchfork:       one equilibrium splits into three (symmetry-break) │
+  │  Hopf:            stable equilibrium becomes unstable + limit cycle  │
+  │    Subcritical Hopf: discontinuous jump to large amplitude           │
+  │    Supercritical Hopf: smooth growth of oscillation amplitude        │
   └──────────────────────────────────────────────────────────────────────┘
 
   POINCARÉ-BENDIXSON THEOREM (2D only):
@@ -788,15 +788,15 @@ Every major equation from your physics modules decoded:
 
   ┌──────────────────────────────────────────────────────────────────────┐
   │  BENEFITS:                                                           │
-  │  ├── Adaptive depth: ODE solver uses as many steps as accuracy needs│
-  │  ├── Constant memory: adjoint method avoids storing all activations │
-  │  ├── Continuous-time models: natural for irregularly sampled data   │
-  │  └── Latent ODE: encode time series → initial condition → decode    │
+  │  ├── Adaptive depth: ODE solver uses as many steps as accuracy needs │
+  │  ├── Constant memory: adjoint method avoids storing all activations  │
+  │  ├── Continuous-time models: natural for irregularly sampled data    │
+  │  └── Latent ODE: encode time series → initial condition → decode     │
   │                                                                      │
   │  DISADVANTAGES:                                                      │
-  │  ├── Training is slower (ODE solves are expensive at high accuracy) │
-  │  ├── Stiff dynamics → stiff ODE solver required (implicit methods)  │
-  │  └── Hard to train deep: adjoint sensitivity can become unstable    │
+  │  ├── Training is slower (ODE solves are expensive at high accuracy)  │
+  │  ├── Stiff dynamics → stiff ODE solver required (implicit methods)   │
+  │  └── Hard to train deep: adjoint sensitivity can become unstable     │
   └──────────────────────────────────────────────────────────────────────┘
 
   RELATED: DIFFUSION MODELS AS SDEs

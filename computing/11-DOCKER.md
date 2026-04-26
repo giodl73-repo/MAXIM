@@ -118,7 +118,7 @@ Docker Architecture — Three Pieces
   │  Your machine                                                   │
   │                                                                 │
   │   CLI                  Docker Daemon              Registry      │
-  │  ┌─────────┐           ┌───────────────┐         ┌───────────┐ │
+  │  ┌─────────┐           ┌───────────────┐         ┌───────────┐  │
   │  │ docker  │──────────►│               │◄────────│Docker Hub │ │
   │  │  build  │   API     │  Manages:     │  push/  │  GHCR     │ │
   │  │  run    │           │  - Images     │  pull   │  ACR      │ │

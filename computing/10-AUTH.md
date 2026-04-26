@@ -8,24 +8,24 @@ Auth has two distinct problems that are often conflated. Get the distinction cle
 +------------------------------------------------------------------+
 |                    AUTH LANDSCAPE                                |
 |                                                                  |
-|  AUTHN (Authentication)          AUTHZ (Authorization)          |
-|  "Who are you?"                  "What can you do?"             |
+|  AUTHN (Authentication)          AUTHZ (Authorization)           |
+|  "Who are you?"                  "What can you do?"              |
 |  ------------------              -------------------------       |
-|  Verify identity                 Enforce permissions            |
-|  Login / credential check        Role checks, scopes            |
-|  Sessions, tokens, certs         RBAC, ABAC, policies           |
+|  Verify identity                 Enforce permissions             |
+|  Login / credential check        Role checks, scopes             |
+|  Sessions, tokens, certs         RBAC, ABAC, policies            |
 |                                                                  |
 |  PROTOCOLS / STANDARDS                                           |
 |  ----------------------                                          |
-|  OAuth 2.0     Authorization framework (not AuthN!)             |
-|  OIDC          Identity layer on top of OAuth2 (adds AuthN)     |
-|  SAML          Enterprise SSO (XML-based, older, still alive)   |
-|  JWT           Token format (used by OAuth2/OIDC)               |
+|  OAuth 2.0     Authorization framework (not AuthN!)              |
+|  OIDC          Identity layer on top of OAuth2 (adds AuthN)      |
+|  SAML          Enterprise SSO (XML-based, older, still alive)    |
+|  JWT           Token format (used by OAuth2/OIDC)                |
 |                                                                  |
 |  STORAGE MODELS                                                  |
 |  --------------                                                  |
-|  Sessions      Server stores state. Client holds session ID.    |
-|  Tokens (JWT)  Server stateless. Client holds signed token.     |
+|  Sessions      Server stores state. Client holds session ID.     |
+|  Tokens (JWT)  Server stateless. Client holds signed token.      |
 |                                                                  |
 |  PROVIDERS (managed auth services)                               |
 |  ----------------------------------                              |

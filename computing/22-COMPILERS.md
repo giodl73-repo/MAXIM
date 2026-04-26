@@ -41,26 +41,26 @@ THE COMPILER ECOSYSTEM — WHO SHARES WHAT
   ┌────────────────────────────────────────────────────────────────┐
   │  V8 (JS):    Ignition (bytecode) → Maglev → Turbofan           │
   │  SpiderMonkey: Warp JIT (replaces IonMonkey)                   │
-  │  JavaScriptCore: LLInt → Baseline → DFG → FTL (LLVM-based!)   │
+  │  JavaScriptCore: LLInt → Baseline → DFG → FTL (LLVM-based!)    │
   └────────────────────────────────────────────────────────────────┘
 
   Transpilers (no native backend — source → source)
   ┌────────────────────────────────────────────────────────────────┐
   │  tsc   (TypeScript → JS)  own AST + type checker, no backend   │
   │  esbuild (TS/JS → JS bundle)  Go-native, no LLVM, no typecheck │
-  │  SWC   (TS/JS → JS)  Rust-based, strips types only            │
+  │  SWC   (TS/JS → JS)  Rust-based, strips types only             │
   └────────────────────────────────────────────────────────────────┘
 
   Multi-IR pipelines (notable for IR depth)
   ┌────────────────────────────────────────────────────────────────┐
-  │  rustc:  .rs → HIR → THIR → MIR → LLVM IR                     │
+  │  rustc:  .rs → HIR → THIR → MIR → LLVM IR                      │
   │          Each IR serves a distinct purpose:                    │
   │          HIR: desugaring + name resolution                     │
   │          THIR: type-checked, pattern exhaustiveness            │
-  │          MIR: borrow checker + const eval (CFG-based)         │
+  │          MIR: borrow checker + const eval (CFG-based)          │
   │          LLVM IR: machine-independent optimization             │
   │                                                                │
-  │  clang:  C++ → Clang AST → LLVM IR  (2-stage, simpler)        │
+  │  clang:  C++ → Clang AST → LLVM IR  (2-stage, simpler)         │
   └────────────────────────────────────────────────────────────────┘
 
   Incremental compilation (semantic caching)
