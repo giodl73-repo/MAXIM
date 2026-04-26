@@ -10,8 +10,8 @@ THE ARCH LOGIC
 
   BEAM (conventional spanning):          ARCH (masonry spanning):
   ┌────────────────────────────┐         ┌────────────────────────────┐
-  │  P      P      P          │         │  P      P      P            │
-  │  ↓      ↓      ↓          │         │  ↓      ↓      ↓            │
+  │  P      P      P           │         │  P      P      P           │
+  │  ↓      ↓      ↓           │         │  ↓      ↓      ↓           │
   │  ════════════════════      │         │      ╭─────────╮           │
   │  Tension in bottom fiber   │         │  ╭──╯           ╰──╮       │
   │  → masonry cannot do this  │         │  │   COMPRESSION   │       │
