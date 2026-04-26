@@ -368,12 +368,12 @@ concrete program, verify an abstraction, then refine when the abstraction lies.
   │                                       |                   | │
   │                                  Spurious CE         Real bug│
   │                                  (abstraction        (DONE) │
-  │                                   too coarse)               │
+  │                                   too coarse)             │
   │                                       |                     │
-  │                                  Refine abstraction         │
-  │                                  (add predicates)           │
+  │                                  Refine abstraction       │
+  │                                  (add predicates)         │
   │                                       |                     │
-  │                                  Back to model check        │
+  │                                  Back to model check      │
   └──────────────────────────────────────────────────────────────┘
 
   Key idea: predicate abstraction.

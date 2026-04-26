@@ -967,7 +967,7 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   │     RR Lyrae star counts (Conker et al. 2021)                       │
   │                                                                     │
   │  2. REFLEX MOTION OF MW: LMC's gravity pulls MW inner halo          │
-  │     toward LMC → MW disk is offset from MW halo center by ~30 kpc │
+  │     toward LMC → MW disk is offset from MW halo center by ~30 kpc   │
   │     This induces apparent proper motion of SGR A* (spurious!)       │
   │     and must be corrected for in MW mass measurements               │
   │                                                                     │

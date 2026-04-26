@@ -203,8 +203,8 @@ TENON LAYOUT:
   | LEG   |
   |  +-+  |
   | /   \ |  ← tenons meet at 45° miter inside leg
-  |/     \|
-  |\     /|
+  |/     \ |
+  |\     / |
   | \   / |
   |  +-+  |
   |       |
