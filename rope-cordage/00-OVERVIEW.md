@@ -58,17 +58,17 @@ TWISTED (LAID) ROPE
 
   Round braid: carriers interlace diagonally
   ┌──────────────────────────────────────────────────────────────────┐
-  │  8-carrier braid:  4 clockwise + 4 counterclockwise            │
-  │  16-carrier braid: 8 + 8 (tighter, rounder, smoother)         │
-  │  Hollow braid: no core — can accept core for double-braid      │
+  │  8-carrier braid:  4 clockwise + 4 counterclockwise              │
+  │  16-carrier braid: 8 + 8 (tighter, rounder, smoother)            │
+  │  Hollow braid: no core — can accept core for double-braid        │
   │  Solid braid: fully filled cross-section                         │
   └──────────────────────────────────────────────────────────────────┘
 
   KERNMANTLE (core-and-sheath):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  KERN: parallel fiber core (takes 70–80% of load)              │
-  │  MANTLE: braided sheath (abrasion protection, handling)        │
-  │  Cross-section:  [sheath ═══ CORE ═══ sheath]                  │
+  │  KERN: parallel fiber core (takes 70–80% of load)                │
+  │  MANTLE: braided sheath (abrasion protection, handling)          │
+  │  Cross-section:  [sheath ═══ CORE ═══ sheath]                    │
   │  Use: climbing rope, technical rescue                            │
   └──────────────────────────────────────────────────────────────────┘
 ```

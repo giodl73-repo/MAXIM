@@ -170,7 +170,7 @@ ABRASION RESISTANCE RANKING (rope-level, approximate)
 
   PRACTICAL ABRASION MANAGEMENT:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  • Chafe gear: rubber, leather, or plastic sleeve at chafe point│
+  │  • Chafe gear: rubber, leather, or plastic sleeve at chafe point │
   │  • Chafe guard hose: split garden hose over running line         │
   │  • Fairleads: smooth-surfaced rollers or blocks to guide line    │
   │  • Inspection: check sheath regularly; replace when core shows   │
@@ -244,8 +244,8 @@ CREEP BEHAVIOR BY MATERIAL
   LOW CREEP (preferred for long-term tensioned applications):
   ┌──────────────────────────────────────────────────────────────────┐
   │  Vectran LCP: Very low creep — designed for sustained tension    │
-  │    → preferred for: boat shrouds, seismic moorings, suspensions│
-  │  Aramid:     Low creep at ambient (bending fatigue is the issue)│
+  │    → preferred for: boat shrouds, seismic moorings, suspensions  │
+  │  Aramid:     Low creep at ambient (bending fatigue is the issue) │
   │  Polyester:  Moderate (better than nylon, worse than Vectran)    │
   └──────────────────────────────────────────────────────────────────┘
 

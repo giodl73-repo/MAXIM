@@ -58,8 +58,8 @@ KNOT TAXONOMY
   │  Double sheet bend: More secure for very different diameters.    │
   │  Square knot:       Joins same-size ropes — NOT for heavy loads  │
   │                     (jams or capsizes if loaded incorrectly)     │
-  │  Reef knot:         = Square knot; used for tying reefs in sails│
-  │  Carrick bend:      Large diameter hawsers; unties after loading│
+  │  Reef knot:         = Square knot; used for tying reefs in sails │
+  │  Carrick bend:      Large diameter hawsers; unties after loading │
   │  Double fisherman's: Joining slippery ropes (UHMWPE, Dyneema);   │
   │                      very secure; difficult to untie after load  │
   │  Water knot (tape): For flat webbing — loops and joins in tape   │
@@ -133,7 +133,7 @@ The eye splice is the definitive rope terminal — achieves 95% of rope MBS, cre
   STEP 2: First tuck — strand 2 (center) goes under center strand
           of standing part, against the lay
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Standing part: ═══════[A][B][C]═══ (3 strands showing at tuck)│
+  │  Standing part: ═══════[A][B][C]═══ (3 strands showing at tuck)  │
   │  Tuck strand 2: under [B]                                        │
   └──────────────────────────────────────────────────────────────────┘
 
@@ -188,7 +188,7 @@ SHORT SPLICE vs. LONG SPLICE
   │  strands of rope B (3 tucks each direction)                      │
   │  Result: Diameter increases ~25–30% at splice                    │
   │  Strength: 85–90% of rope MBS                                    │
-  │  Use: Permanent field repair where increased diameter acceptable│
+  │  Use: Permanent field repair where increased diameter acceptable │
   └──────────────────────────────────────────────────────────────────┘
 
   LONG SPLICE:
@@ -261,7 +261,7 @@ WHIPPING TYPES
   COMMON WHIPPING (simplest, no tools needed):
   ┌──────────────────────────────────────────────────────────────────┐
   │  1. Lay thread along rope end (pointing toward end)              │
-  │  2. Wrap thread tightly toward rope end (20+ turns, 1 diameter)│
+  │  2. Wrap thread tightly toward rope end (20+ turns, 1 diameter)  │
   │  3. Pass thread through loop left at start                       │
   │  4. Pull thread tight; trim                                      │
   │  Durability: Moderate (can slip if poorly seized)                │

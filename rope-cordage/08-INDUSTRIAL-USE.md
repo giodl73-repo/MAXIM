@@ -209,7 +209,7 @@ MINING HOIST WIRE ROPE
   │                                                                  │
   │  TORQUE-BALANCED CONSTRUCTION:                                   │
   │  Single-drum hoists: rope must not rotate under load             │
-  │  Solution: Rotation-resistant rope (multi-layer counter-twisted)│
+  │  Solution: Rotation-resistant rope (multi-layer counter-twisted) │
   │  ┌──────────────────────────────────────────────────────────┐    │
   │  │  Inner layer:  right-lay strands                        │   │
   │  │  Outer layer:  left-lay strands                         │   │

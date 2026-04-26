@@ -77,7 +77,7 @@ QUIPU STRUCTURE
   PHYSICAL STRUCTURE:
   ┌──────────────────────────────────────────────────────────────────┐
   │  MAIN CORD (horizontal):                                         │
-  │  ═══════════════════════════════════════════════════════════════│
+  │  ═══════════════════════════════════════════════════════════════ │
   │  │    │    │    │    │    │    │    │    │    │    │             │
   │  ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓    ↓             │
   │  PENDANT CORDS (hanging vertically from main cord)               │
@@ -201,7 +201,7 @@ THE ROPEWALK
   ┌──────────────────────────────────────────────────────────────────┐
   │  All cordage: Riga hemp (Baltic, considered finest quality)      │
   │  Standard specification: 3-strand Z-lay, tarred                  │
-  │  Sizes: 1" to 24" circumference (not diameter — measured around)│
+  │  Sizes: 1" to 24" circumference (not diameter — measured around) │
   │  "Cable" = circumference in inches × 180 lbs = approx. WLL       │
   │  Rope for ships-of-the-line: ~120 miles of rope per vessel       │
   │  Total Royal Navy annual consumption: ~30,000 tons of hemp       │

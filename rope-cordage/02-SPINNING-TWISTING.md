@@ -45,13 +45,13 @@ BALANCED CONSTRUCTION PRINCIPLE
   LEVEL 1: Fibers → Yarn
   Fibers twisted in Z direction → Z-yarn
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱  Z-twist yarn                   │
+  │  ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱  Z-twist yarn                        │
   └──────────────────────────────────────────────────────────────────┘
 
   LEVEL 2: Yarns → Strand
   Ply twist must be OPPOSITE to yarn twist = S-direction
   ┌──────────────────────────────────────────────────────────────────┐
-  │  ╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲  S-twist strand (multiple Z-yarns)│
+  │  ╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲  S-twist strand (multiple Z-yarns)   │
   └──────────────────────────────────────────────────────────────────┘
 
   LEVEL 3: Strands → Rope
@@ -128,8 +128,8 @@ PLYING
 
   2-PLY: Two Z-yarns twisted together S → 2-ply strand
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Z-yarn A: ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱                              │
-  │  Z-yarn B: ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱                              │
+  │  Z-yarn A: ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱                                   │
+  │  Z-yarn B: ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱                                   │
   │  Plied S:  ╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲╲  (two yarns wrapped together)     │
   └──────────────────────────────────────────────────────────────────┘
 

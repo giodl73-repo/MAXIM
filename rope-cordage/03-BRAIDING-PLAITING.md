@@ -42,9 +42,9 @@ BRAIDER GEOMETRY (8-carrier example)
   TOP VIEW:
   ┌──────────────────────────────────────────────────────────────────┐
   │         4 CW carriers:  ○ → → → ↓ → → → ↑ (clockwise)            │
-  │         4 CCW carriers: ● ← ← ← ↓ ← ← ← ↑ (counterclockwise)│
+  │         4 CCW carriers: ● ← ← ← ↓ ← ← ← ↑ (counterclockwise)     │
   │                                                                  │
-  │         Braid point: center where carriers cross and braid forms│
+  │         Braid point: center where carriers cross and braid forms │
   │                                                                  │
   │  8-CARRIER BRAID:                                                │
   │  ○ ● ○ ●    (alternating CW and CCW carriers — 4 each)           │
@@ -181,7 +181,7 @@ KERNMANTLE ANATOMY
   │  MANTLE (sheath):                                                │
   │  Braided, 16–48 carriers                                         │
   │  Nylon or polyester                                              │
-  │  Braided at 30–50° angle (optimized for abrasion, not strength)│
+  │  Braided at 30–50° angle (optimized for abrasion, not strength)  │
   │  Carries 10–30% of load                                          │
   │  Provides: softness, UV protection, abrasion resistance          │
   │                                                                  │

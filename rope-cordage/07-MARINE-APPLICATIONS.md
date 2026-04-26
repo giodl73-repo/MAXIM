@@ -81,7 +81,7 @@ STANDING RIGGING SPECIFICATIONS
   │                                                                  │
   │  COMMON: Rod rigging (solid stainless rod, not wire)             │
   │  Construction: Single solid rod, swaged end terminals            │
-  │  Properties: Minimal elongation (<0.1%), very long service life│
+  │  Properties: Minimal elongation (<0.1%), very long service life  │
   │  Limitation: Cannot be coiled; straight sections only            │
   └──────────────────────────────────────────────────────────────────┘
 ```
