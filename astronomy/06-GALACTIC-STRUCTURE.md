@@ -562,7 +562,7 @@ The closed-box model predicts too many metal-poor ([Fe/H] < −1) G dwarfs in th
   │                                                                 │
   │  Luminosity: L_Sgr A* ~ 10³⁶ erg/s ~ 300 L☉                     │
   │  Eddington limit: L_Edd = 4πGMc/κ ~ 5×10⁴⁴ erg/s                │
-  │  → Sgr A* radiates at ~10⁻⁸ of Eddington (DORMANT GALACTIC CENTER) │
+  │  → Sgr A* radiates at ~10⁻⁸ of Eddington (DORMANT GALACTIC CTR) │
   └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -959,7 +959,7 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   ┌─────────────────────────────────────────────────────────────────────┐
   │  LMC mass: M_LMC ~ 1.5×10¹⁰ M☉ (from stellar mass + subhalos)  │
   │  Pericenter: ~50 kpc, 50 Myr ago (FIRST pericenter — not on a       │
-  │  long-bound orbit, just arrived on cosmological infall trajectory)│
+  │  long-bound orbit, just arrived on cosmological infall trajectory)  │
   │                                                                     │
   │  EFFECTS ON MW:                                                     │
   │  1. DARK MATTER WAKE: LMC gravitationally drags DM halo behind      │
@@ -967,7 +967,7 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   │     RR Lyrae star counts (Conker et al. 2021)                       │
   │                                                                     │
   │  2. REFLEX MOTION OF MW: LMC's gravity pulls MW inner halo          │
-  │     toward LMC → MW disk is offset from MW halo center by ~30 kpc│
+  │     toward LMC → MW disk is offset from MW halo center by ~30 kpc │
   │     This induces apparent proper motion of SGR A* (spurious!)       │
   │     and must be corrected for in MW mass measurements               │
   │                                                                     │
@@ -1110,7 +1110,7 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   │  b_n ≈ 2n − 1/3 + 4/(405n) + ...  (from Γ(2n) = 2γ(2n, b_n))    │
   │                                                                 │
   │  n=1: exponential disk (b_1 ≈ 1.678)                            │
-  │  n=4: de Vaucouleurs profile (classical ellipticals) (b_4 ≈ 7.67)│
+  │  n=4: de Vaucouleurs profile (ellipticals) (b_4 ≈ 7.67)         │
   │  n<2: pseudo-bulge (disk-like)                                  │
   │  n>2: classical bulge / elliptical                              │
   └─────────────────────────────────────────────────────────────────┘
@@ -1174,13 +1174,13 @@ The LMC is not a typical small satellite. Its mass (~10% of the MW disk mass) ma
   │   LOW MASS:                          HIGH MASS:                 │
   │   Blue Cloud                         Red Sequence               │
   │   Star-forming                       Quiescent                  │
-  │   Exponential disks                  de Vaucouleurs / Sérsic n>2 │
+  │   Exponential disks                  de Vaucouleurs / Sérsic n>2│
   │   Low [Fe/H] (ongoing infall)        High [Fe/H], old           │
   │   Isolated or low-density envs       Cluster centers            │
   │                                                                 │
   │   QUENCHING MECHANISMS:                                         │
   │   1. AGN feedback: energy/momentum from SMBH → ejects/heats gas │
-  │   2. Virial heating: in M > 10¹² M☉ halos, infalling gas shocks│
+  │   2. Virial heating: in M > 10¹² M☉ halos, infalling gas shocks │
   │      to T_vir and can't cool fast → no cold gas → no SF         │
   │   3. Ram-pressure stripping: ICM strips ISM from satellite      │
   │      galaxies in clusters → "jellyfish galaxies"                │
@@ -1229,7 +1229,7 @@ White & Rees (1978) formulated the key physics: gas falls into DM potential well
   │                                                                  │
   │  Cooling function Λ(T) [erg cm³ s⁻¹]:                            │
   │    T < 10⁴ K: negligible (neutral gas)                           │
-  │    T ~ 10⁴–10⁵ K: atomic H + He cooling (collisional excitation)│
+  │    T ~ 10⁴–10⁵ K: atomic H + He cooling (collisional excitation) │
   │    T ~ 10⁵–10⁷ K: metal-line cooling dominates                   │
   │    T > 10⁷ K: Bremsstrahlung (free-free), Λ ∝ T^{1/2}            │
   │                                                                  │
@@ -1314,7 +1314,7 @@ White & Rees (1978) formulated the key physics: gas falls into DM potential well
   │    cooling flow → no starburst in central galaxy ("maintenance")│
   │                                                                 │
   │  M_BH − σ RELATION:                                             │
-  │  M_BH ~ 10⁸ M☉ (σ/200 km/s)^5   [Gebhardt 2000, Ferrarese 2000]│
+  │  M_BH ~ 10⁸ M☉ (σ/200 km/s)^5   [Gebhardt 2000, Ferrarese 2000] │
   │  Scatter: ~0.3 dex; implies co-evolution of BH + bulge          │
   │  Physical: energy coupling via quasar wind; BH mass when wind   │
   │  can unbind the bulge's gas: E_wind = f ε Ṁ c² = f_gas M_bulge  │
@@ -1454,7 +1454,7 @@ The classic result: a thermally stratified gas in pressure equilibrium can be un
   │  equipartition. SN feedback drives turbulence; turbulence       │
   │  amplifies B via dynamo; CRs stream along B and provide         │
   │  additional pressure support. Each component contributes ~      │
-  │  equally to disk pressure balance and vertical hydrostatic equil.│
+  │  equally to disk pressure balance and vertical hydrostatic equil│
   └─────────────────────────────────────────────────────────────────┘
 
   MAGNETIC FIELD STRUCTURE:
@@ -1489,7 +1489,7 @@ The classic result: a thermally stratified gas in pressure equilibrium can be un
   │  [for b=0 (midplane), l = Galactic longitude]                   │
   │                                                                 │
   │  TANGENT POINT METHOD (l < 90°):                                │
-  │  Maximum velocity at given l is from tangent point at R=R☉ sin(l)│
+  │  Maximum velocity at given l is from tangent point R=R☉ sin(l)  │
   │  → v_max(l) = v_c(R_tan) − v_c(R☉) sin(l)                       │
   │  → Trace v_c(R) from 21-cm observations alone                   │
   └─────────────────────────────────────────────────────────────────┘
@@ -1497,7 +1497,7 @@ The classic result: a thermally stratified gas in pressure equilibrium can be un
   PULSAR DISPERSION MEASURE (DM probe of WIM):
   ┌─────────────────────────────────────────────────────────────────┐
   │  DM = ∫₀^d n_e dl  [pc cm⁻³]                                    │
-  │  Pulsar dispersion: Δt ∝ DM/ν² (pulse arrives later at lower ν)│
+  │  Pulsar dispersion: Δt ∝ DM/ν² (pulse arrives later at lower ν) │
   │  With pulsar distance known → n_e(l, b) model of WIM            │
   │  YMW16 model: n_e(R, z) at ~ 0.05 cm⁻³ (local WIM)              │
   └─────────────────────────────────────────────────────────────────┘
