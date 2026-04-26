@@ -376,7 +376,7 @@ direction) shaped digital comics differently than McCloud expected.
 | Maximizing reach on existing platform | Webtoon Originals / Tapas contract | Platform provides audience but takes revenue share and may own adaptation rights |
 | Experimental form / non-linear narrative | Infinite canvas or interactive format | McCloud's vision; limited commercial viability but high artistic potential |
 | Building audience from zero | Free weekly schedule + social media + archive | Consistency and backlog are the growth engine; monetize after audience exists |
-| The dominant digital comics format today         | Webtoon vertical scroll          |
-| Largest webtoon platform                         | Naver Webtoon (100M+ users)      |
-| What happened to comiXology                      | Amazon acquired; merged to Kindle|
-| Why motion comics don't work                     | Neither comics nor animation     |
+| The dominant digital comics format today         | Webtoon vertical scroll          | |
+| Largest webtoon platform                         | Naver Webtoon (100M+ users)      | |
+| What happened to comiXology                      | Amazon acquired; merged to Kindle| |
+| Why motion comics don't work                     | Neither comics nor animation     | |

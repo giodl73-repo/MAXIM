@@ -380,9 +380,9 @@ MOST COMMON SPECIFIC INJURIES:
 | Pointe readiness assessment | Minimum age ~12, sufficient ankle/calf strength, clean releve alignment | Premature pointe = metatarsal stress fracture risk |
 | Need to understand a ballet score/notation | Benesh Movement Notation (UK) or Stepanov (historical Russian) | Standard notation systems for ballet reconstruction |
 | Choreography requires extreme extensions | Develop active flexibility, not just passive ROM | Performance requires muscular control at end range, not just reaching the position |
-| What distinguishes Bolshoi from NYCB | Russian = dramatic/bravura; Balanchine = speed/musical/athletic |
-| Why pointe shoes wear out fast | Professional: 12-20 hours of use before box collapses |
-| What kills ballet technique | Sickling (foot turned in), rolling in arches, gripping toes |
+| What distinguishes Bolshoi from NYCB | Russian = dramatic/bravura; Balanchine = speed/musical/athletic | Style emphasis differs; both produce world-class dancers |
+| Why pointe shoes wear out fast | Professional: 12-20 hours of use before box collapses | Rosin, sweat, and impact collapse the papier-mâché box |
+| What kills ballet technique | Sickling (foot turned in), rolling in arches, gripping toes | All misalign the kinetic chain from foot through hip |
 
 ---
 

@@ -341,6 +341,6 @@ CLO 3D and Browzwear are **digital twin pipelines for garment production**: simu
 | Reach Gen Z at lower unit economics than physical product  | Gaming cosmetics partnerships (Fortnite, Roblox)| $50B+ market; digital-only margin structure              |
 | Evaluate NFT fashion as a strategy                         | Don't — speculation bubble collapsed 97%  | Speculative asset, not product with use value            |
 | Assess whether digital fashion reduces environmental impact| 3D sampling: proven. Virtual-only garments: unclear | 3D sampling eliminates physical prototypes; virtual wear is additive |
-| Virtual influencers and their use                | Brand partnerships; authenticity risk|
-| Metaverse fashion in 2024                        | Mostly shelved; gaming thrives    |
-| AI role in fashion design currently              | Moodboards, patterns; not full design|
+| Virtual influencers and their use                | Brand partnerships; authenticity risk| Controlled image but audiences distrust undisclosed virtual nature |
+| Metaverse fashion in 2024                        | Mostly shelved; gaming thrives    | Meta/Decentraland hype deflated; Fortnite/Roblox remain viable |
+| AI role in fashion design currently              | Moodboards, patterns; not full design| Generative AI accelerates concepting but doesn't replace drape judgment |

@@ -236,10 +236,10 @@ This gives the most extreme temperature range of any elastomer:
 | Service T | –60 to +200°C | Peroxide cure preferred |
 | Elongation | 100–600% | Good |
 | Tensile (reinforced) | 5–15 MPa | Fumed silica filler essential |
-| Chemical resistance | Poor to solvents, good to water/dilute acids |
-| Flame resistance | Self-extinguishing, low smoke |
-| Biocompatibility | Excellent — medical implants, food contact |
-| Cost | High ($5–20/kg base polymer) |
+| Chemical resistance | Poor to solvents | Good to water/dilute acids |
+| Flame resistance | Self-extinguishing | Low smoke |
+| Biocompatibility | Excellent | Medical implants, food contact |
+| Cost | High ($5–20/kg base polymer) | |
 
 **Filler requirement**: Silicone unfilled has very poor mechanical strength.
 Fumed silica (15–40 phr) is mandatory — provides reinforcement via silanol–PDMS

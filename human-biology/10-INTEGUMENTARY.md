@@ -343,7 +343,7 @@ PHASE 4: REMODELING (weeks to years)
 | Keloid | Excess collagen, extends BEYOND wound borders | Common in darker skin; recurs after excision |
 | Wound dehiscence | Mechanical failure: suture breakdown, infection, malnutrition | Reopening of wound layers |
 | Chronic ulcer | Impaired healing: diabetes (neuropathy + ischemia), venous stasis, pressure | Fails to progress through phases; biofilm common |
-| Healing factors: ↑ by adequate protein, vitamin C (collagen hydroxylation), zinc; ↓ by diabetes, steroids, hypoxia, malnutrition, infection |
+| Healing factors | ↑ by adequate protein, vitamin C (collagen hydroxylation), zinc | ↓ by diabetes, steroids, hypoxia, malnutrition, infection |
 
 ---
 

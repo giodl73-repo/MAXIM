@@ -382,7 +382,6 @@ are moving design -- time-based graphic design before anyone called it that.
 | Visual consistency across 100+ touchpoints | Corporate identity standards manual (Chermayeff, Bass) | Define every application so non-designers can execute consistently |
 | Time-based / motion design needed | Bass's title sequence approach (reductive, symbolic) | Distill narrative to essential graphic forms; movement carries meaning |
 | Populist appeal, broad cultural resonance | Glaser's illustrative approach (expressive, warm) | Accessible emotional design; art-level ambition for commercial context |
-| How American design differed from Swiss        | Personality + pragmatism vs pure   |
-|                                                | objectivity                        |
-| The Rand-Jobs relationship                     | NeXT identity story                |
-| Push Pin Studios as counter-movement           | Push Pin Monthly Graphic archive   |
+| How American design differed from Swiss        | Personality + pragmatism vs pure objectivity | US designers embraced expressiveness; Swiss sought universal neutrality |
+| The Rand-Jobs relationship                     | NeXT identity story                | Jobs paid $100K for a single logo; Rand refused to present alternatives |
+| Push Pin Studios as counter-movement           | Push Pin Monthly Graphic archive   | Glaser/Chwast rejected modernism's cold rationalism for historical eclecticism |

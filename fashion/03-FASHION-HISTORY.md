@@ -351,9 +351,9 @@ seam or an off-grain cut. The simplest clothes demand the most skill.
 | Explain why luxury trickles down and street style percolates up | Simmel's imitation-differentiation (1904) | Elite adoption → mass imitation → elite abandonment is the core cycle |
 | Assess whether a designer is innovating or reviving          | Check against Worth (1858) → Poiret (1906) → Chanel (1920s) → Dior (1947) pattern | Innovation = new relationship to the body, not just new decoration |
 | Identify the most technically revered couturier as benchmark | Balenciaga (1950s-60s)                 | Sculptural construction without visible structure        |
-| When fashion became young and accessible          | 1960s (Quant, Courreges)        |
-| When Japanese designers challenged Paris          | 1981 (Yamamoto, Kawakubo)       |
-| 1980s power and excess                           | Armani + Versace (opposite poles)|
-| 1990s reaction to excess                         | Helmut Lang, Calvin Klein        |
-| The theatrical heights of couture spectacle      | Galliano/Dior, McQueen          |
-| How streetwear entered luxury                    | Virgil Abloh / Off-White        |
+| When fashion became young and accessible          | 1960s (Quant, Courreges)        | Youthquake shifted authority from couture to street |
+| When Japanese designers challenged Paris          | 1981 (Yamamoto, Kawakubo)       | Deconstructivism introduced non-Western body politics |
+| 1980s power and excess                           | Armani + Versace (opposite poles)| Tailoring vs. theatrics defined the decade's tension |
+| 1990s reaction to excess                         | Helmut Lang, Calvin Klein        | Minimalism as anti-spectacle; luxury through restraint |
+| The theatrical heights of couture spectacle      | Galliano/Dior, McQueen          | Show as artwork; expanded what fashion could be |
+| How streetwear entered luxury                    | Virgil Abloh / Off-White        | Streetwear's irony and reference culture legitimized by legacy houses |

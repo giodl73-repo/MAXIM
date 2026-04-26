@@ -347,8 +347,8 @@ The Swiss grid is a **constraint satisfaction system**: given column count, gutt
 | Multi-column editorial, maximum clarity | Build a modular grid first; all elements align to grid | Grid = constraint system; consistency emerges from the lattice |
 | Type hierarchy for international audience | One typeface, multiple weights/sizes | Neutral sans-serif (Helvetica, Univers) reads across languages |
 | Photographic integration with text | Full-bleed photos; asymmetric text/image grid | Photo bleeds to edge; text in defined column with clear margins |
-| Design for international audience               | Photography > illustration      |
-| Make type feel "neutral" (no era association)   | Helvetica / Neue Haas Grotesk   |
-| Create visual hierarchy without decoration      | Scale + weight + placement      |
-| Understand the Muller-Brockmann grid method     | "Grid Systems" book (1981)      |
-| Understand why Helvetica is everywhere          | Corporate adoption, 1960s-1980s |
+| Design for international audience               | Photography > illustration      | Photos communicate across language barriers |
+| Make type feel "neutral" (no era association)   | Helvetica / Neue Haas Grotesk   | Designed to have no personality — pure function |
+| Create visual hierarchy without decoration      | Scale + weight + placement      | Structural contrast replaces ornament |
+| Understand the Muller-Brockmann grid method     | "Grid Systems" book (1981)      | Canonical text for constructivist grid thinking |
+| Understand why Helvetica is everywhere          | Corporate adoption, 1960s-1980s | Legibility + neutrality + corporate safety = universal default |

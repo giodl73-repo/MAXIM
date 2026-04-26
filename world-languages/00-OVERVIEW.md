@@ -12,12 +12,12 @@ WORLD LANGUAGES BY FAMILY (native speakers, approx.)
 SINO-TIBETAN (~1.4B)          INDO-EUROPEAN (~3.2B)
 +-------------------+         +--------------------------------------------+
 | Mandarin  ~920M   |         | ROMANCE      GERMANIC    SLAVIC    INDIC   |
-| Cantonese  ~80M   |         | Spanish 475M Eng   373M  Rus  154M Hindi344M|
-| Wu/Shangh  ~80M   |         | Port    232M Ger    95M  Pol   45M Bengali234|
-| Min        ~74M   |         | French   77M Dutch  24M  Ukr   32M Urdu  92M|
-| Tibetan    ~7M    |         | Italian  65M Swed   10M  Czech 10M Punjabi92M|
-+-------------------+         | Romanian 24M Norw    5M  Serb  10M Marathi83M|
-                               +--------------------------------------------+
+| Cantonese  ~80M   |         | Spanish 475M Eng  373M Rus 154M Hindi  344M|
+| Wu/Shangh  ~80M   |         | Port    232M Ger   95M Pol  45M Bengali234M|
+| Min        ~74M   |         | French   77M Dutch 24M Ukr  32M Urdu    92M|
+| Tibetan    ~7M    |         | Italian  65M Swed  10M Czch 10M Punjabi 92M|
++-------------------+         | Romanian 24M Norw   5M Serb 10M Marathi 83M|
+                              +--------------------------------------------+
 AFRO-ASIATIC (~570M)           | IRANIAN: Persian 57M, Pashto 40M, Kurdish 20M|
 +-------------------+          +--------------------------------------------+
 | Arabic    ~274M   |
@@ -301,7 +301,7 @@ New script or complex grammar, but Latin-alphabet or familiar structure.
 CATEGORY IV / "Super-Hard" (~2200 hrs) — "Hardest"
 +-------------------------------+-------------------------------+
 | Mandarin       Cantonese      | Japanese       Korean         |
-| Arabic         (all 4)                                        |
+| Arabic         (all 4)        |                               |
 +-------------------------------+-------------------------------+
 New script + tones OR new script + radically different grammar.
 2200 hrs = ~3x longer than Spanish.

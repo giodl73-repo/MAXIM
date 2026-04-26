@@ -226,11 +226,11 @@ COMMERCIAL SYSTEMS (2024):
 
 | Project | Location | Power | Energy | Notes |
 |---------|---------|-------|--------|-------|
-| Hornsdale Power Reserve | South Australia | 150 MW / 193.5 MWh | First large grid BESS (2017) |
-| Moss Landing Phase 1-2 | California | 300 MW / 1,200 MWh | World's largest Li-ion (2023) |
-| Long Island (Ravenswood) | New York | 316 MW / 1,265 MWh | ConEdison |
-| Neoen Collie | Western Australia | 219 MW / 877 MWh | |
-| Geelong BESS | Victoria, Australia | 300 MW / 450 MWh | |
+| Hornsdale Power Reserve | South Australia | 150 MW | 193.5 MWh | First large grid BESS (2017) |
+| Moss Landing Phase 1-2 | California | 300 MW | 1,200 MWh | World's largest Li-ion (2023) |
+| Long Island (Ravenswood) | New York | 316 MW | 1,265 MWh | ConEdison |
+| Neoen Collie | Western Australia | 219 MW | 877 MWh | |
+| Geelong BESS | Victoria, Australia | 300 MW | 450 MWh | |
 
 **Hornsdale significance:** Demonstrated in 2017 that a grid-scale battery could respond to frequency events in 140 ms (vs gas peaker's 5-6 minutes). Elon Musk bet $50M it could be operational in 100 days. It was. Changed the market's view of battery grid applications permanently.
 
