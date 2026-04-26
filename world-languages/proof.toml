@@ -1,0 +1,11 @@
+# world-languages/ — CJK content is intentional
+#
+# Guides in this directory deliberately show Chinese, Japanese, Korean, Arabic,
+# Hebrew and other scripts as language examples inside code block diagrams.
+# Wide characters (CJK ideographs, Hiragana, Katakana) naturally occupy 2 display
+# columns, which the ascii_box checker already accounts for via visual_width.
+# Set error_on_wide = false so the ascii_char check doesn't double-report;
+# actual alignment failures are still caught by ascii_box_width.
+
+[ascii_char]
+error_on_wide = false

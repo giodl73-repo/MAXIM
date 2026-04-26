@@ -19,8 +19,8 @@ JavaScript is a runtime language. TypeScript is a compile-time layer on top of i
 |                     type annotations    | Deno (V8)         |   |
 |                     Emits plain JS      | Bun (JavaScriptCore) |  |
 |                                          +-------------------+   |
-|                                                              |
-|  TypeScript types NEVER exist at runtime. They are erased.   |
+|                                                                  |
+|  TypeScript types NEVER exist at runtime. They are erased.       |
 +------------------------------------------------------------------+
 ```
 
