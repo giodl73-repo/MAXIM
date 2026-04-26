@@ -32,7 +32,7 @@ TOOL LANDSCAPE
 | LOGS:     ELK Stack, Splunk, Azure Monitor Logs, Loki               |
 | METRICS:  Prometheus + Grafana, Azure Monitor Metrics, Datadog      |
 | TRACES:   Jaeger, Zipkin, Azure Monitor (App Insights), Tempo       |
-| STANDARD: OpenTelemetry (OTEL) — collector + SDKs, replacing all   |
+| STANDARD: OpenTelemetry (OTEL) — collector + SDKs, replacing all      |
 +-----------------------------------------------------------------------+
 ```
 
