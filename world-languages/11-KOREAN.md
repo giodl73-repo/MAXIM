@@ -4,7 +4,7 @@
 
 ```
 +--------------------------------------------------------------------+
-| KOREAN (한국어 Hangugeo / 조선어 Joseoneo)                          |
+| KOREAN (한국어 Hangugeo / 조선어 Joseoneo)                         |
 +--------------------------------------------------------------------+
 | Family:      Koreanic (language isolate family — no proven cognate)|
 | Native spkrs: ~77M                                                 |

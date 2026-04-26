@@ -4,7 +4,7 @@
 
 ```
 +--------------------------------------------------------------------+
-| MANDARIN CHINESE (普通话 Pǔtōnghuà / 國語 Guóyǔ)                  |
+| MANDARIN CHINESE (普通话 Pǔtōnghuà / 國語 Guóyǔ)                   |
 +--------------------------------------------------------------------+
 | Family:      Sino-Tibetan → Sinitic → Mandarin group              |
 | Native spkrs: ~920M                                               |

@@ -7,7 +7,7 @@ ADVANCED MATERIAL CATEGORIES
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
 │  FIBER-REINFORCED POLYMERS (FRP)                                             │
-│  ┌────────────────────────────────────────────────────────────────────────┐ │
+│  ┌────────────────────────────────────────────────────────────────────────┐  │
 │  │  FIBER:  GFRP (glass)  CFRP (carbon)  AFRP (aramid/Kevlar)           │ │
 │  │  MATRIX: Thermosetting (epoxy, VE, polyester) or thermoplastic        │ │
 │  │  PROCESS: hand layup, vacuum infusion, autoclave, pultrusion           │ │
@@ -23,9 +23,9 @@ ADVANCED MATERIAL CATEGORIES
 │                                                                              │
 │  LOW / NEGATIVE CARBON BINDERS                                               │
 │  ┌────────────────────────────────────────────────────────────────────────┐ │
-│  │  Geopolymers: alkali-activated aluminosilicates; 40–80% less CO₂      │ │
+│  │  Geopolymers: alkali-activated aluminosilicates; 40–80% less CO₂      │  │
 │  │  Calcined clay cements (LC3): limestone + calcined clay + clinker      │ │
-│  │  CO₂-cured concrete: carbonation curing sequesters CO₂                │ │
+│  │  CO₂-cured concrete: carbonation curing sequesters CO₂                │  │
 │  └────────────────────────────────────────────────────────────────────────┘ │
 │                                                                              │
 │  SPECIALTY INSULATION AND SMART MATERIALS                                    │

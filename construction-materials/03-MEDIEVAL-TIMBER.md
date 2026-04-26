@@ -6,26 +6,26 @@
 MEDIEVAL STRUCTURAL EVOLUTION (~500–1700 CE)
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  PROBLEM: How to build tall structures with large windows in stone          │
-│  CONSTRAINT: Stone has near-zero tensile strength                           │
+│  PROBLEM: How to build tall structures with large windows in stone           │
+│  CONSTRAINT: Stone has near-zero tensile strength                            │
 │                                                                              │
 │  Romanesque (~800–1150):                                                     │
-│  Round arch + thick walls + small windows                                   │
-│  Horizontal thrust → must be absorbed by thick masonry                      │
-│  Height limit: ~30–40 m before foundation/wall area impractical             │
+│  Round arch + thick walls + small windows                                    │
+│  Horizontal thrust → must be absorbed by thick masonry                       │
+│  Height limit: ~30–40 m before foundation/wall area impractical              │
 │                                                                              │
 │  Gothic Revolution (~1150–1500):                                             │
-│  Pointed arch → reduces horizontal thrust for given span                    │
-│  Ribbed vault → concentrates loads to discrete piers                        │
-│  Flying buttress → carries thrust OUTSIDE the building                      │
-│  Result: walls become thin screens filled with glass                        │
-│  Height achieved: Beauvais choir 48 m (1272); ultimate collapse 1284        │
+│  Pointed arch → reduces horizontal thrust for given span                     │
+│  Ribbed vault → concentrates loads to discrete piers                         │
+│  Flying buttress → carries thrust OUTSIDE the building                       │
+│  Result: walls become thin screens filled with glass                         │
+│  Height achieved: Beauvais choir 48 m (1272); ultimate collapse 1284         │
 │                                                                              │
 │  Timber Frame (~500–1700, parallel track):                                   │
-│  Cruck frames → box frames → half-timber                                    │
-│  Post/beam/rafter system → large spans; agricultural; domestic              │
+│  Cruck frames → box frames → half-timber                                     │
+│  Post/beam/rafter system → large spans; agricultural; domestic               │
 │                                                                              │
-│  Lime mortar throughout: flexible, breathable, self-healing                 │
+│  Lime mortar throughout: flexible, breathable, self-healing                  │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -292,30 +292,30 @@ GOTHIC CATHEDRAL STRUCTURAL SYSTEM
 │    Roof →   ▲                                                                │
 │            ╱╲                                                                │
 │           ╱  ╲                                                               │
-│      ┌───╱────╲───┐   ← stone vault (ribbed)                                │
+│      ┌───╱────╲───┐   ← stone vault (ribbed)                                 │
 │      │  ╱      ╲  │                                                          │
 │ triforium ────────────  ← decorative arcade, no structural role              │
 │      │           │                                                           │
-│ clerestory         ← LARGE WINDOWS — wall is non-structural here!           │
+│ clerestory         ← LARGE WINDOWS — wall is non-structural here!            │
 │      │   glass   │                                                           │
-│ arcade arch ──────────  ← nave arcade, main span                            │
+│ arcade arch ──────────  ← nave arcade, main span                             │
 │      │           │                                                           │
-│ nave aisle column pier  ← load path: vault → pier → foundation              │
+│ nave aisle column pier  ← load path: vault → pier → foundation               │
 │      │                                                                       │
-│  Flying buttress →  /  → abutment pier (outside) → foundation               │
+│  Flying buttress →  /  → abutment pier (outside) → foundation                │
 │                    /                                                         │
 │              LATERAL THRUST of vault                                         │
 │              transferred to outer abutment pier via flying buttress          │
 │                                                                              │
 │  WHY THIN WALLS:                                                             │
-│    Vault thrust → flying buttress arc → carried OUTSIDE → outer pier        │
-│    Inner nave wall between piers: carries NO lateral load                   │
-│    → glazed with coloured glass (clerestory windows)                        │
+│    Vault thrust → flying buttress arc → carried OUTSIDE → outer pier         │
+│    Inner nave wall between piers: carries NO lateral load                    │
+│    → glazed with coloured glass (clerestory windows)                         │
 │                                                                              │
 │  HEIGHT ACHIEVED:                                                            │
 │    Notre-Dame nave: 33 m high                                                │
 │    Amiens nave: 42 m                                                         │
-│    Beauvais choir: 48.5 m (collapsed 1284; rebuilt lower)                   │
+│    Beauvais choir: 48.5 m (collapsed 1284; rebuilt lower)                    │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -336,12 +336,12 @@ RIBBED VAULT: HOW IT CONCENTRATES LOAD
   │      ╲       ╱                              │
   │       ╲     ╱   ← two diagonal ribs per bay │
   │        ╲   ╱                                │
-  │         ╲ ╱                                  │
+  │         ╲ ╱                                 │
   │          ●  ← boss (ornamental keystone)    │
-  │         ╱ ╲                                  │
-  │        ╱   ╲                                 │
-  │       ╱     ╲                                │
-  │      ╱       ╲                               │
+  │         ╱ ╲                                 │
+  │        ╱   ╲                                │
+  │       ╱     ╲                               │
+  │      ╱       ╲                              │
   │ pier ●       ● pier  ← load concentrated    │
   └─────────────────────────────────────────────┘
 

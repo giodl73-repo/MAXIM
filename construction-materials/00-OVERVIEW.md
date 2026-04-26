@@ -24,8 +24,8 @@ TIMELINE ───────────────────────�
 MATERIAL FAMILIES AND STRUCTURAL ROLES
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  EARTH / ORGANIC           MASONRY                METALS                    │
-│  ┌───────────────┐         ┌───────────────┐      ┌───────────────────────┐ │
+│  EARTH / ORGANIC           MASONRY                METALS                     │
+│  ┌───────────────┐         ┌───────────────┐      ┌───────────────────────┐  │
 │  │ Adobe/rammed  │         │ Brick/stone   │      │ Cast iron   wrought   │ │
 │  │ earth         │         │ Roman conc.   │      │ iron        steel     │ │
 │  │ Thatch/straw  │         │ Fired brick   │      │ Stainless   aluminium │ │
@@ -36,10 +36,10 @@ MATERIAL FAMILIES AND STRUCTURAL ROLES
 │                                                                              │
 │  CEMENTITIOUS              GLASS                  ENGINEERED WOOD           │
 │  ┌───────────────┐         ┌───────────────┐      ┌───────────────────────┐ │
-│  │ Portland OPC  │         │ Float glass   │      │ Plywood  LVL         │ │
-│  │ Fly ash blend │         │ Tempered      │      │ Glulam   CLT         │ │
-│  │ UHPC          │         │ Laminated     │      │ Mass timber hybrids  │ │
-│  │ Geopolymer    │         │ IGU systems   │      │                      │ │
+│  │ Portland OPC  │         │ Float glass   │      │ Plywood  LVL         │  │
+│  │ Fly ash blend │         │ Tempered      │      │ Glulam   CLT         │  │
+│  │ UHPC          │         │ Laminated     │      │ Mass timber hybrids  │  │
+│  │ Geopolymer    │         │ IGU systems   │      │                      │  │
 │  └───────────────┘         └───────────────┘      └───────────────────────┘ │
 │  Compression +++           Compression +          Compression + Tension +   │
 │  Tension poor (RC fixes)   Tension ~zero          Bending ++ biaxial (CLT)  │
@@ -470,7 +470,7 @@ STRUCTURAL SYSTEM SELECTION — MATERIAL MATCH
 │  Speed of construction                Steel frame; unitized façade; precast  │
 │  Low carbon                           CLT; high fly-ash/GGBS; recycled steel │
 │  Thermal mass for passive comfort     Adobe; rammed earth; concrete; brick   │
-│  Ultra-thin elements                  UHPC; CFRP; GFRC façade panels        │
+│  Ultra-thin elements                  UHPC; CFRP; GFRC façade panels         │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
 

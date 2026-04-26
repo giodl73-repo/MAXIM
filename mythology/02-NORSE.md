@@ -162,24 +162,24 @@ Odin constantly seeks wisdom and pays enormous prices:
 ┌──────────────────────────────────────────────────────────────┐
 │                  ODIN'S SACRIFICES                           │
 │                                                              │
-│  1. EYE AT MIMIR'S WELL:                                    │
+│  1. EYE AT MIMIR'S WELL:                                     │
 │     Mímisbrunnr well beneath Yggdrasil contains cosmic wisdom│
 │     Odin offered his eye to drink → gained deep wisdom       │
-│     Mimir guards the well and drinks from it daily          │
+│     Mimir guards the well and drinks from it daily           │
 │                                                              │
-│  2. HANGING ON YGGDRASIL (the Rune-discovery):              │
-│     Odin hanged himself on Yggdrasil for 9 nights           │
-│     Pierced with a spear, offered to himself                │
-│     No food or drink — a shamanic death-and-return          │
-│     On the ninth night: saw runes, took them up, fell down  │
-│     Source: Hávamál stanzas 138-139                         │
+│  2. HANGING ON YGGDRASIL (the Rune-discovery):               │
+│     Odin hanged himself on Yggdrasil for 9 nights            │
+│     Pierced with a spear, offered to himself                 │
+│     No food or drink — a shamanic death-and-return           │
+│     On the ninth night: saw runes, took them up, fell down   │
+│     Source: Hávamál stanzas 138-139                          │
 │                                                              │
 │  3. CONSTANT SEEKING:                                        │
-│     Travels disguised as old wanderer (hat, cloak, staff)   │
-│     Ravens Huginn (thought) and Muninn (memory) fly world   │
-│     daily and report what they observe                      │
-│     Odin worries: "More I fear for Muninn" (memory more     │
-│     precious than thought)                                  │
+│     Travels disguised as old wanderer (hat, cloak, staff)    │
+│     Ravens Huginn (thought) and Muninn (memory) fly world    │
+│     daily and report what they observe                       │
+│     Odin worries: "More I fear for Muninn" (memory more      │
+│     precious than thought)                                   │
 └──────────────────────────────────────────────────────────────┘
 ```
 

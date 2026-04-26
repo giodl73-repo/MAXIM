@@ -9,10 +9,10 @@ MARINE RIGGING OVERVIEW
 ========================
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │                    SAILING VESSEL RIGGING                       │
-  │                                                                   │
-  │  STANDING RIGGING (static, structural):                         │
-  │  ┌────────────────────────────────────────────────────────────┐ │
+  │                    SAILING VESSEL RIGGING                        │
+  │                                                                  │
+  │  STANDING RIGGING (static, structural):                          │
+  │  ┌────────────────────────────────────────────────────────────┐  │
   │  │  Forestay (fore triangle support)                          │ │
   │  │  Backstay (counters forestay tension)                      │ │
   │  │  Cap shrouds (lateral mast support)                        │ │
@@ -28,8 +28,8 @@ MARINE RIGGING OVERVIEW
   │  │  Sheets (control sail angle)                               │ │
   │  │  Guys (spinnaker, outrigger control)                       │ │
   │  │  Travelers, preventers, vangs                              │ │
-  │  │  Material: Polyester double braid or high-modulus braid   │ │
-  │  │  Key property: LOW STRETCH + GOOD HANDLING                │ │
+  │  │  Material: Polyester double braid or high-modulus braid   │  │
+  │  │  Key property: LOW STRETCH + GOOD HANDLING                │  │
   │  └────────────────────────────────────────────────────────────┘ │
   └──────────────────────────────────────────────────────────────────┘
 

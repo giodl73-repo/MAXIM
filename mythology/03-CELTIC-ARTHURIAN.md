@@ -6,10 +6,10 @@ Celtic mythology survives almost entirely through manuscripts written by **Chris
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                  CELTIC MYTHOLOGY BRANCHES                        │
+│                  CELTIC MYTHOLOGY BRANCHES                       │
 │                                                                  │
 │  IRISH                           WELSH / BRITTONIC               │
-│  ┌──────────────────────┐        ┌──────────────────────────┐   │
+│  ┌──────────────────────┐        ┌──────────────────────────┐    │
 │  │ Four Cycles:          │        │ Mabinogion (4 Branches)  │   │
 │  │ 1. Mythological       │        │ Arthurian cycle (overlay)│   │
 │  │    (Tuatha Dé Danann) │        │ Trioedd Ynys Prydein     │   │
@@ -263,27 +263,27 @@ FOURTH BRANCH — MATH SON OF MATHONWY
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              THE CELTIC OTHERWORLD                                │
+│              THE CELTIC OTHERWORLD                               │
 │                                                                  │
-│  IRISH: Tír na nÓg ("Land of Youth" / "Land of the Young")      │
+│  IRISH: Tír na nÓg ("Land of Youth" / "Land of the Young")       │
 │         Tír Tairngire ("Land of Promise")                        │
-│         Mag Mell ("Plain of Honey/Delight")                     │
-│         Tír fo Thuinn ("Land under the Wave")                   │
-│         The Síde (mounds where the Tuatha Dé retreated)         │
+│         Mag Mell ("Plain of Honey/Delight")                      │
+│         Tír fo Thuinn ("Land under the Wave")                    │
+│         The Síde (mounds where the Tuatha Dé retreated)          │
 │                                                                  │
-│  WELSH: Annwn (pronounced "A-noon") — the underworld/otherworld │
-│         Caer Sidi — rotating/glass fort of the Otherworld       │
+│  WELSH: Annwn (pronounced "A-noon") — the underworld/otherworld  │
+│         Caer Sidi — rotating/glass fort of the Otherworld        │
 │                                                                  │
 │  PROPERTIES:                                                     │
-│  — No disease, no aging, no death (time passes differently)     │
-│  — Abundant food, drink, beauty                                 │
-│  — Accessible: at certain liminal times (Samhain = Oct 31)      │
-│    and liminal spaces (hills, islands, bodies of water)         │
-│  — Those who visit and return find time has passed differently  │
-│    (Oisín's 300 years as 3 days; Bran mac Febail's crew)        │
+│  — No disease, no aging, no death (time passes differently)      │
+│  — Abundant food, drink, beauty                                  │
+│  — Accessible: at certain liminal times (Samhain = Oct 31)       │
+│    and liminal spaces (hills, islands, bodies of water)          │
+│  — Those who visit and return find time has passed differently   │
+│    (Oisín's 300 years as 3 days; Bran mac Febail's crew)         │
 │                                                                  │
-│  SAMHAIN: October 31/November 1 — the veil between worlds thin  │
-│  Sid mounds open; dead can walk; supernatural creatures free    │
+│  SAMHAIN: October 31/November 1 — the veil between worlds thin   │
+│  Sid mounds open; dead can walk; supernatural creatures free     │
 │  → Ancestor of Halloween (via Scottish/Irish immigrant tradition)│
 └──────────────────────────────────────────────────────────────────┘
 ```

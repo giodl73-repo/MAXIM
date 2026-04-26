@@ -52,9 +52,9 @@ EGYPTIAN CORDAGE
 
   ESPARTO GRASS ROPE (Stipa tenacissima):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  More flexible than papyrus; used alongside papyrus in Egypt    │
-  │  Traded across Mediterranean                                    │
-  │  Remains in use today for specialty paper (esparto paper)       │
+  │  More flexible than papyrus; used alongside papyrus in Egypt     │
+  │  Traded across Mediterranean                                     │
+  │  Remains in use today for specialty paper (esparto paper)        │
   └──────────────────────────────────────────────────────────────────┘
 
   EVIDENCE FROM ARCHAEOLOGY:

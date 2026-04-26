@@ -6,7 +6,7 @@ Mesopotamia ("land between the rivers" — Tigris and Euphrates) produced the **
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              MESOPOTAMIAN MYTHOLOGICAL TRADITION                  │
+│              MESOPOTAMIAN MYTHOLOGICAL TRADITION                 │
 │                                                                  │
 │  TIMELINE:                                                       │
 │  3500–2400 BCE  Sumerian city-states; oral myth tradition        │
@@ -14,7 +14,7 @@ Mesopotamia ("land between the rivers" — Tigris and Euphrates) produced the **
 │  2100–1600 BCE  Akkadian/Babylonian adaptation; Enuma Elish      │
 │                  composed ~1800–1200 BCE (Old Babylonian period) │
 │  1600–600 BCE   Assyrian empire; expanded texts, commentaries    │
-│  600–300 BCE    Neo-Babylonian; Daniel-era Babylon              │
+│  600–300 BCE    Neo-Babylonian; Daniel-era Babylon               │
 │                                                                  │
 │  THE LANGUAGE LAYERS:                                            │
 │  Sumerian (agglutinative, language isolate) → Akkadian (Semitic) │
@@ -22,16 +22,16 @@ Mesopotamia ("land between the rivers" — Tigris and Euphrates) produced the **
 │  (parallel: Latin surviving as liturgical language)              │
 │                                                                  │
 │  KEY TEXTS:                                                      │
-│  — Enuma Elish (Babylonian creation epic, 7 tablets)            │
-│  — Epic of Gilgamesh (12 tablets; world's first literary epic)  │
+│  — Enuma Elish (Babylonian creation epic, 7 tablets)             │
+│  — Epic of Gilgamesh (12 tablets; world's first literary epic)   │
 │  — Descent of Inanna (Sumerian; Ishtar's Descent = Akkadian ver) │
-│  — Atrahasis Epic (flood narrative; older than Genesis)         │
-│  — Enki and the World Order; Enki and Ninhursag                 │
-│  — Lugalbanda epics; Etana myth (man who flew to heaven)        │
+│  — Atrahasis Epic (flood narrative; older than Genesis)          │
+│  — Enki and the World Order; Enki and Ninhursag                  │
+│  — Lugalbanda epics; Etana myth (man who flew to heaven)         │
 │                                                                  │
 │  DISCOVERY:                                                      │
-│  Cuneiform tablets rediscovered 1840s–1870s (Austen Henry Layard│
-│  excavating Nineveh; George Smith translated Gilgamesh 1872)    │
+│  Cuneiform tablets rediscovered 1840s–1870s (Austen Henry Layard │
+│  excavating Nineveh; George Smith translated Gilgamesh 1872)     │
 │  The flood parallel caused a sensation — challenged biblical     │
 │  uniqueness; George Smith literally ran around the room          │
 └──────────────────────────────────────────────────────────────────┘

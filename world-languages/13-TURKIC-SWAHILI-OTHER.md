@@ -319,7 +319,7 @@ based roughly on semantic categories (not arbitrary).
 
 KEY CLASSES:
 +-------+------+------+---------------------------+-----------------------+
-| Class | Sing | Plur | Typical nouns             | Agreement prefix     |
+| Class | Sing | Plur | Typical nouns             | Agreement prefix      |
 +-------+------+------+---------------------------+-----------------------+
 | 1/2   | m-   | wa-  | People, animate agents:   | a- / wa-             |
 |       |      |      | mtu (person), mtoto (child)|                     |

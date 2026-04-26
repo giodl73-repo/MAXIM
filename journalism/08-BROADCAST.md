@@ -29,14 +29,14 @@ BROADCAST JOURNALISM ECOSYSTEM
 
   BROADCAST vs. PRINT COMPARISON:
   ┌──────────────────────────────────┬──────────────────────────────────┐
-  │  BROADCAST                       │  PRINT / DIGITAL TEXT             │
-  │  Time-compressed (30s–3 min)     │  No length constraint             │
-  │  Emotional/visual bias           │  Analytical depth possible        │
-  │  Linear (must watch in order)    │  Scannable; non-linear            │
-  │  Hard deadline (live slot)       │  Flexible publication timing      │
-  │  Presenter as brand anchor       │  Byline as brand, not performance │
-  │  Difficult to correct live       │  Corrections appended immediately │
-  │  FCC-licensed (US broadcast)     │  No licensing requirement         │
+  │  BROADCAST                       │  PRINT / DIGITAL TEXT            │
+  │  Time-compressed (30s–3 min)     │  No length constraint            │
+  │  Emotional/visual bias           │  Analytical depth possible       │
+  │  Linear (must watch in order)    │  Scannable; non-linear           │
+  │  Hard deadline (live slot)       │  Flexible publication timing     │
+  │  Presenter as brand anchor       │  Byline as brand, not performance│
+  │  Difficult to correct live       │  Corrections appended immediately│
+  │  FCC-licensed (US broadcast)     │  No licensing requirement        │
   └──────────────────────────────────┴──────────────────────────────────┘
 ```
 

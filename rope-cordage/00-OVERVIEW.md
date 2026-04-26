@@ -83,12 +83,12 @@ NATURAL vs. SYNTHETIC FIBER COMPARISON
 
   ERA 1 (antiquity – 1930s): NATURAL FIBERS ONLY
   ┌────────────────────────────────────────────────────────────────┐
-  │ Hemp: workhorse of sailing rigging (300–900 MPa tensile)      │
-  │ Manila (abaca): superior to hemp for marine use               │
-  │ Sisal: cheaper, less durable — baling twine                   │
-  │ Cotton: soft, low strength — clothing, light use              │
-  │ Jute: low strength, high absorption — burlap, packaging       │
-  │ Coir (coconut): buoyant, rot-resistant, low strength          │
+  │ Hemp: workhorse of sailing rigging (300–900 MPa tensile)       │
+  │ Manila (abaca): superior to hemp for marine use                │
+  │ Sisal: cheaper, less durable — baling twine                    │
+  │ Cotton: soft, low strength — clothing, light use               │
+  │ Jute: low strength, high absorption — burlap, packaging        │
+  │ Coir (coconut): buoyant, rot-resistant, low strength           │
   └────────────────────────────────────────────────────────────────┘
 
   ERA 2 (1938–1980s): FIRST-GENERATION SYNTHETICS
@@ -130,16 +130,16 @@ APPLICATION MAP
 ===============
 
   ┌─────────────────────────────────────────────────────────────────┐
-  │  MARINE SAILING (see 07-MARINE-APPLICATIONS.md)                │
-  │  Standing rigging: stainless wire or Dyneema (low stretch)     │
-  │  Running rigging: polyester (sheets, halyards)                 │
-  │  Mooring: nylon (stretch absorbs surge)                        │
+  │  MARINE SAILING (see 07-MARINE-APPLICATIONS.md)                 │
+  │  Standing rigging: stainless wire or Dyneema (low stretch)      │
+  │  Running rigging: polyester (sheets, halyards)                  │
+  │  Mooring: nylon (stretch absorbs surge)                         │
   └─────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────┐
-  │  CLIMBING / RESCUE (see 08-INDUSTRIAL-USE.md)                  │
-  │  Dynamic climbing: nylon kernmantle (UIAA/EN 892)              │
-  │  Static rescue: low-elongation polyester kernmantle (NFPA 1983)│
-  │  Life safety escape: polyester or nylon, 5:1 min safety factor │
+  │  CLIMBING / RESCUE (see 08-INDUSTRIAL-USE.md)                   │
+  │  Dynamic climbing: nylon kernmantle (UIAA/EN 892)               │
+  │  Static rescue: low-elongation polyester kernmantle (NFPA 1983) │
+  │  Life safety escape: polyester or nylon, 5:1 min safety factor  │
   └─────────────────────────────────────────────────────────────────┘
   ┌─────────────────────────────────────────────────────────────────┐
   │  LIFTING / RIGGING (see 08-INDUSTRIAL-USE.md)                  │

@@ -84,10 +84,10 @@ SOURCE TAXONOMY
 
   BY RELIABILITY:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  PRIMARY SOURCES: Witnesses, participants, direct knowledge     │
-  │  SECONDARY SOURCES: Secondhand knowledge, hearsay               │
-  │  DOCUMENTARY SOURCES: Records, filings, databases, reports      │
-  │  OFFICIAL SOURCES: Authorized spokespeople, official statements │
+  │  PRIMARY SOURCES: Witnesses, participants, direct knowledge      │
+  │  SECONDARY SOURCES: Secondhand knowledge, hearsay                │
+  │  DOCUMENTARY SOURCES: Records, filings, databases, reports       │
+  │  OFFICIAL SOURCES: Authorized spokespeople, official statements  │
   └──────────────────────────────────────────────────────────────────┘
 
   BY ATTRIBUTION:

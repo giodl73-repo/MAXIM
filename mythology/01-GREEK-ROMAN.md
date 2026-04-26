@@ -6,7 +6,7 @@ Greek mythology is the most extensively documented polytheistic tradition in the
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                 GREEK COSMOGONIC SEQUENCE                         │
+│                 GREEK COSMOGONIC SEQUENCE                        │
 │                                                                  │
 │  CHAOS (formless void)                                           │
 │    │                                                             │
@@ -14,19 +14,19 @@ Greek mythology is the most extensively documented polytheistic tradition in the
 │    │       │                    │                                │
 │    │       └── TITANS (12) ←────┘                                │
 │    │           ├── Kronos + Rhea                                 │
-│    │           │       └── OLYMPIANS (children of Kronos)       │
-│    │           │           Zeus, Hera, Poseidon, Demeter,       │
-│    │           │           Hestia, Hades                        │
+│    │           │       └── OLYMPIANS (children of Kronos)        │
+│    │           │           Zeus, Hera, Poseidon, Demeter,        │
+│    │           │           Hestia, Hades                         │
 │    │           └── Other titans: Prometheus, Atlas, etc.         │
 │    │                                                             │
-│    ├── EREBUS (darkness) + NYX (night)                          │
-│    │       └── Aether (light), Hemera (day)                     │
-│    │           Thanatos (death), Hypnos (sleep), etc.           │
+│    ├── EREBUS (darkness) + NYX (night)                           │
+│    │       └── Aether (light), Hemera (day)                      │
+│    │           Thanatos (death), Hypnos (sleep), etc.            │
 │    │                                                             │
-│    └── EROS (in some traditions — primordial love)              │
+│    └── EROS (in some traditions — primordial love)               │
 │                                                                  │
 │  Titan War (Titanomachy): Zeus leads Olympians vs. Titans        │
-│  Giants War (Gigantomachy): Olympians vs. Giants                │
+│  Giants War (Gigantomachy): Olympians vs. Giants                 │
 │  Typhon: last great monster Gaia sends vs. Zeus                  │
 └──────────────────────────────────────────────────────────────────┘
 ```
@@ -49,25 +49,25 @@ The canonical twelve (though lists varied by source and city-state):
 │ Hera         │ Juno       │ Marriage, women, queen of gods        │
 │              │            │ Symbols: peacock, pomegranate, cow   │
 ├──────────────┼────────────┼──────────────────────────────────────┤
-│ Poseidon     │ Neptune    │ Sea, earthquakes, horses              │
+│ Poseidon     │ Neptune    │ Sea, earthquakes, horses             │
 │              │            │ Symbols: trident, horse, dolphin     │
 ├──────────────┼────────────┼──────────────────────────────────────┤
 │ Demeter      │ Ceres      │ Harvest, grain, agriculture           │
 │              │            │ Eleusinian Mysteries, seasons         │
 ├──────────────┼────────────┼──────────────────────────────────────┤
-│ Apollo       │ Apollo     │ Sun, music, prophecy, plague, healing │
+│ Apollo       │ Apollo     │ Sun, music, prophecy, plague, healing│
 │              │            │ Oracle at Delphi; twin of Artemis    │
 ├──────────────┼────────────┼──────────────────────────────────────┤
 │ Artemis      │ Diana      │ Hunt, moon, wilderness, childbirth   │
 │              │            │ Twin of Apollo; virginal huntress    │
 ├──────────────┼────────────┼──────────────────────────────────────┤
-│ Athena       │ Minerva    │ Wisdom, war strategy, crafts          │
+│ Athena       │ Minerva    │ Wisdom, war strategy, crafts         │
 │              │            │ Born from Zeus's head; owl, aegis    │
 ├──────────────┼────────────┼──────────────────────────────────────┤
 │ Ares         │ Mars       │ War (violence, bloodlust)             │
 │              │            │ Contrast with Athena (strategic war) │
 ├──────────────┼────────────┼──────────────────────────────────────┤
-│ Aphrodite    │ Venus      │ Love, beauty, desire                  │
+│ Aphrodite    │ Venus      │ Love, beauty, desire                 │
 │              │            │ Born from sea foam (Hesiod); wife of │
 │              │            │ Hephaestus, lover of Ares            │
 ├──────────────┼────────────┼──────────────────────────────────────┤
@@ -97,18 +97,18 @@ Eros (Cupid): love (primordial in Hesiod; Aphrodite's son in later tradition)
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                   THE GREEK UNDERWORLD                            │
+│                   THE GREEK UNDERWORLD                           │
 │                                                                  │
 │  ENTRANCE: Caves at Taenarum (Sparta) and Lake Avernus (Italy)   │
 │                                                                  │
 │  RIVERS (five):                                                  │
 │  Styx      — oath river; gods swear unbreakable oaths by it      │
 │  Acheron   — woe; Charon ferries souls across (with payment)     │
-│  Cocytus   — lamentation                                        │
+│  Cocytus   — lamentation                                         │
 │  Phlegethon— fire; borders Tartarus                              │
 │  Lethe     — forgetfulness; souls drink before reincarnation     │
 │                                                                  │
-│  JUDGES: Minos, Rhadamanthus, Aeacus (three sons of Zeus)       │
+│  JUDGES: Minos, Rhadamanthus, Aeacus (three sons of Zeus)        │
 │                                                                  │
 │  REGIONS:                                                        │
 │  Asphodel Meadows — ordinary souls, grey half-existence          │
@@ -118,9 +118,9 @@ Eros (Cupid): love (primordial in Hesiod; Aphrodite's son in later tradition)
 │                    — Sisyphus (boulder), Tantalus (water/fruit), │
 │                      Ixion (wheel), Tityos (liver eaten)         │
 │                                                                  │
-│  RULERS: Hades and Persephone                                   │
-│  GUARDIANS: Cerberus (3-headed dog), Charon (ferryman)          │
-│             Hermes (conducts souls as psychopomp)               │
+│  RULERS: Hades and Persephone                                    │
+│  GUARDIANS: Cerberus (3-headed dog), Charon (ferryman)           │
+│             Hermes (conducts souls as psychopomp)                │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -310,33 +310,33 @@ Running: 1900+ years (c. 1600 BCE → 392 CE, abolished by Christian Emperor The
 ┌──────────────────────────────────────────────────────────────────┐
 │           GREEK vs. ROMAN MYTHOLOGY — DIFFERENCES                │
 │                                                                  │
-│  1. ROMAN GODS LESS ANTHROPOMORPHIC originally                  │
-│     — Early Roman religion = numina (divine powers/presences)   │
-│     — Abstract gods of function: Janus (doorways), Terminus     │
-│       (boundaries), Saturn (planting time), Consus (grain)      │
+│  1. ROMAN GODS LESS ANTHROPOMORPHIC originally                   │
+│     — Early Roman religion = numina (divine powers/presences)    │
+│     — Abstract gods of function: Janus (doorways), Terminus      │
+│       (boundaries), Saturn (planting time), Consus (grain)       │
 │     — Imported Greek forms + personalities ~200 BCE              │
 │                                                                  │
-│  2. ROMAN FOUNDATION MYTHS:                                     │
-│     — Romulus + Remus (suckled by she-wolf Lupa)                │
-│     — Romulus kills Remus, founds Rome                          │
-│     — Aeneas: Trojan hero, escapes Troy, founds Latin bloodline │
+│  2. ROMAN FOUNDATION MYTHS:                                      │
+│     — Romulus + Remus (suckled by she-wolf Lupa)                 │
+│     — Romulus kills Remus, founds Rome                           │
+│     — Aeneas: Trojan hero, escapes Troy, founds Latin bloodline  │
 │       (Virgil's Aeneid, ~19 BCE — Rome's national epic)          │
 │                                                                  │
 │  3. ROMAN HOUSEHOLD RELIGION:                                    │
-│     — Lares (household/ancestor spirits) — shrines in homes     │
-│     — Penates (pantry/provisions gods)                          │
-│     — Genius (divine creative force of the paterfamilias)       │
-│     These are specifically Roman, no Greek equivalent           │
+│     — Lares (household/ancestor spirits) — shrines in homes      │
+│     — Penates (pantry/provisions gods)                           │
+│     — Genius (divine creative force of the paterfamilias)        │
+│     These are specifically Roman, no Greek equivalent            │
 │                                                                  │
-│  4. DEIFICATION OF EMPERORS:                                    │
-│     — Julius Caesar → divus Julius (deified after assassination)│
-│     — Augustus established imperial cult                        │
-│     — Later emperors routinely deified                          │
-│     — Caligula/Domitian claimed living divinity (controversial) │
+│  4. DEIFICATION OF EMPERORS:                                     │
+│     — Julius Caesar → divus Julius (deified after assassination) │
+│     — Augustus established imperial cult                         │
+│     — Later emperors routinely deified                           │
+│     — Caligula/Domitian claimed living divinity (controversial)  │
 │                                                                  │
-│  5. JANUS — uniquely Roman:                                     │
-│     Two-faced god of beginnings, transitions, doorways          │
-│     January named after him; no Greek equivalent                │
+│  5. JANUS — uniquely Roman:                                      │
+│     Two-faced god of beginnings, transitions, doorways           │
+│     January named after him; no Greek equivalent                 │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

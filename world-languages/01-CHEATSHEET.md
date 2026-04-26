@@ -2,32 +2,32 @@
 
 ```
 +------------------------------------------------------------------------+
-|              LANGUAGE FAMILY LANDSCAPE — FILES 02–14                  |
+|              LANGUAGE FAMILY LANDSCAPE — FILES 02–14                   |
 |                                                                        |
 |  INDO-EUROPEAN                                                         |
-|    Romance:  Spanish (02) · Portuguese (03) · French (04)             |
+|    Romance:  Spanish (02) · Portuguese (03) · French (04)              |
 |              Latin (14-A)                                              |
 |    Germanic: German (05)                                               |
-|    Slavic:   Russian (06) · Polish (13-D)                             |
-|    Indo-Aryan: Hindi-Urdu (08)                                        |
-|    Iranian:  Persian/Farsi (13-C)                                     |
+|    Slavic:   Russian (06) · Polish (13-D)                              |
+|    Indo-Aryan: Hindi-Urdu (08)                                         |
+|    Iranian:  Persian/Farsi (13-C)                                      |
 |                                                                        |
 |  AFRO-ASIATIC                                                          |
 |    Semitic:  Arabic (07)                                               |
 |                                                                        |
 |  SINO-TIBETAN                                                          |
-|    Sinitic:  Mandarin (09)                                            |
+|    Sinitic:  Mandarin (09)                                             |
 |                                                                        |
-|  JAPONIC / KOREANIC (isolates or near-isolates)                       |
-|    Japanese (10) · Korean (11)                                        |
+|  JAPONIC / KOREANIC (isolates or near-isolates)                        |
+|    Japanese (10) · Korean (11)                                         |
 |                                                                        |
 |  AUSTROASIATIC                                                         |
-|    Vietnamese · Khmer (12)                                            |
+|    Vietnamese · Khmer (12)                                             |
 |                                                                        |
 |  TAI-KADAI                                                             |
 |    Thai (12)                                                           |
 |                                                                        |
-|  SINO-TIBETAN (Tibeto-Burman branch)                                  |
+|  SINO-TIBETAN (Tibeto-Burman branch)                                   |
 |    Burmese (12)                                                        |
 |                                                                        |
 |  TURKIC                                                                |
@@ -349,7 +349,7 @@ Turkish months derive from Latin/Roman roots (not Ottoman Arabic).
 
 ```
 +------------+----------------------------------------------+
-| Language   | Special characters (beyond basic a-z)       |
+| Language   | Special characters (beyond basic a-z)        |
 +------------+----------------------------------------------+
 | Spanish    | á é í ó ú ñ ü ¿ ¡                           |
 | Portuguese | ã õ â ê ô ç á é í ó ú à                     |
@@ -565,7 +565,7 @@ Blocks:  한 = ㅎ+ㅏ+ㄴ (h+a+n)
 | yesterday        | 昨日   | 어제   | أمس   | dün    | कल     |
 | tomorrow         | 明日   | 내일   | غدا   | yarın  | कल*    |
 | now              | 今     | 지금   | الآن  | şimdi  | अभी    |
-| morning          | 朝     | 아침   | صباح  | sabah  | सुबह   |
+| morning          | 朝     | 아침   | صباح  | sabah  | सुबह    |
 | evening/night    | 夜     | 저녁   | مساء  | akşam  | रात    |
 +------------------+--------+--------+-------+--------+--------+
 *Hindi: "kal" = both yesterday AND tomorrow; context determines meaning.

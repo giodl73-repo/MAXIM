@@ -20,11 +20,11 @@ JOURNALISM ECOSYSTEM
           ↑                      ↑                           ↓
   SOURCES                  STANDARDS                   AUDIENCE
   ┌──────────────────┐    ┌──────────────────────┐   ┌─────────────────┐
-  │  Officials       │    │  Verification         │   │  Citizens       │
-  │  Documents       │    │  Attribution          │   │  Policy-makers  │
-  │  Whistleblowers  │    │  Fairness             │   │  Other media    │
-  │  Databases       │    │  Corrections policy   │   │  (agenda-       │
-  │  Wire services   │    │  Editorial independence│  │   setting)      │
+  │  Officials       │    │  Verification         │   │  Citizens      │
+  │  Documents       │    │  Attribution          │   │  Policy-makers │
+  │  Whistleblowers  │    │  Fairness             │   │  Other media   │
+  │  Databases       │    │  Corrections policy   │   │  (agenda-      │
+  │  Wire services   │    │  Editorial independence│  │   setting)     │
   └──────────────────┘    └──────────────────────┘   └─────────────────┘
 
   THE FOURTH ESTATE CLAIM:
@@ -225,7 +225,7 @@ NEWS ECOSYSTEM FEEDBACK LOOP
 
   SOURCES                                            AUDIENCE
   ┌──────────┐    ┌───────────┐    ┌───────────┐    ┌──────────┐
-  │ Officials│    │ REPORTING │    │ EDITING /  │    │ Citizens │
+  │ Officials│    │ REPORTING │    │ EDITING /  │    │ Citizens│
   │ Documents│ →  │ (gather + │ →  │ PRODUCTION│ →  │ Readers  │
   │ Leaks    │    │  verify)  │    │ (gate-    │    │ Viewers  │
   │ Data sets│    │           │    │  keeping) │    │ Clicks   │

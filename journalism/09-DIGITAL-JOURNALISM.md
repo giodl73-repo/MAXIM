@@ -26,16 +26,16 @@ DIGITAL JOURNALISM ECOSYSTEM MAP
 
   THE STRUCTURAL PROBLEM:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  PRINT ERA: Publisher → newspaper → reader                      │
-  │   Publisher controlled distribution; advertising subsidized     │
-  │   journalism directly                                           │
-  │                                                                   │
-  │  DIGITAL ERA: Publisher → platform → algorithm → reader (maybe) │
-  │   Platform controls distribution; advertising captured by       │
-  │   Google/Meta; publisher gets traffic but not revenue parity    │
-  │                                                                   │
-  │  RESULT: News organizations restructured to chase algorithm     │
-  │   (SEO, engagement, recency) rather than editorial merit        │
+  │  PRINT ERA: Publisher → newspaper → reader                       │
+  │   Publisher controlled distribution; advertising subsidized      │
+  │   journalism directly                                            │
+  │                                                                  │
+  │  DIGITAL ERA: Publisher → platform → algorithm → reader (maybe)  │
+  │   Platform controls distribution; advertising captured by        │
+  │   Google/Meta; publisher gets traffic but not revenue parity     │
+  │                                                                  │
+  │  RESULT: News organizations restructured to chase algorithm      │
+  │   (SEO, engagement, recency) rather than editorial merit         │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -236,13 +236,13 @@ NEWSLETTER ECONOMICS
 
   NEWSLETTER vs. TRADITIONAL OUTLET COMPARISON:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  NEWSLETTER:                  TRADITIONAL OUTLET:               │
+  │  NEWSLETTER:                  TRADITIONAL OUTLET:                │
   │  Writer controls everything   Editorial structure and oversight  │
   │  No institutional backing     Institutional legal protection     │
-  │  Direct reader relationship   Institutional audience            │
-  │  Platform-independent (email) Platform-dependent (social/search)│
+  │  Direct reader relationship   Institutional audience             │
+  │  Platform-independent (email) Platform-dependent (social/search) │
   │  Single voice/perspective     Multiple reporters/viewpoints      │
-  │  Variable corrections         Formal corrections policy         │
+  │  Variable corrections         Formal corrections policy          │
   └──────────────────────────────────────────────────────────────────┘
 ```
 

@@ -257,32 +257,32 @@ STEELMAKING PROCESSES COMPARED
 STRUCTURAL STEEL GRADES (ASTM / AISC system)
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  GRADE       Fy (MPa)  Fu (MPa)  C max   NOTES                              │
-│  ─────────────────────────────────────────────────────────────────────────  │
+│  GRADE       Fy (MPa)  Fu (MPa)  C max   NOTES                               │
+│  ─────────────────────────────────────────────────────────────────────────   │
 │  A36         250       400       0.26%   Most common; weldable; ductile      │
 │  A572 Gr.50  345       450       0.23%   High-strength low-alloy (HSLA)      │
 │  A572 Gr.60  415       520       —       Less common; thin plates mainly     │
-│  A913 Gr.65  450       550       0.20%   Quench+temper+self-temp; seismic   │
-│  A514        690       760       0.21%   High-strength Q+T; bridges, cranes │
-│  A992        345       450       0.23%   Wide-flange shapes; seismic (Fy/Fu)│
-│  S275 (EU)   275       430       —       Euronorm equivalent of A36         │
-│  S355 (EU)   355       490       —       Euronorm equivalent of A572 Gr.50  │
-│  S460 (EU)   460       540       —       High strength; bridges             │
+│  A913 Gr.65  450       550       0.20%   Quench+temper+self-temp; seismic    │
+│  A514        690       760       0.21%   High-strength Q+T; bridges, cranes  │
+│  A992        345       450       0.23%   Wide-flange shapes; seismic (Fy/Fu) │
+│  S275 (EU)   275       430       —       Euronorm equivalent of A36          │
+│  S355 (EU)   355       490       —       Euronorm equivalent of A572 Gr.50   │
+│  S460 (EU)   460       540       —       High strength; bridges              │
 │                                                                              │
-│  HSLA (High-Strength Low-Alloy) concept:                                    │
-│    Add small amounts of Nb, V, Ti → precipitation hardening                 │
-│    → Fy 50–100% higher than mild steel; no loss of weldability              │
-│    → less steel needed → lighter structure → less embodied carbon           │
+│  HSLA (High-Strength Low-Alloy) concept:                                     │
+│    Add small amounts of Nb, V, Ti → precipitation hardening                  │
+│    → Fy 50–100% higher than mild steel; no loss of weldability               │
+│    → less steel needed → lighter structure → less embodied carbon            │
 │                                                                              │
 │  THERMO-MECHANICALLY CONTROLLED PROCESS (TMCP):                              │
 │    Controlled rolling temperature + accelerated cooling                      │
-│    → fine grain structure → high Fy without heavy alloying                  │
-│    → better weldability (lower carbon equivalent)                           │
+│    → fine grain structure → high Fy without heavy alloying                   │
+│    → better weldability (lower carbon equivalent)                            │
 │                                                                              │
 │  A992 SEISMIC REQUIREMENT:                                                   │
-│    Fy/Fu ≤ 0.85 (strain-hardening ratio)                                    │
-│    → ensures ductile yielding zone before fracture                          │
-│    → critical for plastic hinge behaviour in seismic frames                 │
+│    Fy/Fu ≤ 0.85 (strain-hardening ratio)                                     │
+│    → ensures ductile yielding zone before fracture                           │
+│    → critical for plastic hinge behaviour in seismic frames                  │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```

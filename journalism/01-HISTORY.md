@@ -54,11 +54,11 @@ PRE-PRINT JOURNALISM
 
   GERMAN PRINTED NEWSPAPERS (early 17th century):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Relation aller Fürnemmen... (1605, Strasbourg) — first         │
-  │  regularly published printed newspaper                          │
-  │  Aviso Relation oder Zeitung (1609, Wolfenbüttel)               │
-  │  Content: Dispatches from distant cities; war reports           │
-  │  Distribution: Postal network (German postal system key)        │
+  │  Relation aller Fürnemmen... (1605, Strasbourg) — first          │
+  │  regularly published printed newspaper                           │
+  │  Aviso Relation oder Zeitung (1609, Wolfenbüttel)                │
+  │  Content: Dispatches from distant cities; war reports            │
+  │  Distribution: Postal network (German postal system key)         │
   └──────────────────────────────────────────────────────────────────┘
 
   ENGLISH NEWSBOOKS (1620s–1641):

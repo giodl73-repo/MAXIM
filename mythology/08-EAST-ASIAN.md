@@ -6,36 +6,36 @@ East Asian mythology divides into two major streams — Chinese and Japanese —
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              EAST ASIAN MYTHOLOGICAL OVERVIEW                     │
+│              EAST ASIAN MYTHOLOGICAL OVERVIEW                    │
 │                                                                  │
 │  CHINESE MYTHOLOGY                                               │
-│  — No single canonical text (unlike Homer or the Vedas)         │
+│  — No single canonical text (unlike Homer or the Vedas)          │
 │  — Sources: Shanhaijing (Classic of Mountains and Seas, ~400     │
-│    BCE–200 CE), Huainanzi (2nd c. BCE), various dynastic        │
+│    BCE–200 CE), Huainanzi (2nd c. BCE), various dynastic         │
 │    histories, folk literature, and later encyclopedias           │
-│  — Incorporated into Taoism, Buddhism, and folk religion over   │
+│  — Incorporated into Taoism, Buddhism, and folk religion over    │
 │    millennia; the Jade Emperor tradition is largely Song Dynasty │
-│    (10th–13th c. CE) and later                                  │
-│  — Key layers: Primordial myths (Pangu/Nu Wa) → Culture Heroes  │
-│    (Yellow Emperor/Yu/Houyi) → Celestial Bureaucracy →          │
-│    Novel-era mythology (Journey to the West, etc.)              │
+│    (10th–13th c. CE) and later                                   │
+│  — Key layers: Primordial myths (Pangu/Nu Wa) → Culture Heroes   │
+│    (Yellow Emperor/Yu/Houyi) → Celestial Bureaucracy →           │
+│    Novel-era mythology (Journey to the West, etc.)               │
 │                                                                  │
 │  JAPANESE MYTHOLOGY                                              │
-│  — Two canonical sources from 712–720 CE:                       │
-│    Kojiki ("Record of Ancient Matters") — 712 CE                │
-│    Nihon Shoki ("Chronicles of Japan") — 720 CE                 │
-│  — Written to legitimize the imperial family's divine descent   │
-│    (Emperor = descendant of Amaterasu)                          │
-│  — Shinto mythology; absorbed Buddhist cosmology from 6th c.    │
-│  — Living tradition: shrines, matsuri (festivals), kami still   │
-│    actively worshipped                                          │
+│  — Two canonical sources from 712–720 CE:                        │
+│    Kojiki ("Record of Ancient Matters") — 712 CE                 │
+│    Nihon Shoki ("Chronicles of Japan") — 720 CE                  │
+│  — Written to legitimize the imperial family's divine descent    │
+│    (Emperor = descendant of Amaterasu)                           │
+│  — Shinto mythology; absorbed Buddhist cosmology from 6th c.     │
+│  — Living tradition: shrines, matsuri (festivals), kami still    │
+│    actively worshipped                                           │
 │                                                                  │
 │  SHARED ELEMENTS:                                                │
-│  — Strong ancestor veneration across both traditions            │
-│  — Bureaucratic cosmology: heaven organized like an imperial    │
-│    court or government (uniquely East Asian)                    │
-│  — Buddhism as overlay: both absorbed Buddhist cosmology        │
-│    without fully replacing native traditions                    │
+│  — Strong ancestor veneration across both traditions             │
+│  — Bureaucratic cosmology: heaven organized like an imperial     │
+│    court or government (uniquely East Asian)                     │
+│  — Buddhism as overlay: both absorbed Buddhist cosmology         │
+│    without fully replacing native traditions                     │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

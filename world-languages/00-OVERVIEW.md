@@ -94,14 +94,14 @@ that determine how "different" a language feels to an English speaker.
 +-------------------+-------------------+----------------------------------------+
 | AGGLUTINATIVE     | Turkish, Japanese,| Suffixes stack up, each with one       |
 |                   | Korean, Swahili,  | meaning. Predictable. Long words.      |
-|                   | Finnish, Uzbek    | Turkish: "git-me-yebil-ecek-misin?"   |
+|                   | Finnish, Uzbek    | Turkish: "git-me-yebil-ecek-misin?"    |
 +-------------------+-------------------+----------------------------------------+
 | FUSIONAL          | Russian, Latin,   | Endings bundle multiple meanings.      |
 | (inflectional)    | German, Spanish,  | Latin "amo" = I + love + present +    |
 |                   | Greek, Arabic     | indicative + active. Unpredictable.   |
 +-------------------+-------------------+----------------------------------------+
 | POLYSYNTHETIC     | Inuktitut,        | Whole sentences in one word.           |
-|                   | Mohawk, Navajo    | Rare in this library's top-35.        |
+|                   | Mohawk, Navajo    | Rare in this library's top-35.         |
 +-------------------+-------------------+----------------------------------------+
 ```
 
@@ -316,8 +316,8 @@ Each language file (`02-SPANISH.md` through `14-LATIN-CONSTRUCTED.md`) follows:
 ```
 +--------------------------------------------+
 | 1. PROFILE BOX                             |
-|    Family, order, morphology, tonal, script |
-|    native speakers, FSI difficulty          |
+|    Family, order, morphology, tonal, script|
+|    native speakers, FSI difficulty         |
 +--------------------------------------------+
 | 2. SOUND SYSTEM                            |
 |    Key pronunciation rules, contrasts      |

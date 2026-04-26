@@ -176,10 +176,10 @@ into large sections with any depth or length.
 GLULAM PRODUCTION AND GEOMETRY
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  LAMELLA: 35–45 mm thick sawn boards, typically 90–185 mm wide              │
+│  LAMELLA: 35–45 mm thick sawn boards, typically 90–185 mm wide               │
 │                                                                              │
 │  END-JOINING: finger joints between board lengths                            │
-│  ┌─────────────────────────────────────────────────────────────────────┐    │
+│  ┌─────────────────────────────────────────────────────────────────────┐     │
 │  │ board 1 ──────────╱╲╱╲╱╲───── board 2 continuing                   │    │
 │  └─────────────────────────────────────────────────────────────────────┘    │
 │  Finger profile: length 20–45mm; pitch 4–10mm; tip 0.5–2mm                 │

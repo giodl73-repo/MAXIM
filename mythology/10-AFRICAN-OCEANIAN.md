@@ -585,7 +585,7 @@ Melanesia (Papua New Guinea, Vanuatu, Solomon Islands, Fiji, New Caledonia) is t
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                  MELANESIAN RELIGIOUS CONCEPTS                    │
+│                  MELANESIAN RELIGIOUS CONCEPTS                   │
 │                                                                  │
 │  MANA (Melanesian origin of the concept):                        │
 │  The word "mana" is Melanesian, not Polynesian in origin —       │
@@ -599,10 +599,10 @@ Melanesia (Papua New Guinea, Vanuatu, Solomon Islands, Fiji, New Caledonia) is t
 │  → Not a "substance" inside things — more like an explanation    │
 │    of success: working backwards from the result                 │
 │  → Critical note: Codrington's account was itself a Western      │
-│    interpretation; later fieldwork suggests "mana" was more       │
+│    interpretation; later fieldwork suggests "mana" was more      │
 │    locally variable than the generalized concept implies         │
 │                                                                  │
-│  COMPARE to contemporary software: "magic" in code slang        │
+│  COMPARE to contemporary software: "magic" in code slang         │
 │  functions similarly — "magical numbers", "it just works"        │
 │  both explain success by naming the unexplained efficacy         │
 └──────────────────────────────────────────────────────────────────┘

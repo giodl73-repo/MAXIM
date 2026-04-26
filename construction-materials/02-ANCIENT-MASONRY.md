@@ -13,11 +13,11 @@ ANCIENT MASONRY SYSTEMS AND THEIR STRUCTURAL LOGIC
 │  Fired brick masonry   Fired clay         Stack + arch       ~3–6 m (arch)   │
 │  Voussoir arch         Stone/brick        Arch thrust line   ~30 m+          │
 │  Roman pozzolana conc  Volcanic + lime    Vault/dome         ~44 m (Pantheon)│
-│  Roman aqueduct        Arched arcade      Multiple arches    200+ km          │
+│  Roman aqueduct        Arched arcade      Multiple arches    200+ km         │
 │                                                                              │
-│  UNIFYING CONSTRAINT: all work in COMPRESSION ONLY                          │
+│  UNIFYING CONSTRAINT: all work in COMPRESSION ONLY                           │
 │  → material tensile strength irrelevant                                      │
-│  → geometry must keep force resultant inside material (no tension)          │
+│  → geometry must keep force resultant inside material (no tension)           │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```

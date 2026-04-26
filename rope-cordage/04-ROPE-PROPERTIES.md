@@ -9,8 +9,8 @@ ROPE PERFORMANCE DIMENSIONS
 ============================
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  STATIC PROPERTIES              DYNAMIC PROPERTIES              │
-  │  ┌──────────────────┐           ┌──────────────────┐            │
+  │  STATIC PROPERTIES              DYNAMIC PROPERTIES               │
+  │  ┌──────────────────┐           ┌──────────────────┐             │
   │  │ Breaking strength│           │ Elongation/energy│            │
   │  │ (MBS, ASTM F1623)│           │ absorption (fall │            │
   │  │                  │           │ arrest, mooring) │            │
@@ -18,10 +18,10 @@ ROPE PERFORMANCE DIMENSIONS
   │                                                                   │
   │  DURABILITY PROPERTIES          HANDLING PROPERTIES             │
   │  ┌──────────────────┐           ┌──────────────────┐            │
-  │  │ UV degradation   │           │ Flexibility       │           │
-  │  │ Abrasion resistance│         │ Knotability       │           │
-  │  │ Chemical resistance│         │ Coilability       │           │
-  │  │ Creep (sustained)│           │ Hand (softness)   │           │
+  │  │ UV degradation   │           │ Flexibility      │           │
+  │  │ Abrasion resistance│         │ Knotability      │           │
+  │  │ Chemical resistance│         │ Coilability      │           │
+  │  │ Creep (sustained)│           │ Hand (softness)  │           │
   │  └──────────────────┘           └──────────────────┘            │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -36,11 +36,11 @@ STRENGTH TERMINOLOGY
 
   MBS (Minimum Breaking Strength):
   ┌──────────────────────────────────────────────────────────────────┐
-  │  The MINIMUM result from a test series — not the average.       │
-  │  ASTM F1623 / EN 919 testing: choked eyes or machine grips      │
+  │  The MINIMUM result from a test series — not the average.        │
+  │  ASTM F1623 / EN 919 testing: choked eyes or machine grips       │
   │  Test to failure: force at which rope breaks completely          │
-  │  MBS is the 5th percentile (or minimum observed) of test results│
-  │  Published in catalogs, must be met by every coil               │
+  │  MBS is the 5th percentile (or minimum observed) of test results │
+  │  Published in catalogs, must be met by every coil                │
   └──────────────────────────────────────────────────────────────────┘
 
   ABS (Average Breaking Strength): average of test series
@@ -60,10 +60,10 @@ STRENGTH TERMINOLOGY
 
   SHOCK LOAD:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  A sudden jerked load can temporarily exceed WLL by 2–4×.       │
-  │  Dynamic application (crane lifts, mooring, vehicle towing):    │
+  │  A sudden jerked load can temporarily exceed WLL by 2–4×.        │
+  │  Dynamic application (crane lifts, mooring, vehicle towing):     │
   │  Effective safety factor must account for dynamic factor.        │
-  │  Rule of thumb: dynamic loads → apply 2× additional factor.     │
+  │  Rule of thumb: dynamic loads → apply 2× additional factor.      │
   │                 10:1 SF for life safety covers this.             │
   └──────────────────────────────────────────────────────────────────┘
 ```
@@ -90,11 +90,11 @@ BREAKING STRENGTH BENCHMARKS (3/8" / 10mm rope, approximately)
 
   WET STRENGTH FACTOR:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Manila:    80–90% of dry strength                              │
-  │  Nylon:     85% of dry strength (moisture plasticization)       │
-  │  Polyester: 100% (no water absorption)                          │
-  │  UHMWPE:    100% (no water absorption)                          │
-  │  Cotton:    100–110% (gains slightly when wet — unusual)        │
+  │  Manila:    80–90% of dry strength                               │
+  │  Nylon:     85% of dry strength (moisture plasticization)        │
+  │  Polyester: 100% (no water absorption)                           │
+  │  UHMWPE:    100% (no water absorption)                           │
+  │  Cotton:    100–110% (gains slightly when wet — unusual)         │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -155,13 +155,13 @@ ABRASION RESISTANCE RANKING (rope-level, approximate)
 
   BEST ABRASION RESISTANCE:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  1. Nylon              (excellent — fiber toughness)            │
-  │  2. Polyester          (very good — hard fiber, stable)         │
-  │  3. UHMWPE             (excellent for dry; reduced in gritty    │
-  │                         abrasion — softness cuts on sharp grit) │
-  │  4. Aramid             (moderate — cuts along fiber axis)       │
-  │  5. Polypropylene      (moderate)                               │
-  │  6. Hemp/Manila        (poor — surface fibers sacrifice readily)│
+  │  1. Nylon              (excellent — fiber toughness)             │
+  │  2. Polyester          (very good — hard fiber, stable)          │
+  │  3. UHMWPE             (excellent for dry; reduced in gritty     │
+  │                         abrasion — softness cuts on sharp grit)  │
+  │  4. Aramid             (moderate — cuts along fiber axis)        │
+  │  5. Polypropylene      (moderate)                                │
+  │  6. Hemp/Manila        (poor — surface fibers sacrifice readily) │
   └──────────────────────────────────────────────────────────────────┘
 
   ABRASION TEST (ASTM D3108 or proprietary):

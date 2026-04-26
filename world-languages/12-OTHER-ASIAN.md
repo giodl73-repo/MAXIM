@@ -302,7 +302,7 @@ SURVIVAL THAI
 
 ```
 +--------------------------------------------------------------------+
-| INDONESIAN (Bahasa Indonesia) / MALAY (Bahasa Melayu)             |
+| INDONESIAN (Bahasa Indonesia) / MALAY (Bahasa Melayu)              |
 +--------------------------------------------------------------------+
 | Family:      Austronesian → Malayo-Polynesian → Malayic           |
 | Native spkrs: ~199M Indonesian + ~20M Malay (distinct standards)  |

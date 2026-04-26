@@ -210,29 +210,29 @@ KHEPRI — Rising sun as scarab beetle
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                 RA'S SOLAR BARQUE                                 │
+│                 RA'S SOLAR BARQUE                                │
 │                                                                  │
-│  DAY (above horizon):                                           │
-│  Ra (or Ra-Horakhty — "Ra-Horus of the Two Horizons")           │
-│  Sails across the sky in the Barque of Millions                 │
-│  Accompanied by a divine crew                                   │
+│  DAY (above horizon):                                            │
+│  Ra (or Ra-Horakhty — "Ra-Horus of the Two Horizons")            │
+│  Sails across the sky in the Barque of Millions                  │
+│  Accompanied by a divine crew                                    │
 │                                                                  │
-│  SUNSET → NIGHT JOURNEY (Duat/underworld):                      │
-│  Ra enters as Auf (the ram-headed night sun — weak, needs rest) │
-│  12 hours = 12 gates / 12 divisions of the night (Amduat)       │
-│  Each hour: divine beings greet Ra; he grants them life via his │
-│  divine light; without this passage, no sunrise                 │
+│  SUNSET → NIGHT JOURNEY (Duat/underworld):                       │
+│  Ra enters as Auf (the ram-headed night sun — weak, needs rest)  │
+│  12 hours = 12 gates / 12 divisions of the night (Amduat)        │
+│  Each hour: divine beings greet Ra; he grants them life via his  │
+│  divine light; without this passage, no sunrise                  │
 │                                                                  │
 │  THE CONFLICT:                                                   │
-│  Each night: Apep (Apophis) — cosmic chaos serpent — attacks    │
-│  Ra must be defended by Set, Mehen (snake who coils around Ra), │
-│  the crew, and ritual spells recited by priests above           │
-│  Priests chanted anti-Apophis spells in every major temple daily│
-│  → cosmic order maintained by ritual participation              │
+│  Each night: Apep (Apophis) — cosmic chaos serpent — attacks     │
+│  Ra must be defended by Set, Mehen (snake who coils around Ra),  │
+│  the crew, and ritual spells recited by priests above            │
+│  Priests chanted anti-Apophis spells in every major temple daily │
+│  → cosmic order maintained by ritual participation               │
 │                                                                  │
-│  DAWN:                                                          │
-│  Ra emerges reborn as Khepri (scarab = self-creating)           │
-│  The victory over Apep renewed each day                         │
+│  DAWN:                                                           │
+│  Ra emerges reborn as Khepri (scarab = self-creating)            │
+│  The victory over Apep renewed each day                          │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -305,7 +305,7 @@ LAKE OF FIRE (Amenti):
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│              EGYPTIAN FUNERARY TEXTS                              │
+│              EGYPTIAN FUNERARY TEXTS                             │
 ├──────────────────────────────────────────────────────────────────┤
 │ PYRAMID TEXTS (~2400–2300 BCE)                                   │
 │ Oldest religious corpus in the world                            │
@@ -314,8 +314,8 @@ LAKE OF FIRE (Amenti):
 │ → Only for the pharaoh initially; later expanded                │
 ├──────────────────────────────────────────────────────────────────┤
 │ COFFIN TEXTS (~2100–1700 BCE)                                    │
-│ Middle Kingdom; painted on coffins                              │
-│ Expanded access beyond pharaohs (democratization of afterlife)  │
+│ Middle Kingdom; painted on coffins                               │
+│ Expanded access beyond pharaohs (democratization of afterlife)   │
 ├──────────────────────────────────────────────────────────────────┤
 │ BOOK OF THE DEAD (~1550 BCE–)                                    │
 │ New Kingdom onward; papyrus scrolls placed with the deceased    │

@@ -6,8 +6,8 @@
 GLOBAL VERNACULAR BUILDING STRATEGIES
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │                                                                              │
-│  CLIMATE ZONE           DOMINANT MATERIAL      STRATEGY                     │
-│  ─────────────────────────────────────────────────────────────────────────  │
+│  CLIMATE ZONE           DOMINANT MATERIAL      STRATEGY                      │
+│  ─────────────────────────────────────────────────────────────────────────   │
 │  Arid/hot-dry           Adobe / rammed earth   Thermal mass; day/night swing │
 │  (Middle East, N.Africa) Mud brick + flat roof  Small windows; courtyard     │
 │                                                                              │
@@ -20,13 +20,13 @@ GLOBAL VERNACULAR BUILDING STRATEGIES
 │  Tropical/humid         Bamboo + thatch        Elevated (airflow); light     │
 │  (S.E. Asia, Pacific)   Open weave walls       Maximum ventilation; no mass  │
 │                                                                              │
-│  Sub-Saharan savanna     Earthen forms          Compound clusters; shade      │
-│  (W. Africa)             Banco (clay+fibre)     Conical thatched roofs        │
+│  Sub-Saharan savanna     Earthen forms          Compound clusters; shade     │
+│  (W. Africa)             Banco (clay+fibre)     Conical thatched roofs       │
 │                                                                              │
-│  Arctic/sub-arctic       Snow/sod               Insulation; below grade       │
-│  (Greenland, Siberia)    Timber frame + sod     Earth berming; low profile    │
+│  Arctic/sub-arctic       Snow/sod               Insulation; below grade      │
+│  (Greenland, Siberia)    Timber frame + sod     Earth berming; low profile   │
 │                                                                              │
-│  Temperate forest        Log cabin / cruck      Massive log walls; steep roof │
+│  Temperate forest        Log cabin / cruck      Massive log walls; steep roof│
 │  (N.America, Russia)     Round timber           Snow load; pine/fir          │
 │                                                                              │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -48,11 +48,11 @@ Adobe is unfired sun-dried brick. The critical variable is soil composition.
 IDEAL ADOBE SOIL COMPOSITION
 ┌────────────────────────────────────────────────────────────┐
 │                                                            │
-│  Clay:   15–30%  ← binder; too much → shrinkage cracking  │
-│  Silt:   10–30%  ← filler; neutral                        │
-│  Sand:   45–75%  ← skeleton; controls shrinkage           │
-│  Gravel: 0–15%   ← structural fill                        │
-│  Fiber:  0.5–1%  ← straw/grass; crack bridging            │
+│  Clay:   15–30%  ← binder; too much → shrinkage cracking   │
+│  Silt:   10–30%  ← filler; neutral                         │
+│  Sand:   45–75%  ← skeleton; controls shrinkage            │
+│  Gravel: 0–15%   ← structural fill                         │
+│  Fiber:  0.5–1%  ← straw/grass; crack bridging             │
 │                                                            │
 │  Field test: form ball in hand, drop from 1 m              │
 │    Shatters completely → too sandy (not enough clay)       │
@@ -173,7 +173,7 @@ production for construction.
 DAUB MIX COMPONENTS
 ┌───────────────────────────────────────────────────────────────┐
 │                                                               │
-│  Clay/subsoil:   50–60% by volume  ← binder                  │
+│  Clay/subsoil:   50–60% by volume  ← binder                   │
 │  Straw/hay:      20–30%            ← fiber, crack control     │
 │  Animal dung:    10–15%            ← binder + fiber + bacteria│
 │  Sand:           10–20%            ← reduces shrinkage        │
@@ -185,7 +185,7 @@ DAUB MIX COMPONENTS
 │    3. Reduces shrinkage cracking vs clay-only mixes           │
 │                                                               │
 │  Application: two coats minimum                               │
-│    First coat (rough coat / prick coat): 15–20 mm            │
+│    First coat (rough coat / prick coat): 15–20 mm             │
 │    Second coat (float coat): 10–15 mm                         │
 │    Final coat (limewash): 2–3 mm lime + water (whitewash)     │
 │                                                               │

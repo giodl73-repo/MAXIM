@@ -233,10 +233,10 @@ WIRE ROPE TERMINALS
 
   WEDGE SOCKET:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Tapered steel socket; wire rope bent around wedge; pull        │
-  │  seats wedge tighter                                            │
-  │  Strength: ~75% MBS (not full efficiency — dead end loses load) │
-  │  Use: Temporary, field connections, elevator cables             │
+  │  Tapered steel socket; wire rope bent around wedge; pull         │
+  │  seats wedge tighter                                             │
+  │  Strength: ~75% MBS (not full efficiency — dead end loses load)  │
+  │  Use: Temporary, field connections, elevator cables              │
   └──────────────────────────────────────────────────────────────────┘
 
   POURED SOCKET (spelter socket):

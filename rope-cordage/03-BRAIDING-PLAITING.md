@@ -20,12 +20,12 @@ BRAID vs. TWIST: STRUCTURAL COMPARISON
 
   BRAIDED:
   ┌──────────────────────────────────────────────────────────────────┐
-  │  Structure: Carriers interlace over-under in helical pattern    │
+  │  Structure: Carriers interlace over-under in helical pattern     │
   │  Cross-section: Round, no voids in hollow/solid braid            │
-  │  Torque: None (carriers balanced ±direction)                    │
-  │  Splicing: Buried lock-stitch splice (requires technique)       │
-  │  Surface: Smooth, round — handles easily, reduced abrasion wear │
-  │  Stiffness: Stiffer at small diameter; more kink-resistant      │
+  │  Torque: None (carriers balanced ±direction)                     │
+  │  Splicing: Buried lock-stitch splice (requires technique)        │
+  │  Surface: Smooth, round — handles easily, reduced abrasion wear  │
+  │  Stiffness: Stiffer at small diameter; more kink-resistant       │
   └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -133,8 +133,8 @@ DOUBLE BRAID CONSTRUCTION
 ==========================
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  CROSS-SECTION:                                                 │
-  │  ┌────────────────────────────────────────────────────────────┐ │
+  │  CROSS-SECTION:                                                  │
+  │  ┌────────────────────────────────────────────────────────────┐  │
   │  │  COVER (braided):  ██████████████████████████████████████  │ │
   │  │  (braided sheath   ██████████████████████████████████████  │ │
   │  │   16 or 32         ██████████████████████████████████████  │ │

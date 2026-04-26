@@ -218,36 +218,36 @@ Baba Yaga is the single most recognizable figure in Slavic mythology, appearing 
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                      BABA YAGA                                    │
+│                      BABA YAGA                                   │
 │                                                                  │
 │  DESCRIPTION:                                                    │
-│  — Hideous old woman; iron teeth; very long nose                │
-│  — Lives in a hut on chicken legs (izbushka na kur'ikh nozhkakh)│
-│    — the hut rotates; can be asked to face the forest or the    │
-│       hero (forest = death/Otherworld; hero = passage/help)     │
-│  — Travels in a mortar, steering with a pestle, sweeping tracks │
-│    with a broom                                                 │
-│  — The space around her hut stinks of decay; fence of bones     │
+│  — Hideous old woman; iron teeth; very long nose                 │
+│  — Lives in a hut on chicken legs (izbushka na kur'ikh nozhkakh) │
+│    — the hut rotates; can be asked to face the forest or the     │
+│       hero (forest = death/Otherworld; hero = passage/help)      │
+│  — Travels in a mortar, steering with a pestle, sweeping tracks  │
+│    with a broom                                                  │
+│  — The space around her hut stinks of decay; fence of bones      │
 │                                                                  │
 │  FUNCTION in tales:                                              │
-│  — OBSTACLE: can devour the hero                                │
+│  — OBSTACLE: can devour the hero                                 │
 │  — HELPER/DONOR: provides tools, knowledge, or guidance          │
-│    — Often after feeding and bathing the hero                   │
-│    — "Business before pleasure" — hero must state purpose       │
-│    — Test: the right behavior earns assistance                  │
-│  — INITIATORY FIGURE: the encounter is a symbolic death-rebirth │
-│    (the hut = boundary between living and dead worlds)          │
-│    Hero enters, sleeps (symbolic death), emerges with new       │
-│    knowledge or tools = initiation                              │
+│    — Often after feeding and bathing the hero                    │
+│    — "Business before pleasure" — hero must state purpose        │
+│    — Test: the right behavior earns assistance                   │
+│  — INITIATORY FIGURE: the encounter is a symbolic death-rebirth  │
+│    (the hut = boundary between living and dead worlds)           │
+│    Hero enters, sleeps (symbolic death), emerges with new        │
+│    knowledge or tools = initiation                               │
 │                                                                  │
 │  PROPP'S ANALYSIS (Vladimir Propp, 1928, Morphology of Folktale):│
-│  — Baba Yaga is the classic "donor" figure in tale structure    │
-│  — Her role is structurally fixed even as her behavior varies   │
+│  — Baba Yaga is the classic "donor" figure in tale structure     │
+│  — Her role is structurally fixed even as her behavior varies    │
 │                                                                  │
-│  KEY FORMULA: when the hero arrives, Baba Yaga says:            │
-│  "Foo foo foo! I smell a Russian smell!"                        │
+│  KEY FORMULA: when the hero arrives, Baba Yaga says:             │
+│  "Foo foo foo! I smell a Russian smell!"                         │
 │  Hero: "You should feed me and give me a bed before questioning!"│
-│  Baba Yaga complies; then sets tasks                            │
+│  Baba Yaga complies; then sets tasks                             │
 └──────────────────────────────────────────────────────────────────┘
 ```
 
@@ -288,23 +288,23 @@ SPRING GIRLS (Vesna/Kostroma):
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│  SLAVIC BRANCHES AND MYTHOLOGICAL VARIATION                       │
+│  SLAVIC BRANCHES AND MYTHOLOGICAL VARIATION                      │
 │                                                                  │
-│  EAST SLAVIC (Russian, Ukrainian, Belarusian):                  │
-│  Best documented; Primary Chronicle names Kiev pantheon         │
-│  Richest folk tale tradition; most Domovoi/Leshy/Rusalka data   │
+│  EAST SLAVIC (Russian, Ukrainian, Belarusian):                   │
+│  Best documented; Primary Chronicle names Kiev pantheon          │
+│  Richest folk tale tradition; most Domovoi/Leshy/Rusalka data    │
 │                                                                  │
-│  WEST SLAVIC (Polish, Czech, Slovak, Sorbian):                  │
-│  Least documented; Christianized earliest                       │
-│  Helmold of Bosau → Polabian Slavs (now extinct): Triglav       │
-│  (three-headed god), Svantevit (four-headed, Rügen Island)      │
-│  Svantevit: war god of Rügen; huge temple destroyed by Danes    │
-│  1168 CE; sacred horse (white), harvest divination from horse   │
+│  WEST SLAVIC (Polish, Czech, Slovak, Sorbian):                   │
+│  Least documented; Christianized earliest                        │
+│  Helmold of Bosau → Polabian Slavs (now extinct): Triglav        │
+│  (three-headed god), Svantevit (four-headed, Rügen Island)       │
+│  Svantevit: war god of Rügen; huge temple destroyed by Danes     │
+│  1168 CE; sacred horse (white), harvest divination from horse    │
 │                                                                  │
-│  SOUTH SLAVIC (Serbian, Bulgarian, Croatian, Slovenian):        │
-│  Significant Mediterranean/Byzantine influence                  │
-│  "Kresnik" (Slovenian/Croatian hero) — possible Perun cognate   │
-│  Rich vampire tradition (strigoi/vrykolakas — Balkan)           │
+│  SOUTH SLAVIC (Serbian, Bulgarian, Croatian, Slovenian):         │
+│  Significant Mediterranean/Byzantine influence                   │
+│  "Kresnik" (Slovenian/Croatian hero) — possible Perun cognate    │
+│  Rich vampire tradition (strigoi/vrykolakas — Balkan)            │
 └──────────────────────────────────────────────────────────────────┘
 ```
 

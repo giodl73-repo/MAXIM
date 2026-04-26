@@ -4,7 +4,7 @@
 
 ```
 +--------------------------------------------------------------------+
-| JAPANESE (日本語 Nihongo)                                           |
+| JAPANESE (日本語 Nihongo)                                          |
 +--------------------------------------------------------------------+
 | Family:      Japonic (language isolate family — no proven relative)|
 | Native spkrs: ~125M                                               |
@@ -310,10 +310,10 @@ ACCESS CONTROL TABLE — KEIGO:
 |           | 言う→おっしゃる    |                 |                             |
 |           | 食べる→召し上がる  |                 |                             |
 +-----------+--------------------+-----------------+-----------------------------+
-| KENJŌGO   | Humble verbs for   | Lowers YOUR OWN  | Describing your own actions |
-| (謙譲語)  | the speaker's own  | actions          | to a superior or customer.  |
-|           | actions            | (requests lower  | Humbling yourself =         |
-|           |                    | access for self) | elevating the other.        |
+| KENJŌGO   | Humble verbs for   | Lowers YOUR OWN  | Describing your own actions|
+| (謙譲語)  | the speaker's own  | actions          | to a superior or customer. |
+|           | actions            | (requests lower  | Humbling yourself =        |
+|           |                    | access for self) | elevating the other.       |
 |           | 行く→参る          |                 |                             |
 |           | 言う→申す          |                 |                             |
 |           | 食べる→いただく    |                 |                             |

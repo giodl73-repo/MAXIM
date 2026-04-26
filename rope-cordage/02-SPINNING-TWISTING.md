@@ -88,8 +88,8 @@ SPINNING MECHANICS
   Must overlap lengthwise to transfer load between fibers by friction.
 
   ┌──────────────────────────────────────────────────────────────────┐
-  │  DRAWING: fibers drafted (elongated) into loose roving          │
-  │  ┌──────────────────────────────────────────────────────────┐   │
+  │  DRAWING: fibers drafted (elongated) into loose roving           │
+  │  ┌──────────────────────────────────────────────────────────┐    │
   │  │  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                    │   │
   │  │  (loose parallel fibers, no twist yet = roving)          │   │
   │  └──────────────────────────────────────────────────────────┘   │
@@ -159,16 +159,16 @@ This is the classic rope construction — what most people mean when they say "r
 
   CROSS SECTION:
   ┌──────────────────────────────────────────────────────────────────┐
-  │        ╭────────╮                                               │
+  │        ╭────────╮                                                │
   │    ╭───┤STRAND 1├───╮                                          │
   │    │   ╰────────╯   │                                          │
   │    │  (Z-yarn, S-ply)│                                         │
   │    ├────────────────┤                                           │
-  │    │   ╭────────╮   │                                          │
+  │    │   ╭────────╮   │                                           │
   │    │   │STRAND 2│   │   Three S-plied strands                  │
   │    │   ╰────────╯   │   twisted together in Z-direction         │
   │    ├────────────────┤                                           │
-  │    │   ╭────────╮   │                                          │
+  │    │   ╭────────╮   │                                           │
   │    │   │STRAND 3│   │                                          │
   │    ╰───┴────────┴───╯                                          │
   └──────────────────────────────────────────────────────────────────┘
